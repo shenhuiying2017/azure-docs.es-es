@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="05/16/2016"
    ms.author="alkohli" />
 
 # Notas de la versión de la actualización 1.2 de la serie StorSimple 8000  
@@ -124,4 +124,4 @@ No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nu
 - [Instalación de la actualización 1.2 en el dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

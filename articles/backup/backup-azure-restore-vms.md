@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -62,7 +62,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
 
 1. En la pantalla **Seleccionar instancia de restauración**, especifique detalles de dónde desea restaurar la máquina virtual.
 
-  - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. Si planea reemplazar una máquina virtual existente con el mismo nombre, primero elimine la máquina virtual existente y los discos de datos y, a continuación, restaure los datos de copia de seguridad de Azure.
+  - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. No admitimos la sobrescritura de máquinas virtuales existentes. 
   - Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
 
         Sea cual sea el nombre del servicio en la nube que se elija, este debe ser exclusivo. Habitualmente, el nombre del servicio en la nube queda asociado a una URL de acceso público de esta forma: [cloudservice].cloudapp.net. Azure no permite crear un nuevo servicio en la nube si el nombre elegido ya está en uso. Si se decide crea un nuevo servicio en la nube, este recibirá el mismo nombre que la máquina virtual, en cuyo caso el nombre de la VM elegida deberá ser exclusivo también para poder aplicarse al servicio en la nube que se le asocie.
@@ -101,6 +101,12 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
 Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el Portal de Azure.
+
+## Copia de seguridad de máquinas virtuales restauradas
+Si ha restaurado la máquina virtual en el mismo servicio en la nube con el mismo nombre con el que originalmente se hizo copia de seguridad de ella, la copia de seguridad continuará en la máquina virtual después de la restauración. Si ha restaurado la VM en un servicio en la nube diferente o ha especificado un nombre diferente para la VM restaurada, esta se trata como nueva y deberá configurar la copia de seguridad para ella.
+
+## Restauración de una máquina virtual en caso de desastre de centro de datos de Azure
+Copia de seguridad de Azure permite restaurar copias de seguridad de máquinas virtuales en el centro de datos asociado, en caso de que el centro de datos principal donde se ejecutan las máquinas virtuales experimente una situación de desastre y haya configurado el almacén de copia de seguridad para que tenga redundancia geográfica. En estos casos, deberá seleccionar una cuenta de almacenamiento que esté presente en el centro de datos asociado. El resto del proceso de restauración permanece igual. Copia de seguridad de Azure usa el servicio de proceso de la zona geográfica asociada para crear la máquina virtual restaurada.
 
 ## Restauración de máquinas virtuales de controlador de dominio
 Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Copia de seguridad de Azure. Sin embargo, se debe tener cierto cuidado durante el proceso de restauración. La experiencia de restauración es muy diferente para las máquinas virtuales de controlador de dominio en una configuración de un único controlador de dominio frente a las máquinas virtuales en una configuración de varios controladores de dominio.
@@ -149,4 +155,4 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

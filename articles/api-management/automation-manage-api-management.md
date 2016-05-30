@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 
@@ -24,7 +24,7 @@ Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar 
 
 ## ¿Qué es Automatización de Azure?
 
-[Automatización de Azure](https://azure.microsoft.com/services/automation/) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos. Mediante Automatización de Azure, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten con frecuencia para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
+[Automatización de Azure](https://azure.microsoft.com/services/automation/) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos. Mediante Automatización de Azure, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
 
 Automatización de Azure proporciona un motor de ejecución de flujo de trabajo altamente confiable y de alta disponibilidad que realiza la escalación para satisfacer sus necesidades. En Automatización de Azure, los sistemas de terceros pueden interrumpir los procesos manualmente o en intervalos programados para que las tareas se realicen justo cuando sea necesario.
 
@@ -33,13 +33,15 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede ayudar Automatización de Azure a administrar Administración de API de Azure?
 
-Administración de API se puede administrar en Automatización de Azure mediante el uso de la [API de REST de Administración de API](https://msdn.microsoft.com/library/azure/dn776326.aspx). En Automatización de Azure puede escribir scripts de flujo de trabajo de PowerShell para llevar a cabo muchas de las tareas de Administración de API con la API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
+Administración de API se puede administrar en Automatización de Azure mediante el uso de [cmdlets de Windows PowerShell para la API de Administración de API de Azure](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/). En Automatización de Azure puede escribir scripts de flujo de trabajo de PowerShell para llevar a cabo muchas de las tareas de Administración de API con los cmdlets. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
+Estos son algunos ejemplos del uso de Administración de API con Automatización:
+* [Azure API Management – Using PowerShell for backup and restore](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/) (Administración de API de Azure: uso de PowerShell para copias de seguridad y restauración)
 
 ## Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Administración de API de Azure, siga estos vínculos para obtener más información.
 
-* Lea la entrada de blog de la comunidad [#Módulo de PowerShell para las API de REST de Administración de API de Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
+* Consulte el [tutorial de introducción](../automation/automation-first-runbook-graphical) de Automatización de Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

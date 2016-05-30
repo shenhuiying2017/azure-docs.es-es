@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/11/2016"
 	ms.author="andkjell"/>
 
 
@@ -46,11 +46,7 @@ Si usa Azure AD Sync, se recomienda una actualización local. Si le interesa, pu
 
 Si quiere ver cómo se realiza una actualización local desde DirSync a Azure AD Connect, consulte este vídeo de Channel 9:
 
-<!-- The next section is actually supposed to look like this, but video ids are not working at present.
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
--->
-
-[Azure Active Directory Connect: in-place upgrade from legacy tools](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) (Azure Active Directory Connect: actualización local desde herramientas heredadas) ![actualización local](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## P+F
 **P: He recibido una notificación de correo electrónico del equipo de Azure o un mensaje del Centro de mensajes de Office 365, pero estoy usando Connect.** La notificación también se ha enviado a los usuarios de Azure AD Connect con un número de compilación 1.0.*.0 (que utilicen una versión anterior a 1.1). Microsoft recomienda a los clientes que se mantengan al día con las versiones de Azure AD Connect. Con 1.1, la característica de [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) facilita en gran medida contar siempre con una versión reciente de Azure AD Connect instalada.
@@ -65,4 +61,4 @@ Si quiere ver cómo se realiza una actualización local desde DirSync a Azure AD
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
+
 
 #Crear características para datos en un clúster de Hadoop mediante consultas de Hive
 
-## Introducción
-Se presentan ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure. Estas consultas de Hive usan funciones definidas por el usuario (UDF), los scripts para los que se ofrecen.
+Este documento muestra cómo crear características para los datos almacenados en un clúster de Hadoop para HDInsight de Azure mediante consultas de Hive. Estas consultas de Hive usan funciones definidas por el usuario (UDF), los scripts para los que se ofrecen.
 
-También se ofrecen ejemplos de consultas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución.
+Las operaciones necesarias para crear características pueden consumir mucha memoria. El rendimiento de las consultas de Hive resulta más importante en estos casos y se puede mejorar ajustando ciertos parámetros. El ajuste de estos parámetros se describe en la sección final.
 
-En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
+También se ofrecen ejemplos de las consultas presentadas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución. En la última sección, también se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de Hive.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
@@ -143,7 +143,7 @@ Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones d
 
 Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En su Javascript, la función `toRad()` es simplemente *lat\_or\_lon*pi/180*, que convierte grados a radianes. Aquí, *lat\_or\_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Creación del espacio de trabajo][1]
+![Creación del espacio de trabajo](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
 Se puede encontrar una lista completa de las UDF incrustadas de Hive en la sección **Funciones integradas** de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Apache Hive</a>.
 
@@ -181,13 +181,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----HONumber=AcomDC_0518_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Referencia para desarrolladores de Funciones de Azure
@@ -80,7 +80,7 @@ Para facilitar los desencadenadores HTTP, también hay un host web que se ha dis
 Un host de script apunta a una carpeta que contiene un archivo de configuración y una o más funciones.
 
 ```
-parentFolder (for example, wwwroot)
+parentFolder (for example, wwwroot in a function app)
  | - host.json
  | - mynodefunction
  | | - function.json
@@ -93,11 +93,49 @@ parentFolder (for example, wwwroot)
  | | - run.csx
 ```
 
-El archivo *host.json* contiene alguna configuración específica del host de script y se coloca en la carpeta principal.
+El archivo *host.json* contiene alguna configuración específica del host de script y se coloca en la carpeta principal. Para obtener información sobre las opciones que están disponibles, consulte [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en la wiki de repositorio de WebJobs.Script.
 
 Cada función tiene una carpeta que contiene los archivos de código, *function.json* y otras dependencias.
 
 Al configurar un proyecto para la implementación de funciones en un contenedor de funciones en Servicio de aplicaciones de Azure, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
+
+## <a id="fileupdate"></a> Actualización de los archivos del contenedor de funciones
+
+El editor de funciones integrado en el Portal de Azure le permite actualizar el archivo *function.json* y el archivo de código de una función. Para cargar o actualizar otros archivos como *package.json* o *project.json* u otras dependencias, tendrá que usar otros métodos de implementación.
+
+Los contenedores de funciones se integran en el Servicio de aplicaciones, por lo que todas las [opciones de implementación disponibles para las aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para las aplicaciones de la función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones.
+
+#### Para usar Visual Studio Online (Monaco)
+
+1. En el portal de Funciones de Azure, haga clic en **Configuración del contenedor de funciones**.
+
+2. En la sección **Configuración avanzada**, haga clic en **Ir a la configuración del Servicio de aplicaciones**.
+
+3. Haga clic en **Herramientas**.
+
+4. En **Desarrollar**, haga clic en **Visual Studio Online**.
+
+5. **Actívelo** si no está ya habilitado y haga clic en **Ir**.
+
+	Después de que se cargue Visual Studio Online, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*.
+
+6. Abra los archivos para editarlos, o arrástrelos y colóquelos desde el equipo de desarrollo para cargar los archivos.
+
+#### Para usar el punto de conexión de SCM (Kudu) del contenedor de funciones
+
+1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Haga clic en **Consola de depuración > CMD**.
+
+3. Vaya a `D:\home\site\wwwroot` para actualizar *host.json* o `D:\home\site\wwwroot<function_name>` para actualizar los archivos de la función.
+
+4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos.
+
+#### Para usar FTP
+
+1. Siga las instrucciones descritas [aquí](../app-service-web/web-sites-deploy.md#ftp) para configurar el FTP.
+
+2. Cuando esté conectado al sitio del contenedor de funciones, copie el archivo *host.json* actualizado en `/site/wwwroot` o copie los archivos de funciones en `/site/wwwroot/<function_name>`.
 
 ## Ejecución en paralelo
 
@@ -106,6 +144,16 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 ## Impulso de funciones de Azure  
 
 El impulso es una secuencia de eventos en directo que muestra con qué frecuencia se ejecuta la función, así como las operaciones correctas y erróneas. También puede supervisar el tiempo medio de ejecución. Iremos agregando más características y personalización con el paso del tiempo. Puede obtener acceso a la página **Impulso** desde la pestaña **Supervisión**.
+
+## Repositorios
+
+El código de Funciones de Azure es código abierto y está almacenado en repositorios de GitHub:
+
+* [Tiempo de ejecución de Funciones de Azure](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Portal de Funciones de Azure](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Plantillas de Funciones de Azure](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/)
+* [Extensiones del SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## Enlaces
 
@@ -124,5 +172,6 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -34,7 +34,7 @@ Para conocer los permisos necesarios, consulte [Azure AD Connect: cuentas y perm
 ## Actualización local
 Una actualización local sirve para migrar de Azure AD Sync o Azure AD Connect. No sirve para DirSync ni para una solución con FIM + el Conector de Azure AD.
 
-Este método es adecuado si tiene un único servidor y menos de unos 100 000 objetos. Después de la actualización, tendrá lugar una importación y una sincronización completas. De esta manera se garantiza que la nueva configuración se aplica a todos los objetos existentes en el sistema. Esta operación puede tardar unas horas según el número de objetos en el ámbito del motor de sincronización. La sincronización delta normal programada (cada 30 minutos de forma predeterminada) se suspende pero continúa la sincronización de contraseñas. Puede plantearse la posibilidad de realizar la actualización local durante un fin de semana.
+Este método es adecuado si tiene un único servidor y menos de unos 100 000 objetos. Después de la actualización, se producen una importación y una sincronización completas si hay cambios en las reglas de sincronización de fábrica. De esta manera se garantiza que la nueva configuración se aplica a todos los objetos existentes en el sistema. Esta operación puede tardar unas horas según el número de objetos en el ámbito del motor de sincronización. La sincronización delta normal programada (cada 30 minutos de forma predeterminada) se suspende pero continúa la sincronización de contraseñas. Puede plantearse la posibilidad de realizar la actualización local durante un fin de semana. Si no hay ningún cambio en la configuración de fábrica con la nueva versión de Azure AD Connect, se iniciará una importación y sincronización delta normales.
 
 ![Actualización local](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
@@ -85,4 +85,4 @@ Debe asegurarse de que la configuración sea la misma en ambos servidores:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

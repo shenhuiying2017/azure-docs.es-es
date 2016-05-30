@@ -66,7 +66,7 @@ Los científicos de datos, en colaboración con expertos de dominio, deben ident
 
 ## 4\. Creación de modelos de predicción 
 
-Los científicos de datos generan modelos analíticos para predecir las variables clave identificadas por los requisitos de negocio definidos en el paso de planeación, mediante los datos que se limpiaron y caracterizaron. Los sistemas de aprendizaje automático admiten varios **algoritmos de modelado** que se pueden aplicar a una amplia variedad de casos. Para obtener orientación, consulte [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice,md).
+Los científicos de datos generan modelos analíticos para predecir las variables clave identificadas por los requisitos de negocio definidos en el paso de planeación, mediante los datos que se limpiaron y caracterizaron. Los sistemas de aprendizaje automático admiten varios **algoritmos de modelado** que se pueden aplicar a una amplia variedad de casos. Para obtener orientación, consulte [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
 Los científicos de datos deben elegir el modelo más adecuado para sus tareas de predicción y no es infrecuente que los resultados de varios modelos deben combinarse para obtener los mejores resultados. Los datos de entrada del modelado se suelen dividir aleatoriamente en tres partes:
 
@@ -91,4 +91,4 @@ También se proporcionan tutoriales completos que muestran todos los pasos del p
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

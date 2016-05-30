@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Instrucciones de escalado automático
 
-![logotipo de patrones y prácticas](media/best-practices-auto-scaling/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Información general
 Escalado automático es el proceso de asignar dinámicamente los recursos que necesita una aplicación para coincidir con los requisitos de rendimiento y satisfacer los contratos de nivel de servicio (SLA) mientras se minimizan los costos de tiempo de ejecución. A medida que crezca el volumen de trabajo, una aplicación puede requerir recursos adicionales para que pueda realizar sus tareas de manera oportuna. A medida que disminuya la demanda, podrá anularse la asignación de recursos con el fin de minimizar los costos a la vez que se mantiene un rendimiento adecuado y se cumplen los SLA. El escalado automático aprovecha la elasticidad de entornos hospedados en la nube mientras alivia la sobrecarga de administración. Para ello, reduce la necesidad de que un operador tenga que supervisar continuamente el rendimiento de un sistema y tomar decisiones sobre agregar o quitar recursos.
@@ -113,4 +113,4 @@ Los siguientes patrones y orientación también pueden ser pertinentes para su e
 - [Operaciones en escalado automático](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Espacio de nombres Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!-----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

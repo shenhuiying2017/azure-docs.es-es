@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="fashah;bradsev" />
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
-## Introducción
-
-En **este documento** se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
+En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
 
 Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
 
-El **menú** a continuación vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que sea posible almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
+El **menú** siguiente vincula a temas que describen cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,6 +83,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
 > **Optimización de inserciones de BCP** Consulte el siguiente artículo ['Directrices para optimizar la importación masiva'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) para optimizar este tipo de inserciones.
+
 
 ### <a name="insert-tables-bulkquery-parallel"></a>Poner en paralelo inserciones para el movimiento de datos más rápido
 
@@ -160,6 +159,7 @@ Puede utilizar los servicios de integraciones de SQL Server (SSIS) para importar
 - Para obtener más información acerca de las herramientas de datos de SQL Server, consulte [Herramientas de datos de Microsoft SQL Server](https://msdn.microsoft.com/data/tools.aspx).  
 - Para obtener más información acerca del Asistente para importación y exportación, consulte [Asistente para importación y exportación de SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
+
 ## <a name="sqlonprem_to_sqlonazurevm"></a> Mover datos desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure
 
 También puede usar las siguientes estrategias de migración:
@@ -224,4 +224,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

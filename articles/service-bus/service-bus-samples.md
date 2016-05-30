@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Información general sobre los ejemplos del Bus de servicio | Microsoft Azure"
-   description="Clasifica y describe los ejemplos del Bus de servicio con vínculos a cada uno."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Información general sobre los ejemplos del Bus de servicio | Microsoft Azure"
+    description="Clasifica y describe los ejemplos del Bus de servicio con vínculos a cada uno."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Ejemplos del Bus de servicio
 
 Los ejemplos del Bus de servicio muestran las principales características del [Bus de servicio](https://azure.microsoft.com/services/service-bus/) (servicio en la nube) y el [Bus de servicio para Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
 >[AZURE.NOTE] Los ejemplos del Bus de servicio no se instalan con el SDK. Para obtener los ejemplos, visite la [página de ejemplos del SDK de Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>
+>Además, puede encontrar un conjunto actualizado de ejemplos de mensajería del Bus de servicio [aquí](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (en el momento de escribir este documento, no se describen en este artículo). Puede encontrar ejemplos de retransmisión [aquí](https://github.com/Azure-Samples/azure-servicebus-relay-samples).
 
 ## Mensajería asíncrona del Bus de servicio
 
@@ -132,4 +134,4 @@ Consulte los siguientes temas para obtener conceptos generales sobre el Bus de s
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

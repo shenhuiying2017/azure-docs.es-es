@@ -18,27 +18,26 @@
 
 # Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure
 
-[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
-
 ## Información general
 
-Este es el cuarto artículo de la serie de introducción para aplicaciones de API del Servicio de aplicaciones. En este artículo, aprenderá lo siguiente:
+Este artículo muestra cómo proteger una aplicación de API de Azure para que solo puedan llamarla los usuarios autenticados. Se da por supuesto que ha leído [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
 
-* Cómo proteger una aplicación de API del Servicio de aplicaciones para que solo puedan llamarla los usuarios autenticados.
+Aprenderá a realizar los siguientes procedimientos:
+
 * Cómo configurar un proveedor de autenticación, con detalles para Azure Active Directory (Azure AD).
 * Cómo consumir una aplicación de API protegida mediante la [Biblioteca de autenticación de Active Directory (ADAL) para JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
 El artículo contiene dos secciones:
 
-* La sección [Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure](#authconfig) explica de forma general cómo configurar la autenticación de usuarios de cualquier aplicación de API y se aplica por igual a todos los marcos de trabajo compatibles con el Servicio de aplicaciones, incluyendo .NET, Node.js y Java.
+* La sección [Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure](#authconfig) explica de forma general cómo configurar la autenticación de usuarios de cualquier aplicación de API y se aplica por igual a todos los marcos compatibles con el Servicio de aplicaciones, incluyendo .NET, Node.js y Java.
 
-* A partir de la sección [Continuación de los tutoriales de introducción de .NET](#tutorialstart), el artículo le guía en la configuración de una aplicación de ejemplo con un back-end de .NET y un front-end de AngularJS de modo que se use Azure Active Directory para la autenticación de los usuarios.
+* A partir de la sección [Continuación de los tutoriales de aplicaciones de API de .NET](#tutorialstart), el artículo lo guía en la configuración de una aplicación de ejemplo con un back-end de .NET y un front-end de AngularJS para que use Azure Active Directory para la autenticación de los usuarios.
 
 ## <a id="authconfig"></a> Configuración de la autenticación de usuarios en el Servicio de aplicaciones de Azure
 
-Esta sección proporciona instrucciones generales que se aplican a cualquier aplicación de API. Para obtener los pasos específicos para la aplicación de ejemplo de .NET To Do List, vaya a [Continuación de los tutoriales de introducción de .NET](#tutorialstart).
+Esta sección proporciona instrucciones generales que se aplican a cualquier aplicación de API. Para obtener los pasos específicos para la aplicación de ejemplo de .NET To Do List, vaya a [Continuación de los tutoriales de aplicaciones de API de .NET](#tutorialstart).
 
-1. En el [Portal de Azure](https://portal.azure.com/), vaya a la hoja **Configuración** de la aplicación de API que desea proteger, busque la sección **Características** y luego haga clic en **Autenticación/autorización**.
+1. En el [Portal de Azure](https://portal.azure.com/), vaya a la hoja **Configuración** de la aplicación de API que desea proteger, busque la sección **Características** y haga clic en **Autenticación/autorización**.
 
 	![Autenticación/autorización del Portal de Azure](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
@@ -70,21 +69,21 @@ Al hacerlo, el Servicio de aplicaciones autentica todas las llamadas API antes d
 
 Para realizar llamadas API autenticadas, el autor de la llamada incluye el token de portador de OAuth 2.0 del proveedor de autenticación en el encabezado de autorización de las solicitudes HTTP. El token se puede adquirir mediante el SDK del proveedor de autenticación.
 
-## <a id="tutorialstart"></a> Continuación de los tutoriales de introducción de .NET
+## <a id="tutorialstart"></a> Continuación de los tutoriales de aplicaciones de API de .NET
 
-Si está siguiendo la serie de introducción de Node.js o Java para aplicaciones de API, vaya al siguiente artículo, [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).
+Si está siguiendo la serie de tutoriales de Node.js o Java para aplicaciones de API, vaya al siguiente artículo, [Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-service-principal-auth.md).
 
-Si está siguiendo la serie de introducción de .NET para aplicaciones de API y ya ha implementado la aplicación de ejemplo como se indica en el [primer](app-service-api-dotnet-get-started.md) y el [segundo](app-service-api-cors-consume-javascript.md) tutorial, vaya a la sección [Configuración de la autenticación en el Servicio de aplicaciones y Azure AD](#azureauth).
+Si está siguiendo la serie de tutoriales de .NET para aplicaciones de API y ya ha implementado la aplicación de ejemplo como se indica en el [primer](app-service-api-dotnet-get-started.md) y el [segundo](app-service-api-cors-consume-javascript.md) tutorial, vaya a la sección [Configuración de la autenticación en el Servicio de aplicaciones y Azure AD](#azureauth).
 
-Si quiere seguir este tutorial sin tener que recorrer el primer y el segundo tutorial, realice los pasos siguientes:
+Si desea seguir este tutorial sin completar el primero ni el segundo, lleve a cabo los pasos siguientes que explican cómo empezar a trabajar usando un proceso automatizado para implementar la aplicación de ejemplo.
 
-1. Asegúrese de que tiene todos los requisitos previos descritos en el [primer tutorial](app-service-api-dotnet-get-started.md). Además de los requisitos previos descritos, en estos tutoriales de autenticación se da por hecho que ha trabajado con aplicaciones web del Servicio de aplicaciones y aplicaciones de API en Visual Studio y el Portal de Azure.
+>[AZURE.NOTE] Los siguientes pasos lo llevan al mismo punto de partida, como si hubiera hecho los dos primeros tutoriales, con una excepción: Visual Studio ya no sabrá en qué aplicación web o aplicación de API se implementa cada proyecto. Esto significa que este tutorial no ofrecerá instrucciones exactas sobre cómo implementar en los objetivos correctos. Si no se siente cómodo averiguando los pasos de implementación por su cuenta, se recomienda que siga la serie de tutoriales desde el [primero](app-service-api-dotnet-get-started.md) en lugar de comenzar con este proceso de implementación automatizado.
 
-2. Haga clic en el botón **Deploy to Azure** (Implementar en Azure) en el [archivo Léame del repositorio de ejemplos de lista de tareas pendientes](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implementar las aplicaciones de API y la aplicación web. Tome nota del grupo de recursos de Azure que se crea, ya que puede usar más adelante esta información para buscar nombres de aplicación web y de aplicación de API.
+1. Asegúrese de que cumple todos los requisitos previos descritos en el [primer tutorial](app-service-api-dotnet-get-started.md). Además de los requisitos previos descritos, en estos tutoriales de autenticación se da por hecho que ha trabajado con aplicaciones web del Servicio de aplicaciones y aplicaciones de API en Visual Studio y el Portal de Azure.
+
+2. Haga clic en el botón **Deploy to Azure** (Implementar en Azure) en el [archivo Léame del repositorio del ejemplo To Do List](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implementar las aplicaciones de API y la aplicación web. Tome nota del grupo de recursos de Azure que se crea, ya que puede usar más adelante esta información para buscar nombres de aplicación web y de aplicación de API.
  
-3. Descargue o clone el [repositorio de ejemplos de lista de tareas pendientes](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) para obtener el código que funcionará localmente en Visual Studio.
-
-Estos pasos le llevan al mismo punto de partida, como si hubiera hecho los dos primeros tutoriales, con una excepción: Visual Studio ya no sabrá en qué aplicación web o aplicación de API se implementa cada proyecto. Al implementar un proyecto, tendrá que seleccionar la aplicación web de Azure o la aplicación de API en la que se implementará. Para obtener los nombres de aplicación web y aplicación de API, abra el Portal de Azure y vaya a la hoja Grupo de recursos del grupo de recursos que creó cuando hizo clic en el botón **Deploy to Azure** (Implementar en Azure).
+3. Descargue o clone el [repositorio del ejemplo To Do List](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) para obtener el código que funcionará localmente en Visual Studio.
 
 ## <a id="azureauth"></a> Configuración de la autenticación en el Servicio de aplicaciones y Azure AD
 
@@ -337,4 +336,4 @@ Para más información sobre cómo crear una aplicación de una página de Angul
 
 En este tutorial ha aprendido a utilizar la autenticación del Servicio de aplicaciones para una aplicación de API y a llamar a la aplicación de API mediante la biblioteca de ADAL JS. En el siguiente tutorial aprenderá a [acceder de forma segura a la aplicación de API en escenarios de servicio a servicio](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

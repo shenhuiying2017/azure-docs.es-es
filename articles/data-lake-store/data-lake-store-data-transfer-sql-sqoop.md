@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Copia de datos entre Almacén de Data Lake y Base de datos SQL de Azure mediante Sqoop
@@ -36,6 +36,10 @@ Antes de empezar este artículo, debe tener lo siguiente:
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del Almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup). 
 - **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). En este artículo se supone que tiene un clúster de HDInsight Linux con acceso a Almacén de Data Lake.
 - **Base de datos de SQL Azure**. Para obtener instrucciones sobre cómo crear una, vea [Creación de una Base de datos SQL de Azure](../sql-database/sql-database-get-started.md).
+
+## ¿Obtener información más rápidamente con vídeos?
+
+[Vea este vídeo](https://mix.office.com/watch/1butcdjxmu114) para saber cómo copiar datos entre los blobs de Almacenamiento de Azure y Almacén de Data Lake mediante DistCp.
 
 ## Creación de tablas de ejemplo en la Base de datos SQL de Azure
 
@@ -77,7 +81,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha configurado el clúster de HDInsight para utilizar Almacén de Data Lake como almacenamiento adicional, puede usar Sqoop (sin cambios de configuración) para importar o exportar datos entre una base de datos relacional (en este ejemplo, Base de datos SQL de Azure) y una cuenta de Almacén de Data Lake.
 
-1. Para este tutorial, se supone que ha creado un clúster de Linux, por lo que debe usar SSH para conectarse al clúster. Vea [Conexión a un clúster de HDInsight basado en Linux](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
+1. Para este tutorial, se supone que ha creado un clúster de Linux, por lo que debe usar SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster).
 
 2. Compruebe que puede acceder a la cuenta de Almacén de Data Lake desde el clúster. Ejecute el siguiente comando desde el símbolo del sistema de SSH:
 
@@ -152,4 +156,4 @@ Un clúster de HDInsight ya tiene los paquetes de Sqoop disponibles. Si ha confi
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

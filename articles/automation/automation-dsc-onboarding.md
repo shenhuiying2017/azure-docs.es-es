@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="04/22/2016"
    ms.author="coreyp"/>
 
 # Incorporación de máquinas para administrarlas con DSC de Automatización de Azure
@@ -26,7 +26,8 @@ DSC de Automatización de Azure puede usarse para administrar diversas máquinas
 
 *    Máquinas virtuales de Azure (clásico)
 *    Máquinas virtuales de Azure
-*    Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure
+*    Máquinas virtuales de Amazon Web Services (AWS)
+*    Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS
 *    Máquinas físicas y virtuales con Linux locales, en Azure o en una nube que no sea Azure
 
 Además, si no está preparado para administrar la configuración de máquina desde la nube, DSC de Automatización de Azure también puede utilizarse como punto de conexión meramente informativo. Esto le permite establecer (insertar) la configuración deseada a través del DSC local y ver numerosos detalles de informe sobre el cumplimiento del nodo con el estado deseado en Automatización de Azure.
@@ -137,12 +138,16 @@ Se pueden implementar máquinas virtuales de Azure e incorporarlas a DSC de Auto
 
 El cmdlet [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) sirve para incorporar máquinas virtuales en el Portal de Azure por medio de PowerShell.
 
-## Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure
+## Máquinas virtuales de Amazon Web Services (AWS)
+
+Puede incorporar fácilmente máquinas virtuales de Amazon Web Services para administración de la configuración mediante el Kit de herramientas de DSC AWS de DSC de Automatización de Azure. Puede obtener más información acerca de estas herramientas [aquí](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
+
+## Máquinas físicas y virtuales con Windows locales o en una nube que no sea Azure/AWS
 
 Las máquinas con Windows locales y las ubicadas en nubes que no sean de Azure (por ejemplo, Amazon Web Services) también se pueden incorporar a DSC de Automatización de Azure, siempre y cuando tengan acceso saliente a Internet, en unos pocos pasos sencillos:
 
 1. Asegúrese de que la versión más reciente de [WMF 5](http://aka.ms/wmf5latest) esté instalada en las máquinas que desee incorporar a DSC de Automatización de Azure.
-2. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
+2. Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
 3. Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que quiere incorporar. **La máquina desde la que se ejecuta este comando debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest)**:
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
@@ -164,9 +169,9 @@ Las máquinas de Linux locales, de Azure y ubicadas en nubes que no sean de Azur
 
 	*    Para buscar la clave de registro y la dirección URL de registro para su cuenta de Automatización, consulte la sección [**Registro seguro**](#secure-registration) más adelante.
 
-	Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o quiere incorporar máquinas que solo informen a DSC de Automatización de Azure, pero que no extraigan configuración o módulos de PowerShell de ahí, siga los pasos del 3 al 6. De lo contrario, vaya directamente al paso 6.
+	Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell **no** coinciden con su caso de uso, o quiere incorporar máquinas que solo informen a DSC de Automatización de Azure, pero que no extraigan configuración o módulos de PowerShell de allí, siga los pasos del 3 al 6. De lo contrario, vaya directamente al paso 6.
 
-3.	Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC**](#generating-dsc-metaconfigurations) a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
+3.	Siga las indicaciones de la sección [**Generación de metaconfiguraciones de DSC **](#generating-dsc-metaconfigurations)que aparece a continuación para generar una carpeta que contenga las metaconfiguraciones de DSC necesarias.
 4.  Aplique de forma remota la metaconfiguración de DSC de PowerShell a las máquinas que desea incorporar:
     	
     	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
@@ -190,7 +195,7 @@ La máquina desde la que se ejecuta este comando debe tener instalada la versió
 ##Generación de metaconfiguraciones de DSC
 Para incorporar genéricamente cualquier máquina a DSC de Automatización de Azure, se puede una metaconfiguración de DSC que, cuando se aplique, indique al agente de DSC de la máquina que extraiga de DSC de Automatización de Azure o informe allí. Las metaconfiguraciones de DSC para DSC de Automatización de Azure se pueden generar con una configuración de DSC de PowerShell o con los cmdlets de PowerShell de Automatización de Azure.
 
-**Nota:** las metaconfiguraciones de DSC contienen los secretos necesarios para incorporar una máquina a una cuenta de Automatización para administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínelos tras su uso.
+**Nota:** Las metaconfiguraciones de DSC contienen los secretos necesarios para incorporar una máquina a una cuenta de Automatización para administración. Asegúrese de proteger adecuadamente cualquier metaconfiguración de DSC que cree o elimínelos tras su uso.
 
 ###Uso de una configuración de DSC
 1.	Abra PowerShell ISE como administrador en una máquina de su entorno local. La máquina debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest).
@@ -317,7 +322,7 @@ Si los valores predeterminados del Administrador de configuración local de DSC 
 
 1.	Abra la consola de PowerShell o PowerShell ISE como administrador en una máquina de su entorno local.
 
-2.	Conéctese al Administrador de recursos de Azure con **Add-AzureRmAccount**.
+2.	Conéctese a Azure Resource Manager con **Add-AzureRmAccount**.
 
 3.	Descargue las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar desde la cuenta de Automatización a la que quiere incorporar nodos:
 
@@ -354,7 +359,7 @@ DSC de Automatización de Azure permite incorporar fácilmente máquinas virtual
 
 >[AZURE.NOTE] Cualquier método para incorporar una máquina virtual de Azure con Windows a DSC de Automatización de Azure que use la extensión Configuración de estado deseado de la máquina virtual de Azure podría tardar hasta una hora en mostrar el nodo como registrado en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
 
-Para solucionar problemas o ver el estado de la extensión de Configuración de estado deseado de la máquina virtual de Azure, entre al Portal de Azure, vaya a la máquina virtual que se va a incorporar y después haga clic en **Toda la configuración** -> **Extensiones** -> **DSC**. Para obtener más detalles, puede hacer clic en **Ver estado detallado**.
+Para solucionar problemas o ver el estado de la extensión de Configuración de estado deseado de la máquina virtual de Azure, entre en el Portal de Azure, vaya a la máquina virtual que se va a incorporar y después haga clic en **Toda la configuración** -> **Extensiones** -> **DSC**. Para obtener más detalles, puede hacer clic en **Ver estado detallado**.
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
@@ -374,4 +379,4 @@ El nuevo registro se puede realizar tal y como registró el nodo inicialmente, c
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

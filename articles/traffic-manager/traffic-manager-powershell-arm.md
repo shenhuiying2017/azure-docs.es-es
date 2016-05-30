@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Compatibilidad del Administrador de recursos de Azure para la vista previa del Administrador de tráfico | Microsoft Azure"
-   description="Uso de PowerShell para el Administrador de tráfico con el Administrador de recursos de Azure (ARM) en vista previa"
+   pageTitle="Compatibilidad de Azure Resource Manager con el Administrador de tráfico | Microsoft Azure"
+   description="Uso de PowerShell para el Administrador de tráfico con Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
@@ -15,7 +15,7 @@
    ms.date="03/17/2016"
    ms.author="joaoma" />
 
-# Compatibilidad del Administrador de recursos de Azure con la vista previa del Administrador de tráfico de Azure
+# Compatibilidad de Azure Resource Manager con el Administrador de tráfico de Azure
 El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. Los perfiles del Administrador de tráfico de Azure ahora pueden administrarse mediante las herramientas y las API basadas en el Administrador de recursos de Azure.
 
 ## Modelo de recursos
@@ -43,9 +43,7 @@ Actualmente hay unas pocas limitaciones de compatibilidad de ARM con el Administ
 
 - Los perfiles de Administrador de tráfico creados con la API de administración de servicios (ASM), las herramientas y el Portal "clásico" no están disponibles a través de ARM y viceversa. Actualmente no se admite la migración de perfiles de las API de ASM a las de ARM, excepto eliminar el perfil y volverlo a crear.
 
-- Se admiten puntos de conexión "Anidados" a través de la API de ARM, PowerShell de ARM y la CLI de Azure de modo ARM. Actualmente, no se admiten en el portal de Azure (que también utiliza la API de ARM).
-
-- Los puntos de conexión del Administrador de tráfico del tipo "AzureEndpoints", al hacer referencia a una aplicación web, solo pueden referirse a la [ranura de aplicación web](../app-service-web/web-sites-staged-publishing.md) predeterminada (producción). Todavía no se admiten las ranuras personalizadas. Como alternativa, se pueden configurar ranuras personalizadas mediante el tipo “ExternalEndpoints”.
+- Los puntos de conexión del Administrador de tráfico del tipo AzureEndpoints, al hacer referencia a una aplicación web, solo pueden referirse a la [ranura de aplicación web](../app-service-web/web-sites-staged-publishing.md) predeterminada (producción). Todavía no se admiten las ranuras personalizadas. Como alternativa, se pueden configurar ranuras personalizadas mediante el tipo “ExternalEndpoints”.
 
 ## Configuración de Azure PowerShell
 
@@ -70,7 +68,7 @@ Elección de la suscripción de Azure que se va a usar.
 
 Para ver una lista de las suscripciones disponibles, use el cmdlet 'Get-AzureRmSubscription'.
 
-### Paso 4
+### Paso 4
 
 El proveedor de recursos Microsoft.Network administra el servicio del Administrador de tráfico. Su suscripción de Azure debe estar registrada para utilizar este proveedor de recursos si desea poder usar el Administrador de tráfico a través de ARM. Se trata de una operación única para cada suscripción.
 
@@ -138,8 +136,8 @@ Por ejemplo, para cambiar el perfil de TTL:
 ## Agregue puntos de conexión de Administrador de tráfico
 Existen tres tipos de puntos de conexión de Administrador de tráfico:
 
-1. Puntos de conexión de Azure: representan los servicios hospedados en Azure.<BR>
-2. Puntos de conexión externos: representan los servicios hospedados fuera de Azure.<BR>
+1. Puntos de conexión de Azure: representan servicios hospedados en Azure.<BR>
+2. Puntos de conexión externos: representan servicios hospedados fuera de Azure.<BR>
 3. Puntos de conexión anidados: se usan para construir jerarquías anidadas de perfiles de Administrador de tráfico, para habilitar configuraciones avanzadas de enrutamiento de tráfico para las aplicaciones más complejas. Todavía no se admiten a través de la API de ARM.<BR>
 
 En los tres casos, se pueden agregar puntos de conexión de dos maneras:<BR>
@@ -156,9 +154,9 @@ Los puntos de conexión de Azure hacen referencia a los servicios hospedados en 
 3. Recursos de Microsoft.Network/publicIpAddress de ARM (que se pueden agregar a un equilibrador de carga o a una NIC de máquina virtual). Tenga en cuenta que publicIpAddress debe tener un nombre DNS asignado para usarse en el Administrador de tráfico.
 
 En cada caso:
- - El servicio se especifica mediante el parámetro 'targetResourceId' de Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR>
- - No se deben especificar los valores 'Target' ni 'EndpointLocation', ya que están implícitos en el parámetro TargetResourceId especificado anteriormente.<BR>
- - Especificar el valor de 'Weight' es opcional. Los pesos solo se usan si el perfil se configura para usar el método de enrutamiento de tráfico "ponderado". Si se especifica, deben encontrarse entre 1 y 1000. El valor predeterminado es '1'.<BR>
+ - El servicio se especifica mediante el parámetro targetResourceId de Add-AzureRmTrafficManagerEndpointConfig o New-AzureRmTrafficManagerEndpoint.<BR>
+ - No se deben especificar los valores Target ni EndpointLocation ya que están implícitos en el parámetro TargetResourceId especificado anteriormente.<BR>
+ - Especificar el valor de 'Weight' es opcional. Los pesos solo se usan si el perfil se configura para usar el método de enrutamiento de tráfico "ponderado". Si se especifica, deben encontrarse entre 1 y 1000. El valor predeterminado es 1.<BR>
  - Especificar el valor de 'Priority' es opcional. Las prioridades solo se usan si el perfil se configura para usar el método de enrutamiento de tráfico de 'Priority'. Los valores válidos van de 1 a 1000 (los valores más bajos son de mayor prioridad). Si se especifica para un punto de conexión, se debe especificar para todos los puntos de conexión. Si se omite, se aplican los valores predeterminados desde 1, 2, 3, etc., en el orden en que se proporcionan los puntos de conexión.
 
 #### Ejemplo 1: Adición de puntos de conexión de la aplicación web mediante Add-AzureRmTrafficManagerEndpointConfig
@@ -187,9 +185,9 @@ En este ejemplo, se agrega un recurso de dirección IP público de ARM al perfil
 Administrador de tráfico usa los puntos de conexión externos para dirigir el tráfico a los servicios hospedados fuera de Azure. Al igual que con los puntos de conexión de Azure, los puntos de conexión externos pueden agregarse mediante el cmdlet Add-AzureRmTrafficManagerEndpointConfig seguido de Set-AzureRmTrafficManagerProfile o el cmdlet New-AzureRMTrafficManagerEndpoint.
 
 Cuando se especifican puntos de conexión externos:
- - Se debe especificar el nombre de dominio de punto de conexión con el parámetro 'Target'.<BR>
+ - Se debe especificar el nombre de dominio del punto de conexión con el parámetro Target.<BR>
  - El parámetro 'EndpointLocation' es necesario si se utiliza el método de enrutamiento de tráfico 'Performance'; de lo contrario, es opcional. El valor debe ser un [nombre de región de Azure válido](https://azure.microsoft.com/regions/).<BR>
- - Los parámetros 'Weight' y 'Priority' son opcionales, en cuanto a los puntos de conexión de Azure.<BR>
+ - Los parámetros Weight y Priority son opcionales en cuanto a los puntos de conexión de Azure.<BR>
  
 
 #### Ejemplo 1: Adición de puntos de conexión externos mediante los cmdlets Add-AzureRmTrafficManagerEndpointConfig y Set-AzureRmTrafficManagerProfile
@@ -212,10 +210,10 @@ Administrador de tráfico le permite configurar un perfil de Administrador de tr
 Anidar Administrador de tráfico le permite crear unos esquemas de enrutamiento de tráfico y de conmutación por error más flexibles y potentes para satisfacer las necesidades de implementaciones más grandes y complejas. [Esta entrada de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) ofrece varios ejemplos.
 
 Los puntos de conexión anidados se configuran en el perfil primario, utilizando un tipo de punto de conexión específico: 'NestedEndpoints'. Cuando se especifican puntos de conexión anidados:
- - El punto de conexión (es decir, un perfil secundario) debe especificarse con el parámetro 'targetResourceId' <BR>
+ - El punto de conexión (es decir, un perfil secundario) debe especificarse con el parámetro targetResourceId <BR>
  - El parámetro 'EndpointLocation' es necesario si se utiliza el método de enrutamiento de tráfico 'Performance'; de lo contrario, es opcional. El valor debe ser un [nombre de región de Azure válido](http://azure.microsoft.com/regions/).<BR>
- - Los parámetros 'Weight' y 'Priority' son opcionales, en cuanto a los puntos de conexión de Azure.<BR>
- - El parámetro 'MinChildEndpoints' es opcional; el valor predeterminado es '1'. Si el número de puntos de conexión disponibles en el perfil secundario cae por debajo de este umbral, el perfil primario tendrá en cuenta que dicho perfil está "degradado" y desviará el tráfico a los otros puntos de conexión del perfil primario.<BR>
+ - Los parámetros Weight y Priority son opcionales en cuanto a los puntos de conexión de Azure.<BR>
+ - El parámetro 'MinChildEndpoints' es opcional; el valor predeterminado es '1'. Si el número de puntos de conexión disponibles en el perfil secundario se encuentra por debajo de este umbral, el perfil primario tendrá en cuenta que dicho perfil está "degradado" y desviará el tráfico a los otros puntos de conexión del perfil primario.<BR>
 
 
 #### Ejemplo 1: adición de puntos de conexión anidados mediante Add-AzureRmTrafficManagerEndpointConfig y Set-AzureRmTrafficManagerProfile.
@@ -236,7 +234,7 @@ En este ejemplo, se agregará un perfil secundario existente como punto de conex
 
 
 ## Actualización de un punto de conexión de Administrador de tráfico
-Hay dos maneras de actualizar un punto de conexión de Administrador de tráfico existente:<BR>
+Hay dos maneras de actualizar un punto de conexión del Administrador de tráfico existente:<BR>
 
 1. Obtener el perfil de Administrador de tráfico mediante el cmdlet Get-AzureRmTrafficManagerProfile, actualizar las propiedades del punto de conexión en el perfil y confirmar los cambios mediante Set-AzureRmTrafficManagerProfile. Este método tiene la ventaja de poder actualizar más de un punto de conexión en una sola operación.<BR>
 2. Obtener el punto de conexión de Administrador de tráfico mediante el cmdlet Get-AzureRmTrafficManagerEndpoint, actualizar las propiedades del punto de conexión y confirmar los cambios mediante Set-AzureRmTrafficManagerEndpoint. Este método es más sencillo, ya que no requiere la indexación de la matriz de puntos de conexión en el perfil.<BR>
@@ -311,4 +309,4 @@ Se puede canalizar igualmente esta secuencia:
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

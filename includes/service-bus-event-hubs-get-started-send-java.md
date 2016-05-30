@@ -3,12 +3,12 @@
 La biblioteca de cliente de Java para Centros de eventos está disponible para su uso en proyectos de Maven en el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), y se puede hacer referencia a ella mediante la siguiente declaración de dependencia en el archivo de proyecto de Maven:
 
 ``` XML
-<dependency> 
-    <groupId>com.microsoft.azure</groupId> 
-    <artifactId>azure-eventhubs-clients</artifactId> 
-    <version>0.6.0</version> 
-</dependency>   
- ```
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs</artifactId>
+	<version>0.6.9</version>
+</dependency>
+```
  
 Para los diferentes tipos de entornos de compilación, puede obtener explícitamente los archivos JAR publicados más recientemente en el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) o en el [punto de distribución de versiones en GitHub](https://github.com/Azure/azure-event-hubs/releases).
 
@@ -56,5 +56,3 @@ A continuación, cree un evento singular convirtiendo una cadena en su codificac
 }
 
 ``` 
-
-<!---HONumber=AcomDC_0323_2016-->

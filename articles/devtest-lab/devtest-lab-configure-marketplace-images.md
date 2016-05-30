@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuración de valores de imágenes de Azure Marketplace en un laboratorio de desarrollo y pruebas | Microsoft Azure"
-	description="Configurar qué imágenes de Azure Marketplace se pueden usar al crear una máquina virtual en un Laboratorio de desarrollo y pruebas"
+	pageTitle="Configuración de valores de imágenes de Azure Marketplace en un laboratorio | Microsoft Azure"
+	description="Configuración de qué imágenes de Azure Marketplace se pueden usar al crear una máquina virtual en DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Configuración de valores de imágenes de Azure Marketplace en un laboratorio de desarrollo y pruebas
+# Configuración de valores de imágenes de Azure Marketplace en un laboratorio
 
 ## Información general
 
-Laboratorios de desarrollo y pruebas admite la creación de nuevas máquinas virtuales basadas en imágenes de Azure Marketplace, en función de cómo se hayan configurado las imágenes de Azure Marketplace para usarlas en el laboratorio. En este artículo se mostrará cómo especificar qué imágenes de Azure Marketplace se pueden utilizar al crear nuevas máquinas virtuales en un laboratorio de desarrollo y pruebas, si se puede usar alguna.
+Laboratorios de desarrollo y pruebas admite la creación de nuevas máquinas virtuales basadas en imágenes de Azure Marketplace, en función de cómo se hayan configurado las imágenes de Azure Marketplace para usarlas en el laboratorio. En este artículo se mostrará cómo especificar qué imágenes de Azure Marketplace se pueden utilizar al crear nuevas máquinas virtuales en un laboratorio, si se puede usar alguna.
 
 ## Elección de las imágenes de Azure Marketplace que se permiten al crear una máquina virtual
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -52,6 +52,6 @@ Laboratorios de desarrollo y pruebas admite la creación de nuevas máquinas vir
 
 ## Pasos siguientes
 
-Una vez que haya configurado cómo se permiten las imágenes de Azure Marketplace al crear una máquina virtual, el siguiente paso es [agregar una máquina virtual a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md).
+Una vez que haya configurado cómo se permiten las imágenes de Azure Marketplace al crear una máquina virtual, el siguiente paso es [agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

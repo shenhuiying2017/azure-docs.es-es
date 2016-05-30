@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Documentación de ayuda multigeográfica
@@ -38,7 +38,9 @@ Si abre un experimento de Galería, también puede seleccionar en qué región d
 
 ## Administración de servicios web
 
-Para administrar mediante programación los servicios web, como el reciclaje, use la dirección específica de la región: ****https://asiasoutheast.management.azureml.net**
+Para administrar mediante programación los servicios web, como el reciclaje, use la dirección específica de la región:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Puntos a tener en cuenta
 
@@ -57,4 +59,4 @@ Formule una pregunta en el [Foro de Aprendizaje automático de Azure](https://so
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

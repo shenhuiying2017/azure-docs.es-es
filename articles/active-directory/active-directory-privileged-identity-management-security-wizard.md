@@ -31,12 +31,12 @@ El segundo paso del asistente le ofrece la oportunidad de cambiar las asignacion
 
 Una vez realizados los cambios, ya no se mostrará el asistente. La próxima vez que usted u otro administrador de seguridad use PIM, verá el panel de PIM.
 
-- Si desea agregar usuarios a roles o quitar usuarios de roles, o cambiar las asignaciones de permanentes a temporales, puede obtener más información en [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user).
-- Si desea conceder acceso a más usuarios para administrar PIM, aprenda cómo en [How to give access to manage Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim) (Cómo proporcionar acceso para administrar Privileged Identity Management de Azure AD).
+- Si desea agregar o quitar usuarios a roles, o cambiar las asignaciones de permanentes a temporales, puede obtener más información en [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- Si desea conceder acceso a más usuarios para administrar PIM, aprenda cómo hacerlo en [Concesión de acceso para administrar Privileged Identity Management de Azure AD](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

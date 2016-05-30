@@ -63,6 +63,7 @@ Para configurar la integración de Intralinks en Azure AD, será preciso que agr
 1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
+
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
@@ -80,11 +81,14 @@ Para configurar la integración de Intralinks en Azure AD, será preciso que agr
 6. En el cuadro de búsqueda, escriba **Intralinks**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
+
 7. En el panel de resultados, seleccione **Intralinks** y luego haga clic en **Completar** para agregar la aplicación.
 
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
+
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Intralinks con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Intralinks para un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Intralinks.
@@ -118,7 +122,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_04.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Intralinks con el siguiente patrón: **https://\<nombreDeCompañía>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDInquilinoDeAzureAD>/**.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Intralinks con el siguiente patrón: **https://\<nombreDeCompañía>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<ID de inquilino de AzureAD>/**.
 
     b. Haga clic en **Siguiente**.
 	
@@ -166,7 +170,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_04.png)
 
-5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos:![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -174,7 +178,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png)
+6.  En la página del cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png)
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -274,7 +278,7 @@ Después, podrá realizar el procedimiento siguiente para agregar otra aplicaci�
 	a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Intralinks con el siguiente patrón: **https://\<nombreDeCompañía>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDInquilinoDeAzureAD>/**.
 
 
-11. Haga clic en Siguiente
+11. Haga clic en **Siguiente**.
 
 12. Asigne la aplicación al usuario o a grupos, como se muestra en la sección **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**.
 
@@ -311,4 +315,4 @@ Al hacer clic en el icono de Intralinks en el panel de acceso, debería iniciar 
 [204]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

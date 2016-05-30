@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="05/09/2016"
 	ms.author="szarkos"/>
 
 # Preparación de una máquina virtual basada en CentOS para Azure
 
-
-- [Preparación de una máquina virtual CentOS 6.x para Azure](#centos6)
-- [Preparación de una máquina virtual CentOS 7.0+ para Azure](#centos7)
+- [Preparación de una máquina virtual CentOS 6.x para Azure](#centos-6.x)
+- [Preparación de una máquina virtual CentOS 7.0+ para Azure](#centos-7.0+)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +31,11 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 
 **Notas de instalación de CentOS**
 
+- Consulte también [Notas generales sobre la instalación de Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) para obtener más consejos sobre la preparación de Linux para Azure.
+
 - El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. Se pueden utilizar [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md) en discos de datos si así se prefiere.
 
 - NUMA no se admite para tamaños de máquina virtual más grandes debido a un error en las versiones del kernel de Linux anteriores a la 2.6.37. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida. La instalación manual del agente de Linux de Azure (waagent) deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
@@ -43,7 +44,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="centos6"> </a>CentOS 6.x ##
+## CentOS 6.x ##
 
 1. En el Administrador de Hyper-V, seleccione la máquina virtual.
 
@@ -70,11 +71,10 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
+6.	Modifique las reglas udev para impedir que se generen reglas estáticas para las interfaces Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 
 7. Asegúrese de que el servicio de red se inicie en el arranque ejecutando el comando siguiente:
@@ -82,7 +82,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 		# sudo chkconfig network on
 
 
-8. **Solo CentOS 6.3**: instalación de los controladores para los servicios de integración de Linux (LIS)
+8. **Solo en CentOS 6.3**: instale los controladores de los servicios de integración de Linux (LIS, Linux Integration Services).
 
 	**Importante: el paso solo es válido para CentOS 6.3 y versiones anteriores.** En CentOS 6.4+, los servicios de integración de Linux *ya están disponibles en el kernel estándar*.
 
@@ -205,7 +205,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux CentO
 ----------
 
 
-## <a id="centos7"> </a>CentOS 7.0+ ##
+## CentOS 7.0+ ##
 
 **Cambios en CentOS 7 (y derivados similares)**
 
@@ -237,11 +237,9 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 		PEERDNS=yes
 		IPV6INIT=no
 
-5.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
+6.	Modifique las reglas udev para impedir que se generen reglas estáticas para las interfaces Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. Asegúrese de que el servicio de red se inicie en el arranque ejecutando el comando siguiente:
 
@@ -304,11 +302,11 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 		# sudo yum clean all
 		# sudo yum -y update
 
-10.	Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro `GRUB_CMDLINE_LINUX`; por ejemplo:
+10.	Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro `GRUB_CMDLINE_LINUX`, por ejemplo:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
+	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Esto también desactiva las nuevas convenciones de nomenclatura de CentOS 7 para NIC. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
@@ -335,6 +333,7 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 14. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
 
 		# sudo yum install WALinuxAgent
+		# sudo systemctl enable waagent
 
 15.	No cree espacio de intercambio en el disco del SO.
 
@@ -355,6 +354,6 @@ La preparación de una máquina virtual CentOS 7 para Azure es muy similar a Cen
 17. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 ## Pasos siguientes
-Ya está listo para usar el disco duro virtual de CentOS para crear nuevas máquinas virtuales de Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, vea los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Ya está listo para usar el disco duro virtual de CentOS para crear nuevas máquinas virtuales de Azure. Si es la primera vez que carga el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

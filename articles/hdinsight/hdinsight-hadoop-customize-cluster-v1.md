@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Personalizar los clústeres de HDInsight mediante la acción de script
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Personalizar los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.IMPORTANT] En los pasos de este documento se usa el Portal de Azure clásico. Microsoft no recomienda usar el portal clásico al crear nuevos servicios. Para una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento también incluye información sobre el uso de Azure PowerShell y el SDK de .NET para HDInsight. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
+>
+>Para ver una versión de este documento donde se usa el Portal de Azure, junto con los fragmentos de código de Powershell y del SDK de .NET para HDInsight que utilizan Azure Resource Manager (ARM), consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster.md).
 
 HDInsight proporciona una opción de configuración denominada **Acción de script** que invoca scripts personalizados, que definen la personalización que se realizará en el clúster en el proceso de aprovisionamiento. Estos scripts pueden utilizarse para instalar software adicional en un clúster o para cambiar la configuración de las aplicaciones de un clúster.
 
@@ -86,7 +88,7 @@ Nombre | Script
   
 **Desde cmdlets de Azure PowerShell**
 
-Utilice los comandos de Azure PowerShell para HDInsight con objeto de ejecutar una acción de script única o varias acciones de script. Utilice el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts personalizados. Para usar estos cmdlets, debe tener Azure PowerShell instalado y configurado. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de Azure PowerShell para HDInsight, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
+Utilice los comandos de Azure PowerShell para HDInsight con objeto de ejecutar una acción de script única o varias acciones de script. Utilice el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts personalizados. Para usar estos cmdlets, debe tener Azure PowerShell instalado y configurado. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de Azure PowerShell para HDInsight, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Use los siguientes comandos de Azure PowerShell para ejecutar una acción de script única al implementar un clúster de HDInsight:
 
@@ -178,4 +180,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

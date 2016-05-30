@@ -1,340 +1,298 @@
 <properties
-	pageTitle="Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell | Microsoft Azure"
-	description="Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor=""/>
+   pageTitle="Implementación y administración de copia de seguridad para máquinas virtuales de ARM mediante PowerShell | Microsoft Azure"
+   description="Uso de PowerShell para implementar y administrar copias de seguridad para máquinas virtuales de ARM en Azure"
+   services="backup"
+   documentationCenter=""
+   authors="markgalioto"
+   manager="jwhit"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
-	ms.author="markgal;trinadhk;jimpark" />
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="05/09/2016"
+   ms.author="markgal; trinadhk"/>
 
+# Implementación y administración de copia de seguridad para máquinas virtuales de ARM mediante PowerShell
 
-# Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
-En este artículo se muestra cómo usar Azure PowerShell para realizar y recuperar copias de seguridad de máquinas virtuales IaaS de Azure.
+> [AZURE.SELECTOR]
+- [Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell](backup-azure-vms-automation.md)
+- [Deploy and manage backup for Azure VMs using PowerShell](backup-azure-vms-classic-automation.md) (Implementación y administración de copia de seguridad para máquinas virtuales de Azure mediante PowerShell)
+
+En este artículo se muestra cómo usar Azure PowerShell para realizar la copia de seguridad y recuperación de una máquina virtual (VM) de Azure desde un almacén de Servicios de recuperación. Un almacén de Servicios de recuperación es un recurso de Azure Resource Manager (ARM) y se utiliza para proteger datos y recursos en los servicios Copia de seguridad de Azure y Azure Site Recovery. Use un almacén de Servicios de recuperación cuando trabaje en una implementación de ARM. Puede usar un almacén de Servicios de recuperación para proteger máquinas virtuales implementadas por el Administrador de servicios de Azure (ASM), así como máquinas virtuales de ARM.
+
+>[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). La información de este artículo es para su uso con las máquinas virtuales creadas con el modelo de Resource Manager.
+
+Este artículo le guiará en el uso de PowerShell para proteger una máquina virtual y restaurar datos a partir de un punto de recuperación.
 
 ## Conceptos
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
-
-Vea [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure.
-
-> [AZURE.WARNING] Antes de empezar, asegúrese de que se tratan los aspectos fundamentales sobre los [requisitos previos](backup-azure-vms-prepare.md) necesarios para trabajar con Copia de seguridad de Azure y las [limitaciones](backup-azure-vms-prepare.md#limitations) de la solución actual de copia de seguridad de máquina virtual.
+Si no está familiarizado con el servicio de Copia de seguridad de Azure, puede obtener información general al respecto en [¿Qué es la Copia de seguridad de Azure?](backup-introduction-to-azure-backup.md) Antes de comenzar, asegúrese de que se tratan los aspectos fundamentales sobre los requisitos previos necesarios para trabajar con Copia de seguridad de Azure y las limitaciones de la solución actual de copia de seguridad de máquina virtual.
 
 Para usar PowerShell de forma eficaz, es preciso conocer la jerarquía de objetos y desde dónde empezar.
 
-![Jerarquía de objetos](./media/backup-azure-vms-automation/object-hierarchy.png)
-
-Los 2 flujos más importantes son habilitar la protección de una máquina virtual y restaurar los datos de un punto de recuperación. El objetivo de este artículo es ayudarlo a convertirse en un experto en el uso de los cmdlets de PowerShell para habilitar estos dos escenarios.
-
+![Jerarquía de objetos de Servicios de recuperación](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 ## Instalación y registro
+
 Para empezar:
 
-1. [Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
+1. [Descargue la versión más reciente de PowerShell](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es 1.0.0).
 
 2. Para buscar los cmdlets de PowerShell de Copia de seguridad de Azure disponibles, escriba el siguiente comando:
 
 ```
-PS C:\> Get-Command *azurermbackup*
+PS C:\WINDOWS\system32> Get-Command *azurermrecoveryservices*
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
-Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
-Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
-Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
-Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
-Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
-Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
-Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
-Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
-Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
-Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
-Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+Cmdlet          Backup-AzureRmRecoveryServicesBackupItem           1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Disable-AzureRmRecoveryServicesBackupProtection    1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Enable-AzureRmRecoveryServicesBackupProtection     1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupContainer         1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupItem              1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupJob               1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupJobDetails        1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupManagementServer  1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupProperties        1.0.7      AzureRM.RecoveryServices
+Cmdlet          Get-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRMRecoveryServicesBackupRecoveryPoint     1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupRetentionPolic... 1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesBackupSchedulePolicy... 1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Get-AzureRmRecoveryServicesVault                   1.0.7      AzureRM.RecoveryServices
+Cmdlet          Get-AzureRmRecoveryServicesVaultSettingsFile       1.0.7      AzureRM.RecoveryServices
+Cmdlet          New-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          New-AzureRmRecoveryServicesVault                   1.0.7      AzureRM.RecoveryServices
+Cmdlet          Remove-AzureRmRecoveryServicesProtectionPolicy     1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Remove-AzureRmRecoveryServicesVault                1.0.7      AzureRM.RecoveryServices
+Cmdlet          Restore-AzureRMRecoveryServicesBackupItem          1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Set-AzureRmRecoveryServicesBackupProperties        1.0.7      AzureRM.RecoveryServices
+Cmdlet          Set-AzureRmRecoveryServicesBackupProtectionPolicy  1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Set-AzureRmRecoveryServicesVaultContext            1.0.7      AzureRM.RecoveryServices
+Cmdlet          Stop-AzureRmRecoveryServicesBackupJob              1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.0.0      AzureRM.RecoveryServices.Backup
+Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.0.0      AzureRM.RecoveryServices.Backup
 ```
 
-Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
 
-- Creación de un almacén de copia de seguridad
-- Registro de las VM en el servicio Azure Backup
+Las siguientes tareas se pueden automatizar con PowerShell:
 
-### Creación de un almacén de copia de seguridad
+- Creación de un almacén de Servicios de recuperación
+- Copia de seguridad o protección de máquinas virtuales de Azure
+- Desencadenamiento de un trabajo de copia de seguridad
+- Supervisión de un trabajo de copia de seguridad
+- Restauración de máquinas virtuales de Azure
 
-> [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+## Creación de un almacén de Servicios de recuperación
 
-Puede crear un nuevo almacén de copia de seguridad con el cmdlet **New-AzureRmBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+> [AZURE.TIP] La primera vez que los clientes usen Copia de seguridad de Azure deberán registrar el proveedor de Azure Site Recovery que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 
-```
-PS C:\> New-AzureRmResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
-```
-
-Para obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada, use el cmdlet **Get-AzureRmBackupVault**.
-
-> [AZURE.NOTE] Es conveniente almacenar el objeto de almacén de copia de seguridad en una variable. Dicho objeto de almacén se necesita como entrada en muchos de los cmdlets de Copia de seguridad de Azure.
-
-
-### Registro de las máquinas virtuales
-El primer paso para configurar la copia de seguridad con Azure Backup es registrar un equipo o una máquina virtual en un almacén de Azure Backup. El cmdlet **Register-AzureRmBackupContainer** toma la información de entrada de una máquina virtual IaaS de Azure y la registra en el almacén especificado. La operación de registro asocia la máquina virtual de Azure con el almacén de copia de seguridad y realiza el seguimiento de la máquina virtual a través del ciclo de vida de la copia de seguridad.
-
-Al registrar una máquina virtual en el servicio Azure Backup, se crea un objeto contenedor de nivel superior. Normalmente, un contenedor contiene varios elementos de los que se puede realizar una copia de seguridad, pero en el caso de las máquinas virtuales, solo habrá un elemento de copia de seguridad para el contenedor.
+Puede crear un nuevo almacén de Servicios de recuperación con el cmdlet **New-AzureRmRecoveryServicesVault**. El almacén de Servicios de recuperación es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
 ```
-PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
+PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
 ```
+
+Para ver una lista de todos los almacenes de Servicios de recuperación de una suscripción, use el cmdlet **Get-AzureRmRecoveryServicesVault**.
+
+### Establecimiento de la redundancia de almacenamiento
+Al crear un almacén de Servicios de recuperación, especifique el tipo de redundancia de almacenamiento que se usará: almacenamiento con redundancia local (LRS) o almacenamiento con redundancia geográfica (GRS). En el ejemplo siguiente se muestra que la opción BackupStorageRedundancy para testVault está establecida en GeoRedundant.
+
+```
+PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+```
+
+
+> [AZURE.TIP] Muchos de los cmdlets de Copia de seguridad de Azure requieren el objeto de almacén de Servicios de recuperación como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Servicios de recuperación de copia de seguridad en una variable.
+
 
 ## Copias de seguridad de máquinas virtuales de Azure
 
+Antes de habilitar la protección en una máquina virtual, debe establecer el contexto de almacén. El contexto se aplica a todos los cmdlets sucesivos.
+
+```
+PS C:\> Get-AzureRmRecoveryServicesVault -Name testvault | Set-AzureRmRecoveryServicesVaultContext
+```
+
 ### Creación de una directiva de protección
-Para empezar a realizar copias de seguridad de las máquinas virtuales no es obligatorio crear una nueva directiva de protección. El almacén incluye una "directiva predeterminada" que se puede usar para habilitar rápidamente la protección y que se puede editar posteriormente con los detalles adecuados. Para obtener una lista de las directivas disponibles en el almacén, use el cmdlet **Get-AzureRmBackupProtectionPolicy**:
+
+Cuando se crea un nuevo almacén, viene con una directiva predeterminada. Esta directiva activa cada día a las 9:30 de la noche un trabajo de copia de seguridad. La instantánea de copia de seguridad se conserva durante 30 días. Puede utilizar la directiva predeterminada para proteger rápidamente la máquina virtual y modificar la directiva más adelante con detalles diferentes.
+
+Para ver la lista disponible de las directivas del almacén, utilice el cmdlet Get-AzureRmRecoveryServicesBackupProtectionPolicy:
 
 ```
-PS C:\> Get-AzureRmBackupProtectionPolicy -Vault $backupvault
-
-Name                      Type               ScheduleType       BackupTime
-----                      ----               ------------       ----------
-DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
+PS C:\WINDOWS\system32> get-AzureRMRecoveryServicesBackupProtectionPolicy -WorkloadType AzureVM
+Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
+----                 ------------       -------------------- ----------                ----------
+DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 PM
 ```
 
-> [AZURE.NOTE] La zona horaria del campo BackupTime en PowerShell es UTC. Sin embargo, cuando el tiempo de copia de seguridad se muestra en el Portal de Azure, la zona horaria estará alineada al sistema local, junto con la diferencia horaria con UTC.
+> [AZURE.NOTE] La zona horaria del campo BackupTime en PowerShell es UTC. Sin embargo, cuando el tiempo de copia de seguridad se muestra en el Portal de Azure, la hora se ajusta a la zona horaria local.
 
-Una directiva de copia de seguridad está asociada con al menos una directiva de retención. La directiva de retención define el tiempo que los puntos de recuperación se conservan en Azure Backup. El cmdlet **New-AzureRmBackupRetentionPolicy** crea objetos de PowerShell que contienen información de la directiva de retención. Estos objetos de directiva de retención se usan como entradas para el cmdlet *New-AzureRmBackupProtectionPolicy*, o bien directamente con el cmdlet *Enable-AzureRmBackupProtection*.
+Una directiva de protección de copia de seguridad está asociada con al menos una directiva de retención. La directiva de retención define el tiempo que los puntos de recuperación se conservan en Copia de seguridad de Azure. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject para ver la directiva de retención predeterminada. Igualmente, puede obtener la directiva de programación predeterminada mediante Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. Los objetos de directiva de retención y programación se usan como entradas al cmdlet New-AzureRmRecoveryServicesBackupProtectionPolicy.
 
-Una directiva de copia de seguridad define cuándo y con qué frecuencia se realiza la copia de seguridad de un elemento. El cmdlet **New-AzureRmBackupProtectionPolicy** crea un objeto de PowerShell que contiene información de la directiva de copia de seguridad. La directiva de copia de seguridad se usa como entrada para el cmdlet *Enable-AzureRmBackupProtection*.
+Una directiva de protección de copia de seguridad define cuándo y con qué frecuencia se realiza la copia de seguridad de un elemento. El cmdlet New-AzureRmRecoveryServicesBackupProtectionPolicy crea un objeto de PowerShell que contiene información de la directiva de copia de seguridad. La directiva de copia de seguridad se usa como entrada al cmdlet Enable-AzureRmRecoveryServicesBackupProtection.
 
 ```
-PS C:\> $Daily = New-AzureRmBackupRetentionPolicyObject -DailyRetention -Retention 30
-PS C:\> $newpolicy = New-AzureRmBackupProtectionPolicy -Name DailyBackup01 -Type AzureVM -Daily -BackupTime ([datetime]"3:30 PM") -RetentionPolicy $Daily -Vault $backupvault
-
-Name                      Type               ScheduleType       BackupTime
-----                      ----               ------------       ----------
-DailyBackup01             AzureVM            Daily              01-Sep-15 3:30:00 PM
+PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+PS C:\>  $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
+PS C:\>  New-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType AzureVM -RetentionPolicy $retPol -SchedulePolicy $schPol
+Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
+----                 ------------       -------------------- ----------                ----------
+NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
 ### Habilitar protección
-La habilitación de la protección implica dos objetos: el elemento y la directiva, y ambos deben pertenecer al mismo almacén. Una vez que la directiva está asociada con el elemento, el flujo de trabajo de copia de seguridad se activará en la programación definida.
+
+En la habilitación de la protección intervienen dos objetos: el elemento y la directiva. Ambos objetos son necesarios para habilitar la protección en el almacén. Después de que la directiva se ha asociado con el elemento, el flujo de trabajo de copia de seguridad se desencadena a la hora definida en la programación de la directiva.
 
 ```
-PS C:\> Get-AzureRmBackupContainer -Type AzureVM -Status Registered -Vault $backupvault | Get-AzureRmBackupItem | Enable-AzureRmBackupProtection -Policy $newpolicy
+PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-### Copia de seguridad inicial
-La programación de copia de seguridad se encargará de realizar la copia inicial completa del elemento y la copia incremental en las copias de seguridad posteriores. Sin embargo, si desea forzar que la copia de seguridad inicial se realice en un momento determinado o incluso inmediatamente, use el cmdlet **Backup-AzureRmBackupItem**:
+Para máquinas virtuales basadas en ASM
 
 ```
-PS C:\> $container = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -Name "testvm"
-PS C:\> $backupjob = Get-AzureRmBackupItem -Container $container | Backup-AzureRmBackupItem
-PS C:\> $backupjob
-
-WorkloadName    Operation       Status          StartTime              EndTime
-------------    ---------       ------          ---------              -------
-testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
+PS C:\>  $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+PS C:\>  Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM" -ServiceName "ServiceName1"
 ```
 
-> [AZURE.NOTE] La zona horaria de los campos de StartTime y EndTime mostrados en PowerShell es UTC. Sin embargo, cuando se muestra información similar en el Portal de Azure, la zona horaria estará alineada al reloj del sistema local.
+### Modificación de una directiva de protección
 
-### Supervisión de trabajos de copia de seguridad
+Para modificar la directiva, modifique el objeto BackupSchedulePolicyObject o BackupRetentionPolicy y modifique la directiva mediante Set-AzureRmRecoveryServicesBackupProtectionPolicy.
+
+En el ejemplo siguiente se cambia el recuento de retención a 365.
+
+```
+PS C:\> $retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
+PS C:\> $retPol.DailySchedule.DurationCountInDays = 365
+PS C:\> $pol= Get-AzureRMRecoveryServicesBackupProtectionPolicy -Name NewPolicy
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy  $RetPol
+```
+
+## Ejecución de una copia de seguridad inicial
+
+La programación de copia de seguridad desencadena una copia de seguridad completa en la copia de seguridad inicial del elemento. En sucesivas copias de seguridad, la copia de seguridad es una copia incremental. Si desea forzar que la copia de seguridad tenga lugar a una determinada hora o incluso inmediatamente, use el cmdlet Backup-AzureRmRecoveryServicesBackupItem:
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -Name "V2VM";
+PS C:\> $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM";
+PS C:\> $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item;
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM        Backup               InProgress            4/23/2016 5:00:30 PM            cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+> [AZURE.NOTE: La zona horaria de los campos StartTime y EndTime en PowerShell es UTC. Sin embargo, cuando la hora se muestra en el Portal de Azure, esta se ajusta a la zona horaria local.
+
+## Supervisión de trabajos de copia de seguridad
+
 La mayor parte de las operaciones de ejecución prolongada en Copia de seguridad de Azure se modelan como un trabajo. Esto facilita el seguimiento del progreso sin tener que mantener el Portal de Azure abierto constantemente.
 
-Para obtener el estado más reciente de un trabajo en curso, use el cmdlet **Get-AzureRmBackupJob**.
+Para obtener el estado más reciente de un trabajo en curso, use el cmdlet Get-AzureRMRecoveryservicesBackupJob.
 
 ```
-PS C:\> $joblist = Get-AzureRmBackupJob -Vault $backupvault -Status InProgress
-PS C:\> $joblist[0]
-
-WorkloadName    Operation       Status          StartTime              EndTime
-------------    ---------       ------          ---------              -------
-testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
+PS C:\ > $joblist = Get-AzureRMRecoveryservicesBackupJob –Status InProgress
+PS C:\ > $joblist[0]
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM        Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-En lugar de sondear si finalizaron estos trabajos (lo que supone un código adicional innecesario), es más fácil usar el cmdlet **Wait-AzureRmBackupJob**. Si se usa en un script, el cmdlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
+En lugar de sondear si finalizaron estos trabajos (lo que supone un código adicional innecesario), es más fácil usar el cmdlet Wait-AzureRmRecoveryServicesBackupJob. Si se usa en un script, el cmdlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
 
 ```
-PS C:\> Wait-AzureRmBackupJob -Job $joblist[0] -Timeout 43200
+PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
-
 
 ## Restauración de máquinas virtuales de Azure
 
-Para restaurar los datos de una copia de seguridad, es preciso identificar el elemento del que se realizó la copia de seguridad y el punto de recuperación que contiene los datos de un momento específico. Esta información se le proporciona al cmdlet Restore-AzureRmBackupItem para iniciar una restauración de los datos del almacén a la cuenta del cliente.
+Para restaurar los datos de una copia de seguridad, es preciso identificar el elemento del que se realizó la copia de seguridad y el punto de recuperación que contiene los datos de un momento dado. Esta información se proporciona al cmdlet Restore-AzureRMRecoveryServicesBackupItem para iniciar una restauración de los datos desde el almacén hasta la cuenta del cliente.
 
 ### Selección de la máquina virtual
 
-Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad adecuada, es preciso que empiece en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la VM, use el cmdlet **Get-AzureRmBackupContainer** y canalícelo al cmdlet **Get-AzureRmBackupItem**.
+Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad correcto, comience en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la VM, use el cmdlet Get-AzureRmRecoveryServicesBackupContainer y canalícelo al cmdlet Get-AzureRmRecoveryServicesBackupItem.
 
 ```
-PS C:\> $backupitem = Get-AzureRmBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRmBackupItem
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType AzureVM –Status Registered -Name 'V2VM'
+PS C:\> $backupitem=Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
 ```
 
 ### Elección de un punto de recuperación
 
-Ahora puede enumerar todos los puntos de recuperación del elemento de copia de seguridad con el cmdlet **Get-AzureRmBackupRecoveryPoint** y elegir el punto de recuperación para la restauración. Normalmente los usuarios eligen el punto *AppConsistent* más reciente de la lista.
+Ahora puede mostrar todos los puntos de recuperación del elemento de copia de seguridad con el cmdlet Get-AzureRMRecoveryServicesBackupRecoveryPoint y elegir el punto de recuperación que quiere restaurar. Normalmente los usuarios eligen el punto AppConsistent más reciente de la lista.
 
 ```
-PS C:\> $rp =  Get-AzureRmBackupRecoveryPoint -Item $backupitem
-PS C:\> $rp
-
-RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
----------------    -----------------  -----------------      -------------
-15273496567119     AppConsistent      01-Sep-15 12:27:38 PM  iaasvmcontainer;testvm;testv...
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRMRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM
+                              /recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
 ```
 
-La variable ```$rp``` es una matriz de puntos de recuperación para el elemento de copia de seguridad seleccionado, ordenados en orden inverso de tiempo: el punto de recuperación más reciente se encuentra en el índice 0. Use la indexación de matrices de PowerShell estándar para seleccionar el punto de recuperación. Por ejemplo: ```$rp[0]``` seleccionará el último punto de recuperación.
+La variable $rp es una matriz de puntos de recuperación para el elemento de copia de seguridad seleccionado, en orden inverso de tiempo: el punto de recuperación más reciente se encuentra en el índice 0. Use la indexación de matrices de PowerShell estándar para seleccionar el punto de recuperación. Por ejemplo: $rp[0] seleccionará el último punto de recuperación.
 
 ### Restauración de discos
 
 Hay una diferencia clave entre las operaciones de restauración realizadas a través del Portal de Azure y las realizadas a través de Azure PowerShell. Con PowerShell, la operación de restauración se detiene en la restauración de los discos y la información de configuración desde el punto de recuperación. No crea máquinas virtuales.
 
-> [AZURE.WARNING] Restore-AzureRmBackupItem no crea una VM. Solo restaura los discos en la cuenta de almacenamiento especificada. Este no es el mismo comportamiento que observará en el Portal de Azure.
+> [AZURE.WARNING] El cmdlet Restore-AzureRMRecoveryServicesBackupItem no crea una máquina virtual, solo restaura los discos en la cuenta de almacenamiento especificada. Este proceso es diferente de lo que ocurre en el Portal de Azure.
 
 ```
-PS C:\> $restorejob = Restore-AzureRmBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
+PS C:\> $restorejob = Restore-AzureRMRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName DestAccount
+ -StorageAccountResourceGroupName DestRG
 PS C:\> $restorejob
-
-WorkloadName    Operation       Status          StartTime              EndTime
-------------    ---------       ------          ---------              -------
-testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM        Restore               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Los detalles de la operación de restauración se pueden obtener con el cmdlet **Get-AzureRmBackupJobDetails** una vez finalizado el trabajo de restauración. La propiedad *ErrorDetails* tendrá la información necesaria para volver a compilar la máquina virtual.
+Se pueden obtener los detalles de la operación de restauración mediante el cmdlet Get-AzureRmRecoveryServicesBackupJobDetails una vez que el trabajo de restauración ha finalizado. La propiedad JobDetails tendrá la información necesaria para recompilar la máquina virtual.
 
 ```
-PS C:\> $restorejob = Get-AzureRmBackupJob -Job $restorejob
-PS C:\> $details = Get-AzureRmBackupJobDetails -Job $restorejob
+PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
+PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 ```
 
-### Compilación de la máquina virtual
+## Registro de Windows Server o DPM en un almacén de Servicios de recuperación
 
-La compilación de la máquina virtual a partir de los discos restaurados puede realizarse con los cmdlets anteriores de PowerShell para Azure Service Management, las nuevas plantillas de Azure Resource Manager o incluso con el Portal de Azure. En un ejemplo rápido, mostraremos cómo conseguirlo mediante los cmdlets de Azure Service Management.
-
-```
- $properties  = $details.Properties
-
- $storageAccountName = $properties["Target Storage Account Name"]
- $containerName = $properties["Config Blob Container Name"]
- $blobName = $properties["Config Blob Name"]
-
- $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
- $storageAccountKey = $keys.Primary
- $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-
-
- $destination_path = "C:\Users\admin\Desktop\vmconfig.xml"
- Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path -Context $storageContext
-
-
-$obj = [xml](((Get-Content -Path $destination_path -Encoding UniCode)).TrimEnd([char]0x00))
- $pvr = $obj.PersistentVMRole
- $os = $pvr.OSVirtualHardDisk
- $dds = $pvr.DataVirtualHardDisks
- $osDisk = Add-AzureDisk -MediaLocation $os.MediaLink -OS $os.OS -DiskName "panbhaosdisk"
- $vm = New-AzureVMConfig -Name $pvr.RoleName -InstanceSize $pvr.RoleSize -DiskName $osDisk.DiskName
-
- if (!($dds -eq $null))
- {
-	 foreach($d in $dds.DataVirtualHardDisk)
- 	 {
-		 $lun = 0
-		 if(!($d.Lun -eq $null))
-		 {
-	 		 $lun = $d.Lun
-		 }
-		 $name = "panbhadataDisk" + $lun
-     Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
-     $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
-	}
-}
-
-New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
-```
-
-Para obtener más información sobre cómo compilar una máquina virtual a partir de los discos restaurados, consulte la información relativa a los cmdlets siguientes:
-
-- [Add-AzureDisk](https://msdn.microsoft.com/library/azure/dn495252.aspx)
-- [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
-- [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
-
-## Ejemplos de código
-
-### 1\. Obtener el estado de finalización de las subtareas de trabajo
-
-Para realizar el seguimiento del estado de finalización de las subtareas individuales, puede usar el cmdlet **Get-AzureRmBackupJobDetails**:
+Después de crear el almacén de Servicios de recuperación, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\\Downloads.
 
 ```
-PS C:\> $details = Get-AzureRmBackupJobDetails -JobId $backupjob.InstanceId -Vault $backupvault
-PS C:\> $details.SubTasks
-
-Name                                                        Status
-----                                                        ------
-Take Snapshot                                               Completed
-Transfer data to Backup vault                               InProgress
+PS C:\> $credspath = "C:\downloads"
+PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename
+C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-### 2\. Crear un informe diario o semanal de los trabajos de copia de seguridad
-
-Normalmente, los administradores desean saber qué trabajos de copia de seguridad se ejecutaron en las últimas 24 horas y cuál es su estado. Además, la cantidad de datos transferidos ofrece a los administradores una manera de calcular el uso mensual de los datos. El script siguiente extrae los datos sin procesar desde el servicio Copia de seguridad de Azure y muestra la información en la consola de PowerShell.
+En Windows Server o el servidor de DPM, ejecute el cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) para registrar la máquina con el almacén.
 
 ```
-param(  [Parameter(Mandatory=$True,Position=1)]
-        [string]$backupvaultname,
-
-        [Parameter(Mandatory=$False,Position=2)]
-        [int]$numberofdays = 7)
-
-
-#Initialize variables
-$DAILYBACKUPSTATS = @()
-$backupvault = Get-AzureRmBackupVault -Name $backupvaultname
-$enddate = ([datetime]::Today).AddDays(1)
-$startdate = ([datetime]::Today)
-
-for( $i = 1; $i -le $numberofdays; $i++ )
-{
-    # We query one day at a time because pulling 7 days of data might be too much
-    $dailyjoblist = Get-AzureRmBackupJob -Vault $backupvault -From $startdate -To $enddate -Type AzureVM -Operation Backup
-    Write-Progress -Activity "Getting job information for the last $numberofdays days" -Status "Day -$i" -PercentComplete ([int]([decimal]$i*100/$numberofdays))
-
-    foreach( $job in $dailyjoblist )
-    {
-        #Extract the information for the reports
-        $newstatsobj = New-Object System.Object
-        $newstatsobj | Add-Member -Type NoteProperty -Name Date -Value $startdate
-        $newstatsobj | Add-Member -Type NoteProperty -Name VMName -Value $job.WorkloadName
-        $newstatsobj | Add-Member -Type NoteProperty -Name Duration -Value $job.Duration
-        $newstatsobj | Add-Member -Type NoteProperty -Name Status -Value $job.Status
-
-        $details = Get-AzureRmBackupJobDetails -Job $job
-        $newstatsobj | Add-Member -Type NoteProperty -Name BackupSize -Value $details.Properties["Backup Size"]
-        $DAILYBACKUPSTATS += $newstatsobj
-    }
-
-    $enddate = $enddate.AddDays(-1)
-    $startdate = $startdate.AddDays(-1)
-}
-
-$DAILYBACKUPSTATS | Out-GridView
+PS C:\> $cred = $credspath + $credsfilename
+PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
+SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+ServiceResourceName: testvault
+Region              :West US
+Machine registration succeeded.
 ```
 
-Si desea agregar funcionalidades gráficas a esta salida del informe, obtenga información de la publicación del blog de TechNet [Gráficos con PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

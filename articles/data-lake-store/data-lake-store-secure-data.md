@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Protección de los datos almacenados en el Almacén de Azure Data Lake
@@ -34,6 +34,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md).
+
+## ¿Obtener información más rápidamente con vídeos?
+
+[Vea este vídeo](https://mix.office.com/watch/1q2mgzh9nn5lx) sobre cómo proteger los datos almacenados en el Almacén de Data Lake.
 
 ## Creación de grupos de seguridad en Azure Active Directory
 
@@ -98,8 +102,8 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 
 	![Mostrar acceso estándar y personalizado](./media/data-lake-store-secure-data/adl.acl.2.png "Mostrar acceso estándar y personalizado")
 
-	* El acceso estándar es el acceso de estilo UNIX, donde se especifican lectura, escritura y ejecución (rwx) para tres clases de usuario distintas: propietario, grupo y otros.
-	* El acceso personalizado corresponde a las ACL de POSIX y permite establecer permisos para usuarios o grupos designados específicos y no solo para el propietario o el grupo del archivo.
+	* El **acceso estándar** es el acceso de estilo UNIX, donde se especifican lectura, escritura y ejecución (rwx) para tres clases de usuario distintas: propietario, grupo y otros.
+	* El **acceso personalizado** corresponde a las ACL de POSIX y permite establecer permisos para usuarios o grupos designados específicos y no solo para el propietario o el grupo del archivo. 
 	
 	Para obtener más información, consulte la página sobre las [ACL de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -111,15 +115,20 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 
 	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Asignar permisos al grupo")
 
+	Los permisos se pueden describir de la siguiente forma:
 
-	>[AZURE.NOTE] Se necesita el permiso Ejecución para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
+	* **Lectura**: si se establece este permiso para un directorio, proporciona la capacidad de leer los nombres de los archivos del directorio.
+	* **Escritura**: si se establece este permiso para un directorio, proporciona la capacidad de modificar las entradas del mismo, lo cual permite, por ejemplo, crear o eliminar un archivo, o cambiarle el nombre.
+	* **Ejecución**: si se establece este permiso para un directorio, proporciona la capacidad para acceder al contenido de los archivos del directorio. También proporciona acceso a los metadatos del archivo, siempre que se conozca el nombre del mismo. Sin embargo, este permiso no le permitirá enumerar los archivos del directorio, a menos que el permiso de **lectura** esté también establecido.
+
+	>[AZURE.NOTE] Se necesita el permiso de **lectura y ejecución** para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
 
 
 6. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso**.
 
 	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Asignar permisos al grupo")
 
-	> [AZURE.IMPORTANT] En la versión actual, solo puede tener 9 entradas en **Acceso personalizado**. Si desea agregar más de 9 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
+	> [AZURE.IMPORTANT] En la versión actual, solo puede tener nueve entradas en **Acceso personalizado**. Si desea agregar más de 9 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
 
 7. Si es necesario, también puede modificar los permisos de acceso después de agregar el grupo. Active o desactive la casilla para cada tipo de permiso (lectura, escritura, ejecución) en función de si desea quitarlo o asignarlo al grupo de seguridad. Haga clic en **Guardar** para guardar los cambios o en **Descartar** para deshacerlos.
 
@@ -165,4 +174,4 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

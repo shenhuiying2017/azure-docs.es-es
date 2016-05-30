@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos de un origen de OData mediante Factoría de datos de Azure
@@ -287,4 +287,7 @@ Cuando se mueven datos desde almacenes de datos de OData, los tipos de datos de 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!-----HONumber=AcomDC_0224_2016-->
+## Rendimiento y optimización  
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+
+<!---HONumber=AcomDC_0518_2016-->

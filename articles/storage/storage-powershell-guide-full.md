@@ -3,7 +3,7 @@
 	description="Aprenda a usar los cmdlets de Azure PowerShell para el almacenamiento de Azure para crear y administrar cuentas de almacenamiento; trabajar con blobs, tablas, colas y archivos; configurar y consultar el análisis de almacenamiento, y crear firmas de acceso compartido."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
@@ -102,16 +102,16 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 	- **$SubscriptionName:** debe actualizar esta variable con su propia suscripción. Siga una de las tres maneras siguientes para buscar el nombre de su suscripción:
 
 		a. En **Windows PowerShell ISE**, haga clic en **Archivo** > **Nuevo** para crear un nuevo archivo de script. Copie el siguiente script al nuevo archivo de script y haga clic en **Depurar** > **Ejecutar**. El script le pedirá las credenciales de su cuenta de Azure para así agregar su cuenta al entorno local de PowerShell y mostrar todas las suscripciones conectadas a la sesión local de PowerShell. Anote el nombre de la suscripción que desea usar para realizar este tutorial:
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. Para ubicar y copiar el nombre de la suscripción en el [Portal de Azure](https://portal.azure.com), en el menú del concentrador que se encuentra a la izquierda, haga clic en **suscripciones**. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
-		
+
 		![Portal de Azure][Image2]
-		  
+
 		c. Para ubicar y copiar el nombre de la suscripción en el [Portal de Azure clásico](https://manage.windowsazure.com/), desplácese hacia abajo y haga clic en la opción **Configuración** que encontrará en el lado izquierdo del portal. Haga clic en **Suscripciones** para ver una lista de las suscripciones. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
-		
+
 		![Portal de Azure clásico][Image1]
 
 	- **$StorageAccountName:** use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
@@ -235,6 +235,24 @@ Para obtener más información sobre cómo configurar una cadena de conexión de
 
 Ahora ya tiene el equipo configurado y sabe cómo administrar suscripciones y cuentas de almacenamiento con Azure PowerShell. Vaya a la siguiente sección para aprender a administrar los blobs de Azure y las instantáneas de blob.
 
+### Cómo recuperar y volver a generar las claves de almacenamiento de Azure
+
+Una cuenta de almacenamiento de Azure incluye dos claves de cuenta. Puede utilizar el siguiente cmdlet para recuperar claves.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+Utilice el siguiente cmdlet para recuperar una clave específica. Los valores válidos son: Principal y Secundaria.
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+Si desea volver a generar las claves, use el siguiente cmdlet. Los valores válidos para -KeyType -son "Principal" y "Secundaria".
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## Administrar blobs de Azure
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Almacenamiento de blobs mediante .NET](storage-dotnet-how-to-use-blobs.md) y [Conceptos del servicio Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
@@ -247,7 +265,7 @@ Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede
 > [AZURE.NOTE] Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob** en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor** en el parámetro Permiso. Para obtener más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
 
 ### Cómo cargar un blob en un contenedor
-El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para obtener más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para obtener más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para cargar blobs en un contenedor, puede usar el cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Este comando carga de forma predeterminada los archivos locales a un blob en bloque. Para especificar el tipo de blob, puede usar el parámetro -BlobType.
 
@@ -300,7 +318,7 @@ Tenga en cuenta que este ejemplo realiza una copia asincrónica. Puede supervisa
 ### Cómo copiar blobs desde una ubicación secundaria
 Puede copiar blobs de la ubicación secundaria de una cuenta habilitada con RA-GRS.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -373,7 +391,7 @@ Puede copiar una instantánea de un blob para restaurar la instantánea. Para ob
 Ahora que ya sabe cómo administrar los blobs de Azure y las instantáneas de blobs con Azure PowerShell, puede ir a la siguiente sección para aprender a administrar tablas, colas y archivos.
 
 ## Cómo administrar las entidades de tabla y las tablas de Azure
-El servicio de almacenamiento de tablas Azure es un almacén de datos NoSQL que puede utilizar para almacenar y consultar conjuntos grandes de datos estructurados y no relacionales. Los componentes principales del servicio son tablas, entidades y propiedades. Una tabla es una colección de entidades. Una entidad es un conjunto de propiedades. Cada entidad puede tener hasta 252 propiedades, las cuales son todas par nombre-valor. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de tablas de Azure. Para obtener más información, consulte [Descripción del modelo de datos del servicio de tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx) y [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md).
+El servicio de almacenamiento de tablas Azure es un almacén de datos NoSQL que puede utilizar para almacenar y consultar conjuntos grandes de datos estructurados y no relacionales. Los componentes principales del servicio son tablas, entidades y propiedades. Una tabla es una colección de entidades. Una entidad es un conjunto de propiedades. Cada entidad puede tener hasta 252 propiedades, las cuales son todas par nombre-valor. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de tablas de Azure. Para obtener más información, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introducción al Almacenamiento de tablas de Azure mediante .NET](storage-dotnet-how-to-use-tables.md).
 
 En las subsecciones siguientes, aprenderá a administrar el servicio de almacenamiento de tabla de Azure mediante Azure PowerShell. Los escenarios que aquí se describirán incluyen **crear**, **eliminar** y **recuperar** **tablas**, así como **agregar**, **consultar** y **eliminar entidades de tabla**.
 
@@ -613,7 +631,7 @@ Una firma de acceso compartido puede presentar una de estas dos formas:
 - **SAS ad hoc **: cuando se crea una SAS ad hoc, la hora de inicio, la hora de finalización y los permisos para la Firma de acceso compartido se especifican en el URI de la SAS. Este tipo de SAS puede crearse en un contenedor, blob, tabla o cola y no se puede revocar.
 - **SAS con directiva de acceso almacenada:** una directiva de acceso almacenada se define en un contenedor de recursos, un contenedor de blobs, una tabla o una cola, y puede usarla para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada. Este tipo de SAS se puede revocar.
 
-Para obtener más información, consulte [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
+Para obtener más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md).
 
 En las siguientes secciones, obtendrá información sobre cómo crear un token de firma de acceso compartido y una directiva de acceso almacenada para las tablas de Azure. Azure PowerShell también proporciona cmdlets similares para contenedores, blobs y colas. Para ejecutar los scripts de esta sección, descargue [la versión 0.8.14 de Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o posterior.
 
@@ -732,6 +750,5 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

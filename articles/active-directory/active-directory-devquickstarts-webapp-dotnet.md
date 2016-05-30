@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Inicio y cierre de sesión de la aplicación web con Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí usaremos OWIN para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
+Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí usaremos OWIN para:
+-	Iniciar sesión del usuario en la aplicación con Azure AD como proveedor de identidades.
+-	Mostrar información sobre el usuario.
+-	Cerrar la sesión del usuario en la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -175,4 +178,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

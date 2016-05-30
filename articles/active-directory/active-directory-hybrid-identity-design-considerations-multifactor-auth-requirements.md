@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="03/04/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de autenticación multifactor para la solución de identidad híbrida
@@ -58,4 +58,4 @@ Después de responder a las preguntas anteriores, podrá comprender si la autent
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

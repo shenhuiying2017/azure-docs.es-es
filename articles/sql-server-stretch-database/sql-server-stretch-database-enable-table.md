@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Habilitación de Stretch Database para una tabla
@@ -43,7 +43,7 @@ Consulte el propósito del asistente y los requisitos previos.
 
 Confirme que se muestra y se selecciona la tabla que desea habilitar.
 
-En RC3, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
+Puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
 
 -   Salga del asistente y ejecute la instrucción ALTER TABLE para habilitar Stretch para la tabla y especificar un predicado.
 
@@ -118,4 +118,4 @@ Para obtener más información, consulte [CREATE TABLE (Transact-SQL)](https://m
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

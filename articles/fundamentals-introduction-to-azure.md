@@ -304,7 +304,7 @@ Automatización de Azure es un buena opción para automatizar las tareas manuale
 
 La creación y publicación de interfaces de programación de aplicaciones (API) en Internet es un método muy utilizado para ofrecer servicios a las aplicaciones. Si esos servicios se pueden volver a vender (por ejemplo, los datos del tiempo), una organización puede conceder acceso a esos mismos servicios a otros terceros a cambio de una cuota. A medida que aumentan los socios, seguramente tendrá que optimizar y controlar el acceso. Es posible incluso que algunos socios necesiten los datos en un formato distinto.
 
-Administración de API de Azure facilita a las organizaciones la publicación de API a socios, empleados y desarrolladores de terceros de manera segura y a escala. Proporciona un extremo API diferente y actúa como proxy para llamar al extremo real al tiempo que ofrece servicios como almacenamiento en caché, transformación, control de acceso y agregado de analíticas.
+Administración de API de Azure facilita a las organizaciones la publicación de API a socios, empleados y desarrolladores de terceros de manera segura y a escala. Proporciona un punto de conexión de API diferente y actúa como proxy para llamar al punto de conexión real, al mismo tiempo que ofrece servicios como almacenamiento en caché, transformación, limitación, control de acceso y agregado de análisis.
 
 **Escenarios de Administración de API**
 
@@ -606,4 +606,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

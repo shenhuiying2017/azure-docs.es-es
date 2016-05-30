@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
 
-A menudo los trabajos de Lote de Azure precisan algún tipo de configuración antes de su ejecución y, de forma similar, algún tipo de mantenimiento posterior una vez finalizadas sus tareas. Lote proporciona los mecanismos para estas labores de preparación y mantenimiento en forma de tareas opcionales de *preparación del trabajo* y *liberación del trabajo*.
+A menudo los trabajos de Lote de Azure precisan algún tipo de configuración antes de su ejecución, así como algún tipo de mantenimiento posterior una vez finalizadas sus tareas. Lote proporciona los mecanismos para estas labores de preparación y mantenimiento en forma de tareas opcionales de preparación del trabajo y liberación del trabajo.
 
-Antes de la ejecución de ninguna otra tarea de un trabajo, la tarea de preparación del trabajo se ejecuta en todos los nodos de ejecución programados para ejecutar tareas. Cuando el trabajo se ha completado, la tarea de liberación del trabajo se ejecuta en cada nodo del grupo que ejecutó al menos una tarea. Para tareas de preparación y de liberación de trabajos, puede especificar una línea de comandos para realizar la invocación cuando la tarea se ejecuta. Estas tareas especiales ofrecen características de tareas familiares tales como descarga de archivos, ejecución con elevación de privilegios, variables de entorno personalizadas, duración máxima de ejecución, número de reintentos y tiempo de retención de archivo.
+Antes de la ejecución de ninguna otra tarea de un trabajo, la **tarea de preparación del trabajo** se ejecuta en todos los nodos de proceso programados para ejecutar tareas. Cuando el trabajo se ha completado, la **tarea de liberación del trabajo** se ejecuta en cada nodo del grupo que ejecutó al menos una tarea. Al igual que con las tareas normales de Lote, puede especificar una línea de comandos de una tarea de preparación o liberación del trabajo para que se invoque cuando se ejecute esa tarea. Estas tareas especiales ofrecen otras características de tareas familiares tales como descarga de archivos, ejecución con elevación de privilegios, variables de entorno personalizadas, duración máxima de ejecución, número de reintentos y tiempo de retención de archivo.
 
 En las secciones siguientes, encontrará información acerca de cómo usar estos dos tipos especiales de tarea con la clase [JobPreparationTask][net_job_prep] y la clase [JobReleaseTask][net_job_release] en la API de [Lote de .NET][api_net].
 
@@ -58,7 +58,7 @@ Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación d
 
 ## Tareas de preparación y liberación de trabajos en la API de Lote de .NET
 
-Para especificar una tarea de preparación del trabajo, cree y configure el objeto [JobPreparationTask][net_job_prep] y asígnelo a la propiedad [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del trabajo. De forma similar, para establecer la tarea de liberación del trabajo, inicialice [JobReleaseTask][net_job_release] y asígnelo a la propiedad [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del trabajo.
+Para usar una tarea de preparación del trabajo, cree y configure el objeto [JobPreparationTask][net_job_prep] y asígnelo a la propiedad [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del trabajo. De forma similar, para establecer la tarea de liberación del trabajo, inicialice [JobReleaseTask][net_job_release] y asígnelo a la propiedad [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del trabajo.
 
 En este fragmento de código, `myBatchClient` es una instancia totalmente inicializada de [BatchClient][net_batch_client] y `myPool` es un grupo existente dentro de la cuenta de Lote.
 
@@ -185,6 +185,5 @@ En la captura de pantalla siguiente, se resaltan las propiedades de las tareas d
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
-[2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

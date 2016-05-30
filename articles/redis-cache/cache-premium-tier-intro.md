@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Introducción al nivel Premium de Caché en Redis de Azure" 
+	pageTitle="Introducción al nivel Premium de Caché en Redis de Azure | Microsoft Azure" 
 	description="Aprenda a crear y a administrar la persistencia de Redis, la agrupación en clústeres de Redis y la compatibilidad de red virtual para las instancias de Caché en Redis de Azure de nivel Premium." 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Introducción al nivel Premium de Caché en Redis de Azure
 Caché en Redis de Azure es una memoria caché distribuida y administrada que ayuda a compilar aplicaciones muy útiles y altamente escalables mediante el acceso ultrarrápido a los datos.
 
-Premium es un nuevo nivel destinado a las empresas que incluye todas las características del nivel Standard y otras adicionales, como un mejor rendimiento, cargas de trabajo más grandes, recuperación ante desastres y seguridad mejorada. Siga leyendo para obtener más información acerca de las características adicionales de la memoria caché del nivel Premium.
+Premium es un nuevo nivel destinado a las empresas que incluye todas las características del nivel Estándar y otras adicionales, como un mejor rendimiento, cargas de trabajo más grandes, recuperación ante desastres, importación/exportación y seguridad mejorada. Siga leyendo para obtener más información acerca de las características adicionales de la memoria caché del nivel Premium.
 
 ## Mejor rendimiento en comparación con el nivel Estándar o Básico
 **Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Además, el rendimiento de dichas memorias caché es superior y sus latencias son más bajas.
@@ -45,6 +45,16 @@ Las memorias caché creadas en los niveles Basic o Standard están disponibles e
 
 Para obtener más información, vea [Configuración de la compatibilidad de Red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 
+## Importación/Exportación
+
+Importación/Exportación es una operación de administración de datos de Caché en Redis de Azure que permite importar datos en Caché en Redis de Azure o exportar datos desde Caché en Redis de Azure mediante la importación y exportación de una instantánea de base de datos de Caché en Redis (RDB) desde una caché premium a un blob en páginas en una cuenta de Almacenamiento de Azure. Este método le permite migrar entre diferentes instancias de Caché en Redis de Azure o rellenar la caché de datos antes de su uso.
+
+La importación se puede usar para traer los archivos RDB compatibles de Redis desde cualquier servidor de Redis que se ejecute en cualquier nube o entorno, incluidas las instancias de Redis que se ejecutan en Linux, Windows o cualquier proveedor en la nube como, por ejemplo, Amazon Web Services. La importación de datos supone una manera fácil de crear una caché con datos rellenados previamente. Durante el proceso de importación, Caché en Redis de Azure carga los archivos RDB desde Almacenamiento de Azure en la memoria y, a continuación, inserta las claves en la memoria caché.
+
+La exportación permite exportar los datos almacenados en la Caché en Redis de Azure a archivos RDB compatibles. Puede utilizar esta característica para mover datos desde una instancia de Caché en Redis de Azure a otra o a otro servidor de Redis. Durante el proceso de exportación, se crea un archivo temporal en la máquina virtual que hospeda la instancia del servidor de Caché en Redis de Azure y el archivo se carga en la cuenta de almacenamiento designada. Una vez completada la operación de exportación (de manera correcta o incorrecta), se elimina el archivo temporal.
+
+Para obtener más información, consulte [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Importación de datos en Caché en Redis de Azure y exportación de datos desde este servicio).
+
 ## Pasos siguientes
 
 Cree una memoria caché y explore las nuevas características del nivel Premium.
@@ -52,6 +62,7 @@ Cree una memoria caché y explore las nuevas características del nivel Premium.
 -	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
 -	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
+-	[How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Importación de datos en Caché en Redis de Azure y exportación de datos desde este servicio).
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

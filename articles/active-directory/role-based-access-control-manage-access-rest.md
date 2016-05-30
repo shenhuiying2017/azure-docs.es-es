@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con la API de REST
@@ -23,7 +23,7 @@
 - [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 - [API DE REST](role-based-access-control-manage-access-rest.md)
 
-El control de acceso basado en roles (RBAC) del Portal de Azure y la API de Azure Resource Manager le permite administrar el acceso a la suscripción y los recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
+El control de acceso basado en rol (RBAC) del Portal de Azure y la API de Azure Resource Manager permiten administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
 
 ## Lista de todas las asignaciones de roles
@@ -36,7 +36,7 @@ Para obtener una lista de las asignaciones de roles, debe tener acceso a la oper
 
 Use el método **GET** con el identificador URI siguiente:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
@@ -56,8 +56,8 @@ Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista 
 | Condición | *{Filter}* | Sustituya |
 |-----------|------------|---------|
 | Para obtener una lista de las asignaciones de roles para únicamente el ámbito especificado, sin incluir las asignaciones de roles en ámbitos secundarios | `atScope()` | |
-| Para obtener una lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados | `principalId%20eq%20'{objectId}'` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario, grupo o entidad de servicio. Por ejemplo, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| Para obtener una lista de las asignaciones de roles solo para un usuario específico, incluidos los asignados a grupos de los que el usuario forme parte | `assignedTo('{objectId}')` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario. Por ejemplo, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| Para obtener una lista de las asignaciones de roles para solo un usuario, un grupo o una aplicación determinados | `principalId%20eq%20'{objectId}'` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario, grupo o entidad de servicio. Por ejemplo, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Para obtener una lista de las asignaciones de roles solo para un usuario específico, incluidos los asignados a grupos de los que el usuario forme parte | `assignedTo('{objectId}')` | Reemplace *{objectId}* por el valor objectId de Azure AD del usuario. Por ejemplo, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -259,7 +259,7 @@ Para obtener una lista de roles, debe tener acceso a la operación `Microsoft.Au
 
 Use el método **GET** con el identificador URI siguiente:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Dentro del URI, realice las sustituciones siguientes para personalizar la solicitud:
 
@@ -714,4 +714,4 @@ Código de estado: 200
 
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

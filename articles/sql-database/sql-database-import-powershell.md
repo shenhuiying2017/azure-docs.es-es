@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell
@@ -41,10 +41,6 @@ Para importar una base de datos SQL, necesita lo siguiente:
 - Un archivo .bacpac (BACPAC) de la base de datos que quiere importar. El BACPAC debe estar en un contenedor de blobs de [cuenta de almacenamiento de Azure (clásica)](../storage/storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT] Este artículo contiene comandos para las versiones de Azure PowerShell, hasta la versión 1.0 (*sin incluir esta ni las posteriores*). Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**.
-
-
-
 ## Configuración de las credenciales y selección de la suscripción
 
 En primer lugar debe establecer el acceso a su cuenta de Azure; por tanto, inicie PowerShell y luego ejecute el siguiente cmdlet. En la pantalla de inicio de sesión escriba el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
@@ -67,7 +63,7 @@ Después de ejecutar correctamente **Select-AzureSubscription** volverá al sím
 
 Hay algunas variables que necesita para reemplazar los valores de ejemplo con los valores específicos de la base de datos y la cuenta de almacenamiento.
 
-El nombre del servidor debe ser un servidor que exista actualmente en la suscripción seleccionada en el paso anterior y es el servidor en el que quiere crear la base de datos.
+El nombre del servidor debe ser un servidor que exista actualmente en la suscripción seleccionada en el paso anterior y es el servidor en el que quiere crear la base de datos. Tenga en cuenta que no se admite la importación de una base de datos directamente en un grupo elástico, pero puede importar primero en una base de datos única y luego mover la base de datos a un grupo.
 
 El nombre de la base de datos es el nombre que desea para la nueva base de datos.
 
@@ -153,4 +149,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba el inicio de
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

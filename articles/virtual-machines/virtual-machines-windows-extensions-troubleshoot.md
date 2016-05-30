@@ -24,13 +24,13 @@
 [AZURE.INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
 ## Consulta del estado de la extensión
-Las plantillas del Administrador de recursos de Azure se pueden ejecutar desde Azure Powershell. Cuando se ejecute la plantilla, el estado de extensión se puede ver desde el Explorador de recursos de Azure o las herramientas de la línea de comandos.
+Las plantillas de Azure Resource Manager se pueden ejecutar desde Azure PowerShell. Cuando se ejecute la plantilla, el estado de extensión se puede ver desde el Explorador de recursos de Azure o las herramientas de la línea de comandos.
 
 Aquí tiene un ejemplo:
 
 Azure PowerShell:
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Este es la salida de ejemplo:
 
@@ -64,10 +64,10 @@ Este es la salida de ejemplo:
 Si está ejecutando los scripts en la máquina virtual mediante la extensión de script personalizada, a veces podría recibir un error en el que la máquina virtual se creó correctamente, pero en el que el script ha generado un error. En estas condiciones, la manera que se recomienda para recuperarse de este error es quitar la extensión y volver a ejecutar la plantilla. Nota: en el futuro, esta funcionalidad se mejoraría para eliminar la necesidad de desinstalar la extensión.
 
 
-#### Eliminación de la extensión de Azure Powershell
+#### Eliminación de la extensión de Azure PowerShell
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

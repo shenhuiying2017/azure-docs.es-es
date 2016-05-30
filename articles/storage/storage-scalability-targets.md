@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="robinsh" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -23,13 +23,11 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 >[AZURE.NOTE] Todas las cuentas de almacenamiento se ejecutan en la nueva topología de red plana y admiten los objetivos de escalabilidad y rendimiento descritos a continuación, independientemente de cuándo se crearon. Para obtener más información acerca de la arquitectura de red plana del almacenamiento de Azure y de la escalabilidad, vea [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en la nube altamente disponible](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!-- -->
-
 >[AZURE.IMPORTANT] Los objetivos de escalabilidad y rendimiento que mencionamos aquí son objetivos exigentes, pero se pueden lograr. En todos los casos, la velocidad de solicitudes y el ancho de banda obtenido por la cuenta de almacenamiento depende del tamaño de los objetos almacenados, de los patrones de acceso utilizados y del tipo de carga de trabajo que realiza la aplicación. Asegúrese de probar el servicio para determinar si el rendimiento se ajusta a sus requisitos. Si es posible, evite picos en la tasa de tráfico y asegúrese de que este se distribuya equitativamente entre las particiones.
 
 >Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 (servidor ocupado) o el código de error 500 (tiempo de espera de operación). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 
 ## Objetivos de escalabilidad para blobs, colas, tablas y archivos
@@ -40,8 +38,7 @@ Si las necesidades de su aplicación superan los objetivos de escalabilidad de u
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-
-Consulte [Tamaños de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) para obtener información adicional.
+Consulte el artículo sobre [tamaños de las máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [tamaños de las máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obtener más información.
 
 ### Cuentas de almacenamiento estándar
 
@@ -86,4 +83,4 @@ Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de pa
 - [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 - [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

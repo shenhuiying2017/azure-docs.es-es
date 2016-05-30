@@ -34,11 +34,11 @@ De forma predeterminada, el motor de Aplicación lógica superará el tiempo de 
 
 Al ejecutar un paso o una tarea largos, lo primero que debe hacer es asegurarse de que el motor sabe que no se ha agotado el tiempo de espera. También debe comunicarse con el motor para que sepa cuando ha terminado la tarea y, finalmente, debe devolver datos relevantes para el motor para poder seguir con el flujo de trabajo. Para completarlo mediante una API, siga el flujo que aparece a continuación. Estos pasos son desde el punto de vista de la API personalizada:
 
-1\. Cuando se recibe una solicitud, se devuelve una respuesta inmediatamente (antes de realizar el trabajo). Esta respuesta será una respuesta `202 ACCEPTED`, que permite al motor saber que ha obtenido los datos, aceptado la carga y ahora se está procesando. La respuesta 202 debe contener los siguientes encabezados:
- * encabezado `location` (obligatorio): se trata de una ruta absoluta a la dirección URL que Aplicaciones lógicas puede usar para comprobar el estado del trabajo.
- * `retry-after` (opcional, con el valor predeterminada 20 para las acciones). Se trata del número de segundos que el motor debe esperar antes de sondear la dirección URL de encabezado de ubicación para comprobar el estado.
+1. Cuando se recibe una solicitud, se devuelve una respuesta inmediatamente (antes de realizar el trabajo). Esta respuesta será una respuesta `202 ACCEPTED`, que permite al motor saber que ha obtenido los datos, aceptado la carga y ahora se está procesando. La respuesta 202 debe contener los siguientes encabezados: 
+ * Encabezado `location` (obligatorio): se trata de una ruta absoluta a la dirección URL que Aplicaciones lógicas puede usar para comprobar el estado del trabajo.
+ * `retry-after` (opcional, con el valor predeterminado 20 para las acciones). Se trata del número de segundos que el motor debe esperar antes de sondear la dirección URL de encabezado de ubicación para comprobar el estado.
 
-2\. Una vez comprobado el estado de trabajo, realice las siguientes comprobaciones:
+2. Una vez comprobado el estado del trabajo, realice las siguientes comprobaciones: 
  * Si el trabajo ha terminado: devuelve una respuesta `200 OK`, con la carga de la respuesta.
  * Si el trabajo todavía se está procesando: devuelve otra respuesta `202 ACCEPTED`, con los mismos encabezados como respuesta inicial.
 
@@ -89,4 +89,4 @@ Actualmente, el diseñador de Aplicación lógica no admite la detección de un 
 
 Puede ver un ejemplo de un desencadenador de webhook en GitHub: [aquí](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/20/2016"
+	ms.date="04/29/2016"
 	ms.author="carlrab" />
 
 # Guía de rendimiento de Base de datos SQL de Azure
@@ -62,6 +62,8 @@ La configuración del nivel de rendimiento en los niveles de servicio Estándar 
 
 Para obtener más información sobre los niveles de servicio y los niveles de rendimiento, consulte [Niveles de servicio y niveles de rendimiento de Base de datos SQL de Azure](sql-database-service-tiers.md).
 
+
+
 ## Razones para usar los niveles de servicio
 
 Aunque cada carga de trabajo puede variar, el propósito de los niveles de servicio es proporcionar una previsibilidad de alto rendimiento en diversos niveles de rendimiento. Permite a los clientes con elevados requisitos de recursos para sus bases de datos trabajar en un entorno informático más dedicado.
@@ -84,6 +86,20 @@ Aunque cada carga de trabajo puede variar, el propósito de los niveles de servi
 El nivel exacto que necesitará depende de los requisitos de carga máxima para cada dimensión de recursos. Algunas aplicaciones pueden usar pocas cantidades de un recurso pero tener requisitos significativos en otro.
 
 Para obtener más información sobre los niveles de servicio, consulte [Niveles de servicio y niveles de rendimiento de Base de datos SQL de Azure](sql-database-service-tiers.md).
+
+## Información de precios y facturación
+
+Los grupos de bases de datos elásticos se facturan según la características siguientes:
+
+- Los grupos elásticos se facturan desde su creación, incluso si no contiene ninguna base de datos.
+- Los grupos elásticos se facturan por horas. Se trata de la misma frecuencia de medición que la de los niveles de rendimiento de las bases de datos únicas.
+- Si se cambia el tamaño de un grupo elástico a una nueva cantidad de eDTU, el grupo no se factura según la nueva cantidad de eDTU hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos independientes.
+
+
+- El precio de un grupo elástico se basa en el número de eDTU del grupo. El precio de un grupo elástico es independiente de la utilización de las bases de datos elásticas de dentro de él.
+- El precio se calcula por (número de eDTU de grupo) x (precio unitario por eDTU).
+
+El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario de eDTU para una base de datos independiente del mismo nivel de servicio. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Límites y capacidades de nivel de servicio
 Cada nivel de servicio y nivel de rendimiento están asociados a distintos límites y características de rendimiento. La tabla siguiente describe estas características para una sola base de datos.
@@ -110,7 +126,7 @@ Las secciones siguientes proporcionan más información sobre cada área de la t
 
 *Restauración geográfica* está disponible para todos los niveles de servicio sin ningún costo adicional. En el caso de una interrupción, puede usar la copia de seguridad con redundancia geográfica más reciente para restaurar la base de datos en cualquier región de Azure.
 
-La replicación geográfica activa y la estándar proporcionan similares características de recuperación ante desastres, pero con un objetivo de punto de recuperación (RPO) mucho menor. Por ejemplo, con la restauración geográfica, el RPO es de menos de una hora (es decir, la copia de seguridad puede ser de hasta una hora antes). Pero en la replicación geográfica , el RPO es inferior a 5 segundos.
+La [replicación geográfica activa](sql-database-geo-replication-overview.md) proporciona similares características de recuperación ante desastres, pero con un objetivo de punto de recuperación (RPO) mucho menor. Por ejemplo, con la restauración geográfica, el RPO es de menos de una hora (es decir, la copia de seguridad puede ser de hasta una hora antes). Pero en la replicación geográfica activa, el RPO es inferior a 5 segundos.
 
 Para obtener más información, consulte [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md).
 
@@ -291,11 +307,11 @@ Aunque los niveles de servicio están diseñados para mejorar la estabilidad de 
 ## Técnicas de optimización
 En esta sección se explican algunas técnicas que puede usar para optimizar Base de datos SQL de Azure para obtener el mejor rendimiento de la aplicación y que pueda ejecutarla en el menor nivel de rendimiento posible. Varias de las técnicas coinciden con los procedimientos recomendados de optimización tradicionales de SQL Server, pero otras son específicas de Base de datos SQL de Azure. En algunos casos, las técnicas tradicionales de SQL Server se pueden ampliar para que funcionen también en Base de datos SQL de Azure, examinando para ello los recursos consumidos para una base de datos con el fin de encontrar áreas de mayor optimización.
 
-### Query Performance Insight y Asesor de índice
-Base de datos SQL ofrece dos herramientas en el Portal de Azure clásico para analizar y corregir problemas de rendimiento de la base de datos:
+### Información de rendimiento de consultas y Asesor de Base de datos SQL
+Base de datos SQL ofrece dos herramientas en el Portal de Azure para analizar y corregir problemas de rendimiento de la base de datos:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Index Advisor](sql-database-index-advisor.md)
+- [Asesor de Base de datos SQL](sql-database-index-advisor.md)
 
 Consulte los vínculos anteriores para obtener más información sobre cada una de las herramientas y sobre cómo usarlas. Las dos secciones siguientes sobre índices que faltan y la optimización de consultas, proporcionan otras formas de buscar manualmente y corregir los problemas de rendimiento similares. Se recomienda probar las herramientas en el portal para diagnosticar y corregir problemas de manera más eficiente. Use la optimización manual para casos especiales.
 
@@ -324,7 +340,7 @@ En el ejemplo siguiente se crea un caso donde el plan de consulta seleccionado c
 
 Base de datos SQL de Azure contiene funcionalidad que ayuda a los administradores de bases de datos de sugerencias a encontrar y corregir casos frecuentes de índices que faltan. Las vistas de administración dinámica (DMV) integradas en Base de datos SQL de Azure miran la compilación de consultas en la que un índice reduciría considerablemente el costo estimado para ejecutar una consulta. Durante la ejecución de las consultas, hace un seguimiento de cuándo se ejecuta cada plan de consulta, así como de la diferencia estimada entre el plan de consulta en ejecución y uno imaginado en el que exista ese índice. Esto permite a un administrador de bases de datos adivinar rápidamente qué cambios de diseño de la base de datos física pueden mejorar el costo total de la carga de trabajo para una base de datos específica y su carga de trabajo real.
 
->[AZURE.NOTE] Antes de usar las DMV para buscar índices que faltan, revise la sección sobre [Query Performance Insight y Index Advisor](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Antes de usar las DMV para buscar índices que faltan, revise la sección sobre [Información de rendimiento de consultas y Asesor de Base de datos SQL](#query-performance-insight-and-index-advisor).
 
 La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
@@ -491,4 +507,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -52,7 +52,9 @@ Si recibe un mensaje similar al siguiente al intentar cargar o ejecutar cmdlets:
         + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-Para corregir esto, reinicie el equipo.
+This can be corrected by restarting the machine or importing the cmdlets from C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ as following (where XXXX is the version of PowerShell installed:
+```
+import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\azure.psd1" import-module "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\XXXX\\expressroute\\expressroute.psd1" ```
 
 ###Instalación de Azure PowerShell desde la galería de PowerShell
 
@@ -175,4 +177,4 @@ Para obtener más información sobre los cmdlets, consulte [Referencia de cmdlet
 
 Para ver scripts de ejemplo e instrucciones que lo ayuden a aprender a usar scripting para administrar Azure, visite el [Centro de scripts](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

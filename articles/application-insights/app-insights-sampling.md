@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
 
 #  Muestreo en Application Insights.
@@ -23,6 +23,18 @@
 El muestreo es una característica de Application Insights que permite recopilar y almacenar un conjunto reducido de telemetría al mismo tiempo que se mantiene un análisis estadísticamente correcto de los datos de la aplicación. Reduce el tráfico y ayuda a evitar la [limitación](app-insights-pricing.md#data-rate). Los datos se filtran de manera que los elementos relacionados se permitan, para que sea posible desplazarse entre elementos cuando se realicen investigaciones de diagnóstico. Cuando los recuentos de métrica se presentan al usuario en el portal, se renormalizan para tener en cuenta el muestreo y minimizar cualquier efecto en las estadísticas.
 
 El muestreo está actualmente en versión beta y puede cambiar en el futuro.
+
+## En resumen:
+
+* El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %.
+* El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría. El muestreo automático solo se activa con grandes volúmenes y únicamente en aplicaciones de servidor web ASP.NET.
+* También puede establecer el muestreo manualmente, bien en el portal en la página de precios (para reducir el volumen de telemetría retenida y no superar la cuota mensual), bien en el SDK de ASP.NET en el archivo .config, también para reducir el tráfico de red.
+* La velocidad de muestreo actual es una propiedad de cada registro. En la ventana de búsqueda, abra un evento, como una solicitud. Expanda las propiedades completas con los puntos suspensivos "…" para buscar la propiedad "recuento *", llamada, por ejemplo, "recuento de solicitudes" o "recuento de eventos", en función del tipo de telemetría. Si es >1, se produce el muestreo. Un recuento de 3 significaría que el muestreo está en el 33 %: cada registro retenido corresponde a 3 registros generados originalmente.
+* Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
+* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
+
+
+## Tipos de muestreo
 
 Existen tres métodos de muestreo alternativos:
 
@@ -41,6 +53,8 @@ Establezca la frecuencia de muestreo en la hoja Cuotas y precios:
 ![En la hoja Información general de la aplicación, haga clic en Configuración, Cuota, Ejemplos y, luego, seleccione una frecuencia de muestreo y haga clic en Actualizar.](./media/app-insights-sampling/04.png)
 
 Al igual que otros tipos de muestreo, el algoritmo conserva elementos de telemetría relacionados. Por ejemplo, cuando se inspeccione la telemetría en Búsqueda, podrá buscar la solicitud relacionada con una excepción determinada. Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones se mantienen correctamente.
+
+Los puntos de datos que se descartan por muestreo no están disponibles en ninguna característica de Application Insights como [exportación continua](app-insights-export-telemetry.md).
 
 El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Si la velocidad de muestreo en el SDK es inferior al 100 %, se omite la velocidad de muestreo de ingesta que haya establecido.
 
@@ -74,7 +88,7 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     Cuando se cambia el valor de porcentaje de muestreo, tiempo mínimo que se tarda en permitir de nuevo que se reduzca el porcentaje de muestreo para capturar menos datos.
 
-* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
 
     Cuando se cambia el valor de porcentaje de muestreo, tiempo mínimo que se tarda en permitir de nuevo que se aumente el porcentaje de muestreo para capturar más datos.
 
@@ -242,6 +256,7 @@ En lugar de establecer el parámetro de muestreo en el archivo .config, puede us
 
 ([Más información acerca de los procesadores de telemetría](app-insights-api-filtering-sampling.md#filtering)).
 
+
 ## ¿Cuándo usar un muestreo?
 
 El muestreo adaptable está habilitado automáticamente si usa el SDK de ASP.NET versión 2.0.0-beta3 o posterior. Independientemente de la versión del SDK que utilice, puede emplear el muestreo de ingesta (en nuestro servidor).
@@ -315,9 +330,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Sí, el muestreo adaptable cambia gradualmente el porcentaje de muestreo, en función del volumen de datos de telemetría observado en ese momento.
 
-*¿Se puede averiguar la frecuencia de muestreo que usa el muestreo adaptable?*
-
- * Sí, utilice el método de código de la configuración de muestreo adaptativo y podrá proporcionar una devolución de llamada que obtenga la velocidad de muestreo. Si utiliza la exportación continua, puede ver la velocidad de muestreo en los puntos de datos exportados.
+ 
 
 *Si uso el muestreo de frecuencia fija, ¿cómo sé cuál es el porcentaje de muestreo que funcionará mejor para mi aplicación?*
 
@@ -343,4 +356,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
  * Inicialice una instancia independiente de TelemetryClient con un nuevo valor de TelemetryConfiguration (no el activo de forma predeterminada). Úsela para enviar sus eventos excepcionales.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

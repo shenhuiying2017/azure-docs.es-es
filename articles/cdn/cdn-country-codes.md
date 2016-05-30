@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Códigos de país
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 La función **Filtrado por país** usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido. La tabla siguiente contiene todos los códigos de país. Si especifica "EU" (Europa) o "AP" (Asia Pacífico), se bloqueará o permitirá un subconjunto de direcciones IP que tengan su origen en cualquier país de esas regiones. Para obtener más información sobre cómo usar la función de filtrado por país, consulte [Cómo restringir el acceso a contenidos por país](cdn-restrict-access-by-country.md).
 
@@ -268,4 +270,4 @@ La función **Filtrado por país** usa códigos de país para definir los paíse
 | ZM | Zambia | |
 | ZW | Zimbabue | |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

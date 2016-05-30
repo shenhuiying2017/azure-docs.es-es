@@ -34,7 +34,7 @@ Reliable Collections se puede considerar como la evolución natural de las clase
 - Asincrónico: las API son asincrónicas para asegurarse de que los subprocesos no se bloquean durante las E/S.
 - Transaccional: las API usan la abstracción de transacciones para que pueda administrar fácilmente varias instancias de Reliable Collections dentro de un servicio.
 
-Colecciones fiables proporcionan garantías de homogeneidad sólidas de fábrica con el fin de facilitar el razonamiento sobre el estado de la aplicación. La coherencia fuerte se consigue asegurándose de que la transacción finaliza únicamente tras aplicar toda la transacción en un quórum de réplicas, incluida la principal. Para conseguir una coherencia más débil, las aplicaciones pueden efectuar la confirmación al cliente o al solicitante antes de devolver la confirmación asincrónica.
+Colecciones fiables proporcionan garantías de homogeneidad sólidas de fábrica con el fin de facilitar el razonamiento sobre el estado de la aplicación. La coherencia fuerte se consigue asegurándose de que las confirmaciones de las transacciones finalizan únicamente tras registrar toda la transacción en un cuórum mayoritario de réplicas, incluida la principal. Para conseguir una coherencia más débil, las aplicaciones pueden efectuar la confirmación al cliente o al solicitante antes de devolver la confirmación asincrónica.
 
 Las API de Reliable Collections son una evolución de las API de colecciones simultáneas (que se encuentran en el espacio de nombres **System.Collections.Concurrent**):
 
@@ -55,7 +55,7 @@ Colecciones fiables elige automáticamente el nivel de aislamiento que se usará
 Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 
 - **Repeatable Read**: especifica que las instrucciones no puedan leer datos que se han modificado, pero que aún no han confirmado otras transacciones, y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: especifica que los datos que ha leído cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Snapshot**: especifica que los datos que ha leído cualquier instrucción de una transacción sean la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción. La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción. Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual. El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción. Las instantáneas son coherentes entre colecciones confiables. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 El diccionario fiable y la cola fiable admiten la lectura de las escrituras. En otras palabras, cualquier escritura dentro de una transacción será visible en una lectura posterior que pertenezca a la misma transacción.
 
@@ -99,24 +99,28 @@ Tenga en cuenta que la situación de interbloqueo anterior es un buen ejemplo de
 
 ## Recomendaciones
 
-- No modifique un objeto de tipo personalizado que hayan devuelto las operaciones de lectura (por ejemplo, `TryPeekAsync` o `TryGetAsync`). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
+- No modifique un objeto de tipo personalizado que hayan devuelto las operaciones de lectura (por ejemplo, `TryPeekAsync` o `TryGetValueAsync`). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
 - No haga una copia en profundidad del objeto devuelto de tipo personalizado antes de modificarlo. Por ello, los struct y los tipos integrados son una transmisión por valor, no es necesario hacer una copia en profundidad en ellos.
 - No use `TimeSpan.MaxValue` para tiempos de espera. Los tiempos de espera se deben utilizar para detectar interbloqueos.
 - No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
+- Asegúrese de que la implementación de `IComparable<TKey>` es correcta. El sistema asume la dependencia de este elemento para combinar los puntos de control.
+- Considere la posibilidad de utilizar la funcionalidad de copia de seguridad y restauración para la recuperación ante desastres.
 
 Algunos aspectos que debe tener en cuenta:
 
 - El tiempo de espera predeterminado es de 4 segundos para todas las API de Reliable Collection. La mayoría de los usuarios no deben reemplazar esto.
 - El token de cancelación predeterminado es `CancellationToken.None` en todas las API de colecciones confiables.
 - El parámetro de tipo de clave (*TKey*) de un diccionario confiable debe implementar correctamente `GetHashCode()` y `Equals()`. Las claves deben ser inmutables.
-- Las enumeraciones son instantáneas coherentes dentro de una colección. Sin embargo, las enumeraciones de varias colecciones no son coherentes entre las colecciones.
 - Para lograr una alta disponibilidad para las colecciones confiables, cada servicio debe tener al menos un destino y un tamaño de conjunto de réplicas mínimo de 3.
+- Las operaciones de lectura de la base de datos secundaria pueden leer versiones que no están confirmadas en el cuórum. Esto significa que una versión de datos leída desde una única base de datos secundaria podría progresar como false. Evidentemente, las lecturas de la base de datos principal siempre son estables, es decir, que nunca pueden progresar como false.
 
 ## Pasos siguientes
 
 - [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
+- [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)
+- [Configuración del administrador de estado confiable](service-fabric-reliable-services-configuration.md)
 - [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avanzado del modelo de programación de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Aprovisionamiento de Microsoft Data Science Virtual Machine
-
-## Introducción
 
 Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
 
@@ -99,7 +97,7 @@ Ejecute el siguiente comando desde la línea de comandos en Data Science Virtual
 
 Elija una contraseña segura cuando se le solicite.
 
-Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno que se encuentra en: **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***.
+Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno sito en **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***.
 
 Solo debe reemplazar el valor de hash existente que se encuentra entre comillas. Deben conservarse las comillas y el prefijo ***sha1:*** del valor del parámetro.
 
@@ -111,10 +109,10 @@ Por último, debe detener y reiniciar el servidor de Ipython que se ejecuta en l
 Si desea usar R para su análisis, la máquina virtual tiene Microsoft R Server Developer Edition instalado. Microsoft R Server es una plataforma de análisis de nivel empresarial que se puede implementar ampliamente gracias a que R es compatible, escalable y seguro. Compatible con una gran variedad de estadísticas de macrodatos, con funcionalidades de modelado de predicción y de aprendizaje automático, R Server admite toda la gama de análisis: exploración, análisis, visualización y modelado. Al usar y ampliar R de código abierto, Microsoft R Server es totalmente compatible con scripts, funciones y paquetes CRAN de R, a fin de analizar datos a escala empresarial. También resuelve las limitaciones de memoria de R de código abierto al agregar el procesamiento en paralelo y fragmentado de datos a Microsoft R Server, lo que permite a los usuarios ejecutar análisis en volúmenes de datos más grandes de lo que cabe en la memoria principal. También se encuentra un IDE para R empaquetado en la máquina virtual, al que se puede acceder haciendo clic en el icono "Revolution R Enterprise 8.0" en el menú Inicio o en el escritorio. Puede descargar y usar otros IDE, así como [RStudio](http://www.rstudio.com).
 
 ### Python
-Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 y 3.5. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar Herramientas de Python para Visual Studio (PTVS) que se instala en la edición de Visual Studio 2015 Community o uno de los IDE incluidos con Anaconda, como IDLE o Spyder. Para iniciar uno de ellos, busque en la barra de búsqueda (tecla **Win** + **S**). **Nota**: A fin de señalar las Herramientas de Python para Visual Studio en Anaconda Python 2.7 y 3.5, debe crear entornos personalizados entornos para cada versión; para ello, vaya a Herramientas -> Herramientas de Python -> Entornos de Python y, a continuación, haga clic en "+ Personalizar" en Visual Studio 2015 Community Edition y establecer las rutas de acceso de entorno. Anaconda Python 2.7 se instala en C:\\Anaconda y Anaconda Python 3.5 se instala en c:\\Anaconda\\envs\\py35. Consulte la [documentación de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para obtener pasos detallados.
+Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 y 3.5. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar Herramientas de Python para Visual Studio (PTVS) que se instala en la edición de Visual Studio 2015 Community o uno de los IDE incluidos con Anaconda, como IDLE o Spyder. Para iniciar uno de ellos, busque en la barra de búsqueda (tecla **Win** + **S**). **Nota**: A fin de señalar las Herramientas de Python para Visual Studio en Anaconda Python 2.7 y 3.5, debe crear entornos personalizados para cada versión; para ello, vaya a Herramientas -> Herramientas de Python -> Entornos de Python y, a continuación, haga clic en "+ Personalizar" en Visual Studio 2015 Community Edition y establezca las rutas de acceso de entorno. Anaconda Python 2.7 se instala en C:\\Anaconda y Anaconda Python 3.5 se instala en c:\\Anaconda\\envs\\py35. Consulte la [documentación de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para obtener pasos detallados.
 
 ### Jupyter Notebook
-La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se ha configurado previamente un servidor Jupyter Notebook con kernels de Python 2, Python 3 y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el explorador y tener acceso al servidor Notebook. Si está en la máquina virtual a través de un escritorio remoto, también puede visitar [https://localhost:9999/](https://localhost:9999/) para tener acceso al servidor Jupyter Notebook (nota: si recibe alguna advertencia de certificado, continúe). Hemos empaquetado cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página de inicio del cuaderno después de que se autentique en Jupyter Notebook con la contraseña creada en el paso anterior.
+La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se ha configurado previamente un servidor Jupyter Notebook con kernels de Python 2, Python 3 y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el explorador y tener acceso al servidor Notebook. Si está en la VM a través de un escritorio remoto, también puede visitar [https://localhost:9999/](https://localhost:9999/) para tener acceso al servidor de Jupyter Notebook (nota: Si recibe alguna advertencia de certificado, continúe.). Hemos empaquetado cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página de inicio del cuaderno después de que se autentique en Jupyter Notebook con la contraseña creada en el paso anterior.
 
 ### Visual Studio 2015 Community Edition
 Visual Studio Community Edition instalado en la máquina virtual. Es una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos muy pequeños. Puede revisar los términos de licencia [aquí](https://www.visualstudio.com/support/legal/mt171547). Haga doble clic en el icono del escritorio o en el menú **Inicio** para abrir Visual Studio. También puede buscar programas con **Win** + **S** y escribiendo "Visual Studio". Una vez ahí, puede crear proyectos en lenguajes como C# y Python. También encontrará complementos instalados que resultan prácticos para trabajar con servicios de Azure como Catálogo de datos de Azure, HDInsight de Azure (Hadoop, Spark) y Azure Data Lake.
@@ -128,8 +126,8 @@ También se ha empaquetado una versión limitada de SQL Server con Visual Studio
 En la VM se instalan varias herramientas de Azure:
 - Hay un acceso directo del escritorio para tener acceso a la documentación del SDK de Azure. 
 - Se usa **AzCopy** para mover datos dentro y fuera de la cuenta de Almacenamiento de Microsoft Azure. 
-- Se usa **Azure Storage Explorer** para explorar los objetos que ha almacenado en la cuenta de almacenamiento de Azure. 
-- **Microsoft Azure Powershell**: una herramienta para administrar los recursos de Azure en el lenguaje de scripting de Powershell también se instala en la VM. 
+- Se usa el **Explorador de almacenamiento de Azure** para explorar los objetos que ha almacenado en la cuenta de Almacenamiento de Azure. 
+- **Microsoft Azure Powershell**: En la VM también se instala una herramienta para administrar los recursos de Azure en el lenguaje de scripting de Powershell. 
 
 ###Power BI
 
@@ -149,4 +147,4 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com) para ver muestras de aprendizaje automático y de análisis de datos mediante Cortana Intelligence Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

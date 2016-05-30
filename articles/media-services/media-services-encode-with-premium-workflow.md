@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
 
->[AZURE.NOTE]Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
->
->- El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
+>[AZURE.NOTE] El procesador multimedia del flujo de trabajo premium del Codificador multimedia premium del que se habla en este tema no está disponible en China.
+
+Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 
 ##Información general
 
@@ -30,7 +30,7 @@ Los siguientes temas describen los detalles relacionados con el **flujo de traba
 
 - [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md): trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 
-- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo premium de codificador de medios** y el **Estándar de codificador multimedia**.
+- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **Flujo de trabajo Premium de Codificador multimedia** y de **Codificador multimedia estándar**.
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
@@ -268,6 +268,7 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 	}
 
 
+Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Microsoft.com.
 
 ##Rutas de aprendizaje de Servicios multimedia
 
@@ -277,4 +278,4 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

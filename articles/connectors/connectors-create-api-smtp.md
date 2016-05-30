@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de SMTP
 Conéctese a un servidor SMTP para enviar correo electrónico. La API de SMTP se puede usar desde:
 
-- Aplicaciones lógicas
+- Aplicaciones lógicas (descritas en este tema)
+- PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -29,7 +30,7 @@ Con SMTP, puede:
 - Compilar el flujo de negocio que incluye el envío de correo electrónico mediante SMTP. 
 - Usar una acción para enviar correo electrónico. Esta acción obtiene una respuesta y luego deja el resultado a disposición de otras acciones. Por ejemplo, cuando hay un nuevo archivo en el servidor FTP, puede seleccionar ese archivo y enviarlo por correo electrónico como datos adjuntos mediante SMTP. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 La API de SMTP tiene la siguiente acción disponible. No hay ningún desencadenador.
@@ -49,7 +50,7 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 | Nombre de usuario |Sí |Escriba el nombre de usuario para conectarse al servidor SMTP. |
 | Password | Sí|Escriba la contraseña del nombre de usuario. |
 
-Después de crear la conexión, especifique las propiedades de SMTP, como los valores Para o CC. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de SMTP, como los valores Para o CC. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de SMTP en otras aplicaciones lógicas.
 
@@ -92,6 +93,6 @@ Envía un correo electrónico a uno o más destinatarios. ```POST: /SendEmail```
 
 
 ## Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

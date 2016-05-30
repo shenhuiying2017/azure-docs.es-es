@@ -138,8 +138,7 @@ La tabla siguiente resume todos los factores de rendimiento y los pasos necesari
 ## Naturaleza de las solicitudes de E/S  
 Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es muy importante comprender la naturaleza de las solicitudes de E/S para tomar las decisiones correctas al diseñar la infraestructura de las aplicaciones.
 
-El tamaño de E/S es uno de los factores más importantes. El tamaño de E/S es el tamaño de la solicitud de operación de entrada/salida generada por la aplicación. El tamaño de E/S tiene una repercusión considerable en el rendimiento, especialmente en la IOPS y el ancho de banda que la aplicación es capaz de lograr. La fórmula siguiente muestra la relación entre IOPS, tamaño de E/S y ancho de banda y rendimiento.
-![](media/storage-premium-storage-performance/image1.png)
+El tamaño de E/S es uno de los factores más importantes. El tamaño de E/S es el tamaño de la solicitud de operación de entrada/salida generada por la aplicación. El tamaño de E/S tiene una repercusión considerable en el rendimiento, especialmente en la IOPS y el ancho de banda que la aplicación es capaz de lograr. La fórmula siguiente muestra la relación entre IOPS, tamaño de E/S y ancho de banda y rendimiento. ![](media/storage-premium-storage-performance/image1.png)
 
 Algunas aplicaciones permiten modificar su tamaño de E/S, mientras que otras aplicaciones no lo permiten. Por ejemplo, SQL Server determina el tamaño de E/S óptimo en sí; no proporciona a los usuarios ningún botón para cambiarlo. Por otro lado, Oracle proporciona un parámetro llamado [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) con el que puede configurar el tamaño de la solicitud de E/S de la base de datos.
 
@@ -178,7 +177,7 @@ Las máquinas virtuales a gran escala están disponibles en distintos tamaños c
 | Standard\_DS14 | 16 | 112 GB | OS = 1.023 GB <br> SSD Local = 224 GB | 32 | 576 GB | 50\.000 E/S por segundo <br> 512 MB por segundo | 4\.000 IOPS y 33 MB por segundo |
 | Standard\_GS5 | 32 | 448 GB | SO = 1023 GB <br> SSD Local = 896 GB | 64 | 4224 GB | 80\.000 E/S por segundo <br> 2000 MB por segundo | 5\.000 IOPS y 50 MB por segundo |
 
-Para una lista completa de todos los tamaños de máquinas virtuales de Azure disponibles, vea [Tamaños de máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-sizes.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
+Para ver una lista completa de todos los tamaños disponibles de máquina virtual de Azure, consulte el artículo sobre [tamaños de las máquinas virtuales Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [tamaños de las máquinas virtuales Linux](../virtual-machines/virtual-machines-linux-sizes.md). Elija un tamaño de máquina virtual que puede cumplir y escale a los requisitos de rendimiento de las aplicaciones que desee. Además, tenga en cuenta que debe seguir consideraciones importantes al elegir los tamaños de las máquinas virtuales.
 
 
 *Límites de escala* Los límites máximos de IOPS por máquina virtual y por disco son diferentes e independientes entre sí. Asegúrese de que la aplicación mantiene la IOPS dentro de los límites de la máquina virtual, así como los discos de premium conectados a ella. En caso contrario, el rendimiento de las aplicaciones experimentará una limitación.
@@ -269,7 +268,7 @@ En Windows, puede usar espacios de almacenamiento para seccionar discos conjunta
 Importante: Con la IU del Administrador del servidor, puede establecer el número total de columnas en hasta 8 para un volumen seccionado. Al conectar más de 8 discos, use PowerShell para crear el volumen. Mediante PowerShell, puede establecer un número de columnas igual al número de discos. Por ejemplo, si hay 16 discos en un solo conjunto de secciones; especifique 16 columnas en el parámetro *NumberOfColumns* del cmdlet de PowerShell *New-VirtualDisk*.
 
 
-En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados para seccionar discos en Linux, consulte [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver los pasos detallados sobre cómo seccionar discos en Linux, consulte [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 
 *Tamaño de franja* Una configuración importante en el seccionamiento del disco es el tamaño de franja. El tamaño de franja o tamaño de bloque es el fragmento de datos más pequeño que la aplicación puede manejar en un volumen seccionado. El tamaño de franja que configurar depende del tipo de aplicación y su patrón de solicitudes. Si elije un tamaño de franja incorrecto, podría provocar la desalineación de E/S, lo que conduce a una disminución del rendimiento de la aplicación.
@@ -310,13 +309,11 @@ Normalmente, una aplicación puede lograr un rendimiento máximo con 8-16+ E/S p
 
 Por ejemplo, en SQL Server, al establecer el valor de MAXDOP para una consulta en "4", se informa a SQL Server que puede usar un máximo de cuatro núcleos para ejecutar la consulta. SQL Server determinará el mejor valor de profundidad de la cola y el número de núcleos para la ejecución de la consulta.
 
-*Profundidad de la cola óptima* Un valor de profundidad de la cola muy alto también tiene sus inconvenientes. Si el valor de profundidad de la cola es demasiado alto, la aplicación intentará manejar una IOPS muy alta. A menos que la aplicación tiene discos persistentes con suficientes IOPS aprovisionada, esto puede afectar negativamente a las latencias de la aplicación. La siguiente fórmula muestra la relación entre la E/S por segundo, la latencia y la profundidad de la cola.
-![](media/storage-premium-storage-performance/image6.png)
+*Profundidad de la cola óptima* Un valor de profundidad de la cola muy alto también tiene sus inconvenientes. Si el valor de profundidad de la cola es demasiado alto, la aplicación intentará manejar una IOPS muy alta. A menos que la aplicación tiene discos persistentes con suficientes IOPS aprovisionada, esto puede afectar negativamente a las latencias de la aplicación. La siguiente fórmula muestra la relación entre la E/S por segundo, la latencia y la profundidad de la cola. ![](media/storage-premium-storage-performance/image6.png)
 
 No debe configurar la profundidad de la cola en cualquier valor alto, sino en un valor óptimo, que puede ofrecer suficientes IOPS para la aplicación sin afectar a las latencias. Por ejemplo, si la latencia de la aplicación debe ser 1 milisegundo, la profundidad de la cola necesaria para lograr 5.000 IOPS es QD = 5000 x 0,001 = 5.
 
-*Profundidad de la cola para un volumen seccionado* Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemente alta para que cada disco tenga una profundidad de la cola máxima individual. Por ejemplo, supongamos una aplicación que inserta una profundidad de la cola de 2 y hay 4 discos en la franja. Las dos solicitudes de E/S irán a dos discos y los dos discos restantes estarán inactivos. Por lo tanto, configure la profundidad de la cola de modo que todos los discos puedan estar ocupados. La siguiente fórmula muestra cómo determinar la profundidad de la cola de volúmenes seccionados.
-![](media/storage-premium-storage-performance/image7.png)
+*Profundidad de la cola para un volumen seccionado* Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemente alta para que cada disco tenga una profundidad de la cola máxima individual. Por ejemplo, supongamos una aplicación que inserta una profundidad de la cola de 2 y hay 4 discos en la franja. Las dos solicitudes de E/S irán a dos discos y los dos discos restantes estarán inactivos. Por lo tanto, configure la profundidad de la cola de modo que todos los discos puedan estar ocupados. La siguiente fórmula muestra cómo determinar la profundidad de la cola de volúmenes seccionados. ![](media/storage-premium-storage-performance/image7.png)
 
 ## Limitaciones  
 Almacenamiento premium de Azure aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Almacenamiento premium lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, un rendimiento menor o una IOPS menor. Si Almacenamiento premium no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación, aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
@@ -339,8 +336,7 @@ Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 1
 
 *Especificaciones de acceso* Las especificaciones: solicitud de tamaño de E/S, porcentaje de lectura/escritura y porcentaje de aleatorio o secuencial, se configuran mediante la pestaña “Access Specifications” (Especificaciones de Access) en Iometer. Cree una especificación de acceso para cada uno de los escenarios descritos a continuación. Cree las especificaciones de acceso y "Guarde" con un nombre como – RandomWrites\_8K, RandomReads\_8K. Seleccione la especificación correspondiente al ejecutar el escenario de prueba.
 
-A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de IOPS de escritura máxima:
-![](media/storage-premium-storage-performance/image8.png)
+A continuación se muestra un ejemplo de especificaciones de acceso para el escenario de IOPS de escritura máxima: ![](media/storage-premium-storage-performance/image8.png)
 
 *Especificaciones de prueba de IOPS máxima* Para demostrar el número máximo de E/S por segundo, use el tamaño de solicitud más pequeño. Use el tamaño de solicitud de 8K y cree especificaciones de lecturas y escrituras aleatorias.
 
@@ -397,7 +393,7 @@ A continuación se muestran capturas de pantalla de los resultados de la prueba 
 *Rendimiento máximo de lectura y escritura combinado* ![](media/storage-premium-storage-performance/image10.png)
 
 ### FIO  
-FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Almacenamiento premium. En los ejemplos, usamos una máquina virtual estándar 14 DS que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar las pruebas comparativas.
+FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Almacenamiento premium. En los ejemplos, usamos una máquina virtual estándar 14 DS que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar dichas pruebas.
 
 Antes de comenzar, [descargue FIO](https://github.com/axboe/fio) e instálelo en la máquina virtual.
 
@@ -440,8 +436,7 @@ Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
 
 	sudo fio --runtime 30 fiowrite.ini
 
-Mientras se ejecuta la prueba, podrá ver el número de IOPS de escritura que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 está ofreciendo su límite máximo de IOPS de escritura: 50.000 IOPS.
-![](media/storage-premium-storage-performance/image11.png)
+Mientras se ejecuta la prueba, podrá ver el número de IOPS de escritura que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 está ofreciendo su límite máximo de IOPS de escritura: 50.000 IOPS. ![](media/storage-premium-storage-performance/image11.png)
 
 *IOPS de lectura máxima* Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura máxima. Asígnele el nombre "fioread.ini".
 
@@ -477,8 +472,7 @@ Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
 
 	sudo fio --runtime 30 fioread.ini
 
-Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 proporciona más de 64.000 IOPS de lectura. Se trata de una combinación del rendimiento de la caché y el disco.
-![](media/storage-premium-storage-performance/image12.png)
+Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 proporciona más de 64.000 IOPS de lectura. Se trata de una combinación del rendimiento de la caché y el disco. ![](media/storage-premium-storage-performance/image12.png)
 
 *IOPS de lectura y escritura máxima* Cree el archivo de trabajo con las especificaciones siguientes para obtener la IOPS de lectura y escritura combinadas máxima. Asígnele el nombre "fioreadwrite.ini".
 
@@ -531,8 +525,7 @@ Ejecute el siguiente comando para ejecutar la prueba FIO durante 30 segundos:
 
 	sudo fio --runtime 30 fioreadwrite.ini
 
-Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura y escritura combinadas que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 proporciona más de 100.000 IOPS de lectura y escritura combinadas. Se trata de una combinación del rendimiento de la caché y el disco.
-![](media/storage-premium-storage-performance/image13.png)
+Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura y escritura combinadas que envían la máquina virtual y los discos premium. Como se muestra en el ejemplo siguiente, la máquina virtual DS14 proporciona más de 100.000 IOPS de lectura y escritura combinadas. Se trata de una combinación del rendimiento de la caché y el disco. ![](media/storage-premium-storage-performance/image13.png)
 
 *Rendimiento máximo combinado* Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.
 
@@ -547,4 +540,4 @@ Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendado
 - [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

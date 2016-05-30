@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Terminología del Catálogo de datos de Azure
@@ -51,7 +51,7 @@ Entre los metadatos descriptivos de un activo de datos se puede incluir informac
 - La URL de una herramienta de administración de identidades y de accesos (por ejemplo, Microsoft Identity Manager) que puede usarse para tener acceso al origen de datos.
 - Una entrada de texto sin formato que describe cómo los usuarios pueden tener acceso al origen de datos.
 
-## Vistas previas
+## Vista previa
 
 Una vista previa en el Catálogo de datos de Azure es una instantánea de hasta 20 registros que se puede extraer del origen de datos durante el registro y almacenar en el catálogo con los metadatos de recursos de datos. La vista previa puede ayudar a los usuarios que descubren un activo de datos a comprender mejor su función y objetivo. En otras palabras, ver datos de ejemplo puede resultar más valioso que ver tan solo los nombres de columna y los tipos de datos. Las vistas previas solo se admiten para las tablas y vistas y deben seleccionarse explícitamente por el usuario durante el registro.
 
@@ -73,7 +73,7 @@ Un experto es un usuario que se ha identificado como poseedor de una perspectiva
 
 ## Propietario
 
-Un propietario es un usuario que tiene privilegios adicionales para administrar un recurso de datos en el Catálogo de datos de Azure. Los usuarios pueden tomar posesión de los recursos de datos registrados y los propietarios pueden agregar a otros usuarios como copropietarios.
+Un propietario es un usuario que tiene privilegios adicionales para administrar un recurso de datos en el Catálogo de datos de Azure. Los usuarios pueden tomar posesión de los recursos de datos registrados y los propietarios pueden agregar a otros usuarios como copropietarios. Para más información, consulte [Cómo administrar recursos de datos](data-catalog-how-to-manage.md).
 > [AZURE.NOTE] Propiedad y administración solo están disponibles en la Standard Edition del Catálogo de datos de Azure.
 
 ## Registro
@@ -86,4 +86,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

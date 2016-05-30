@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
 
-## Introducción
-En este tema se describe cómo enumerar, cargar y descargar blobs usando la API de Python.
-
-Con la API de Python proporcionada en el SDK de Azure, puede
+En este tema se describe cómo enumerar, cargar y descargar blobs usando la API de Python. Con la API de Python proporcionada en el SDK de Azure, puede:
 
 - Crear un contenedor
 - Cargar un blob en un contenedor
@@ -40,12 +37,14 @@ A continuación se ofrecen vínculos de orientación sobre las tecnologías que 
 
 > [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](../storage/storage-dotnet-how-to-use-blobs.md) y [Servicio BLOB de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
+
 ## Requisitos previos
 
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
 - Para configurar una suscripción de Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 - Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+
 
 ## Cargar datos en blob
 
@@ -93,6 +92,7 @@ El siguiente código de ejemplo carga todos los archivos (excepto los directorio
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
+
 ## Descargar datos del blob
 
 Utilice los siguientes métodos para descargar datos de un blob:
@@ -129,4 +129,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

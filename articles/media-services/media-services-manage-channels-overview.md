@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales" 
-	description="En este tema se describe cómo configurar un canal que recibe una secuencia en directo de velocidad de bits múltiple desde un codificador local. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS." 
+	pageTitle="Información general de streaming en vivo con Servicios multimedia de Azure" 
+	description="Este tema proporciona información general de streaming en vivo con Servicios multimedia de Azure" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,239 +13,133 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
-	ms.author="cenkdin;juliako"/>
+	ms.date="05/17/2016"
+	ms.author="juliako"/>
 
-#Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
+#Información general de streaming en vivo con Servicios multimedia de Azure
 
 ##Información general
 
-En Servicios multimedia de Azure, un **canal** representa una canalización para procesar contenido de streaming en vivo. Un **canal** recibe streaming en vivo de la siguiente manera:
+Cuando se proporcionan eventos de streaming en vivo con Servicios multimedia de Azure normalmente participan los siguientes componentes:
 
-- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canal** sin más procesamiento. El codificador en directo puede enviar mediante lso una secuencia con una sola velocidad de bits, pero no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+- Una cámara que se usa para difundir un evento.
+- Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo.
 
-
-El siguiente diagrama representa un flujo de trabajo de streaming en vivo que usa un codificador en directo local para generar secuencias RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming).
-
-![Flujo de trabajo activo][live-overview]
-
-En este tema se trata lo siguiente:
-
-- [Escenario común de streaming en vivo](media-services-manage-channels-overview.md#scenario)
-- [Descripción de un canal y sus componentes relacionados](media-services-manage-channels-overview.md#channel)
-- [Consideraciones](media-services-manage-channels-overview.md#considerations)
-- [Tareas relacionadas con el streaming en vivo](media-services-manage-channels-overview.md#tasks)
-
-##<a id="scenario"></a>Escenario común de streaming en vivo
-En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones comunes de streaming en vivo.
-
-1. Conecte una cámara de vídeo a un equipo. Iniciar y configurar un codificador en directo local que genera una secuencia de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+	Opcionalmente, varios codificadores sincronizados en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo con sincronización de hora para lograr una conmutación por error perfecta sin pérdida de datos.
+- Un servicio de streaming en vivo que permita hacer lo siguiente:
 	
-	Este paso también puede realizarse después de crear el canal.
+	- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
+	- (Opcionalmente) Codificar la transmisión en una transmisión con velocidad de bits adaptable.
+	- Mostrar una vista previa de la secuencia en vivo.
+	- Registrar y almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
+	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
 
-1. Cree e inicie un canal.
-1. Recupere la URL de ingesta de canales. 
 
-	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+**Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para conseguir esto, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
-3. Cree un programa.
+En Servicios multimedia de Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
-	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
+Un **canal** representa una canalización para procesar contenido de streaming en vivo. Un canal puede recibir transmisiones de entrada en directo de la siguiente manera:
 
-	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
-1. Publique el recurso asociado al programa.   
+- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal que está configurado por la entrega de **paso a través**. La entrega de **paso a través** significa que las transmisiones ingeridas pasan a través de **canales** sin más procesamiento. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder, Telestream Wirecast y Adobe Flash Live. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
-2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).     
-
-La sección de [tareas de streaming en vivo](media-services-manage-channels-overview.md#tasks) incluye vínculos a temas que demuestran cómo realizar las tareas descritas anteriormente.
-
-##<a id="channel"></a>Descripción de un canal y sus componentes relacionados
-
-###<a id="channel_input"></a>Configuraciones de entrada de canal (introducción)
-
-####<a id="ingest_protocols"></a>Protocolo de streaming de ingesta
-
-Servicios multimedia admite la ingesta de fuentes en directo que usan el siguiente protocolo:
-
-- **MP4 fragmentado de velocidad de bits múltiple**
- 
-- **RTMP de velocidad de bits múltiple**
-
-	Cuando se selecciona el protocolo de streaming de introducción **RTMP**, se crean dos extremos de introducción (entrada) para el canal:
+	>[AZURE.NOTE] El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](/pricing/details/media-services/).
 	
-	**URL principal**: especifica la dirección URL completa del extremo de introducción RTMP principal del canal.
-
-	**URl secundaria**: especifica la dirección URL completa del extremo de introducción RTMP secundario del canal.
-
-
-	Use la dirección URL secundaria si quiere mejorar la durabilidad y la tolerancia a errores de la secuencia de entrada, así como la conmutación por error y la tolerancia a errores del codificador, especialmente en los siguientes escenarios.
-
-	- Un único codificador que realiza inserciones dobles en las URL principal y secundaria:
 	
-		El objetivo principal es proporcionar más resistencia a las fluctuaciones de la red y a las vibraciones. Algunos codificadores RTMP no controlan bien las desconexiones de red. Cuando se produce una desconexión de red, un codificador podría detener la codificación y no enviará los datos almacenados en búfer cuando vuelva a conectarse, lo que provoca discontinuidades y pérdida de datos. Las desconexiones de red pueden suceder por una red en mal estado o un mantenimiento inadecuado en el lado de Azure. Las URL principal y secundaria reducen los problemas de red y también proporcionan un proceso de actualización controlado. Cada vez que se produce una desconexión de red programada, Servicios multimedia administra la desconexión principal y secundaria, y proporciona un retraso entre las dos, lo que da tiempo a los codificadores a continuar enviando datos y volver a conectar. El orden de las desconexiones puede ser aleatorio, pero siempre habrá un retraso entre la principal y la secundaria, o viceversa. En este escenario, el codificador sigue siendo el único punto de error.
-	 
-	- Varios codificadores, cada uno insertando en un punto dedicado:
-		
-		Este escenario proporciona redundancia tanto para el codificador como para la entrada. En este escenario, encoder1 inserta en la dirección URL principal y encoder2 inserta en la dirección URL secundaria. Cuando se produce un error en un codificador, el otro codificador puede seguir enviando datos. Aún se puede seguir manteniendo la redundancia de datos porque Servicios multimedia no desconecta el principal y el secundario al mismo tiempo. En este escenario se da por hecho que los codificadores tienen sincronización temporal y proporcionan exactamente los mismos datos.
- 
-	- Varios codificadores que realizan una doble inserción en las URL principal y secundaria:
-	
-		En este escenario, ambos codificadores insertan datos en las URL principal y secundaria. Esto proporciona la mejor confiabilidad y tolerancia a errores, así como redundancia de datos. Puede tolerar errores en ambos codificadores, así como desconexiones si un codificador deja de funcionar. En este escenario se da por hecho que los codificadores tienen sincronización temporal y proporcionan exactamente los mismos datos.
+- Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). También se admite RTP (MPEG-TS), puesto que dispone de una conexión dedicada al centro de datos de Azure. Se sabe que los siguientes codificadores en directo con salida RTMP funcionan con los canales de este tipo: Telestream Wirecast y FMLE. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-Para obtener información sobre los codificadores en directo de RTMP, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Se aplican las siguientes consideraciones:
+A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
-- Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta. 
-- El uso de la dirección URL de ingesta secundaria requiere más ancho de banda. 
-- La secuencia entrante de velocidad de bits múltiple puede tener un máximo de 10 niveles de calidad de vídeo (también conocido conocidas como capas) y un máximo de 5 pistas de audio.
-- La mayor velocidad de bits promedio para cualquiera de los niveles o las capas de calidad de vídeo debe ser inferior a 10 Mbps.
-- La suma de las velocidades de bits promedio para todas las secuencias de audio y vídeo debe ser inferior a 25 Mbps.
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
-- Puede introducir una velocidad de bits única en su canal, pero como el canal no procesa la secuencia, las aplicaciones cliente también recibirán una secuencia de una sola velocidad de bits (no se recomienda esta opción).
+- **Ninguna** (paso a través): especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10.  
 
-####Direcciones URL de ingesta (extremos) 
+- **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Este método es más económico para la escalación vertical rápida para eventos poco frecuentes. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
-Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted especifica en el codificador en directo, de modo que el codificador puede insertar secuencias en sus canales.
+##Comparación de tipos de canales
 
-Puede obtener las direcciones URL de ingesta al crear el canal. Para obtener estas direcciones URL, el canal no puede estar **En ejecución**. Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución**. Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
+La tabla siguiente proporciona a una guía para comparar los dos tipos de canal compatibles en Servicios multimedia
 
-Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, no se puede consumir RTMP a través de SSL.
-
-####<a id="keyframe_interval"></a>Intervalo de fotogramas clave
-
-Cuando se usa un codificador en directo local para generar una secuencia de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de GOP (tal como la usa el codificador externo). Cuando el canal recibe esta secuencia entrante, puede entregar la secuencia en directo a las aplicaciones cliente de reproducción en cualquiera de los siguientes formatos: Smooth Streaming, DASH y HLS. Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Servicios multimedia calcula automáticamente la relación de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave, también denominado grupo de imágenes, GOP, que se recibe del codificador en directo.
-
-En la tabla siguiente se muestra cómo calcula la duración de los segmentos:
-
-Intervalo de fotogramas clave|Relación de empaquetado por segmento HLS (fragmento por segmento)|Ejemplo
+Característica|Canal de paso a través|Canal estándar
 ---|---|---
-menor o igual a 3 segundos|3:1|Si KeyFrameInterval (o GOP) es 2 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 3 a 1, lo que creará un segmento HLS de 6 segundos.
-de 3 a 5 segundos|2:1|Si KeyFrameInterval (o GOP) es 4 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 2 a 1, lo que creará un segmento HLS de 8 segundos.
-mayor de 5 segundos|1:1|Si KeyFrameInterval (o GOP) es 6 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 1 a 1, lo que creará un segmento HLS de 6 segundos.
+La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube|No|Sí
+Resolución máxima, número de capas|1080p, 8 capas, 60+fps|720p, 6 capas, 30 fps
+Protocolos de entrada|RTMP, Smooth Streaming|RTMP, Smooth Streaming y RTP
+Precio|Consulte la [página de precios](/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|Consulte la [página de precios](/pricing/details/media-services/) 
+Tiempo de ejecución máximo|24x7|8 horas
+Compatibilidad con inserción de tabletas táctiles|No|Sí
+Compatibilidad con señalización de anuncios|No|Sí
+Títulos CEA 608/708 de paso a través|Sí|Sí
+Capacidad para la recuperación de breves pausas en la fuente de contribución|Sí|No (el canal comenzará a usar la tableta táctil transcurridos más de 6 segundos sin datos de entrada)
+Compatibilidad con GOP de entrada no uniformes|Sí|No: la entrada debe ser GOP de 2 s fijos
+Compatibilidad con la entrada de la velocidad de fotogramas variable|Sí|No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s.
+Apagado automático de canales cuando se pierde la fuente de entrada|No|Después de 12 horas, si no hay ningún programa en ejecución 
+
+##Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)
+
+En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de **paso a través**.
+
+![Flujo de trabajo activo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+
+Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
+
+##Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
+
+El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para realizar la codificación en directo con Servicios multimedia.
+
+![Flujo de trabajo activo](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
+
+Para obtener más información, vea [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+
+##Descripción de un canal y sus componentes relacionados
+
+###Canal
+
+En Servicios multimedia, los [canal](https://msdn.microsoft.com/library/azure/dn783458.aspx)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.
+
+Puede obtener la dirección URL de introducción y la dirección URL de vista previa cuando crea el canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado iniciado. Cuando está listo para comenzar a insertar datos desde un transcodificador en vivo al canal, este debe estar iniciado. Una vez que el transcodificar en vivo comienza a introducir datos, puede tener una vista previa de la transmisión.
+
+Cada cuenta de Servicios multimedia puede contener varios canales, varios programas y varios StreamingEndpoints. Según las necesidades de ancho de banda y seguridad, los servicios de StreamingEndpoint pueden dedicarse a uno o más canales. Puede extraer cualquier StreamingEndpoint de cualquier canal.
 
 
-Puede cambiar la relación de fragmentos por segmento configurando la salida del canal y estableciendo FragmentsPerSegment en ChannelOutputHls.
+###Programa 
 
-También puede cambiar el valor del intervalo de fotogramas clave estableciendo la propiedad KeyFrameInterval en ChanneInput.
+Un [programa](https://msdn.microsoft.com/library/azure/dn783463.aspx) le permite controlar la publicación y almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal. Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la propiedad **ArchiveWindowLength**. Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas.
 
-Si se establece explícitamente KeyFrameInterval, la relación de empaquetado por segmento HLS FragmentsPerSegment se calcula mediante las reglas descritas anteriormente.
+ArchiveWindowLength también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
 
-Si se establece explícitamente KeyFrameInterval y FragmentsPerSegment, Servicios multimedia usará los valores que usted introduzca.
-
-
-####Direcciones IP permitidas
-
-Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
-
-Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.
-
-###Vista previa de canal 
-
-####Direcciones URL de vista previa
-
-Los canales proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar la secuencia antes de mayor procesamiento y entrega.
-
-Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerla, el canal no puede encontrarse en el estado **En ejecución**.
-
-Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
-
-Tenga en cuenta que actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming) independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de Azure clásico para ver la transmisión.
-
-
-####Direcciones IP permitidas
-
-Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
-
-###Salida del canal
-
-Para obtener más información, consulte la sección [Configuración del intervalo de fotogramas clave](#keyframe_interval).
-
-
-###Programas del canal
-
-Un canal está asociado a programas que le permiten controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
-
-Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la duración de **Ventana de archivo**. Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. La duración de la ventana de archivo también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
-
-Cada programa se asocia a un recurso que almacena el contenido transmitido por streaming. Un recurso se asigna a un contenedor de blobs en la cuenta de almacenamiento de Azure y los archivos del recurso se almacenan como blobs en ese contenedor. Para publicar el programa a fin de que los clientes puedan ver la secuencia, debe crear un localizador a petición para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
+Cada programa está asociado a un recurso. Para publicar el programa, debe crear un localizador para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
 
 Un canal es compatible con hasta tres programas en ejecución simultánea, por lo que puede crear varios archivos del mismo flujo entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
 
-No debe volver a usar programas existentes para eventos nuevos. En su lugar, cree e inicie un programa nuevo para cada evento como se describe en la sección Programación de aplicaciones de streaming en vivo.
 
-Inicie el programa cuando esté listo para iniciar el streaming y el archivo. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
+##Implicaciones de facturación
 
-Para eliminar contenido archivado, detenga y elimine el programa y, a continuación, elimine el recurso asociado. No se puede eliminar un recurso si se usa un programa; primero se debe eliminar el programa.
+Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.
 
-Incluso después de detener y eliminar el programa, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso.
+En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y en el Portal de Azure clásico. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure clásico, la facturación estará activa.
 
-Si desea conservar el contenido archivado, pero no hacerlo disponible para la transmisión, elimine el localizador de streaming.
+Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure clásico. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
 
-##<a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación 
+###<a id="states"></a>Estados del canal y cómo se asignan al modo de facturación 
 
 El estado actual de un canal. Los valores posibles son:
 
-- **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-- **Iniciando**. El canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
-- **En ejecución**. El canal es capaz de procesar secuencias en directo.
-- **Deteniéndose**. El canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
-- **Eliminando**. El canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
+- **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
+- **Iniciando**. El canal se está iniciando. No se produce ninguna facturación en este estado. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
+- **En ejecución**. El canal es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el canal para evitar más facturación. 
+- **Deteniéndose**. El canal se está deteniendo. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
+- **Eliminando**. El canal se está eliminando. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
  
-Estado del canal|Indicadores IU del portal|¿Facturado?
----|---|---|---
+Estado del canal|Indicadores IU del portal|¿Es la facturación?
+---|---|---
 Iniciando|Iniciando|No (estado transitorio)
-Ejecución|Listo (no hay programas en ejecución)<p>o<p>Streaming (al menos un programa en ejecución)|Sí
+Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|SÍ
 Deteniéndose|Deteniéndose|No (estado transitorio)
 Detenido|Detenido|No
-
-##<a id="cc_and_ads"></a>Subtítulos e inserción de anuncios 
-
-En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios.
-
-Standard|Notas
----|---
-CEA-708 y EIA-608 (708/608)|CEA-708 y EIA-608 son estándares de subtítulos (CC) para Estados Unidos y Canadá.<p><p>Actualmente, solo se admiten subtítulos si se transmiten en la secuencia de entrada codificada. Debe usar un codificador multimedia en directo que pueda insertar 608 o 708 títulos en la secuencia codificada que se envía a Servicios multimedia. Servicios multimedia ofrecerá el contenido con subtítulos insertados para los usuarios.
-TTML dentro de ismt (pistas de texto Smooth Streaming)|El empaquetado dinámico de Servicios multimedia permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: MPEG DASH, HLS o Smooth Streaming. Sin embargo, si usted utiliza MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la secuencia a clientes de Smooth Streaming.
-SCTE-35|Sistema de señalización digital utilizado para poner en cola la inserción de publicidad. Los receptores descendentes usan la señal para unir la publicidad a la secuencia por el tiempo asignado. SCTE-35 se debe enviar como una pista dispersa en la secuencia de entrada.<p><p>Tenga en cuenta que en la actualidad el único formato de secuencia de entrada admitido que transporta señales de publicidad es el formato MP4 fragmentado (Smooth Streaming). El único formato de salida admitido también es Smooth Streaming.
-
-
-##<a id="Considerations"></a>Consideraciones
-
-Cuando se usa un codificador en directo local para enviar una secuencia de velocidad de bits múltiple en un canal, se aplican las siguientes restricciones:
-
-- Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta. 
-- La secuencia entrante de velocidad de bits múltiple puede tener un máximo de 10 niveles de calidad de vídeo (10 capas) y un máximo de 5 pistas de audio.
-- La mayor velocidad de bits promedio para cualquiera de los niveles o las capas de calidad de vídeo debe ser inferior a 10 Mbps.
-- La suma de las velocidades de bits promedio para todas las secuencias de audio y vídeo debe ser inferior a 25 Mbps.
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
-
-
-Otras consideraciones sobre el funcionamiento de los canales y los componentes relacionados:
-
-- Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa. 
-- Un canal se puede detener solo cuando está en el estado En ejecución y se han detenido todos los programas en el canal.
-- De forma predeterminada solo puede agregar 5 canales a su cuenta de Servicios multimedia. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
-- Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-channels-overview.md#states) sección.
-
-##Creación de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
-
-Para más información sobre los codificadores en directo locales, vea [Uso de codificadores en directo de terceros con Servicios multimedia de Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
-
-Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -262,11 +156,12 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 [Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
 
-[Entrega de eventos de streaming en vivo con Servicios multimedia de Azure](media-services-live-streaming-workflow.md)
+[Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md)
+
+[Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
+
+[Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
-[live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
- 
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

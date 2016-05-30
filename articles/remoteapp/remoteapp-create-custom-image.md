@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016" 
+	ms.date="05/12/2016" 
 	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para Azure RemoteApp
@@ -142,4 +142,4 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 - [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

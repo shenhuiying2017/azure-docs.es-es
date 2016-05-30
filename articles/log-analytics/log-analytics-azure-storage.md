@@ -80,21 +80,28 @@ En el caso de las máquinas virtuales de Azure Resource Manager, use el siguient
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-Al realizar la configuración con PowerShell, es necesario proporcionar el Id. del área de trabajo y la clave principal. Puede encontrar la clave principal y el id. de área de trabajo en la página **Configuración** del portal de OMS.
+Al realizar la configuración con PowerShell, es necesario proporcionar el Id. del área de trabajo y la clave principal. Puede encontrar la clave principal y el identificador de área de trabajo en la página **Configuración** del portal de OMS. También puede usar PowerShell como se ilustra en el siguiente ejemplo.
 
 ![id. de área de trabajo y clave principal](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -130,12 +137,15 @@ Syslog|Eventos enviados a los demonios Syslog o Rsyslog
 Actualmente, OMS puede analizar lo siguiente:
 
 - Registros IIS de roles web y máquinas virtuales
-- Registros de eventos de Windows de roles web, roles de trabajo y máquinas virtuales de Azure que ejecutan un sistema operativo Windows
+- Registros de eventos de Windows y registros de ETW correspondientes a roles web, roles de trabajo y máquinas virtuales de Azure que ejecutan un sistema operativo Windows
 - Syslog desde máquinas virtuales de Azure que ejecutan un sistema operativo Linux
+- Diagnósticos registrados en Almacenamiento de blobs en formato json sobre recursos de grupo de seguridad de red, de puerta de enlace de aplicaciones y de KeyVault
 
 Los registros deben estar en las siguientes ubicaciones:
 
 - WADWindowsEventLogsTable (Almacenamiento de tablas): contiene información de los registros de eventos de Windows.
+- WADETWEventTable (Almacenamiento de tablas): contiene información de los registros de eventos de Windows.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable (Almacenamiento de tablas): contienen información sobre los eventos de operación, actor y servicio de Service Fabric.
 - wad-iis-logfiles (Almacenamiento de blobs): contiene información acerca de los registros de IIS.
 - LinuxsyslogVer2v0 (Almacenamiento de tablas): contiene eventos syslog de Linux.
 
@@ -143,7 +153,7 @@ Los registros deben estar en las siguientes ubicaciones:
 
 Para máquinas virtuales, también tiene la opción de instalar el [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) en la máquina virtual para permitir información adicional. Además de poder analizar registros de IIS y registros de eventos, también podrá realizar análisis adicionales, como seguimiento de cambios de configuración, evaluación de SQL y evaluación de actualizaciones.
 
-Puede ayudarnos a dar prioridad a otros registros para que OMS los analice; para ello, vote en nuestra [página de comentarios](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+Puede ayudarnos a dar prioridad a otros registros para que OMS los analice; para ello, vote en nuestra [página de comentarios](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Activación de Diagnósticos de Azure en un rol web para la recopilación de eventos y registros de IIS
 
@@ -157,7 +167,7 @@ Con el diagnóstico de Azure habilitado:
 
 ### Para habilitar diagnósticos
 
-Para habilitar los registros de eventos de Windows o para cambiar el valor de scheduledTransferPeriod, configure Diagnósticos de Azure con el archivo de configuración XML (diagnostics.wadcfg), como se muestra en [Paso 2: Agregar el archivo diagnostics.wadcfg a la solución de Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) y en [Paso 3: Configurar los diagnósticos para la aplicación](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) en el tema Habilitación de Diagnósticos de Azure en un servicio en la nube. El siguiente archivo de configuración de ejemplo recopila los registros de IIS y todos los eventos desde los registros de aplicación y sistema:
+Para habilitar los registros de eventos de Windows o para cambiar el valor de scheduledTransferPeriod, configure Diagnósticos de Azure con el archivo de configuración XML (diagnostics.wadcfg), tal y como se explica en [Paso 2: Agregar el archivo diagnostics.wadcfg a la solución de Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) y en [Paso 3: Configurar los diagnósticos para la aplicación](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) en el tema Habilitación de diagnósticos de Azure en servicios en la nube de Azure. El siguiente archivo de configuración de ejemplo recopila los registros de IIS y todos los eventos desde los registros de aplicación y sistema:
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -254,13 +264,13 @@ Revise el siguiente ejemplo de script, cópielo, modifíquelo según sea necesar
 
 ## Habilitación del análisis de Almacenamiento de Azure por parte de OMS
 
-Puede habilitar el análisis de almacenamiento y configurar OMS para que lea desde la cuenta de almacenamiento de Azure con Diagnósticos de Azure mediante la información que se encuentra en [Orígenes de datos en Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
+Para habilitar el análisis de almacenamiento y configurar OMS para que lea desde la cuenta de almacenamiento de Azure con Diagnósticos de Azure, use la información que se encuentra en [Orígenes de datos en Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
 
 En aproximadamente 1 hora, comenzará a ver los datos desde la cuenta de almacenamiento disponible para el análisis dentro de OMS.
 
 
 ## Pasos siguientes
 
-- [Configure el proxy y el firewall en Log Analytics](log-analytics-proxy-firewall.md) si la organización usa un servidor proxy o un firewall, para que los agentes se puedan comunicar con el servicio de Log Analytics.
+- Consulte [Configuración del proxy y del firewall (opcional) en Log Analytics](log-analytics-proxy-firewall.md) si la organización usa un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

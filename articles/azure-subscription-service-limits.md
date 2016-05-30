@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -41,6 +41,7 @@ Como resultado, puede que le resulte útil considerar decidir cuáles deben ser 
 - [Administración de API](#api-management-limits)
 - [Servicio de aplicaciones](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Automatización](#automation-limits)
 - [Caché en Redis de Azure](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Copia de seguridad](#backup-limits)
@@ -183,8 +184,8 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 
 Los planes de tarifa determinan la capacidad y los límites de su servicio de búsqueda. Los planes incluyen:
 
-- El servicio multiinquilino **Gratis**, compartido con otros suscriptores de Azure, diseñado para su evaluación y para pequeños proyectos de desarrollo.
-- El plan **Básico (vista preliminar)** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un precio reducido.
+- El servicio multiempresa **Gratis**, compartido con otros suscriptores de Azure, diseñado para proyectos de evaluación y de desarrollo de pequeña envergadura.
+- El plan **Básico (versión preliminar)** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un precio reducido.
 - El plan **Estándar (S1 y S2)** está destinado a cargas de trabajo de producción. Hay disponible una versión de mayor capacidad (**S2**) a petición (envíe un correo electrónico a azuresearch_contact@microsoft.com).
 
 [AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
@@ -272,6 +273,9 @@ Para más información sobre otros límites, como el tamaño de documento, las c
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Límites de automatización
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### Límites de Base de datos SQL
 
 Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Base de datos SQL](sql-database/sql-database-resource-limits.md).
@@ -284,4 +288,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!-------HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

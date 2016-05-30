@@ -37,7 +37,7 @@ Puede compilar las configuraciones de configuración de estado deseado (DSC) de 
 
 Una vez que haya decidido un método de compilación, puede seguir los procedimientos correspondientes que se presentan a continuación para empezar a compilar.
 
-##Compilación de una configuración DSC con el Portal de vista previa de Azure##
+##Compilación de una configuración de DSC con el Portal de Azure##
 
 1.  En su cuenta de automatización, haga clic en **Configuraciones**.
 2.  Haga clic en una configuración para abrir su hoja.
@@ -115,7 +115,7 @@ PowerShell requiere parámetros de un [hashtable](http://technet.microsoft.com/l
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 Para obtener información acerca de cómo pasar PSCredentials como parámetros, consulte más abajo la sección <a href="#credential-assets">** Recursos de credenciales **</a>.
@@ -185,11 +185,11 @@ Las referencias de recursos son las mismas en las configuraciones de DSC de Auto
 - [Variables](automation-variables.md)
 
 ###Recursos de credenciales###
-Mientras las configuraciones DSC en Automatización de Azure pueden hacer referencia a los recursos de credenciales a través de **Get-AutomationPSCredential**, los recursos de credenciales también se pueden pasar, si se desea, a través de los parámetros. Si una configuración toma un parámetro del tipo **PSCredential**, tendrá que pasar el nombre de cadena de un activo de credencial de Automatización de Azure como el valor de ese parámetro en lugar de como un objeto PSCredential. En segundo plano, se recuperará el recurso de credencial de Automatización de Azure con ese nombre y se pasará a la configuración.
+Mientras las configuraciones de DSC en Automatización de Azure pueden hacer referencia a los recursos de credenciales a través de **Get-AutomationPSCredential**, los recursos de credenciales también se pueden pasar, si se desea, a través de los parámetros. Si una configuración toma un parámetro del tipo **PSCredential**, tendrá que pasar el nombre de cadena de un activo de credencial de Automatización de Azure como el valor de ese parámetro en lugar de como un objeto PSCredential. En segundo plano, se recuperará el recurso de credencial de Automatización de Azure con ese nombre y se pasará a la configuración.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Automatización de Azure va un poco más allá y cifra todo el archivo MOF. Sin embargo, actualmente tiene que indicar a DSC de PowerShell que no importa que las credenciales tengan salida como texto sin formato durante la generación del MOF de configuración de nodo, porque PowerShell DSC desconoce que Automatización de Azure cifrará todo el archivo MOF después de su generación a través de un trabajo de compilación.
 
-Puede indicar a DSC de PowerShell que es correcto que las credenciales tengan salida como texto sin formato en el MOF de configuración de nodo generado mediante <a href="#configurationdata">** ConfigurationData **</a>. Debe pasar `PSDscAllowPlainTextPassword = $true` a través de **ConfigurationData** para el nombre de cada bloque de nodo que aparece en la configuración de DSC y usa las credenciales.
+Puede indicar a DSC de PowerShell que es correcto que las credenciales tengan salida como texto sin formato en el MOF de configuración de nodo generado mediante <a href="#configurationdata">** ConfigurationData **</a>. Debe pasar `PSDscAllowPlainTextPassword = $true` a través de **ConfigurationData** para el nombre de cada bloque de nodo que aparezca en la configuración de DSC y use las credenciales.
 
 En el ejemplo siguiente se muestra una configuración de DSC que usa un recurso de la credencial de Automatización.
 
@@ -228,4 +228,4 @@ Puede compilar la configuración de DSC anterior con PowerShell. PowerShell agre
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

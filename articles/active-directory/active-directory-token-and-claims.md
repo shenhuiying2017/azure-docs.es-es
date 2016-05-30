@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Tipos de notificaciones y tokens admitidos
@@ -412,4 +412,4 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
 
 [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

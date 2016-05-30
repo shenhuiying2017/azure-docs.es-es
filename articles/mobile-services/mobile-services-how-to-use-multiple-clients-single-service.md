@@ -138,8 +138,6 @@ El desarrollo de aplicaciones de dispositivo móvil nativo para todas las princi
 
 Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa más completa en un dispositivo móvil, a la vez que siguen compartiendo una única base de código, normalmente JavaScript. La solución Servicios móviles facilita la creación y administración de servicios back-end para las plataformas de desarrollo de aplicaciones multiplataforma al proporcionar tutoriales de inicio rápido para las siguientes plataformas de desarrollo:
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator le permite usar JavaScript para desarrollar una única aplicación que se compila para ejecutarse como nativa en todas las plataformas de dispositivos móviles. Esto proporciona una experiencia de usuario enriquecida en la interfaz de usuario, acceso a todos los recursos de dispositivo nativo y rendimiento de aplicación nativa. Para obtener más información, vea el [tutorial de Appcelerator][Appcelerator].
-
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (una distribución del proyecto Apache Cordova) es un marco gratuito de código abierto que le permite usar API web estandarizadas, HTML y JavaScript para desarrollar una única aplicación que se ejecute en dispositivos Android, iOS y Windows. PhoneGap ofrece una interfaz de usuario de vista web, con una experiencia de usuario mejorada mediante el acceso a los recursos nativos del dispositivo, tal como notificaciones de inserción, acelerómetro, cámara, almacenamiento, geoubicación y el explorador en aplicación. Para obtener más información, vea el [tutorial de inicio rápido de PhoneGap][PhoneGap].
 
 	Ahora, Visual Studio también le permite crear aplicaciones Cordova multiplataforma mediante la extensión de aplicación híbrida multidispositivo para Visual Studio, un software disponible en versión preliminar. Para obtener más información, vea [Introducción a las aplicaciones híbridas multidispositivo mediante HTML y JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
@@ -167,10 +165,10 @@ Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa 
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0518_2016-->

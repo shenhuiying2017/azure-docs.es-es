@@ -89,12 +89,12 @@ En la actualidad no hay ningún mecanismo integrado para la recuperación ante d
 
 ## Acerca de particiones y réplicas
 
-Las **particiones** ofrecen almacenamiento y E/S. Un único servicio de búsqueda puede tener un máximo de 12 particiones. Cada partición se incluye con un límite máximo de 15 millones de documentos o 25 GB de almacenamiento, lo que ocurra primero. Si agrega particiones, su servicio de búsqueda puede cargar más documentos. Por ejemplo, un servicio con una partición única que almacena inicialmente hasta 25 GB de datos puede almacenar 50 GB cuando se agrega una segunda partición al servicio.
+Las **particiones** ofrecen almacenamiento y E/S. Un único servicio de búsqueda puede tener un máximo de 12 particiones. Cada partición se incluye con un límite máximo de 15 millones de documentos o 25 GB de almacenamiento, lo que ocurra primero. Si agrega particiones, su servicio de búsqueda puede cargar más documentos. Por ejemplo, un servicio con una partición única que almacena inicialmente hasta 25 GB de datos puede almacenar 50 GB cuando se agrega una segunda partición al servicio.
 
-Las **réplicas** son copias del motor de búsqueda. Un servicio de búsqueda único puede tener un máximo de 6 réplicas. Necesita al menos 2 réplicas para disponibilidad (consultas) de lectura y al menos 3 réplicas para disponibilidad de lectura y escritura (consultas, indización).
+Las **réplicas** son copias del motor de búsqueda. Un servicio de búsqueda único puede tener un máximo de 12 réplicas. Necesita al menos 2 réplicas para disponibilidad (consultas) de lectura y al menos 3 réplicas para disponibilidad de lectura y escritura (consultas, indización).
 
 Se ejecuta una copia de cada índice en cada réplica. Conforme agrega réplicas, se ponen en línea copias adicionales del índice para admitir mayores cargas de trabajo de consultas y para equilibrar la carga de las solicitudes por las diversas réplicas. Si tiene varios índices, digamos 6, y 3 réplicas, cada réplica tendrá una copia de todos los 6 índices.
 
 Tenga en cuenta que no ofrecemos estimaciones finales sobre consultas por segundo (QPS), ya que la ejecución de consultas puede variar considerablemente según la complejidad de la consulta y las cargas de trabajo competitivas. De media, una réplica puede dar servicio a unas 15 QPS, pero el rendimiento será un algo mayor o menor en función de la complejidad de la consulta (las consultas por facetas son más complejas) y la latencia de red. Además, es importante reconocer que, aunque la adición de réplicas agregará definitivamente escala y rendimiento, el resultado final no será estrictamente lineal: la adición de 3 réplicas no garantiza el triple rendimiento. La latencia de consultas es un indicador de que se pueden necesitar réplicas adicionales. Para obtener información sobre QPS, incluidos los métodos para estimar el valor de QPS para las cargas de trabajo, consulte [Administración del servicio de búsqueda](search-manage.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

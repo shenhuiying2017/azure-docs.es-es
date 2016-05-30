@@ -81,6 +81,8 @@ Para crear aplicaciones lógicas con Outlook.com, primero debe crear una **conex
 |Se necesita el cifrado de tokens|Sí|Proporcionar las credenciales de Outlook.com|
 Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
 ## Referencia para Outlook.com
@@ -912,4 +914,4 @@ Actualizar contacto: actualiza parcialmente un contacto
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

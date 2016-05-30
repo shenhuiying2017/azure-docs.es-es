@@ -25,7 +25,7 @@ Entonces:
 - ¿Desea mover la suscripción de Azure de un directorio a otro?
 - ¿Tiene Azure y Office 365 en distintos inquilinos y desea consolidarlos?
 
-Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las suscripciones de pago por uso, MSDN, Action Pack o BizSpark. Hemos agregado la capacidad de transferir suscripciones a otros usuarios. En otras palabras, ahora puede cambiar el administrador de la cuenta en cualquier suscripción de pago por uso, MSDN, Action Pack o BizSpark que usted posea, sin importar el país en el que trabaja.
+Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las suscripciones de pago por uso, MSDN, Action Pack o BizSpark. Hemos agregado la capacidad de transferir suscripciones a otros usuarios. En otras palabras, ahora puede cambiar el administrador de la cuenta en cualquier suscripción de pago por uso, MSDN, Action Pack o BizSpark que usted posea, sin importar el país en el que trabaja. Ahora también es posible transferir compras de Azure Marketplace para estos tipos de suscripción.
 
 ## Transferencia de una suscripción de Azure
 
@@ -59,9 +59,9 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     No afectan al servicio. Esto cancela de forma efectiva la suscripción del administrador de cuenta actual y crea una nueva en la cuenta del destinatario, pero asocia los servicios subyacentes de Azure con la nueva suscripción. La Id. de la suscripción no cambia.
 
--   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?**-   
+-   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?**   
     Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
-   
+
 -   **¿Si se hace cargo de la propiedad de la facturación de una suscripción de otra organización, seguirán teniendo acceso a mis recursos?**
 
     Si la suscripción se transfiere a otro inquilino, los usuarios asociados al inquilino anterior perderán el acceso a la suscripción. Aunque un usuario deje de ser administrador o coadministrador de servicios, puede seguir teniendo acceso a la suscripción a través de otros mecanismos de seguridad. Entre ellos se incluyen los siguientes:
@@ -115,4 +115,4 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 4. Actualice las alertas de facturación para esta suscripción en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). [Más información](http://go.microsoft.com/fwlink/?LinkID=533292).
 5. 	Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede hacerlo en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

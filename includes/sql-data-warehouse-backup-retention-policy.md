@@ -8,8 +8,8 @@ As of circa 2016-04-22, the following topics might include this include:
 articles/sql-data-warehouse/sql-data-warehouse-overview-expectations.md
 articles/sql-data-warehouse/sql-data-warehouse-overview-backup-and-restore.md
 -->
-SQL Data Warehouse backs up all live data at least every 8 hours using Azure Storage Snapshots. These snapshots are maintained for 7 days. This allows you to restore the data to one of at least 21 points in time within the past 7 days up to the time when the last snapshot was taken. 
+Almacenamiento de datos SQL hace una copia de seguridad de todos los datos activos cada 8 horas como mínimo mediante instantáneas de Almacenamiento de Azure. Estas instantáneas se mantienen durante 7 días. Esto permite restaurar los datos a uno de los 21 puntos anteriores como mínimo de los últimos 7 días hasta la hora en que se tomó la última instantánea.
 
-SQL Data Warehouse takes a database snapshot before a database is dropped and retains it for 7 days. When this occurs, it no longer retains snapshots from the live database. This allows you to restore a deleted database to the point when it was deleted.
+Almacenamiento de datos SQL toma una instantánea de la base de datos antes de eliminarla y la conserva durante siete días. Cuando esto pasa, ya no conserva las instantáneas de la base de datos activa. Esto permite restaurar una base de datos eliminada al punto en que se eliminó.
 
-SQL Data Warehouse copies snapshots asynchronously to a different geographical Azure region for added recoverability in case of a regional failure. If you cannot access your database because of a failure in an Azure region, you can restore your database to one of the geo-redundant snapshots.
+Almacenamiento de datos SQL copia instantáneas asincrónicamente en una región geográfica de Azure diferente para lograr una mayor capacidad de recuperación en caso de error regional. Si no puede obtener acceso a la base de datos debido a un error en una región de Azure, puede restaurar la base de datos a una de las instantáneas con redundancia geográfica.

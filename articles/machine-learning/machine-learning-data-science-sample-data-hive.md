@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 # Muestreo de datos en tablas de HDInsight Hive de Azure
-
-## Introducción
 
 En este artículo, se describe cómo reducir la muestra de datos almacenados en tablas de HDInsight Hive de Azure mediante consultas de Hive. Se explican tres métodos de muestreo normalmente utilizados:
 
@@ -28,7 +26,7 @@ En este artículo, se describe cómo reducir la muestra de datos almacenados en 
 
 **¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-El **menú** a continuación está vinculado a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
+El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
@@ -109,4 +107,4 @@ Aquí se muestra una consulta de ejemplo:
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

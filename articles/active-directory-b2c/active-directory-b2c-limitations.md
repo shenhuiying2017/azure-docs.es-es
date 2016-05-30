@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: limitaciones y restricciones
 
-Hay varias características y funcionalidades de Azure Active Directory (Azure AD) B2C que no se admiten aún durante la versión preliminar. Se quitarán muchas de estas limitaciones antes de que Azure AD B2C llegue a la disponibilidad, pero se recomienda que se tengan en cuenta si está compilando aplicaciones para consumidor con Azure AD B2C durante la vista previa.
+Hay varias características y funcionalidades de Azure Active Directory (Azure AD) B2C que no se admiten aún durante la versión preliminar. Antes de que Azure AD B2C llegue al estado de disponibilidad general se quitarán muchos de estos problemas conocidos y limitaciones, pero se recomienda tenerlas en cuenta si está compilando aplicaciones para consumidor con Azure AD B2C durante la vista previa.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -92,4 +92,11 @@ No podrá eliminar un inquilino de Azure AD B2C en el Portal de Azure clásico.
 
 Actualmente no se puede comprobar un dominio correctamente en el [Portal de Azure clásico](https://manage.windowsazure.com/). Estamos trabajando en una solución.
 
-<!---HONumber=AcomDC_0427_2016-->
+## Problemas con el inicio de sesión con la directiva MFA en los exploradores Safari
+
+Solicitudes de las directivas de inicio de sesión (con MFA activado) errores intermitentes en los exploradores Safari con errores de HTTP 400 (solicitud incorrecta). Esto se debe a los bajos límites de tamaño de cookies de Safari. Hay un par de soluciones para este problema:
+
+- Utilizar la "directiva de registro o de inicio de sesión" en lugar de la "directiva de inicio de sesión".
+- Reducir el número de **notificaciones de la aplicación** que se solicita en la directiva. 
+
+<!---HONumber=AcomDC_0518_2016-->

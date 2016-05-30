@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
-# Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT
+# Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -54,7 +54,6 @@ Las bibliotecas de cliente del Centro de IoT utilizan un modelo para especificar
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por "contoso":
@@ -360,4 +359,4 @@ Ahora tiene que agregar código que implemente el comportamiento definido en el 
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

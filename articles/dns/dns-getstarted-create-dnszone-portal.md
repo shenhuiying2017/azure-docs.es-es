@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc"/>
 
-# Creación y administración de una zona DNS en el Portal de Azure
+# Creación de una zona DNS en el Portal de Azure
 
 
 > [AZURE.SELECTOR]
@@ -29,13 +29,8 @@
 
 En este artículo encontrará una guía de los pasos necesarios para crear una zona DNS con el Portal de Azure. También puede crear una zona DNS con PowerShell o la CLI.
 
-El dominio "contoso.com" puede contener una serie de registros DNS como "mail.contoso.com" (para un servidor de correo) y "www.contoso.com" (para un sitio web). Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para comenzar a hospedar el dominio, deberá crear primero una zona DNS. Todos los registros DNS creados para un dominio concreto se ubicarán dentro de una zona DNS del dominio.
+[AZURE.INCLUDE [crear-zona-DNS-acerca de](../../includes/dns-create-zone-about-include.md)]
 
-### <a name="names"></a>Acerca de los nombres de la zona DNS
- 
-- El nombre de la zona debe ser único en el grupo de recursos y la zona no debe existir aún. De lo contrario, la operación presentará un error.
-
-- El mismo nombre de zona podrá reutilizarse en un grupo de recursos distinto o en una suscripción a Azure diferente. Cuando varias zonas comparten el mismo nombre, a cada instancia se le asignarán distintas direcciones de servidores de nombres, y solo se podrá delegar una instancia desde el dominio primario. Consulte [Delegación de un dominio a DNS de Azure](#delegate) para obtener más información.
 
 ### Acerca de las etiquetas para DNS de Azure
 
@@ -57,7 +52,7 @@ Puede agregar etiquetas en el Portal de Azure en la hoja **Configuración** de l
 
 	![Crear zona](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
-4. En la hoja **Crear zona DNS**, asígnele un nombre a la zona DNS. Por ejemplo, *contoso.com*. [Consulte Acerca de los nombres de la zona DNS](#names) en la sección anterior.
+4. En la hoja **Crear zona DNS**, asígnele un nombre a la zona DNS. Por ejemplo, *contoso.com*. Consulte [Acerca de los nombres de la zona DNS](#names) en la sección anterior.
 
 5. A continuación, especifique el grupo de recursos que desea usar. Puede crear un grupo de recursos o seleccionar uno ya existente.
 
@@ -74,12 +69,12 @@ Puede agregar etiquetas en el Portal de Azure en la hoja **Configuración** de l
 9. Una vez que se crea la zona nueva, en el panel se abrirá la hoja correspondiente a esta zona nueva.
 
 
-## Ver registros de la zona DNS
+## Visualización de los registros
 
 Cuando se crea una zona DNS, también se crean los siguientes registros:
 
 - El registro "Inicio de autoridad" (SOA). El SOA se encuentra en la raíz de cada zona DNS.
-- Los registros de servidor de nombres (NS) autoritativo. Estos muestran qué servidores de nombres hospedan la zona. DNS de Azure usa un grupo de servidores de nombres, por lo que se pueden asignar diferentes servidores de nombres a zonas distintas en DNS de Azure. Consulte [Delegación de un dominio a DNS de Azure](dns-domain-delegation.md) para más información.
+- Los registros de servidor de nombres (NS) autoritativo. Estos muestran qué servidores de nombres hospedan la zona. DNS de Azure usa un grupo de servidores de nombres, por lo que se pueden asignar diferentes servidores de nombres a zonas distintas en DNS de Azure. Consulte [Delegación de un dominio a DNS de Azure](dns-domain-delegation.md) para obtener más información.
 
 Puede consultar los registros en el Portal de Azure.
 
@@ -92,6 +87,29 @@ Puede consultar los registros en el Portal de Azure.
 
 
 	![zona](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+
+## Prueba
+
+Puede probar su zona DNS con herramientas DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
+
+Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando `Get-AzureRmDnsRecordSet` mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
+
+	nslookup
+	> set type=SOA
+	> server ns1-01.azure-dns.com
+	> contoso.com
+
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
+
+	contoso.com
+        	primary name server = ns1-01.azure-dns.com
+        	responsible mail addr = msnhst.microsoft.com
+        	serial  = 1
+        	refresh = 900 (15 mins)
+        	retry   = 300 (5 mins)
+        	expire  = 604800 (7 days)
+        	default TTL = 300 (5 mins)
 
 
 
@@ -106,6 +124,6 @@ Puede eliminar la zona DNS directamente desde el portal. Antes de eliminar una z
 
 ## Pasos siguientes
 
-Después de crear la zona DNS, consulte [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-portal.md), [Administración de zonas DNS](dns-operations-dnszones.md) y [Administración de registros DNS](dns-operations-recordsets-portal.md).
+Después de crear una zona DNS, cree [conjuntos de registros y registros](dns-getstarted-create-recordset-portal.md) para iniciar la resolución de nombres para el dominio de Internet.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

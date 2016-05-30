@@ -19,7 +19,7 @@
 
 # Lista de comprobación de disponibilidad
 
-![](media/best-practices-availability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Diseño de aplicación
 
@@ -68,4 +68,4 @@
 - **Realizar un seguimiento del progreso de los flujos de trabajo de larga ejecución** y volver a intentarlo en caso de error. Los flujos de trabajo de larga ejecución suelen constar de varios pasos. Asegúrese de que cada paso sea independiente y de que se pueda volver a intentar para minimizar la posibilidad de que se tenga que revertir todo el flujo de trabajo o de que se tengan que ejecutar varias transacciones de compensación. Supervise y administre el progreso de los flujos de trabajo de larga ejecución implementando un patrón como [el supervisor del agente del programador](https://msdn.microsoft.com/library/dn589780.aspx).
 - **Planear la recuperación ante desastres.** Asegúrese de que haya un plan acordado, documentado y completamente probado para la recuperación ante cualquier tipo de error que pueda hacer que todo el sistema principal, o parte del mismo, deje de estar disponible. Pruebe los procedimientos con regularidad y asegúrese de que todo el personal de operaciones esté familiarizado con el proceso.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

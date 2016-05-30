@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell;billmath"/>
 
 # Más detalles sobre las características de vista previa
@@ -36,19 +36,11 @@ Este grupo se representará como un grupo de distribución en AD DS local. El se
 >[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la reescritura de grupos.
 
 ## Reescritura de usuarios
-> [AZURE.IMPORTANT] La característica en vista previa de reescritura de usuarios se quitó temporalmente en la actualización de agosto de 2015 a Azure AD Connect. Si la ha habilitado, debería deshabilitarla.
-
-La escritura diferida de usuarios se encuentra en la primera etapa de la vista previa. Solo se puede usar cuando Azure AD es el origen de todos los objetos de usuario y la instancia de Active Directory local está vacía antes de habilitar la característica (implementación en entorno virgen).
-
->[AZURE.WARNING] Esta característica solo se debe evaluar en un entorno de prueba y no debe usarse en un directorio de Azure AD empleado para el uso en producción.
-
-.
-
->[AZURE.NOTE] Se necesita una suscripción a Azure AD Premium para la reescritura de usuarios.
+> [AZURE.IMPORTANT] La característica en vista previa de escritura diferida de usuario, se quitó en la actualización de agosto de 2015 a Azure AD Connect. Si la ha habilitado, debería deshabilitarla.
 
 ## Pasos siguientes
 Continúe su [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

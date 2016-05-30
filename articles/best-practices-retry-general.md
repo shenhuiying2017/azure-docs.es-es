@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Orientación general sobre reintentos
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Información general
 
@@ -115,4 +115,4 @@ Las directrices siguientes le ayudarán a diseñar un mecanismo de control de er
 * [Patrón de transacción de compensación](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Patrones de idempotencia](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

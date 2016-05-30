@@ -12,18 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
 
-¿Desea hacer algún análisis personalizado en la telemetría? ¿O tal vez desee una alerta por correo electrónico en eventos con propiedades específicas? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.
+¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.
 
 La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
->[AZURE.NOTE] Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
->
->Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja.
+
+Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
+
+* [El botón Exportar](app-insights-metrics-explorer.md#export-to-excel) de la parte superior de una hoja de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel. 
+* [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría y también permite exportar los resultados.
+* Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
 
 
 ## Crear una cuenta de almacenamiento
@@ -74,6 +77,8 @@ Para detener la secuencia de forma permanente, elimine la exportación. Al reali
 
 Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
 
+Los datos que se han descartado por [muestreo](app-insights-sampling.md) no se incluyen en los datos exportados.
+
 No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
 Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado.
@@ -99,14 +104,15 @@ Este es el formato de la ruta de acceso:
   
 Where
 
--	`blobCreationTimeUtc` es la hora de creación del blob en el almacenamiento provisional interno
--	`blobDeliveryTimeUtc` es la hora de copia del blob en el almacenamiento de destino de exportación
+-	`blobCreationTimeUtc` es la hora de creación del blob en el almacenamiento provisional interno.
+-	`blobDeliveryTimeUtc` es la hora de copia del blob en el almacenamiento de destino de exportación.
 
 
 
 ## <a name="format"></a> Formato de datos
 
 * Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
+* Cada fila representa un punto de datos de telemetría, como una vista de página o una solicitud.
 * Cada fila es un documento JSON sin formato. Si quiere sentarse a mirarlo, ábralo en Visual Studio y elija Editar, Avanzadas, Archivo de formato:
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
@@ -223,4 +229,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

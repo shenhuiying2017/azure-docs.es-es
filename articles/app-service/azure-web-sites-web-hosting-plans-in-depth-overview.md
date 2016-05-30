@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/18/2016" 
 	ms.author="byvinyal"/>
 
 #Introducción detallada sobre los planes del Servicio de aplicaciones de Azure#
@@ -86,7 +86,7 @@ Existen tres formas de escalar un plan:
 
 - Cambie el **nivel de precios** del plan. Por ejemplo, un plan del nivel **Básico** puede convertirse al nivel **Estándar** o **Premium** y todas las aplicaciones asociadas a dicho plan podrán aprovechar las características que se ofrecen en el nuevo nivel de servicio.
 - Cambiar el **tamaño de instancia** de un plan. Por ejemplo, un plan de nivel **Básico** que use instancias **pequeñas** puede cambiarse para usar instancias **grandes**. Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el tamaño de instancia más grande.
-- Cambio del **recuento de instancias** del plan. Por ejemplo, un plan **Estándar** escalado horizontalmente a 3 instancias puede escalarse hasta 10 instancias, y un plan **Premium** puede escalarse hasta 20 instancias. Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el mayor recuento de instancias.
+- Cambio del **recuento de instancias** del plan. Por ejemplo, un plan **Estándar** escalado horizontalmente a 3 instancias puede escalarse hasta a 10 instancias, y un plan **Premium** puede escalarse horizontalmente hasta a 20 instancias (según disponibilidad). Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el mayor recuento de instancias.
 
 Puede cambiar el plan de tarifa y el tamaño de la instancia haciendo clic en el elemento **Escalar verticalmente** en la configuración de la aplicación o del plan del Servicio de aplicaciones. Los cambios se aplicarán al **plan del Servicio de aplicaciones** y afectarán a todas las aplicaciones que hospede.
  
@@ -107,4 +107,4 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

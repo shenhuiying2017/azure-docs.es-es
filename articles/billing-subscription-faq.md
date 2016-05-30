@@ -123,7 +123,7 @@ Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para c
 
 ### ¿Cómo puedo actualizar o cambiar la información de la tarjeta de crédito?
 
-Para obtener instrucciones sobre cómo usar una tarjeta de crédito diferente como método de pago o cómo agregar una nueva tarjeta de crédito, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
+Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, solo tiene que actualizar la información de la tarjeta de crédito existente, como la fecha de caducidad. Si el número de su tarjeta de crédito cambia o si desea usar otra tarjeta distinta, tendrá que agregar la nueva tarjeta. Puede ver instrucciones para actualizar o agregar una tarjeta de crédito en: [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
 ### ¿Cómo se pueden conocer por adelantado los períodos de inactividad del servicio por mantenimiento planeado?
 
@@ -277,4 +277,4 @@ Sí.
 
 Actualmente, no está previsto ofrecer Azure o Base de datos SQL a través de SPLA.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

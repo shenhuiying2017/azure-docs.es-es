@@ -365,7 +365,7 @@ Puede usar esta expresión en la sección de salidas o en la sección de recurso
         "type": "string"
       }
      
-Para obtener un ejemplo de cómo usar la sección de salidas de una plantilla vinculada para devolver discos de datos para una máquina virtual, consulte [Crear varios discos de datos para una máquina virtual](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+Para obtener un ejemplo de cómo usar la sección de salidas de una plantilla vinculada para devolver discos de datos para una máquina virtual, consulte [Crear varios discos de datos para una máquina virtual](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Definir la configuración de autenticación de una máquina virtual
 
@@ -426,4 +426,4 @@ Al definir la máquina virtual, establece **osProfile** a la variable que creó.
 - Para obtener información sobre las secciones de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver las funciones que están disponibles en una plantilla, consulte [Funciones de plantillas de Azure Resource Manager](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

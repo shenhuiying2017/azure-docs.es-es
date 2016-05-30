@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: proporcionar a los consumidores registro e inicio de sesión con cuentas de LinkedIn
@@ -38,18 +38,18 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory (Azur
 
 	>[AZURE.NOTE] El **secreto de cliente** es una credencial de seguridad importante.
 
-6. Escriba `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Direcciones URL de redirección autorizadas** (en **OAuth 2.0**). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Agregar** y después en **Actualizar**.
+6. Escriba `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en el campo **Direcciones URL de redirección autorizadas** (en **OAuth 2.0**). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contoso.onmicrosoft.com). Haga clic en **Agregar** y después en **Actualizar**. El valor de **{tenant}** distingue mayúsculas de minúsculas.
 
     ![LinkedIn - configurar aplicación](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## Configuración de LinkedIn como proveedor de identidades del inquilino
 
-1. Siga estos pasos para [desplazarse hasta la hoja de características B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) en el Portal de Azure.
+1. Siga estos pasos para [navegar a la hoja de características B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) en el Portal de Azure.
 2. En la hoja de características B2C, haga clic en **Proveedores de identidades**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. Proporcione un **Nombre** descriptivo para la configuración del proveedor de identidades. Por ejemplo "LI".
-5. Haga clic en **Tipo de proveedor de identidades**, seleccione **LinkedIn** y haga clic en **Aceptar**.
+5. Haga clic en el **tipo de Proveedor de identidades**, seleccione **LinkedIn** y haga clic en **Aceptar**.
 6. Haga clic en **Configurar este proveedor de identidades** y escriba el identificador de cliente y el secreto de cliente de la aplicación de LinkedIn que creó anteriormente.
-7. Haga clic en **Aceptar** y, luego, en **Crear** para guardar la configuración de LinkedIn.
+7. Haga clic en **Aceptar** y después en **Crear** para guardar la configuración de LinkedIn.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

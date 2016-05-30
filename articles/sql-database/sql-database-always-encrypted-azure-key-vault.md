@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"/>
 
 # Always Encrypted: protección de datos confidenciales en Base de datos SQL de Azure con cifrado de datos y almacenamiento de las claves de cifrado en el Almacén de claves de Azure
@@ -69,7 +69,7 @@ Primero debe habilitar la aplicación cliente para obtener acceso al servicio de
 7. Copie el **ID. DE CLIENTE** (necesitará este valor en el código más adelante).
 8. En la sección de claves, establezca la lista desplegable **Seleccionar duración** en **1 año** (copiaremos la clave después de guardar a continuación).
 11. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
-12. Deje **MOSTRAR** establecido en **Aplicaciones de Microsoft** y, a continuación, localice y seleccione **Administración de servicios de Windows Azure** y haga clic en la marca de verificación para continuar.
+12. Deje **MOSTRAR** establecido en **Aplicaciones de Microsoft** y, a continuación, localice y seleccione **Administración de servicios de Microsoft Azure** y haga clic en la marca de verificación para continuar.
 13. En la línea **Administración de servicios de Windows Azure**, haga clic en la lista desplegable **Permisos delegados** y seleccione **Obtener acceso a la administración de servicios de Azure**.
 14. Haga clic en **GUARDAR** (en la parte inferior).
 15. Una vez finalizada la operación de guardar, busque y copie el valor de clave en la sección **claves** (necesitará este valor en el código más adelante). 
@@ -689,4 +689,4 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

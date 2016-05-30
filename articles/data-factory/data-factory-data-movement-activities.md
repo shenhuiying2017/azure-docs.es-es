@@ -60,7 +60,7 @@ Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) a
 La actividad de copia proporciona las siguientes capacidades:
 
 ### <a name="global"></a>Movimiento de datos disponible globalmente
-Aunque la propia Factoría de datos de Azure solamente esté disponible en las regiones oeste de EE. UU. y Europa del Norte, el servicio que permite la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que evita saltos entre regiones en la mayoría de los casos.
+Aunque la propia instancia de Data Factory de Azure solamente esté disponible en las regiones oeste de EE. UU. y Europa del Norte, el servicio que permite la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que evita saltos entre regiones en la mayoría de los casos.
 
 Tanto **Data Management Gateway** como **Data Factory de Azure** realizan el traslado de datos en función de la ubicación de los almacenes de datos de origen y destino en una operación de copia. Para más información, consulte la tabla siguiente:
 
@@ -195,4 +195,4 @@ También puede utilizar una variable **personalizada** como se muestra abajo y c
 
 ![Uso de la variable personalizada](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

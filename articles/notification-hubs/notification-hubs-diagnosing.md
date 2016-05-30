@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/04/2016" 
 	ms.author="wesmc"/>
 
 #Centros de notificaciones de Azure: pautas de diagnóstico
@@ -77,7 +77,9 @@ Suponiendo que el Centro de notificaciones se configuró correctamente y que las
 
 > [AZURE.NOTE] Dado que realizamos el procesamiento en paralelo, no garantizamos el orden en que se entregarán las notificaciones.
 
-Ahora el Centro de notificaciones de Azure está optimizado para un modelo de entrega de mensajes "una vez como máximo". Esto significa que intentamos una desduplicación para que ninguna notificación se entregue más de una vez a un dispositivo. Para comprobar esto, examinamos los registros y nos aseguramos de que solo se envía un mensaje por identificador de dispositivo antes de enviar realmente el mensaje al PNS. Como cada lote se envía al PNS, el cual, a su vez, acepta y valida los registros, puede que el PNS detecte un error con uno o varios de los registros de un lote, devuelva un error al Centro de notificaciones de Azure y detenga el procesamiento con la consiguiente pérdida de ese lote completamente. Esto ocurre así con APNS, que usa un protocolo de transmisión TCP. Como estamos optimizados para la entrega "una vez como máximo", no se advertirá que no hay ningún reintento con este lote erróneo puesto que no sabemos con seguridad si el PNS perdió todo el lote o solo una parte. Sin embargo, el PNS le dice al Centro de notificaciones de Azure cuál es el registro que ha ocasionado el error y, en función de esa información, quitamos ese registro de nuestra base de datos. Esto implica la posibilidad de que un lote de registros o un subconjunto de dicho lote no reciba una notificación; no obstante, dado que hemos limpiado el registro malo, la próxima vez que se intente un envío, la probabilidad de que se realice satisfactoriamente será más alta. A medida que crece la escala del número de dispositivos de destino (algunos de nuestros clientes envían notificaciones a millones de dispositivos), perder un lote desparejado aquí y allá no supone mucha diferencia en el porcentaje global de dispositivos que reciben notificaciones; sin embargo, si envía unas cuantas notificaciones y hay algunos errores de PNS, podría ver que todas o la mayoría de notificaciones no se reciben. Si observa este comportamiento de manera repetida, debe identificar los registros incorrectos y eliminarlos. Debe eliminar los registros con formato incorrecto definitivamente ya que son la causa más común de la pérdida de notificaciones. Si se trata de un entorno de prueba, también puede eliminar directamente todos los registros dado que las aplicaciones, cuando se abren en los dispositivos, reintentarán y se volverán a registrar con el Centro de notificaciones, lo que asegura que todos los registros creados de ahí en adelante serán válidos.
+Ahora el Centro de notificaciones de Azure está optimizado para un modelo de entrega de mensajes "una vez como máximo". Esto significa que intentamos una desduplicación para que ninguna notificación se entregue más de una vez a un dispositivo. Para comprobar esto, examinamos los registros y nos aseguramos de que solo se envía un mensaje por identificador de dispositivo antes de enviar realmente el mensaje al PNS. Como cada lote se envía al PNS, el cual, a su vez, acepta y valida los registros, puede que el PNS detecte un error con uno o varios de los registros de un lote, devuelva un error al Centro de notificaciones de Azure y detenga el procesamiento con la consiguiente pérdida de ese lote completamente. Esto ocurre así con APNS, que usa un protocolo de transmisión TCP. Aunque ofrecemos optimización para la entrega como máximo una vez, en este caso quitamos el registro defectuoso de nuestra base de datos y, a continuación, volvemos a intentar la entrega de la notificación para el resto de los dispositivos en ese lote.
+
+Puede obtener información del error para el intento de entrega erróneo en un registro con las API de REST de centros de notificaciones de Azure: [Por telemetría de mensaje: Obtención de telemetría de mensaje de notificación](https://msdn.microsoft.com/library/azure/mt608135.aspx) y [comentarios de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Consulte [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) para el código de ejemplo.
 
 ##Problemas del PNS
 
@@ -240,4 +242,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

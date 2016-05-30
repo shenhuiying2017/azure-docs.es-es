@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/07/2016"
+	ms.date="04/22/2016"
 	ms.author="jroth" />
 
 # Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure
@@ -23,7 +23,7 @@
 
 En este tema se ofrecen prácticas recomendadas para optimizar el rendimiento de SQL Server en máquina virtual de Microsoft Azure. Mientras se ejecuta SQL Server en máquinas virtuales de Azure, se recomienda seguir usando las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. Sin embargo, el rendimiento de una base de datos relacional en una nube pública depende de muchos factores como el tamaño de una máquina virtual y la configuración de los discos de datos.
 
-Al crear imágenes de SQL Server, [sopese la posibilidad de aprovisionar las VM en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md) para, de este modo, aprovechar características tales como el uso predeterminado del Almacenamiento premium y otras opciones, como la aplicación de revisiones automatizada, las copias de seguridad automatizadas y las configuraciones AlwaysOn.
+Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las máquinas virtuales en el portal de Azure](virtual-machines-windows-portal-sql-server-provision.md). Las máquinas virtuales de SQL Server aprovisionadas en el portal con Resource Manager incorporan todas estas prácticas recomendadas, incluida la configuración del almacenamiento.
 
 Este artículo se centra en cómo obtener el *mejor* rendimiento de SQL Server en máquinas virtuales de Azure. Si su carga de trabajo no es menos exigente, podría no necesitar todas las optimizaciones enumeradas a continuación. Tenga en cuenta sus necesidades de rendimiento y patrones de carga de trabajo a medida que evalúe estas recomendaciones.
 
@@ -36,7 +36,7 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 |Ámbito|Optimizaciones|
 |---|---|
 |[Tamaño de VM](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) o superior para la edición SQL Enterprise.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) o superior para las ediciones SQL Standard y Web.|
-|[Almacenamiento](#storage-guidance)|Use [almacenamiento premium](../storage/storage-premium-storage.md).<br/><br/>Mantenga la [cuenta de almacenamiento](../storage/storage-create-storage-account.md) y la máquina virtual de SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento.|
+|[Almacenamiento](#storage-guidance)|Use [Almacenamiento premium](../storage/storage-premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../storage/storage-create-storage-account.md) y la máquina virtual de SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento.|
 |[Discos](#disks-guidance)|Utilice como mínimo 2 [discos P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whes-ESing-premium-storage) (1 para los archivos de registro y 1 para los archivos de datos y TempDB).<br/><br/>Evite usar el sistema operativo o discos temporales para el registro o el almacenamiento de bases de datos.<br/><br/>Habilite la lectura del almacenamiento en caché en los discos en los que se hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en los discos que hospeden el archivo de registro.<br/><br/>Coloque en franjas varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados.|
 |[E/S](#io-guidance)|Habilite la compresión de páginas de bases de datos.<br/><br/>Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/>Limite o deshabilite el crecimiento automático de la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.<br/><br/>Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/>Configure ubicaciones predeterminadas de archivo de copia de seguridad y base de datos.<br/><br/>Habilite páginas bloqueadas.<br/><br/>Aplique correcciones de rendimiento de SQL Server.|
 |[Características específicas](#feature-specific-guidance)|Realice una copia de seguridad directamente en el almacenamiento de blobs.|
@@ -78,11 +78,11 @@ La directiva del almacenamiento en caché predeterminada en el disco del sistema
 
 ### Disco temporal
 
-La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene sus archivos de registros o datos en la unidad de disco **D**:.
+La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene archivos de base de datos de usuarios ni archivos de registro de transacciones de usuarios en la unidad **D:**.
 
-En las máquinas virtuales de las series D, Dv2 y G, almacene TempDB o las extensiones de grupo de búferes en la unidad **D**. La unidad temporal de estas máquinas virtuales se basa en SSD. Esto puede mejorar el rendimiento de las cargas de trabajo que usan mucho los objetos temporales o que tienen espacios de trabajo que no caben en la memoria.
+En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicada en discos SSD. Si la carga de trabajo implica un uso intensivo de TempDB (por ejemplo, con objetos temporales o combinaciones complejas), el almacenamiento de TempDB en la unidad **D** podría dar lugar a un mayor rendimiento de TempDB y reducir su latencia.
 
-En las máquinas virtuales que admiten Almacenamiento premium (series DS, DSv2 y GS), se recomienda almacenar TempDB o las extensiones de grupo de búferes en un disco que admita Almacenamiento premium y que tenga habilitado el almacenamiento en caché de lectura. Esta recomendación tiene una excepción: si TempDB hace un uso intensivo de escritura, logrará un mayor rendimiento si almacena TempDB en la unidad **D** local.
+En las máquinas virtuales que admiten Almacenamiento premium (series DS, DSv2 y GS), se recomienda almacenar TempDB o las extensiones de grupo de búferes en un disco que admita Almacenamiento premium y que tenga habilitado el almacenamiento en caché de lectura. Esta recomendación tiene una excepción: si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si almacena esta base de datos en la unidad **D** local, que en estos tamaños de equipos también está ubicada en un disco SSD
 
 ### Discos de datos
 
@@ -148,4 +148,4 @@ Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad
 
 Revise otros temas de la máquina virtual de SQL Server en [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

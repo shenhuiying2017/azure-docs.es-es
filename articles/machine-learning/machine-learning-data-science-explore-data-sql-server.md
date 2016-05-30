@@ -13,16 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Exploración de los datos de una máquina virtual de SQL Server en Azure
 
-##Introducción
 
 Este documento explica cómo explorar los datos que se almacenan en una máquina virtual de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
 
-El **menú** a continuación vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
+El **menú** siguiente vincula a temas que describen cómo usar herramientas para explorar los datos desde varios entornos de almacenamiento. Esta tarea es un paso en el proceso de análisis de Cortana (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -76,4 +75,4 @@ Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana usa
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

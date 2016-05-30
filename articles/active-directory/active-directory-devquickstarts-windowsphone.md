@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -24,7 +24,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Si está desarrollando una aplicación de Windows Phone, Azure AD le facilita la autenticación de sus usuarios con sus cuentas de Active Directory. También permite a la aplicación consumir con seguridad cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
+Si está desarrollando una aplicación de Windows Phone 8.1, Azure AD le facilita la autenticación de sus usuarios con sus cuentas de Active Directory. También permite a la aplicación consumir con seguridad cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
+
+> [AZURE.NOTE] Este ejemplo de código usa ADAL v2.0. Si le interesa la tecnología más reciente, puede probar en su lugar nuestro [Tutorial de Windows Universal utilizando ADAL v3.0](active-directory-devquickstarts-windowsstore.md). Si realmente está creando una aplicación para Windows Phone 8.1, este es el lugar adecuado. ADAL v2.0 sigue siendo totalmente compatible y es la manera recomendada para el desarrollo de aplicaciones para Windows Phone 8.1 con Azure AD.
 
 Para los clientes nativos .NET que necesitan tener acceso a recursos protegidos, Azure AD proporciona la biblioteca de autenticación de Active Directory (ADAL). El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso. Para demostrar lo sencillo que es, crearemos a continuación una aplicación de Windows Phone 8.1 de "buscador de directorios" que:
 
@@ -54,7 +56,8 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 - También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
-Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL al proyecto de DirectorySearcher con la consola del Administrador de paquetes.
+Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, hay que proporcionarle información sobre el registro de la aplicación.
+-	Comience agregando ADAL al proyecto DirectorySearcher con la Consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -172,4 +175,4 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

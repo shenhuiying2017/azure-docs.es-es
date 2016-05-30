@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/07/2016"
 	ms.author="awills"/>
 
 # Recursos, roles y control de acceso en Application Insights
@@ -58,7 +58,7 @@ Para controlar el acceso a estos recursos, se recomienda por lo tanto lo siguien
 
 Debe tener derechos de propietario a la suscripción o al grupo de recursos.
 
-El usuario debe disponer de una [cuenta Microsoft][account]. Puede proporcionar acceso individual y también a grupos de usuarios definidos en Active Directory de Azure.
+El usuario debe tener una [cuenta de Microsoft][account] o tener acceso a su [cuenta de Microsoft de organización](..\active-directory\sign-up-organization.md). Puede proporcionar acceso individual y también a grupos de usuarios definidos en Active Directory de Azure.
 
 #### Desplácese al grupo de recursos.
 
@@ -104,8 +104,8 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-preview-portal-using-resource-groups.md
-[portal]: http://portal.azure.com/
+[group]: ../azure-portal/resource-group-portal.md
+[portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

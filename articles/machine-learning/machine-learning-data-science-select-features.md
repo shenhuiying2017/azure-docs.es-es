@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -23,11 +23,12 @@ En este tema se explican los propósitos de la selección de características y 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Introducción
 
 En este tema se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Estudio de aprendizaje automático de Azure.
 
-La ingeniería y la selección de características es una parte del proceso de CAP descrito en [¿Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y la ingeniería de características son partes del paso **Desarrollo de características** del CAP. * **Ingeniería de características**: este proceso intenta crear otras características pertinentes de las características sin procesar existentes de los datos, y aumentar la eficacia de predicción para el algoritmo de aprendizaje. * **Selección de características**: este proceso, selecciona el subconjunto de claves de características de datos originales en un intento de reducir las dimensionalidad del problema de entrenamiento.
+La ingeniería y la selección de características es una parte del proceso de CAP descrito en [¿Cuál es el proceso de análisis de Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) La selección y la ingeniería de características son partes del paso de **desarrollo de características** del CAP.
+* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
@@ -73,4 +74,4 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

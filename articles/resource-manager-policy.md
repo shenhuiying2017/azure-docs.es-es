@@ -91,15 +91,13 @@ Una condición evalúa si un **campo** o un **origen** cumple determinados crite
 | En el | "in" : [ "&lt;valor1&gt;","&lt;valor2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;nombre de clave&gt;" |
 
-### Campos y orígenes
+### Fields
 
 Las condiciones se crean mediante el uso de campos y orígenes. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso. Un origen representa las características de la propia solicitud.
 
 Estos son los campos y orígenes admitidos:
 
 Campos: **name**, **kind**, **type**, **location**, **tags**, **tags.*** y **property alias**.
-
-Orígenes: **action**.
 
 ### Alias de la propiedad 
 El alias de propiedad es un nombre que se puede usar en una definición de directiva para acceder a las propiedades específicas del tipo de recursos, como la configuración y las SKU. Funciona en todas las versiones de API donde existe la propiedad. Los alias se pueden recuperar mediante la API de REST que se indica a continuación (en el futuro se agregará compatibilidad con Powershell):
@@ -153,7 +151,7 @@ La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
 - Audit genera un evento en el registro de auditoría pero no producirá un error en la solicitud
 - Append agrega el conjunto de campos definido a la solicitud 
 
-Para **append**, debe proporcionar los detalles tal y como se muestra a continuación:
+En el caso de **append**, debe proporcionar los detalles como se muestra a continuación:
 
     ....
     "effect": "append",
@@ -339,8 +337,8 @@ En el ejemplo siguiente se muestra cómo anidar operadores lógicos para que req
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -387,7 +385,7 @@ Con un cuerpo de solicitud similar al siguiente:
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para api-version use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definición de la directiva puede definirse como uno de los ejemplos anteriores. En el caso de api-version, use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Crear una definición de directiva con PowerShell
 
@@ -420,7 +418,7 @@ Para crear una nueva asignación de directiva, ejecute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Para api-version use *2016-04-01*.
+{policy-assignment} es el nombre de la asignación de directiva. En el caso de api-version, use *2016-04-01*.
 
 Con un cuerpo de solicitud similar al siguiente:
 
@@ -464,4 +462,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

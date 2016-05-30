@@ -35,28 +35,27 @@ Vea la [página de detalles de precios de Factoría de datos][adf-pricing-detail
 ### ¿Cómo puedo comenzar con la factoría de datos de Azure?
 
 - Para obtener información general sobre la factoría de datos de Azure, vea [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
-- Para ver un tutorial rápido, vea [Introducción a la Factoría de datos de Azure](data-factory-get-started.md).
-- Para obtener la documentación completa, vea [Documentación de la Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/).
+- Para consultar un tutorial sobre cómo **copiar o mover datos** mediante la actividad de copia, consulte [Copiar datos desde el almacenamiento de blobs de Azure a base de datos de SQL Azure](data-factory-get-started.md).
+- Consultar un tutorial sobre cómo **transformar datos** con la actividad de Hive de HDInsight, consulte [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md). 
   
 ### ¿Cuál es la disponibilidad de regiones de la factoría de datos?
-Data Factory está disponible en el **Oeste de EE. UU.** y en **Europa del Norte**. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
+Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
  
 ### ¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
  
 Consulte la sección **Límites de la Factoría de datos de Azure** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md#data-factory-limits).
 
-
 ### ¿Cuál es la experiencia de desarrollador/creación con el servicio de Factoría de datos de Azure?
 
 Puede crear factorías de datos mediante uno de los sistemas siguientes:
 
-- **Portal de Azure** Las hojas de Data Factory en el Portal de Azure proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Factoría de datos**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Vea [Información general de Data Factory](data-factory-get-started.md) para obtener un ejemplo de uso del portal o el editor para crear e implementar una factoría de datos.   
+- **Portal de Azure** Las hojas de Data Factory en el Portal de Azure proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Factoría de datos**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Consulte [Compilación de la primera Data Factory de Azure con el Portal de Azure/Editor de Data Factory](data-factory-build-your-first-pipeline-using-editor.md) para obtener un ejemplo de uso del portal o el editor para crear e implementar una factoría de datos.
 
-- **Azure PowerShell** Si es un usuario de PowerShell y prefiere usar PowerShell en lugar de la interfaz de usuario del Portal, puede usar los cmdlets de Azure Data Factory que forman parte de Azure PowerShell para crear e implementar factorías de datos. Consulte [Crear y supervisar la Factoría de datos de Azure con Azure PowerShell](data-factory-monitor-manage-using-powershell.md) para obtener un ejemplo sencillo y [Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] para un ejemplo avanzado de uso de cmdlets de PowerShell para crear e implementar una factoría de datos. Consulte el contenido de [Referencia de cmdlets de Factoría de datos][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.
-  
-- **Visual Studio** También puede usar Visual Studio para crear, supervisar y administrar mediante programación las factorías de datos. Consulte el artículo [Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos](data-factory-create-data-factories-programmatically.md) para obtener detalles.
-  
-- **Biblioteca de clases .NET** Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET][create-factory-using-dotnet-sdk] para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Factoría de datos][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.
+- **Visual Studio**: puede usar Visual Studio para crear una instancia de Data Factory de Azure. Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
+
+- **Azure PowerShell**: consulte el tutorial [Compilación de la primera Data Factory de Azure mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para crear una factoría de datos mediante PowerShell. Consulte el contenido de [Referencia de cmdlets de Factoría de datos][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.
+   
+- **Biblioteca de clases .NET** Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET](data-factory-create-data-factories-programmatically.md) para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Factoría de datos][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.
 
 - **API de REST** También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de la Factoría de datos][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de la Factoría de datos.
  
@@ -102,10 +101,12 @@ Si usa un clúster a petición que se crea con el servicio de la Factoría de da
 	    "properties":
 	    {
 	        "type": "HDInsightOnDemandLinkedService",
-	        "clusterSize": 1,
-	        "timeToLive": "00:01:00",
-	        "linkedServiceName": "LinkedService-SampleData",
-	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			"typeProperties": {
+	        	"clusterSize": 1,
+		        "timeToLive": "00:01:00",
+		        "linkedServiceName": "LinkedService-SampleData",
+		        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			}
 	    }
 	} 
 
@@ -137,7 +138,6 @@ Si necesita detener la ejecución de la canalización, puede usar el cmdlet [Sus
 Si desea realmente detener todas las ejecuciones inmediatamente, la única manera sería eliminar la canalización y crearla de nuevo. Si decide eliminar la canalización, NO es necesario eliminar tablas y servicios vinculados usados por la canalización.
 
 
-[adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
@@ -152,4 +152,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

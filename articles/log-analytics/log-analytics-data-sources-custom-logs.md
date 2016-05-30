@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Registros personalizados de Log Analytics
@@ -70,8 +70,8 @@ La tabla siguiente proporciona ejemplos de patrones válidos para especificar di
 |:--|:--|
 | Todos los archivos en *C:\\Logs* con la extensión .txt en el agente de Windows | C:\\Logs\\*.txt |
 | Todos los archivos en *C:\\Logs* con un nombre que empieza con "registro" y una extensión .txt en el agente de Windows | C:\\Logs\\registro*.txt |
-| Todos los archivos en */var/log/audit* con la extensión .txt en el agente de Windows | /var/log/audit/*.txt |
-| Todos los archivos en */var/log/audit* con un nombre que empieza con "registro" y una extensión .txt en el agente de Windows | /var/log/audit/registro*.txt |
+| Todos los archivos en */var/log/audit* con la extensión .txt en el agente de Linux | /var/log/audit/*.txt |
+| Todos los archivos en */var/log/audit* con un nombre que empieza con "registro" y una extensión .txt en el agente de Linux | /var/log/audit/registro*.txt |
   
 
 1.	Seleccione Windows o Linux para especificar qué formato de ruta de acceso va a agregar.
@@ -178,4 +178,4 @@ Los campos personalizados se usan para definir los campos *EventTime*, *Code* (C
 - Utilice los [campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
 - Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

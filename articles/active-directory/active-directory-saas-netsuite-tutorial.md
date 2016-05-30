@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/16/2016"
     ms.author="asmalser-msft"/>
 
 #Tutorial: Integración de NetSuite con Azure Active Directory
@@ -22,13 +22,13 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 ##Requisitos previos
 
-1. Para obtener acceso a Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com), primero debe tener una suscripción de Azure válida.
+1. Para acceder a Azure Active Directory a través del [Portal de Azure clásico](https://manage.windowsazure.com), primero debe tener una suscripción de Azure válida.
 
 2. Debe tener acceso de administrador a una suscripción de [NetSuite](http://www.netsuite.com/portal/home.shtml). Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
 
 ##Paso 1: Adición de NetSuite a su directorio
 
-1. En el panel de navegación izquierdo del [Portal de administración de Azure](https://manage.windowsazure.com), haga clic en **Active Directory**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Seleccione Active Directory en el panel de navegación izquierdo.][0]
 
@@ -259,4 +259,4 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

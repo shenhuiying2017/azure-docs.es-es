@@ -123,7 +123,7 @@ Utilizaremos los siguientes valores para esta configuración:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Para obtener instrucciones sobre cómo crear un certificado raíz autofirmado mediante *makecert*, consulte [Uso de certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md). Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz.
+10. Cargue un archivo .cer de certificado raíz a Azure. Puede utilizar un certificado raíz desde el entorno de certificados empresarial o puede usar un certificado raíz autofirmado. Puede cargar hasta 20 certificados raíz. Para obtener instrucciones sobre cómo crear un certificado raíz autofirmado mediante *makecert*, consulte [Uso de certificados raíz autofirmados para las configuraciones de punto a sitio](vpn-gateway-certificates-point-to-site.md). Tenga en cuenta que el archivo .cer no puede contener la clave privada del certificado raíz. Para obtener la clave pública como se muestra en el ejemplo siguiente, exporte el archivo .cer como un archivo X.509 con codificación Base 64 (.CER) y luego ábralo con el Bloc de notas. Una vez abierto, copie todo el texto entre: -----BEGIN CERTIFICATE----- & -----END CERTIFICATE-----
 	
 	A continuación, podemos ver un ejemplo de cómo se ve. La parte difícil de cargar los datos del certificado público es que debe copiar y pegar toda la cadena, sin espacios. De lo contrario, la carga no funcionará. En este paso, deberá utilizar su propio archivo .cer de certificado. No intente copiar y pegar el ejemplo que aparece a continuación.
 
@@ -240,4 +240,4 @@ Puede restablecer un certificado de cliente quitando la huella digital de la lis
 
 Puede agregar una máquina virtual a la red virtual. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,8 +3,8 @@
 	description="Obtenga información acerca de cómo usar SQL Server Management Studio para administrar bases de datos y servidores de bases de datos SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
 # Administración de Base de datos SQL de Azure con el uso de SQL Server Management Studio 
@@ -27,7 +27,9 @@
 
 Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md) y el artículo sobre cómo [conectarse y realizar consultas mediante SSMS](sql-database-connect-query-ssms.md) para más información sobre cómo conectarse y luego ejecutar una consulta SELECT simple.
 
-Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite la página de [descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerlo.
+Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure.
+
+> [AZURE.IMPORTANT] Debe usar siempre la versión más reciente de SQL Server Management Studio (SSMS) para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. Las versiones anteriores de SSMS no funcionarán correctamente con Base de datos SQL. Vaya a [descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerla.
 
 ## Crear y administrar bases de datos SQL de Azure
 
@@ -35,7 +37,7 @@ Mientras está conectado a la base de datos **maestra**, puede crear bases de da
 
 Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, en **Nueva consulta**.
 
--   Use la instrucción **CREATE DATABASE** para crear una base de datos nueva. Para obtener más información, consulte [CREATE DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La instrucción siguiente crea una base de datos con el nombre **myTestDB** y especifica que se trata de una base de datos Standard S0 Edition con un tamaño máximo de 250 GB.
+-   Use la instrucción **CREATE DATABASE** para crear una base de datos nueva. Para obtener más información, consulte [CREATE DATABASE (Base de datos SQL)](https://msdn.microsoft.com/library/dn268335.aspx). La instrucción siguiente crea una base de datos con el nombre **myTestDB** y especifica que se trata de una base de datos Standard S0 Edition con un tamaño máximo de 250 GB.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
@@ -149,4 +151,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

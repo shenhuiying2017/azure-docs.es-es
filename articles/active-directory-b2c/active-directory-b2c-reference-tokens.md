@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -27,9 +27,9 @@ Azure Active Directory (Azure AD) B2C emite varios tipos de tokens de seguridad 
 
 Azure AD B2C admite el [protocolo de autorización de OAuth 2.0](active-directory-b2c-reference-protocols.md), que usa tanto tokens de acceso como tokens de actualización. También admite la autenticación y el inicio de sesión mediante [OpenID Connect](active-directory-b2c-reference-protocols.md), que incorpora un tercer tipo de token: el token de identificador. Todos estos tokens se representan como un token de portador.
 
-Un token de portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. El portador es cualquier usuario que pueda presentar el token. Azure AD debe autenticar primero al usuario para que pueda recibir un token de portador. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos. Algunos tokens de seguridad disponen de un mecanismo integrado para evitar que usuarios no autorizados puedan usarlos, pero los tokens de portador no tienen este mecanismo. Deberán ser transportados en un canal seguro, como Seguridad de la capa de transporte (HTTPS).
+Un token de portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. El "portador" es cualquier parte que pueda presentar el token. Para que una parte pueda recibir un token de portador, es necesario que Azure AD la autentique previamente. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos. Algunos tokens de seguridad disponen de un mecanismo integrado para evitar que usuarios no autorizados puedan usarlos, pero los tokens de portador no tienen este mecanismo. Deberán ser transportados en un canal seguro, como Seguridad de la capa de transporte (HTTPS).
 
-Si se transmite un token de portador fuera de un canal seguro, un usuario malintencionado puede usar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso no autorizado a un recurso protegido. Cuando se almacenan tokens de portador o se almacenan en caché para su uso posterior, se aplican los mismos principios de seguridad. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura.
+Si un token de portador se transmite fuera de un canal seguro, un usuario malintencionado puede utilizar un ataque de tipo "man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican cuando los tokens de portador se almacenan o guardan en caché para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura.
 
 Para más consideraciones de seguridad sobre tokens de portador, consulte la [Sección 5 del documento RFC 6750](http://tools.ietf.org/html/rfc6750).
 
@@ -160,4 +160,4 @@ Las siguientes vigencias de los tokens se proporcionan para ampliar sus conocimi
 | Tokens de actualización | Hasta 14 días | Un token de actualización solo es válido durante un máximo de 14 días. Sin embargo, un token de actualización puede dejar de ser válido en cualquier momento por diversos motivos. La aplicación debe continuar intentando usar un token de actualización hasta que se produce un error en la solicitud o hasta que la aplicación reemplaza el token de actualización por uno nuevo. Un token de actualización también puede dejar de ser válido si transcurrieron 90 días desde que el usuario especificó sus credenciales por última vez. |
 | Códigos de autorización | Cinco minutos | Los códigos de autorización son de corta duración intencionadamente. Deben canjearse inmediatamente por tokens de acceso, tokens de identificador o tokens de actualización cuando se reciben. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

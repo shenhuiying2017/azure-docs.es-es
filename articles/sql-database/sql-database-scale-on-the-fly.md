@@ -42,6 +42,16 @@ Base de datos SQL incluye tecnología de vanguardia en memoria para ejecutar tra
 
 [Lea la documentación](http://go.microsoft.com/fwlink/?LinkID=787580)
 
-Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo](https://azure.microsoft.com/services/sql-database/).
+Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Pasos siguientes
+
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
+
+## Más información
+
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

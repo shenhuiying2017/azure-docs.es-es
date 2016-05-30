@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
@@ -198,6 +198,61 @@ Esta página contiene un formulario de registro que el usuario tiene que rellena
 
 Esta página contiene un formulario de registro que el consumidor tiene que rellenar al registrarse con una cuenta existente de un proveedor de identidades social como Facebook o Google+. Esta página es similar a la página de registro de cuenta local (que se muestra en la sección anterior) con la excepción de los campos de entrada de contraseña.
 
+### Página de registro de inicio o de inicio de sesión unificados
+
+Esta página controla tanto la suscripción como el inicio de sesión de los consumidores, que pueden utilizar proveedores de identidades sociales como Facebook o Google +, o cuentas locales.
+
+```HTML
+
+<div id="api" data-name="Unified">
+        <div class="social" role="form">
+               <div class="intro">
+                       <h2>Sign in with your social account</h2>
+               </div>
+               <div class="options">
+                       <div><button class="accountButton firstButton" id="MicrosoftAccountExchange" tabindex="1">msa</button></div>
+                       <div><button class="accountButton" id="FacebookExchange" tabindex="1">fb</button></div>
+               </div>
+        </div>
+        <div class="divider">
+               <h2>OR</h2>
+        </div>
+        <div class="localAccount" role="form">
+               <div class="intro">
+                       <h2>Sign in with your existing account</h2>
+               </div>
+               <div class="error pageLevel" aria-hidden="true" style="display: none;">
+                       <p role="alert"></p>
+               </div>
+               <div class="entry">
+                       <div class="entry-item">
+                               <label for="logonIdentifier">Email Address</label> 
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="email" id="logonIdentifier" name="LogonIdentifier" pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="LogonIdentifier" value="" tabindex="1">
+                       </div>
+                       <div class="entry-item">
+                               <div class="password-label"> <label for="password">Password</label><a id="forgotPassword" tabindex="2">Forgot your password?</a></div>
+                               <div class="error itemLevel" aria-hidden="true" style="display: none;">
+                                      <p role="alert"></p>
+                               </div>
+                               <input type="password" id="password" name="Password" placeholder="Password" tabindex="1">
+                       </div>
+                       <div class="working"></div>
+                       <div class="buttons"> <button id="next" tabindex="1">Sign in</button> </div>
+               </div>
+               <div class="divider">
+                       <h2>OR</h2>
+               </div>
+               <div class="create">
+                       <p>Don't have an account?<a id="createAccount" tabindex="1">Sign up now</a> </p>
+               </div>
+        </div>
+</div>
+
+```
+
 ### Página de autenticación multifactor
 
 Esta página permite a los usuarios verificar sus números de teléfono (mediante texto o voz) durante el registro o el inicio de sesión.
@@ -277,4 +332,4 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

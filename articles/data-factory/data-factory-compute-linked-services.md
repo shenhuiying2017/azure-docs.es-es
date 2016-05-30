@@ -66,7 +66,7 @@ El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamie
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type se debe establecer en **HDInsightOnDemand**. | Sí
-clusterSize | El tamaño del clúster a petición. Especifique el número de nodos que desea que haya en este clúster a petición. | Sí
+clusterSize | Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard\_D3 con cuatro núcleos, por lo que un clúster de nodo de cuatro trabajos necesitará 24 núcleos (4*4 para nodos de trabajo + 2*4 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard\_D3. | Sí
 timetolive | El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanecerá activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>La creación de un clúster de HDInsight a petición es una operación costosa (puede tardar bastante), por lo que se recomienda usar esta opción cuando sea necesario para mejorar el rendimiento de una factoría de datos con la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timeToLive está configurado correctamente. | Sí
 versión | Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. | No
 linkedServiceName | El almacén de blobs que usará el clúster a petición para almacenar y procesar datos. | Sí
@@ -137,9 +137,9 @@ Puede especificar los tamaños de los nodos principal, de datos y de zookeeper c
 
 Propiedad | Descripción | Obligatorio
 :-------- | :----------- | :--------
-headNodeSize | Especifica el tamaño del nodo principal. El valor predeterminado es: Grande. Vea la sección **Especificación de tamaños de nodo** para detalles. | No
-dataNodeSize | Especifica el tamaño del nodo de datos. El valor predeterminado es: Grande. | No
-zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Pequeño. | No
+headNodeSize | Especifica el tamaño del nodo principal. El valor predeterminado es: Standard\_D3 Vea la sección **Especificación de tamaños de nodo** para detalles. | No
+dataNodeSize | Especifica el tamaño del nodo de datos. El valor predeterminado es: Standard\_D3 | No
+zookeeperNodeSize | Especifica el tamaño del nodo de Zoo Keeper. El valor predeterminado es: Standard\_D3 | No
  
 #### Especificación de tamaños de nodo
 Vea el artículo [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para valores de cadena que tiene que especificar para las propiedades anteriores. Los valores deben ser conformes a los **CMDLET y API** a los que se hace referencia en el artículo. Como puede ver en el artículo, el nodo de datos de tamaño grande (valor predeterminado) tiene 7 GB de memoria, que es posible que no sea lo suficientemente bueno para su escenario.
@@ -332,11 +332,11 @@ El código siguiente genera los valores de **sessionId** y **authorization**.
         }
     }
 
-Para obtener más información sobre las clases de Factoría de datos que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Servicio vinculado SQL de Azure
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

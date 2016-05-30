@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="05/18/2016" 
 	ms.author="luisca"/>
 
 #Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
@@ -35,8 +35,8 @@ Recomendaciones tiene las siguientes limitaciones de uso:
 * Número máximo de modelos por suscripción: 10
 * Número máximo de elementos que puede contener un catálogo: 100.000
 * El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
-* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
-* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
+* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
+* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
 
 ##Compra y facturación 
 
@@ -135,4 +135,4 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

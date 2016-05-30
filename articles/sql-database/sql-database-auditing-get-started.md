@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="05/17/2016"
 	ms.author="carlrabeler; ronitr"/>
- 
+
 # Introducción a la auditoría de bases de datos SQL
 La auditoría de Base de datos SQL de Azure realiza un seguimiento de los eventos de base de datos y escribe eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure. La auditoría está generalmente disponible para los niveles de servicio Básico, Estándar y Premium.
 
@@ -57,7 +57,7 @@ Los registros de auditoría se almacenan en su cuenta de almacenamiento de Azure
 
 Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada. La directiva de auditoría de servidor predeterminada se aplicará a todas las bases de datos de un servidor que no tengan una directiva de auditoría de base de datos de reemplazo específica definida.
 
-Antes de configurar la auditoría, compruebe si usa un [Cliente de nivel inferior](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Antes de configurar la auditoría, compruebe si usa un [Cliente de nivel inferior](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Además, si tiene una configuración de firewall estricta, tenga en cuenta que el [punto de conexión de IP de la base de datos cambiará](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) al habilitar la auditoría.
 
 
 ##<a id="subheading-2"></a>Configuración de la auditoría para su base de datos
@@ -140,7 +140,7 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 3. Vuelva a la hoja de configuración de auditoría, cambie la **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y haga clic en **GUARDAR**.
 
 4. Vuelva a la interfaz de usuario de almacenamiento y **vuelva a generar** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
-  
+
 ##<a id="subheading-7"></a>Automatización
 Existen varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure.
 
@@ -175,7 +175,4 @@ Existen varios cmdlets de PowerShell que puede usar para configurar la auditorí
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-
- 
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor
@@ -68,4 +68,4 @@ Habilite Stretch Database.
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

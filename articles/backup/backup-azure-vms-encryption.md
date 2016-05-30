@@ -36,13 +36,22 @@ Hay muchos elementos de esta solución que se tienen que configurar y administra
 
 | Función | Software usado | Notas adicionales |
 | -------- | ------------- | ------- |
-| Cifrado | BitLocker o dmcrypt | Como el cifrado se produce en una capa *diferentes* en comparación con la Copia de seguridad de Azure, no importa qué software de cifrado se usa. Dicho eso, esta experiencia se ha validado solo con Bitlocker y dmcrypt.<br><br> Para cifrar los datos, se necesita una clave. La clave también se tiene que mantener segura para garantizar el acceso autorizado a los datos. |
-| Administración de claves | CloudLink SecureVM<br>o KeyVault de Azure | La clave es esencial para cifrar o descifrar los datos. Sin la clave correcta, no se pueden recuperar los datos. Esto resulta *increíblemente* importante con:<br><li>Sustituciones clave<li>Retención a largo plazo<br><br>Por ejemplo, es posible que la clave usada para hacer copias de seguridad de datos hace 7 años no sea la misma clave que se usa en la actualidad. Sin la clave de hace 7 años, será imposible usar los datos restaurados de ese momento.|
+| Cifrado | BitLocker o dmcrypt | Como el cifrado se produce en una capa *diferentes* en comparación con la Copia de seguridad de Azure, no importa qué software de cifrado se usa. Dicho eso, esta experiencia se ha validado solo con CloudLink mediante Bitlocker y dmcrypt.<br><br> Para cifrar los datos, se necesita una clave. La clave también se tiene que mantener segura para garantizar el acceso autorizado a los datos. |
+| Administración de claves | CloudLink SecureVM | La clave es esencial para cifrar o descifrar los datos. Sin la clave correcta, no se pueden recuperar los datos. Esto resulta *increíblemente* importante con:<br><li>Sustituciones clave<li>Retención a largo plazo<br><br>Por ejemplo, es posible que la clave usada para hacer copias de seguridad de datos hace 7 años no sea la misma clave que se usa en la actualidad. Sin la clave de hace 7 años, será imposible usar los datos restaurados de ese momento.|
 | Copia de seguridad de datos | Copia de seguridad de Azure | Use la Copia de seguridad de Azure para hacer una copia de seguridad de una de las máquinas virtuales de IaaS de Azure a través del [portal de administración de Azure](http://manage.windowsazure.com) o con PowerShell |
 | Restauración de datos | Copia de seguridad de Azure | Use la Copia de seguridad de Azure para restaurar discos o una máquina virtual completa desde un punto de recuperación. Los datos no se descifran por la Copia de seguridad de Azure como parte de la operación de restauración.|
 | Descifrado | BitLocker o dmcrypt | Para leer datos de un disco de datos restaurada o una máquina virtual restaurada, el software necesita la clave desde el software de administración de claves. Sin la clave correcta, no se pueden descifrar los datos. |
 
 > [AZURE.IMPORTANT]  La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
+
+### Escenarios admitidos
+
+
+| &nbsp; | Almacén de copia de seguridad | Almacén de Servicios de recuperación |
+| :-- | :-- | :-- |
+| Máquinas virtuales de Azure IaaS V1 | Sí | No |
+| Máquinas virtuales de Azure IaaS V2 | N/D | No |
+
 
 ## CloudLink SecureVM
 
@@ -62,4 +71,4 @@ Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen c
 - [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

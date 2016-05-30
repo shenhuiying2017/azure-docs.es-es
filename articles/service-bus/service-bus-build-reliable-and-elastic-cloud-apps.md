@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Crear aplicaciones en la nube fiables y elásticas con mensajería 
@@ -38,11 +38,12 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. De la
 ## Popular
 
 - [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Referencia de la API de REST de Bus de servicio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Referencia de API de REST de Bus de servicio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Referencia de la API de REST de RP del Bus de servicio](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## Servicios relacionados
 
 - [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

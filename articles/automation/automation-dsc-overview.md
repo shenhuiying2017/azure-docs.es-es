@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name" 
    authors="coreyp-at-msft" 
    manager="stevenka" 
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="powershell dsc, configuración de estado deseado, powershell dsc azure"/>
 
 <tags
    ms.service="automation"
@@ -13,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="04/29/2016"
-   ms.author="coreyp"/>
+   ms.date="05/10/2016"
+   ms.author="magoedte;coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
 
 ##¿Qué es DSC de Automatización de Azure?##
 Implementar y mantener el estado deseado de los servidores y de los recursos de aplicación pueden ser tareas laboriosas y propensas a error. Con la Configuración de estado deseado (DSC) de Automatización de Azure, puede implementar de forma coherente, supervisar de forma confiable y actualizar automáticamente el estado deseado de todos los recursos de TI a escala desde la nube. Basado en DSC de PowerShell, DSC de Automatización puede alinear la configuración de máquina con un estado específico de las máquinas físicas y virtuales (VM), con Windows o Linux, y en la nube o de forma local. Puede permitir la entrega continua de servicios de TI gracias al control coherente y administrar con facilidad los cambios rápidos en su entorno heterogéneo de TI híbrida.
 
-DSC de Automatización de Azure se basa en los elementos fundamentales presentados en DSC de PowerShell para proporcionar una experiencia de administración de configuración incluso más simple. DSC de Automatización de Azure lleva a [Configuración de estado deseado de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) la misma capa de administración que ofrece en la actualidad Automatización de Azure para la creación de scripts de PowerShell.
+DSC de Automatización de Azure se basa en los elementos fundamentales presentados en DSC de PowerShell para proporcionar una experiencia de administración de configuración incluso más simple. DSC de Automatización de Azure lleva a la [configuración de estado deseado de PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) la misma capa de administración que ofrece en la actualidad Automatización de Azure para el scripting de PowerShell.
 
 DSC de Automatización de Azure le permite [crear y administrar Configuraciones de estado deseado de PowerShell](https://technet.microsoft.com/library/dn249918.aspx), importar [Recursos de DSC](https://technet.microsoft.com/library/dn282125.aspx) y generar Configuraciones de nodo de DSC (documentos MOF), todo en la nube. Estos elementos de DSC se colocarán en el [servidor de extracción de DSC](https://technet.microsoft.com/library/dn249913.aspx) de Automatización de Azure, para que los nodos de destino (como las máquinas físicas y virtuales) en la nube o locales puedan tomarlos, cumplir automáticamente con el estado deseado especificado e informar según su cumplimiento con el estado deseado a Automatización de Azure.
 
@@ -98,6 +99,8 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 
 ##Problemas conocidos:##
 
+- Al actualizar a WMF 5 RTM, si la máquina ya está registrada como nodo en DSC de Automatización de Azure, anule su registro y vuelva a registrarla después de la actualización de WMF 5 RTM.
+
 - En este momento, DSC de Automatización de Azure no es compatible con configuraciones parciales o compuestas de DSC. Sin embargo, los recursos compuestos de DSC se pueden importar y utilizar exactamente igual que en PowerShell local, lo que permite la reutilización de la configuración.
 
 - La versión más reciente de WMF 5 debe estar instalada para el agente DSC de PowerShell para que Windows pueda comunicarse con Automatización de Azure. La versión más reciente de agente DSC de PowerShell para Linux debe estar instalada para que sea posible la comunicación con el servicio Automatización de Azure.
@@ -112,11 +115,9 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 
 - Tras el registro, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no podrá comunicarse con la Automatización de Azure y se marcará como "No responde". La actualización del registro se realiza de la misma forma que se registró el nodo inicialmente. Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.
 
-- Al actualizar a WMF 5 RTM, si la máquina ya está registrada como nodo en DSC de Automatización de Azure, anule su registro y vuelva a registrarla después de la actualización de WMF 5 RTM. Antes de volver a registrar, elimine el archivo `$env:windir\system32\configuration\DSCEngineCache.mof`.
+- Al actualizar a WMF 5 RTM, si la máquina ya está registrada como nodo en DSC de Automatización de Azure, anule su registro y vuelva a registrarla después de la actualización de WMF 5 RTM. Antes de volver a registrarla, elimine el archivo $env:windir\\system32\\configuration\\DSCEngineCache.mof.
 
 - Los cmdlets de DSC de PowerShell pueden no funcionar si WMF 5 RTM está instalado encima de WMF 5 Production Preview. Para solucionar este problema, ejecute el siguiente comando en una sesión de PowerShell con privilegios elevados (ejecutar como administrador): `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
-
-- Si anteriormente usó las funcionalidades de DSC de PowerShell WMF 4 en una máquina, la extracción de información de configuración de DSC de Automatización de Azure para esta máquina presentará un error con la excepción: "Error de descifrado". Para corregir este problema, elimine los siguientes archivos y, luego, vuelva a registrar la máquina en DSC de Automatización de Azure: `$env:windir\system32\configuration\Current.mof`, `$env:windir\system32\configuration\DSCEngineCache.mof`, `$env:windir\system32\configuration\DSCStatusHistory.mof`
  
 
 ##Artículos relacionados##
@@ -127,4 +128,4 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 - [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 - [Implementación continua en las máquinas virtuales de IaaS mediante DSC de Automatización de Azure y Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

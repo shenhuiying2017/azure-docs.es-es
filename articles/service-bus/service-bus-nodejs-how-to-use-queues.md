@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
 
 [AZURE.INCLUDE [servicio de bus de selector de colas](../../includes/service-bus-selector-queues.md)]
 
-Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+En este artículo se describe cómo usar las colas del Bus de servicio en Node.js. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -145,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas de Bus de servicio y colas de Azure][].
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
 
 ## mensajes de una cola
 
@@ -185,7 +185,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Pasos siguientes
 
-Para obtener más información, consulte los recursos siguientes.
+Para más información sobre las colas, consulte los siguientes recursos:
 
 -   [Colas, temas y suscripciones][]
 -   Repositorio del [SDK de Azure para Node][] en GitHub
@@ -199,7 +199,7 @@ Para obtener más información, consulte los recursos siguientes.
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio de nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicación web Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Cuotas del Bus de servicio]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->
