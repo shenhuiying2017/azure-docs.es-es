@@ -385,7 +385,7 @@ El código de esta sección muestra cómo cargar un modelo de regresión lineal 
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -547,7 +547,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información, consulte [Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como **Explorador de almacenamiento de Microsoft Azure** o **AzCopy** para copiar el script en el blob del clúster. En nuestro caso, cargamos el script en ******wasb:///example/python/ConsumeGBNYCReg.py***.
+Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como **Explorador de almacenamiento de Microsoft Azure** o **AzCopy** para copiar el script en el blob del clúster. En nuestro caso, cargamos el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
 
 >[AZURE.NOTE] Las claves de acceso que necesita se encuentran en el portal de la cuenta de almacenamiento asociada con el clúster de Spark.

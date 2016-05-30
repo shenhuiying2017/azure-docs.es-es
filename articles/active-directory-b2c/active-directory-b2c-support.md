@@ -40,7 +40,7 @@ Puede presentar solicitudes de soporte técnico para Azure Active Directory (Azu
     - **Tipo de problema** es **Técnico**.
 	- Elija la **Suscripción** adecuada.
     - **Servicio** es **Active Directory**.
-    - Elija el **Plan de soporte técnico** adecuado. Si no tiene uno, puede registrarse para obtenerlo [aquí](https://azure.microsoft.com/es-ES/support/plans/).
+    - Elija el **Plan de soporte técnico** adecuado. Si no tiene uno, puede registrarse para obtenerlo [aquí](https://azure.microsoft.com/support/plans/).
 
     ![Soporte técnico: Datos básicos](./media/active-directory-b2c-support/support-basics.png)
 

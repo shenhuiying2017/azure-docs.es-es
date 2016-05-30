@@ -65,7 +65,8 @@ En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte
 |Seúl, Corea del Sur| 190 | 190 | 0 % |
 
 
-* Tiene un nodo de la red CDN de Azure en la misma ciudad. ** Tiene un nodo de la red CDN de Azure en una ciudad vecina.
+* Tiene un nodo de la red CDN de Azure en la misma ciudad. 
+** Tiene un nodo de la red CDN de Azure en una ciudad vecina.
 
 ## Desafíos  
 

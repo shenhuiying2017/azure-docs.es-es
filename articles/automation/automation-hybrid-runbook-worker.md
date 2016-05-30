@@ -179,9 +179,9 @@ Si es un usuario existente de SMA, puede mover los runbooks a Automatización de
 
 Puede usar los criterios siguientes para determinar si Automatización de Azure con Trabajo híbrido de runbook o Service Management Automation es más adecuado para sus requisitos.
 
-- SMA requiere una instalación local de Windows Azure Pack con más recursos locales y costos de mantenimiento más altos que Automatización de Azure, que solo necesita instalar un agente en los trabajos de runbooks locales. Operations Management Suite administra los agentes, con lo que disminuyen los costos de mantenimiento.
+- SMA requiere una instalación local de Microsoft Azure Pack con más recursos locales y costos de mantenimiento más altos que Automatización de Azure, que solo necesita instalar un agente en los trabajos de runbooks locales. Operations Management Suite administra los agentes, con lo que disminuyen los costos de mantenimiento.
 - Automatización de Azure almacena sus runbooks en la nube y los entrega a Trabajos híbridos de runbooks locales. Si su directiva de seguridad no permite este comportamiento, deberá usar SMA.
-- Windows Azure Pack es una descarga gratuita, mientras que Automatización de Azure podría generar gastos de suscripción.
+- Microsoft Azure Pack es una descarga gratuita, mientras que Automatización de Azure podría generar gastos de suscripción.
 - Automatización de Azure con Trabajo híbrido de runbook le permiten administrar runbooks para recursos de nube y recursos locales en una ubicación, en lugar de administrar Automatización de Azure y SMA de manera independiente.
 - Automatización de Azure tiene características avanzadas, que incluyen la creación gráfica que no se encuentra disponible en SMA.
 

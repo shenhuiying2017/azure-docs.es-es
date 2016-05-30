@@ -215,7 +215,9 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 | Cliente |Soporte técnico |Excepciones|
 | --------- | --------- |--------- |
-| Clientes basados en web como Exchange Web Access y SharePoint Online | Compatible |**Se admiten contratos con Kerberos| | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM | Admitida | No se admite la autenticación integrada de Windows| | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync | Admitida | Ninguna|
+| Clientes basados en web como Exchange Web Access y SharePoint Online | Compatible |**Se admiten contratos con Kerberos| 
+| Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM | Admitida | No se admite la autenticación integrada de Windows| 
+| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync | Admitida | Ninguna|
 
 **NetIQ admite autenticación Kerberos mediante la configuración de un contrato con Kerberos. Para obtener ayuda sobre esta configuración, póngase en contacto con NetIQ o consulte la guía de configuración. Para obtener más información sobre NetIQ Access Manager, consulte la referencia sobre [NetIQ Access Manager](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html).
 

@@ -128,7 +128,7 @@ Además, el valor de IssuerUri del dominio nuevo se ha establecido en https://bm
 ##Compatibilidad con subdominios
 Cuando se agrega un subdominio, debido a la manera en que Azure AD controla los dominios, heredará la configuración del elemento primario. Esto significa que el elemento IssuerUri debe coincidir con los elementos primarios.
 
-Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com. Esto significa que el elemento IssuerUri de un usuario de corp.bmcontoso.com deberá ser ****http://bmcontoso.com/adfs/services/trust.**. Sin embargo, la regla estándar implementada anteriormente para Azure AD generará un token con un emisor como ****http://corp.bmcontoso.com/adfs/services/trust.** que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
+Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com. Esto significa que el elemento IssuerUri de un usuario de corp.bmcontoso.com deberá ser **http://bmcontoso.com/adfs/services/trust.**. Sin embargo, la regla estándar implementada anteriormente para Azure AD generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.** que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
 
 ### Habilitación de la compatibilidad con subdominios
 Para solucionar este problema, es necesario actualizar la confianza de usuario de confianza de AD FS para Microsoft Online. Para ello, debe configurar una regla de notificaciones personalizada para eliminar cualquier subdominio del sufijo UPN del usuario al construir el valor de emisor personalizado.

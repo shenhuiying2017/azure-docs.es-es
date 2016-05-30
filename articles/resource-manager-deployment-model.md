@@ -40,7 +40,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -87,7 +87,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

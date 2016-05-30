@@ -324,7 +324,7 @@ El almacenamiento de blobs se divide automáticamente en función del nombre de 
 
 Las acciones de escritura de un solo bloque (blob en bloques) o página (blob en páginas) son atómicas, pero no las operaciones que abarcan bloques, páginas o blobs. Si necesita asegurar la coherencia cuando se realizan operaciones de escritura en bloques, páginas y blobs, realice un bloqueo de escritura mediante el uso de una concesión de blob.
 
-Almacenamiento de blobs de Azure admite velocidades de transferencia de hasta 60 MB por segundo o hasta 500 solicitudes por segundo para cada blob. Si prevé que va a superar estos límites y los datos de blob están relativamente estáticos, considere la posibilidad de replicar blobs mediante el uso de la red de entrega de contenido (CDN) de Azure. Para obtener más información, consulte la página [Using Content Delivery Network for Azure] (Uso de red de entrega de contenido para Azure) en el sitio web de Microsoft. Para obtener instrucciones y otras consideraciones, consulte el artículo [Uso de la red CDN en Azure].
+Almacenamiento de blobs de Azure admite velocidades de transferencia de hasta 60 MB por segundo o hasta 500 solicitudes por segundo para cada blob. Si prevé que va a superar estos límites y los datos de blob están relativamente estáticos, considere la posibilidad de replicar blobs mediante el uso de la red de entrega de contenido (CDN) de Azure. Para obtener más información, consulte la página [Using Content Delivery Network for Azure] \(Uso de red de entrega de contenido para Azure) en el sitio web de Microsoft. Para obtener instrucciones y otras consideraciones, consulte el artículo \[Uso de la red CDN en Azure].
 
 ## Creación de particiones en colas de almacenamiento de Azure
 
@@ -529,7 +529,7 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 - La página [Tipos de datos admitidos (Búsqueda de Azure)] del sitio web de Microsoft resume los tipos de datos que puede usar en los documentos y los índices en los que se pueden hacer búsquedas.
 - La página [Caché en Redis de Azure] del sitio web de Microsoft proporciona una introducción a Caché en Redis de Azure.
 - La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis proporciona información sobre cómo implementar las particiones con Redis.
-- La página [Running Redis on a CentOS Linux VM in Windows Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
+- La página [Running Redis on a CentOS Linux VM in Microsoft Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 - La página [Data types] (Tipos de datos) del sitio web de Redis describe los tipos de datos que están disponibles con Redis y Caché en Redis de Azure.
 
 [Caché en Redis de Azure]: http://azure.microsoft.com/services/cache/

@@ -65,7 +65,7 @@ Las aplicaciones que admiten el perfil SCIM descrito anteriormente se pueden con
 ![][2]
 
 4.	En la pantalla resultante, seleccione el segundo botón **Configurar aprovisionamiento de cuentas**.
-5.	En el campo ** Dirección URL del extremo de aprovisionamiento **, escriba la dirección URL del punto de conexión SCIM de la aplicación.
+5.	En el campo **Dirección URL del extremo de aprovisionamiento**, escriba la dirección URL del punto de conexión SCIM de la aplicación.
 6.	Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token de autenticación (opcional)**. Si se deja este campo en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
 7.	Haga clic en **Siguiente** y haga clic en el botón **Iniciar prueba** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si fallan los intentos, se mostrará la información de diagnóstico.  
 8.	Si los intentos de conexión a la aplicación tienen éxito, haga clic en **Siguiente** en las pantallas restantes y haga clic en **Completar** para salir del cuadro de diálogo.

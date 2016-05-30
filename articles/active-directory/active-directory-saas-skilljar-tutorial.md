@@ -103,7 +103,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
-    b. Copie el valor del ** Formato de identificador de nombre**.
+    b. Copie el valor del **Formato de identificador de nombre**.
 
     c. Haga clic en **Siguiente**.
 

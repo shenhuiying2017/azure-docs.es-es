@@ -149,7 +149,7 @@ Si tiene problemas al compilar, pruebe las soluciones para las diferentes peculi
 
 -   *La aplicación Android no se compila*:
 
-    -   Abra **Herramientas** > ** Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
+    -   Abra **Herramientas** > **Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
 
     -   Elimine este directorio y luego recompile:<br/> `%LocalAppData%\Xamarin\zips`
 

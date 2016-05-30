@@ -36,7 +36,11 @@ De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azu
 | URL | Port | Descripción |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL. |
-| **.verisign.com | HTTP/80 | Utilizado para descargar listas CRL. | | *.entrust.com | HTTP/80 | Utilizado para descargar listas CRL para MFA. | | *.windows.net | HTTPS/443 | Utilizado para iniciar sesión en Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilizado para MFA. | | *.microsoftonline.com | HTTPS/443 | Utilizado para configurar el directorio Azure AD e importar y exportar datos. |
+| *.verisign.com | HTTP/80 | Utilizado para descargar listas CRL. | 
+| *.entrust.com | HTTP/80 | Utilizado para descargar listas CRL para MFA. | 
+| *.windows.net | HTTPS/443 | Utilizado para iniciar sesión en Azure AD. | 
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Utilizado para MFA. | 
+| *.microsoftonline.com | HTTPS/443 | Utilizado para configurar el directorio Azure AD e importar y exportar datos. |
 
 ## Errores en el asistente
 El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectarse a Azure AD** utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar** cambia a la [cuenta que está ejecutando el servicio para el motor de sincronización](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Las configuraciones de proxy que realizamos son globales para el equipo por lo que si hay un problema, probablemente ya aparecerá en la página **Conectarse a Azure AD** del asistente.
@@ -50,7 +54,7 @@ Este error aparecerá cuando el propio asistente no pueda ponerse en contacto co
 - Si es correcta, siga los pasos descritos en [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del Ayudante.
 
 ### No se puede alcanzar el punto de conexión de MFA
-Aparecerá este error si no se puede poner en contacto con el punto de conexión ****https://secure.aadcdn.microsoftonline-p.com** y el administrador global tiene MFA habilitado. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Aparecerá este error si no se puede poner en contacto con el punto de conexión **https://secure.aadcdn.microsoftonline-p.com** y el administrador global tiene MFA habilitado. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Si ve esto, compruebe que el punto de conexión secure.aadcdn.microsoftonline-p.com se ha agregado al servidor proxy.
 

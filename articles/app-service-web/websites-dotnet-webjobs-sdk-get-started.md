@@ -73,11 +73,13 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
-2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**. ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**.  
+![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
 
-5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**. ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**.  
+![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
 

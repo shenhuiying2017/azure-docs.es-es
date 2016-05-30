@@ -39,7 +39,7 @@ Use esta arquitectura cuando el servidor de procesos sea local y se esté usando
 
 Use esta arquitectura cuando el servidor de procesos esté en Azure y tenga una VPN o una conexión de ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Para ver la lista completa de puertos y el diagrama de la arquitectura de la conmutación por recuperación, consulte la imagen siguiente.
 
@@ -204,4 +204,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 - ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 - Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0518_2016---->
