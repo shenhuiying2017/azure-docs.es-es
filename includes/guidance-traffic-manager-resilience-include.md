@@ -1,7 +1,7 @@
-##Highly available solutions with Azure traffic manager
+##Soluciones de alta disponibilidad con Administrador de tráfico de Azure
 
-You need to determine whether your workload's high availability requirements can be met by using Azure traffic manager alone, or if you need to combine traffic manager with other DNS solutions, or processes. Depending on your needs, you can use:
+Conviene averiguar si los requisitos de alta disponibilidad de su carga de trabajo se pueden cumplir solamente con el Administrador de tráfico de Azure, o bien necesita combinar el Administrador de tráfico con otros procesos u otras soluciones de DNS. Según sus necesidades, puede:
 
-- **Traffic manager alone**. If a 99.99% up time is sufficient for your workload, you can use traffic manager by itself. In the event of failure in the traffic manager service, users will not be able to access your workload until the traffic manager service is reestablished.
+- **Usar solo el Administrador de tráfico.** Si un 99,99 % de tiempo de actividad es suficiente para la carga de trabajo, puede usar el Administrador de tráfico únicamente. En caso de que se produzca un error en el servicio del Administrador de tráfico, los usuarios no podrán tener acceso a la carga de trabajo hasta que dicho servicio se restablezca.
 
-- **Use another traffic manager solution along with Azure traffic manager**. In the event of failure in the traffic manager service, you can change your CNAME record to point to the other traffic manager service. Access to your workload is still available, and distributed to all locations hosting your workload. This is the most expensive solution, but may be required for workloads that need a higher SLA.
+- **Usar otra solución de administración de tráfico aparte del Administrador de tráfico de Azure.** En caso de que se produzca un error en el servicio de Administrador de tráfico, puede cambiar el registro CNAME de forma que apunte a otro servicio de administración de tráfico. Se podrá seguir teniendo acceso a la carga de trabajo, distribuido a todas las ubicaciones donde la carga de trabajo se hospede. Se trata de la solución más costosa, pero puede ser necesaria en aquellas cargas de trabajo que necesiten un contrato de nivel de servicio superior.

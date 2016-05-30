@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de aplicaciones multiinquilino con Base de datos SQL de Azure"
+   pageTitle="Base de datos SQL de Azure crea aplicaciones multiempresa con eficacia y aislamiento."
    description="Obtenga información sobre cómo crear aplicaciones multiinquilino con Base de datos SQL de Azure"
    keywords=""
    services="sql-database"
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Creación de aplicaciones multiinquilino con Base de datos SQL de Azure
+# Creación de aplicaciones multiempresa con Base de datos SQL de Azure con aislamiento y eficiencia
 
 ## Aprovechamiento de grupos elásticos y generación de aplicaciones multiinquilino más eficaces
 
@@ -47,12 +47,22 @@ Los grupos básicos, estándar y premium le proporcionan una amplia gama de rend
 
 Además de los grupos elásticos, existen características de Base de datos SQL para ayudar a administrar las actividades operativas entre varias bases de datos:
 
-**Realización de consultas e informes entre bases de datos.** [La consulta de bases de datos elástica](sql-database-elastic-query-overview.md) le permite ejecutar informes o consultas entre las bases de datos del grupo elástico y acceder de forma remota a los datos almacenados en muchas bases de datos del grupo a la vez.
+** Realización de consultas e informes entre bases de datos. ** [La consulta de bases de datos elástica](sql-database-elastic-query-overview.md) le permite ejecutar informes o consultas entre las bases de datos del grupo elástico y acceder de forma remota a los datos almacenados en muchas bases de datos del grupo a la vez.
 
-**Ejecución de transacciones entre bases de datos.** [Las transacciones de bases de datos elásticas](sql-database-elastic-transactions-overview.md) le permiten ejecutar transacciones que abarcan varias bases de datos en Bases de datos SQL y realizar operaciones (por ejemplo, cuando se procesan las transacciones financieras entre bases de datos o al actualizar el inventario y los pedidos en una base de datos).
+** Ejecución de transacciones entre bases de datos. ** [Las transacciones de bases de datos elásticas](sql-database-elastic-transactions-overview.md) le permiten ejecutar transacciones que abarcan varias bases de datos en Bases de datos SQL y realizar operaciones (por ejemplo, cuando se procesan las transacciones financieras entre bases de datos o al actualizar el inventario y los pedidos en una base de datos).
 
-**Ejecución de las mismas operaciones en varias bases de datos.** [Los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
+** Ejecución de las mismas operaciones en varias bases de datos. ** [Los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
 
-Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo](https://azure.microsoft.com/services/sql-database/).
+Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Pasos siguientes
+
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
+
+## Más información
+
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

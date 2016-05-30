@@ -89,7 +89,7 @@ En esta sección se comparan algunas de las capacidades de puesta en cola fundam
 |---|---|---|
 |Garantía de ordenación|**No** <br/><br>Para obtener más información, vea la primera nota de la sección "Información adicional".</br>|**Sí: primero en entrar, primero en salir (FIFO)**<br/><br>(mediante el uso de las sesiones de mensajería)|
 |Garantía de entrega|**Al menos una vez**|**Al menos una vez**<br/><br/>**Una vez como máximo**|
-|Compatibilidad con transacciones|**No**|**Sí**<br/><br/>(mediante el uso de transacciones locales)|
+|Compatibilidad con la operación atómica|**No**|**Sí**<br/><br/>|
 |Comportamiento de recepción|**Sin bloqueo**<br/><br/>(se completa inmediatamente si no se encuentra ningún mensaje nuevo)|**Bloque con/sin tiempo de espera**<br/><br/>(ofrece sondeo largo o la ["Técnica de cometa"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sin bloque**<br/><br/>(solo mediante el uso de la API administrada de .NET)|
 |API de estilo de inserción|**No**|**Sí**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) y API. de NET de **sesiones OnMessage**.|
 |Modo de recepción|**Ojear y alquilar**|**Ojear y bloquear**<br/><br/>**Recibir y eliminar**|
@@ -178,7 +178,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Tamaño de cola máximo|**200 TB**<br/><br/>(limitado a una capacidad de cuenta de almacenamiento única)|**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional")|
-|Tamaño de mensaje máximo|**64 KB**<br/><br/>(48 KB cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento.|**256 KB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB)|
+|Tamaño de mensaje máximo|**64 KB**<br/><br/>(48 KB cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento.|**256 KB** o **1 MB**<br/><br/>(incluidos el encabezado y cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md).|
 |TTL de mensaje máximo|**7 días**|**Sin límite**|
 |Número máximo de colas|**Sin límite**|**10.000**<br/><br/>(por espacio de nombres de servicio, se puede aumentar)|
 |Número máximo de clientes simultáneos|**Sin límite**|**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP)|
@@ -191,7 +191,7 @@ En esta sección se comparan las colas de Azure y las colas del Service Bus desd
 
 - Con las colas de Azure, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
 
-- Con las colas de Service Bus, cada mensaje almacenado en una cola consta de dos partes: un encabezado y un cuerpo. El tamaño total del mensaje no puede superar los 256 KB.
+- Con las colas de Service Bus, cada mensaje almacenado en una cola consta de dos partes: un encabezado y un cuerpo. El tamaño total del mensaje no puede superar el tamaño máximo admitido por el nivel de servicio.
 
 - Cuando los clientes se comunican con colas de Service Bus por el protocolo TCP, el número máximo de conexiones simultáneas a una única cola de Service Bus se limita a 100. Este número se comparte entre remitentes y receptores. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Este límite no se impone en clientes que se conectan a las colas mediante la API basada en REST.
 
@@ -204,14 +204,13 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| 
-| API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| | API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|
 |API de PHP|**Sí**|**Sí**|
 |API de Node.js.|**Sí**|**Sí**|
 |Compatibilidad con metadatos arbitrarios|**Sí**|**No**|
-|Reglas de nomenclatura de cola|**Hasta 63 caracteres**<br/><br/>(las letras de un nombre de cola deben estar en minúscula)|**Hasta 260 caracteres**<br/><br/>(los nombres de cola distinguen mayúsculas de minúsculas)|
+|Reglas de nomenclatura de cola|**Hasta 63 caracteres**<br/><br/>(las letras de un nombre de cola deben estar en minúscula)|**Hasta 260 caracteres**<br/><br/>(los nombres y las rutas de acceso de las colas distinguen mayúsculas de minúsculas)|
 |Función de obtención de la longitud de la cola|**Sí**<br/><br/>(valor aproximado si los mensajes expiran más allá del TTL sin eliminarse)|**Sí**<br/><br/>(valor exacto a un momento dado)|
 |Función de ojear|**Sí**|**Sí**|
 
@@ -223,7 +222,7 @@ En esta sección se comparan algunas de las características de administración 
 
 - Las API de mensajería asíncrona de .NET de Service Bus aprovechan las conexiones TCP de dúplex completo para mejorar el rendimiento en comparación con REST sobre HTTP, y admiten el protocolo estándar AMQP 1.0.
 
-- Los nombres de cola de Azure pueden tener de 3 a 63 caracteres de longitud, pueden contener letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- Los nombres de colas de Azure pueden tener de 3 a 63 caracteres de longitud que pueden incluir letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Service Bus pueden contener letras, números, puntos (.), guiones (-) y caracteres de subrayado (\_).
 
@@ -311,8 +310,7 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-
 [Portal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

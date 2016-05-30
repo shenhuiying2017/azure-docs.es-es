@@ -104,7 +104,8 @@ Puede quitar la cuenta profesional creada en cualquier momento; para ello, proce
 4. Haga clic en **Aceptar** cuando se muestre el mensaje "¿Está seguro de que desea abandonar el área de trabajo?".
 5. Esto garantiza que ha eliminado la cuenta profesional de un área de trabajo.
 
->[AZURE.NOTE> Se recomienda no utilizar la opción Quitar cuenta para eliminar una cuenta profesional, ya que esta opción no funciona en algunas versiones anteriores de Android.
+>[AZURE.NOTE]
+Se recomienda no utilizar la opción Quitar cuenta para eliminar una cuenta profesional, ya que esta opción no funciona en algunas versiones anteriores de Android.
 
 ##Desinstalación de la aplicación
 
@@ -116,4 +117,4 @@ En un dispositivo Android de Samsung, es necesario quitar los privilegios de adm
 
 Si ve un error que indica **Error de KeyStore**, podría deberse a que no ha configurado la pantalla de bloqueo con un PIN. Para evitar este problema, desinstale la aplicación Azure Authenticator, configure un PIN para la pantalla de bloqueo y reinstale la aplicación.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

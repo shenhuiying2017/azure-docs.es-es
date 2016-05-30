@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)
@@ -24,7 +24,7 @@ Si almacena los datos históricos en una tabla independiente, puede configurar S
 
 Si no especifica un predicado de filtro, se migra toda la tabla.
 
-En RC3, cuando ejecute el Asistente para la habilitación de Stretch Database, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
+Cuando ejecute el Asistente para la habilitación de Stretch Database, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
 
 -   Salga del asistente y ejecute la instrucción ALTER TABLE para habilitar Stretch para la tabla y especificar un predicado.
 
@@ -508,4 +508,4 @@ Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de cat
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

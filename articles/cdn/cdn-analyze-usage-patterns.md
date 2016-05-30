@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Análisis de patrones de uso de la red CDN
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Puede ver los patrones de uso de la red CDN mediante los siguientes informes:
 
@@ -142,4 +144,4 @@ Este informe muestra la distribución de uso de tráfico en IPV4 frente a IPV6.
 
 Los informes solo pueden generarse en los últimos 18 meses.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

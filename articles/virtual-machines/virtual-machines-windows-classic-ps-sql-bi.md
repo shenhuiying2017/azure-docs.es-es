@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar"
 	tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Business Intelligence de SQL Server en Máquinas virtuales de Azure
@@ -50,27 +50,29 @@ La galería de máquinas virtuales de Microsoft Azure incluye varias imágenes q
 
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
 
+	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2016"
+	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2016*"} | select imagename,category, location, label, description
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-
-	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
-	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
 
 Para obtener más información sobre las ediciones y las características admitidas por SQL Server, vea lo siguiente:
 
 - [Ediciones de SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
 
-- [Características admitidas por las ediciones de SQL Server 2014](https://msdn.microsoft.com/library/cc645993.aspx)
+- [Características admitidas por las ediciones de SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### Características de BI instaladas en las imágenes de la galería de máquinas virtuales de SQL Server
 
 En la tabla siguiente se resumen las características de Inteligencia empresarial instaladas en las imágenes de la galería de máquinas virtuales de Microsoft Azure comunes para SQL Server.
 
-- SQL Server 2014 RTM Enterprise
+- SQL Server 2016 RC3
 
-- SQL Server 2014 Standard
+- SQL Server 2014 SP1 Enterprise
+
+- SQL Server 2014 SP1 Standard
 
 - SQL Server 2012 SP2 Enterprise
 
@@ -81,7 +83,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 |**Modo nativo de Reporting Services**|Sí|Instalado pero requiere configuración, incluida la dirección URL del administrador de informes. Vea la sección [Configurar Reporting Services](#configure-reporting-services).|
 |**Modo de SharePoint de Reporting Services**|No|La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup>|
 |**Minería de datos y multidimensional de Analysis Services (OLAP)**|Sí|Instalado y configurado como la instancia de Analysis Services predeterminada|
-|**Tabular de Analysis Services**|No|Se admite en imágenes de SQL Server 2012 y 2014 pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema.|
+|**Tabular de Analysis Services**|No|Se admite en imágenes de SQL Server 2012, 2014 y 2016, pero no se instala de forma predeterminada. Instale otra instancia de Analysis Services. Vea la sección Instalar otras características y servicios de SQL Server en este tema.|
 |**Analysis Services PowerPivot para SharePoint**|No|La imagen de la galería de máquinas virtuales de Microsoft Azure no incluye SharePoint o archivos de instalación de SharePoint. <sup>1</sup>|
 
 <sup>1</sup> Para obtener información adicional sobre SharePoint y las máquinas virtuales de Azure, vea [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) e [Implementación de SharePoint en máquinas virtuales de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -184,7 +186,7 @@ Hay dos flujos de trabajo habituales para conectarse a una máquina virtual de A
 
 1. Haga clic en **Inicio** y luego haga clic en **Todos los programas**.
 
-1. Haga clic en **Microsoft SQL Server 2012**.
+1. Haga clic en **Microsoft SQL Server 2016**.
 
 1. Haga clic en **Herramientas de configuración**.
 
@@ -240,9 +242,9 @@ O
 
 1. Haga clic en **Siguiente** en la página **Avanzar y finalizar**.
 
-**Dirección URL del Administrador de informes:**
+**Dirección URL del portal web o URL del Administrador de informes de 2012 y 2014:**
 
-1. Haga clic en **Dirección URL del Administrador de informes** en el panel izquierdo.
+1. En el panel izquierdo, haga clic en **URL del portal web** o **URL del Administrador de informes** para 2014 y 2012.
 
 1. Haga clic en **Apply**.
 
@@ -260,31 +262,33 @@ Para comprobar la configuración, examine hasta el administrador de informes en 
 
 1. Vaya hasta http://localhost/reports en la máquina virtual.
 
-### Para conectarse al Administrador de informes remoto
+### Para conectarse al portal web remoto o al Administrador de informes de 2014 y 2012
 
-Si quiere conectarse al Administrador de informes en la máquina virtual desde un equipo remoto, cree un nuevo extremo de TCP de máquina virtual. De forma predeterminada, el servidor de informes escucha las solicitudes HTTP en el **puerto 80**. Si configura las direcciones URL del servidor de informes para usar un puerto diferente, debe especificar ese número de puerto en las instrucciones siguientes.
+Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012, cree un nuevo punto de conexión TCP de máquina virtual en la máquina virtual desde un equipo remoto. De forma predeterminada, el servidor de informes escucha las solicitudes HTTP en el **puerto 80**. Si configura las direcciones URL del servidor de informes para usar un puerto diferente, debe especificar ese número de puerto en las instrucciones siguientes.
 
 1. Crear un extremo para la máquina virtual del puerto 80 TCP Para obtener más información, vea la sección [Extremos de máquina virtual y puertos de firewall](#virtual-machine-endpoints-and-firewall-ports) de este documento.
 
 1. Abra el puerto 80 en el firewall de la máquina virtual.
 
-1. Examine hasta el administrador de informes con el **nombre DNS** de la máquina virtual de Azure como el nombre del servidor en la dirección URL. Por ejemplo:
+1. Navegue hasta el portal web o administrador de informes. Como nombre de servidor en la URL, use el **Nombre DNS** de la máquina virtual de Azure. Por ejemplo:
 
-	**Administrador de informes**: http://uebi.cloudapp.net/reportserver **Servidor de informes**: http://uebi.cloudapp.net/reports
+	**Servidor de informes**: http://uebi.cloudapp.net/reportserver **Portal web**: http://uebi.cloudapp.net/reports
 
-	[Configurar un firewall para el acceso del Servidor de informes](https://technet.microsoft.com/library/bb934283.aspx)
+	[Configurar un firewall para el acceso del Servidor de informes](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### Para crear y publicar informes en la máquina virtual de Azure
 
 En la tabla siguiente se resumen algunas de las opciones disponibles para publicar los informes existentes desde un equipo local al servidor de informes hospedados en la máquina virtual de Microsoft Azure:
 
-- **Generador de informes**: la máquina virtual incluye la versión de un solo clic del Generador de informes de Microsoft SQL Server. Para iniciar el Generador de informes por primera vez en la máquina virtual:
+- **Generador de informes**: la máquina virtual incluye la versión de un solo clic del Generador de informes de Microsoft SQL Server para SQL 2014 y 2012. Para iniciar el Generador de informes por primera vez en la máquina virtual con SQL 2016:
 
 	1. Inicie el explorador con privilegios administrativos.
 
-	1. Vaya hasta el administrador de informes en la máquina virtual y haga clic en el **Generador de informes** en la cinta de opciones.
+	1. En la máquina virtual, navegue al portal web y seleccione el icono **Descargar** en la esquina superior derecha.
+	
+	1. Seleccione **Generador de informes**.
 
-	Para obtener más información, vea [Instalar, desinstalar y asistencia del Generador de informes](https://technet.microsoft.com/library/dd207038.aspx).
+	Para obtener más información, consulte [Iniciar el Generador de informes](https://msdn.microsoft.com/library/ms159221.aspx).
 
 - **SQL Server Data Tools**: máquina virtual: SQL Server Data Tools se instala en la máquina virtual y se puede usar para crear **proyectos del Servidor de informes** e informes en la máquina virtual. SQL Server Data Tools puede publicar los informes en el servidor de informes en la máquina virtual.
 
@@ -308,11 +312,11 @@ Para instalar servicios de SQL Server adicionales, como Analysis Services en mod
 
 1. Haga clic en **Inicio** y luego haga clic en **Todos los programas**.
 
-1. Haga clic en **Microsoft SQL Server 2014** o **Microsoft SQL Server 2012** y luego en **Herramientas de configuración**.
+1. Haga clic en **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** o **Microsoft SQL Server 2012** y luego haga clic en **Herramientas de configuración**.
 
 1. Haga clic en el **Centro de instalación de SQL Server**.
 
-O ejecute C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe.
+O ejecute C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe
 
 >[AZURE.NOTE] La primera vez que ejecute el programa de instalación de SQL Server, se podrá descargar más archivos de instalación y requerir un reinicio de la instalación de SQL Server.
 >
@@ -324,13 +328,13 @@ En los pasos de esta sección se **resume** la instalación del modo tabular de 
 
 - [Instalar Analysis Services en modo tabular](https://msdn.microsoft.com/library/hh231722.aspx)
 
-- [Modelado tabular (Tutorial de Adventure Works)](https://technet.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
+- [Modelado tabular (Tutorial de Adventure Works)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
 
 **Para instalar el modo tabular de Analysis Services:**
 
 1. En el asistente para la instalación de SQL Server, haga clic en **Instalación** en el panel izquierdo y en **Nueva instalación independiente de SQL Server o agregar características a una instalación existente**.
 
-	- Si ve **Buscar carpeta**, vaya a c:\\SQLServer\_12.0\_full o c:\\SQLServer\_11.0\_full y luego haga clic en **Aceptar**.
+	- Si ve **Buscar carpeta**, vaya a c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full o c:\\SQLServer\_11.0\_full y haga clic en **Aceptar**.
 
 1. Haga clic en **Siguiente** en la página de actualizaciones del producto.
 
@@ -388,9 +392,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
 
 	|Port|Tipo|Descripción|
 |---|---|---|
-|**80**|TCP|Acceso remoto al servidor de informes (*).| 
-|**1433**|TCP|SQL Server Management Studio (*).| 
-|**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
+|**80**|TCP|Acceso remoto al servidor de informes (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|SQL Server Browser. Esto es necesario cuando la máquina virtual se une a un dominio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instancia predeterminada de SQL Server Analysis Services e instancias con nombre en clúster.|
 |**Definida por el usuario**|TCP|Cree un puerto de instancia con nombre de Analysis Services estático para un número de puerto que elija y luego desbloquee el número de puerto en el firewall.|
@@ -433,4 +435,4 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

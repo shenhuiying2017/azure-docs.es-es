@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="05/12/2016"
 	ms.author="genli"/>
 
 # ¿Por qué ha recibido una notificación de que su suscripción de Azure tiene un saldo pendiente?
@@ -30,9 +30,11 @@ Pagar el saldo pendiente en su totalidad.
 
 **Escenario 1**: si se encuentra en un modo de factura de pago, envíe el pago a la ubicación indicada en la parte inferior de la factura. Si necesita ayuda, póngase en contacto con el [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Escenario 2**: si no se paga la factura porque la tarjeta de crédito del archivo se ha rechazado o ha caducado, use otra tarjeta de crédito u otro método de pago para las suscripciones. También puede ponerse en contacto con su banco para resolver el problema. Para obtener instrucciones sobre cómo cambiar el método de pago de Azure, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](./billing-how-to-change-credit-card.md). Debe iniciar sesión como un administrador de cuenta para realizar este cambio.
+**Escenario 2**: si no se paga la factura porque la tarjeta de crédito del archivo se ha rechazado o ha caducado, use otra tarjeta de crédito u otro método de pago para las suscripciones. También puede ponerse en contacto con su banco para resolver el problema. Si actualiza el método de pago, se liquidarán de forma inmediata y automática todos los cargos pendientes con ese método de pago. Esto incluye los cargos pendientes de Azure, así como de otros servicios de Microsoft con los que se haya usado esta tarjeta.
+
+Para obtener instrucciones sobre cómo cambiar el método de pago de Azure, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](./billing-how-to-change-credit-card.md). Debe iniciar sesión como un administrador de cuenta para realizar este cambio.
 
 
 **Escenario 3**: si el aviso de la factura no se ha recibido porque el administrador de cuenta ha dejado la compañía o su rol ha cambiado, póngase en contacto con el [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

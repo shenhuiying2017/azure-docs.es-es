@@ -4,7 +4,7 @@
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Orientación sobre Red de entrega de contenido (CDN)
 
-![Logotipo de patrones y prácticas](./media/best-practices-cdn/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Información general
 La Red de entrega de contenido (CDN) de Microsoft Azure ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda que se hospeda en Azure o en cualquier otra ubicación. Con la red CDN, puede almacenar en caché objetos disponibles públicamente cargados desde Almacenamiento de blobs de Azure, una aplicación web, una máquina virtual, una carpeta de la aplicación u otra ubicación HTTP/HTTPS. La caché de CDN puede mantenerse en ubicaciones estratégicas, con el fin de proporcionar el ancho de banda máximo para entregar contenido a los usuarios. La red CDN se suele usar para entregar el contenido estático, como imágenes, hojas de estilo, documentos, archivos, scripts de cliente y páginas HTML.
@@ -50,23 +50,22 @@ Entre los usos típicos de la red CDN se incluyen:
 
 + La capacidad de hacer frente a los picos y aumentos repentinos en la demanda sin que se sea preciso realizar ningún tipo de escalado, lo que evitar el consiguiente aumento de los gastos de mantenimiento. Por ejemplo, cuando se publique una actualización del sistema operativo de un dispositivo de hardware (como un modelo específico de enrutador) o de un dispositivo de consumo (por ejemplo, un televisor inteligente), se producirá un importante pico en la demanda, ya que la descargarán millones de usuarios en millones de dispositivos en un breve período de tiempo.
 
-En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte desde distintas ubicaciones geográficas. El rol web de destino se implementa en Azure en la zona oeste de EE. UU. Hay una correlación estrecha entre el mayor aumento debido a la red CDN y su proximidad a un nodo de la red CDN. Encontrará una lista completa de las ubicaciones de los nodos de la red CDN de Azure en [Ubicaciones de nodos de la red de entrega de contenido (CDN) de Azure](./cdn/cdn-pop-locations.md/).
+En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte desde distintas ubicaciones geográficas. El rol web de destino se implementa en Azure en la zona oeste de EE. UU. Hay una correlación estrecha entre el mayor aumento debido a la red CDN y su proximidad a un nodo de la red CDN. Encontrará una lista completa de las ubicaciones de los nodos de la red CDN de Azure en [Ubicaciones de nodos de la red de entrega de contenido (CDN) de Azure](./cdn/cdn-pop-locations.md/).
 
 
 || Tiempo (ms) hasta el primer byte (origen) | Tiempo (ms) hasta la primera (CDN) |% de mejora de tiempo de CDN|
 |-------------|------------------------|--------------------|------------------|
-|*San José, California| 47,5 | 46,5 | 2 % |
-|**Dulles, Virginia| 109 | 40,5 | 169 % |
-|Buenos Aires, Argentina| 210 | 151 | 39 %|
-|*Londres, Reino Unido| 195 | 44 | 343 %|
-|Shangai, China| 242 | 206 | 17 % |
-|*Singapur | 214 | 74 | 189 % |
-|*Tokio, Japón | 163 | 48 | 204 % |
-|Seúl, Corea del Sur| 190 | 190 | 0 % |
+|*San José, California| 47,5 | 46,5 | 2 % |
+|**Dulles, Virginia| 109 | 40,5 | 169 % |
+|Buenos Aires, Argentina| 210 | 151 | 39 %|
+|*Londres, Reino Unido| 195 | 44 | 343 %|
+|Shangai, China| 242 | 206 | 17 % |
+|*Singapur | 214 | 74 | 189 % |
+|*Tokio, Japón | 163 | 48 | 204 % |
+|Seúl, Corea del Sur| 190 | 190 | 0 % |
 
 
-\* Tiene un nodo de la red CDN de Azure en la misma ciudad.  
-\*\* Tiene un nodo de la red CDN de Azure en una ciudad vecina.
+* Tiene un nodo de la red CDN de Azure en la misma ciudad. ** Tiene un nodo de la red CDN de Azure en una ciudad vecina.
 
 ## Desafíos  
 
@@ -138,7 +137,7 @@ No se puede configurar un punto de conexión de red CDN para una aplicación en 
 
 Considere qué enfoque de compresión desea que admita la red CDN:
 
-+ Puede [habilitar la compresión](./cdn/cdn-improve-performance) en el servidor de origen, en cuyo caso la red CDN admitirá la compresión de forma predeterminada y entregará contenido comprimido a los clientes en los formatos zip o gzip. Si se usa una carpeta de aplicaciones como punto de conexión de la red CDN, el servidor puede comprimir una parte del contenido automáticamente, del mismo modo que cuando lo entrega directamente a un explorador web u otro tipo de cliente. El formato depende del valor del encabezado **Accept-Encoding** de la solicitud enviada por el cliente. En Azure, el mecanismo predeterminado es comprimir automáticamente el contenido cuando el uso de la CPU es inferior al 50 %. Si se usa un servicio en la nube para hospedar la aplicación, el cambio de la configuración puede requerir que se use una tarea de inicio para activar la compresión de la salida dinámica en IIS. Para más información, consulte [Enabling gzip compression with Microsoft Azure CDN through Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx).
++ Puede [habilitar la compresión](./cdn/cdn-improve-performance) en el servidor de origen, en cuyo caso la red CDN admitirá la compresión de forma predeterminada y entregará contenido comprimido a los clientes en los formatos zip o gzip. Si se usa una carpeta de aplicaciones como punto de conexión de la red CDN, el servidor puede comprimir una parte del contenido automáticamente, del mismo modo que cuando lo entrega directamente a un explorador web u otro tipo de cliente. El formato depende del valor del encabezado **Accept-Encoding** de la solicitud enviada por el cliente. En Azure, el mecanismo predeterminado es comprimir automáticamente el contenido cuando el uso de la CPU es inferior al 50 %. Si se usa un servicio en la nube para hospedar la aplicación, el cambio de la configuración puede requerir que se use una tarea de inicio para activar la compresión de la salida dinámica en IIS. Para más información, consulte [Enabling gzip compression with Microsoft Azure CDN through Web Role](http://blogs.msdn.com/b/avkashchauhan/archive/2012/03/05/enableing-gzip-compression-with-windows-azure-cdn-through-web-role.aspx).
 
 + Puede habilitar la compresión directamente en los servidores perimetrales de la red CDN, en cuyo caso esta red comprimirá los archivos y los servirá a los usuarios finales. Para más información, consulte [Compresión en la red CDN de Azure](./cdn/cdn-improve-performance.md/).
 
@@ -284,4 +283,4 @@ Tenga en cuenta que el uso de la reescritura de URL requiere que se realicen var
 + [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

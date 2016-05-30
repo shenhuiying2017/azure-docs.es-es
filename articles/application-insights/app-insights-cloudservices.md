@@ -47,7 +47,7 @@ Un recurso de Application Insights es el lugar donde se analizan y muestran los 
     ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-cloudservices/02-props.png)
 
 
-Normalmente es mejor crear un recurso independiente para los datos de cada rol web y de trabajo.
+Normalmente es [mejor crear un recurso independiente para los datos de cada rol web y de trabajo](app-insights-separate-resources.md).
 
 Como alternativa, puede enviar datos de todos los roles a un único recurso, pero establezca una [propiedad predeterminada][apidefaults] para que pueda filtrar o agrupar los resultados de cada rol.
 
@@ -59,7 +59,7 @@ Como alternativa, puede enviar datos de todos los roles a un único recurso, per
     ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-cloudservices/03-nuget.png)
 
 
-2. Agregue el paquete NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versión del SDK incluye módulos que agregan el contexto de servidor, como la información de roles. Para los roles de trabajo, use Application Insights para servicios de Windows.
+2. Para los roles web, agregue el paquete NuGet [Application Insights para Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Esta versión del SDK incluye módulos que agregan el contexto de servidor, como la información de roles. Para los roles de trabajo, use [Application Insights para servicios de Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Busque "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -275,7 +275,7 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 
 [api]: app-insights-api-custom-events-metrics.md
 [apidefaults]: app-insights-api-custom-events-metrics.md#default-properties
-[apidynamicikey]: app-insights-api-custom-events-metrics.md#dynamic-ikey
+[apidynamicikey]: app-insights-separate-resources.md#dynamic-ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: app-insights-azure.md
 [client]: app-insights-javascript.md
@@ -286,4 +286,4 @@ Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

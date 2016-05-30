@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # Notas de la versión de la matriz virtual de StorSimple
@@ -40,6 +40,6 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | **10.** | Azure PowerShell | En esta versión no se pueden administrar los dispositivos virtuales de StorSimple a través de Azure PowerShell. | Toda la administración de los dispositivos virtuales debe realizarse mediante el portal de Azure clásico y la interfaz de usuario web local. |
 | **11.** | Cambio de contraseña | La consola del dispositivo de matriz virtual solo acepta entradas con el formato de teclado es-ES. | |
 | **12.** | CHAP | Las credenciales CHAP no se pueden quitar una vez creadas. Además, si modifica las credenciales CHAP, deberá desconectar los volúmenes y volver a ponerlos en línea para que el cambio surta efecto. | Esta situación se abordará en una versión posterior. |
-| **13.** | Volúmenes anclados localmente | El 'almacenamiento usado' que aparece para un volumen local anclado puede ser diferente en el servicio y en el host iSCSI. | El host tiene la vista del sistema de archivos.<br></br>El dispositivo ve los bloques asignados cuando el volumen estaba en el tamaño máximo.|
+| **13.** | Servidor iSCSI | El "almacenamiento usado" que aparece para un volumen iSCSI puede ser diferente en el servicio StorSimple Manager y en el host iSCSI. | El host iSCSI tiene la vista del sistema de archivos.<br></br>El dispositivo ve los bloques asignados cuando el volumen estaba en el tamaño máximo.|
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

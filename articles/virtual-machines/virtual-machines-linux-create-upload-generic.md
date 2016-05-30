@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
 
-# <a id="nonendorsed"> </a>Información para las distribuciones no aprobadas #
+# Información para las distribuciones no aprobadas #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -41,11 +41,11 @@ Por eso recomendamos que empiece con una de nuestras [distribuciones aprobadas d
 El resto de este artículo se centrará en ofrecer orientaciones generales para ejecutar su distribución de Linux en Azure.
 
 
-## <a id="linuxinstall"> </a>Notas generales sobre la instalación de Linux ##
+## Notas generales sobre la instalación de Linux ##
 
-- El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+- El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD. Si utiliza VirtualBox, deberá seleccionar **Tamaño fijo** en lugar del tamaño predeterminado asignado dinámicamente al crear el disco.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. Se pueden utilizar [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md) en discos de datos si así se prefiere.
 
 - NUMA no se admite para tamaños de máquina virtual más grandes debido a un error en las versiones del kernel de Linux anteriores a la 2.6.37. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida. La instalación manual del agente de Linux de Azure (waagent) deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux.
 
@@ -72,7 +72,7 @@ A continuación, vuelva a generar el initrd con los módulos kernel `hv_vmbus` y
 
 ### Cambio de tamaño de los discos duros virtuales ###
 
-Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB. Normalmente, los discos duros virtuales creados con Hyper-V ya deben alinearse correctamente. Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una *imagen* desde el disco duro virtual:
+Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB. Normalmente, los discos duros virtuales creados con Hyper-V ya deben alinearse correctamente. Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una *imagen* desde el disco duro virtual:
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
@@ -85,7 +85,7 @@ Para solucionar este problema, puede cambiar el tamaño de la máquina virtual m
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
- 2. Calcular el tamaño necesario de la imagen de disco para asegurarse de que el tamaño virtual está alineado con 1MB. La siguiente secuencia de comandos de shell bash puede ayudar con esto. El script usa "`qemu-img info`" para determinar el tamaño virtual de la imagen de disco y, a continuación, calcula el tamaño con el bloque de 1 MB siguiente:
+ 2. Calcular el tamaño necesario de la imagen de disco para asegurarse de que el tamaño virtual está alineado con 1MB. La siguiente secuencia de comandos de shell bash puede ayudar con esto. El script usa "`qemu-img info`" para determinar el tamaño virtual de la imagen de disco y, a continuación, calcula el tamaño con el bloque de 1 MB siguiente:
 
 		rawdisk="MyLinuxVM.raw"
 		vhddisk="MyLinuxVM.vhd"
@@ -193,6 +193,8 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 		# export HISTSIZE=0
 		# logout
 
+	>[AZURE.NOTE] Es posible que en VirtualBox aparezca el error siguiente después de ejecutar 'waagent-force - deprovision': `[Errno 5] Input/output error`. Este mensaje de error no es crítico, por lo que se puede omitir.
+
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

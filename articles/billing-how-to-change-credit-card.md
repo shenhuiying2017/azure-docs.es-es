@@ -18,7 +18,7 @@
 	ms.date="05/05/2016"
 	ms.author="genli"/>
 
-# Cambio de la tarjeta de crédito usada para pagar una factura de Azure
+# Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure
 
 Es posible que, en ocasiones, necesite actualizar los detalles de la tarjeta de crédito en la información de su cuenta, o cambiar la tarjeta que utiliza para pagar la factura.
 
@@ -51,4 +51,4 @@ Si alguna vez cambia el número de tarjeta de crédito, debido a la pérdida, ro
 3. En el lado derecho de la página, seleccione **Cambiar el método de pago**.
 4. En la página **Elegir método de pago**, seleccione la flecha desplegable situada junto a la tarjeta de crédito, seleccione la que quiera usar y finalmente seleccione ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) para cerrar la ventana.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="seanmck"/>
 
 # VISTA PREVIA: Crear un clúster de Service Fabric con Azure Active Directory para la autenticación de cliente
@@ -33,9 +33,13 @@ Para simplificar algunos de los pasos necesarios para configurar AAD con un clú
 
 >[AZURE.NOTE] Debe realizar estos pasos *antes* de crear el clúster. Por eso, en los casos en los que los scripts esperan nombres de clúster y puntos de conexión, debe indicar los valores planeados, no los valores que ya haya creado.
 
-1. [Descargue los scripts][sf-aad-ps-script-download] y extráigalos antes de continuar.
+1. [Descargue los scripts][sf-aad-ps-script-download] en su equipo.
 
-2. Ejecute `SetupApplications.ps1` y proporcione TenantId, ClusterName y WebApplicationReplyUrl como parámetros. Por ejemplo:
+2. Haga clic con el botón derecho en el archivo zip, elija **Propiedades** y luego active la casilla **Desbloquear**.
+
+3. Extraiga el archivo ZIP.
+
+4. Ejecute `SetupApplications.ps1` y proporcione TenantId, ClusterName y WebApplicationReplyUrl como parámetros. Por ejemplo:
 
     ```powershell
     .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
@@ -66,7 +70,7 @@ Ahora que ha creado las aplicaciones de AAD, puede crear el clúster de Service 
 
 Tenga en cuenta que AAD solo se usa para la autenticación de cliente en el clúster. Para crear un clúster seguro también debe proporcionar un certificado, que se usará para proteger la comunicación entre los nodos del clúster y para proporcionar autenticación de servidor para los puntos de conexión de administración del clúster. Encontrará una [plantilla ARM para un clúster seguro en la galería de inicio rápido de Azure][secure-cluster-arm-template], o bien puede seguir las instrucciones proporcionadas en el archivo Léame del [proyecto del grupo de recursos de Service Fabric en Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-Agregue el resultado del fragmento de la plantilla ARM del script `SetupApplication` como punto del mismo nivel de fabricSettings, managementEndpoint, etc. Si ha cerrado la ventana, el fragmento también se muestra a continuación:
+Agregue la salida del fragmento de código de la plantilla ARM del script `SetupApplication` como homólogo a fabricSettings, managementEndpoint, etc. Si ha cerrado la ventana, el fragmento también se muestra a continuación:
 
 ```json
   "azureActiveDirectory": {
@@ -93,7 +97,7 @@ Una vez que haya creado las aplicaciones para representar el clúster, debe asig
 
     ![Asignación de usuarios a roles][assign-users-to-roles-dialog]
 
->[AZURE.NOTE] Para obtener más información sobre los roles de Service Fabric, consulte [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
+>[AZURE.NOTE] Para más información sobre los roles de Service Fabric, consulte [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## Conexión al clúster
 
@@ -141,8 +145,8 @@ Para solucionar este problema, agregue **http://<i></i>localhost** como identifi
 
 ## Pasos siguientes
 
-- Obtenga más información sobre la [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md)
-- Obtenga información sobre la [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md)
+- Más información sobre la [protección de un clúster de Service Fabric](service-fabric-cluster-security.md)
+- Más información sobre la [publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
 <!-- Links -->
 [sf-aad-ps-script-download]: http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
@@ -156,4 +160,4 @@ Para solucionar este problema, agregue **http://<i></i>localhost** como identifi
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

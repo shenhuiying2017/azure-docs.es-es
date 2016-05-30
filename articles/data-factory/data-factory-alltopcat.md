@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/12/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,14 +22,6 @@
 En este tema se muestran todos los temas que se aplican directamente al servicio Data Factory de Azure. Puede buscar en esta página web las palabras clave mediante **Ctrl+F**, para encontrar los temas de interés.
 
 
-
-
-## Nuevo
-
-
-| Título | Descripción |
-| :-- | :-- |
-| [Invocar programas Spark desde Data Factory](data-factory-spark.md) | Obtenga información sobre cómo invocar programas Spark desde Data Factory de Azure mediante la actividad MapReduce. |
 
 
 ## Conceptos principales
@@ -58,11 +50,6 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 | [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) | En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Asistente para copia compatible con Data Factory. |
 | [Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos](data-factory-get-started-using-editor.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure. |
 | [Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio](data-factory-get-started-using-vs.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Visual Studio. |
-| [Tutorial: desplazamiento y procesamiento de archivos de registro mediante Factoría de datos de Azure (Portal de Azure)](data-factory-tutorial.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure. |
-| [Tutorial: Traslado y procesamiento de archivos de registro con Data Factory [PowerShell]](data-factory-tutorial-using-powershell.md) | En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell. |
-| [Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico)](data-factory-tutorial-extend-onpremises.md) | En este tutorial se amplía el del uso del editor de la factoría de datos en el Portal de Azure en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server. |
-| [Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)](data-factory-tutorial-extend-onpremises-using-powershell.md) | En este tutorial amplía el del uso de Azure PowerShell en el sentido de que la canalización copia los datos de salida a una base de datos de SQL Server. |
-
 
 ## Movimiento de datos
 
@@ -105,6 +92,7 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 | [Actividad de Hive](data-factory-hive-activity.md) | Aprenda cómo puede usar la actividad de Hive en Factoría de datos de Azure para ejecutar consultas de Hive en un clúster de HDInsight suyo propio o a petición. |
 | [Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure](data-factory-data-processing-using-batch.md) | Describe cómo procesar grandes cantidades de datos en una canalización de Factoría de datos de Azure mediante la funcionalidad de procesamiento paralelo de Lote de Azure. |
 | [Invocar programas MapReduce desde la factoría de datos de Azure](data-factory-map-reduce.md) | Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure. |
+| [Invocar programas Spark desde Data Factory](data-factory-spark.md) | Obtenga información sobre cómo invocar programas Spark desde Data Factory de Azure mediante la actividad MapReduce. |
 | [Actividad de Pig](data-factory-pig-activity.md) | Aprenda cómo puede usar la actividad de Pig en Factoría de datos de Azure para ejecutar scripts de Pig en un clúster de HDInsight suyo propio o a petición. |
 | [Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure](data-factory-usql-activity.md) | Aprenda a procesar datos ejecutando scripts U-SQL en el servicio de proceso de Análisis de Azure Data Lake. |
 | [Actividad de procedimiento almacenado de SQL Server](data-factory-stored-proc-activity.md) | Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una Base de datos SQL de Azure o en un Almacenamiento de datos SQL de Azure desde una canalización de Factoría de datos. |
@@ -156,7 +144,6 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 | [Factoría de datos de Azure: preguntas más frecuentes](data-factory-faq.md) | Preguntas más frecuentes acerca de la factoría de datos de Azure. |
 | [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md) | Proporciona una lista de funciones y variables del sistema de Data Factory de Azure |
 | [Factoría de datos de Azure: reglas de nomenclatura](data-factory-naming-rules.md) | Describe las reglas de nomenclatura para las entidades de Factoría de datos. |
-| [Notas de la versión de la factoría de datos Azure](data-factory-release-notes.md) | Notas de la versión de la Factoría de datos |
 | [Solución de problemas de la factoría de datos](data-factory-troubleshoot.md) | Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure. |
 
 
@@ -170,4 +157,4 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 - Gráfico de la ruta de aprendizaje: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

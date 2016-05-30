@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Lista de comprobación de escalabilidad
 
-![](media/best-practices-scalability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Diseño de servicios
 - **Crear particiones de la carga de trabajo**. Diseñe las partes del proceso de forma que sean discretas y se puedan descomponer. Reduzca el tamaño de cada parte, al tiempo que sigue las reglas habituales de separación de problemas y el principio de responsabilidad única. Esto permite que las partes componentes se distribuyan de forma que se maximice el uso de cada unidad de proceso (como un rol o un servidor de base de datos). También resulta más fácil escalar la aplicación al agregar instancias de recursos específicos. Para obtener más información, consulte [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx) (Guía de creación de particiones de procesos).
@@ -55,7 +55,7 @@
 - **Minimizar el tiempo que las conexiones y los recursos están en uso**. Mantenga los recursos y las conexiones solo si necesita utilizarlos. Por ejemplo, abra las conexiones lo más tarde posible y permita que se devuelven al grupo de conexiones en cuanto pueda. Adquiera recursos tan tarde como sea posible y deshágase de ellos tan pronto como sea posible.
 - **Minimizar el número de conexiones necesarias**. Las conexiones de servicio absorben recursos. Siempre que sea posible, limite el número necesario y asegúrese de que se reutilizan las conexiones existentes. Por ejemplo, después de realizar la autenticación, utilice la suplantación cuando sea necesario para ejecutar código como identidad específica. Esto puede ayudar a hacer un mejor uso del grupo de conexiones gracias a su reutilización.
 
-	> [AZURE.NOTE]: Las API de algunos servicios reutilizarán automáticamente las conexiones, siempre que se sigan las directrices específicas del servicio. Es importante comprender las condiciones que permiten la reutilización de las conexiones para cada servicio que usa la aplicación.
+	> [AZURE.NOTE]\: Las API de algunos servicios reutilizarán automáticamente las conexiones, siempre que se sigan las directrices específicas del servicio. Es importante comprender las condiciones que permiten la reutilización de las conexiones para cada servicio que usa la aplicación.
 
 - **Enviar solicitudes por lotes para optimizar el uso de red**. Por ejemplo, envíe y lea mensajes en lotes al tener acceso a una cola y realice varias lecturas o escrituras como lote si tiene acceso a un almacenamiento o a una memoria caché. Esto puede ayudar a maximizar la eficiencia de los servicios y almacenes de datos al reducir el número de llamadas a través de la red.
 - **Evitar un requisito para almacenar el estado de la sesión del servidor** siempre que sea posible. La administración del estado de sesión del servidor requiere normalmente la afinidad del cliente (es decir, el enrutamiento de cada solicitud a la misma instancia de servidor), lo que afecta a la posibilidad de escalado del sistema. Lo más adecuado es diseñar clientes que no tengan estado con respecto a los servidores que utilizan. Sin embargo, si la aplicación debe mantener el estado de sesión, almacene datos confidenciales o grandes volúmenes de datos por cliente en una caché distribuida del servidor a la que puedan tener acceso todas las instancias de la aplicación.
@@ -68,4 +68,4 @@
 - **Posibilidad de reducir el número de cuentas de servicio**. Por ejemplo, utilice una cuenta específica para obtener acceso a recursos o servicios que imponen un límite de conexiones o consiga un mejor rendimiento manteniendo menos conexiones. Este enfoque es común para servicios como bases de datos pero puede afectar a la capacidad de auditar con precisión las operaciones debido a la suplantación del usuario original.
 - **Realización de pruebas de generación de perfiles de rendimiento y de carga ** durante el desarrollo, como parte de las rutinas de prueba y antes de la versión final para asegurarse de que la aplicación funciona y escala como corresponde. Estas pruebas deben realizarse en el mismo tipo de hardware que la plataforma de producción y con los mismos tipos y cantidades de datos y de carga de usuarios que se encontrarán en producción. Para más información, consulte [Testing the performance of a cloud service](vs-azure-tools-performance-profiling-cloud-services.md) (Prueba de rendimiento de un servicio en la nube).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

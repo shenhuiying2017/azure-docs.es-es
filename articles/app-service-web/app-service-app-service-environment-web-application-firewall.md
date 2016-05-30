@@ -78,7 +78,7 @@ Para reenviar los pings del Administrador de tráfico desde el WAF a la aplicaci
 
 ![Traducciones de sitios web][WebsiteTranslations]
 
-## Protección del tráfico en el entorno del Servicio de aplicaciones mediante grupos de recursos de red##
+## Protección del tráfico en el entorno del Servicio de aplicaciones mediante grupos de recursos de red (NSG)##
 Vea la [documentación sobre el control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md) para obtener detalles sobre la restricción del tráfico en el entorno del Servicio de aplicaciones desde el WAF solo mediante la utilización de la dirección IP virtual del servicio en la nube. A continuación se muestra un comando PowerShell de ejemplo para realizar esta tarea para el puerto TCP 80.
 
 
@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

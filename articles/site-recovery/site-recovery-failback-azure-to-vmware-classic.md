@@ -19,8 +19,10 @@
 # Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
 
 > [AZURE.SELECTOR]
-- [Mejorada](site-recovery-failback-azure-to-vmware-classic.md)
-- [Heredado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portal de Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portal de Azure clásico](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portal de Azure clásico (heredado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que han conmutado por error desde el sitio local a Azure mediante este [tutorial](site-recovery-vmware-to-azure-classic.md).
@@ -37,7 +39,7 @@ Use esta arquitectura cuando el servidor de procesos sea local y se esté usando
 
 Use esta arquitectura cuando el servidor de procesos esté en Azure y tenga una VPN o una conexión de ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 Para ver la lista completa de puertos y el diagrama de la arquitectura de la conmutación por recuperación, consulte la imagen siguiente.
 
@@ -48,7 +50,7 @@ Así es cómo funciona la conmutación por recuperación:
 - Después de conmutar por error a Azure, conmuta por recuperación a su sitio local en unas cuantas fases:
 	- **Fase 1**: proteja de nuevo las máquinas virtuales de Azure de modo que comiencen a replicarse otra vez en las de VMware que se ejecutan en el sitio local. Al habilitar la reprotección, la máquina virtual se mueve a un grupo de protección de conmutación por recuperación que se crea automáticamente cuando crea al principio el grupo de protección de conmutación por error. Si agregó el grupo de protección de conmutación por error a un plan de recuperación, el grupo de protección de conmutación por recuperación también se agregó automáticamente al plan. Durante la reprotección, especifica cómo planear la conmutación por recuperación.
 	- **Fase 2**: una vez que las máquinas virtuales de Azure se estén replicando en el sitio local, ejecute una conmutación por error para conmutar por recuperación desde Azure.
-	- **Fase 3**: después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales locales a las que conmutó por recuperación, así que comienzan a replicarse en Azure.
+	- **Fase 3**: después de que los datos se hayan conmutado por recuperación, vuelva a proteger las máquinas virtuales locales a las que conmutó por recuperación, para que comiencen a replicarse en Azure.
 
 > [AZURE.VIDEO enhanced-vmware-to-azure-failback]
 
@@ -78,7 +80,7 @@ Si ha conmutado por error una máquina virtual de VMware, puede conmutar por rec
 - Si existen instantáneas en una máquina virtual, la reprotección dará error. Puede eliminar las instantáneas o los discos. 
 - Antes de conmutar por recuperación, deberá crear una serie de componentes:
 	- **Cree un servidor de procesos en Azure**. Es una máquina virtual de Azure que necesitará crear y mantener en ejecución durante la conmutación por recuperación. Puede eliminar la máquina una vez completada la operación.
-	- **Crear un servidor de destino maestro**: este servidor envía y recibe datos de conmutación por recuperación. El servidor de administración que creó de forma local tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino maestro distinto para esta operación.
+	- **Cree un servidor de destino maestro**: este servidor envía y recibe datos de conmutación por recuperación. El servidor de administración que creó de forma local tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino maestro distinto para esta operación.
 	- Si desea crear un servidor de destino maestro adicional que se ejecute en Linux, debe configurar la máquina virtual de Linux antes de instalar al servidor de destino maestro, como se describe a continuación.
 - El servidor de configuración es necesario localmente cuando realiza una conmutación por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. De lo contrario, la conmutación por recuperación no se realizará correctamente. Por lo tanto, asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, tendrá que restaurarla con la misma dirección IP para que funcione la conmutación por recuperación.
 
@@ -110,27 +112,27 @@ El servidor de destino maestro recibe los datos de conmutación por recuperació
 >[AZURE.NOTE] Si desea instalar un servidor de destino maestro en Linux, siga las instrucciones del procedimiento siguiente.
 
 1. Si va a instalar al servidor de destino maestro en Windows, abra la página de inicio rápido de la máquina virtual en la que va a instalarlo y descargue el archivo de instalación para el Asistente de configuración unificada de Azure Site Recovery.
-2. Ejecute el programa de instalación y, en **Antes de comenzar**, seleccione **Agregar servidores de procesos adicionales para el escalado horizontal de la implementación**.
-3. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Detalles del servidor de configuración**, especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para tener acceso a la máquina virtual.
+2. Ejecute el programa de instalación y, en **Before you begin** (Antes de comenzar), seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
+3. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para acceder a la máquina virtual.
 
 ### Configuración de una máquina virtual de Linux como servidor de destino maestro
 Para configurar el servidor de administración que ejecuta el servidor de destino maestro como una máquina virtual de Linux, será necesario que instale el sistema operativo mínimo CentOS 6.6, que recupere los id. SCSI de cada disco duro SCSI, que instale algunos paquetes adicionales y que aplique algunos cambios personalizados.
 
 #### Instalación de CentOS 6.6
 
-1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, seleccione **Dispositivos de almacenamiento básico**, compruebe que el disco duro no tenga ningún dato importante y haga clic en **Sí** para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Sistema de edición**, seleccione **Conectar automáticamente** y agregue una configuración de dirección IP estática, red y DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración. 
-2.	Cuando se le pregunte por el tipo de instalación que quiere, seleccione **Crear diseño personalizado** como partición. Tras hacer clic en **Siguiente**, seleccione **Gratis** y haga clic en Crear. Cree **/**, **/var/crash** y **/home partitions** con **Tipo FS:** **ext4**. Cree la partición de intercambio como **Tipo FS: intercambio**.
-3.	Si se encuentran dispositivos ya existentes, aparecerá un mensaje de advertencia. Haga clic en **Formato** para formatear la unidad con la configuración de partición. Haga clic en **Escribir cambios en el disco** para aplicar los cambios de partición.
-4.	Seleccione **Instalar cargador de arranque** > **Siguiente** para instalar el cargador de arranque en la partición raíz.
+1.	Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Mantenga la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios, seleccione inglés de Estados Unidos como el idioma, seleccione **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga ningún dato importante y haga clic en **Sí** para descartar los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor. En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Conectar automáticamente** y agregue una configuración de dirección IP estática, red y DNS. Especifique una zona horaria y una contraseña raíz para acceder al servidor de administración. 
+2.	Cuando se le pregunte por el tipo de instalación que quiere, seleccione **Create Custom Layout** (Crear diseño personalizado) como partición. Tras hacer clic en **Siguiente**, seleccione **Gratis** y haga clic en Crear. Cree **/**, **/var/crash** y **/home partitions** con **FS Type (Tipo FS):** **ext4**. Cree la partición de intercambio como **FS Type: swap** (Tipo FS: intercambio).
+3.	Si se encuentran dispositivos ya existentes, aparecerá un mensaje de advertencia. Haga clic en **Formato** para formatear la unidad con la configuración de partición. Haga clic en **Write change to disk** (Escribir cambios en el disco) para aplicar los cambios de partición.
+4.	Seleccione **Install boot loader** (Instalar cargador de arranque) > **Next** (Siguiente) para instalar el cargador de arranque en la partición raíz.
 5.	Cuando la instalación se haya completado, haga clic en **Reiniciar**.
 
 
 #### Recuperación de los id. SCSI
 
-1. Después de la instalación, recupere los id. SCSI de cada disco duro SCSI de la máquina virtual. Para ello, cierre la máquina virtual del servidor de administración y, en las propiedades de la máquina virtual en VMware, haga clic con el botón derecho en la entrada de la máquina virtual > **Editar configuración** > **Opciones**.
-2. Seleccione **Avanzadas** > **Elemento general** y haga clic en **Parámetros de configuración**. Esta opción estará desactivada cuando se ejecuta la máquina. Para que se active, la máquina debe estar apagada.
-3. Si existe la fila **disk.EnableUUID**, asegúrese de que el valor esté establecido en **Verdadero** (distingue mayúsculas de minúsculas). En este caso, puede cancelar y probar el comando SCSI en un sistema operativo invitado después de arrancar. 
-4.	Si la fila no existe, haga clic en **Agregar fila** y agréguela con el valor **Verdadero**. No utilice comillas dobles.
+1. Después de la instalación, recupere los id. SCSI de cada disco duro SCSI de la máquina virtual. Para ello, cierre la máquina virtual del servidor de administración y, en las propiedades de la máquina virtual en VMware, haga clic con el botón derecho en la entrada de la máquina virtual > **Edit Settings** (Editar configuración) > **Options** (Opciones).
+2. Seleccione **Advanced** (Avanzadas) > **General item** (Elemento general) y haga clic en **Configuration Parameters** (Parámetros de configuración). Esta opción estará desactivada cuando se ejecuta la máquina. Para que se active, la máquina debe estar apagada.
+3. Si existe la fila **disk.EnableUUID**, asegúrese de que el valor esté establecido en **True** (Verdadero) (distingue mayúsculas de minúsculas). En este caso, puede cancelar y probar el comando SCSI en un sistema operativo invitado después de arrancar. 
+4.	Si la fila no existe, haga clic en **Add Row** (Agregar fila) y agréguela con el valor **True** (Verdadero). No utilice comillas dobles.
 
 #### Instalación de paquetes adicionales
 
@@ -151,8 +153,8 @@ Debe descargar e instalar algunos paquetes adicionales.
 
 Lleve a cabo los siguientes pasos para aplicar cambios personalizados después de haber completado los pasos posteriores a la instalación y haber instalado los paquetes:
 
-1.	Copie al binario de RHEL 6-64 Unified Agent en la máquina virtual. Ejecute este comando para descomprimir el archivo binario: **tar –zxvf <file name>**
-2.	Ejecute este comando para conceder permisos: # **chmod 755 ./ApplyCustomChanges.sh**
+1.	Copie al binario de RHEL 6-64 Unified Agent en la máquina virtual. Ejecute este comando para descomprimir el archivo binario: **tar –zxvf <file name>**.
+2.	Ejecute este comando para conceder permisos: **# chmod 755 ./ApplyCustomChanges.sh**.
 3.	Ejecute el script: **# ./ApplyCustomChanges.sh**. Solo debe ejecutar el script una vez. Después de que el script se haya ejecutado correctamente, reinicie el servidor.
 
 
@@ -184,7 +186,7 @@ Tras la reprotección, la máquina virtual se mueve a la versión de conmutació
 
 Después de completarse la conmutación por recuperación, los datos vuelven al sitio local, pero no están protegidos. Para volver a iniciar la replicación en Azure, vuelva a hacer lo siguiente:
 
-1.	En el portal de Site Recovery > pestaña **Máquinas**, seleccione las máquinas virtuales que se ha conmutado por recuperación y haga clic en **Reproteger**. 
+1.	En el portal de Site Recovery > pestaña **Máquinas**, seleccione las máquinas virtuales que se han conmutado por recuperación y haga clic en **Reproteger**. 
 2.	Después de comprobar que la replicación en Azure funciona como se esperaba, puede eliminar en Azure las máquinas virtuales de Azure (que no se ejecutan actualmente) que se conmutaron por recuperación.
 
 
@@ -202,4 +204,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 - ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 - Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

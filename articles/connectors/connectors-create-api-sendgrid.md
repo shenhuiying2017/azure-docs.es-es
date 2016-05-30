@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector SendGrid
@@ -25,7 +25,7 @@ El conector SendGrid puede usarse desde:
 
 - [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flujos](http://flows.microsoft.com)  
+- [Flujo](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -57,9 +57,13 @@ Para crear aplicaciones lógicas con SendGrid, primero debe crear una **conexió
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |ApiKey|Sí|Proporciona la clave de API de SendGrid|
-Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+ 
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
+
+Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 
 ## Referencia de SendGrid
 Se aplica a la versión: 1.0
@@ -188,4 +192,4 @@ Agregar un destinatario a la lista: agrega un destinatario individual a una list
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

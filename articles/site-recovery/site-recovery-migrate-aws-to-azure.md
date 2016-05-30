@@ -23,7 +23,7 @@
 En este artículo se describe cómo usar la recuperación del sitio para migrar las instancias de Windows que se ejecutan en AWS a Azure. Antes de empezar, tenga en cuenta lo siguiente:
 
 - Solo puede migrar en este momento. Esto significa que puede conmutar por error de AWS a Azure, pero no puede volver a conmutar por recuperación.
-- Este artículo resume y usa muchos de los pasos que se describen al completo en [Replicación de máquinas virtuales de VMware y servidores físicos en Azure](site-recovery-vmware-to-azure-classic.md), que proporciona las instrucciones mejoradas más recientes para la configuración de la replicación. Le sugerimos que siga este artículo para obtener instrucciones detalladas al migrar.
+- Este artículo resume y usa muchos de los pasos que se describen al completo en [Replicación de máquinas virtuales de VMware y servidores físicos en Azure](site-recovery-vmware-to-azure-classic.md), que proporciona las instrucciones mejoradas más recientes para la configuración de la replicación. Le recomendamos que siga este artículo para obtener instrucciones detalladas cuando realice la migración.
 - **Ya no debe usar** las instrucciones que se describen en este [artículo heredado](site-recovery-vmware-to-azure-classic-legacy.md).
 
 Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -33,7 +33,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 
 Esto es lo necesita antes de empezar:
 
-- **Servidor de administración**: una máquina virtual local que ejecuta Windows Server 2012 R2 que actúa como servidor de administración. Instalar los componentes de Site Recovery (incluido el servidor de configuración y el servidor de procesos) en este servidor. Obtenga más información en [Consideraciones sobre el servidor de administración](site-recovery-vmware-to-azure-classic.md#management-server-considerations) y [Requisitos previos locales](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Servidor de administración**: una máquina virtual que ejecute Windows Server 2012 R2 y que actúe como servidor de administración. Instalar los componentes de Site Recovery (incluido el servidor de configuración y el servidor de procesos) en este servidor. Obtenga más información en las [consideraciones sobre el servidor de administración](site-recovery-vmware-to-azure-classic.md#management-server-considerations) y los [requisitos previos de origen](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Instancias de máquina virtual EC2**: las instancias que desea migrar y, a continuación, proteger.
 
 ## Pasos de implementación
@@ -62,4 +62,4 @@ Esto es lo necesita antes de empezar:
 
 Obtenga más información sobre otros escenarios de replicación en [¿Qué es Azure Site Recovery?](site-recovery-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

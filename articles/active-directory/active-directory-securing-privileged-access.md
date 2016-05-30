@@ -34,7 +34,8 @@ Para aumentar la seguridad de la autenticación del administrador, debe exigir a
 Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece autenticación segura mediante una serie de opciones de comprobación sencillas, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, código de comprobación y tokens OATH de terceros.
 
 Para obtener información general de cómo funciona Multi-Factor Authentication, vea el siguiente vídeo.
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+
+>[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 Para más información, consulte [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) (MFA para Office 365 y MFA para Azure).
 
@@ -50,7 +51,7 @@ Para reducir el tiempo de exposición de los privilegios y aumentar la visibilid
 
 ## Detección de ataques
 
-[Azure Active Directory Identity Protection](active-directory-identityprotection.d) proporciona una vista consolidada en eventos de riesgo y puntos vulnerables que afectan a las identidades de su organización. En función de los eventos de riesgo, Identity Protection calcula un nivel de riesgo del usuario para cada usuario, lo que le permite configurar las directivas basadas en riesgos para proteger automáticamente las identidades de su organización. Estas directivas, junto con otros controles de acceso condicional proporcionados por Azure Active Directory y EMS, pueden bloquear automáticamente al usuario u ofrecer sugerencias que incluyen restablecimientos de contraseña y cumplimiento de la autenticación multifactor.
+[Azure Active Directory Identity Protection](active-directory-identityprotection.md) proporciona una vista consolidada en eventos de riesgo y posibles puntos vulnerables que afectan a las identidades de su organización. En función de los eventos de riesgo, Identity Protection calcula un nivel de riesgo del usuario para cada usuario, lo que le permite configurar las directivas basadas en riesgos para proteger automáticamente las identidades de su organización. Estas directivas, junto con otros controles de acceso condicional proporcionados por Azure Active Directory y EMS, pueden bloquear automáticamente al usuario u ofrecer sugerencias que incluyen restablecimientos de contraseña y cumplimiento de la autenticación multifactor.
 
 ![Azure AD Identity Protection][3]
 
@@ -82,4 +83,4 @@ Para más información sobre la creación de un plan de seguridad completo, cons
 [3]: ./media/active-directory-identityprotection/29.png
 [4]: ./media/active-directory-conditional-access/conditionalaccess-saas-apps.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

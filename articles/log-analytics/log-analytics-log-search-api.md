@@ -1,6 +1,6 @@
 <properties
-	pageTitle="API de búsqueda de registros de Log Analytics | Microsoft Azure"
-	description="Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de búsqueda de Log Analytics en Operations Management Suite (OMS) y, además, brinda ejemplos que muestran cómo usar los comandos."
+	pageTitle="API de REST de búsqueda de registros de Log Analytics | Microsoft Azure"
+	description="Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de REST de búsqueda de Log Analytics en Operations Management Suite (OMS) y, además, brinda ejemplos que muestran cómo usar los comandos."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -17,21 +17,21 @@
 	ms.author="banders"/>
 
 
-# API de búsqueda de registros de Log Analytics
+# API de REST de búsqueda de registros de Log Analytics
 
-Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de búsqueda de Log Analytics en Operations Management Suite (OMS) y, además, brinda ejemplos que muestran cómo usar los comandos. Algunos de los ejemplos que aparecen en este artículo hacen referencia a Visión operativa, el nombre de la versión anterior de Log Analytics.
+Esta guía proporciona un tutorial básico en el que se describe cómo puede usar la API de REST de búsqueda de Log Analytics en Operations Management Suite (OMS) y, además, brinda ejemplos que muestran cómo usar los comandos. Algunos de los ejemplos que aparecen en este artículo hacen referencia a Visión operativa, el nombre de la versión anterior de Log Analytics.
 
-## Información general sobre la API de búsqueda de registros
+## Información general sobre la API de REST de búsqueda de registros
 
-La API de búsqueda de Log Analytics es para RESTful y es posible obtener acceso a ella a través de la API de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la invocación de la API del Administrador de recursos de Azure. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de Azure Resource Manager de RESTful para realizar llamadas a las áreas de trabajo de OMS y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
+La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la invocación de la API del Administrador de recursos de Azure. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Otra opción es utilizar el módulo Azure PowerShell para Visión operativa, que incluye cmdlets para obtener acceso a la búsqueda. Con estas herramientas, puede usar la API de Azure Resource Manager de RESTful para realizar llamadas a las áreas de trabajo de OMS y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 
-El Administrador de recursos de Azure se puede usar mediante una [Biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) o una [API de REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Revise las páginas web que ha indicado que le gustan para obtener más información.
+El Administrador de recursos de Azure se puede usar mediante una [Biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) o una [API de REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Revise las páginas web vinculadas para obtener más información.
 
-## Tutorial básico de la API de búsqueda de Log Analytics
+## Tutorial básico de la API de REST de búsqueda de Log Analytics
 
 ### Para usar ARMClient
 
-1. Instale [Chocolatey](https://chocolatey.org/), que es un administrador de paquetes de máquina de origen abierto para Windows. Abra una ventana de símbolo del sistema como administrador y luego ejecute el siguiente comando:
+1. Instale [Chocolatey](https://chocolatey.org/), que es un administrador de paquetes de código abierto para Windows. Abra una ventana de símbolo del sistema como administrador y luego ejecute el siguiente comando:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -51,7 +51,7 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
     armclient login
     ```
 
-    Si la sesión se ha iniciado correctamente, se muestran todas las suscripciones vinculadas a la cuenta especificada. Por ejemplo:
+    Si la sesión se ha iniciado correctamente, se muestran todas las suscripciones vinculadas a la cuenta especificada.
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -63,13 +63,13 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 
-2. Obtenga las áreas de trabajo del conjunto de aplicaciones de administración de operaciones. Por ejemplo:
+2. Obtenga las áreas de trabajo de Operations Management Suite:
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    Una llamada Get correcta generaría todas las áreas de trabajo vinculadas a la suscripción. Por ejemplo:
+    Una llamada Get correcta generaría todas las áreas de trabajo vinculadas a la suscripción:
 
     ```
     {
@@ -87,18 +87,18 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
        ]
     }
     ```
-3. Cree la variable de búsqueda. Por ejemplo:
+3. Cree la variable de búsqueda:
 
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
-4. Realice búsquedas con la nueva variable de búsqueda. Por ejemplo:
+4. Realice búsquedas con la nueva variable de búsqueda:
 
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
-## Ejemplos de referencia de la API de búsqueda de Log Analytics
+## Ejemplos de referencia de la API de REST de búsqueda de Log Analytics
 Los siguientes ejemplos muestran cómo se puede usar la API de búsqueda.
 
 ### Search - Action/Read
@@ -197,7 +197,7 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá Http Ya no existe. Si la solicitud de búsqueda inicial devuelve inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva Http Ya no existe si se consulta. El contenido de un resultado Http 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
+>[AZURE.NOTE] Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá HTTP Ya no existe. Si la solicitud de búsqueda inicial devolvió inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva HTTP Ya no existe si se consulta. El contenido de un resultado HTTP 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
 
 ### Búsquedas guardadas: solo REST
 
@@ -379,7 +379,7 @@ La consulta que se usa para la definición de grupo debe devolver un conjunto de
 
 La definición de la búsqueda guardada debe incluir una etiqueta denominada Grupo con un valor de Equipo para que la búsqueda se clasifique como un grupo de equipos.
 
-	$etag=get-date -f yyyy-MM-ddThh:mm:ss.msZ
+	$etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
 	$groupName="My Computer Group"
 	$groupQuery = "Computer=srv* | Distinct Computer"
 	$groupCategory="My Computer Groups"
@@ -402,4 +402,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 - Si desea crear consultas con campos personalizados en función de unos criterios, obtenga más información acerca de las [búsquedas de registros](log-analytics-log-searches.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,59 +14,50 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="04/21/2016" 
 	ms.author="betorres"
 />
 
 
 # Habilitación y uso de Análisis de tráfico de búsqueda
 
-Análisis de tráfico de búsqueda es una característica de Búsqueda de Azure que permite tener visibilidad en el servicio de búsqueda y descubrir información acerca de los usuarios y su comportamiento. Cuando se habilita esta característica, los datos del servicio de búsqueda se copian en una cuenta de almacenamiento de su elección. Estos datos incluyen los registros del servicio de búsqueda y métricas operacionales agregadas. Una vez allí, puede procesar y manipular los datos de uso de cualquier manera.
-
+Análisis de tráfico de búsqueda es una característica de Búsqueda de Azure que permite tener visibilidad en el servicio de búsqueda y descubrir información acerca de los usuarios y su comportamiento. Cuando se habilita esta característica, los datos del servicio de búsqueda se copian en una cuenta de almacenamiento de su elección. Estos datos incluyen los registros del servicio de búsqueda y las métricas operacionales agregadas que puede procesar y manipular para su posterior análisis.
 
 ## Habilitación de Análisis de tráfico de búsqueda
+
+Necesitará una cuenta de almacenamiento en la misma región y la misma suscripción que el servicio de búsqueda.
+
+> [AZURE.IMPORTANT] Se aplican gastos estándares para esta cuenta de almacenamiento
+
+Una vez habilitada, los datos comenzarán a estar disponibles en la cuenta de almacenamiento en un período de 5 a 10 minutos en estos dos contenedores de blobs:
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1\. Uso del portal
 Abra el servicio de Búsqueda de Azure en el [Portal de Azure](http://portal.azure.com). En Configuración, encontrará la opción Análisis de tráfico de búsqueda.
 
 ![][1]
 
-Seleccione esta opción y se abrirá una nueva hoja. Cambie el estado a **Encendido**, seleccione la cuenta de almacenamiento de Azure en la que se vayan a copiar los datos y elija los datos que desee copiar: registros, métricas o ambos. Se recomienda copiar los registros y métricas.
+Seleccione esta opción y se abrirá una nueva hoja. Cambie el estado a **Encendido**, seleccione la cuenta de almacenamiento de Azure en la que se vayan a copiar los datos y elija los datos que desee copiar: registros, métricas o ambos. Se recomienda copiar los registros y métricas. Tiene la opción de establecer la directiva de retención para los datos entre 1 y 365 días. Si no desea aplicar una directiva de retención y conservar los datos indefinidamente, establezca el período de retención (días) en 0.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] La cuenta de almacenamiento debe estar en la misma región y suscripción que el servicio de búsqueda.
-> 
-> Se aplican gastos estándares para esta cuenta de almacenamiento
-
 ### 2\. Uso de PowerShell
 
-También puede habilitar esta característica ejecutando los siguientes cmdlets de PowerShell.
+Primero, asegúrese de que ha instalado los [cmdlets de Azure PowerShell](https://github.com/Azure/azure-powershell/releases) más recientes.
+
+A continuación, obtenga los identificadores de recursos para el servicio de búsqueda y la cuenta de almacenamiento. Puede buscarlos en el portal. Para ello, vaya a Configuración -> Propiedades -> ResourceId.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId**: ```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId**: puede encontrarlo en el portal en Configuración -> Propiedades -> ResourceId ```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```
-
-----------
-
-Una vez habilitada, los datos comenzarán a estar disponibles en la cuenta de almacenamiento en un período de 5 a 10 minutos. Encontrará 2 nuevos contenedores en Almacenamiento de blobs:
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## Descripción de los datos
 
@@ -112,6 +103,7 @@ Los blobs de métricas contienen valores agregados para el servicio de búsqueda
 Métricas disponibles:
 
 - Latency
+- SearchQueriesPerSecond
 
 ####Esquema de métricas
 
@@ -137,7 +129,7 @@ Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.c
 
 [Paquete de contenido de Power BI](https://app.powerbi.com/getdata/services/azure-search): cree un panel de Power BI y un conjunto de informes de Power BI que muestren los datos automáticamente y proporcionen información visual sobre el servicio de búsqueda. Vea la [página de ayuda sobre el paquete de contenido](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-search/).
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
@@ -146,17 +138,17 @@ Como punto de partida, se recomienda usar [Power BI](https://powerbi.microsoft.c
 1. Abrir un nuevo informe de Power BI Desktop
 2. Seleccione Obtener datos -> Más...
 
-	![][4]
+	![][5]
 
 3. Seleccione Almacenamiento de blobs de Microsoft Azure y Connect
 
-	![][5]
+	![][6]
 
 4. Especifique el nombre y la clave de cuenta de la cuenta de almacenamiento
 5. Seleccione "insight-logs-operationlogs" y "insights-metrics-pt1m" y luego haga clic en Editar.
 6. Se abrirá el Editor de consultas , asegúrese de que "insight-logs-operationlogs" está seleccionado a la izquierda. Ahora abra el Editor avanzado seleccionando Ver -> Editor avanzado
 
-	![][6]
+	![][7]
 
 7. Mantenga las 2 primeros líneas y reemplace el resto por la consulta siguiente:
 
@@ -223,9 +215,10 @@ Obtenga más información sobre cómo crear informes increíbles. Consulte [Intr
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

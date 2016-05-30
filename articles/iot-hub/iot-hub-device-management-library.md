@@ -20,7 +20,7 @@
 
 ## Información general
 
-La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure permite administrar dispositivos IoT con Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] \(Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
+La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] (Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
 
 - Dispositivos gemelos
 - Trabajos del dispositivo
@@ -52,7 +52,7 @@ La biblioteca de cliente de administración de dispositivos se ha diseñado pens
 1.	Se ha creado en LWM2M sobre el protocolo estándar COAP para dar cabida a la extensibilidad para una variedad de distintos dispositivos.
 2.	Se ha escrito en ANSI C99 para facilitar la portabilidad a una amplia variedad de plataformas.
 3.	Se ha protegido por TCP/TLS y la autenticación de Centro de IoT de Azure (tokens SAS) para que se pueda utilizar en escenarios de alta seguridad.
-4.	Está basado en el proyecto OSS de [Eclipse Wakaama][lnk-Wakaama] para aprovechar el material existente y contribuir a la comunidad.
+4.	Está basado en el proyecto OSS de [Eclipse Wakaama][lnk-Wakaama] para aprovechar el código existente y contribuir a la comunidad.
 
 ### Conceptos pertinentes de LWM2M
 Se ha elegido el estándar LWM2M para dar cabida a la extensibilidad para una variedad de distintos dispositivos. Para simplificar la experiencia de desarrollo, se ha resumido la mayor parte del protocolo. Sin embargo, es importante comprender los principios fundamentales de la biblioteca, principalmente en su modelo de datos y en cómo se transmiten los datos.
@@ -69,7 +69,7 @@ Observe que hay dos relaciones "1: muchos" en este modelo:
 - **Objetos y recursos**: cada objeto puede tener varios recursos. Por ejemplo, un objeto puede contener los recursos de actualización del firmware del dispositivo de Contoso, como el identificador URI del paquete donde se almacena la nueva imagen.
 
 #### Patrón de observación y notificación: cómo se transmiten los datos en LWM2M
-Además de estos conceptos, es importante comprender cómo fluyen los datos del dispositivo al servicio. Para ello, LWM2M define el patrón de "observación y notificación". Cuando el dispositivo físico se conecta al servicio, inicia la "observación" en las propiedades del dispositivo seleccionado. A continuación, el dispositivo físico "notifica" al servicio de los cambios en las propiedades del dispositivo.
+Además de estos conceptos, es importante comprender cómo fluyen los datos del dispositivo al servicio. Para ello, LWM2M define el patrón de "observación y notificación". Cuando el dispositivo físico se conecta al servicio, el Centro de IoT inicia “observaciones” en las propiedades seleccionadas del dispositivo. A continuación, el dispositivo físico "notifica" al servicio de los cambios en las propiedades del dispositivo.
 
 En nuestra biblioteca de cliente, hemos implementado el modelo de observación y notificación como la manera de enviar datos de administración del dispositivo desde el dispositivo al Centro de IoT. El patrón se controla mediante dos parámetros:
 
@@ -222,4 +222,4 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

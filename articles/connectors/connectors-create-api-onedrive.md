@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introducción a la API de OneDrive
@@ -59,7 +59,7 @@ Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para
 1. Inicie sesión en su cuenta de OneDrive.
 2. Permita que las aplicaciones lógicas se conecten y usen su OneDrive. 
 
-Después de crear la conexión, especifique las propiedades de OneDrive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+>[AZURE.INCLUDE [Pasos para crear una conexión a OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
 
@@ -68,7 +68,7 @@ Se aplica a la versión: 1.0.
 
 
 ### Obtener metadatos de archivo mediante el identificador
-Recupera metadatos de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}```
+Recupera los metadatos de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -82,7 +82,7 @@ Recupera metadatos de un archivo de OneDrive mediante el identificador. ```GET: 
 
 
 ### Actualizar archivo
-Actualiza un archivo de OneDrive. ```PUT: /datasets/default/files/{id}```
+Actualiza un archivo en OneDrive. ```PUT: /datasets/default/files/{id}```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -112,7 +112,7 @@ Elimina un archivo de OneDrive. ```DELETE: /datasets/default/files/{id}```
 
 
 ### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
+Recupera los metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Recupera metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET:
 
 
 ### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera el contenido de un archivo en OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -147,7 +147,7 @@ Recupera el contenido de un archivo de OneDrive mediante la ruta de acceso. ```G
 
 
 ### Obtener contenido de archivo mediante el identificador
-Recupera el contenido de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
+Recupera el contenido de un archivo en OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -220,7 +220,7 @@ Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de OneDrive.
 
 
 ### Desencadena un flujo al modificar un archivo en una carpeta de OneDrive
-Desencadena un flujo al modificar un archivo de una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Desencadena un flujo al modificar un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Volver a la [lista de API](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

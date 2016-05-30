@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Instalación de .NET en un rol de servicio en la nube"
+   pageTitle="Instalación de .NET en un rol de servicio en la nube | Microsoft Azure"
    description="En este artículo se describe cómo instalar manualmente .NET Framework en el rol web y el rol de trabajo del servicio en la nube"
    services="cloud-services"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="05/17/2016"
    ms.author="adegeo"/>
 
 # Instalación de .NET en un rol de servicio en la nube 
@@ -183,4 +183,4 @@ Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

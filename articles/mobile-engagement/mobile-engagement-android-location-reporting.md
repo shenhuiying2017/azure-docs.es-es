@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Informes de ubicación en Mobile Engagement para Android"
-	description="Informes de ubicación para Android para Azure Mobile Engagement"
+	pageTitle="Informes de ubicación para el SDK de Android para Azure Mobile Engagement"
+	description="Describe cómo configurar los informes de ubicación para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Informes de ubicación en Engagement para Android
+# Informes de ubicación para el SDK de Android para Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Este tema describe cómo realizar los informes de ubicación de Engagement en su aplicación Android.
+Este tema describe cómo realizar los informes de ubicación para la aplicación de Android.
 
 ## Requisitos previos
 
 [AZURE.INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Informes de ubicación
 
@@ -47,7 +46,7 @@ Para habilitar los informes diferidos de ubicación, puede hacerlo mediante la c
 
 Puede que también deba agregar el siguiente permiso si no existe:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
 
@@ -66,7 +65,7 @@ Para habilitar los informes de ubicación en tiempo real, agregue una línea de 
 
 Puede que también deba agregar el siguiente permiso si no existe:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
 
@@ -82,7 +81,7 @@ De forma predeterminada, los informes de ubicación en tiempo real solo emplean 
 
 Puede que también deba agregar el siguiente permiso si no existe:
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Informes en segundo plano
 
@@ -98,18 +97,18 @@ De forma predeterminada, los informes de ubicación en tiempo real solo están a
 
 El informe de ubicación en segundo plano se detendrá si el usuario reinicia su dispositivo; puede agregar esto para hacer que se reinicie automáticamente en el momento de inicio:
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 Puede que también deba agregar el siguiente permiso si no existe:
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Permisos de Android M
+## Permisos de Android M
 
 A partir de Android M, algunos permisos se administran en tiempo de ejecución y se necesita la aprobación del usuario.
 
@@ -160,4 +159,4 @@ Este es un ejemplo de código para usar en una actividad de la aplicación para 
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

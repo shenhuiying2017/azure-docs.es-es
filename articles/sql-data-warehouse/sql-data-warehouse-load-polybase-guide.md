@@ -3,7 +3,7 @@
    description="Directrices y recomendaciones para el uso de PolyBase en escenarios de Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="nicw;barbkess;sonyama"/>
 
 
 # Guía para el uso de PolyBase en Almacenamiento de datos SQL
@@ -178,12 +178,12 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[Carga de datos con PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: sql-data-warehouse-solution-partners.md
-[development overview]: sql-data-warehouse-overview-develop.md
-[Estadísticas]: sql-data-warehouse-develop-statistics.md
-[información general sobre la migración de datos]: sql-data-warehouse-overview-migrate.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Carga de datos con PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[solution partners]: ./sql-data-warehouse-solution-partners.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Estadísticas]: ./sql-data-warehouse-develop-statistics.md
+[información general sobre la migración de datos]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -191,8 +191,6 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 [SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-
-<!-- External Links -->
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
@@ -208,4 +206,6 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-- External Links -->
+
+<!---HONumber=AcomDC_0518_2016-->

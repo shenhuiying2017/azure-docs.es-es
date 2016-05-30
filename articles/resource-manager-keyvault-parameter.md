@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso del secreto del Almacén de claves con la plantilla del Administrador de recursos | Microsoft Azure"
+   pageTitle="Secreto del Almacén de claves con la plantilla de Resource Manager | Microsoft Azure"
    description="Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Paso de valores seguros durante la implementación
@@ -103,4 +103,4 @@ El parámetro que acepta el secreto debe ser **securestring**. En el ejemplo sig
 - Para obtener información sobre el uso de un almacén de claves con una máquina virtual, consulte [Consideraciones de seguridad para Azure Resource Manager](best-practices-resource-manager-security.md).
 - Para obtener ejemplos completos de secretos de clave de referencia, consulte [Ejemplos del Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

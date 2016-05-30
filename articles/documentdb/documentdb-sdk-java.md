@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/02/2016" 
 	ms.author="andrl"/>
 
 # SDK de DocumentDB
@@ -36,8 +36,14 @@
 
 ## Notas de la versión
 
+### <a name="1.7.1"/>[1\.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+- Se ha agregado compatibilidad con la directiva de reintentos de la limitación.  
+
+### <a name="1.7.0"/>[1\.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+- Se ha agregado compatibilidad con período de vida (TTL) para los documentos. 
+
 ### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- [Colecciones con particiones](documentdb-partition-data.md) implementadas y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
+- [Colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md) implementados. 
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Se ha corregido un error en HashPartitionResolver para generar valores hash en little endian que sean consistentes con otros SDK.
@@ -77,21 +83,7 @@ Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versi�
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 de marzo de 2016 |--- 
-| [1\.5.1](#1.5.1) | 31 de diciembre de 2015 |--- 
-| [1\.5.0](#1.5.0) | 04 de diciembre de 2015 |--- 
-| [1\.4.0](#1.4.0) | 05 de octubre de 2015 |--- 
-| [1\.3.0](#1.3.0) | 05 de octubre de 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 de julio de 2015 |--- 
-| [1\.0.1](#1.0.1) | 12 de mayo de 2015 |--- 
-| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
-| 0.9.5- versión preliminar | 09 de marzo 2015 | 29 de febrero de 2016 
-| 0.9.4 versión preliminar | 17 de febrero de 2015 | 29 de febrero de 2016 
-| 0.9.3-versión preliminar | 13 de enero de 2015 | 29 de febrero de 2016 
-| 0.9.2-versión preliminar | 19 de diciembre de 2014 | 29 de diciembre de 2016 
-| 0.9.1-versión preliminar | 19 de diciembre de 2014 | 29 de febrero 2016 
-| 0.9.0-versión preliminar | 10 de diciembre de 2014 | 29 de febrero de 2016
+| [1\.7.1](#1.7.1) | 30 de abril, 2016 |--- | [1\.7.0](#1.7.0) | 27 de abril, 2016 |--- | [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- | [1\.5.1](#1.5.1) | 31 de diciembre, 2015 |--- | [1\.5.0](#1.5.0) | 04 de diciembre, 2015 |--- | [1\.4.0](#1.4.0) | 05 de octubre, 2015 |--- | [1\.3.0](#1.3.0) | 05 de octubre, 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- | [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- | [1\.0.1](#1.0.1) | 12 de mayo, 2015 |--- | [1\.0.0](#1.0.0) | 07 de abril, 2015 |--- | 0.9.5-versión preliminar | 09 de marzo, 2015 | 29 de febrero, 2016 | 0.9.4-versión preliminar | 17 de febrero, 2015 | 29 de febrero, 2016 | 0.9.3-versión preliminar | 13 de enero, 2015 | 29 de febrero, 2016 | 0.9.2-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 | 0.9.1-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 | 0.9.0-versión preliminar | 10 de diciembre, 2014 | 29 de febrero, 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -100,4 +92,4 @@ Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versi�
 
 Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

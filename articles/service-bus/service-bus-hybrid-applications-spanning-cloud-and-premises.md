@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Habilitación de aplicaciones híbridas extendiendo la nube y las instalaciones
@@ -38,13 +38,13 @@ Las aplicaciones en la nube o locales híbridas son una realidad de los entornos
 - [Información de precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
 - [P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
 - [Referencia de la API de REST de Bus de servicio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [Suscribirse a una prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- Regístrese para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
  
 ## Servicios relacionados
 
 - [Servicios de BizTalk](https://azure.microsoft.com/services/biztalk-services/)
-- [Servicios móviles](https://azure.microsoft.com/services/mobile-services/)
+- [Aplicaciones móviles](https://azure.microsoft.com/services/app-service/mobile/)
 - [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

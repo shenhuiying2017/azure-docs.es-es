@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector Trello
@@ -25,7 +25,7 @@ El conector Trello puede usarse desde:
 
 - [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flujos](http://flows.microsoft.com)  
+- [Flujo](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -67,6 +67,8 @@ Para crear aplicaciones lógicas con Trello, primero debe crear una **conexión*
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporciona las credenciales de Trello|
 Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a Trello](../../includes/connectors-create-api-trello.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -608,4 +610,4 @@ Obtiene listas según el identificador: obtiene listas según el identificador
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

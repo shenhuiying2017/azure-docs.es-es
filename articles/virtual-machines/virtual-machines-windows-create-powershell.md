@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una VM con Powershell | Microsoft Azure"
-	description="Cree y preconfigure una máquina virtual de Azure con el modelo de implementación de PowerShell y del Administrador de recursos."
+	pageTitle="Creación de una VM con PowerShell | Microsoft Azure"
+	description="Cree y configure una máquina virtual de Azure con el modelo de implementación de Resource Manager y PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell
+# Creación y configuración de una máquina virtual Windows con Azure PowerShell en el modelo de implementación de Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portal: Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,19 +28,17 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 Estos pasos le muestran cómo crear un conjunto de comandos de Azure PowerShell para crear y configurar una máquina virtual de Azure. Puede utilizar este proceso de bloques de creación para crear de forma rápida un conjunto de comandos para una nueva máquina virtual basada en Windows y expandir una implementación existente. También puede utilizarlo para crear varios conjuntos de comandos que crean rápidamente un entorno personalizado de pruebas/desarrollo o de profesional de TI.
 
 En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si está familiarizado con PowerShell o desea conocer los valores que debe especificar para una configuración correcta. Los usuarios avanzados de PowerShell pueden tomar los comandos y sustituir las variables con sus propios valores (las líneas que comienzan por "$").
+
+> [AZURE.IMPORTANT] Si desea que la máquina virtual forme parte de un conjunto de disponibilidad, agréguela al conjunto al crear la máquina virtual. Actualmente no es posible agregar una máquina virtual a un conjunto de disponibilidad una vez creada.
 
 ## Paso 1: Instalación de Azure PowerShell
 
 Hay dos opciones principales para la instalación, [Galería de PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) y [WebPI](http://aka.ms/webpi-azps). WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua.
 
-Para obtener más información, consulte [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
+Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
 ## Paso 2: Establecimiento de la suscripción
 
@@ -52,7 +50,7 @@ Inicie sesión en su cuenta.
 
 Puede encontrar las suscripciones disponibles mediante el siguiente comando.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Establecezca la suscripción de Azure para la sesión actual. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
 
@@ -115,6 +113,7 @@ Si DNSNameAvailability es "True", el nombre propuesto es un nombre único global
 ### El conjunto de disponibilidad
 
 
+
 Si es necesario, cree un nuevo conjunto de disponibilidad para la nueva máquina virtual con estos comandos.
 
 	$avName="<availability set name>"
@@ -136,7 +135,7 @@ Las máquinas virtuales creadas con el modelo de implementación del Administrad
 	$locName="West US"
 	$frontendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name frontendSubnet -AddressPrefix 10.0.1.0/24
 	$backendSubnet=New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix 10.0.2.0/24
-	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -SubnetId $frontendSubnet,$backendSubnet
+	New-AzureRmVirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $frontendSubnet,$backendSubnet
 
 Use estos comandos para enumerar las redes virtuales existentes.
 
@@ -220,7 +219,7 @@ Copie estas líneas en el conjunto de comandos y especifique los nombres y núme
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 La cadena de $nicName debe ser única para el grupo de recursos. Un procedimiento recomendado es incorporar el nombre de la máquina virtual a la cadena, como "LOB07-NIC".
 
@@ -239,7 +238,7 @@ Copie estas líneas en el conjunto de comandos y especifique los nombres y núme
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$lb=Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgName
-	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
+	$nic=New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex] -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 A continuación, cree un objeto de la máquina virtual local y, opcionalmente, agréguelo a un conjunto de disponibilidad. Copie una de las dos opciones siguientes en el conjunto de comandos y rellene el nombre, el tamaño y el nombre del conjunto de disponibilidad.
 
@@ -293,7 +292,7 @@ A continuación, deberá determinar el publicador, la oferta y SKU de la imagen 
 |MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
 |MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
-Si la imagen de máquina virtual que necesita no aparece, siga las instrucciones que se muestran [aquí](virtual-machines-linux-cli-ps-findimage.md#powershell) para determinar el publicador, la oferta y los nombres de SKU.
+Si la imagen de máquina virtual que necesita no aparece, siga las instrucciones que se muestran [aquí](virtual-machines-windows-cli-ps-findimage.md#powershell) para determinar el publicador, la oferta y los nombres de SKU.
 
 Copie estos comandos en el conjunto de comandos y rellene el publicador, la oferta y nombres de SKU.
 
@@ -317,7 +316,7 @@ Por último, copie estos comandos en el conjunto de comandos y rellene el identi
 
 Revise el conjunto de comandos de Azure PowerShell creado en el paso 4 en el editor de texto o PowerShell ISE. Asegúrese de que ha especificado todas las variables necesarias y de que tengan los valores correctos. También asegúrese de que ha quitado todos los caracteres < and >.
 
-Si tiene sus comandos en un editor de texto, copie el conjunto de comandos en el Portapapeles y, a continuación, haga clic con el botón derecho en el símbolo del sistema de Azure PowerShell. Así, se enviará el conjunto de comandos como una serie de comandos de PowerShell y se creará la máquina virtual de Azure. Como alternativa, ejecute el conjunto de comandos desde el ISE de Azure PowerShell.
+Si tiene los comandos en un editor de texto, copie el conjunto en el Portapapeles y, después, haga clic con el botón derecho en el símbolo del sistema de Windows PowerShell. Así, se enviará el conjunto de comandos como una serie de comandos de PowerShell y se creará la máquina virtual de Azure. Como alternativa, ejecute el conjunto de comandos desde PowerShell ISE.
 
 Si desea volver a usar esta información para crear máquinas virtuales adicionales, puede guardar este conjunto de comandos como un archivo de scripts de PowerShell (*.ps1).
 
@@ -341,7 +340,7 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
 	$nicName="LOB07-NIC"
@@ -392,4 +391,4 @@ Este es el conjunto de comandos de Azure PowerShell para crear esta máquina vir
 
 [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

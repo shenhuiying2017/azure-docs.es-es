@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para supervisar componentes y estados de hardware
@@ -39,7 +39,7 @@ Un dispositivo 8600 tiene componentes adicionales que se corresponden con el rev
 
 - **Componentes del Controlador 1 de EBOD**: componentes que constituyen el revestimiento 1 de EBOD, similares a los detallados en el revestimiento 0 de EBOD.
 
->[AZURE.NOTE]**La sección del estado de hardware no está presente en la página Mantenimiento para un dispositivo virtual StorSimple (1100).**
+>[AZURE.NOTE] **La sección del estado de hardware no está presente en la página Mantenimiento para un dispositivo virtual StorSimple (1100).**
 
 
 ## Supervisión del estado del hardware
@@ -136,4 +136,4 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 - Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

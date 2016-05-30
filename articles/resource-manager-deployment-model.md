@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
@@ -26,7 +26,9 @@ En la mayoría de los recursos, se puede realizar la transición a Resource Mana
 - **Almacenamiento**: admite cuentas de almacenamiento requeridas que almacenan los discos duros virtuales para máquinas virtuales, incluido su sistema operativo y los discos de datos adicionales.
 - **Red**: admite NIC requeridos, direcciones IP de máquinas virtuales y subredes de redes virtuales y equilibradores de carga opcionales, direcciones IP de equilibradores de carga y grupos de seguridad de red.
 
-Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas. Para saber qué modelo se ha usado para implementar los recursos, analicemos los dos modelos.
+Para estos tipos de recursos, debe ser consciente de la versión que utiliza, ya que variarán las operaciones admitidas. Si está listo para migrar los recursos de la implementación clásica a la implementación con Resource Manager, consulte [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Migración compatible con la plataforma de recursos de IaaS de clásico a Azure Resource Manager).
+
+Para saber qué modelo se ha usado para implementar los recursos, analicemos los dos modelos.
 
 ## Características del Administrador de recursos
 
@@ -38,7 +40,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,11 +87,11 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Para Azure PowerShell, use la versión para Service Management de comandos. Estos nombres de comandos tienen el formato *Verbo-AzureNombre*, tal como se muestra a continuación.
+  - Para Azure PowerShell, use la versión para Service Management de comandos. Estos nombres de comandos tienen el formato *Verb-AzureNoun*, tal como se muestra a continuación.
 
             Get-AzureDeployment
 
@@ -161,7 +163,7 @@ Hay algunas consideraciones importantes al trabajar con máquinas virtuales.
 - Las máquinas virtuales implementadas con el modelo de implementación del Administrador de recursos deben incluirse en una red virtual.
 - Las máquinas virtuales implementadas con el modelo de implementación clásica no deben incluirse en una red virtual.
 
-Si puede permitirse disponer de tiempo de inactividad para las máquinas virtuales, puede realizar la transición desde la implementación clásica hasta el administrador de recursos con los [scripts PowerShell de ASM2ARM](https://github.com/fullscale180/asm2arm).
+Si está listo para migrar los recursos de la implementación clásica a la implementación con Resource Manager, consulte [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Migración compatible con la plataforma de recursos de IaaS de clásico a Azure Resource Manager).
 
 Para obtener más detalles acerca de la transición de recursos de procesos, almacenamiento y redes, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
@@ -169,8 +171,8 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 
 ## Pasos siguientes
 
-- Para ver un tutorial sobre la creación de la plantilla que define una máquina virtual, una cuenta de almacenamiento y una red virtual, consulte [Tutorial de la plantilla de Azure Resource Manager](resource-manager-template-walkthrough.md).
-- Para conocer la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+- Para ver un tutorial sobre la creación de la plantilla que define una máquina virtual, una cuenta de almacenamiento y una red virtual, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
+- Para obtener información acerca de la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

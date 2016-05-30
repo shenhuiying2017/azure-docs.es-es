@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="04/25/2016"
    ms.author="sngun"/>
 
 # Parámetros de entrada de Runbook
@@ -129,7 +129,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 
     - **Cmdlets de Administración de servicios de Azure:** puede iniciar un Runbook de automatización creado en un grupo de recursos predeterminado mediante [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
 
-    **Ejemplo:**  
+    **Ejemplo:**
 
       ```
         $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
@@ -140,10 +140,10 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
     - **Cmdlets de Azure Resource Manager:** puede iniciar un Runbook de automatización creado en un grupo de recursos mediante [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
-    **Ejemplo:**  
+    **Ejemplo:**
 
       ```
-		$params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
@@ -172,7 +172,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
         }
     ```
 
-    - **Método Administrador de recursos de Azure:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automatización. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    - **Método Azure Resource Manager:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automatización. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -221,7 +221,7 @@ En el identificador URI de solicitud, reemplace los siguientes parámetros:
 Para pasar parámetros al trabajo de Runbook, use el cuerpo de la solicitud. Admite las dos propiedades siguientes proporcionadas en formato JSON:
 
 * **Runbook name**: obligatoria. El nombre del Runbook para que se inicie el trabajo.  
-* **Runbook parameters**: opcional. Diccionario de la lista de parámetros en formato (nombre, valor), donde el nombre debe ser de tipo String y el valor puede ser cualquier valor JSON válido.
+* **Runbook parameters**: opcional Diccionario de la lista de parámetros en formato (nombre, valor), donde el nombre debe ser de tipo String y el valor puede ser cualquier valor JSON válido.
 
 Si desea iniciar el Runbook **Get-AzureVMTextual** creado antes con **VMName** y **ServiceName** como parámetros, use el siguiente formato JSON para el cuerpo de la solicitud.
 
@@ -259,7 +259,7 @@ Puede crear un [Webhook](automation-webhooks.md) para el Runbook y configurar lo
 
 ![Creación de un Webhook y asignación de parámetros](media/automation-runbook-input-parameters/automation_08_CreateWebhookAndAssignParameters.png)
 
-Cuando se ejecuta un Runbook mediante un Webhook, se envía un parámetro de entrada predefinido **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**, junto con los parámetros de entrada que definió. Puede hacer clic para expandir el parámetro **WebhookData** para más detalles.
+Cuando se ejecuta un Runbook mediante un webhook, se envía un parámetro de entrada predefinido **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**, junto con los parámetros de entrada que definió. Puede hacer clic para expandir el parámetro **WebhookData** para más detalles.
 
 ![Parámetro WebhookData](media/automation-runbook-input-parameters/automation_09_WebhookDataParameter.png)
 
@@ -267,8 +267,8 @@ Cuando se ejecuta un Runbook mediante un Webhook, se envía un parámetro de ent
 ## Pasos siguientes
 
 - Para más información sobre la entrada y salida de Runbooks, consulte [Azure Automation: Runbook Input, Output, and Nested Runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/) (Automatización de Azure: entrada y salida de Runbooks, y Runbooks anidados).
-- Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un Runbook en Automatización de Azure](automation-starting-a-runbook.md).
-- Para editar un Runbook de texto, consulte [Edición de Runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md).
+- Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
+- Para editar un Runbook de texto, consulte [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md).
 - Para editar un Runbook gráfico, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

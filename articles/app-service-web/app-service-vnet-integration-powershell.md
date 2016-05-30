@@ -22,7 +22,7 @@
 
 En el Servicio de aplicaciones de Azure, puede conectar su aplicación (web, móvil o API) a una red virtual de Azure (VNet) de su suscripción. Esta característica se denomina Integración con red virtual. No debe confundirse con la característica Entorno del Servicio de aplicaciones, que le permite ejecutar una instancia del Servicio de aplicaciones de Azure en su red virtual.
 
-La característica Integración con red virtual tiene una interfaz de usuario (IU) en el nuevo portal que puede usar para integrar con redes virtuales implementadas con el modelo de implementación clásico o el modelo de implementación de Azure Resource Manager. Si desea conocer más sobre esta característica, consulte [Integración de la aplicación con una red virtual de Azure](web-sites-integrate-with-vnet).
+La característica Integración con red virtual tiene una interfaz de usuario (IU) en el nuevo portal que puede usar para integrar con redes virtuales implementadas con el modelo de implementación clásico o el modelo de implementación de Azure Resource Manager. Si desea conocer más sobre esta característica, consulte [Integración de su aplicación con una red virtual de Azure](web-sites-integrate-with-vnet.md).
 
 Este artículo no trata sobre el uso de la interfaz de usuario, sino sobre cómo habilitar la integración con PowerShell. Puesto que los comandos para cada modelo de implementación son diferentes, este artículo tiene una sección para cada modelo de implementación.
 
@@ -725,4 +725,4 @@ Aunque el script indica eliminar, no se elimina la red virtual. Solo se quita la
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

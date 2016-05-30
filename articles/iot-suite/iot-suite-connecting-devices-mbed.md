@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT
+# Conectar el dispositivo a la solución preconfigurada de supervisión remota (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -199,7 +199,7 @@ Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
 
     ![][11]
 
-4. En PuTTY, haga clic en el tipo de conexión **serie**. Como el dispositivo normalmente se conecta a 115 200 baudios, especifique 115200 en el cuadro **Velocidad**. A continuación, haga clic en **Abrir**.
+4. En PuTTY, haga clic en el tipo de conexión **serie**. Como el dispositivo normalmente se conecta a 9600 baudios, especifique 9600 en el cuadro **Velocidad**. A continuación, haga clic en **Abrir**.
 
 5. El programa comienza a ejecutarse. Puede que tenga que restablecer la placa (presione CTRL+pausa o el botón de reinicio de la placa) si el programa no se inicia automáticamente cuando se conecta.
 
@@ -220,4 +220,4 @@ Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

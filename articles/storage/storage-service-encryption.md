@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/11/2016"
 	ms.author="robinsh"/>
 
 # Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -37,7 +37,7 @@ Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabi
 
 ##Disponibilidad
 
-Tenga en cuenta que esta característica se encuentra actualmente disponible en Asia Oriental, en el caso del almacenamiento estándar, y en Japón Oriental, en el caso del Almacenamiento premium. Actualizaremos este documento a medida que esta característica se implemente en otras regiones.
+Tenga en cuenta que esta característica se encuentra actualmente disponible en Asia Oriental y Europa Occidental en el caso del almacenamiento estándar, y en Japón Oriental en el caso del Almacenamiento premium. Actualizaremos este documento a medida que esta característica se implemente en otras regiones.
 
 ##Escenarios de cifrado
 
@@ -215,7 +215,7 @@ R: ¿Cuándo creó la cuenta de almacenamiento? Para poder usar SSE durante la v
 
 **P: ¿La versión preliminar de SSE solo se permite en algunas regiones específicas?**
 
-R: La versión preliminar de SSE está disponible en Asia Oriental, en el caso del almacenamiento estándar, y en Japón Oriental, en el caso del Almacenamiento premium. Actualizaremos este documento a medida que lo implementemos en más regiones durante los próximos meses.
+R.: La versión preliminar de SSE está disponible en Asia Oriental y Europa Occidental en el caso del almacenamiento estándar, y en Japón Oriental en el caso del Almacenamiento premium. Actualizaremos este documento a medida que lo implementemos en más regiones durante los próximos meses.
 
 **P: ¿Cómo me puedo comunicar con alguna persona si tengo problemas o si deseo enviar comentarios?**
 
@@ -225,4 +225,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

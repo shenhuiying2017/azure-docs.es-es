@@ -73,7 +73,7 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 2. En la hoja de conexiones híbridas, haga clic en **Agregar**.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. Se abre la hoja **Agregar una conexión híbrida**. Dado que esta es su primera conexión híbrida, la opción **Nueva conexión híbrida** aparece preseleccionada y se abre la hoja **Crear conexión híbrida**.
 	
@@ -81,9 +81,9 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	
 	En la **hoja Crear conexión híbrida**:
 	- En **Nombre**, escriba un nombre para la conexión.
-	- En **Nombre de host**, escriba el nombre del equipo local que hospeda el recurso.
+	- En **Nombre de host**, escriba el nombre del equipo local que hospeda su recurso.
 	- En **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server).
-	- Haga clic en **Servicio de BizTalk**.
+	- Haga clic en **Servicio de Biz Talk**.
 
 
 4. Se abre la hoja **Crear servicio de BizTalk**. Escriba un nombre para el servicio de BizTalk y, a continuación, haga clic en **Aceptar**.
@@ -97,9 +97,9 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	![Haga clic en Aceptar][CreateBTScomplete]
 	
 6. Al finalizar el proceso, el área de notificaciones del portal le informa de que la conexión se ha creado correctamente.
-	<!-- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	<!--- TODO
+	
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
@@ -164,11 +164,11 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 
 ## Configuración del proyecto de back-end .NET de la aplicación móvil para conectarse a la base de datos de SQL Server
 
-En Servicio de aplicaciones, un proyecto de back-end .NET de Aplicaciones móviles es simplemente una aplicación web de ASP.NET con un SDK de Aplicaciones móviles adicional instalado e inicializado. Para usar la aplicación web como un back-end de Aplicaciones móviles, debe [descargar e inicializar el SDK del back-end .NET de Aplicaciones móviles](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+En Servicio de aplicaciones, un proyecto de back-end .NET de Aplicaciones móviles es simplemente una aplicación web de ASP.NET con un SDK de Aplicaciones móviles adicional instalado e inicializado. Para usar la aplicación web como un back-end de Aplicaciones móviles, es preciso [descargar e inicializar el SDK del back-end .NET de Aplicaciones móviles](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
 
 Para Aplicaciones móviles, también necesita definir una cadena de conexión para la base de datos local y modificar el back-end para usar esta conexión.
 
-1. En el Explorador de soluciones de Visual Studio, abra el archivo Web.config para el back-end .NET de la aplicación móvil, busque la sección **connectionStrings** y agregue una nueva entrada de SqlClient similar a la siguiente, que apunta a la base de datos de SQL Server local:
+1. En el Explorador de soluciones de Visual Studio, abra el archivo Web.config del back-end .NET de la aplicación móvil, busque la sección **connectionStrings** y agregue una nueva entrada de SqlClient similar a la siguiente, que apunte a la base de datos de SQL Server local:
 
 	    <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
@@ -227,7 +227,7 @@ Llegados a este punto puede volver a publicar el proyecto de servidor y probar l
 
 [Sitio web de conexiones híbridas](https://azure.microsoft.com/services/biztalk-services/)
 
-[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-dashboard-monitor-scale-tabs/)
+[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@ Llegados a este punto puede volver a publicar el proyecto de servidor y probar l
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

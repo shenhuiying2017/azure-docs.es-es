@@ -86,7 +86,7 @@ Para habilitar esta funcionalidad, tendrá que preparar su aplicación para noti
 
 ### Preparar la aplicación para notificaciones de inserción de Apple
 
-Siga la guía indicada a continuación: Cómo preparar la aplicación para las notificaciones de inserción de Apple.
+Siga la guía indicada a continuación: [Cómo preparar la aplicación para las notificaciones de inserción de Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
 
 ### Agregue el código de cliente necesario
 
@@ -416,4 +416,4 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
 
 	@end
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

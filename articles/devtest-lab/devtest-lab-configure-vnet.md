@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuración de una red virtual para un laboratorio de DevTest | Microsoft Azure"
-	description="Aprenda a configurar una red virtual existente y la subred y a usarlas en una máquina virtual."
+	pageTitle="Configuración de una red virtual para un laboratorio | Microsoft Azure"
+	description="Aprenda a configurar una red virtual existente y la subred y a usarlas en una máquina virtual con DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Configuración de una red virtual para un laboratorio de DevTest
+# Configuración de una red virtual para un laboratorio
 
 ## Información general
 
-Como se explica en el artículo [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas de Azure](devtest-lab-add-vm-with-artifacts.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada (y subred) para esa máquina virtual. Una situación en la que se podría aplicar esto es si quiere poder acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio. En las siguientes secciones se muestra cómo agregar la red virtual existente a la configuración de red virtual del laboratorio de modo que esté disponible para seleccionarse al crear las máquinas virtuales.
+Como se explica en el artículo [Incorporación de una máquina virtual con artefactos a DevTest Labs](devtest-lab-add-vm-with-artifacts.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada (y subred) para esa máquina virtual. Una situación en la que se podría aplicar esto es si quiere poder acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio. En las siguientes secciones se muestra cómo agregar la red virtual existente a la configuración de red virtual del laboratorio de modo que esté disponible para seleccionarse al crear las máquinas virtuales.
 
-## Configuración de una red virtual para un laboratorio de DevTest mediante el Portal de Azure
-Los pasos siguientes le guiarán en el proceso de agregar una red virtual existente (y la subred) a un laboratorio de DevTest para que se puede utilizar al crear una máquina virtual en el mismo laboratorio.
+## Configuración de una red virtual para un laboratorio mediante el Portal de Azure
+Los pasos siguientes le guiarán en el proceso de agregar una red virtual existente (y la subred) a un laboratorio para que esta se pueda utilizar al crear una máquina virtual en el mismo laboratorio.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -63,10 +63,10 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
 
 1. Pulse **Guardar**.
 
-1. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. Esto se explica en el artículo [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas de Azure](devtest-lab-add-vm-with-artifacts.md).
+1. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. Esto se explica en el artículo [Incorporación de una máquina virtual con artefactos a DevTest Labs](devtest-lab-add-vm-with-artifacts.md).
 
 ## Pasos siguientes
 
-Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio de DevTest](devtest-lab-add-vm-with-artifacts.md).
+Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

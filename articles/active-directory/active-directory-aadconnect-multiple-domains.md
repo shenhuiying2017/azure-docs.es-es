@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Compatibilidad con varios dominios para la federación con Azure AD
@@ -153,4 +153,4 @@ Siga los pasos indicados a continuación para agregar una notificación personal
 ![Reemplazar notificación](./media/active-directory-multiple-domains/sub2.png)
 5.	Haga clic en Aceptar. Haga clic en Aplicar. Haga clic en Aceptar. Cierre Administración de AD FS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
-	manager="jeffreyg"
+	manager="mblythe"
 	editor="monicar" 
 	tags="azure-service-management"/>
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
+	ms.date="05/13/2016"
 	ms.author="asaxton" />
 
 # Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
@@ -633,7 +633,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
 
 		http://localhost/Reports
 
-- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio]\[nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
+- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio] [nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

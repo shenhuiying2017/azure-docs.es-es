@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="04/16/2016"
+  ms.date="05/09/2016"
   ms.author="andrl"/>
 
 # Portal de la Comunidad
@@ -147,12 +147,8 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Global Azure Bootcamp: SoCal (Campo de entrenamiento global de Azure: Sur de California)](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Global Azure Bootcamp: Redmond (Campo de entrenamiento global de Azure: Redmond)](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Integration User Group](http://www.integrationusergroup.com/#) | Howard Edidin | Seminario web | 25 de abril de 2016 | N/D |
-| [Meetup: NYC .NET Developers Group (Encuentro: grupo de desarrolladores de .NET en Nueva York)](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Ciudad de Nueva York, NY | 21 de abril de 2016 | N/D |
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu y Aravind Ramachandran | Liverpool, Reino Unido | Del 4 al 7 de mayo de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Reino Unido | 12 de mayo de 2016 | N/D |
+| [Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/) | Santosh Hari | Orlando, FL | 12 de mayo de 2016 | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
 
 *¿Es el orador u organizador de un evento? [Queremos saber](mailto:askdocdb@microsoft.com) cómo podemos ayudarle*
 
@@ -160,6 +156,11 @@ Para mantenerse al día respecto a las novedades y características más recient
 
 | Nombre del evento | Orador | Ubicación | Date | Grabación |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu y Aravind Ramachandran | Liverpool, Reino Unido | Del 4 al 7 de mayo de 2016 | N/D
+| [Meetup: NYC .NET Developers Group (Encuentro: grupo de desarrolladores de .NET en Nueva York)](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Ciudad de Nueva York, NY | 21 de abril de 2016 | N/D |
+| [Integration User Group](http://www.integrationusergroup.com/#) | Howard Edidin | Seminario web | 25 de abril de 2016 | N/D |
+| [Global Azure Bootcamp: SoCal (Campo de entrenamiento global de Azure: Sur de California)](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | N/D |
+| [Global Azure Bootcamp: Redmond (Campo de entrenamiento global de Azure: Redmond)](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | N/D |
 | [SQL Saturday #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) | Leonard Lobel | HaMerkaz, Israel | 04 de abril de 2016 | N/D |
 | [Build 2016](https://build.microsoft.com/) | John Macintyre | San Francisco, California | 31 de marzo de 2016 | [Delivering Applications at Scale with DocumentDB, Azure's NoSQL Document Database (Entrega de aplicaciones a gran escala con DocumentDB, la Base de datos de documentos no SQL de Azure)](https://channel9.msdn.com/Events/Build/2016/B840)
 | [SQL Saturday #505 - Belgium 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217) | Mihail Mateev | Amberes, Bélgica | 19 de marzo de 2016 | N/D |
@@ -305,6 +306,6 @@ Los asistentes de DocumentDB son líderes de la Comunidad que han demostró un c
 | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
 | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
 
-¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com).
+¿Quiere convertirse en un asistente de DocumentDB? Aunque no hay que superar ninguna prueba de referencia para convertirse en asistente de DocumentDB, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los nominados en los foros en línea (como StackOverflow y MSDN); contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros. Para proponerse a sí mismo o proponer a otros [envíenos un correo electrónico](mailto:askdocdb@microsoft.com)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

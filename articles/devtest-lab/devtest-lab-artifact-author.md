@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de artefactos personalizados para la máquina virtual del Laboratorio de desarrollo y pruebas | Microsoft Azure"
+	pageTitle="Creación de artefactos personalizados para la máquina virtual de DevTest Labs | Microsoft Azure"
 	description="Aprenda a crear sus propios artefactos para usarlos con laboratorios de desarrollo y pruebas"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-#Creación de artefactos personalizados para la máquina virtual del Laboratorio de desarrollo y pruebas
+#Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
 > [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo crear artefactos personalizados](/documentation/videos/how-to-author-custom-artifacts)
 
@@ -118,10 +118,10 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 	![Ejemplo de repositorio de Git de artefacto](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Agregue el repositorio de artefactos al laboratorio: consulte el artículo [Adición de un repositorio de artefactos de Git al Laboratorio de desarrollo y pruebas.](devtest-lab-add-artifact-repo.md).
+1. Agregue el repositorio de artefactos al laboratorio: consulte el artículo [Adición de un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
 ## Pasos siguientes
 
-- Aprenda cómo [agregar un repositorio de artefactos de Git al Laboratorio de desarrollo y pruebas](devtest-lab-add-artifact-repo.md).
+- Aprenda cómo [agregar un repositorio de artefactos Git a un laboratorio](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

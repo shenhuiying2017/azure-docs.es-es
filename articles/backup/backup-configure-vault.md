@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copia de seguridad de un equipo de Windows Server o de un cliente de Windows en Azure | Microsoft Azure"
+	pageTitle="Copia de seguridad desde Windows Server o un cliente de Windows en Azure con Copia de seguridad de Azure mediante el modelo de implementación de Resource Manager | Microsoft Azure"
 	description="Cree una copia de seguridad de los servidores o clientes de Windows en Azure mediante la creación de un almacén de copia de seguridad, la descarga de credenciales, la instalación del agente de copia de seguridad y la realización de una copia de seguridad inicial de sus archivos y carpetas."
 	services="backup"
 	documentationCenter=""
@@ -14,162 +14,165 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/19/2016"
+	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
+# Copia de seguridad desde Windows Server o un cliente de Windows en Azure con Copia de seguridad de Azure mediante el modelo de implementación de Resource Manager
 
-# Realización de copias de seguridad de archivos y carpetas de Windows Server o del Cliente de Windows en Azure
-En este artículo, se tratan los procedimientos necesarios para preparar el entorno y crear una copia de seguridad de un servidor (o cliente) de Windows Server en Azure. También se describen los aspectos que se deben tener en cuenta al implementar la solución de copia de seguridad. Si está interesado en probar el servicio Copia de seguridad de Azure por primera vez, este artículo le guiará rápidamente en ese proceso.
+> [AZURE.SELECTOR]
+- [Portal de Azure](backup-configure-vault.md)
+- [Portal clásico](backup-configure-vault-classic.md)
 
-![Crear almacén](./media/backup-configure-vault/initial-backup-process.png)
+En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager.
+
+![Pasos del proceso de copia de seguridad](./media/backup-configure-vault/initial-backup-process.png)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 ## Antes de comenzar
-Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en cuestión de minutos.
+Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
-## Paso 1: Creación de un almacén de copia de seguridad
-Para hacer una copia de seguridad de los archivos y las carpetas de un servidor o cliente, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
+## Paso 1: Creación de un almacén de Servicios de recuperación
 
-### Para crear un almacén de copia de seguridad
+Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y todos los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación contiene también la directiva de copia de seguridad que se aplica a los archivos y las carpetas protegidos. Cuando se crea un almacén de Servicios de recuperación, también se debe seleccionar la opción de redundancia de almacenamiento adecuada.
 
-1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
+### Creación de un almacén de Servicios de recuperación
 
-2. Haga clic en **Nuevo** > **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** y, luego, elija **Creación rápida**.
+1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
 
-3. Para el parámetro **Nombre**, escriba un nombre descriptivo para identificar el almacén de copia de seguridad. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones. Este nombre debe ser único para cada suscripción.
+2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**.
 
-4. Para el parámetro **Región**, seleccione la región geográfica para el almacén de credenciales de copia de seguridad. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad. Si elige una región geográfica cercana a su ubicación, puede reducir la latencia de red al crear una copia de seguridad en Azure.
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
 
-5. Haga clic en **Crear almacén**.
+    Se muestra la lista de almacenes de Servicios de recuperación.
 
-    ![Creación de un almacén de copia de seguridad](./media/backup-configure-vault/demo-vault-name.png)
+3. En el menú **Almacenes de Servicios de recuperación**, haga clic en **Agregar**.
 
-    La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Para revisar el estado, supervise las notificaciones en la parte inferior del portal.
+    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-configure-vault/rs-vault-menu.png)
 
-    Después de crear el almacén de copia de seguridad, verá un mensaje que indica que el almacén se creó correctamente. También aparece como **Activo** en la lista de recursos de **Servicios de recuperación**.
+    Se abre la hoja del almacén de Servicios de recuperación, que le pide que proporcione los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
-    ![Estado de creación de almacén](./media/backup-configure-vault/recovery-services-select-vault.png)
+    ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
-4. Siga estos pasos para seleccionar la opción de redundancia de almacenamiento.
+4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
 
-    >[AZURE.IMPORTANT] El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén y antes de que las máquinas se registren en este. Una vez que un elemento se registra en el almacén, se bloquea la opción de redundancia de almacenamiento y no se puede modificar.
+5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-    Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal (por ejemplo, si creará una copia de seguridad en Azure desde un equipo de Windows Server), considere seleccionar la opción de [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) (valor predeterminado).
+6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o en **Nuevo** para crear uno. Para tener información completa sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
-    Si usa Azure como punto de conexión de almacenamiento de copia de seguridad terciario (por ejemplo, si usa System Center Data Protection Manager para almacenar una copia de seguridad local y Azure para cubrir sus necesidades de retención a largo plazo), considere elegir el [almacenamiento con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage). Esto reduce el costo de almacenamiento de datos en Azure, a la vez que ofrece un menor nivel de durabilidad de los datos, el cual podría ser aceptable para copias terciarias.
+7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. Esta elección determina la región geográfica a la que se envían los datos de copia de seguridad. Si elige una región geográfica cercana a su ubicación, puede reducir la latencia de red al crear una copia de seguridad en Azure.
 
-    **Para seleccionar la opción de redundancia de almacenamiento:**
+8. Haga clic en **Crear**. La creación del almacén de Servicios de recuperación puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal. Una vez creado el almacén, se debería abrir en el portal. Si cuando ha terminado no ve el almacén, haga clic en **Actualizar**. Cuando se actualiza la lista, haga clic en el nombre del almacén.
 
-    a. Haga clic en el almacén que acaba de crear.
+### Determinación de la redundancia de almacenamiento
+Al crear un almacén de Servicios de recuperación se determina cómo se replica el almacenamiento.
 
-    b. En la página de Inicio rápido, seleccione **Configurar**.
+1. En la hoja **Configuración**, que se abre automáticamente con el panel del almacén, haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad).
 
-    ![Configurar el estado de almacén](./media/backup-configure-vault/configure-vault.png)
+2. En la hoja Backup Infrastructure (Infraestructura de copia de seguridad), haga clic en **Configuración de copia de seguridad** para ver el **tipo de replicación de almacenamiento**.
 
-    c. Elija la opción de redundancia de almacenamiento adecuada.
+    ![Creación del almacén de Servicios de recuperación, paso 5](./media/backup-configure-vault/backup-infrastructure.png)
 
-    Si selecciona **Con redundancia local**, debe hacer clic en **Guardar** (porque **Con redundancia geográfica** es la opción predeterminada).
+3. Elija la opción de replicación del almacenamiento para su almacén.
 
-    d. En el panel de navegación de la izquierda, haga clic en **Servicios de recuperación** para volver a la lista de recursos de Servicios de recuperación.
+    ![Lista de almacenes de Servicios de recuperación](./media/backup-configure-vault/choose-storage-configuration.png)
 
-## Paso 2: Descarga del archivo de credenciales de almacén
-La máquina local se debe autenticar con un almacén de copia de seguridad antes de poder crear una copia de seguridad de los datos en Azure. La autenticación se realiza mediante las *credenciales de almacén*. El archivo de credenciales de almacén se descarga a través de un canal seguro desde el Portal de Azure. La clave privada de certificado no se conserva en el portal ni en el servicio.
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando el almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión del almacenamiento de copia de seguridad no principal, elija un almacenamiento con redundancia local, ya que ello reducirá el costo de almacenamiento de datos en Azure. En esta página de [información general](../storage/storage-redundancy.md), encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) y con [redundancia local](../storage/storage-redundancy.md#locally-redundant-storage).
 
-Obtenga más información sobre el [uso de credenciales de almacén para autenticarse con el servicio Copia de seguridad](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
+    Tras elegir la opción de almacenamiento del almacén, está listo para asociar los archivos y las carpetas con el almacén.
 
-### Para descargar el archivo de credenciales de almacén en una máquina local:
+Ahora que ha creado un almacén, prepare su infraestructura para realizar una copia de seguridad de los archivos y las carpetas; para ello, descargue e instale el Agente de Servicios de recuperación de Microsoft Azure, descargue las credenciales del almacén y luego use esas credenciales para registrar el agente en el almacén.
 
-1. En el panel de navegación de la izquierda, haga clic en **Servicios de recuperación** y, luego, seleccione el almacén de copia de seguridad que creó.
+## Paso 2: Descarga de los archivos
 
-    ![IR completado](./media/backup-configure-vault/rs-left-nav.png)
+>[AZURE.NOTE] La habilitación de la copia de seguridad a través del portal de Azure estará pronto disponible. En este momento, se usa el agente de Servicios de recuperación de Microsoft Azure local para hacer copia de seguridad de archivos y carpetas.
 
-2.  En la página de Inicio rápido, haga clic en **Descargar credenciales de almacén**.
+1. Haga clic en **Configuración** en el panel del almacén de Servicios de recuperación.
 
-    El portal genera una credencial de almacén mediante una combinación del nombre del almacén y la fecha actual. El archivo de credenciales de almacén se utiliza solo durante el flujo de trabajo de registro y expira tras 48 horas.
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/settings-button.png)
 
-    El archivo de credenciales de almacén se puede descargar desde el portal.
+2. Haga clic en **Introducción > Copia de seguridad** en la hoja Configuración.
 
-3. Haga clic en **Guardar** para descargar el archivo de credenciales de almacén a la carpeta Descargas de la cuenta local. También puede seleccionar **Guardar como** en el menú **Guardar** para especificar una ubicación para las credenciales de almacén.
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/getting-started-backup.png)
 
-    >[AZURE.NOTE] Asegúrese de que las credenciales de almacén se guardan en una ubicación a la que se pueda acceder desde la máquina. Si se almacena en un recurso compartido de archivos o en un bloque de mensajes del servidor, compruebe que tiene permiso de acceso a él.
+3. Haga clic en **Backup goal** (Objetivo de la copia de seguridad) en la hoja Copia de seguridad.
 
-## Paso 3: Descarga, instalación y registro del agente de Copia de seguridad
-Después de crear el almacén de copia de seguridad y de descargar el archivo de credenciales de almacén, se debe instalar un agente en cada una de sus máquinas con Windows.
+    ![Abrir hoja de objetivo de copia de seguridad](./media/backup-configure-vault/backup-goal.png)
 
-### Para descargar, instalar y registrar el agente:
+4. Seleccione **Local** desde el menú Where is your workload running? (¿Desde dónde se ejecuta la carga de trabajo?).
 
-1. Haga clic en **Servicios de recuperación** y, luego, seleccione el almacén de copia de seguridad que desea registrar en un servidor.
+5. Seleccione **Archivos y carpetas** en el menú What do you want to backup? (¿De qué desea realizar copias de seguridad?) y haga clic en **Aceptar**.
 
-2. En la página Inicio rápido, haga clic en el **Agente para Windows Server, System Center Data Protection Manager o cliente Windows**. A continuación, haga clic en **Guardar**.
+#### Descarga del agente de Servicios de recuperación
 
-    ![Guardar agente](./media/backup-configure-vault/agent.png)
+1. Haga clic en **Download Agent for Windows Server or Windows Client** (Descargar el agente para Windows Server o cliente de Windows) en la hoja **Prepare infrastructure** (Preparar la infraestructura).
 
-3. Una vez que se descargue el archivo MARSagentinstaller.exe, haga clic en **Ejecutar** (o haga doble clic en **MARSAgentInstaller.exe** en la ubicación guardada).
+    ![Preparar infraestructura](./media/backup-configure-vault/prepare-infrastructure-short.png)
 
-4. Elija la carpeta de instalación y la carpeta de caché que se requieren para el agente y, luego, haga clic en **Siguiente**. La ubicación de caché que especifique debe tener un espacio libre de, como mínimo, el 5% de los datos de copia de seguridad.
+2. Haga clic en **Guardar** en la ventana emergente de descarga. De forma predeterminada, se guarda el archivo **MARSagentinstaller.exe** en la carpeta de descargas.
 
-5. Puede continuar para conectarse a Internet a través de la configuración predeterminada de proxy. Si usa un servidor proxy para conectarse a Internet, en la página Configuración de proxy, active la casilla **Utilice una configuración de proxy personalizada** y, luego, escriba los detalles del servidor proxy. Si usa un proxy autenticado, escriba los detalles de nombre y contraseña del usuario y, luego, haga clic en **Siguiente**.
+#### Descarga de las credenciales de almacén
 
-7. Haga clic en **Instalar** para comenzar la instalación del agente. El agente de Copia de seguridad instalar .NET Framework 4.5 y Windows PowerShell (si todavía no está instalado) para completar la instalación.
+1. Haga clic en **Descargar > Guardar** en la hoja Prepare infrastructure(Preparar la infraestructura).
 
-8. Una vez que se instale el agente, haga clic en **Proceder al registro** para continuar con el flujo de trabajo.
+    ![Preparar infraestructura](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-9. En la página Identificación del almacén, busque y seleccione el archivo de credenciales de almacén que descargó anteriormente.
+## Paso 3: Instalación y registro del agente
 
-    El archivo de credenciales de almacén es válido solo durante 48 horas una vez que se lo descarga del portal. Si encuentra un error en esta página (como "El archivo de credenciales de almacén especificado expiró"), inicie sesión en el portal y vuelva a descargar el archivo de credenciales de almacén.
+1. Busque y haga doble clic en **MARSagentinstaller.exe** en la carpeta de descargas (u otra ubicación guardada).
 
-    Asegúrese de que el archivo de credenciales de almacén está disponible en una ubicación a la que puede tener acceso la aplicación de instalación. Si encuentra errores relacionados con el acceso, copie el archivo de credenciales de almacén en una ubicación temporal en la misma máquina y vuelva a intentar la operación.
+2. Complete el asistente para la instalación del agente de Servicios de recuperación de Microsoft Azure. Para completar al asistente, tendrá que hacer lo siguiente:
 
-    Si encuentra un error de credenciales de almacén como "Las credenciales del almacén no son válidas", el archivo está dañado o no tiene asociadas las credenciales más recientes con el Servicio de recuperación. Vuelva a intentar la operación después de descargar un nuevo archivo de credenciales de almacén desde el portal. Este error también se puede producir si un usuario hace clic varias veces en la opción **Descargar credencial de almacén** en sucesión rápida. En este caso, solo es válido el último archivo de credenciales de almacén.
+    - Elija una ubicación para la instalación y la carpeta de caché.
+    - Proporcione la información del servidor proxy si usa un servidor proxy para conectarse a Internet.
+    - Si usa un servidor proxy autenticado, escriba los detalles de nombre y contraseña del usuario.
+    - Proporcione las credenciales del almacén descargado
+    - Guarde la frase de contraseña en una ubicación segura.
 
-9. En la página Configuración de cifrado, puede generar una frase de contraseña o proporcionarla (con un mínimo de 16 caracteres). Recuerde guardar la frase de contraseña en una ubicación segura.
+    >[AZURE.NOTE] Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. Guarde el archivo en una ubicación segura. Es necesario restaurar una copia de seguridad.
 
-10. Haga clic en **Finalizar** El Asistente para registrar servidor registra el servidor con el servicio Copia de seguridad.
-
-
-    > [AZURE.WARNING] Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. El usuario posee la frase de contraseña de cifrado y Microsoft no puede verla. Guarde el archivo en una ubicación protegida, ya que será necesario durante una operación de recuperación.
-
-11. Una vez que se establezca la clave de cifrado, deje activada la casilla **Inicio del agente de Servicios de recuperación de Microsoft Azure** y, luego, haga clic en **Cerrar**.
+Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
 ## Paso 4: Realización de la copia de seguridad inicial
 
 La copia de seguridad inicial incluye dos tareas clave:
 
-- Creación de la programación de la copia de seguridad.
-- Creación de copias de seguridad de archivos y carpetas por primera vez.
+- Programación de la copia de seguridad
+- Creación de copias de seguridad de archivos y carpetas por primera vez
 
-Una vez que la directiva de copia de seguridad completa la copia de seguridad inicial, crea puntos de copia de seguridad que puede usar si necesita recuperar los datos. Para ello, la directiva de copia de seguridad se basa en la programación que define.
+Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad de Microsoft Azure.
 
 ### Para programar la copia de seguridad
 
-1. Abra el agente de Copia de seguridad de Microsoft Azure. (Se abrirá automáticamente si dejó activada la casilla **Inicio del agente de Servicios de recuperación de Microsoft Azure** cuando cerró el Asistente para registrar servidor). Para encontrarlo, busque **Copia de seguridad de Microsoft Azure** en la máquina.
+1. Abra el agente de Copia de seguridad de Microsoft Azure. Para encontrarlo, busque **Copia de seguridad de Microsoft Azure** en la máquina.
 
     ![Lanzamiento del agente de Copia de seguridad de Azure](./media/backup-configure-vault/snap-in-search.png)
 
-2. En el agente de Copia de seguridad, haga clic en **Programar copia de seguridad**.
+2. En el agente de copia de seguridad, haga clic en **Programar copia de seguridad**.
 
-    ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-backup-close.png)
+    ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 
-4. En la página Seleccionar elementos para copia de seguridad, haga clic en **Agregar elementos**.
+4. En la página Seleccionar elementos de los que realizar copia de seguridad, haga clic en **Agregar elementos**.
 
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
 
 6. Haga clic en **Siguiente**.
 
-7. En la página **Especificar una programación de copias de seguridad**, especifique la **programación de copias de seguridad** y haga clic en **Siguiente**.
+7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copias de seguridad** y haga clic en **Siguiente**.
 
     Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
 
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Uso de Copia de seguridad de Azure para reemplazar la infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Para más información sobre cómo especificar la programación de la copia de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
 
-8. En la página **Seleccionar la directiva de retención**, seleccione la **directiva de retención** de la copia de seguridad.
+8. En la página **Seleccione la directiva de retención**, elija la **directiva de retención** para la copia de seguridad.
 
     La directiva de retención especifica el tiempo durante el que se almacenará la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 
-9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
+9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente por encima de la red** y, luego, haga clic en **Siguiente**.
 
     Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
 
@@ -179,45 +182,45 @@ Una vez que la directiva de copia de seguridad completa la copia de seguridad in
 
 ### Habilitación de la velocidad moderada de la red (opcional)
 
-El agente de Copia de seguridad brinda limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
+El agente de copia de seguridad ofrece limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
 
 **Para habilitar la limitación de red**
 
-1. En el agente de Copia de seguridad, haga clic en **Cambiar propiedades**.
+1. En el agente de copia de seguridad, haga clic en **Cambiar propiedades**.
 
     ![Cambiar propiedades](./media/backup-configure-vault/change-properties.png)
 
-2. En la pestaña **Limitación**, active la casilla **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**.
+2. En la pestaña **Limitación**, active la casilla **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad**.
 
     ![Limitación de la red](./media/backup-configure-vault/throttling-dialog.png)
 
-3. Una vez que se habilita la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante las **horas laborables** y las **horas no laborables**.
+3. Después de habilitar la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante las **horas laborables** y las **horas no laborables**.
 
-    Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden llegar a los 1 023 megabytes por segundo (Mbps). También puede designar el inicio y el final de las **horas laborables** y qué días de la semana se consideran días laborables. Las horas que se encuentran fuera de las horas laborables designadas se consideran como no laborables.
+    Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden subir hasta 1023 megabytes por segundo (Mbps). También puede designar el inicio y el final de la **jornada laboral**, así como qué días de la semana se consideran laborables. Las horas que se encuentran fuera de las horas laborables designadas se consideran como no laborables.
 
 4. Haga clic en **Aceptar**.
 
-### Para crear ahora mismo una copia de seguridad
+### Creación de copias de seguridad de archivos y carpetas por primera vez
 
-1. En el agente de Copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
+1. En el agente de copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
 
     ![Realizar copia de seguridad de Windows Server ahora](./media/backup-configure-vault/backup-now.png)
 
-2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
+2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Back Up** (Crear copia de seguridad).
 
 3. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice el proceso de copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 
-Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
+Cuando finaliza la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
 
 ![IR completado](./media/backup-configure-vault/ircomplete.png)
 
-## Pasos siguientes
-- Regístrese para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+## ¿Tiene preguntas?
+Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
+## Pasos siguientes
 Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
-- [Preparación del entorno de copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
-- [Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure](backup-azure-microsoft-azure-backup.md)
-- [Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM](backup-azure-dpm-introduction.md)
+- Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y los servidores](backup-azure-manage-windows-server.md).
+- Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

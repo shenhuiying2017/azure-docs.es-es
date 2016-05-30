@@ -89,7 +89,7 @@ En este paso, aprenderá a almacenar un certificado SSL que adquirió en el Alma
     ![insertar imagen de creación de nuevo KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Almacén de claves de Azure tiene gastos mínimos para almacenar este certificado. El costo será aproximadamente de 0,03 centavos (USD). Vea **[Precios de Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/)** para más información.
+    Almacén de claves de Azure tiene gastos mínimos para almacenar este certificado. Para más información, consulte **[Precios de Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/)**.
 
 4. Una vez haya seleccionado el repositorio del almacén de claves para almacenar este certificado, continúe y almacénelo haciendo clic en el botón **"Almacenar"** situado en la parte superior de la hoja **"Estado del almacén de claves"**.
 
@@ -146,7 +146,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
-            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host * **.contosocertdemo.com** o * **.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
+            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Paso 3: asignar el certificado a la aplicación del Servicio de aplicaciones
@@ -194,7 +194,7 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
     ![insertar imagen de SSL de regeneración de claves](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. La regeneración de claves del certificado renovará el certificado con un nuevo certificado emitido desde la entidad de certificación.
-4. No se le cobrará por la regeneración de claves durante la vigencia del certificado. 
+4. Mientras el certificado esté vigente no se le cobrará por la regeneración de claves. 
 5. La regeneración de claves del certificado pasará a través del estado Emisión pendiente. 
 6. Una vez que el certificado esté listo, asegúrese de que sincronizar los recursos con este certificado para evitar la interrupción del servicio.
 7. La opción de sincronización no está disponible para los certificados que todavía no están asignados a la aplicación web. 
@@ -208,4 +208,4 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

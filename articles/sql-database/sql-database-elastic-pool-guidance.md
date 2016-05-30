@@ -22,7 +22,7 @@ Evalúe si utilizar un grupo de bases de datos elásticas es rentable según los
 
 - Para obtener información general de grupos, consulte [Grupos de bases de datos elásticas de Base de datos SQL](sql-database-elastic-pool.md).
 
-> [AZURE.NOTE] Los grupos de bases de datos elásticas están en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12.
+> [AZURE.NOTE] Los grupos elásticos están disponible con carácter general (GA) en todas las regiones de Azure excepto centro-norte de EE. UU. sur de Brasil, oeste de la India, sur de India y norte de China, en donde actualmente se encuentran en versión preliminar. La disponibilidad general de los grupos elásticos en estas regiones se proporcionarán tan pronto como sea posible.
 
 ## Grupos de bases de datos elásticas
 
@@ -131,4 +131,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos. Las
 - [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md)
 - [PowerShell script for identifying databases suitable for an elastic database pool (Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas)](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Entidades de mensajería del Bus de servicio con reenvío automático | Microsoft Azure"
-   description="Describe cómo encadenar una cola o una suscripción a otra cola o a otro tema que forme parte del mismo espacio de nombres."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Entidades de mensajería del Bus de servicio con reenvío automático | Microsoft Azure"
+    description="Encadenamiento de una cola o suscripción a otra cola o tema."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Encadenamiento de entidades de Bus de servicio con reenvío automático
 
-La característica de *Reenvío automático* permite encadenar una cola o una suscripción a otra cola o a otro tema que forme parte del mismo espacio de nombres del servicio. Cuando está habilitado el reenvío automático, el Bus de servicio quita automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Tenga en cuenta que todavía se puede enviar un mensaje a la entidad de destino directamente. Asimismo, tenga en cuenta que no se puede encadenar una subcola (como una cola de correo devuelto) a otra cola o tema.
+La característica de *reenvío automático* permite encadenar una cola o una suscripción a otra cola o tema que forme parte del mismo espacio de nombres del servicio. Cuando está habilitado el reenvío automático, el Bus de servicio quita automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Tenga en cuenta que todavía se puede enviar un mensaje a la entidad de destino directamente. Además, no es posible encadenar una subcola (como una cola de correo devuelto) a otra cola o tema.
 
 ## Uso del reenvío automático
 
@@ -31,7 +31,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 La entidad de destino debe existir en el momento en que se creó la entidad de origen. Si la entidad de destino no existe, el Bus de servicio devuelve una excepción cuando se le pide que cree la entidad de origen.
 
-Puede utilizar el reenvío automático para escalar horizontalmente un tema individual. El Bus de servicio limita el número de suscripciones de un tema determinado. Puede alojar suscripciones adicionales creando temas de segundo nivel. Tenga en cuenta que, incluso si no tiene la limitación del Bus de servicio sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
+Puede utilizar el reenvío automático para escalar horizontalmente un tema individual. El Bus de servicio limita el [número de suscripciones de un tema determinado](service-bus-quotas.md) a 2000. Puede alojar suscripciones adicionales creando temas de segundo nivel. Tenga en cuenta que, incluso si no tiene la limitación del Bus de servicio sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
 
 ![Escenario de reenvío automático][0]
 
@@ -43,7 +43,7 @@ Si Alice se va de vacaciones, se llena su cola personal, en lugar del tema ERP. 
 
 ## Consideraciones sobre el reenvío automático
 
-Si la entidad de destino ha acumulado muchos mensajes y supera la cuota (o la entidad de destino está deshabilitada), la entidad de origen agrega los mensajes a la cola de correo devuelto hasta que haya espacio en el destino (o hasta que se vuelva a habilitar la entidad). Esos mensajes seguirán estando en la cola de correo devuelto, por lo que debe recibirlos y procesarlos explícitamente desde de la cola de correo devuelto.
+Si la entidad de destino ha acumulado muchos mensajes y supera la cuota (o la entidad de destino está deshabilitada), la entidad de origen agrega los mensajes a la [cola de correo devuelto](service-bus-dead-letter-queues.md) hasta que haya espacio en el destino (o hasta que se vuelva a habilitar la entidad). Esos mensajes seguirán estando en la cola de correo devuelto, por lo que debe recibirlos y procesarlos explícitamente desde de la cola de correo devuelto.
 
 Al encadenar temas individuales para obtener un tema compuesto con muchas suscripciones, se recomienda tener un número moderado de suscripciones en el tema del primer nivel y muchas suscripciones en los temas del segundo nivel. Por ejemplo, un tema de primer nivel con 20 suscripciones, cada una de ellas encadenada a un tema de segundo nivel con 200 suscripciones, ofrece un mayor rendimiento que un tema de primer nivel con 200 suscripciones, cada una de ellas encadenada a un tema de segundo nivel con 20 suscripciones.
 
@@ -53,13 +53,13 @@ Para crear una suscripción que esté encadenada a otra cola o tema, el creador 
 
 ## Pasos siguientes
 
-Para obtener información detallada sobre el reenvío automático, consulte los temas de referencia siguientes:
+Para más información sobre el reenvío automático, consulte los siguientes temas de referencia:
 
 - [SubscriptionDescription.ForwardTo][]
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Para más información acerca de las mejoras de rendimiento de Bus de servicio, consulte [Entidades de mensajería con particiones][].
+Para más información sobre las mejoras de rendimiento del Bus de servicio, consulte [Entidades de mensajería con particiones][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -69,4 +69,4 @@ Para más información acerca de las mejoras de rendimiento de Bus de servicio, 
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Entidades de mensajería con particiones]: service-bus-partitioning.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

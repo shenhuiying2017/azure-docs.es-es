@@ -20,6 +20,25 @@
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## SO invitado de mayo 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-051 | [3155533] | Actualización de seguridad acumulativa para Internet Explorer | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 |  
+| MS16-053 | [3156764] | Actualización de seguridad acumulativa para JScript y VBScript | 2\.51 | 10 de mayo de 2016 | 
+| MS16-055 | [3156754] | Actualización de seguridad para el componente de gráficos de Microsoft | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| MS16-057 | [3156987] | Actualización de seguridad para Windows Shell | 4\.32 | 10 de mayo de 2016 | 
+| MS16-060 | [3154846] | Actualización de seguridad para el kernel de Windows | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| MS16-061 | [3155520] | Actualización de seguridad para RPC | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| MS16-062 | [3158222] | Actualización de seguridad para controladores de modo kernel | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| MS16-065 | [3156757] | Actualización de seguridad para .NET Framework | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| MS16-067 | [3155784] | Actualización de seguridad para el controlador del administrador de volúmenes | 4\.32, 3.39 | 10 de mayo de 2016 | 
+| | [3148851] | Cambios de zona horaria para Rusia en Windows | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+| | [3133977] | BitLocker no puede cifrar unidades debido a bloqueos de servicio en el proceso svchost.exe en Windows 7 o Windows Server 2008 R2 | 2\.51 | 10 de mayo de 2016 | 
+| | [3133681] | Las máquinas virtuales no responden a la operación de SCVMM en Windows Server 2012 R2 | 4\.32 | 10 de mayo de 2016 | 
+| | [3123245] | La actualización mejora la identificación de agotamiento del puerto en Windows Server 2012 R2 | 4\.32 | 10 de mayo de 2016 | 
+| | [Deshabilitar RC4] | Aviso de seguridad de Microsoft: actualización para deshabilitar RC4 | 4\.32, 3.39, 2.51 | 10 de mayo de 2016 | 
+
 
 ## SO invitado de abril 
 
@@ -234,7 +253,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero
@@ -268,6 +287,23 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [3007054][3007054] | Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
+
+[3155533]: http://support.microsoft.com/kb/3155533
+[3156764]: http://support.microsoft.com/kb/3156764
+[3156754]: http://support.microsoft.com/kb/3156754
+[3156987]: http://support.microsoft.com/kb/3156987
+[3141083]: http://support.microsoft.com/kb/3141083
+[3154846]: http://support.microsoft.com/kb/3154846
+[3155520]: http://support.microsoft.com/kb/3155520
+[3158222]: http://support.microsoft.com/kb/3158222
+[3156757]: http://support.microsoft.com/kb/3156757
+[3155784]: http://support.microsoft.com/kb/3155784
+[3148851]: http://support.microsoft.com/kb/3148851
+[3133977]: http://support.microsoft.com/kb/3133977
+[3133681]: http://support.microsoft.com/kb/3133681
+[3123245]: http://support.microsoft.com/kb/3123245
+[Deshabilitar RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+
 
 [3148531]: http://support.microsoft.com/kb/3148531
 [3148522]: http://support.microsoft.com/kb/3148522
@@ -453,4 +489,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

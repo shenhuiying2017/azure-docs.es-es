@@ -38,7 +38,7 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 **Versiones del marco**. Configure estas opciones si su aplicación utiliza cualquiera de estos marcos:
 
 - **.NET Framework**: configure la versión de .NET Framework. 
-- **PHP**: defina la versión de PHP o seleccione **DESACTIVADO** para deshabilitar PHP.
+- **PHP**: defina la versión de PHP, o bien seleccione **DESACTIVADO** para deshabilitar PHP. 
 - **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
 - **Python**: seleccione la versión de Python o seleccione **DESACTIVADO** para deshabilitar Python.
 
@@ -72,7 +72,7 @@ Esta sección contiene las parejas de nombre y valor que la aplicación web carg
 
 Cadenas de conexión para los recursos vinculados.
 
-En las aplicaciones .NET, estas cadenas de conexión se insertarán en la sección `connectionStrings` de la configuración de .NET en tiempo de ejecución y reemplazarán las entradas existentes en las que la clave sea igual que el nombre de la base de datos vinculada.
+En las aplicaciones .NET, estas cadenas de conexión se insertan en la sección `connectionStrings` de la configuración de .NET en tiempo de ejecución y reemplazan las entradas existentes en las que la clave sea igual que el nombre de la base de datos vinculada.
 
 En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán disponibles como variables de entorno en tiempo de ejecución, con el tipo de conexión como prefijo. Los prefijos de variable de entorno son los siguientes:
 
@@ -177,4 +177,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

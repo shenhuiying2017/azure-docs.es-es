@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/12/2016"
+ms.date="05/12/2016"
 ms.author="eugenesh" />
 
 # Indexación de Almacenamiento de tablas de Azure con Búsqueda de Azure
@@ -29,15 +29,16 @@ Un origen de datos especifica los datos que se deben indexar, las credenciales n
 
 Un indexador lee datos de un origen de datos y los carga en un índice de búsqueda de destino.
 
-Para configurar un indexador de tablas:
+Para configurar la indexación de tablas:
 
 1. Cree un origen de datos de tipo `azuretable` que haga referencia a una tabla (y, de manera opcional, a una consultar) en una cuenta de almacenamiento de Azure.
 	- Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`
 	- Especifique el nombre de la tabla con el parámetro `container.name`.
 	- De manera opcional, especifique una consulta con el parámetro `container.query`. Siempre que sea posible, use un filtro en PartitionKey para obtener el mejor rendimiento posible; cualquier otra consulta dará como resultando un recorrido de tabla completo, el que puede generar un rendimiento deficiente en el caso de tablas de gran tamaño.
-2. Cree el indexador mediante la conexión de origen de datos con un índice de destino existente (cree el índice si aún no tiene uno)
+2. Cree un índice de búsqueda con el esquema que corresponde a las columnas de la tabla que desee indexar. 
+3. Cree el indexador mediante la conexión del origen de datos con el índice de búsqueda.
 
-En el ejemplo siguiente se ilustra este método.
+### Creación de un origen de datos
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -50,7 +51,27 @@ En el ejemplo siguiente se ilustra este método.
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-A continuación, cree un indexador que haga referencia al origen de datos y un índice de destino. Por ejemplo:
+Para obtener más información sobre la API de creación de origen de datos, consulte [Creación de origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Creación de índice 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+Para obtener más información sobre la API de creación de índice, consulte [Creación de índice](https://msdn.microsoft.com/library/dn798941.aspx).
+
+### Creación de un indexador 
+
+Por último, cree un indexador que haga referencia al origen de datos y un índice de destino. Por ejemplo:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -63,7 +84,13 @@ A continuación, cree un indexador que haga referencia al origen de datos y un �
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
+Para obtener más detalles sobre la API de creación de indexador, consulte [Creación de un indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 Eso es todo. ¡Feliz indexación!
+
+## Manejo de distintos nombres de campos
+
+Con frecuencia, los nombres de campos del índice existente serán distintos de los nombres de las propiedades de la tabla. Puede usar **asignaciones de campos** para asignar los nombres de propiedad provenientes de la tabla a los nombres de campo del índice de búsqueda. Para obtener más información sobre las asignaciones de cambio, consulte [Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
 
 ## Control de claves de documentos
 
@@ -71,11 +98,7 @@ En Búsqueda de Azure, la clave del documento identifica de forma exclusiva a un
 
 Debido a que las filas de tablas tienen una clave compuesta, Búsqueda de Azure genera un campo sintético llamado `Key`, que es una concatenación de valores clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` será `PK1RK1`.
 
-> [AZURE.NOTE] El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Puede resolver el problema de los caracteres no válidos habilitando la opción `base64EncodeKeys` en las propiedades del indexador; si lo hace, no olvide codificar las claves de documento al transferirlas en llamadas API, tal como las búsquedas. (Por ejemplo, en .NET puede usar el [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para ese fin).
-
-## Manejo de distintos nombres de campos
-
-Con frecuencia, los nombres de campos del índice existente serán distintos de los nombres de las propiedades de la tabla. Puede usar **asignaciones de campos** para asignar los nombres de propiedad provenientes de la tabla a los nombres de campo del índice de búsqueda. Para obtener más información sobre las asignaciones de campos, consulte [Personalización del indexador de Búsqueda de Azure](search-indexers-customization.md).
+> [AZURE.NOTE] El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos mediante el uso de la `base64Encode` [función de asignación de campo](search-indexer-field-mappings.md#base64EncodeFunction). Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
 
 ## Indexación incremental y detección de eliminación
  
@@ -100,4 +123,4 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

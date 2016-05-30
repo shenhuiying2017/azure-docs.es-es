@@ -3,7 +3,7 @@
    description="Descripción sobre la terminología de Service Fabric. Describe la terminología y los conceptos clave que se emplean en el resto de la documentación."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/05/2016"
-   ms.author="msfussell"/>
+   ms.author="ryanwi"/>
 
 # Información general sobre la terminología de Service Fabric
 
@@ -67,7 +67,7 @@ Hay servicios del sistema que se crean en cada clúster que proporcionan las fun
 
 **Servicio de nombres**: cada clúster de Service Fabric tiene un servicio de nombres que resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Funciona de la misma manera que un servicio de nombres de dominio de Internet (DNS) en el clúster. Con el servicio de nombres, los clientes pueden comunicarse de forma segura con cualquier nodo del clúster para resolver un nombre de servicio y su ubicación (es decir, obtener el puerto y la dirección IP real de la máquina donde se está ejecutando actualmente). Mediante las API del cliente de comunicación, puede desarrollar servicios y clientes que puedan resolver la ubicación de red actual a pesar de las aplicaciones que se mueven dentro del clúster (por ejemplo, debido a errores o equilibrio de recursos) o volver a ajustar el tamaño del clúster.
 
-Lea el artículo [Comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md) para obtener más información sobre cómo usar la API de comunicación de servicio y cliente, que funciona junto con el servicio de nombres.
+Lea el artículo sobre [comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md) para obtener más información sobre cómo usar la API de comunicación de servicio y cliente, que funciona junto con el servicio de nombres.
 
 **Servicio de almacenamiento de imágenes**: cada clúster de Service Fabric tiene un servicio de almacenamiento de imágenes donde se guardan los paquetes de aplicación implementados y con versión. Debe copiar el contenido de un paquete de aplicación en el servicio de almacenamiento de imágenes y luego registrar el tipo de aplicación de dicho paquete. Después, cuando se haya aprovisionado el tipo de aplicación, puede crear aplicaciones con nombre de esta. El registro de un tipo de aplicación del servicio de almacenamiento de imágenes solo se puede anular después de que se hayan eliminado todas sus aplicaciones con nombre.
 
@@ -90,4 +90,4 @@ Para más información acerca de Service Fabric
 - [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

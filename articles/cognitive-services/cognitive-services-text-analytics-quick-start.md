@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # Introducción a las API de análisis de texto para detectar opiniones, frases clave, temas e idioma
@@ -24,7 +24,7 @@ En este documento se explica cómo incorporar su servicio o aplicación para usa
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
-Esta guía se refiere a la versión 2 de las API. Para obtener detalles sobre la versión 1 de las API, [consulte este documento](machine-learning-apps-text-analytics/).
+Esta guía se refiere a la versión 2 de las API. Para obtener detalles sobre la versión 1 de las API, [consulte este documento](../machine-learning-apps-text-analytics/).
 
 Al final de este tutorial, podrá detectar lo siguiente mediante programación:
 
@@ -64,7 +64,7 @@ En esta tarea, se registrará en el servicio de análisis de texto.
 
 Es fácil detectar opiniones, frases clave e idiomas en el texto. Obtendrá de manera programática los mismos resultados que devuelve la [experiencia de demostración](//go.microsoft.com/fwlink/?LinkID=759712).
 
-**Sugerencia** En el caso del análisis de opiniones, se recomienda dividir el texto en oraciones. Generalmente, esto lleva a una mayor precisión en las predicciones de opiniones.
+>[AZURE.TIP] En el caso del análisis de opiniones, se recomienda dividir el texto en oraciones. Generalmente, esto lleva a una mayor precisión en las predicciones de opiniones.
 
 1. Deberá definir los encabezados en lo siguiente. Tenga en cuenta que JSON actualmente es el único formato de entrada aceptado para las API. XML no se admite.
 
@@ -164,7 +164,7 @@ Esta API requiere **un mínimo de 100 registros de texto** que enviar, pero se h
 Hay dos parámetros de entrada **opcionales** que pueden ayudar a mejorar la calidad de los resultados:
 
 - **Palabras no significativas.** Estas palabras y sus formas cercanas (por ejemplo, plurales) se excluirán de toda la canalización de detección de temas. Use este parámetro para las palabras comunes (por ejemplo, "problema", "error" y "usuario" pueden ser opciones adecuadas para las quejas que los clientes puedan tener sobre el software). Cada cadena debe tener solo una palabra.
-- **Frases no significativas**. Estas frases se excluirán de la lista de temas devueltos. Use este parámetro para excluir temas genéricos que no desea ver en los resultados. Por ejemplo, "Microsoft" y "Azure" podrían ser opciones adecuadas de temas a excluir. Las cadenas pueden contener varias palabras.
+- **Frases no significativas**: estas frases se excluirán de la lista de temas devueltos. Use este parámetro para excluir temas genéricos que no desea ver en los resultados. Por ejemplo, "Microsoft" y "Azure" podrían ser opciones adecuadas de temas a excluir. Las cadenas pueden contener varias palabras.
 
 Siga estos pasos para detectar temas en el texto.
 
@@ -236,8 +236,52 @@ Siga estos pasos para detectar temas en el texto.
 			}
 		}
 
+Tenga en cuenta que la respuesta correcta para los temas del punto de conexión `operations` tendrá el siguiente esquema:
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+Las explicaciones de cada parte de la respuesta son las siguientes:
+
+**topics**
+
+| Clave | Descripción |
+|:-----|:----|
+| id | Un identificador único para cada tema. |
+| de la aplicación | Recuento de documentos asignados al tema. |
+| keyPhrase | Una palabra o frase de resumen para el tema. |
+
+**topicAssignments**
+
+| Clave | Descripción |
+|:-----|:----|
+| documentId | Identificador del documento. Equivale al identificador incluido en la entrada. |
+| topicId | El identificador de tema que se ha asignado al documento. |
+| distancia | Puntuación de afiliación de documento a tema entre 0 y 1. Cuando menor sea la puntuación de la distancia mayor será la afiliación del tema. |
+
+**errors**
+
+| Clave | Descripción |
+|:-----|:----|
+| id | Identificador único del documento de entrada al que se refiere el error. |
+| message | Mensaje de error. |
+
 ## Pasos siguientes ##
 
 ¡Enhorabuena! Completó el tutorial sobre cómo usar el análisis de textos en sus datos. Es posible que ahora quiera obtener información sobre una herramienta como [Power BI](//powerbi.microsoft.com) para visualizar los datos, así como automatizar la información para brindarle una vista de los datos de texto en tiempo real.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

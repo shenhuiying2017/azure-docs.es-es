@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Entidades de mensajería con particiones | Microsoft Azure"
-   description="Describe cómo realizar la partición de las entidades de mensajería mediante el uso de varios agentes de mensajes."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Entidades de mensajería con particiones | Microsoft Azure"
+    description="Describe cómo realizar la partición de las entidades de mensajería mediante el uso de varios agentes de mensajes."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Entidades de mensajería con particiones
 
@@ -23,9 +23,9 @@ Para más información sobre los aspectos internos de Bus de servicio, consulte 
 
 ## Temas y colas con particiones
 
-Cada cola o tema con particiones consta de varios fragmentos. Cada fragmento se almacena en un almacén de mensajería diferente y se controla por un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Bus de servicio asigna el mensaje a uno de los fragmentos. La selección se realiza de forma aleatoria por el Bus de servicio o por una clave de partición que el remitente puede especificar.
+Cada cola o tema con particiones consta de varios fragmentos. Cada fragmento se almacena en un almacén de mensajería diferente y se controla por un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Bus de servicio asigna el mensaje a uno de los fragmentos. La selección se realiza de forma aleatoria mediante el Bus de servicio o una clave de partición que el remitente puede especificar.
 
-Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción de un tema con particiones, Bus de servicio consulta en todos los fragmentos si hay mensajes, luego devuelve al receptor el primer mensaje que se devuelve de cualquiera de los almacenes de mensajería. Bus de servicio almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
+Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción de un tema con particiones, el Bus de servicio consulta en todos los fragmentos si hay mensajes, luego devuelve al receptor el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería. Bus de servicio almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
 
@@ -125,7 +125,7 @@ En su implementación actual, Bus de servicio impone las siguientes limitaciones
 
 ## Pasos siguientes
 
-Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio][] para más información acerca de las entidades de mensajería con particiones.
+Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio][] para más información sobre las entidades de mensajería con particiones.
 
   [Arquitectura del Bus de servicio]: service-bus-architecture.md
   [Portal de Azure clásico]: http://manage.windowsazure.com
@@ -144,4 +144,4 @@ Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las cola
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

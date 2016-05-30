@@ -60,7 +60,7 @@ Un *contexto de sincronización* está asociado con un objeto de cliente móvil 
 
 Un almacén local se asocia con el contexto de sincronización mediante un método de inicialización como `IMobileServicesSyncContext.InitializeAsync(localstore)` en el [SDK de cliente de .NET].
 
-## Funcionamiento de la sincronización sin conexión
+## <a name="how-sync-works"></a>Funcionamiento de la sincronización sin conexión
 
 Al usar tablas de sincronización, el código de cliente determina el momento en que se sincronizan los cambios locales con un back-end de la aplicación móvil de Azure. No se envía nada al back-end hasta que hay una llamada a los cambios locales de *inserción*. De forma similar, el almacén local se rellena con datos nuevos solo cuando hay una llamada a los datos de *extracción*.
 
@@ -76,9 +76,10 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
   El nombre de consulta puede ser cualquier cadena que elija, pero debe ser único para cada consulta lógica de la aplicación. De lo contrario, diferentes operaciones de extracción podrían sobrescribir la misma marca de tiempo de sincronización incremental y las consultas podrían devolver resultados incorrectos.
 
-  Si la consulta tiene un parámetro, una forma de crear un nombre de consulta único es incorporar el valor del parámetro. Por ejemplo, si está filtrando por userid, el nombre de consulta podría ser el siguiente:
+  Si la consulta tiene un parámetro, una forma de crear un nombre de consulta único es incorporar el valor del parámetro. Por ejemplo, si está filtrando por userid, el nombre de consulta podría ser el siguiente (en C#):
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid, 
+			syncTable.Where(u => u.UserId = userid));
 
   Si desea cancelar la sincronización incremental, pase `null` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `PullAsync`, que es potencialmente ineficaz.
 
@@ -103,4 +104,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: habilitar la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

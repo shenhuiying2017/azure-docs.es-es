@@ -77,6 +77,7 @@ Puede descargar el script de PowerShell completo que ha usado [aquí](https://ra
 		$vmNamePrefix          = "DB"
 		$osDiskPrefix          = "osdiskdb"
 		$dataDiskPrefix        = "datadisk"
+		$diskSize	           = "120"	
 		$nicNamePrefix         = "NICDB"
 		$ipAddressPrefix       = "192.168.2."
 		$numberOfVMs           = 2
@@ -139,12 +140,12 @@ Debe usar un bucle para crear tantas máquinas virtuales como desee y así crear
 
 5. Cree dos discos de datos por máquina virtual. Tenga en cuenta que los discos de datos están en la cuenta de almacenamiento premium creada anteriormente.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+		    $dataDisk2Name = $vmName + "-" + $dataDiskPrefix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
@@ -308,4 +309,4 @@ Ahora que descargó y cambió el script según sus necesidades, ejecute el scrip
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

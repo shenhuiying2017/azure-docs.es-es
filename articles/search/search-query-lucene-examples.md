@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="04/22/2016"
+    ms.date="05/17/2016"
     ms.author="liamca"
 />
 
@@ -31,7 +31,7 @@ Haga doble clic en las direcciones URL de ejemplo de consulta para abrir JSFiddl
 
 ## Visualización de los ejemplos de este artículo
 
-Todos los ejemplos de este artículo especifican el Analizador de consultas de Lucene a través del parámetro de búsqueda **queryType**. Cuando se utiliza el Analizador de consultas de Lucene desde el código, deberá especificar el valor **queryType** en cada solicitud. Los valores válidos son **simple**|**full**, con **simple** como valor predeterminado y **full** para el Analizador de consultas de Lucene. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para especificar los parámetros de consulta.
+Todos los ejemplos de este artículo especifican el Analizador de consultas de Lucene a través del parámetro de búsqueda ** queryType **. Cuando se utiliza el Analizador de consultas de Lucene desde el código, deberá especificar el valor **queryType** en cada solicitud. Los valores válidos son **simple**|**full**, con **simple** como valor predeterminado y **full** para el Analizador de consultas de Lucene. Consulte [Búsqueda de documentos (API de REST del servicio Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) para especificar los parámetros de consulta.
 
 **Ejemplo 1**: haga clic en el siguiente fragmento de consulta para abrirlo en una nueva página del explorador que carga JSFiddle y ejecuta la consulta:
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
@@ -48,8 +48,8 @@ Tenga en cuenta que la consulta utiliza un índice de Búsqueda de Azure preconf
 
 Puede modificar los ejemplos de este artículo especificando una construcción **fieldname:searchterm** para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra, y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:
 
-- business\_title:senior NOT junior
-- state:"New York" AND "New Jersey"
+- business\_title:(senior NOT junior)
+- state:("New York" AND "New Jersey")
 
 Asegúrese de colocar varias cadenas entre comillas si desea que las dos cadenas se evalúen como una sola entidad, como en este caso buscando dos ciudades distintas en el campo de ubicación. Además, asegúrese del operador está en mayúsculas como puede ver en NOT y AND.
 
@@ -129,4 +129,4 @@ Intente especificar el Analizador de consultas de Lucene en el código. Los vín
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

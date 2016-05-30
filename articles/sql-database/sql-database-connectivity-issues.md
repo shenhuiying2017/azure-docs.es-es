@@ -93,7 +93,7 @@ También puede establecer un número máximo de reintentos antes de que el progr
 
 Los ejemplos de código con lógica de reintento, en una variedad de lenguajes de programación, están disponibles en:
 
-- [Ejemplos de código de inicio rápido.](sql-database-develop-quick-start-client-code-samples.md)
+- [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -418,11 +418,6 @@ La lógica de reintento para controlar los errores transitorios es un área en l
 - [4: La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicaciones de control de errores transitorios](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Un ejemplo breve de código C# que usa EntLib60 en su lógica de reintento está disponible en:
-
-- [Ejemplo de código: lógica de reintento de Enterprise Library 6, en C# para conectarse a Base de datos SQL](sql-database-develop-entlib-csharp-retry-windows.md)
-
-
 > [AZURE.NOTE] El código fuente de EntLib60 está disponible de forma pública para su [descarga](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
@@ -558,11 +553,11 @@ public bool IsTransient(Exception ex)
 
 ## Pasos siguientes
 
-- Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md) (Solucionar problemas comunes de conexión a Base de datos SQL de Azure).
+- Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md).
 
 - [Agrupación de conexiones de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
@@ -86,6 +86,16 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 - Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
 - Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la operación de copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad de Azure podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
+## Prácticas recomendadas
+Se recomienda seguir los procedimientos recomendados al configurar copias de seguridad para máquinas virtuales.
+
+- No programe la copia de seguridad de más de cuatro máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. En este caso, sugerimos escalonar las programaciones de copia de seguridad de modo que haya una diferencia de una hora. 
+- No programe la copia de seguridad de más de 40 máquinas virtuales de Resource Manager al mismo tiempo.
+- Programe las copias de seguridad durante las horas de menos actividad en las máquinas virtuales, de forma que el servicio de copia de seguridad obtenga la E/S por segundo por la transferencia de datos desde la cuenta de almacenamiento del cliente hasta el almacén de copia de seguridad. 
+- Asegúrese de que en una directiva las máquinas virtuales se distribuyan desde diferentes cuentas de almacenamiento. Sugerimos que si el número total de discos almacenados en una única cuenta de almacenamiento desde las máquinas virtuales es superior a 20, distribuya las máquinas virtuales entre diferentes programaciones de copia de seguridad a fin de obtener la E/S por segundo necesaria durante la fase de transferencia de la copia de seguridad.
+- No se recomienda restaurar la máquina virtual que se ejecuta en almacenamiento premium en la misma cuenta de almacenamiento; esta operación puede meterse en una operación de copia de seguridad y reducir el número de E/S por segundo disponible para copia de seguridad. 
+- Se recomienda mantener cada VM premium en una cuenta de almacenamiento premium diferente a fin de obtener un buen rendimiento del tiempo de copia de seguridad. 
+
 ## Cifrado de datos
 
 Copia de seguridad de Azure no cifra los datos como parte del proceso de copia de seguridad. Pero se pueden cifrar datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema (vea más información sobre [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md)).
@@ -96,7 +106,7 @@ Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el 
 
 *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados con Copia de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
-Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
+Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
 
 |Tipo de disco|Tamaño máximo|Datos reales presentes|
 |---------|--------|------|
@@ -121,4 +131,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

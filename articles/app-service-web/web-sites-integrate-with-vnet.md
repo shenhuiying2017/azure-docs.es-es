@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Integración de su aplicación con una red virtual de Azure #
@@ -59,7 +59,9 @@ Le recordamos algunos aspectos que debe tener en cuenta antes de conectar su apl
 
 ## Habilitación de Integración con redes virtuales ##
 
-Puede conectarse a una red virtual nueva o existente. Si crea una nueva red, además de crearse la red virtual, se preconfigurará de forma automática una puerta de enlace de enrutamiento dinámico y se habilitará la VPN de punto a sitio.
+Este documento se centra principalmente en el uso del Portal de Azure para la Integración con red virtual. Para habilitar la Integración con red virtual de una aplicación mediante PowerShell, siga las indicaciones que encontrará aquí: [Conexión de la aplicación a la red virtual con PowerShell][IntPowershell].
+
+Puede conectar una aplicación a una red virtual nueva o existente. Si crea una nueva red como parte de la integración, además de crearse la red virtual, se preconfigurará de forma automática una puerta de enlace de enrutamiento dinámico y se habilitará la VPN de punto a sitio.
 
 >[AZURE.NOTE] Se puede tardar unos minutos en configurar una nueva integración con redes virtuales.
 
@@ -83,18 +85,18 @@ La interfaz de usuario de Integración con red virtual le permite seleccionar en
 Para habilitar la integración, basta con hacer clic en la red virtual con la que se desee integrar la aplicación. Después de seleccionar la red virtual, la aplicación se reiniciará automáticamente para que los cambios surtan efecto.
 
 ##### Habilitación de punto a sitio en una red virtual de V1 #####
-Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio, primero debe configurarlas. Para hacer esto con una red virtual de V1, vaya al [Portal de Azure][AzurePortal] y muestre la lista de redes virtuales (clásicas). Desde aquí, haga clic en la red con la que desee integrar la aplicación y haga clic en el cuadro grande bajo Essentials llamado Conexiones VPN. Aquí puede crear la VPN de punto a sitio e incluso hacer que se cree una puerta de enlace. Después de completar la experiencia de creación de la conexión de punto a sitio y la puerta de enlace, pasarán unos 30 minutos hasta que todo esté listo.
+Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio, primero debe configurarlas. Para hacerlo con una red virtual de V1, vaya al [Portal de Azure][AzurePortal] y muestre la lista de redes virtuales (clásicas). Desde aquí, haga clic en la red con la que desee integrar la aplicación y haga clic en el cuadro grande bajo Essentials llamado Conexiones VPN. Aquí puede crear la VPN de punto a sitio e incluso hacer que se cree una puerta de enlace. Después de completar la experiencia de creación de la conexión de punto a sitio y la puerta de enlace, pasarán unos 30 minutos hasta que todo esté listo.
 
 ![][8]
 
 ##### Habilitación de punto a sitio en una red virtual de V2 #####
 
-Para configurar una red virtual de V2 con una puerta de enlace y una conexión de punto a sitio debe usar PowerShell tal como se describe aquí, [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]. La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible.
+Para configurar una red virtual de V2 con una puerta de enlace y una conexión de punto a sitio, es preciso usar PowerShell tal como se describe aquí, [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]. La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible.
 
 ### Creación de una red virtual preconfigurada ###
 Si desea crear una nueva red virtual que esté configurada con una puerta de enlace y una conexión de punto a sitio, la interfaz de usuario de redes del Servicio de aplicaciones dispone de la funcionalidad para hacerlo, pero solo para una red virtual de V2. Si desea crear una red virtual de V1 con una puerta de enlace y conexión de punto a sitio, deberá hacerlo manualmente a través de la interfaz de usuario de redes.
 
-Para crear una red virtual de V2 a través de la interfaz de usuario de Integración con red virtual, simplemente seleccione **Crear una nueva red virtual** y proporcione:
+Para crear una red virtual de V2 a través de la interfaz de usuario de Integración con red virtual, seleccione **Crear una nueva red virtual** y especifique:
 
 - El nombre de la red virtual
 - El bloque de direcciones de la red virtual
@@ -184,7 +186,7 @@ Hay algunos matices sobre los precios que se deben tener en cuenta al usar la ca
 
 Para que las aplicaciones puedan usar esta característica, deben pertenecer a un plan de servicio de aplicaciones Premium o Estándar. Puede ver más detalles sobre esos costos aquí: [Precios del Servicio de aplicaciones][ASPricing].
 
-Debido a la forma en que se controlan las VPN de punto a sitio, siempre tiene un cargo por los datos salientes a través de la conexión de Integración con redes virtuales, incluso si la red virtual está en el mismo centro de datos. Para ver cuáles son estos cargos, consulte lo siguiente: [Detalles de precios de transferencia de datos][DataPricing].
+Debido a la forma en que se controlan las VPN de punto a sitio, siempre tiene un cargo por los datos salientes a través de la conexión de Integración con redes virtuales, incluso si la red virtual está en el mismo centro de datos. Para ver cuáles son dichos cargos, consulte: [Detalles de precios de Transferencias de datos][DataPricing].
 
 El último elemento es el costo de las puertas de enlace de red virtual. Si no necesita las puertas de enlace para algo diferente, como las VPN de sitio a sitio, va a pagar para que las puertas de enlace admitan la característica Integración con redes virtuales. Los detalles sobre esos costos están aquí: [Precios de Puerta de enlace de VPN][VNETPricing].
 
@@ -287,5 +289,6 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

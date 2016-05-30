@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Uso de Hive con HDInsight para analizar registros de sitios web
@@ -61,4 +61,4 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

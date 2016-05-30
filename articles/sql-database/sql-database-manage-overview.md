@@ -30,6 +30,8 @@ Para obtener información más detallada acerca de cómo usar el portal, consult
 
 SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) en Visual Studio son herramientas de cliente que se ejecutan en el equipo y permiten conectar, administrar y desarrollar la base de datos en la nube. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), [pruebe a usar SSDT en Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Muchos administradores de bases de datos están familiarizados con SSMS, que se puede usar con Bases de datos SQL de Azure. [Descargue la última versión de SSMS](https://msdn.microsoft.com/library/mt238290) y use siempre la más reciente cuando trabaje con la Base de datos SQL de Azure. Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con SSMS, consulte [Administración de Bases de datos SQL mediante SSMS](sql-database-manage-azure-ssms.md).
 
+> [AZURE.IMPORTANT] Debe usar siempre la versión más reciente de SQL Server Management Studio y de SQL Server Data Tools para Visual Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. Las versiones anteriores de estas herramientas no funcionarán correctamente con Base de datos SQL.
+
 ## Herramientas de línea de comandos
 
 Puede usar herramientas de línea de comandos como PowerShell para administrar bases de datos y grupos de bases de datos elásticas y para automatizar las implementaciones de recursos de Azure. Microsoft recomienda esta herramienta para administrar un gran número de bases de datos y automatizar la implementación y los cambios de los recursos en un entorno de producción.
@@ -40,8 +42,8 @@ Para obtener más información acerca de cómo administrar Bases de datos SQL de
 Use las herramientas de bases de datos elásticas para realizar acciones como las siguientes:
 
 * Ejecutar un script de T-SQL con un conjunto de bases de datos mediante un [trabajo elástico](sql-database-elastic-jobs-overview.md)
-* Mover bases de datos de modelos de varios inquilinos a un modelo de inquilino único con la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md)
-* Administrar bases de datos en un modelo de inquilino único o un modelo de varios inquilinos con la [biblioteca cliente de escalado elástico](sql-database-elastic-database-client-library.md)
+* Mover bases de datos de modelos multiinquilino a un modelo de inquilino único con la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md)
+* Administrar bases de datos en un modelo de inquilino único o un modelo multiinquilino con la [biblioteca cliente de escalado elástico](sql-database-elastic-database-client-library.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

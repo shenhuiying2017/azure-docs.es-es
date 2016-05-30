@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Restricción del acceso a contenidos por país
 
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+
 Cuando un usuario solicita su contenido, de forma predeterminada, el contenido se proporciona sin tener en cuenta el lugar desde el que el usuario realizó esta solicitud. En algunos casos, puede que desee restringir el acceso al contenido por país. En este tema se explica cómo configurar la característica **Filtrado por país** para permitir o bloquear el acceso por país.
 
->[AZURE.NOTE]Una vez efectuada la configuración, esta se aplicará a todos los extremos de CDN de su suscripción.
+>[AZURE.NOTE]Una vez efectuada la configuración, esta se aplicará a todos los puntos de conexión de la **red CDN de Azure de Verizon** de su suscripción.
 
-Para obtener información acerca de las consideraciones que se aplican a la configuración de este tipo de restricciones, consulte la sección [Consideraciones](cdn-restrict-access-by-country.md#considerations) al final del tema.
+Para más información acerca de las consideraciones que se aplican a la configuración de este tipo de restricción, consulte la sección [Consideraciones](cdn-restrict-access-by-country.md#considerations) al final del tema.
 
 ![Filtrado por país](./media/cdn-filtering/cdn-country-filtering.png)
 
@@ -65,4 +67,4 @@ La característica **Filtrado por país** usa códigos de país para definir los
 - La configuración de filtrado de país asociada a la ruta de acceso relativa se aplicará de forma recursiva a esa ruta.
 - Solo se puede aplicar una regla a la misma ruta de acceso relativa (no se pueden crear varios filtros de país que señalen a la misma ruta de acceso relativa). Sin embargo, una carpeta puede tener varios filtros de país. Esto se debe a la naturaleza recursiva de los filtros de país. En otras palabras, se puede asignar un filtro de país diferente a una subcarpeta de una carpeta configurada previamente.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

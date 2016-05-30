@@ -179,7 +179,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-Al final de un método de actor, el administrador de estado guarda automáticamente los valores agregados o modificados por una operación de inserción o actualización. El "guardado" puede incluir la persistencia en el disco y la replicación, dependiendo de la configuración utilizada. Los valores que no se han modificado no se conservan ni se replican. Si no hay valores modificados, la operación de guardado no hace nada. En caso de que se produzca un error al guardar, el estado modificado se descarta y se vuelve a cargar el estado original.
+Al final de un método de actor, el administrador de estado guarda automáticamente los valores agregados o modificados por una operación de inserción o actualización. El "guardado" puede incluir la persistencia en el disco y la replicación, dependiendo de la configuración utilizada. Los valores que no se han modificado no se conservan ni se replican. Si no se ha modificado ningún valor, la operación de guardar no hace nada. En caso de que se produzca un error al guardar, el estado modificado se descarta y se vuelve a cargar el estado original.
 
 El estado también se puede guardar manualmente al llamar al método `SaveStateAsync` en la base de actor:
 
@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

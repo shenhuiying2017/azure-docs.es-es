@@ -27,7 +27,7 @@ Las cambiantes necesidades empresariales son:
 
 Todas estas necesidades afectan a la *forma* en que se crean las aplicaciones.
 
-Para más información sobre el enfoque de Azure de los microservicios, consulte [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (microservicios: una revolución en las aplicaciones con la tecnología de la nube)
+Para más información sobre el enfoque de Azure de los microservicios, vea [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (microservicios: una revolución en las aplicaciones con la tecnología de la nube).
 
 ## Enfoque de diseño monolítico en comparación con el de microservicios
 Todas las aplicaciones evolucionan con el tiempo. Las aplicaciones que triunfan evolucionan por ser útiles a sus usuarios. Las que fracasan no evolucionan y terminan por entrar en desuso. Por consiguiente, la pregunta pertinente es: ¿cuánto sabe acerca de los requisitos actuales y cuáles cree que serán en el futuro? Por ejemplo, si va a crear una aplicación de generación de informes para un departamento y tiene la certeza tanto de que va a permanecer en el ámbito de la empresa como de que los informes van a ser efímeros, el enfoque que se elija será diferente del que se usaría, por ejemplo, para crear un servicio para entregar contenido de vídeo a decenas de millones de clientes. A veces, terminar un servicio como prueba de concepto es el factor determinante, ya que se es consciente de que el diseño de la aplicación se puede modificar más adelante. No tiene mucho sentido volcarse en la ingeniería de algo que no se va a usar nunca. Es el equilibrio habitual en ingeniería. Por otra parte, cuando las empresas hablan sobre la creación de aplicaciones para la nube, lo que esperan es crecimiento y uso. El problema es que el crecimiento y la escala son imprevisibles. Nos gustaría poder crear prototipos rápidamente y, al mismo tiempo, saber que estamos bien encaminados para tratar el futuro éxito. Este es el enfoque Lean Startup: compilar, medir, aprender e iterar.
@@ -148,4 +148,4 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

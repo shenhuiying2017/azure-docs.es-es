@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introducción a la API de Box
 Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. La API de Box puede utilizarse desde:
 
-- Aplicaciones lógicas 
+- Aplicaciones lógicas (descritas en este tema)
+- PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -45,9 +46,9 @@ Todas las API admiten datos en formato JSON y XML.
 Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Box.
 
 1. Inicie sesión en su cuenta de Box.
-2. Seleccione **Authorize** (Autorizar) y permita que sus aplicaciones lógicas se conecten a Box y utilicen esta aplicación. 
+2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten a Box y utilicen esta aplicación. 
 
-Después de crear la conexión, escriba las propiedades de Box. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, escriba las propiedades de Box. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de Box en otras aplicaciones lógicas.
 
@@ -260,6 +261,6 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Box. ```GET
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

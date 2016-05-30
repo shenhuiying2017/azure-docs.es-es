@@ -31,11 +31,13 @@ En este artículo se supone que tiene los siguientes elementos:
 
 - **Sistema operativo Linux instalado en un archivo .vhd**: ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-	**Importante**: el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+	> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-	Para ver una lista de las distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md). Para obtener una lista general de las distribuciones de Linux, vea [Información sobre las distribuciones no aprobadas](virtual-machines-linux-create-upload-generic.md).
+Para ver una lista de las distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md). Para obtener una lista general de las distribuciones de Linux, vea [Información sobre las distribuciones no aprobadas](virtual-machines-linux-create-upload-generic.md).
 
 - **Interfaz de la línea de comandos de Azure**: instale y use la [interfaz de la línea de comandos de Azure](../virtual-machines-command-line-tools.md) para cargar el archivo VHD.
+
+> [AZURE.TIP] Azure no permite cargar VHD dinámicos, por lo que tendrá que convertir estos discos a VHD estáticos antes de cargarlos. Puede usar herramientas como, por ejemplo, [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para convertir discos dinámicos.
 
 <a id="prepimage"> </a>
 ## Paso 1: Preparación de la imagen que se va a cargar
@@ -50,14 +52,14 @@ Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas]
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 - **[Otras distribuciones no aprobadas](virtual-machines-linux-create-upload-generic.md)**
 
-Consulte también las **[notas de instalación de Linux](virtual-machines-linux-create-upload-generic.md#linuxinstall)** para obtener más sugerencias sobre la preparación de imágenes de Linux para Azure.
+Consulte también las **[notas de instalación de Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** para obtener más sugerencias sobre la preparación de imágenes de Linux para Azure.
 
 Tras seguir los pasos de las guías enumeradas anteriormente, debería contar con un archivo VHD listo para cargarse en Azure.
 
 <a id="connect"> </a>
 ## Paso 2: preparación de la conexión a Azure
 
-Asegúrese de que utiliza la CLI de Azure en el modelo de implementación clásica (`azure config mode asm`) y, a continuación, inicie sesión en su cuenta:
+Asegúrese de estar utilizando la CLI de Azure en el modelo de implementación clásica (`azure config mode asm`) y luego inicie sesión en su cuenta:
 
 ```
 azure login
@@ -67,7 +69,7 @@ azure login
 <a id="upload"> </a>
 ## Paso 3: cargar la imagen en Azure
 
-Tendrá que cargar el archivo VHD a una cuenta de almacenamiento. Puede elegir una existente o crear una nueva. Para crear una cuenta de almacenamiento, vea [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
+Tendrá que cargar el archivo VHD a una cuenta de almacenamiento. Puede elegir una existente o crear una nueva. Para crear una cuenta de almacenamiento, consulte [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
 Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del almacenamiento de blobs. En los siguientes ejemplos de comandos, **BlobStorageURL** es la URL de la cuenta de almacenamiento que planea usar, **YourImagesFolder** es el contenedor dentro del almacenamiento de blobs donde desea almacenar las imágenes. **VHDName** es la etiqueta que aparece tanto en el [Portal de Azure](http://portal.azure.com) como en el [Portal de Azure clásico](http://manage.windowsazure.com) para identificar el disco duro virtual. **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd de su máquina.
 
@@ -81,4 +83,4 @@ Para obtener más información, consulte [Referencia de la CLI de Azure para el 
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

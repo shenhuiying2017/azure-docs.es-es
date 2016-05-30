@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # SDK de Azure Resource Manager para .NET  
@@ -28,7 +28,7 @@ Esta documentación no está diseñada para describir todos los aspectos del SDK
 [Aquí](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) encontrará un proyecto de ejemplo completo descargable de dónde se han tomado todos los fragmentos de código siguientes.
 
 ## Autenticación
-La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Para obtener este token, primero debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](./resource-group-create-service-principal-portal.md).
+La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Para obtener este token, primero debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](resource-group-create-service-principal-portal.md).
 
 Después de crear la entidad de servicio, debe tener:
 * Identificador de cliente (GUID)
@@ -274,7 +274,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Uso de una implementación con plantillas
-Lea y siga el tutorial [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) para obtener instrucciones detalladas sobre cómo implementar una plantilla.
+Siga el tutorial [Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager](./virtual-machines/virtual-machines-windows-csharp-template.md) para obtener instrucciones detalladas sobre cómo implementar una plantilla.
 
 En resumen, la implementación de una plantilla es mucho más sencillo que aprovisionar manualmente los recursos y el código siguiente muestra cómo hacerlo señalando a los URI donde se encuentra la plantilla y un archivo de parámetros.
 
@@ -298,4 +298,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

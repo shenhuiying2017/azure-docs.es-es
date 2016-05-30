@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Administración y supervisión de copias de seguridad de máquinas virtuales de Azure
@@ -42,7 +42,9 @@ Para administrar máquinas virtuales protegidas:
     ![Trabajos](./media/backup-azure-manage-vms/backup-job.png)
 
 ## Copia de seguridad a petición de una máquina virtual
-Puede realizar una copia de seguridad a petición de una máquina virtual una vez que esta esté configurada para la protección. Si está pendiente la copia de seguridad inicial para la máquina virtual, la copia de seguridad a petición creará una copia completa de la máquina virtual en el almacén de copia de seguridad de Azure. Si se ha realizado la primera copia de seguridad, la copia de seguridad a petición solo enviará al almacén de copia de seguridad de Azure los cambios que se hayan realizado después de la copia de seguridad anterior.
+Puede realizar una copia de seguridad a petición de una máquina virtual una vez que esta esté configurada para la protección. Si está pendiente la copia de seguridad inicial para la máquina virtual, la copia de seguridad a petición creará una copia completa de la máquina virtual en el almacén de copia de seguridad de Azure. Si se ha realizado la primera copia de seguridad, la copia de seguridad a petición solo enviará al almacén de copia de seguridad de Azure los cambios que se hayan realizado desde la copia de seguridad anterior, es decir, siempre es incremental.
+
+>[AZURE.NOTE] El intervalo de retención de una copia de seguridad a petición se establece en el valor de retención especificado para la retención diaria en la directiva de copia de seguridad correspondiente a la máquina virtual.
 
 Para realizar una copia de seguridad a petición de una máquina virtual:
 
@@ -198,62 +200,38 @@ Para ver los registros de operación correspondientes a un almacén de copia de 
     ![Detalles de la operación](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Notificaciones de alerta
-Puede obtener notificaciones de alerta personalizadas para los trabajos del portal. Esto se consigue mediante la definición de reglas de alerta basadas en PowerShell en los eventos de registros operativos.
-
-Las alertas basadas en eventos funcionan en el modo de recursos de Azure. Cambie al modo de recursos de Azure mediante la ejecución del siguiente cmdlet en el modo de comandos con privilegios elevados:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Puede obtener notificaciones de alerta personalizadas para los trabajos del portal. Esto se consigue mediante la definición de reglas de alerta basadas en PowerShell en los eventos de registros operativos. Se recomienda usar *PowerShell versión 1.3.0 o posterior*.
 
 Para definir una notificación personalizada que avise de errores de copia de seguridad, puede ver un comando de ejemplo parecido al siguiente:
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**: puede obtenerlo en la ventana emergente de registros de operaciones tal como se describe en la sección anterior. ResourceUri en una ventana emergente de detalles de una operación es el ResourceId que se debe indicar para este cmdlet.
 
-**EventName**: para alertas acerca de copias de seguridad de máquinas virtuales de IaaS, los valores admitidos son: Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
+**OperationName**: tendrá el formato "Microsoft.Backup/backupvault/<EventName>" donde EventName es uno de estos valores: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level**: los valores admitidos son: Informational, Error. Para alertas acerca de errores en acción, use Error y para alertas sobre trabajos realizados correctamente, use Informational.
-
-**OperationName**: tendrá el formato "Microsoft.Backup/backupvault/<EventName>", donde EventName es tal como se describió anteriormente.
-
-**Status**: los valores admitidos son: Started, Succeeded y Failed. Es conveniente mantener Informational como nivel para un estado de correcto.
-
-**SubStatus**: igual que estado para las operaciones de copia de seguridad
-
-**RuleType**: manténgalo como *Event* ya que las alertas de copia de seguridad están basadas en eventos.
+**Status**: los valores admitidos son: Started, Succeeded y Failed.
 
 **ResourceGroup**: ResourceGroup del recurso en el que se desencadena la operación. Puede obtenerlo del valor de ResourceId. El valor entre los campos */resourceGroups/* y */providers/* en el valor de ResourceId es el valor de ResourceGroup.
 
 **Name**: nombre de la regla de alerta.
 
-**Description**: descripción de la regla de alerta.
-
 **CustomEmails**: especifique la dirección de correo electrónico personalizada a la que desea enviar la notificación de alerta
 
-**SendToServiceOwners**: esta opción envía la notificación de alerta a todos los administradores y coadministradores de la suscripción.
-
-Un mensaje de alerta de ejemplo se parecerá a lo siguiente:
-
-Encabezado de ejemplo:
-
-![Encabezado de la alerta](./media/backup-azure-manage-vms/alert-header.png)
-
-Cuerpo de ejemplo del mensaje de alerta:
-
-![Cuerpo de la alerta](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners**: esta opción envía la notificación de alerta a todos los administradores y coadministradores de la suscripción. Se puede utilizar en el cmdlet **New-AzureRmAlertRuleEmail**.
 
 ### Limitaciones de las alertas
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de copia de seguridad. No es posible personalizar esto para obtener alertas para un conjunto específico de máquinas virtuales de un almacén de copia de seguridad.
-2. Las alertas se resuelven automáticamente si no hay ningún evento coincidente de alerta desencadenado a lo largo de la duración de la alerta siguiente. Use el parámetro *WindowSize* del cmdlet Add-AlertRule para establecer la duración de desencadenamiento de alerta.
+2. Esta característica se encuentra en versión preliminar. [Más información](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. Recibirá alertas de "alerts-noreply@mail.windowsazure.com". Actualmente, no se puede modificar el remitente de correo electrónico. 
 
 ## Pasos siguientes
 
 - [Restauración de máquinas virtuales de Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

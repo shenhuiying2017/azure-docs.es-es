@@ -56,4 +56,6 @@ Puede generar código de cliente para una aplicación de API con Visual Studio o
 
 Para obtener un tutorial detallado que le guíe en el proceso de creación, implementación y consumo de una aplicación de API, consulte [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+Si usa Administración de API de Azure con aplicaciones de API, puede utilizar metadatos de Swagger para importar la API a Administración de API. Para más información, consulte [Importación de la definición de una API con operaciones en Administración de API de Azure](../api-management/api-management-howto-import-api.md).
+
+<!---HONumber=AcomDC_0518_2016-->

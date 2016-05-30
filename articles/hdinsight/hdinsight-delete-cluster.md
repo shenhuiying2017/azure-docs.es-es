@@ -18,7 +18,7 @@ ms.author="larryfr"/>
 
 #Eliminación de un clúster de HDInsight
 
-Los clústeres de HDInsight se facturan por hora, por lo que siempre debe eliminar aquellos que ya no se estén utilizando. En este documento, obtendrá información sobre cómo eliminar un clúster mediante el Portal de Azure, Azure PowerShell y la CLI de Azure.
+La facturación de los clústeres de HDInsight comienza una vez que se crea el clúster y se detiene cuando el clúster se elimina y se prorratea por minuto, por lo que siempre debe eliminar el clúster cuando ya no esté en uso. En este documento, obtendrá información sobre cómo eliminar un clúster mediante el Portal de Azure, Azure PowerShell y la CLI de Azure.
 
 > [AZURE.IMPORTANT] Al eliminar un clúster de HDInsight, no se eliminan las cuentas de Almacenamiento de Azure asociadas a este. Por tanto, podrá conservar y reutilizar los datos almacenados por el clúster.
 
@@ -34,7 +34,7 @@ Los clústeres de HDInsight se facturan por hora, por lo que siempre debe elimin
 
 ##Azure PowerShell
 
-> [AZURE.NOTE] Si no ha instalado ni configurado Azure PowerShell, siga los pasos que se describen en el documento [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Desde un símbolo del sistema de PowerShell, utilice el siguiente comando para eliminar el clúster:
 
@@ -52,4 +52,4 @@ Desde un símbolo del sistema, utilice el siguiente comando para eliminar el cl�
     
 Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -20,7 +20,7 @@
 
 En este tema, se explica cómo puede crear un equilibrador de carga interno para un grupo de disponibilidad de SQL Server AlwaysOn implementado en máquinas virtuales de Azure que se ejecute en el modelo de Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad AlwaysOn necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clásico.
 
 Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server AlwaysOn implementado en las máquinas virtuales de Azure con el modelo de Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para crear automáticamente el grupo de disponibilidad AlwaysOn en Azure Resource Manager. Esta plantilla crea automáticamente el equilibrador de carga interno.
 
@@ -267,4 +267,4 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 - Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

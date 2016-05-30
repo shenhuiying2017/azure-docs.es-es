@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/12/2016"
 	ms.author="markvi"/>
 
 # Ediciones de Azure Active Directory
@@ -30,7 +30,7 @@ Para mejorar su Azure Active Directory, puede agregar funcionalidades de pago co
 Las suscripciones a Office 365 incluyen características adicionales de Azure Active Directory que se describen en la siguiente tabla de comparación.
 
 
-> [AZURE.NOTE] Para ver las opciones de precios de estas ediciones, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). <br>Las ediciones premium y básica de Azure Active Directory no se admiten actualmente en China. Póngase en contacto con nosotros en el Foro de Azure Active Directory para obtener más información.
+> [AZURE.NOTE] Para ver las opciones de precios de estas ediciones, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium y Azure Active Directory Basic no se admiten actualmente en China. Póngase en contacto con nosotros en el Foro de Azure Active Directory para obtener más información.
 
 
 - **Edición básica de Azure Active Directory**: esta edición, concebida para los trabajadores de tareas con primeras necesidades en la nube, proporciona soluciones de administración de identidades de autoservicio y de acceso a las aplicaciones basado en la nube. Con la edición básica de Azure Active Directory, obtiene características de mejora de la productividad y reducción de costos, como administración de acceso basado en grupo, autoservicio de restablecimiento de contraseña para aplicaciones en la nube y proxy de aplicaciones de Azure Active Directory (para publicar aplicaciones web locales con Azure Active Directory), y todas ellas respaldadas por un contrato de nivel de servicio empresarial con un tiempo de actividad del 99,9 por ciento.
@@ -50,7 +50,7 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 
 ##Comparación de características generalmente disponibles
 
-> [AZURE.NOTE] Para obtener una vista diferente de estos datos, consulte [Funcionalidades de Azure Active Directory](https://www.microsoft.com/server-cloud/products/azure-active-directory/Features.aspx).
+> [AZURE.NOTE] Para obtener una vista diferente de estos datos, consulte las [funcionalidades de Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 | | Azure AD Free | Azure AD Basic | Azure AD Premium |
 | ---                      | :-:           | :-:            | :-:              |
@@ -60,7 +60,7 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 
 
 
-<br>
+
 
 **Características comunes**
 
@@ -117,14 +117,14 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 
 
 
-<br>
-<hr>
+
+
 ## Características comunes
 #### Objetos de directorio 
 
 **Tipo:** Características comunes
 
-La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada del servicio de directorio que está representada por un nombre completo único. Un ejemplo de objeto sería una entrada de usuario empleada para la autenticación. Si necesita sobrepasar la cuota predeterminada, póngase en contacto con el servicio de soporte técnico. El límite de 500 000 objetos no es aplicable a Office 365, Microsoft Intune ni ningún otro servicio en línea de pago de Microsoft que se base en Azure Active Directory para los servicios de directorio.
+La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada del servicio de directorio que está representada por un nombre completo único. Un ejemplo de objeto sería una entrada de usuario empleada para la autenticación. Si necesita sobrepasar la cuota predeterminada, póngase en contacto con el servicio de soporte técnico. El límite de 500 000 objetos no es aplicable a Office 365, Microsoft Intune ni ningún otro servicio en línea de pago de Microsoft que se base en Azure Active Directory para los servicios de directorio.
 
 
 **Disponibilidad:**
@@ -134,7 +134,6 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 | Hasta 500.000 objetos| Sin límite de objetos| Sin límite de objetos| Sin límite de objetos para las cuentas de usuario de Office 365|
 
 
-<br>
 
 #### Administración de usuarios y grupos (agregar/actualizar/eliminar)/aprovisionamiento basado en el usuario, registro de dispositivos
 
@@ -153,8 +152,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 - [Información general sobre el Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br>
-<hr>
+
+
 #### Inicio de sesión único (SSO)
 
 **Tipo:** Características comunes
@@ -164,18 +163,18 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita| Edición básica| Edición premium| Solo aplicaciones de Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicaciones por usuario [1] <br> (SaaS preintegrado y aplicaciones integradas por el desarrollador)| 10 aplicaciones por usuario [1] <br>(nivel Gratis y aplicaciones de proxy de aplicación) | No hay límite [2] <br> (niveles Básico y Gratis + plantillas de integración de aplicaciones de autoservicio)| 10 aplicaciones por usuario [1] <br> (SaaS preintegrado y aplicaciones integradas por el desarrollador)|
+| 10 aplicaciones por usuario [1] (SaaS preintegrado y aplicaciones integradas por el desarrollador)| 10 aplicaciones por usuario [1] (nivel Gratis y aplicaciones de proxy de aplicación) | No hay límite [2] (niveles Básico y Gratis + plantillas de integración de aplicaciones de autoservicio)| 10 aplicaciones por usuario [1] (SaaS preintegrado y aplicaciones integradas por el desarrollador)|
 
 [1] Con las ediciones Gratis y Básico de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
 
-[2] Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para obtener más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+[2] Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
 
 **Más detalles:**
 
 - [Administración de aplicaciones con Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
-<br>
-<hr>
+
+
 #### Cambio de contraseña de autoservicio para usuarios en la nube
 
 **Tipo:** Características comunes
@@ -191,8 +190,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 - [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 
 
-<br>
-<hr>
+
+
 #### Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory) 
 
 **Tipo:** Características comunes
@@ -208,8 +207,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<br>
-<hr>
+
+
 #### Informes de seguridad y uso
 
 **Tipo:** Características comunes
@@ -225,13 +224,13 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<br>
-<hr>
+
+
 
 ## Características de las ediciones Premium y Basic
 #### Aprovisionamiento y administración del acceso basados en grupo
 
-**Tipo:** Características de la edición Basic
+**Tipo:** Características básicas
 
 
 **Disponibilidad:**
@@ -244,11 +243,11 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br>
-<hr>
+
+
 #### Restablecimiento de contraseña de autoservicio para usuarios en la nube
 
-**Tipo:** Características de la edición Basic
+**Tipo:** Características básicas
 
 
 **Disponibilidad:**
@@ -261,11 +260,11 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Restablecimiento de contraseña de Azure AD para usuarios y administradores](active-directory-passwords.md)
 
-<br>
-<hr>
+
+
 #### Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)
 
-**Tipo:** Características de la edición Basic
+**Tipo:** Características básicas
 
 
 **Disponibilidad:**
@@ -278,11 +277,11 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<br>
-<hr>
+
+
 #### Proxy de aplicación
 
-**Tipo:** Características de la edición Basic
+**Tipo:** Características básicas
 
 
 **Disponibilidad:**
@@ -295,11 +294,11 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
 
-<br>
-<hr>
+
+
 #### Contrato de nivel de servicio del 99,9 %
 
-**Tipo:** Características de la edición Basic
+**Tipo:** Características básicas
 
 
 **Disponibilidad:**
@@ -312,8 +311,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
-<br>
-<hr>
+
+
 
 ## Características de la edición Premium
 #### Administración de grupos y aplicaciones de autoservicio/incorporaciones de aplicaciones de autoservicio/grupos dinámicos
@@ -329,7 +328,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 
 
-<br>
+
          
 #### Restablecimiento de contraseñas de autoservicio/cambio/desbloqueo con escritura diferida local
 
@@ -344,7 +343,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 
 
-<br>
+
 
 #### Multi-Factor Authentication (en la nube y local (servidor MFA))
 
@@ -361,8 +360,8 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 - [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br>
-<hr>
+
+
 #### CAL de MIM + servidor MIM 
 
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Puesto que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, siempre que un servidor ejecute una copia válida y con licencia de Windows Server, Microsoft Identity Manager podrá instalarse y usarse en ese servidor. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
@@ -378,7 +377,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 
 
-<br>
+
 
 #### Cloud App Discovery 
 
@@ -395,8 +394,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 - [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br>
-<hr>
+
+
 #### Connect Health
 
 **Tipo:** Características de la edición Premium
@@ -412,8 +411,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 - [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md)
 
-<br>
-<hr>
+
+
 #### Sustitución automática de la contraseña para cuentas de grupo
 
 **Tipo:** Características de la edición Premium
@@ -426,8 +425,8 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | | | ![Comprobar][12]| |
 
 
-<br>
-<hr>
+
+
 ## Azure Active Directory Join, solo características relacionadas con Windows 10
 #### Conectar un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de Bitlocker de administrador
 
@@ -441,7 +440,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]| ![Comprobar][12]|
 
 
-<br>
+
 
 #### Inscripción automática de MDM, recuperación de Bitlocker de autoservicio, administradores locales adicionales para dispositivos con Windows 10 a través de Azure AD Join
 
@@ -454,7 +453,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | :-: | :-: | :-: | :-: |
 | | | ![Comprobar][12]| |
 
-<hr>
+
 
 
 ## Características de vista previa de Azure AD
@@ -483,4 +482,4 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

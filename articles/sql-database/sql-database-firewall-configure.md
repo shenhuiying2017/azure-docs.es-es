@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="cgronlun"
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Cómo configurar un firewall de base de datos SQL de Azure
@@ -29,9 +29,6 @@ Para configurar el firewall de la base de datos, debe crear reglas de firewall q
 
 **Recomendación:** Microsoft le recomienda que use reglas de firewall de nivel de base de datos siempre que le sea posible, para así hacer que la base de datos sea más portátil. Use reglas de firewall de nivel de servidor cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada base de datos.
 
-**Sobre las federaciones**: la implementación actual de las federaciones finalizará con los niveles de servicio Web y Business. Considere la posibilidad de implementar soluciones de particionamiento personalizadas para maximizar la escalabilidad, la flexibilidad y el rendimiento. Para obtener más información sobre el particionamiento personalizado, consulte [Escalado horizontal de Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn495641.aspx).
-
-> [AZURE.NOTE] Si crea una federación de base de datos en la Base de datos SQL de Azure donde la base de datos raíz contiene reglas de firewall de nivel de base de datos, las reglas no se copian en las bases de datos de miembros de federación. Si necesita reglas de firewall de nivel de base de datos para los miembros de federación, tendrá que volver a crear las reglas para los miembros de federación. Sin embargo, si divide un miembro de federación con una regla de firewall de nivel de base de datos en nuevos miembros de federación mediante la instrucción ALTER FEDERATION … SPLIT, los nuevos miembros de destino tendrán las mismas reglas de firewall de nivel de base de datos como el miembro de federación de origen. Para obtener más información sobre las federaciones, consulte [Federaciones en la Base de datos SQL de Azure](https://msdn.microsoft.com/library/hh597452.aspx).
 
 ## Introducción al firewall de la Base de datos SQL
 
@@ -62,7 +59,7 @@ Cuando una aplicación desde Azure intenta conectarse a su servidor de s de dato
 
 Puede habilitar conexiones desde Azure de dos maneras:
 
-- En el [Portal de Microsoft Azure](https://portal.azure.com/), active la casilla de verificación **Permitir que los servicios de Microsoft Azure accedan al servidor** al crear un nuevo servidor.
+- En el [Portal de Microsoft Azure](https://portal.azure.com/), active la casilla **Permitir que los servicios de Microsoft Azure accedan al servidor** al crear un nuevo servidor.
 
 - En el [Portal clásico](http://go.microsoft.com/fwlink/p/?LinkID=161793), en la pestaña **Configurar** de un servidor, en la sección **Servicios permitidos**, haga clic en **Sí** para **Servicios de Microsoft Azure**.
 
@@ -138,4 +135,4 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de da
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

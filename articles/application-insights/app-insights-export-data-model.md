@@ -45,7 +45,7 @@ Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustra
         // Request id becomes the operation id of child events 
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
-        "count": 1, // Always 1
+        "count": 1, // 100% / sampling rate
         "durationMetric": {
           "value": 1046804.0, // 10000000 == 1 second
           // Currently the following fields are redundant:
@@ -127,23 +127,26 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 | context.data.isSynthetic | boolean | La solicitud parece proceder de un bot o una prueba web. |
 | context.data.samplingRate | número | Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0.|
 | context.device | objeto | Dispositivo de cliente |
+| context.device.browser | cadena | IE, Chrome,… |
+| context.device.browserVersion | cadena | Chrome 48.0,… |
 | context.device.deviceModel | cadena | |
 | context.device.deviceName | cadena | |
 | context.device.id | cadena | |
-| context.device.locale | cadena | Por ejemplo, en-GB, de-DE |
+| context.device.locale | cadena | en-GB, de-DE,… |
 | context.device.network | cadena | |
 | context.device.oemName | cadena | |
-| context.device.osVersion | cadena | |
-| context.device.roleInstance | cadena | |
+| context.device.osVersion | cadena | Sistema operativo del host |
+| context.device.roleInstance | cadena | Identificador del host del servidor |
 | context.device.roleName | cadena | |
-| context.device.type | cadena | |
+| context.device.type | cadena | PC, explorador,… |
 | context.location | objeto | Derivado de clientip. |
-| context.location.city | cadena | |
+| context.location.city | cadena | Derivado de clientip, si se conoce. |
 | context.location.clientip | cadena | El último octágono se hace anónimo en 0. |
 | context.location.continent | cadena | |
 | context.location.country | cadena | |
-| context.location.province | cadena | |
+| context.location.province | cadena | Estado o provincia |
 | context.operation.id | cadena | Los elementos que tienen el mismo identificador de operación se muestran como elementos relacionados en el portal. Normalmente, el identificador de solicitud. |
+| context.operation.name | cadena | Nombre de solicitud o dirección URL |
 | context.operation.parentId | cadena | Permite elementos relacionados anidados. |
 | context.session.id | cadena | Identificador de un grupo de operaciones del mismo origen. Un período de 30 minutos sin una operación señala el final de una sesión. |
 | context.session.isFirst | boolean | |
@@ -164,8 +167,8 @@ Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-even
 
 |Ruta de acceso|Tipo|Notas|
 |---|---|---|
-| event [0] count | integer | |
-| event [0] name | cadena | Nombre del evento. 250 caracteres como máximo |
+| event [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| event [0] name | cadena | Nombre del evento. Longitud máxima: 250. |
 | event [0] url | cadena | |
 | event [0] urlData.base | cadena | |
 | event [0] urlData.host | cadena | |
@@ -178,7 +181,7 @@ Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor 
 |Ruta de acceso|Tipo|Notas|
 |---|---|---|
 | basicException [0] assembly | cadena | |
-| basicException [0] count | integer | |
+| basicException [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup | cadena | |
 | basicException [0] exceptionType | cadena | |cadena | |
 | basicException [0] failedUserCodeMethod | cadena | |
@@ -187,7 +190,7 @@ Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor 
 | basicException [0] hasFullStack | boolean | |
 | basicException [0] id | cadena | |
 | basicException [0] method | cadena | |
-| basicException [0] message | cadena | Mensaje de excepción. 10 000 caracteres como máximo.|
+| basicException [0] message | cadena | Mensaje de excepción. Longitud máxima: 10 000.|
 | basicException [0] outerExceptionMessage | cadena | |
 | basicException [0] outerExceptionThrownAtAssembly | cadena | |
 | basicException [0] outerExceptionThrownAtMethod | cadena | |
@@ -198,7 +201,7 @@ Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor 
 | basicException [0] parsedStack [0] level | integer | |
 | basicException [0] parsedStack [0] line | integer | |
 | basicException [0] parsedStack [0] method | cadena | |
-| basicException [0] stack | cadena | 10 000 como máximo.|
+| basicException [0] stack | cadena | Longitud máxima: 10 000.|
 | basicException [0] typeName | cadena | |
 
 
@@ -212,32 +215,32 @@ Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace)
 |---|---|---|
 | message [0] loggerName | cadena ||
 | message [0] parameters | cadena ||
-| message [0] raw | cadena | El mensaje de registro, longitud máxima: 10 000. Puede buscar estas cadenas en el portal. |
+| message [0] raw | cadena | El mensaje de registro, longitud máxima: 10 000. |
 | message [0] severityLevel | cadena | |
 
 
 
 ## Dependencia remota
 
-Enviado por TrackDependency. Se usa para informar del rendimiento y uso de las [llamadas a dependencias](app-insights-asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
+Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](app-insights-asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
 
 |Ruta de acceso|Tipo|Notas|
 |---|---|---|
 | remoteDependency [0] async | boolean | |
 | remoteDependency [0] baseName | cadena | |
-| remoteDependency [0] commandName | cadena | Por ejemplo, asp "home/index" |
-| remoteDependency [0] count | integer | |
+| remoteDependency [0] commandName | cadena | Por ejemplo, "home/index". |
+| remoteDependency [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName | cadena | HTTP, SQL... |
 | remoteDependency [0] durationMetric.value | número | Tiempo desde la llamada hasta la finalización de respuesta de la dependencia |
 | remoteDependency [0] id | cadena | |
-| remoteDependency [0] name | cadena | URL 250 caracteres como máximo|
+| remoteDependency [0] name | cadena | URL Longitud máxima: 250.|
 | remoteDependency [0] resultCode | cadena | de la dependencia de HTTP |
 | remoteDependency [0] success | boolean | |
 | remoteDependency [0] type | cadena | Http, Sql,... |
-| remoteDependency [0] url | cadena | 2000 como máximo |
-| remoteDependency [0] urlData.base | cadena | 2000 como máximo |
+| remoteDependency [0] url | cadena | Longitud máxima: 2000 |
+| remoteDependency [0] urlData.base | cadena | Longitud máxima: 2000 |
 | remoteDependency [0] urlData.hashTag | cadena | |
-| remoteDependency [0] urlData.host | cadena | 200 como máximo|
+| remoteDependency [0] urlData.host | cadena | Longitud máxima: 200 |
 
 
 ## Solicitudes
@@ -247,12 +250,12 @@ Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-reque
 
 |Ruta de acceso|Tipo|Notas|
 |---|---|---|
-| request [0] count | integer | |
+| request [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
 | request [0] durationMetric.value | número | Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
 | request [0] id | cadena | Identificador de operación |
-| request [0] name | cadena | GET y POST + dirección url base. 250 caracteres como máximo |
+| request [0] name | cadena | GET y POST + dirección url base. Longitud máxima: 250 |
 | request [0] responseCode | integer | Respuesta HTTP enviada al cliente |
-| request [0] success | boolean | Predeterminado = responseCode < 400 |
+| request [0] success | boolean | Predeterminado == (responseCode &lt; 400) |
 | request [0] url | cadena | No incluye el host |
 | request [0] urlData.base | cadena | |
 | request [0] urlData.hashTag | cadena | |
@@ -286,9 +289,9 @@ Enviado por trackPageView() o [stopTrackPage](app-insights-api-custom-events-met
 
 |Ruta de acceso|Tipo|Notas|
 |---|---|---|
-| view [0] count | integer | |
-| view [0] durationMetric.value | integer | Valor opcionalmente establecido en trackPageView() o mediante start/stopTrackPage. No es igual que los valores de clientPerformance. |
-| view [0] name | cadena | Título de la página. 250 caracteres como máximo |
+| view [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| view [0] durationMetric.value | integer | Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
+| view [0] name | cadena | Título de la página. Longitud máxima: 250 |
 | view [0] url | cadena | |
 | view [0] urlData.base | cadena | |
 | view [0] urlData.hashTag | cadena | |
@@ -304,11 +307,11 @@ Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-avai
 |---|---|---|
 | availability [0] availabilityMetric.name | cadena | availability |
 | availability [0] availabilityMetric.value | número |1,0 o 0,0 |
-| availability [0] count | integer | |
+| availability [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name | cadena | |
 | availability [0] dataSizeMetric.value | integer | |
 | availability [0] durationMetric.name | cadena | |
-| availability [0] durationMetric.value | número | Longitud de la prueba. 1e7 = 1 s |
+| availability [0] durationMetric.value | número | Duración de la prueba. 1e7 = 1 s |
 | availability [0] message | cadena | Diagnóstico de errores |
 | availability [0] result | cadena | Sin errores/Error |
 | availability [0] runLocation | cadena | Origen geográfica de la solicitud http |
@@ -323,7 +326,7 @@ Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-avai
 
 Generado por TrackMetric().
 
-La métrica se encuentra en context.custom.metrics[0]
+El valor de la métrica se encuentra en context.custom.metrics[0].
 
 Por ejemplo:
 
@@ -386,4 +389,4 @@ Excepto donde se indique lo contrario, las duraciones se representan en décimas
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -217,7 +217,6 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 
 [adfgetstarted]: data-factory-get-started.md
 [adfgetstartedmonitoring]: data-factory-get-started.md#monitor-pipelines
-[adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
@@ -229,4 +228,4 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

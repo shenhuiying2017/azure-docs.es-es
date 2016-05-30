@@ -67,7 +67,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 * También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
  * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida. 
  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
-* La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
+* La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling.md). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
 
 ### Superávit
 
@@ -86,7 +86,7 @@ El gráfico de la parte inferior de la hoja de precios muestra el volumen del pu
 
 Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por él y haga clic en (+) para ver el detalle de un intervalo de tiempo.
 
-El gráfico muestra el volumen de datos que llega al servicio Application Insights, después del [muestreo](app-insights-sampling).
+El gráfico muestra el volumen de datos que llega al servicio Application Insights, después del [muestreo](app-insights-sampling.md).
 
 
 ## Velocidad de datos
@@ -148,7 +148,7 @@ Existen varias formas de muestreo. Se recomienda el [muestreo adaptable](app-ins
 
 Como alternativa, puede establecer el *muestreo de ingesta* en la hoja de Cuotas y precios. Este tipo de muestreo funciona en el momento en que la telemetría procedente de su aplicación entra en el servicio Application Insights. No afecta al volumen de telemetría que envía la aplicación, pero reduce el volumen que retiene el servicio.
 
-![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-sampling/04.png)
+![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
 
 El muestreo es una manera efectiva de reducir los gastos y permanecer dentro de la cuota mensual. El algoritmo de muestreo conserva elementos relacionados con la telemetría, de modo que, por ejemplo, al usar la búsqueda se puede buscar la solicitud relacionada con una excepción determinada. El algoritmo también conserva recuentos correctos, para que pueda ver en el Explorador de métricas los valores correctos de tasas de solicitudes, tasas de excepciones y otros recuentos.
 
@@ -173,4 +173,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

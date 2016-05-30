@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Administración de Análisis de Azure Data Lake mediante el Portal de Azure
@@ -145,7 +145,7 @@ Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de
 
 <a name="upload-data-to-adls"></a> **Para cargar archivos a la cuenta de Almacén de Data Lake**
 
-1. En el Portal, haga clic en **Examinar** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
+1. En el Portal, haga clic en **Examinar ** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
 2. Haga clic en la cuenta de Almacén de Data Lake a la que desea cargar datos. Para buscar la cuenta predeterminada de Almacén de Data Lake, consulte [aquí](#default-adl-account).
 3. Haga clic en **Explorador de datos** en el menú superior.
 4. Haga clic en **Nuevo directorio** para crear una carpeta o haga clic en el nombre de una carpeta para cambiar de carpeta.
@@ -167,7 +167,7 @@ Análisis de Data Lake usa el control de acceso basado en roles con Azure Active
 |Colaborador|Tiene acceso al portal; envía y supervisa trabajos. Para poder enviar trabajos, un colaborador también necesita el permiso de lectura o escritura para las cuentas de Almacén de Data Lake.|
 |Desarrollador de Análisis de Data Lake | Este usuario puede enviar trabajos y supervisar todos los trabajos, pero solo puede cancelar sus propios trabajos. No puede administrar su propia cuenta, por ejemplo, agregar usuarios, cambiar permisos ni eliminar la cuenta. Para poder ejecutar trabajos, necesita acceso de lectura o escritura a las cuentas de Almacén de Data Lake. | 
 |Lector|Permite ver todo el contenido, pero no realizar cambios.|  
-|Usuario del laboratorio de desarrollo y pruebas|Permite ver todo el contenido y conectar, iniciar, reiniciar y apagar las máquinas virtuales.|  
+|Usuario de DevTest Labs|Permite ver todo el contenido y conectar, iniciar, reiniciar y apagar las máquinas virtuales.|  
 |Administrador de acceso de usuario|Permite administrar el acceso de usuario a los recursos de Azure.|  
 
 Para obtener información sobre la creación de grupos de seguridad y usuarios de Azure Active Directory, consulte [¿Qué es Azure Active Directory?](../active-directory/active-directory-whatis.md)
@@ -293,4 +293,4 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

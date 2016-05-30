@@ -19,9 +19,11 @@
 # Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell y Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Portal de Azure clásico](site-recovery-vmm-to-azure.md)
+- [Portal de Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portal clásico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell: clásico](site-recovery-deploy-with-powershell.md)
-- [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Información general
@@ -42,7 +44,7 @@ El artículo incluye los requisitos previos para el escenario y muestra
 
 Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [clásico y Administrador de recursos](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
 
 ## Antes de comenzar
 
@@ -50,9 +52,9 @@ Asegúrese de que tiene preparados estos requisitos previos:
 
 ### Requisitos previos de Azure
 
-- Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Si no tiene una, comience con un [cuenta gratuita](https://azure.microsoft.com/free). También puede leer sobre los precios del [Administrador de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Si prueba la replicación en un escenario de suscripción de CSP, necesitará una suscripción de CSP. Más información sobre el programa CSP en [inscripción en el programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-- Necesitará una cuenta de almacenamiento de Azure v2 (ARM) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración del almacenamiento de Azure, consulte [Introducción al almacenamiento de Microsoft Azure](../storage/storage-introduction.md) como referencia.
+- Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/). Si no tiene una, comience con un [cuenta gratuita](https://azure.microsoft.com/free). También puede leer sobre [los precios del Administrador de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Si prueba la replicación en un escenario de suscripción de CSP, necesitará una suscripción de CSP. Más información sobre el programa CSP en [Inscríbete en el programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
+- Necesitará una cuenta de almacenamiento de Azure v2 (ARM) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración del almacenamiento de Azure, vea [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md) como referencia.
 - Tendrá que asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 > [AZURE.NOTE] Actualmente, solo las operaciones de nivel de máquina virtual son posibles a través de Powershell. Pronto se incluirá compatibilidad con operaciones de nivel de plan de recuperación. Por ahora, está limitado a la realización de conmutaciones por error solo en un nivel de granularidad de 'máquina virtual protegida' y no en un nivel de plan de recuperación.
@@ -67,14 +69,14 @@ Asegúrese de que tiene preparados estos requisitos previos:
 - Más información acerca de cómo configurar las nubes de VMM:
 	- Obtenga más información acerca de las nubes privadas de VMM en [Novedades de la nube privada con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) y en [VMM 2012 y las nubes](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Obtenga información acerca de cómo [configurar el tejido de la nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric).
-	- Una vez configurados los elementos del tejido de nube, aprenda a crear nubes privadas en [Creación de una nube privada en VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) y [Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
+	- Una vez configurados los elementos del tejido de nube, aprenda a crear nubes privadas en [Creación de una nube privada en VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) y [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954) (Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM).
 
 
 ### Requisitos previos de Hyper-V
 
 - Los servidores host de Hyper-V deben estar ejecutando al menos Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.
 - Si está ejecutando Hyper-V en un clúster, tenga en cuenta que ese agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. Para 
-- Para obtener instrucciones, consulte [Configuración del agente de réplicas de Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
+- Para obtener instrucciones, vea la información sobre [configuración del Agente de réplicas de Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Cualquier servidor o clúster del host de Hyper-V para el que desee administrar la protección debe incluirse en una nube de VMM.
 
 ### Requisitos previos de asignación de redes
@@ -97,9 +99,9 @@ Más información sobre asignación de redes en
 
 
 ###Requisitos previos de PowerShell
-Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para más información sobre cómo configurar PowerShell, consulte la [Guía para instalar y configurar Azure PowerShell](../powershell-install-configure.md). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
+Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para más información sobre cómo configurar PowerShell, vea la [guía para instalar y configurar Azure PowerShell](../powershell-install-configure.md). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
 
-Para ver sugerencias que puedan ayudarle a usar los cmdlets, como, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell, consulte [Guía para empezar a trabajar con cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Para ver sugerencias que puedan ayudarlo a usar los cmdlets, como, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y las salidas en Azure PowerShell, vea la [guía de introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ## Paso 1: Establecimiento de la suscripción 
 
@@ -121,7 +123,7 @@ Para ver sugerencias que puedan ayudarle a usar los cmdlets, como, por ejemplo, 
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Paso 2: Creación de un almacén de Servicios de recuperación
+## Paso 2: Creación de un almacén de Servicios de recuperación 
 
 1. Si todavía no tiene una, debe crear también un grupo de recursos de ARM.
 
@@ -131,19 +133,11 @@ Para ver sugerencias que puedan ayudarle a usar los cmdlets, como, por ejemplo, 
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Paso 3: Generación de una clave de registro de almacén
+## Paso 3: Configuración del contexto de almacén de Servicios de recuperación
 
-Generación de una clave de registro en el almacén. Después de descargar el proveedor de Azure Site Recovery y de instalarlo en el servidor VMM, usará esta clave para registrar el servidor VMM en el almacén.
+1.  Establezca el contexto de almacén mediante la ejecución del comando siguiente.
 
-1.	Obtenga el archivo de configuración de almacén y establezca el contexto:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Establezca el contexto de almacén ejecutando los comandos siguientes:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Paso 4: Instalación del proveedor de Azure Site Recovery
 
@@ -319,7 +313,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
 ### Ejecución de una conmutación por error no planeada
 
-1. Inicie la conmutación por error planeada ejecutando el comando siguiente:
+1. Inicie la conmutación por error no planeada mediante la ejecución del comando siguiente:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -351,4 +345,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 [Más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery</a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->
