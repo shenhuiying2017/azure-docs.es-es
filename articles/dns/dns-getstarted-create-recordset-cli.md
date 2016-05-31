@@ -62,8 +62,8 @@ Los ejemplos siguientes muestran cómo crear un conjunto de registros de cada ti
 
 ## Pasos siguientes
 
-Para administrar el conjunto de registros y los registros, consulte [Creación y administración de registros y conjuntos de registros de DNS mediante el Portal de Azure](dns-operations-recordsets-portal.md).
+Para administrar los registros y los conjuntos de registros, consulte [Cómo administrar registros DNS con CLI](dns-operations-recordsets-cli.md).
 
 Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

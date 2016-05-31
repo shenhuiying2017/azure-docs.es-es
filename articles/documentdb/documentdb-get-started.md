@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
+	ms.date="05/16/2016"
 	ms.author="anhoh"/>
 
 # Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB
@@ -602,7 +602,8 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 
 ## Pasos siguientes
 
--   ¿Desea un tutorial de ASP.NET MVC NoSQL más complejo? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
+- ¿Desea un tutorial de ASP.NET MVC NoSQL más complejo? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
+- ¿Desea realizar pruebas de escala y rendimiento con DocumentDB? Consulte [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Pruebas de escala y rendimiento con Azure DocumentDB).
 -	Aprenda a [supervisar una cuenta de DocumentDB](documentdb-monitor-accounts.md).
 -	Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
 -	Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
@@ -611,4 +612,4 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

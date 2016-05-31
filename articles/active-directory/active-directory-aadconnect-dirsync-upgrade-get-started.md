@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="04/25/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)
@@ -23,19 +23,19 @@ La siguiente documentación le ayudará a actualizar la instalación existente d
 ## Documentación relacionada
 Si no leyó la documentación que se encuentra en [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md), en la tabla siguiente se proporcionan vínculos a temas relacionados. Los dos primeros temas en negrita son necesarios antes de iniciar la actualización desde DirSync.
 
-| Tema. | |
-| --------- | --------- |
-| **Descarga de Azure AD Connect** | [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Hardware y requisitos previos** | [Azure AD Connect: Hardware y requisitos previos](active-directory-aadconnect-prerequisites.md) |
-| **Cuentas usadas para la instalación** | [Más información sobre permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |
+ Tema. |  
+--------- | ---------
+**Descarga de Azure AD Connect** | [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+**Hardware y requisitos previos** | [Azure AD Connect: Hardware y requisitos previos](active-directory-aadconnect-prerequisites.md)
+**Cuentas usadas para la instalación** | [Más información sobre permisos y cuentas de Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
 
 ## Actualización desde DirSync
 Dependiendo de su implementación actual de DirSync, existen diferentes opciones para la actualización. Si el tiempo de actualización esperado es inferior a 3 horas, se recomienda realizar una actualización local. Si el tiempo de actualización esperado es superior a 3 horas, se recomienda realizar una implementación paralela en otro servidor. Se calcula que si tiene más de 50.000 objetos, tardará más de 3 horas en realizar la actualización.
 
-| Escenario | |
-| ---- | ---- |
-| [Actualización local](#in-place-upgrade) | Es la opción preferida si se espera que la actualización tarde menos de 3 horas. |
-| [Implementación paralela](#parallel-deployment) | Es la opción preferida si se espera que la actualización tarde más de 3 horas. |
+Escenario |  
+---- | ----
+[Actualización local](#in-place-upgrade) | Es la opción preferida si se espera que la actualización tarde menos de 3 horas.
+[Implementación paralela](#parallel-deployment) | Es la opción preferida si se espera que la actualización tarde más de 3 horas.
 
 >[AZURE.NOTE] Cuando planee la actualización de DirSync a Azure AD Connect, no desinstale DirSync antes de la actualización. Azure AD Connect leerá y migrará la configuración de DirSync y lo desinstalará después de inspeccionar el servidor.
 
@@ -199,4 +199,4 @@ Ahora que tiene instalado Azure AD Connect, puede [comprobar la instalación y a
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

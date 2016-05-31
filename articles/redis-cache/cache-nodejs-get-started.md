@@ -13,20 +13,21 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/09/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Node.js
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
 Caché en Redis de Azure le proporciona acceso a una caché en Redis segura y dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
 
-En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando Node.js. Para obtener otro ejemplo de uso de Caché en Redis de Azure con Node.js, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure][].
+En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando Node.js. Para obtener otro ejemplo de uso de Caché en Redis de Azure con Node.js, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
 
 
 ## Requisitos previos
@@ -39,35 +40,34 @@ Este tutorial usa [node\_redis](https://github.com/mranney/node_redis), pero pue
 
 ## Crear una caché de Redis en Azure
 
-En el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Recuperación del nombre de host y las claves de acceso
 
-Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.net`. Haga clic en **Crear**.
-
-  ![][2]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-  Cuando haya creado la caché, [acceda a ella](cache-configure.md#configure-redis-cache-settings) para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesita esto para autenticar solicitudes.
+## Habilitar el extremo no SSL
 
-  ![][4]
+Algunos clientes de Redis no son compatibles con SSL y, de forma predeterminada, el [puerto no SSL está deshabilitado para las nuevas instancias de Caché en Redis de Azure](cache-configure.md#access-ports). En el momento de redactar este artículo, el cliente de [node\_redis](https://github.com/mranney/node_redis) no es compatible con SSL.
 
-  ## Agregue algo a la memoria caché y recupérela.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-```js
-  var redis = require("redis");
 
-  // Add your cache name and access key.
-var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+## Agregar algo a la memoria caché y recuperarlo
 
-client.set("key1", "value", function(err, reply) {
-	    console.log(reply);
-	});
-
-client.get("key1",  function(err, reply) {
-	    console.log(reply);
-	});
-```
+	  var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+	
+	client.set("key1", "value", function(err, reply) {
+		    console.log(reply);
+		});
+	
+	client.get("key1",  function(err, reply) {
+		    console.log(reply);
+		});
 
 Salida:
 
@@ -80,13 +80,4 @@ Salida:
 - [Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché.
 - Lea la [documentación de Redis](http://redis.io/documentation) oficial.
 
-
-<!--Image references-->
-[1]: ./media/cache-nodejs-get-started/cache01.png
-[2]: ./media/cache-nodejs-get-started/cache02.png
-[3]: ./media/cache-nodejs-get-started/cache03.png
-[4]: ./media/cache-nodejs-get-started/cache04.png
-
-[Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->
