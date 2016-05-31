@@ -44,8 +44,8 @@ Si no ha utilizado la opción *-Force*, recibirá un mensaje para confirmar la e
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
-3. Haga clic en el nombre del grupo de recursos en la página de Essentials del clúster.
-4. Se abrirá la página **Resource Group Essentials** (Aspectos básicos del grupo de recursos).
+3. Haga clic en el nombre del grupo de recursos en la página de información básica del clúster.
+4. Se abrirá la página **Resource Group Essentials** (Información básica del grupo de recursos).
 5. Hacer clic en **Eliminar**.
 6. Siga las instrucciones que se indican en esa página para completar la eliminación del grupo de recursos.
 
@@ -66,7 +66,7 @@ Si ha implementado el clúster mediante el portal o por medio de una de las plan
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
-3. Vaya a **All settings** (Toda la configuración) en la hoja de aspectos básicos.
+3. Vaya a **All settings** (Toda la configuración) en la hoja de información básica.
 4. Haga clic en **Etiquetas** en **Administración de recursos** en la hoja de configuración.
 5. Haga clic en una de las **etiquetas** en la hoja de etiquetas para obtener una lista de todos los recursos con esa etiqueta.
 
