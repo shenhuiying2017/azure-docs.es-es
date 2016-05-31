@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Después de haber implementado la aplicación web, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. Application Insights enviará solicitudes web a intervalos regulares desde puntos de todo el mundo y puede alertarle si la aplicación responde lentamente o no responde en absoluto.
 
@@ -258,6 +261,28 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
     Configure el firewall para que permita las solicitudes de las direcciones IP de la lista que aparece al final de este artículo.
 
+* *Al cargar una prueba web de varios pasos, se produce un error*
+
+    Hay un límite de tamaño de 300 000.
+
+    No se admiten los bucles.
+
+    No se admiten referencias a otras pruebas web.
+
+    No se admiten orígenes de datos.
+
+    
+* *No se completa la prueba de varios pasos*
+
+    Hay un límite de 100 solicitudes por prueba.
+
+    La prueba se detendrá si se ejecuta durante más de dos minutos.
+
+* *¿Cómo se puede ejecutar una prueba con certificados de cliente?*
+
+    Lo sentimos, pero eso no está admitido.
+
+
 ## <a name="video"></a>Vídeo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -396,4 +421,4 @@ Abra los puertos 80 (http) y 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

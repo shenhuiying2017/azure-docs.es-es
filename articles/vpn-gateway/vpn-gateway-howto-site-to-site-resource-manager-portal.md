@@ -45,7 +45,7 @@ Si desea conectar las redes virtuales entre sí pero no está creando una conexi
 
 ## Antes de empezar
 
-Antes de comenzar con la configuración, compruebe que dispone de los elementos siguientes.
+Antes de comenzar con la configuración, compruebe que dispone de los elementos siguientes:
 
 - Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
 
@@ -56,7 +56,7 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 ### <a name="values"></a>Valores de configuración de ejemplo para este ejercicio
 
 
-Al usar estos pasos como un ejercicio, puede utilizar los siguientes valores de ejemplo.
+Si utiliza este procedimiento para practicar, puede usar también estos valores de configuración de ejemplo:
 
 - Nombre de red virtual: TestVNet1
 - Espacio de direcciones: 10.11.0.0/16 y 10.12.0.0/16
@@ -158,4 +158,4 @@ Puede comprobar la conexión de VPN en el portal, o bien mediante el uso de Powe
 
 - Para más información acerca de BGP, consulte [Información acerca de BGP](vpn-gateway-bgp-overview.md) y [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

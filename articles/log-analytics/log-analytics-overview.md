@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="¿Qué es Log Analytics? | Microsoft Azure"
    description="Log Analytics es un servicio de Operations Management Suite (OMS) que le ayuda a recopilar y analizar los datos operativos generados por los recursos en los entornos locales o de nube. En este artículo se proporciona una breve información general sobre los distintos componentes de Log Analytics, además de vínculos a contenido detallado."
    services="log-analytics"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/13/2016"
@@ -70,7 +70,7 @@ Cuando se [suscriba a Log Analytics](log-analytics-get-started.md), creará un �
 ## Pasos siguientes
 
 - [Suscríbase a una cuenta gratis de Log Analytics](log-analytics-get-started.md) para probar su propio entorno.
-- Vea los distintos [orígenes de datos](log-analytics-data-sources.md) disponibles para recopilar datos en el repositorio de OMS. 
-- [Examine las soluciones disponibles en la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad a Log Analytics. 
+- Vea los distintos [orígenes de datos](log-analytics-data-sources.md) disponibles para recopilar datos en el repositorio de OMS.
+- [Examine las soluciones disponibles en la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad a Log Analytics.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

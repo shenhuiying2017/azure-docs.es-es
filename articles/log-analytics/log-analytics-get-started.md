@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/11/2016"
 	ms.author="banders"/>
 
@@ -35,7 +35,7 @@ Eche un vistazo al proceso:
 - Necesita una suscripción de pago a Microsoft Azure para poder usar Log Analytics. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a cualquier servicio de Azure. O bien, puede crear una cuenta gratuita de OMS en el sitio web de [Operations Management Suite](http://microsoft.com/oms) y hacer clic en **Pruébelo gratis**.
 - Un área de trabajo de OMS.
 - Cada equipo de Windows desde el que desee recopilar datos debe ejecutar Windows Server 2008 SP1 o superior.
-- Acceso de [firewall](log-analytics-proxy-firewall) acceso a las direcciones del servicio web de OMS.
+- El [firewall](log-analytics-proxy-firewall.md) debe tener acceso a las direcciones del servicio web de OMS.
 - Un servidor [reenviador de Log Analytics de OMS](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (puerta de enlace) para reenviar el tráfico desde los servidores a OMS, si los equipos no disponen de acceso a Internet.
 - Si usa Operations Manager, Log Analytics admite Operations Manager 2012 SP1 UR6 y versiones superiores y Operations Manager 2012 R2 UR2 y versiones superiores. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3. Determine cómo se integrará con OMS.
 - Determine si los equipos tienen acceso directo a Internet. Si no es así, necesitan un servidor de puerta de enlace para tener acceso a los sitios del servicio web de OMS. Todo el acceso se produce a través de HTTPS.
@@ -131,4 +131,4 @@ Con Operations Management Suite puede buscar rápidamente registros de IIS y eve
 - Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 - Use los [paneles](log-analytics-dashboards.md) para guardar y mostrar sus propias búsquedas personalizadas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

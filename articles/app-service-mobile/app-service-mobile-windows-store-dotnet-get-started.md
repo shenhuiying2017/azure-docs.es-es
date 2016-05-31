@@ -56,7 +56,9 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 
 Una vez configurado el back-end de aplicación móvil, puede crear una nueva aplicación cliente o modificar una aplicación existente para conectarse a Azure. En esta sección, descargará un proyecto de plantilla de aplicación para UWP que se personaliza para conectarse al back-end de aplicación móvil.
 
-1. De nuevo en la hoja **Introducción** para el back-end de aplicación móvil, haga clic en **Crear una nueva aplicación** > **Descargar** y extraiga los archivos de proyecto comprimidos en el equipo local.
+1. De nuevo en la hoja **Inicio rápido** para el back-end de aplicación móvil, haga clic en **Crear una nueva aplicación** > **Descargar** y extraiga los archivos de proyecto comprimidos en el equipo local.
+
+	![Descargar el proyecto de inicio rápido de Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
 3. (Opcional) Agregue el proyecto de aplicación para UWP a la misma solución que el proyecto de servidor. Esto hace que sea más fácil depurar y probar la aplicación y el back-end en la misma solución de Visual Studio, si decide hacer esto. Para agregar un proyecto de aplicación para UWP a la solución, debe usar Visual Studio 2015 o una versión posterior.
 
@@ -64,13 +66,13 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 5. En la aplicación, escriba texto significativo, como *Realice el tutorial*, en el cuadro de texto **Insertar un TodoItem** y, a continuación, haga clic en **Guardar**.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+	![Inicio rápido de Windows completo - Escritorio](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
 	Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure.
 
 6. (Opcional) Detenga la aplicación y reiníciela en un dispositivo diferente o un emulador de dispositivos móviles.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
+	![Inicio rápido de Windows completo - Teléfono](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
 	Tenga en cuenta que los datos guardados en el paso anterior se cargan desde Azure después de que se inicie la aplicación para UWP.
 
@@ -78,7 +80,7 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 * [Incorporación de la autenticación a la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](app-service-mobile-windows-store-dotnet-get-started-push.md) Aprenda a agregara la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
+* [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](app-service-mobile-windows-store-dotnet-get-started-push.md) Aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
 
 * [Habilitar la sincronización sin conexión para su aplicación Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Obtenga información sobre cómo agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
 
@@ -87,6 +89,6 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

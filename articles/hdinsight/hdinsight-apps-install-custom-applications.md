@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Instalación de aplicaciones de HDInsight personalizadas
@@ -48,7 +48,7 @@ Los archivos necesarios para implementar esta aplicación (Hue):
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de ARM en el Portal de Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Este botón abre una plantilla de ARM en el Portal de Azure. La plantilla de ARM se encuentra en [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue). Para obtener información acerca de cómo escribir esta plantilla de ARM, consulte [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalar una aplicación de HDInsight).
     
@@ -65,7 +65,7 @@ Los archivos necesarios para implementar esta aplicación (Hue):
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de ARM en el Portal de Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Este botón abre una plantilla de ARM en el Portal de Azure. La plantilla de ARM que se usa en este tutorial se encuentra en un contenedor de blobs público, [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json). Para obtener información acerca de cómo escribir esta plantilla de ARM, consulte [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalar una aplicación de HDInsight).
 
@@ -86,14 +86,31 @@ El estado de la aplicación se puede comprobar en el Portal de Azure para valida
  
 ## Solución de problemas de instalación
 
-Consulte la sección [Solución de problemas](hdinsight-apps-install-applications.md#troubleshoot) de Instalación de aplicaciones de HDInsight.
+En el portal aparece una notificación donde puede comprobar el estado de la instalación de la aplicación (haga clic en el icono de campana que encontrará en la parte superior del portal).
 
+Si se produce algún error al instalar la aplicación, puede consultar los mensajes de error y la información de depuración en tres sitios:
+
+- Aplicaciones de HDInsight: información general sobre los errores.
+
+    Abra el clúster desde el portal y, en la hoja Configuración, haga clic en Aplicaciones:
+
+    ![error de instalación de aplicaciones de hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- Acción de script de HDInsight: si el mensaje de error de las aplicaciones de HDInsight indica que se produjo un error en una acción de script, aparecerán más datos sobre este error en el panel de acciones de script.
+
+    En la hoja Configuración, haga clic en Acciones de script. En el historial de acciones de script aparecen los mensajes de error.
+
+    ![error de acción de script de aplicaciones de hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Interfaz de usuario de la Web de Ambari: si el script de instalación fue la causa del error, utilice la interfaz de usuario de la Web de Ambari para consultar los registros completos de los scripts de instalación.
+
+    Para más información, consulte [Solución de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ## Pasos siguientes
 
-- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: instalar una aplicación de HDInsight): obtenga información acerca de cómo desarrollar plantillas de ARM para implementar aplicaciones de HDInsight.
-- [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md) (Publicar aplicaciones de HDInsight en Azure Marketplace): obtenga información acerca de cómo publicar aplicaciones de HDInsight personalizadas en Azure Marketplace.
-- [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md): obtenga información acerca de cómo usar una acción de script para instalar aplicaciones adicionales.
-- [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): obtenga información general acerca de cómo llamar a plantillas de ARM para crear clústeres de HDInsight.
+- [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: Instalación de una aplicación de HDInsight): aprenda a desarrollar plantillas de ARM para implementar aplicaciones de HDInsight.
+- [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md): aprenda a publicar aplicaciones de HDInsight personalizadas en Azure Marketplace.
+- [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
+- [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a invocar plantillas de ARM para crear clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -20,12 +20,12 @@
 # ¿Qué es Servicios de aplicaciones de Azure?
 Servicios de aplicaciones de Azure es el único servicio en la nube que integra todo lo que necesita para crear fácil y rápidamente aplicaciones web y móviles para cualquier plataforma o dispositivo. Diseñado para desarrolladores, el Servicio de aplicaciones es una plataforma totalmente administrada con características eficaces como DevOps integrados, integración continua con Visual Studio Team Services y GitHub, compatibilidad con entornos de producción y ensayo y aplicación de revisiones automática.
 
-Servicio de aplicaciones de Azure es un servicio único que incluye todas las funcionalidades de Sitios web de Azure, Servicios móviles de Azure y Servicios de Biztalk de Azure. Funciones de Azure es un ejemplo de las incorporaciones en curso al Servicio de aplicaciones que permite la próxima generación de aplicaciones.
+Servicios de aplicaciones de Azure es un servicio único que incluye todas las capacidades existentes de Sitios web de Azure, Servicios móviles de Azure y Servicios de Biztalk de Azure, a la vez que agrega nuevas capacidades. [Obtenga más información](https://azure.microsoft.com/documentation/services/app-service/) acerca de cómo Servicios de aplicaciones se relaciona estos servicios existentes.
 
 ## ¿Por qué Servicios de aplicaciones?
 Centrado en el desarrollo rápido de aplicaciones web y móviles, así como en la automatización de procesos empresariales, Servicios de aplicaciones de Azure proporciona un conjunto integrado de capacidades empresariales a través de una única experiencia de desarrollo y administración que le ofrece las siguientes ventajas:
 
-- **Creación de aplicaciones web y móviles rápidamente**: cree, implemente y administre Aplicaciones móviles y web rápidamente para los empleados o clientes que utilizan un único back-end. Use las capacidades de lenguajes existentes, como .NET, Java, NodeJS, PHP o Python. Acelere el desarrollo con acceso a una completa galería de API, conectores y lógica disponible en Azure Marketplace.
+- **Creación de aplicaciones web y móviles rápidamente**: cree, implemente y administre aplicaciones móviles y web rápidamente para los empleados o clientes con un único back-end. Use las capacidades de lenguajes existentes, como .NET, Java, NodeJS, PHP o Python. Acelere el desarrollo con acceso a una completa galería de API, conectores y lógica disponible en Azure Marketplace.
 
 - **Conexión a cualquier servicio y desbloqueo de los datos**: conecte su aplicación web o móvil a sistemas empresariales o SaaS en cuestión de minutos con los conectores incorporados. Elija entre más de 50 conectores para sistemas empresariales, como SAP, Siebel y Oracle, servicios de SaaS empresariales conocidos como Salesforce y Office 365 y servicios de Internet populares, como Facebook, Twitter y Dropbox.
 
@@ -44,7 +44,6 @@ Servicios de aplicaciones le permite crear los siguientes tipos de aplicaciones 
 - [**Aplicaciones web**](../app-service-web/app-service-web-overview.md): cree e implemente rápidamente aplicaciones web críticas que se escalan con su empresa.
 - [**Aplicaciones móviles**](../app-service-mobile/app-service-mobile-value-prop.md): póngase en contacto con empleados, socios y clientes en cualquier dispositivo en cualquier momento.
 - [**Aplicaciones de API**](../app-service-api/app-service-api-apps-why-best-platform.md): cree y consuma API en la nube con facilidad.
-- [**Contenedor de funciones**](../azure-functions/functions-overview.md): cree funciones ligeras que respondan a eventos en Azure, en entornos locales y en los proveedores de SaaS.
 - [**Lógica de aplicaciones**](../app-service-logic/app-service-logic-what-are-logic-apps.md): automatice el acceso y el uso de datos a través de nubes sin escribir código.
 
 En cuanto servicio integrado único, el Servicio de aplicaciones facilita la creación de los tipos de aplicaciones anteriores en una única solución, lo que le permite crear fácilmente aplicaciones destinadas a web y clientes móviles usando el mismo back-end y realizando la integración con sistemas locales, así como con servicios conocidos, como Office 365 y salesforce.com.
@@ -60,4 +59,4 @@ Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 [Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

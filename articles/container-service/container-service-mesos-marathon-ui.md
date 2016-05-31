@@ -24,8 +24,8 @@ DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupa
 
 Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas, en este documento se detalla cómo crear y escalar implementaciones de contenedores con Marathon. Antes de trabajar con estos ejemplos, necesitará un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
 
-- [Implementación de un clúster del servicio Contenedor de Azure](./container-service-deployment.md)
-- [Conexión a un clúster del servicio Contenedor de Azure](./container-service-connect.md)
+- [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md)
+- [Conexión a un clúster del servicio Contenedor de Azure](container-service-connect.md)
 
 ## Exploración de la interfaz de usuario de DC/OS
 
@@ -95,6 +95,6 @@ Una vez que se completa la operación de escalado, verá varias instancias de la
 
 ## Pasos siguientes
 
-[Trabajo con la API de DC/OS y Marathon](./container-service-mesos-marathon-rest.md)
+[Trabajo con la API de DC/OS y Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -262,7 +262,7 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 ### Adición de partitionweblogs.hql e input.log como una dependencia 
 
 1. Haga clic con el botón derecho en **Dependencias** en la ventana del **Explorador de soluciones**, seleccione **Agregar** y haga clic en **Elemento existente**.  
-2. Navegue hasta **C:\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
+2. Navegue hasta **C:\\ADFGettingStarted**, seleccione los archivos **partitionweblogs.hql** e **input.log** y haga clic en **Agregar**. Se crearon estos dos archivos como parte de los requisitos previos de la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md).
 
 Al publicar la solución en el paso siguiente, se carga el archivo **partitionweblogs.hql** en la carpeta de scripts del contenedor de blobs **adfgetstarted**.
 
@@ -279,8 +279,6 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 	2. Escriba **FirstDataFactoryUsingVS** como **nombre**. 
 	
 		> [AZURE.IMPORTANT] El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre "FirstDataFactoryUsingVS" de la factoría de datos no está disponible** al realizar la publicación, cambie el nombre (por ejemplo, a suNombreFirstDataFactoryUsingVS). Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
-		> 
-		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 	3. Seleccione la suscripción correcta en el campo **Suscripción**. 
 	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 
 	5. Seleccione la **Región** de la factoría de datos. 
@@ -289,22 +287,26 @@ Al publicar la solución en el paso siguiente, se carga el archivo **partitionwe
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
 
-Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes y pruebe a publicarlo de nuevo:
+Tenga en cuenta lo siguiente:
 
-- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
+- Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
+
+	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
+		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 	
-		Get-AzureRmResourceProvider
-- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y navegue a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+			Get-AzureRmResourceProvider
+	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+- 	El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+- 	Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 
  
-## Supervisión de canalizaciones
+## Supervisión de la canalización
 
 6. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) y realice lo siguiente:
-	1. Haga clic en **Examinar** y seleccione **Factorías de datos**.
+	1. Haga clic en **Examinar** y seleccione **Factorías de datos**. 
 		![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Seleccione **FirstDataFactoryUsingVS** en la lista de factorías de datos. 
 7. En la página principal de la factoría de datos, haga clic en **Diagrama**.
@@ -339,7 +341,7 @@ Si recibe el error: "**La suscripción no está registrada para usar el espacio 
 
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
-También puede supervisar y administrar la aplicación para supervisar las canalizaciones de datos. Para más información acerca del uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
+También puede supervisar y administrar la aplicación para supervisar las canalizaciones de datos. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 > [AZURE.IMPORTANT] El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta inputdata del contenedor adfgetstarted.
  
@@ -365,7 +367,7 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 ## Uso de archivos de configuración
 Puede usar archivos de configuración de Visual Studio para configurar propiedades para servicios vinculados/tablas/canalizaciones distintos para cada entorno.
 
-Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, prueba y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
+Considere la siguiente definición de JSON para un servicio vinculado de Almacenamiento de Azure. Con ella, podrá especificar la propiedad **connectionString** con distintos valores para accountname y accountkey basados en el entorno (desarrollo, pruebas y producción) en el que va a implementar las entidades de Data Factory. Puede hacerlo usando el archivo de configuración independiente para cada entorno.
 
 	{
 	    "name": "StorageLinkedService",
@@ -453,7 +455,7 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 
 1. Haga clic con el botón derecho en el proyecto de Data Factory y haga clic en **Publicar** para ver el cuadro de diálogo **Publish Items** (Publicar elementos). 
 2. Seleccione una instancia de Data Factory existente o especifique los valores necesarios para crear una en la página **Configure data factory** (Configurar Data Factory) y haga clic en **Siguiente**.   
-3. En la página **Publish Items** (Publicar elementos), verá una listo desplegable con las configuraciones disponibles para el campo **Select Deployment Config** (Seleccionar configuración de implementación).
+3. En la página **Publish Items** (Publicar elementos), verá una lista desplegable con las configuraciones disponibles para el campo **Select Deployment Config** (Seleccionar configuración de implementación).
 
 	![Selección de archivo de configuración](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
@@ -463,8 +465,27 @@ Para publicar entidades en un proyecto de Factoría de datos de Azure mediante e
 
 Cuando realiza la implementación, se usan los valores del archivo de configuración para establecer los valores de las propiedades de los archivos JSON para entidades de Factoría de datos (servicios vinculados, tablas o canalizaciones) antes de que las entidades se implementen en el servicio Factoría de datos de Azure.
 
+## Resumen 
+En este tutorial, ha creado una instancia de Data Factory de Azure para procesar datos mediante la ejecución de un script de Hive en un clúster de Hadoop en HDInsight. Ha usado el Editor de Data Factory en el Portal de Azure para llevar a cabo los siguientes pasos:
+
+1.	Ha creado una **factoría de datos** de Azure.
+2.	Ha creado dos **servicios vinculados**:
+	1.	El servicio vinculado **Almacenamiento de Azure** para vincular el almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
+	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida. 
+3.	Ha creado dos **conjuntos de datos** que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización. 
+4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**.  
+
+
 ## Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
+## Otras referencias
+| Tema. | Descripción |
+| :---- | :---- |
+| [Transformación y análisis con Data Factory de Azure](data-factory-data-transformation-activities.md) | En este artículo se proporciona una lista de actividades de transformación de datos (por ejemplo, la transformación de Hive para HDInsight usada en este tutorial), que se admiten en Data Factory de Azure. | 
+| [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) | En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
+| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. |
+| [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayudará a comprender los conjuntos de datos en Factoría de datos de Azure.
+| [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

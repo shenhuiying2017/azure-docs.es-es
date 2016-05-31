@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -63,4 +63,4 @@ Si tiene pensado habilitar CRM Online en ExpressRoute, revise los siguientes doc
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

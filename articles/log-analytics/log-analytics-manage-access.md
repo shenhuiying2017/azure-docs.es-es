@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -41,17 +41,17 @@ Es posible crear varias áreas de trabajo de Log Analytics de OMS; asimismo, los
 
 En la actualidad, un área de trabajo de Log Analytics proporciona lo siguiente:
 
-- Una ubicación geográfica para almacenar los datos 
-- Granularidad para la facturación 
-- Aislamiento de datos 
+- Una ubicación geográfica para almacenar los datos
+- Granularidad para la facturación
+- Aislamiento de datos
 
 Dadas estas características, podría ser interesante crear varias áreas de trabajo en los siguientes casos:
 
-- Una empresa internacional que necesita almacenar los datos almacenados en regiones específicas por motivos de soberanía de datos o cumplimiento normativo. 
+- Una empresa internacional que necesita almacenar los datos almacenados en regiones específicas por motivos de soberanía de datos o cumplimiento normativo.
 - Un usuario de Azure que desea evitar los gastos de transferencia de datos de salida manteniendo un área de trabajo de Log Analytics en la misma región que los recursos de Azure que esta administra.
 - Si se desea asignar los gastos a diferentes departamentos o grupos empresariales en función del uso que hagan. Al crear un área de trabajo para cada departamento o grupo empresarial, la factura y la declaración de uso de Azure reflejarán los cargos de cada área de trabajo de manera independiente.
-- Un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente. 
-- Si se administran varios clientes y se desea que cada cliente, departamento o grupo empresarial vea sus propios datos, pero no los datos de otros clientes, departamentos o grupos empresariales. 
+- Un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente.
+- Si se administran varios clientes y se desea que cada cliente, departamento o grupo empresarial vea sus propios datos, pero no los datos de otros clientes, departamentos o grupos empresariales.
 
 Cuando se utilizan agentes para recopilar datos, es posible configurar cada agente para que informe al área de trabajo especificada.
 
@@ -246,4 +246,4 @@ Si es administrador, y hay varios usuarios asociados con el área de trabajo, se
 - Consulte [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar información.
 - Consulte [Configuración del proxy y del firewall (opcional) en Log Analytics](log-analytics-proxy-firewall.md) si la organización utiliza un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

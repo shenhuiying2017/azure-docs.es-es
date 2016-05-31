@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio
@@ -68,7 +68,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService1** y
 
 ### Cree el servicio vinculado SQL de Azure.
 
-5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados ** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
+5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**. 
 6. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**. 
 7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres del servidor de SQL Azure, la base de datos, la cuenta de usuario y la contraseña.
 8.  Guarde el archivo **AzureSqlLinkedService1.json**. 
@@ -210,9 +210,8 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 	
 		> [AZURE.NOTE]  
 		El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
-		> 
-		> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
-	3. Seleccione la suscripción correcta en el campo **Suscripción**. 
+		
+	3. Seleccione la suscripción correcta en el campo **Suscripción**.
 	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 
 	5. Seleccione la **Región** de la factoría de datos. 
 	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. 
@@ -220,16 +219,30 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
 
-Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes y pruebe a publicarlo de nuevo:
+Tenga en cuenta lo siguiente:
 
-- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
+- Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
+
+	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
+		Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
 	
-		Get-AzureRmResourceProvider
-- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y navegue a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+			Get-AzureRmResourceProvider
+	- Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Este procedimiento registra automáticamente el proveedor.
+- 	El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+- 	Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
+
+## Resumen
+En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos SQL de Azure. Ha usado Visual Studio para crear la factoría de datos, los servicios vinculados, los conjuntos de datos y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:
+
+1.	Ha creado una **factoría de datos** de Azure.
+2.	Ha creado **servicios vinculados**.
+	1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada. 	
+	2. Un servicio vinculado **SQL Azure** para vincular la base de datos SQL de Azure que contiene los datos de salida. 
+3.	Ha creado **tablas** que describen los datos de entrada y salida para las canalizaciones.
+4.	Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**. 
 
 
 ## Uso del Explorador de servidores para ver las entidades de Data Factory
@@ -250,6 +263,12 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-get-started-using-editor.md#monitor-pipeline) para obtener instrucciones sobre cómo usar el Portal de Azure para supervisar la canalización y los conjuntos de datos creados en este tutorial.
 
 ## Otras referencias
-Para más información acerca de la **actividad de copia** en Data Factory de Azure, consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
+| Tema. | Descripción |
+| :---- | :---- |
+| [Actividades de movimiento de datos](data-factory-data-movement-activities.md) | En este artículo se proporciona información detallada sobre la actividad de copia que se usa en el tutorial. |
+| [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) | En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
+| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. |
+| [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayudará a comprender los conjuntos de datos en Factoría de datos de Azure.
+| [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

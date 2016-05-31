@@ -22,7 +22,7 @@
 # Tutorial de Base de datos SQL: conexión de Excel a una Base de datos SQL de Azure y creación de un informe
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
@@ -83,4 +83,4 @@ Ahora que ha establecido la conexión y ha creado el archivo con la información
 - Más información sobre las ventajas de los [grupos elásticos](sql-database-elastic-pool.md).
 - Más información en [Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->
