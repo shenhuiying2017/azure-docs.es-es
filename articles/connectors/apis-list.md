@@ -36,7 +36,8 @@ Seleccione un icono para aprender a aprovechar rápidamente estos conectores a f
 |[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icono de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icono de API][rssicon]<br/>**RSS**][rssdoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
 |[![Icono de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
 |[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icono de API][trelloicon]<br/>**Trello**][trellodoc]|
-[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
+[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
+[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] Si ha creado aplicaciones lógicas con el esquema 2014-12-01-preview, observará que los conectores de integración de empresas, como las de BizTalk, no se han enumerado. Sabemos que son importantes y trabajamos mucho para pueda disponer de ellas pronto. Aunque aún no se conoce la fecha en que estarán disponibles, debe saber que una de nuestras principales prioridades es que lleguen a los usuarios. Entretanto, puede acceder a sus [API v1 y a las API de BizTalk desde Aplicaciones lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Gracias por su comprensión. Permanezca atento.
 
@@ -54,7 +55,10 @@ Existen dos tipos de desencadenadores:
 Los conectores también pueden utilizarse como acciones dentro de las aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por los conectores. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
 
 
-[Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) [Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)
+[Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
+[Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)  
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."

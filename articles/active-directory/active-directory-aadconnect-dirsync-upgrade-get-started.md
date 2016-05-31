@@ -16,7 +16,7 @@
    ms.date="05/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
-# Azure AD Connect: actualización de Windows Azure Active Directory Sync (DirSync)
+# Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)
 
 La siguiente documentación le ayudará a actualizar la instalación existente de DirSync con Azure AD Connect
 
