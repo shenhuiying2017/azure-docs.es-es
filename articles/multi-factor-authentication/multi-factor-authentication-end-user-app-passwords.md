@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 
@@ -129,4 +129,4 @@ Si utiliza la autenticación multifactor con Azure, le interesará crear contras
 5. Para confirmar la eliminación, haga clic en **Sí**.
 6. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**. ![Cerrar](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

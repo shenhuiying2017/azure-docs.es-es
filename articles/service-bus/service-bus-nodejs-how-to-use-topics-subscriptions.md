@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -119,7 +119,7 @@ Después de realizar el preprocesamiento en las opciones de solicitud, el métod
 function (returnObject, finalCallback, next)
 ```
 
-En esta devolución de llamada y después de procesar returnObject (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a next, si existe, para continuar procesando otros filtros, o bien simplemente invocar a finalCallback para finalizar la invocación del servicio.
+En esta devolución de llamada y después de procesar **returnObject** (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a next, si existe, para continuar procesando otros filtros, o bien simplemente invocar a **finalCallback** para finalizar la invocación del servicio.
 
 Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Azure para Node.js: **ExponentialRetryPolicyFilter** y **LinearRetryPolicyFilter**. Con el siguiente código se crea un objeto **ServiceBusService** que utiliza el filtro **ExponentialRetryPolicyFilter**:
 
@@ -317,7 +317,7 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -   Visite el repositorio del [SDK de Azure para Node][] en GitHub.
 
   [SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
-  [Portal de Azure clásico]: http://manage.windowsazure.com
+  [Portal de Azure clásico]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

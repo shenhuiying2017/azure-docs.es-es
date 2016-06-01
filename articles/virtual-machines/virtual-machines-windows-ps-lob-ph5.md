@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -120,4 +120,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 - Ver estas [directrices](virtual-machines-linux-infrastructure-service-guidelines.md) si implementa su propia carga de trabajo de TI en Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

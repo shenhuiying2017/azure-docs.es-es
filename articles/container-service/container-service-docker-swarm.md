@@ -24,9 +24,9 @@ Docker Swarm proporciona un entorno para implementar cargas de trabajo en conten
 
 Requisitos previos para los ejercicios de este documento:
 
-[Crear un clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](./container-service-deployment.md)
+[Crear un clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](container-service-deployment.md)
 
-[Conectar con el clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](./container-service-connect.md)
+[Conectar con el clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](container-service-connect.md)
 
 ## Implementación de un contenedor nuevo
 
@@ -119,4 +119,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 [Más información acerca de Docker Swarm](https://docs.docker.com/swarm/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

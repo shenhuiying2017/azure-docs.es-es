@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -170,7 +170,7 @@ Podemos usar `sqlContext` para realizar las transformaciones de datos estructura
 1. Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos. Por ejemplo, ¿cuáles son los diferentes valores en la columna **results**?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	Debe ver algo parecido a lo siguiente:
@@ -412,4 +412,4 @@ Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para l
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

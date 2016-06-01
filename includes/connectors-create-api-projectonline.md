@@ -1,15 +1,11 @@
-### Prerequisites
-- A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) account 
+### Requisitos previos
+- Una cuenta de [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) 
 
-Before you can use your ProjectOnline account in a Logic app, you must authorize the Logic app to connect to your ProjectOnline account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Para poder usar su cuenta de ProjectOnline en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure.
 
-Here are the steps to authorize your Logic app to connect to your ProjectOnline account:
+Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de ProjectOnline:
 
-1. To create a connection to ProjectOnline, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *ProjectOnline* in the search box. Select the trigger or action you'll like to use:  
-  ![ProjectOnline step 1](./media/connectors-create-api-projectonline/projectonline-1.png)
-2. If you haven't created any connections to ProjectOnline before, you'll get prompted to provide your ProjectOnline credentials. These credentials will be used to authorize your Logic app to connect to, and access your ProjectOnline account's data:  
-  ![ProjectOnline step 2](./media/connectors-create-api-projectonline/projectonline-2.png)
-3. Provide your ProjectOnline user name and password to authorize your Logic app:  
-  ![ProjectOnline step 3](./media/connectors-create-api-projectonline/projectonline-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![ProjectOnline step 4](./media/connectors-create-api-projectonline/projectonline-4.png)   
+1. Para crear una conexión a ProjectOnline, en el diseñador de aplicaciones lógicas, seleccione **Show Microsoft managed APIs** (Mostrar API administradas por Microsoft) en la lista desplegable y, luego, escriba *ProjectOnline* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar: ![ProjectOnline, paso 1](./media/connectors-create-api-projectonline/projectonline-1.png)
+2. Si no ha creado ninguna conexión a ProjectOnline antes, se le pedirá que indique sus credenciales de ProjectOnline. Estas credenciales se usarán para autorizar a la aplicación lógica para conectarse y tener acceso a los datos de su cuenta de ProjectOnline: ![ProjectOnline, paso 2](./media/connectors-create-api-projectonline/projectonline-2.png)
+3. Indique su nombre de usuario y contraseña de ProjectOnline para autorizar a la aplicación lógica: ![ProjectOnline, paso 3](./media/connectors-create-api-projectonline/projectonline-3.png)   
+4. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica: ![ProjectOnline, paso 4](./media/connectors-create-api-projectonline/projectonline-4.png)   

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma" />
 
 # Implementación de aplicaciones con paquetes de aplicación de Lote de Azure
@@ -56,13 +56,15 @@ Lote controla los detalles del trabajo con Almacenamiento de Azure en segundo pl
 
 ## Carga y administración de aplicaciones
 
-Mediante el Portal de Azure es posible agregar, actualizar y eliminar paquetes de aplicación, así como configurar versiones predeterminadas para cada aplicación. Actualmente, estas operaciones solo se admiten en el Portal de Azure.
+Mediante el Portal de Azure es posible agregar, actualizar y eliminar paquetes de aplicación, así como configurar versiones predeterminadas para cada aplicación.
 
 En las próximas secciones, se tratará en primer lugar la asociación de una cuenta de Almacenamiento con su cuenta de Lote y luego se revisarán las características de administración de paquetes disponibles en el Portal de Azure. Después, aprenderá a implementar dichos paquetes en nodos de proceso mediante la biblioteca [.NET de Lote][api_net].
 
 ### Vínculo a una cuenta de Almacenamiento
 
 Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Almacenamiento de Azure a su cuenta de Lote. Si aún no ha configurado ninguna cuenta de Almacenamiento para su cuenta de Lote, el Portal de Azure mostrará una advertencia la primera vez que haga clic en el icono *Aplicaciones* en la hoja Cuenta de Lote.
+
+> [AZURE.IMPORTANT] Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento **Uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Cuando vincula una cuenta de Almacenamiento de Azure a su cuenta de Lote, *solo* se vincula una cuenta de almacenamiento **de uso general**.
 
 ![Advertencia de que no hay cuentas de almacenamiento almacenadas en el Portal de Azure][9]
 
@@ -111,29 +113,6 @@ Haga clic en **Agregar** en la hoja *Aplicaciones* para abrir la hoja *Nueva apl
 ![Hoja Nueva aplicación en el Portal de Azure][5]
 
 La hoja *Nueva aplicación* proporciona los siguientes campos para especificar la configuración de la nueva aplicación y del paquete de aplicación.
-
-**Metadatos**
-
-Los metadatos de la aplicación se pueden proporcionar manualmente, para lo que es preciso especificar los valores directamente en los cuadros de texto **Id. de la aplicación** y **Versión**, o bien puede cargar un archivo JSON que contenga estos metadatos. Para especificar el identificador de la aplicación y la versión manualmente, simplemente deje el selector desplegable **Metadatos** en **Escribir metadatos** (el valor predeterminado) y especifique manualmente los valores en los cuadros de texto **Id. de la aplicación** y **Versión**.
-
-Para especificar un archivo de metadatos con formato JSON que contenga el identificador y la versión de un paquete, seleccione **Cargar archivo de metadatos** en el selector desplegable **Metadatos**:
-
-![Selector desplegable de carga de archivo de metadatos][6]
-
-Luego, haga clic en el icono de carpeta que hay junto al cuadro de texto **Archivo de metadatos** que aparece y busque el archivo local que contiene los datos JSON. En este ejemplo, el archivo `litware_1.1001.2b.json` se ha seleccionado para la carga y los cuadros de texto **Id. de la aplicación** y **Versión** se han rellenado automáticamente con la información del archivo:
-
-![Detalle de selección de archivo de metadatos][13]
-
-Utilice el siguiente formato JSON para especificar los metadatos del paquete de aplicación en un archivo:
-
-```
-{
-    "id": "litware",
-    "version": "1.1001.2b"
-}
-```
-
-> [AZURE.NOTE] Si carga un archivo de metadatos JSON para el identificador y la versión, *no* será preciso que edite los cuadros de texto "Id. de la aplicación" o "Versión" (se rellenan automáticamente con los datos del archivo JSON).
 
 **Id. de la aplicación**
 
@@ -223,7 +202,7 @@ Cuando cada nodo de proceso se une a un grupo (o se reinicia o su imagen inicial
 
 `AZ_BATCH_APP_PACKAGE_appid#version`
 
-Por ejemplo, si especifica que se instale la versión 2.7 de aplicación *blender*, las tareas podrán acceder a sus archivos binarios haciendo referencia a la siguiente variable de entorno en sus líneas de comandos:
+Por ejemplo, si especifica que se instale la versión 2.7 de la aplicación *blender*, las tareas podrán acceder a sus archivos binarios haciendo referencia a la siguiente variable de entorno en sus líneas de comandos:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
@@ -231,7 +210,7 @@ Si la aplicación especifica una versión predeterminada, puede hacer referencia
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-El siguiente fragmento de código muestra cómo se puede configurar una tarea cuando se ha especificado una versión predeterminada para el aplicación *blender*.
+El siguiente fragmento de código muestra cómo se puede configurar una tarea cuando se ha especificado una versión predeterminada para la aplicación *blender*.
 
 ```csharp
 string taskId = "blendertask01";
@@ -239,7 +218,7 @@ string commandLine = @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -my -co
 CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
-> [AZURE.TIP] Para obtener más información sobre la configuración del entorno del nodo de proceso, consulte el apartado "Configuración del entorno para las tareas" de [Información general de las características de Lote](batch-api-basics.md).
+> [AZURE.TIP] Para más información sobre la configuración del entorno del nodo de proceso, consulte el apartado "Configuración del entorno para las tareas" de [Información general de las características de Lote](batch-api-basics.md).
 
 ## Actualización de los paquetes de aplicación de un grupo
 
@@ -285,13 +264,14 @@ Con los paquetes de aplicaciones le resultará más fácil proporcionar a los cl
 
 ## Pasos siguientes
 
-* La [API de REST de Lote][api_rest] también proporciona compatibilidad con el trabajo con paquetes de aplicación. Por ejemplo, consulte el elemento [applicationPackageReferences][rest_add_pool_with_packages] en [Adición de un grupo a una cuenta][rest_add_pool] para especificar los paquetes que se instalan con la API de REST. Para obtener más información sobre cómo obtener información de las aplicaciones mediante la API de REST de Lote, consulte [Aplicaciones][rest_applications].
+* La [API de REST de Lote][api_rest] también proporciona compatibilidad para trabajar con paquetes de aplicación. Por ejemplo, consulte el elemento [applicationPackageReferences][rest_add_pool_with_packages] en [Adición de un grupo a una cuenta][rest_add_pool] para especificar los paquetes que se instalan con la API de REST. Para más información acerca de cómo obtener información de las aplicaciones mediante la API de REST de Lote, consulte [Aplicaciones][rest_applications].
 
 * Aprenda a [administrar mediante programación cuentas y cuotas de Lote de Azure con la biblioteca .NET de Administración de Lote](batch-management-dotnet.md). La biblioteca [.NET de Administración de Lote][api_net_mgmt] puede habilitar las características de creación y eliminación de cuentas de una aplicación o servicio de Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.aspx
@@ -308,13 +288,11 @@ Con los paquetes de aplicaciones le resultará más fácil proporcionar a los cl
 [3]: ./media/batch-application-packages/app_pkg_03.png "Hoja Aplicaciones en el Portal de Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Hoja Detalles de aplicación en el Portal de Azure"
 [5]: ./media/batch-application-packages/app_pkg_05.png "Hoja Nueva aplicación en el Portal de Azure"
-[6]: ./media/batch-application-packages/app_pkg_06.png "Selector desplegable de carga de archivo de metadatos"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Lista desplegable Actualizar o eliminar paquetes en el Portal de Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Hoja Paquete de aplicación nuevo en el Portal de Azure"
 [9]: ./media/batch-application-packages/app_pkg_09.png "Alerta de cuenta de almacenamiento vinculada"
 [10]: ./media/batch-application-packages/app_pkg_10.png "Hoja Elegir de cuenta de almacenamiento en el Portal de Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Hoja Actualizar paquete en el Portal de Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Cuadro de diálogo de confirmación de eliminación de paquetes en el Portal de Azure"
-[13]: ./media/batch-application-packages/app_pkg_13.png "Detalle de selección de archivo de metadatos"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

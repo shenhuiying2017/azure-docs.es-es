@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 
@@ -30,14 +30,14 @@ Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hy
 
 ```AIQL
 
-    requests 
-    | where timestamp > ago(30d) and client_City == "Hyderabad"
+    requests      // Table of events that log HTTP requests.
+    | where timestamp > ago(7d) and client_City == "Hyderabad"
     | summarize clients = dcount(client_IP) 
       by tod_UTC=bin(timestamp % 1d, 1h), resultCode
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-Contamos direcciones IP de cliente únicas agrupándolas por la hora del día durante los últimos 30 días.
+Contamos direcciones IP de cliente únicas agrupándolas por la hora del día durante los últimos 7 días.
 
 Vamos a mostrar los resultados con la presentación de gráficos de barras y con la opción de apilar los resultados de distintos códigos de respuesta:
 
@@ -53,15 +53,15 @@ También hay operaciones estadísticas potentes:
 
 El lenguaje tiene muchas características atractivas:
 
-* [Filtre](app-insights-analytics-queries.md) la telemetría de aplicaciones por cualquier campo, como las métricas y las propiedades personalizadas.
-* [Una](app-insights-analytics-queries.md#join-operator) varias tablas: correlacione las solicitudes con las vistas de página, las llamadas de dependencia, las excepciones y los seguimiento de registros.
-* [Agregaciones](app-insights-analytics-aggregations.md) estadísticas de gran eficacia.
+* [Filtre](app-insights-analytics-reference.md#where-operator) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
+* [Una](app-insights-analytics-reference.md#join-operator) varias tablas: ponga en correlación las solicitudes con las vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
+* [Agregaciones](app-insights-analytics-reference.md#aggregations) estadísticas de gran eficacia.
 * Son tan eficaces como SQL, pero mucho más fáciles de usar para las consultas complejas: en lugar de anidar instrucciones, canaliza los datos de una operación básica a la siguiente.
 * Visualizaciones inmediatas y potentes.
 
 
 
->[AZURE.NOTE] Se recomienda empezar haciendo un [recorrido por el lenguaje](app-insights-analytics-tour.md).
+>[AZURE.NOTE] Se recomienda empezar por la [introducción al lenguaje](app-insights-analytics-tour.md).
 
 
 
@@ -82,4 +82,4 @@ En la actualidad, los resultados de consulta están limitados exclusivamente a s
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

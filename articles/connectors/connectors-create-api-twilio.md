@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introducción a la API de Twilio
@@ -47,9 +47,10 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores Twilio 
 |Id. de cuenta|Sí|Escriba el identificador de cuenta de Twilio|
 |Token de acceso|Sí|Escriba el token de acceso de Twilio|
 
-Consulte [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para crear un token de acceso.
+>[AZURE.INCLUDE [Pasos para crear una conexión a Twilio](../../includes/connectors-create-api-twilio.md)]
 
-Después de crear la conexión, escriba las propiedades de Twilio. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+Si no ve ninguna, consulte [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para crear un token de acceso.
+
 
 >[AZURE.TIP] Puede usar esta misma conexión de Twilio en otras aplicaciones lógicas.
 
@@ -57,7 +58,7 @@ Después de crear la conexión, escriba las propiedades de Twilio. En la **refer
 #### Esta documentación corresponde a la versión: 1.0
 
 ### Obtener mensaje
-Devuelve un único mensaje que queda especificado mediante el identificador de mensaje proporcionado. ```GET: /Messages/{MessageId}.json```
+Devuelve un único mensaje especificado mediante el identificador de mensaje proporcionado. ```GET: /Messages/{MessageId}.json```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -247,4 +248,4 @@ Envía un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.jso
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

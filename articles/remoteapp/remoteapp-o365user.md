@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/08/2016" 
+    ms.date="05/13/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Siga las instrucciones descritas en [Cambio del inquilino de Azure Active Direct
 
 En este momento, su suscripción de Azure RemoteApp está asociada al Office 365 Azure AD. Puede usar las cuentas de usuario existentes de Office 365 con Azure Remote App.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

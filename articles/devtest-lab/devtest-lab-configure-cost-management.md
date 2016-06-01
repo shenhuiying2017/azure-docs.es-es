@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configure cost management (Configuración de la administración de costos) | Microsoft Azure"
-	description="Aprenda a configurar las características de administración de costos de Laboratorios de desarrollo y pruebas."
+	description="Aprenda a configurar las características de administración de costos de DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Configure cost management (Configuración de la administración de costos)
@@ -26,7 +26,7 @@ La característica de administración de costos de Laboratorios de desarrollo y 
 
 Para habilitar el gráfico Tendencia de costos estimados mensuales (Tendencia de costos estimados mensuales), siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -68,4 +68,4 @@ Vea algunas acciones que puede probar a continuación:
 - [Configuración de valores de imágenes de Azure Marketplace en un laboratorio de desarrollo y pruebas](./devtest-lab-configure-marketplace-images.md): Laboratorios de desarrollo y pruebas admite la creación de máquinas virtuales a partir de imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

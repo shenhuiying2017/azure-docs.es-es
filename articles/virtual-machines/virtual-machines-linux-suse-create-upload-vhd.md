@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
 
 # Preparación de una máquina virtual SLES u openSUSE para Azure
@@ -34,18 +34,20 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 - Como alternativa a la creación de su propio VHD, SUSE también publica imágenes de BYOS (“Bring Your Own Subscription” en inglés o aporte su propia suscripción) para SLES en [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
 
-**Notas sobre la instalación de SLES/openSUSE**
+### Notas sobre la instalación de SLES/openSUSE
 
-- El formato VHDX no se admite en Azure, solo el **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+- Consulte también [Notas generales sobre la instalación de Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) para obtener más consejos sobre la preparación de Linux para Azure.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
 
 - No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## Preparación de SUSE Linux Enterprise Server 11 SP3 ##
+## Preparación de SUSE Linux Enterprise Server 11 SP4 ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -61,24 +63,53 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 		# sudo zypper install WALinuxAgent
 
-6. Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/boot/grub/menu.lst" en un editor de texto y asegúrese de que el kernel predeterminado incluye los parámetros siguientes:
+6. Compruebe si waagent está establecido en "on" en chkconfig y, en caso contrario, puede habilitarlo para que se inicie automáticamente:
+               
+		# sudo chkconfig waagent on
+
+7. Compruebe si el servicio waagent se está ejecutando y, en caso contrario, inícielo:
+
+		# sudo service waagent start
+                
+8. Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/boot/grub/menu.lst" en un editor de texto y asegúrese de que el kernel predeterminado incluye los parámetros siguientes:
 
 		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
 	Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores.
 
-7.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro `DHCLIENT_SET_HOSTNAME` por lo siguiente:
+9. Confirme que tanto /boot/grub/menu.lst como /etc/fstab hacen referencia a su UUID (by-uuid) en lugar de al identificador del disco (by-id).
+
+	Obtención del UUID del disco
+	
+		# ls /dev/disk/by-uuid/
+
+	Si se usa /dev/disk/by-id/, actualice /boot/grub/menu.lst y /etc/fstab con el valor by-uuid adecuado.
+
+	Antes del cambio
+	
+		root=/dev/disk/bi-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
+
+	Después del cambio
+	
+		root=/dev/disk/bi-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+10. Modifique las reglas udev a fin de impedir que se generen reglas estáticas para las interfaces Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
+
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+
+11.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro `DHCLIENT_SET_HOSTNAME` por lo siguiente:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
-8.	En "/etc/sudoers", convierta en comentario o quite las líneas siguientes, si existen:
+12.	En "/etc/sudoers", convierta en comentario o quite las líneas siguientes, si existen:
 
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 
-9.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
+13.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
-10.	No cree espacio de intercambio en el disco del SO.
+14.	No cree espacio de intercambio en el disco del SO.
 
 	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
@@ -88,13 +119,13 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-11.	Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
+15.	Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-12. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+16. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 
 ----------
@@ -178,6 +209,6 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 13. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 ## Pasos siguientes
-Ya está listo para usar el disco duro virtual de SUSE para crear nuevas máquinas virtuales de Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, vea los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Ya está listo para usar el disco duro virtual de SUSE para crear nuevas máquinas virtuales de Azure. Si es la primera vez que carga el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

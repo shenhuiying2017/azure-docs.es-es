@@ -16,7 +16,7 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 
 4. En Eclipse, cree un proyecto Maven nuevo (haga clic en **Archivo**, **Nuevo** y, a continuación, en **Proyecto**).
 
-   ![][12]
+	![][12]
 
 5. Seleccione **Usar ubicación del área de trabajo predeterminada** y, a continuación, haga clic en **Siguiente**
 
@@ -229,5 +229,3 @@ Este tutorial usa una instalación de [HDInsight Storm][], que integra el emisor
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-
-<!---HONumber=AcomDC_0316_2016-->

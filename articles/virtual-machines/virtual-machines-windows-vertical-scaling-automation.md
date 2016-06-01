@@ -53,7 +53,7 @@ Los pasos para lograr esto se describen a continuación:
 
 ## Configurar la Automatización de Azure para tener acceso a las máquinas virtuales.
 
-Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los Runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, el servicio de automatización presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los Runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
+Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los runbooks que se usan para escalar una máquina virtual. Recientemente, el servicio de automatización presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los Runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -90,4 +90,4 @@ Asegúrese de copiar el webhook antes de cerrar el cuadro de diálogo de webhook
 
 ![Agregar alerta a máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

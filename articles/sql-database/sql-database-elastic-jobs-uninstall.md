@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Desinstalación de la herramienta de trabajo de bases de datos elásticas" 
-	description="Desinstalación de la herramienta de trabajo de bases de datos elásticas" 
+	pageTitle="Desinstalación de componentes de Trabajos de base de datos elástica" 
+	description="Desinstalación de componentes de Trabajos de base de datos elástica" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/17/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Desinstalación de componentes de Trabajos de base de datos elástica.
@@ -62,4 +62,6 @@ Si desea obtener más información sobre Trabajos de base de datos elástica, ve
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

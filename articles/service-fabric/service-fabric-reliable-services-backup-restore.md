@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/13/2016"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services y Reliable Actors
@@ -193,4 +193,4 @@ El Administrador de estado confiable ofrece la posibilidad de restaurar desde un
 
 En primer lugar, **RestoreAsync** quita todo estado existente en la réplica principal en la que se llamó. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

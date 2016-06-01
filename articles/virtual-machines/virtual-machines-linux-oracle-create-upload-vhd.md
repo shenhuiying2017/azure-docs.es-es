@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
 
 # Preparación de una máquina virtual Oracle Linux para Azure
-
-
-- [Preparación de una máquina virtual Oracle Linux 6.4+ para Azure](#oracle6)
-- [Preparación de una máquina virtual Oracle Linux 7.0+ para Azure](#oracle7)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -30,7 +26,9 @@
 En este artículo se supone que ya ha instalado un sistema operativo Oracle Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-**Notas sobre la instalación de Oracle Linux**
+### Notas sobre la instalación de Oracle Linux
+
+- Consulte también [Notas generales sobre la instalación de Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) para obtener más consejos sobre la preparación de Linux para Azure.
 
 - El kernel compatible Red Hat de Oracle y su UEK3 (Unbreakable Enterprise Kernel) se admiten en Hyper-V y Azure. Para obtener los mejores resultados, asegúrese de actualizar el kernel a la versión más reciente mientras preparar el VHD de Oracle Linux.
 
@@ -38,7 +36,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 
 - El formato VHDX no se admite en Azure, solo **VHD fijo**. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. Se pueden utilizar [LVM](virtual-machines-linux-configure-lvm.md) o [RAID](virtual-machines-linux-configure-raid.md) en discos de datos si así se prefiere.
 
 - NUMA no se admite para tamaños de máquina virtual más grandes debido a un error en las versiones del kernel de Linux anteriores a la 2.6.37. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida. La instalación manual del agente de Linux de Azure (waagent) deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
@@ -48,7 +46,8 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 
 - Asegúrese de que el repositorio `Addons` está habilitado. Edite el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6\_addons]** o **[ol7\_addons]** en este archivo.
 
-## <a id="oracle6"> </a> Oracle Linux 6.4+ ##
+
+## Oracle Linux 6.4+ ##
 
 Debe completar los pasos de configuración específicos del sistema operativo para que la máquina virtual se ejecute en Azure.
 
@@ -77,11 +76,10 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet. Estas reglas causan problemas al clonar una máquina virtual en Azure o Hyper-V:
+6.	Modifique las reglas udev para impedir que se generen reglas estáticas para las interfaces Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 7. Asegúrese de que el servicio de red se inicie en el arranque ejecutando el comando siguiente:
 
@@ -136,7 +134,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 ----------
 
 
-## <a id="oracle7"> </a> Oracle Linux 7.0+ ##
+## Oracle Linux 7.0+ ##
 
 **Cambios en Oracle Linux 7**
 
@@ -169,11 +167,9 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 		PEERDNS=yes
 		IPV6INIT=no
 
-5.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
+5.	Modifique las reglas udev para impedir que se generen reglas estáticas para las interfaces Ethernet. Estas reglas pueden causar problemas al clonar una máquina virtual en Microsoft Azure o Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. Asegúrese de que el servicio de red se inicie en el arranque ejecutando el comando siguiente:
 
@@ -190,9 +186,9 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 9.	Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro `GRUB_CMDLINE_LINUX`; por ejemplo:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
+	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Esto también desactiva las nuevas convenciones de nomenclatura de 7 OEL para NIC. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
@@ -210,6 +206,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 12. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
 
 		# sudo yum install WALinuxAgent
+		# sudo systemctl enable waagent
 
 13.	No cree espacio de intercambio en el disco del SO.
 
@@ -231,6 +228,6 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 
 ## Pasos siguientes
-Ya está listo para usar el archivo .vhd de Oracle Linux para crear nuevas máquinas virtuales en Azure. Si esta es la primera vez que está cargando el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Ya está listo para usar el archivo .vhd de Oracle Linux para crear nuevas máquinas virtuales en Azure. Si es la primera vez que carga el archivo .vhd en Azure, consulte los pasos 2 y 3 de [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

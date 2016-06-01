@@ -50,19 +50,19 @@ No es el objetivo de este documento abarcar una completa exposición de las cons
 
 ## Realización de pruebas de penetración en la aplicación
 
-Una de las maneras más fáciles de empezar a probar las vulnerabilidades en su aplicación del Servicio de aplicaciones consiste en usar la [integración con Tinfoil Security](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un análisis con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
+Una de las maneras más fáciles de empezar a probar los puntos vulnerables en su aplicación del Servicio de aplicaciones consiste en usar la [integración con Tinfoil Security](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un análisis con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
 
 Si prefiere realizar sus propias pruebas de penetración o desea usar otro conjunto de aplicaciones de análisis u otro proveedor, debe seguir el [proceso de aprobación de pruebas de penetración de Azure](https://security-forms.azure.com/penetration-testing/terms) y obtener aprobación previa para realizar las pruebas de penetración deseadas.
 
 ##<a name="https"></a> Protección de la comunicación con clientes
 
-Si usa el nombre de dominio **\*.azurewebsites.net** que se crea para su aplicación del Servicio de aplicaciones, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio **\*.azurewebsites.net**. Si el sitio utiliza un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
+Si usa el nombre de dominio ***.azurewebsites.net** que se crea para su aplicación del Servicio de aplicaciones, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio ***.azurewebsites.net**. Si el sitio utiliza un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
 
 Si habilita [HTTPS](https://en.wikipedia.org/wiki/HTTPS), puede contribuir a la protección frente a ataques MITM dirigidos a la comunicación entre la aplicación y sus usuarios.
 
 ## Protección de la capa de datos
 
-El Servicio de aplicaciones se integra estrechamente con Base de datos SQL, de forma que todas las cadenas de conexión se cifran de modo generalizado y solo se descifran en la máquina virtual donde se ejecuta la aplicación *y* solamente cuando se ejecuta la aplicación. Además, Base de datos SQL de Azure incluye muchas características de seguridad para ayudar a proteger los datos de la aplicación frente a las amenazas de Internet, entre ellas [cifrado en reposo](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), [Enmascaramiento dinámico de datos](../sql-database/sql-database-dynamic-data-masking-get-started.md) y [Detección de amenazas](sql-database-threat-detection-get-started). Si tiene datos confidenciales o requisitos de cumplimiento, consulte [Protección de Bases de datos SQL](../sql-database/sql-database-security.md) para más información sobre cómo proteger los datos.
+El Servicio de aplicaciones se integra estrechamente con Base de datos SQL, de forma que todas las cadenas de conexión se cifran de modo generalizado y solo se descifran en la máquina virtual donde se ejecuta la aplicación *y* solamente cuando se ejecuta la aplicación. Además, Base de datos SQL de Azure incluye muchas características de seguridad que ayudan a proteger los datos de la aplicación frente a las amenazas de Internet, entre ellas el [cifrado en reposo](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), el [enmascaramiento dinámico de datos](../sql-database/sql-database-dynamic-data-masking-get-started.md) y la [detección de amenazas](../sql-database/sql-database-threat-detection-get-started.md). Si tiene datos confidenciales o requisitos de cumplimiento, consulte [Protección de Bases de datos SQL](../sql-database/sql-database-security.md) para más información sobre cómo proteger los datos.
 
 Si usa un proveedor de bases de datos de terceros, como ClearDB, debe consultar los procedimientos recomendados de seguridad directamente en la documentación del proveedor.
 
@@ -123,4 +123,4 @@ Para más datos sobre la información de registro para aplicaciones del Servicio
 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

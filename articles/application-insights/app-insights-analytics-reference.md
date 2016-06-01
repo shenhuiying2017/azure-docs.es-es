@@ -543,7 +543,7 @@ Muestra cómo el operador `range` puede utilizarse para crear una pequeña tabla
 Intenta agrupar registros similares. Para cada grupo, el operador envía el valor `Pattern` que cree que mejor describe a ese grupo y el valor `Count` de registros de ese grupo.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Sintaxis**
 
@@ -844,7 +844,7 @@ Buscar el valor más bajo de cada métrica, junto con su marca de tiempo y otros
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -980,7 +980,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1004,7 +1004,7 @@ Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 Consulte también el [operador `mvexpand`](#mvexpand-operator) para la función opuesta.
 
@@ -1052,7 +1052,7 @@ Calcular simultáneamente varios percentiles para diferentes nombres de solicitu
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 Los resultados muestran que para la solicitud /Events/Index, el 5 % de las solicitudes se han respondido en menos de 2,44 s, la mitad en 3,52 s, y el 5 % en más de 6,85 s.
 
@@ -1911,7 +1911,7 @@ Convierte una cadena a mayúsculas.
 
 Este es el resultado de una consulta en una excepción de Application Insights. El valor de `details` es una matriz.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indexing:** matrices y objetos de índice, al igual que en JavaScript:
 
@@ -1943,7 +1943,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** para buscar todas las rutas en un objeto complejo:
@@ -1953,7 +1953,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
 
@@ -2233,4 +2233,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/01/2016"
+    ms.date="05/16/2016"
     ms.author="curtand"/>
 
 # ¿Qué es la licencia de Microsoft Azure Active Directory?
@@ -45,7 +45,11 @@ En general, la información de suscripción de Azure AD se administra a través 
 
 > Al adquirir Azure AD o Enterprise Mobility Suite a través del programa de licencias por volumen la activación de la suscripción se realizará automáticamente cuando el contrato incluya otros servicios de Microsoft Online Services, como por ejemplo, Office 365.
 
-Las características de Azure AD de pago dividen el alcance del directorio. Los ejemplos incluyen: - Asignación basada en grupos a aplicaciones, que se habilita según la aplicación específica que está administrando. - Las capacidades de administración de grupo avanzadas y de autoservicio están disponibles según la configuración del directorio o dentro del grupo específico. - Los informes de seguridad premium se encuentran en la pestaña Informes. - La detección de aplicaciones en la nube aparece en el portal de Azure en Identidad.
+Las características de Azure AD de pago dividen el alcance del directorio. Algunos ejemplos son:
+- Asignación basada en grupos a las aplicaciones, que se habilita en la aplicación concreta que está administrando.
+- Funcionalidades de administración avanzadas y de grupos de autoservicio disponibles en la configuración del directorio o dentro del grupo específico.
+- Informes de seguridad Premium en la pestaña Informes
+- Detección de aplicaciones de nube que se muestra en el Portal de Azure en Identidad.
 
 ###Asignación de licencias
 Cuando obtiene una suscripción, todo lo que tiene que hacer es configurar las capacidades de pago. El uso de características de pago de Azure AD requiere la distribución de licencias a las personas adecuadas. Por regla general, se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility Suite.
@@ -58,7 +62,9 @@ Con la asignación de licencias basada en grupo, los usuarios que no dispongan d
 
 La introducción a Azure AD es sencilla; siempre puede crear un directorio como parte del registro en una prueba gratuita de Azure. [Obtenga más información acerca del registro como organización](sign-up-organization.md). La siguiente información puede ayudarle a asegurarse de que su directorio se alinea mejor con otros servicios de Microsoft que esté consumiendo o que piense consumir, y sus objetivos en cuanto a la obtención del servicio.
 
-Estas son un par de prácticas recomendadas: - Si ya está usando servicios organizativos de Microsoft, ya dispone de un directorio de Azure AD. En este caso, debe continuar usando el mismo directorio para otros servicios, por lo que la administración de identidades principal, incluido el aprovisionamiento y el SSO híbrido, pueden utilizarse en los servicios. Los usuarios dispondrán una experiencia de inicio de sesión única y se beneficiarán de capacidades más completas en los servicios. Como resultado, si decide comprar un servicio de pago de Azure AD para sus recursos, le recomendamos que use el mismo directorio cuando lo haga. - Si piensa usar Azure AD para un conjunto distinto de usuarios (partners, clientes, etc.), o si quiere evaluar los servicios de Azure AD y quiere hacerlo aisladamente del servicio de producción, o si busca configurar un entorno de espacio aislado para los servicios, recomendamos que primero cree un nuevo directorio a través del portal de Azure clásico. [Puede obtener más información acerca de la creación de un nuevo directorio de Azure AD en el portal de Azure clásico](active-directory-licensing-directory-independence.md). El nuevo directorio se creará con su cuenta como un usuario externo con permisos de administrador globales. Cuando inicie sesión en el portal de Azure clásico con esta cuenta, podrá ver este directorio y obtener acceso a todas las tareas de administración de directorios. Recomendamos que cree una cuenta local con privilegios apropiados para administrar otros servicios de Microsoft (aquellos a los que no puede obtener acceso a través del portal de Azure clásico). [Obtenga más información sobre la creación de cuentas de usuario en Azure AD](active-directory-create-users.md).
+Estas son algunas prácticas recomendadas:
+- Si ya está usando servicios organizativos de Microsoft, ya dispone de un directorio de Azure AD. En este caso, debe continuar usando el mismo directorio para otros servicios, por lo que la administración de identidades principal, incluido el aprovisionamiento y el SSO híbrido, pueden utilizarse en los servicios. Los usuarios dispondrán una experiencia de inicio de sesión única y se beneficiarán de capacidades más completas en los servicios. Como resultado, si decide comprar un servicio de pago de Azure AD para su personal, se recomienda que para ello utilice el mismo directorio.
+- Si piensa usar Azure AD para un conjunto distinto de usuarios (asociados, clientes, etc.), o si quiere evaluar los servicios de Azure AD y desea hacerlo aisladamente del servicio de producción, o si busca configurar un entorno de espacio aislado para los servicios, recomendamos que primero cree un nuevo directorio a través del Portal de Azure clásico. [Puede obtener más información acerca de la creación de un nuevo directorio de Azure AD en el portal de Azure clásico](active-directory-licensing-directory-independence.md). El nuevo directorio se creará con su cuenta como un usuario externo con permisos de administrador globales. Cuando inicie sesión en el portal de Azure clásico con esta cuenta, podrá ver este directorio y obtener acceso a todas las tareas de administración de directorios. Recomendamos que cree una cuenta local con privilegios apropiados para administrar otros servicios de Microsoft (aquellos a los que no puede obtener acceso a través del portal de Azure clásico). [Obtenga más información sobre la creación de cuentas de usuario en Azure AD](active-directory-create-users.md).
 
 > [AZURE.NOTE] Azure AD admite "usuarios externos", que son cuentas de usuario en una instancia de Azure AD que se generaron con una identidad de Azure AD o cuenta Microsoft (MSA) desde otro directorio. Puesto que estamos ocupados ampliando esta capacidad a todos los servicios organizacionales de Microsoft, estas cuentas no son actualmente compatibles en algunas de las experiencias de servicios; por ejemplo, el Portal de administración de Office 365 no es compatible actualmente con estos usuarios. Como resultado, los usuarios externos con cuentas Microsoft no podrán obtener acceso al Portal de administración de Office 365 mientras que los usuarios externos de otros directorios de Azure AD se ignorarán. En el último caso, solo se podrá obtener acceso a la cuenta local del usuario, el directorio de Azure AD u Office 365 en el que se creó originalmente el usuario, a través de estas experiencias.
 
@@ -98,7 +104,9 @@ Ahora puede buscar o desplazarse por los grupos y agregarlos a la columna **Asig
 
 Cuando se asigna un grupo, sus miembros heredan las licencias en un plazo de 30 minutos, aunque normalmente lo hacen en 1-2 minutos.
 
-Se pueden producir errores de asignación durante la asignación de licencias de Azure AD, pero son relativamente poco frecuentes. Los posibles errores de asignación se limitan a los siguientes: - Conflicto de asignación: cuando se asignó previamente una licencia que no es compatible con la licencia actual. En este caso, la asignación de la nueva licencia requerirá quitar la anterior. - Número excesivo de licencias disponibles: cuando el número de usuarios en grupos asignados supera las licencias disponibles, el estado de la asignación de los usuarios reflejará un error de asignación debido a que faltan licencias.
+Se pueden producir errores de asignación durante la asignación de licencias de Azure AD, pero son relativamente poco frecuentes. Los posibles errores de asignación se limitan a los siguientes:
+- Conflicto de asignación: cuando se asignó previamente a un usuario una licencia que no es compatible con la licencia actual. En este caso, para asignar la nueva licencia será necesario quitar la anterior.
+- Número excesivo de licencias disponibles: cuando el número de usuarios en grupos asignados supera las licencias disponibles, el estado de la asignación de los usuarios reflejará un error de asignación debido a que faltan licencias.
 
 ###Visualización de licencias asignadas
 
@@ -133,4 +141,4 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

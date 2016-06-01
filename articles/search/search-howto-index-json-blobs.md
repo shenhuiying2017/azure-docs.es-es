@@ -49,7 +49,7 @@ Si es necesario, utilice **asignaciones de campo** para elegir las propiedades d
 
 ## Uso de asignaciones de campo para crear documentos de búsqueda 
 
-Actualmente, Búsqueda de Azure no puede indexar documentos JSON arbitrarios directamente, ya que admite solo tipos de datos primitivos, matrices de cadenas y puntos de GeoJSON. Sin embargo, puede usar **asignaciones de campo** para seleccionar partes del documento JSON y los "elevan" a campos de nivel superior del documento de búsqueda. Para obtener más información sobre las asignaciones de campo básicas, consulte [Personalización del indexador de Búsqueda de Azure](search-indexers-customization.md).
+Actualmente, Búsqueda de Azure no puede indexar documentos JSON arbitrarios directamente, ya que admite solo tipos de datos primitivos, matrices de cadenas y puntos de GeoJSON. Sin embargo, puede usar **asignaciones de campo** para seleccionar partes del documento JSON y los "elevan" a campos de nivel superior del documento de búsqueda. Para obtener información sobre los aspectos básicos de las asignaciones de campo, consulte [Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
 
 Volviendo a nuestro documento JSON de ejemplo:
 
@@ -127,4 +127,4 @@ Indexador:
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

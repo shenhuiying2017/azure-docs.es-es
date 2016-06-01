@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Aprovisionamiento de Linux Data Science Virtual Machine 
 
-## Introducción
 
 Linux Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azure preinstalada y configurada con una colección de herramientas que se usan habitualmente para realizar el análisis de datos y el aprendizaje automático. Los principales componentes de software que se incluyen son:
 
@@ -29,10 +28,10 @@ Linux Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azu
 - Línea de comandos de Azure para administrar recursos de Azure
 - Base de datos de PostgreSQL
 - Herramientas de aprendizaje automático
-    - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): software de aprendizaje profundo de Microsoft Research
-    - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): un sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y el aprendizaje activo e interactivo
-    - [XGBoost](https://xgboost.readthedocs.org/en/latest/): una herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
-    - [Rattle](http://rattle.togaware.com/) (sigla de la forma inglesa “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que facilita la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R 
+    - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): Software de aprendizaje profundo de Microsoft Research
+    - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y el aprendizaje activo e interactivo
+    - [XGBoost](https://xgboost.readthedocs.org/en/latest/): Herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
+    - [Rattle](http://rattle.togaware.com/) (sigla de la forma inglesa “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): Herramienta que facilita la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R. 
 - Azure SDK en Java, Python, node.js, Ruby, PHP
 - Bibliotecas en R y Python para usarlas en Aprendizaje automático de Azure y en otros servicios de Azure
 - Editores y herramientas de desarrollo (Eclipse, Emacs, gedit, vi)
@@ -69,9 +68,9 @@ A continuación le indicamos los pasos para crear una instancia de Linux Data Sc
   **a. Básico**:
 
    - **Nombre**: nombre del servidor de ciencia de datos que está creando.
-   - **Nombre de usuario**: identificador de acceso de la primera cuenta.
-   - **Contraseña**: contraseña de la primera cuenta (puede usar una clave pública SSH en lugar de una contraseña).
-   - **Suscripción**: si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina. Nota: Debe tener privilegios de creación de recursos en esta suscripción. 
+   - **Nombre de usuario**: Identificador de acceso de la primera cuenta.
+   - **Contraseña**: Contraseña de la primera cuenta (puede usar una clave pública SSH en lugar de una contraseña).
+   - **Suscripción**: Si tiene más de una suscripción, seleccione en la que se creará y facturará la máquina. Nota: Debe tener privilegios de creación de recursos en esta suscripción. 
    - **Grupo de recursos**: puede crear uno nuevo o usar un grupo ya existente
    - **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red
 
@@ -107,15 +106,15 @@ Una vez creada la VM, puede iniciar sesión en ella mediante SSH con las credenc
 
 La VM de Linux ya está provista del servidor X2Go y está preparada para aceptar conexiones de cliente. Para conectarse al escritorio gráfico de la VM de Linux, debe hacer lo siguiente en el cliente.
 
-1. Descargue e instale el cliente X2Go para su plataforma de cliente desde [esta página](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Descargue e instale el cliente X2Go para su plataforma de cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Ejecute el cliente X2Go y seleccione "*Nueva sesión*". Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración: 
-    * **Pestaña sesión**:
-        - **Host**: el nombre de host o la dirección IP de Linux Data Science VM.
-        - **Usuario**: nombre de usuario de inicio de sesión en la VM de Linux.
-        - **Puerto SSH**: déjelo en 22, el valor predeterminado.
-        - **Tipo de sesión**: cambie el valor a XFCE. Nota: Actualmente, la VM de Linux solo admite el escritorio XFCE.
-    * **Pestaña Media**: puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlos. 
-    * **Carpetas compartidas**: si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM. 
+    * **Pestaña Sesión**:
+        - **Host**: Nombre de host o dirección IP de Linux Data Science VM.
+        - **Usuario**: Nombre de usuario de inicio de sesión en la VM de Linux.
+        - **Puerto SSH**: Déjelo en 22, el valor predeterminado.
+        - **Tipo de sesión**: Cambie el valor a XFCE. Nota: Actualmente, la VM de Linux solo admite el escritorio XFCE.
+    * **Pestaña Multimedia**: Puede desactivar la compatibilidad de sonido y la impresión en el cliente si no necesita usarlas. 
+    * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM. 
 
 Una vez que inicie sesión en la VM mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, estará preparado para empezar a usar las herramientas que están instaladas y configuradas en la VM. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
 
@@ -127,7 +126,7 @@ Ejecute el siguiente comando desde la línea de comandos en Data Science Virtual
 
 Escriba una contraseña segura cuando se le solicite.
 
-Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno ubicado en: **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***. Deberá editar este archivo como **usuario raíz**.
+Verá el hash de contraseña en el formato "sha1:xxxxxx" en la salida. Copie este hash de contraseña y reemplace el hash existente que se encuentra en el archivo de configuración del cuaderno ubicado en: **/usr/local/etc/jupyter/jupyter\_notebook\_config.py** por un nombre de parámetro ***c.NotebookApp.password***. Deberá editar este archivo como el **usuario raíz**.
 
 Solo debe reemplazar el valor de hash existente que se encuentra entre comillas. Deben conservarse las comillas y el prefijo ***sha1:*** del valor del parámetro.
 
@@ -138,7 +137,7 @@ Por último, debe detener y reiniciar el servicio Jupyter que está instalado en
 ## Herramientas instaladas en Linux Data Science Virtual Machine
 
 ### Microsoft R Open 
-R es uno de los lenguajes más conocidos para el análisis de datos y el aprendizaje automático. Si quiere usar R para su análisis, la VM tiene Microsoft R Open (MRO) con la biblioteca Math Kernel Library (MKL). MKL optimiza las operaciones matemáticas comunes en algoritmos de análisis. MRO es 100 % compatible con CRAN-R; cualquiera de las bibliotecas de R publicadas en CRAN puede instalarse en MRO. Puede editar los programas de R en uno de los editores predeterminados, como vi, Emacs o gedit. También puede descargar y usar otros IDE, así como [RStudio](http://www.rstudio.com). Para su comodidad, se proporciona un script sencillo (installRStudio.sh) en el directorio **/dsvm/tools** que instala RStudio. Si está usando el editor Emacs, tenga en cuenta que el paquete ESS de Emacs (Emacs Speaks Statistics), que simplifica el trabajo con los archivos de R en el editor Emacs, se ha instalado previamente.
+R es uno de los lenguajes más conocidos para el análisis de datos y el aprendizaje automático. Si quiere usar R para su análisis, la VM tiene Microsoft R Open (MRO) con la biblioteca Math Kernel Library (MKL). MKL optimiza las operaciones matemáticas comunes en algoritmos de análisis. MRO es 100 % compatible con CRAN-R; cualquiera de las bibliotecas de R publicadas en CRAN puede instalarse en MRO. Puede editar los programas de R en uno de los editores predeterminados, como vi, Emacs o gedit. También puede descargar y usar otros IDE, como [RStudio](http://www.rstudio.com). Para su comodidad, se proporciona un script sencillo (installRStudio.sh) en el directorio **/dsvm/tools** que instala RStudio. Si está usando el editor Emacs, tenga en cuenta que el paquete ESS de Emacs (Emacs Speaks Statistics), que simplifica el trabajo con los archivos de R en el editor Emacs, se ha instalado previamente.
 
 Para iniciar R, simplemente escriba ***R*** en el shell. Esto le dirigirá a un entorno interactivo. Para desarrollar el programa de R, se suele usar un editor como Emacs, vi o gedit y, después, se ejecutan los scripts en R. Si instala RStudio, tendrá un entorno de IDE gráfico completo para desarrollar su programa de R.
 
@@ -178,7 +177,7 @@ Puede elegir varios editores de código. Esto incluye vi/VIM, Emacs, gEdit y Ecl
 
 **VIM** y **Emacs** son editores basados en texto. En Emacs, hemos instalado un paquete de complementos denominado Emacs Speaks Statistics (ESS) que facilita el trabajo con R en el editor de Emacs. Puede obtener más información en: [ESS](http://ess.r-project.org/).
 
-**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno de Eclipse. También tenemos un complemento instalado en Eclipse, denominado **Kit de herramientas de Azure para Eclipse**, que le permite crear, desarrollar, probar e implementar fácilmente aplicaciones de Azure con el entorno de desarrollo de Eclipse, que admite lenguajes como Java. También hay un **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del Kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno de Eclipse. También tenemos un complemento instalado en Eclipse, denominado **Kit de herramientas de Azure para Eclipse**, que le permite crear, desarrollar, probar e implementar fácilmente aplicaciones de Azure con el entorno de desarrollo de Eclipse, que admite lenguajes como Java. También hay **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del Kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse/).
 
 **LaTex** se instala mediante el paquete de texlive junto con un paquete [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) del complemento de Emacs, lo que simplifica la creación de los documentos LaTex con Emacs.
 
@@ -202,13 +201,13 @@ Puede obtener más información sobre SQuirrel SQL en su sitio web: [SQuirrel SQ
 
 El paquete de controladores ODBC para Microsoft SQL Server también incluye dos herramientas de línea de comandos:
 
-**bcp**: la utilidad bcp copia datos de forma masiva entre una instancia de Microsoft SQL Server y un archivo de datos en un formato especificado por el usuario. La utilidad bcp puede usarse para importar grandes cantidades de filas nuevas en tablas de SQL Server o para exportar datos de tablas en archivos de datos. Para importar datos en una tabla, debe usar un archivo de formato creado para esa tabla o entender la estructura de la tabla y los tipos de datos que son válidos para sus columnas.
+**bcp**: La utilidad bcp copia datos de forma masiva entre una instancia de Microsoft SQL Server y un archivo de datos en un formato especificado por el usuario. La utilidad bcp puede usarse para importar grandes cantidades de filas nuevas en tablas de SQL Server o para exportar datos de tablas en archivos de datos. Para importar datos en una tabla, debe usar un archivo de formato creado para esa tabla o entender la estructura de la tabla y los tipos de datos que son válidos para sus columnas.
 
-Puede encontrar más información en [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx) (Conectarse a bcp).
+Puede encontrar más información en [Conexión con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: la utilidad sqlcmd le permite introducir instrucciones Transact-SQL, procedimientos del sistema y archivos de script en el símbolo del sistema. Esta utilidad usa ODBC para ejecutar lotes de Transact-SQL.
+**sqlcmd**: La utilidad sqlcmd le permite introducir instrucciones Transact-SQL, procedimientos del sistema y archivos de script en el símbolo del sistema. Esta utilidad usa ODBC para ejecutar lotes de Transact-SQL.
 
-Puede encontrar más información en [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx) (Conectarse a sqlcmd).
+Puede encontrar más información en [Conexión con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
 >[AZURE.NOTE] Existen algunas diferencias en esta utilidad entre las plataformas de Windows y Linux. Consulte la página de documentación mencionada anteriormente para obtener más información.
 
@@ -220,7 +219,7 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 - En R, el paquete **RODBC** o el paquete **dplyr** le permiten consultar o ejecutar instrucciones SQL en el servidor de bases de datos. 
 - En Python, la biblioteca **pyodbc** proporciona acceso a la base de datos con ODBC como la capa subyacente.  
 
-Para obtener acceso a **Postgres**:
+Para acceder a **Postgres**:
 
 - desde Phyton: use la biblioteca **psycopg2**. 
 - desde R: use el paquete **RPostgreSQL**.
@@ -229,15 +228,15 @@ Para obtener acceso a **Postgres**:
 ### Herramientas de Azure 
 En la VM se instalan las siguientes herramientas de Azure:
 
-- **Interfaz de la línea de comandos de Azure**: con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para obtener más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools/).
-- **Explorador de almacenamiento de Microsoft Azure**: el Explorador de almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de almacenamiento de Azure y para cargar o descargar datos hacia y desde los blobs de Azure. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo ***StorageExplorer***. Necesita tener la sesión iniciada desde un cliente X2Go o tener la configuración de reenvío de X11. 
-- **Bibliotecas de Azure**: a continuación se indican algunas de las bibliotecas que se han instalado y que, por lo tanto, están disponibles:
+- **Interfaz de la línea de comandos de Azure**: Con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para obtener más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools/).
+- **Explorador de almacenamiento de Microsoft Azure**: El Explorador de almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de almacenamiento de Azure y para cargar o descargar datos hacia y desde los blobs de Azure. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo ***StorageExplorer***. Necesita tener la sesión iniciada desde un cliente X2Go o tener la configuración de reenvío de X11. 
+- **Bibliotecas de Azure**: A continuación se indican algunas de las bibliotecas que se han instalado y que, por lo tanto, están disponibles:
 
-- **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son ***azure***, ***azureml***, ***pydocumentdb*** y ***pyodbc***. Las tres primeras bibliotecas le permiten ontener acceso a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a Microsoft SQL Server, Base de datos SQL de Azure y Azure SQL DataWarehouse desde Python mediante una interfaz ODBC. Escriba ***pip list*** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en el entorno de Python 2.7 y 3.5.
+- **Python**: Las bibliotecas relacionadas con Azure en Python que están instaladas son ***azure***, ***azureml***, ***pydocumentdb*** y ***pyodbc***. Las tres primeras bibliotecas le permiten ontener acceso a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a Microsoft SQL Server, Base de datos SQL de Azure y Azure SQL DataWarehouse desde Python mediante una interfaz ODBC. Escriba ***pip list*** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en el entorno de Python 2.7 y 3.5.
 
-- **R**: las bibliotecas relacionadas con Azure en R que están instaladas son ***AzureML*** y ***RODBC***.
+- **R**: Las bibliotecas relacionadas con Azure en R que están instaladas son ***AzureML*** y ***RODBC***.
 
-- **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio ***/dsvm/sdk/AzureSDKJava*** de la VM. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.
+- **Java**: La lista de bibliotecas de Java para Azure se puede encontrar en el directorio ***/dsvm/sdk/AzureSDKJava*** de la VM. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.
 
 Puede acceder al [Portal de Azure](https://portal.azure.com) desde el explorador Firefox instalado previamente. En el Portal de Azure, puede crear, administrar y supervisar los recursos de Azure.
 
@@ -260,11 +259,11 @@ Para obtener información sobre cómo implementar modelos en R y en Python en Ap
 
 La VM incluye algunas herramientas o algoritmos de aprendizaje automático que se han precompilado y preinstalado de forma local. Entre ellos se incluyen los siguientes:
 
-* **CNTK** (Computational Network Toolkit, Kit de herramientas de red computacional de Microsoft Research): un kit de herramientas de aprendizaje profundo
-* **Vowpal Wabbit**: un algoritmo de aprendizaje rápido en línea
-* **xgboost**: una herramienta que proporciona los algoritmos de árbol ampliados y optimizados
+* **CNTK** (Computational Network Toolkit, Kit de herramientas de red computacional de Microsoft Research): Kit de herramientas de aprendizaje profundo
+* **Vowpal Wabbit**: Algoritmo de aprendizaje rápido en línea
+* **xgboost**: Herramienta que proporciona los algoritmos de árbol ampliados y optimizados
 * **Python**: Anaconda Python integra algoritmos de ML con bibliotecas como Scikit-learn. Puede instalar otras bibliotecas que ejecuten la instalación de pip.
-* **R**: hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando: 
+* **R**: Hay disponible una completa biblioteca de funciones de aprendizaje automático para R. Algunas de las bibliotecas preinstaladas son lm, glm, randomForest y rpart. Puede instalar otras bibliotecas si ejecuta el comando: 
 
 		install.packages(<lib name>)
 
@@ -354,8 +353,8 @@ Puede salir de Rattle y R. Ahora puede modificar el script de R generado o usarl
 ## Pasos siguientes
 Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 
-* Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener introducciones básica y referencias para consultar más información sobre las herramientas instaladas en la VM.  
-* Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visite [Cortana Analytics Gallery (Galería de análisis de Cortana)](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite. 
+* Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la VM.  
+* Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -565,8 +565,8 @@ y el POD:
 **Swift**:
 
 	// add the following imports to your bridging header:
-	//     #import <ADALiOS/ADAuthenticationContext.h>
-	//     #import <ADALiOS/ADAuthenticationSettings.h>
+	//		#import <ADALiOS/ADAuthenticationContext.h>
+	//		#import <ADALiOS/ADAuthenticationSettings.h>
 
 	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
 		let authority = "INSERT-AUTHORITY-HERE"
@@ -588,6 +588,158 @@ y el POD:
     		}
 	}
 
+
+## <a name="facebook-sdk"></a>Autenticación de usuarios con SDK de Facebook para iOS
+
+Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en su aplicación con Facebook. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+
+1. Configure el back-end de aplicación móvil para el inicio de sesión en Facebook siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Facebook](app-service-mobile-how-to-configure-facebook-authentication.md).
+
+2. Instale el SDK de Facebook para iOS siguiendo la documentación [SDK de Facebook para iOS: primeros pasos](https://developers.facebook.com/docs/ios/getting-started). En lugar de crear una nueva aplicación, puede agregar la plataforma iOS en el registro existente.
+
+    La documentación de Facebook incluye algún código de Objective-C en el delegado de la aplicación. Si está utilizando **Swift**, puede usar las siguientes traducciones para AppDelegate.swift:
+  
+		// Add the following import to your bridging header:
+		//		#import <FBSDKCoreKit/FBSDKCoreKit.h>
+		
+		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+			FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+			// Add any custom logic here.
+			return true
+		}
+
+		func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+			let handled = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+			// Add any custom logic here.
+			return handled
+		}
+
+3. Además de agregar `FBSDKCoreKit.framework` al proyecto, también puede agregar una referencia a `FBSDKLoginKit.framework` de la misma manera.
+
+4. Agregue el siguiente código a la aplicación, según el lenguaje que esté utilizando.
+
+**Objective-C**:
+
+	#import <FBSDKLoginKit/FBSDKLoginKit.h>
+	#import <FBSDKCoreKit/FBSDKAccessToken.h>
+	// ...
+	- (void) authenticate:(UIViewController*) parent
+	           completion:(void (^) (MSUser*, NSError*)) completionBlock;
+	{	    
+	    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+	    [loginManager
+	     logInWithReadPermissions: @[@"public_profile"]
+	     fromViewController:parent
+	     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+	         if (error) {
+	             completionBlock(nil, error);
+	         } else if (result.isCancelled) {
+	             completionBlock(nil, error);
+	         } else {
+	             NSDictionary *payload = @{
+	                                       @"access_token":result.token.tokenString
+	                                       };
+	             [client loginWithProvider:@"facebook" token:payload completion:completionBlock];
+	         }
+	     }];
+	}
+
+
+**Swift**:
+
+	// Add the following imports to your bridging header:
+	//		#import <FBSDKLoginKit/FBSDKLoginKit.h>
+	//		#import <FBSDKCoreKit/FBSDKAccessToken.h>
+	
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let loginManager = FBSDKLoginManager()
+		loginManager.logInWithReadPermissions(["public_profile"], fromViewController: parent) { (result, error) in
+			if (error != nil) {
+				completion(nil, error)
+			}
+			else if result.isCancelled {
+				completion(nil, error)
+			}
+			else {
+				let payload: [String: String] = ["access_token": result.token.tokenString]
+				client.loginWithProvider("facebook", token: payload, completion: completion)
+			}
+		}
+	}
+
+## <a name="twitter-fabric"></a>Autenticación de usuarios con Fabric de Twitter para iOS
+
+Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicación con Twitter. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia de usuario más nativa y permite personalizaciones adicionales.
+
+1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter](app-service-mobile-how-to-configure-twitter-authentication.md).
+
+2. Agregue Fabric al proyecto siguiendo la documentación [Fabric for iOS - Getting Started](https://docs.fabric.io/ios/fabric/getting-started.html) (Fabric para iOS: primeros pasos) y configurando TwitterKit.
+
+    > [AZURE.NOTE] De forma predeterminada, Fabric creará una nueva aplicación de Twitter para usted. Puede cambiarla registrando la clave de usuario y el secreto de consumidor que creó anteriormente mediante los fragmentos de código siguientes. Asimismo, puede reemplazar los valores de clave de usuario y de secreto de consumidor que proporcione al Servicio de aplicaciones por los valores que aparecen en [Fabric Dashboard](https://www.fabric.io/home) (Panel de Fabric). Si elige esta opción, asegúrese de establecer la dirección URL de devolución de llamada en un valor de marcador de posición, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+
+	Si decide utilizar los secretos que creó anteriormente, agregue lo siguiente al delegado de la aplicación:
+	
+	**Objective-C**:
+
+		#import <Fabric/Fabric.h>
+		#import <TwitterKit/TwitterKit.h>
+		// ...
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		    [[Twitter sharedInstance] startWithConsumerKey:@"your_key" consumerSecret:@"your_secret"];
+		    [Fabric with:@[[Twitter class]]];
+			// Add any custom logic here.
+		    return YES;
+		}
+		
+	**Swift**:
+	
+		import Fabric
+		import TwitterKit
+		// ...
+		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+			Twitter.sharedInstance().startWithConsumerKey("your_key", consumerSecret: "your_secret")
+			Fabric.with([Twitter.self])
+			// Add any custom logic here.
+			return true
+		}
+	
+3. Agregue el siguiente código a la aplicación, según el lenguaje que esté utilizando.
+
+**Objective-C**:
+
+	#import <TwitterKit/TwitterKit.h>
+	// ...
+	- (void)authenticate:(UIViewController*)parent completion:(void (^) (MSUser*, NSError*))completionBlock
+	{
+		[[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+			if (session) {
+				NSDictionary *payload = @{
+											@"access_token":session.authToken,
+											@"access_token_secret":session.authTokenSecret
+										};
+				[client loginWithProvider:@"twitter" token:payload completion:completionBlock];
+			} else {
+				completionBlock(nil, error);
+			}
+	    }];
+	}
+
+**Swift**:
+
+	import TwitterKit
+	// ...
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
+		let client = self.table!.client
+		Twitter.sharedInstance().logInWithCompletion { session, error in
+			if (session != nil) {
+				let payload: [String: String] = ["access_token": session!.authToken, "access_token_secret": session!.authTokenSecret]
+				client.loginWithProvider("twitter", token: payload, completion: completion)
+			} else {
+				completion(nil, error)
+			}
+		}
+	}
 
 <!-- Anchors. -->
 
@@ -640,4 +792,4 @@ y el POD:
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

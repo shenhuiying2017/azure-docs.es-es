@@ -1,27 +1,27 @@
 <properties
    pageTitle="Problemas de reinicio o cambio de tamaño de las máquinas virtuales | Microsoft Azure"
    description="Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.author="delhan"/>
 
 # Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure
 
 > [AZURE.SELECTOR]
 - [Clásico](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Resource Manager](../articles/virtual-machines/virtual-machines-linux-arm-restart-resize-error-troubleshooting.md)
+- [Resource Manager](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
 
@@ -70,10 +70,10 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
 * Si no se puede cambiar el tamaño de la máquina virtual solicitada:
 
   1. Detenga todas las máquinas virtuales en el conjunto de disponibilidad.
-  
+
     * Haga clic en **Grupos de recursos** > _su grupo de recursos_ > **Recursos** > _su conjunto de disponibilidad_ > **Máquinas virtuales** > _su máquina virtual_ > **Detener**.
 
   2. Después de detener todas las máquinas virtuales, aumente el tamaño de la máquina virtual que quiera.
   3. Seleccione la máquina virtual cuyo tamaño ha cambiado, haga clic en **Iniciar** e inicie las máquinas virtuales detenidas.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
@@ -469,4 +469,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

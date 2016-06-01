@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Base de datos SQL de Azure le ayuda a estar protegido"
+   pageTitle="Azure SQL Database Secures and Protects (Seguridad y protección de Base de datos SQL de Azure)"
    description="Obtenga más información acerca de cómo Base de datos SQL le puede ayudar y proteger"
    keywords=""
    services="sql-database"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="05/13/2016"
    ms.author="carlrab"/>
    
-# Base de datos SQL de Azure le ayuda a estar protegido
+# Azure SQL Database Secures and Protects (Seguridad y protección de Base de datos SQL de Azure)
 
 ## Mantenga los datos de la aplicación a salvo
 
@@ -25,7 +25,7 @@ La base de datos de SQL Azure admite millones de bases de datos esenciales en la
 
 ![ayuda-y-protege](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## En caso de emergencia
+## ¡Puede contar con nosotros!
 
 La única esperanza es que no necesite tener acceso a las copias de seguridad de ayer o recuperarse de un desastre. Pero si se encuentra en esta situación, Base de datos SQL está ahí para ayudarle. Con una disponibilidad del 99,99%, copias de seguridad automáticas, restauración a un momento dado, replicación geográfica integrada y opciones de conmutación por error, se podrá despreocupar por completo ya que sabe que su aplicación está a salvo.
 
@@ -43,6 +43,16 @@ Base de datos SQL proporciona varios niveles de protección de datos. Sus datos 
 
 [Lea la documentación](http://go.microsoft.com/fwlink/?LinkID=787593)
 
-Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo](https://azure.microsoft.com/services/sql-database/).
+Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Pasos siguientes
+
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
+
+## Más información
+
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -29,7 +29,7 @@ Microsoft HPC Pack proporciona características para ejecutar una variedad de ap
 
 ## Requisitos previos
 
-* **Clúster de HPC Pack con nodos de proceso Linux**: implemente un clúster de HPC Pack con nodos de proceso Linux de tamaño utilizando una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Consulte [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) (Introducción a los nodos de proceso Linux en un clúster de HPC Pack en Azure) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de script de Powershell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo para implementar un clúster de HPC Pack basado en Azure que consta de un nodo principal de Windows Server 2012 R2 y nodos de proceso de tamaño 4 (A3) CentOS 6.6. Adapte esto según las necesidades de su entorno.
+* **Clúster de HPC Pack con nodos de ejecución de Linux**: implemente un clúster de HPC Pack con nodos de ejecución de Linux en Azure utilizando una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consulte [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) (Introducción a los nodos de proceso Linux en un clúster de HPC Pack en Azure) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementar un script de PowerShell, consulte el archivo de configuración de ejemplo que se encuentra entre los archivos de ejemplo al final de este artículo para implementar un clúster de HPC Pack basado en Azure que consta de un nodo principal de Windows Server 2012 R2 y nodos de ejecución de tamaño 4 (A3) CentOS 6.6. Adapte esto según las necesidades de su entorno.
 
 
 * **Archivos de software y tutorial NAMD**: descargue el software NAMD para Linux desde el sitio [NAMD](http://www.ks.uiuc.edu/Research/namd/) (hay que registrarse). Este artículo se basa en la versión 2.10 de NAMD y usa el archivo [Linux-x86\_64 (64-bit Intel/AMD con Ethernet)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310), que usará para ejecutar NAMD en varios nodos de proceso Linux en una red de clústeres. Descargue también los [archivos del tutorial de NAMD](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Dado que las descargas son archivos .tar, necesitará una herramienta de Windows para extraer los archivos en el nodo principal del clúster. Para ello, siga las instrucciones de este artículo.
@@ -277,7 +277,7 @@ Ahora está listo para enviar un trabajo NAMD en el administrador de clústeres 
 
 ## Archivos de ejemplo
 
-### Archivo de configuración XML de ejemplo para la implementación de clústeres por script de PowerShell
+### Archivo de configuración XML de ejemplo para la implementación de clústeres mediante scripts de PowerShell
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -415,4 +415,4 @@ exit ${RTNSTS}
 [task_details]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-classic-hpcpack-cluster-namd/vmd_view.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

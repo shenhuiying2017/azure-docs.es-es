@@ -24,17 +24,17 @@
 Cuando se trabaja con streaming en vivo, normalmente participan los siguientes componentes:
 
 - Una cámara que se usa para difundir un evento.
-- Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo. 
-  
-	Opcionalmente, varios codificadores en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo para lograr una conmutación por error perfecta sin pérdida de datos.
-- Un servicio de streaming en vivo que permita hacer lo siguiente: 
-	- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming). 
-	- Codificar la secuencia en una secuencia con velocidad de bits adaptable.
-	- Mostrar una vista previa de la secuencia en vivo.
-	- Almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
-	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución. 
-	
-		
+- Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo.
+
+Opcionalmente, varios codificadores en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo para lograr una conmutación por error perfecta sin pérdida de datos.
+- Un servicio de streaming en vivo que permita hacer lo siguiente:
+- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming).
+- Codificar la secuencia en una secuencia con velocidad de bits adaptable.
+- Mostrar una vista previa de la secuencia en vivo.
+- Almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
+- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución.
+
+
 **Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
 Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
@@ -66,7 +66,7 @@ En el diagrama siguiente se muestran las partes principales de la plataforma AMS
 
 ![Flujo de trabajo activo][live-overview2]
 
-Para obtener más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
+Para más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
 
 
 
@@ -91,6 +91,5 @@ Para obtener más información, consulte [Uso de canales que reciben streaming e
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
- 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

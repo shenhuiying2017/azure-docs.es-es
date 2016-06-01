@@ -174,7 +174,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     b. En el Portal de Azure AD clásico, copie el valor de **Dirección URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 
-    c. El campo **Cambiar dirección URL de contraseña** es opcional, así que déjelo en blanco.
+    c. El campo **Cambiar dirección URL de contraseña** es opcional, déjelo en blanco.
 
     d. Haga clic en **Get Key From File** (Obtener clave de archivo) para seleccionar el certificado descargado de Skydesk Email y, a continuación, haga clic en **Abrir** para cargar el certificado.
 
@@ -325,4 +325,4 @@ Al hacer clic en el icono de Skydesk Email en el Panel de acceso, debería inici
 [204]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

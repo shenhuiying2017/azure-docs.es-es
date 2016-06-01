@@ -19,10 +19,12 @@
 # Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
 
 > [AZURE.SELECTOR]
-- [Mejorada](site-recovery-failback-azure-to-vmware-classic.md)
-- [Heredado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portal de Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portal de Azure clásico](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portal de Azure clásico (heredado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
-El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Azure Site Recovery?](site-recovery-overview.md).
+
+El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Site Recovery?](site-recovery-overview.md)
 
 ## Información general
 
@@ -44,7 +46,7 @@ Este diagrama representa el escenario de conmutación por error y conmutación p
 
 Esta es la instalación de la conmutación por recuperación:
 
-1. **Instalar los componentes de conmutación por recuperación**: es preciso instalar un servidor local de vContinuum y hacer que apunte a la máquina virtual del servidor de configuración en Azure. También instalará un servidor de procesos como una máquina virtual de Azure para enviar datos de vuelta al servidor maestro de destino local. El servidor de proceso se registra con el servidor de configuración que controló la conmutación por error. Se instala un servidor maestro de destino local. Si necesita un servidor maestro de destino de Windows, se instala automáticamente al instalar vContinuum. Si necesita Linux, tendrá que instalarlo manualmente en un servidor independiente.
+1. **Instalar los componentes de conmutación por recuperación**: es preciso instalar un servidor local de vContinuum y apuntar a la máquina virtual del servidor de configuración en Azure. También instalará un servidor de procesos como una máquina virtual de Azure para enviar datos de vuelta al servidor maestro de destino local. El servidor de proceso se registra con el servidor de configuración que controló la conmutación por error. Se instala un servidor maestro de destino local. Si necesita un servidor maestro de destino de Windows, se instala automáticamente al instalar vContinuum. Si necesita Linux, tendrá que instalarlo manualmente en un servidor independiente.
 2. **Habilitar la protección y conmutación por recuperación**: después de instalar los componentes, en vContinuum deberá habilitar la protección para las máquinas virtuales de Azure que conmutaron por error. Se ejecutará una comprobación de la preparación en las máquinas virtuales y se ejecutará una conmutación por error de Azure a su sitio local. Una vez finalizada la conmutación por recuperación, se vuelven a proteger las máquinas locales para que comiencen a replicar a Azure.
 
 
@@ -426,4 +428,4 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

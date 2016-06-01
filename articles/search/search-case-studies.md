@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 # Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes
@@ -61,4 +61,4 @@ Obtenga información acerca de cómo una nueva empresa sueca creó un portal de 
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

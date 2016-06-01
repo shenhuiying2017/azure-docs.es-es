@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
@@ -104,4 +104,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,6 @@
    <properties
-   pageTitle="Carga de datos en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Conozca los escenarios comunes para la carga de datos en Almacenamiento de datos SQL"
+   pageTitle="Carga de datos en Almacenamiento de datos SQL de Azure | Microsoft Azure"
+   description="Conozca los escenarios comunes para la carga de datos en Almacenamiento de datos SQL. Estos incluyen el uso de PolyBase, el almacenamiento de blobs de Azure, archivos planos y el envío de discos. También puede usar herramientas de otros fabricantes."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,167 +13,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="05/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Carga de datos en Almacenamiento de datos SQL
-El Almacenamiento de datos SQL ofrece numerosas opciones para la carga de datos entre las que se incluyen:
+# Carga de datos en Almacenamiento de datos SQL de Azure
 
-- PolyBase
-- Factoría de datos de Azure
-- Utilidad de línea de comandos BCP
-- SQL Server Integration Services (SSIS)
-- Herramientas de carga de datos de terceros
+Resumen de las opciones de escenario y recomendaciones para cargar datos en Almacenamiento de datos SQL.
 
-Aunque todos los métodos descritos anteriormente se puede usar con Almacenamiento de datos SQL, la capacidad de PolyBase para paralelizar de forma transparente las cargas desde Almacenamiento de blobs de Azure la convierte en la herramienta más rápida para cargar datos. Consulte más información sobre la [carga con PolyBase][]. Además, como muchos de nuestros usuarios están estudiando cargas iniciales en el intervalo de 100s de gigabytes a 10s de terabytes de los orígenes locales, en las siguientes secciones se proporciona alguna orientación sobre la carga de datos iniciales.
+La parte más difícil de carga de datos suele ser la preparación de los datos para la carga. Azure simplifica la carga mediante el almacenamiento de blobs de Azure como almacén de datos común para muchos de los servicios y usando Data Factory de Azure para organizar la comunicación y el movimiento de datos entre los servicios de Azure. Estos procesos se integran con la tecnología PolyBase, que usa el procesamiento paralelo masivo (MPP) para cargar datos en paralelo desde el almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
 
-## Carga inicial en el Almacenamiento de datos SQL desde SQL Server
-Al cargar en el Almacenamiento de datos SQL desde una instancia de SQL Server local, se recomiendan los siguientes pasos:
+Para ver tutoriales que cargan bases de datos de ejemplo, vea [Load sample data into SQL Data Warehouse][] (Carga de datos de ejemplo).
 
-1. **BCP**: datos de SQL Server en archivos planos
-2. Usar **AZCopy** o **Importación/Exportación** (para conjuntos de datos grandes) para mover los archivos a Azure.
-3. Configurar PolyBase para leer sus archivos desde la cuenta de almacenamiento
-4. Crear nuevas tablas y cargar los datos con **PolyBase**.
+## Carga desde el almacenamiento de blobs de Azure
+La manera más rápida de importar datos en Almacenamiento de datos SQL es usar PolyBase para cargar datos desde el almacenamiento de blobs de Azure. PolyBase usa el procesamiento paralelo masivo (MPP) de Almacenamiento de datos SQL para cargar datos en paralelo desde el almacenamiento de blobs de Azure. Para usar PolyBase, puede usar comandos T-SQL o una canalización de Data Factory de Azure.
 
-En las secciones siguientes echaremos un vistazo a cada paso en profundidad y daremos ejemplos del proceso.
+### 1\. Usar PolyBase y T-SQL
 
-> [AZURE.NOTE] Antes de mover datos desde un sistema, como SQL Server, sugerimos revisar los artículos [Migración de esquemas][] y [Migración de código][] de nuestra documentación.
+Resumen del proceso de carga:
 
-## Exportación de archivos con BCP
+2. Formatee los datos como UTF-8, ya que actualmente PolyBase no admite UTF-16.
+2. Mueva los datos al almacenamiento de blobs de Azure y almacénelos en archivos de texto.
+3. Configure objetos externos en Almacenamiento de datos SQL para definir la ubicación y el formato de los datos.
+4. Ejecute un comando T-SQL para cargar los datos en paralelo en una nueva tabla de base de datos.
+<!-- 5. Schedule and run a loading job. --> 
 
-Para preparar los archivos para el traslado a Azure, necesitará exportarlos a archivos planos. Esto se realiza mejor con la utilidad de la línea de comandos de BCP. Si no dispone aún de la utilidad, se puede descargar con las [Utilidades de línea de comandos de Microsoft para SQL Server][]. Un comando BCP de ejemplo podría ser similar al siguiente:
+Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]][].
 
-```sql
-bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
-or
-bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
-```
+### 2\. Usar Data Factory de Azure
 
-Para maximizar el rendimiento, puede intentar poner en paralelo el proceso mediante la ejecución de varios comandos BCP simultáneos para tablas independientes o particiones independientes en una sola tabla. Esto le permitirá distribuir la CPU consumida por BCP entre varios núcleos del servidor donde se ejecuta BCP. Si va a extraer de un sistema PDW o DW de SQL, debe agregar el argumento - q, identificador entre comillas, al comando BCP. También deberá agregar -U y -P para especificar el nombre de usuario y la contraseña si en su entorno no se utiliza Active Directory.
+Para usar PolyBase de manera más sencilla, puede crear una canalización de Data Factory de Azure que use PolyBase para cargar datos del almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Esto se configura rápido porque no es necesario definir los objetos T-SQL. Si necesita consultar los datos externos sin importarlos, use T-SQL.
 
-Además, conforme realizaremos la carga mediante PolyBase, tenga en cuenta que PolyBase no admite todavía con UTF-16, y todos los archivos deben estar en UTF-8. Esto se puede lograr con facilidad mediante la inclusión de la marca '-c' en su comando BCP o también puede convertir los archivos */*planos de UTF-16 en UTF-8 mediante el siguiente código:
+Resumen del proceso de carga:
 
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
+2. Formatee los datos como UTF-8, ya que actualmente PolyBase no admite UTF-16.
+2. Mueva los datos al almacenamiento de blobs de Azure y almacénelos en archivos de texto.
+3. Cree una canalización de Data Factory de Azure para introducir los datos. Use la opción PolyBase.
+4. Programe y ejecute la canalización.
 
-Cuando haya exportado correctamente los datos a los archivos, será el momento de moverlos a Azure. Esto se puede lograr con AZCopy o con el servicio de importación y exportación, tal como se describe en la siguiente sección.
-
-## Carga en Azure con AZCopy o importación y exportación
-Si va a mover datos en el intervalo de 5 a 10 terabytes o superior, recomendamos que use nuestro servicio de [Importación/Exportación][] para efectuar el traslado. Sin embargo, en nuestro estudios, hemos logrados mover datos en el rango de TB de dígito único cómodamente mediante Internet pública con AZCopy. Este proceso también puede acelerarse o ampliarse con ExpressRoute.
-
-En los siguientes pasos se detalla cómo mover datos locales desde local a una cuenta de Almacenamiento de Azure mediante AZCopy. Si no dispone de una cuenta de Almacenamiento de Azure en la misma región puede crear una siguiendo la [Documentación del Almacenamiento de Azure][]. También puede cargar datos desde una cuenta de almacenamiento en una región distinta, pero el rendimiento en este caso no será óptimo.
-
-> [AZURE.NOTE] Esta documentación supone que ha instalado la utilidad de la línea de comandos de AZCopy y que puede ejecutarla con Powershell. Si este no es el caso, siga las [instrucciones de instalación de AZCopy][].
-
-Ahora, dado un conjunto de archivos que ha creado con BCP, AzCopy puede ejecutarse simplemente Azure Powershell o ejecutando un script Powershell. En un nivel alto, el símbolo del sistema necesario para ejecutar AZCopy adoptará la forma:
-
-```
-AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
-```
-
-Además de la básica, recomendamos las siguientes prácticas recomendadas para la carga con AZCopy:
+Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]][].
 
 
-+ **Conexiones simultáneas**: además de aumentar el número de operaciones de AZCopy que se ejecutan al mismo tiempo, la propia operación de AZCopy se puede poner aún más en paralelo estableciendo el parámetro/NC, que abre varias conexiones simultáneas al destino. Mientras el parámetro puede ser en 512 como máximo, descubrimos que la transferencia de datos óptima tuvo lugar en 256 y recomendamos que se prueba un número de valores para encontrar lo que es óptimo para su configuración.
+## Carga desde SQL Server
+Para cargar datos desde SQL Server en Almacenamiento de datos SQL, puede usar Integration Services (SSIS), transferir archivos planos o enviar discos a Microsoft. Siga leyendo para ver un resumen de los distintos procesos de carga y los vínculos a tutoriales.
 
-+ **ExpressRoute**: como se indicó anteriormente, este proceso se puede acelerar si la ruta rápida está habilitada. Encontrará información general de ExpressRoute y pasos para configurarla en la [Documentación de ExpressRoute][].
+Para planear una migración de datos completa de SQL Server a Almacenamiento de datos SQL, consulte la [información general sobre migración][].
 
-+ **Estructura de carpetas**: para facilitar la transferencia con PolyBase, asegúrese de que cada tabla se asigna a su propia carpeta. Esto minimizará y simplificará sus pasos al cargar con PolyBase más adelante. Dicho eso, no hay ningún impacto si una tabla se divide en varios archivos o incluso subdirectorios dentro de la carpeta.
+### Uso de Integration Services (SSIS)
+Si ya usa paquetes de Integration Services (SSIS) para cargarlos en SQL Server, puede actualizarlos para usar SQL Server como origen y Almacenamiento de datos SQL como destino. Esto es rápido y fácil de hacer, y es una buena opción si no desea migrar el proceso de carga para usar datos que ya están en la nube. La desventaja es que la carga será más lenta que con PolyBase porque este SSIS no realiza la carga en paralelo.
 
+Resumen del proceso de carga:
 
-## Configuración de PolyBase
+1. Revisar el paquete de Integration Services para que apunte a la instancia de SQL Server para el origen y a la base de datos de Almacenamiento de datos SQL para el destino.
+2. Migre el esquema a Almacenamiento de datos SQL si aún no está allí.
+3. Cambie la asignación en los paquetes para usar solamente los tipos de datos que admite Almacenamiento de datos SQL.
+3. Programe y ejecute el paquete.
 
-Ahora que los datos se encuentran en blobs de almacenamiento de Azure, los importaremos en la instancia del Almacenamiento de datos SQL mediante PolyBase. Los pasos indicados a continuación son solo para configuración de y muchos de ellos solo tendrán que completarse una vez por cada cuenta de instancia del Almacenamiento de datos SQL, usuario o cuenta de almacenamiento. Estos pasos también se han descrito con mayor detalle en nuestra documentación [Carga con PolyBase][].
+Para ver un tutorial, consulte [Load data from SQL Server to Azure SQL Data Warehouse (SSIS) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]][].
 
-1. **Creación de clave maestra de base de datos.** Esta operación solo tendrá que completarse una vez por cada base de datos.
+### Uso de AZCopy (recomendado para datos de menos de 10 TB)
+Si el tamaño de los datos es menor que 10 TB, puede exportar los datos de SQL Server a archivos planos, copiar los archivos al almacenamiento de blobs de Azure y luego usar PolyBase para cargar los datos en Almacenamiento de datos SQL.
 
-2. **Creación de una credencial con ámbito de base de datos.** Esta operación solo debe crearse si desea crear una nueva credencial/usuario; de lo contrario, se puede usar una credencial creada anteriormente.
+Resumen del proceso de carga:
 
-3. **Creación de un formato de archivo externo.** Además, los formatos de archivos externos también son reutilizables; solo necesitará crear uno si está cargando un nuevo tipo de archivo.
+1. Use la utilidad de línea de comandos bcp para exportar datos de SQL Server a archivos planos.
+2. Usar la utilidad de línea de comandos AZCopy para copiar datos de archivos planos en el almacenamiento de blobs de Azure.
+3. Use PolyBase para cargar datos en Almacenamiento de datos SQL
 
-4. **Creación de un origen de datos externo.** Cuando se señala a una cuenta de almacenamiento, se puede usar un origen de datos externo al cargar desde el mismo contenedor. Para su parámetro 'LOCATION', use una ubicación con el formato: 'wasbs://mycontainer@ test.blob.core.windows.net’.
+Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]][].
 
-```sql
--- Creating master key
-CREATE MASTER KEY;
+### Uso de bcp
+Si tiene una pequeña cantidad de datos, puede usar bcp para cargar directamente en Almacenamiento de datos SQL de Azure.
 
--- Creating a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL <Credential Name>
-WITH
-    IDENTITY = '<User Name>'
-,   Secret = '<Azure Storage Key>'
-;
+Resumen del proceso de carga:
+1. Use la utilidad de línea de comandos bcp para exportar datos de SQL Server a archivos planos.
+2. Use bcp para cargar datos de archivos planos directamente en Almacenamiento de datos SQL.
 
--- Creating external file format (delimited text file)
-CREATE EXTERNAL FILE FORMAT text_file_format
-WITH
-(
-    FORMAT_TYPE = DELIMITEDTEXT
-,   FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    )
-);
-
---Creating an external data source
-CREATE EXTERNAL DATA SOURCE azure_storage
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://<Container>@<Blob Path>'
-,   CREDENTIAL = <Credential Name>
-)
-;
-```
-
-Ahora que su cuenta de almacenamiento está correctamente configurada, puede continuar cargando sus datos en el Almacenamiento de datos SQL.
-
-## Carga de datos con PolyBase
-Después de configurar PolyBase, puede cargar datos directamente en el Almacenamiento de datos SQL, creando simplemente una tabla externa que apunta a los datos del almacenamiento y asignando luego esos datos a una nueva tabla en el Almacenamiento de datos SQL. Esto se puede lograr con los dos comandos sencillos a continuación.
-
-1. Use el comando 'CREATE EXTERNAL TABLE' para definir la estructura de sus datos. Para asegurarse de que captura el estado de los datos de forma rápida y eficaz, se recomienda generar script de la tabla de SQL Server en SSMS y ajustar luego manualmente para representar las diferencias de la tabla externa. Después de crear una tabla externa en Azure continuará señalando la misma ubicación, incluso si los datos se actualizan o se agregan datos adicionales.  
-
-```sql
--- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE <External Table Name>
-(
-    <Column name>, <Column type>, <NULL/NOT NULL>
-)
-WITH
-(   LOCATION='<Folder Path>'
-,   DATA_SOURCE = <Data Source>
-,   FILE_FORMAT = <File Format>      
-);
-```
-
-2. Cargar datos con una instrucción 'CREATE TABLE...AS SELECT'.
-
-```sql
-CREATE TABLE <Table Name>
-WITH
-(
-	CLUSTERED COLUMNSTORE INDEX,
-	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
-)
-AS
-SELECT  *
-FROM    <External Table Name>
-;
-```
-
-Tenga en cuenta que también puede cargar una subsección de las filas desde una tabla mediante una instrucción SELECT más detallada. Sin embargo, como PolyBase no inserta un proceso adicional a las cuentas de almacenamiento en este momento, si carga una subsección con una instrucción SELECT no será más rápido que cargar el conjunto de datos completo.
-
-Además de la instrucción `CREATE TABLE...AS SELECT`, también puede cargar datos de tablas externas en tablas preexistentes con una instrucción "INSERT...INTO".
-
-##  Crear estadísticas de los datos recién cargados
-
-Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+Para ver un tutorial, consulte [Load data from SQL Server to Azure SQL Data Warehouse (bcp) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]][].
 
 
-```sql
-create statistics [<name>] on [<Table Name>] ([<Column Name>]);
-create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
-```
+### Uso de importación/exportación (recomendado para datos de menos de 10 TB)
+Si el tamaño de los datos es menor que 10 TB y quiere moverlos a Azure, se recomienda que use nuestro servicio de envío de discos [Importación y exportación][].
+
+Resumen del proceso de carga
+2. Use la utilidad de línea de comandos bcp para exportar datos de SQL Server a archivos planos o discos transferibles.
+3. Envíe los discos a Microsoft.
+4. Microsoft carga los datos en Almacenamiento de datos SQL
+
+
+## Recomendaciones
+
+Muchos de nuestros asociados tienen soluciones de carga. Para más información, consulte una lista de nuestros [asociados de soluciones][].
+
+
+Si los datos provienen de un origen no relacional y quiere cargarlos en Almacenamiento de datos SQL,debe transformarlos en filas y columnas antes de cargarlos. Los datos transformados no necesitan almacenarse en una base de datos; se puede almacenar en archivos de texto.
+
+Cree estadísticas de los datos recién cargados. Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Para obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Para más información, consulte las [estadísticas][].
+
 
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
@@ -181,25 +116,21 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[carga con PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: sql-data-warehouse-solution-partners.md
+[Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Load data from SQL Server to Azure SQL Data Warehouse (SSIS) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Load data from SQL Server to Azure SQL Data Warehouse (bcp) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]]: sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
+
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[información general sobre migración]: sql-data-warehouse-overview-migrate.md
+[asociados de soluciones]: sql-data-warehouse-integrate-solution-partners.md
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-[Migración de esquemas]: sql-data-warehouse-migrate-schema.md
-[Migración de código]: sql-data-warehouse-migrate-code.md
-[Estadísticas]: sql-data-warehouse-develop-statistics.md
+[estadísticas]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
-[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141237.aspx
-[SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[instrucciones de instalación de AZCopy]: https://azure.microsoft.com/es-ES/documentation/articles/storage-use-azcopy/
-[Utilidades de línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
-[Importación/Exportación]: https://azure.microsoft.com/es-ES/documentation/articles/storage-import-export-service/
-[Documentación del Almacenamiento de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/storage-create-storage-account/
-[Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
+[Importación y exportación]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

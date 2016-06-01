@@ -241,4 +241,4 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 	Para obtener información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../resource-group-portal.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->

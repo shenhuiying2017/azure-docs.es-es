@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adición de un repositorio de artefactos Git al laboratorio de desarrollo y pruebas | Microsoft Azure"
-	description="Agregue un repositorio Git de GitHub o Visual Studio Team Services para los artefactos personalizados en el laboratorio"
+	pageTitle="Adición de un repositorio de artefactos Git a un laboratorio | Microsoft Azure"
+	description="Adición de un repositorio Git de GitHub o Visual Studio Team Services para los artefactos personalizados de DevTest Labs"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Adición de un repositorio de artefactos Git al laboratorio de desarrollo y pruebas.
+# Adición de un repositorio de artefactos Git a un laboratorio
 
-> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo agregar el repositorio de artefactos privados a un laboratorio de desarrollo y pruebas](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo agregar el repositorio de artefactos privados a un laboratorio de DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## Información general
 
-De forma predeterminada, un laboratorio de desarrollo y pruebas incluye artefactos del repositorio oficial de artefactos del Laboratorio de desarrollo y pruebas de Azure. Puede agregar un repositorio de artefactos de Git al laboratorio para incluir los artefactos que crea el equipo. El repositorio se puede hospedar en [GitHub](https://github.com) o en [Visual Studio Team Services (VSTS)](https://visualstudio.com).
+De forma predeterminada, un laboratorio incluye artefactos del repositorio oficial de artefactos de Azure DevTest Labs. Puede agregar un repositorio de artefactos de Git al laboratorio para incluir los artefactos que crea el equipo. El repositorio se puede hospedar en [GitHub](https://github.com) o en [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Para obtener información sobre cómo crear un repositorio de GitHub, consulte [Entrenamiento militar de GitHub](https://help.github.com/categories/bootcamp/).
 - Para obtener información sobre cómo crear un proyecto Team Services con un repositorio de Git, vea [Conexión con Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
@@ -51,7 +51,7 @@ Para agregar un repositorio de artefactos de GitHub al laboratorio, primero debe
 
 ###Conexión del laboratorio con el repositorio de GitHub
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -101,7 +101,7 @@ Para agregar un repositorio de artefactos de Git de Visual Studio al laboratorio
 
 1. Cuando termine, el nuevo token aparecerá en la lista **Tokens de acceso personal**. Pulse **Copiar Token** y guarde el valor del token, ya que se utilizará en breve.
 
-### En el laboratorio de desarrollo y pruebas
+### En el laboratorio
 
 1. En la hoja del laboratorio, pulse **Configuración**.
 
@@ -117,4 +117,4 @@ Para agregar un repositorio de artefactos de Git de Visual Studio al laboratorio
     3. En **Token de acceso personal**, escriba el token de acceso personal guardado para el repositorio de artefactos.
     4. Pulse **Guardar**.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

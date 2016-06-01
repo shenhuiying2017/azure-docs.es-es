@@ -27,9 +27,7 @@
 
 Si ha recibido un error al implementar recursos en Azure, debe solucionar los errores que se hayan producido. La API de REST proporciona operaciones que permiten buscar los errores y determinar las posibles correcciones.
 
-Puede solucionar los problemas de la implementación examinando los registros de auditoría o las operaciones de implementación. En este tema se muestran ambos métodos.
-
-Puede evitar algunos errores si valida la plantilla y la infraestructura antes de la implementación. Para obtener más información, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Solución de problemas de la API de REST
 
@@ -111,7 +109,8 @@ Puede evitar algunos errores si valida la plantilla y la infraestructura antes d
 
 ## Pasos siguientes
 
+- Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - Para obtener más información sobre el uso de los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Para validar la implementación antes de ejecutarla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

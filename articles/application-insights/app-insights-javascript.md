@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas web
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -58,7 +59,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 Inserte el script justo antes de la etiqueta `<head>` de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
-* En un proyecto de ASP.NET MVC, lo colocaría en `View\Shared\_Layout.cshtml`
+* En un proyecto de ASP.NET MVC, lo colocaría en `View\Shared\_Layout.cshtml`.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
@@ -89,8 +90,14 @@ Entre los [parámetros disponibles](https://github.com/Microsoft/ApplicationInsi
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -204,7 +211,11 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
 ### Propiedades de la vista de página
 
-* **Duración de la vista de página** Tiempo que se tarda en cargar la página e iniciar la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente.
+* **Duración de vista de página** 
+
+ * De forma predeterminada, el tiempo necesario para cargar la página, desde la solicitud del cliente hasta la carga completa (incluidos los archivos auxiliares, aunque no las tareas asincrónicas, como las llamadas de Ajax).
+ * Si establece `overridePageViewDuration` en la [configuración de la página](#detailed-configuration), el intervalo entre la solicitud de cliente y la ejecución del primer método `trackPageView`. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente.
+ * Si se ha establecido `overridePageViewDuration` y se proporciona un argumento de duración en la llamada `trackPageView()`, se usará en su lugar el valor del argumento. 
 
 
 ## Recuentos de página personalizados
@@ -238,4 +249,4 @@ El nombre de página puede contener los mismos caracteres que una URL, aunque se
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Compilación - Métrica - Aprendizaje](app-insights-overview-usage.md)
 
-<!----HONumber=AcomDC_0224_2016---->
+<!---HONumber=AcomDC_0525_2016-->

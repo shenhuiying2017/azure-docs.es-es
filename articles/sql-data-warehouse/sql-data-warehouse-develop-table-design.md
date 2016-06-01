@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
-El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). Almacena datos en diferentes ubicaciones conocidas como **distribuciones**. Cada **distribución** es como un depósito; almacenar un único subconjunto de datos en el almacenamiento de datos. Al distribuir los datos y la capacidad de procesamiento entre varios nodos, el Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que un único sistema.
+El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). Almacena datos en diferentes ubicaciones conocidas como **distribuciones**. Cada **distribución** es como un depósito; almacenar un único subconjunto de datos en el almacenamiento de datos. Al dividir los datos y la capacidad de procesamiento entre varios nodos, Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que un único sistema.
 
 Cuando se crea una tabla en el Almacenamiento de datos SQL, en realidad se propaga a todas las distribuciones.
 
@@ -52,8 +52,10 @@ Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
@@ -75,26 +77,17 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
 
-La consulta incluye los tipos de datos definidos por el usuario, que no se admiten.
-
-a continuación se muestran algunas alternativas que puede utilizar en vez de los tipos de datos no admitidos.
+La consulta incluye los tipos de datos definidos por el usuario, que no se admiten. A continuación se muestran algunas alternativas que puede utilizar en vez de los tipos de datos no admitidos.
 
 En lugar de:
 
@@ -102,22 +95,22 @@ En lugar de:
 - **geography**, use un tipo varbinary
 - **hierarchyid**, tipo CLR no nativo
 - **image**, **text**, **ntext** cuando se usa varchar/nvarchar basado en texto (cuanto menos, mejor)
-- **nvarchar (max)**, use varchar (4000) o más pequeño para un mejor rendimiento
-- **numeric**, use decimal
 - **sql\_variant**, divida la columna en varias columnas fuertemente tipadas
-- **sysname**, use nvarchar(128)
 - **table**, convierta en tablas temporales
 - **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use BINARY(8) o VARBINARY(8) para valores de versión de fila NOT NULL o NULL.
-- **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
-- **uniqueidentifier**, use varbinary(8)
 - **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
-- **xml**, use un varchar(8000) o más pequeño para un mejor rendimiento; dividir en columnas si es necesario
+- **xml**, use varchar(max) o más pequeño para un mejor rendimiento
+
+Para mejorar el rendimiento, en lugar de:
+
+- **nvarchar (max)**, use varchar (4000) o más pequeño para un mejor rendimiento
+- **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
 
 Compatibilidad parcial:
 
 - Las restricciones DEFAULT solo admiten literales y constantes. No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE] Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
+> [AZURE.NOTE] Si usa PolyBase para cargar sus tablas, defínalas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32 767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, así como cargar filas con BCP, por ahora no podrá usar PolyBase para cargar estos datos. El soporte técnico de PolyBase para filas anchas se agregará en breve. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
 
 ## Principios de la distribución de datos
 
@@ -201,7 +194,7 @@ La capacidad de predicción del algoritmo hash es muy importante. Esto significa
 
 Como verá a continuación, la distribución de hash puede ser muy eficaz para la optimización de consultas. Por ello se considera una forma optimizada para distribuir los datos.
 
-> [AZURE.NOTE] ¡No lo olvide! El valor hash no se basa en el valor de los datos, sino en el tipo de datos a los que se aplica un algoritmo hash.
+> [AZURE.NOTE] ¡No lo olvide! El valor hash no se basa solo en el valor de los datos. Se trata de una combinación del tipo de valor y el tipo de datos.
 
 A continuación se muestra una tabla que ha distribuido ProductKey.
 
@@ -228,7 +221,7 @@ WITH
 ## Particiones de tabla
 Las particiones de tabla son compatibles y fáciles de definir.
 
-Ejemplos del comando `CREATE TABLE` con particiones del Almacenamiento de datos SQL:
+Ejemplo del comando `CREATE TABLE` con particiones de Almacenamiento de datos SQL:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -254,7 +247,7 @@ WITH
 ;
 ```
 
-Observe que no hay ningún esquema ni función de partición en la definición. Todo lo que se tiene en cuenta cuando se crea la tabla. Todo lo que debe hacer es identificar los puntos límite de la columna que va a ser la clave de partición.
+Observe que no hay ningún esquema ni función de partición en la definición. Almacenamiento de datos SQL usa una definición simplificada de particiones que difiere ligeramente de SQL Server. Todo lo que debe hacer es identificar los puntos límite de la columna con particiones.
 
 ## Estadísticas
 
@@ -274,36 +267,39 @@ Se aplican las siguientes recomendaciones para la generación de estadísticas:
 2. Generar estadísticas de varias columnas en las cláusulas compuestas.
 3. Actualizar las estadísticas de forma periódica. Recuerde que esto no se realiza automáticamente.
 
->[AZURE.NOTE] Es habitual que el Almacenamiento de datos SQL dependa únicamente de `AUTOSTATS` para mantener actualizadas las estadísticas de columna. No es una práctica recomendada, incluso para los almacenamientos de datos SQL Server. `AUTOSTATS` se desencadenan a una velocidad de cambio del 20 % para las tablas de hechos grandes que contenían millones o miles de millones de filas que pueden no ser suficientes. Por lo tanto, siempre es conveniente mantener las actualizaciones de estadísticas como una prioridad para garantizar que las estadísticas reflejan con precisión la cardinalidad de la tabla.
+>[AZURE.NOTE] Es habitual que el Almacenamiento de datos SQL dependa únicamente de `AUTOSTATS` para mantener actualizadas las estadísticas de columna. No es una práctica recomendada, incluso para los almacenamientos de datos SQL Server. `AUTOSTATS` se desencadenan a una velocidad de cambio del 20 % para las tablas de hechos grandes que contenían millones o miles de millones de filas que pueden no ser suficientes. Por lo tanto, siempre es conveniente mantener las actualizaciones de estadísticas como una prioridad para garantizar que las estadísticas reflejan con precisión la cardinalidad de la tabla.
 
 ## Características no admitidas
 Almacenamiento de datos SQL no usa ni admite estas características:
 
-- Claves principales
-- Claves externas
-- Restricciones CHECK
-- Restricciones UNIQUE
-- Índices únicos
-- Columnas calculadas
-- Columnas dispersas
-- Tipos definidos por el usuario
-- Vistas indizadas
-- Identidades
-- Secuencias
-- Desencadenadores
-- Sinónimos
-
+| Característica | Solución alternativa |
+| --- | --- |
+| Identidades | [Assigning Surrogate Keys] (Asignación de claves suplentes) |
+| Claves principales | N/D |
+| Claves externas | N/D |
+| Restricciones CHECK | N/D |
+| Restricciones UNIQUE | N/D |
+| Índices únicos | N/D |
+| Columnas calculadas | N/D |
+| Columnas dispersas | N/D |
+| Tipos definidos por el usuario | N/D |
+| Vistas indizadas | N/D |
+| Secuencias | N/D |
+| Desencadenadores | N/D |
+| Sinónimos | N/D |
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][]. Para obtener más sugerencias sobre los procedimientos recomendados, consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Procedimientos recomendados para el Almacenamiento de datos SQL]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

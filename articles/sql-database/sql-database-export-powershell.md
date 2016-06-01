@@ -34,7 +34,7 @@ Cuando necesite crear un archivo de una base de datos SQL de Azure, puede export
 - El tamaño máximo de un archivo BACPAC guardado en el almacenamiento de blobs de Azure es de 200 GB. Use la utilidad de símbolo del sistema [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para guardar archivos BACPAC de mayor tamaño en un almacenamiento local. Esta utilidad se incluye con Visual Studio y SQL Server. También puede [descargar](https://msdn.microsoft.com/library/mt204009.aspx) la versión más reciente de SQL Server Data Tools para obtener esta utilidad.
 - No se puede archivar en Almacenamiento premium de Azure usando un archivo BACPAC.
 - Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
- - Aumentar el nivel de servicio temporalmente 
+ - Aumentar temporalmente el nivel de servicio 
  - Detener toda actividad de lectura y escritura durante la exportación
  - Usar un índice agrupado en todas las tablas de gran tamaño. Sin índices agrupados, la exportación podría no producirse si tarda más de 6-12 horas. Esto se debe a que el servicio de exportación necesita completar el recorrido de tabla para exportar toda la tabla.
  
@@ -151,4 +151,4 @@ Al ejecutar este comando se le solicitará una contraseña. Escriba la contrase�
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

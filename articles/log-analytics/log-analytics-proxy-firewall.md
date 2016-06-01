@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -138,9 +138,9 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración**.
 
-2. Expanda **Visión operativa** y, a continuación, seleccione **Conexión a Vista operativa**.  
+2. Expanda **Visión operativa** y, a continuación, seleccione **Conexión a Vista operativa**.
     ![Conexión a OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. En la vista Conexión a OMS, haga clic en **Configurar servidor proxy**.  
+3. En la vista Conexión a OMS, haga clic en **Configurar servidor proxy**.
     ![Configurar servidor proxy de Conexión a OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. En el asistente de configuración de Visión operativa: servidor proxy, seleccione **Uso de un servidor proxy para tener acceso al servicio web de Visión operativa** y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, **http://myproxy:80**.  
     ![Dirección proxy de OMS de Operations Manager](./media/log-analytics-proxy-firewall/proxy-om03.png)
@@ -151,17 +151,17 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración**.
 2. En **RunAs Configuration**, seleccione **Perfiles**.
-3. Abra el perfil de **proxy del perfil Ejecutar como de System Center Advisor**.  
+3. Abra el perfil de **proxy del perfil Ejecutar como de System Center Advisor**.
     ![imagen del perfil de ejecutar como proxy de System Center Advisor](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
 4. En el asistente de perfil de identificación, haga clic en **Agregar** para usar una cuenta de ejecución. Puede crear una nueva cuenta de ejecución o usar una existente. Esta cuenta debe contar con los permisos suficientes para pasar a través del servidor proxy.  
     ![imagen del asistente para el perfil de ejecutar como](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
 5. Para establecer la cuenta que se va a administrar, elija **una clase seleccionada, un grupo o un objeto** para abrir el cuadro de búsqueda de objetos.  
     ![imagen del asistente para el perfil de ejecutar como](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Busque y seleccione **Grupo de servidores de supervisión de Microsoft System Center Advisor**.  
+6. Busque y seleccione **Grupo de servidores de supervisión de Microsoft System Center Advisor**.
     ![imagen del cuadro de búsqueda de objetos](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Haga clic en **Aceptar** para cerrar el cuadro Agregar una ejecución como cuenta.  
+7. Haga clic en **Aceptar** para cerrar el cuadro Agregar una ejecución como cuenta.
     ![imagen del asistente para el perfil de ejecutar como](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Complete el asistente y guarde los cambios.  
+8. Complete el asistente y guarde los cambios.
     ![imagen del asistente para el perfil de ejecutar como](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 
@@ -182,7 +182,7 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 3. Agregue todos los contadores que comienzan con **HTTP**.  
     ![agregar contadores](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
 4. Si la configuración de Operations Manager es correcta, verá actividad para los contadores de Administración de Servicio de mantenimiento para eventos y otros elementos de datos, según los módulos de administración que agregó en OMS y la directiva de recopilación de registros configurada.  
-    ![Monitor rendimiento mostrando actividad](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+![Monitor rendimiento mostrando actividad](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 
 ## Hybrid Runbook Worker de Automatización de Azure
@@ -196,5 +196,4 @@ La máquina local en la que se ejecuta Hybrid Runbook Worker debe tener acceso d
 - Consulte [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) (Incorporación de soluciones de Log Analytics desde la galería de soluciones) para agregar funcionalidad y recopilar datos.
 - Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

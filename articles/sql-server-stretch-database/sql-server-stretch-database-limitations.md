@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Limitaciones de área expuesta y problemas de bloqueo de Stretch Database | Microsoft Azure"
-	description="Obtenga información acerca de los problemas de bloqueo que se deben resolver para poder habilitar Stretch Database."
+	pageTitle="Limitaciones de Stretch Database | Microsoft Azure"
+	description="Obtenga información sobre las limitaciones de Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,61 +13,73 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Limitaciones de área expuesta y problemas de bloqueo de Stretch Database
+# Limitaciones de Stretch Database
 
-Obtenga información acerca de los problemas de bloqueo que se deben resolver para poder habilitar Stretch Database.
+Obtenga información sobre las limitaciones de las tablas habilitadas para Stretch y sobre las limitaciones que actualmente evitan que habilite Stretch en una tabla.
 
-## <a name="Limitations"></a>Problemas de bloqueo
-En la versión preliminar actual de SQL Server 2016, los siguientes elementos hacen que una tabla no sea apta para Stretch.
+##  <a name="Caveats"></a> Limitaciones de las tablas habilitadas para Stretch
 
-**Propiedades de tabla**
--   Más de 1023 columnas
+Las tablas habilitadas para Stretch tienen las limitaciones siguientes.
 
--   Más de 998 índices
+### Restricciones
 
--   Tablas que contienen datos FILESTREAM
+-   No se exige la unicidad en las restricciones UNIQUE ni PRIMARY KEY en la tabla de Azure que contiene los datos migrados.
 
--   FileTables
+### Operaciones de DML
 
--   Tablas replicadas
+-   No se pueden realizar las acciones UPDATE o DELETE en las filas de una tabla habilitada para Stretch o en una vista que incluya tablas habilitadas para Stretch.
 
--   Tablas que están usando Seguimiento de cambios o Captura de datos modificados
+-   No se puede realizar la acción INSERT en las filas de una tabla habilitada para Stretch en un servidor vinculado.
+
+### Índices
+
+-   No se puede crear un índice para una vista que incluya tablas habilitadas para Stretch.
+
+-   Los filtros en los índices de SQL Server no se propagan a la tabla remota.
+
+##  <a name="Limitations"></a> Limitaciones que actualmente evitan que habilite Stretch en una tabla
+
+Los siguientes elementos actualmente evitan que habilite Stretch en una tabla.
+
+### Propiedades de tabla
+
+-   Tablas que tienen más de 1 023 columnas o más de 998 índices
+
+-   FileTables o tablas que contienen datos FILESTREAM
+
+-   Tablas que se replican o que usan activamente Seguimiento de cambios o Captura de datos modificados
 
 -   Tablas con optimización para memoria
 
-**Tipos de datos y propiedades de columna**
+### Tipos de datos
+
+-   text, ntext e image
+
 -   timestamp
 
 -   sql\_variant
 
 -   XML
 
--   geometry
+-   Tipos de datos CLR, incluidos geometry, geography, hierarchyid y tipos CLR definidos por usuario.
 
--   geography
+### Tipos de columna
 
--   hierarchyid
-
--   Tipos definidos por el usuario (UDT) CLR
-
-**Tipos de columna**
 -   COLUMN\_SET
 
 -   Columnas calculadas
 
-**Restricciones**
--   Restricciones CHECK
+### Restricciones
 
--   Restricciones predeterminadas
+-   Restricciones predeterminadas y restricciones CHECK
 
--   Restricciones de clave externa que hacen referencia a la tabla
+-   Restricciones de clave externa que hacen referencia a la tabla. En una relación de elementos primarios y secundarios (por ejemplo, Order y Order\_Detail), puede habilitar Stretch en la tabla secundaria (Order\_Detail), pero no en la tabla principal (Order).
 
-    La tabla en la que no se puede habilitar la base de datos de Stretch es la que hace referencia a una restricción de clave externa- En una relación de elementos primarios y secundarios (por ejemplo, Orders y Order Details), es la tabla primaria (Orders).
+### Índices
 
-**Índices**
 -   Índices de texto completo
 
 -   Índices XML
@@ -75,23 +87,6 @@ En la versión preliminar actual de SQL Server 2016, los siguientes elementos ha
 -   Índices espaciales
 
 -   Vistas indexadas que hacen referencia a la tabla
-
-## <a name="Caveats"></a>Limitaciones y salvedades de las tablas habilitadas para Stretch
-En la versión de vista preliminar actual de SQL Server 2016, las tablas habilitadas para Stretch tienen las siguientes limitaciones o salvedades.
-
--   No se exige la unicidad en las restricciones UNIQUE ni PRIMARY KEY en una tabla habilitada para Stretch.
-
--   No se pueden ejecutar las operaciones UPDATE ni DELETE en una tabla habilitada para Stretch.
-
--   No se puede realizar una operación INSERT de forma remota en una tabla habilitada para Stretch en un servidor vinculado.
-
--   No se puede utilizar la replicación con una tabla habilitada para Stretch.
-
--   No se puede crear un índice para una vista que incluya tablas habilitadas para Stretch.
-
--   No se pueden realizar acciones de actualización ni eliminación desde una vista que incluya tablas habilitadas para Stretch. Sin embargo, se puede insertar en una vista que incluya tablas habilitadas para Stretch.
-
--   Los filtros en los índices no se propagan a la tabla remota.
 
 ## Consulte también
 
@@ -101,4 +96,4 @@ En la versión de vista preliminar actual de SQL Server 2016, las tablas habilit
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

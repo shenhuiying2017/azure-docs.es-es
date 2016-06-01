@@ -55,7 +55,7 @@ A continuación, cree el recurso de aplicación del Servicio de aplicaciones. En
 
     Siga las indicaciones para continuar el inicio de sesión en un explorador con una cuenta de Microsoft que tenga su suscripción de Azure.
 
-2. Asegúrese de que todavía se encuentra en el directorio raíz del proyecto Sails.js. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web será http://&lt;appname>.azurewebsites.net.
+2. Asegúrese de que todavía se encuentra en el directorio raíz del proyecto Sails.js. Cree el recurso de aplicación del Servicio de aplicaciones en Azure con un nombre de aplicación único con el comando siguiente. La dirección URL de la aplicación web es http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -238,4 +238,4 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 - [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure](app-service-web-nodejs-get-started.md)
 - [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

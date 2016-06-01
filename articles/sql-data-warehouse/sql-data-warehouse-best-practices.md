@@ -46,7 +46,7 @@ Consulte también [Insert (Transact-SQL)][]
 ## Carga y exportación de datos rápidas con PolyBase
 Almacenamiento de datos SQL admite la carga y exportación de datos con varias herramientas, como Data Factory de Azure, PolyBase y BCP. Para pequeñas cantidades de datos donde el rendimiento no es clave, cualquier herramienta le sirve. Sin embargo, para cargar o exportar grandes volúmenes de datos o si se necesita un rendimiento rápido, PolyBase es la mejor opción. PolyBase está diseñado para aprovechar la estructura MPP (procesamiento masivo en paralelo) del Almacenamiento de datos SQL y, por tanto, carga y exporta grandes cantidades de datos más rápido que cualquier otra herramienta. Lo que haya cargado con PolyBase se ejecuta con la consulta CTAS o de selección. **CTAS reduce el registro de transacciones y es la manera más rápida de cargar datos**. Data Factory de Azure también admite datos cargados con PolyBase. PolyBase admite distintos de formatos de archivo, como Gzip. **Con el fin de conseguir un mayor rendimiento al usar archivos de texto gzip, divídalos en 60 o varios archivos para aumentar el paralelismo de la carga**. Para conseguir un rendimiento total más rápido, cargue los datos simultáneamente.
 
-Consulte también [Carga de datos en Almacenamiento de datos SQL][], [Guía para el uso de PolyBase en Almacenamiento de datos SQL][], [Azure SQL Data Warehouse loading patterns and strategies][] (estrategias y patrones de carga de Almacenamiento de datos SQL de Azure), [Carga de datos con Data Factory de Azure][], [Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Data Factory de Azure][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] (creación de formatos de archivo externos [Transact-SQL]), [Create Table As Select (CTAS) en Almacenamiento de datos SQL][]
+Consulte también [Carga de datos en Almacenamiento de datos SQL][], [Guía para el uso de PolyBase en Almacenamiento de datos SQL][], [Azure SQL Data Warehouse loading patterns and strategies][] (estrategias y patrones de carga de Almacenamiento de datos SQL de Azure), [Carga de datos con Data Factory de Azure][], [Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Data Factory de Azure][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] (creación de formatos de archivo externos [Transact-SQL]), [CREATE TABLE AS SELECT (CTAS) en Almacenamiento de datos SQL][]
 
 ## Distribución Hash para tablas grandes
 De forma predeterminada, las tablas se distribuyen según el patrón Round Robin. Esto facilita a los usuarios empezar a crear tablas sin tener que decidir sobre la distribución. Las tablas Round Robin son eficaces para algunas cargas de trabajo, pero a menudo es mucho mejor seleccionar una columna de distribución. El ejemplo más común de tabla distribuida por una columna que supera con creces a una Round Robin es al combinarse dos tablas grandes de hechos. Por ejemplo, si tiene una tabla de pedidos, que se distribuye por order\_id, y una tabla de transacciones, que también se distribuye por order\_id, al unir la tabla de pedidos a la de transacciones en order\_id, esta consulta se convierte en una consulta de paso a través, lo que significa que se eliminan las operaciones de movimiento de datos. Menos pasos suponen mayor rapidez de consulta. Menos movimiento de datos también se traduce en consultas más rápidas. Esta explicación es muy general. Al cargar una tabla con distribución, asegúrese de que no se ordenan los datos entrantes en la clave de distribución, ya que esto ralentizará la carga. En los siguientes vínculos se muestra con mucho más detalle cómo seleccionar una columna de distribución mejora el rendimiento y cómo definir una tabla distribuida en la cláusula WITH de la instrucción CREATE TABLES.
@@ -109,7 +109,7 @@ El [foro de MSDN de Almacenamiento de datos SQL de Azure][] se creó como un lug
 <!--Article references-->
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
-[Create Table As Select (CTAS) en Almacenamiento de datos SQL]: sql-data-warehouse-develop-ctas.md
+[CREATE TABLE AS SELECT (CTAS) en Almacenamiento de datos SQL]: sql-data-warehouse-develop-ctas.md
 [Guía para el uso de PolyBase en Almacenamiento de datos SQL]: sql-data-warehouse-load-polybase-guide.md
 [La distribución hash y su efecto sobre el rendimiento de las consultas en Almacenamiento de datos SQL]: sql-data-warehouse-develop-hash-distribution-key.md
 [Carga de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-load.md
@@ -119,7 +119,7 @@ El [foro de MSDN de Almacenamiento de datos SQL de Azure][] se creó como un lug
 [Administración de índices de almacén de columnas en Almacenamiento de datos SQL de Azure]: sql-data-warehouse-manage-columnstore-indexes.md
 [Administración de estadísticas en el Almacenamiento de datos SQL]: sql-data-warehouse-develop-statistics.md
 [Supervisión de la carga de trabajo mediante DMV]: sql-data-warehouse-manage-monitor.md
-[Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Data Factory de Azure]: data-factory-azure-sql-data-warehouse-connector.md
+[Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Data Factory de Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Optimización de transacciones para Almacenamiento de datos SQL]: sql-data-warehouse-develop-best-practices-transactions.md
 [pausar]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [reanudar]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
@@ -157,4 +157,4 @@ El [foro de MSDN de Almacenamiento de datos SQL de Azure][] se creó como un lug
 [foro de Stack Overflow para Almacenamiento de datos SQL de Azure]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

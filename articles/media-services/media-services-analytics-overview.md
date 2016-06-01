@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="04/22/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
 # Información general de análisis de Servicios multimedia de Azure
@@ -22,9 +22,14 @@
 
 Cada vez más empresas y organizaciones adoptan el vídeo como medio preferido para formar a sus empleados, atraer a sus clientes y documentar las funciones empresariales. La informática en la nube hace que resulte eficaz almacenar estos archivos multimedia de gran tamaño, transmitirlos y acceder a ellos. Sin embargo, a medida que la biblioteca de contenido de vídeo de las empresas crece, se necesita un medio igualmente eficaz para extraer nuevos detalles del vídeo a fin de crear interacciones más significativas y personalizadas con el público y llevar el negocio al siguiente nivel.
 
-Para abordar esta necesidad del mercado en continuo crecimiento, Servicios multimedia de Azure ofrece Análisis multimedia, una colección de servicios de voz y visión informática a escala empresarial, cumplimiento, seguridad y alcance global. Los servicios Análisis multimedia de Azure se generan con los componentes principales de la plataforma Servicios multimedia de Azure y, por tanto, están preparados para ocuparse del procesamiento multimedia a escala desde el primer día.
+Para abordar esta necesidad creciente en el mercado, Servicios multimedia de Azure ofrece Análisis multimedia, una colección de componentes de voz y visión (a escala empresarial, cumplimiento, seguridad y alcance global) que facilita a las organizaciones y empresas la derivación de conocimientos prácticos partir de sus archivos de vídeo. Los servicios Análisis multimedia de Azure se generan con los componentes principales de la plataforma Servicios multimedia de Azure y, por tanto, están preparados para ocuparse del procesamiento multimedia a escala desde el primer día.
 
 Análisis multimedia de Azure permite a los desarrolladores empezar a trabajar rápidamente con las funciones de visión para vídeo a escala limitada e integrar esta funcionalidad avanzada en bots y aplicaciones. Análisis multimedia de Azure está diseñado para usarse en entornos empresariales con la escala total, el cumplimiento, la seguridad y el alcance global que necesitan las grandes organizaciones.
+
+El siguiente diagrama muestra **Análisis multimedia** y otras partes principales de la plataforma de Servicios multimedia. Tenga en cuenta que los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure.
+
+![Flujo de trabajo de VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
+
 
 ## Servicios de Análisis multimedia de Azure
 
@@ -65,7 +70,8 @@ A continuación se muestran un par de escenarios en los que Análisis multimedia
 [Media Services Analytics announcement (Anuncio de análisis de Servicios multimedia)](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
   
 
+<!-- Images -->
 
- 
+[overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/24/2016"
 	ms.author="casoper"/>
 
 # Información general de la red de entrega de contenido (CDN) de Azure
 
-La Red de entrega de contenido (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. Para una lista de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+> [AZURE.NOTE] En este documento se describe qué es la red de entrega de contenido (CDN) de Azure, cómo funciona y las características de cada producto CDN de Azure. Si desea omitir esta información y pasar directamente a un tutorial sobre cómo crear un punto de conexión de CDN, consulte [Uso de CDN de Azure](cdn-create-new-endpoint.md). Para ver una lista de ubicaciones actuales de nodos de CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+
+La Red de entrega de contenido (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo.
 
 Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los recursos de sitios web se incluyen:
 
@@ -46,7 +48,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los r
 
 ## Características de la red CDN de Azure
 
-Hay tres productos de la red CDN de Azure: **Red CDN estándar Azure de Akamai**, **Red CDN estándar de Azure de Verizon** y **Red CDN premium de Azure de Verizon**. En la tabla siguiente se enumeran las características disponibles con cada producto.
+Hay tres productos de red CDN de Azure: **Red CDN estándar de Azure de Akamai**, **Red CDN estándar de Azure de Verizon** y **Red CDN premium de Azure de Verizon**. En la tabla siguiente se enumeran las características disponibles con cada producto.
 
 | | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
 |-------|-----------------|------------------|-----------------|
@@ -76,4 +78,4 @@ Para ver la red CDN en acción, consulte el [vídeo sobre nuestra sesión de Bui
 
 Para más información sobre los precios, consulte [Precios de Red de entrega de contenido (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

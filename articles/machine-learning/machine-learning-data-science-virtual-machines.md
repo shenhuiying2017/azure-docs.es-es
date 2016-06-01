@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Máquinas virtuales de ciencia de datos en Azure
 
@@ -41,4 +41,4 @@ Una vez aprovisionadas y configuradas, estas máquinas virtuales están preparad
 > [AZURE.NOTE] Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** en el [Portal de Azure clásico](http://manage.windowsazure.com/). Para obtener instrucciones paso a paso sobre cómo desasignar la máquina virtual, consulte [Apagado y desasignación de la máquina virtual cuando no esté en uso](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

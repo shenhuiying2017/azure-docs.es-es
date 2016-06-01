@@ -14,14 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # Información general sobre SQL Server en máquinas virtuales de Azure
 
 [SQL Server ejecutándose en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) permite hospedar bases de datos de SQL Server en la nube. Por ejemplo, puede migrar una base de datos local a una máquina virtual de Azure preconfigurada con Windows Server 2012 R2 y SQL Server 2014 Enterprise Edition. Pero hay muchos otros escenarios posibles, como las configuraciones en varias máquinas que admiten alta disponibilidad o las arquitecturas híbridas con conectividad a redes locales.
 
-Para una introducción excelente, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016).
+Para obtener una excelente visión general, vea el siguiente vídeo:
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## Ofertas de SQL
 
@@ -34,13 +36,13 @@ La ejecución de SQL Server en una máquina virtual de Azure es una opción para
 |![Almacenamiento de datos SQL](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[Almacenamiento de datos SQL](https://azure.microsoft.com/services/sql-data-warehouse/)|Use Almacenamiento de datos SQL de Azure para procesar grandes cantidades de datos relacionales y no relacionales. Proporciona funcionalidades de almacenamiento de datos escalable, como si fuera un servicio.|
 |![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)|Ajuste dinámicamente los datos transaccionales locales de Microsoft SQL Server 2016 en Azure.|
 
->[AZURE.NOTE] Para ver una comparación detallada entre las máquinas virtuales de SQL y Base de datos SQL, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en Máquinas virtuales de Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+>[AZURE.NOTE] Para ver una comparación detallada entre las máquinas virtuales SQL y Base de datos SQL, consulte [Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
 ## Implementación de una máquina virtual con SQL Server
 
 Para crear una máquina virtual de SQL Server en Azure, primero debe obtener una suscripción a la plataforma de Azure. Puede adquirir una suscripción de Azure en [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/). Para probarla de manera gratuita, visite la [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual con SQL Server en Azure es [aprovisionar una imagen de la galería de máquinas con SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
+Cuando se haya registrado para una suscripción, la manera más sencilla de implementar una máquina virtual SQL Server en Azure consiste en el [aprovisionamiento de una imagen de la galería de la máquina SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md). Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual.
 
 Es importante tener en cuenta que hay dos modelos para crear y administrar máquinas virtuales de Azure: clásica y Administrador de recursos. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md). Cada tema debe indicar claramente su modelo de destino, a menos que se aplique tanto al clásico como al de Resource Manager, como este artículo.
 
@@ -69,9 +71,9 @@ Una vez puesta en marcha la máquina virtual de SQL Server, podrá migrar bases 
 
 ## Alta disponibilidad
 
-Si requiere alta disponibilidad, considere la posibilidad de configurar grupos de disponibilidad de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de Azure dispone de una plantilla que define esta configuración. Para más información, consulte [Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+Si requiere alta disponibilidad, considere la posibilidad de configurar grupos de disponibilidad de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de Azure dispone de una plantilla que define esta configuración. Para obtener más información, consulte [Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
-Si desea configurar manualmente un grupo de disponibilidad y el agente de escucha asociado, consulte [Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Si desea configurar manualmente el grupo de disponibilidad y el agente de escucha asociado, consulte [Configuración de grupos de disponibilidad AlwaysOn en la máquina virtual de Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Para otras consideraciones sobre alta disponibilidad, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -82,10 +84,10 @@ Con las bases de datos locales, Azure puede actuar como un centro de datos secun
 
 ## Pasos siguientes
 
-En primer lugar, [cree su propia máquina virtual con SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
+En primer lugar, [cree su propia máquina virtual SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Luego, consulte [prácticas recomendadas para mejorar el rendimiento](virtual-machines-windows-sql-performance.md) y [técnicas de migración](virtual-machines-windows-migrate-sql.md) cuando considere la posibilidad de mover las cargas de trabajo de SQL Server a Máquinas virtuales de Azure.
+Luego, consulte las [prácticas recomendadas para mejorar el rendimiento](virtual-machines-windows-sql-performance.md) y las [técnicas de migración](virtual-machines-windows-migrate-sql.md) cuando considere la posibilidad de mover las cargas de trabajo de SQL Server a máquinas virtuales de Azure.
 
-Si tiene más dudas sobre SQL Server en Máquinas virtuales de Azure, consulte [Preguntas más frecuentes sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-faq.md). O bien, agregue sus comentarios a la parte inferior de cualquiera de los temas de las máquinas virtuales de SQL para interactuar con Microsoft y la comunidad.
+Si tiene más dudas sobre SQL Server en máquinas virtuales de Azure, consulte [Preguntas más frecuentes sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-faq.md). O bien, agregue sus comentarios a la parte inferior de cualquiera de los temas de las máquinas virtuales de SQL para interactuar con Microsoft y la comunidad.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

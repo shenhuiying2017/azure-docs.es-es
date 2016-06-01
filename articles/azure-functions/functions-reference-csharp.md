@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Referencia para desarrolladores de C# de Funciones de Azure
@@ -100,8 +100,10 @@ Los siguientes espacios de nombres se importan automáticamente y, por tanto, so
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,10 +137,12 @@ El entorno de hospedaje de las Funciones de Azure agrega automáticamente los si
 Además, los siguientes ensamblados hacen un uso especial de las mayúsculas y minúsculas y simplename puede hacer referencia a ellos (por ejemplo, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de ensamblado en una carpeta `bin` relacionada con la función y hacer referencia a él mediante el nombre de archivo (por ejemplo, `#r "MyAssembly.dll"`).
+Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de ensamblado en una carpeta `bin` relacionada con la función y hacer referencia a él mediante el nombre de archivo (por ejemplo, `#r "MyAssembly.dll"`). Para más información acerca de cómo cargar archivos en su carpeta de función, consulte la sección siguiente sobre administración de paquetes.
 
 ## Administración de paquetes
 
@@ -156,47 +160,17 @@ Para utilizar paquetes NuGet en una función de C#, cargue un archivo *project.j
 }
 ```
 
-Al cargar un archivo *project.json*, el tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a los ensamblados del mismo. No es necesario agregar directivas `#r "AssemblyName"`. Simplemente agregue las instrucciones `using` necesarias para que el archivo *run.csx* use los tipos definidos en los paquetes NuGet.
+Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a los ensamblados del mismo. No es necesario agregar directivas `#r "AssemblyName"`. Simplemente agregue las instrucciones `using` necesarias para que el archivo *run.csx* use los tipos definidos en los paquetes NuGet.
 
 ### Cómo cargar un archivo project.json
 
-En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure. Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
+1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure. 
 
-Las aplicaciones de la función se integran en el Servicio de aplicaciones, por lo que todas las [opciones de implementación disponibles para las aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para las aplicaciones de la función. Estos son algunos métodos que puede utilizar.
+	Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
 
-#### Para cargar project.json mediante Visual Studio Online (Mónaco)
+2. Para cargar un archivo project.json, utilice uno de los métodos descritos en la sección **Actualización de los archivos del contenedor de funciones** del [tema de referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
 
-1. En el portal de Funciones de Azure, haga clic en **Configuración del contenedor de funciones**.
-
-2. En la sección **Configuración avanzada**, haga clic en **Ir a la configuración del Servicio de aplicaciones**.
-
-3. Haga clic en **Herramientas**.
-
-4. En **Desarrollar**, haga clic en **Visual Studio Online**.
-
-5. **Actívelo** si no está ya habilitado y haga clic en **Ir**.
-
-6. Una vez cargado Visual Studio Online, arrastre y coloque el archivo *project.json* en la carpeta de la función (es decir, la carpeta con el nombre de la función).
-
-#### Carga del archivo project.json con el punto de conexión SCM (Kudu) de la aplicación de la función
-
-1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Haga clic en **Consola de depuración > CMD**.
-
-3. Vaya a *D:\\home\\site\\wwwroot<nombre\_de\_función>*.
-
-4. Arrastre y coloque el archivo *project.json* en la carpeta (en la cuadrícula de archivos).
-
-#### Carga del archivo project.json mediante FTP
-
-1. Siga las instrucciones descritas [aquí](../app-service-web/web-sites-deploy.md#ftp) para configurar el FTP.
-
-2. Cuando esté conectado al sitio del contenedor de funciones, copie el archivo *project.json* en */site/wwwroot/<function_name>*.
-
-#### Registro de instalación del paquete 
-
-Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
+3. Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ Una vez cargado el archivo *project.json*, verá un resultado similar al del eje
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Variables de entorno
+
+Para obtener una variable de entorno o un valor de configuración de la aplicación, utilice `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Reutilización del código .csx
@@ -258,4 +251,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

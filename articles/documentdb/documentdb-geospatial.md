@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/16/2016" 
     ms.author="arramac"/>
     
 # Trabajo con datos geoespaciales en Azure DocumentDB
@@ -181,7 +181,7 @@ Si incluye la indexación espacial en la directiva de indexación, las "consulta
 
 ST\_WITHIN puede usarse para comprobar si un punto se encuentra dentro de un polígono. Normalmente, los polígonos se usan para representar límites, como códigos postales, límites estatales o formaciones naturales. Una vez más, si incluye la indexación espacial en la directiva de indexación, las consultas "interiores" se atenderán eficazmente a través del índice.
 
-Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individual, es decir, los polígonos no deben contener orificios. En [Límites y cuotas de DocumentDB](documentdb-limits.md) encontrará el número máximo de puntos permitidos en un polígono para una consulta ST\_WITHIN.
+Los argumentos de polígono de ST\_WITHIN solo pueden contener un anillo individual, es decir, los polígonos no deben contener orificios.
 
 **Consultar**
 
@@ -346,4 +346,4 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

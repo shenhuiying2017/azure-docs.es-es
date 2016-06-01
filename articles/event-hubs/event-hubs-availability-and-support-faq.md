@@ -33,7 +33,7 @@ Los eventos consumidos de un Centro de eventos, así como las operaciones de adm
 
 ## ¿Qué son las unidades de procesamiento de los Centros de eventos?
 
-Las unidades de procesamiento de los Centros de eventos las selecciona explícitamente el usuario, a través del portal de Azure clásico o de la API de administración de Centros de eventos. Las unidades de procesamiento que se aplican a todos los Centros de eventos de un espacio de nombres del Bus de servicio y cada unidad de procesamiento da derecho al espacio de nombres a las siguientes capacidades:
+Las unidades de procesamiento de los Centros de eventos las selecciona explícitamente el usuario, a través del Portal de Azure clásico o de las plantillas de Resource Manager de Centros de eventos. Las unidades de procesamiento que se aplican a todos los Centros de eventos de un espacio de nombres del Bus de servicio y cada unidad de procesamiento da derecho al espacio de nombres a las siguientes capacidades:
 
 - Hasta 1 MB por segundo de eventos de entrada (eventos enviados a un Centro de eventos), pero no más de 1000 eventos de entrada, operaciones de administración o llamadas a la API de control por segundo.
 
@@ -110,4 +110,4 @@ Para obtener más información sobre los Centros de eventos, consulte los siguie
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

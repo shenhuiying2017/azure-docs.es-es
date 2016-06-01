@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016"
-    ms.author="vikbucha" />
+    ms.date="05/13/2016"
+    ms.author="elizapo" />
 
 
 
@@ -42,4 +42,4 @@ Si usa una de las imágenes de Microsoft incluidas en su suscripción, intente c
 
 Si recibe este error, normalmente significa que ha actualizado a una cuenta de pago pero intenta usar una imagen proporcionada por Microsoft que solo es válida durante el modo de prueba del servicio. En este caso, intente crear nuevamente la colección en la nube, pero asegúrese de especificar la imagen correcta.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

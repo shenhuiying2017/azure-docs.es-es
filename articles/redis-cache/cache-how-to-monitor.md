@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Supervisión de Caché en Redis de Azure" 
+	pageTitle="Supervisión de Caché en Redis de Azure | Microsoft Azure" 
 	description="Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Caché en Redis de Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sdanie"/>
 
 # Supervisión de Caché en Redis de Azure
@@ -82,8 +82,8 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 | Memoria usada | La cantidad de memoria caché usada para pares clave-valor en la memoria caché en MB durante el intervalo de informes especificado. Este valor se asigna al comando INFO `used_memory` de Redis. Esto no incluye los metadatos o la fragmentación. |
 | Memoria RSS usada | La cantidad de memoria caché usada en MB durante el intervalo de informes especificado, incluida la fragmentación y los metadatos. Este valor se asigna al comando INFO `used_memory_rss` de Redis. |
 | CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Lectura de caché | La cantidad de datos que se leen de la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
-| Escritura de caché | La cantidad de datos que se escriben en la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
+| Lectura de caché | La cantidad de datos que se leen de la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. **Este valor corresponde al ancho de banda de red utilizado por esta caché. Si desea configurar alertas para los límites de ancho de banda de red del lado servidor, hágalo mediante este contador `Cache Read` . Consulte [esta tabla](cache-faq.md#cache-performance) para conocer los límites de ancho de banda observados para los diferentes tamaños y planes de tarifa de caché.** |
+| Escritura de caché | La cantidad de datos que se escriben en la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. Este valor corresponde al ancho de banda de red de los datos enviados a la memoria caché desde el cliente. |
 
 ## Gráficos de supervisión
 
@@ -259,4 +259,4 @@ Para obtener más información acerca de las alertas en Azure, consulte [Recibir
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

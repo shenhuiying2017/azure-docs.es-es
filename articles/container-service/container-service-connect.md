@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, contenedores, microservicios, Mesos, Azure"/>
+   keywords="Docker, contenedores, microservicios, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,12 +34,14 @@ Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el no
 
 Ahora, abra un shell y ejecute el siguiente comando, donde:
 
-**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos.
+**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos. **PATH\_TO\_PRIVATE\_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster del servicio de contenedor. Utilice esta opción con la marca -i.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
+> El puerto de conexión SSH es el 2200 y no el 22 estándar.
 
 ## Túnel de DC/OS
 
@@ -48,7 +50,7 @@ Para abrir un túnel a los puntos de conexión relacionados con DC/OS, ejecute u
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Ya puede acceder a los puntos de conexión relacionados con DC/OS en:
@@ -66,7 +68,7 @@ Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Ya puede establecer la variable de entorno DOCKER\_HOST como se indica a continuación y seguir usando la interfaz de línea de comandos (CLI) de Docker de la manera habitual.
@@ -115,6 +117,6 @@ Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clú
 
 Implemente y administre contenedores con DC/OS o Swarm.
 
-[Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md) [Administración de contenedores con Docker Swarm](./container-service-docker-swarm.md)
+[Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md) [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

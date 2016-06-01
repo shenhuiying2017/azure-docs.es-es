@@ -18,6 +18,13 @@
 
 # Creación de una aplicación web con Caché en Redis
 
+> [AZURE.SELECTOR]
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 Este tutorial muestra cómo crear e implementar una aplicación web ASP.NET en una aplicación web del Servicio de aplicaciones de Azure mediante Visual Studio 2015. La aplicación de ejemplo muestra una lista de estadísticas de equipos de una base de datos con distintas formas de usar Caché en Redis de Azure para almacenar y recuperar datos de la caché. Al finalizar el tutorial tendrá una aplicación web en ejecución que lee y escribe en una base de datos, optimizada con Caché en Redis de Azure y hospedada en Azure.
 
 Aprenderá a realizar los siguientes procedimientos:
@@ -45,7 +52,7 @@ Necesita una cuenta de Azure para completar el tutorial. Puede:
 
 ### Visual Studio 2015 con el SDK de Azure para .NET
 
-Este tutorial está escrito para Visual Studio 2015 con el [SDK de Azure para .NET](../dotnet-sdk.md) 2.8.2, o posterior. [Descargue aquí el último SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si aún no lo tiene, Visual Studio se instala automáticamente con el SDK.
+Este tutorial está escrito para Visual Studio 2015 con el [SDK de Azure para .NET](../dotnet-sdk.md) 2.8.2 o posterior. [Descargue aquí el último SDK de Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Si aún no lo tiene, Visual Studio se instala automáticamente con el SDK.
 
 Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Puede que algunas pantallas no coincidan exactamente con las ilustraciones que se muestran en este tutorial.
 
@@ -59,7 +66,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
  
     ![Crear proyecto][cache-create-project]
 
-3. Seleccione **MVC** como el tipo de proyecto. Desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Introducción a las Aplicaciones web en el Servicio de aplicaciones de Azure ASP.NET y Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+3. Seleccione **MVC** como tipo de proyecto. Desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
 
     ![Seleccionar plantilla de proyecto][cache-select-template]
 
@@ -92,7 +99,7 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 		using System.Data.Entity.SqlServer;
 
 
-4. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases auxiliares de Entity Framework. Para más información sobre el enfoque de codificación en primer lugar, consulte [Codificar primero una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
+4. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases auxiliares de Entity Framework. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
 
 
 		public class Team
@@ -167,7 +174,7 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 
     ![Web.config][cache-web-config]
 
-3.  Agregue la siguiente cadena de conexión a la sección `connectionStrings`. El nombre de la cadena de conexión debe coincidir con el nombre de la clase de contexto de base de datos de Entity Framework, que es `TeamContext`.
+3.  Agregue la siguiente cadena de conexión a la sección `connectionStrings`. El nombre de la cadena de conexión debe coincidir con el de la clase de contexto de base de datos de Entity Framework, que es `TeamContext`.
 
 		<add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
 
@@ -315,12 +322,12 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
 	-	Antes: `<appSettings>`
 	-	Después: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    El tiempo de ejecución de ASP.NET combina el contenido del archivo externo con las marcas del elemento `<appSettings>`. El tiempo de ejecución omite el atributo de archivo si no se encuentra el archivo especificado. Los secretos (cadena de conexión a la caché) no se incluyen como parte del código fuente de la aplicación. Al implementar la aplicación web en Azure, el archivo `WebAppPlusCacheAppSecrests.config` no se implementará (que es lo que desea). Hay varias maneras de especificar estos secretos en Azure, y en este tutorial se configuran automáticamente al [aprovisionar los recursos de Azure](#provision-the-azure-resources) en un paso posterior del tutorial. Para más información acerca de cómo trabajar con secretos, consulte [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Procedimientos recomendados para implementar contraseñas y otra información confidencial en ASP.NET y el Servicio de aplicaciones de Azure).
+    El sistema en tiempo de ejecución de ASP.NET combina el contenido del archivo externo con las marcas del elemento `<appSettings>`. El tiempo de ejecución omite el atributo de archivo si no se encuentra el archivo especificado. Los secretos (cadena de conexión a la caché) no se incluyen como parte del código fuente de la aplicación. Al implementar la aplicación web en Azure, el archivo `WebAppPlusCacheAppSecrests.config` no se implementará (que es lo que desea). Hay varias maneras de especificar estos secretos en Azure, y en este tutorial se configuran automáticamente al [aprovisionar los recursos de Azure](#provision-the-azure-resources) en un paso posterior del tutorial. Para más información acerca de cómo trabajar con secretos, consulte [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (Procedimientos recomendados para implementar contraseñas y otra información confidencial en ASP.NET y el Servicio de aplicaciones de Azure).
 
 
 ### Actualizar la clase TeamsController para devolver resultados de la caché o la base de datos
 
-En este ejemplo, se pueden recuperar estadísticas de equipos de la base de datos o de la caché. Las estadísticas de equipos se almacenan en la caché como un elemento `List<Team>` serializado y también como un conjunto ordenado mediante tipos de datos de Redis. Al recuperar elementos de un conjunto ordenado, puede recuperar algunos, todos o consultar algunos de ellos. En este ejemplo se consulta el conjunto de los 5 equipos principales ordenado por el número de victorias.
+En este ejemplo, se pueden recuperar estadísticas de equipos de la base de datos o de la caché. Las estadísticas de equipos se almacenan en la memoria caché como un elemento `List<Team>` serializado y también como un conjunto ordenado mediante tipos de datos de Redis. Al recuperar elementos de un conjunto ordenado, puede recuperar algunos, todos o consultar algunos de ellos. En este ejemplo se consulta el conjunto de los 5 equipos principales ordenado por el número de victorias.
 
 >[AZURE.NOTE] No es necesario almacenar las estadísticas de equipos en varios formatos en la caché para usar Caché en Redis de Azure. En este tutorial se utilizan varios formatos para demostrar algunas de las diferentes maneras y diferentes tipos de datos que puede usar para almacenar datos en caché.
 
@@ -389,7 +396,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
 3. Agregue los tres métodos siguientes a la clase `TeamsController` para implementar los tipos de acción `playGames`, `clearCache` y `rebuildDB` desde la instrucción switch agregada en el fragmento de código anterior.
 
-    El método `PlayGames` actualiza las estadísticas de equipos mediante la simulación una temporada de juegos, guarda los resultados en la base de datos y borra de la caché los datos ahora obsoletos.
+    El método `PlayGames` actualiza las estadísticas de equipos mediante la simulación de una temporada de juegos, guarda los resultados en la base de datos y borra de la caché los datos ahora obsoletos.
 
 
 	    void PlayGames()
@@ -408,7 +415,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 	    }
 
 
-    El método `RebuildDB` reinicializa la base de datos con el conjunto predeterminado de equipos, genera estadísticas para ellos y borra de la caché los datos ahora obsoletos.
+    El método `RebuildDB` reinicializa la base de datos con el conjunto predeterminado de equipos, genera estadísticas para ellos y borra de la memoria caché los datos ahora obsoletos.
 	
         void RebuildDB()
         {
@@ -422,7 +429,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
         }
 
 
-    El método `ClearCachedTeams` quita de la caché las estadísticas de equipos almacenadas.
+    El método `ClearCachedTeams` quita de la memoria caché las estadísticas de equipos almacenadas.
 
 	
 	    void ClearCachedTeams()
@@ -434,7 +441,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 	    } 
 
 
-4. Agregue los cuatro métodos siguientes a la clase `TeamsController` para implementar las distintas maneras de recuperar las estadísticas de equipos de la caché y la base de datos. Cada uno de estos métodos devuelve un elemento `List<Team>` que luego se muestra mediante la vista.
+4. Agregue los cuatro métodos siguientes a la clase `TeamsController` para implementar las distintas maneras de recuperar las estadísticas de equipos de la memoria caché y la base de datos. Cada uno de estos métodos devuelve un elemento `List<Team>` que luego se muestra mediante la vista.
 
     El método `GetFromDB` lee las estadísticas de equipos de la base de datos.
 
@@ -449,7 +456,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 	    }
 
 
-    El método `GetFromList` lee las estadísticas de equipos de la caché como un elemento `List<Team>` serializado. Si se produce un error de caché, las estadísticas de equipos se leen de la base de datos y luego se almacenan en la caché para la próxima vez. En este ejemplo, vamos a usar la serialización de JSON.NET para serializar los objetos .NET a y desde la caché. Para más información, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    El método `GetFromList` lee las estadísticas de equipos de la memoria caché como un elemento `List<Team>` serializado. Si se produce un error de caché, las estadísticas de equipos se leen de la base de datos y luego se almacenan en la caché para la próxima vez. En este ejemplo, vamos a usar la serialización de JSON.NET para serializar los objetos .NET a y desde la caché. Para más información, consulte [Trabajar con objetos .NET en la memoria caché](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
         List<Team> GetFromList()
         {
@@ -513,7 +520,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 	    }
 
 
-    El método `GetFromSortedSetTop5` lee los 5 equipos principales del conjunto ordenado almacenado en caché. Para comenzar, comprueba que en la caché existe la clave `teamsSortedSet`. Si esta clave no existe, se llama al método `GetFromSortedSet` para leer las estadísticas de equipos y almacenarlas en la caché. Luego, se consulta en el conjunto ordenado almacenado en caché los 5 equipos principales que se devuelven.
+    El método `GetFromSortedSetTop5` lee los 5 equipos principales del conjunto ordenado almacenado en caché. Para comenzar, comprueba que en la memoria caché existe la clave `teamsSortedSet`. Si esta clave no existe, se llama al método `GetFromSortedSet` para leer las estadísticas de equipos y almacenarlas en la memoria caché. Luego, se consulta en el conjunto ordenado almacenado en caché los 5 equipos principales que se devuelven.
 
 
         List<Team> GetFromSortedSetTop5()
@@ -677,15 +684,15 @@ Para implementar estos servicios en un grupo de recursos nuevo o existente de su
 
 [![Implementación en Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
-Este botón **Implementar en Azure** emplea la plantilla [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) de [Creación rápida de Azure](https://github.com/Azure/azure-quickstart-templates) para aprovisionar estos servicios y establecer la cadena de conexión para la base de datos SQL y la configuración de la aplicación para la cadena de conexión de Caché en Redis de Azure.
+Este botón **Implementar en Azure** emplea la plantilla [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) (Crear una aplicación web con Caché en Redis y Base de datos SQL), disponible en [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates), para aprovisionar estos servicios y establecer la cadena de conexión para la base de datos SQL y la configuración de la aplicación para la cadena de conexión de Caché en Redis de Azure.
 
->[AZURE.NOTE] Si no tiene ninguna cuenta de Azure, puede [crear una gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) en unos minutos.
+>[AZURE.NOTE] Si no tiene ninguna cuenta de Azure, puede [crear una gratis](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) en unos minutos.
 
-Al hacer clic en el botón **Implementar en Azure** va al Portal de Azure y se inicia el proceso de creación de los recursos que describe la plantilla.
+Cuando hace clic en el botón **Implementar en Azure**, va al Portal de Azure y se inicia el proceso de creación de los recursos que describe la plantilla.
 
 ![Implementación en Azure][cache-deploy-to-azure-step-1]
 
-1. En la hoja **Implementación personalizada**, seleccione la suscripción de Azure que se usará y seleccione un grupo de recursos existente o cree uno nuevo, luego especifique la ubicación del grupo de recursos.
+1. En la hoja **Implementación personalizada**, seleccione la suscripción de Azure que se usará. Seleccione un grupo de recursos existente o cree uno nuevo y, luego, especifique la ubicación del grupo de recursos.
 2. En la hoja **Parámetros**, especifique un nombre de cuenta de administrador (**ADMINISTRATORLOGIN**; no utilice **admin**), la contraseña de inicio de sesión (**ADMINISTRATORLOGINPASSWORD**) y un nombre de base de datos (**DATABASENAME**). Los demás parámetros están configurados para un plan de hospedaje del Servicio de aplicaciones gratis y opciones de costo reducido para Base de datos SQL y Caché en Redis de Azure, que no incluyen un nivel Gratis.
 3. Cambie cualquiera de las demás configuraciones, si así lo desea, o mantenga los valores predeterminados y haga clic en **Aceptar**.
 
@@ -720,7 +727,7 @@ En este paso del tutorial, publicará la aplicación en Azure y la ejecutará en
 
     ![Publicar][cache-publish-to-app-service]
 
-3. Seleccione la suscripción usada al crear los recursos de Azure, expanda el grupo de recursos que contiene los recursos, seleccione la aplicación web deseada y haga clic en **Aceptar**. Si ha utilizado el botón **Implementar en Azure**, el nombre de la aplicación web comienza con **webSite** seguido de algunos caracteres adicionales.
+3. Seleccione la suscripción usada al crear los recursos de Azure, expanda el grupo de recursos que contiene los recursos, seleccione la aplicación web deseada y haga clic en **Aceptar**. Si ha utilizado el botón **Implementar en Azure**, el nombre de la aplicación web comienza con **webSite** seguido de varios caracteres.
 
     ![Seleccionar aplicación web][cache-select-web-app]
 
@@ -754,8 +761,8 @@ Haga clic en algunas de las acciones y experimente con la recuperación de los d
 Cuando haya terminado con la aplicación del tutorial de ejemplo, puede eliminar los recursos de Azure utilizados para ahorrar costos y recursos. Si utiliza el botón **Implementar en Azure** de la sección [Aprovisionamiento de los recursos de Azure](#provision-the-azure-resources) y todos los recursos están contenidos en el mismo grupo, puede eliminarlos todos juntos en una sola operación si elimina el grupo.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
-2. Escriba el nombre de su grupo de recursos en el cuadro de texto **Filtrar elementos...**.
-3. Haga clic en **...** a la derecha de su grupo de recursos.
+2. Escriba el nombre de su grupo de recursos en el cuadro de texto **Filtrar elementos**.
+3. Haga clic en **…** a la derecha de su grupo de recursos.
 4. Hacer clic en **Eliminar**.
 
     ![Eliminar][cache-delete-resource-group]
@@ -776,11 +783,11 @@ Para ejecutar la aplicación localmente en su equipo, necesitará una instancia 
 -	Si tiene otra instancia de Caché en Redis de Azure, puede utilizarla para ejecutar este ejemplo localmente.
 -	Si necesita crear una instancia de Caché en Redis de Azure, puede seguir los pasos que se describen en [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Cuando haya seleccionado o creado la caché que desea utilizar, vaya hasta ella en el Portal de Azure y recupere su [nombre de host](cache-configure.md#properties) y sus [claves de acceso](cache-configure.md#access-keys). Para obtener instrucciones, consulte [Configuración de Caché en Redis de Azure](cache-configure.md#configure-redis-cache-settings).
+Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya hasta ella en el Portal de Azure y recupere su [nombre de host](cache-configure.md#properties) y sus [claves de acceso](cache-configure.md#access-keys). Para obtener instrucciones, consulte [Configuración de opciones de la memoria caché en Redis](cache-configure.md#configure-redis-cache-settings).
 
-1. Abra el archivo `WebAppPlusCacheAppSecrets.config` que ha creado durante el paso [Configuración de la aplicación para usar Caché en Redis](#configure-the-application-to-use-redis-cache) de este tutorial mediante el editor de su elección.
+1. Abra el archivo `WebAppPlusCacheAppSecrets.config` que ha creado durante el paso [Configuración de la aplicación para usar Caché en Redis](#configure-the-application-to-use-redis-cache) de este tutorial en el editor de su elección.
 
-2. Edite el atributo `value` y sustituya `MyCache.redis.cache.windows.net` por el [nombre de host](cache-configure.md#properties) de la caché y especifique la [clave principal o secundaria](cache-configure.md#access-keys) de la caché como contraseña.
+2. Edite el atributo `value` y sustituya `MyCache.redis.cache.windows.net` por el [nombre de host](cache-configure.md#properties) de su caché y especifique la [clave principal o secundaria](cache-configure.md#access-keys) de la memoria caché como contraseña.
 
 
 		<appSettings>
@@ -795,15 +802,15 @@ Cuando haya seleccionado o creado la caché que desea utilizar, vaya hasta ella 
 ## Pasos siguientes
 
 -	Más información sobre la [introducción a ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) en el sitio de [ASP.NET](http://asp.net/).
--	Más información sobre el enfoque [Codificar primero una nueva base de datos](https://msdn.microsoft.com/data/jj193542) para Entity Framework que se utiliza en este tutorial.
+-	Más información sobre el enfoque [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542) en Entity Framework que se utiliza en este tutorial.
 -	Más información sobre las [aplicaciones web del Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md).
--	Más información sobre cómo [supervisar](cache-how-to-monitor.md) la caché en el Portal de Azure.
+-	Más información sobre cómo [supervisar](cache-how-to-monitor.md) la memoria caché en el Portal de Azure.
 
 -	Exploración de las características premium de Caché en Redis de Azure
 	-	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
 	-	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
 	-	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
-	-	Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las cachés premium.
+	-	Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel Premium.
 
 
 <!-- IMAGES -->
@@ -839,4 +846,4 @@ Cuando haya seleccionado o creado la caché que desea utilizar, vaya hasta ella 
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

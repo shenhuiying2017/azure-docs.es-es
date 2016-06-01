@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 
 > [AZURE.NOTE] La instalación de PHP debe tener también la [extensión OpenSSL](http://php.net/openssl) instalada y habilitada.
 
-En este artículo, se describe cómo se usan las funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
+En este artículo se describe cómo se usan las características de servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, un rol de trabajo o un sitio web de Azure.
 
 ## Obtención de las bibliotecas de clientes de Azure
 
@@ -234,7 +234,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB. Para obtener más información sobre las cuotas, consulte [Colas de Bus de servicio y colas de Azure][].
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
 
 ## de mensajes de una suscripción
 
@@ -336,6 +336,6 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea 
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
-[Colas de Bus de servicio y colas de Azure]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+[Cuotas del Bus de servicio]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

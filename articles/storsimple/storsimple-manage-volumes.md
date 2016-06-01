@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes
@@ -51,11 +51,11 @@ Un volumen se compone de una serie de atributos:
 
 Las tareas más comunes asociadas a un volumen son:
 
-- Agregar un volumen 
-- Modificar un volumen 
-- Eliminar un volumen 
-- Desconectar un volumen 
-- Supervisar un volumen 
+- Agregar un volumen
+- Modificar un volumen
+- Eliminar un volumen
+- Desconectar un volumen
+- Supervisar un volumen
 
 ## Agregar un volumen
 
@@ -79,9 +79,9 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-vo
   5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
-   
+
 5. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
-  
+
   1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
   2. Le recomendamos que, para habilitar una copia de seguridad predeterminada, active la casilla **Habilitar una copia de seguridad predeterminada para este volumen**.
    3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
@@ -92,10 +92,10 @@ El nuevo volumen ya está listo para usarse.
 
 Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen acceso al volumen.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 >
-> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. 
-> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo. 
+> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host.
+> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo.
 
 ### Para modificar un volumen
 
@@ -116,7 +116,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
   - Modificar los ACR, siempre que el volumen esté desconectado. Si el volumen está conectado, primero deberá desconectarlo. Consulte los pasos indicados en [Desconectar un volumen](#take-a-volume-offline) antes de modificar el ACR.
   - Modificar la lista de ACR después de desconectar el volumen.
- 
+
     > [AZURE.NOTE] En cuanto al volumen, no puede cambiar la opción **Habilitar una copia de seguridad predeterminada para este volumen**.
 
 6. Guarde los cambios haciendo clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png). El Portal de Azure clásico mostrará un mensaje de actualización del volumen. Presentará en la pantalla un mensaje de confirmación cuando el volumen se haya actualizado correctamente.
@@ -198,6 +198,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
- 
-
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/17/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de HBase en Red virtual de Azure 
@@ -40,7 +40,7 @@ En esta sección, creará un clúster de HBase basado en Linux en HDInsight con 
 
 1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure. La plantilla ARM se encuentra en un contenedor de blobs público. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. En la hoja **Parámetros**, escriba lo siguiente:
 
@@ -167,7 +167,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 				}
 				if($PropertyName -eq "FQDNSuffix")
 				{
-					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/components/resourcemanager"
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/YARN/components/RESOURCEMANAGER"
 					$Response = $webclient.DownloadString($Url)
 					$JsonObject = $Response | ConvertFrom-Json
 					$FQDN = $JsonObject.host_components[0].HostRoles.host_name
@@ -272,4 +272,4 @@ En este tutorial, ha aprendido a crear un clúster de HBase. Para obtener más i
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="05/17/2016" 
 ms.author="adegeo"/>
 
 # Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
@@ -35,7 +35,7 @@ El cmdlet [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/li
 Si PowerShell se usa de forma interactiva, el objeto PSCredential se puede establecer fácilmente mediante una llamada al cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
-	$remoteusercredentials = Get-Credential
+$remoteusercredentials = Get-Credential
 ```
 
 Se mostrará un cuadro de diálogo que permite especificar el nombre de usuario y la contraseña del usuario remoto de forma segura.
@@ -45,7 +45,7 @@ Dado que PowerShell se usará principalmente en escenarios de automatización ta
 Use la siguiente instrucción de PowerShell para crear un archivo de contraseña seguro:
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 Una vez creado el archivo de contraseña (password.txt) solo se usará este archivo, no será preciso especificar la contraseña en texto sin formato. Si necesita actualizar la contraseña, puede volver a ejecutar la instrucción de Powershell anterior con la nueva contraseña para generar un nuevo archivo password.txt.
@@ -57,12 +57,12 @@ Para crear el objeto de credencial desde el archivo de contraseña seguro debe l
 En este ejemplo de PowerShell se muestra cómo establecer la extensión de Escritorio remoto en un servicio en la nube:
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+$servicename = "cloudservice"
+$username = "RemoteDesktopUser"
+$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+$expiry = $(Get-Date).AddDays(1)
+$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 Opcionalmente, también puede especificar la ranura de implementación y los roles en que desea habilitar Escritorio remoto. Si no se especifican estos parámetros, de forma predeterminada el cmdlet usará la ranura de implementación de producción y habilitará Escritorio remoto en todos los roles de la implementación de producción.
 
@@ -73,7 +73,7 @@ La extensión de Escritorio remoto se asocia con una implementación. Si desea c
 El cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) se puede usar para introducir Escritorio remoto en una instancia de rol específica del servicio en la nube. Puede usar el parámetro *LocalPath* en el cmdlet para descargar el archivo RDP localmente, o bien puede usar el parámetro *Launch* para iniciar directamente el cuadro de diálogo Conexión a Escritorio remoto para tener acceso a la instancia de rol del servicio en la nube.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
@@ -81,7 +81,7 @@ El cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/
 El cmdlet [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) muestra si Escritorio remoto está habilitado en una implementación de servicio. El cmdlet devolverá el nombre de usuario del usuario de Escritorio remoto y los roles en la que está habilitada la extensión de Escritorio remoto. Opcionalmente, puede especificar una ranura de implementación cuyo valor predeterminado es producción.
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## Eliminación de la extensión de Escritorio remoto de un servicio 
@@ -91,10 +91,11 @@ Para quitar la extensión de Escritorio remoto de una implementación de servici
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
-
 ```  
 
->[AZURE.NOTE] El parámetro *UninstallConfiguration* desinstalará cualquier configuración de la extensión que se aplicó al servicio. Toda la configuración de extensión se asocia con la configuración del servicio para activar la extensión con una implementación. La implementación debe estar asociada con la configuración de la extensión. Si se llama al cmdlet Remove sin *UninstallConfiguration* desasociará la implementación de la configuración de la extensión, con lo que se quitará eficazmente la extensión de la implementación. Sin embargo, la configuración de la extensión seguirá estando asociada al servicio. Para quitar completamente la configuración de la extensión se debe llamar al cmdlet Remove con el parámetro *UninstallConfiguration*.
+>[AZURE.NOTE] Para quitar completamente la configuración de la extensión se debe llamar al cmdlet *remove* con el parámetro **UninstallConfiguration**.
+>
+>El parámetro **UninstallConfiguration** desinstalará cualquier configuración de la extensión que se aplicó al servicio. Toda la configuración de extensión se asocia con la configuración del servicio para activar la extensión con una implementación. La implementación debe estar asociada con la configuración de la extensión. Si se llama al cmdlet *remove* sin **UninstallConfiguration** desasociará la implementación de la configuración de la extensión, con lo que se quitará eficazmente la extensión de la implementación. Sin embargo, la configuración de la extensión seguirá estando asociada al servicio.
 
 
 
@@ -102,4 +103,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

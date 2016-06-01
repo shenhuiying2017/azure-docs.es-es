@@ -30,7 +30,7 @@ Microsoft HPC Pack proporciona características para ejecutar una variedad de ap
 
 ## Requisitos previos
 
-*   **Clúster de HPC Pack con nodos de proceso Linux de tamaño A8 o A9**: implemente un clúster de HPC Pack con nodos de proceso Linux de tamaño A8 o A9 mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Consulte [Introducción a los nodos de proceso Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementar un script de Powershell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo para implementar un clúster de HPC Pack basado en Azure que consta de un nodo principal Windows Server 2012 R2 de tamaño A8 y 2 nodos de cálculo SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y servicio. 
+*   **Clúster de HPC Pack con nodos de ejecución de Linux de tamaño A8 o A9**: implemente un clúster de HPC Pack con nodos de ejecución de Linux de tamaño A8 o A9 mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementar un script de PowerShell, consulte el archivo de configuración de ejemplo que se encuentra entre los archivos de ejemplo al final de este artículo para implementar un clúster de HPC Pack basado en Azure que consta de un nodo principal Windows Server 2012 R2 de tamaño A8 y dos nodos de ejecución SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y servicio. 
 
     **Aspectos adicionales que debe conocer**
 
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

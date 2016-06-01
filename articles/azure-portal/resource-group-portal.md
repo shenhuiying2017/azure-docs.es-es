@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -71,71 +71,13 @@ Después de configurar el grupo de recursos, quizás quiera ver la plantilla de 
 
 2. Para familiarizarse con la sintaxis de la plantilla, consulte la notación de objetos JavaScript (JSON) que representa la solución.
 
-Con el portal, puede generar una plantilla que representa el estado actual de su grupo de recursos o recuperar la plantilla que se usó para una implementación determinada. En este tema se muestran ambas opciones.
-
-Exportar la plantilla para un grupo de recursos resulta útil cuando se han realizado cambios en un grupo de recursos y necesita recuperar la representación JSON del estado actual. Sin embargo, la plantilla generada contiene solo un número mínimo de parámetros y ninguna variable. La mayoría de los valores de la plantilla está codificados. Antes de implementar la plantilla generada, quizás desee convertir más valores en parámetros para poder personalizar la implementación para distintos entornos.
-
-Exportar la plantilla para una implementación concreta es útil si necesita ver la plantilla real que se usó para implementar recursos. La plantilla incluirá todos los parámetros y las variables definidas para la implementación original. Sin embargo, si alguien de su organización ha realizado cambios en el grupo de recursos fuera de lo que se define en la plantilla, esta plantilla no representará el estado actual del grupo de recursos.
-
 > [AZURE.NOTE] La característica de exportación de la plantilla es una versión preliminar y no todos los tipos de recursos admiten actualmente la exportación de una plantilla. Al intentar exportar una plantilla, verá un error que indica que algunos recursos no se han exportado. Si es necesario, puede definir manualmente estos recursos en la plantilla después de descargarla.
 
-### Exportación de la plantilla del grupo de recursos
-
-En la hoja del grupo de recursos, puede exportar la plantilla que representa el estado actual del grupo de recursos.
-
-Para ver la plantilla de un grupo de recursos, seleccione **Exportar plantilla**.
-
-![exportar grupo de recursos](./media/resource-group-portal/export-resource-group.png)
-
-Resource Manager genera cuatro archivos:
-
-1. La plantilla que define la infraestructura de la solución.
-
-2. Un archivo de parámetros que puede usar para pasar valores durante la implementación.
-
-3. Un archivo de script de Azure PowerShell que puede ejecutar para implementar la plantilla.
-
-4. Un archivo de script de CLI de Azure que puede ejecutar para implementar la plantilla.
-
-Primero, eche un vistazo a la plantilla que representa el grupo de recursos actual.
-
-![mostrar plantilla](./media/resource-group-portal/show-rg-template.png)
-
-En la sección **Recursos**, verá las definiciones de los recursos que se implementarán.
-
-En el archivo de parámetros, puede guardar los valores de parámetro para pasar durante la implementación.
-
-![mostrar parámetros](./media/resource-group-portal/show-parameters.png)
-
-Hay un archivo de script para implementar la plantilla mediante Azure PowerShell.
-
-![mostrar Azure PowerShell](./media/resource-group-portal/show-powershell.png)
-
-Y un archivo de script para implementar la plantilla mediante CLI de Azure.
-
-![mostrar CLI de Azure](./media/resource-group-portal/show-cli.png)
-
-El portal ofrece tres opciones para trabajar con esta plantilla. Para volver a implementar la plantilla ahora, seleccione **Implementar**. Para descargar todos los archivos de forma local, seleccione **Descargar**. Para guardar los archivos en su cuenta de Azure para usarlos más tardes a través del portal, seleccione **Guardar plantilla**.
-
-### Descarga de la plantilla de una implementación
-
-Desde la hoja del grupo de recursos, puede ver la fecha y el estado de la última implementación para este grupo de recursos. Si selecciona el vínculo, se mostrará un historial de implementaciones del grupo.
-
-![última implementación](./media/resource-group-portal/last-deployment.png)
-
-Al seleccionar cualquier implementación del historial, se mostrarán los detalles de dicha implementación. Cada vez que implementa recursos, Resource Manager conserva la plantilla que usa. Para recuperar la plantilla que se usó para la implementación, seleccione **Ver plantilla**.
-
-![exportar plantilla](./media/resource-group-portal/export-template.png)
-
-Verá la plantilla usada para esta implementación. Contiene todos los parámetros y las variables definidas.
-
-![mostrar plantilla](./media/resource-group-portal/show-template.png)
-
-Como se indicó anteriormente, esta podría no ser una representación completa del grupo de recursos. Si agregó o eliminó recursos fuera de esta implementación, esas acciones no se reflejan en la plantilla. Puede ver la plantilla, el archivo de parámetros y los archivos de script, tal y como se muestra en la sección anterior. También puede volver a implementar, descargar o guardar la plantilla, como se muestra en la sección anterior.
+Para instrucciones detalladas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../resource-manager-export-template/)
 
 ## Administración de un grupo de recursos
 
-Puede buscar en todos los grupos de recursos haciendo clic en **Grupos de recursos**.
+Para examinar todos los grupos de recursos, haga clic en **Grupos de recursos**.
 
 ![buscar grupos de recursos](./media/resource-group-portal/browse-groups.png)
 
@@ -143,7 +85,7 @@ Al seleccionar un grupo de recursos determinado, verá una hoja del grupo de rec
 
 ![resumen del grupo de recursos](./media/resource-group-portal/group-summary.png)
 
-Puede agregar más gráficos y tablas a la hoja del grupo de recursos mediante la selección de **Agregar una sección** debajo del resumen.
+Para agregar más gráficos y tablas a la hoja del grupo de recursos, seleccione **Agregar una sección** debajo del resumen.
 
 ![agregar sección](./media/resource-group-portal/add-section.png)
 
@@ -183,7 +125,7 @@ Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de ma
 
 ## Implementación de una plantilla guardada
 
-Si guardó una plantilla en su cuenta y desea verla más tarde, seleccione **Examinar** y **Plantillas**.
+Si guardó una plantilla en su cuenta y desea verla posteriormente, seleccione **Examinar** y **Plantillas**.
 
 ![examinar plantillas](./media/resource-group-portal/browse-templates.png)
 
@@ -200,7 +142,7 @@ Para implementar una plantilla personalizada a través del portal, seleccione **
 
 ![buscar implementación de plantilla](./media/resource-group-portal/search-template.png)
 
-Seleccione **Implementación de plantillas** entre los recursos disponibles.
+Seleccione **Implementación de plantillas** en los recursos disponibles.
 
 ![seleccionar implementación de plantillas](./media/resource-group-portal/select-template.png)
 
@@ -208,7 +150,7 @@ Después de iniciar la implementación de la plantilla, puede crear la plantilla
 
 ![crear plantilla](./media/resource-group-portal/show-custom-template.png)
 
-También puede seleccionar una plantilla existente desde [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Estas plantillas son aportaciones de la comunidad. Abarcan muchos escenarios comunes y puede que alguien haya agregado una plantilla que sea similar a lo que desea implementar. Puede buscar las plantillas para encontrar alguna que coincida con su escenario.
+O bien puede seleccionar una plantilla existente en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Estas plantillas son aportaciones de la comunidad. Abarcan muchos escenarios comunes y puede que alguien haya agregado una plantilla que sea similar a lo que desea implementar. Puede buscar las plantillas para encontrar alguna que coincida con su escenario.
 
 ![seleccionar plantilla de inicio rápido](./media/resource-group-portal/select-quickstart-template.png)
 
@@ -230,15 +172,15 @@ Y un desglose de costos por tipo de recurso.
 
 ## Control de acceso para los paneles de Azure
 
-El acceso a la información mostrada en la mayoría de los iconos se rige en el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure. Con el fin de integrar perfectamente los paneles en el ecosistema, todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
+El acceso a la información que muestra la mayoría de los iconos del portal se rige mediante el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure. Con el fin de integrar perfectamente los paneles en el ecosistema, todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
 
-Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores podrán enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores podrán enumerar y ver los paneles, pero no podrán modificarlos ni eliminarlos. Los usuarios con acceso de lectura podrán realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tendrán la opción de volver a publicar esos cambios en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
+Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores podrán enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores podrán enumerar y ver los paneles, pero no podrán modificarlos ni eliminarlos. Los usuarios con acceso de lectura podrán realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tendrán la opción de volver a publicar esos cambios en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
 
 Tenga en cuenta que los iconos individuales del panel tendrán sus propios requisitos de control de acceso en función de los recursos para los que están mostrando los datos. Esto significa que puede diseñar un panel que se puede compartir más ampliamente mientras sigue protegiendo los datos de iconos individuales.
 
 ## Pasos siguientes
 
-- Para ver los registros de auditoría, consulte [Operaciones de auditoría con Azure Resource Manager](../resource-group-audit.md).
+- Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../resource-group-audit.md).
 - Para solucionar problemas de implementación, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Aislamiento de las aplicaciones del Bus de servicio ante interrupciones y desastres | Microsoft Azure"
-   description="Se describen técnicas que puede usar para proteger las aplicaciones ante una posible interrupción del Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Aislamiento de las aplicaciones del Bus de servicio ante interrupciones y desastres | Microsoft Azure"
+    description="Se describen técnicas que puede usar para proteger las aplicaciones ante una posible interrupción del Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
 
@@ -27,7 +27,7 @@ Un desastre se define como la pérdida permanente de una unidad de escalado del 
 
 El Bus de servicio usa varios almacenes de mensajería para conservar los mensajes que se envían a colas o temas. Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema.
 
-Todas las entidades de mensajería del Bus de servicio (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no habilita la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres de servicio que abarque varios centros de datos.
+Todas las entidades de mensajería del Bus de servicio (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no permite la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres que abarque varios centros de datos.
 
 ## Protección contra interrupciones de ACS
 
@@ -41,7 +41,7 @@ Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si es
 
 ## Protección contra desastres o interrupciones del centro de datos
 
-Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio para el Bus de servicio **contosoPrimary.servicebus.windows.net** puede encontrarse en la región de Estados Unidos (norte/central), y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región de Estados Unidos (sur/central). Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
+Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio del Bus de servicio **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de EE. UU., y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
 
 Para obtener más información, consulte la sección "Error del Bus de servicio dentro de un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][].
 
@@ -61,7 +61,7 @@ Si la aplicación no requiere comunicación permanente entre remitente y recepto
 
 ## Replicación activa
 
-La replicación activa usa entidades en ambos espacios de nombres de servicio para cada operación. Cualquier cliente que envíe un mensaje envía dos copias de él. La primera copia se envía a la entidad primaria (por ejemplo, **contosoPrimary.servicebus.windows.net/sales**), y la segunda copia del mensaje se envía a la entidad secundaria (por ejemplo, **contosoSecondary.servicebus.windows.net/sales**).
+La replicación activa usa entidades en ambos espacios de nombres para cada operación. Cualquier cliente que envíe un mensaje envía dos copias de él. La primera copia se envía a la entidad primaria (por ejemplo, **contosoPrimary.servicebus.windows.net/sales**), y la segunda copia del mensaje se envía a la entidad secundaria (por ejemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
 Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia de un mensaje y se suprime la segunda copia. Para suprimir mensajes duplicados, el remitente debe etiquetar cada mensaje con un identificador único. Ambas copias del mensaje deben estar etiquetadas con el mismo identificador. Puede usar las propiedades [BrokeredMessage.MessageId][] o [BrokeredMessage.Label][], o bien una propiedad personalizada, para etiquetar el mensaje. El receptor debe mantener una lista de los mensajes que ya haya recibido.
 
@@ -111,4 +111,4 @@ Para obtener más información acerca de la recuperación ante desastres, consul
   [Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

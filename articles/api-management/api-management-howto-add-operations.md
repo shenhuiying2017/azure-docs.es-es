@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Incorporación de operaciones a una API en Administración de API de Azure" 
+	pageTitle="Incorporación de operaciones a una API en Administración de API de Azure | Microsoft Azure" 
 	description="Obtenga información acerca de cómo agregar operaciones a una API en Administración de API de Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/19/2016" 
 	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
@@ -40,9 +40,13 @@ Especifique el **Verbo HTTP** seleccionándolo en la lista desplegable.
 
 ![HTTP method][api-management-http-method]
 
+<a name="url-template"></a>
+
 Defina la plantilla de URL escribiendo un fragmento de la dirección URL que conste de uno o más segmentos de ruta de la URL y de cero o más parámetros de la cadena de consulta. La plantilla de URL, que se anexa a la dirección URL base de la API, identifica una sola operación HTTP. Puede contener uno o más elementos de variable con nombre que se identifican mediante llaves. Estos elementos de variable se denominan parámetros de plantilla y son valores asignados automáticamente que se extraen de la dirección URL de la solicitud al procesar la solicitud en la plataforma Administración de API.
 
 ![URL template][api-management-url-template]
+
+<a name="rewrite-url-template"></a>
 
 Si lo desea, especifique la **plantilla de la URL de reescritura**. Esto permite usar la plantilla estándar de URL para procesar solicitudes entrantes en el front-end, al tiempo que se llama al back-end mediante una URL convertida en función de la plantilla de reescritura. Deben usarse los parámetros de plantilla de la plantilla de URL en la plantilla de reescritura. En el siguiente ejemplo se muestra cómo se puede incorporar tipo de contenido codificado en forma de segmento de ruta al servicio web del ejemplo anterior como parámetro de consulta de la API publicada mediante la plataforma Administración de API con los modelos de URL.
 
@@ -164,4 +168,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

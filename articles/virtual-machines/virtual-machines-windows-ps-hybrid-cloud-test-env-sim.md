@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -215,4 +215,4 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 - Configure una [granja de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

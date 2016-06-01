@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Get started with the MailChimp connector (Introducción al conector MailChimp)
@@ -25,7 +25,7 @@ El conector MailChimp puede usarse desde:
 
 - [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flujos](http://flows.microsoft.com)  
+- [Flujo](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -62,7 +62,8 @@ Para crear aplicaciones lógicas con MailChimp, primero debe crear una **conexi�
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporcionar las credenciales de MailChimp|
-Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -743,4 +744,4 @@ No hay parámetros para esta llamada
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

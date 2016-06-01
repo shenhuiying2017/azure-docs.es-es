@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Control del comportamiento del almacenamiento en caché de las solicitudes de CDN con cadenas de consultas - Premium
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [Premium](cdn-query-string-premium.md)
+- [Red CDN premium de Azure de Verizon](cdn-query-string-premium.md)
 
 ##Información general
 
 El almacenamiento en caché de las cadenas de consultas controla la manera en que se almacenarán en caché los archivos cuando contienen cadenas de consulta.
 
-> [AZURE.NOTE] Los niveles estándar y premium de CDN ofrecen la misma funcionalidad de almacenamiento de caché de cadenas de consultas, pero la interfaz de usuario es distinta. En este documento se describe la interfaz de usuario de nivel **Premium**. Para el nivel Estándar, vea [Control del comportamiento de almacenamiento en caché de solicitudes de CDN con cadenas de consulta](cdn-query-string.md).
+> [AZURE.IMPORTANT] Los productos estándar y premium de CDN ofrecen la misma funcionalidad de almacenamiento en caché de cadenas de consultas, pero la interfaz de usuario es distinta. En este documento se describe la interfaz de la **red CDN premium de Azure de Verizon**. Para más información sobre el almacenamiento en caché de cadenas de consulta con la **red CDN estándar de Azure de Akamai** y la **red CDN estándar de Azure de Verizon**, consulte [Control del comportamiento del almacenamiento en caché de las solicitudes de CDN con cadenas de consultas](cdn-query-string.md).
 
 Hay tres modos disponibles:
 
@@ -34,9 +34,7 @@ Hay tres modos disponibles:
 - **no-cache**: en este modo, las solicitudes con cadenas de consultas no están almacenadas en caché en el nodo perimetral de CDN. El nodo perimetral recupera el activo directamente del origen y lo pasa al solicitante con cada solicitud.
 - **unique-cache**: este modo trata cada solicitud con una cadena de consulta como un activo único con su propia memoria caché. Por ejemplo, la respuesta desde el origen para una solicitud de *foo.ashx?q=bar* se almacenaría en la memoria caché en el nodo perimetral y se devolvería para cachés posteriores con esa misma cadena de consulta. Se almacenaría en caché una solicitud de *foo.ashx?q=somethingelse* como un activo independiente con su propio período de vida.
 
-	>[AZURE.WARNING] No se debe usar este modo cuando la cadena de consultas contiene parámetros que cambiarán con cada solicitud, como un id. de sesión o un nombre de usuario, ya que esto produciría una proporción de aciertos de memoria caché muy baja.
-
-##Cambiar la configuración del almacenamiento en caché de cadenas de consulta
+##Modificación de la configuración del almacenamiento en caché de cadenas de consultas para perfiles de red CDN premium
 
 1. En la hoja de perfil de CDN, haga clic en el botón **Administrar**.
 
@@ -52,4 +50,7 @@ Hay tres modos disponibles:
 
 3. Tras efectuar su selección, haga clic en el botón **Actualizar**.
 
-<!---HONumber=AcomDC_0302_2016-->
+
+> [AZURE.IMPORTANT] Es posible que los cambios en la configuración no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de la red CDN. Para los perfiles de <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo.
+
+<!---HONumber=AcomDC_0518_2016-->

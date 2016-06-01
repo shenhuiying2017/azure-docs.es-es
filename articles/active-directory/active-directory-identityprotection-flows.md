@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Flujos de Azure Active Directory Identity Protection | Microsoft Azure"
+	pageTitle="Experiencias de inicio de sesión con Azure AD Identity Protection | Microsoft Azure"
 	description="Proporciona información general sobre la experiencia de usuario cuando Identity Protection ha mitigado o corregido los problemas relacionados con un usuario, o cuando una directiva exige la autenticación multifactor."
 	services="active-directory"
 	keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
-#Flujos de Azure Active Directory Identity Protection
+# Experiencias de inicio de sesión con Azure AD Identity Protection
 
 Con Azure Active Directory Identity Protection, puede:
 
@@ -158,4 +158,4 @@ Si se bloquea el inicio de sesión de los usuarios en peligro, un administrador 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

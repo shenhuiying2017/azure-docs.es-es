@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Guía de implementación de API
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Algunos temas de esta guía se encuentran bajo examen y podrían cambiar en el futuro. Agradecemos sus comentarios.
 
@@ -1152,4 +1151,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
@@ -70,7 +70,7 @@ Puede obtener la cadena de conexión del [Portal de Azure clásico](https://port
 
 Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino es compatible con el esquema de la tabla de origen. Consulte en la siguiente tabla la asignación entre los tipos de datos de SQL y Búsqueda de Azure.
 
-****Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
+## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
 
 |Tipo de datos de SQL | Tipos de campos de índice de destino permitidos |Notas 
 |------|-----|----|
@@ -171,11 +171,11 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que está configurada la 
 
 Esto es lo que sucede:
 
-1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
+1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
 1. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
-1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
-1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
-1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
+1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
+1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
+1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
 
 Puede agregar, cambiar o eliminar la programación de un indizador existente mediante una solicitud **PUT de indizador**.
 
@@ -275,4 +275,4 @@ R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. 
 
 R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

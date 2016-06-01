@@ -52,7 +52,7 @@ En la tabla siguiente se describen las características de los niveles de servic
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Todas las bases de datos de un grupo también se ajustan a las características de base de datos única de ese nivel. Por ejemplo, el grupo Basic tiene un límite de número máximo de sesiones por grupo de 2400 – 28800, pero una base de datos individual de dicho grupo tiene un límite de base de datos de 300 sesiones (el límite de una base de datos Basic especificado en la sección anterior).
+Todas las bases de datos de un grupo también se ajustan a las características de base de datos única de ese nivel. Por ejemplo, en el grupo Básico, el límite máximo de sesiones por grupo varía entre 4800 y 28 800, mientras que una base de datos específica de ese grupo tiene un límite de 300 sesiones (el límite de una base de datos única de tipo Básico, tal y como se indicó en la sección anterior).
 
 ## Descripción de las DTU
 
@@ -64,4 +64,4 @@ Todas las bases de datos de un grupo también se ajustan a las características 
 - Obtenga información acerca de cómo [supervisar, administrar y cambiar el tamaño de los grupos elásticos](sql-database-elastic-pool-manage-portal.md) y [supervisar el rendimiento de bases de datos únicas](sql-database-single-database-monitor.md).
 - Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

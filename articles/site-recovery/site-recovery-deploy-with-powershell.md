@@ -19,9 +19,11 @@
 # Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell: clásico
 
 > [AZURE.SELECTOR]
-- [Portal de Azure clásico](site-recovery-vmm-to-azure.md)
+- [Portal de Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portal clásico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell: clásico](site-recovery-deploy-with-powershell.md)
-- [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Información general
 
@@ -34,7 +36,7 @@ El artículo incluye los requisitos previos para el escenario y muestra cómo co
 Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [clásico y Administrador de recursos](../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico.
+> [AZURE.NOTE] Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico.
 
 
 
@@ -447,4 +449,4 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 [Obtenga más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

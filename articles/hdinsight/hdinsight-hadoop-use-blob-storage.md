@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 
@@ -27,7 +27,7 @@ El almacenamiento de blobs de Azure es una solución de almacenamiento sólida y
 
 Almacenar los datos en un almacenamiento de blobs hace que elimine de forma segura los clústeres de HDInsight que se usan para los cálculos sin perder los datos del usuario.
 
-> [AZURE.NOTE]	La sintaxis *asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis *asv://* tendrán errores. Debería usarse la sintaxis *wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
+> [AZURE.NOTE]	La sintaxis **asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
 
 > Actualmente HDInsight solo es compatible con blobs en bloques.
 
@@ -64,7 +64,7 @@ Además de esta cuenta de almacenamiento, puede agregar otras más desde la mism
 - **Contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Esto se explica posteriormente en este artículo.
 
 
-Las cuentas de almacenamiento definidas en el proceso de creación y sus claves se almacenan en %HADOOP_HOME%/conf/core-site.xml en los nodos de clúster. El comportamiento predeterminado de HDInsight es usar las cuentas de almacenamiento definidas en el archivo core-site.xml. No es recomendable editar el archivo core-site.xml porque se puede volver a crear una imagen del nodo principal (maestro) del clúster o dicho nodo se puede migrar en cualquier momento, por lo que se perderá cualquier cambio en los archivos.
+Las cuentas de almacenamiento definidas en el proceso de creación y sus claves se almacenan en %HADOOP\_HOME%/conf/core-site.xml en los nodos de clúster. El comportamiento predeterminado de HDInsight es usar las cuentas de almacenamiento definidas en el archivo core-site.xml. No es recomendable editar el archivo core-site.xml porque se puede volver a crear una imagen del nodo principal (maestro) del clúster o dicho nodo se puede migrar en cualquier momento, por lo que se perderá cualquier cambio en los archivos.
 
 Varios trabajos de WebHCat, incluidos Hive, MapReduce, streaming de Hadoop y Pig, pueden llevar una descripción de cuentas de almacenamiento y metadatos con ellos. (Actualmente esto funciona para Pig con cuentas de almacenamiento pero no para metadatos). En la sección [Acceso a blobs usando PowerShell](#powershell) de este artículo, hay una muestra de esta característica. Para obtener más información, consulte [Uso de un clúster de HDInsight con cuentas de almacenamiento y tiendas de metadatos alternativas](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -144,7 +144,7 @@ Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar
 	New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
 	
 	# Create default blob containers
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName |  %{ $_.Key1 }
+	$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
 	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
@@ -228,7 +228,7 @@ El script siguiente descarga un blob en bloques a la carpeta actual. Antes de ej
 	Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 	
 	Write-Host "Create a context object ... " -ForegroundColor Green
-	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.key1 }
+	$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	Write-Host "Download the blob ..." -ForegroundColor Green
@@ -245,7 +245,7 @@ Al proporcionar el nombre del grupo de recursos y el nombre del clúster, podrá
 	
 	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 	$defaultStorageContainer = $cluster.DefaultStorageContainer
 	$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 	
@@ -304,4 +304,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

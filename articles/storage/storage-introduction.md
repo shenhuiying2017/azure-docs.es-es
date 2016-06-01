@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/24/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
@@ -233,4 +233,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 - [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

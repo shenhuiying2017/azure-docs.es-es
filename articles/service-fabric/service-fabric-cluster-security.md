@@ -250,6 +250,37 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+
+### Conexión a un clúster seguro
+
+1. Ejecute lo siguiente para configurar el certificado en el equipo que va a usar para ejecutar el comando de PowerShell "Connect-serviceFabricCluster".
+
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+2. Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado son los mismos que proporcionó al configurar el clúster.
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
+    Por ejemplo, el comando de PowerShell anterior debe ser similar al siguiente:
+
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
+
 ## Pasos siguientes
 
 - [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
@@ -263,4 +294,4 @@ Los certificados de cliente normalmente no los emite una entidad de certificaci�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

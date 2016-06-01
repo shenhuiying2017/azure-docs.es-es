@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Servicios, regiones, esquemas y versiones compatibles con el Administrador de recursos | Microsoft Azure"
+   pageTitle="Servicios compatibles con Resource Manager | Microsoft Azure"
    description="Describe los proveedores de recursos que admiten el Administrador de recursos, sus esquemas y las versiones disponibles de API y las regiones que pueden hospedar los recursos."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz"/>
 
 # Proveedores, regiones, versiones de API y esquemas del Administrador de recursos
@@ -115,12 +115,10 @@ Los Servicios en la nube (clásicos) se pueden usar con otros recursos clásicos
 | ------- | ------- | -------- | ------ | ------ |
 | Servicios de BizTalk | Sí | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Bus de servicio | Sí | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Copia de seguridad | No | - | - | 
-| Recuperación del sitio | No | - | - |
 
 ## Administración de identidad y acceso 
 
-Azure Active Directory funciona con el administrador de recursos para habilitar el control de acceso basado en roles de la suscripción. Para obtener más información sobre el uso del control de acceso basado en roles y Active Directory, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
+Azure Active Directory funciona con el administrador de recursos para habilitar el control de acceso basado en roles de la suscripción. Para más información acerca del uso del control de acceso basado en rol y Active Directory, consulte [Control de acceso basado en rol de Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Servicios de desarrollador 
 
@@ -138,6 +136,7 @@ Azure Active Directory funciona con el administrador de recursos para habilitar 
 | Automatización | Sí | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | Almacén de claves | Sí | [REST de Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Almacén de claves](resource-manager-template-keyvault.md)<br />[Secreto del almacén de claves](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Visión operativa | Sí | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
+| Servicios de recuperación | Sí | | | |
 | Programador | Sí | [REST de Programador](https://msdn.microsoft.com/library/azure/mt629143.aspx) | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
 | Seguridad (vista previa) | Sí | | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
@@ -157,7 +156,7 @@ Para trabajar con un proveedor de recursos, dicho proveedor debe estar registrad
 
 ### API de REST
 
-Para obtener todos los proveedores de recursos disponibles, incluidos sus tipos, ubicaciones, versiones de API y estado de registro, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Si necesita registrar un proveedor de recursos, consulte [Registro de una suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Para obtener todos los proveedores de recursos disponibles, incluidos sus tipos, ubicaciones, versiones de API y estado de registro, use la operación [Enumerar todos los proveedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Si necesita registrar un proveedor de recursos, consulte [Registrar una suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -304,4 +303,4 @@ Puede abrir el archivo y buscar el elemento **apiVersions**.
 - Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

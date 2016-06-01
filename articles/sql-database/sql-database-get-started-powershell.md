@@ -34,7 +34,7 @@ Obtenga información sobre cómo crear una nueva base de datos SQL mediante cmdl
 
 ## Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall
 
-Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obtener una lista de ubicaciones válidas.
+Ya dispone de acceso para ejecutar cmdlets en su suscripción de Azure seleccionada, por lo que el siguiente paso es establecer el grupo de recursos que contiene el servidor donde se creará la base de datos. Puede editar el comando siguiente para usar cualquier ubicación válida que elija. Ejecute **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location** para ver una lista de las ubicaciones válidas.
 
 Ejecute el comando siguiente para crear un nuevo grupo de recursos:
 
@@ -120,4 +120,4 @@ Después de crear una nueva Base de datos SQL y de realizar las tareas de config
 
 - [Base de datos SQL de Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

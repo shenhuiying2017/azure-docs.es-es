@@ -460,7 +460,7 @@ GO
 Las características de In-Memory OLTP de la Base de datos SQL de Azure se [activaron en la vista previa del 28 de octubre de 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-Durante la fase de vista previa antes de la disponibilidad general (GA), In-Memory OLTP solo se admite para:
+En la versión preliminar actual, OLTP en memoria solo se admite para:
 
 - Bases de datos que se encuentran en un nivel de servicio *Premium*.
 
@@ -491,7 +491,11 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 #### Otras relaciones
 
 
-- No se admite el uso de In-Memory OLTP con bases de datos de grupos elásticos durante la vista previa, pero si podría admitirse en el futuro:
+- No se admite el uso de OLTP en memoria con bases de datos de grupos elásticos durante la versión preliminar.
+ - Para mover una base de datos que tenga o haya tenido objetos de OLTP en memoria para un grupo elástico, siga estos pasos:
+  - 1. Quitar las tablas optimizadas para la memoria, tipos de tabla y módulos de T-SQL compilados de forma nativa en la base de datos
+  - 2. Cambiar el nivel de servicio de la base de datos a estándar (*actualmente hay un problema que impide el movimiento de bases de datos Premium que han tenido objetos de OLTP en memoria en el pasado a un grupo elástico; el equipo de bases de datos de Azure está trabajando activamente para resolver el problema)
+  - 3. Mover la base de datos a un grupo elástico
 
 - No se admite el uso de In-Memory OLTP con Almacenamiento de datos SQL.
  - Se admite la característica de índice de almacén de columnas en In-Memory Analytics en Almacenamiento de datos SQL.
@@ -533,4 +537,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

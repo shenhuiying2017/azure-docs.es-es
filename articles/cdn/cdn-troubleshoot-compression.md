@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Solución de problemas de compresión de archivos de red CDN
@@ -45,11 +45,13 @@ En primer lugar, se debe hacer una comprobación rápida en la solicitud. Puede 
 - Compruebe que la solicitud se envía a la dirección URL del punto de conexión, `<endpointname>.azureedge.net`, y no a su origen.
 - Compruebe que la solicitud contenga un encabezado **Accept-Encoding** y que el valor para el encabezado contenga **gzip**, **defalte** o **bzip2**.
 
+> [AZURE.NOTE] Los perfiles de la **red CDN de Azure de Akamai** solo admiten la codificación **gzip**.
+
 ![Encabezados de solicitud de red CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Comprobar la configuración de compresión (perfil de red CDN estándar)
 
-> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN está en el plan de tarifa **Estándar**.
+> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN estándar de Azure de Verizon** o de **red CDN estándar de Azure de Akamai**.
 
 Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.azure.com) y haga clic en el botón **Configurar**.
 
@@ -60,7 +62,7 @@ Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.a
 
 ### Comprobar la configuración de compresión (perfil de red CDN Premium)
 
-> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN está en el plan de tarifa **Premium**.
+> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN Premium de Azure de Verizon**.
 
 Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.azure.com) y haga clic en el botón **Administrar**. Se abrirá el portal complementario. Desplace el mouse sobre la pestaña **HTTP grande** y luego mantenga el mouse sobre el control flotante **Configuración de caché**. Haga clic en **Compresión**.
 
@@ -72,6 +74,8 @@ Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.a
 
 ### Comprobar que el contenido se almacena en caché
 
+> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN de Verizon** (Estándar o Premium).
+
 Con las herramientas para desarrolladores de su explorador, compruebe los encabezados de respuesta para asegurarse de que el archivo se almacena en caché en la región donde se solicita.
 
 - Compruebe el encabezado de respuesta **Server**. El encabezado debe tener el formato **Plataforma (POP/id. de servidor)**, tal como se muestra en el ejemplo siguiente.
@@ -81,9 +85,11 @@ Con las herramientas para desarrolladores de su explorador, compruebe los encabe
 
 ### Comprobar que el archivo cumple los requisitos de tamaño
 
+> [AZURE.NOTE] Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN de Verizon** (Estándar o Premium).
+
 Para que un archivo sea apto para la compresión, debe cumplir los siguientes requisitos de tamaño:
 
 - Mayor que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

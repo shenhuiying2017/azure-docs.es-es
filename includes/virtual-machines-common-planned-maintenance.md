@@ -59,7 +59,7 @@ Este evento de mantenimiento planeado afectará a la disponibilidad de la aplica
 
 ## Notificación por correo electrónico
 
-Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (una semana de antelación). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y coadministrador de cuenta proporcionadas en la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
+Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (una semana de antelación). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y el coadministrador de la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
 
 <!--Image reference-->
 ![][image1]
@@ -81,6 +81,8 @@ Este de China | Norte de China
 Este de Japón | Oeste de Japón
 Sur de Brasil | Centro-Sur de EE. UU
 Sudeste de Australia | Australia Oriental
+India central | Sur de India
+India occidental | Sur de India
 Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia
 
 <!--Anchors-->

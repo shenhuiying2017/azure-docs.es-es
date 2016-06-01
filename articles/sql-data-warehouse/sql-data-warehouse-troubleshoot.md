@@ -13,62 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solución de problemas
 En el siguiente tema se muestran algunos de los problemas más comunes que los clientes encuentran con el Almacenamiento de datos SQL de Azure.
 
 ## Conectividad
-Se puede producir un error en la conexión al Almacenamiento de datos SQL debido a dos motivos habituales:
+Estos son los problemas de conectividad más comunes:
 
 - No se establecen las reglas de firewall.
 - Uso de herramientas o protocolos no admitidos.
 
 ### Reglas de firewall
-Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas pueden tener acceso a las bases de datos. Los firewall son seguros de forma predeterminada, lo que significa que debe permitir el acceso de dirección IP para poder conectarse.
-
-Para configurar el firewall para el acceso, siga los pasos de la sección [Configurar el acceso del firewall del servidor para su IP de cliente][] de la página [Aprovisionar][].
+Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección [Configure server firewall access for your client IP][] (Configurar el acceso del firewall del servidor para su IP de cliente) en las [instrucciones de aprovisionamiento][].
 
 ### Uso de herramientas o protocolos no admitidos.
-Almacenamiento de datos de SQL admite [Visual Studio 2013/2015][] como entornos de desarrollo y [SQL Server Native Client 10 y 11 (ODBC)][] para conectividad de cliente.
-
-Vea nuestras páginas [Conectar][] para más información.
+Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] para consultar los datos. Para la conectividad de cliente, se recomiendan [SQL Server Native Client 10/11 (ODBC)][]. Aún no se admite SQL Server Management Studio (SSMS) y, aunque funciona parcialmente, el árbol del explorador de objetos no funciona con Almacenamiento de datos SQL y es posible que funcione la consulta después de ignorar algunos mensajes de error.
 
 ## Rendimiento de las consultas
 
+Hay varias acciones sencillas que puede realizar en el diseño de la base de datos para asegurarse de obtener un rendimiento óptimo de las consultas desde Almacenamiento de datos SQL. Un buen lugar para comenzar a entender el rendimiento de las consultas es el artículo [Supervisión de la carga de trabajo mediante DMV][]. A veces, para que una consulta se ejecute más rápido basta con agregar más potencia de proceso a las consultas [escalando Almacenamiento de datos SQL][]. Para encontrar muchas de estas optimizaciones en un solo lugar, eche un vistazo al artículo [Procedimientos recomendados para el Almacenamiento de datos SQL][].
+
+A continuación se muestran algunas de las causas más comunes de los problemas con el rendimiento de las consultas que observamos.
+
 ### Estadísticas
 
-Las [estadísticas][] son objetos que contienen información sobre el intervalo y la frecuencia de valores en una columna de base de datos. El motor de consultas usa estas estadísticas para optimizar la ejecución de consultas y mejorar el rendimiento de las consultas. A diferencia de SQL Server o Base de datos SQL, Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Las estadísticas deben mantenerse manualmente en todas las tablas.
+Las [estadísticas][] de las tablas contienen información sobre el intervalo y la frecuencia de valores en una columna de base de datos o en una combinación de columnas. El motor de consultas usa estas estadísticas para optimizar la ejecución de consultas y mejorar el rendimiento de las consultas. A diferencia de SQL Server o Base de datos SQL, Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Las estadísticas deben mantenerse manualmente en todas las tablas. Para obtener información sobre cómo administrar las estadísticas e identificar las tablas que necesitan estadísticas, eche un vistazo al artículo [Administración de estadísticas en el Almacenamiento de datos SQL][].
 
-Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
+### Diseño de tablas
 
-```sql
-SELECT
-    sm.[name] AS [schema_name],
-    tb.[name] AS [table_name],
-    co.[name] AS [stats_column_name],
-    st.[name] AS [stats_name],
-    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
-FROM
-    sys.objects ob
-    JOIN sys.stats st
-        ON  ob.[object_id] = st.[object_id]
-    JOIN sys.stats_columns sc    
-        ON  st.[stats_id] = sc.[stats_id]
-        AND st.[object_id] = sc.[object_id]
-    JOIN sys.columns co    
-        ON  sc.[column_id] = co.[column_id]
-        AND sc.[object_id] = co.[object_id]
-    JOIN sys.types  ty    
-        ON  co.[user_type_id] = ty.[user_type_id]
-    JOIN sys.tables tb    
-        ON  co.[object_id] = tb.[object_id]
-    JOIN sys.schemas sm    
-        ON  tb.[schema_id] = sm.[schema_id]
-WHERE
-    st.[user_created] = 1;
-```
+Una de las elecciones más importantes en Almacenamiento de datos SQL es [elegir la clave de distribución hash correcta para la tabla][] y [el diseño de tabla][]. Al pasar de la introducción a un rendimiento más rápido de Almacenamiento de datos SQL, asegúrese de que entiende los conceptos de estos artículos.
 
 ### Calidad de segmento de almacén de columnas en clúster
 
@@ -97,7 +72,9 @@ CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compu
 GROUP BY 
     n.nbr_nodes, s.name, t.name
 HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
+    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
+
 ORDER BY 
     s.name, t.name
 ```
@@ -123,39 +100,30 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
 ```
 
+Las instrucciones de carga a una tabla de CCI para la clase de recurso mínima consisten en usar xlargerc para DW100 a DW300, largerc para DW400 a DW600 y mediumrc para cualquier Almacenamiento de datos igual o mayor que 1000. Estas instrucciones son recomendables para la mayoría de las cargas de trabajo. El objetivo es dar a cada operación de creación de índices 400 MB de memoria o más. Sin embargo, no hay una solución única para todos los casos. La memoria necesaria para optimizar un índice de almacén de columnas depende de los datos cargados, que se ven principalmente afectados por el tamaño de fila. Las tablas con anchos de fila más reducidos necesitan menos memoria, mientras que los anchos de fila más amplios necesitan más. Si desea experimentar, puede usar la consulta del Paso 1 para ver si obtiene índices de almacén de columnas óptimos en asignaciones de memoria más pequeñas. Como mínimo, desea una media de más de 100 000 filas por cada grupo de filas. Más de 500 000 es mejor aún. Lo máximo que verá es 1 millón de filas por cada grupo de filas. Para obtener más información sobre cómo administrar clases de recurso y simultaneidad, consulte el siguiente vínculo.
 
-Las instrucciones de carga a una tabla de CCI para la clase de recurso mínima consisten en usar xlargerc para DW100-DW300, largerc para DW400-DW600 y mediumrc para cualquier Almacenamiento de datos igual o mayor que 1000. Estas instrucciones son recomendables para la mayoría de las cargas de trabajo. El objetivo es dar a cada operación de creación de índices 400 MB de memoria o más. Sin embargo, no hay una solución única para todos los casos. La memoria necesaria para optimizar un índice de almacén de columnas depende de los datos cargados, que se ven principalmente afectados por el tamaño de fila. Las tablas con anchos de fila más reducidos necesitan menos memoria, mientras que los anchos de fila más amplios necesitan más. Si desea experimentar, puede usar la consulta del Paso 1 para ver si obtiene índices de almacén de columnas óptimos en asignaciones de memoria más pequeñas. Como mínimo, desea una media de más de 100 000 filas por cada grupo de filas. Más de 500 000 es mejor aún. Lo máximo que verá es 1 millón de filas por cada grupo de filas. Para obtener más información sobre cómo administrar clases de recurso y simultaneidad, consulte el siguiente vínculo.
-
-
-### Principales conceptos sobre rendimiento
-
-Consulte los artículos siguientes para comprender mejor algunos conceptos fundamentales adicionales sobre rendimiento y escala:
-
-- [rendimiento y escala][]
-- [modelo de simultaneidad][]
-- [diseño de tablas][]
-- [selección de una clave de distribución hash para una tabla][]
 
 ## Pasos siguientes
-Consulte el artículo [Introducción al desarrollo][] para obtener orientación sobre la creación de soluciones de Almacenamiento de datos SQL.
+Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] para más información sobre cómo optimizar la solución Almacenamiento de datos SQL.
 
 <!--Image references-->
 
 <!--Article references-->
-[rendimiento y escala]: sql-data-warehouse-performance-scale.md
-[modelo de simultaneidad]: sql-data-warehouse-develop-concurrency.md
-[diseño de tablas]: sql-data-warehouse-develop-table-design.md
-[selección de una clave de distribución hash para una tabla]: sql-data-warehouse-develop-hash-distribution-key
-[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
-[Aprovisionar]: sql-data-warehouse-get-started-provision.md
-[Configurar el acceso del firewall del servidor para su IP de cliente]: sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
-[Visual Studio 2013/2015]: sql-data-warehouse-get-started-connect.md
-[Conectar]: sql-data-warehouse-get-started-connect.md
-[estadísticas]: sql-data-warehouse-develop-statistics.md
+[escalando Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-scalability.md
+[el diseño de tabla]: ./sql-data-warehouse-develop-table-design.md
+[elegir la clave de distribución hash correcta para la tabla]: ./sql-data-warehouse-develop-hash-distribution-key
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Supervisión de la carga de trabajo mediante DMV]: ./sql-data-warehouse-manage-monitor.md
+[Administración de estadísticas en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-statistics.md
+[instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
+[Procedimientos recomendados para el Almacenamiento de datos SQL]: ./sql-data-warehouse-best-practices.md
+[estadísticas]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[SQL Server Native Client 10 y 11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
+[SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

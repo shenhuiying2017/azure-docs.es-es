@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Invalidar el comportamiento HTTP predeterminado mediante el motor de reglas
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Información general
 
 El motor de reglas le permite personalizar cómo se controlan las solicitudes HTTP, tales como el bloqueo de la entrega de determinados tipos de contenido, la definición de una directiva de almacenamiento en caché y la modificación de encabezados HTTP. En este tutorial se mostrará la creación de una regla que cambiará el comportamiento del almacenamiento en caché de los activos de CDN. También hay contenido de vídeo en la sección "[Consulte también](#see-also)".
-
-> [AZURE.NOTE] El motor de reglas es una característica del nivel de CDN Premium. Para una comparación de las características de los niveles Standard y Premium de CDN, vea [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
 
 ## Tutorial
 
@@ -38,6 +38,8 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 
 	![Opciones de nueva regla de CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
+	>[AZURE.IMPORTANT] El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
+	
 3. Escriba un nombre en el cuadro de texto **Nombre/Descripción**.
 
 4. Identifique el tipo de solicitudes al que se aplicará la regla. De forma predeterminada, se selecciona la condición de coincidencia **Siempre**. Usará **Siempre** para este tutorial, así pues, deje esa opción seleccionada.
@@ -58,12 +60,10 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 
 6.  Haga clic en el botón **Agregar** para guardar la nueva regla. La nueva regla ahora está pendiente de aprobación. Una vez que se haya aprobado, el estado cambiará de **XML pendiente** a **XML activo**.
 
-## Consideraciones
-
-- El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
+	>[AZURE.IMPORTANT] Los cambios de las reglas pueden tardar hasta 90 minutos en propagarse a través de la red CDN.
 
 ## Consulte también
-* [Azure Fridays: Características nuevas y eficaces de la edición Premium de CDN de Azure](../../videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Azure Fridays: Características nuevas y eficaces de la edición Premium de CDN de Azure) (vídeo)
 * [Detalles de características y condiciones de coincidencia del motor de reglas de](cdn-rules-engine-details.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

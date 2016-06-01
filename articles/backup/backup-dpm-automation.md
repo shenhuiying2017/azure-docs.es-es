@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/20/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -98,12 +98,12 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent | 
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch | 
+| /q | Instalación desatendida | - | 
+| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
+| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
 | /m | Participar en Microsoft Update | - | 
 | /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
+| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
 | /ph | Dirección de host del proxy | - | 
 | /po | Número de puerto de host del proxy | - | 
 | /pu | Nombre de usuario de host del proxy | - | 
@@ -300,7 +300,10 @@ Por último, los cambios deben confirmarse antes de que DPM pueda realizar la co
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Ver los puntos de copia de seguridad
-Puede usar el cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obtener una lista de todos los puntos de recuperación para un origen de datos. En este ejemplo: -recuperaremos todos los PG del servidor DPM que se almacenarán en una matriz ```$PG``` - obtenga los orígenes de datos correspondientes a ```$PG[0]``` - obtenga todos los puntos de recuperación de un origen de datos.
+Puede usar el cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obtener una lista de todos los puntos de recuperación para un origen de datos. En este ejemplo, se realiza lo siguiente:
+- se capturan todos los grupos de protección del servidor DPM, que se almacenarán en una matriz ```$PG```;
+- se obtienen los orígenes de datos correspondientes a ```$PG[0]```;
+- se obtienen todos los puntos de recuperación de un origen de datos.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -333,4 +336,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 
 - Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

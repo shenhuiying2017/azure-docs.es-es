@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Implementación de una aplicación de línea de negocio | Microsoft Azure" 
-	description="Implemente una aplicación de línea de negocio de alta disponibilidad basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases." 
+	description="Implemente una aplicación de línea de negocio de alta disponibilidad y basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases." 
 	documentationCenter=""
 	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
@@ -11,17 +11,17 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
-Este artículo contiene vínculos a las instrucciones detalladas para implementar una aplicación de línea de negocio basada en web solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La aplicación se hospeda en estos equipos:
+Este artículo contiene vínculos a las instrucciones detalladas para implementar una aplicación de línea de negocio basada en web, solo de intranet y de alta disponibilidad, con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La aplicación se hospeda en estos equipos:
 
 - Dos servidores web
 - Dos servidores de bases de datos
@@ -93,4 +93,4 @@ Para obtener más información sobre el diseño de cargas de trabajo de TI en Az
 
 - Inicie la configuración de esta carga de trabajo con la [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

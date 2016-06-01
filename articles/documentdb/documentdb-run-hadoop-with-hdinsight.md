@@ -44,7 +44,7 @@ A continuación, vuelva a este artículo, donde recibirá información detallada
 	<tr><th>URI de script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Fecha de modificación</th>
-		<td>04/26/2015</td></tr>
+		<td>26/04/2016</td></tr>
 	<tr><th>Versiones compatibles de HDInsight</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Registro de cambios</th>
@@ -468,7 +468,7 @@ Para obtener más información, consulte los artículos siguientes:
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
@@ -487,4 +487,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

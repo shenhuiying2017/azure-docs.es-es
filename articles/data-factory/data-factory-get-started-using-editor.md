@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
@@ -64,6 +64,8 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 	![Nombre de Factoría de datos no disponible][image-data-factory-name-not-available]
 	
 	> [AZURE.NOTE] El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+	> 
+	> Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 
 9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
 10. Una vez completada la creación, verá la hoja **FACTORÍA DE DATOS** como se muestra a continuación:
@@ -73,7 +75,7 @@ En este paso, utilice el Portal de Azure para crear una factoría de datos de Az
 ## Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser un almacenamiento de Azure, una base de datos SQL de Azure o una base de datos SQL Server local.
 
-En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **AzureSqlLinkedService**. El servicio vinculado AzureStorageLinkedService vincula una cuenta de Almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos SQL de Azure con **ADFTutorialDataFactory**. Más adelante en este tutorial creará una canalización que copia datos de un contenedor de blobs de AzureStorageLinkedService en una tabla SQL de AzureSqlLinkedService.
+En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **AzureSqlLinkedService**. El servicio vinculado AzureStorageLinkedService vincula una cuenta de almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos SQL de Azure a **ADFTutorialDataFactory**. Más adelante en este tutorial creará una canalización que copia datos de un contenedor de blobs de AzureStorageLinkedService en una tabla SQL de AzureSqlLinkedService.
 
 ### Crear un servicio vinculado para una cuenta de almacenamiento de Azure
 1.	En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
@@ -105,7 +107,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
    
 
 ## Creación de conjuntos de datos
-En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactory**. En este paso, definirá dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hace referencia AzureStorageLinkedService y AzureSqlLinkedService respectivamente. Para EmpTableFromBlob, especificará el contenedor de blob que contiene un blob con los datos de origen y para EmpSQLTable, especificará la tabla SQL que se almacenará los datos de salida.
+En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos SQL de Azure a la factoría de datos: **ADFTutorialDataFactory**. En este paso, definirá dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos a los que hace referencia AzureStorageLinkedService y AzureSqlLinkedService, respectivamente. Para EmpTableFromBlob, especificará el contenedor de blob que contiene un blob con los datos de origen y para EmpSQLTable, especificará la tabla SQL que se almacenará los datos de salida.
 
 ### Creación de un conjunto de datos de entrada 
 Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, creará una tabla denominada **EmpBlobTable** que apunta a un contenedor de blobs en Almacenamiento de Azure representado por el servicio vinculado **AzureStorageLinkedService**.
@@ -371,16 +373,24 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 
 
 ## Resumen 
-En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos SQL de Azure. Ha usado el Portal de Azure para crear la factoría de datos, los servicios vinculados, las tablas y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:
+En este tutorial, ha creado una factoría de datos de Azure para copiar datos de un blob de Azure en una base de datos SQL de Azure. Ha usado el Portal de Azure para crear la factoría de datos, los servicios vinculados, los conjuntos de datos y una canalización. Estos son los pasos de alto nivel que realizó en este tutorial:
 
-1.	Cree una **factoría de datos** de Azure.
-2.	Cree **servicios vinculados** que vinculen almacenes de datos y procesos (lo que se conoce como **Servicios vinculados**) con la factoría de datos.
-3.	Cree **tablas** que describan los datos de entrada y salida para las canalizaciones.
-4.	Cree **canalizaciones**. Una canalización consta de una o varias actividades y procesa las entradas y produce salidas. Establezca el período activo para la canalización especificando la hora de **inicio** y la hora de **finalización** para la canalización. El período activo define la duración de tiempo en que se producirán segmentos de datos.
+1.	Ha creado una **factoría de datos** de Azure.
+2.	Ha creado **servicios vinculados**.
+	1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada. 	
+	2. Un servicio vinculado **SQL Azure** para vincular la base de datos SQL de Azure que contiene los datos de salida. 
+3.	Ha creado **tablas** que describen los datos de entrada y salida para las canalizaciones.
+4.	Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**.  
 
 
 ## Otras referencias
-Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener información detallada acerca de la **actividad de copia** en Data Factory de Azure.
+| Tema. | Descripción |
+| :---- | :---- |
+| [Actividades de movimiento de datos](data-factory-data-movement-activities.md) | En este artículo se proporciona información detallada sobre la actividad de copia que se usa en el tutorial. |
+| [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) | En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
+| [Procesos](data-factory-create-pipelines.md) | Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. |
+| [Conjuntos de datos](data-factory-create-datasets.md) | Este artículo le ayudará a comprender los conjuntos de datos en Factoría de datos de Azure.
+| [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -455,4 +465,4 @@ Consulte el artículo [Actividades de movimiento de datos](data-factory-data-mov
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

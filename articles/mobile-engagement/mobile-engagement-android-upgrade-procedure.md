@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -24,6 +24,41 @@ Si ya integró una versión anterior de nuestro SDK en la aplicación, debería 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
 
 Sea cual sea la versión desde la que actualice, debe reemplazar `mobile-engagement-VERSION.jar` por el nuevo.
+
+##De 4.2.0 a 4.2.1
+
+Este paso puede realizarse realmente en cualquier versión del SDK, es una mejora de seguridad al integrar actividades de cobertura.
+
+Ahora debe agregar `exported="false"` a todas las actividades de cobertura.
+
+Las actividades de cobertura deben ser ahora similares a esta en `AndroidManifest.xml`:
+
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/plain" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			    <data android:mimeType="text/html" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+			    <category android:name="android.intent.category.DEFAULT" />
+			  </intent-filter>
+			</activity>
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog" android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
 
 ##De 4.0.0 a 4.1.0
 
@@ -386,4 +421,4 @@ La configuración de Proguard se puede ver afectada por la renovación de la mar
 			}
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

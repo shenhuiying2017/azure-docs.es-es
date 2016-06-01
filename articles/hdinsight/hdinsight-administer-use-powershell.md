@@ -31,9 +31,11 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-##Instalar Azure PowerShell 1.0 y versiones posteriores
+##Azure PowerShell
 
-Primero debe desinstalar las versiones 0.9x.
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Si ha instalado la versión 0.9 x de Azure PowerShell, debe desinstalarla antes de instalar una versión más reciente.
 
 Para comprobar la versión del PowerShell instalado:
 
@@ -41,26 +43,10 @@ Para comprobar la versión del PowerShell instalado:
 	
 Para desinstalar la versión anterior, ejecute Programas y características en el panel de control.
 
-Hay dos opciones principales para instalar Azure PowerShell.
-
-- [Galería de PowerShell](https://www.powershellgallery.com/). Ejecute los siguientes comandos en el ISE de PowerShell con privilegios elevados o en la consola de Windows PowerShell con privilegios elevados:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-
-	Para más información, vea [Galería de PowerShell](https://www.powershellgallery.com/).
-
-- [Instalador de plataforma web de Microsoft (WebPI)](http://aka.ms/webpi-azps). Si tiene Azure PowerShell 0.9.x instalado, se le pedirá que desinstale 0.9.x. Si ha instalado módulos de Azure PowerShell desde la Galería de PowerShell, el programa de instalación requiere que los módulos se quiten antes de la instalación para garantizar un entorno coherente de PowerShell de Azure. Para instrucciones, consulte [Instalación de Azure PowerShell 1.0 mediante WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua. Si se encuentra cómodo con la instalación de la Galería de PowerShell, ese será el primer canal para lo mejor y lo más reciente de Azure PowerShell.
 
 ##Creación de clústeres
 
-Consulte [Creación de clústeres basados en Linux en HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+Consulte [Crear clústeres basados en Linux en HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ##Enumeración de clústeres
 Use el comando siguiente para enumerar todos los clústeres en la suscripción actual:
@@ -81,7 +67,7 @@ Use el comando siguiente para eliminar un clúster:
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
->[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Consulte [Familiarizarse con la interfaz del portal del clúster](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades. Vea [Enumeración y visualización de clústeres](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -99,7 +85,6 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 		>hbase shell
 		>balancer
 
-	Para obtener más información sobre el uso del shell HBase, consulte
 - Storm
 
 	Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
@@ -249,4 +234,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

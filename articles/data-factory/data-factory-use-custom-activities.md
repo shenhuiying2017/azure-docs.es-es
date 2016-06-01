@@ -19,7 +19,7 @@
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
 Hay dos tipos de actividades que puede usar en una canalización de Data Factory de Azure.
  
-- [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para mover datos entre [almacenes de datos compatibles](data-factory-data-movement-activities#supported-data-stores).
+- [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para mover datos entre [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores).
 - [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para transformar o procesar datos mediante procesos como HDInsight de Azure, Lote de Azure y Aprendizaje automático de Microsoft Azure. Por ejemplo, Hive de HDInsight y la ejecución de lotes de aprendizaje automático.  
 
 Si precisa mover datos a un almacén de datos (o desde él) que no sea compatible con Data Factory de Azure, puede crear una actividad de .NET personalizada con su propia lógica de traslado de datos y utilizarla en la canalización.
@@ -47,17 +47,19 @@ Para seguir el tutorial, tendrá que crear una cuenta de Lote de Azure con un gr
 1. Cree una **cuenta de Lote de Azure** en el [Portal de Azure](http://manage.windowsazure.com). Para obtener instrucciones, consulte el artículo [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure][batch-create-account]. Anote el nombre y la clave de la cuenta de Lote de Azure.
 
 	También puede usar el cmdlet [New-AzureBatchAccount][new-azure-batch-account] para crear una cuenta de Lote de Azure. Consulte [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure][azure-batch-blog] para obtener instrucciones detalladas sobre cómo utilizar este cmdlet.
-2. Cree un **grupo de Lote de Azure**. Puede descargar el código fuente para la [herramienta Explorador de Lote de Azure][batch-explorer] para usarla (o), usar la [Biblioteca de Lote de Azure para .NET][batch-net-library] para crear un grupo de Lote de Azure. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
-
+2. Cree un **grupo de Lote de Azure**.
+	1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** en el menú de la izquierda y después en **Cuentas de Lote**. 
+	2. Seleccione la cuenta de Lote de Azure para abrir la hoja **Cuenta de Lote**. 
+	3. Haga clic en el icono **Grupos**.
+	4. En la hoja **Grupos**, haga clic en el botón Agregar en la barra de herramientas para agregar un grupo.
+		1. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos. 
+		2. Especifique **Windows Server 2012 R2** en Familia del sistema operativo.
+		3. Seleccione un **plan de tarifa de nodos**. 
+		3. Escriba **2** como valor en la configuración **Dedicada a destino**.
+		4. Escriba **2** como valor en la configuración **Máximo de tareas por nodo**.
+	5. Haga clic en **Aceptar** para crear el grupo. 
+ 
 	También puede usar el cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para crear una cuenta de Lote de Azure.
-
-	El grupo de Lote de Azure se crea con un mínimo de dos nodos de proceso, con el fin de que los segmentos se procesen en paralelo. Si usa el Explorador de Lote de Azure:
-
-	- Especifique un identificador del grupo (**Id. de grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos. 
-	- Especifique **Windows Server 2012 R2** en Familia del sistema operativo.
-	- Especifique **2** como valor en **Máximo de tareas por nodo de proceso**.
-	- Especifique **2** como valor en la configuración **Número de destino dedicado**. 
-
 
 ### Pasos de alto nivel 
 1.	**Cree una actividad personalizada** para utilizar una canalización de Data Factory. La actividad personalizada de este ejemplo contendrá la lógica de procesamiento o transformación de datos. 
@@ -93,7 +95,7 @@ El método toma cuatro parámetros:
 - **activity**. Este parámetro representa la entidad de proceso actual, en este caso, un Lote de Azure.
 - **logger**. El parámetro logger le permite escribir comentarios de depuración que se mostrarán como el registro de "User" en la canalización. 
 
-El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas. Esta característica no se admite aún.
+El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas en el futuro. Esta característica todavía no está implementada, así que solo devuelva un diccionario vacío en el método.
 
 ### Procedimiento 
 1.	Cree un proyecto de **biblioteca de clases .NET**.
@@ -107,7 +109,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
 		<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
 	</ol>
 2.  Haga clic en **Herramientas**, seleccione **Administrador de paquetes NuGet** y haga clic en **Consola del Administrador de paquetes**.
-3.	En la consola del Administrador de paquetes, ejecute el siguiente comando para importar **Microsoft.Azure.Management.DataFactories**.
+3.	En la Consola del Administrador de paquetes, ejecute el siguiente comando para importar **Microsoft.Azure.Management.DataFactories**.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
 
@@ -234,7 +236,9 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.  
+
             return new Dictionary<string, string>();
         }
 
@@ -414,7 +418,7 @@ Verá un archivo de salida en la carpeta mycontainer\\output con una o varias l�
 Estos son los pasos que realizará en esta sección:
 
 1. Crear una **factoría de datos**.
-2. Los **servicios vinculados** del grupo de VM de Lote de Azure en el que se ejecutará la actividad personalizada y el Almacenamiento de Azure que contiene los blogs de entrada o salida. 
+2. Los **servicios vinculados** del grupo de máquinas virtuales de Lote de Azure en el que se ejecutará la actividad personalizada y el Almacenamiento de Azure que contiene los blobs de entrada o salida. 
 2. Los **conjuntos de datos** de entrada y salida que representan las entradas y salidas de la actividad personalizada. 
 3. La **canalización** que utiliza la actividad personalizada.
 4. **Data Factory**. Creará una al publicar estas entidades en Azure. 
@@ -543,7 +547,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 		    }
 		}
 
- 	La ubicación de salida es **adftutorial/customactivityoutput/YYYYMMDDHH/**, donde YYYYMMDDHH es el año, el mes, el día y la hora del segmento que se está generando. Consulte la [Referencia para desarrolladores][adf-developer-reference] para obtener más información.
+ 	La ubicación de salida es **adftutorial/customactivityoutput/** y el nombre del archivo de salida es yyyy-MM-dd-HH.txt, donde yyyy-MM-dd-HH es el año, el mes, el día y la hora del segmento que se está generando. Consulte la [Referencia para desarrolladores][adf-developer-reference] para obtener más información.
 
 	Se genera un blob o archivo de salida para cada segmento de entrada. Así es cómo se asigna el nombre al archivo de salida de cada segmento. Todos los archivos de salida se generan en una carpeta de salida: **adftutorial\\customactivityoutput**.
 
@@ -611,11 +615,11 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 
 	Tenga en cuenta lo siguiente:
 
-	- **Concurrency** está establecida en **2** para que 2 VM del grupo de Lote de Azure procesen 2 segmentos en paralelo.
+	- **Concurrency** está establecida en **2** para que dos máquinas virtuales del grupo de Lote de Azure procesen dos segmentos en paralelo.
 	- Hay una actividad en la sección de actividades y es de tipo:**DotNetActivity**.
 	- **AssemblyName** se establece en el nombre del DLL: **MyActivities.dll**.
 	- **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**.
-	- **PackageLinkedService** se establece en **AzureStorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. Este artículo se asume que usa la misma cuenta de Almacenamiento de Azure.
+	- **PackageLinkedService** se establece en **AzureStorageLinkedService**, que apunta al Almacenamiento de blobs que contiene el archivo zip de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. Este artículo se asume que usa la misma cuenta de Almacenamiento de Azure.
 	- **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
 	- La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
 	- La propiedad linkedServiceName de la actividad personalizada apunta a **HDInsightLinkedService**, que indica a Factoría de datos de Azure que la actividad personalizada debe ejecutarse en un clúster de HDInsight de Azure.
@@ -654,8 +658,11 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener información detallada sobre los pasos que hay que seguir para supervisar los conjuntos de datos y las canalizaciones.
 
 El servicio Data Factory crea un trabajo en Lote de Azure con el nombre: **adf-<pool name>:job-xxx**. Se crea una tarea para cada ejecución de actividad de un segmento. Si hay diez segmentos listos para ser procesados, se crean diez tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. También puede haber más de un segmento en ejecución en el mismo proceso si el número máximo de tareas se establece un valor mayor que 1.
+
 	
 ![Tareas del Explorador de Lote](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+> [AZURE.NOTE] Descargue el código fuente de la [herramienta Explorador de lote de Azure][batch-explorer], compílelo y úselo para crear y supervisar los grupos de Lote. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
 
 ![Factoría de datos y Lote](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
@@ -667,7 +674,7 @@ Puede ver las tareas de Lote de Azure asociadas al procesamiento de los segmento
 ### Depuración de la canalización
 La depuración se compone de varias técnicas básicas:
 
-1.	Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que **file.txt** existe en las carpetas de entrada. 
+1.	Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que **file.txt** se encuentra en las carpetas de entrada. 
 2.	En el método **Execute** de la actividad personalizada, use el objeto **IActivityLogger** para registrar información que lo ayudará a solucionar problemas. Los mensajes registrados se mostrarán en los archivos de registro del usuario (uno o varios archivos llamados user-0.log, user-1.log, user-2.log, etc.). 
 
 	En la hoja **OutputDataset**, haga clic en el segmento para ver la hoja **SEGMENTO DE DATOS** de dicho segmento. Verá **ejecuciones de actividad** para ese segmento. Debería ver una ejecución de actividad del segmento. Si hace clic en Ejecutar en la barra de comandos, podrá iniciar otra ejecución de actividad en el mismo segmento.
@@ -679,7 +686,7 @@ La depuración se compone de varias técnicas básicas:
 	En **0.log system** también se encuentran todas las excepciones y mensajes de error del sistema.
 
 3.	Incluya el archivo **PDB** en el archivo ZIP para que se ofrezca información como la **pila de llamadas** cuando se proporcionen detalles sobre un error que se haya producido.
-4.	Todos los archivos incluidos en el archivo ZIP de la actividad personalizada deben estar en el **nivel superior**; no debe haber subcarpetas.
+4.	Todos los archivos incluidos en el archivo zip de la actividad personalizada deben estar en el **nivel superior**; no debe haber subcarpetas.
 5.	Asegúrese de que en **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) y **packageLinkedService** (debe apuntar al Almacenamiento de blobs de Azure que contiene el archivo ZIP) se han seleccionado los valores correctos. 
 6.	Si corrigió algún error y desea volver a procesar el segmento, haga clic con el botón derecho en el segmento, en la hoja **OutputDataset**, y haga clic en **Run** (Ejecutar). 
 
@@ -725,6 +732,14 @@ Para acceder a estas propiedades extendidas en el método **Execute**, use códi
     	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 	}
 
+## Característica de escalación automática de Lote de Azure
+También puede crear un grupo de Lote de Azure con la característica **Autoescala**. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
+ 
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+Para más detalles, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+
+Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 ## Uso de los servicios vinculados de HDInsight de Azure
 En el tutorial, ha utilizado el proceso Lotes de Azure para ejecutar la actividad personalizada. También puede utilizar su propio clúster de HDInsight o hacer que Data Factory cree un clúster de HDInsight a petición y configurar la actividad personalizada para que se ejecute en el clúster de HDInsight. Estos son los pasos generales para usar un clúster de HDInsight.
@@ -756,7 +771,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 			        "typeProperties": {
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
-			            "osType": "linux",
+			            "osType": "Windows",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }
@@ -776,7 +791,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 
 2. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
-Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para obtener más información.
+Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.
 
 En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (a petición o suyo propio):
 
@@ -825,12 +840,12 @@ En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (
 
 ## Ejemplos
 
-| Muestra | Qué hace la actividad personalizada| 
-| ------ | ----------- | 
-| [Descargador de datos HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Descarga datos de un punto de conexión HTTP a Almacenamiento de blobs de Azure a través de una actividad personalizada de C# en Data Factory. |
-| [Ejemplo de Análisis de opiniones de Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity). | Invoca un modelo de aprendizaje automático de Azure y realiza un análisis de opiniones, puntuación, predicción, etc. |
-| [Ejecutar script de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca el script de R; para ello, ejecuta RScript.exe en el clúster de HDInsight que ya tiene instalado R. | 
-| [Actividad .NET entre AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versiones de ensamblado distintas a las que usa el iniciador de Data Factory (por ejemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+Muestra | Qué hace la actividad personalizada 
+------ | ----------- 
+[Descargador de datos HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Descarga datos de un punto de conexión HTTP a Almacenamiento de blobs de Azure a través de una actividad personalizada de C# en Data Factory.
+[Ejemplo de Análisis de opiniones de Twitter.](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invoca un modelo de aprendizaje automático de Azure y realiza un análisis de opiniones, puntuación, predicción, etc.
+[Ejecutar script de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca el script de R; para ello, ejecuta RScript.exe en el clúster de HDInsight que ya tiene instalado R. 
+[Actividad .NET entre AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Utiliza otras versiones de ensamblado que las utilizadas por el iniciador de Data Factory.  
  
 
 ## Otras referencias
@@ -844,7 +859,6 @@ En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
@@ -872,4 +886,4 @@ En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

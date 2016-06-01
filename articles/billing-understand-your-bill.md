@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ Para obtener más información acerca del consumo y los planes de tarifas, consu
 
 ### Ver o descargar una factura de Microsoft Azure:
 
-En el [Portal de cuentas de Azure](https://account.windowsazure.com/subscriptions) puede ver la factura actual y descargar facturas antiguas.
+En el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) puede ver la factura actual y descargar facturas antiguas.
 
 Para ver o descargar una factura:
 
-1. Inicie sesión en el [Portal de cuentas](https://account.windowsazure.com/subscriptions) con su identificador de cuenta de Microsoft o su identificador de cuenta profesional o educativa.
+1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/subscriptions) con su identificador de cuenta de Microsoft o su identificador de cuenta profesional o educativa.
 
 2. Haga clic en la suscripción para la que desea consultar los detalles y el uso.
 
@@ -140,7 +140,7 @@ La página de información adicional le brinda referencias a otros recursos para
 ![información adicional](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Uso detallado
-Un vínculo en la descripción en **Uso detallado** le dirige al Portal de cuentas, donde puede consultar el uso detallado correspondiente a esta suscripción. Ahora hay dos versiones disponibles para descargar: **versión 1 de .csv** contiene la antigua convención de nomenclatura y campos de uso y **versión 2 de .csv** contiene los nombres descriptivos de cliente para cada una de las categorías además de campos adicionales que le ayudarán a entender qué servicios está utilizando en Microsoft Azure. Tenga en cuenta que en la versión 1 de .csv no existen detalles de Azure Resource Manager. Puede encontrar información de Azure Resource Manager en la versión 2 de .csv.
+Un vínculo en la descripción en **Uso detallado** le dirige al Centro de cuentas, donde puede consultar el uso detallado correspondiente a esta suscripción. Ahora hay dos versiones disponibles para descargar: **versión 1 de .csv** contiene la antigua convención de nomenclatura y campos de uso y **versión 2 de .csv** contiene los nombres descriptivos de cliente para cada una de las categorías además de campos adicionales que le ayudarán a entender qué servicios está utilizando en Microsoft Azure. Tenga en cuenta que en la versión 1 de .csv no existen detalles de Azure Resource Manager. Puede encontrar información de Azure Resource Manager en la versión 2 de .csv.
 
 ### Información adicional y recursos útiles
 Esta sección cuenta con vínculos a preguntas sencillas relacionadas con los tamaños de las instancias de proceso, los cargos de Base de datos SQL y vínculos útiles para permitirle responder cualquier otra pregunta.
@@ -238,18 +238,19 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 - [Preguntas más frecuentes sobre suscripciones y facturación de Azure](billing-subscription-faq.md)
 
-- [Administrar el método de pago](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md)
 
-- [Editar información de pago de una tarjeta de crédito existente](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
-- [Agregar una nueva tarjeta de crédito para usarla como método de pago](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
-- [Cambiar la tarjeta de crédito de la cuenta de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

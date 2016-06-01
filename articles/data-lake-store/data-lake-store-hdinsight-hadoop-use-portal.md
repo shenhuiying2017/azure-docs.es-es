@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -45,6 +45,12 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
 	* [Cargue un archivo en su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
+## ¿Obtener información más rápidamente con vídeos?
+
+Vea los vídeos siguientes para entender cómo aprovisionar clústeres de HDInsight con acceso al Almacén de Data Lake.
+
+* [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](https://mix.office.com/watch/l93xri2yhtp2)
+* Una vez configurado el clúster, [acceda a los datos del Almacén de Data Lake mediante scripts de Hive y Pig](https://mix.office.com/watch/1n9g5w0fiqv1q) (vídeo en inglés).
 
 ## Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake
 
@@ -83,7 +89,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 
 		* En la hoja **Identidad de AAD de clúster**, cargue el certificado (.pfx) asociado a la entidad de servicio que seleccionó y luego proporcione la contraseña del certificado.
 
-		* Haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y luego haga clic en **Guardar permisos**.
+		* Haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y, después, haga clic en **Guardar permisos**.
 
 			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.existing.save.png "Agregar entidad de servicio al clúster de HDInsight")
 
@@ -226,7 +232,7 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 ## Uso del Almacén de Data Lake en una topología de Storm
 
-El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para obtener instrucciones sobre cómo lograr este escenario, consulte [Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para instrucciones sobre cómo lograr este escenario, consulte [Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Uso del Almacén de Data Lake con clústeres de HBase
 
@@ -252,4 +258,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

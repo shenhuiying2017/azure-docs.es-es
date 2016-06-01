@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -63,27 +63,23 @@ Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el c
 -	Comience agregando ADAL a cada uno de los proyectos de la solución mediante la Consola del Administrador de paquetes.
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
 `
 
 `
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.Windows -IncludePrerelease
-`
-
-`
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.WindowsPhone -IncludePrerelease
+PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
 `
 
 - Debe observar que se agregan dos referencias de biblioteca a cada proyecto: la parte PCL de ADAL y una parte específica de la plataforma.
@@ -107,13 +103,17 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
 
 ```C#
 ...
-AuthenticationResult authResult = null;
-
-try
-{
-    AuthenticationContext authContext = new AuthenticationContext(authority);
-    authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
-}
+    AuthenticationResult authResult = null;
+    try
+    {
+        AuthenticationContext authContext = new AuthenticationContext(authority);
+        authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
+    }
+    catch (Exception ee)
+    {
+        results.Add(new User { error = ee.Message });
+        return results;
+    }
 ...
 ```
 - `AcquireTokenAsync(...)` primero intentará devolver un token al recurso solicitado (Graph API en este caso) sin solicitar al usuario que escriba sus credenciales (mediante el almacenamiento en caché o la actualización de tokens antiguos). Solo si es necesario, mostrará al usuario la página de inicio de sesión de Azure AD antes de adquirir el token solicitado.
@@ -123,7 +123,7 @@ try
 
 ```C#
 ...
-request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
 ...
 ```
 
@@ -165,28 +165,13 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####Tienda Windows
-- En Tienda Windows, abra `MainPage.xaml.cs` e implemente el método `Search` , que utiliza un método auxiliar en un proyecto compartido para actualizar la interfaz de usuario según sea necesario.
+####Windows Universal:
+- En Windows Universal, abra `MainPage.xaml.cs` e implemente el método `Search` , que utiliza un método auxiliar en un proyecto compartido para actualizar la interfaz de usuario según sea necesario.
 
 ```C#
-await UnivDirectoryHelper.Search(
-  sender, e,
-  SearchResults,
-  SearchTermText,
-  StatusResult,
-  new PlatformParameters(PromptBehavior.Auto, false));
-```
-
-####Windows Phone
-- En Windows Phone, abra `MainPage.xaml.cs` e implemente el método `Search` , que utiliza el mismo método auxiliar en un proyecto compartido para actualizar la interfaz de usuario.
-
-```C#
-await UnivDirectoryHelper.Search(
-  sender, e,
-  SearchResults,
-  SearchTermText,
-  StatusResult,
-  new PlatformParameters());
+...
+    List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
+...
 ```
 
 ¡Enhorabuena! Ahora dispone de una aplicación de Xamarin en funcionamiento que tiene la capacidad de autenticar usuarios y llamar de forma segura a las API de Web mediante OAuth 2.0 en cinco plataformas distintas. Si no lo ha hecho ya, ahora es el momento de completar el inquilino con algunos usuarios. Ejecute la aplicación DirectorySearcher e inicie sesión con uno de esos usuarios. Busque otros usuarios según su UPN.
@@ -199,4 +184,4 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
 # Glosario de Azure Active Directory Identity Protection 
@@ -164,4 +164,4 @@ Configuración o condición en Azure Active Directory, que hace que el directori
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

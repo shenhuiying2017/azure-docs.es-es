@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Solución de problemas de redes CDN que devuelven errores 404
@@ -37,7 +37,7 @@ Hay varias causas posibles, por nombrar algunas:
 
 ## Pasos para solucionar problemas
 
-> [AZURE.IMPORTANT] Después de crear un punto de conexión de red CDN, este no estará disponible para su uso de forma inmediata; el registro puede tardar en propagarse a través de la red CDN. Por lo general estará disponible dentro de 90 minutos, pero en algunos casos puede tardar más tiempo. Si realiza los pasos detallados en este documento y sigue obteniendo errores 404, espere unas horas para probar nuevamente antes de abrir una incidencia de soporte técnico.
+> [AZURE.IMPORTANT] Después de crear un punto de conexión de red CDN, este no estará disponible para su uso de forma inmediata; el registro puede tardar en propagarse a través de la red CDN. Para los perfiles de la <b>red CDN de Azure de Akamai</b>, la propagación normalmente se completa en un minuto. Para los perfiles de la <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo. Si realiza los pasos detallados en este documento y sigue obteniendo errores 404, espere unas horas para probar nuevamente antes de abrir una incidencia de soporte técnico.
 
 ### Comprobación del archivo de origen
 
@@ -59,13 +59,15 @@ Aparecerá la hoja **Origen**.
 
 #### Tipo de origen y nombre del host
 
-Compruebe que el **tipo de origen** es correcto y compruebe el **nombre de host de origen**. En mi ejemplo, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, la parte del nombre de host de la dirección URL es `cdndocdemo.blob.core.windows.net`. Como puede ver en la captura de pantalla, esto es correcto. Para orígenes de Almacenamiento de Azure, Aplicación web y Servicio en la nube, el campo **Nombre de host de origen** es una lista desplegable, por lo que no es necesario preocuparse escribirlo correctamente. Sin embargo, si utiliza un origen personalizado, es *absolutamente necesario* que el nombre de host se haya escrito correctamente.
+Compruebe que el **tipo de origen** es correcto y compruebe el **nombre de host de origen**. En mi ejemplo, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, la parte del nombre de host de la dirección URL es `cdndocdemo.blob.core.windows.net`. Como puede ver en la captura de pantalla, esto es correcto. Para orígenes de Almacenamiento de Azure, Aplicación web y Servicio en la nube, el campo **Nombre de host de origen** es una lista desplegable, por lo que no es necesario preocuparse por escribirlo correctamente. Sin embargo, si utiliza un origen personalizado, es *absolutamente necesario* que el nombre de host se haya escrito correctamente.
 
 #### Puertos HTTP y HTTPS
 
-Las otras cosas que debe comprobar aquí son los puertos **HTTP** y **HTTPS**. En la mayoría de los casos, los puertos 80 y 443 son correctos y no requerirá ningún cambio. Sin embargo, si el servidor de origen está escuchando en un puerto diferente, este deberá estar representado aquí. Si no está seguro, simplemente mire la dirección URL del archivo de origen. Las especificaciones de HTTP y HTTPS especifican los puertos 80 y 443 como los valores predeterminados. En mi dirección URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, no se especifica un puerto, por lo que se supone que el valor predeterminado es 443 y la configuración es correcta.
+Los otros puntos que debe comprobar aquí son los puertos **HTTP** y **HTTPS**. En la mayoría de los casos, los puertos 80 y 443 son correctos y no requerirá ningún cambio. Sin embargo, si el servidor de origen está escuchando en un puerto diferente, este deberá estar representado aquí. Si no está seguro, simplemente mire la dirección URL del archivo de origen. Las especificaciones de HTTP y HTTPS especifican los puertos 80 y 443 como los valores predeterminados. En mi dirección URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, no se especifica un puerto, por lo que se supone que el valor predeterminado es 443 y la configuración es correcta.
 
 Sin embargo, supongamos que la dirección URL para el archivo de origen que ha comprobado anteriormente es `http://www.contoso.com:8080/file.txt`. Tenga en cuenta el `:8080` al final del segmento de nombre de host. Indica al explorador que use el puerto `8080` para conectarse al servidor web en `www.contoso.com`, por lo que deberá escribir 8080 en el campo **Puerto HTTP**. Es importante tener en cuenta que esta configuración de puertos solo afecta a qué puerto usa el punto de conexión para recuperar la información del origen.
+
+> [AZURE.NOTE] Los puntos de conexión de la **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai behavior details](cdn-akamai-behavior-details.md) (Detalles del comportamiento de la red CDN de Azure de Akamai).
   
 ### Comprobación de la configuración del punto de conexión
 
@@ -95,4 +97,4 @@ Por ejemplo, en mi punto de conexión, quiero que todos los recursos de mi cuent
 
 Pero ¿qué ocurre si no deseo utilizar la red CDN para cada ruta de acceso del origen? Supongamos que solo deseo exponer la ruta de acceso de `publicblob`. Si se escribe */publicblob* en el campo **Ruta de acceso de origen**, hará que el punto de conexión inserte */publicblob* antes de cada solicitud realizada al origen. Esto significa que la solicitud para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` realmente tomará la parte de la solicitud de la dirección URL, `/publicblob/lorem.txt`, y anexará `/publicblob` al principio. Esto producirá una solicitud para `/publicblob/publicblob/lorem.txt` desde el origen. Si no se puede resolver esa ruta de acceso en un archivo real, el origen devolverá un error 404. La dirección URL correcta para recuperar lorem.txt en este ejemplo sería realmente `https://cdndocdemo.azureedge.net/lorem.txt`. Tenga en cuenta que no incluimos la ruta de acceso */publicblob*, porque la parte de la solicitud de la dirección URL es `/lorem.txt` y el punto de conexión agrega `/publicblob`, con lo que `/publicblob/lorem.txt` es la solicitud que se pasa al origen.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->
