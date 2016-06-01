@@ -146,7 +146,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Haga clic en **"Actualizar"** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
-            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host ***.contosocertdemo.com** o ***.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
+            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **.contosocertdemo.com** o **.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Paso 3: asignar el certificado a la aplicación del Servicio de aplicaciones
@@ -208,4 +208,4 @@ Si ha seleccionado **SSL basada en IP** y su dominio personalizado se ha configu
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
