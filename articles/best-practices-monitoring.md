@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Guía de supervisión y diagnósticos
 
-![Logotipo de patrones y prácticas](media/best-practices-monitoring/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Información general
 Las aplicaciones distribuidas y los servicios que se ejecutan en la nube son, por naturaleza, complejos fragmentos de software que se componen de muchas partes móviles. En un entorno de producción, es importante poder hacer un seguimiento de la forma en que los usuarios usan el sistema y de la utilización de recursos, y supervisar en general el estado y el rendimiento del sistema. Esta información se puede usar como herramienta de diagnóstico para detectar y corregir problemas y para ayudar a detectarlos antes de que se produzcan.
@@ -664,4 +664,4 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 - [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

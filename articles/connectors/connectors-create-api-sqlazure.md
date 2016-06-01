@@ -14,23 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 
 # Introducción a la API de SQL Azure
-Conectarse a SQL Azure para administrar las tablas y filas, como insertar filas, obtener tablas y mucho más.
+Conéctese a Base de datos SQL de Azure para administrar las tablas y filas, como insertar filas, obtener tablas y mucho más.
 
-La API de SQL Azure puede usarse desde:
+La API de Base de datos SQL de Azure puede usarse desde:
 
-- Aplicaciones lógicas 
+- Aplicaciones lógicas (descritas en este tema)
+- PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
-Con SQL Azure puede:
+Con Base de datos SQL de Azure, puede:
 
-- Compilar el flujo de negocio en función de los datos que obtiene de SQL Azure. 
-- Usar acciones para obtener una fila, insertar una fila y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener una fila de datos de SQL Azure y luego agregar datos a Excel. 
+- Compilar el flujo de negocio en función de los datos obtenidos de Base de datos SQL de Azure 
+- Usar acciones para obtener una fila, insertar una fila y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede obtener una fila de datos de Base de datos SQL de Azure y luego agregar datos a Excel. 
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,9 +50,9 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
-|Cadena de conexión SQL|Sí|Escriba la cadena de conexión de SQL Azure|
+|Cadena de conexión SQL|Sí|Especificación de la cadena de conexión de Base de datos SQL de Azure|
 
-Después de crear la conexión, especifique las propiedades de SQL, como el nombre de tabla. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Después de crear la conexión, especifique las propiedades de SQL, como el nombre de tabla. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -122,7 +123,7 @@ Elimina una fila de una tabla SQL. ```DELETE: /datasets/default/tables/{table}/i
 
 
 ### Obtener tablas 
-Recupera tablas de una base de datos SQL. ```GET: /datasets/default/tables```
+Recupera tablas de una Base de datos SQL. ```GET: /datasets/default/tables```
 
 No hay parámetros para esta llamada.
 
@@ -225,6 +226,6 @@ Actualiza una fila existente en una tabla SQL. ```PATCH: /datasets/default/table
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

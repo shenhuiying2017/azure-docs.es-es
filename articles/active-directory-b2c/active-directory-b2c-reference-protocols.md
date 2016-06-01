@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Versión preliminar de Azure AD B2C: protocolos de autenticación
@@ -70,4 +70,4 @@ Cuando esté listo para revisar algunas solicitudes de ejemplo, puede comenzar c
 - Uso de nombres de usuario y contraseñas para obtener tokens mediante el flujo de credenciales de contraseña del propietario de recursos OAuth 2.0 (próximamente)
 - Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/16/2016"
 ms.author="deonhe"/>
 
 # Introducción al conector ProjectOnline
@@ -65,7 +65,8 @@ Para crear aplicaciones lógicas con ProjectOnline, primero debe crear una **con
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporciona las credenciales de ProjectOnline.|
-Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -523,4 +524,4 @@ Proteger y publicar proyecto: protege y publica un proyecto existente en el siti
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

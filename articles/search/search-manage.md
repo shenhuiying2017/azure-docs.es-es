@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
@@ -34,7 +34,7 @@ Como alternativa, puede utilizar la API de REST de administración. Consulte [In
 
 Como administrador de configuración de un servicio de búsqueda, uno de sus primeras decisiones es elegir un nivel de precios. Las opciones incluyen los niveles de precios Gratuito y Estándar.
 
-Sin cargo alguno para los suscriptores existentes, puede seleccionar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
+Sin cargo alguno para los suscriptores existentes, puede seleccionar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
 
 Las búsquedas Estándar y Básica son facturables porque se está registrando para obtener recursos dedicados y una infraestructura que solo usará su suscripción. La búsqueda Estándar y Básica se asigna en agrupaciones de particiones (almacenamiento) definidas por el usuario y réplicas (cargas de trabajo de servicio) y los precios se establecen por unidad de búsqueda. Puede escalar en particiones o réplicas de forma independiente, agregando más de cualquiera que sea el recurso requerido.
 
@@ -58,7 +58,6 @@ Aunque algunos servicios pueden tener coadministradores, un servicio de búsqued
 +	Administración y distribución de las claves de API.
 +	Supervisar el uso de recursos
 +	Escalado o reducción vertical (se aplica solo a la búsqueda estándar)
-+	Inicio o interrupción del servicio
 +	Definición de roles para controlar el acceso administrativo
 
 <a id="sub-3"></a>
@@ -151,7 +150,7 @@ Para ello, basta con que mueva de nuevo el control deslizante de la réplica a u
 
 A diferencia de la eliminación de réplicas, que no requiere que haga nada más, es posible que tenga que hacer algo si usa más almacenamiento del que se puede reducir. Por ejemplo, si su solución usa tres particiones, intentar reducirla a una o dos particiones generará un error si usa más espacio de almacenamiento del que se puede almacenar en el reducido número de particiones. En este caso, las opciones con las que cuenta son eliminar índices o documentos en un índice asociado para liberar espacio o mantener la configuración actual.
 
-No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
+No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
 Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver cuánto usó en realidad.
 
@@ -159,15 +158,6 @@ Para ayudar en una futura planificación, es posible que quiera comprobar el esp
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
-<a id="sub-7"></a>
-## Inicio o interrupción del servicio
-
-Puede iniciar, interrumpir o incluso eliminar el servicio usando comandos en el panel de servicios.
-
- ![][11]
-
-
-Con la interrupción o inicio del servicio no se desactiva la facturación. Debe eliminar el servicio para evitar que se le cobren todas las cargas. Cualquier dato asociado a su servicio se eliminará cuando su servicio no esté disponible.
 
 <a id="sub-8"></a>
 ## Definición de roles para el acceso administrativo
@@ -194,16 +184,14 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 [Manage the api-keys]: #sub-4
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
-[Start or Stop the Service]: #sub-7
 [Set roles to control administrative access]: #sub-8
 
 <!--Image references-->
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
-[11]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png
 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

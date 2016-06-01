@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -103,7 +103,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
-    b. Copie el valor del ** Formato de identificador de nombre**.
+    b. Copie el valor del **Formato de identificador de nombre**.
 
     c. Haga clic en **Siguiente**.
 
@@ -217,4 +217,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

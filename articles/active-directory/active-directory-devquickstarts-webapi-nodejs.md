@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/23/2016"
+	ms.date="05/16/2016"
 	ms.author="brandwe"/>
 
 # Introducción a WEB-API para Node
@@ -61,7 +61,7 @@ Asegúrese de:
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-- RECORDATORIO: Cree un **secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
+- RECORDATORIO: Cree un **secreto de aplicación** para la aplicación y cópielo. Lo necesitará en breve.
 - RECORDATORIO: Escriba el **id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 
@@ -927,4 +927,4 @@ Solo tiene que clonar su equipo del desarrollador y configurarlo como se indica 
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -160,21 +160,21 @@ En este ejemplo, usará una búsqueda de palabras clave. La búsqueda de **Catá
 En este ejemplo, se hace una búsqueda de **agrupación** de recursos de datos en las que name equivale a product y tags equivale a illustration o tags equivale a photo.
 
 1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Iniciado** e inicie sesión en el portal del **Catálogo de datos de Azure**.
-2. En el cuadro **Buscar en Catálogo de datos**, escriba una **Agrupación** como consulta: (etiquetas:descripción O etiquetas:foto).
+2. En el cuadro **Buscar Catálogo de datos**, escriba una consulta de **Agrupación**: (**tags:description OR tags:photo**).
 3. Haga clic en el icono de búsqueda o presione ENTRAR. **Catálogo de datos de Azure** mostrará los recursos de datos de esta consulta de búsqueda.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
 
-En este ejercicio ha usado el portal del **Catálogo de datos de Azure** para detectar y ver los recursos de datos de Adventure Works registrados en el catálogo.
+En este ejercicio, ha usado el portal del **Catálogo de datos de Azure** para detectar y ver los recursos de datos de Adventure Works registrados en el catálogo.
 
 <a name="annotating"/>
 ## Ejercicio 4: Anotación de orígenes de datos registrados
 
-En este ejercicio usará el portal del **Catálogo de datos de Azure** para anotar los recursos de datos que se han registrado anteriormente en el catálogo. Las anotaciones que proporcione complementarán y mejorarán los metadatos estructurales extraídos del origen de datos durante el registro y hará que los recursos de datos sean mucho más fáciles de detectar y entender. Dado que cada usuario del **Catálogo de datos** puede proporcionar sus propias anotaciones, es fácil para todos los usuarios que tengan una perspectiva de los datos compartirlos.
+En este ejercicio, usará el portal del **Catálogo de datos de Azure** para anotar los recursos de datos que se han registrado anteriormente en el catálogo. Las anotaciones que proporcione complementarán y mejorarán los metadatos estructurales extraídos del origen de datos durante el registro y hará que los recursos de datos sean mucho más fáciles de detectar y entender. Dado que cada usuario del **Catálogo de datos** puede proporcionar sus propias anotaciones, es fácil para todos los usuarios que tengan una perspectiva de los datos compartirlos.
 
 ### A continuación se indica cómo agregar anotaciones a los activos de datos
 
-1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Iniciado** e inicie sesión en el portal del **Catálogo de datos de Azure**.
+1. Vaya a https://azure.microsoft.com/services/data-catalog, haga clic en **Introducción** e inicie sesión en el portal del **Catálogo de datos de Azure**.
 2. Haga clic en **Detectar**.
 3. Elija uno o varios **recursos de datos**. En este ejemplo, elija **ProductPhoto** y escriba "Fotos de productos para materiales de marketing".
 4. En **Descripción**, escriba una descripción que ayude a otros usuarios a detectar y entender por qué y cómo usar el recurso de datos seleccionado. Por ejemplo, escriba "Imágenes de producto". También puede agregar más etiquetas y ver columnas.
@@ -184,11 +184,11 @@ En este ejercicio usará el portal del **Catálogo de datos de Azure** para anot
 
 En este ejercicio ha agregado información descriptiva a los recursos de datos registrados para que los usuarios del catálogo puedan detectar el origen de datos con términos que puedan entender.
 
-> [AZURE.NOTE] La edición estándar del Catálogo de datos incluye un glosario empresarial que permite a los administradores del catálogo definir una taxonomía empresarial central. Después, los usuarios del catálogo pueden anotar los recursos de datos con los términos del glosario. Para más información, consulte [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuración del glosario empresarial para el etiquetado regulado)
+> [AZURE.NOTE] La edición estándar del Catálogo de datos incluye un glosario empresarial que permite a los administradores del catálogo definir una taxonomía empresarial central. Después, los usuarios del catálogo pueden anotar los recursos de datos con los términos del glosario. Para más información, consulte [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuración del glosario empresarial para el etiquetado regulado).
 
 ## Ejercicio 5: Metadatos de micromecenazgo
 
-En este ejercicio trabajará con otro usuario para agregar metadatos a los recursos de datos del catálogo. El enfoque de micromecenazgo del **Catálogo de datos de Azure** respecto a las anotaciones permite a cualquier usuario agregar etiquetas, descripciones y otros metadatos. Por tanto, cualquier usuario con una perspectiva en un recurso de datos y su uso pueda capturar dicha perspectiva para que esté disponible para otros usuarios.
+En este ejercicio trabajará con otro usuario para agregar metadatos a los recursos de datos del catálogo. El enfoque de micromecenazgo del **Catálogo de datos de Azure** respecto a las anotaciones permite que cualquier usuario agregue etiquetas, descripciones y otros metadatos. Por tanto, cualquier usuario con una perspectiva sobre un recurso de datos y su uso puede capturar dicha perspectiva para que esté disponible para otros usuarios.
 
 > [AZURE.NOTE] Si no dispone de otro usuario con el que trabajar en este tutorial, no se preocupe. Los usuarios que acceden al catálogo de datos pueden agregar su propio punto de vista cuando lo deseen. Este enfoque de micromecenazgo de los metadatos permite que el contenido del catálogo y la riqueza de los metadatos del catálogo crezcan con el tiempo.
 
@@ -244,7 +244,7 @@ En este ejercicio ha eliminado recursos de datos registrados del catálogo.
 
 En este ejercicio usará las funcionalidades de administración del **Catálogo de datos de Azure** para tomar posesión de los recursos de datos y controlar qué usuarios pueden detectar dichos recursos y cómo pueden administrarlos.
 
-> [AZURE.NOTE] Las funcionalidades de administración descritas en este ejercicio solo están disponibles en la **edición estándar del Catálogo de datos de Azure**, no en la **edición gratuita**. En **Catálogo de datos de Azure**, puede tomar posesión de los recursos de datos, agregar copropietarios a los recursos de datos y establecer la visibilidad de los recursos de datos.
+> [AZURE.NOTE] Las funcionalidades de administración descritas en este ejercicio solo están disponibles en la **edición Estándar del Catálogo de datos de Azure**, no en la **edición Gratis**. En **Catálogo de datos de Azure**, puede tomar posesión de los recursos de datos, agregar copropietarios a los recursos de datos y establecer la visibilidad de los recursos de datos.
 
 ### A continuación se muestra cómo tomar posesión de los recursos de datos y restringir la visibilidad
 
@@ -262,4 +262,4 @@ En este ejercicio ha explorado las funcionalidades de administración del **Cat�
 
 En este tutorial ha explorado las funcionalidades esenciales del **Catálogo de datos de Azure**, entre las que se incluyen el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

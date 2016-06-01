@@ -3,9 +3,9 @@
 	description="Crear tablas de subárbol y cargar datos de blob en tablas de subárbol" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
-	editor="cgronlun"  />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
 
-## Introducción
-En **este documento**, se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde el almacenamiento de blobs de Azure. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
+En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde el almacenamiento de blobs de Azure. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
 
 Este **menú** vincula a temas en los que se describe cómo introducir datos en los entornos de destino en que se pueden almacenar y procesar los datos durante el proceso de análisis de Cortana (CAPS).
 
@@ -41,88 +40,87 @@ Se supone que los datos de las tablas de Hive están en un formato tabular **sin
 
 Si desea practicar sobre _NYC Taxi Trip Data_, necesita descargar primero los 24 archivos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">NYC Taxi Trip Data</a> (12 archivos de carreras y 12 de tarifas), **descomprimir** todos los archivos en archivos .csv y cargarlos en el contenedor predeterminado (o el contenedor adecuado) de la cuenta de almacenamiento de Azure que creó el procedimiento descrito en el tema [Personalización de clústeres Hadoop de HDInsight de Azure para tecnología y procesos de análisis avanzados](machine-learning-data-science-customize-hadoop-cluster.md). En esta [página](machine-learning-data-science-process-hive-walkthrough/#upload) encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
 
-## <a name="submit"></a>Cómo enviar consultas de Hive
+
+## <a name="submit"></a>Envío de consultas de Hive
+
 Las consultas de subárbol se pueden enviar mediante:
 
-* la línea de comandos de Hadoop en el nodo principal del clúster
-* el Bloc de notas de IPython
-* el Editor de subárbol
-* Scripts de PowerShell de Azure
-
-Las consultas de Hive son similares a SQL. A los usuarios familiarizados con SQL pueden encontrar la <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Hoja de referencia rápida de SQL a Hive</a>.
+1. [Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop](#headnode)
+2. [Enviar consultas de Hive con el Editor de Hive](#hive-editor)
+3. [Enviar consultas de Hive con los comandos de Azure PowerShell](#ps)
+ 
+Las consultas de Hive son similares a SQL. Los usuarios familiarizados con SQL pueden encontrar la [hoja de referencia rápida Hive para usuarios de SQL](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) de gran utilidad.
 
 Al enviar una consulta de subárbol, también puede controlar el destino del resultado de las consultas de subárbol, ya sea en la pantalla o en un archivo local del nodo principal o en un blob de Azure.
 
-### A través de la consola de la línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
 
-Si la consulta es compleja, enviar consultas de subárbol directamente desde el nodo principal del clúster de subárbol de Hadoop normalmente lleva a un procesamiento más rápido que su envío con un editor de subárbol o mediante scripts de PowerShell de Azure.
+###<a name="headnode"></a> 1. Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
 
-Iniciar sesión en el nodo principal del clúster de Hadoop, abrir la línea de comandos de Hadoop en el escritorio del nodo principal y escribir el comando
+Si la consulta es compleja, enviar consultas de Hive directamente en el nodo principal del clúster de Hadoop normalmente permite obtener respuestas más rápidas que si se efectúa el envío mediante un editor de Hive o scripts de Azure PowerShell.
 
-    cd %hive_home%\bin
+Inicie sesión en el nodo principal del clúster de Hadoop, abra la línea de comandos de Hadoop en el escritorio del nodo principal y escriba el comando `cd %hive_home%\bin`.
 
-Los usuarios disponen de tres maneras de enviar consultas de subárbol en la consola de la línea de comandos de Hadoop:
+Los usuarios disponen de tres maneras de enviar consultas de Hive en la línea de comandos de Hadoop:
 
-* directamente desde la línea de comandos de Hadoop
+* Directamente
 * usando archivos .hql
-* desde la consola de comandos de subárbol
+* Con la consola de comandos de Hive
 
-#### Enviar consultas de subárbol directamente desde la línea de comandos de Hadoop
+#### Envíe consultas de subárbol directamente en la línea de comandos de Hadoop. 
 
-Los usuarios pueden ejecutar comandos como
+Los usuarios pueden ejecutar el comando como `hive -e "<your hive query>;` para enviar consultas de Hive sencillas directamente en la línea de comandos de Hadoop. Este es un ejemplo, donde el cuadro rojo muestra el comando que envía la consulta de subárbol y el cuadro verde muestra el resultado de la consulta de subárbol.
 
-	hive -e "<your hive query>;
-
-para enviar consultas de subárbol sencillas directamente en la línea de comandos de Hadoop. Este es un ejemplo, donde el cuadro rojo muestra el comando que envía la consulta de subárbol y el cuadro verde muestra el resultado de la consulta de subárbol.
-
-![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-1.png)
 
 #### Enviar consultas de subárbol en archivos .hql
 
-Cuando la consulta de subárbol es más complicada y tiene varias líneas, no resulta práctico modificar consultas en la línea de comandos de Hadoop o la consola de comandos de subárbol. Una alternativa es usar un editor de texto en el nodo principal del clúster de Hadoop y guardar las consultas de subárbol en un archivo .hql de un directorio local del nodo principal. A continuación, puede enviarse la consulta de Hive del archivo .hql mediante el argumento `-f` en el comando `hive` de la siguiente manera:
+Cuando la consulta de subárbol es más complicada y tiene varias líneas, no resulta práctico modificar consultas en la línea de comandos o la consola de comandos de subárbol. Una alternativa es usar un editor de texto en el nodo principal del clúster de Hadoop y guardar las consultas de subárbol en un archivo .hql de un directorio local del nodo principal. A continuación, la consulta de Hive del archivo .hql puede enviarse mediante el argumento `-f` del modo indicado a continuación:
+	
+	hive -f "<path to the .hql file>"
 
-	`hive -f "<path to the .hql file>"`
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-3.png)
 
 
-#### Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol
+**Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol**
 
-De forma predeterminada, una vez que se envía la consulta de subárbol de la consola de la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla de progreso del trabajo de asignación/reducción, puede utilizar el argumento `-S` (distingue entre mayúsculas y minúsculas) en la línea de comandos de la siguiente manera:
+De forma predeterminada, después de enviar la consulta de subárbol en la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla del progreso del trabajo de asignación/reducción, puede usar un argumento `-S` ("S" en mayúsculas) en la línea de comandos del modo indicado a continuación:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Envíe consultas de subárbol en la consola de comandos de subárbol.
 
-Los usuarios pueden especificar también la consola de comandos de Hive ejecutando el comando `hive` desde la línea de comandos de Hadoop y después enviar consultas de Hive desde esta consola en el símbolo del sistema **hive>**. Aquí tiene un ejemplo.
+Los usuarios también pueden especificar en primer lugar la consola de comandos de Hive al ejecutar el comando `hive` en línea de comandos de Hadoop y, a continuación, enviar consultas de Hive en la consola de comandos de Hive. Aquí tiene un ejemplo. En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
 
-![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
-
-En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-2.png)
 
 Los ejemplos anteriores generan directamente los resultados de la consulta de subárbol en pantalla. Los usuarios también pueden escribir la salida en un archivo local del nodo principal o en un blob de Azure. A continuación, los usuarios pueden utilizar otras herramientas para analizar más el resultado de las consultas de subárbol.
 
-#### Genere los resultados de consulta de subárbol en un archivo local.
+**Genere los resultados de consulta de subárbol en un archivo local.**
 
 Para generar los resultados de consultas de subárbol en un directorio local del nodo principal, los usuarios tienen que enviar la consulta de subárbol de la línea de comandos de Hadoop de la siguiente manera:
 
-	`hive -e "<hive query>" > <local path in the head node>`
+	hive -e "<hive query>" > <local path in the head node>
 
+En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un archivo `hivequeryoutput.txt` del directorio `C:\apps\temp`.
 
-#### Generar los resultados de consulta de subárbol en un blob de Azure
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/output-hive-results-1.png)
 
-Los usuarios también pueden generar resultados de consulta de subárbol en un blob de Azure, dentro del contenedor predeterminado del clúster de Hadoop. La consulta de subárbol para hacerlo tiene el siguiente aspecto:
+**Generar los resultados de consulta de subárbol en un blob de Azure**
+
+Los usuarios también pueden generar resultados de consulta de subárbol en un blob de Azure, dentro del contenedor predeterminado del clúster de Hadoop. La consulta de subárbol debe ser similar a la siguiente:
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como *wasb:///queryoutputdir/queryoutput.txt*.
+En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio de blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. En este caso, solo necesita proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si proporciona los nombres de directorio y de blob, como `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
-El resultado de la consulta de subárbol se puede ver en el almacenamiento de blobs abriendo el contenedor predeterminado del clúster de Hadoop mediante la herramienta Explorador de almacenamiento de Azure (o equivalente). Puede aplicar el filtro (resaltado con un cuadro rojo) si desea recuperar un blob con letras especificadas en los nombres.
+Si abre el contenedor predeterminado del clúster de Hadoop mediante herramientas como el Explorador de almacenamiento de Azure, verá el resultado de la consulta de subárbol siguiente. Puede aplicar el filtro (resaltado mediante un cuadro rojo) para recuperar solo el blob con letras especificadas en los nombres.
 
-![Creación del espacio de trabajo](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
+![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### A través del Editor de subárboles o comandos de PowerShell de Azure
+###<a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
 
 Los usuarios también pueden usar la consola de consultas (editor de subárbol) escribiendo la dirección URL con el formato
 
@@ -130,7 +128,9 @@ Los usuarios también pueden usar la consola de consultas (editor de subárbol) 
 
 en un explorador web. Tenga en cuenta que deberá indicar las credenciales de clúster de Hadoop para iniciar sesión.
 
-Además, puede realizar la [Ejecución de consultas de Hive con PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+###<a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
+
+Los usuarios pueden también usar PowerShell para enviar consultas de Hive. Para obtener instrucciones, consulte [Envío de trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 
 ## <a name="create-tables"></a> Creación de tablas y base de datos de Hive
@@ -245,9 +245,4 @@ Los usuarios no pueden cargar datos directamente desde el almacenamiento de blob
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.
 
-
-##Las secciones de optimización deberían ir aquí.
-
-En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

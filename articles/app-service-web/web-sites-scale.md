@@ -45,7 +45,7 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
-5. En la configuración, haga clic en **Escalar horizontalmente**, seleccione *Recuento de instancias que elijo manualmente* en la lista desplegable, deslice la barra **Instancia** de izquierda a derecha para aumentar el número de instancias y haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
+5. En la configuración, haga clic en **Escalar horizontalmente**, seleccione *Recuento de instancias que elijo manualmente* en la lista desplegable, deslice la barra **Instancia** de izquierda a derecha para aumentar el número de instancias y haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para más información acerca de los tamaños de las instancias, consulte [Precios de Servicio de aplicaciones][vmsizes].
 	
 	![Tamaño de instancia para el modo básico][ChooseBasicInstances]
 	
@@ -129,8 +129,8 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 
 ### Valor de bits ###
 
-- Los modos **Básico**, **Estándar** y **Premium** son compatibles con aplicaciones de 32 y 64 bits.
-- Los modos de plan **Gratis**y **Compartido** solo son compatibles con aplicaciones de 32 bits.
+- Los modos **Básico**, **Estándar** y **Premium** son compatibles con aplicaciones de 32 y 64 bits.
+- Los modos de plan **Gratis**y **Compartido** solo son compatibles con aplicaciones de 32 bits.
 
 ### Compatibilidad con el depurador ###
 
@@ -180,7 +180,7 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
+[vmsizes]: /pricing/details/app-service/
 [SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
@@ -202,4 +202,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

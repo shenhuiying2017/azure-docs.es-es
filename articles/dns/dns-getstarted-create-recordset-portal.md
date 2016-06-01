@@ -14,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
 
-# Creación de registros y conjuntos de registros DNS mediante el Portal de Azure
+
+# Creación de registros y conjuntos de registros de DNS mediante el Portal de Azure
 
 
 > [AZURE.SELECTOR]
@@ -27,48 +28,12 @@
 - [CLI de Azure](dns-getstarted-create-recordset-cli.md)
 
 
-Después de crear la zona DNS, deberá agregar los registros DNS para su dominio. Para ello, primero debe saber qué son los registros y los conjuntos de registros DNS.
+Este artículo le guiará a través de la creación de registros y conjuntos de registros usando el Portal de Azure. Después de crear la zona DNS, deberá agregar los registros DNS para su dominio. Para ello, primero tiene que entender lo que son los registros y los conjuntos de registros de DNS.
 
-## Descripción de los registros y los conjuntos de registros
-
-### Sobre los registros
-
-Cada registro DNS tiene un nombre y un tipo.
-
-En un nombre de dominio "completo" (FQDN) se incluye el nombre de zona, mientras que uno "relativo", no. Por ejemplo, el nombre de registro relativo "www" en la zona "contoso.com" proporciona el nombre de registro completo "www.contoso.com".
-
->[AZURE.NOTE] En DNS de Azure, los registros se especifican mediante la utilización de nombres relativos.
-
-Los registros se presentan en distintos tipos en función de los datos que contienen. El tipo más común es un registro "**A**", que asigna un nombre a una dirección IPv4. Otro tipo es un registro "**MX**", que asigna un nombre a un servidor de correo.
-
-DNS de Azure es compatible con todos los tipos de registro DNS comunes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Tenga en cuenta que los registros SPF deben crearse mediante el tipo de registro TXT. Consulte [esta página](http://tools.ietf.org/html/rfc7208#section-3.1) para obtener más información.
+[AZURE.INCLUDE [incluir-DNS-acerca-de-los-registros](../../includes/dns-about-records-include.md)]
 
 
-### Sobre los conjuntos de registros
-
-En ocasiones, tendrá que crear más de un registro DNS con un nombre y un tipo concretos. Por ejemplo, supongamos que el sitio web www.contoso.com se hospeda en dos direcciones IP diferentes. En este caso, se requieren dos registros A diferentes, uno para cada dirección IP: Este es un ejemplo de un conjunto de registros.
-
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
-
-DNS de Azure administra los registros DNS con la utilización de conjuntos de registros. Un conjunto de registros es la colección de registros DNS de una zona con el mismo nombre y el mismo tipo. La mayoría de conjuntos de registros contienen un registro único, pero es habitual encontrar ejemplos como el anterior, en el que un conjunto de registros contiene más de un registro.
-
-Los conjuntos de registros del tipo SOA y CNAME constituyen una excepción; los estándares DNS no permiten varios registros con el mismo nombre para estos tipos.
-
-El período de vida, o TTL, especifica durante cuánto tiempo los clientes almacenan cada registro en caché antes de volver a consultarlo. En el ejemplo anterior, el TTL es 3600 segundos o 1 hora. El TTL se especifica para el conjunto de registros, no para cada registro, por lo que se utiliza el mismo valor para todos los registros de ese conjunto de registros.
-
-#### Conjuntos de registros de carácter comodín
-
-DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
-
-Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "\*" o un nombre cuya primera etiqueta sea "\*", por ejemplo, "\*.foo".
-
-#### Conjuntos de registros CNAME
-
-Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
-
-
-## Creación de un nuevo conjunto de registros y un registro
+## Creación de un nuevo conjunto de registros y de un registro
 
 En el siguiente ejemplo se explicará cómo crear registros y un conjunto de registros mediante el Portal de Azure. Utilizaremos el tipo de registro DNS "A".
 
@@ -92,16 +57,11 @@ En el siguiente ejemplo se explicará cómo crear registros y un conjunto de reg
 
 8. Cuando haya terminado de agregar direcciones IP, haga clic en **Aceptar** en la parte inferior de la hoja. Se creará el conjunto de registros de DNS.
 
-## Pruebe la zona DNS mediante las herramientas DNS.
-
-
-Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se muestran en el panel Essentials de la hoja Zona DNS. Consulte el artículo [Delegación de dominios en DNS de Azure](dns-domain-delegation.md) para obtener más información.
-
-Puede probar su zona DNS con herramientas DNS, como nslookup, dig o el [cmdlet de PowerShell Resolve-DnsName](https://technet.microsoft.com/library/jj590781.aspx).
-
 
 ## Pasos siguientes
 
-Para obtener más información sobre DNS de Azure, consulte [Introducción a DNS de Azure](dns-overview.md). Para obtener información sobre la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
+Para administrar el conjunto de registros y los registros, consulte [Creación y administración de registros y conjuntos de registros de DNS mediante el Portal de Azure](dns-operations-recordsets-portal.md).
 
-<!------HONumber=AcomDC_0406_2016-->
+Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

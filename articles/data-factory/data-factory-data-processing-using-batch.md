@@ -62,21 +62,17 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
     La solución de ejemplo usa Lote de Azure (de forma indirecta mediante una canalización de Factoría de datos de Azure) para procesar datos en paralelo en un grupo de nodos de proceso, que es una colección administrada de máquinas virtuales.
 
 4.  Cree un **grupo de Lote de Azure** con al menos 2 nodos de proceso.
-
-	 Puede descargar el código fuente para la [herramienta Explorador de Lote de Azure](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compilarla y usarla para crear el grupo (**muy recomendado para esta solución de ejemplo**) o puede usar [biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md) para crear el grupo. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure. También puede usar el cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para crear un grupo de Lote de Azure.
-
-	 Use el Explorador de Lote para crear el grupo con la siguiente configuración:
-
-	-   Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos.
-
-	-   Especifique **Windows Server 2012 R2** en la configuración **Familia del sistema operativo**.
-
-	-   Especifique **2** como valor en la configuración **Máximo de tareas por nodo de proceso**.
-
-	-   Especifique **2** como valor en la configuración **Número de destino dedicado**.
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** en el menú de la izquierda y después en **Cuentas de Lote**. 
+	2. Seleccione la cuenta de Lote de Azure para abrir la hoja **Cuenta de Lote**. 
+	3. Haga clic en el icono **Grupos**.
+	4. En la hoja **Grupos**, haga clic en el botón Agregar en la barra de herramientas para agregar un grupo.
+		1. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos. 
+		2. Especifique **Windows Server 2012 R2** en Familia del sistema operativo.
+		3. Seleccione un **plan de tarifa de nodos**. 
+		3. Escriba **2** como valor en la configuración **Dedicada a destino**.
+		4. Escriba **2** como valor en la configuración **Máximo de tareas por nodo**.
+	5. Haga clic en **Aceptar** para crear el grupo. 
+ 	 
 5.  [Explorador de almacenamiento de Azure 6 (herramienta)](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software). Estas herramientas de GUI sirven para inspeccionar y modificar los datos en sus proyectos de Almacenamiento de Azure, incluidos los registros de las aplicaciones hospedadas en la nube.
 
     1.  Cree un contenedor denominado **mycontainer** con acceso privado (sin acceso anónimo).
@@ -161,7 +157,7 @@ El método tiene algunos componentes clave que debe conocer.
 
     4.  **logger**. El parámetro logger le permite escribir comentarios de depuración que se mostrarán como el registro de "User" en la canalización.
 
--   El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas. Esta característica no se usará en esta solución de ejemplo.
+-   El método devuelve un diccionario que se puede usar para encadenar actividades personalizadas en el futuro. Esta característica todavía no está implementada, así que solo devuelva un diccionario vacío en el método.
 
 ### Procedimiento: Creación de la actividad personalizada
 
@@ -228,13 +224,8 @@ El método tiene algunos componentes clave que debe conocer.
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -277,8 +268,6 @@ El método tiene algunos componentes clave que debe conocer.
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -295,7 +284,8 @@ El método tiene algunos componentes clave que debe conocer.
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -428,9 +418,6 @@ En esta sección se proporcionan más detalles y notas sobre el código del mét
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	El código también llama a un método auxiliar, **GetFolderPath**, para recuperar la ruta de acceso de la carpeta (el nombre del contenedor de almacenamiento).
 
 		folderPath = GetFolderPath(outputDataset);
@@ -552,11 +539,17 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName****. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
+    3.  Escriba el identificador del grupo para la propiedad **poolName**.** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
 
-    4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON. La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
+    4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
+    
+		> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
+
+		> [AZURE.NOTE] El servicio de Factoría de datos no admite una opción a petición para el Lote de Azure como lo hace para HDInsight. Solo puede usar su propio grupo de Lote de Azure en una factoría de datos de Azure.
 
     5.  Especifique **StorageLinkedService** para la propiedad **linkedServiceName**. Ha creado este servicio vinculado en el paso anterior. Este almacenamiento se usa como área de almacenamiento provisional para archivos y registros.
 
@@ -576,7 +569,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -651,7 +644,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Haga clic en **Implementar** en la barra de herramientas para crear e implementar la tabla **InputDataset**. Confirme que aparece el mensaje **TABLA CREADA CORRECTAMENTE** en la barra de título del Editor.
+3.  Haga clic en **Implementar** en la barra de herramientas para crear e implementar la tabla **InputDataset**.
 
 #### Creación del conjunto de datos de salida
 
@@ -665,7 +658,7 @@ En este paso, creará otro conjunto de datos de tipo AzureBlob para representar 
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -723,7 +716,7 @@ En este paso, creará una canalización con la actividad personalizada que creó
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
@@ -807,6 +800,8 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 6.  Use el [Explorador de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para ver las **tareas** asociadas con los **segmentos** y en qué máquina virtual se ejecutó cada segmento. Verá que se crea un trabajo con el nombre **adf-<nombreDeGrupo>**. Este trabajo tendrá una tarea para cada segmento. En este ejemplo, habrá 5 segmentos y, por tanto, 5 tareas en Lote de Azure. Con el valor **concurrency** establecido en **5** en el código JSON de la canalización en Factoría de datos de Azure y **Máximo de tareas por máquina virtual** establecido en **2** en el grupo de Lote de Azure con **2** máquinas virtuales, las tareas se ejecutaban muy rápido (consulte la información en **Creada**).
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
+
+	> [AZURE.NOTE] Descargue el código fuente de la [herramienta Explorador de lote de Azure][batch-explorer], compílelo y úselo para crear y supervisar los grupos de Lote. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
 
 7.  Debería ver los archivos de salida en la carpeta **outputfolder** de **mycontainer** en su Almacenamiento de blobs de Azure.
 
@@ -897,9 +892,9 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
  
 		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-	Para más detalles, consulte [Escalado automático de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+	Para más detalles, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
 
-	El servicio Lote de Azure puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar en ella la actividad personalizada.
+	Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 	 
 5. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método Calculate en el método Execute por una llamada a su método.
 
@@ -938,4 +933,8 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+
+<!---HONumber=AcomDC_0518_2016-->

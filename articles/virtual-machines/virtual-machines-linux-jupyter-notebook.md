@@ -92,7 +92,7 @@ Como ejemplo, se trata de cómo puede instalar Anaconda en Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@ Se le solicitará una contraseña y su confirmación y, luego, se imprimirá la 
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-A continuación, editaremos el archivo de configuración del perfil, que es el archivo `jupyter_notebook_config.py` del directorio en que se encuentra. Observe que es posible que este archivo no exista. Si es así, simplemente créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente. Asegúrese de reemplazar la contraseña con el valor sha1 del paso anterior.
+A continuación, editaremos el archivo de configuración del perfil, que es el archivo `jupyter_notebook_config.py` del directorio en que se encuentra. Observe que es posible que este archivo no exista. Si es así, simplemente créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente. **Asegúrese de reemplazar c.NotebookApp.password en la configuración con sha1 del paso anterior**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@ A continuación, editaremos el archivo de configuración del perfil, que es el a
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -199,4 +199,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [repositorio]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

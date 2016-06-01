@@ -19,7 +19,7 @@
 
 # Escritura, edición y ejecución de consultas SQL para DocumentDB mediante Explorador de consultas 
 
-En este artículo se proporciona información general sobre el Explorador de consultas de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), que es una herramienta del Portal de Azure que permite escribir, editar y ejecutar consultas SQL en una [colección de DocumentDB](documentdb-create-collection).
+En este artículo se proporciona información general sobre el Explorador de consultas de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), que es una herramienta del Portal de Azure que permite escribir, editar y ejecutar consultas SQL en una [colección de DocumentDB](documentdb-create-collection.md).
 
 1. En la barra de salto del Portal de Azure, haga clic en **Cuentas de DocumentDB**. Si **Cuentas de DocumentDB** no está visible, haga clic en **Examinar** y después en **Cuentas de DocumentDB**.
 
@@ -79,4 +79,4 @@ El Explorador de consultas del Portal de Azure es simplemente una forma de ejecu
 
 Para más información acerca de la gramática de SQL de DocumentDB compatible con el Explorador de consultas, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md). También puede disfrutar de la experimentación con [Query Playground](https://www.documentdb.com/sql/demo), donde puede probar las consultas en línea con un conjunto de datos de ejemplo.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

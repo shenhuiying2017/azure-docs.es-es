@@ -60,7 +60,7 @@ Si desea dar a otro usuario acceso para administrar en el mismo PIM, los roles q
 
 Los roles de Exchange Online o SharePoint Online, excepto los mencionados anteriormente, no están representados en Azure AD y, por lo tanto, no son visibles en PIM. Para más información acerca de cómo cambiar las asignaciones de roles específicas de estos servicios de Office 365, consulte [Permisos en Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator) y, para más información acerca de RBAC de Azure, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
+Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md) y, para más información acerca de RBAC de Azure, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -87,4 +87,4 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

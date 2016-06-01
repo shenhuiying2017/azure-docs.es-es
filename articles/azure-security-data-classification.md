@@ -135,7 +135,7 @@ Es importante establecer una cadena de custodia clara para la propiedad de todos
 | Administrador de recursos de datos | | | X | | |
 | Administrador | | | | | X |
 | Usuario* | | X | | X | |
-****Un administrador de recursos de datos puede conceder a los usuarios derechos adicionales, por ejemplo para editar y eliminar.*
+**Un administrador de recursos de datos puede conceder a los usuarios derechos adicionales, por ejemplo para editar y eliminar.*
 
 > [AZURE.NOTE] En esta tabla no se proporciona una lista exhaustiva de roles y derechos, sino solo una muestra representativa.
 
@@ -240,4 +240,4 @@ Algunas tecnologías de DLP también proporcionan la capacidad de invalidar la c
 - [Blog del equipo de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Centro de respuesta de seguridad de Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!-----HONumber=AcomDC_0511_2016-->

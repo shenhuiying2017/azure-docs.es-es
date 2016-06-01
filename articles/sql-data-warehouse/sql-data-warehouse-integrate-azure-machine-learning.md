@@ -3,7 +3,7 @@
    description="Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
 
-Aprendizaje automático de Azure es un servicio de análisis predictivo que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Aprendizaje automático en Azure][]. Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][].
+Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Aprendizaje automático en Azure][]. Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][].
 
 En este artículo, aprenderá cómo hacer lo siguiente utilizando [Estudio de aprendizaje automático de Azure][]\:
 
@@ -43,7 +43,7 @@ Busque el módulo Lector en la paleta de conjuntos de datos y módulos que apare
 Seleccione el módulo Lector y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el origen de datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][].
 
 ![][server_name]
 
@@ -63,7 +63,7 @@ FROM dbo.DimProduct;
 
 ![][reader_properties]
 
-### Paso 4
+### Paso 4
 
 1. Ejecute el experimento; para ello, haga clic en Ejecutar bajo el lienzo de experimentos.
 2. Cuando el experimento finalice, el módulo Lector tendrá una marca de verificación verde para indicar que se completó correctamente. Observe también el estado Ejecución finalizada en la esquina superior derecha.
@@ -101,7 +101,7 @@ Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que apa
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el destino de los datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure clásico][].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][].
 3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
 4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de escritura para la base de datos.
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
@@ -136,12 +136,12 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Article references-->
 
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
-[Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
-[Tutorial para crear un experimento]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-create-experiment/
-[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-ES/documentation/articles/machine-learning-what-is-machine-learning/
+[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
+[Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration.md
+[Tutorial para crear un experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
-[Portal de Azure clásico]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

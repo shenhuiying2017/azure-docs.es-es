@@ -52,7 +52,7 @@ En ambos casos, puede recuperar la cadena de conexión utilizando el método `Cl
 
 ### Configuración de una cadena de conexión
 
-El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (***.csdef**), como se indica en el siguiente ejemplo:
+El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde el [Portal de Azure clásico][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (****.csdef**), como se indica en el siguiente ejemplo:
 
 ```
 <ServiceDefinition name="Azure1">
@@ -234,7 +234,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Los temas del Bus de servicio admiten un [tamaño máximo de mensaje de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 KB). No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
+El tamaño máximo de mensaje que admiten los temas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB). Si está habilitada la división en particiones, el límite superior es más elevado. Para más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md).
 
 ## Recepción de mensajes de una suscripción
 
@@ -310,22 +310,22 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 
 Ahora que conoce los fundamentos de los temas y las suscripciones del bus de servicio, siga estos vínculos para obtener más información.
 
--   [Colas, temas y suscripciones del Bus de servicio][]
+-   [Colas, temas y suscripciones][]
 -   [Ejemplo de filtros de tema][]
 -   Referencia de API para [Clase SqlFilter][].
--   Compile una aplicación que envíe mensajes a una cola del bus de servicio y los reciba de ella: [Tutorial de .NET de mensajería asincrónica del Bus de servicio][].
--   Ejemplos de bus de servicio: descárguelos de [Ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
+-   Si quiere crear una aplicación de trabajo que envíe mensajes a una cola del Bus de servicio y que reciba mensajes de dicha cola, consulte [Tutorial de .NET de mensajería asíncrona del Bus de servicio][].
+-   Ejemplos del Bus de servicio: descárguelos en la [página de ejemplos de Azure][] o consulte la [información general](service-bus-samples.md).
 
   [Portal de Azure clásico]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Colas, temas y suscripciones del Bus de servicio]: service-bus-queues-topics-subscriptions.md
+  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Ejemplo de filtros de tema]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Tutorial de .NET de mensajería asincrónica del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
-  [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+  [Tutorial de .NET de mensajería asíncrona del Bus de servicio]: service-bus-brokered-tutorial-dotnet.md
+  [página de ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

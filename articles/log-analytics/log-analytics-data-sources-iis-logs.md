@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Registros de IIS en Log Analytics | Microsoft Azure"
    description="Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar. En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en el repositorio de OMS."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Registros de IIS en Log Analytics
@@ -26,6 +26,8 @@ Log Analytics recopila entradas de los archivos de registros que crea IIS, por l
 Log Analytics solo admite archivos de registro de IIS almacenados en formato W3C. No recopilará registros en formato nativo IIS o NCSA.
 
 Configure registros de IIS en Log Analytics desde el [menú de datos en la configuración de Log Analytics](log-analytics-data-sources.md/configuring-data-sources). No se requiere otra configuración que seleccionar **Collect W3C format IIS log files** (Recopilar archivos de registro de IIS en formato W3C).
+
+Es recomendable que, cuando se habilite la recopilación de registros de IIS, se configure el valor de sustitución de registros de IIS en cada servidor.
 
 
 ## Colección de datos
@@ -47,7 +49,7 @@ Los registros de IIS tienen un tipo **W3CIISLog** y tienen las propiedades que a
 | csUserName | Nombre del usuario autenticado que obtuvo acceso al servidor. Los usuarios anónimos se indican con un guion. |
 | csUriStem | El destino de la solicitud, como una página web. |
 | csUriQuery | La consulta que el cliente intentaba realizar, si corresponde. |
-| ManagementGroupName | El nombre del grupo de administración para los agentes de SCOM. En el caso de los otros agentes, es AOI-<id. de área de trabajo> |
+| ManagementGroupName | Nombre del grupo de administración de agentes SCOM. En el caso de los otros agentes, es AOI-<id. de área de trabajo> |
 | RemoteIPCountry | El país de la dirección IP del cliente. |
 | RemoteIPLatitude | La latitud de la dirección IP del cliente. |
 | RemoteIPLongitude | La longitud de la dirección IP del cliente. |
@@ -76,7 +78,7 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 ## Pasos siguientes
 
 - Configure Log Analytics para recopilar otros [orígenes de datos](log-analytics-data-sources.md) para su análisis.
-- Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos. 
+- Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.
 - Configure alertas en Log Analytics para recibir notificaciones de manera nativa con respecto a condiciones importantes encontradas en los registros de IIS.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
-   ms.author="mani-ramaswamy"/>
+   ms.date="05/13/2016"
+   ms.author="subramar"/>
 
 # Especificación de los recursos en un manifiesto de servicio
 
 ## Información general
 
-El manifiesto de servicio permite que los recursos que utilizará el servicio sean declarados o modificados sin cambiar el código compilado. Service Fabric de Azure admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración.
+El manifiesto de servicio permite que los recursos que utilizará el servicio sean declarados o modificados sin cambiar el código compilado. Service Fabric de Azure admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ## Extremos
 
@@ -36,7 +36,7 @@ Cuando se define un recurso de punto de conexión en el manifiesto de servicio, 
 </Resources>
 ```
 
-Consulte [Configuración de Reliable Services con estado](service-fabric-reliable-services-configuration.md) para obtener más información acerca de cómo hacer referencia a los puntos de conexión del archivo de configuración del paquete de configuración (settings.xml).
+Vea [Configuración de Reliable Services con estado](service-fabric-reliable-services-configuration.md) para obtener más información sobre cómo hacer referencia a los puntos de conexión del archivo de configuración del paquete de configuración (settings.xml).
 
 ## Ejemplo: Especificación de un punto de conexión HTTP para el servicio
 
@@ -90,7 +90,7 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 
 ## Ejemplo: Especificación de un punto de conexión HTTPS para el servicio
 
-El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar esta opción en su servicio Service Fabric, al definir el servicio, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
+El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar esta opción en el servicio Service Fabric, al definir el servicio, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
 
 >[AZURE.NOTE] No se puede cambiar el protocolo de un servicio durante la actualización de la aplicación, porque esto supondría un cambio importante.
 
@@ -137,4 +137,4 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. (Necesita
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,9 +3,9 @@
 	description="Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado en Aprendizaje automático de Azure."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="" />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="msolhab;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="bradsev" />
 
 
 # Escenarios para análisis avanzado en Aprendizaje automático de Azure
 
-En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el proceso de análisis de Cortana (CAP). Muestra las opciones disponibles en las secuencias de procesamiento en función de las características de datos, la ubicación de origen y los repositorios de destino de Azure.
+En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el proceso de Cortana Analytics. Muestra las opciones disponibles en las secuencias de procesamiento en función de las características de datos, la ubicación de origen y los repositorios de destino de Azure.
 
 En la última sección se presenta el **árbol de decisión** para seleccionar los escenarios de ejemplo adecuados para los datos y el objetivo.
 
@@ -314,4 +314,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

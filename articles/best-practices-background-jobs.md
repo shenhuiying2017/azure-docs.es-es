@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Orientación sobre los trabajos de segundo plano
 
-![Logotipo de patrones y prácticas](media/best-practices-background-jobs/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Información general
 
@@ -321,4 +320,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Cómo habilitar diagnósticos en un servicio en la nube](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

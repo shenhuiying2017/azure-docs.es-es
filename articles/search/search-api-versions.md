@@ -65,9 +65,8 @@ No se garantiza la migración de las características en versión preliminar a u
 
 Sin embargo, dado que las características en versión preliminar están sujetas a cambios, no se recomienda escribir código de producción que dependa de versiones preliminares. Si usa una versión preliminar antigua, se recomienda que migre a la versión de disponibilidad general (GA).
 
-- Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualizar el SDK de .NET](search-dotnet-sdk-migration.md).
-- Para la API de REST: encontrará indicaciones para la migración de código en [Transición de la versión preliminar a la versión de disponibilidad general](search-transition-from-preview.md).
+Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualizar el SDK de .NET](search-dotnet-sdk-migration.md).
 
-La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en [Contratos de nivel de servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en [Acuerdo de Nivel de Servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

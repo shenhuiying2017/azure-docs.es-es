@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 
@@ -40,7 +40,8 @@ La búsqueda del **Catálogo de datos de Azure** admite los siguientes tipos de 
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nombre descriptivo | Se pueden proporcionar nombres descriptivos en el nivel de recursos de datos para que dichos recursos de datos se entiendan con más facilidad. Los nombres descriptivos son más útiles cuando el nombre del objeto subyacente es críptico, está abreviado o no es significativo para los usuarios. |
 | Descripción | Las descripciones se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las descripciones son anotaciones de texto breve de forma libre que describen la perspectiva del usuario sobre el recurso de datos o su uso. |
-| Etiquetas | Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Los usuarios definen las etiquetas que se pueden usar para clasificar los atributos o recursos de datos. |
+| Etiquetas (etiquetas de usuario) | Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Los usuarios definen las etiquetas que se pueden usar para clasificar los atributos o recursos de datos. |
+| Etiquetas (etiquetas de glosario) | Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las etiquetas del glosario son términos de glosario definidos centralmente que pueden utilizarse para clasificar los recursos de datos o atributos mediante una taxonomía empresarial común. Para más información, consulte [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md) |
 | Expertos | Los expertos se pueden facilitar en el nivel de recursos de datos. Los expertos identifican usuarios o grupos con perspectivas expertas sobre los datos, y pueden actuar como puntos de contacto para los usuarios que detecten los orígenes de datos registrados y tengan preguntas que no estén respondidas en las anotaciones existentes. |
 | Solicitar acceso | La información de solicitud de acceso se puede proporcionar en el nivel de recursos de datos. Esta información es para los usuarios que detecten un origen de datos al que aún no tienen permisos para tener acceso. Los usuarios pueden escribir la dirección de correo electrónico del usuario o grupo que concede el acceso, la dirección URL del proceso o la herramienta a los que los usuarios necesitan tener acceso, o pueden especificar el propio proceso como texto. |
 
@@ -61,4 +62,4 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consi
 ## Consulte también
 - Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

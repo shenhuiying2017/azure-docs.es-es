@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos  
@@ -24,7 +24,7 @@ Obtenga información acerca de la administración de seguridad de la Base de dat
 
 ## Aprovisionamiento de la base de datos e inicio de sesión de la entidad de seguridad a nivel de servidor
 
-En la Base de datos SQL de Microsoft Azure, al registrarse para el servicio, el proceso de aprovisionamiento crea un servidor de Base de datos de SQL Azure, una base de datos denominada **principal** y un inicio de sesión que es la entidad de seguridad de nivel de servidor de su servidor de Base de datos SQL de Azure. Ese inicio de sesión es similar a la entidad de seguridad de nivel de servidor, **sa**, para una instancia local de SQL Server.
+En la Base de datos SQL de Microsoft Azure, al registrarse para el servicio, el proceso de aprovisionamiento crea un servidor de Base de datos de SQL Azure, una base de datos denominada **principal** y un inicio de sesión que es la entidad de seguridad de nivel de servidor de su servidor de Base de datos SQL de Azure. Ese inicio de sesión es similar a la entidad de seguridad de nivel de servidor, **sa**, para una instancia local de SQL Server. Los conceptos descritos en este tema también se aplican a Almacenamiento de datos SQL de Azure.
 
 La cuenta principal de nivel de servidor de Base de datos SQL de Azure siempre tiene permiso para administrar toda la seguridad de servidor y de base de datos. En este tema se describe cómo puede usar la entidad de seguridad de nivel de servidor y otras cuentas para administrar los inicios de sesión y bases de datos de la Base de datos SQL.
 
@@ -176,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Tutorial de Base de datos SQL de Azure: Introducción a la seguridad de Base de datos SQL de Azure](sql-database-get-started-security.md) [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a la Base de datos SQL mediante la autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure clásico][]. Para obtener más información, consulte [Introducción al cifrado de datos transparente (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][]. Para obtener más información, consulte [Introducción al cifrado de datos transparente (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditoría
 
@@ -108,9 +108,9 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [cifrado de datos transparente]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Portal de Azure clásico]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

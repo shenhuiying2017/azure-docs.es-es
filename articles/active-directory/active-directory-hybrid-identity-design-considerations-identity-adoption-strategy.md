@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 
@@ -73,7 +73,10 @@ La estrategia que se use determinará la experiencia de inicio de sesión del us
 | Exchange ActiveSync | Se piden credenciales | inicio de sesión único para Lync, credenciales solicitadas para Exchange |
 | Aplicaciones móviles | Se piden credenciales | Se piden credenciales |
 
-Si determinó en la tarea 1 que tiene un IdP de terceros o que va a usarlo para proporcionar la federación con Azure AD, es preciso que tenga en cuenta las siguientes capacidades admitidas: - Todos los proveedores de SAML 2.0 que sean compatibles con el perfil SP-Lite pueden admitir la autenticación en Azure AD y en las aplicaciones asociadas - Admite la autenticación pasiva, lo que facilita la autenticación en OWA, SPO, etc. - Se pueden admitir clientes de Exchange Online mediante el perfil de cliente mejorado (ECP) de SAML 2.0.
+Si a partir de la tarea 1 ha determinado que tiene un IdP de terceros o va a usar uno para proporcionar la federación con Azure AD, tiene que tener en cuenta las siguientes funcionalidades admitidas:
+- Cualquier proveedor de SAML 2.0 que sea compatible con el perfil SP-Lite puede admitir la autenticación a Azure AD y aplicaciones asociadas
+- Admite la autenticación pasiva, que facilita la autenticación a OWA, SPO, etcétera.
+- Se admiten clientes de Exchange Online a través del perfil de cliente mejorado (ESP) de SAML 2.0
 
 También debe conocer las capacidades que no estarán disponibles:
 
@@ -197,4 +200,4 @@ También debe asegurarse de que la opción de diseño de Multi-Factor Authentica
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

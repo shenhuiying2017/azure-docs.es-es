@@ -29,7 +29,7 @@
 
 En el recurso de inicio de la aplicación de Application Insights, haga clic en Analytics.
 
-![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics/001.png)
+![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-using/001.png)
 
 El tutorial en línea le dará algunas ideas sobre lo que puede hacer.
 
@@ -37,7 +37,7 @@ Podrá encontrar un [paseo más amplio aquí](app-insights-analytics-tour.md).
 
 ## Escritura de consultas
 
-Escriba una consulta que comience por los nombres de cualesquiera de las tablas que se enumeran a la izquierda. Use `|` para crear una canalización de [operadores](app-insights-analytics-queries.md).
+Escriba una consulta que comience por los nombres de cualesquiera de las tablas que se enumeran a la izquierda. Use `|` para crear una canalización de [operadores](app-insights-analytics-reference.md#queries-and-operators).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -60,9 +60,9 @@ Puede elegir las columnas que desea ver. Expanda cualquier elemento para ver tod
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web de una forma rápida. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Por tanto, esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ello, es preciso usar los operadores [top](app-insights-analytics-queries.md#top-operator) o [sort](app-insights-analytics-queries.md#sort-operator).
+> [AZURE.NOTE] Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web de una forma rápida. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Por tanto, esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ello, es preciso usar los operadores [top](app-insights-analytics-reference.md#top-operator) o [sort](app-insights-analytics-reference.md#sort-operator).
 
-No obstante, es aconsejable usar los operadores [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) o [summarize](app-insights-analytics-queries.md#summarize-operator) para evitar que se descarguen tablas muy grandes del servidor. De todas formas, hay un límite automático de 10 000 filas por consulta.
+No obstante, es aconsejable usar los operadores [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) o [summarize](app-insights-analytics-reference.md#summarize-operator) para evitar que se descarguen tablas muy grandes del servidor. De todas formas, hay un límite automático de 10 000 filas por consulta.
 
 
 ## Diagramas
@@ -75,7 +75,7 @@ Si tiene varias columnas de los tipos correctos, puede elegir los ejes X e Y, as
 
 ![](./media/app-insights-analytics-using/100.png)
 
-De manera predeterminada, los resultados se muestran en un principio en forma de tabla y el diagrama se selecciona manualmente. Sin embargo, para seleccionar un diagrama se puede usar la [directiva render](app-insights-analytics-queries.md#render-directive) al final de una consulta.
+De manera predeterminada, los resultados se muestran en un principio en forma de tabla y el diagrama se selecciona manualmente. Sin embargo, para seleccionar un diagrama se puede usar la [directiva render](app-insights-analytics-reference.md#render-directive) al final de una consulta.
 
 ## Exportación a Excel
 
@@ -104,4 +104,4 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

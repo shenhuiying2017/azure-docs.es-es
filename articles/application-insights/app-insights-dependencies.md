@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Diagnóstico de problemas con dependencias en Application Insights
@@ -57,6 +57,16 @@ Páginas web | [Monitor de JavaScript](app-insights-javascript.md) (ninguna conf
 Servicio en la nube de Azure | [Uso de tarea de inicio](app-insights-cloudservices.md#dependencies) o [Instalación de .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
+
+## Mapa de aplicación
+
+Mapa de aplicación sirve de ayuda visual para detectar las dependencias entre los componentes de la aplicación.
+
+![Haga clic en Configuración, Mapa de aplicación.](./media/app-insights-dependencies/08.png)
+
+En los cuadros, puede ir a la dependencia pertinente y a otros gráficos.
+
+Haga clic en la pequeña [x] para contraer un subárbol.
 
 ## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia en el servidor web
 
@@ -140,4 +150,4 @@ Consulte [Application Insights para páginas web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -63,4 +63,4 @@ Para empezar a trabajar con Aplicaciones de API mediante la implementación de c
 
 Para plantear preguntas sobre Aplicaciones de API, cree una conversación en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

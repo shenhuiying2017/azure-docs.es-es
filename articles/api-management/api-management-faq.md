@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Administración de API de Azure
@@ -35,6 +35,7 @@ Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas p
 -	[¿Es constante la dirección IP de la puerta de enlace de Administración de API? ¿Puedo usarla en las reglas de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[¿Qué método de enrutamiento utiliza Administración de API cuando se implementa en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 
 
 
@@ -71,7 +72,18 @@ Sí, se puede administrar mediante la [API de REST de Administración de API](ht
 
 ### ¿Cómo se puede agregar un usuario al grupo de administradores?
 
-En este momento, solo pueden ser administradores los usuarios que inician sesión a través del Portal de Azure clásico como administradores o coadministradores de la suscripción de Azure que contiene la instancia de Administración de API. Los usuarios creados en el portal para editores no pueden designarse administradores ni agregarse al grupo de administradores.
+Se consigue siguiendo estos pasos:
+
+1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com). 
+2. Vaya al grupo de recursos que contiene la instancia deseada de Administración de API.
+3. Agregue el usuario deseado al rol Colaborador de Administración de API.
+
+Una vez hecho esto, el colaborador recién agregado puede usar [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) de Azure PowerShell para iniciar sesión como administrador:
+
+1. Use el cmdlet `Login-AzureRmAccount` para iniciar sesión.
+2. Establezca el contexto en la suscripción que contiene el servicio mediante `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
+3. Obtenga el token de SSO mediante `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+4. Copie y pegue la dirección URL en el explorador; el usuario debería tener acceso administrativo al portal.
 
 
 ### ¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
@@ -81,7 +93,7 @@ Si la directiva que desea agregar no está habilitada, asegúrese de que se encu
 
 ### ¿Cómo se puede conseguir el control de versiones de API con Administración de API?
 
--	Puede configurar distintas API en Administración de API que representen distintas versiones. Por ejemplo, puede tener `MyAPI v1` y `MyAPI v2` como dos API diferentes y los desarrolladores pueden elegir la versión que desean usar.
+-	Puede configurar distintas API en Administración de API que representen distintas versiones. Por ejemplo, puede tener `MyAPI v1` y `MyAPI v2` como dos API diferentes y los desarrolladores pueden elegir la versión que deseen usar.
 -	También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión, por ejemplo: `https://my.api`. A continuación, puede configurar un segmento de versión en la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación; por ejemplo puede tener una operación con una [plantilla de URL](api-management-howto-add-operations.md#url-template) de `/resource` y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. De esta forma, podrá cambiar el valor del segmento de versión en cada operación por separado.
 -	Si desea mantener un segmento de versión "predeterminado" en la dirección URL del servicio de la API, puede establecer en operaciones seleccionadas una directiva que use la directiva [Establecer el servicio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) para cambiar la ruta de acceso de la solicitud de back-end.
 
@@ -96,7 +108,7 @@ En este momento, las opciones son:
 
 Actualmente, ofrecemos compatibilidad limitada para SOAP dentro de Administración de API de Azure; es una característica que se está investigando actualmente. Estamos muy interesados en obtener cualquier ejemplo de WSDL de sus clientes y una descripción de las características que necesitan, ya que esto nos facilitaría el proceso. Póngase en contacto con nosotros mediante la información de contacto que se menciona en [¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-Si necesita ponerlo en marcha, miembros de la comunidad han sugerido soluciones temporales (vea [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) (Administración de API de Azure: APIM, consumo de un servicio WCF de SOAP a través de HTTP)).
+Si necesita ponerlo en marcha, algunos miembros de la comunidad han sugerido soluciones temporales (consulte [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) [Administración de API de Azure: APIM, consumo de un servicio WCF de SOAP a través de HTTP]).
 
 La implementación de la solución de este modo requiere algunos procesos de configuración manual de las directivas; no admite la importación y exportación de WSDL; y los usuarios deben formar parte del cuerpo de las solicitudes realizadas con la consola de prueba en el portal para desarrolladores.
 
@@ -115,10 +127,14 @@ La dirección IP (o las direcciones en el caso de la implementación en varias r
 
 ### ¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad ADFS?
 
-Para obtener información acerca de la configuración de este escenario, consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en Administración de API).
+Para más información acerca de la configuración de este escenario, consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en Administración de API).
 
 ### ¿Qué método de enrutamiento utiliza Administración de API cuando se implementa en varias ubicaciones geográficas? 
 
-Administración de API usa el [método de enrutamiento del tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Para obtener más información acerca de los métodos de enrutamiento, consulte [Métodos de enrutamiento del Administrador de tráfico](../traffic-manager/traffic-manager-routing-methods.md).
+Administración de API usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Para más información acerca de los métodos de enrutamiento, consulte [Métodos de enrutamiento del Administrador de tráfico](../traffic-manager/traffic-manager-routing-methods.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+### ¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?
+
+Sí, consulte las plantillas de inicio rápido en [Azure API Management Service](http://aka.ms/apimtemplate) (Servicio de Administración de API de Azure).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -123,7 +123,7 @@ En [https://github.com/hdinsight/spark-streaming-data-persistence-examples](http
 
 5. La aplicación requiere dos archivos JAR de dependencia:
 
-	* **Archivo JAR de receptor de EventHub**. Requerido para que Spark reciba los mensajes del Centro de eventos. Este archivo JAR está disponible en el clúster Spark Linux en `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Para copiar el archivo JAR en el equipo local se puede usar pscp.
+	* **Archivo JAR de receptor de EventHub**. Requerido para que Spark reciba los mensajes del Centro de eventos. Este archivo JAR está disponible en el clúster Spark Linux en `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Para copiar el archivo JAR en el equipo local se puede usar pscp. (Nota: Algunas instancias tienen el archivo en `/usr/hdp/2.4.1.0-327/spark/lib`)
 
 			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
@@ -257,6 +257,8 @@ Para ejecutar la aplicación que transmite los eventos a una tabla de Hive se ne
 
 Los archivos **.jar** están disponibles en el clúster de HDInsight Spark en `/usr/hdp/current/spark-client/lib`. El archivo **hive-site.xml** está disponible en `/usr/hdp/current/spark-client/conf`.
 
+
+
 Puede usar [WinScp](http://winscp.net/eng/download.php) para copiar estos archivos desde el clúster al equipo local. A continuación, puede usan herramientas para copiar estos archivos en su cuenta de almacenamiento asociada con el clúster. Para más información acerca de cómo cargar archivos en la cuenta de almacenamiento, consulte [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md).
 
 Una vez que haya copiado los archivos a la cuenta de Almacenamiento de Azure, abra un símbolo del sistema, navegue al directorio en que instaló CURL y ejecute el siguiente comando (reemplace el nombre de usuario y la contraseña, y el nombre del clúster):
@@ -374,4 +376,4 @@ Debería ver una salida similar a la siguiente:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="05/23/2016"
    ms.author="shkurhek"/>
 
 # ¿Qué es Base de datos SQL? Introducción a Base de datos SQL
@@ -31,11 +31,11 @@ Base de datos SQL está disponible en los *niveles de servicio* Básico, Estánd
 
 Para muchas empresas y aplicaciones, poder crear bases de datos y aumentar o reducir el rendimiento de una base de datos única a petición es suficiente, especialmente si los patrones de uso son relativamente predecibles. Pero si dichos patrones son impredecibles, pueden dificultar la administración de los costos y del modelo de negocio.
 
-Los [grupos elásticos](sql-database-elastic-pool.md) de Base de datos SQL solucionan este problema. El concepto es sencillo. Se asigna el rendimiento a un grupo y se paga por el rendimiento colectivo del grupo, en lugar de por el de una base de datos única. No es preciso aumentar o reducir el rendimiento de la base de datos. Las bases de datos del grupo, denominadas *bases de datos elásticas*, se escalan o reducen verticalmente para satisfacer la demanda. Las bases de datos elásticas consumen, pero no superan los límites del grupo, por lo que el costo sigue siendo predecible, aunque su uso no lo sea. Es más, puede [agregar bases de datos al grupo y quitarlas del mismo](sql-database-elastic-pool-manage-portal.md), lo que escala la aplicación de un puñado de bases de datos a miles, y todo sin perder el control del presupuesto.
+Los [grupos elásticos](sql-database-elastic-pool.md) de Base de datos SQL solucionan este problema. El concepto es sencillo. Se asigna el rendimiento a un grupo y se paga por el rendimiento colectivo del grupo, en lugar de por el de una base de datos única. No es preciso aumentar o reducir el rendimiento de la base de datos. Las bases de datos del grupo, denominadas *bases de datos elásticas*, se escalan o reducen verticalmente para satisfacer la demanda. Las bases de datos elásticas consumen, pero no superan los límites del grupo, por lo que el costo sigue siendo predecible, aunque su uso no lo sea. Es más, puede [agregar bases de datos al grupo y quitarlas del mismo](sql-database-elastic-pool-manage-portal.md), lo que escala la aplicación de un puñado de bases de datos a miles, y todo sin perder el control del presupuesto. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Diseño de patrones para aplicaciones SaaS multiinquilino con Base de datos SQL de Azure).
 
 Independientemente de lo que elija (única o elásticas), no se quedará bloqueado. Puede fusionar bases de datos únicas con grupos de bases de datos elásticas y cambiar los niveles de servicio tanto de las bases de datos únicas como de los grupos para crear diseños innovadores. Además, con la potencia y el alcance de Azure, puede combinar y hacer coincidir los servicios de Azure con Base de datos SQL para satisfacer sus necesidades únicas de diseño de aplicaciones modernas, impulsar las eficiencias de costos y recursos, y desbloquear nuevas oportunidades de negocio.
 
-Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos y los grupos de bases de datos? ¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? La respuesta es la unidad de transacción de base de datos (DTU) para bases de datos únicas y la DTU elástica (eDTU) para bases de datos elásticas y grupos de bases de datos. Consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md) para más información.
+Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos y los grupos de bases de datos? ¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? La respuesta es la unidad de transacción de base de datos (DTU) para bases de datos únicas y la DTU elástica (eDTU) para bases de datos elásticas y grupos de bases de datos. Para más detalles, consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md).
 
 ## Mantenimiento de la aplicación y el negocio en funcionamiento
 
@@ -52,11 +52,11 @@ SQL Server tradicionalmente ha proporcionado una sólida seguridad de datos que 
 ## Pasos siguientes
 Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregunta "¿Qué es la Base de datos SQL?", está listo para:
 
-- Consultar la [página de precios](https://azure.microsoft.com/pricing/details/sql-database/) de una base de datos única y las comparaciones de costos y calculadoras de bases de datos elásticas.
-- Obtener información acerca de [grupos elásticos](sql-database-elastic-pool.md).
+- En la página [Precios de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/), encontrará comparativas y calculadoras de los costos tanto de las bases de datos únicas como de las bases de datos elásticas.
+- Para más información, consulte [¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md).
 - Comience por [crear su primera base de datos](sql-database-get-started.md).
 - [Conectarse y realizar consultas con SSMS](sql-database-connect-query-ssms.md)
-- Cree su primera aplicación de C#, Java, Node.js, PHP, Python o Ruby: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
-- Consulte un índice de los títulos y las descripciones en [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md).
+- Para crear su primera aplicación en C#, Java, Node.js, PHP, Python o Ruby, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+- Para ver un índice de los títulos y las descripciones, consulte [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

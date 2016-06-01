@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Creación de una colección de DocumentDB mediante el Portal de Azure
@@ -44,9 +44,9 @@ Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](docu
 
 	Si va a crear una colección con particiones, vaya al paso 7 ya que no necesita seleccionar un plan de tarifa.
 
-7. Seleccione uno de los valores de **Modo de particionamiento** para la colección: **Partición única** o **Particionada**. Una única partición tiene una capacidad de almacenamiento reservado de 10 GB y puede tener niveles de rendimiento de entre 400 y 10 000 unidades de solicitud por segundo. Una colección particionada se puede escalar para administrar 250 GB de almacenamiento en varias particiones, y puede tener niveles de rendimiento de entre 10 100 y 250 000 unidades de solicitud por segundo.
+7. Seleccione uno de los valores de **Modo de particionamiento** para la colección: **Partición única** o **Particionada**. Una única partición tiene una capacidad de almacenamiento reservado de 10 GB y puede tener niveles de rendimiento de entre 400 y 10 000 unidades de solicitud por segundo. Una colección particionada se puede escalar para administrar 250 GB de almacenamiento en varias particiones, y puede tener niveles de rendimiento de entre 10 100 y 250 000 unidades de solicitud por segundo. Para obtener información acerca de la solicitud de aumento de estas asignaciones predeterminadas después de crear una colección, consulte [Solicitud de aumento de los límites de la cuenta de DocumentDB](documentdb-increase-limits.md).
 
-8. Seleccione el valor de **Rendimiento** de la colección particionada. Una unidad de solicitud (RU) corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Request Units in DocumentDB](documentdb-request-units.md) (Unidades de solicitud en DocumentDB).
+8. Seleccione el valor de **Rendimiento** de la colección particionada. Una unidad de solicitud (RU) corresponde al rendimiento de una lectura de un documento de 1 KB. Para más información sobre las unidades de solicitud, consulte [Unidades de solicitud en DocumentDB](documentdb-request-units.md).
 
 9. Si va a crear una colección particionada, seleccione el valor de **Clave de partición** de la colección. La selección de la clave de partición correcta es importante al crear una colección de rendimiento. Para más información sobre cómo seleccionar una clave de partición, consulte [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
 
@@ -70,8 +70,8 @@ No es necesario crear las colecciones con el portal, también puede crearlas con
 
 - Para ver un ejemplo de código de C#, consulte los [ejemplos de colección de C#](documentdb-dotnet-samples.md#collection-examples). 
 - Para ver un ejemplo de código Node.js, consulte los [ejemplos de colección de Node.js](documentdb-nodejs-samples.md#collection-examples).
-- Para ver un ejemplo de código Python, consulte los [ejemplo de colección de Python](documentdb-python-samples.md#collection-examples).
-- Para ver un ejemplo de API de REST, consulte [Create a Collection](https://msdn.microsoft.com/library/azure/mt489078.aspx) (Creación de una colección).
+- Para ver un ejemplo de código Python, consulte los [ejemplos de colección de Python](documentdb-python-samples.md#collection-examples).
+- Para ver un ejemplo de API de REST, consulte [Crear una colección](https://msdn.microsoft.com/library/azure/mt489078.aspx).
 
 ## Solución de problemas
 
@@ -87,4 +87,4 @@ Ahora que tiene una colección, el paso siguiente es agregar o importar document
 
 Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) en sus documentos mediante el [Explorador de consultas](documentdb-query-collections-query-explorer.md) del portal, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

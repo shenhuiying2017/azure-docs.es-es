@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
@@ -151,4 +151,4 @@ Este diagrama representa la configuración resultante de la realización correct
 
 - Para completar la configuración de esta carga de trabajo, vaya a la [Fase 5](virtual-machines-windows-ps-lob-ph5.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

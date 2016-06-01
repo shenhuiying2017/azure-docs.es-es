@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 
 # Establecimiento de directivas de caducidad de contraseña en Azure Active Directory
-> [AZURE.NOTE]Este tema proporciona contenido de ayuda en línea para servicios en la nube, como Microsoft Intune y Office 365, que dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio.
+> [AZURE.NOTE] Este tema proporciona contenido de ayuda en línea para servicios en la nube, como Microsoft Intune y Office 365, que dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio.
 
 Como administrador global de un servicio en la nube de Microsoft, puede usar el módulo de Microsoft Azure Active Directory para Windows PowerShell para configurar las contraseñas de usuario de modo que no caduquen. También puede usar cmdlets de Windows PowerShell para quitar la configuración de nunca caduca o para ver qué contraseñas de usuario están configuradas para que no caduquen.
 
-  >[AZURE.NOTE]Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea la lista de temas de [Guía de sincronización de directorios](https://msdn.microsoft.com/library/azure/hh967642.aspx).
+  > [AZURE.NOTE] Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea la lista de temas de [Guía de sincronización de directorios](https://msdn.microsoft.com/library/azure/hh967642.aspx).
 
 Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
@@ -64,4 +64,4 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

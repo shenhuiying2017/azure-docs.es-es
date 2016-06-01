@@ -18,20 +18,23 @@
 
 # Tutorial: Uso de trabajos de dispositivo para actualizar el firmware de dispositivo (vista previa)
 
+[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-jobs-selector.md)]
+
+## Introducción
 La administración de dispositivos IoT de Azure le permite interactuar con dispositivos físicos mediante los trabajos de dispositivo. Una vez identificado el dispositivo gemelo (la representación de servicio de un dispositivo físico), puede interactuar con el dispositivo físico correspondiente mediante los trabajos de dispositivo. Los trabajos de dispositivo permiten la coordinación de procesos complejos en varios dispositivos. Este proceso puede incluir varios pasos y operaciones de ejecución prolongada.
 
-La administración de dispositivos del Centro de IoT de Azure proporciona en la actualidad seis tipos de trabajos de dispositivo (agregaremos mas trabajos a medida que los clientes los necesiten):
+La administración de dispositivos de Centro de IoT de Azure proporciona en la actualidad seis tipos de trabajos de dispositivo (agregaremos mas trabajos a medida que los clientes los necesiten):
 
-- **Actualización de firmware**: actualiza el firmware (o la imagen del sistema operativo) en el dispositivo físico.
-- **Reinicio**: reinicia el dispositivo físico.
-- **Restablecimiento de fábrica**: revierte el firmware (o imagen del sistema operativo) del dispositivo físico a una imagen de copia de seguridad de fábrica almacenada en el dispositivo.
-- **Actualización de la configuración**: configura el agente de cliente de Centro de IoT que se ejecuta en el dispositivo físico.
-- **Lectura de propiedad de dispositivo**: obtiene el valor más reciente de una propiedad de dispositivo en el dispositivo físico.
-- **Escritura de propiedad de dispositivo**: cambia una propiedad de dispositivo en el dispositivo físico.
+- **Actualización de firmware:** actualiza el firmware (o la imagen del sistema operativo) en el dispositivo físico.
+- **Reinicio:** reinicia el dispositivo físico.
+- **Restablecimiento de fábrica:** revierte el firmware (o imagen del sistema operativo) del dispositivo físico a una imagen de copia de seguridad de fábrica almacenada en el dispositivo.
+- **Actualización de la configuración:** configura el agente de cliente del Centro de IoT que se ejecuta en el dispositivo físico.
+- **Lectura de propiedad de dispositivo:** obtiene el valor más reciente de una propiedad de dispositivo en el dispositivo físico.
+- **Escritura de propiedad de dispositivo:** cambia una propiedad de dispositivo en el dispositivo físico.
 
-Para más información sobre cómo usar cada uno de estos trabajos, consulte la [documentación de la API][lnk-apidocs].
+Para obtener más información sobre cómo usar cada uno de estos trabajos, consulte la [documentación de la API][lnk-apidocs].
 
-Puede consultar el historial de trabajos para comprender el estado de los trabajos que ha iniciado. Para algunas consultas de ejemplo, consulte [nuestra biblioteca de expresiones de consulta][lnk-query-samples].
+Puede consultar el historial de trabajos para comprender el estado de los trabajos que ha iniciado. Para ver algunas consultas de ejemplo, consulte [nuestra biblioteca de expresiones de consulta][lnk-query-samples].
 
 ## Uso de trabajos de dispositivo para realizar la actualización del firmware: arquitectura
 
@@ -53,17 +56,17 @@ Pasos del trabajo de dispositivo de actualización de firmware:
 
 ## Ejecución del ejemplo de actualización de firmware
 
-En el ejemplo siguiente se amplía la funcionalidad del tutorial [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-get-started]. Desde el momento en que se tienen distintos dispositivos simulados en ejecución, se inicia un trabajo para actualizar el firmware en todos ellos.
+En el siguiente ejemplo se amplía la función del tutorial [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-get-started]. Desde el momento en que se tienen distintos dispositivos simulados en ejecución, se inicia un trabajo para actualizar el firmware en todos ellos.
 
 ### Requisitos previos 
 
-Antes de ejecutar este ejemplo, debe haber completado los pasos descritos en [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-get-started]. Esto significa que los dispositivos simulados deben estar en ejecución. Si completó el proceso con anterioridad, reinicie los dispositivos simulados ahora.
+Antes de ejecutar este ejemplo, debe haber completado los pasos de [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-get-started]. Esto significa que los dispositivos simulados deben estar en ejecución. Si ya realizó el proceso anteriormente, reinicie ahora los dispositivos simulados.
 
 ### Inicio del ejemplo
 
 Para iniciar el ejemplo, debe ejecutar el proceso **FirmwareUpdate.exe**. Esto iniciará el proceso de actualización de firmware en todos los dispositivos simulados. Siga los pasos siguientes para iniciar el ejemplo:
 
-1.  En la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, desplácese hasta la carpeta **azure-iot-sdks\\csharp\\service\\samples\\bin**.  
+1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya a la carpeta **azure-iot-sdks\\csharp\\service\\samples\\bin**.  
 
 2.  Ejecute `FirmwareUpdate.exe <IoT Hub Connection String>`
 
@@ -71,9 +74,9 @@ Debería ver el resultado en la ventana de línea de comandos que muestra siete 
 
 ### Inicio de un trabajo de dispositivo
 
-En general, los trabajos de dispositivo se inician mediante varios métodos **Schedule&lt;NombreDelTrabajo&gt;Async** en la instancia **JobClient**. En el ejemplo de actualización de firmware, llamamos al método **ScheduleFirmwareUpdateAsync**. Dado que vamos a trabajar con una matriz con seis identificadores de dispositivo, se iniciarán siete trabajos de dispositivo, uno para cada dispositivo que se va a actualizar y un trabajo de dispositivo principal que se usa para realizar el seguimiento de los otros seis.
+En general, los trabajos de dispositivo se inician mediante varios métodos **Schedule&lt;nombreDelTrabajo&gt;Async** en la instancia **JobClient**. En el ejemplo de actualización de firmware, llamamos al método **ScheduleFirmwareUpdateAsync**. Dado que vamos a trabajar con una matriz con seis identificadores de dispositivo, se iniciarán siete trabajos de dispositivo, uno para cada dispositivo que se va a actualizar y un trabajo de dispositivo principal que se usa para realizar el seguimiento de los otros seis.
 
-En el fragmento de código siguiente, a partir de **Program.cs** en el proyecto **FirmwareUpdate** se inicia un trabajo de actualización de firmware. La llamada toma una matriz de cadenas de valores **deviceId** como un parámetro que representa los dispositivos que queremos actualizar.
+En el fragmento de código siguiente, a partir de **Program.cs** en el proyecto **FirmwareUpdate**, se inicia un trabajo de actualización de firmware. La llamada toma una matriz de cadenas de valores **deviceId** como un parámetro que representa los dispositivos que queremos actualizar.
 
 ```
 var jobResponse = await deviceJobClient.ScheduleFirmwareUpdateAsync(Guid.NewGuid().ToString(), deviceIds, packageURI, TimeSpan.FromMinutes(25));
@@ -126,11 +129,11 @@ Una vez completado el trabajo de dispositivo primario, el ejemplo genera una lis
 
 ![][img-output2]
 
-La lista anterior se genera mediante la realización de consultas para todos los trabajos y la ordenación por hora de inicio. Cualquiera de las propiedades del objeto **JobResponse**, que aparece a continuación, se puede utilizar para consultar el historial de trabajos del dispositivo.
+La lista anterior se genera mediante la realización de consultas para todos los trabajos y la ordenación por hora de inicio. Cualquiera de las propiedades del objeto **JobResponse**, mostrado aquí, se puede usar para consultar el historial de trabajos del dispositivo.
 
 ![][img-properties]
 
-Para obtener más ejemplos de cómo consultar el historial de trabajos de dispositivo consulte [nuestra biblioteca de expresiones de consulta][lnk-query-samples].
+Para ver más ejemplos de cómo consultar el historial de trabajos de dispositivo, consulte [nuestra biblioteca de expresiones de consulta][lnk-query-samples].
 
 ### Detalles de implementación del simulador de dispositivo
 
@@ -138,7 +141,7 @@ En las secciones anteriores, se muestran los detalles de implementación de la a
 
 La biblioteca de cliente de la administración de dispositivos del Centro de IoT de Azure se encarga de la comunicación entre el dispositivo y el servicio, por lo que todo lo que queda es la implementación de la lógica específica del dispositivo. Consta de dos partes:
 
-- Implementación del proceso de actualización de firmware específico del dispositivo: esto implica escribir una lógica específica del dispositivo para descargar el paquete de firmware y aplicar la actualización en las devoluciones de llamada apropiadas enumeradas a continuación. En el ejemplo simulado, esto se implementa en [el ejemplo][lnk-github-firmware].
+- Implementación del proceso de actualización de firmware específico del dispositivo: esto implica escribir una lógica específica del dispositivo para descargar el paquete de firmware y aplicar la actualización en las devoluciones de llamada apropiadas enumeradas a continuación. En el ejemplo simulado, esto se implementa en [el ejemplo][lnk-github-firmware]\:
 
   ```
   object_firmwareupdate *obj = get_firmwareupdate_object(0);
@@ -154,7 +157,7 @@ La biblioteca de cliente de la administración de dispositivos del Centro de IoT
 
 Para más información acerca de las características de administración de dispositivos del Centro de IoT de Azure puede realizar los tutoriales:
 
-- la biblioteca de cliente de minería de datos del Centro de IoT de Azure proporciona un ejemplo de extremo a extremo mediante un [dispositivo Intel Edison][lnk-edison].
+- La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure proporciona un ejemplo de un extremo a otro mediante un [dispositivo Intel Edison][lnk-edison].
 
 - [How to use the device twin (Uso del conjunto de dispositivos)][lnk-twin-tutorial]
 
@@ -175,4 +178,4 @@ Para más información acerca de las características de administración de disp
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migración del esquema a Almacenamiento de datos SQL#
@@ -23,19 +23,20 @@ Los resúmenes siguientes le ayudarán a comprender las diferencias entre SQL Se
 ### Características de tabla
 Almacenamiento de datos SQL no usa ni admite estas características:
 
-- Claves principales
-- Claves externas
-- Restricciones CHECK
-- Restricciones UNIQUE
-- Índices únicos
-- Columnas calculadas
-- Columnas dispersas
-- Tipos definidos por el usuario
-- Vistas indexadas
-- Identidades
-- Secuencias
-- Desencadenadores
-- Sinónimos
+- Claves principales  
+- Claves externas  
+- Restricciones CHECK  
+- Restricciones UNIQUE  
+- Índices únicos  
+- Columnas calculadas  
+- Columnas dispersas  
+- Tipos definidos por el usuario  
+- Vistas indexadas  
+- Identidades  
+- Secuencias  
+- Desencadenadores  
+- Sinónimos  
+
 
 ### Diferencias de tipo de datos
 Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
@@ -54,14 +55,17 @@ Almacenamiento de datos SQL admite los tipos de datos empresariales comunes:
 - money
 - nchar
 - nvarchar
+- numeric
 - real
 - smalldatetime
 - smallint
 - smallmoney
+- sysname
 - Twitter en tiempo
 - tinyint
 - varbinary
 - varchar
+- uniqueidentifier
 
 Puede usar esta consulta para identificar columnas del almacenamiento de datos que contienen tipos incompatibles:
 
@@ -81,19 +85,12 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
@@ -108,22 +105,22 @@ En lugar de:
 - **geography**, use un tipo varbinary
 - **hierarchyid**, no se admite este tipo CLR
 - **image**, **text**, **ntext**, use varchar/nvarchar (cuanto menor, mejor)
-- **nvarchar (max)**, use varchar (4000) o más pequeño para un mejor rendimiento
-- **numeric**, use decimal
 - **sql\_variant**, divida la columna en varias columnas fuertemente tipadas
-- **sysname**, use nvarchar(128)
 - **table**, convierta en tablas temporales
 - **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
-- **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
-- **uniqueidentifier**, use varbinary(16) o varchar(36) según el formato de entrada (binario o caracteres) de sus valores. Si el formato de entrada se basa en caracteres es posible realizar una optimización. Mediante la conversión de caracteres a formato binario, puede reducir el almacenamiento en columnas en más del 50 %. En tablas muy grandes, esta optimización puede ser beneficiosa.
 - **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
-- **xml**, use un varchar(8000) o más pequeño para un mejor rendimiento. Dividir en columnas si es necesario
+- **xml**, use varchar(max) o más pequeño para un mejor rendimiento. Dividir en columnas si es necesario
+
+Para mejorar el rendimiento, en lugar de:
+
+- nvarchar(max), use nvarchar(4000) o más pequeño para un mejor rendimiento;
+- varchar (max), use varchar(8000) o más pequeño para un mejor rendimiento.
 
 Compatibilidad parcial:
 
 - Las restricciones DEFAULT solo admiten literales y constantes. No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE] Defina las tablas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32.767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, no podrá insertar datos en la tabla. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
+> [AZURE.NOTE] Si usa PolyBase para cargar sus tablas, defínalas para que el tamaño máximo posible de fila, incluida la longitud total de columnas de longitud variable, no supere los 32 767 bytes. Aunque puede definir una fila con datos de longitud variable que superen esta cifra, así como cargar filas con BCP, por ahora no podrá usar PolyBase para cargar estos datos. El soporte técnico de PolyBase para filas anchas se agregará en breve. Además, intente limitar el tamaño de las columnas de longitud variable para un rendimiento incluso mejor para ejecutar consultas.
 
 ## Pasos siguientes
 Una vez migrado correctamente el esquema de base de datos a SQLDW puede continuar con uno de los siguientes artículos:
@@ -145,4 +142,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

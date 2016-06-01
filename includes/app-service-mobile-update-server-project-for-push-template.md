@@ -54,7 +54,7 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 
 ### <a name="nodejs"></a>Proyecto de back-end de Node.js
 
-1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o use el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -70,7 +70,7 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 	Esta acción envía una notificación de plantilla que contiene el item.text cuando se inserta un nuevo elemento todo.
 
 2. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
-
-<!---HONumber=AcomDC_1223_2015-->

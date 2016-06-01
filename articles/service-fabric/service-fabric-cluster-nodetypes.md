@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -66,7 +66,7 @@ Anteriormente en este documento, se describió la forma de asignar instancias de
 
 Los puertos se asignan en orden ascendente de la instancia del conjunto de escalado de máquinas virtuales, por lo que, en el ejemplo del tipo de nodo de front-end, los puertos para cada una de las cinco instancias serán los siguientes. Ahora, hay que realizar la misma asignación para la instancia del conjunto de escalado de máquinas virtuales.
 
-|**Instancia de VMSS**|**Puerto**|
+|**Instancia de conjunto de escalado de VM**|**Puerto**|
 |-----------------------|--------------------------|
 |FrontEnd\_0|3389|
 |FrontEnd\_1|3390|
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

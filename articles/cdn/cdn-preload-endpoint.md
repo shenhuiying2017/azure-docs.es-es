@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Carga previa de activos en un punto de conexión de CDN de Azure
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 De forma predeterminada, los recursos primero se almacenan en caché conforme se solicitan. Esto significa que la primera solicitud de cada región puede tardar más tiempo, ya que los servidores perimetrales no tendrán el contenido almacenado en caché y deberán reenviar la solicitud al servidor de origen. La precarga del contenido evita esta latencia de primera visita.
 
@@ -58,4 +60,4 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 - [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
 - [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

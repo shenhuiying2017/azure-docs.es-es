@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="05/09/2016" 
 	ms.author="mimig"/>
 
 # Información sobre NoSQL en Microsoft Azure
 
-¿Siente curiosidad acerca de la matriz de tecnologías NoSQL disponibles en Azure, pero no está seguro de cómo se diferencian entre sí o los modelos relacionales disponibles? O quizás tiene datos específicos en mente, pero no está seguro de qué tecnología NoSQL es la mejor para su aplicación. Si es así, aproveche los aprendizajes clave que David Chappell proporciona en estas notas del producto intuitivas.
+¿Siente curiosidad acerca de la matriz de tecnologías NoSQL disponibles en Azure, pero no está seguro de cómo se diferencian entre sí o los modelos relacionales disponibles? O quizás tiene datos específicos en mente, pero no está seguro de qué tecnología NoSQL es la mejor para su aplicación.
 
-Estas notas del producto lo guiarán para llevar a cabo lo siguiente:
+
+En ese caso, hay dos recursos a su disposición:
+
+- Artículo [NoSQL frente a SQL](documentdb-nosql-vs-sql.md) En este artículo se explican las diferencias entre SQL y NoSQL, y se proporciona una introducción a las ofertas de NoSQL y SQL de Microsoft.
+- Notas del producto [Understanding NoSQL on Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292) (Descripción de NoSQL en Microsoft Azure) de David Chappell. Estas notas del producto lo guiarán para llevar a cabo lo siguiente:
 
  - Diferenciar los datos operativos, leídos y escritos por las aplicaciones, de los datos analíticos, que se utilizan para proporcionar inteligencia empresarial (BI) para ayudar a determinar la tecnología adecuada para sus necesidades.
  - Una revisión rápida de tecnología relacional.
@@ -28,8 +32,7 @@ Estas notas del producto lo guiarán para llevar a cabo lo siguiente:
  - Una comparación de las tecnologías de NoSQL y la Base de datos SQL de Azure. 
  - Cuándo usar DocumentDB, el almacenamiento de tablas, HBase, HDInsight o Base de datos SQL.
 
-**Descarga de PDF:** [Información sobre NoSQL en Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

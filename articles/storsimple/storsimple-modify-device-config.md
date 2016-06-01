@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/15/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
@@ -77,13 +77,13 @@ DATA 0 es compatible con la nube de manera predeterminada. Al configurar DATA 0,
 
 En StorSimple 8000 Series Update 1, se establece la métrica de enrutamiento de DATA 0 en el nivel mínimo; por lo tanto, si el dispositivo está ejecutando StorSimple 8000 Series Update 1, todo el tráfico en la nube se enrutará a través de DATA 0. Tome nota de esto si hay más de una interfaz de red compatible con la nube en el dispositivo StorSimple.
 
->[AZURE.NOTE]Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet.
+>[AZURE.NOTE] Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet.
 
 Para cada interfaz de red, se muestran los parámetros siguientes:
 
 - **Velocidad**: no es un parámetro configurable por el usuario. DATA 0, DATA 1, DATA 4 y DATA 5 son siempre de 1 GbE, mientras que DATA 2 y DATA 3 son interfaces de 10 GbE.
 
-     >[AZURE.NOTE]La velocidad y el dúplex siempre se negocian automáticamente. Las tramas gigantes no son compatibles.
+     >[AZURE.NOTE] La velocidad y el dúplex siempre se negocian automáticamente. Las tramas gigantes no son compatibles.
  
 - **Estado de interfaz**: una interfaz se puede habilitar o deshabilitar. Si está habilitada, el dispositivo intentará usar la interfaz. Es recomendable habilitar tan solo las interfaces que están conectadas a la red y que se usan. Deshabilite las interfaces que no esté usando.
 
@@ -104,7 +104,7 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
 Puede volver a configurar el Controlador 0 y el Controlador 1 a través del Portal de Azure clásico.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Para garantizar un funcionamiento correcto, compruebe la velocidad de la interfaz y dúplex en el conmutador al que está conectado la interfaz de cada dispositivo. Las interfaces de conmutador deben negociar con o configurarse para Gigabit Ethernet (1000 Mbps) y ser de dúplex completo. Las interfaces que funcionan a velocidades menores o en un semidúplex darán como resultado problemas de rendimiento.
 >
@@ -129,4 +129,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 - Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
@@ -60,7 +60,10 @@ Puede crear varias cuentas para un proveedor de servicios en la nube determinado
 
 Mientras se guarda la cuenta de almacenamiento, el servicio intenta comunicarse con el proveedor de servicios en la nube. Las credenciales y el material de acceso que proporcionó se autenticarán en este momento. Solo si la autenticación se realiza correctamente se crea una cuenta de almacenamiento. Si se produce un error en la autenticación, se mostrará un mensaje de error adecuado.
 
-> [AZURE.NOTE]El procedimiento para agregar una cuenta de almacenamiento varía en función de la versión de software de StorSimple que está usando. Asegúrese de seguir el procedimiento correcto para su versión de StorSimple.
+Las cuentas de almacenamiento de Resource Manager creadas en el Portal de Azure también son compatibles con StorSimple. Las cuentas de almacenamiento de Resource Manager no se mostrarán en la lista desplegable de selección al tratar de crear un contenedor de volúmenes. Solo aparecerán las cuentas de almacenamiento creadas en el Portal de Azure clásico. Las cuentas de almacenamiento de Resource Manager tendrán que agregarse con el procedimiento para agregar una cuenta de almacenamiento tal y como se describe a continuación.
+
+> [AZURE.NOTE] El procedimiento para agregar una cuenta de almacenamiento varía en función de la versión de software de StorSimple que está usando. Asegúrese de seguir el procedimiento correcto para su versión de StorSimple.
+
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -87,7 +90,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
   
 ## Eliminar una cuenta de almacenamiento
 
-> [AZURE.IMPORTANT]Puede eliminar una cuenta de almacenamiento solo si no la usa un contenedor de volúmenes. Si un contenedor de volúmenes está usando una cuenta de almacenamiento, primero elimine el contenedor de volúmenes y, a continuación, elimine la cuenta de almacenamiento asociada.
+> [AZURE.IMPORTANT] Puede eliminar una cuenta de almacenamiento solo si no la usa un contenedor de volúmenes. Si un contenedor de volúmenes está usando una cuenta de almacenamiento, primero elimine el contenedor de volúmenes y, a continuación, elimine la cuenta de almacenamiento asociada.
 
 #### Para eliminar una cuenta de almacenamiento
 
@@ -95,7 +98,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 2. En la lista tabular de cuentas de almacenamiento, desplace el mouse sobre la cuenta que desea eliminar.
 
-3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
+3. Aparecerá un icono de eliminación (**x**) en la columna más a la derecha para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
 4. Cuando se le pida confirmación, haga clic en **Sí** para continuar con la eliminación. La lista tabular se actualizará para reflejar los cambios.
 
@@ -103,7 +106,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 Por motivos de seguridad, la rotación de claves suele ser un requisito en los centros de datos.
 
-> [AZURE.NOTE]La siguiente información de rotación de claves y el procedimiento de rotación se aplican solo a las cuentas de almacenamiento de Microsoft Azure. Si usa otro proveedor de servicios en la nube, puede administrar claves de cuenta de almacenamiento a través del panel de ese proveedor.
+> [AZURE.NOTE] La siguiente información de rotación de claves y el procedimiento de rotación se aplican solo a las cuentas de almacenamiento de Microsoft Azure. Si usa otro proveedor de servicios en la nube, puede administrar claves de cuenta de almacenamiento a través del panel de ese proveedor.
  
 Cada suscripción de Microsoft Azure puede tener una o más cuentas de almacenamiento asociadas. El acceso a estas cuentas se controla mediante la suscripción y las teclas de acceso de cada cuenta de almacenamiento.
 
@@ -151,4 +154,4 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 - Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

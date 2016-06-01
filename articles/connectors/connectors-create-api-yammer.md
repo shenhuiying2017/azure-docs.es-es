@@ -47,23 +47,7 @@ Para usar la API de Yammer, cree primero una **conexión** y, después, especifi
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de Yammer|
 
-Siga estos pasos para iniciar sesión en Yammer y completar la configuración de la **conexión** de Yammer en la aplicación lógica:
-
-1. Seleccione **Periodicidad**.
-2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
-3. Seleccione **Agregar una acción**.
-![Configurar Yammer][1]
-4. Escriba yammer en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Yammer en el nombre.
-5. Seleccione **Yammer - Get all messages** (Yammer: obtener todos los mensajes).
-6. Seleccione **Sign in to Yammer** (Iniciar sesión en Yammer).
-![Configurar Yammer][2]
-7. Proporcione sus credenciales de Yammer para iniciar sesión y autorizar la aplicación.
-![Configurar Yammer][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Yammer con la aplicación lógica.
-![Configurar Yammer][4] 
-9. Después de iniciar sesión, vuelva a la aplicación lógica para que la complete configurando la sección **Yammer - Get all messages** (Yammer: obtener todos los mensajes) y agregando otros desencadenadores y acciones que necesite.
-![Configurar Yammer][5]  
-10. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.
+>[AZURE.INCLUDE [Pasos para crear una conexión a Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
@@ -73,7 +57,7 @@ Esta documentación corresponde a la versión: 1.0
 
 
 ### Obtener todos los mensajes públicos en la red Yammer del usuario conectado
-Corresponde a las conversaciones "All" en la interfaz web de Yammer. ```GET: /messages.json```
+Corresponde a "todas" las conversaciones de la interfaz web de Yammer. ```GET: /messages.json```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -203,7 +187,7 @@ Si se proporciona el identificador de grupo, el mensaje se publicará en el grup
 
 
 ## Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png
@@ -211,4 +195,4 @@ Si se proporciona el identificador de grupo, el mensaje se publicará en el grup
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

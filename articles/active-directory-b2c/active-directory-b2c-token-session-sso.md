@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: configuración de token, sesión e inicio de sesión único
@@ -81,7 +81,8 @@ Aquí puede ver un par de casos de uso que puede habilitar mediante el uso de es
 Si tiene varias aplicaciones y directivas en el inquilino B2C, puede administrar las interacciones del usuario a través de ellas con la propiedad **Configuración de inicio de sesión único**. Puede establecer la propiedad en uno de los siguientes valores:
 
 - **Inquilino**: esta es la configuración predeterminada. Esta configuración permite que varias aplicaciones y directivas en el inquilino B2C compartan la misma sesión de usuario. Por ejemplo, una vez que un usuario inicia sesión en una aplicación llamada Contoso Shopping, puede también iniciar sesión perfectamente en otra llamada Contoso Pharmacy simplemente con acceder a ella.
+- **Aplicación**: esto le permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, si desea que el usuario inicie sesión en Contoso Pharmacy (con las mismas credenciales), aunque ya haya iniciado sesión en Contoso Shopping, otra aplicación en el mismo inquilino B2C. 
 - **Directiva**: esto le permite mantener una sesión de usuario exclusivamente para una directiva, independientemente de las aplicaciones que la estén utilizando. Por ejemplo, si el usuario ya ha iniciado sesión y completado un paso de autenticación multifactor (MFA), puede tener acceso a zonas de una mayor seguridad de varias aplicaciones mientras no expire la sesión asociada a la directiva.
 - **Deshabilitado**: esto obliga al usuario a realizar el proceso completo cada vez que se ejecuta la directiva. Por ejemplo, esto le permitirá que varios usuarios inicien sesión en la aplicación (en un escenario de escritorio compartido), incluso si un único usuario permanece conectado durante todo el tiempo.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

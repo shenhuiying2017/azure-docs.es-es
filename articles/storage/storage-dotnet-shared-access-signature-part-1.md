@@ -69,8 +69,8 @@ Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros co
 
 - **Versión de API.** Un parámetro opcional que especifica la versión del servicio de almacenamiento que se usa para ejecutar la solicitud.
 - **Versión del servicio.** Es un parámetro necesario que especifica la versión del servicio de almacenamiento que se usa para autenticar la solicitud.
-- **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato.
-- **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. Las prácticas recomendadas aconsejan que especifique una hora de expiración para una SAS o que la asocie a una directiva de acceso almacenada (puede obtener más información a continuación).
+- **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z.
+- **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. En las prácticas recomendadas se aconseja especificar una hora de expiración para una SAS o asociarla a una directiva de acceso almacenada. Se debe expresar en UTC (Hora universal coordinada) con un designador de hora UTC especial ("Z"); es decir, 1994-11-05T13:15:30Z (puede obtener más información a continuación).
 - **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. Los permisos disponibles son diferentes para SAS de cuenta y SAS de servicio.
 - **Dirección IP.** Es un parámetro opcional que especifica una dirección IP o un intervalo de direcciones IP fuera de Azure (consulte la sección [Estado de la configuración de la sesión de enrutamiento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) de Express Route), desde el cual puede aceptar solicitudes.
 - **Protocolo.** Un parámetro opcional que especifica el protocolo permitido para una solicitud. Los valores posibles son HTTPS y HTTP (https,http), que es el valor predeterminado, o HTTPS solo (https). Tenga en cuenta que HTTP solo no es un valor permitido.
@@ -318,4 +318,4 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Uso de AMQP 1.0 con la API .NET del bus de servicio
@@ -40,7 +40,7 @@ La versión actual incluye unas cuantas funciones de la API que no son compatibl
 
 ### Configuración mediante App.config
 
-Es una práctica recomendada para que las aplicaciones usen el archivo de configuración App.config para almacenar la configuración. En el caso de las aplicaciones del Bus de servicio, puede utilizar App.config para almacenar **ConnectionString** del Bus de servicio. Esta aplicación de ejemplo también utiliza App.config para almacenar el nombre de la entidad de mensajería de Service Bus que utiliza.
+Es una práctica recomendada que las aplicaciones usen el archivo de configuración App.config para almacenar la configuración. En el caso de las aplicaciones del Bus de servicio, puede utilizar App.config para almacenar **ConnectionString** del Bus de servicio. Esta aplicación de ejemplo también utiliza App.config para almacenar el nombre de la entidad de mensajería de Service Bus que utiliza.
 
 A continuación se muestra un archivo App.config de ejemplo:
 
@@ -306,11 +306,11 @@ Actualmente las siguientes funciones de la API .NET del bus de servicio no son c
 * Renovación del bloqueo de la sesión
 * Pequeñas diferencias de funcionamiento
 
-Para obtener más información, consulte [Información general sobre AMQP del Bus de servicio](service-bus-amqp-dotnet.md). Aquí se incluye una lista detallada de las API incompatibles.
+Para obtener más información, consulte [Información general sobre AMQP del Bus de servicio](service-bus-amqp-dotnet.md). En este artículo se incluye una lista detallada de las API no admitidas.
 
 ## Resumen
 
-En este tema mostramos cómo obtener acceso a las funciones de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del Bus de servicio.
+En este artículo se muestra cómo acceder a las funciones de mensajería asincrónica del Bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del Bus de servicio.
 
 También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como Java, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad con AMQP 1.0 en el Bus de servicio. Para obtener más información, consulte [Información general sobre AMQP del Bus de servicio](service-bus-amqp-dotnet.md).
 
@@ -322,6 +322,6 @@ Ahora que ha leído una introducción sobre el Bus de servicio y AMQP con .NET, 
 * [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
  
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Portal de Azure clásico]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

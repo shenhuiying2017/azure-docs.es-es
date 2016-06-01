@@ -1,15 +1,11 @@
-### Prerequisites
-- A [OneDrive](http://OneDrive.com) account 
+### Requisitos previos
+- Una cuenta de [OneDrive](http://OneDrive.com) 
 
-Before you can use your OneDrive for Business account in a Logic app, you must authorize the Logic app to connect to your OneDrive for Business account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Para poder usar su cuenta de OneDrive para la Empresa en una aplicación lógica, debe autorizar a la aplicación lógica para que pueda conectarse a dicha cuenta. Por suerte, esto es muy fácil de hacer desde la aplicación lógica en el Portal de Azure.
 
-Here are the steps to authorize your Logic app to connect to your OneDrive for Business account:
+Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de OneDrive para la Empresa:
 
-1. To create a connection to OneDrive for Business, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *OneDrive for Business* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
-2. If you haven't created any connections to OneDrive for Business before, you'll get prompted to provide your OneDrive for Business credentials. These credentials will be used to authorize your Logic app to connect to, and access your OneDrive for Business account's data:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
-3. Provide your OneDrive for Business user name and password to authorize your Logic app:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
+1. Para crear una conexión a OneDrive para la Empresa, en el diseñador de aplicaciones lógicas, seleccione **Show Microsoft managed APIs** (Mostrar API administradas por Microsoft) en la lista desplegable y, luego, escriba *OneDrive para la Empresa* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
+2. Si no ha creado ninguna conexión a OneDrive para la Empresa antes, se le pedirá que indique sus credenciales de OneDrive para la Empresa. Estas credenciales se usarán para autorizar a la aplicación lógica para conectarse y tener acceso a los datos de su cuenta de OneDrive para la Empresa: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
+3. Indique su nombre de usuario y contraseña de OneDrive para la Empresa para autorizar a la aplicación lógica: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
+4. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de pasos en la aplicación lógica: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="04/22/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
@@ -54,11 +54,11 @@ Un trabajo de indexación puede generar archivos de subtítulos en los siguiente
 
 Los archivos de subtítulos (CC) en estos formatos se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
 
-##Configuración de tareas (valor predeterminado)
+##Configuración de tareas (valor preestablecido)
 
-Al crear una tarea de indexación con **Azure Media Indexer 2 Preview*, debe especificar un valor predeterminado de configuración.
+Al crear una tarea de indexación con **Azure Media Indexer 2 Preview**, debe especificar un valor predeterminado de configuración.
 
-El siguiente valor predeterminado JSON establece parámetros disponibles.
+El siguiente JSON establece los parámetros disponibles.
 
 	{
 	  "version":"1.0",
@@ -289,4 +289,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

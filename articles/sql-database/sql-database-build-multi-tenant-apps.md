@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de aplicaciones multiinquilino con Base de datos SQL de Azure"
+   pageTitle="Base de datos SQL de Azure crea aplicaciones multiempresa con eficacia y aislamiento."
    description="Obtenga información sobre cómo crear aplicaciones multiinquilino con Base de datos SQL de Azure"
    keywords=""
    services="sql-database"
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Creación de aplicaciones multiinquilino con Base de datos SQL de Azure
+# Creación de aplicaciones multiempresa con Base de datos SQL de Azure con aislamiento y eficiencia
 
 ## Aprovechamiento de grupos elásticos y generación de aplicaciones multiinquilino más eficaces
 
@@ -53,6 +53,16 @@ Además de los grupos elásticos, existen características de Base de datos SQL 
 
 **Ejecución de las mismas operaciones en varias bases de datos.** [Los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
 
-Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo](https://azure.microsoft.com/services/sql-database/).
+Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Pasos siguientes
+
+Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
+
+## Más información
+
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

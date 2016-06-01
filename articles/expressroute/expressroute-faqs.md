@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -149,7 +149,7 @@ Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio 
 Sí. Aceptamos hasta 4000 prefijos de enrutamientos para el intercambio privado y 200 de cada para el intercambio público y de Microsoft. Puede aumentarlo a 10.000 enrutamientos para el intercambio privado si habilita la característica Premium en ExpressRoute.
 
 ### ¿Existen restricciones en los intervalos IP que puedo anunciar durante la sesión BGP?
-No se aceptan prefijos privados (RFC1918) en la sesión BGP entre pares públicos.
+No se aceptan prefijos privados (RFC1918) en la sesión BGP entre pares públicos y de Microsoft.
 
 ### ¿Qué ocurre si supero los límites de BGP?
 Se quitarán las sesiones BGP. Se restablecerán una vez que el recuento del prefijo esté por debajo del límite.
@@ -245,4 +245,7 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
 
-<!---HONumber=AcomDC_0427_2016-->
+### ¿Se puede acceder a Dynamics AX a través de una conexión ExpressRoute?
+No, no es compatible.
+
+<!---HONumber=AcomDC_0518_2016-->

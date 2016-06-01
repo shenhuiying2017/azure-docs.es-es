@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -75,7 +75,7 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
 	b. Seleccione el plan de tarifa y el tamaño de máquina virtual. El valor predeterminado es D4 estándar, pero si solo va a usar este clúster para probar la aplicación, puede seleccionar D2 o un tamaño más pequeño de máquina virtual.
 
-	c. El número mínimo de máquinas virtuales del tipo de nodo principal se controla mediante el nivel de confiabilidad que elija. El valor predeterminado del nivel de confiabilidad es Silver. Lea más información en el documento sobre cómo [elegir la confiabilidad y durabilidad del clúster de Service Fabric](service-fabric-cluster-reliability-and-durability.md).
+	c. El número mínimo de máquinas virtuales del tipo de nodo principal se controla mediante el nivel de confiabilidad que elija. El valor predeterminado del nivel de confiabilidad es Silver. Más información en el documento sobre cómo [elegir la confiabilidad y durabilidad del clúster de Service Fabric](service-fabric-cluster-capacity.md).
 
 	c. Elija el número de máquinas virtuales del tipo de nodo. Puede escalar verticalmente o reducir verticalmente el número de máquinas virtuales en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo se controla mediante el nivel de confiabilidad que ha elegido. Otros tipos de nodo pueden tener un mínimo de 1 máquina virtual.
 
@@ -141,39 +141,39 @@ Con el clúster configurado, ahora puede conectarse y comenzar a implementar apl
 
 ### Conexión a un clúster no seguro
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Conexión a un clúster seguro
 
-    1. Ejecute lo siguiente para configurar el certificado en el equipo que va a usar para ejecutar el comando de PowerShell "Connect-serviceFabricCluster".
+1. Ejecute lo siguiente para configurar el certificado en el equipo que va a usar para ejecutar el comando de PowerShell "Connect-serviceFabricCluster".
 
-        ```powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado son los mismos que asignó en el portal.
+2. Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado son los mismos que asignó en el portal.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
-        Por ejemplo, el comando de PowerShell anterior debe ser similar al siguiente:
+    Por ejemplo, el comando de PowerShell anterior debe ser similar al siguiente:
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Implementación de la aplicación
 Ahora que ya está conectado, ejecute los siguientes comandos para implementar su aplicación, reemplazando las rutas de acceso que se muestran con las apropiadas para su equipo. En el ejemplo siguiente se implementa la aplicación de ejemplo de recuento de palabras:
@@ -205,9 +205,9 @@ Ahora que ya está conectado, ejecute los siguientes comandos para implementar s
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Conexión remota a una instancia de conjunto de escalado de máquinas virtuales (VMSS) o un nodo de clúster
+## Conexión remota a una instancia de conjunto de escalado de máquinas virtuales (VMSS) o a un nodo del clúster
 
-Cada uno de los tipos de nodos que especificó en los resultados de clúster de una configuración de realización de VMSS. Consulte [Cómo obtener RDP en la instancia VMSS](service-fabric-cluster-nodetypes.md) para obtener más información.
+Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de VM. Consulte [Relación entre los tipos de nodos de Service Fabric y los conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node) para más información.
 
 ## Pasos siguientes
 
@@ -229,4 +229,4 @@ Después de crear un clúster, obtenga más información sobre cómo protegerlo 
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

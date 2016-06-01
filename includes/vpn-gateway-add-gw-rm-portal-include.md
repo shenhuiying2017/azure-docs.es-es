@@ -18,11 +18,12 @@
 
 9. En **Ubicación**, asegúrese de que muestra la ubicación del grupo de recursos y la red virtual.
 
-10. Puede seleccionar **Anclar al panel** si desea que la puerta de enlace aparezca en el panel. Haga clic en **Crear** para crear la puerta de enlace. Verá el icono "Implementación de la puerta de enlace de red virtual" en el panel. La creación de una puerta de enlace puede tardar hasta 45 minutos. Hay muchos procesos que se ejecutan en segundo plano. Es posible que tenga que actualizar la página de portal para ver el estado completado.
+10. Puede seleccionar **Anclar al panel** si desea que la puerta de enlace aparezca en el panel. Haga clic en **Crear** para comenzar a crear la puerta de enlace. Verá el icono "Implementación de la puerta de enlace de red virtual" en el panel. La creación de una puerta de enlace puede tardar hasta 45 minutos. Hay muchos procesos que se ejecutan en segundo plano. Es posible que tenga que actualizar la página de portal para ver el estado completado.
 
 	
 	![Puerta de enlace](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
 
 11. Una vez creada la puerta de enlace, puede ver la dirección IP que se le ha asignado consultando la red virtual en el portal. La puerta de enlace aparecerá como un dispositivo conectado. Puede hacer clic en el dispositivo conectado (la puerta de enlace de red virtual) para más información.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

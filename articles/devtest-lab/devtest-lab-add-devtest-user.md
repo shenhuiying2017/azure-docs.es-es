@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adición de propietarios y usuarios a un laboratorio de desarrollo y pruebas | Microsoft Azure"
-	description="Agregue de forma segura un usuario que no esté en su suscripción al Laboratorio de desarrollo y pruebas de Azure."
+	pageTitle="Adición de propietarios y usuarios a un laboratorio | Microsoft Azure"
+	description="Agregue de forma segura un usuario que no esté en su suscripción a Azure DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,33 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Adición de propietarios y usuarios a un laboratorio de desarrollo y pruebas
+# Adición de propietarios y usuarios a un laboratorio
 
-> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo establecer la seguridad del laboratorio de desarrollo y pruebas](/documentation/videos/how-to-set-security-in-your-devtest-lab)
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo establecer la seguridad de DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
 
 ## Información general
-
-El acceso a un laboratorio de desarrollo y pruebas se controla mediante el Control de acceso basado en rol (RBAC) de Azure. Busque [Control de acceso basado en rol (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) en el portal de vista previa de Azure para obtener más información.
+El acceso a DevTest Labs se controla mediante el control de acceso basado en rol (RBAC) de Azure. Busque [Control de acceso basado en rol (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) para más información.
 
 Se concede acceso al laboratorio a través de dos roles:
 
- - **Propietario**: los usuarios asignados al rol **Propietario** en el nivel de laboratorio tienen acceso completo al laboratorio, incluidas las funciones de administración y supervisión. El rol **Propietario** asignado en el nivel de laboratorio no otorga a los usuarios permisos para obtener acceso a los recursos de la suscripción fuera del ámbito del laboratorio. Los usuarios asignados al rol **Propietario** en el nivel de suscripción a Azure tienen automáticamente derechos de **propietario** a cualquier laboratorio creado en esa suscripción.
+- **Propietario**: los usuarios asignados al rol **Propietario** en el nivel de laboratorio tienen acceso completo al laboratorio, incluidas las funciones de administración y supervisión. El rol **Propietario** asignado en el nivel de laboratorio no otorga a los usuarios permisos para obtener acceso a los recursos de la suscripción fuera del ámbito del laboratorio. Los usuarios asignados al rol **Propietario** en el nivel de suscripción a Azure tienen automáticamente derechos de **propietario** a cualquier laboratorio creado en esa suscripción.
 
- -  **Usuario de laboratorio de desarrollo y pruebas**: los usuarios asignados al rol **Usuario de laboratorio de desarrollo y pruebas** pueden crear, actualizar y eliminar VM en el laboratorio especificado. Los usuarios pueden ser *internos* (miembro de Azure Active Directory para la suscripción) o *externos* (usuario que no es miembro de Azure AD, como un miembro de una organización asociada).
-	-  Un rol **Usuario de laboratorio de desarrollo y pruebas** debe asignarse a través de los iconos **Agregar usuarios** del laboratorio.
-	-  Los usuarios del rol **Usuario de laboratorio de desarrollo y pruebas** pueden realizar estas operaciones solo dentro del laboratorio al que están asignados. Por ejemplo, un **Usuario de laboratorio de desarrollo y pruebas** no puede crear una máquina virtual mediante el servicio Máquina virtual de la suscripción. La creación de una máquina virtual solo se permite desde la cuenta de Laboratorio de desarrollo y pruebas.
+-  **Usuario de DevTest Labs**: los usuarios asignados al rol **Usuario de DevTest Labs** pueden crear, actualizar y eliminar máquinas virtuales en el laboratorio especificado. Los usuarios pueden ser *internos* (miembro de Azure Active Directory para la suscripción) o *externos* (usuario que no es miembro de Azure AD, como un miembro de una organización asociada).
+	-  Un rol **Usuario de DevTest Labs** debe asignarse a través de los iconos **Agregar usuarios** del laboratorio.
+	-  Los usuarios del rol **Usuario de DevTest Labs** pueden realizar estas operaciones solo dentro del laboratorio al que están asignados. Por ejemplo, un **Usuario de DevTest Labs** no puede crear una máquina virtual mediante el servicio Máquina virtual de la suscripción. La creación de una máquina virtual solo se permite desde la cuenta de DevTest Labs.
 	- Los usuarios *externos* deben tener una cuenta en uno de los dominios de cuentas de Microsoft (es decir, @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com o cualquier variante de un país específico).
-
+ 
 ## Adición de un propietario al laboratorio
 
-Laboratorio de desarrollo y pruebas considera que los propietarios de una suscripción de Azure que contiene laboratorios son los propietarios de esos laboratorios. Aunque puede agregar propietarios adicionales a un laboratorio de desarrollo y pruebas a través de la hoja del laboratorio en el portal de vista previa de Azure, esto no se admite actualmente.
+DevTest Labs considera que los propietarios de una suscripción de Azure que contiene laboratorios son los propietarios de esos laboratorios. Aunque puede agregar propietarios adicionales a un laboratorio a través de la hoja del laboratorio en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), esto no se admite actualmente.
 
 Para agregar un propietario a una suscripción de Azure donde tiene laboratorios ya creados o va a crear nuevos laboratorios, siga estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. En el panel de navegación izquierdo, pulse **Suscripciones**.
 
@@ -67,11 +66,11 @@ Para agregar un propietario a una suscripción de Azure donde tiene laboratorios
 
 1. Cuando vuelva a la hoja **Usuarios**, verá que el usuario se ha agregado como propietario. Esta persona ahora será un propietario de cualquier laboratorio creado con esta suscripción y, por tanto, podrá realizar tareas de propietario.
 
-## Adición de un usuario de Laboratorio de desarrollo y pruebas al laboratorio
+## Adición de un usuario de DevTest Labs al laboratorio
 
-Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, siga estos pasos:
+Para agregar un usuario de DevTest Labs al laboratorio, siga estos pasos:
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar**.
 
@@ -87,7 +86,7 @@ Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, s
 
 	![Agregar usuario](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. En la hoja **Seleccionar un rol**, pulse **Usuario de laboratorio de desarrollo y pruebas**.
+1. En la hoja **Seleccionar un rol**, pulse **Usuario de DevTest Labs**.
 
 1. En la hoja **Agregar usuarios**:
 
@@ -99,6 +98,6 @@ Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, s
 
 	1. Pulse **Aceptar** para cerrar la hoja **Agregar acceso**.
 
-	1. La hoja **Usuarios** muestra los roles y usuarios agregados.
+1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

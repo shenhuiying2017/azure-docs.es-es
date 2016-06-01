@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Definición de directivas de laboratorio
 
-> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo crear artefactos personalizados](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
-
 ## Información general
 
-El Laboratorio de desarrollo y pruebas permite especificar directivas de clave que rigen cómo se usan el laboratorio y sus máquinas virtuales. Por ejemplo, puede definir las reglas para los tamaños de VM que se permiten para crear VM, el umbral para la cantidad de VM que se pueden crear y programar trabajos para iniciar y detener automáticamente las VM de laboratorio.
+DevTest Labs permite especificar directivas de clave que rigen cómo se usan el laboratorio y sus máquinas virtuales. Por ejemplo, puede definir las reglas para los tamaños de VM que se permiten para crear VM, el umbral para la cantidad de VM que se pueden crear y programar trabajos para iniciar y detener automáticamente las VM de laboratorio.
 
 ## Acceso a las directivas de un laboratorio
 
 Para ver (y cambiar) las directivas para un laboratorio, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
 
@@ -48,7 +46,7 @@ Para ver (y cambiar) las directivas para un laboratorio, siga estos pasos:
 
 	- [Máximo de máquinas virtuales por usuario](#set-maximum-vms-per-user): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio, así como el número máximo de máquinas virtuales que puede crear un usuario.
 
-	- [Total de máquinas virtuales por usuario](#set-total-vms-allowed): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio, así como el número máximo de máquinas virtuales que puede crear un usuario.
+	- [Total de máquinas virtuales permitidas](#set-total-vms-allowed): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio, así como el número máximo de máquinas virtuales que puede crear un usuario.
 
 	- [Apagado automático](#set-auto-shutdown): especifique la hora a la que se deben apagar las máquinas virtuales del laboratorio actual.
 
@@ -132,8 +130,9 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
 
+- [Configurar administración de costos](./devtest-lab-configure-cost-management.md): se muestra el uso del gráfico **Monthly Estimated Cost Trend** (Tendencia de costos estimados mensuales) para ver el costo estimado hasta la fecha del mes de calendario actual, así como el costo previsto para fin de mes.
 - [Crear una imagen personalizada](./devtest-lab-create-template.md): cuando cree una máquina virtual, deberá especificar una base, que puede ser una imagen personalizada o una imagen de Marketplace. Este artículo muestra cómo crear una imagen personalizada desde un archivo VHD.
 - [Configurar imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): Laboratorios de desarrollo y pruebas admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
-- [Crear una máquina virtual en un laboratorio](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual nueva desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
+- [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

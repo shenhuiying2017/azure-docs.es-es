@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 # Características del servicio de sincronización de Azure AD Connect
 
@@ -77,7 +77,7 @@ Históricamente, las actualizaciones para el atributo UserPrincipalName con el s
 
 Para obtener más información, consulte [Nombres de usuario en Office 365, Azure o Intune no coinciden con el UPN local o el identificador de inicio de sesión alternativo](https://support.microsoft.com/kb/2523192)
 
-Esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local, a menos que utilice dominios federados.
+Esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de contraseñas. Si utiliza la federación, esta característica no funcionará.
 
 Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si está habilitado en su caso ejecutando lo siguiente:
 ```
@@ -100,4 +100,4 @@ Esta configuración se habilitará para todos los directorios de Azure AD en el 
 
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

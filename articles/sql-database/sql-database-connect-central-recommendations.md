@@ -130,8 +130,7 @@ Una explicación del *período de bloqueo* para clientes que usan ADO.NET está 
 
 Para obtener ejemplos de código que ilustran la lógica de reintento, consulte:
 
-- [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
-
+- Ejemplos de código en: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
 ### Números de error para errores transitorios
 
@@ -161,10 +160,12 @@ Para obtener más información, consulte:
 Los siguientes temas contienen vínculos a ejemplos de código para varios lenguajes y tecnologías de controlador que puede usar para conectarse a Base de datos SQL Azure desde su programa cliente.
 
 
-Se proporcionan varios ejemplos de código para clientes que se ejecutan en Windows, Linux y Mac OS X.
+Se proporcionan varios ejemplos de código para clientes que se ejecutan en plataformas Windows, Linux y Mac.
 
 
-**Ejemplos generales:** hay [ejemplos de código](sql-database-develop-quick-start-client-code-samples.md) para diversos lenguajes de programación, por ejemplo, PHP, Python, Node.js y .NET CSharp. Además, se proporcionan ejemplos para clientes que se ejecutan en Windows, Linux y Mac OS X.
+**Ejemplos generales:** hay ejemplos de código disponibles para diversos lenguajes de programación, por ejemplo, PHP, Python, Java, Node.js y .NET CSharp. Puede encontrar vínculos a los ejemplos de código en:
+
+- [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
 
 **Escalado elástico:** para obtener información sobre la conectividad a bases de datos de Escalado elástico, consulte:
@@ -172,9 +173,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 - [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 - [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**Bibliotecas de controlador:** para obtener información acerca de las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
-
-- [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

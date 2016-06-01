@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # Detalles de características y condiciones de coincidencia del motor de reglas de CDN
 
-En este tema se muestran descripciones detalladas de las características y las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md) de la Red de entrega de contenido (CDN) de Azure.
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] El motor de reglas requiere el nivel Premium de la CDN. Para más información sobre las características de los niveles Estándar y Premium de la CDN, vea [Información general sobre la Red de entrega de contenido (CDN) de Azure](cdn-overview.md).
+En este tema se muestran descripciones detalladas de las características y las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md) de la Red de entrega de contenido (CDN) de Azure.
 
 ## Condiciones de coincidencia
 
@@ -98,6 +98,8 @@ Una característica define el tipo de acción que se aplicará al tipo de solici
 ### Access
 
 Estas características están diseñadas para controlar el acceso al contenido.
+
+> [AZURE.NOTE] La autenticación de token todavía no está disponible, pero se admitirá en futuras versiones.
 
 Nombre | Propósito
 -----|--------
@@ -206,4 +208,4 @@ La característica Firewall de aplicaciones web determina si Firewall de aplicac
 * [Información general de la red CDN de Azure](cdn-overview.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

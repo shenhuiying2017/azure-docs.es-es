@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/13/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric en Azure
@@ -38,4 +38,4 @@ Tenga en cuenta que la versión de Service Fabric para Linux, desde el punto de 
 
 Familiarizarse con los marcos de [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

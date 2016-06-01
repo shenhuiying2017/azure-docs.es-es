@@ -13,43 +13,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="04/27/2016"
 	ms.author="spelluru"/>
 
 
 # Guía de optimización y rendimiento de la actividad de copia
 En este artículo se describen los factores más importantes que afectan al rendimiento del movimiento de datos (actividad de copia) en Factoría de datos de Azure. También muestra el rendimiento observado durante las pruebas internas y trata diversas maneras de optimizar el rendimiento de la actividad de copia.
 
-## Información general del movimiento de datos en Factoría de datos de Azure
-La actividad de copia realiza el movimiento de datos en Factoría de datos de Azure y la actividad funciona con un [servicio de movimiento de datos con disponibilidad general](data-factory-data-movement-activities.md#global) que puede copiar datos entre [varios almacenes de datos](data-factory-data-movement-activities.md#supported-data-stores-for-copy-activity) de forma segura, confiable y escalable y con un mayor rendimiento. El servicio de movimiento de datos elige automáticamente la región más óptima para realizar la operación de movimiento de datos basándose en la ubicación de los almacenes de datos de origen y receptor. Actualmente se utiliza la región más cercana al almacén de datos receptor.
+Mediante la actividad de copia, puede obtener un elevado rendimiento de movimiento de datos tal como se muestra en los ejemplos siguientes:
 
-Analicemos cómo se produce este movimiento de datos en escenarios diferentes.
+- Introducir 1 TB de datos en Almacenamiento de blobs de Azure en el sistema de archivos local y Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps)
+- Introducir 1 TB de datos en el Almacén de Azure Data Lake en el sistema de archivos local y Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps) 
+- Introducir 1 TB de datos en Almacenamiento de datos SQL de Azure desde Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps) 
 
-### Copia de datos entre dos almacenes de datos en la nube
-Cuando los almacenes de datos de origen y receptor (destino) residen en la nube, la actividad de copia pasa por las siguientes fases para copiar o mover datos desde el origen hasta el receptor.
+Consulte las secciones siguientes para obtener más información sobre el rendimiento de la actividad de copia, así como sugerencias de optimización para mejorar aún más.
 
-1.	lee datos del almacén de datos de origen,
-2.	realiza tareas de serialización y deserialización, compresión y descompresión, asignación de columnas y conversión de tipos en función de las configuraciones del conjunto de datos de entrada, del conjunto de datos de salida y la actividad de copia,
-3.	escribe datos en el almacén de datos de destino
-
-![Copia de datos entre dos almacenes de datos en la nube](./media/data-factory-copy-activity-performance/copy-data-between-two-cloud-stores.png)
-
-**Nota:** las formas con líneas discontinuas (compresión, asignación de columnas, etc.) son las capacidades que pueden usarse o no en su caso.
-
-
-### Copia de datos entre un almacén de datos local y un almacén de datos en la nube
-Para [mover datos entre un almacén de datos local y un almacén de datos en la nube](data-factory-move-data-between-onprem-and-cloud.md), necesitará instalar Data Management Gateway, que es un agente que permite el procesamiento y movimiento de datos híbridos, en el equipo local. En este escenario, Data Management Gateway realiza las tareas de serialización y deserialización, compresión y descompresión, asignación de columnas y conversión de tipos en función de las configuraciones del conjunto de datos de entrada, del conjunto de datos de salida y la actividad de copia.
-
-![Copia de datos entre un almacén de datos local y un almacén de datos en la nube](./media/data-factory-copy-activity-performance/copy-data-between-onprem-and-cloud.png)
+> [AZURE.NOTE] Si no está familiarizado con la actividad de copia en general, consulte [Actividades de movimiento de datos](data-factory-data-movement-activities.md) antes de leer este artículo.
 
 ## Pasos de optimización del rendimiento
 A continuación se indican los pasos típicos sugeridos para optimizar el rendimiento de su solución de Factoría de datos de Azure con actividad de copia.
 
 1.	**Establecimiento de una línea base.** Durante la fase de desarrollo, pruebe la canalización con la actividad de copia con los datos de una muestra representativa. Puede aprovechar el [modelo de segmentación](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) de Factoría de datos de Azure para limitar la cantidad de datos con los que trabaja.
 
-	Recopile el tiempo de ejecución y las características de rendimiento; para ello, consulte la hoja "segmento de datos" y la hoja "detalles de ejecución de la actividad" del conjunto de datos de salida en el Portal de vista previa de Azure, que muestra la duración de la actividad de copia y el tamaño de los datos copiados.
-
-	![Detalles de ejecución de actividad](./media/data-factory-copy-activity-performance/activity-run-details.png)
+	Recopile el tiempo de ejecución y las características de rendimiento mediante la **aplicación de supervisión y administración**: haga clic en el icono **Supervisión y administración** en la página principal de su instancia de Data Factory, seleccione el **conjunto de datos de salida** en la vista de árbol y, después, seleccione la actividad de copia que se ejecuta en la lista de **ventanas de actividad**. Debería ver la duración de la actividad de copia en la lista de **ventanas de actividad** y el tamaño de los datos que se copian y el rendimiento en la ventana **Activity Window Explorer** (Explorador de ventanas de actividad) a la derecha. Consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para más información sobre la aplicación.
+	
+	![Detalles de ejecución de actividad](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
 	Puede comparar el rendimiento y las configuraciones de su escenario con la [referencia de rendimiento](#performance-reference) de la actividad de copia publicada siguiente, que se basa en observaciones internas.
 2. **Diagnóstico y optimización de rendimiento** Si el rendimiento que observe es inferior a sus expectativas, debe identificar cuellos de botella de rendimiento y realizar optimizaciones para eliminar o reducir el impacto de los cuellos de botella. La descripción completa de las pruebas de diagnóstico del rendimiento queda fuera del ámbito de este artículo, pero a continuación enumeramos algunas consideraciones habituales.
@@ -60,6 +48,9 @@ A continuación se indican los pasos típicos sugeridos para optimizar el rendim
 	- [Asignación de columnas](#considerations-on-column-mapping)
 	- [Data Management Gateway](#considerations-on-data-management-gateway)
 	- [Otras consideraciones](#other-considerations)
+	- [Copia paralela](#parallel-copy)
+	- [Unidades de movimiento de datos de nube](#cloud-data-movement-units)    
+
 3. **Expanda la configuración a todos los datos** Una vez que esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición del conjunto de datos y el período activo de la canalización para incluir todos los datos en la imagen.
 
 ## Referencia de rendimiento
@@ -67,13 +58,12 @@ A continuación se indican los pasos típicos sugeridos para optimizar el rendim
 
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE] **Próximamente:** estamos en proceso de mejora de las características de rendimiento base y en breve verá más y mejores cifras de capacidad de proceso en la tabla anterior.
-
 Puntos a tener en cuenta:
 
 - La capacidad de proceso se calcula con la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de la actividad de copia]
 - Se usó el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) para calcular los números anteriores.
 - En el caso de los almacenes de datos de Microsoft Azure, el origen y el receptor se encuentran en la misma región de Azure.
+- **cloudDataMovementUnits** se establece en 1 y **parallelCopies** no se especifica.
 - En el caso del movimiento de datos híbrido (local a nube o nube a local), Data Management Gateway (instancia única) se hospedó en una máquina diferente que el almacén de datos local, con la siguiente configuración. Tenga en cuenta que cuando se ejecuta una sola actividad en la puerta de enlace, la operación de copia solo consume una pequeña parte del ancho de banda de red y de los recursos de CPU y de memoria de esta máquina.
 	<table>
 	<tr>
@@ -90,11 +80,104 @@ Puntos a tener en cuenta:
 	</tr>
 	</table>
 
+## Copia paralela
+Una de las maneras de mejorar el rendimiento de una operación de copia y de reducir el tiempo de la transferencia de datos es leer los datos en el origen o escribir los datos en el destino **en paralelo dentro de una ejecución de la actividad de copia**.
+ 
+Tenga en cuenta que esta configuración es diferente de la propiedad de **simultaneidad** en la definición de actividad. La propiedad de simultaneidad determina el número de **ejecuciones simultáneas de la actividad de copia** que se ejecutan a la vez en tiempo de ejecución para procesar los datos las diferentes ventanas de actividad (1-2 a.m., 2-3 a.m., 3-4 a.m., etc.). Esto es realmente útil al realizar una carga histórica. Sin embargo, la funcionalidad de copia en paralelo que se describe aquí se aplica a una **única ejecución de la actividad**.
+
+Echemos un vistazo a un **escenario de ejemplo**: considere el ejemplo siguiente donde hay varios segmentos del pasado que deben procesarse. El servicio Data Factory ejecuta una instancia de la actividad de copia (ejecución de actividad) para cada segmento.
+
+- segmento de datos de la primera ventana de actividad (1 a.m. a 2 a.m.) == > ejecución de actividad 1
+- segmento de datos de la segunda ventana de actividad (2 a.m. a 3 a.m.) == > ejecución de actividad 2
+- segmento de datos de la segunda ventana de actividad (3 a.m. a 4 a.m.) == > ejecución de actividad 3
+- etc.
+
+Establecer la configuración de **simultaneidad** en **2** en este ejemplo permite que la **ejecución de actividad 1** y **ejecución de actividad 2** copien datos desde dos ventanas de actividad **simultáneamente** para mejorar el rendimiento del movimiento de datos. Sin embargo, si hay varios archivos asociados con la actividad de ejecución 1, solo se copia un archivo desde el origen al destino a la vez.
+
+### parallelCopies
+Puede usar la propiedad **parallelCopies** para indicar el paralelismo que quiere que use la actividad de copia. Dicho sencillamente, considere esta propiedad como el número máximo de subprocesos dentro de una actividad de copia que leen desde el origen o que escriben en los almacenes de datos del receptor en paralelo.
+
+Para cada ejecución de la actividad de copia, Data Factory de Azure determina de manera inteligente el número de copias en paralelo que se van a usar para copiar datos desde el almacén de datos de origen al almacén de datos de destino. El número predeterminado de copias en paralelo que utilice depende de los tipos de origen y receptor:
+
+Origen y receptor |	Recuento predeterminado de copias en paralelo determinado por servicio
+------------- | -------------------------------------------------
+Copia de datos entre **almacenes basados en archivos** (Blob de Azure, Azure Data Lake, sistema de archivos local, HDFS local) | En cualquier lugar entre **1 a 32** basado en el **tamaño de los archivos** y el **número de unidades de movimiento de datos de nube** (consulte una definición en la siguiente sección) utilizado para copiar datos entre dos almacenes de datos de nube (o) la configuración física de la máquina de puerta de enlace utilizada para la copia híbrida (copiar datos desde o hacia un almacén de datos local)
+Copiar de datos desde **cualquier almacén de datos de origen a Tabla de Azure** | 4
+Todos los demás pares de origen y receptor | 1
+
+En la mayoría de los casos, el comportamiento predeterminado debe proporcionar el máximo rendimiento. Sin embargo, puede reemplazar el valor predeterminado si especifica un valor para la propiedad **parallelCopies** con el fin de controlar la carga en las máquinas con los almacenes de datos o para ajustar el rendimiento de la copia. Debe encontrarse entre **1 y 32 (ambos inclusive)**. En tiempo de ejecución, la actividad de copia elegirá un valor que sea menor o igual al valor configurado para proporcionar el mejor rendimiento.
+
+	"activities":[  
+	    {
+	        "name": "Sample copy activity",
+	        "description": "",
+	        "type": "Copy",
+	        "inputs": [{ "name": "InputDataset" }],
+	        "outputs": [{ "name": "OutputDataset" }],
+	        "typeProperties": {
+	            "source": {
+	                "type": "BlobSource",
+	            },
+	            "sink": {
+	                "type": "AzureDataLakeStoreSink"
+	            },
+	            "parallelCopies": 8
+	        }
+	    }
+	]
+
+Tenga en cuenta lo siguiente:
+
+- Para copiar datos entre almacenes basados en archivos, se produce el paralelismo en el nivel de archivo; en otras palabras, no hay fragmentación dentro de un único archivo. El número real de copias paralelas utilizado para la operación de copia en tiempo de ejecución no será mayor que el número de archivos disponibles. Si el comportamiento de copia es la propiedad mergeFile, no se podrá aprovechar el paralelismo.
+- Al especificar un valor para la propiedad parallelCopies, tenga en cuenta el aumento de carga que aportará a los almacenes de datos de origen y de receptor, así como a la puerta de enlace si es una copia híbrida, especialmente cuando hay varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o la puerta de enlace están sobrecargados con la carga, disminuya el valor de la propiedad parallelCopies para aliviar la carga.
+- Cuando se copian datos desde almacenes no basados en archivos en almacenes basados en archivos, se omitirá la propiedad parallelCopies incluso si se especifica y no se aprovecha en este caso ningún paralelismo.
+
+> [AZURE.NOTE] Para sacar partido a la característica parallelCopies al realizar una copia híbrida, debe utilizar Data Management Gateway, versión superior o igual a 1.11.
+
+### Unidades de movimiento de datos de nube
+La **unidad de movimiento de datos de nube** es una medida que representa la potencia (combinación de asignación de recursos de CPU, memoria y de red) de una sola unidad en el servicio Data Factory de Azure que se utiliza para realizar una operación de copia de nube a nube. No entra en juego cuando se realiza una copia híbrida. De forma predeterminada, el Data Factory de Azure utiliza una unidad de movimiento de datos de nube única para realizar una ejecución de la actividad de copia única. Puede invalidar esta configuración predeterminada especificando un valor para la propiedad **cloudDataMovementUnits**. En este momento, la configuración de cloudDataMovementUnits **solo se admite** al copiar datos **entre dos instancias de Almacenamiento de blobs de Azure** o desde un **Almacenamiento de blobs de Azure a un almacén de Azure Data Lake**, y surte efecto cuando hay varios archivos que se van a copiar y que tienen un tamaño mayor o igual que 16 MB individualmente.
+
+Si copia un número de archivos relativamente grandes, es posible que al establecer un valor alto para la propiedad **parallelCopies** no se mejore el rendimiento debido a las limitaciones de recursos de una única unidad de movimiento de datos de nube. En estos casos, puede utilizar más unidades de movimiento de datos de nube para copiar la enorme cantidad de datos con un alto rendimiento. Para especificar el número de unidades de movimiento de datos de nube que desea que utilice la actividad de copia, establezca un valor para la propiedad **cloudDataMovementUnits** como se muestra a continuación:
+
+	"activities":[  
+	    {
+	        "name": "Sample copy activity",
+	        "description": "",
+	        "type": "Copy",
+	        "inputs": [{ "name": "InputDataset" }],
+	        "outputs": [{ "name": "OutputDataset" }],
+	        "typeProperties": {
+	            "source": {
+	                "type": "BlobSource",
+	            },
+	            "sink": {
+	                "type": "AzureDataLakeStoreSink"
+	            },
+	            "cloudDataMovementUnits": 4
+	        }
+	    }
+	]
+
+Los **valores permitidos** para la propiedad cloudDataMovementUnits son: 1 (valor predeterminado), 2, 4 y 8. Si necesita más unidades de movimiento de datos de nube para un mayor rendimiento, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). El **número real de unidades de movimiento de datos de nube** utilizado para la operación de copia en tiempo de ejecución será igual o menor que el valor configurado, dependiendo del número de archivos que se copian del origen y que cumplen los criterios de tamaño.
+
+> [AZURE.NOTE] La propiedad parallelCopies debe ser mayor o igual que la propiedad cloudDataMovementUnits si especifica; y cuando la propiedad cloudDataMovementUnits es mayor que 1, el movimiento de datos en paralelo se extiende por la propiedad cloudDataMovementUnits para esa ejecución de la actividad de copia, lo que incrementa el rendimiento.
+
+Al copiar varios archivos grandes con la propiedad **cloudDataMovementUnits** configurada como 2, 4 y 8, el rendimiento puede alcanzar 2x (2 veces), 4x y 7x de las cifras de referencia mencionadas en la sección Referencia de rendimiento.
+
+Consulte aquí los [ejemplos de casos de uso](#case-study---parallel-copy) para poder aprovechar mejor las dos propiedades anteriores y mejorar el rendimiento del movimiento de datos.
+ 
+Es **importante** recordar que se le cobrará según el tiempo total de la operación de copia. Por tanto, si un trabajo de copia solía tardar 1 hora con 1 unidad en la nube y ahora tarda 15 minutos con 4 unidades en la nube, la factura total será prácticamente la misma. A continuación se expone otro escenario: imaginemos que está usando 4 unidades en la nube y la primera de ellas emplea 10 minutos, la segunda 10 minutos, la tercera 5 minutos y la cuarta 5 minutos en una ejecución de actividad de copia. En este caso se le cobrará por el tiempo de copia total (movimiento de datos), que es 10 + 10 + 5 + 5 = 30 minutos. El uso de **parallelCopies** no tiene ningún impacto en la facturación.
+
+
+
 ## Consideraciones sobre el origen
 ### General
 Asegúrese de que el almacén de datos subyacente no está desbordado por otras cargas de trabajo que se estén ejecutando en él o que lo estén usando para su ejecución, incluida la actividad de copia, entre otras.
 
 Para los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#appendix-data-store-performance-tuning-reference) específicos del almacén de datos, que pueden ayudarle a comprender las características de rendimiento del almacén de datos, a minimizar los tiempos de respuesta y a maximizar la capacidad de proceso.
+
+Si va a copiar datos desde **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para más información.
+
 
 ### Almacenes de datos basados en archivos
 *(Incluye Blob de Azure, Azure Data Lake, sistema de archivos local)*
@@ -116,6 +199,9 @@ Para los almacenes de datos de Microsoft, consulte los [temas sobre supervisión
 Asegúrese de que el almacén de datos subyacente no está desbordado por otras cargas de trabajo que se estén ejecutando en él o que lo estén usando para su ejecución, incluida la actividad de copia, entre otras.
 
 Para los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#appendix-data-store-performance-tuning-reference) específicos del almacén de datos, que pueden ayudarle a comprender las características de rendimiento del almacén de datos, a minimizar los tiempos de respuesta y a maximizar la capacidad de proceso.
+
+Si va a copiar datos desde **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para más información.
+
 
 ### Almacenes de datos basados en archivos
 *(Incluye Blob de Azure, Azure Data Lake, sistema de archivos local)*
@@ -214,7 +300,26 @@ Uno o varios de los siguientes factores podrían ser el cuello de botella del re
 
 En este caso, la compresión de datos BZIP2 podría estar ralentizando toda la canalización. Cambiar a un códec de compresión GZIP podría aliviar este cuello de botella.
 
-## Apéndice: Referencia para la optimización del rendimiento del almacén de datos
+
+## Caso práctico: copia en paralelo  
+
+**Escenario I:** copiar 1000 archivos de 1 MB del sistema de archivos local al Almacenamiento de blobs de Azure
+
+**Análisis y optimización de rendimiento:** suponga que tiene instalado Data Management Gateway en un equipo de cuatro núcleos, Data Factory utilizará de forma predeterminada 16 copias en paralelo para mover los archivos del sistema de archivos al blob de Azure simultáneamente. Esto debería dar como resultado un buen rendimiento. También puede especificar el número de copias en paralelo explícitamente si lo desea. Al copiar un gran número de archivos pequeños, las copias en paralelo ayudarán espectacularmente al rendimiento gracias a la utilización de los recursos implicados de forma más eficaz.
+
+![Escenario 1.](./media/data-factory-copy-activity-performance/scenario-1.png)
+
+**Escenario II:** copiar 20 blobs de 500 MB cada uno desde Almacenamiento de blobs de Azure al Almacén de Azure Data Lake para analizar y optimizar el rendimiento.
+
+**Análisis y optimización de rendimiento:** para este escenario, de forma predeterminada, Data Factory copiará los datos del blob de Azure a Azure Data Lake mediante una copia única (propiedad parallelCopies establecida en 1) y el uso de una unidad de movimiento de datos de nube. Observará que el rendimiento está más cerca de lo que se indica en la [sección Referencia de rendimiento](#performance-reference) más arriba.
+
+![Escenario 2.](./media/data-factory-copy-activity-performance/scenario-2.png)
+
+Cuando el tamaño de cada archivo es de decenas de MB y el volumen total es grande, aumentar la propiedad parallelCopies no resultará en un mejor rendimiento de copia, dadas las restricciones de recursos de una unidad de movimiento de datos de nube. En su lugar, debe especificar más unidades de movimiento de datos de nube para obtener más recursos para llevar a cabo el movimiento de datos. No especifique un valor para la propiedad parallelCopies, ya que Data Factory se encarga de controlar el paralelismo. En este caso, si se especifica un valor de 4 en la propiedad cloudDataMovementUnits, dará como resultado un rendimiento de aproximadamente 4 veces.
+
+![Escenario 3.](./media/data-factory-copy-activity-performance/scenario-3.png)
+
+## Referencia para la optimización del rendimiento del almacén de datos
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos compatibles:
 
 - Almacenamiento de Azure (incluidos Blob de Azure y Tabla de Azure): [Objetivos de escalabilidad de Almacenamiento de Azure](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage//storage-performance-checklist.md)
@@ -224,4 +329,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

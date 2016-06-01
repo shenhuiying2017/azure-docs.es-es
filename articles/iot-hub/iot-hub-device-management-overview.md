@@ -38,7 +38,7 @@ El dispositivo gemelo tiene los siguientes componentes:
 
 1.  **Campos del dispositivo:** los campos del dispositivo son propiedades predefinidas que se usan tanto para la administración de dispositivos como la mensajería de Centro de IoT. Dichos campos ayudan al Centro de IoT a identificar los dispositivos físicos y a y conectar con ellos. Los campos del dispositivo no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo. Los campos del dispositivo incluyen el identificador del dispositivo y la información de autenticación.
 
-2.  **Propiedades del dispositivo:** Las propiedades del dispositivo son un diccionario predefinido de propiedades que describen el dispositivo físico. El dispositivo físico es el maestro de cada propiedad del dispositivo y es el almacén de autoridad de cada valor correspondiente. Una representación coherente en última instancia de estas propiedades se almacena en el dispositivo gemelo que está en la nube. La coherencia y actualización están sujetos a la configuración de la sincronización, que se describe en [Tutorial: how to use the device twin][lnk-tutorial-twin] \(Tutorial: Uso del dispositivo gemelo). Algunos ejemplos de propiedades del dispositivo incluyen la versión del firmware, el nivel de la batería y el nombre del fabricante.
+2.  **Propiedades del dispositivo:** Las propiedades del dispositivo son un diccionario predefinido de propiedades que describen el dispositivo físico. El dispositivo físico es el maestro de cada propiedad del dispositivo y es el almacén de autoridad de cada valor correspondiente. Una representación coherente en última instancia de estas propiedades se almacena en el dispositivo gemelo que está en la nube. La coherencia y actualización están sujetos a la configuración de la sincronización, que se describe en [Tutorial: how to use the device twin][lnk-tutorial-twin] (Tutorial: Uso del dispositivo gemelo). Algunos ejemplos de propiedades del dispositivo incluyen la versión del firmware, el nivel de la batería y el nombre del fabricante.
 
 3.  **Propiedades del servicio:** las propiedades del servicio son pares **& lt; clave, valor &gt;** que el programador agrega al diccionario de propiedades del servicio. Estas propiedades extienden el modelo de datos del dispositivo gemelo, lo que permite caracterizar mejor el dispositivo. Las propiedades del servicio no se sincronizan con el dispositivo y se almacenan exclusivamente en el dispositivo gemelo en la nube. Un ejemplo de propiedad de servicio es **& lt; NextServiceDate, 12/11/2017 &gt;**, que se puede utilizar para buscar dispositivos por su siguiente fecha de servicio.
 
@@ -92,34 +92,28 @@ Un trabajo puede operar en varios dispositivos. Al iniciar un trabajo, se crea u
 
 Puede consultar el historial de trabajos para conocer el estado de los trabajos que ha iniciado. Para ver consultas de ejemplo, consulte [nuestra biblioteca de consultas][lnk-query-samples].
 
-## Implementación del dispositivo
+## Implementación de dispositivos
 
-Una vez que se han tratado los conceptos del servicio, veamos cómo crear dispositivos con funcionalidades de administración. La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure del dispositivo proporciona los artefactos necesarios para implementar la comunicación entre un dispositivo físico y Centro de IoT.
+Una vez que hemos tratado los conceptos del servicio, veamos cómo crear un dispositivo físico administrado. La biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure permite administrar dispositivos IoT con Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas.
 
-La biblioteca de cliente de DM de Centro de IoT de Azure resume el estándar [LWM2M][lnk-lwm2m] y el protocolo de solicitud y respuesta basado en CoAP. Por consiguiente, la biblioteca tiene un modelo de dispositivo de *objetos* y *definiciones de recursos*:
+La biblioteca de cliente de administración de dispositivos tiene dos responsabilidades principales:
 
--   Los objetos describen un conjunto de entidades funcionales coherentes del sistema, como las actualizaciones de firmware y de los dispositivos.
--   Los recursos describe los atributos o las acciones incluidos en dichos objetos, como la información del nivel de batería y la acción de reinicio.
+- Sincronizar las propiedades del dispositivo físico con su correspondiente dispositivo gemelo en Centro de IoT
+- Organizar los trabajos de dispositivo enviados por Centro de IoT al dispositivo
 
-Cuando se utiliza la biblioteca de cliente de DM de Centro de IoT de Azure, es preciso implementar las devoluciones de llamada para las operaciones de lectura, escritura y ejecución en todos los recursos del dispositivo físico. La biblioteca controla la actualización asincrónica de Centro de IoT cuando se cambian las propiedades.
-
-El diagrama siguiente muestra los distintos componentes necesarios en el agente de cliente de Centro de IoT.
-
-![][img-client]
-
-Puede obtener más información acerca de la implementación en el dispositivo físico en [Introducing the Azure IoT Hub device management (DM) client library][lnk-library-c] (Presentación de la biblioteca de cliente de la administración de dispositivos [DM] de Centro de IoT de Azure).
+Para obtener más información sobre estas responsabilidades y sobre la implementación en el dispositivo físico, consulte [Introducing the Azure IoT Hub device management library for C][lnk-library-c] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure para C).
 
 ## Pasos siguientes
 
 Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
 
-- [Get started with Azure IoT Hub device management using C#][lnk-get-started] \(Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#).
+- [Get started with Azure IoT Hub device management using C# (Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#).][lnk-get-started]
 
-- [How to use the device twin][lnk-tutorial-twin] \(Uso del dispositivo gemelo)
+- [How to use the device twin (Uso del dispositivo gemelo)][lnk-tutorial-twin]
 
-- [How to find device twins using queries][lnk-tutorial-queries] \(Búsqueda de dispositivos gemelos mediante consultas)
+- [How to find device twins using queries (Búsqueda de dispositivos gemelos mediante consultas)][lnk-tutorial-queries]
 
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs] \(Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)
+- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-tutorial-jobs]
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -135,4 +129,4 @@ Para más información acerca de las características de administración de disp
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

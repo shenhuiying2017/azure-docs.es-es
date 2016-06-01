@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Consideraciones de seguridad para el Administrador de recursos de Azure"
+	pageTitle="Consideraciones de seguridad de Resource Manager | Microsoft Azure"
 	description="Muestra enfoques recomendados en el Administrador de recursos de Azure para proteger recursos con claves y secretos, el control de acceso basado en roles y los grupos de seguridad de red."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -306,7 +306,7 @@ Cada subred que se creó en una red virtual se asocia automáticamente a una tab
 
 ### Rutas BGP
 
-En el momento de redactar este artículo, todavía no se admite [ExpressRoute](./expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](./expressroute/expressroute-introduction.md).
+En el momento de redactar este artículo, todavía no se admite [ExpressRoute](./expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](./virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](./expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE] Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local creando una ruta definida por el usuario para la subred 0.0.0.0/0 que use la puerta de enlace de VPN como próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
 
@@ -339,4 +339,4 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 - Para configurar el enrutamiento y el reenvío IP, consulte [Creación de enrutamientos definidos por el usuario (UDR) en el administrador de recursos mediante una plantilla](./virtual-network/virtual-network-create-udr-arm-template.md).
 - Para obtener información general sobre el control de acceso basado en roles, vea [Control de acceso basado en roles en el portal de Microsoft Azure](./active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2016"
+   ms.date="05/16/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric
@@ -24,9 +24,11 @@ El tiempo de ejecución de Service Fabric usa ETW para producir información de 
 
 Para que los seguimientos aparezcan en ElasticSearch, deben capturarse en los nodos de clúster de Service Fabric en tiempo real (mientras se ejecuta la aplicación) y enviarse al punto de conexión de ElasticSearch. Hay dos opciones principales para la captura de seguimientos:
 
-+ **Captura de seguimientos en proceso** La aplicación o, más concretamente, el proceso de servicio es responsable de enviar los datos de diagnóstico al almacén de seguimientos (ElasticSearch).
++ **Captura de seguimientos en proceso** 
+La aplicación o, más concretamente, el proceso de servicio es responsable de enviar los datos de diagnóstico al almacén de seguimientos (ElasticSearch).
 
-+ **Captura de seguimientos fuera de proceso** Un agente independiente captura los seguimientos de los procesos del servicio y los envía al almacén de seguimientos.
++ **Captura de seguimientos fuera de proceso** 
+Un agente independiente captura los seguimientos de los procesos del servicio y los envía al almacén de seguimientos.
 
 En el resto del artículo se describe cómo configurar ElasticSearch en Azure, se analizan los pros y los contras de ambas opciones de captura y se explica cómo configurar un servicio de Service Fabric para enviar datos a ElasticSearch.
 
@@ -34,14 +36,14 @@ En el resto del artículo se describe cómo configurar ElasticSearch en Azure, s
 ## Configuración de ElasticSearch en Azure
 La manera más sencilla de configurar el servicio ElasticSearch en Azure es mediante las [**plantillas del Administrador de recursos de Azure**](../resource-group-overview.md). Hay disponible una [plantilla del Administrador de recursos de Azure de inicio rápido para ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) en el repositorio de plantillas de inicio rápido de Azure. Esta plantilla usa cuentas de almacenamiento independiente para unidades de escalado (grupos de nodos). También puede aprovisionar nodos de cliente y de servidor independientes con distintas configuraciones y varios números de discos de datos adjuntos.
 
-En este artículo usaremos otra plantilla llamada **ES-MultiNode** del [repositorio ELK de modelos y prácticas de Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/). Esta plantilla es un poco más fácil de usar y, de forma predeterminada, crea un clúster de ElasticSearch protegido por autenticación básica HTTP. Antes de continuar, descargue el [repositorio ELK de modelos y prácticas de Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/) desde GitHub en su máquina (ya sea mediante clonación del repositorio o descargando un archivo ZIP). La plantilla ES-MultiNode se encuentra en la carpeta con el mismo nombre.
+Aquí, usaremos otra plantilla, llamada **ES-MultiNode**, del [repositorio de herramientas de diagnóstico de Azure](https://github.com/Azure/azure-diagnostics-tools). Esta plantilla es un poco más fácil de usar y crea un clúster de ElasticSearch protegido mediante autenticación básica HTTP. Antes de continuar, descargue el repositorio de GitHub en su equipo (ya sea mediante la clonación del repositorio o la descarga de un archivo zip). La plantilla ES-MultiNode se encuentra en la carpeta con el mismo nombre.
 
 ### Preparación de una máquina para ejecutar scripts de instalación de ElasticSearch
-La manera más fácil de usar la plantilla ES-MultiNode es mediante un script de Azure PowerShell llamado "`CreateElasticSearchCluster`". Para usar este script, debe instalar módulos de Azure PowerShell y la herramienta **openssl**. Esta es necesaria para crear una clave SSH que se puede usar para administrar el clúster de ElasticSearch de forma remota.
+La manera más fácil de usar la plantilla ES-MultiNode es mediante un script de Azure PowerShell llamado `CreateElasticSearchCluster`. Para usar este script, debe instalar módulos de PowerShell y una herramienta llamada **openssl**. Esta es necesaria para crear una clave SSH que se puede usar para administrar el clúster de ElasticSearch de forma remota.
 
-Nota: El script `CreateElasticSearchCluster` está diseñado para facilitar el uso de la plantilla ES-MultiNode en una máquina Windows. Se puede usar la plantilla en una máquina que no sea de Windows, pero ese escenario queda fuera del ámbito de este artículo.
+Tenga en cuenta que el script `CreateElasticSearchCluster` está diseñado para facilitar el uso de la plantilla ES-MultiNode en una máquina con Windows. Se puede usar la plantilla en una máquina que no sea de Windows, pero ese escenario queda fuera del ámbito de este artículo.
 
-1. Si aún no lo hizo, instale los [**módulos de Azure PowerShell**](http://aka.ms/webpi-azps). Cuando se le pida, haga clic en **Ejecutar** y, después, en **Instalar**.
+1. Si aún no lo hizo, instale los [**módulos de Azure PowerShell**](http://aka.ms/webpi-azps). Cuando se le pida, haga clic en **Ejecutar** y, después, en **Instalar**. Se requiere Azure PowerShell 1.3 o posterior.
 
 2. La herramienta **openssl** se incluye en la distribución de [**Git para Windows**](http://www.git-scm.com/downloads). Si aún no lo hizo, instale [Git para Windows](http://www.git-scm.com/downloads) ahora. (las opciones de instalación predeterminadas son adecuadas).
 
@@ -69,12 +71,12 @@ Antes de ejecutar el script, abra el archivo `azuredeploy-parameters.json` y com
 |dataDiskSize |Tamaño de los discos de datos (en GB) que se va a asignar a cada nodo de datos. Cada nodo recibirá 4 discos de datos dedicados exclusivamente al servicio Elastic Search.|
 |region |Nombre de la región de Azure donde se debe ubicar el clúster de Elastic Search.|
 |esUserName |Nombre del usuario que se configurará para acceder al clúster ES (de acuerdo con la autenticación básica HTTP). La contraseña no forma parte del archivo de parámetros y debe proporcionarse cuando se invoca el script `CreateElasticSearchCluster`.|
-|vmSizeDataNodes |Tamaño de la máquina virtual de Azure para nodos de clúster de Elastic Search. El valor predeterminado es Standard\_D1.|
+|vmSizeDataNodes |Tamaño de la máquina virtual de Azure para nodos de clúster de Elastic Search. El valor predeterminado es Standard\_D2.|
 
 Ya está preparado para ejecutar el script. Ejecute el siguiente comando:
 
 ```powershell
-CreateElasticSearchCluster -ResourceGroupName <es-group-name>
+CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
 donde
@@ -95,10 +97,10 @@ Después de ejecutar el script `CreateElasticSearchCluster`, se crearán los sig
 |Artefacto|Nombre, ubicación y comentarios|
 |----------------------------------|----------------------------------|
 |Clave SSH para administración remota |Archivo myBigCluster.key (en el directorio desde el que se ejecutó CreateElasticSearchCluster). <br /><br />Esta es la clave que se puede usar para conectar con el nodo de administración y con los nodos de datos en el clúster (mediante el nodo de administración).|
-|Nodo de administración |myBigCluster admin.westus.cloudapp.azure.com <br /><br />Esta es una VM específica para la administración remota de clústeres de Elastic Search, la única que permite conexiones externas de SSH. Se ejecuta en la misma red virtual que todos los nodos de clúster de ElasticSearch, pero no ejecuta servicios ElasticSearch.|
+|Nodo de administración |myBigCluster admin.westus.cloudapp.azure.com <br /><br />Esta es una VM dedicada para la administración remota de clústeres de Elastic Search, la única que permite conexiones externas de SSH. Se ejecuta en la misma red virtual que todos los nodos de clúster de ElasticSearch, pero no ejecuta servicios ElasticSearch.|
 |Nodos de datos |myBigCluster1 … myBigCluster*N* <br /><br />Nodos de datos que ejecutan servicios Elastic Search y Kibana. Puede conectarse mediante SSH a cada nodo, pero solo mediante el nodo de administración.|
-|Clúster Elasticsearch |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />El anterior es el punto de conexión principal para el clúster de Elastic Search (tenga en cuenta el sufijo /es). Está protegido por autenticación HTTP básica (las credenciales son los parámetros esUserName/esPassword especificados en la plantilla ES-MultiNode). El clúster también tiene instalado el complemento principal (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) para la administración básica de clústeres.|
-|Servicio Kibana |http://myBigCluster.westus.cloudapp.azure.com <br /><br />El servicio Kibana está configurado para mostrar los datos desde el clúster de Elastic Search creado. Está protegido por las mismas credenciales de autenticación que el propio clúster.|
+|Clúster Elasticsearch |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />El anterior es el punto de conexión principal para el clúster de Elastic Search (observe el sufijo /es). Está protegido por autenticación HTTP básica (las credenciales son los parámetros esUserName/esPassword especificados en la plantilla ES-MultiNode). El clúster también tiene instalado el complemento principal (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) para la administración básica de clústeres.|
+|Servicio Kibana |http://myBigCluster.westus.cloudapp.azure.com <br /><br />El servicio Kibana está configurado para mostrar datos del clúster de Elastic Search creado. Está protegido por las mismas credenciales de autenticación que el propio clúster.|
 
 ## Captura de seguimientos en proceso frente a fuera de proceso
 En la introducción mencionamos dos formas básicas de recopilar datos de diagnóstico: en proceso y fuera de proceso. Cada una tiene sus ventajas y desventajas.
@@ -131,7 +133,7 @@ Las ventajas de la **captura de seguimientos fuera de proceso** son:
 
 1. *Capacidad para supervisar la aplicación y recopilar volcados de memoria*
 
-    * Se puede producir un error en la captura de seguimientos en proceso si la aplicación no se inicia o se bloquea. Un agente independiente tiene muchas más probabilidades de capturar información crucial sobre la solución de problemas.<br /><br />
+    * Se puede producir un error en la captura de seguimientos en proceso si la aplicación no se inicia o se bloquea. Un agente independiente tiene muchas más probabilidades de capturar información crucial de solución de problemas.<br /><br />
 
 2. *Madurez, solidez y rendimiento probado*
 
@@ -141,12 +143,12 @@ Las ventajas de la **captura de seguimientos fuera de proceso** son:
 
 Por supuesto, es posible combinar y beneficiarse de ambos enfoques; de hecho, puede que sea la mejor solución para muchas aplicaciones.
 
-En este artículo usaremos la **biblioteca Microsoft.Diagnostic.Listeners** y la característica de captura de seguimientos en proceso para enviar datos desde una aplicación de Service Fabric a un clúster de Elastic Search.
+En este artículo usaremos la **biblioteca Microsoft.Diagnostic.Listeners** y la característica de captura de seguimientos en proceso para enviar datos desde una aplicación de Service Fabric hasta un clúster de Elastic Search.
 
 ## Uso de la biblioteca de agentes de escucha para enviar datos de diagnóstico a ElasticSearch
 La biblioteca Microsoft.Diagnostic.Listeners forma parte de la aplicación de clúster de Service Fabric de ejemplo. Para usarla:
 
-1. Descargue [la muestra de PartyCluster](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) desde GitHub.
+1. Descargue [el ejemplo de PartyCluster](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) desde GitHub.
 
 2. Copie los proyectos Microsoft.Diagnostics.Listeners y Microsoft.Diagnostics.Listeners.Fabric (las carpetas completas) desde el directorio del ejemplo de PartyCluster a la carpeta de solución de la aplicación que se supone que debe enviar los datos a ElasticSearch.
 
@@ -161,7 +163,7 @@ El destino de las aplicaciones creadas con la versión de disponibilidad general
 
 Para empezar a usar la implementación para Microsoft.Diagnostics.Tracing de la clase EventSource, siga estos pasos para cada proyecto de servicio que necesite enviar datos a ElasticSearch:
 
-1. Haga clic con el botón derecho en el proyecto y elija **Administrar paquetes NuGet**.
+1. Haga clic con el botón derecho en el proyecto de servicio y elija **Administrar paquetes NuGet**.
 
 2. Cambie al origen del paquete nuget.org (si no está ya seleccionado) y busque "**Microsoft.Diagnostics.Tracing**".
 
@@ -241,7 +243,7 @@ Los datos de conexión de Elastic Search deben colocarse en una sección indepen
   <Parameter Name="indexNamePrefix" Value="myapp" />
 </Section>
 ```
-Los valores de `serviceUri`, `userName` y `password` corresponden con la dirección del punto de conexión del clúster de Elastic Search, el nombre de usuario y la contraseña de Elastic Search respectivamente. `indexNamePrefix` es el prefijo de los índices de Elastic Search; la biblioteca Microsoft.Diagnostics.Listeners crea un nuevo índice para sus datos cada día.
+Los valores de `serviceUri`, `userName` y `password` corresponden a la dirección del punto de conexión del clúster de Elastic Search, al nombre de usuario y la contraseña de Elastic Search, respectivamente. `indexNamePrefix` es el prefijo de los índices de Elastic Search; la biblioteca Microsoft.Diagnostics.Listeners crea un nuevo índice para sus datos cada día.
 
 ### Comprobación
 Eso es todo. Ahora, cada vez que se ejecute el servicio, empezará a enviar seguimientos al servicio ElasticSearch especificado en la configuración. Para comprobarlo, abra la interfaz de usuario de Kibana asociada a la instancia de Elastic Search de destino (en nuestro ejemplo, la dirección de la página sería http://myBigCluster.westus.cloudapp.azure.com/) y compruebe que los índices con el prefijo de nombre elegido para la instancia `ElasticSearchListener` se crearon y rellenaron con datos.
@@ -255,4 +257,4 @@ Eso es todo. Ahora, cada vez que se ejecute el servicio, empezará a enviar segu
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -98,11 +98,9 @@ Una omisión por única vez permite a un usuario autenticarse una sola vez omiti
 1.	Inicie sesión en http://azure.microsoft.com.
 2.	Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
 3.	En el Portal de administración de Azure Multi-Factor Authentication, si ve el nombre del inquilino o del Proveedor de Azure MFA a la izquierda con una signo + al lado, haga clic en él para ver los diferentes grupos de aplicaciones de servidor MFA y el grupo predeterminado de Azure. Haga clic en el grupo adecuado.
-4.	En Administración de usuarios, haga clic en **Omisión por única vez**.
-![Nube](./media/multi-factor-authentication-whats-next/create1.png)
+4.	En Administración de usuarios, haga clic en **Omisión por única vez**. ![Nube](./media/multi-factor-authentication-whats-next/create1.png)
 5.	En la página Omisión por única vez, haga clic en **Nueva omisión por única vez**.
-6.	Escriba el nombre de usuario, el número de segundos que durará la omisión, el motivo de esta y haga clic en **Omitir**.
-![Nube](./media/multi-factor-authentication-whats-next/create2.png)
+6.	Escriba el nombre de usuario, el número de segundos que durará la omisión, el motivo de esta y haga clic en **Omitir**. ![Nube](./media/multi-factor-authentication-whats-next/create2.png)
 7.	Ahora, el usuario tiene que iniciar sesión antes de que expire la omisión por única vez.
 
 
@@ -136,14 +134,10 @@ Antes de comenzar tenga en cuenta lo siguiente:
 2.	Inicie sesión en http://azure.microsoft.com.
 3.	Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
 4.	En el Portal de administración de Azure Multi-Factor Authentication, haga clic en Mensajes de voz en la sección Configurar.
-5.	En la sección Mensajes de voz, haga clic en **Nuevo mensaje de voz**.
-![Nube](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	En la página Configurar: Nuevos mensajes de voz, haga clic en **Administrar archivos de sonido**.
-![Nube](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	En la página Configurar: Archivos de sonido, haga clic en **Cargar archivo de sonido**.
-![Nube](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	En la página Configurar: Cargar archivo de sonido, haga clic en **Examinar** y navegue hasta el mensaje de voz; luego haga clic en **Abrir**.
-![Nube](./media/multi-factor-authentication-whats-next/custom4.png)
+5.	En la sección Mensajes de voz, haga clic en **Nuevo mensaje de voz**. ![Nube](./media/multi-factor-authentication-whats-next/custom1.png)
+6.	En la página Configurar: Nuevos mensajes de voz, haga clic en **Administrar archivos de sonido**. ![Nube](./media/multi-factor-authentication-whats-next/custom2.png)
+7.	En la página Configurar: Archivos de sonido, haga clic en **Cargar archivo de sonido**. ![Nube](./media/multi-factor-authentication-whats-next/custom3.png)
+8.	En la página Configurar: Cargar archivo de sonido, haga clic en **Examinar** y navegue hasta el mensaje de voz; luego haga clic en **Abrir**. ![Nube](./media/multi-factor-authentication-whats-next/custom4.png)
 9.	Agregue una descripción y haga clic en Cargar.
 10.	Cuando se complete, verá un mensaje de que se ha cargado correctamente el archivo.
 11.	A la izquierda, haga clic en Mensajes de voz.
@@ -152,8 +146,7 @@ Antes de comenzar tenga en cuenta lo siguiente:
 14.	Si este mensaje es para una aplicación específica, especifíquela en el cuadro aplicación.
 15.	En Tipo de mensaje, seleccione el tipo de mensaje que se va a reemplazar con el nuevo mensaje personalizado.
 16.	En la lista desplegable Archivo de sonido, seleccione el archivo.
-17.	Haga clic en **Crear**. Verá un mensaje que indica que ha creado correctamente un mensaje de voz.
-![Nube](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+17.	Haga clic en **Crear**. Verá un mensaje que indica que ha creado correctamente un mensaje de voz. ![Nube](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 
 
@@ -356,8 +349,7 @@ Sin embargo, como los usuarios pueden recordar MFA para los dispositivos de conf
 3. En Active Directory, haga clic en el directorio en el que desea configurar Recordar Multi-Factor Authentication para los dispositivos.
 4. En el directorio que ha seleccionado, haga clic en Configurar.
 5. En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.
-6. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivos de usuario, active o desactive la opción **Permitir a los usuarios recordar Multi-Factor Authentication en los dispositivos en los que confían**.
-![Recordar dispositivos](./media/multi-factor-authentication-whats-next/remember.png).
+6. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivos de usuario, active o desactive la opción **Permitir a los usuarios recordar Multi-Factor Authentication en los dispositivos en los que confían**. ![Recordar dispositivos](./media/multi-factor-authentication-whats-next/remember.png).
 8. Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
@@ -384,4 +376,4 @@ Método|Descripción
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

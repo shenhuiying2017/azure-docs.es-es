@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferencias de Transact-SQL de Base de datos SQL de Azure
@@ -93,7 +93,7 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 - Marcas de seguimiento
 - Depuración de Transact-SQL
 - Desencadenadores: desencadenadores LOGON o con ámbito de servidor
-- Instrucción USE
+- Instrucción USE: Para cambiar el contexto de base de datos a una base de datos distinta, debe crear una nueva conexión a la nueva base de datos.
 
 
 ## Referencia completa de Transact-SQL
@@ -108,4 +108,4 @@ La referencia de Transact-SQL incluye temas relacionados con las versiones de SQ
 
 En algunos casos, la línea general de un tema se puede utilizar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del tema según corresponda.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

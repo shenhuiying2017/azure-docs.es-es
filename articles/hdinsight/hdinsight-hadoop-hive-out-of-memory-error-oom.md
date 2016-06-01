@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/10/2015"
+	ms.date="05/18/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Solucionar un error de memoria insuficiente (OOM) con la configuración de memoria de Hive en Hadoop en Azure HDInsight
@@ -109,7 +109,7 @@ Como se explica en la entrada de blog [Configuración de memoria de Hadoop Yarn 
 
 Como sugiere la entrada de blog, los dos valores de configuración de memoria siguientes definen la memoria del contenedor del montón: **hive.tez.container.size** y **hive.tez.java.opts**. En nuestra experiencia, la excepción de memoria insuficiente no significa que el tamaño del contenedor sea demasiado pequeño. Significa que el tamaño del montón de Java (hive.tez.java.opts) es demasiado pequeño. Por tanto, siempre que vea memoria insuficiente, puede intentar aumentar **hive.tez.java.opts**. Si es necesario, es posible que deba aumentar **hive.tez.container.size**. El porcentaje del valor de **java.opts** debe ser de aproximadamente el 80% de **container.size**.
 
-> [AZURE.NOTE]El valor de **hive.tez.java.opts** siempre debe ser menor que **hive.tez.container.size**.
+> [AZURE.NOTE]  El valor de **hive.tez.java.opts** siempre debe ser menor que **hive.tez.container.size**.
 
 Como una máquina D12 tiene 28 GB de memoria, se optó por usar un tamaño de contenedor de 10 GB (10 240 MB) y asignar el 80% a java.opts. Esto se llevó a cabo en la consola de Hive con el valor siguiente:
 
@@ -122,4 +122,4 @@ Basada en estos valores, la consulta se ejecutó correctamente en menos de diez 
 
 Recibir un error de memoria insuficiente no significa necesariamente que el tamaño del contenedor sea demasiado pequeño. En su lugar, debe configurar las opciones de memoria para que aumente el tamaño del montón y sea de al menos el 80% del tamaño de memoria del contenedor.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restauración de datos en Windows Server o el Cliente de Windows desde Azure | Microsoft Azure"
+   pageTitle="Restauración de datos en Windows Server o un cliente de Windows mediante el modelo de implementación de Resource Manager | Microsoft Azure"
    description="Aprenda a restaurar desde Windows Server o desde el Cliente de Windows."
    services="backup"
    documentationCenter=""
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Restaurar archivos en una máquina de Windows Server o del Cliente de Windows
+# Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
+
+> [AZURE.SELECTOR]
+- [Portal de Azure](backup-azure-restore-windows-server.md)
+- [Portal clásico](backup-azure-restore-windows-server-classic.md)
+
 En este artículo se describen los pasos necesarios para realizar dos tipos de operaciones de restauración:
 
 - La restauración de datos en la misma máquina desde la cual se realizaron las copias de seguridad.
 - La restauración de datos en cualquier otra máquina.
 
-En ambos casos, los datos se recuperan del almacén de Copia de seguridad de Azure.
+En ambos casos, los datos se recuperan del almacén de Servicios de recuperación de Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
 
 ## Recuperar los datos en la misma máquina
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
@@ -69,12 +76,12 @@ La terminología usada en estos pasos incluye:
 
 - *Máquina de origen*: es la máquina original desde la que se realizó la copia de seguridad y que no está disponible actualmente.
 - *Máquina de destino*: es la máquina en la que se recuperan los datos.
-- *Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
+- *Almacén de ejemplo*: el almacén de Servicios de recuperación en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
 
 > [AZURE.NOTE] No se pueden restaurar copias de seguridad realizadas desde una máquina en una máquina que está ejecutando una versión anterior del sistema operativo. Por ejemplo, si se realizan copias de seguridad de una máquina con Windows 7, esta puede restaurarse en un Windows 8 o una máquina con una versión superior. Sin embargo, la acción a la inversa no está asegurada.
 
 1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
-2. Asegúrese de que tanto la *Máquina de destino* como la *Máquina de origen* están registradas en el mismo almacén de copia de seguridad.
+2. Asegúrese de que tanto la *máquina de destino* como la *máquina de origen* están registradas en el mismo almacén de Servicios de recuperación.
 3. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
 
     ![Recuperar datos](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@ La terminología usada en estos pasos incluye:
 
     ![Otro servidor](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Proporcione el archivo de credenciales de almacén que se corresponde con el *Almacén de ejemplo*. Si el archivo de credenciales de almacén no es válido (o ha expirado), descargue un nuevo archivo de credenciales de almacén desde el *Almacén de ejemplo* en el portal de Azure. Una vez que se proporciona el archivo de almacén de credenciales, se muestra el almacén de copia de seguridad en el archivo de almacén de credenciales.
+5. Proporcione el archivo de credenciales de almacén que se corresponde con el *Almacén de ejemplo*. Si el archivo de credenciales de almacén no es válido (o ha expirado), descargue un nuevo archivo de credenciales de almacén desde el *Almacén de ejemplo* en el portal de Azure. Después de que se proporciona el archivo de credenciales de almacén, se muestra el almacén de Servicios de recuperación en el archivo de almacén de credenciales.
 
 6. Seleccione la *Máquina de origen* en la lista de máquinas mostradas.
 
@@ -108,12 +115,6 @@ La terminología usada en estos pasos incluye:
 11. Una vez especificada la entrada, haga clic en **Recuperar**, para desencadenar la restauración de los archivos con copia de seguridad en el destino proporcionado.
 
 ## Pasos siguientes
-- [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
-- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).
 
-## Más información
-- [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
-- [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

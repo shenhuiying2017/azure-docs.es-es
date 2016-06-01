@@ -9,11 +9,12 @@ Número máximo de orígenes de datos del indexador|3|5|50|200
 Índice: número máximo de campos por índice|1000|100 <sup>5</sup>|1000|1000 
 Índice: número máximo de perfiles de puntuación por índice|16|16|16|16 
 Índice: número máximo de funciones por perfil|8|8|8|8 
-Indexadores: carga máxima de indexación por invocación|10 000 documentos|Limitado solo por número máximo de documentos|Limitado solo por el número máximo de documentos|Limitado solo por el número máximo de documentos 
+Indexadores: carga máxima de indexación por invocación|10 000 documentos|Limitado solo por el número máximo de documentos|Limitado solo por el número máximo de documentos|Limitado solo por el número máximo de documentos 
 Indexadores: número máximo de tiempo de ejecución|3 minutos|24 horas|24 horas|24 horas 
+Indexador de blobs: tamaño máximo de blob, MB|16|16|128|256 Indexador de blobs: número máximo de caracteres de contenido extraído de un blob|32 000|64 000|4 millones |4 millones 
 Consultas por segundo (QPS) <sup>2</sup>|N/A|~3 por réplica|~15 por réplica|~60 por réplica 
 Escalar horizontalmente: número máximo de unidades de búsqueda (SU) <sup>3</sup>|N/D|Hasta 3 unidades (3 réplicas y 1 partición)|36 unidades|36 unidades 
-Precios <sup>4</sup>|N/A|$75 por SU por mes|$250 por SU por mes|$1000 por SU por mes
+Precios <sup>4</sup>|N/A|75 $por SU por mes|250 $ por SU por mes|1000 $ por SU por mes
 
 <sup>1</sup> El tamaño de almacenamiento es una cantidad fija o el número de documentos por servicio, lo que ocurra primero.
 
@@ -29,4 +30,4 @@ Precios <sup>4</sup>|N/A|$75 por SU por mes|$250 por SU por mes|$1000 por SU por
 
 <sup>7</sup> S2 requiere un vale de servicio. No se puede aprovisionar en el portal. Envíe un correo electrónico a azuresearch_contact@microsoft.com a fin de obtener ayuda para ponerse manos a la obra.
 
-<!----HONumber=AcomDC_0316_2016-->
+

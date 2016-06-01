@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: ejemplos de código, demostraciones, vídeos y tutoriales
@@ -37,7 +37,6 @@ Estos sitios son aplicaciones web totalmente funcionales que usan Búsqueda de A
 
 [**Demo del portal de trabajos en la ciudad de Nueva York en Búsqueda de Azure**](http://aka.ms/azjobsdemo) es un sitio web activo de ASP.NET que muestra capacidades de Búsqueda de Azure con datos procedentes de NYC Open Data Initiative. Esta aplicación usa la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx). Puede modificar el código para probar la [sintaxis de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
 
-[**Probar el Servicio de aplicaciones + Búsqueda de Azure en aplicación combinada ASP.NET MVC**](search-tryappservice.md) es una sesión de una hora gratuita con Búsqueda de Azure que incluye datos, una aplicación web funcional y código fuente que puede modificar en línea para probar varias características de búsqueda en una aplicación ASP.NET.
 
 [**Sitio de demostración de Búsqueda de Azure**](https://searchsamples.azurewebsites.net/#/) es una colección de aplicaciones de demostración para Búsqueda de Azure. Realice una versión de prueba de aplicaciones de inventario de productos, búsqueda geográfica, búsqueda de elementos multimedia mediante Búsqueda de Azure.
 
@@ -89,4 +88,4 @@ Tutorial|Descripción
 [Tutorial de perfiles de puntuación](search-get-started-scoring-profiles.md)|Pruebe los perfiles de puntuación con una aplicación de consola.
 [Tutorial de la API de REST de administración de Búsqueda de Azure](search-get-started-management-api.md)|Cómo usar la API de REST de administración para aprovisionar el servicio y administrar claves de api de administrador o de consulta.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

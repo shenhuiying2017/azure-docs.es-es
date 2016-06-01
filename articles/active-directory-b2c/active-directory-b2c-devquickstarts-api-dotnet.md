@@ -53,6 +53,8 @@ Cuando haya creado correctamente las tres directivas, estará listo para crear s
 
 ## Descargar el código
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
 El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
@@ -65,7 +67,7 @@ Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio 
 
 ## Configurar la aplicación web de tarea
 
-Cuando el usuario interactúa con `TaskWebApp`, el cliente envía solicitudes a Azure AD y recibe tokens que se pueden usar para llamar a la API web `TaskService`. Para iniciar la sesión del usuario y obtener tokens, debe proporcionar a `TaskWebApp` algo de información sobre la aplicación. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
+Cuando el usuario interactúa con `TaskWebApp`, el cliente envía solicitudes a Azure AD y recibe tokens que sirven para llamar a la API web `TaskService`. Para iniciar la sesión del usuario y obtener tokens, debe proporcionar a `TaskWebApp` algo de información sobre la aplicación. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
 
 ```
 <appSettings>
@@ -87,7 +89,7 @@ Cuando el usuario interactúa con `TaskWebApp`, el cliente envía solicitudes a 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página en la aplicación que requiere autenticación.
+Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página de la aplicación que requiere autenticación.
 
 ```C#
 // Controllers\HomeController.cs
@@ -105,7 +107,7 @@ public class TasksController : Controller
 {
 ```
 
-Para obtener información sobre cómo una aplicación web como `TaskWebApp` utiliza Azure AD B2C, consulte [Crear una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Para ver cómo una aplicación web como `TaskWebApp` utiliza Azure AD B2C, consulte [Versión preliminar de Azure AD B2C: creación de una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Proteger la API
 
@@ -137,7 +139,7 @@ Abra el archivo `web.config` en la raíz del proyecto `TaskService` y reemplace 
 ```
 
 ### Agregar una clase de inicio de OWIN
-Agregue una clase de inicio de OWIN al proyecto `TaskService` llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; a continuación, busque OWIN.
+Agregue una clase de inicio de OWIN al proyecto `TaskService` llamada `Startup.cs`. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; a continuación, busque OWIN.
 
 
 ```C#
@@ -219,7 +221,7 @@ Por último, compile y ejecute `TaskWebApp` y `TaskService`. Regístrese en la a
 
 ## Editar sus directivas
 
-Una vez que haya protegido una API mediante el uso de Azure AD B2C, puede experimentar con las directivas de la aplicación y ver los efectos (o la ausencia de estos) en la API. Puede <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular las notificaciones de aplicación de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones que agregue estarán disponibles para la API web de MVC de .NET en el objeto `ClaimsPrincipal`, como se describió anteriormente en este artículo.
+Una vez que haya protegido una API mediante el uso de Azure AD B2C, puede experimentar con las directivas de la aplicación y ver los efectos (o la ausencia de estos) en la API. Puede <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular las notificaciones de aplicación de las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones que agregue estarán disponibles para la API web de MVC de .NET en el objeto `ClaimsPrincipal`, como se describió antes en este artículo.
 
 <!--
 
@@ -233,4 +235,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

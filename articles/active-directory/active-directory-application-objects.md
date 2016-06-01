@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Al registrar una aplicación en el Portal de administración de Azure, se crean 
 - **Objeto ServicePrincipal**: este objeto representa una instancia de su aplicación en el inquilino del directorio. Puede aplicar directivas a objetos ServicePrincipal, incluida la asignación de permisos a ServicePrincipal que permiten que la aplicación lea los datos del directorio de su inquilino. Cada vez que cambie el objeto Application, los cambios también se aplicarán al objeto ServicePrincipal asociado en el inquilino.
 
 
-> [AZURE.NOTE]Si la aplicación está configurada para el acceso externo, los cambios realizados en el objeto Application no se reflejan en el ServicePrincipal del inquilino consumidor hasta que el inquilino consumidor quite el acceso y lo conceda de nuevo.
+> [AZURE.NOTE] Si la aplicación está configurada para el acceso externo, los cambios realizados en el objeto Application no se reflejan en el ServicePrincipal del inquilino consumidor hasta que el inquilino consumidor quite el acceso y lo conceda de nuevo.
 
 
 
@@ -85,4 +85,4 @@ Propiedad | Descripción
 
 ##
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -653,7 +653,7 @@ En el caso del ejemplo anterior de una solicitud para actualizar un usuario, el 
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6.** Para desaprovisionar un usuario de un almacén de identidades proporcionado por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
+**6:** Para desaprovisionar un usuario de un almacén de identidades proporcionado por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -681,7 +681,7 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
-![][5] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 
@@ -702,4 +702,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

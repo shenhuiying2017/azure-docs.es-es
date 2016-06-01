@@ -16,7 +16,7 @@
 	ms.date="03/16/2016"
 	ms.author="raynew"/>
 
-#  Migración de máquinas virtuales de IaaS de Azure entre regiones de Azure con Azure Site Recover
+#  Migración de máquinas virtuales de IaaS de Azure entre regiones de Azure con Azure Site Recovery
 
 ## Información general
 
@@ -33,7 +33,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 
 Requisitos para realizar esta implementación:
 
-- **Servidor de administración**: una máquina virtual local que ejecute Windows Server 2012 R2 y que actúe como servidor de administración. Instalar los componentes de Site Recovery (incluido el servidor de configuración y el servidor de procesos) en este servidor. Obtenga más información en [Consideraciones sobre el servidor de administración](site-recovery-vmware-to-azure-classic.md#management-server-considerations) y [Requisitos previos locales](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Servidor de administración**: una máquina virtual que ejecute Windows Server 2012 R2 y que actúe como servidor de administración. Instalar los componentes de Site Recovery (incluido el servidor de configuración y el servidor de procesos) en este servidor. Obtenga más información en las [consideraciones sobre el servidor de administración](site-recovery-vmware-to-azure-classic.md#management-server-considerations) y los [requisitos previos de origen](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Máquinas virtuales IaaS**: las máquinas virtuales que desea migrar.
 
 ## Pasos de implementación
@@ -61,4 +61,4 @@ Requisitos para realizar esta implementación:
 
 Obtenga más información sobre otros escenarios de replicación en [¿Qué es Azure Site Recovery?](site-recovery-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Introducción al uso de HDInsight de Azure
@@ -44,4 +44,4 @@ Azure AD proporciona una serie de informes para los administradores. Hay aún m�
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Referencia para desarrolladores de NodeJS de Funciones de Azure
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 La versión de Node actualmente está bloqueada en `5.9.1`. Estamos investigando para agregar compatibilidad con más versiones y hacerlo configurable.
 
-Puede incluir paquetes en el directorio de la función (es decir, a través de `npm install`) y, luego, importarlos a su función de manera habitual (es decir, a través de `require('packagename')`).
+Puede incluir paquetes en la función mediante la carga de un archivo *package.json* en la carpeta de la función en el sistema de archivos del contenedor de funciones. Para obtener las instrucciones de carga, consulte la sección **Actualización de los archivos del contenedor de funciones** del [tema de referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
+
+También puede utilizar `npm install` en la interfaz de la línea de comandos de SCM (Kudu) del contenedor de funciones:
+
+1. Vaya a: `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Haga clic en **Consola de depuración > CMD**.
+
+3. Vaya a `D:\home\site\wwwroot<function_name>`.
+
+4. Ejecute `npm install`.
+
+Una vez instalados los paquetes que necesita, impórtelos a la función de la forma habitual (es decir, a través de `require('packagename')`)
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -163,4 +175,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
 * [Enlaces y desencadenadores de Funciones de Azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="04/20/2015"
 	ms.author="anuragm;jimpark;delhan"/>
 
 
@@ -32,6 +32,7 @@ Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](
 - En el servidor DPM se han descargado las credenciales del almacén y del agente.
 - El agente está instalado en el servidor DPM.
 - Las credenciales de almacén se utilizaban para registrar el servidor DPM.
+- Si va a proteger Exchange 2016, actualice al paquete acumulativo de actualizaciones 9 de DPM 2012 R2 o posterior.
 
 ## Agente de protección DPM  
 Para instalar al agente de protección DPM en el servidor Exchange, siga estos pasos:
@@ -131,4 +132,4 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
 
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

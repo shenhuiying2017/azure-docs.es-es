@@ -77,11 +77,11 @@ Debe tener lo siguiente instalado en el equipo:
 	2. Escriba un **nombre** para la factoría de datos.
 	3. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos. 
 	4. Seleccione el **grupo de recursos** para la factoría de datos.
-	5. Seleccione el **oeste de EE. UU.** o **Europa del Norte** para la **región**.
+	5. Seleccione **oeste de EE. UU.**, **este de EE. UU.** o **Europa del Norte** para la **región**.
 	6. Haga clic en **Siguiente**. 
-9. En la página **Configurar almacenes de datos**, especifique una **Base de datos SQL de Azure** y una **cuenta de almacenamiento de Azure** ya existentes (o) cree otras nuevas y haga clic en Siguiente. 
+9. En la página **Configurar almacenes de datos**, especifique una **Base de datos SQL de Azure** y una **cuenta de Almacenamiento de Azure** ya existentes (o) cree otras nuevas y haga clic en Siguiente. 
 10. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**. 
-11. En la página de **Resumen** revise toda la configuración y haga clic en **Siguiente**. 
+11. En la página **Resumen** revise toda la configuración y haga clic en **Siguiente**. 
 12. En la página **Estado de implementación**, espere hasta que finalice la implementación y haga clic en **Finalizar**.
 13. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**. 
 19. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
@@ -90,13 +90,13 @@ Debe tener lo siguiente instalado en el equipo:
 	![Cuadro de diálogo Publicar](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
 21. En la página **Configurar Data Factory**, haga lo siguiente:
-	1. Confirme la opción **Usar factoría de datos existente**.
-	2. Seleccione la **factoría de datos** que había seleccionado al utilizar la plantilla anterior. 
+	1. Confirme la opción **Use existing data factory** (Usar Data Factory existente).
+	2. Seleccione la instancia de **Data Factory** que había seleccionado al utilizar la plantilla anterior. 
 	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. (Presione la tecla **TAB** para salir del campo Nombre si el botón **Siguiente** está deshabilitado). 
 23. En la página **Publicar elementos**, asegúrese de que todas las entidades de Factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.     
 24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
 25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
 
-Consulte [Introducción a la Factoría de datos de Azure (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para más información acerca de cómo usar Visual Studio para crear entidades de Data Factory y publicarlas en Azure.
+Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para más información acerca de cómo usar Visual Studio para crear entidades de Data Factory y publicarlas en Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -43,7 +43,7 @@ Para restaurar mediante el Portal de Azure, use estos pasos:
 
 Use Azure PowerShell para realizar una restauración de una base de datos mediante programación con el cmdlet [Restore-AzureRmSqlDatabase][].
 
-> [AZURE.NOTE]  Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0.3 o superior. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para obtener más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
+> [AZURE.NOTE]  Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0.3 o superior. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -94,7 +94,7 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 2. Inicie la restauración con la operación [Crear solicitud de restauración de base de datos][].
 3. Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos][].
 
->[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalize a recovered database][] (Finalización de una base de datos recuperada).
+>[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 ## Recuperar una base de datos eliminada
 Almacenamiento de datos SQL de Azure toma una instantánea de la base de datos antes de eliminarla y la conserva durante siete días. En caso de que se elimine una base de datos por error, puede restaurarla al momento en que se eliminó.
@@ -155,17 +155,17 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 3.	Inicie la restauración con la operación [Crear solicitud de restauración de base de datos][].
 4.	Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos][].
 
->[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalize a recovered database][] (Finalización de una base de datos recuperada).
+>[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 ## Pasos siguientes
-Para obtener información sobre las características de continuidad del negocio de las ediciones de Base de datos SQL de Azure, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][].
+Para más información sobre las características de continuidad del negocio de las ediciones de Base de datos SQL de Azure, lea [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
-[Cómo instalar y configurar Azure PowerShell]: powershell-install-configure.md
+[Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: ../sql-database/sql-database-business-continuity.md
+[Finalización de una base de datos SQL de Azure recuperada]: ../sql-database/sql-database-recovered-finalize.md
+[Cómo instalar y configurar Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Crear solicitud de restauración de base de datos]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ Para obtener información sobre las características de continuidad del negocio 
 [Portal de Azure]: https://portal.azure.com/
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

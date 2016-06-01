@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al Almacenamiento de blobs de Azure mediante .NET | Microsoft Azure"
+	pageTitle="Introducción al almacenamiento de blobs de Azure (almacenamiento de objetos) con .NET | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter=".net"
@@ -395,4 +395,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

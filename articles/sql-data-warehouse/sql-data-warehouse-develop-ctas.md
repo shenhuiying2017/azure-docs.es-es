@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # Create Table As Select (CTAS) en Almacenamiento de datos SQL
-Create table as select o `CTAS` es una de las características más importantes de T-SQL disponibles. Se trata de una operación completamente en paralelo que crea una nueva tabla basada en la salida de una instrucción SELECT. `CTAS` es el modo más sencillo y rápido de crear una copia de una tabla. Si lo prefiere, puede considerarla como una versión supercargada de `SELECT..INTO`. Este documento incluye ejemplos y prácticas recomendadas para `CTAS`.
+Create table as select o `CTAS` es una de las características más importantes de T-SQL disponibles. Se trata de una operación completamente en paralelo que crea una nueva tabla basada en la salida de una instrucción SELECT. `CTAS` es el modo más sencillo y rápido de crear una copia de una tabla. Si lo prefiere, puede considerarla como una versión supercargada de `SELECT..INTO`. Este documento incluye ejemplos y procedimientos recomendados para `CTAS`.
 
 ## Uso de CTAS para copiar una tabla
 
@@ -433,4 +433,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

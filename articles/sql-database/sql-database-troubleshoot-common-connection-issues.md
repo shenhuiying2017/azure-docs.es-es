@@ -22,7 +22,8 @@ Los problemas de conexión relacionados con la base de datos SQL de Azure se pue
 - [Errores transitorios (corta duración o intermitentes)](#troubleshoot-the-transient-errors)
 - [Errores persistentes o no transitorios (errores que se repiten con frecuencia)](#troubleshoot-the-persistent-errors-non-transient-errors)
 
-Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Solución de los errores transitorios
 Si la aplicación está experimentando errores transitorios, revise los siguientes temas para obtener sugerencias acerca de cómo solucionar problemas y reducir la frecuencia de estos errores:
@@ -44,4 +45,4 @@ Si la aplicación no se puede conectar a la base de datos SQL Azure de forma per
 3.	Compruebe la cadena de conexión y otras opciones de conexión. Vea la sección Cadena de conexión en el [tema de problemas de conectividad](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

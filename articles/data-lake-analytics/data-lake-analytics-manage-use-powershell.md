@@ -39,7 +39,7 @@ Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Reso
 	
 ## Administrar cuentas
 
-Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de Análisis de Data Lake. A diferencia de HDInsight de Azure, no se paga por una cuenta de Análisis cuando no está ejecutando un trabajo. Solo se paga por el tiempo en que se ejecuta un trabajo. Para obtener más información, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
+Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de Análisis de Data Lake. A diferencia de HDInsight de Azure, no se paga por una cuenta de Análisis cuando no está ejecutando un trabajo. Solo se paga por el tiempo en que se ejecuta un trabajo. Para obtener más información, consulte la página con [información general sobre Análisis con Azure Data Lake](data-lake-analytics-overview.md).
 
 ###Creación de cuentas
 
@@ -132,7 +132,7 @@ El cmdlet devolverá o bien **True** o **False**.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-Si elimina una cuenta de Análisis, no se eliminará la cuenta dependiente de Almacén de Data Lake. El ejemplo siguiente elimina la cuenta de Análisis de Data Lake y la cuenta predeterminada de Almacén de Data Lake.
+Si elimina una cuenta de Análisis de Data Lake, no se eliminará la cuenta dependiente de Almacén de Data Lake. El ejemplo siguiente elimina la cuenta de Análisis de Data Lake y la cuenta predeterminada de Almacén de Data Lake.
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -315,7 +315,7 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
 
 Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Un servicio de Análisis de Data Lake puede incluir los siguientes componentes:
+Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
 
 - Cuenta de Análisis de Azure Data Lake
 - Cuenta predeterminada y necesaria de Almacén de Azure Data Lake
@@ -326,7 +326,7 @@ Puede crear todos estos componentes en un grupo de ARM para que sean más fácil
 
 ![Cuenta y almacenamiento de Análisis de Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-Una cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure. Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
+La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure. Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
 
 ##Consulte también 
 
@@ -392,4 +392,4 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
 	  }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 # Administración de Bus de servicio de Azure con Automatización de Azure
@@ -30,14 +30,13 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede ayudar Automatización de Azure a administrar Bus de servicio de Azure?
 
-Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas de Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets de PowerShell para otros servicios de Azure, con el fin de automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
+Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas del Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
 
 Los siguientes son algunos ejemplos de cómo usar PowerShell para administrar Bus de servicio de Azure:
-
-- [Cmdlets personalizados de PowerShell para administrar colas de Bus de servicio de Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
-- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Creación de espacios de nombres de Bus de servicio de Azure con PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
-- [Módulo con DSCResource para agregar nodos de configuración y crear Bus de servicio de Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
+* [Cmdlets personalizados de PowerShell para administrar colas de Bus de servicio de Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
+* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Creación de espacios de nombres de Bus de servicio de Azure con PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Módulo con DSCResource para agregar nodos de configuración y crear Bus de servicio de Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
 
 ## Pasos siguientes
 
@@ -46,4 +45,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte el [Tutorial de introducción](https://azure.microsoft.com/documentation/learning-paths/automation/) de Automatización de Azure
 * Consulte cómo [administrar Bus de servicio con PowerShell](service-bus-powershell-how-to-provision.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

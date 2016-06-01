@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos" />
 
 # Instalar y configurar el adaptador de StorSimple para SharePoint
@@ -308,4 +308,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

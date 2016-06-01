@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Incorporación de la API de Twitter en PowerApps Enterprise y Aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Twitter con parámetros de la API de REST"
+	pageTitle="Introducción a la API de Twitter | Microsoft Azure"
+	description="Información general del conector de Twitter con parámetros de la API de REST"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/12/2016"
    ms.author="mandia"/>
 
 
-# Introducción a la API de Twitter
-Conectarse a Twitter para publicar un tweet, obtener la escala de tiempo de un usuario y mucho más. La API de Twitter puede usarse desde:
+# Introducción al conector de Twitter
+Conectarse a Twitter para publicar un tweet, obtener la escala de tiempo de un usuario y mucho más. El conector de Twitter puede usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -37,9 +37,9 @@ Con Twitter, puede:
 - Compilar el flujo de negocio en función de los datos que obtiene de Twitter. 
 - Usar desencadenadores cuando haya un nuevo tweet.
 - Usar acciones para registrar un tweet, buscar tweets y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando aparezca un nuevo tweet, puede publicarlo en Facebook.
-- Agregar la API de Twitter a PowerApps Enterprise | Microsoft Azure Así los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregue el conector de Twitter a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea información sobre cómo agregar un conector en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,17 +51,17 @@ Desencadenador | Acciones
 --- | ---
 <ul><li>Cuando aparezca un nuevo tweet</li></ul>| <ul><li>Publicar un nuevo tweet</li><li>Cuando aparezca un nuevo tweet</li><li>Obtener cronología de inicio</li><li>Obtener usuario</li><li>Obtener cronología de usuario</li><li>Buscar tweet</li><li>Obtener seguidores</li><li>Obtener mis seguidores</li><li>Obtener a quienes se sigue</li><li>Obtener a quienes sigo</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 
 ## Creación de la conexión a Twitter
 
-Al agregar esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Twitter.
+Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Twitter.
 
 1. Inicie sesión en su cuenta de Twitter.
 2. Seleccione **Autorizar** y permita que las aplicaciones lógicas se conecten y utilicen su cuenta de Twitter. 
 
-Después de crear la conexión, especifique las propiedades de Twitter, como texto del tweet. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
+>[AZURE.INCLUDE [Pasos para crear una conexión a Twitter](../../includes/connectors-create-api-twitter.md)]
 
 >[AZURE.TIP] Puede usar esta misma conexión de Twitter en otras aplicaciones lógicas.
 
@@ -94,7 +94,7 @@ Activa un flujo de trabajo cuando se publica un nuevo tweet que coincide con su 
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos). http://www.twitter.com/search)|
+|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos: http://www.twitter.com/search)|
 
 #### Respuesta
 |Nombre|Descripción|
@@ -110,7 +110,7 @@ Activa un flujo de trabajo cuando se publica un nuevo tweet que coincide con su 
 
 
 ### Obtener escala de tiempo de inicio 
-Recupera los tweets y retweets más recientes que hemos publicado mis seguidores y yo. ```GET: /hometimeline```
+Recupera los tweets y retweets más recientes enviados por mí y mis seguidores. ```GET: /hometimeline```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -129,7 +129,7 @@ Recupera los tweets y retweets más recientes que hemos publicado mis seguidores
 
 
 ### Obtener usuario 
-Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario, descripción, número de seguidores, etc.). ```GET: /user```
+Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario, descripción, número de seguidores, etc.) ```GET: /user```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -148,7 +148,7 @@ Recupera los detalles sobre el usuario especificado (ejemplo: nombre de usuario,
 
 
 ### Obtener biografía de usuario 
-Recupera una colección de los tweets más recientes que ha publicado el usuario especificado. ```GET: /usertimeline```
+Recupera una colección de los tweets más recientes publicados por el usuario especificado. ```GET: /usertimeline```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -168,11 +168,11 @@ Recupera una colección de los tweets más recientes que ha publicado el usuario
 
 
 ### Buscar tweet 
-Recupera una colección de tweets pertinentes que coincidan con una consulta especificada. ```GET: /searchtweets```
+Recupera una colección de tweets relevantes que coincidan con una consulta especificada. ```GET: /searchtweets```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
-|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos). http://www.twitter.com/search)|
+|searchQuery|cadena|yes|query|Ninguna|Texto de consulta (puede usar los operadores de consulta de Twitter admitidos: http://www.twitter.com/search)|
 |maxResults|integer|no|query|20|Número máximo de tweets que recuperar|
 
 #### Respuesta
@@ -315,4 +315,4 @@ Volver a la [lista de API](apis-list.md).
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->
