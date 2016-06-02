@@ -68,7 +68,7 @@ Para restaurar una base de datos eliminada, consulte:
 Para realizar una restauración geográfica:
 
 1. Inicie sesión en el [Portal de Azure][].
-2. En el lado izquierdo de la pantalla, seleccione **+NUEVO**, **Data and Storage** (Datos y almacenamiento) y, por último, **Almacenamiento de datos SQL**.
+2. En el lado izquierdo de la pantalla, seleccione **+NUEVO**, **Datos y almacenamiento** y, por último, **Almacenamiento de datos SQL**.
 3. Seleccione **COPIA DE SEGURIDAD** como origen y, después, la copia de seguridad con redundancia geográfica desde la que desea realizar la recuperación.
 4. Especifique el resto de propiedades de la base de datos y haga clic en **Crear**.
 5. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**.

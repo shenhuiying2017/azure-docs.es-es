@@ -106,7 +106,7 @@ Además de la configuración de la directiva local, si usa AppLocker para recopi
 
 Un método de proteger los servidores es asegurarse de que no se están comunicando con ninguna dirección IP sospechosa o malintencionada conocida. En OMS, tiene una vista centralizada que muestra todas las direcciones IP malintencionadas conocidas con las que los clientes y servidores administrados podrían estar comunicándose. Trabajando con Microsoft Threat Intelligence Center (MSTIC), OMS obtiene actualizaciones cada hora sobre las direcciones IP malintencionadas conocidas más recientes e informa si cualquiera de los servidores puede estar en peligro. El equipo de MSTIC trabaja con varios asociados de inteligencia de amenazas para recopilar y proporcionar esta lista consolidada al servicio de OMS.
 
-La vista de direcciones IP malintencionadas puede encontrarse dentro de la solución Seguridad y auditoría en el portal OMS, mostrada como **Diferentes direcciones IP sospechosas accedidas**.
+La vista de direcciones IP malintencionadas puede encontrarse dentro de la solución Seguridad y auditoría en el portal OMS, mostrada como **Distinct Suspicious IP Addresses Accessed (Acceso a diferentes direcciones IP sospechosas)**.
 
 Puede abrir el icono y ver la lista completa de las distintas direcciones IP sospechosas con las que podrían comunicarse los dispositivos. OMS examina todos los orígenes de datos que envía al servicio, incluidos:
 
@@ -128,8 +128,8 @@ En este ejemplo, nos fijaremos en una posible dirección IP malintencionada util
 
 1. Inicie sesión en OMS.
 2. En la página **Información general**, revise la información que se muestra en el mosaico **Auditoría y seguridad** y, luego, haga clic en él. ![Imagen de la página Información general](./media/log-analytics-security-audit/oms-security-audit-dash02.png)  
-3. En la página **Security and Audit** (Seguridad y auditoría), revise la información de resumen del icono **Distinct Suspicious IP Addresses Accessed** (Diferentes direcciones IP sospechosas accedidas). ![Página Seguridad y auditoría que muestra una dirección IP sospechosa](./media/log-analytics-security-audit/oms-maliciousip-01.png)  
-4. En este ejemplo, hay 6 direcciones IP sospechosas. Haga clic en el icono **Distinct Suspicious IP Addresses Accessed** (Diferentes direcciones IP sospechosas accedidas).
+3. En la página **Security and Audit** (Seguridad y auditoría), revise la información de resumen del icono **Distinct Suspicious IP Addresses Accessed** (Acceso a diferentes direcciones IP sospechosas). ![Página Seguridad y auditoría que muestra una dirección IP sospechosa](./media/log-analytics-security-audit/oms-maliciousip-01.png)  
+4. En este ejemplo, hay 6 direcciones IP sospechosas. Haga clic en el icono **Distinct Suspicious IP Addresses Accessed** (Acceso a diferentes direcciones IP sospechosas).
 5. La búsqueda muestra la consulta y los resultados de las direcciones IP malintencionadas que ha encontrado. En el ejemplo, hay 6 resultados y se muestran las direcciones IP. ![resultados de búsqueda que muestran direcciones IP sospechosas](./media/log-analytics-security-audit/oms-maliciousip-02-revised.png)  
 6. En la imagen anterior, observe la última dirección IP. En este ejemplo, es **94.102.56.130**. Haga clic en esa dirección.
 7. La búsqueda muestra resultados detallados, con varios datos indicadores de amenazas. **Haga clic en mostrar más** para ver todo el conjunto de resultados. ![resultados de búsqueda que muestran datos detallados de indicadores de amenazas](./media/log-analytics-security-audit/oms-maliciousip-03-revised.png)  
