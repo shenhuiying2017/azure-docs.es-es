@@ -374,7 +374,8 @@ Los recursos del grupo se identifican mediante el identificador de esquema http:
 
 La siguiente ilustración muestra los mensajes que Azure Active Directory enviará a un servicio SCIM para administrar el ciclo de vida de un usuario en otro almacén de identidades. El diagrama también muestra cómo un servicio SCIM implementado mediante las bibliotecas de Common Language Infrastructure proporcionadas por Microsoft para la creación de dichos servicios traducirá esas solicitudes a llamadas a los métodos de un proveedor.
 
-![][4] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][4]
+*Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 **1.** Azure Active Directory consultará el servicio para un usuario con un valor de atributo externalId que coincida con el valor de atributo mailNickname de un usuario en Azure Active Directory. La consulta se expresará como una solicitud de Protocolo de transferencia de hipertexto como esta, donde jyoung es un ejemplo de un mailNickname de un usuario en Azure Active Directory:
 
@@ -681,7 +682,8 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 * Las solicitudes para recuperar grupos estipulan que el atributo members se excluirá de cualquier recurso proporcionado en respuesta a la solicitud.  
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado serán solicitudes sobre el atributo members.  
 
-![][5] * Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
+![][5]
+*Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
 ##Artículos relacionados
 

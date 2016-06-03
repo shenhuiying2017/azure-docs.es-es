@@ -56,7 +56,7 @@ Si prefiere realizar sus propias pruebas de penetración o desea usar otro conju
 
 ##<a name="https"></a> Protección de la comunicación con clientes
 
-Si usa el nombre de dominio ***.azurewebsites.net** que se crea para su aplicación del Servicio de aplicaciones, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio ***.azurewebsites.net**. Si el sitio utiliza un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
+Si usa el nombre de dominio **.azurewebsites.net** que se crea para su aplicación del Servicio de aplicaciones, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio ***.azurewebsites.net**. Si el sitio utiliza un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
 
 Si habilita [HTTPS](https://en.wikipedia.org/wiki/HTTPS), puede contribuir a la protección frente a ataques MITM dirigidos a la comunicación entre la aplicación y sus usuarios.
 
