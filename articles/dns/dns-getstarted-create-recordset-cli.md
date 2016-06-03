@@ -66,4 +66,4 @@ Para administrar los registros y los conjuntos de registros, consulte [Cómo adm
 
 Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!----HONumber=AcomDC_0525_2016-->
