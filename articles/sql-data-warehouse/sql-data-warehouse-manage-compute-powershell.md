@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte [Manage compute power overview].
+Para más información, consulte [Manage compute power overview][].
 
 
 ## Antes de empezar
