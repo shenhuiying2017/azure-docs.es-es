@@ -37,7 +37,7 @@ Resumen del proceso de carga:
 4. Ejecute un comando T-SQL para cargar los datos en paralelo en una nueva tabla de base de datos.
 <!-- 5. Schedule and run a loading job. --> 
 
-Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][] [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)].
+Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)][].
 
 ### 2\. Usar Data Factory de Azure
 
@@ -50,7 +50,7 @@ Resumen del proceso de carga:
 3. Cree una canalización de Data Factory de Azure para introducir los datos. Use la opción PolyBase.
 4. Programe y ejecute la canalización.
 
-Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)][] [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)].
+Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)][].
 
 
 ## Carga desde SQL Server
@@ -68,7 +68,7 @@ Resumen del proceso de carga:
 3. Cambie la asignación en los paquetes para usar solamente los tipos de datos que admite Almacenamiento de datos SQL.
 3. Programe y ejecute el paquete.
 
-Para ver un tutorial, consulte [Load data from SQL Server to Azure SQL Data Warehouse (SSIS)][] [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)].
+Para ver un tutorial, consulte [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)][].
 
 ### Uso de AZCopy (recomendado para datos de menos de 10 TB)
 Si el tamaño de los datos es menor que 10 TB, puede exportar los datos de SQL Server a archivos planos, copiar los archivos al almacenamiento de blobs de Azure y luego usar PolyBase para cargar los datos en Almacenamiento de datos SQL.
@@ -79,7 +79,7 @@ Resumen del proceso de carga:
 2. Usar la utilidad de línea de comandos AZCopy para copiar datos de archivos planos en el almacenamiento de blobs de Azure.
 3. Use PolyBase para cargar datos en Almacenamiento de datos SQL
 
-Para ver un tutorial, consulte [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][] [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)].
+Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)][].
 
 ### Uso de bcp
 Si tiene una pequeña cantidad de datos, puede usar bcp para cargar directamente en Almacenamiento de datos SQL de Azure.
@@ -88,7 +88,7 @@ Resumen del proceso de carga:
 1. Use la utilidad de línea de comandos bcp para exportar datos de SQL Server a archivos planos.
 2. Use bcp para cargar datos de archivos planos directamente en Almacenamiento de datos SQL.
 
-Para ver un tutorial, consulte [Load data from SQL Server to Azure SQL Data Warehouse (bcp)][] [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)].
+Para ver un tutorial, consulte [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)][].
 
 
 ### Uso de importación/exportación (recomendado para datos de menos de 10 TB)
@@ -116,10 +116,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Load data from SQL Server to Azure SQL Data Warehouse (SSIS) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Load data from SQL Server to Azure SQL Data Warehouse (bcp) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]]: sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
 [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
