@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Administración de API de Azure
@@ -137,4 +137,4 @@ Administración de API usa el [método de enrutamiento de tráfico de rendimient
 
 Sí, consulte las plantillas de inicio rápido en [Azure API Management Service](http://aka.ms/apimtemplate) (Servicio de Administración de API de Azure).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

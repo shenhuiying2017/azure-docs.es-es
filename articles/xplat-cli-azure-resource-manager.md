@@ -13,7 +13,7 @@
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/20/2016"
 	ms.author="danlep"/>
 
@@ -234,4 +234,4 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md)
 * Para información sobre cómo trabajar con Azure Resource Manager desde el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

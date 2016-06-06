@@ -5,6 +5,6 @@ Ahora que está familiarizado con los aspectos básicos de Almacenamiento de tab
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
   - Para trabajar con los blobs de Almacenamiento de Azure, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
   - Para trabajar con las colas de Almacenamiento de Azure, consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../articles/storage/storage-dotnet-how-to-use-queues.md).
-  - Para almacenar datos relacionales, consulte [Uso de Base de datos SQL de Azure en aplicaciones .NET](../articles/sql-database/sql-database-dotnet-how-to-use.md).
+  - Para almacenar datos relacionales, consulte [Conexión a Base de datos SQL mediante .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="05/24/2016"
     ms.author="alkohli" />
 
 # Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
@@ -262,4 +262,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

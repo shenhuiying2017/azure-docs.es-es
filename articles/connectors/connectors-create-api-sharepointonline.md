@@ -1,10 +1,10 @@
 <properties
-pageTitle="Uso de la API de SharePoint Online en las aplicaciones lógicas o en PowerApps | Microsoft Azure"
-description="Introducción al uso de la API de SharePoint Online del Servicio de aplicaciones de Azure en las aplicaciones lógicas y en PowerApps."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Uso del conector de SharePoint Online en las aplicaciones lógicas o en PowerApps | Microsoft Azure"
+description="Introducción al uso del conector de SharePoint Online del Servicio de aplicaciones de Azure en las aplicaciones lógicas y en PowerApps."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introducción a la API de SharePoint Online
+# Introducción al conector de SharePoint Online 
 
-El proveedor de la conexión de SharePoint proporciona una API para trabajar con listas de SharePoint.
+El conector de SharePoint ofrece una manera de trabajar con listas en SharePoint.
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
 
@@ -32,9 +32,9 @@ Para agregar una operación en aplicaciones lógicas, consulte [Creación de una
 
 ## Hablemos de acciones y desencadenadores
 
-La API de SharePoint se puede usar como una acción; tiene desencadenadores. Todas las API admiten datos en formato JSON y XML.
+El conector de SharePoint se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
 
-La API de SharePoint tiene las siguientes acciones y desencadenadores disponibles:
+El conector de SharePoint tiene las siguientes acciones o desencadenadores disponibles:
 
 ### Acciones de SharePoint
 Puede realizar estas acciones:
@@ -66,25 +66,21 @@ Se pueden escuchar estos eventos:
 
 
 ## Creación de una conexión a SharePoint
-Para usar la API de SharePoint, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
+Para usar el conector de SharePoint, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
 |Se necesita el cifrado de tokens|Sí|Proporcionar credenciales de SharePoint|
 
-Para poder efectuar la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar la API de SharePoint Online en la aplicación lógica.
+Para poder efectuar la conexión con **SharePoint Online**, tiene que proporcionar su identidad (nombre de usuario y contraseña, credenciales de tarjeta inteligente, etc.) a SharePoint Online. Una vez que se ha autenticado, podrá usar el conector de SharePoint Online en la aplicación lógica.
 
 Mientras se encuentra en el diseñador de la aplicación lógica, siga estos pasos para iniciar sesión en SharePoint y crear la **conexión** para su uso en la aplicación lógica:
 
-1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre.
-![Configurar SharePoint][1]  
+1. Escriba "SharePoint" en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "SharePoint" en el nombre. ![Configurar SharePoint][1]  
 2. Seleccione **SharePoint Online - When a file is created** (SharePoint Online - cuando se crea un archivo).   
-3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online).
-![Configurar SharePoint][2]    
-4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint.
-![Configurar SharePoint][3]     
-5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el diálogo de SharePoint **When a file is created** (Cuando se crea un archivo).
-![Configurar SharePoint][4]  
+3. Seleccione **Sign in to SharePoint Online** (Iniciar sesión en Sharepoint Online). ![Configurar SharePoint][2]    
+4. Proporcione sus credenciales de SharePoint para iniciar sesión y autenticarse con SharePoint. ![Configurar SharePoint][3]     
+5. Cuando finalice la autenticación, se le redirigirá a la aplicación lógica para que la complete configurando el diálogo de SharePoint **When a file is created** (Cuando se crea un archivo). ![Configurar SharePoint][4]  
 6. A continuación, puede agregar otros desencadenadores y acciones que necesita para completar la aplicación lógica.   
 7. Guarde el trabajo seleccionando **Guardar** en la barra de menús superior.  
 
@@ -705,4 +701,4 @@ Ninguna de las propiedades es obligatoria.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

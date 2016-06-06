@@ -1,0 +1,65 @@
+<properties
+	pageTitle="Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure | Microsoft Azure"
+	description="Obtenga información acerca de qué hacer si se produce una interrupción de un servicio de Azure que afecta a las máquinas virtuales de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kmouss"
+	manager="drewm"
+	editor=""/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.workload="virtual-machines"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/16/2016"
+	ms.author="kmouss;aglick"/>
+
+#Qué hacer si se produce una interrupción del servicio de Azure que afecta a las máquinas virtuales de Azure
+
+En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles cuando los necesite. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas.
+
+Microsoft proporciona Acuerdos de Nivel de Servicio para sus servicios como un compromiso respecto del tiempo de actividad y la conectividad. Puede encontrar el Acuerdo de Nivel de Servicio para los diferentes servicios de Azure en [Acuerdos de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/).
+
+Azure ya dispone de muchas características integradas de la plataforma que admiten aplicaciones de alta disponibilidad. Para más información sobre estos servicios, lea [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide) (Recuperación ante desastres y alta disponibilidad para las aplicaciones de Azure).
+
+En este documento se expone un caso real de recuperación ante desastres en el que toda una región experimenta una interrupción debido a un desastre natural importante o a una interrupción del servicio generalizada. Son casos que ocurren rara vez, pero debe estar preparado para la posibilidad de que se produzca una interrupción en toda la región. Si una región completa experimenta una interrupción del servicio, las copias con redundancia local de los datos estarían temporalmente no disponibles. Si ha habilitado la replicación geográfica, hay tres copias adicionales de los blobs y las tablas de Almacenamiento de Azure almacenados en una región distinta. En caso de un interrupción completa en una región o de un desastre en el que la región primaria no sea recuperable, Azure reasignará todas las entradas DNS a la región de replicación geográfica.
+ 
+>[AZURE.NOTE]Tenga en cuenta que no tendrá ningún control sobre este proceso, y que solo se producirá en caso de errores en toda la región. Por este motivo, también debe confiar en otras estrategias de copia de seguridad específicas de la aplicación para lograr el máximo nivel de disponibilidad. Para más información, consulte la sección [Data Strategies for Disaster Recovery](https://aka.ms/drtechguide#DSDR) (Estrategias de datos para la recuperación ante desastres).
+
+Para ayudarle a administrar estos eventos poco frecuentes, le proporcionamos las siguientes orientaciones para una máquina virtual de Azure destinadas a los casos de interrupción del servicio en toda una región donde se ha implementado la aplicación de máquina virtual de Azure.
+
+##Opción 1: esperar a que se recupere el servicio 
+En este caso, no se requieren acciones por su parte. Sabe que trabajaremos con rapidez para que el servicio de Azure vuelva a estar disponible. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/).
+
+>[AZURE.NOTE]Esta es la mejor opción si no ha configurado Azure Site Recovery (ASR), la copia de seguridad de máquina virtual, el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia geográfica (GRS) antes de la interrupción. Si ha configurado el almacenamiento GRS (o RA-GRS) para la cuenta de almacenamiento donde se almacenan los discos duros virtuales de la máquina virtual, puede fijarse en cómo recuperar el disco duro virtual de la imagen base y tratar de aprovisionar una nueva máquina virtual desde ahí. Esta no es la mejor opción porque no hay ninguna garantía de sincronización de datos, a menos que se utilice la copia de seguridad de máquina virtual de Azure o ASR y, por tanto, no se puede garantizar su funcionamiento.
+
+Para aquellos clientes que desean un acceso un inmediato a las máquinas virtuales, están disponibles las dos opciones siguientes.
+
+>[AZURE.NOTE]Tenga en cuenta que en las dos es posible que se produzca una pérdida de datos.
+
+##Opción 2: restaurar una máquina virtual desde una copia de seguridad 
+En el caso de los clientes que tienen una copia de seguridad de la máquina virtual configurada, puede restaurar dicha máquina virtual desde su punto de copia de seguridad y recuperación.
+
+Para saber cómo restaurar una máquina virtual nueva desde Copia de seguridad de Azure, consulte Restauración de máquinas virtuales en Azure.
+
+Si quiere ayuda para planear la infraestructura de copia de seguridad de máquinas virtuales de Azure, lea el artículo [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](../backup/backup-azure-vms-introduction.md).
+
+##Opción 3: iniciar una conmutación por error con Azure Site Recovery (ASR) 
+Si ha configurado Azure Site Recovery para trabajar con las máquinas virtuales de Azure afectadas, puede restaurar las máquinas virtuales desde sus réplicas. Estas réplicas pueden residir en Azure o en el equipo local. En este caso, puede crear una nueva máquina virtual desde su réplica existente. Si desea restaurar las máquinas virtuales desde una réplica de Azure Site Recovery, consulte [Migración de máquinas virtuales de IaaS de Azure entre regiones de Azure con Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
+
+>[AZURE.NOTE]Aunque el SO de la máquina virtual de Azure y los discos de datos se repliquen en una unidad de disco duro virtual (VHD) secundaria, si están en una cuenta de almacenamiento GRS o RA-GRS, cada disco duro virtual se replica de forma independiente, y este nivel de replicación no garantiza la coherencia entre los discos duros virtuales replicados. Si su aplicación o las bases de datos que usan estos discos de datos tienen dependencias entre sí, no se garantiza que todos los discos duros virtuales se repliquen como una instantánea. Tampoco se garantiza que la réplica del disco duro virtual desde el almacenamiento GRS o RA-GRS dé lugar a una instantánea coherente entre aplicaciones para arrancar la máquina virtual.
+
+##Referencias 
+[Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure](https://aka.ms/drtechguide)
+
+[Orientación técnica de la continuidad del negocio de Azure](http://aka.ms/bctechguide)
+
+[Copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms.md)
+
+[Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/)
+
+Si las instrucciones no están claras, o si desea que Microsoft realice las operaciones en su lugar, póngase en contacto con el [servicio de asistencia al cliente](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+<!---HONumber=AcomDC_0525_2016-->

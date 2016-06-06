@@ -40,12 +40,16 @@ A continuación, debe crear una aplicación en su directorio B2C. Esto proporcio
 
 ## Crear sus directivas
 
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
-- Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
-- Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
+>[AZURE.NOTE] Azure AD B2C también admite una directiva de inicio de sesión o registro combinados que no se incluye en este tutorial. La directiva de inicio de sesión o registro se muestra en [este tutorial equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+
+Cuando cree las tres directivas, asegúrese de:
+
+- Elegir **User ID sign-up** (Registro de id. de usuario) o **Email sign-up** (Registro de correo electrónico) en la hoja de proveedores de identidades.
+- Elegir el **nombre para mostrar** y los atributos de registro restantes en la directiva de registro.
 - Elegir la notificación de **Nombre para mostrar** como una notificación de aplicación en cada directiva. Puede elegir también otras notificaciones.
-- Copiar el **Nombre** de cada directiva después de crearla. Necesitará esos nombres de directiva más adelante.
+- Copiar el **nombre** de cada directiva después de crearla. Necesitará esos nombres de directiva más adelante.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -53,13 +57,15 @@ Después de crear las tres directivas, está listo para compilar la aplicación.
 
 ## Descargar el código y configurar la autenticación
 
-El código de este ejemplo [se conserva en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+El código de esta muestra [se conserva en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para compilar la muestra a medida que avance, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-El ejemplo completado también estará [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
+La muestra completada también estará [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
 Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar.
 
@@ -73,7 +79,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-Luego, abra el archivo `web.config` en la raíz del proyecto y escriba los valores de configuración de su aplicación en la sección `<appSettings>`.
+Luego, abra el archivo `web.config` en la raíz del proyecto y escriba los valores de configuración de LA aplicación en la sección `<appSettings>`.
 
 ```
 <configuration>
@@ -95,7 +101,7 @@ Luego, abra el archivo `web.config` en la raíz del proyecto y escriba los valor
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Ahora, agregue una clase de inicio de OWIN al proyecto llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento** y, a continuación, busque "OWIN". Cambie la declaración de clase a `public partial class Startup`. Hemos implementado parte de esta clase automáticamente en otro archivo. El middleware OWIN invocará el método `Configuration(...)` al iniciarse la aplicación. En este método, realice una llamada a `ConfigureAuth(...)`, donde se configura la autenticación para la aplicación.
+Ahora, agregue una clase de inicio de OWIN al proyecto llamado "`Startup.cs`". Haga clic con el botón derecho en el proyecto, seleccione **Agregar** y **Nuevo elemento**; después, busque OWIN. Cambie la declaración de clase a `public partial class Startup`. Hemos implementado parte de esta clase automáticamente en otro archivo. El middleware OWIN invocará el método `Configuration(...)` al iniciarse la aplicación. En este método, realice una llamada a `ConfigureAuth(...)`, donde se configura la autenticación para la aplicación.
 
 ```C#
 // Startup.cs
@@ -233,7 +239,7 @@ public void Profile()
 }
 ```
 
-También puede utilizar una etiqueta `PolicyAuthorize` personalizada en los controladores que requiere la ejecución de una directiva determinada si el usuario no ha iniciado sesión. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[PolicyAuthorize]` al controlador de notificaciones. Reemplace la directiva de ejemplo por su propia directiva de inicio de sesión.
+También puede utilizar una etiqueta `PolicyAuthorize` personalizada en los controladores, que requiere la ejecución de una directiva determinada si el usuario no ha iniciado sesión. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[PolicyAuthorize]` al controlador de notificaciones. Reemplace la directiva de ejemplo por su propia directiva de inicio de sesión.
 
 ```C#
 // Controllers\HomeController.cs
@@ -288,7 +294,7 @@ private async Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotifi
 ## Mostrar información de usuario
 Cuando se autentican los usuarios mediante OpenID Connect, Azure AD devuelve un token de identificador a la aplicación que contiene **notificaciones**. Se trata de aserciones sobre el usuario. Puede usar notificaciones para personalizar su aplicación.
 
-Abra el archivo `Controllers\HomeController.cs`. Puede tener acceso a las notificaciones del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current`.
+Abra el archivo `Controllers\HomeController.cs`. Puede acceder a las notificaciones del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current`.
 
 ```C#
 // Controllers\HomeController.cs
@@ -302,15 +308,15 @@ public ActionResult Claims()
 }
 ```
 
-Puede tener acceso a cualquier notificación que recibe su aplicación de la misma manera. Tiene disponible una lista de todas las notificaciones que recibe la aplicación en la página **Notificaciones**.
+Puede tener acceso a cualquier notificación que recibe su aplicación de la misma manera. Tiene disponible una lista de todas las notificaciones que recibe la aplicación en la página **Reclamaciones**.
 
 ## Ejecutar la aplicación de ejemplo
 
-Por último, puede compilar y ejecutar la aplicación. Regístrese en la aplicación con una dirección de correo electrónico o un nombre de usuario. Cierre la sesión y vuelva a iniciarla como el mismo usuario. Edite el perfil de ese usuario. Cierre la sesión y regístrese como otro usuario. Observe que la información que se muestra en la pestaña **Notificaciones** se corresponde con la información configurada en las directivas.
+Por último, puede compilar y ejecutar la aplicación. Regístrese en la aplicación con una dirección de correo electrónico o un nombre de usuario. Cierre la sesión y vuelva a iniciarla como el mismo usuario. Edite el perfil de ese usuario. Cierre la sesión y regístrese como otro usuario. Observe que la información que se muestra en la pestaña **Reclamaciones** se corresponde con la información configurada en las directivas.
 
 ## Agregar IDP sociales
 
-Actualmente, la aplicación admite solo registros e inicios de sesión de usuarios mediante **cuentas locales**. Se trata de cuentas almacenadas en el directorio B2C que utilizan un nombre de usuario y una contraseña. Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades** sin cambiar el código.
+Actualmente, la aplicación admite solo registros e inicios de sesión de usuarios mediante **cuentas locales**. Se trata de cuentas almacenadas en el directorio B2C que utilizan un nombre de usuario y una contraseña. Con Azure AD B2C, puede agregar compatibilidad con otros **proveedores de identidades** (IDP) sin cambiar el código.
 
 Para agregar proveedores de identidades sociales a su aplicación, comience siguiendo las instrucciones detalladas en estos artículos. Para cada proveedor de identidades que desee admitir, necesitará registrar una aplicación en ese sistema y obtener un identificador de cliente.
 
@@ -319,11 +325,11 @@ Para agregar proveedores de identidades sociales a su aplicación, comience sigu
 - [Configurar Amazon como una IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar LinkedIn como una IDP](active-directory-b2c-setup-li-app.md)
 
-Después de agregar proveedores de identidades a su directorio B2C, tendrá que editar cada una de las tres directivas para incluir los nuevos proveedores de identidades, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md). Después de guardar las directivas, vuelva a ejecutar la aplicación. Debería ver los proveedores de identidades nuevos agregados como opciones de inicio de sesión y registro en cada una de sus experiencias de identidad.
+Después de agregar los proveedores de identidades a su directorio B2C, tendrá que editar cada una de las tres directivas para incluir los nuevos proveedores de identidades, tal y como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md). Después de guardar las directivas, vuelva a ejecutar la aplicación. Debería ver los proveedores de identidades nuevos agregados como opciones de inicio de sesión y registro en cada una de sus experiencias de identidad.
 
 Puede experimentar con las directivas y observar el efecto en la aplicación de ejemplo. Agregue o quite proveedores de identidades, manipule notificaciones de aplicación o cambie atributos de registro. Experimente para ver cómo se combinan las directivas, las solicitudes de autenticación y OWIN.
 
-Como referencia, se proporciona el ejemplo finalizado (sin sus valores de configuración) [como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
+Como referencia, se proporciona la muestra completada (sin los valores de configuración) [como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -341,4 +347,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

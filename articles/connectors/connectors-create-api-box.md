@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de Box a las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Box con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de Box a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Box con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de Box
-Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. La API de Box puede utilizarse desde:
+# Introducción al conector de Box
+Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. El conector de Box se puede utilizar desde:
 
 - Aplicaciones lógicas (descritas en este tema)
 - PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
@@ -40,13 +40,12 @@ Box incluye los siguientes desencadenadores y acciones.
 | --- | --- |
 |<ul><li>Cuando se crea un archivo</li><li>Cuando se modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Cuando se crea un archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en la carpeta</li><li>Obtener contenido de archivo con el identificador</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo con el identificador</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se modifica un archivo</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Box
-Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Box.
+Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su Box.
 
-1. Inicie sesión en su cuenta de Box.
-2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten a Box y utilicen esta aplicación. 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Box](../../includes/connectors-create-api-box.md)]
 
 Después de crear la conexión, escriba las propiedades de Box. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
@@ -261,6 +260,6 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Box. ```GET
 
 ## Pasos siguientes
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

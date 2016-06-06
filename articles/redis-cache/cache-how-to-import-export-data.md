@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Importación y exportación de datos en la Caché en Redis de Azure
@@ -94,6 +94,7 @@ Esta sección contiene las preguntas más frecuentes acerca de la característic
 -	[¿Puedo importar datos desde cualquier servidor de Redis?](#can-i-import-data-from-any-redis-server)
 -	[¿La caché estará disponible durante una operación de Importación/Exportación?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[¿Puedo utilizar Importación/Exportación con un clúster de Redis?](#can-i-use-importexport-with-redis-cluster)
+-	[¿Cómo funciona la importación y exportación con una configuración de bases de datos personalizada?](#how-does-importexport-work-with-a-custom-databases-setting)
 -	[¿En qué se diferencia Importación/Exportación de la persistencia de Redis?](#how-is-importexport-different-from-redis-persistence)
 -	[¿Puedo automatizar Importación/Exportación mediante PowerShell, la CLI u otros clientes de administración?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 -	[He recibido un error de tiempo de espera durante la operación de Importación/Exportación. ¿Qué significa esto?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
@@ -116,11 +117,20 @@ Sí, además de importar los datos exportados desde instancias de Caché en Redi
 
 ### ¿Puedo utilizar Importación/Exportación con un clúster de Redis?
 
-Sí, y puede importar/exportar entre una caché en clústeres y una caché que no esté en clústeres. Dado que el clúster de Redis solo admite la base de datos 0, no puede importar datos que estuvieran almacenados en una base de datos distinta de 0. Cuando se importan datos de caché en clúster, las claves se redistribuyen entre las particiones del clúster.
+Sí, y puede importar/exportar entre una caché en clústeres y una caché que no esté en clústeres. Puesto que el clúster de Redis [solo admite la base de datos 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), solo se importarán los datos de la base de datos 0. Cuando se importan datos de caché en clúster, las claves se redistribuyen entre las particiones del clúster.
+
+### ¿Cómo funciona la importación y exportación con una configuración de bases de datos personalizada?
+
+Algunos planes de tarifa tienen diferentes [límites de bases de datos](cache-configure.md#databases), por lo que hay algunas consideraciones al importar si ha configurado un valor personalizado para el parámetro `databases` al crear la memoria caché.
+
+-	Al importar a un plan de tarifa con un límite de `databases` menor que el nivel desde el que exportó:
+	-	Si utiliza el número predeterminado de `databases`, que es 16 para todos los planes de tarifa, no se pierden datos.
+	-	Si utiliza un número personalizado de `databases` que está dentro de los límites para el plan al que va a importar, no se pierden datos.
+	-	Si los datos exportados contenían datos en una base de datos que supera los límites del nuevo plan, no se importan los datos de esas bases de datos superiores.
 
 ### ¿En qué se diferencia Importación/Exportación de la persistencia de Redis?
 
-La persistencia de la Caché en Redis de Azure permite mantener datos almacenados en Redis en Almacenamiento de Azure. Cuando se configura la persistencia, Caché en Redis de Azure conserva una instantánea de la memoria caché de Redis en un formato binario de Redis en el disco según una frecuencia de copia de seguridad configurable. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, los datos de la caché se restauran automáticamente con la instantánea más reciente. Para obtener más información, vea [Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
+La persistencia de la Caché en Redis de Azure permite mantener datos almacenados en Redis en Almacenamiento de Azure. Cuando se configura la persistencia, Caché en Redis de Azure conserva una instantánea de la memoria caché de Redis en un formato binario de Redis en el disco según una frecuencia de copia de seguridad configurable. Si se produce un evento catastrófico que deshabilita tanto la caché de réplica como la principal, los datos de la caché se restauran automáticamente con la instantánea más reciente. Para más información, consulte [Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
 
 Importación/Exportación permite traer datos a la Caché en Redis de Azure o exportar desde este servicio. No configura la copia de seguridad y restauración mediante la persistencia de Redis.
 
@@ -158,4 +168,4 @@ Importación/Exportación solo funciona con archivos RDB almacenados como blobs 
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

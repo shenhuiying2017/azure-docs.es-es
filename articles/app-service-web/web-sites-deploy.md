@@ -126,9 +126,9 @@ En el [Portal de Azure](https://portal.azure.com), puede configurar la implement
 * [Publicación en aplicaciones web desde cualquier repositorio git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
 
 ## Implementación mediante un IDE
-Si ya usa [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) con un [Azure SDK](https://azure.microsoft.com/downloads/), o bien otros conjuntos de aplicaciones de IDE, como [Xcode](https://developer.apple.com/xcode/) y [Eclipse](https://www.eclipse.org), puede implementar en Azure directamente desde el IDE. Esta opción es perfecta para un desarrollador individual.
+Si ya usa [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) con un [Azure SDK](https://azure.microsoft.com/downloads/), o bien otros conjuntos de aplicaciones de IDE, como [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org) e [IntelliJ IDEA](https://www.jetbrains.com/idea/), puede efectuar implementaciones en Azure directamente desde el IDE. Esta opción es perfecta para un desarrollador individual.
 
-Visual Studio admite los tres procesos de implementación (FTP, Git y Web Deploy), en función de sus preferencias, mientras que otros IDE pueden implementar en el Servicio de aplicaciones si tienen integración FTP o Git (consulte [Información general sobre los procesos de implementación](#overview)).
+Visual Studio admite los tres procesos de implementación (FTP, Git y Web Deploy), en función de sus preferencias, mientras que otros IDE pueden efectuar implementaciones en el Servicio de aplicaciones si tienen integración con FTP o Git (consulte [Descripción general de la implementación de Servicio de aplicaciones de Azure](#overview)).
 
 Las ventajas de la implementación mediante un IDE son las siguientes:
 
@@ -139,7 +139,7 @@ Los inconvenientes de la implementación mediante un IDE son los siguientes:
 - Mayor complejidad de las herramientas.
 - Aún requiere un sistema de control de código fuente para un proyecto de equipo.
 
-<a name="vspros"></a> Las ventajas adicionales de la implementación mediante Visual Studio con Azure SDK son las siguiente:
+<a name="vspros"></a> Las ventajas adicionales de la implementación mediante Visual Studio con Azure SDK son las siguientes:
 
 - Azure SDK hace de los recursos de Azure ciudadanos de primera clase en Visual Studio. Cree, elimine, edite, inicie y detenga aplicaciones, consulte la Base de datos SQL del back-end, depure en directo la aplicación de Azure y mucho más. 
 - Edición en directo de archivos de código en Azure.
@@ -154,6 +154,14 @@ Los inconvenientes de la implementación mediante un IDE son los siguientes:
 * [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y base de datos SQL en aplicaciones web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
 * [Implementación web de ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista. Desde que se escribió el tutorial se han agregado algunas características de implementación de Azure, pero las notas agregadas posteriormente explican lo que falta.
 * [Implementación de un sitio web ASP.NET en Azure en Visual Studio 2012 desde un repositorio Git directamente](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git. A partir de Visual Studio 2013, la compatibilidad con Git está integrada y no requiere la instalación de un complemento.
+
+###<a name="aztk"></a>Implementación con los kits de herramientas de Azure para Eclipse e IntelliJ IDEA
+
+Microsoft le permite implementar aplicaciones web en Azure directamente desde Eclipse e IntelliJ a través del [kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse.md) y [kit de herramientas de Azure para IntelliJ](../azure-toolkit-for-intellij.md). Los siguientes tutoriales ilustran los pasos que intervienen en la implementación de una sencilla aplicación web que muestra el mensaje "Hello world!" (¡Hola, mundo!) en Azure mediante cada uno de los dos IDE:
+
+*  [Create a Hello World Web App for Azure in Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md) (Creación de una aplicación web que muestra el mensaje "Hello world!" para Azure en Eclipse). En este tutorial, se muestra cómo utilizar el kit de herramientas de Azure para Eclipse con el fin de crear e implementar una aplicación web que muestra el mensaje "Hello world!" (¡Hola, mundo!) para Azure.
+*  [Create a Hello World Web App for Azure in IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md) (Creación de una aplicación web que muestra el mensaje "Hello world!" para Azure en IntelliJ). En este tutorial, se muestra cómo utilizar el kit de herramientas de Azure para IntelliJ con el fin de crear e implementar una aplicación web que muestra el mensaje "Hello world!" (¡Hola, mundo!) para Azure.
+
 
 ## <a name="automate"></a>Automatización de la implementación mediante herramientas de línea de comandos
 
@@ -219,11 +227,11 @@ Para obtener más información, consulte el siguiente recurso:
 
 En algunos escenarios, es posible que desee poder cambiar fácilmente entre una versión de ensayo y versión una de producción de su aplicación. Para obtener más información, consulte [Implementación de ensayo en Web Apps](web-sites-staged-publishing.md).
 
-Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Servicio de aplicaciones, consulte [Copias de seguridad de Aplicaciones web](web-sites-backup.md).
+Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración del Servicio de aplicaciones, consulte [Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure](web-sites-backup.md).
 
-Para obtener información sobre cómo usar el Control de acceso basado en roles de Azure para administrar el acceso a la implementación de Servicio de aplicaciones, consulte [RBAC y la publicación de aplicaciones web](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
+Para obtener información sobre cómo usar el control de acceso basado en roles de Azure para administrar el acceso a la implementación del Servicio de aplicaciones, consulte [RBAC and Web App Publishing](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/) (RBAC y la publicación de aplicaciones web).
 
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Información general sobre SQL Server en máquinas virtuales de Azure
@@ -47,7 +47,7 @@ Cuando se haya registrado para una suscripción, la manera más sencilla de impl
 Es importante tener en cuenta que hay dos modelos para crear y administrar máquinas virtuales de Azure: clásica y Administrador de recursos. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md). Cada tema debe indicar claramente su modelo de destino, a menos que se aplique tanto al clásico como al de Resource Manager, como este artículo.
 
 ## Elección de una imagen de máquina virtual de SQL
-En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponibles en la galería de máquinas virtuales. Haga clic en cualquiera de los vínculos de la tabla para crear una máquina virtual para esa versión, edición y sistema operativo.
+En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponibles en la galería de máquinas virtuales. Haga clic en cualquiera de los vínculos de la tabla en función de la versión, la edición y el sistema operativo. A continuación, haga clic en el botón **Crear máquina virtual** en la página de Marketplace.
 
 |Versión de SQL Server|Sistema operativos|Edición de SQL Server|
 |---|---|---|
@@ -61,9 +61,11 @@ En la tabla siguiente se ofrece una matriz de imágenes de SQL Server disponible
 
 >[AZURE.NOTE] De manera predeterminada, el Programa para la mejora de la experiencia del cliente (CEIP) está habilitado. Si es necesario, el CEIP se puede personalizar o deshabilitar después de aprovisionar la máquina virtual. Conéctese a la máquina virtual con Escritorio remoto y ejecute la utilidad **Informes de uso y errores de SQL Server**.
 
+¿Necesita más ayuda con la creación de una nueva máquina virtual de SQL? Consulte todos los detalles en el [tutorial sobre aprovisionamiento](virtual-machines-windows-portal-sql-server-provision.md).
+
 Además de estas imágenes preconfiguradas, también puede [crear una máquina virtual de Azure](virtual-machines-windows-hero-tutorial.md) sin que SQL Server esté preinstalado. Puede instalar cualquier instancia de SQL Server de la que tenga licencia. Migre su licencia a Azure para ejecutar SQL Server en una máquina virtual de Azure mediante la [Movilidad de licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/). En este escenario, solo se paga por los [costes](https://azure.microsoft.com/pricing/details/virtual-machines/) de almacenamiento y proceso de Azure asociados a la máquina virtual.
 
-Para determinar la mejor configuración de la máquina virtual para la imagen de SQL Server, revise [Prácticas recomendadas para mejorar el rendimiento de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md). Para cargas de trabajo de producción, **DS3** y **DS2** son los tamaños de máquina virtual mínimos recomendados para las ediciones SQL Server Enterprise y Standard, respectivamente.
+Para determinar la mejor configuración de la máquina virtual para la imagen de SQL Server, revise [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md). Para cargas de trabajo de producción, se recomienda **DS3** como tamaño mínimo de máquina virtual para la edición SQL Server Enterprise. **DS2** es el tamaño mínimo de máquina virtual recomendado para cargas de trabajo de producción en la edición Standard.
 
 ## Migración de los datos
 
@@ -71,7 +73,7 @@ Una vez puesta en marcha la máquina virtual de SQL Server, podrá migrar bases 
 
 ## Alta disponibilidad
 
-Si requiere alta disponibilidad, considere la posibilidad de configurar grupos de disponibilidad de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de Azure dispone de una plantilla que define esta configuración. Para obtener más información, consulte [Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
+Si requiere alta disponibilidad, considere la posibilidad de configurar grupos de disponibilidad de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de Azure dispone de una plantilla que define esta configuración. Para más información, consulte [Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
 Si desea configurar manualmente el grupo de disponibilidad y el agente de escucha asociado, consulte [Configuración de grupos de disponibilidad AlwaysOn en la máquina virtual de Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
@@ -88,6 +90,6 @@ En primer lugar, [cree su propia máquina virtual SQL Server en el Portal de Azu
 
 Luego, consulte las [prácticas recomendadas para mejorar el rendimiento](virtual-machines-windows-sql-performance.md) y las [técnicas de migración](virtual-machines-windows-migrate-sql.md) cuando considere la posibilidad de mover las cargas de trabajo de SQL Server a máquinas virtuales de Azure.
 
-Si tiene más dudas sobre SQL Server en máquinas virtuales de Azure, consulte [Preguntas más frecuentes sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-faq.md). O bien, agregue sus comentarios a la parte inferior de cualquiera de los temas de las máquinas virtuales de SQL para interactuar con Microsoft y la comunidad.
+¿Tiene más preguntas acerca de SQL Server en máquinas virtuales de Azure? En primer lugar, consulte las [Preguntas más frecuentes sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-faq.md). Pero también agregue sus preguntas o comentarios en la parte inferior de cualquiera de los temas de las máquinas virtuales de SQL para interactuar con Microsoft y la comunidad.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

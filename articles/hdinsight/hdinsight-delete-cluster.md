@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/07/2016"
+ms.date="05/20/2016"
 ms.author="larryfr"/>
 
 #Eliminación de un clúster de HDInsight
@@ -34,8 +34,6 @@ La facturación de los clústeres de HDInsight comienza una vez que se crea el c
 
 ##Azure PowerShell
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 Desde un símbolo del sistema de PowerShell, utilice el siguiente comando para eliminar el clúster:
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
@@ -44,12 +42,10 @@ Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
 ##Azure CLI
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
 Desde un símbolo del sistema, utilice el siguiente comando para eliminar el clúster:
 
     azure hdinsight cluster delete CLUSTERNAME
     
 Reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

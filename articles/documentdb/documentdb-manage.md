@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/24/2016" 
 	ms.author="mimig"/>
 
 # Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB
-DocumentDB es un servicio de bases de datos NoSQL orientadas a documentos totalmente administrado y escalable para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software, supervisar bases de datos o preocuparse por la recuperación ante desastres. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales.
+DocumentDB es un servicio de bases de datos NoSQL orientadas a documentos totalmente administrado y escalable para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales.
 
 Puede empezar con DocumentDB mediante la [creación de una cuenta de base de datos](documentdb-create-account.md) a través del [Portal de Azure](https://portal.azure.com/). DocumentDB se ofrece en unidades de rendimiento y almacenamiento respaldado de unidad de estado sólido (SSD). Estas unidades se aprovisionan mediante la creación de colecciones de la base de datos dentro de su cuenta de base de datos. Cada colección con rendimiento reservado. Si se cambian los requisitos de rendimiento de su aplicación, lo cambia dinámicamente estableciendo el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección.
 
@@ -132,4 +132,4 @@ Para obtener instrucciones sobre cómo supervisar los niveles de rendimiento en 
 Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

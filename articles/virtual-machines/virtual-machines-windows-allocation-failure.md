@@ -13,7 +13,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="support-article"
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
@@ -23,4 +23,4 @@ Cuando se crea o se cambia el tamaño de una VM (máquina virtual), o bien se re
 
 [AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

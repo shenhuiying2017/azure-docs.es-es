@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de almacenamiento de Azure
@@ -195,4 +195,4 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

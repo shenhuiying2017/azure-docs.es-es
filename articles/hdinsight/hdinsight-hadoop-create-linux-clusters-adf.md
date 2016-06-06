@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure
@@ -136,9 +136,9 @@ Si necesita ayuda con este script de la CLI, vea [Uso de la CLI de Azure con Alm
         -type Standard_LRS `
         -Location $location 
 
-    $destStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $destStorageAccountKey = (Get-AzureRmStorageAccountKey `
         -ResourceGroupName $resourceGroupName `
-        -Name $destStorageAccountName |  %{ $_.Key1 }
+        -Name $destStorageAccountName)[0].Value
 
     $sourceContext = New-AzureStorageContext `
         -StorageAccountName $sourceStorageAccountName `
@@ -438,4 +438,4 @@ En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para cre
 - [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentación de Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de FTP en las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de FTP con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de FTP a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de FTP con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de FTP
-Conéctese a un servidor FTP administrar los archivos, lo que incluye tareas como cargar archivos, eliminar archivos, etc. La API de FTP se puede usar desde:
+# Introducción al conector de FTP
+Conéctese a un servidor FTP administrar los archivos, lo que incluye tareas como cargar archivos, eliminar archivos, etc. El conector de FTP puede usarse desde:
 
 - Aplicaciones lógicas (descritas en este tema)
 - PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
@@ -41,16 +41,12 @@ Desencadenadores | Acciones
 --- | ---
 <ul><li>Obtiene un archivo actualizado</li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Obtener un archivo actualizado</li><li>Actualizar archivo</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a FTP
-Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguientes:
 
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-|Dirección del servidor| Sí | Escriba el dominio completo (FQDN) o la dirección IP del servidor FTP.|
-|Nombre de usuario| Sí | Escriba el nombre de usuario para conectarse al servidor FTP.|
-|Password | Sí | Escriba la contraseña del nombre de usuario.|
+
+>[AZURE.INCLUDE [Pasos para crear una conexión FTP](../../includes/connectors-create-api-ftp.md)]
 
 Después de crear la conexión, especifique las propiedades de FTP, como el archivo de origen o la carpeta de destino. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
@@ -246,6 +242,6 @@ Actualiza un archivo en el servidor FTP. ```PUT: /datasets/default/files/{id}```
 
 ## Pasos siguientes
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

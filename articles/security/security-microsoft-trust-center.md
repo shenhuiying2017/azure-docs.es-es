@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Centro de confianza de Microsoft
@@ -26,15 +26,15 @@ Y tenemos las respuestas. Puesto que son sus datos, usted decide quién tiene ac
 
 Estas son las secciones que encontrará en el Centro de confianza de Microsoft:
 
-- [Security](https://www.microsoft.com/TrustCenter/Security/default.aspx) (Seguridad): aprenda cómo se protegen los servicios de Microsoft Cloud.
-- [Privacy](https://www.microsoft.com/TrustCenter/Privacy/default.aspx) (Privacidad): comprenda cómo Microsoft garantiza la privacidad de los datos en la nube de Microsoft.
-- [Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) (Cumplimiento): descubra cómo Microsoft ayuda a las organizaciones a cumplir los requisitos nacionales, regionales y específicos del sector que rigen la recopilación y el uso de los datos de las personas.
-- [Transparency](https://www.microsoft.com/TrustCenter/Transparency/default.aspx) (Transparencia): vea cómo Microsoft cree que usted puede controlar los datos en la nube y cómo Microsoft le ayuda a conocer lo más posible la forma en que se administran los datos.
-- [Products and Services](https://www.microsoft.com/TrustCenter/CloudServices/default.aspx) (Productos y servicios): vea todos los productos y servicios de Microsoft Cloud en un solo lugar.
-- [Service Trust Portal](https://www.microsoft.com/TrustCenter/STP/default.aspx) (Portal de servicios de confianza): obtenga copias de informes de auditoría independiente de servicios en la nube de Microsoft, evaluaciones de riesgos, procedimiento de seguridad recomendados y materiales relacionados.
-- [What's New](https://www.microsoft.com/TrustCenter/Whats-New/default.aspx) (Novedades): averigüe cuáles son las novedades del Centro de confianza de Microsoft.
-- [Resources](https://www.microsoft.com/TrustCenter/Resources/default.aspx) (Recursos): investigue documentos técnicos, vídeos y estudios de casos en el Centro de confianza de Microsoft.
+- [Security](https://aka.ms/tcsecurity) (Seguridad): aprenda cómo se protegen los servicios de Microsoft Cloud.
+- [Privacy](https://aka.ms/tcprivacy) (Privacidad): comprenda cómo Microsoft garantiza la privacidad de los datos en la nube de Microsoft.
+- [Compliance](https://aka.ms/tccompliance) (Cumplimiento): descubra cómo Microsoft ayuda a las organizaciones a cumplir los requisitos nacionales, regionales y específicos del sector que rigen la recopilación y el uso de los datos de las personas.
+- [Transparency](https://aka.ms/tctransparency) (Transparencia): vea cómo cree Microsoft que usted controla sus datos en la nube y cómo le ayuda a comprender en lo posible la forma en que se administran los datos.
+- [Products and Services](https://aka.ms/tcproductsservices) (Productos y servicios): vea todos los productos y servicios de Microsoft Cloud en un solo lugar.
+- [Service Trust Portal](https://aka.ms/tcservicetrportal) (Portal de servicios de confianza): obtenga copias de informes de auditoría independientes de servicios en la nube de Microsoft, evaluaciones de riesgos, procedimientos recomendados de seguridad y materiales relacionados.
+- [What's New](https://aka.ms/tcwhatsnew) (Novedades): descubra las novedades de Microsoft Cloud Trust.
+- [Resources](https://aka.ms/tcresources) (Recursos): investigue notas de producto, vídeos y casos prácticos en Microsoft Trusted Cloud.
 
 El [Centro de confianza de Microsoft](https://www.microsoft.com/trustcenter) tiene lo que necesita para comprender qué debemos hacer para proteger la nube de Microsoft.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

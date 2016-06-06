@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2016"    
+	ms.date="05/19/2016"    
 	ms.author="juliako"/>
 
 
@@ -236,11 +236,25 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 		}
 
 
+##Compatibilidad con tamaños relativos
+
+Si se generan miniaturas fuera de él, no será preciso especificar siempre la anchura y altura, en píxeles, de la salida. Se pueden en forma porcentual, en el intervalo [1 %,..., 100 %].
+
+###Valor preestablecido JSON 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###Valor preestablecido XML
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>Generación de miniaturas
 
-En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar el código que genera miniaturas.
+En esta sección se muestra cómo personalizar un valor preestablecido que genera vistas en miniatura. El valor preestablecido que se define a continuación contiene información sobre cómo se quiere codificar el archivo, así como la información necesaria para generar miniaturas. Puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y agregar código que genere miniaturas.
 
->[AZURE.NOTE]La configuración de **SceneChangeDetection** en el siguiente valor preestablecido solo se puede establecer en true si va a codificar en vídeo de una única velocidad de bits. Si va a codificar en vídeo de varias velocidades de bits y establece **SceneChangeDetection** en true, el codificador devolverá un error.
+>[AZURE.NOTE]En el siguiente valor preestablecido, **SceneChangeDetection** solo se puede establecer en true si va realizar la codificación en vídeo de una única velocidad de bits. Si la codificación se va a realizar en vídeo de múltiples velocidades de bits y se establece **SceneChangeDetection** en true, el codificador devolverá un error.
 
 
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
@@ -444,7 +458,7 @@ Se aplican las siguientes consideraciones:
 
 ##<a id="trim_video"></a>Recorte de un vídeo
 
-En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o se archiva desde una transmisión por secuencias en directo; los detalles para ello están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+En esta sección se habla sobre cómo modificar los valores preestablecidos del codificador para recortar el vídeo de entrada donde la entrada es un archivo denominado intermedio o a petición. El codificador también se puede usar para recortar un recurso que se captura o archiva desde una transmisión por secuencias en directo (los detalles están disponibles en [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)).
 
 Para recortar vídeos, puede usar cualquiera de los valores preestablecidos de MES que se documentan [aquí](https://msdn.microsoft.com/library/mt269960.aspx) y modificar el elemento **Sources** (como se muestra a continuación). El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene una marca de tiempo de 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. En el ejemplo siguiente, se supone que el vídeo de entrada tiene una marca de tiempo inicial de cero. Tenga en cuenta que el elemento **Sources** se debe colocar al principio del valor preestablecido.
  
@@ -693,7 +707,7 @@ Media Encoder Estándar permite superponer una imagen en un vídeo existente. Ac
 
 Además de definir un archivo de valores preestablecidos, también tiene que permitir que Servicios multimedia sepa qué archivo del recurso es la imagen de superposición y qué archivo contiene el vídeo de origen en el que desea superponer la imagen. El archivo de vídeo debe ser el archivo **principal**.
 
-El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder** y **EncodeWithOverlay**. La función UploadMediaFilesFromFolder carga archivos desde una carpeta (por ejemplo, BigBuckBunny.mp4 e Image001.png) y establece el archivo mp4 como el archivo principal del recurso. La función **EncodeWithOverlay** usa el archivo preestablecido personalizado que se le trasladó (por ejemplo, el archivo preestablecido siguiente) para crear la tarea de codificación.
+El ejemplo anterior de .NET define dos funciones: **UploadMediaFilesFromFolder** y **EncodeWithOverlay**. La función UploadMediaFilesFromFolder carga archivos desde una carpeta (por ejemplo, BigBuckBunny.mp4 e Image001.png) y establece el archivo mp4 como el archivo principal del recurso. La función **EncodeWithOverlay** usa el archivo preestablecido personalizado que se le pasó (por ejemplo, el archivo preestablecido siguiente) para crear la tarea de codificación.
 
 >[AZURE.NOTE]Limitaciones actuales:
 >
@@ -1072,4 +1086,4 @@ Actualice el valor preestablecido personalizado con los identificadores de los r
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

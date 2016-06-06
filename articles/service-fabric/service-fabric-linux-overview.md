@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric en Azure
 
 Service Fabric está disponible en estos momentos como una vista previa limitada en Linux. Permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en ese entorno de la misma forma que en Windows. Además, ahora los marcos de Service Fabric de alto nivel (Reliable Services y Reliable Actors) se pueden compilar en Java.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Sistemas operativos y lenguajes de programación compatibles
 
@@ -30,7 +32,7 @@ Puede compilar [servicios ejecutables invitados](service-fabric-deploy-existing-
 
 ## Participación en la vista previa
 
-Si está interesado en participar en el programa de vista previa limitada, [rellene la encuesta](http://aka.ms/sflinuxsurvey) para que podamos comprender mejor su escenario y sus requisitos. La vista previa será muy limitada al principio e irá ampliándose con el tiempo.
+Si está interesado en participar en el programa de versión preliminar limitada, [rellene la encuesta](http://aka.ms/sflinuxsurvey) para que podamos comprender mejor su escenario y sus requisitos. La vista previa será muy limitada al principio e irá ampliándose con el tiempo.
 
 Tenga en cuenta que la versión de Service Fabric para Linux, desde el punto de vista conceptual, equivale a la que está disponible en Windows (excepto las características del sistema operativo y la compatibilidad con lenguajes de programación), por lo que la mayor parte de nuestra [documentación](http://aka.ms/servicefabricdocs) es pertinente y le ayudará a familiarizarse con la tecnología.
 
@@ -38,4 +40,4 @@ Tenga en cuenta que la versión de Service Fabric para Linux, desde el punto de 
 
 Familiarizarse con los marcos de [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

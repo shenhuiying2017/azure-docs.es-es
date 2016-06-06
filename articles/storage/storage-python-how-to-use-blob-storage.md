@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del almacenamiento de blobs de Azure desde Python | Microsoft Azure"
+	pageTitle="Uso de Almacenamiento de blobs de Azure (almacenamiento de objetos) en Python | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter="python"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
+
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 Este artículo le muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs. Los ejemplos están escritos en Python y usan el [SDK de Almacenamiento de Microsoft Azure para Python]. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
 
@@ -125,4 +127,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

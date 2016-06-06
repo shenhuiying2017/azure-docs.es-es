@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Inicio de una revisión de seguridad en Privileged Identity Management de Azure AD
 
-Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de seguridad deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de seguridad en Privileged Identity Management (PIM) de Azure AD.
+Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de seguridad en Privileged Identity Management (PIM) de Azure AD.
 
 ## Inicio de una revisión de seguridad
 > [AZURE.NOTE] Si no ha agregado la aplicación PIM al panel del Portal de Azure, consulte los pasos que se indican en [Introducción a Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
@@ -64,4 +64,4 @@ Puede seguir el progreso de las revisiones a medida que los revisores las realiz
 ## Tabla de contenido de PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Asistente para seguridad de Privileged Identity Management de Azure AD
@@ -26,10 +26,10 @@ Antes de que su organización comienza a usar PIM, todas las asignaciones de rol
 
 El segundo paso del asistente le ofrece la oportunidad de cambiar las asignaciones de roles del administrador.
 
-> [AZURE.WARNING] Es importante que tenga al menos un administrador global, y más de un administrador de seguridad con una cuenta de organización (no una cuenta de Microsoft). Si solo hay un administrador de seguridad, la organización no podrá administrar PIM si esa cuenta se elimina. Además, no cambie las asignaciones de roles a temporales si un usuario tiene una cuenta de Microsoft. Si tiene pensado exigir MFA para la activación de ese rol, a ese usuario se le bloqueará el acceso al rol.
+> [AZURE.WARNING] Es importante que tenga al menos un administrador global, y más de un administrador de roles con privilegios con una cuenta de organización (no una cuenta Microsoft). Si solo hay un administrador de roles con privilegios, la organización no podrá administrar PIM si esa cuenta se elimina. Además, no cambie las asignaciones de roles a temporales si un usuario tiene una cuenta de Microsoft. Si tiene pensado exigir MFA para la activación de ese rol, a ese usuario se le bloqueará el acceso al rol.
 
 
-Una vez realizados los cambios, ya no se mostrará el asistente. La próxima vez que usted u otro administrador de seguridad use PIM, verá el panel de PIM.
+Una vez realizados los cambios, ya no se mostrará el asistente. La próxima vez que usted u otro administrador de roles con privilegios use PIM, verá el panel de PIM.
 
 - Si desea agregar o quitar usuarios a roles, o cambiar las asignaciones de permanentes a temporales, puede obtener más información en [Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 - Si desea conceder acceso a más usuarios para administrar PIM, aprenda cómo hacerlo en [Concesión de acceso para administrar Privileged Identity Management de Azure AD](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
@@ -39,4 +39,4 @@ Una vez realizados los cambios, ya no se mostrará el asistente. La próxima vez
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

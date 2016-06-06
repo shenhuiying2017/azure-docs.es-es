@@ -30,7 +30,7 @@
 En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
 ## Creación del grupo de seguridad de red para la subred front-end
-Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos.
+Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -136,7 +136,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		}
 
 ## Creación del grupo de seguridad de red para la subred back-end
-Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escenario anterior, siga estos pasos.
+Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escenario anterior, siga estos pasos:
 
 1. Crear una regla de seguridad que permita el acceso desde la subred front-end al puerto 1433 (puerto predeterminado utilizado por SQL Server).
 
@@ -182,4 +182,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

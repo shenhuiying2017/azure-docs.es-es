@@ -1,21 +1,20 @@
-
 <properties
-  pageTitle="Establecimiento y recuperación de propiedades y metadatos para los objetos contenidos en Almacenamiento de Azure | Microsoft Azure"
-  description="Almacenamiento de metadatos personalizados en los objetos de Almacenamiento de Azure y establecimiento y recuperación de propiedades del sistema."
-  services="storage"
-  documentationCenter=""
-  authors="tamram"
-  manager="carmonm"
-  editor="tysonn"/>
+	pageTitle="Establecimiento y recuperación de propiedades y metadatos para los objetos contenidos en Almacenamiento de Azure | Microsoft Azure"
+	description="Almacenamiento de metadatos personalizados en los objetos de Almacenamiento de Azure y establecimiento y recuperación de propiedades del sistema."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-  ms.service="storage"
-  ms.workload="storage"
-  ms.tgt_pltfrm="na"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="02/20/2016"
-  ms.author="tamram"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/23/2016"
+	ms.author="tamram"/>
 
 # Establecer y recuperar propiedades y metadatos #
 
@@ -98,4 +97,4 @@ Para recuperar metadatos, llame al método **FetchAttributes** en el blob o cont
 - [Documentación de referencia de la biblioteca cliente de Almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Paquete de la biblioteca cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

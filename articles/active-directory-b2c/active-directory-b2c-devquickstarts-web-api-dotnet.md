@@ -58,7 +58,9 @@ Tenga en cuenta que este artículo no trata sobre cómo usar las directivas que 
 
 ## Descargar el código
 
-El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Para compilar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Para compilar la muestra a medida que avance, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
@@ -66,7 +68,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 
 La aplicación completada también estará [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
-Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskService` y un proyecto `TaskWebApp`. El elemento `TaskWebApp` es el front-end de la aplicación web de Windows Presentation Foundation (WPF) con la que interactúa el usuario. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
+Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. El elemento `TaskWebApp` es el front-end de la aplicación web de Windows Presentation Foundation (WPF) con la que interactúa el usuario. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
 
 ## Configurar el servicio de tarea
 
@@ -88,11 +90,11 @@ Cuando `TaskService` recibe una solicitud de `TaskWebApp`, busca un token de acc
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-En este artículo no se cubren los detalles de cómo proteger `TaskService`. Para saber de qué forma una API web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro [artículo de introducción a la API web](active-directory-b2c-devquickstarts-api-dotnet.md).
+En este artículo no se explican los detalles de cómo proteger `TaskService`. Para saber de qué forma una API web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro [artículo de introducción a la API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## Configurar la aplicación web de tarea
 
-Para que `TaskWebApp` se comunique con Azure AD B2C, es preciso especificar algunos parámetros comunes. En el proyecto `<appSettings>`, abra el archivo `TaskWebApp` en la raíz del proyecto y reemplace los valores de la sección `web.config`: Estos valores se usarán en toda la aplicación web.
+Para que `TaskWebApp` se comunique con Azure AD B2C, es preciso especificar algunos parámetros comunes. En el proyecto `TaskWebApp`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`. Estos valores se usarán en toda la aplicación web.
 
 ```
 <appSettings>
@@ -114,7 +116,7 @@ Para que `TaskWebApp` se comunique con Azure AD B2C, es preciso especificar algu
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página de la aplicación que requiere autenticación.
+Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario trata de acceder a una página de la aplicación que requiere autenticación.
 
 ```C#
 // Controllers\HomeController.cs
@@ -134,11 +136,11 @@ public class TasksController : Controller
 
 ## Obtener tokens de acceso y llamar a la API de la tarea
 
-En esta sección se describe cómo completar un intercambio de tokens de OAuth 2.0 en una aplicación web con bibliotecas y marcos de trabajo de Microsoft. Si no está familiarizado con los códigos de autorización y los tokens de acceso, puede aprender más cosas en la [referencia del protocolo OAuth 2.0](active-directory-b2c-reference-protocols.md).
+En esta sección se describe cómo completar un intercambio de tokens de OAuth 2.0 en una aplicación web con bibliotecas y marcos de trabajo de Microsoft. Si no está familiarizado con los códigos de autorización y los tokens de acceso, puede obtener más información en la [referencia del protocolo OpenID Connect](active-directory-b2c-reference-protocols.md).
 
 ### Obtener un código de autorización
 
-El primer paso en una llamada de API de `TaskService` es autenticar al usuario y recibir un código de autorización de Azure AD. Puede recibir un código de autorización de Azure AD después de ejecutar cualquier directiva correctamente, por ejemplo, directivas de inicio de sesión, registro y edición de perfiles.
+El primer paso en una llamada de API web de `TaskService` es autenticar al usuario y recibir un código de autorización de Azure AD. Puede recibir un código de autorización de Azure AD después de ejecutar cualquier directiva correctamente, por ejemplo, directivas de inicio de sesión, registro y edición de perfiles.
 
 Para comenzar, instale el software intermedio de OpenID Connect, OWIN, mediante la Consola del Administrador de paquetes de Visual Studio. Vamos a usar OWIN para enviar las solicitudes de autenticación a Azure AD y administrar sus respuestas:
 
@@ -251,7 +253,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 ### Obtener un token de acceso en los controladores
 
-Después de adquirir un token de acceso para el back-end de `TaskService` y almacenarlo en la caché de tokens de ADAL, debe utilizarlo `TasksController` es responsable de comunicarse con la API de `TaskService` y envía solicitudes HTTP a la API para leer, crear y eliminar tareas. Antes de enviar la solicitud HTTP, obtenga un token de acceso de AAL:
+Después de adquirir un token de acceso para el back-end de `TaskService` y almacenarlo en la caché de tokens de ADAL, debe utilizarlo. `TasksController` es responsable de comunicarse con la API de `TaskService` y envía solicitudes HTTP a la API para leer, crear y eliminar tareas. Antes de enviar la solicitud HTTP, obtenga un token de acceso de AAL:
 
 ```C#
 // Controllers\TasksController.cs
@@ -339,7 +341,7 @@ public async Task<ActionResult> Index()
 
 ### Creación y eliminación de tareas de la API web
 
-Siga el mismo patrón cuando envíe solicitudes `POST` y `DELETE` a `TaskService`. Llame a `AuthenticationContext.AcquireTokenSilentAsync(...)` y adjunte el token resultante a la solicitud en el encabezado `Authorization`. La acción de creación se implementa automáticamente. Puede intentar finalizar la acción de eliminación en `TasksController.cs`.
+Siga el mismo patrón cuando envíe solicitudes `POST` y `DELETE` a `TaskService`. Llame a `AuthenticationContext.AcquireTokenSilentAsync(...)` y adjunte el token resultante a la solicitud en el encabezado `Authorization`. La acción de creación se implementa automáticamente. Puede tratar de finalizar la acción de eliminación en `TasksController.cs`.
 
 ## Cierre de la sesión del usuario
 
@@ -372,7 +374,7 @@ public void SignOut()
 
 Por último, compile y ejecute `TaskClient` y `TaskService`. Regístrese e inicie sesión en la aplicación. Cree tareas para el usuario que inició sesión. Cierre la sesión y iníciela con otro usuario diferente. Cree tareas para ese usuario. Observe cómo se almacenan las tareas por usuario en la API, puesto que la API extrae la identidad del usuario del token de acceso que recibe.
 
-Como referencia, el ejemplo completo [se proporciona como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
+Como referencia, la muestra completa [se proporciona como archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -388,4 +390,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

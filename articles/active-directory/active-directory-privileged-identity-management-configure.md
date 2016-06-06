@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="05/19/2016"
 	ms.author="kgremban"/>
 
 # Administración de identidades con privilegios de Azure AD
@@ -54,9 +54,9 @@ Para empezar a usar Privileged Identity Management de Azure AD, acceda al [Porta
 5. Seleccione **Azure AD Privileged Identity Management**.
 6. Active la opción **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá el panel Privileged Identity Management.
 
-Si usted es la primera persona que usa Privileged Identity Management de Azure AD en su directorio, el [Asistente para seguridad](active-directory-privileged-identity-management-security-wizard.md) le guiará en la experiencia de asignación inicial. Después de eso, se convertirá automáticamente en el primer **administrador de seguridad** del directorio.
+Si usted es la primera persona que usa Privileged Identity Management de Azure AD en su directorio, el [Asistente para seguridad](active-directory-privileged-identity-management-security-wizard.md) le guiará en la experiencia de asignación inicial. Después de eso, se convertirá automáticamente en el primer **administrador de seguridad** y **administrador de roles con privilegios** del directorio.
 
-El administrador de seguridad es el único que puede utilizar la aplicación PIM para administrar el acceso de otros administradores. También puede [conceder a otros usuarios la capacidad de administrar en PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+El administrador de roles con privilegios es el único que puede utilizar la aplicación PIM para administrar el acceso de otros administradores. También puede [conceder a otros usuarios la capacidad de administrar en PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## Panel de Administración de identidades con privilegios
 
@@ -113,4 +113,4 @@ Mediante Privileged Identity Management de Azure AD, también puede realizar un 
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del almacenamiento de blobs de PHP | Microsoft Azure"
+	pageTitle="Uso de Almacenamiento de blobs (almacenamiento de objetos) en PHP | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	documentationCenter="php"
 	services="storage"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
+
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos en PHP y usan el [SDK de Azure para PHP][download]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#next-steps).
 
@@ -306,4 +308,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

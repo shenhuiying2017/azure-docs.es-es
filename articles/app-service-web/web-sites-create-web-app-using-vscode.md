@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Creación de una aplicación web ASP.NET 5 en Visual Studio Code
 
@@ -127,7 +127,7 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 2. Abra un explorador y vaya a la dirección URL siguiente.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	La página predeterminada de la aplicación web se mostrará como sigue.
 
@@ -262,4 +262,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para más información sobre VS Code, vea el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
@@ -33,9 +33,9 @@ Las conexiones a Almacenamiento de datos SQL pueden cifrarse configurando el mod
 
 La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Actualmente, Almacenamiento de datos SQL admite la autenticación de SQL Server con un nombre de usuario y una contraseña, además de una versión preliminar de Azure Active Directory.
 
-Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo".
+Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos de ese servidor como propietario, o "dbo" a través de la autenticación en SQL Server.
 
-Sin embargo, como práctica recomendada, los usuarios de su organización deben usar una cuenta diferente para autenticar. De esta manera puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de aplicación sea vulnerable a ataques de inyección SQL.
+Sin embargo, como práctica recomendada, los usuarios de su organización deben usar una cuenta diferente para autenticarse. De esta manera puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de aplicación sea vulnerable a ataques de inyección SQL.
 
 Para crear un usuario autenticado de SQL Server, conéctese a la base de datos **maestra** en el servidor con su inicio de sesión de administrador de servidor y cree un nuevo inicio de sesión de servidor.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para más información sobre la autenticación en una base de datos SQL, consulte [Managing databases and logins in Azure SQL Database][] (Administración de bases de datos e inicios de sesión en Base de datos SQL de Azure) y [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Conexión a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory).
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más detalles sobre cómo se usa la vista preliminar de Azure AD de Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Conexión a Almacenamiento de datos SQL con autenticación en Azure Active Directory).
 
 
 ## Autorización
@@ -106,7 +106,7 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
 [roles de base de datos]: https://msdn.microsoft.com/library/ms189121.aspx
-[Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
+[Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [cifrado de datos transparente]: https://go.microsoft.com/fwlink/?LinkId=526242
@@ -115,4 +115,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

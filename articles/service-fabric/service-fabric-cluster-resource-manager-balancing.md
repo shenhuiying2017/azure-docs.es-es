@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Equilibrio del clúster de Service Fabric
@@ -39,12 +39,14 @@ ClusterManifest.xml:
         </Section>
 ```
 
-En la actualidad solo realizamos una de estas acciones a la vez, de manera secuencial. Es decir, por ejemplo, ya hemos respondido a las solicitudes para crear nuevas réplicas antes de continuar con el equilibrio del clúster. Como puede ver por los intervalos de tiempo especificados, podemos examinar y comprobar cualquier cosa que necesitemos hacer con mucha frecuencia, lo que significa que cada conjunto de cambios es habitualmente más pequeño (no examinamos horas de cambios en el clúster e intentamos corregirlos todos a la vez, sino que podemos hacer frente a las cosas con efectividad conforme van sucediendo). Esto hace que el Administrador de recursos de Service Fabric tenga una gran capacidad de respuesta a todo lo que sucede en el clúster.
+En la actualidad solo realizamos una de estas acciones a la vez, de manera secuencial. Es decir, por ejemplo, ya hemos respondido a las solicitudes para crear nuevas réplicas antes de continuar con el equilibrio del clúster. Como puede ver por los intervalos de tiempo especificados, podemos examinar y comprobar cualquier cosa que necesitemos hacer con mucha frecuencia, de modo que el conjunto de cambios que realizamos al final es habitualmente más pequeño: no examinamos horas de cambios en el clúster e intentamos corregirlos todos a la vez, sino que intentamos hacer frente a las cosas más o menos conforme van sucediendo, recurriendo al procesamiento por lotes cuando ocurren muchas cosas a la vez. Esto hace que el Administrador de recursos de Service Fabric tenga una gran capacidad de respuesta a todo lo que sucede en el clúster.
 
-Fundamentalmente, el Administrador de recursos de clúster también debe saber cuándo considerar que el clúster está desequilibrado y qué réplicas se deben mover para solucionar las cosas. Para ello contamos con dos elementos de configuración principales: umbrales de equilibrio y umbrales de actividad.
+Fundamentalmente, el Administrador de recursos de clúster también debe saber cuándo considerar que el clúster está desequilibrado y qué réplicas se deben mover para solucionar las cosas. Para ello contamos con dos elementos de configuración principales: *umbrales de equilibrio* y *umbrales de actividad*.
 
 ## Umbrales de equilibrio
-Un umbral de equilibrio es el control principal para la activación del reequilibrio proactivo. El umbral de equilibrio define cómo de desequilibrado debe estar el clúster con respecto a una métrica determinada para que el Administrador de recursos considere que está desequilibrado y active el equilibrio durante la próxima ejecución. Los umbrales de equilibrio se definen por métrica como parte del manifiesto de clúster:
+Un umbral de equilibrio es el control principal para la activación del reequilibrio proactivo. El umbral de equilibrio define cómo de desequilibrado debe estar el clúster con respecto a una métrica determinada para que el Administrador de recursos considere que está desequilibrado y desencadene el equilibrio. Los umbrales de equilibrio se definen por métrica como parte de la definición de clúster:
+
+ClusterManifest.xml
 
 ``` xml
     <Section Name="MetricBalancingThresholds">
@@ -57,23 +59,27 @@ El umbral de equilibrio de una métrica es una proporción. Si la cantidad de ca
 
 ![Ejemplo de umbral de equilibrio][Image1]
 
-En este sencillo ejemplo cada servicio solo consume una unidad de algunos métrica. En el ejemplo superior, la carga máxima en un nodo es 5 y la mínima es 2. Supongamos que el umbral de equilibrio de esta métrica es 3. Por lo tanto, en el ejemplo superior, se considera que el clúster está equilibrado y no se activará ningún equilibrio. En el ejemplo de la parte inferior, la carga máxima en un nodo es 10, mientras que el valor mínimo es 2, lo que nos coloca por encima del umbral de equilibrio diseñado de 3. Como resultado, casi seguramente la carga se distribuirá al Nodo3 una vez que el Administrador de recursos tiene la oportunidad de ejecutarse. Tenga en cuenta que dado que no usamos un enfoque expansivo, parte podría llegar también al Nodo2, lo que daría lugar a la reducción de las diferencias globales entre los nodos.
+En este sencillo ejemplo cada servicio solo consume una unidad de algunos métrica. En el ejemplo superior, la carga máxima en un nodo es 5 y la mínima es 2. Supongamos que el umbral de equilibrio de esta métrica es 3. Por lo tanto, en el ejemplo superior, el clúster se considera equilibrado y no se activará el equilibrio (ya que la proporción del clúster es de 5/2 = 2,5, que es inferior al umbral de equilibrio especificado de 3).
+
+En el ejemplo de la parte inferior, la carga máxima en un nodo es 10, mientras que el valor mínimo es 2 (lo que da una proporción de 5), lo que nos coloca por encima del umbral de equilibrio diseñado de 3. En consecuencia, se producirá un reequilibrio global la próxima vez que se active el temporizador y la carga se distribuirá al Nodo3 casi con total seguridad. Tenga en cuenta que dado que no usamos un enfoque expansivo, parte podría llegar también al Nodo2, lo que daría lugar a la reducción de las diferencias globales entre los nodos, si bien es de esperar que la mayoría de la carga vaya al Nodo3.
 
 ![Acciones de ejemplo de umbral de equilibrio][Image2]
 
-Observe que el objetivo explícito no es estar por debajo del umbral de equilibrio; los umbrales de equilibrio son solo el desencadenador.
+Tenga en cuenta que el objetivo explícito no es estar por debajo del umbral de equilibrio; los umbrales de equilibrio son solo el *desencadenador* que indica Cluster Resource Manager de Service Fabric que examine el clúster para determinar qué mejoras puede realizar.
 
 ## Umbrales de actividad
 En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga total en el clúster es baja. Esto puede ser debido simplemente a la hora del día o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera pasarse el tiempo equilibrando ya que tampoco hay mucho que ganar; gastará recursos de red y de procesos para que las cosas funcionen. Existe otro control dentro del Administrador de recursos, conocido como Umbral de actividad, que le permite especificar algún límite inferior para la actividad: si ningún nodo tiene al menos esta carga, el equilibrio no se desencadenará incluso si se cumple el umbral de equilibrio. Como ejemplo, supongamos que tenemos informes con los siguientes totales de consumo en estos nodos. Supongamos también que conservamos nuestro umbral de equilibrio de 3, pero ahora también tenemos un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo satisface el umbral mínimo de actividad, por lo que dejamos que las cosas sigan su curso. En el ejemplo de abajo, el Nodo1 supera con creces el umbral de actividad, así que no se realizará ningún equilibrio.
 
 ![Ejemplo de umbral de actividad][Image3]
 
-Al igual que los umbrales de equilibrio, los umbrales de actividad se definen por métrica a través del manifiesto de clúster:
+Al igual que los umbrales de equilibrio, los umbrales de actividad se definen por métrica a través de la definición de clúster:
+
+ClusterManifest.xml
 
 ``` xml
-      <Section Name="MetricActivityThresholds">
-        <Parameter Name="Memory" Value="1536"/>
-      </Section>
+    <Section Name="MetricActivityThresholds">
+      <Parameter Name="Memory" Value="1536"/>
+    </Section>
 ```
 
 ## Equilibrio conjunto de los servicios
@@ -94,7 +100,7 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 ## Pasos siguientes
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 - El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
-- El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md)
+- El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md).
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -103,4 +109,4 @@ El Administrador de recursos calcula automáticamente qué servicios están rela
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -22,13 +22,59 @@
 
 Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
+## ¿Qué son las colas del Bus de servicio?
+
+Las colas del Bus de servicio son compatibles con el modelo de comunicación de **mensajería asíncrona**. Cuando se usan colas, los componentes de una aplicación distribuida no se comunican directamente entre sí, sino que intercambian mensajes a través de una cola, que actúa como un intermediario (agente). El productor del mensaje (remitente) manda un mensaje a la cola y, a continuación sigue con su procesamiento. De forma asíncrona, el destinatario del mensaje (receptor) extrae el mensaje de la cola y lo procesa. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes. Las colas ofrecen una entrega de mensajes según el modelo **El primero en entrar es el primero en salir (FIFO)** a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
+
+![QueueConcepts](./media/service-bus-java-how-to-use-queues/sb-queues-08.png)
+
+Las colas del Bus de servicio son una tecnología de uso general que puede utilizarse en una variedad de escenarios:
+
+- Comunicación entre los roles de trabajo y web en una aplicación de Azure de niveles múltiples.
+- Comunicación entre aplicaciones locales y aplicaciones hospedadas de Azure en una solución híbrida.
+- Comunicación entre componentes de una aplicación distribuida que se ejecuta en local en distintas organizaciones o departamentos de una organización.
+
+El uso de colas permite escalar las aplicaciones horizontalmente con mayor facilidad y dotar de resiliencia a su arquitectura.
+
+## Creación de un espacio de nombres de servicio
+
+Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+
+Para crear un espacio de nombres:
+
+1.  Inicie sesión en el [Portal de Azure clásico][].
+
+2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
+
+3.  En el panel inferior del Portal, haga clic en **Crear**. ![](./media/service-bus-java-how-to-use-queues/sb-queues-03.png)
+
+4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![](./media/service-bus-java-how-to-use-queues/sb-queues-04.png)
+
+5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
+
+	IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+
+6. 	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+
+El espacio de nombres que creó tardará un momento en activarse y, después, aparecerá en el Portal de Azure. Espere hasta que el estado del espacio de nombres sea **Activo** antes de continuar.
+
+## Obtención de credenciales de administración predeterminadas para el espacio de nombres
+
+Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal.
+
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![](./media/service-bus-java-how-to-use-queues/sb-queues-13.png)
+
+2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada.
+
+3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. ![](./media/service-bus-java-how-to-use-queues/sb-queues-14.png)
+
+4.  Anote la clave principal o cópiela en el Portapapeles.
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
 Asegúrese de que ha instalado el [SDK de Azure para Java][] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
 
-![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Agregue las siguientes instrucciones `import` al principio del archivo Java:
 
@@ -106,7 +152,7 @@ En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al `Tes
          service.sendQueueMessage("TestQueue", message);
     }
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+El tamaño máximo de mensaje que admiten las colas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
 ## mensajes de una cola
 
@@ -188,5 +234,6 @@ Para obtener más información, consulte el [Centro de desarrolladores de Java](
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

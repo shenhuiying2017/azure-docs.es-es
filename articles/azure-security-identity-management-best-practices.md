@@ -1,19 +1,19 @@
 <properties
    pageTitle="Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure | Microsoft Azure"
    description="Este artículo proporciona un conjunto de procedimientos recomendados para la administración de identidades y la seguridad del control de acceso mediante las funcionalidades integradas de Azure."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 # Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
@@ -38,7 +38,7 @@ Los procedimientos recomendados para la seguridad del control de acceso y la adm
 - Habilitación del inicio de sesión único (SSO)
 - Implementación de la administración de contraseñas
 - Aplicación de Multi-Factor Authentication (MFA) para los usuarios
-- Uso del control de acceso basado en rol (RBAC) 
+- Uso del control de acceso basado en rol (RBAC)
 - Control de las ubicaciones donde se crean los recursos mediante Resource Manager
 - Guía para los desarrolladores para aprovechar las funcionalidades de identidad para aplicaciones para SaaS
 - Supervisión activa de actividades sospechosas
@@ -88,28 +88,28 @@ Por ejemplo, suponga que aplica Azure MFA para los usuarios y lo configura para 
 
 Una alternativa para las organizaciones que quieren mantener todo el control de autenticación en el entorno local es usar [Servidor Azure Multi-Factor Authentication](./multi-factor-authentication/multi-factor-authentication-get-started-server.md), también denominado MFA en el entorno local. Mediante este método, podrá seguir aplicando la autenticación multifactor y mantener el servidor MFA local.
 
-Para más información sobre Azure MFA, consulte [Introducción a Azure Multi-Factor Authentication en la nube](./multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+Para obtener más información sobre Azure MFA, lea el artículo [Introducción a Azure Multi-Factor Authentication en la nube](./multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Uso del control de acceso basado en rol (RBAC)
- 
+
 En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [privilegio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege). El control de acceso basado en rol (RBAC) de Azure sirve para asignar permisos a usuarios, grupos y aplicaciones en un ámbito determinado. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso.
- 
+
 Puede aprovechar los [roles de RBAC integrados](./active-directory/role-based-access-built-in-roles.md) en Azure para asignar privilegios a los usuarios. Considere la posibilidad de usar los roles *Colaborador de la cuenta de almacenamiento* para los operadores en la nube que necesiten administrar cuentas de almacenamiento y *Colaborador de la cuenta de almacenamiento clásica* para administrar cuentas de almacenamiento clásicas. Los operadores en la nube que necesiten administrar máquinas virtuales y cuentas de almacenamiento podría agregarlos al rol *Colaborador de la máquina virtual*.
 
 Es posible que las organizaciones que no apliquen el control de acceso a los datos mediante funcionalidades como RBAC estén concediendo más privilegios de los necesarios a sus usuarios. Esto puede poner en peligro los datos al permitir que los usuarios accedan a determinados tipos de datos (por ejemplo, aquellos que son críticos para la empresa) a los que no deberían tener acceso en primer lugar.
- 
+
 Puede aprender más sobre Azure RBAC en el artículo [Control de acceso basado en rol de Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Control de las ubicaciones donde se crean los recursos mediante Resource Manager
 
 Es muy importante permitir que los operadores de nube realicen tareas pero al mismo tiempo impedir que transgredan las convenciones que son necesarias para administrar los recursos de la organización. Las organizaciones que quieran controlar las ubicaciones donde se crean los recursos deben codificarlas de forma segura.
- 
+
 Para ello, pueden crear directivas de seguridad que contengan definiciones que describan las acciones o los recursos que se deniegan específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual.
 
 > [AZURE.NOTE] No es lo mismo que RBAC; en realidad, aprovechan RBAC para autenticar a los usuarios que tienen privilegios para crear esos recursos.
 
 Utilizan [Azure Resource Manager](resource-group-overview.md) para crear directivas personalizadas también para escenarios donde las organizaciones quieren permitir operaciones solo cuando esté asociado el centro de costo adecuado; en caso contrario, denegarán la solicitud.
- 
+
 Las organizaciones que no controlan cómo se crean los recursos son más susceptibles a que los usuarios puedan hacer un mal uso del servicio y crear más recursos de los necesarios. Endurecer el proceso de creación de recursos es un paso importante para proteger escenarios en los que intervienen varios inquilinos.
 
 Puede aprender más sobre la creación de directivas con Azure Resource Manager en el artículo [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
@@ -134,4 +134,4 @@ En cambio, Azure AD Identity Protection es un sistema de supervisión activo y m
 
 Las organizaciones que no supervisen activamente sus sistemas de identidad corren el riesgo de comprometer las credenciales de los usuarios. Si las organizaciones no saben que están teniendo lugar actividades sospechosas con estas credenciales, no podrán mitigar este tipo de amenaza. Puede aprender más sobre Azure Active Directory en [Azure Active Directory Identity Protection](./active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

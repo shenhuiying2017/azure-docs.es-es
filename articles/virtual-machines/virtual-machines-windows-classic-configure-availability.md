@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurar un conjunto de disponibilidad para máquinas virtuales clásicas | Microsoft Azure"
-	description="Configure un conjunto de disponibilidad para una máquina virtual nueva o existente en el modelo de implementación clásica con el Portal de Azure clásico y Azure PowerShell."
+	description="Configure un conjunto de disponibilidad para una máquina virtual nueva o existente en el modelo de implementación clásica con el Portal de Azure y Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

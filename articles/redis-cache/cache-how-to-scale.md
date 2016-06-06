@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
@@ -115,6 +115,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 -	[Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[¿Cómo funciona el escalado?](#how-does-scaling-work)
 -	[¿Se pierden los datos de mi memoria caché durante el escalado?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[¿La caché estará disponible durante el escalado?](#will-my-cache-be-available-during-scaling)
 -	[Operaciones que no son compatibles](#operations-that-are-not-supported)
 -	[¿Cuánto tarda el escalado?](#how-long-does-scaling-take)
@@ -125,7 +126,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 
 -	No puede escalar desde una caché **Premium** a un plan de tarifa **Básico** o **Estándar**.
 -	Puede escalar desde un plan de tarifa de caché **Premium** a otro.
--	No se puede escalar desde una caché **Básica** directamente a una caché **Premium**. Debe escalar primero desde **Básica** a **Estándar** en una operación de escalado y, a continuación, desde **Estándar** a **Premium** en una operación de escalado posterior.
+-	No puede escalar desde una caché **Básica** directamente a una caché **Premium**. Debe escalar primero desde **Básica** a **Estándar** en una operación de escalado y, a continuación, desde **Estándar** a **Premium** en una operación de escalado posterior.
 -	Si ha habilitado la agrupación en clústeres cuando creó su caché **Premium**, puede [cambiar el tamaño de clúster](cache-how-to-premium-clustering.md#cluster-size). En este momento no se puede habilitar la agrupación en clústeres en una memoria caché existente que se hubiera creado sin clústeres.
 
     Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
@@ -144,8 +145,17 @@ No, el nombre de la memoria caché y las claves no se cambian durante una operac
 
 -	Cuando se escala una memoria caché **Básica** a un nuevo tamaño, se pierden todos los datos y la memoria caché no está disponible durante la operación de escalado.
 -	Cuando se escala una memoria caché **Básica** a una memoria caché **Estándar**, normalmente se conservan los datos de la memoria caché.
--	Cuando se escala una memoria caché **Estándar** a un tamaño o plan superior, o cuando una caché **Premium** se escala a un tamaño superior, normalmente se conservan todos los datos. Al reducir una memoria caché **Estándar** o **Premium** a un tamaño inferior, los datos se pueden perder según la cantidad de datos que se encuentren en la caché en relación con el nuevo tamaño en el momento del escalado. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache). 
+-	Cuando se escala una memoria caché **Estándar** a un tamaño o plan superior, o cuando una caché **Premium** se escala a un tamaño superior, normalmente se conservan todos los datos. Al reducir verticalmente una memoria caché **Estándar** o **Premium** a un tamaño inferior, los datos se pueden perder según la cantidad de datos que se encuentren en la caché en relación con el nuevo tamaño en el momento del escalado. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache). 
 
+### ¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?
+
+Algunos planes de tarifa tienen diferentes [límites de bases de datos](cache-configure.md#databases), por lo que hay algunas consideraciones al reducir verticalmente si ha configurado un valor personalizado para el parámetro `databases` al crear la memoria caché.
+
+-	Cuando se escala a un plan de tarifa con un límite de `databases` menor que el nivel actual:
+	-	Si utiliza el número predeterminado de `databases`, que es 16 para todos los planes de tarifa, no se pierden datos.
+	-	Si utiliza un número personalizado de `databases` que está dentro de los límites del plan al que va a escalar, se mantiene la configuración de `databases` y no se pierden datos.
+	-	Si utiliza un número personalizado de `databases` que supera los límites del nuevo plan, el parámetro `databases` se reduce a los límites del nuevo plan y se pierden todos los datos de las bases de datos quitadas.
+-	Cuando se escala a un plan de tarifa con el mismo límite de `databases` o mayor que el plan actual, la configuración de `databases` se mantiene y no se pierden datos.
 
 Tenga en cuenta que mientras las memorias caché Standard y Premium tienen un contrato de nivel de servicio del 99,9% de disponibilidad, no hay ningún contrato de nivel de servicio para la pérdida de datos.
 
@@ -157,10 +167,10 @@ Tenga en cuenta que mientras las memorias caché Standard y Premium tienen un co
 ### Operaciones que no son compatibles
 
 -	No se puede escalar desde un plan de tarifa superior a un plan de tarifa inferior.
-    -    No se puede escalar desde una caché **Premium** a una caché **Estándar** o **Básica**.
-    -    No se puede escalar desde una caché **Estándar** a una caché **Básica**.
+    -    No puede escalar desde una caché **Premium** a una caché **Estándar** o **Básica**.
+    -    No puede escalar desde una caché **Estándar** a una caché **Básica**.
 -	Puede escalar desde una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
--	No se puede escalar desde una caché **Básica** directamente a una caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, a continuación, desde **Estándar** a **Premium** en una operación de escalado posterior.
+-	No puede escalar desde una caché **Básica** directamente a una caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, a continuación, desde **Estándar** a **Premium** en una operación de escalado posterior.
 -	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 
 Si se produce un error en una operación de escalado, el servicio intentará revertir la operación y la memoria caché se restablecerá al tamaño original.
@@ -189,4 +199,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

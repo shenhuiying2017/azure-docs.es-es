@@ -36,7 +36,7 @@ Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno 
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
-Para comenzar a usar el servicio Contenedor de Azure, implemente un clúster del servicio Contenedor de Azure mediante una plantilla de Azure Resource Manager. Puede configurar esta implementación con diferentes opciones de tamaño y disponibilidad, mediante DC/OS o Docker Swarm. Puede implementar las plantillas de Azure Resource Manager a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio Contenedor de Azure, consulte [Implementación de un clúster del servicio Contenedor de Azure](./container-service-deployment.md).
+Para comenzar a usar el servicio Contenedor de Azure, implemente un clúster del servicio Contenedor de Azure mediante una plantilla de Azure Resource Manager. Puede configurar esta implementación con diferentes opciones de tamaño y disponibilidad, mediante DC/OS o Docker Swarm. Puede implementar las plantillas de Azure Resource Manager a través del Portal de Azure mediante la CLI de Azure o con PowerShell. Las plantillas también se pueden modificar para que incluyan una configuración de Azure adicional o avanzada. Para obtener más información sobre la implementación de un clúster del servicio de contenedores de Azure, consulte [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md).
 
 Implementación de una aplicación
 ------------------------
@@ -71,9 +71,9 @@ DC/OS admite un gran número de [marcos](http://mesos.apache.org/documentation/l
 
 Marathon es un sistema de inicialización y control de todo el clúster para servicios en cgroups o, en el caso del servicio Contenedor de Azure, contenedores en formato Docker. Es un asociado ideal para Chronos, que es un programador de trabajos tolerante a errores para DC/OS que controla dependencias y programaciones basadas en el tiempo.
 
-Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Puede acceder a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Container management through the web UI](./container-service-mesos-marathon-ui.md) (Administración de contenedores mediante la interfaz de usuario web).
+Marathon y Chronos proporcionan una IU web desde la que puede implementar sus aplicaciones. Puede acceder a esta desde una dirección URL semejante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, donde DNS\_PREFIX y REGION se definen en el momento de la implementación. Por supuesto, también puede proporcionar su propio nombre DNS. Para obtener más información sobre cómo ejecutar un contenedor mediante la interfaz de usuario web de Marathon, consulte [Administración de contenedores a través de la interfaz de usuario web](container-service-mesos-marathon-ui.md).
 
-Además, puede usar las API de REST para comunicarse con Marathon y Chronos. Existen varias bibliotecas de cliente que están disponibles para cada herramienta. Abarcan una variedad de lenguajes y, por supuesto, puede usar el protocolo HTTP en cualquier lenguaje. Muchas herramientas de DevOps conocidas también proporcionan soporte para estos programadores. Esto proporciona la máxima flexibilidad a su equipo de operaciones cuando trabaja con un clúster del servicio Contenedor de Azure. Para obtener más información sobre cómo ejecutar un contenedor mediante la API de REST de Marathon, consulte [Administración de contenedores con la API de REST](./container-service-mesos-marathon-rest.md).
+Además, puede usar las API de REST para comunicarse con Marathon y Chronos. Existen varias bibliotecas de cliente que están disponibles para cada herramienta. Abarcan una variedad de lenguajes y, por supuesto, puede usar el protocolo HTTP en cualquier lenguaje. Muchas herramientas de DevOps conocidas también proporcionan soporte para estos programadores. Esto proporciona la máxima flexibilidad a su equipo de operaciones cuando trabaja con un clúster del servicio Contenedor de Azure. Para obtener más información sobre cómo ejecutar un contenedor mediante la API de REST de Marathon, consulte [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md).
 
 ### Uso de Docker Swarm
 
@@ -101,4 +101,4 @@ Introducción al servicio Contenedor de Azure:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

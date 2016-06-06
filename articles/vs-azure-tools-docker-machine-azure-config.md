@@ -30,7 +30,7 @@ Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine 
 El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o el [Portal de Azure](https:/portal.azure.com).
 
 **Uso del portal de Azure**
-- Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
+- Seleccione Suscripciones en la página de navegación izquierda y copie el identificador de suscripción.
 
 **Uso de la CLI de Azure**
 - Escriba ```azure account list``` y copie el identificador de suscripción.
@@ -65,7 +65,7 @@ docker info
 
 ## Ejecución de un contenedor
 
-Con un host configurado, ya se puede ejecutar un servidor web simple para probar si el host se ha configurado correctamente. Aquí se usará una imagen de nginx estándar, se especifica que debe escuchar el puerto 80 y que si la máquina virtual host se reinicia, el contenedor también se reiniciará (`--restart=always`).
+Con un host configurado, ya se puede ejecutar un servidor web simple para probar si dicho host se ha configurado correctamente. Aquí se usará una imagen de nginx estándar, se especifica que debe escuchar el puerto 80 y que si la máquina virtual host se reinicia, el contenedor también se reiniciará (`--restart=always`).
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -107,4 +107,4 @@ Con docker-machine se pueden aprovisionar fácilmente hosts de Docker en Azure p
 
 Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker Tools para Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

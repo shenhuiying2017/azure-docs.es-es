@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Versiones de API en Búsqueda de Azure
@@ -69,4 +69,4 @@ Para el SDK de .NET: encontrará indicaciones para la migración de código en [
 
 La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en [Acuerdo de Nivel de Servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -92,11 +92,11 @@ Para agregar una dirección IP interna estática a la máquina virtual creada co
 
 ## Pasos siguientes
 
-[IP reservada](virtual-networks-reserved-public-ip)
+[IP reservada](virtual-networks-reserved-public-ip.md)
 
-[IP pública a nivel de instancia (ILIP)](virtual-networks-instance-level-public-ip)
+[IP pública a nivel de instancia (ILIP)](virtual-networks-instance-level-public-ip.md)
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

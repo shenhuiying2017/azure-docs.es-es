@@ -142,6 +142,8 @@ Si su objetivo es contribuir al proyecto WebJobs.SDK, necesitará todas las cond
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	Si inició el proyecto de WebHost, se mostrará una página en blanco en el explorador porque no hay contenido al que acceder en la dirección URL base del proyecto. Consulte la sección [Claves de API](#apikeys) para obtener información acerca de cómo utilizar direcciones URL con las funciones de desencadenador HTTP.
+
 ## Visualización de la salida de función
 
 Vaya al panel de la aplicación de la función para ver las invocaciones de funciones y registre la salida para ellas.
@@ -150,15 +152,15 @@ El panel se encuentra en la siguiente dirección URL:
 
 	https://{function app name}.scm.azurewebsites.net/azurejobs/#/functions
 
-La página **Funciones** muestra una lista de funciones que se han ejecutado y una lista de invocaciones de funciones.
+La página **Funciones** muestra una lista de funciones que se ejecutaron y una lista de invocaciones de funciones.
 
 ![Detalles de invocación](./media/functions-run-local/invocationdetail.png)
 
-Haga clic en una invocación para ver la página **Detalles de la invocación**, que indica cuando se desencadenó la función, el tiempo de ejecución aproximado y si finalizó correctamente. Haga clic en el botón **Alternar salida** para ver los registros escritos por el código de función.
+Haga clic en una invocación para ver la página **Invocation Details** (Detalles de la invocación), que indica cuando se desencadenó la función, el tiempo de ejecución aproximado y si finalizó correctamente. Haga clic en el botón **Toggle Output** (Alternar salida) para ver los registros escritos por el código de función.
 
 ![Detalles de invocación](./media/functions-run-local/invocationdetail.png)
 
-## <a id="apikeys"></a> Claves de API para los desencadenadores HTTP
+## <a id="apikeys"></a> Claves de API para desencadenadores HTTP
 
 Para ejecutar una función HTTP o WebHook, necesitará una clave de API a menos que incluya `"authLevel": "anonymous"` en el archivo *function.json*.
 
@@ -181,7 +183,7 @@ El archivo *host.json* de la carpeta *App\_Data/secrets* contiene dos claves:
 }
 ```
 
-La propiedad `functionKey` almacena una clave que se puede usar para cualquier función de HTTP o WebHook si no se ha definido ningún reemplazo para esa función determinada. Esta característica elimina la necesidad de definir siempre nuevas claves de API para cada función que se crea.
+La propiedad `functionKey` almacena una clave que se puede usar para cualquier función de HTTP o WebHook si no se definió ningún reemplazo para esa función determinada. Esta característica elimina la necesidad de definir siempre nuevas claves de API para cada función que se crea.
 
 La propiedad `masterKey` almacena una clave que es útil en algunos escenarios de prueba:
 
@@ -191,7 +193,7 @@ La propiedad `masterKey` almacena una clave que es útil en algunos escenarios d
  
 ### Claves de API que se aplican a funciones individuales
 
-Los archivos que se denominan *{nombre de la función}.json* contienen la clave de API para una función determinada. Por ejemplo, el siguiente contenido JSON en *App\_Data/secrets/HttpTrigger.json* establece la clave de API para la función `HttpTrigger`.
+Los archivos que se denominan *{nombre de la función}.json* contienen la clave de API para una función determinada. Por ejemplo, el siguiente ejemplo de contenido de JSON en *App\_Data/secrets/HttpTrigger.json* establece la clave de API para la función `HttpTrigger`.
 
 ```json
 {
@@ -199,11 +201,15 @@ Los archivos que se denominan *{nombre de la función}.json* contienen la clave 
 }
 ```
 
+## Uso de referencias de paquetes de NuGet en funciones  
+
+Debido al modo en que actualmente se procesan las referencias de NuGet, asegúrese de "tocar" el *project.json* archivo mientras se está ejecutando el host. El host busca modificaciones en el archivo e inicia una restauración cuando detecta cambios. Además, *NuGet.exe* (se recomienda la versión 3.3.0) debe estar ubicado en la ruta de acceso o bien debe tener una variable de entorno con el nombre de conjunto de AzureWebJobs\_NuGetPath, con la ruta de acceso *NuGet.exe*.
+
 ## Solución de problemas
 
 Los cambios de variables de entorno realizados mientras se ejecuta Visual Studio no se recogen automáticamente. Si agrega o cambia una variable de entorno después de iniciar Visual Studio, cierre Visual Studio y reinícielo para asegurarse de que recoge los valores actuales.
 
-Al depurar, puede obtener más información sobre excepciones seleccionando la opción **excepciones de .NET Common Language Runtime** en la ventana **Configuración de excepciones** (pulse CTRL-ALT-E para abrir la ventana).
+Al depurar, puede obtener más información sobre excepciones seleccionando la opción **Common Language Runtime Exceptions** (Excepciones de Common Language Runtime) en la ventana **Configuración de excepciones** (pulse Ctrl+Alt+E para abrir la ventana).
 
 Otra manera de obtener más información sobre las excepciones durante la depuración consiste en establecer un punto de interrupción en el bloque `catch` del bucle principal para el host de script. Lo encontrará en el proyecto WebJobs.Script, en *Host/ScriptHostManager.cs*, en el método `RunAndBlock`.
 
@@ -216,4 +222,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

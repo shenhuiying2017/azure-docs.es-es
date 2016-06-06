@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
 ## Requisitos previos
 
-* Un clúster de HDInsight de Azure con servidor de R instalado. Para obtener instrucciones, consulte [Get started with R Server on HDInsight clusters (Introducción a R Server en clústeres de HDInsight)](hdinsight-hadoop-r-server-get-started.mdulet).
+* Un clúster de HDInsight de Azure con servidor de R instalado. Para obtener instrucciones, consulte [Get started with R Server on HDInsight clusters](hdinsight-hadoop-r-server-get-started.md) (Introducción a R Server en clústeres de HDInsight).
 * Un cliente SSH. Para las distribuciones de Linux y Unix o Macintosh OS X, el comando `ssh` se proporciona con el sistema operativo. Para Windows, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -36,7 +36,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 1. Identifique el nodo perimetral del clúster. Para un clúster de HDInsight con servidor de R, la siguiente es la convención de nomenclatura para el nodo principal y el nodo perimetral.
 
 	* Nodo principal: `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Nodo perimetral: `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Nodo perimetral: `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. SSH en el nodo perimetral del clúster mediante el patrón de nomenclatura anterior.
  
@@ -75,7 +75,7 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
 	* En un cliente de Linux o de Windows (mediante [Cygwin](http://www.redhat.com/services/custom/cygwin/)), abra una sesión de terminal y use el comando siguiente.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Reemplace **USERNAME** por un usuario SSH para su clúster de HDInsight y reemplace **CLUSTERNAME** por el nombre de su clúster de HDInsight.
 
@@ -124,4 +124,4 @@ En este artículo aprenderá a instalar la versión de la comunidad (gratuita) d
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

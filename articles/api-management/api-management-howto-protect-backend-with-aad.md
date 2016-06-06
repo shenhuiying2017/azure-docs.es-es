@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
@@ -237,9 +237,9 @@ Elija **Aplicación web y/o API web**, escriba un nombre y haga clic en la flech
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-1]
 
-Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa ****https://contoso5.portal.azure-api.net/signin **.
+Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa **https://contoso5.portal.azure-api.net/signin**.
 
-Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
+Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa **https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-2]
 
@@ -257,7 +257,7 @@ Para la **URL de página de registro de cliente** escriba un valor de marcador d
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-1]
 
-A continuación, especifique la ** URL del punto de conexión de autorización** y la **URL del punto de conexión de token**.
+A continuación, especifique la **URL del punto de conexión de autorización** y la **URL del punto de conexión de token**.
 
 ![Servidor de autorización][api-management-add-authorization-server-1a]
 
@@ -362,7 +362,7 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 
 ## Pasos siguientes
 -	Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
--	Para conocer otras formas de proteger el servicio de back-end, consulte [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn).
+-	Para conocer otras formas de proteger el servicio de back-end, consulte [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -413,4 +413,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar su primera API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

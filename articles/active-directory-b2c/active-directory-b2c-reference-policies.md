@@ -103,16 +103,16 @@ Para habilitar el inicio de sesión en la aplicación, deberá crear una directi
 
 ## Creación de una directiva de registro o de inicio de sesión
 
-Esta directiva controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los consumidores se les lleva por la ruta correcta (registro o inicio de sesión) según el contexto. También describe el contenido de los tokens que recibirá la aplicación cuando el registro o el inicio de sesión sean correctos.
+Esta directiva controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los consumidores se les lleva por la ruta correcta (registro o inicio de sesión) según el contexto. También describe el contenido de los tokens que recibirá la aplicación cuando el registro o el inicio de sesión sean correctos. Encontrará una muestra de código de la directiva de registro o inicio de sesión [en este artículo](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
-1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Haga clic en **Directivas de registro o de inicio de sesión**.
-3. Haga clic en **+ Agregar** en la parte superior de la hoja.
+1. [Siga estos pasos para desplazarse a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Haga clic en **Sign-up or sign-in policies** (Directivas de registro o de inicio de sesión).
+3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de registro usado por su aplicación. Por ejemplo, escriba "SiUpIn".
-5. Haga clic en **Proveedores de identidades** y seleccione "Registro de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
+5. Haga clic en **Proveedores de identidades** y seleccione "Email sign-up" (Registro de correo electrónico). También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 6. Haga clic en **Atributos de registro**. Aquí elige atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens enviados de vuelta a su aplicación después de una experiencia de registro o de inicio de sesión correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal", "El usuario es nuevo" e "Id. de objeto del usuario".
-8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiUpIn**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de registro o de inicio de sesión**.
+8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiUpIn**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Sign-up or sign-in policies** (Directivas de registro o de inicio de sesión).
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiUpIn**".
 10. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 11. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de registro o de inicio de sesión tal como se configuró.
@@ -131,7 +131,7 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 6. Haga clic en **Atributos de perfil**. Aquí se eligen los atributos que el consumidor puede ver y editar. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **Aceptar**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione "Nombre para mostrar" y "Código postal".
-8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiPe**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de edición de perfiles**.
+8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiPe**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Profile editing policies** (Directivas de edición de perfiles).
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiPe**".
 10. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 11. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de edición de perfiles en su aplicación.
@@ -146,8 +146,8 @@ Para habilitar en su aplicación el restablecimiento de contraseña específica,
 1. [Siga estos pasos para desplazarse a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de restablecimiento de contraseña**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
-4. El **Nombre** determina el nombre de la directiva de restablecimiento de contraseña usada por su aplicación. Por ejemplo, escriba "SSPR".
-5. Haga clic en **Proveedores de identidades** y seleccione "Restablecer la contraseña usando la dirección de correo electrónico". Haga clic en **Aceptar**.
+4. El **nombre** determina el nombre de la directiva de restablecimiento de contraseña que utiliza la aplicación. Por ejemplo, escriba "SSPR".
+5. Haga clic en **Proveedores de identidades** y seleccione "Reset password using email address" (Restablecer la contraseña usando la dirección de correo electrónico). Haga clic en **Aceptar**.
 6. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de restablecimiento de contraseña correcta. Por ejemplo, seleccione "Id. de objeto del usuario".
 7. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SSPR**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de restablecimiento de contraseña**.
 8. Para abrir la directiva, haga clic en "**B2C\_1\_SSPR**".
@@ -161,4 +161,4 @@ Para habilitar en su aplicación el restablecimiento de contraseña específica,
 
 - [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

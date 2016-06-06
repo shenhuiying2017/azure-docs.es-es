@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/28/2016"
+	ms.date="05/23/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@ Los grupos elásticos proporcionan una solución sencilla y rentable para admini
 
 ## Cómo funciona
 
-Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente tiene una base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estas subidas y bajadas en la demanda, ¿cómo asigna recursos? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos de bases de datos elásticas resuelven este problema al garantizar que las bases de datos obtienen los recursos de rendimiento que necesitan, cuando los necesitan, al tiempo que proporcionan un mecanismo sencillo de asignación de recursos dentro de un presupuesto predecible.
+Un modelo de aplicación SaaS común es el modelo de base de datos de inquilino único: cada cliente tiene una base de datos. Cada cliente (base de datos) tiene requisitos impredecibles de recursos de memoria, E/S y CPU. Con estas subidas y bajadas en la demanda, ¿cómo asigna recursos? Normalmente había dos opciones: (1) aprovisionar en exceso los recursos según el uso máximo y pagar de más o (2) aprovisionar de forma predeterminada para ahorrar costos, en detrimento del rendimiento y la satisfacción del cliente durante las horas de actividad máxima. Los grupos de bases de datos elásticas resuelven este problema al garantizar que las bases de datos obtienen los recursos de rendimiento que necesitan, cuando los necesitan, al tiempo que proporcionan un mecanismo sencillo de asignación de recursos dentro de un presupuesto predecible. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
@@ -79,13 +79,13 @@ Las bases de datos que son buenos candidatos para grupos de bases de datos elás
 
 ## Trabajos de base de datos elástica
 
-Con un grupo, las tareas de administración se simplifican ejecutando scripts en **[trabajos elásticos](sql-database-elastic-jobs-overview.md)**. Un trabajo de base de datos elástica elimina la mayoría de las tediosas tareas asociadas con un gran número de bases de datos. Para comenzar, consulte [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md).
+Con un grupo, las tareas de administración se simplifican al ejecutarse los scripts en **[trabajos elásticos](sql-database-elastic-jobs-overview.md)**. Un trabajo de base de datos elástica elimina la mayoría de las tediosas tareas asociadas con un gran número de bases de datos. Para comenzar, consulte [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md).
 
 Para más información sobre otras herramientas, consulte [Base de datos SQL: uso de las características y herramientas de la base de datos elástica](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Características de continuidad del negocio para bases de datos de un grupo
 
-Las bases de datos elásticas suelen ser compatibles con las mismas [características de continuidad del negocio](sql-database-business-continuity.md) que encontrará en las bases de datos únicas de la versión 12 de los servidores.
+Las bases de datos elásticas suelen ser compatibles con las mismas [características de continuidad del negocio](sql-database-business-continuity.md) que encontrará en las bases de datos únicas de los servidores V12.
 
 
 ### Restauración a un momento dado
@@ -94,14 +94,14 @@ La característica de restauración a un momento dado utiliza copias de segurida
 
 ### Restauración geográfica
 
-La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
+La restauración geográfica proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
 
 ### Replicación geográfica activa
 
-Para las aplicaciones que tienen requisitos de recuperación más exigentes que lo que puede ofrecer la restauración geográfica, configure la replicación geográfica activa con el [Portal de Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+Para las aplicaciones que tienen requisitos de recuperación más exigentes que lo que puede ofrecer la restauración geográfica, configure la replicación geográfica activa mediante el [Portal de Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) o [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

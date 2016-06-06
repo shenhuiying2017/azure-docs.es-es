@@ -1,10 +1,10 @@
 <properties
-pageTitle="Agregar la API de Excel a PowerApps Enterprise | Microsoft Azure"
-description="Información general de la API de Excel con parámetros de la API de REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Incorporación del conector de Excel a PowerApps Enterprise | Microsoft Azure"
+description="Información general del conector de Excel con parámetros de la API de REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,20 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introducción a la API de Excel
+# Introducción al conector de Excel
 
-Conéctese a Excel para insertar o eliminar una fila y mucho más. La API de Excel se puede usar desde:
+Conéctese a Excel para insertar o eliminar una fila y mucho más. El conector de Excel puede usarse desde:
 
 - PowerApps
 
 Con Excel, puede:
 
-- Agregar la API de Excel a PowerApps Enterprise. A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregar el conector de Excel a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 ## Desencadenadores y acciones
 Excel incluye la siguiente acción. No hay ningún desencadenador.
@@ -36,7 +36,7 @@ Excel incluye la siguiente acción. No hay ningún desencadenador.
 |--- | ---|
 |None | <ul><li>Obtener filas</li><li>Insertar fila</li><li>Eliminar fila</li><li>Obtener fila</li><li>Obtener tablas</li><li>Actualizar fila</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Referencia de la API de REST de Swagger
 Se aplica a la versión: 1.0.
@@ -208,4 +208,4 @@ Se aplica a la versión: 1.0.
 ## Pasos siguientes
 [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

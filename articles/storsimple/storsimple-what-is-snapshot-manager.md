@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/07/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # ¿Qué es Administrador de instantáneas StorSimple?
@@ -25,7 +25,7 @@ Esta información general presenta el Administrador de instantáneas StorSimple,
 
 Para obtener información general de todo el sistema de Microsoft Azure StorSimple, incluido el dispositivo de StorSimple, el servicio StorSimple Manager, el Administrador de instantáneas StorSimple y el Adaptador de StorSimple para SharePoint, consulte [Serie StorSimple 8000: una solución híbrida de almacenamiento en la nube](storsimple-overview.md).
  
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- No puede utilizar StorSimple Snapshot Manager para administrar las matrices virtuales de Microsoft Azure StorSimple (también conocidas como dispositivos virtuales locales de StorSimple).
 >
@@ -38,9 +38,9 @@ Administrador de instantáneas StorSimple proporciona una consola de administrac
 - Configurar, crear copias de seguridad y eliminar volúmenes.
 - Configurar grupos de volúmenes para asegurarse de que los datos con copia de seguridad son coherentes con la aplicación.
 - Administrar directivas de copia de seguridad, con el fin de que las copias de seguridad de los datos se realicen según una programación predeterminada.
-- Crear copias independientes de los datos que se pueden almacenar en la nube y se pueden usar para la recuperación ante desastres.
+- Cree instantáneas locales y en la nube, que se pueden almacenar en la nube y utilizarse para la recuperación ante desastres.
 
-Con Administrador de instantáneas StorSimple, es posible montar volúmenes y configurarlos en grupos de volúmenes, normalmente por aplicación. Administrador de instantáneas StorSimple usa estos grupos de volúmenes para generar copias de seguridad coherentes con la aplicación. (Existe coherencia de aplicaciones cuando todos los archivos y bases de datos relacionados están sincronizados y representan el estado real de la aplicación en un momento dado específico.)
+Snapshot Manager de StorSimple recupera la lista de aplicaciones registradas con el proveedor VSS en el host. Así, para crear copias de seguridad coherentes con la aplicación, comprueba los volúmenes utilizados por una aplicación y sugiere grupos de volúmenes para configurar. Administrador de instantáneas StorSimple usa estos grupos de volúmenes para generar copias de seguridad coherentes con la aplicación. (Existe coherencia de aplicaciones cuando todos los archivos y bases de datos relacionados están sincronizados y representan el estado real de la aplicación en un momento dado específico.)
 
 Las copias de seguridad de Administrador de instantáneas StorSimple adoptan la forma de instantáneas incrementales, que capturan únicamente los cambios desde la última copia de seguridad. Como consecuencia, las copias de seguridad requieren menos espacio de almacenamiento y se pueden crear y restaurar rápidamente. Administrador de instantáneas StorSimple usa el Servicio de instantáneas de volumen de Windows (VSS) para garantizar que las instantáneas capturan datos coherentes con la aplicación. (Para obtener más información, vaya a la sección Integración con el Servicio de instantáneas de volumen de Windows.) Con Administrador de instantáneas StorSimple, puede crear programaciones de copia de seguridad o hacer copias inmediatas, según sea necesario. Si necesita restaurar datos desde una copia de seguridad, Administrador de instantáneas StorSimple le permite seleccionarla en un catálogo de instantáneas locales o en la nube. Azure StorSimple restaura solo los datos necesarios, y en el momento en que se necesitan, lo que evita retrasos en la disponibilidad de los datos durante las operaciones de restauración.
 
@@ -62,7 +62,7 @@ Administrador de instantáneas StorSimple se puede usar para configurar y realiz
 
 - **Volúmenes compartidos de clúster**: con los volúmenes compartidos de clúster (CSV), varios nodos de un clúster de conmutación por error pueden leer el mismo disco de forma simultánea o escribir en él. La conmutación por error de un nodo a otro puede producirse rápidamente, sin necesidad de un cambio en la propiedad de la unidad ni de montar, desmontar y quitar un volumen.
 
->[AZURE.IMPORTANT]No mezcle CSV y no CSV en la misma instantánea. No se admite la mezcla de CSV y no CSV en una instantánea.
+>[AZURE.IMPORTANT] No mezcle CSV y no CSV en la misma instantánea. No se admite la mezcla de CSV y no CSV en una instantánea.
  
 Puede usar Administrador de instantáneas StorSimple para restaurar grupos de volúmenes completos o clonar volúmenes individuales y recuperar archivos individuales.
 
@@ -79,7 +79,7 @@ Administrador de instantáneas StorSimple usa grupos de volúmenes para crear co
 
 Los grupos de volúmenes no son lo mismo que los contenedores de volúmenes. Un contenedor de volúmenes contiene uno o varios volúmenes que comparten una cuenta de almacenamiento de nube y otros atributos, como el consumo de ancho de banda y el cifrado. Un contenedor de volúmenes individual puede contener hasta 256 volúmenes de StorSimple con aprovisionamiento fino. Para obtener más información acerca de los contenedores de volúmenes, vaya a [Administración de contenedores de volúmenes](storsimple-manage-volume-containers.md). Los grupos de volúmenes son colecciones de volúmenes que se pueden configurar para facilitar las operaciones de copia de seguridad. Si selecciona dos volúmenes que pertenecen a distintos contenedores de volúmenes, colóquelos en un único grupo de volúmenes y, a continuación, cree una directiva de copia de seguridad para dicho grupo de volúmenes, se realizará una copia de seguridad de cada volumen en el contenedor de volumen apropiado mediante la cuenta de almacenamiento adecuada.
 
->[AZURE.NOTE]Todos los volúmenes de un grupo de volúmenes deben provenir de un solo proveedor de servicios en la nube.
+>[AZURE.NOTE] Todos los volúmenes de un grupo de volúmenes deben provenir de un solo proveedor de servicios en la nube.
 
 ## Integración con el Servicio de instantáneas de volumen de Windows
 
@@ -156,4 +156,4 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 - Descargue el [Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0525_2016-->

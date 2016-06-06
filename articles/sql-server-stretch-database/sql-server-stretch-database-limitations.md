@@ -30,7 +30,7 @@ Las tablas habilitadas para Stretch tienen las limitaciones siguientes.
 
 ### Operaciones de DML
 
--   No se pueden realizar las acciones UPDATE o DELETE en las filas de una tabla habilitada para Stretch o en una vista que incluya tablas habilitadas para Stretch.
+-   No puede actualizar ni eliminar filas que se hayan migrado, o filas que sean aptas para la migración, en una tabla habilitada para Stretch o en una vista que incluya tablas habilitadas para Stretch.
 
 -   No se puede realizar la acción INSERT en las filas de una tabla habilitada para Stretch en un servidor vinculado.
 
@@ -96,4 +96,4 @@ Los siguientes elementos actualmente evitan que habilite Stretch en una tabla.
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

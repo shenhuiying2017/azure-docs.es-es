@@ -671,7 +671,7 @@ Puede ver las tareas de Lote de Azure asociadas al procesamiento de los segmento
 ![Tareas de Lote de Azure][image-data-factory-azure-batch-tasks]
 
 
-### Depuración de la canalización
+## Depuración de la canalización
 La depuración se compone de varias técnicas básicas:
 
 1.	Si el segmento de entrada no está establecido en **Listo**, confirme que la estructura de la carpeta de entrada es correcta y que **file.txt** se encuentra en las carpetas de entrada. 
@@ -689,6 +689,10 @@ La depuración se compone de varias técnicas básicas:
 4.	Todos los archivos incluidos en el archivo zip de la actividad personalizada deben estar en el **nivel superior**; no debe haber subcarpetas.
 5.	Asegúrese de que en **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) y **packageLinkedService** (debe apuntar al Almacenamiento de blobs de Azure que contiene el archivo ZIP) se han seleccionado los valores correctos. 
 6.	Si corrigió algún error y desea volver a procesar el segmento, haga clic con el botón derecho en el segmento, en la hoja **OutputDataset**, y haga clic en **Run** (Ejecutar). 
+7.	La actividad personalizada no utiliza el archivo **app.config** del paquete, por lo que si el código lee las cadenas de conexión del archivo de configuración, no funcionará en tiempo de ejecución. El procedimiento recomendado al usar Lote de Azure consiste en conservar los secretos en un **Almacén de claves de Azure**, utilizar una entidad de servicio basada en certificados para proteger el **almacén de claves** y distribuir el certificado al grupo de Lote de Azure. Tras ello, la actividad personalizada de .NET podrá acceder a los secretos desde el almacén de claves en tiempo de ejecución. Esta es una solución genérica y se puede extrapolar a cualquier tipo de secreto, no solo a cadenas de conexión.
+
+	Existe una solución más sencilla, pero no representa un procedimiento recomendado: puede crear un nuevo **servicio vinculado de SQL Azure** con configuración de cadena de conexión, crear un conjunto de datos que utilice el servicio vinculado y vincular el conjunto de datos (configurado con carácter de entrada ficticio) con la actividad de .NET personalizada. Tras ello, podrá acceder a la cadena de conexión del servicio vinculado del código de la actividad personalizada, que no debería tener problemas para funcionar bien en tiempo de ejecución.
+
 
 
 ## Actualización de la actividad personalizada
@@ -697,10 +701,10 @@ Si actualiza el código de la actividad personalizada, compílelo y cargue el ar
 ## Copia o traslado de datos 
 La actividad de copia copia los datos de un almacén de datos de **origen** a un almacén de datos **receptor**. Consulte [Almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores) para ver la lista de almacenes de datos admitidos como orígenes y receptores de la actividad de copia.
 
-Si tiene que mover datos a un almacén de datos (o desde él) que no sea compatible con la **actividad de copia**, puede utilizar la **actividad personalizada** en Data Factory con su propia lógica para copiar o mover los datos. Consulte [HTTP Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) (Ejemplo de descargador de datos HTTP) en GitHub.
+Si tiene que mover datos a un almacén de datos (o sacarlos de él) que no sea compatible con la **actividad de copia**, puede utilizar la **actividad personalizada** en Data Factory con su propia lógica para copiar o mover los datos. Consulte [HTTP Data Downloader Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) (Ejemplo de descargador de datos HTTP) en GitHub.
 
 ## Aislamiento de AppDomain 
-Consulte el [ejemplo de AppDomain cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que muestra cómo crear una actividad de .NET personalizada para Data Factory de Azure que no esté restringida a las versiones de ensamblado utilizadas por el iniciador de Data Factory de Azure (p. ej., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+Consulte el [ejemplo de AppDomain cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que muestra cómo crear una actividad de .NET personalizada para Data Factory de Azure que no esté restringida a las versiones de ensamblado que utiliza el iniciador de Data Factory de Azure (p. ej., WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## Acceso a las propiedades extendidas
 Puede declarar propiedades extendidas en la actividad de JSON como se muestra a continuación:
@@ -733,11 +737,11 @@ Para acceder a estas propiedades extendidas en el método **Execute**, use códi
 	}
 
 ## Característica de escalación automática de Lote de Azure
-También puede crear un grupo de Lote de Azure con la característica **Autoescala**. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
+También puede crear un grupo de Lote de Azure con la característica **autoescala**. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
  
 	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-Para más detalles, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+Para obtener más detalles, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
 
 Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
@@ -791,9 +795,9 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 
 2. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
-Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.
+Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para obtener más información.
 
-En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (a petición o suyo propio):
+En el elemento **JSON de la canalización**, utilice el servicio vinculado de HDInsight (a petición o suyo propio):
 
 	{
 	  "name": "ADFTutorialPipelineCustom",
@@ -886,4 +890,4 @@ Muestra | Qué hace la actividad personalizada
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

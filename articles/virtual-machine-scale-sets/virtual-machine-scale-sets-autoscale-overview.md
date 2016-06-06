@@ -21,7 +21,7 @@
 
 El escalado automático de máquinas virtuales en un conjunto de escalado consiste en la creación o eliminación de máquinas del conjunto según sea necesario para una aplicación para cumplir con los requisitos de rendimiento y satisfacer los Acuerdos de Nivel de Servicio (SLA). A medida que crece el volumen de trabajo, una aplicación puede requerir recursos adicionales para poder realizar sus tareas de manera eficaz.
 
-El escalado automático es un proceso automatizado que ayuda a reducir la sobrecarga de administración. Al reducir la sobrecarga, la supervisión continua del rendimiento del sistema y la toma de decisiones sobre si agregar o quitar recursos ya no son necesarias. El escalado es un proceso flexible; se pueden aprovisionar más recursos si aumenta la carga en el sistema, pero a medida que la demanda disminuye, se pueden volver a desasignar los recursos para minimizar los costos al tiempo que se mantiene un rendimiento adecuado y se cumple con los acuerdos de nivel de servicio.
+El escalado automático es un proceso automatizado que ayuda a facilitar la sobrecarga de administración mediante la supervisión continua del rendimiento del sistema, así como la toma de decisiones sobre cómo agregar o quitar recursos que no son necesarios. El escalado es un proceso flexible; se pueden aprovisionar más recursos si aumenta la carga en el sistema, pero a medida que la demanda disminuye, se pueden volver a desasignar los recursos para minimizar los costos al tiempo que se mantiene un rendimiento adecuado y se cumple con los acuerdos de nivel de servicio.
 
 Configure el escalado automático en un conjunto de escalado mediante una plantilla de Azure Resource Manager, Azure PowerShell o la CLI de Azure.
 
@@ -209,4 +209,4 @@ Tras un período de recuperación de cinco minutos, si el número medio de subpr
 1. Empiece a crear su primer conjunto de escalado mediante la información descrita en [Creación de un conjunto de escalado de máquinas virtuales de Windows mediante Azure PowerShell](virtual-machine-scale-sets-windows-create.md).
 2. Eche un vistazo a [Escalado automático de conjuntos de escalado de máquinas virtuales Windows](virtual-machine-scale-sets-windows-autoscale.md) o a [Escalado automático de conjuntos de escalado de máquinas virtuales de Linux](virtual-machine-scale-sets-linux-autoscale.md) para ver un ejemplo de cómo crear un conjunto de escalado con el escalado automático configurado.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

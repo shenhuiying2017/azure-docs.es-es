@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/20/2016"
 	ms.author="maheshu"/>
 
 # Configuración de LDAP seguro (LDAPS) para un dominio administrado con Servicios de dominio de Azure AD
@@ -30,7 +30,7 @@ Para realizar las tareas enumeradas en este artículo, necesita:
 
 4. Un **certificado que se usará para habilitar LDAP seguro**.
     - **Recomendado**: obtenga un certificado de la CA empresarial o una entidad de certificación pública. Se trata de una opción de configuración mucho más segura.
-	- Si lo prefiere, puede elegir [crear un certificado autofirmado](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---obtain-a-certificate-for-secure-ldap), como se muestra más adelante en este artículo.
+	- Si lo prefiere, puede elegir [crear un certificado autofirmado](#task-1---obtain-a-certificate-for-secure-ldap), tal y como se muestra más adelante en este artículo.
 
 <br>
 
@@ -60,7 +60,7 @@ La primera tarea implica la obtención de un certificado que se utilizará para 
 ### Opción A (recomendada): obtención de un certificado LDAP seguro desde una entidad de certificación
 Si su organización implementa una infraestructura de clave pública (PKI) empresarial, debe obtener un certificado de la entidad de certificación (CA) empresarial de su organización. Si su organización obtiene los certificados de una entidad de certificación pública, debe obtener el certificado LDAP seguro desde esa entidad de certificación pública.
 
-Al solicitar un certificado, asegúrese de seguir los requisitos descritos en [Requirement for the secure LDAP certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#requirements-for-the-secure-ldap-certificate) (Requisitos para el certificado LDAP seguro).
+Al solicitar un certificado, asegúrese de seguir los requisitos descritos en [Requirement for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate) (Requisitos para el certificado LDAP seguro).
 
 Tenga en cuenta que los equipos cliente que necesitan conectarse al dominio administrado mediante LDAP seguro deben confiar en el emisor LDAPS.
 
@@ -147,7 +147,7 @@ Realice los pasos siguientes para exportar el certificado LDAPS a un archivo PFX
 
     ![Exportación de certificados: escribir contraseña](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
-	> [AZURE.NOTE] Anote esta contraseña. La necesitará al habilitar LDAP seguro para este dominio administrado en [Tarea 3: Habilitar LDAP seguro para el dominio administrado](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
+	> [AZURE.NOTE] Anote esta contraseña. La necesitará al habilitar LDAP seguro para este dominio administrado en [Tarea 3: Habilitar LDAP seguro para el dominio administrado](#task-3---enable-secure-ldap-for-the-managed-domain).
 
 15. En la página **Archivo que se va a exportar** especifique el nombre de archivo y la ubicación donde desea exportar el certificado.
 
@@ -201,7 +201,7 @@ Realice los siguientes pasos de configuración para habilitar LDAP seguro.
 ## Tarea 4: Habilitar el acceso LDAP seguro a través de Internet
 **Tarea opcional**: omita esta tarea si no piensa acceder al dominio administrado con LDAPS a través de Internet.
 
-Antes de comenzar esta tarea, asegúrese de haber completado los pasos descritos en la [Tarea 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
+Antes de comenzar esta tarea, asegúrese de haber completado los pasos que se describen en la [tarea 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
 1. Verá una opción para **HABILITAR EL ACCESO LDAP SEGURO A TRAVÉS DE INTERNET** en la sección **Servicios de dominio** de la página **Configurar**. Esto se establecerá en **NO** de forma predeterminada, ya que el acceso a Internet para el dominio administrado a través de LDAP seguro está deshabilitado de forma predeterminada.
 
@@ -224,7 +224,7 @@ Antes de comenzar esta tarea, asegúrese de haber completado los pasos descritos
 ## Tarea 5: Configurar DNS para acceder al dominio administrado desde Internet
 **Tarea opcional**: omita esta tarea si no piensa acceder al dominio administrado con LDAPS a través de Internet.
 
-Antes de comenzar esta tarea, asegúrese de haber completado los pasos descritos en la [Tarea 4](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-4---enable-secure-ldap-access-over-the-internet).
+Antes de comenzar esta tarea, asegúrese de haber completado los pasos que se describen en la [tarea 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
 Una vez habilitado el acceso LDAP seguro a través de Internet para el dominio administrado, debe actualizar el DNS para que los equipos cliente puedan encontrar este dominio administrado. Al final de la tarea 4 aparece una dirección IP externa en la pestaña **Configurar**, en **DIRECCIÓN IP EXTERNA PARA EL ACCESO LDAPS**.
 
@@ -242,4 +242,4 @@ Eso es todo: ya está listo para conectarse al dominio administrado mediante LDA
 
 - [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

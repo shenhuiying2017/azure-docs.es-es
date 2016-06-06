@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/26/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
@@ -130,4 +130,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 [Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0525_2016-->

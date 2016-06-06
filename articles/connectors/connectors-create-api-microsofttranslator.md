@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Incorporación de Microsoft Translator a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Microsoft Translator con los parámetros de la API de REST"
-	services=""
+    pageTitle="Incorporación de Microsoft Translator a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Microsoft Translator con los parámetros de la API de REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de Microsoft Translator
-Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, etc. La API de Microsoft Translator pueden usarse desde:
+# Introducción al conector de Microsoft Translator
+Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, etc. El conector de Microsoft Translator pueden usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -32,9 +32,9 @@ Con Microsoft Translator, puede:
 
 - Compilar el flujo de negocio en función de los datos que obtiene de Microsoft Translator. 
 - Usar acciones para traducir texto, detectar un idioma, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo archivo en Dropbox, puede convertir el texto del archivo a otro idioma mediante Microsoft Translator.
-- Agregue la API de Microsoft Translator a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregar el conector de Microsoft Translator a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -45,7 +45,12 @@ Desencadenadores | Acciones
 --- | ---
 None | <ul><li>Detectar idioma</li><li>Texto a voz</li><li>Traducir texto</li><li>Obtener idiomas</li><li>Obtener idiomas de voz</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
+
+
+## Creación de una conexión a Microsoft Translator
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 
 
 ## Referencia de la API de REST de Swagger
@@ -132,13 +137,13 @@ No hay parámetros para esta llamada.
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volver a la [lista de API](apis-list.md).
+Vuelta a la [lista de API](apis-list.md).
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

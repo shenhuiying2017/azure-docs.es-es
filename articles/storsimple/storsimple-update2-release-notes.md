@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Notas de la versión de la actualización 2 de la serie StorSimple 8000  
@@ -115,4 +115,4 @@ No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nu
 
 Obtenga información sobre cómo [instalar la actualización 2](storsimple-install-update-2.md) en el dispositivo de StorSimple.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

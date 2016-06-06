@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="05/16/2016" 
 	ms.author="arramac"/>
 
 # Partición y escalado en Azure DocumentDB
@@ -25,9 +25,11 @@ Después de leer este artículo, podrá responder a las siguientes preguntas:
 - ¿Cómo se configuran las particiones en DocumentDB?
 - ¿Qué son las claves de partición y cómo se elige la clave de partición correcta para una aplicación?
 
+Para empezar a trabajar con código, descargue el proyecto del [ejemplo de controlador de pruebas de rendimiento de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark).
+
 ## Creación de particiones en DocumentDB
 
-DocumentDB permite almacenar y consultar documentos JSON sin esquemas con un tiempo de respuesta de milisegundos y a cualquier escala. DocumentDB proporciona **colecciones**, que son unos contenedores para el almacenamiento de datos. Las colecciones son recursos lógicos y pueden abarcar una o varias particiones físicas o servidores. DocumentDB determina el número de particiones en función del tamaño de almacenamiento y el rendimiento aprovisionado de la colección. Todas las particiones de DocumentDB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure DocumentDB se encarga de administrar las particiones, por lo que no es necesario escribir código ni gestionar las particiones propias. Las colecciones de DocumentDB ofrecen unas funcionalidades de almacenamiento y procesamiento **prácticamente ilimitadas**.
+DocumentDB permite almacenar y consultar documentos JSON sin esquemas con un tiempo de respuesta de milisegundos y a cualquier escala. DocumentDB proporciona **colecciones**, contenedores para el almacenamiento de datos. Las colecciones son recursos lógicos y pueden abarcar una o varias particiones físicas o servidores. DocumentDB determina el número de particiones en función del tamaño de almacenamiento y el rendimiento aprovisionado de la colección. Todas las particiones de DocumentDB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure DocumentDB se encarga de administrar las particiones, por lo que no es necesario escribir código ni gestionar las particiones propias. Las colecciones de DocumentDB ofrecen funcionalidades de almacenamiento y procesamiento **prácticamente ilimitadas**.
 
 La partición es completamente transparente para la aplicación. DocumentDB admite lecturas y escrituras rápidas, consultas SQL y LINQ, lógica transaccional basada en JavaScript, niveles de coherencia y control de acceso específico a través de llamadas de API de REST a un recurso de colección único. El servicio controla la distribución de datos por las distintas particiones, así como el enrutamiento de las solicitudes de consulta a la partición correcta.
 
@@ -36,7 +38,7 @@ La partición es completamente transparente para la aplicación. DocumentDB admi
 Imaginemos, por ejemplo, una aplicación que almacene datos de empleados y departamentos en DocumentDB. Elijamos `"department"` como la propiedad de clave de partición para escalar horizontalmente los datos por departamento. Los documentos de DocumentDB deben contener obligatoriamente una propiedad `"id"` que será única en cada uno de los documentos que tengan el mismo valor de clave de partición, por ejemplo, `"Marketing`". Todos los documentos almacenados en una colección deben tener una combinación exclusiva de clave de partición e identificador, por ejemplo, `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }` y `{ "Department": "Sales", "id": "0001" }`. En otras palabras, la propiedad compuesta de (clave de partición, identificador) es la clave principal de la colección.
 
 ### Claves de partición
-La elección de la clave de partición es una decisión importante que deberá realizarse en el tiempo de diseño. Debe elegir un nombre de propiedad JSON con una amplia gama de valores y con mayor probabilidad de tener patrones de acceso distribuidos uniformemente. La clave de partición se especifica como una ruta de acceso JSON, por ejemplo, `/department` representa el departamento de propiedad.
+La elección de la clave de partición es una decisión importante que deberá realizarse en el tiempo de diseño. Debe elegir un nombre de propiedad JSON con una amplia gama de valores y con mayor probabilidad de tener patrones de acceso distribuidos uniformemente. La clave de partición se especifica como una ruta de acceso JSON; por ejemplo, `/department` representa el departamento de propiedad.
 
 En la tabla siguiente se muestran ejemplos de definiciones de clave de partición y los valores JSON correspondientes a cada una de ellas.
 
@@ -70,11 +72,11 @@ En la tabla siguiente se muestran ejemplos de definiciones de clave de partició
 Veamos cómo afecta al rendimiento de la aplicación la elección de la clave de partición.
 
 ### Creación de particiones y procesamiento aprovisionado
-DocumentDB se ha diseñado para ofrecer un rendimiento predecible. Cuando crea una colección, reserva procesamiento en términos de **[unidades de solicitud ](documentdb-request-units.md) (RU) por segundo**. A cada solicitud se le asigna una carga de unidad de solicitud proporcional a la cantidad de recursos del sistema, como la CPU y la E/S consumidas por la operación. Una lectura de un documento de 1 kB con coherencia de sesión consume 1 unidad de solicitud. Una lectura es 1 RU independientemente del número de elementos almacenados o del número de solicitudes que se ejecutan de manera simultánea. Los documentos más grandes exigen unidades de solicitud mayores en función del tamaño. Si se conoce el tamaño de las entidades y el número de lecturas que soportará la aplicación, se puede aprovisionar la cantidad exacta de procesamiento requerido para las necesidades de lectura de la aplicación.
+DocumentDB se ha diseñado para ofrecer un rendimiento predecible. Al crear una colección, reserva procesamiento en términos de **[unidades de solicitud](documentdb-request-units.md) (RU) por segundo**. A cada solicitud se le asigna una carga de unidad de solicitud proporcional a la cantidad de recursos del sistema, como la CPU y la E/S consumidas por la operación. Una lectura de un documento de 1 kB con coherencia de sesión consume 1 unidad de solicitud. Una lectura es 1 RU independientemente del número de elementos almacenados o del número de solicitudes que se ejecutan de manera simultánea. Los documentos más grandes exigen unidades de solicitud mayores en función del tamaño. Si se conoce el tamaño de las entidades y el número de lecturas que soportará la aplicación, se puede aprovisionar la cantidad exacta de procesamiento requerido para las necesidades de lectura de la aplicación.
 
 Cuando DocumentDB almacena los documentos, los distribuye uniformemente entre las particiones según el valor de clave de partición. El procesamiento también se distribuye uniformemente entre las particiones disponibles, es decir, el procesamiento por partición = (procesamiento total por colección)/(número de particiones).
 
-> [AZURE.TIP] Para lograr el procesamiento total de la colección, debe elegirse una clave de partición que permita distribuir uniformemente las solicitudes entre una serie de valores de clave de partición definidos.
+>[AZURE.NOTE] Para lograr el procesamiento total de la colección, debe elegirse una clave de partición que permita distribuir uniformemente las solicitudes entre una serie de valores de clave de partición definidos.
 
 ## Colecciones de partición única y con varias particiones
 DocumentDB admite la creación de colecciones de una sola partición y con varias particiones.
@@ -86,7 +88,7 @@ DocumentDB admite la creación de colecciones de una sola partición y con varia
 
 Las colecciones de partición única son una buena opción en escenarios que no necesitan grandes volúmenes de almacenamiento o procesamiento. Obsérvese que las colecciones de partición única tienen los límites de escalabilidad y almacenamiento propios de una sola partición, es decir, hasta 10 GB de almacenamiento y hasta 10 000 unidades de solicitud por segundo.
 
-Las colecciones particionadas pueden admitir una gran cantidad de almacenamiento y procesamiento. Sin embargo, las ofertas predeterminadas están configuradas para almacenar hasta 250 GB y escalar verticalmente hasta 250 000 unidades de solicitud por segundo. Si necesita mayor almacenamiento o procesamiento por colección para su cuenta, póngase en contacto con el [soporte técnico de Azure](documentdb-increase-limits.md) para solicitarlo.
+Las colecciones particionadas pueden admitir una gran cantidad de almacenamiento y procesamiento. Sin embargo, las ofertas predeterminadas están configuradas para almacenar hasta 250 GB y escalar verticalmente hasta 250 000 unidades de solicitud por segundo. Si necesita mayor capacidad de almacenamiento o de procesamiento por colección para su cuenta, póngase en contacto con el [soporte técnico de Azure](documentdb-increase-limits.md) para solicitarlo.
 
 En la tabla siguiente se enumeran las diferencias entre trabajar con colecciones de partición única y colecciones particionadas:
 
@@ -141,9 +143,9 @@ A partir de la [versión de la API de REST de 16-12-2015](https://msdn.microsoft
 
 ### Creación de colecciones con particiones
 
-En el ejemplo siguiente se muestra un fragmento de código .NET mediante el que se crea una colección que almacena los datos de telemetría de dispositivos con un procesamiento de 20 000 unidades de solicitud por segundo. El SDK establece el valor OfferThroughput (que a su vez establece el encabezado de solicitud `x-ms-offer-throughput` en la API de REST). En este caso, la clave de partición será `/deviceId`. La elección de la clave de partición se guarda junto con el resto de los metadatos de la colección, como nombre y la directiva de indexación.
+En el ejemplo siguiente se muestra un fragmento de código .NET mediante el que se crea una colección que almacena los datos de telemetría de dispositivos con un procesamiento de 20 000 unidades de solicitud por segundo. El SDK establece el valor OfferThroughput (que a su vez establece el encabezado de solicitud `x-ms-offer-throughput` en la API de REST). En este caso, la clave de partición es `/deviceId`. La elección de la clave de partición se guarda junto con el resto de los metadatos de la colección, como nombre y la directiva de indexación.
 
-Para este ejemplo elegimos `deviceId` por dos motivos: en primer lugar, sabemos que al haber un gran número de dispositivos, las escrituras pueden distribuirse entre las particiones de manera uniforme, lo que nos permite escalar la base de datos para introducir grandes volúmenes de datos; en segundo lugar, muchas de las solicitudes, como la obtención de la última lectura correspondiente a un dispositivo, se limitan a un único deviceId y se pueden recuperar desde una única partición.
+Para este ejemplo, elegimos `deviceId` por dos motivos: en primer lugar, sabemos que al haber un gran número de dispositivos, las escrituras pueden distribuirse entre las particiones de manera uniforme, lo que nos permite escalar la base de datos para introducir grandes volúmenes de datos; en segundo lugar, muchas de las solicitudes, como la obtención de la última lectura correspondiente a un dispositivo, se limitan a un único deviceId y se pueden recuperar desde una única partición.
 
     DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
     await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -163,7 +165,7 @@ Para este ejemplo elegimos `deviceId` por dos motivos: en primer lugar, sabemos 
 
 > [AZURE.NOTE] Para crear colecciones con particiones, debe especificar un valor de rendimiento superior a 10 000 unidades de solicitud por segundo. Puesto que el procesamiento se da en múltiplos de 100, este debe ser 10 100 o superior.
 
-Este método realiza una llamada API de REST a DocumentDB, tras lo cual el servicio proporciona un número de particiones que está determinado en función del procesamiento que se solicite. Puede cambiar el procesamiento de una colección a medida que evolucionen sus necesidades de rendimiento. Consulte [Niveles de rendimiento](documentdb-performance-levels.md) para más detalles.
+Este método realiza una llamada API de REST a DocumentDB, tras lo cual el servicio proporciona un número de particiones que está determinado en función del procesamiento que se solicite. Puede cambiar el procesamiento de una colección a medida que evolucionen sus necesidades de rendimiento. Consulte [Niveles de rendimiento](documentdb-performance-levels.md) para obtener más detalles.
 
 ### Lectura y escritura de documentos
 
@@ -259,11 +261,11 @@ En la siguiente sección, veremos cómo puede moverse a colecciones con particio
 
 <a name="migrating-from-single-partition"></a>
 ### Migración desde colecciones de partición única a colecciones con varias particiones
-Cuando una aplicación que usa colecciones con partición única necesita mayor procesamiento (>10 000 RU/s) o almacenamiento de datos más grande (>10 GB), puede utilizar la [Herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones.
+Cuando una aplicación que usa colecciones con partición única necesita mayor capacidad de procesamiento (>10 000 RU/s) o de almacenamiento de datos (>10 GB), puede utilizar la [herramienta de migración de datos de DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar los datos desde la colección de partición única a una colección con varias particiones.
 
 Para migrar desde una colección de partición única a una colección con varias particiones
 
-1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para obtener más detalles.
+1. Exporte los datos desde la colección de partición única a JSON. Consulte [Exportación a archivos JSON](documentdb-import-data.md#export-to-json-file) para más detalles.
 2. Importe los datos a una colección con particiones creada con una definición de clave de partición y un procesamiento de más de 10 000 unidades de solicitud por segundo, como se muestra en el ejemplo siguiente. Consulte [Importación a DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obtener detalles adicionales.
 
 ![Migración de datos a una colección con particiones en DocumentDB][3]
@@ -309,9 +311,10 @@ También puede usar un enfoque de combinación o niveles que coloca los inquilin
 ## Pasos siguientes
 En este artículo hemos descrito el funcionamiento de las particiones en Azure DocumentDB, cómo crear colecciones particionadas y cómo elegir una buena clave de partición para la aplicación.
 
+-   Realice pruebas de escala y de rendimiento con DocumentDB. Consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md) para ver ejemplos.
 -   Introducción a la codificación con [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 -   Información sobre el [procesamiento aprovisionado en DocumentDB](documentdb-performance-levels.md)
--   Si desea personalizar la forma en que la aplicación realiza particiones, puede conectar su propia implementación de particiones del lado cliente. Consulte la [compatibilidad con la creación de particiones del lado cliente](documentdb-sharding.md).
+-   Si desea personalizar la forma en que la aplicación realiza particiones, puede conectar su propia implementación de particiones del lado cliente. Consulte [Client-side partitioning support](documentdb-sharding.md) (Compatibilidad con la creación de particiones del lado cliente).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -319,4 +322,4 @@ En este artículo hemos descrito el funcionamiento de las particiones en Azure D
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

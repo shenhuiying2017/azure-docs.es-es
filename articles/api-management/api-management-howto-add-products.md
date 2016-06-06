@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Creación y publicación de un producto en Administración de API de Azure
@@ -148,4 +148,4 @@ Para obtener más información acerca de cómo trabajar con los productos, vea e
 [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure]: api-management-howto-create-groups.md
 [Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->
