@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
@@ -362,7 +362,7 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 
 ## Pasos siguientes
 -	Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
--	Para conocer otras formas de proteger el servicio de back-end, consulte [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn).
+-	Para conocer otras formas de proteger el servicio de back-end, consulte [Autenticación de certificado mutuo](api-management-howto-mutual-certificates.md) y [Conectarse a través de VPN o ExpressRoute](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -413,4 +413,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, consulte 
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar su primera API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

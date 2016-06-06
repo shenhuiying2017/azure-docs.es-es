@@ -22,7 +22,7 @@ Como administrador, puede que tenga que bloquear una suscripción, un grupo de r
 
 Al diferencia del control de acceso basado en rol, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 
-Cuando se aplica un bloqueo en un ámbito primario, todos los recursos secundarios heredan el mismo bloqueo.
+Cuando se aplica un bloqueo en un ámbito primario, todos los recursos secundarios heredan el mismo bloqueo. El bloqueo más restrictivo de toda la herencia tiene prioridad.
 
 ## Quién puede crear o eliminar bloqueos en su organización
 
@@ -30,25 +30,25 @@ Para crear o eliminar bloqueos de administración, debe tener acceso a las accio
 
 ## Creación de un bloqueo a través del portal
 
-En la hoja Configuración del recurso, del grupo de recursos o de la suscripción que desea bloquear, seleccione **Bloqueos**.
+1. En la hoja Configuración del recurso, del grupo de recursos o de la suscripción que desea bloquear, seleccione **Bloqueos**.
 
-![seleccionar bloqueo](./media/resource-group-lock-resources/select-lock.png)
+      ![seleccionar bloqueo](./media/resource-group-lock-resources/select-lock.png)
 
-Para agregar un bloqueo, seleccione **Agregar**. Si desea crear un bloqueo en un nivel primario que heredará el recurso seleccionado, seleccione al elemento primario (como por ejemplo, la suscripción que se muestra a continuación).
+2. Para agregar un bloqueo, seleccione **Agregar**. Si desea crear un bloqueo en un nivel primario que heredará el recurso seleccionado, seleccione al elemento primario (como por ejemplo, la suscripción que se muestra a continuación).
 
-![agregar bloqueo](./media/resource-group-lock-resources/add-lock.png)
+      ![agregar bloqueo](./media/resource-group-lock-resources/add-lock.png)
 
-Asigne al bloqueo un nombre y un nivel. Opcionalmente, puede agregar notas que describan por qué se necesita el bloqueo.
+3. Asigne al bloqueo un nombre y un nivel. Opcionalmente, puede agregar notas que describan por qué se necesita el bloqueo.
 
-![establecer bloqueo](./media/resource-group-lock-resources/set-lock.png)
+      ![establecer bloqueo](./media/resource-group-lock-resources/set-lock.png)
 
-Para eliminar el bloqueo, seleccione los puntos suspensivos y **Eliminar** en las opciones disponibles.
+4. Para eliminar el bloqueo, seleccione los puntos suspensivos y **Eliminar** en las opciones disponibles.
 
-![eliminar bloqueo](./media/resource-group-lock-resources/delete-lock.png)
+      ![eliminar bloqueo](./media/resource-group-lock-resources/delete-lock.png)
 
 ## Creación de un bloqueo en una plantilla
 
-El ejemplo siguiente muestra una plantilla que crea un bloqueo en una cuenta de almacenamiento. La cuenta de almacenamiento en la que se va a aplicar el bloqueo se proporciona como un parámetro. El nombre del bloqueo se crea mediante la concatenación del nombre del recurso con **/Microsoft.Authorization/** y el nombre del bloqueo, en este caso **myLock**.
+El ejemplo siguiente muestra una plantilla que crea un bloqueo en una cuenta de almacenamiento. La cuenta de almacenamiento en la que se va a aplicar el bloqueo se proporciona como un parámetro. El nombre del bloqueo se crea mediante la concatenación del nombre del recurso con **/Microsoft.Authorization/** y el propio nombre del bloqueo (en este caso, **myLock**).
 
 El tipo proporcionado es específico del tipo de recurso. Para el almacenamiento, este tipo es "Microsoft.Storage/storageaccounts/providers/locks".
 
@@ -108,4 +108,4 @@ Azure PowerShell ofrece otros comandos para bloqueos de trabajo, como **Set-Azur
 - Para cambiar el grupo de recursos en que reside un recurso, vea [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md).
 - Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. Para más información, vea [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

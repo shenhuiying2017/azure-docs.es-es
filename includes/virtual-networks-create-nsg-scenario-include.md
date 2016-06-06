@@ -13,7 +13,7 @@ En este escenario, creará un NSG para cada subred de la red virtual **TestVNet*
 	- **sql-rule**. Esta regla permite el tráfico SQL tan solo desde la subred *FrontEnd*.
 	- **web-rule**. Esta regla deniega todo el tráfico ligado a Internet de la subred *BackEnd*.
 
-La combinación de estas reglas crea un escenario similar a DMZ, donde la subred de backend solo puede recibir tráfico entrante para el tráfico SQL de la subred frontend y no tiene acceso a Internet, mientras que la subred frontend puede comunicarse con Internet y recibir solicitudes HTTP entrantes solamente.
+La combinación de estas reglas crea un escenario similar a DMZ, donde la subred de back-end solo puede recibir tráfico entrante para SQL de la subred de front-end y no tiene acceso a Internet, mientras que la subred de front-end puede comunicarse con Internet y recibir solicitudes HTTP entrantes solamente.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0525_2016-->

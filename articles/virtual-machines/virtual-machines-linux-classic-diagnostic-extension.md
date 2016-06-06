@@ -108,12 +108,14 @@ Paso 1. Cree un archivo denominado PrivateConfig.json con el contenido que se de
 Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Escenario 4. Deshabilitación de la extensión de diagnóstico de Linux
+###   Escenario 4. Detención del proceso de recopilación de registros por parte de la extensión
+En esta sección se describe cómo hacer que la extensión deje de recopilar registros. Tenga en cuenta que el proceso del agente de supervisión seguirá activo y en ejecución incluso con esta reconfiguración. Por lo tanto, si desea detener el proceso del agente de supervisión por completo, la extensión debe ser desinstalada. Es posible que más adelante agreguemos una propiedad de configuración que simplemente deshabilite la extensión (deteniendo también el proceso del agente de supervisión por completo) sin requerir la desinstalación de toda la extensión.
+
 Paso 1. Cree un archivo denominado PrivateConfig.json con el contenido que se describe en el escenario 1. Cree otro archivo denominado PublicConfig.json con el siguiente contenido.
 
 	{
      	"perfCfg":[],
-     	"enableSyslog":”False”
+     	"enableSyslog":"false"
 	}
 
 
@@ -137,4 +139,4 @@ Si ha habilitado el archivo fileCfg o perfCfg especificado en los escenarios 2 y
 ## Problemas conocidos
 - En la versión 2.0, solo puede tener acceso a la información de Rsyslog y el archivo de registro del cliente especificado a través de scripts.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="yuaxu;ricksal"/>
 
 # Incorporación de notificaciones push a la aplicación de Android
@@ -80,4 +80,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 
 [Configuración del SDK de Google Play Services]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

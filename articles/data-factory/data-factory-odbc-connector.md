@@ -352,9 +352,20 @@ Antes de usar el almacén GE Historian en una solución de Data Factory, comprue
 
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen en una operación de copia.
 
-[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+## Solución de problemas de conectividad
+Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
+
+1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar "C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal como se muestra en la imagen siguiente. 
+
+	![Buscar puerta de enlace](./media/data-factory-odbc-connector/search-gateway.png)
+2. Cambie a la pestaña **Diagnósticos**.
+
+	![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
+3. Seleccione el **tipo** de almacén de datos (el servicio vinculado). 
+4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** para conectarse al almacén de datos. 
+5. Haga clic en **Prueba de conexión** para probar la conexión con el almacén de datos. 
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

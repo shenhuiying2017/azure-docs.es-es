@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/22/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -105,7 +105,7 @@ Figura 5. Evaluación de un modelo de clasificación binaria.
 ###Inspección de los resultados de la evaluación###
 Después de ejecutar el experimento, puede hacer clic en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccionar *Visualizar* para ver los resultados de la evaluación (Ilustración 7). Las métricas de evaluación disponibles para los modelos de clasificación binaria son: *Accuracy*, *Precision*, *Recall*, *F1 Score* y *AUC*. Además, el módulo genera una matriz de confusión que muestra el número de positivos verdaderos, falsos negativos, falsos positivos y negativos verdaderos, así como curvas *ROC*, *Precision/Recall* y *Lift*.
 
-La precisión es simplemente la proporción de instancias clasificadas correctamente. Suele ser la primera métrica que se comprueba al evaluar un clasificador. Sin embargo, si los datos de prueba están descompensados (en el caso en que la mayoría de las instancias pertenecen a una de las clases) o está más interesado en el rendimiento de una de las clases, la precisión no captura realmente la eficacia de un clasificador. En el escenario de clasificación del nivel de ingresos, suponga que está realizando pruebas en datos donde el 99 % de las instancias representan personas con un sueldo menor o igual a 50.000 al año. Es posible conseguir una precisión de 0,99 al predecir la clase "<=50.000" para todas las instancias. En este caso, el clasificador parece hacer un buen trabajo global, pero en realidad no clasifica correctamente ninguno de las personas con ingresos elevados (1 %) correctamente.
+La precisión es simplemente la proporción de instancias clasificadas correctamente. Suele ser la primera métrica que se comprueba al evaluar un clasificador. Sin embargo, si los datos de prueba están descompensados (en el caso en que la mayoría de las instancias pertenecen a una de las clases) o está más interesado en el rendimiento de una de las clases, la precisión no captura realmente la eficacia de un clasificador. En el escenario de clasificación del nivel de ingresos, suponga que está realizando pruebas en datos donde el 99 % de las instancias representan personas con un sueldo menor o igual a 50.000 al año. Es posible conseguir una precisión de 0,99 al predecir la clase "<=50.000" para todas las instancias. En este caso, el clasificador parece hacer un buen trabajo global, pero en realidad no clasifica correctamente ninguno de las personas con ingresos elevados (1 %) correctamente.
 
 Por ese motivo, es útil calcular métricas adicionales que capturen aspectos más específicos de la evaluación. Antes de entrar a los detalles de dichas métricas, es importante comprender la matriz de confusión de una evaluación de clasificación binaria. Las etiquetas de clase en el conjunto de entrenamiento pueden tomar solo dos valores posibles, a los que normalmente podemos referirnos como positivo o negativo. Las instancias positivas y negativas que un clasificador predice correctamente se denominan positivos verdaderos (TP) y negativos verdaderos (TN), respectivamente. De forma similar, las instancias clasificadas incorrectamente se denominan falsos positivos (FP) y falsos negativos (FN). La matriz de confusión es simplemente una tabla que muestra el número de instancias que se encuentran bajo cada una de estas cuatro categorías. Aprendizaje automático de Azure decide automáticamente cuál de las dos clases en el conjunto de datos es la clase positiva. Si las etiquetas de clase son valores booleanos o enteros, se asignan las instancias etiquetadas como 'true' o '1' a la clase positiva. Si las etiquetas son cadenas, como en el caso del conjunto de datos de los ingresos, las etiquetas se ordenan alfabéticamente y se elige que el primer nivel sea la clase negativa, mientras que el segundo nivel es la clase positiva.
 
@@ -133,14 +133,14 @@ Figura 8. Validación cruzada de un modelo de clasificación binaria.
 Figura 9. Resultados de la validación cruzada de un clasificador binario.
 
 ##Evaluación de un modelo de clasificación multiclase##
-En este experimento se usará el conocido conjunto de datos [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay 4 valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí, se usará el módulo [Dividir][split] para crear dos subconjuntos de los datos, de entrenamiento en el primero, y de puntuación y evaluación en el segundo. El conjunto de datos Iris está disponible públicamente en el repositorio [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar con un módulo [Lector][reader].
+En este experimento se usará el conocido conjunto de datos [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay 4 valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en el repositorio [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][reader].
 
 ###Creación del experimento###
 Agregue los módulos siguientes al área de trabajo en Estudio de aprendizaje automático de Azure:
 
-- [Lector][reader]
+- [Import Data][reader]
 - [Bosque de decisión multiclase][multiclass-decision-forest]
-- [Dividir][split]
+- [Dividir datos][split]
 - [Entrenar modelo][train-model]
 - [Puntuar modelo][score-model]
 - [Evaluar modelo][evaluate-model]
@@ -149,9 +149,9 @@ Conecte los puertos tal como se muestra a continuación en la Figura 10.
 
 Establezca el índice de la columna de etiqueta del módulo [Entrenar modelo][train-model] en 5. El conjunto de datos no tiene fila de encabezado, pero se sabe que las etiquetas de clase están en la quinta columna.
 
-Haga clic en el módulo [Lector][reader] y establezca la propiedad *Origen de datos* en *Dirección URL de web a través de HTTP* y la *dirección URL* en http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Haga clic en el módulo [Importar datos][reader] y establezca la propiedad *Origen de datos* en *Dirección URL de web a través de HTTP* y la *dirección URL* en http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Establezca la fracción de instancias que se usarán para el entrenamiento en el módulo [Dividir][split] (en 0,7 por ejemplo).
+Establezca la fracción de instancias que se usarán para el entrenamiento en el módulo [Dividir datos][split] (en 0,7 por ejemplo).
  
 ![Evaluar un clasificador multiclase](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -189,4 +189,4 @@ Ilustración 13. Resultados de una validación cruzada de un modelo de clasifica
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

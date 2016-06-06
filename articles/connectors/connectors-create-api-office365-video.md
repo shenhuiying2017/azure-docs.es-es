@@ -1,10 +1,10 @@
 <properties
-pageTitle="Uso de la API de Office 365 Video en las aplicaciones lógicas | Microsoft Azure"
-description="Introducción al uso de la API de Office 365 Video (conector) en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Uso del conector de Office 365 Video en las aplicaciones lógicas | Microsoft Azure"
+description="Introducción al uso del conector de Office 365 Video en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,38 +14,37 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/23/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introducción a la API de Office365 Video
-Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. La API de Office 365 Video puede usarse desde:
+# Introducción al conector de Office 365 Video
+Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. El conector de Office 365 Video puede usarse desde:
 
 - Aplicaciones lógicas 
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Esta API no se admite en las versiones anteriores del esquema.
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Este conector no se admite en las versiones anteriores del esquema.
 
 Con Office 365 Video puede:
 
 - Compilar el flujo de su negocio en función de los datos que obtiene de Office 365 Video. 
-- Usar acciones que comprueban el estado del portal de vídeo, obtener una lista de todos los vídeos en un canal y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede utilizar la API de búsqueda de Bing para buscar vídeos de Office 365 y, a continuación, usar la API de Office 365 Video para conseguir información sobre ese vídeo. Si el vídeo cumple sus requisitos, puede publicarlo en Facebook. 
+- Usar acciones que comprueban el estado del portal de vídeo, obtener una lista de todos los vídeos en un canal y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede utilizar el conector de Búsqueda de Bing para buscar vídeos de Office 365 y, después, usar el conector de Office 365 Video para conseguir información sobre ese vídeo. Si el vídeo cumple sus requisitos, puede publicarlo en Facebook. 
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
-La API de Office 365 Video cuenta con las siguientes acciones: No hay desencadenadores.
+El conector de Office 365 Video tiene las siguientes acciones disponibles. No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
 | None | <ul><li>Comprueba el estado de portal de vídeo</li><li>Obtiene todos los canales visibles</li><li>Obtiene la dirección URL de la reproducción del manifiesto de los Servicios multimedia de Azure para un vídeo</li><li>Obtiene el token de portador para conseguir acceso para descifrar el vídeo</li><li>Obtiene información sobre un determinado vídeo de Office365 </li><li>Ofrece una lista de todos los vídeos de Office365 que están presentes en un canal</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
-## Creación de una conexión a la API de Office365 Video
-Al agregar esta API a las aplicaciones lógicas, tiene que iniciar sesión en su cuenta de Office 365 Video y permitir que las aplicaciones lógicas se conecten con su cuenta.
+## Creación de una conexión al conector de Office 365 Video
+Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Video y permitir que estas se conecten a su cuenta.
 
-1. Inicie sesión en su cuenta de Office 365 Video.
-2. Permita que las aplicaciones lógicas se conecten con su cuenta de Office 365 y la usen. 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 
 Después de crear la conexión, especifique las propiedades del vídeo de Office 365, como el nombre de inquilino o el identificador del canal. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
@@ -221,4 +220,4 @@ Obtiene el token de portador para conseguir acceso con el fin de descifrar el v�
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -82,10 +82,10 @@ La siguiente es una lista de vínculos a documentación en línea de referencia 
 [.NET de Internet de las cosas (IoT)]: https://msdn.microsoft.com/library/mt488521.aspx
 [SDK de dispositivos IoT de Microsoft Azure para C]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [SDK de dispositivos IoT de Microsoft Azure para Java]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[SDK de dispositivos IoT de Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.5/index.html
+[SDK de dispositivos IoT de Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.6/index.html
 [REST de Centro de IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 [SDK de servicios IoT de Microsoft Azure para Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[SDK de servicios IoT de Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.5/index.html
+[SDK de servicios IoT de Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.8/index.html
 [Microsoft Azure IoT gateway SDK]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,18 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/20/2016"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Catálogo de datos de Azure.
 
+## Novedades de la versión correspondiente a la semana del 20 de mayo de 2016
+
+A partir de semana del 20 de mayo de 2016, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+
+- Mejoras en el glosario empresarial del catálogo de datos que permite a los usuarios actualizar varios términos de glosario en una sola operación. Los usuarios pueden seleccionar varios términos para editar los campos siguientes:
+    - Término primario: el usuario puede seleccionar un nuevo término primario y todos los términos seleccionados se actualizarán para ser secundarios del término primario seleccionado. Si los términos seleccionados tienen el mismo elemento primario, este último se muestra en el cuadro de texto. De lo contrario, el campo de término principal estará en blanco.   
+    - Etiquetas y partes interesadas: los usuarios pueden agregar y quitar etiquetas y partes interesadas para varios términos de glosario utilizando el mismo modo que para el etiquetado de varios recursos de datos.
+
+Para obtener más información sobre el glosario empresarial, consulte [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuración del glosario empresarial para el etiquetado regulado).
+
 ## Novedades de la versión correspondiente a la semana del 6 de marzo de 2016
 
 A partir de semana del 6 de marzo de 2016, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
 
-- Un glosario empresarial que permite a los administradores del Catálogo definir términos y jerarquías empresariales para crear un vocabulario empresarial común. Los usuarios pueden etiquetar recursos de datos registrados con términos del glosario para que resulte más fácil de detectar y comprender el contenido del catálogo. Para más información, consulte [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md)  
+- Un glosario empresarial que permite a los administradores del Catálogo definir términos y jerarquías empresariales para crear un vocabulario empresarial común. Los usuarios pueden etiquetar recursos de datos registrados con términos del glosario para que resulte más fácil de detectar y comprender el contenido del catálogo. Para obtener más información, consulte [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Configuración del glosario empresarial para el etiquetado regulado).  
 
 > [AZURE.NOTE] El glosario empresarial solo está disponible en la Edición Estándar del Catálogo de datos de Azure. La Edición Gratis no proporciona funcionalidades para el etiquetado regulado o para un glosario empresarial.
 
@@ -33,7 +43,7 @@ A partir de semana del 6 de marzo de 2016, se agregaron las siguientes funcional
 
 A partir de semana del 11 de marzo de 2016, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
 
-- Un punto de conexión de API de REST consolidado para acceder mediante programación a las funcionalidades de búsqueda y a las funcionalidades de administración de activos del catálogo del servicio Catálogo de datos de Azure. El punto de conexión de API de búsqueda existente y el punto de conexión de API de catálogo están en desuso y se interrumpirán el 21 de marzo de 2016. No hay ningún cambio en la semántica de la API; solo cambia el URI del punto de conexión. Para más información, consulte la [Referencia de la API de REST del Catálogo de datos de Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Para obtener ejemplos de la API, consulte [Muestras para desarrolladores del Catálogo de datos de Azure](data-catalog-samples.md).
+- Un punto de conexión de API de REST consolidado para acceder mediante programación a las funcionalidades de búsqueda y a las funcionalidades de administración de activos del catálogo del servicio Catálogo de datos de Azure. El punto de conexión de API de búsqueda existente y el punto de conexión de API de catálogo están en desuso y se interrumpirán el 21 de marzo de 2016. No hay ningún cambio en la semántica de la API; solo cambia el URI del punto de conexión. Para obtener más información, consulte la [referencia de la API de REST del Catálogo de datos de Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Para obtener ejemplos de la API, consulte [Muestras para desarrolladores del Catálogo de datos](data-catalog-samples.md).
 
 ## Novedades de la versión correspondiente a la semana del 19 de febrero de 2016
 
@@ -41,7 +51,7 @@ A partir de la semana del 19 de febrero de 2016, se agregaron las siguientes fun
 
 - Una experiencia de selección de origen de datos recientemente rediseñada en la herramienta de registro de origen de datos de Catálogo de datos de Azure. La herramienta de registro de origen de datos se ha actualizado para facilitar a los usuarios la búsqueda y selección en los orígenes de datos compatibles con Catálogo de datos de Azure.
 - Compatibilidad con diez idiomas adicionales en el portal de Catálogo de datos de Azure y la herramienta de registro de origen de datos. Además del inglés, la experiencia de Catálogo de datos de Azure ahora está disponible en alemán, español, francés, italiano, japonés, coreano, portugués (Brasil), ruso, chino simplificado y chino tradicional. La experiencia de usuario de Catálogo de datos de Azure se traducirá en función de las preferencias de idioma establecidas en Windows o en el explorador web del usuario.
-- Compatibilidad con la replicación geográfica de datos de Catálogo de datos de Azure para continuidad empresarial y recuperación ante desastres. Todo el contenido de Catálogo de datos de Azure como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional para los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 500 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
+- Compatibilidad con la replicación geográfica de datos de Catálogo de datos de Azure para continuidad empresarial y recuperación ante desastres. Todo el contenido de Catálogo de datos de Azure como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional para los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 804 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
 
 ## Novedades de la versión correspondiente a la semana del 5 de febrero de 2016
@@ -80,7 +90,7 @@ A partir de la semana del 8 de enero de 2016, se agregaron las siguientes funcio
 - La posibilidad de anclar y desanclar activos de datos en el portal de Catálogo de datos de Azure. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
 - Una página principal recientemente rediseñada del portal de Catálogo de datos de Azure. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
 - Compatibilidad con la configuración de usuarios persistente en el portal de Catálogo de datos de Azure. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
-- Catálogo de datos de Azure está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar Catálogo de datos de Azure en las regiones de Europa del Norte y Sudeste Asiático, además del este de EE. UU., el oeste de EE. UU., Europa Occidental y este de Australia. Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
+- Catálogo de datos de Azure está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar Catálogo de datos de Azure en las regiones de Europa del Norte y Sudeste Asiático, además del este de EE. UU., el oeste de EE. UU., Europa Occidental y este de Australia. Para obtener más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 ## Novedades de la versión correspondiente a la semana del 18 de diciembre de 2015
 
@@ -225,4 +235,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: al agregar propietarios a los recursos de datos, Catálogo de datos de Azure ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

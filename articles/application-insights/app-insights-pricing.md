@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -35,7 +35,6 @@ Su elección del esquema de precios afecta a:
 
 * [Cuota mensual](#monthly-quota): la cantidad de telemetría que puede analizar cada mes.
 * [Velocidad de datos](#data-rate): la velocidad máxima a la que se pueden procesar los datos de su aplicación.
-* [Retención](#data-retention): cómo se mantienen los datos Long en el portal de Application Insights para que los vea.
 * [Exportación continua](#continuous-export): si se pueden exportar datos a otras herramientas y servicios.
 
 Estos límites se establecen por separado para cada recurso de Application Insights.
@@ -101,8 +100,6 @@ Hay tres depósitos que se cuentan por separado:
 
 
 
-
-
 *¿Qué ocurre si mi aplicación supera la tasa por segundo?*
 
 * El volumen de datos que su aplicación envía se evalúa cada minuto. Si se supera la tasa por segundo promediada por minuto, el servidor rechazará algunas solicitudes. Algunas versiones del SDK intentan volver a enviarlas y generan una sobrecarga durante varios minutos; otras, como el SDK de JavaScript, simplemente quitan los datos rechazados.
@@ -125,24 +122,9 @@ Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 * Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
-### Límites de los nombres
-
-1.	Un máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación, no limitados al tipo de datos.
-2.	Las [propiedades][apiproperties] se pueden usar para filtrar y agrupar por estas solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen los 100, la propiedad todavía se puede usar para búsqueda y filtrado, pero no para filtros.
-3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
-
-## Retención de datos
-
-El nivel de precios determina cuánto tiempo se mantienen los datos en el portal y, por tanto, cuánto tiempo hacia atrás puede establecer los intervalos de tiempo.
-
-
-* Puntos de datos sin procesar (es decir, instancias que puede inspeccionar en Búsqueda de diagnóstico): entre 7 días.
-* Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 30 días, y una hora o un día (en función del tipo) durante 90 días.
-
-
 ## Muestreo
 
-El [muestreo](app-insights-sampling.md) es un método que permite reducir el volumen de telemetría que retiene la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. El muestreo le ayuda a mantener en su cuota mensual.
+El [muestreo](app-insights-sampling.md) es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos. El muestreo le ayuda a mantener en su cuota mensual.
 
 Existen varias formas de muestreo. Se recomienda el [muestreo adaptable](app-insights-sampling.md), que ajusta automáticamente el volumen de telemetría que envía la aplicación. Funciona en el SDK de la aplicación web, de modo que se reduzca el tráfico de telemetría en la red. Puede usarlo si el marco de la aplicación web es .NET. Basta con que instale la última versión (beta) del SDK.
 
@@ -159,6 +141,15 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
 ![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
 
+
+
+## Límites de los nombres
+
+1.	Un máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación, no limitados al tipo de datos.
+2.	Las [propiedades][apiproperties] se pueden usar para filtrar y agrupar por estas solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen los 100, la propiedad todavía se puede usar para búsqueda y filtrado, pero no para filtros.
+3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
+
+
 ## Resumen de límites
 
 [AZURE.INCLUDE [límites-de-application-insights](../../includes/application-insights-limits.md)]
@@ -173,4 +164,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

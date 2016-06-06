@@ -25,8 +25,7 @@
 
 La extensión del agente de IaaS SQL Server (SQLIaaSExtension) se ejecuta en máquinas virtuales de Azure para automatizar las tareas de administración. En este tema se proporciona información general sobre los servicios admitidos por la extensión, así como instrucciones para la instalación, el estado y la eliminación.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Servicios admitidos
 
@@ -34,20 +33,28 @@ La extensión del Agente de IaaS SQL Server es compatible con las siguientes tar
 
 | Característica de administración | Descripción |
 |---------------------|-------------------------------|
-| **Copia de seguridad automatizada de SQL** | Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada de SQL Server en la máquina virtual.|
-| **Aplicación de revisiones automatizada de SQL** | Configura una ventana de mantenimiento durante la cual tienen lugar las actualizaciones de la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta para la carga de trabajo.|
-| **Integración del Almacén de claves de Azure** | Permite instalar y configurar automáticamente el Almacén de claves de Azure en la máquina virtual SQL Server. Para obtener más información, consulte [Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).|
+| **Copia de seguridad automatizada de SQL** | Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada de SQL Server en la máquina virtual. Para más información, consulte [Automated backup for SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md) (Copia de seguridad automatizada para SQL Server en máquinas virtuales de Azure [Resource Manager]).|
+| **Aplicación de revisiones automatizada de SQL** | Configura una ventana de mantenimiento durante la cual tienen lugar las actualizaciones de la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta para la carga de trabajo. Para más información, consulte [Automated patching for SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md) (Aplicación de revisión automatizada para SQL Server en máquinas virtuales de Azure [Resource Manager]).|
+| **Integración del Almacén de claves de Azure** | Permite instalar y configurar automáticamente el Almacén de claves de Azure en la máquina virtual SQL Server. Para más información, consulte [Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md).|
 
 ## Requisitos previos
 
 Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina virtual:
 
-- Windows Server 2012, Windows Server 2012 R2 o posterior
-- SQL Server 2012, SQL Server 2014 o posterior
+**Sistema operativo**:
 
-Requisitos para usar los cmdlets de Powershell:
+- Windows Server 2012
+- Windows Server 2012 R2
 
-- La versión más reciente de Azure PowerShell está [disponible aquí](../powershell-install-configure.md).
+**Versiones de SQL Server**:
+
+- SQL Server 2012
+- SQL Server 2014
+- SQL Server 2016
+
+**Azure PowerShell**:
+
+- [Descargar y configurar los comandos de Azure PowerShell más recientes](../powershell-install-configure.md)
 
 ## Instalación
 
@@ -57,9 +64,11 @@ Si crea una máquina virtual solo para el sistema operativo Windows Server, pued
 
 	Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2"
 
+Si actualiza a la versión más reciente de la Extensión Agente de IaaS de SQL, debe reiniciar la máquina virtual después de actualizar la extensión.
+
 ## Estado
 
-Una manera de comprobar que la extensión está instalada consiste en ver el estado del agente en el Portal de Azure. Seleccione **Todas las opciones** en la hoja de la máquina virtual y, después, haga clic en **Extensiones**. Debería aparecer la extensión **SQLIaaSExtension**.
+Una manera de comprobar que la extensión está instalada consiste en ver el estado del agente en el Portal de Azure. Seleccione **Todas las configuraciones** en la hoja de la máquina virtual y, después, haga clic en **Extensiones**. Debería aparecer la extensión **SQLIaaSExtension**.
 
 ![Extensión del Agente de IaaS SQL Server en el Portal de Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -85,8 +94,8 @@ También puede utilizar el cmdlet de PowerShell **Remove-AzureRmVMSqlServerExten
 
 ## Pasos siguientes
 
-Empiece utilizando uno de los servicios admitidos por la extensión. Para obtener más información, consulte los temas a los que se hace referencia en la sección [Servicios admitidos](#supported-services) de este artículo.
+Empiece utilizando uno de los servicios admitidos por la extensión. Para más información, consulte los temas a los que se hace referencia en la sección [Supported services](#supported-services) (Servicios admitidos) de este artículo.
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

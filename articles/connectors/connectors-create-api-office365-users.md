@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de usuarios de Office 365 en PowerApps Enterprise o Aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API Usuarios de Office 365 con parámetros de la API de REST"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="Incorporación del conector de Usuarios de Office 365 a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Usuarios de Office 365 con parámetros de la API de REST"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introducción a la API Usuarios de Office 365
+# Introducción al conector de Usuarios de Office 365
 
-Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc. La API de Usuarios de Office 365 puede usarse desde:
+Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc. El conector de usuarios de Office 365 puede usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -37,29 +37,28 @@ Con Usuarios de Office 365, puede:
 
 - Compilar el flujo de su negocio en función de los datos que obtiene de Usuarios de Office 365. 
 - Usar acciones que obtienen informes directos, obtienen el perfil de usuario de un administrador, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, obtenga informes directos de la persona y, luego, tome esta información y actualice una base de datos de SQL Azure. 
-- Agregar la API de Usuarios de Office 365 a PowerApps Enterprise A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregar el conector de Usuarios de Office 365 a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
-La API de Usuarios de Office 365 tiene las siguientes acciones disponibles: No hay ningún desencadenador.
+El conector de Usuarios de Office 365 tiene las siguientes acciones disponibles: No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
 |None | <ul><li>Obtener administrador</li><li>Obtener mi perfil</li><li>Obtener subordinados directos</li><li>Obtener perfil de usuario</li><li>Buscar usuarios</li></ul>|
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 
 ## Creación de una conexión a Usuarios de Office 365
 
-Al agregar esta API a las aplicaciones lógicas, tiene que iniciar sesión en su cuenta de Usuarios de Office 365 y permitir que las aplicaciones lógicas se conecten a su cuenta.
+Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Usuarios de Office 365 y permitir que estas se conecten a su cuenta.
 
-1. Inicie sesión en su cuenta de Usuarios de Office 365.
-2. Permita que las aplicaciones lógicas se conecten a su cuenta de Office 365 y la usen. 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Usuarios de Office 365](../../includes/connectors-create-api-office365users.md)]
 
 Después de crear la conexión, especifique las propiedades de Usuarios de Office 365, como el identificador de usuario. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
@@ -204,4 +203,4 @@ Volver a la [lista de API](apis-list.md)
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

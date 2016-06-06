@@ -40,7 +40,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -87,7 +87,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -109,7 +109,7 @@ Aquí se encuentran los componentes y sus relaciones para la administración de 
 
 ## Ventajas de usar el Administrador de recursos y grupos de recursos
 
-El Administrador de recursos agregó el concepto del grupo de recursos. Cada recurso creado a través del Administrador de recursos existe dentro de un grupo de recursos. El modelo de implementación del Administrador de recursos ofrece varias ventajas:
+El Administrador de recursos agregó el concepto del grupo de recursos. Cada recurso creado a través del Administrador de recursos existe dentro de un grupo de recursos. El modelo de implementación de Resource Manager ofrece varias ventajas:
 
 - Puede implementar, administrar y supervisar todos los servicios para su solución como grupo, en lugar de controlar estos servicios individualmente.
 - Puede implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
@@ -175,4 +175,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información acerca de la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

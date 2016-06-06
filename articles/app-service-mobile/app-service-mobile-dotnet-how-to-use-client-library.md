@@ -78,6 +78,7 @@ La siguiente sección describe cómo buscar y recuperar registros y modificar lo
 * [Eliminar datos](#deleting)
 * [Resolución de conflictos y simultaneidad optimista](#optimisticconcurrency)
 * [Enlace a una interfaz de usuario de Windows](#binding)
+* [Cambio del tamaño de página](#pagesize)
 
 ###<a name="instantiating"></a>Creación de una referencia de tabla
 
@@ -148,7 +149,7 @@ Esta consulta también se puede dividir en varias cláusulas:
 
 Los dos métodos son equivalentes y pueden usarse indistintamente. La opción anterior (de concatenación de varios predicados en una consulta) es más compacta y es la que se recomienda.
 
-La cláusula `Where` admite las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores. Al considerar lo que admite el SDK de servidor, puede considerar la [documentación de OData v3].
+La cláusula `Where` admite las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores. Al tener en cuenta lo que admite el SDK de servidor, puede consultar la [documentación de OData v3].
 
 ###<a name="sorting"></a>Clasificación de datos devueltos
 
@@ -230,7 +231,7 @@ Al ejecutar una consulta mediante un objeto de tabla sin tipo, debe especificar 
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para más información sobre JToken y Newtonsoft Json.NET, consulte el sitio de [Json.NET].
+Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Newtonsoft Json.NET, consulte el sitio de [Json.NET].
 
 ### <a name="inserting"></a>Inserción de datos en el back-end de una aplicación móvil
 
@@ -276,7 +277,7 @@ El siguiente código muestra cómo usar el método [UpdateAsync] para actualizar
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para insertar datos sin tipo, puede aprovechar [Json.NET] de la siguiente manera:
+Para insertar datos sin tipo, puede utilizar [Json.NET] de la siguiente manera:
 
 	JObject jo = new JObject();
 	jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
@@ -284,7 +285,7 @@ Para insertar datos sin tipo, puede aprovechar [Json.NET] de la siguiente manera
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 
-Debe especificarse un campo `id` al realizar una actualización. Así es cómo el back-end identifica qué instancia actualizar. El campo `id` puede obtenerse a partir del resultado de la llamada `InsertAsync`. Se genera una excepción `ArgumentException` cuando intenta actualizar un elemento sin proporcionar el valor `id`.
+Debe especificarse un campo `id` al realizar una actualización. Así es cómo el back-end identifica qué instancia actualizar. El campo `id` puede obtenerse a partir del resultado de la llamada `InsertAsync`. Se genera una excepción `ArgumentException` cuando trata de actualizar un elemento sin proporcionar el valor `id`.
 
 ###<a name="deleting"></a>Eliminación de datos del back-end de una aplicación móvil
 
@@ -298,7 +299,7 @@ Para eliminar datos sin tipo, puede aprovechar Json.NET de la siguiente manera:
 	jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Tenga en cuenta que al realizar una solicitud de eliminación, debe especificarse un identificador. Otras propiedades no se pasan al servicio o se omiten en este. El resultado de una llamada `DeleteAsync` normalmente es `null`. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`. Se produce una excepción `MobileServiceInvalidOperationException` cuando se intenta eliminar un elemento sin especificar el campo `id`.
+Tenga en cuenta que al realizar una solicitud de eliminación, debe especificarse un identificador. Otras propiedades no se pasan al servicio o se omiten en este. El resultado de una llamada `DeleteAsync` normalmente es `null`. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`. Se produce una excepción `MobileServiceInvalidOperationException` cuando se trata de eliminar un elemento sin especificar el campo `id`.
 
 ###<a name="optimisticconcurrency"></a>Uso de la simultaneidad optimista para la resolución de conflictos
 
@@ -385,11 +386,11 @@ Además de habilitar la simultaneidad optimista, se debe detectar la excepción 
 	    await msgDialog.ShowAsync();
 	}
 
-Para más información, vea el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ###<a name="binding"></a>Enlace de datos de Aplicaciones móviles a una interfaz de usuario de Windows
 
-En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows. Puede ejecutar el siguiente código de ejemplo para enlazar el origen de la lista con una consulta de elementos incompletos en `todoTable` y visualizarlos en una lista muy sencilla. [MobileServiceCollection] crea una colección de enlaces para Aplicaciones móviles.
+En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows. Puede ejecutar el siguiente código de muestra para enlazar el origen de la lista con una consulta de elementos incompletos en `todoTable` y visualizarlos en una lista muy sencilla. [MobileServiceCollection] crea una colección de enlaces para Aplicaciones móviles.
 
 	// This query filters out completed TodoItems.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
@@ -420,6 +421,17 @@ Cuando use la colección creada mediante la llamada a `ToCollectionAsync` o `ToC
 
 Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que se muestren algunos en el control. Puede usar la guía de la sección "[Seleccionar columnas específicas](#selecting)" anterior para seleccionar las columnas concretas que se mostrarán en la interfaz de usuario.
 
+###<a name="pagesize"></a>Cambio del tamaño de página
+
+Aplicaciones móviles de Azure devuelve un máximo de 50 elementos por cada solicitud de forma predeterminada. Puede cambiar esto aumentando el tamaño máximo de página en el servidor y el tamaño de página solicitado en el lado cliente. Para aumentar el tamaño de página solicitado, use una sobrecarga de `PullAsync` que permite especificar `PullOptions`:
+
+    PullOptions pullOptions = new PullOptions
+		{
+			MaxPageSize = 100
+		};
+
+Suponiendo que ha establecido el valor de PageSize igual o mayor que 100 en el servidor, se devolverán hasta 100 elementos en cada solicitud.
+
 ##<a name="#customapi"></a>Trabajo con una API personalizada
 
 Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
@@ -437,10 +449,10 @@ Aplicaciones móviles es compatible con la autenticación y la autorización de 
 
 Se admiten dos flujos de autenticación: un _server flow_ y un _client flow_. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
-En ambos casos, debe registrar la aplicación con el proveedor de identidades. El proveedor de identidades le proporcionará un identificador de cliente y un secreto de cliente. A continuación, debe configurar la autenticación y la autorización del Servicio de aplicaciones de Azure con el identificador de cliente y el secreto de cliente proporcionados por el proveedor de identidades. Para más información, siga las instrucciones detalladas del tutorial [Incorporación de autenticación a la aplicación].
+En ambos casos, debe registrar la aplicación con el proveedor de identidades. El proveedor de identidades le proporcionará un identificador de cliente y un secreto de cliente. A continuación, debe configurar la autenticación y la autorización del Servicio de aplicaciones de Azure con el identificador de cliente y el secreto de cliente proporcionados por el proveedor de identidades. Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de la autenticación a la aplicación de Windows].
 
 ###<a name="serverflow"></a>Flujo de servidor
-Una vez registrado el proveedor de identidades, llame al método MobileServiceClient.\[LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez registrado el proveedor de identidades, llame al método MobileServiceClient.[LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -509,7 +521,7 @@ En la forma más simplificada, puede usar el flujo de cliente como se muestra en
 
 ####Inicio de sesión único mediante Cuenta Microsoft con el SDK de Live
 
-Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta de Microsoft. A continuación, debe conectar este registro con el back-end de Aplicaciones móviles. Complete los pasos de [Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft para realizar la autenticación] con el fin de crear un registro de cuenta Microsoft y conectarlo al back-end de la aplicación móvil. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
+Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta de Microsoft. A continuación, debe conectar este registro con el back-end de Aplicaciones móviles. Complete los pasos de [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de la cuenta Microsoft] con el fin de crear un registro de cuenta Microsoft y conectarlo al back-end de la aplicación móvil. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
 
 El siguiente código se autentica mediante el SDK de Live y usa el token devuelto para iniciar sesión en el back-end de Aplicaciones móviles.
 
@@ -599,7 +611,7 @@ En las aplicaciones de Windows Phone, puede almacenar en caché los datos y cifr
 
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
 
-1. Configure el back-end de la aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
+1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 
 2. En Visual Studio o Xamarin Studio, abra el proyecto y agregue una referencia al paquete NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Al buscar, incluya las versiones preliminares.
 
@@ -607,11 +619,11 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 
 * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
-* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzado**, opción **Configuración de Azure Active Directory** del portal.
+* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas**, que se encuentra en la opción **Configuración de Azure Active Directory** del portal.
 
 * Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
 
-* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
 
 El código necesario para cada plataforma es el siguiente:
 
@@ -700,7 +712,7 @@ El código necesario para cada plataforma es el siguiente:
         AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
     }
 
-##<a name="pushnotifications">Notificaciones push
+##<a name="pushnotifications">Notificaciones de inserción
 
 Los siguientes temas tratan sobre las notificaciones push:
 
@@ -708,7 +720,7 @@ Los siguientes temas tratan sobre las notificaciones push:
 * [Obtención del SID de un paquete de la Tienda Windows](#package-sid)
 * [Registro con plantillas multiplataforma](#register-xplat)
 
-###<a name="register-for-push"></a>Cómo registrar notificaciones push
+###<a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
 
 El cliente de Aplicaciones móviles permite registrar las notificaciones push con Centros de notificaciones de Azure. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
 
@@ -851,7 +863,7 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 
 <!-- Internal URLs. -->
 [Guía de inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-windows-store-dotnet-get-started.md
-[Incorporación de autenticación a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Incorporación de la autenticación a la aplicación de Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Incorporación de la autenticación a su aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Work with .NET backend SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
@@ -860,7 +872,7 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [Define Tables using a Dynamic Schema]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Registro de la aplicación para usar un inicio de sesión de cuenta Microsoft para realizar la autenticación]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
@@ -911,4 +923,4 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [SymbolSource]: http://www.symbolsource.org/
 [Instrucciones de SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

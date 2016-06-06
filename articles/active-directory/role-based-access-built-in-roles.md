@@ -1,5 +1,5 @@
 <properties
-	pageTitle="RBAC: Roles integrados | Microsoft Azure"
+	pageTitle="RBAC: roles integrados | Microsoft Azure"
 	description="Este tema describe los roles integrados para el control de acceso basado en rol"
 	services="active-directory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Roles integrados
 
-## Roles integrados
+El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
 
-El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
+## Roles de Azure
 
-La tabla siguiente proporciona breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de propiedades **acciones** y **no acciones** para el rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **no acciones** especifica las acciones que se deben excluir de las acciones permitidas.
+La tabla siguiente proporciona breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** del rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
 
 >[AZURE.NOTE] Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
 
@@ -57,6 +57,9 @@ La tabla siguiente proporciona breves descripciones de los roles integrados. Hag
 | [Colaborador de la red clásica](#classic-network-contributor) | Puede administrar IP reservadas y redes virtuales clásicas |
 | [Colaborador de plan web](#web-plan-contributor) | Puede administrar planes web |
 | [Colaborador de sitio web](#website-contributor) | Puede administrar sitios web, pero no los planes web a los que están conectados |
+
+## Permisos de los roles
+Las tablas siguientes describen los permisos específicos concedidos a cada rol. En ellas, se incluyen elementos correspondientes a las categorías **Actions** (para conceder permisos) y **NotActions** (para restringir dichos permisos).
 
 ### Colaborador de servicio de administración de API
 Puede administrar servicios de administración de API
@@ -142,7 +145,7 @@ Puede administrar todo el contenido, excepto el acceso
 | ------- | ------ |
 | * | Crear y administrar recursos de todos los tipos |
 
-| **No acciones** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | No puede crear roles ni asignaciones de roles |
 | Microsoft.Authorization/*/Delete | No puede eliminar roles ni asignaciones de roles |
@@ -153,7 +156,7 @@ Puede administrar las factorías de datos
 | **Acciones** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-| Microsoft.DataFactory/dataFactories/* | Crear y administrar factorías de datos |
+| Microsoft.DataFactory/dataFactories/* | Administración de factorías de datos |
 | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Leer el mantenimiento de los recursos |
 | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
@@ -324,7 +327,7 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | Microsoft.Sql/servers/read | Leer los servidores SQL Server |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-| **No acciones** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | No puede editar las directivas de auditoría |
 | Microsoft.Sql/servers/databases/auditingSettings/* | No puede editar la configuración de auditoría |
@@ -370,7 +373,7 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Resources/subscriptions/resourceGroups/read | Leer grupos de recursos | Microsoft.Sql/servers/* | Crear y administrar servidores de SQL Server |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
-| **No acciones** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | No puede editar las directivas de auditoría de SQL Server |
 | Microsoft.Sql/servers/auditingSettings/* | No puede editar la configuración de auditoría de SQL Server |
@@ -412,8 +415,7 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** ||
 | ------- | ------ |
-| */read | Leer recursos de todos los tipos, excepto secretos. | 
-| Microsoft.Authorization/* | Leer autorización |
+| */read | Leer recursos de todos los tipos, excepto secretos. | | Microsoft.Authorization/* | Leer autorización |
 | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ### Colaborador de la máquina virtual clásica
@@ -510,9 +512,9 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Web/sites/* | Crear y administrar sitios web |
 
 ## Consulte también
-- [Control de acceso basado en rol](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure
+- [Control de acceso basado en roles](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
 - [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): información acerca de cómo crear roles personalizados que se ajusten a sus necesidades de acceso.
-- [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de rol en RBAC.
-- [Solución de problemas del control de acceso basado en rol](role-based-access-control-troubleshooting.md): sugerencias para solucionar problemas frecuentes.
+- [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
+- [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

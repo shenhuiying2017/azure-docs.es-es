@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Exigencia de MFA en Privileged Identity Management de Azure AD
@@ -26,7 +26,7 @@ También puede exigir que los usuarios realicen un desafío de MFA cuando activa
 
 ## Exigencia de MFA en Privileged Identity Management de Azure AD
 
-Al administrar identidades en PIM como administrador de seguridad, puede ver las alertas que recomienda MFA para las cuentas con privilegios. Haga clic en la alerta de seguridad en el panel de PIM y se abrirá una nueva hoja con una lista de las cuentas de administrador que deben exigir MFA. Para exigir MFA seleccione varios roles y haga clic en el botón **Corregir**; también puede hacer clic en el botón de puntos suspensivos situado junto a cada uno de los roles y luego hacer clic en el botón **Corregir**.
+Al administrar identidades en PIM como administrador de roles con privilegios, puede ver las alertas que recomienda MFA para las cuentas con privilegios. Haga clic en la alerta de seguridad en el panel de PIM y se abrirá una nueva hoja con una lista de las cuentas de administrador que deben exigir MFA. Para exigir MFA seleccione varios roles y haga clic en el botón **Corregir**; también puede hacer clic en el botón de puntos suspensivos situado junto a cada uno de los roles y luego hacer clic en el botón **Corregir**.
 
 > [AZURE.IMPORTANT] Dado que las cuentas Microsoft (por ejemplo, @outlook.com, @live.com o @hotmail.com) no se admiten actualmente para registrarse en Azure MFA, no se permiten como administradores temporales para los roles con privilegios elevados. Si los usuarios necesitan seguir administrando las cargas de trabajo con una cuenta Microsoft, conviértalos en administradores permanentes por el momento.
 
@@ -45,4 +45,4 @@ Si los usuarios se autentican en el entorno local, también puede hacer que el p
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

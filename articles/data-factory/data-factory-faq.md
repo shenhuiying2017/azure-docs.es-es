@@ -114,10 +114,36 @@ En el ejemplo anterior, otherLinkedServiceName1 y otherLinkedServiceName2 repres
 
 ## Segmentos: preguntas más frecuentes
 
+### ¿Por qué mi segmentos de entrada no presentan el estado Listo? 
+Un error común consiste en no definir la propiedad **external** como **true** en el conjunto de datos de entrada cuando los datos de entrada son externos a la factoría de datos (no producidos por esta).
+
+En el ejemplo siguiente, solo debe establecer **external** como true en **dataset1**.
+
+**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+
+Si tiene otra factoría de datos con una canalización que toma dataset4 (producido por la canalización 2 de la factoría de datos 1), debe marcar dataset4 como un conjunto de datos externo porque está generado por una factoría de datos distinta (DataFactory1, no DataFactory2).
+
+**DataFactory2** Pipeline 1: dataset4->activity4->dataset5
+
+Si la propiedad externa está configurada correctamente, compruebe si los datos de entrada existen en la ubicación especificada en la definición del conjunto de datos de entrada.
+
+### ¿Cómo se ejecuta un segmento en otro momento que no sea medianoche cuando este se produce diariamente?
+Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para obtener más información sobre esta propiedad. Este es un ejemplo rápido:
+
+	"availability":
+	{
+	    "frequency": "Day",
+	    "interval": 1,
+	    "offset": "06:00:00"
+	}
+
+Los segmentos diarios comienzan a las **6:00** en lugar de a medianoche, que es el valor predeterminado.
+
 ### ¿Cómo puedo volver a ejecutar un segmento?
 Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
-- Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento del portal. 
+- Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Volver a ejecutar las ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obtener instrucciones.   
+- Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento del portal.
 - Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado establecido en **En espera** para el segmento.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
@@ -125,6 +151,10 @@ Puede volver a ejecutar un segmento de una de las siguientes maneras:
 Consulte [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
 
 ### ¿Cuánto tiempo se tardó en procesar un segmento?
+Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más detalles.
+
+También puede hacer lo siguiente en el Portal de Azure:
+
 1. Haga clic en la ventana **Conjuntos de datos** de la hoja **FACTORÍA DE DATOS** para su factoría de datos.
 2. Haga clic en el conjunto de datos específico de la hoja **Conjuntos de datos**.
 3. Seleccione el segmento en el que está interesado en la lista **Segmentos recientes** de la hoja **TABLA**.
@@ -152,4 +182,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

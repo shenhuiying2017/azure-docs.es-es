@@ -1,7 +1,7 @@
 
-Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
-##<a id="attachempty"></a>Acoplamiento de un disco vacío
+
+## Conectar un disco vacío
 
 El acoplamiento de un disco vacío supone un método sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd y lo guarda en la cuenta de almacenamiento.
 
@@ -33,7 +33,7 @@ El acoplamiento de un disco vacío supone un método sencillo de agregar un disc
 > [AZURE.NOTE] Después de agregar un nuevo disco de datos, debe iniciar sesión en la VM e inicializar el disco para que se pueda usar.
 
 
-##<a id="attachexisting"></a>Acoplamiento de un disco existente
+## Acoplamiento de un disco existente
 
 El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento. Use el cmdlet [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) para cargar el archivo .vhd a la cuenta de almacenamiento. Una vez que se haya creado y cargado el archivo .vhd, puede acoplarlo a una VM.
 
@@ -54,4 +54,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 	![Disco de datos conectado correctamente](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

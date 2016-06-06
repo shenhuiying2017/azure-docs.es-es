@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="douge" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
@@ -168,4 +168,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

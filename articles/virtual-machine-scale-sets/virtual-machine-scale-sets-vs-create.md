@@ -24,14 +24,14 @@ En este artículo se muestra cómo implementar un conjunto de escalado de máqui
 
 Los [conjuntos de escalado de máquinas virtuales de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) son un recurso de proceso de Azure para implementar y administrar un conjunto de máquinas virtuales similares con opciones integradas fácilmente para equilibrio de carga y escalado automático. Puede aprovisionar e implementar conjuntos de escalado de máquinas virtuales mediante [plantillas del Administrador de recursos de Azure (ARM)](https://github.com/Azure/azure-quickstart-templates). Las plantillas ARM se pueden implementar mediante CLI de Azure, PowerShell, REST y también directamente desde Visual Studio. Visual Studio proporciona un conjunto de plantillas que se pueden implementar como parte de un proyecto de implementación de grupo de recursos de Azure.
 
-Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Puede obtener más información aquí: [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
+Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Puede obtener más información aquí: [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Requisitos previos
 
 Para empezar a implementar conjuntos de escalado de máquinas virtuales en Visual Studio necesita lo siguiente:
 
 - Visual Studio 2013 o 2015
-- SDK de Azure 2.7 o 2.8
+- Azure SDK 2.7, 2.8 o 2.9
 
 Nota: en estas instrucciones se asume que utiliza Visual Studio 2015 con el [SDK de Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -85,7 +85,7 @@ Ahora puede editar la plantilla para personalizarla en función de las necesidad
 
 ## Exploración del conjunto de escalado de máquinas virtuales
 
-Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado de máquinas virtuales en Visual Studio **Cloud Explorer** (actualización de la lista). Cloud Explorer le permite administrar recursos de Azure en Visual Studio mientras se desarrollan aplicaciones. También puede ver el conjunto de escalado de máquinas virtuales en el Portal de Azure y en el Explorador de recursos de Azure.
+Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado de máquinas virtuales en Visual Studio **Cloud Explorer** (actualización de la lista). Cloud Explorer le permite administrar recursos de Azure en Visual Studio mientras se desarrollan aplicaciones. También puede ver el conjunto de escalado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com) y en el [Explorador de recursos de Azure](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Después de implementar satisfactoriamente los conjuntos de escalado de máquina
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

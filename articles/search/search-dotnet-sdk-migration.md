@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/09/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure
@@ -181,7 +181,7 @@ Si el código tiene el siguiente aspecto:
 
     var sp = new SearchParameters();
     sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
-    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+    sp.ScoringParameters = new[] { "featuredParam-featured", "mapCenterParam-" + lon + "," + lat };
 
 Puede cambiarlo por este para corregir cualquier error de compilación:
 
@@ -190,7 +190,7 @@ Puede cambiarlo por este para corregir cualquier error de compilación:
     sp.ScoringParameters =
         new[]
         {
-            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("featuredParam", new[] { "featured" }),
             new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
         };
 
@@ -391,4 +391,4 @@ Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirno
 
 Gracias por usar Búsqueda de Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

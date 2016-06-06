@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Incorporación de la API de Dropbox en PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Dropbox con parámetros de la API de REST"
-	services=""
+    pageTitle="Incorporación del conector de Dropbox a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Dropbox con parámetros de la API de REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de Dropbox 
-Conéctese a Dropbox para administrar archivos, por ejemplo, crearlos, obtenerlos, entre otras muchas cosas. La API de Dropbox se puede usar desde:
+# Introducción al conector de Dropbox 
+Conéctese a Dropbox para administrar archivos, por ejemplo, crearlos, obtenerlos, entre otras muchas cosas. El conector de Dropbox puede usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -38,9 +38,9 @@ Con Dropbox, puede hacer lo siguiente:
 - Compilar el flujo de negocio en función de los datos que obtiene de Dropbox. 
 - Usar desencadenadores para cuando se crea o actualiza un archivo.
 - Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se cree un nuevo archivo en Dropbox, puede enviar ese archivo por correo electrónico mediante Office 365.
-- Agregar la API de Dropbox a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregue el conector de Dropbox a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,14 +51,13 @@ Desencadenadores | Acciones
 --- | ---
 <ul><li>Cuando se crea un archivo</li><li>Cuando se modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Cuando se crea un archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer archivo en carpeta</li><li>Obtener contenido de archivo mediante identificador</li><li>Obtener archivo mediante ruta de acceso</li><li>Obtener metadatos de archivo mediante identificador</li><li>Obtener metadatos de archivo mediante ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se modifica un archivo</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de la conexión a Dropbox
 
-Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Dropbox.
+Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su Dropbox.
 
-1. Inicie sesión en su cuenta de Dropbox.
-2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten a Dropbox y utilicen esta aplicación. 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
 Después de crear la conexión, especifique las propiedades de Dropbox, como el nombre de archivo o la ruta de acceso de la carpeta. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
@@ -272,9 +271,9 @@ Desencadena un flujo cuando se modifica un archivo en una carpeta de Dropbox. ``
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volver a la [lista de API](apis-list.md)
+Vuelta a la [lista de API](apis-list.md).
 
 
 <!--References-->
@@ -286,4 +285,4 @@ Volver a la [lista de API](apis-list.md)
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

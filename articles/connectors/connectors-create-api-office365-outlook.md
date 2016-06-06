@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de Office 365 Outlook en PowerApps Enterprise o Aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Outlook de Office 365 con parámetros de la API de REST"
-	services=""	
-	documentationCenter="" 	
-	authors="msftman"	
-	manager="erikre"	
-	editor="" 
-	tags="connectors" />
+    pageTitle="Incorporación del conector de Office 365 Outlook a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Office 365 Outlook con parámetros de la API de REST"
+    services=""    
+    documentationCenter=""     
+    authors="msftman"    
+    manager="erikre"    
+    editor="" 
+    tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Introducción a la API de Outlook para Office365 
+# Introducción al conector de Office 365 Outlook 
 
-Conéctese a Office 365 Outlook para obtener correo electrónico, responder a un correo electrónico, actualizar su calendario y contactos y mucho más. La API de Outlook para Office 365 puede usarse desde:
+Conéctese a Office 365 Outlook para obtener correo electrónico, responder a un correo electrónico, actualizar su calendario y contactos y mucho más. El conector de Office 365 Outlook puede usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -37,26 +37,26 @@ Con Office 365 Outlook, puede:
 - Compilar el flujo de negocio en función de los datos que obtiene de Office 365 Outlook. 
 - Usar un desencadenador cuando haya un nuevo correo electrónico, al crear un contacto y mucho más.
 - Usar acciones que respondan a un correo electrónico, creen un evento de calendario y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando hay un nuevo objeto de Salesforce, puede tomar ese objeto y actualizar los contactos de Office 365 Outlook. 
-- Agregar la API de Outlook para Office 365 a PowerApps Enterprise. A continuación, los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregar el conector de Office 365 Outlook a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Si desea información sobre cómo agregar una API en PowerApps Enterprise, acuda a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
 
-La API de Outlook para Office 365 tiene los siguientes desencadenadores y acciones disponibles.
+El conector de Office 365 Outlook tiene los siguientes desencadenadores y acciones disponibles.
 
 | Desencadenadores | Acciones|
 | --- | --- |
 |<ul><li>Al iniciarse un evento pronto</li><li>Al llegar correo electrónico nuevo</li><li>Con nuevos elementos</li><li>Al actualizar elementos</li></ul>| <ul><li>Crear contacto</li><li>Crear evento</li><li>Enviar correo electrónico de aprobación</li><li>Enviar correo electrónico</li><li>Eliminar contacto</li><li>Eliminar correo electrónico</li><li>Eliminar evento</li><li>Obtener datos adjuntos</li><li>Obtener calendarios</li><li>Obtener contacto</li><li>Obtener carpetas de contactos</li><li>Obtener contactos</li><li>Obtener correos electrónicos</li><li>Obtener evento</li><li>Obtener eventos</li><li>Marcar como leído</li><li>Al iniciarse un evento pronto</li><li>Al llegar correo electrónico nuevo</li><li>Con nuevos elementos</li><li>Al actualizar elementos</li><li>Responder al mensaje</li><li>Enviar correo electrónico con opciones</li><li>Actualizar contacto</li><li>Actualizar evento</li></ul> |
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 
 ## Creación de una conexión a Office365
 
-Al agregar esta API a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Outlook y permitir que las aplicaciones lógicas se conecten a su cuenta.
+Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Outlook y permitir que estas se conecten a su cuenta.
 
 1. Inicie sesión en su cuenta de Office 365 Outlook.
 2. Permita que las aplicaciones lógicas se conecten a su cuenta de Office 365 y la usen. 
@@ -768,4 +768,4 @@ Volver a la [lista de API](apis-list.md)
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

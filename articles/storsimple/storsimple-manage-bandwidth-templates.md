@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
@@ -63,8 +63,8 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
    2. Seleccione la opción **Todo el día** si la programación se aplica para todo el día. Cuando se activa esta opción, ya no se puede especificar una **hora de inicio** ni una **hora de finalización**. La programación se ejecuta desde las 12:00 a.m. hasta las 11:59 p.m.
    3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
    4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
-   
-         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
+
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Especifique la **velocidad de ancho de banda**. Este es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube (tanto cargas como descargas). Proporcione un número entre 1 y 1.000 para este campo.
 
@@ -172,4 +172,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

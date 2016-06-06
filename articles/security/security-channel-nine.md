@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Security en Channel 9 | Microsoft Azure"
+   pageTitle="Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Azure"
    description="El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
-# Azure Security en Channel 9
+# Vídeos sobre seguridad de Azure de Channel 9
 
 [Channel 9](https://channel9.msdn.com/) es una comunidad. Permite presentar a las personas que crean nuestros productos y ponerlas en contacto con las que los usan.
 
@@ -45,6 +45,7 @@ Con Azure Security Center, obtiene una visión central del estado de la segurida
 Jack Richins enseña a [Scott](https://channel9.msdn.com/Niners/Glucose) cómo cifrar fácilmente sus bases de datos de SQL Server en instancias de Azure de máquinas virtuales. Es más fácil de lo que piensa.
 
 En este vídeo se tratan las siguientes áreas:
+
 - Descripción del cifrado y SQL Server
 - Descripción de la API de protección de datos, las claves maestras y los certificados
 - Uso de comandos SQL para crear los certificados y claves maestras y cifrar la base de datos
@@ -67,4 +68,4 @@ El administrador jefe de programas, Narayan Annamalai, enseña a Scott a usar lo
 
 Amit Bapat presenta a Scott Almacén de claves de Azure. Con Almacén de claves de Azure puede cifrar claves y pequeños secretos como contraseñas con claves almacenadas en módulos de seguridad de hardware (HSM). Se trata de una administración de secretos basada en hardware y en la nube para Microsoft Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -180,6 +180,14 @@ En el ejemplo siguiente se inicializa un controlador de tabla que usa Entity Fra
 
 Para obtener un ejemplo de un controlador de tabla que usa Entity Framework para acceder a los datos desde una base de datos SQL de Azure, consulte la clase **TodoItemController** en la descarga del proyecto de servidor de inicio rápido del Portal de Azure.
 
+### Cómo ajustar el tamaño de paginación de la tabla
+
+De forma predeterminada, Aplicaciones móviles de Azure devuelve 50 registros por solicitud. Esto garantiza que el cliente no asocie su subproceso de interfaz de usuario ni el servidor durante mucho tiempo, con lo que se asegura proporcionar una buena experiencia del usuario. Debe aumentar el tamaño de consulta permitido del servidor y el tamaño de página del lado cliente para realizar una modificación en el tamaño de paginación de la tabla. Para aumentar el tamaño de paginación, ajuste el controlador de tabla con esta línea:
+
+    [EnableQuery(PageSize = 500)]
+
+Asegúrese de que el valor de PageSize sea igual o mayor que el tamaño que solicitó el cliente. Consulte la documentación de procedimientos para obtener más información sobre cómo cambiar el tamaño de página de cliente.
+
 ## Cómo definir un controlador de API personalizada
 
 El controlador de API personalizada proporciona la funcionalidad más básica al back-end de la aplicación móvil mediante la exposición de un extremo. Puede registrar un controlador de API específico de dispositivos móviles con el atributo [MobileAppController]. Este atributo registra la ruta y también configura el serializador JSON de Aplicaciones móviles.
@@ -325,10 +333,6 @@ El código siguiente llama al método de extensión **GetAppServiceIdentityAsync
 
 Tenga en cuenta que debe agregar una instrucción using a `System.Security.Principal` para que el método de extensión **GetAppServiceIdentityAsync** funcione.
 
-###<a name="authorize"></a>Cómo restringir el acceso a datos para los usuarios autorizados
-
-A menudo se quiere restringir los datos que se devuelven a un usuario autenticado específico. Este tipo de partición de datos se realiza mediante la inclusión de una columna de id. de usuario en la tabla y el almacenamiento del SID del usuario cuando se insertan los datos.
-
 ## Cómo agregar notificaciones push a un proyecto de servidor
 
 Para agregar notificaciones push al proyecto de servidor, extienda el objeto **MobileAppConfiguration** y cree un cliente de Centros de notificaciones. Cuando instale el paquete [Microsoft.Azure.Mobile.Server.Quickstart] y llame al método de extensión **UseDefaultConfiguration**, puede continuar desde el paso 3.
@@ -461,4 +465,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -7,8 +7,6 @@ Almacenamiento de documentos*/colección|250 GB (o más por solicitud)
 Máximo de [unidades de solicitud](../articles/documentdb/documentdb-request-units.md)*/segundos por colección|250 000 RU/s(o superior por solicitud)
 Tamaño máximo de solicitud de documento |512KB
 Tiempo de ejecución máximo para el procedimiento almacenado y desencadenador|5 segundos
-Número máximo de cláusulas AND por consulta* |200		
-Número máximo de cláusulas OR por consulta* |200
 Tamaño máximo de respuesta|1 MB
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

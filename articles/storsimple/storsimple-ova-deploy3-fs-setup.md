@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli"/>
 
 # Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos
@@ -104,9 +104,9 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
 	1.  Proporcione la **URL de proxy web** en este formato: *http://&lt;host-IP dirección o nombre de dominio completo&gt;: Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
 
-	2.  Especifique **Autenticación** como **Básica**, **NTLM** o **Ninguna**.
+	2.  Especifique **Authentication** (Autenticación) como **Basic** (Básica) o **None** (Ninguna).
 
-	3.  Si utiliza autenticación, también debe proporcionar un **Nombre de usuario** y una **Contraseña**.
+	3.  Si utiliza autenticación, también debe proporcionar un **nombre de usuario** y una **contraseña**.
 
 	4.  Haga clic en **Apply**. Esto validará y aplicará los parámetros de proxy web configurados.
 
@@ -114,21 +114,21 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
 
-	En la página **Configuración de hora**:
+	En la página **Time settings** (Configuración de hora):
 
-	1.  De la lista desplegable, seleccione la **Zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
+	1.  En la lista desplegable, seleccione la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
 
-	2.  Especifique un **Servidor NTP principal** para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
+	2.  Especifique un valor para **Primary NTP server** (Servidor NTP principal) para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
 
-	3.  Opcionalmente, especifique un **Servidor NTP secundario** para el dispositivo.
+	3.  Opcionalmente, especifique un valor para **Secondary NTP server** (Servidor NTP secundario) para el dispositivo.
 
 	4.  Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
 
 1.  Configure las opciones de nube para el dispositivo. En este paso, completa la configuración del dispositivo local y, a continuación, registra el dispositivo en el servicio StorSimple Manager.
 
-    1.  Introduzca la **Clave de registro del servicio** que obtuvo en [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
+    1.  Escriba la **clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
 
-    2.  Omita este paso si se trata del primer dispositivo que va a registrar con este servicio y vaya al paso siguiente. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **Clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para obtener más información, consulte para obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2.  Omita este paso si se trata del primer dispositivo que va a registrar con este servicio y vaya al paso siguiente. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte [Obtener la clave de cifrado de los datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3.  Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -151,13 +151,13 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
 #### Para completar la configuración mínima del dispositivo
 
-1.  Desde la página **Dispositivos**, seleccione el dispositivo que acaba de crear. Este dispositivo se debe mostrar como **Activo**. Haga clic en la flecha situada junto al nombre del dispositivo y, a continuación, haga clic en **Inicio rápido**.
+1.  En la página **Dispositivos**, seleccione el dispositivo que acaba de crear. Este dispositivo se debe mostrar como **Activo**. Haga clic en la flecha situada junto al nombre del dispositivo y luego haga clic en **Inicio rápido**.
 
-2.  Haga clic en **Completar configuración del dispositivo** para iniciar el Asistente para configurar dispositivos.
+2.  Haga clic en **completar configuración del dispositivo** para iniciar el Asistente para configurar dispositivos.
 
 3.  En la página **Configuración básica** del Asistente para configurar dispositivos, haga lo siguiente:
 
-	1.  Especifique una cuenta de almacenamiento para usarla con el dispositivo. Puede seleccionar una cuenta de almacenamiento existente en esta suscripción de la lista desplegable o especificar **Agregar más** para elegir una cuenta de una suscripción diferente.
+	1.  Especifique una cuenta de almacenamiento para usarla con el dispositivo. Puede seleccionar una cuenta de almacenamiento existente en esta suscripción en la lista desplegable o especificar **Agregar más** para elegir una cuenta de una suscripción diferente.
 
 	2.  Defina la configuración de cifrado para todos los datos en reposo (cifrado de AES) que se enviarán a la nube. Para cifrar los datos, seleccione el cuadro combinado para **habilitar la clave de cifrado de almacenamiento en la nube**. Escriba un cifrado de almacenamiento en la nube que contenga 32 caracteres. Vuelva a escribir la clave para confirmarla. Se usará una clave AES de 256 bits con la clave definida por el usuario para el cifrado.
 
@@ -212,7 +212,7 @@ Ahora, necesitará conectarse a los recursos compartidos que creó en el paso an
 
 #### Para conectarse al recurso compartido
 
-1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como la ruta de acceso, reemplace *nombre del servidor de archivos* con el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
+1.  Presione ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *\<file server name>* como la ruta de acceso y reemplace *nombre del servidor de archivos* por el nombre del dispositivo que asignó a su servidor de archivos. Haga clic en **OK**.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
@@ -230,6 +230,6 @@ Mire el vídeo para ver cómo puede configurar y registrar una matriz virtual de
 
 ## Pasos siguientes
 
-Obtenga más información acerca de usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

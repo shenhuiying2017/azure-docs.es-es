@@ -71,7 +71,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
+El tamaño máximo de mensaje que admiten las colas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
 
 ## mensajes de una cola
 
@@ -115,4 +115,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 [Cuotas del Bus de servicio]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -102,7 +102,7 @@ El Servicio de aplicaciones pasa parte de la información del usuario a la aplic
 
 El código escrito en cualquier lenguaje o plataforma puede obtener la información que necesita de estos encabezados. Para las aplicaciones de ASP.NET 4.6, **ClaimsPrincipal** se establece automáticamente con los valores adecuados.
 
-La aplicación también puede obtener detalles adicionales del usuario a través de un comando HTTP GET en el punto de conexión `/.auth/me` de la aplicación. Un token válido que se incluye con la solicitud devolverá una carga JSON con detalles sobre el proveedor que se está usando, el token del proveedor subyacente y alguna otra información de usuario. Los SDK del servidor de Aplicaciones móviles proporcionan métodos auxiliares para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info).
+La aplicación también puede obtener detalles adicionales del usuario a través de un comando HTTP GET en el punto de conexión `/.auth/me` de la aplicación. Un token válido que se incluye con la solicitud devolverá una carga JSON con detalles sobre el proveedor que se está usando, el token del proveedor subyacente y alguna otra información de usuario. Los SDK del servidor de Aplicaciones móviles proporcionan métodos auxiliares para trabajar con estos datos. Para obtener más información, consulte [Uso del SDK de Node.js de Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentación y recursos adicionales
 
@@ -174,8 +174,8 @@ Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

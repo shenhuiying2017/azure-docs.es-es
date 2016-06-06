@@ -1,19 +1,19 @@
 <properties
    pageTitle="Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows| Microsoft Azure"
    description="En este artículo se ofrece información general de Cifrado de disco de Microsoft Azure para máquinas virtuales IaaS con Windows y con Linux."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ La solución Cifrado de discos de Azure admite los tres escenarios de cliente si
 - Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de un VHD precifrado y las claves de cifrado
 - Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de imágenes de la Galería de Azure 
 - Habilitación del cifrado en nuevas máquinas virtuales de IaaS que ya se ejecutan en Azure 
-- Deshabilitación del cifrado en máquinas virtuales IaaS de Windows  
+- Deshabilitación del cifrado en máquinas virtuales IaaS de Windows 
 
 La solución admite las siguientes operaciones para las máquinas virtuales IaaS cuando se habilita en Microsoft Azure:
 
@@ -78,7 +78,7 @@ Al habilitar e implementar Cifrado de disco de Azure para las máquinas virtuale
 - Cifrado de volumen del sistema operativo para proteger el volumen de arranque en reposo en el almacenamiento de cliente
 
 	- Cifrado de volumen del sistema operativo en la máquina virtual IaaS de Linux que ya se ejecuta en Azure no es compatible actualmente. Cifrado de volumen del sistema operativo para la máquina virtual de IaaS de Linux solo se admite para un escenario de VHD precifrado
-	
+
 - Cifrado de volúmenes de datos para proteger los volúmenes de datos en reposo en el almacenamiento de cliente
 
 - Deshabilitación del cifrado en máquinas virtuales IaaS de Windows
@@ -91,7 +91,7 @@ Al habilitar e implementar Cifrado de disco de Azure para las máquinas virtuale
 
 El cifrado de disco de Azure para la solución Máquinas virtuales IaaS para Windows y Linux incluye la extensión de cifrado de disco para Windows, la extensión de cifrado del disco para Linux, cmdlets de PowerShell de cifrado de disco, cmdlets de CLI de cifrado de disco y plantillas de Administrador de recursos de Azure de cifrado de disco. La solución Cifrado de disco de Azure es compatible con las máquinas virtuales IaaS que ejecutan los sistemas operativos Windows o Linux. Para más información sobre los sistemas operativos compatibles, consulte la sección de requisitos previos a continuación.
 
-**Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
+****Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
 
 ### Propuesta de valor
 
@@ -169,21 +169,21 @@ Cifrado de discos de Azure es compatible con las siguientes SKU de cliente Windo
 
 	- Ejemplo de dirección URL de secretos válida:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Ejemplo de dirección URL de KEK válida:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Cifrado de disco de Azure no admite que los números de puerto se especifiquen como parte de las URL de KEK y del secreto del almacén de claves. A continuación encontrará ejemplos de direcciones URL de almacén de claves compatibles:
 
  	- Dirección URL de almacén de claves no aceptada
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Dirección URL de almacén de claves aceptada:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Para habilitar la característica Cifrado de disco de Azure, las máquinas virtuales IaaS debe cumplir los siguientes requisitos de configuración de puntos de conexión de red:
 
@@ -845,4 +845,4 @@ Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.m
 
 [Exploración de Cifrado de disco de Azure con Azure PowerShell, parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

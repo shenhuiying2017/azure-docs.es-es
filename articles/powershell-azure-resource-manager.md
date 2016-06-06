@@ -12,7 +12,7 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/11/2016" 
 	ms.author="tomfitz"/>
 
@@ -380,4 +380,4 @@ Los ejemplos de implementación anteriores en este tema solo mostraban los cmdle
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

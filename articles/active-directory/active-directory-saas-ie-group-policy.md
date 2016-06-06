@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/19/2016"
     ms.author="markvi;liviodlc"/>
 
 #Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
@@ -181,4 +181,4 @@ Siga estos pasos para comprobar si la implementación de la extensión se realiz
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 - [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

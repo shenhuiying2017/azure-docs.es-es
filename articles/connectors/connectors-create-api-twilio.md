@@ -1,10 +1,10 @@
 <properties
-pageTitle="Incorporación de la API de Twilio en las Aplicaciones lógicas | Microsoft Azure"
-description="Información general de la API de Twilio con parámetros de la API de REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Incorporación del conector de Twilio a las aplicaciones lógicas | Microsoft Azure"
+description="Información general del conector de Twilio con parámetros de la API de REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Introducción a la API de Twilio
+# Introducción al conector de Twilio
 
 Conectarse a Twilio para enviar y recibir mensajes SMS, MMS y IP globales.
 
@@ -31,16 +31,16 @@ Con Twilio, puede:
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
-La API de Twilio incluye las siguientes acciones. No hay desencadenadores.
+El conector de Twilio incluye las siguientes acciones. No hay desencadenadores.
 
 | Desencadenadores | Acciones|
 | --- | --- |
 |None| <ul><li>Obtener mensaje</li><li>Enumerar mensajes</li><li>Enviar mensaje</li></ul>|
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Twilio
-Cuando agregue esta API a las aplicaciones lógicas, escriba los valores Twilio siguientes:
+Cuando agregue este conector a las aplicaciones lógicas, escriba los siguientes valores de Twilio:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
@@ -248,4 +248,4 @@ Envía un nuevo mensaje a un número de teléfono móvil. ```POST: /Messages.jso
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

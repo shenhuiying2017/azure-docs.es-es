@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de Facebook en las Aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Facebook con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de Facebook a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Facebook con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de Facebook
-Conéctese a Facebook y publique en una biografía, obtenga una fuente de página y mucho más. La API de Facebook se puede usar desde:
+# Introducción al conector de Facebook
+Conéctese a Facebook y publique en una biografía, obtenga una fuente de página y mucho más. El conector de Facebook puede usarse desde:
 
 - Aplicaciones lógicas (descritas en este tema)
 - PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
@@ -35,16 +35,16 @@ Con Facebook, puede hacer lo siguiente:
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
-La API de Facebook incluye los siguientes desencadenadores y acciones.
+El conector de Facebook incluye los siguientes desencadenadores y acciones.
 
 | Desencadenadores | Acciones|
 | --- | --- |
 | <ul><li>Cuando haya un nuevo mensaje en mi biografía</li></ul> |<ul><li>Obtener fuente de mi biografía</li><li>Publicar en mi biografía</li><li>Cuando haya un nuevo mensaje en mi biografía</li><li>Obtener fuente de página</li><li>Obtener biografía de usuario</li><li>Publicar en la página</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a Facebook
-Al agregar esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su instancia de Facebook.
+Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su Facebook.
 
 1. Inicie sesión en su cuenta de Facebook.
 2. Seleccione **Autorizar** y permita que sus aplicaciones lógicas se conecten y utilicen su aplicación de Facebook. 
@@ -436,4 +436,4 @@ Es más probable que cualquier miembro de estos grupos vea este mensaje y existe
 
 [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

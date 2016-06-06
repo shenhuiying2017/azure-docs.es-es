@@ -151,7 +151,7 @@ catch(ServiceException $e){
 
 Los mensajes enviados a las colas del bus de servicio y recibidos en ellas son instancias de la clase **BrokeredMessage**. Los objetos **BrokeredMessage** tienen un conjunto de métodos estándar (por ejemplo, **getLabel**, **getTimeToLive**, **setLabel** y **setTimeToLive**) y las propiedades que se usan para mantener las propiedades específicas de la aplicación personalizada y un cuerpo de datos de aplicaciones arbitrarias.
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
+El tamaño máximo de mensaje que admiten las colas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
 
 ## Recepción de mensajes de una cola
 
@@ -220,4 +220,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

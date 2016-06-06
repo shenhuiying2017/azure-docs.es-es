@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="juliako"/>
 
 #Información general de streaming en vivo con Servicios multimedia de Azure
@@ -116,11 +116,13 @@ Un canal es compatible con hasta tres programas en ejecución simultánea, por l
 
 ##Implicaciones de facturación
 
-Un canal de codificación en directo comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.
+Un canal comienza la facturación tan pronto como su estado realiza la transición a "En ejecución" a través de la API.
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal a los estados de facturación en la API y en el Portal de Azure clásico. Tenga en cuenta que los estados son ligeramente diferentes entre la API y la experiencia de usuario del portal. Tan pronto como un canal se encuentre en el estado "En ejecución" a través de la API, o en el estado "Listo" o "Streaming" en el Portal de Azure clásico, la facturación estará activa.
 
-Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure clásico. Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo. Si no se detiene un canal de codificación, la facturación continuará.
+Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en el Portal de Azure clásico. Usted es responsable de detener sus canales cuando haya terminado con el canal. Si el canal no se detiene, la facturación continuará.
+
+>[AZURE.NOTE]Al trabajar con canales estándar, AMS cerrará automáticamente todos los canales que estén en estado "En ejecución" 12 horas después de la fuente de entrada se pierda y no haya programas en ejecución. Sin embargo, se le facturará por el tiempo que el canal ha estado en estado "En ejecución".
 
 ###<a id="states"></a>Estados del canal y cómo se asignan al modo de facturación 
 
@@ -164,4 +166,4 @@ Detenido|Detenido|No
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Agregar la API de SMTP en las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de SMTP con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de SMTP a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de SMTP con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de SMTP
-Conéctese a un servidor SMTP para enviar correo electrónico. La API de SMTP se puede usar desde:
+# Introducción al conector de SMTP
+Conéctese a un servidor SMTP para enviar correo electrónico. El conector de SMTP puede usarse desde:
 
 - Aplicaciones lógicas (descritas en este tema)
 - PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
@@ -33,22 +33,17 @@ Con SMTP, puede:
 Para agregar una operación a las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
-La API de SMTP tiene la siguiente acción disponible. No hay ningún desencadenador.
+El conector de SMTP tiene la siguiente acción disponible. No hay desencadenadores.
 
 |Desencadenadores | Acciones|
 |--- | ---|
 |None | Enviar correo electrónico|
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de una conexión a SMTP
-Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguientes:
 
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-| Nombre del servidor SMTP | Sí | Escriba el dominio completo (FQDN) o la dirección IP del servidor SMTP.|
-| Nombre de usuario |Sí |Escriba el nombre de usuario para conectarse al servidor SMTP. |
-| Password | Sí|Escriba la contraseña del nombre de usuario. |
+>[AZURE.INCLUDE [Pasos para crear una conexión SMTP](../../includes/connectors-create-api-smtp.md)]
 
 Después de crear la conexión, especifique las propiedades de SMTP, como los valores Para o CC. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
@@ -93,6 +88,6 @@ Envía un correo electrónico a uno o más destinatarios. ```POST: /SendEmail```
 
 
 ## Pasos siguientes
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

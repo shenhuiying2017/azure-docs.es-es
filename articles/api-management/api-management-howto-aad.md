@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Administración de API de Azure
@@ -228,4 +228,4 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 
 [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

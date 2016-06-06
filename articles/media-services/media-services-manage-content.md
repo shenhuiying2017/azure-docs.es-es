@@ -39,7 +39,7 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
-1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de Servicios multimedia.
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de los Servicios multimedia.
 2. Seleccione la página CONTENT. 
 3. Haga clic en el botón **Cargar** en la página o en la parte inferior del portal. 
 4. En el cuadro de diálogo **Cargar contenido**, diríjase al archivo del recurso deseado. Haga clic en el archivo y, a continuación, haga clic en **Abrir** o presione **Entrar**.
@@ -222,4 +222,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

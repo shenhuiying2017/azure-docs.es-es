@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Topologías de Azure AD Connect
@@ -21,16 +21,16 @@ El objetivo de este tema es describir diferentes topologías locales y de Azure 
 
 Leyenda de imágenes en el documento:
 
-| Descripción | Icono |
-|-----|-----|
-| Bosque local de Active Directory | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory con importación filtrada | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Servidor de Azure AD Connect Sync | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| "Modo provisional" del servidor de Azure AD Connect Sync | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync con FIM2010 o MIM2016 | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Servidor de Azure AD Connect Sync, información detallada |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Directorio de Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Escenario no admitido | ![No compatible](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Descripción | Icono
+-----|-----
+Bosque local de Active Directory| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory con importación filtrada| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Servidor de Azure AD Connect Sync| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+"Modo provisional" del servidor de Azure AD Connect Sync| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync con FIM2010 o MIM2016| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Servidor de Azure AD Connect Sync, información detallada| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Directorio de Azure AD |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Escenario no admitido | ![No compatible](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Un único bosque, un único directorio de Azure AD
@@ -116,15 +116,15 @@ En este escenario uno (o más) **bosques de recursos** confían en todos los **b
 ## Consideraciones sobre la topología y Office 365
 Algunas cargas de trabajo de Office 365 presenta ciertas restricciones para las topologías compatibles. Si piensa utilizar alguna de ellas, lea el tema de las topologías admitidas para la carga de trabajo.
 
-| Carga de trabajo | |
-| --------- | --------- |
-| Exchange Online |	Si hay más de una organización de Exchange local (es decir, Exchange se ha implementado en más de un bosque), debe usar Exchange 2013 SP1 o posterior. Se pueden encontrar detalles aquí: [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/es-ES/library/jj873754.aspx) |
-| Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque cuenta-recurso. Se pueden encontrar detalles sobre las topologías admitidas aquí: [Requisitos del entorno para Skype Empresarial Server 2015](https://technet.microsoft.com/es-ES/library/dn933910.aspx). |
+Carga de trabajo |  
+--------- | ---------
+Exchange Online | Si hay más de una organización de Exchange local (es decir, Exchange se ha implementado en más de un bosque), debe usar Exchange 2013 SP1 o posterior. Se pueden encontrar detalles aquí: [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
+Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque cuenta-recurso. Se pueden encontrar detalles sobre las topologías admitidas aquí: [Requisitos del entorno para Skype Empresarial Server 2015](https://technet.microsoft.com/library/dn933910.aspx).
 
 ## Servidor provisional
 ![Servidor provisional](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
-Azure AD Connect admite la instalación de un segundo servidor en **modo provisional**. Un servidor en este modo puede leer los datos de todos los directorios conectados, pero no puede escribir nada en ellos. Utiliza el ciclo de sincronización normal y, por tanto, tiene una copia actualizada de los datos de identidad. Ante un error en el servidor principal, puede conmutar por error al servidor provisional. Puede hacerlo en el Asistente de Azure AD Connect. Este segundo servidor se puede ubicar preferiblemente en un centro de datos diferente dado que no se comparte ninguna infraestructura con el servidor principal. Cualquier cambio de configuración realizado en el servidor principal debe copiarlo manualmente en el segundo servidor.
+Azure AD Connect admite la instalación de un segundo servidor en el **modo provisional**. Un servidor en este modo puede leer los datos de todos los directorios conectados, pero no puede escribir nada en ellos. Utiliza el ciclo de sincronización normal y, por tanto, tiene una copia actualizada de los datos de identidad. Ante un error en el servidor principal, puede conmutar por error al servidor provisional. Puede hacerlo en el Asistente de Azure AD Connect. Este segundo servidor se puede ubicar preferiblemente en un centro de datos diferente dado que no se comparte ninguna infraestructura con el servidor principal. Cualquier cambio de configuración realizado en el servidor principal debe copiarlo manualmente en el segundo servidor.
 
 Un servidor provisional se puede usar también para probar una nueva configuración personalizada y el efecto que tendrá en los datos. En este sentido, puede obtener una vista previa de los cambios y ajustar la configuración. Cuando esté satisfecho con la nueva configuración, puede hacer del servidor provisional el servidor activo y establecer el antiguo servidor activo en modo provisional.
 
@@ -135,9 +135,9 @@ Es posible tener más de un servidor provisional si desea tener varias copias de
 ## Varios directorios de Azure AD
 Microsoft recomienda tener un único directorio en Azure AD para una organización. Antes de considerar el uso de varios directorios de Azure AD, estos temas explican escenarios comunes que le permiten usar un único directorio.
 
-| Tema. | |
-| --------- | --------- |
-| Delegación mediante unidades administrativas | [Administración de unidades administrativas en Azure AD.](active-directory-administrative-units-management.md)
+Tema. |  
+--------- | ---------
+Delegación mediante unidades administrativas | [Administración de unidades administrativas en Azure AD.](active-directory-administrative-units-management.md)
 
 ![Varios bosques, varios directorios](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ Obtenga más información sobre la configuración de [sincronización de Azure A
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

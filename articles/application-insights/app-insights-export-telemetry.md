@@ -117,7 +117,7 @@ Where
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
 
-Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos valores muestran una tiempo de 10 ms para enviar una solicitud desde el explorador, 30 ms para recibirla y 1,8 s para procesar la página en el explorador:
+Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos valores muestran un tiempo de 1 ms para enviar una solicitud desde el explorador, 3 ms para recibirla y 1,8 s para procesar la página en el explorador:
 
 	"sendRequest": {"value": 10000.0},
 	"receiveRequest": {"value": 30000.0},
@@ -229,4 +229,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

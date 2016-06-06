@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2016"
+   ms.date="05/25/2016"
    ms.author="bruceper" />
 
 # Guía del desarrollador del Almacén de claves de Azure
@@ -82,12 +82,14 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - [Generación y transferencia de claves protegidas con HSM para Almacén de claves de Azure](key-vault-hsm-protected-keys.md). Esto le ayudará a planear, generar y transferir sus propias claves protegidas con HSM para usarlas con Almacén de claves de Azure.
 - [Paso de valores seguros (como contraseñas) durante la implementación](../resource-manager-keyvault-parameter.md). Si necesita pasar un valor seguro (como una contraseña) como un parámetro durante la implementación, puede almacenar ese valor como un secreto en un Almacén de claves de Azure y hacer referencia al valor en otras plantillas de Resource Manager.
 - [Uso de Almacén de claves para la administración extensible de claves con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). El Conector de SQL Server para Almacén de claves de Azure permite que SQL Server y SQL en una VM use el servicio de Almacén de claves de Azure como un proveedor de administración extensible de claves (EKM) con el fin de proteger sus claves de inscripción para el vínculo de aplicaciones; Cifrado de datos transparente, Cifrado de copia de seguridad y Cifrado de nivel de columna.
+- [Implementación de certificados en máquinas virtuales desde el almacén de claves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): una aplicación de nube que se ejecute en una máquina virtual de Azure necesita un certificado. Sepa cómo añadirlo a la máquina virtual hoy mismo.
+- [Integración del almacén de claves con Cifrado de discos de Azure para máquinas virtuales de IaaS de Windows y Linux](../azure-security-disk-encryption.md): la solución de cifrado de discos se integra con el Almacén de claves de Azure para contribuir al control y la administración de los secretos y las claves de cifrado de discos de su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en el almacenamiento de Azure.
 
-Para obtener más instrucciones específicas sobre las tareas de integración y el uso de Almacén de claves de Azure, consulte las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+Para obtener más instrucciones específicas sobre las tareas de integración y el uso de almacenes de claves con Azure, consulte las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Bibliotecas compatibles
 
-- [La biblioteca principal de Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) proporciona las interfaces `IKey` e `IKeyResolver` para localizar las claves en los identificadores y para realizar operaciones con las claves.
+- [La biblioteca principal del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) proporciona las interfaces `IKey` e `IKeyResolver` para localizar las claves de los identificadores y realizar operaciones con ellas.
 
 - [Las extensiones del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) proporcionan capacidades ampliadas para el Almacén de claves de Azure.
 
@@ -95,4 +97,4 @@ Para obtener más instrucciones específicas sobre las tareas de integración y 
 - [Blog de Almacén de claves](http://aka.ms/kvblog)
 - [Foro sobre Almacén de claves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

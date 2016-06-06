@@ -20,8 +20,8 @@
 # Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell](backup-azure-vms-automation.md)
-- [Deploy and manage backup for Azure VMs using PowerShell](backup-azure-vms-classic-automation.md) (Implementación y administración de copias de seguridad para máquinas virtuales de Azure mediante PowerShell)
+- [ARM](backup-azure-vms-automation.md)
+- [Clásico](backup-azure-vms-classic-automation.md)
 
 En este artículo se muestra cómo usar Azure PowerShell para realizar y recuperar copias de seguridad de máquinas virtuales IaaS de Azure.
 
@@ -342,4 +342,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si desea agregar funcionalidades gráficas a esta salida del informe, lea la información de la publicación del blog de TechNet [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Gráficos con PowerShell).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

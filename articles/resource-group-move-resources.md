@@ -32,7 +32,7 @@ No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se muev
 Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Puede evitar errores mediante la comprobación de estas condiciones.
 
 1. El servicio debe admitir la capacidad de traslado de recursos. Consulte la siguiente lista para más información sobre [los servicios que admiten el traslado de recursos](#services-that-support-move).
-2. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso. Para obtener más información sobre cómo comprobar el estado de registro y registrar proveedores de recursos, consulte [Tipos y proveedores de recursos](../resource-manager-supported-services/#resource-providers-and-types).
+2. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso. Para obtener más información sobre cómo comprobar el estado de registro y registrar proveedores de recursos, consulte [Tipos y proveedores de recursos](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Si usa Azure PowerShell o la CLI de Azure, utilice la versión más reciente. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) e [Instalación de la CLI de Azure](xplat-cli-install.md).
 4. Si traslada la aplicación del Servicio de aplicaciones, tiene que revisar las [limitaciones del Servicio de aplicaciones](#app-service-limitations).
 5. Si traslada recursos implementados mediante el modelo clásico, tiene que revisar las [limitaciones de la implementación clásica](#classic-deployment-limitations).
@@ -48,6 +48,7 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Servicio CDN
 - Servicios en la nube (consulte [Limitaciones de la implementación clásica](#classic-deployment-limitations))
 - Factoría de datos
+- DNS
 - DocumentDB
 - Clústeres de HDInsight
 - Almacén de claves
@@ -57,9 +58,9 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Caché en Redis
 - Programador
 - Search
-- Almacenamiento (clásico) (consulte [Limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Almacenamiento (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
 - Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
-- Máquinas virtuales (clásico) (consulte [Limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Máquinas virtuales (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
 
 ## Servicios parcialmente compatibles con el traslado
 
@@ -75,7 +76,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 - ExpressRoute
 - Almacenamiento
 - Máquinas virtuales
-- Redes virtuales (clásico) (consulte [Limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Redes virtuales (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
 
 ## Limitaciones del Servicio de aplicaciones
 
@@ -102,20 +103,20 @@ Todas las demás combinaciones implican el traslado de un tipo de recurso que no
 
 Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan del Servicio de aplicaciones, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
 
-- **web-a** reside en **grupo-web**
-- **plan-a** reside en **grupo-plan**
-- Desea que **web-a** y **plan-a** residan en **grupo-combinado**
+- **web-a** reside en **grupo-web**.
+- **plan-a** reside en **grupo-plan**.
+- Desea que **web-a** y **plan-a** residan en **grupo-combinado**.
 
 Para realizar este movimiento, debe llevar a cabo dos operaciones de traslado distintas en el siguiente orden:
 
 1. Mover **web-a** a **grupo-plan**
-2. Mover **web-a** y **plan-a** a **grupo-combinado**.
+2. Mover **web-a** y **plan-a** a **grupo-combinado**
 
 ## Limitaciones de la implementación clásica
 
 Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción.
 
-Al mover recursos de un grupo de recursos a otro grupo de recursos **dentro de la misma suscripción**, se aplican las restricciones siguientes:
+Al mover recursos de un grupo de recursos a otro **dentro de la misma suscripción**, se aplican las restricciones siguientes:
 
 - No se pueden mover redes virtuales (clásico).
 - Las máquinas virtuales (clásico) se deben mover con el servicio en la nube. 
@@ -153,11 +154,11 @@ Si desea usar otra opción para mover recursos a un nuevo grupo de recursos (per
 
 ![seleccionar el recurso que mover](./media/resource-group-move-resources/select-resource.png)
 
-Seleccione sus **Propiedades**.
+Seleccione sus **propiedades**.
 
 ![seleccionar propiedades](./media/resource-group-move-resources/select-properties.png)
 
-Si es posible para este tipo de recurso, seleccione **Cambiar el grupo de recursos**.
+Si la opción está disponible para este tipo de recurso, seleccione **Cambiar el grupo de recursos**.
 
 ![cambiar el grupo de recursos](./media/resource-group-move-resources/change-resource-group.png)
 
@@ -266,9 +267,9 @@ Con el cuerpo de solicitud:
 
 
 ## Pasos siguientes
-- Para obtener información sobre los cmdlets de PowerShell para administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
+- Para obtener información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para obtener información sobre los comandos de CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-- Para obtener información sobre las características del portal para administrar su suscripción, vea [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
-- Para aprender a aplicar una organización lógica a los recursos, vea [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
+- Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
+- Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

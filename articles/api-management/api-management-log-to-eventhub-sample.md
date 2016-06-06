@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="05/25/2016"
     ms.author="v-darmi"/>
 
 # Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
@@ -268,4 +268,4 @@ El servicio de Administración de API de Azure proporciona un lugar ideal para c
 	-	[referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

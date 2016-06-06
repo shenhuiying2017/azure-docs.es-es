@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
@@ -57,11 +57,11 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 |Página de aterrizaje|Páginas de nivel de servicio|Páginas de nivel de dispositivo|Páginas de nivel de dispositivo|
 |---|---|---|---|
 |Servicio StorSimple Manager|Panel del servicio|Panel del dispositivo||
-|Dispositivos →|Supervisión|
-|Catálogo de copias de seguridad|Contenedores de volúmenes→|Volúmenes|
-|Configurar (servicio)|Directivas de copia de seguridad||
-|Trabajos|Configurar (dispositivo)|
-|Alertas|Mantenimiento|
+||Dispositivos →|Supervisión|
+||Catálogo de copias de seguridad|Contenedores de volúmenes→|Volúmenes|
+||Configurar (servicio)|Directivas de copia de seguridad||
+||Trabajos|Configurar (dispositivo)|
+||Alertas|Mantenimiento|
 
 ![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
 
@@ -114,4 +114,4 @@ Si tiene algún problema con la operación diaria de su dispositivo StorSimple o
 
 Si no puede resolver los problemas y necesita crear una solicitud de servicio, póngase en contacto con el [Servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0525_2016-->

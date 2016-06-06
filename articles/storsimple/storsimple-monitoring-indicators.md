@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="05/24/2016"
     ms.author="alkohli" />
 
 # Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
@@ -163,12 +163,7 @@ Use la siguiente tabla para saber si el módulo del controlador EBOD funciona co
 
 |Estado | Módulo de E/S correcto (verde) | Error del módulo de E/S (ámbar) | Actividad de puerto del host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo de controlador correcto | Encendido | Apagado | - |
-| Error del módulo de controlador | Apagado | Encendido | - |
-| Sin conexión de puerto de host externo | - | - | Apagado |
-| Conexión de puerto de host externo: sin actividad | - | - | Encendido|
-| Conexión de puerto de host externo: actividad | - | - | Intermitente |
-| Error de metadatos del módulo de controlador | Intermitente | - | - |
+| Módulo de controlador correcto | Encendido | Apagado | - | | Error del módulo de controlador | Apagado | Encendido | - | | Sin conexión de puerto de host externo | - | - | Apagado | | Conexión de puerto de host externo: sin actividad | - | - | Encendido| | Conexión de puerto de host externo: actividad | - | - | Intermitente | | Error de metadatos del módulo de controlador | Intermitente | - | - |
 
 ## Indicadores LED de unidad de disco del revestimiento principal y el revestimiento de EBOD
 
@@ -262,4 +257,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

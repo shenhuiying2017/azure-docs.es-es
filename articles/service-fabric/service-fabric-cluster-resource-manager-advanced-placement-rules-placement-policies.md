@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Directivas de colocación de servicios de Service Fabric
-Existen numerosas reglas adicionales que podrían afectarle si el clúster de Service Fabric está distribuido geográficamente, como en varios centros de datos o regiones de Azure, o si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya límites legales o de directiva que le afecten). La mayoría pueden configurarse mediante propiedades de nodo y restricciones de colocación (de las que ya hemos hablado), pero otras son más complicadas. En cualquier caso, proporcionamos estos accesos directos. Al igual que las restricciones de colocación, las directivas de colocación pueden configurarse en función del servicio.
+Existen numerosas reglas adicionales que podrían afectarle si el clúster de Service Fabric está distribuido geográficamente, como en varios centros de datos o regiones de Azure, o si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya límites legales o de directiva que le afecten, o en el que las distancias implicadas tengan un impacto real en el rendimiento o la latencia). La mayoría pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otras son más complicadas. En cualquier caso, proporcionamos estos accesos directos. Al igual que las restricciones de colocación, las directivas de colocación pueden configurarse en función de la instancia de servicio con nombre.
 
 ## Especificación de dominios no válidos
 La directiva de colocación InvalidDomain le permite especificar que un determinado dominio de error no es válido para esta carga de trabajo. Resulta útil para garantizar que un servicio específico no se ejecute nunca en un área determinada, por ejemplo por motivos geopolíticos o relacionados con la directiva corporativa. Pueden especificarse varios dominios no válidos.
@@ -98,4 +98,4 @@ Se preguntará si sería posible usar estas configuraciones para los servicios d
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -21,7 +21,7 @@
 
 ## Aprovechamiento de grupos elásticos y generación de aplicaciones multiinquilino más eficaces
 
-Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos de bases de datos elásticas de Base de datos SQL de Azure, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos.
+Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos de bases de datos elásticas de Base de datos SQL de Azure, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![creación-aplicaciones-multiinquilino](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -47,11 +47,11 @@ Los grupos básicos, estándar y premium le proporcionan una amplia gama de rend
 
 Además de los grupos elásticos, existen características de Base de datos SQL para ayudar a administrar las actividades operativas entre varias bases de datos:
 
-**Realización de consultas e informes entre bases de datos.** [La consulta de bases de datos elástica](sql-database-elastic-query-overview.md) le permite ejecutar informes o consultas entre las bases de datos del grupo elástico y acceder de forma remota a los datos almacenados en muchas bases de datos del grupo a la vez.
+** Realización de consultas e informes entre bases de datos. ** [La consulta de bases de datos elástica](sql-database-elastic-query-overview.md) le permite ejecutar informes o consultas entre las bases de datos del grupo elástico y acceder de forma remota a los datos almacenados en muchas bases de datos del grupo a la vez.
 
-**Ejecución de transacciones entre bases de datos.** [Las transacciones de bases de datos elásticas](sql-database-elastic-transactions-overview.md) le permiten ejecutar transacciones que abarcan varias bases de datos en Bases de datos SQL y realizar operaciones (por ejemplo, cuando se procesan las transacciones financieras entre bases de datos o al actualizar el inventario y los pedidos en una base de datos).
+** Ejecución de transacciones entre bases de datos. ** [Las transacciones de bases de datos elásticas](sql-database-elastic-transactions-overview.md) le permiten ejecutar transacciones que abarcan varias bases de datos en Bases de datos SQL y realizar operaciones (por ejemplo, cuando se procesan las transacciones financieras entre bases de datos o al actualizar el inventario y los pedidos en una base de datos).
 
-**Ejecución de las mismas operaciones en varias bases de datos.** [Los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
+** Ejecución de las mismas operaciones en varias bases de datos. ** [Los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) ejecutan operaciones administrativas, como volver a generar índices o actualizar los esquemas en cada base de datos del grupo elástico.
 
 Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL. [Compruébelo.](https://azure.microsoft.com/services/sql-database/)
 
@@ -65,4 +65,4 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

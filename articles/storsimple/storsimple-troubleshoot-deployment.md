@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Solución de problemas de implementación de dispositivos de StorSimple
@@ -21,7 +21,7 @@
 
 Este artículo proporciona instrucciones útiles para la solución de problemas relacionados con la implementación de Microsoft Azure StorSimple. Se describen los problemas comunes, las causas posibles y los pasos recomendados, como ayuda para resolver los problemas que pueden producirse al configurar StorSimple. Esta información se aplica tanto al dispositivo físico local de StorSimple como al dispositivo virtual.
 
-> [AZURE.NOTE]Los problemas relacionados con la configuración del dispositivo pueden producirse al implementar el dispositivo por primera vez o bien más adelante, cuando el dispositivo está operativo. Este artículo se centra en la solución de problemas relacionados con la implementación por primera vez. Para solucionar problemas de un dispositivo operativo, vaya a [Solución de problemas de un dispositivo StorSimple operativo](storsimple-troubleshoot-operational-device.md).
+> [AZURE.NOTE] Los problemas relacionados con la configuración del dispositivo pueden producirse al implementar el dispositivo por primera vez o bien más adelante, cuando el dispositivo está operativo. Este artículo se centra en la solución de problemas relacionados con la implementación por primera vez. Para solucionar problemas de un dispositivo operativo, vaya a [Solución de problemas de un dispositivo StorSimple operativo](storsimple-troubleshoot-operational-device.md).
 
 En este artículo también se describen las herramientas para solucionar problemas relacionados con implementaciones de StorSimple y se incluye un ejemplo de solución de problemas paso a paso.
 
@@ -51,7 +51,7 @@ Los pasos siguientes resumen el proceso del Asistente para instalación. Para ob
   - La contraseña del administrador de dispositivos se usa para iniciar sesión en el dispositivo. La contraseña predeterminada del dispositivo es **Password1**.
   - La contraseña de StorSimple Snapshot Manager se requiere cuando se configura un dispositivo para utilizar este complemento. Debe establecer primero la contraseña en el Asistente para instalación y, a continuación, puede establecerla y cambiarla desde el servicio StorSimple Manager. Esta contraseña autentica el dispositivo con StorSimple Snapshot Manager.
  
-    > [AZURE.IMPORTANT]Las contraseñas se recopilan antes del registro, pero solo se aplican después de registrar correctamente el dispositivo. Si hay un error al aplicar una contraseña, se le pedirá que proporcione la contraseña de nuevo hasta que se recopilen las contraseñas necesarias (que cumplan los requisitos de complejidad).
+    > [AZURE.IMPORTANT] Las contraseñas se recopilan antes del registro, pero solo se aplican después de registrar correctamente el dispositivo. Si hay un error al aplicar una contraseña, se le pedirá que proporcione la contraseña de nuevo hasta que se recopilen las contraseñas necesarias (que cumplan los requisitos de complejidad).
 
 4. Registre el dispositivo: el último paso consiste en registrar el dispositivo con el servicio StorSimple Manager en ejecución en Microsoft Azure. Para ello, debe [obtener la clave de registro del servicio](storsimple-manage-service.md#get-the-service-registration-key) desde el Portal de Azure clásico e indicarla en el Asistente para instalación. Una vez registrado correctamente el dispositivo, se le indicará una clave de cifrado de datos del servicio. Asegúrese de mantener esta clave de cifrado en una ubicación segura, ya que será necesaria para registrar todos los dispositivos posteriores con el servicio.
 
@@ -117,7 +117,7 @@ Puede encontrar uno o varios de los siguientes errores al configurar las contras
 
 Las contraseñas se recopilan antes de que el dispositivo se registre, pero solo se aplican después de un registro correcto. El flujo de trabajo de recuperación de contraseñas requiere que el dispositivo esté registrado.
 
-> [AZURE.IMPORTANT]En general, si se produce un error al intentar aplicar una contraseña, el software intenta recopilar repetidamente la contraseña hasta que lo consigue. En raras ocasiones, no se puede aplicar la contraseña. En este caso, puede registrar el dispositivo y continuar; sin embargo, las contraseñas no se modificarán. No recibirá ninguna indicación acerca de cuál de las contraseñas no se modificó: la contraseña del administrador de dispositivos o la contraseña de StorSimple Snapshot Manager. Si se produce esta situación, se recomienda que cambie ambas contraseñas.
+> [AZURE.IMPORTANT] En general, si se produce un error al intentar aplicar una contraseña, el software intenta recopilar repetidamente la contraseña hasta que lo consigue. En raras ocasiones, no se puede aplicar la contraseña. En este caso, puede registrar el dispositivo y continuar; sin embargo, las contraseñas no se modificarán. No recibirá ninguna indicación acerca de cuál de las contraseñas no se modificó: la contraseña del administrador de dispositivos o la contraseña de StorSimple Snapshot Manager. Si se produce esta situación, se recomienda que cambie ambas contraseñas.
 
 Puede restablecer las contraseñas en el Portal de Azure clásico mediante el servicio StorSimple Manager. Para obtener más información, consulte:
 
@@ -163,7 +163,7 @@ Un paquete de soporte contiene todos los registros relevantes que pueden ayudar 
   1. Ejecute el comando **eventvwr** en el cliente Windows. Se iniciará el Visor de eventos.
   2. En el panel **Acciones**, haga clic en **Abrir registro guardado** y elija los archivos de registro con formato etvx/etw (el paquete de soporte). Ahora puede ver el archivo. Después de abrirlo, puede hacer clic con el botón secundario y guardarlo como texto.
    
-    > [AZURE.IMPORTANT]También puede utilizar el cmdlet **Get-WinEvent** para abrir este archivo en Windows PowerShell. Para obtener más información, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) en la documentación de referencia de cmdlets de Windows PowerShell.
+    > [AZURE.IMPORTANT] También puede utilizar el cmdlet **Get-WinEvent** para abrir este archivo en Windows PowerShell. Para obtener más información, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) en la documentación de referencia de cmdlets de Windows PowerShell.
 
 5. Cuando los registros se abran en el Visor de eventos, busque los siguientes registros, que contienen problemas relacionados con la configuración del dispositivo:
 
@@ -261,7 +261,7 @@ Debe habilitar ping para solucionar problemas de conectividad con este cmdlet si
 
 Consulte los siguientes ejemplos de salida del cmdlet `Test-Connection`.
 
-> [AZURE.NOTE]En el primer ejemplo, el dispositivo está configurado con un DNS incorrecto. En el segundo ejemplo, el DNS es correcto.
+> [AZURE.NOTE] En el primer ejemplo, el dispositivo está configurado con un DNS incorrecto. En el segundo ejemplo, el DNS es correcto.
  
 **Ejemplo de salida: DNS incorrecto**
 
@@ -328,7 +328,7 @@ En los archivos de registro CiSCommandletLog0Curr.errlog y CiSAgentsvc0Curr.errl
 
 Para obtener más información sobre cómo usar el cmdlet, vaya a [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) en la documentación de referencia de Windows PowerShell.
 
-> [AZURE.IMPORTANT]Puede ejecutar este cmdlet para ambos controladores, activo y pasivo.
+> [AZURE.IMPORTANT] Puede ejecutar este cmdlet para ambos controladores, activo y pasivo.
  
 Consulte los siguientes ejemplos de salida del cmdlet `Test-HcsmConnection`.
 
@@ -449,7 +449,7 @@ Por ejemplo, si tiene dos interfaces de red, DATA 2 y DATA 3, conectadas a Inter
 
 Si ejecuta la actualización número 1 en el dispositivo StorSimple, la interfaz de red DATA 0 tendrá mayor preferencia para el tráfico de la nube. Esto implica que, incluso si hay otras interfaces habilitadas en la nube, el tráfico de nube se enrutaría a través de DATA 0.
 
-Si ejecuta el cmdlet `Get-HcsRoutingTable` sin especificar ningún parámetro (tal y como se muestra en el ejemplo siguiente), el cmdlet dará como resultado las tablas de enrutamiento de IPv4 e IPv6. Como alternativa, puede especificar `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` para obtener una tabla de enrutamiento pertinente.
+Si ejecuta el cmdlet `Get-HcsRoutingTable` sin especificar ningún parámetro (tal y como se muestra en el ejemplo siguiente), el cmdlet dará como resultado las tablas de enrutamiento de IPv4 e IPv6. Como alternativa, puede especificar `Get-HcsRoutingTable -IPv4` o `Get-HcsRoutingTable -IPv6` para obtener una tabla de enrutamiento relevante.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -537,11 +537,11 @@ El error puede deberse a alguna de las siguientes causas:
 
 1. Compruebe la configuración del dispositivo: en el controlador activo, ejecute `Invoke-HcsSetupWizard`.
 
-     >[AZURE.NOTE]El Asistente para instalación se debe ejecutar en el controlador activo. Para comprobar que está conectado al controlador activo, observe el banner que aparece en la consola serie. Este banner indica si está conectado al controlador 0 o al 1, y si es el controlador activo o pasivo. Para más información, vaya a [Identificación de un controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+     > [AZURE.NOTE] El Asistente para instalación se debe ejecutar en el controlador activo. Para comprobar que está conectado al controlador activo, observe el banner que aparece en la consola serie. Este banner indica si está conectado al controlador 0 o al 1, y si es el controlador activo o pasivo. Para más información, vaya a [Identificación de un controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
 2. Asegúrese de que los cables del dispositivo están conectados correctamente: compruebe el cableado de red en la parte posterior del dispositivo. Los cables son específicos del modelo de dispositivo. Para obtener más información, consulte [Instalación del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-     >[AZURE.NOTE]Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     > [AZURE.NOTE] Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
 3. Compruebe el mantenimiento de la interfaz de red:
 
@@ -559,7 +559,7 @@ El error puede deberse a alguna de las siguientes causas:
   - Vuelva a ejecutar el Asistente para instalación (ejecute **Invoke-HcsSetupWizard**) y escriba de nuevo los valores para asegurarse de que no hay ningún error. 
   - Compruebe la clave de registro utilizada. Se puede usar la misma clave del registro para conectar varios dispositivos a un servicio StorSimple Manager. Siga el procedimiento de [Obtención de la clave de registro de servicio](storsimple-manage-service.md#get-the-service-registration-key) para asegurarse de que está utilizando la clave de registro correcta.
 
-    > [AZURE.IMPORTANT]Si está ejecutando varios servicios, asegúrese de que se usa la clave de registro correspondiente al servicio adecuado para registrar el dispositivo. Si ha registrado un dispositivo con el servicio StorSimple Manager incorrecto, deberá [ponerse en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para conocer los pasos siguientes. Tal vez sea necesario realizar un restablecimiento de fábrica del dispositivo (que puede provocar la pérdida de datos) para, a continuación, conectarlo al servicio deseado.
+    > [AZURE.IMPORTANT] Si está ejecutando varios servicios, asegúrese de que se usa la clave de registro correspondiente al servicio adecuado para registrar el dispositivo. Si ha registrado un dispositivo con el servicio StorSimple Manager incorrecto, deberá [ponerse en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para conocer los pasos siguientes. Tal vez sea necesario realizar un restablecimiento de fábrica del dispositivo (que puede provocar la pérdida de datos) para, a continuación, conectarlo al servicio deseado.
 
 6. Use el cmdlet Test-Connection para comprobar que dispone de conectividad con la red externa. Para obtener más información, vaya a [Solución de problemas con el cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
@@ -577,4 +577,4 @@ El error puede deberse a alguna de las siguientes causas:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0525_2016-->

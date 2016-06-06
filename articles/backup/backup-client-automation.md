@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/23/2016"
 	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
+
+> [AZURE.SELECTOR]
+- [ARM](backup-client-automation.md)
+- [Clásico](backup-client-automation-classic.md)
 
 En este artículo se muestra cómo usar PowerShell para configurar la Copia de seguridad de Azure en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 
@@ -25,32 +29,67 @@ En este artículo se muestra cómo usar PowerShell para configurar la Copia de s
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
+Este artículo se centra en los cmdlets de PowerShell de Azure Resource Manager (ARM), que le permiten usar un almacén de Servicios de recuperación en un grupo de recursos.
+
 En octubre de 2015, se lanzó Azure PowerShell 1.0. Esta versión sucedió a la versión 0.9.8 e introdujo algunos cambios importantes, sobre todo en el patrón de nombres de los cmdlets. Los cmdlets de 1.0 siguen el patrón de nomenclatura {verbo}-AzureRm{nombre}; en el que, los nombres de 0.9.8 no incluyen **Rm** (por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup). Al usar Azure PowerShell 0.9.8, primero debe habilitar el modo de Administrador de recursos mediante la ejecución del comando **Switch-AzureMode AzureResourceManager**. Este comando no es necesario en la versión 1.0 o posteriores.
 
 Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterior, debe probar detenidamente los scripts en un entorno de preproducción antes de usarlos en producción para evitar un impacto inesperado.
 
-[Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (versión mínima necesaria: 1.0.0)
+[Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es 1.0.0).
 
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
+## Creación de un almacén de Servicios de recuperación
 
-## Creación de un almacén de copia de seguridad
+Los siguientes pasos le guiarán por el proceso de creación de un almacén de Servicios de recuperación. Un almacén de Servicios de recuperación no es lo mismo que un almacén de copia de seguridad.
 
-> [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+1. Si utiliza Copia de seguridad de Azure por primera vez, debe utilizar el cmdlet **Register-AzureRMResourceProvider** para registrar el proveedor de Servicios de recuperación de Azure con su suscripción.
 
-Puede crear un nuevo almacén de copia de seguridad con el cmdlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
+
+2. El almacén de Servicios de recuperación es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.
+
+    ```
+    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    ```
+
+3. Utilice el cmdlet **New-AzureRmRecoveryServicesVault** para crear el nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
+
+    ```
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    ```
+
+4. Especifique el tipo de redundancia de almacenamiento que se usará: [almacenamiento con redundancia local (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) o [almacenamiento con redundancia geográfica (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). En el ejemplo siguiente se muestra que la opción -BackupStorageRedundancy para testVault está establecida en GeoRedundant.
+
+    > [AZURE.TIP] Muchos de los cmdlets de Copia de seguridad de Azure requieren el objeto de almacén de Servicios de recuperación como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Servicios de recuperación de copia de seguridad en una variable.
+
+    ```
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    ```
+
+## Visualización de los almacenes de una suscripción
+Utilice **Get-AzureRmRecoveryServicesVault** para ver la lista de todos los almacenes de la suscripción actual. Puede utilizar este comando para comprobar que se haya creado un nuevo almacén o a fin de ver qué almacenes están disponibles en la suscripción.
+
+Ejecute el comando Get-AzureRmRecoveryServicesVault, y se mostrarán todos los almacenes de la suscripción.
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
+PS C:\> Get-AzureRmRecoveryServicesVault
+Name              : Contoso-vault
+ID                : /subscriptions/1234
+Type              : Microsoft.RecoveryServices/vaults
+Location          : WestUS
+ResourceGroupName : Contoso-docs-rg
+SubscriptionId    : 1234-567f-8910-abc
+Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
-
-Use el cmdlet **Get-AzureRMBackupVault** para enumerar los almacenes de copia de seguridad en una suscripción.
 
 
 ## Instalación del agente de Copia de seguridad de Azure
-Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft ](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de copia de seguridad. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\\Downloads*.
+Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft ](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de Servicios de recuperación. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\\Downloads*.
 
 Para instalar el agente, ejecute el comando siguiente en una consola de PowerShell con privilegios elevados:
 
@@ -76,44 +115,28 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - | 
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Participar en Microsoft Update | - | 
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
-| /ph | Dirección de host del proxy | - | 
-| /po | Número de puerto de host del proxy | - | 
-| /pu | Nombre de usuario de host del proxy | - | 
-| /pw | Contraseña del proxy | - |
+| /q | Instalación desatendida | - | | /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | | /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Participar en Microsoft Update | - | | /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | | /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | | /ph | Dirección de host del proxy | - | | /po | Número de puerto de host del proxy | - | | /pu | Nombre de usuario de host del proxy | - | | /pw | Contraseña del proxy | - |
 
 
-## Registro con el servicio de Copia de seguridad de Azure
-Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-configure-vault.md). Debe:
+## Registro de Windows Server o el equipo cliente de Windows en un almacén de Servicios de recuperación
 
-- Disponer de una suscripción válida a Azure
-- Disponer de un almacén de copia de seguridad
-
-Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureRMBackupVaultCredentials** en una consola de Azure PowerShell y almacénelo en una ubicación adecuada como *C:\\Descargas*.
+Después de crear el almacén de Servicios de recuperación, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\\Downloads.
 
 ```
-PS C:\> $credspath = "C:"
-PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
-PS C:\> $credsfilename
-f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+PS C:\> $credspath = "C:\downloads"
+PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-El registro de la máquina con el almacén de claves se realiza mediante el cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
+En el sistema con Windows Server o el equipo cliente de Windows, ejecute el cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) para registrar la máquina en el almacén.
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
-
-CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
+PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
-ServiceResourceName : test-vault
-Region              : West US
-
+ServiceResourceName: testvault
+Region              :West US
 Machine registration succeeded.
 ```
 
@@ -151,7 +174,7 @@ Todas las copias de seguridad de servidores y clientes de Windows en Copia de se
 2. Una **programación de retención** que especifica cuánto tiempo se conservarán los puntos de recuperación en Azure.
 3. Una **especificación de inclusión o exclusión de archivo** que determina los elementos de los que se debe efectuar una copia de seguridad.
 
-En este documento, dado que se está automatizando la copia de seguridad, supondremos que no se ha configurado nada. Comenzamos creando una nueva directiva de copia de seguridad mediante el cmdlet [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) y usándolo.
+En este documento, dado que se está automatizando la copia de seguridad, supondremos que no se ha configurado nada. Comenzamos creando una nueva directiva de copia de seguridad mediante el cmdlet [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx).
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
@@ -595,4 +618,4 @@ Para obtener más información sobre Copia de seguridad de Azure para Windows Se
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Copia de seguridad de servidores Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

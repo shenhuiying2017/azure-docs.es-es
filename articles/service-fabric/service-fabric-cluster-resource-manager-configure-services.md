@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -27,7 +27,7 @@ Service Fabric Cluster Resource Manager permite disfrutar de un control muy exha
 Vamos a analizar cada una de ellas:
 
 ## Restricciones de selección de ubicación
-Las restricciones de posición se utilizan para controlar en qué nodos del clúster puede ejecutarse realmente un servicio. Normalmente, verá un servicio con nombre determinado o todos los servicios de un tipo restringidos a la ejecución en un tipo de nodo concreto, pero las restricciones de posición se pueden extender: es posible definir cualquier conjunto de propiedades según el tipo de nodo y, luego, seleccionarlas con restricciones cuando se cree el servicio. Las restricciones de posición también se pueden actualizar de forma dinámica mientras dure el servicio, lo que le permite responder a los cambios en el clúster.
+Las restricciones de posición se utilizan para controlar en qué nodos del clúster puede ejecutarse realmente un servicio. Normalmente, verá un servicio con nombre determinado o todos los servicios de un tipo restringidos a la ejecución en un tipo de nodo concreto, pero las restricciones de posición se pueden extender: es posible definir cualquier conjunto de propiedades según el tipo de nodo y, luego, seleccionarlas con restricciones cuando se cree el servicio. Las restricciones de posición también se pueden actualizar de forma dinámica mientras dure el servicio, lo que le permite responder a los cambios en el clúster. En [este artículo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties) puede encontrar más información sobre las restricciones de colocación y cómo configurarlas.
 
 ## Métricas
 Las métricas son los recursos según los cuales se debe equilibrar este servicio, incluida información sobre qué cantidad de ese recurso consume de forma predeterminada cada réplica o instancia. Las métricas también incluyen una ponderación que indica su importancia para el servicio, en caso de que resulte necesario realizar compensaciones.
@@ -39,8 +39,8 @@ Existen otros tipos de reglas de posición que resultan principalmente útiles e
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 - Afinidad es un modo en que puede configurar los servicios. No es muy común, pero si lo necesita puede encontrar información [aquí](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
 - Existen muchas reglas de colocación diferentes que se pueden configurar en el servicio para administrar escenarios adicionales. Puede encontrar información sobre esas directivas de colocación diferentes [aquí](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
-- Empiece desde el principio y [obtenga una introducción al Administrador de recursos de clúster de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Para más información sobre cómo el Administrador de recursos de clúster administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
-- El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo: [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric).
+- Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+- Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
+- El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte el artículo [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

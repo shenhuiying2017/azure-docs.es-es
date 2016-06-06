@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
@@ -111,6 +111,9 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 ### ¿Es necesario realizar algún cambio en mi aplicación cliente para usar la agrupación en clústeres?
 
 -	Cuando la agrupación en clústeres está habilitada, solo está disponible la base de datos 0. Si la aplicación cliente usa varias bases de datos e intenta leer o escribir en una base de datos distinta de 0, se produce la siguiente excepción. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+
+    Para más información, consulte [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset) (Especificación de clúster en Redis: subconjunto implementado).
+
 -	Si usa [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [puntos de conexión, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
 	-	Otros clientes pueden tener requisitos diferentes. Vea [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
 -	Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para lograr esto, consulte [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster)
@@ -137,7 +140,7 @@ El tamaño máximo de caché premium es 53 GB. Puede crear hasta 10 particiones
 
 En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE] Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente. Si tiene problemas con las excepciones move, consulte la explicación sobre [excepciones move](#move-exceptions) para obtener más información.
+>[AZURE.NOTE] Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente. Si tiene problemas con las excepciones move, consulte la explicación sobre [excepciones move](#move-exceptions) para más información.
 
 ### ¿Cómo me conecto a mi memoria caché cuando la agrupación en clústeres esté habilitada?
 
@@ -196,4 +199,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

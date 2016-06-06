@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
@@ -73,21 +73,33 @@ La siguiente copia de seguridad (o la primera copia de seguridad para las nuevas
 
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la persistencia de Caché en Redis de Azure.
 
-## ¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?
+-	[¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
+-	[¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
+-	[¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+-	[¿Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
+-	[¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+
+### ¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?
 
 Sí, la persistencia de Redis puede configurarse tanto durante la creación de la memoria caché como en las memorias caché premium existente.
 
-## ¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?
+### ¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?
 
 Sí, puede cambiar la frecuencia de copia de seguridad en la hoja **Persistencia de los datos en Redis**. Para instrucciones, vea [Configurar la persistencia de Redis](#configure-redis-persistence).
 
-## ¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?
+### ¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?
 
 El intervalo de frecuencia de copia de seguridad no se inicia hasta que el proceso de copia de seguridad anterior se ha completado correctamente. Si la frecuencia de copia de seguridad es de 60 minutos y realiza un proceso de copia de seguridad en 15 minutos para completarse correctamente, la siguiente copia de seguridad no se iniciará hasta pasados 75 minutos de la hora de inicio de la copia de seguridad anterior.
 
-## Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad
+### ¿Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad?
 
 Todas las copias de seguridad excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente pero las copias de seguridad anteriores no se guardan de manera indefinida.
+
+### ¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?
+
+-	Si ha escalado a un tamaño mayor, no hay ningún impacto.
+-	Si ha escalado a un tamaño menor y tiene una configuración de [bases de datos](cache-configure.md#databases) personalizada que es mayor que el [límite de bases de datos](cache-configure.md#databases) para el nuevo tamaño, los datos de esas bases de datos no se restaurarán. Para más información, consulte [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
+-	Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración, normalmente mediante el uso de la directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ## Pasos siguientes
 Obtenga información sobre cómo usar más características de la memoria caché del nivel Premium.
@@ -107,4 +119,4 @@ Obtenga información sobre cómo usar más características de la memoria caché
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

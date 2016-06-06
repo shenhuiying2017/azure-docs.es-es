@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/23/2016"
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de archivos de Azure desde Python
@@ -48,14 +48,14 @@ Los recursos compartidos de almacenamiento de archivos de Azure contienen como m
 
 Para crear un archivo y cargar los datos, use los métodos **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** o **create\_file\_from\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-**create\_file\_from\_path** carga el contenido de un archivo desde la ruta de acceso especificada, y **create\_file\_from\_stream** carga el contenido desde un archivo o una secuencia ya abiertos. **create\_file\_from\_bytes** carga un conjunto de bytes, y **create\_file\_from\_text** carga el valor de texto especificado usando la codificación especificada (que adopta como valor predeterminado UTF-8).
+**create\_file\_from\_path** carga el contenido de un archivo desde la ruta de acceso especificada y **create\_file\_from\_stream** carga el contenido desde un archivo o una secuencia ya abiertos. **create\_file\_from\_bytes** carga un conjunto de bytes y **create\_file\_from\_text** carga el valor de texto especificado usando la codificación especificada (que adopta como valor predeterminado UTF-8).
 
 En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el archivo **myfile**.
 
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
         'myshare',
-				None, # We want to create this blob in the root directory, so we specify None for the directory_name
+        None, # We want to create this blob in the root directory, so we specify None for the directory_name
         'myfile',
         'sunset.png',
         content_settings=ContentSettings(content_type='image/png'))
@@ -100,4 +100,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de ar
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

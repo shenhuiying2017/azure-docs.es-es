@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/11/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -39,9 +39,7 @@ Antes de instalar o actualizar el complemento Administrador de instantáneas Sto
 
 Los pasos siguientes proporcionan una descripción general de las tareas de configuración que debe completar antes de instalar Administrador de instantáneas de StorSimple. Para completar la configuración de Microsoft Azure StorSimple y la información de configuración, incluidos los requisitos del sistema y obtener instrucciones detalladas, consulte [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT] Antes de comenzar, revise la [lista de comprobación de la configuración de implementación](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)
-> y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
-<br>
+>[AZURE.IMPORTANT] Antes de comenzar, revise la [lista de comprobación de la configuración de implementación](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
  
 ### Antes de instalar Administrador de instantáneas StorSimple
 
@@ -261,4 +259,4 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 - Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

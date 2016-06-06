@@ -86,7 +86,7 @@ Algunas aplicaciones usan el enfoque más simple de crear una base de datos inde
 
 ![Un solo inquilino frente a multiinquilinos][4]
 
-Otros escenarios empaquetan varios inquilinos juntos en bases de datos, en lugar de aislarlos en bases de datos independientes. Se trata de un **patrón de particionamiento multiinquilinos** típico y puede estar impulsado por el hecho de que una aplicación administra grandes cantidades de inquilinos muy pequeños. En el particionamiento de varios inquilinos, las filas de las tablas de bases de datos están diseñadas para contener una clave que identifique la clave de particionamiento o el identificador del inquilino. De nuevo, la capa de aplicación es la responsable de enrutar la solicitud de un inquilino a la base de datos adecuada, y esto puede admitirlo la biblioteca de cliente de bases de datos elásticas. Además, es posible usar seguridad en el nivel de fila para filtrar las filas a las que puede tener acceso cada inquilino; si desea obtener detalles, consulte [Aplicaciones multiinquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). La redistribución de datos entre las bases de datos puede ser necesaria con el patrón de particionamiento multiinquilinos, lo que se ve facilitado por la herramienta de división y combinación de bases de datos elásticas.
+Otros escenarios empaquetan varios inquilinos juntos en bases de datos, en lugar de aislarlos en bases de datos independientes. Se trata de un **patrón de particionamiento multiinquilinos** típico y puede estar impulsado por el hecho de que una aplicación administra grandes cantidades de inquilinos muy pequeños. En el particionamiento de varios inquilinos, las filas de las tablas de bases de datos están diseñadas para contener una clave que identifique la clave de particionamiento o el identificador del inquilino. De nuevo, la capa de aplicación es la responsable de enrutar la solicitud de un inquilino a la base de datos adecuada, y esto puede admitirlo la biblioteca de cliente de bases de datos elásticas. Además, es posible usar seguridad en el nivel de fila para filtrar las filas a las que puede tener acceso cada inquilino; si desea obtener detalles, consulte [Aplicaciones multiinquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). La redistribución de datos entre las bases de datos puede ser necesaria con el patrón de particionamiento multiinquilinos, lo que se ve facilitado por la herramienta de división y combinación de bases de datos elásticas. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
 
 ### Mover datos de bases de datos de multinIiquilino a inquilino único
 
@@ -96,7 +96,7 @@ Al crear una aplicación SaaS, es típico ofrecer a los clientes potenciales una
 
 Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 
-Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Convert existing databases to use elastic database tools (Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas)](sql-database-elastic-convert-to-use-elastic-tools.md).
+Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migración de bases de datos existentes a escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para ver los detalles del grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-create-portal.md).
 
@@ -109,4 +109,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

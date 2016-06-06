@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="05/19/2016" 
 	ms.author="robb"/>
 
 #Arquitectura de aplicaciones en Microsoft Azure
@@ -85,4 +85,4 @@ Microsoft publica varios pósteres e infografías relacionados con la arquitectu
 
 ![Infografías de arquitectura de Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

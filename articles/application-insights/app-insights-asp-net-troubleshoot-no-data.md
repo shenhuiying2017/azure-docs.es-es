@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
  
 # Solución de problemas cuando no hay datos: Application Insights para .NET
@@ -50,7 +50,7 @@ Solución:
 + Compruebe que ha proporcionado las credenciales de inicio de sesión para la cuenta de Azure correcta. 
 + En el explorador, compruebe que tiene acceso al [portal de Azure](https://portal.azure.com). Abra Configuración y compruebe si hay alguna restricción.
 + [Agregue Application Insights al proyecto existente](app-insights-asp-net.md): en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione “Agregar Application Insights”.
-+ Si sigue sin funcionar, siga el [procedimiento manual](app-insights-start-monitoring-app-health-usage.md) para agregar un recurso en el portal y, a continuación, agregue el SDK al proyecto. 
++ Si sigue sin funcionar, siga el [procedimiento manual](app-insights-asp-net-manual.md) para agregar un recurso en el portal y, a continuación, agregue el SDK al proyecto. 
 
 ## <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 
@@ -205,4 +205,4 @@ La ciudad, región y dimensiones del país proceden de las direcciones IP y no s
 
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

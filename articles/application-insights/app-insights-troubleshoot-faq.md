@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # Preguntas: Application Insights para ASP.NET
@@ -39,7 +39,7 @@
 * Debe proporcionar los datos de su tarjeta de crédito para registrarse con Microsoft Azure, pero no se realizará ningún cargo a menos que use otro servicio de Azure que sea de pago o que decida actualizar explícitamente a un nivel de pago.
 * Si su aplicación envía una cantidad de datos superior a la cuota mensual establecida para el nivel gratuito, la aplicación dejará de estar registrada. Si esto sucede, puede optar por comenzar a pagar o esperar hasta que la cuota se restablezca al final del mes.
 * Los datos básicos de uso y de sesión no están sujetos a ninguna cuota.
-* También hay una prueba gratuita de 30 días que le permitirá disfrutar de las características Premium sin tener que pagar.
+* También hay una prueba gratuita de 30 días que le permitirá disfrutar de las características de pago sin tener que pagar.
 * Cada recurso de la aplicación tiene una cuota independiente. El nivel de precios se establece con independencia de cualquier otro recurso.
 
 #### ¿Qué obtengo si opto por la versión de pago?
@@ -126,7 +126,6 @@ Consulte [Privacidad y retención de los datos][data].
 <tr><td>Métricas personalizadas de servidor</td><td><a href="../app-insights-api-custom-events-metrics/">Seguimiento de llamadas en el código de servidor</a></td><td>Business intelligence</td></tr>
 </table>
 
-Si el servicio web se ejecuta en una máquina virtual de Azure, también puede [obtener diagnósticos][azurediagnostic] aquí.
 
 ## Automatización
 
@@ -139,7 +138,6 @@ Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y 
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
@@ -147,4 +145,4 @@ Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

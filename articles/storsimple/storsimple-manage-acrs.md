@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar registros de control de acceso
@@ -95,4 +95,4 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

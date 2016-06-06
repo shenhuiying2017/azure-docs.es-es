@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/25/2016"
    ms.author="seanmck"/>
 
 # Recuperación ante desastres en Service Fabric de Azure
@@ -38,7 +38,7 @@ Puede visualizar el diseño del clúster en los dominios de error mediante el ma
 
 ### Distribución geográfica
 
-Actualmente hay 22 regiones de Azure en todo el mundo, y se han anunciado 5 más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
+Actualmente [hay 25 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
 
 ## Gestión de los errores
 
@@ -56,9 +56,9 @@ En general, mientras la mayoría de los nodos permanezcan disponibles, el clúst
 
 #### Pérdida de quórum
 
-Si la mayoría de las réplicas de la partición de un servicio con estado deja de funcionar, esa partición pasará a un estado conocido como "pérdida de quórum". En este punto, Service Fabric dejará de permitir que se escriba en esa partición para asegurarse de que su estado permanece coherente y confiable. De hecho, hemos elegido aceptar un período de falta de disponibilidad para tener la seguridad de que no se dirá a los clientes que sus datos se han guardado cuando no ha sido así. Tenga en cuenta que si ha optado por permitir lecturas desde réplicas secundarias para ese servicio con estado, puede seguir realizando esas operaciones de lectura mientras se encuentre en este estado. Una partición permanecerá en pérdida de quórum hasta que estén disponibles un número suficiente de réplicas o hasta que el administrador del clúster fuerce al sistema a seguir adelante mediante la [API Repair-ServiceFabricPartition](repair-partition-ps). Realizar esta acción cuando la réplica principal está inactiva dará lugar a la pérdida de datos.
+Si la mayoría de las réplicas de la partición de un servicio con estado deja de funcionar, esa partición pasará a un estado conocido como "pérdida de quórum". En este punto, Service Fabric dejará de permitir que se escriba en esa partición para asegurarse de que su estado permanece coherente y confiable. De hecho, hemos elegido aceptar un período de falta de disponibilidad para tener la seguridad de que no se dirá a los clientes que sus datos se han guardado cuando no ha sido así. Tenga en cuenta que si ha optado por permitir lecturas desde réplicas secundarias para ese servicio con estado, puede seguir realizando esas operaciones de lectura mientras se encuentre en este estado. Una partición permanecerá en pérdida de cuórum hasta que estén disponibles un número suficiente de réplicas o hasta que el administrador del clúster fuerce al sistema a seguir adelante mediante la [API Repair-ServiceFabricPartition][repair-partition-ps]. Realizar esta acción cuando la réplica principal está inactiva dará lugar a la pérdida de datos.
 
-Los servicios del sistema también pueden sufrir pérdida de quórum, afectando específicamente al servicio en cuestión. Por ejemplo, la pérdida de quórum en el servicio de nombres afectará a la resolución de nombres, mientras que la pérdida de quórum en el administrador de conmutación por error bloqueará la creación de nuevos servicios y las conmutaciones por error. Tenga en cuenta que a diferencia de sus propios servicios, intentar reparar los servicios del sistema *no* se recomienda. Es preferible simplemente esperar a que las réplicas inactivas vuelvan a estar disponibles.
+Los servicios del sistema también pueden sufrir pérdida de quórum, afectando específicamente al servicio en cuestión. Por ejemplo, la pérdida de quórum en el servicio de nombres afectará a la resolución de nombres, mientras que la pérdida de quórum en el administrador de conmutación por error bloqueará la creación de nuevos servicios y las conmutaciones por error. Tenga en cuenta que a diferencia de sus propios servicios, *no* se recomienda reparar los servicios del sistema. Es preferible simplemente esperar a que las réplicas inactivas vuelvan a estar disponibles.
 
 #### Minimización del riesgo de pérdida de quórum
 
@@ -68,11 +68,11 @@ Considere los siguientes ejemplos que asumen que ha configurado los servicios co
 
 ### Interrupciones o destrucción del centro de datos
 
-En raras ocasiones, los centros de datos físicos pueden dejar de estar disponibles temporalmente debido a la pérdida de conectividad de red o de alimentación. En estos casos, las aplicaciones y los clústeres de Service Fabric igualmente dejarán de estar disponibles, pero sus datos se conservarán. Para los clústeres que se ejecutan en Azure, puede ver las actualizaciones en caso de interrupciones en la [página de estado de Azure](azure-status-dashboard).
+En raras ocasiones, los centros de datos físicos pueden dejar de estar disponibles temporalmente debido a la pérdida de conectividad de red o de alimentación. En estos casos, las aplicaciones y los clústeres de Service Fabric igualmente dejarán de estar disponibles, pero sus datos se conservarán. Para los clústeres que se ejecutan en Azure, puede ver las actualizaciones en caso de interrupciones en la [página de estado de Azure][azure-status-dashboard].
 
 En el caso muy poco probable de que se destruyera un centro de datos físico entero, los clústeres de Service Fabric allí hospedados se perderán, junto con su estado.
 
-Para protegerse contra esta posibilidad, es muy importante [realizar una copia de seguridad periódica de su estado](service-fabric-reliable-services-backup-restore.md) en un almacén con redundancia geográfica y asegurarse de validar la posibilidad de restaurarlo. La frecuencia con la que realice una copia de seguridad dependerá de su objeto de punto de recuperación (RPO). Incluso si no ha implementado aún completamente la característica de copia de seguridad y restauración, debe implementar un identificador para el evento `OnDataLoss` para poder registrarlo cuando se produzca de la manera siguiente:
+Para protegerse contra esta posibilidad, es muy importante [realizar una copia de seguridad periódica de su estado](service-fabric-reliable-services-backup-restore.md) en un almacén con redundancia geográfica y asegurarse de validar la posibilidad de restaurarlo. La frecuencia con la que realice una copia de seguridad dependerá de su objeto de punto de recuperación (RPO). Incluso si no ha implementado aún completamente la característica de copia de seguridad y restauración, debe implementar un identificador para el evento `OnDataLoss` para poder registrarlo cuando se produzca, de la manera siguiente:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -82,7 +82,6 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
->[AZURE.NOTE] La funcionalidad de copia de seguridad y restauración actualmente solo está disponible para la API de Reliable Services. La funcionalidad de copia de seguridad y restauración para Reliable Actors estará disponible en una próxima versión.
 
 ### Errores de software y otros orígenes de pérdida de datos
 
@@ -92,20 +91,21 @@ Entre las causas de pérdida de datos, los defectos en el código de los servici
 
 - Más información sobre cómo simular varios errores mediante la [plataforma Testability](service-fabric-testability-overview.md)
 - Lea otros recursos sobre alta disponibilidad y recuperación ante desastres. Microsoft ha publicado una gran cantidad de instrucciones sobre estos temas. Aunque algunos de estos documentos se refieren a técnicas específicas para su uso en otros productos, contienen muchos procedimientos recomendados generales que se pueden aplicar también en el contexto de Service Fabric:
- - [Lista de comprobación de disponibilidad](azure-availability-checklist)
- - [Exploración en profundidad de la recuperación ante desastres](disaster-recovery-drill)
- - [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](dr-ha-guide)
+ - [Lista de comprobación de disponibilidad](../best-practices-availability-checklist.md)
+ - [Exploración en profundidad de la recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][dr-ha-guide]
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/es-ES/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.microsoft.com/es-ES/status/
-[azure-availability-checklist]: https://azure.microsoft.com/es-ES/documentation/articles/best-practices-availability-checklist/
-[disaster-recovery-drill]: https://azure.microsoft.com/es-ES/documentation/articles/sql-database-disaster-recovery-drills/
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

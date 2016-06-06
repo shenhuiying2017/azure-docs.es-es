@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Costo del movimiento del servicio para influir en las opciones del Administrador de recursos
@@ -32,11 +32,11 @@ Código
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-El valor MoveCost tiene cuatro niveles: Zero (Cero), Low (Bajo), Medium (Medio) y High (Alto). De nuevo, están relacionados entre sí (excepto el valor Zero, que significa que el movimiento de una réplica es gratuito y no debería contarse en la valoración de la solución). Establecer su costo de movimiento con el valor High (Alto) no garantiza que la réplica no se mueva; solo garantiza que no se moverá si no hay una buena razón para ello.
+El valor MoveCost tiene cuatro niveles: Zero (Cero), Low (Bajo), Medium (Medio) y High (Alto). De nuevo, están relacionados entre sí (excepto el valor Zero, que significa que el movimiento de una réplica es gratuito y no debería contarse en la valoración de la solución). Establecer su costo de movimiento con el valor High (Alto) *no* garantiza que la réplica no se mueva; solo garantiza que no se moverá si no hay una buena razón para ello.
 
 ![Costo de movimiento como un factor en la selección de réplicas para el movimiento][Image1]
 
-El valor MoveCost nos ayuda a encontrar las soluciones que tengan el mínimo impacto a nivel general a la vez que se obtiene un equilibrio equivalente. Una noción del costo del servicio puede estar relacionada con muchas cosas, pero las más comunes son las siguientes:
+El valor MoveCost nos ayuda a encontrar las soluciones que tengan el mínimo impacto a nivel general a la vez que se obtiene un equilibrio equivalente. Una noción de costo de un servicio puede ser relativa a muchas cosas, pero los factores más comunes para calcular el costo de movimiento son:
 
 1.	La cantidad de estados o de datos que el servicio tiene que mover.
 2.	El costo de la desconexión de los clientes (el costo de mover una réplica principal será mayor que el de mover una réplica secundaria).
@@ -44,8 +44,8 @@ El valor MoveCost nos ayuda a encontrar las soluciones que tengan el mínimo imp
 
 ## Pasos siguientes
 - Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
-- Para más información sobre cómo el Administrador de recursos de clúster administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
+- Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

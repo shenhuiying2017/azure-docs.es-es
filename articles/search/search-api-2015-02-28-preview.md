@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 
 Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
 
-- Parámetro de consulta `moreLikeThis` en API de [Buscar documentos](#SearchDocs). Busca otros documentos que sean relevantes para otro documento específico.
+- `moreLikeThis` parámetro de consulta en la API de [Buscar documentos](#SearchDocs). Busca otros documentos que sean relevantes para otro documento específico.
 
 Algunas partes adicionales de la API de REST `2015-02-28-Preview` se documentan por separado. Entre ellos se incluyen los siguientes:
 
@@ -1056,35 +1056,112 @@ El cuerpo de la solicitud contiene uno o más documentos para indexar. Los docum
 
 **Respuesta**
 
-Código de estado: se obtendrá 200 Correcto con una respuesta correcta, lo que significa que todos los elementos se han indexado correctamente (como se indica en el campo "status" establecido en true para todos los elementos):
+Código de estado: se obtendrá 200 Correcto con una respuesta correcta, lo que significa que todos los elementos se han indexado correctamente. Esto se indica mediante el `status` establecimiento de la propiedad en true para todos los elementos, así como el `statusCode` establecimiento de la propiedad en 201 (para documentos recién cargados) o en 200 (para documentos combinados o eliminados):
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-Código de estado: se obtendrá 207 cuando no se haya indexado correctamente al menos un elemento (tal y como se indica en el campo "status" establecido en false para los elementos que no se hayan indexado):
+Se devolverá un código de estado 207 (varios estados) solo con que un elemento no se indexe correctamente. Los elementos que no se indexaron tienen el campo `status` establecido en false. Las propiedades `errorMessage` y `statusCode` indicarán el motivo del error de indexación:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-La propiedad `errorMessage` indicará el motivo del error de indexación si es posible.
+La tabla siguiente explica los distintos códigos de estado por documento que se pueden devolver en la respuesta. Tenga en cuenta que algunos indican problemas con la solicitud, mientras que otros indican condiciones de error temporales. En este último caso debe volver a intentarlo después de un tiempo.
 
-**Nota**: Si el código de cliente encuentra con frecuencia una respuesta 207, una razón posible es que el sistema está bajo carga. Puede confirmar esto comprobando la propiedad `errorMessage`. En tal caso, es recomendable ***limitar solicitudes de indexación***. De lo contrario, si el tráfico de indexación de tráfico no se reduce, es posible que el sistema comience a rechazar todas las solicitudes mediante errores 503.
+<table style="font-size:12">
+    <tr>
+		<th>Código de estado</th>
+		<th>Significado</th>
+		<th>Se puede volver a intentar</th>
+		<th>Notas</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>Documento correctamente modificado o eliminado.</td>
+		<td>N/D</td>
+		<td>Las operaciones de eliminación son <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>. Es decir, incluso si no existe una clave de documento en el índice, intentar una operación de eliminación con esa clave producirá un código de estado 200.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>El documento se creó correctamente.</td>
+		<td>N/D</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>Se produjo un error en el documento que ha impedido que se indexe.</td>
+		<td>No</td>
+		<td>El mensaje de error en la respuesta indica cuál es el problema con el documento.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>No se pudo combinar el documento porque no existe la clave especificada en el índice.</td>
+		<td>No</td>
+		<td>Este error no se produce durante las cargas ya que estas crean nuevos documentos y no se producen durante las eliminaciones porque son <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>Se detectó un conflicto de versión al intentar indexar un documento.</td>
+		<td>Sí</td>
+		<td>Esto puede ocurrir si intenta indexar el mismo documento más de una vez al mismo tiempo.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>El índice no está disponible temporalmente porque se ha actualizado con el indicador 'allowIndexDowntime' establecido en 'true'.</td>
+		<td>Sí</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>El servicio de búsqueda no está disponible temporalmente, posiblemente debido a una carga elevada.</td>
+		<td>Sí</td>
+		<td>En este caso, el código debe esperar antes de reintentar ya que, de lo contrario, se arriesga a prolongar la no disponibilidad del servicio.</td>
+	</tr>
+</table> 
 
-Código de estado: 429 indica que se ha superado la cuota del número de documentos por índice. Debe crear un nuevo índice o actualizar para obtener límites de capacidad superiores.
+**Nota**: Si el código de cliente encuentra con frecuencia una respuesta 207, una razón posible es que el sistema está bajo carga. Puede confirmar esto comprobando la propiedad `statusCode` para 503. En tal caso, es recomendable ***limitar solicitudes de indexación***. De lo contrario, si el tráfico de indexación de tráfico no se reduce, es posible que el sistema comience a rechazar todas las solicitudes mediante errores 503.
+
+El código de estado 429 indica que se ha superado la cuota del número de documentos por índice. Debe crear un nuevo índice o actualizar para obtener límites de capacidad superiores.
 
 **Ejemplo:**
 
@@ -1244,9 +1321,13 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 
 `scoringProfile=[string]` (opcional): nombre de un perfil de puntuación para evaluar puntuaciones de coincidencias de documentos coincidentes con el fin de ordenar los resultados.
 
-`scoringParameter=[string]` (cero o más): indica el valor para cada parámetro definido en una función de puntuación (por ejemplo, `referencePointParameter`) con el formato nombre: valor. Por ejemplo, si el perfil de puntuación define una función con un parámetro denominado "mylocation" la opción de cadena de consulta sería & scoringParameter = mylocation:-122.2,44.8
+`scoringParameter=[string]` (cero o más): indica los valores para cada parámetro definido en una función de puntuación (por ejemplo, `referencePointParameter`) con el formato `name-value1,value2,...`.
 
-> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par nombre:valor independiente.
+- Por ejemplo, si el perfil de puntuación define una función con un parámetro denominado "mylocation" la opción de cadena de consulta sería `&scoringParameter=mylocation--122.2,44.8`. El primer guión separa el nombre de la lista de valores, mientras que el segundo guión es parte del primer valor (longitud en este ejemplo).
+- Para los parámetros de puntuación así como para el aprovechamiento de etiquetas que contienen comas, es posible separar tales valores de la lista mediante el uso de comillas simples. Si los propios valores contienen comillas simples, puede separarlos duplicando la comilla simple.
+  - Por ejemplo, si tiene un parámetro de aprovechamiento de etiqueta llamado "mytag" y desea aprovechar los valores de la etiqueta "Hello, O' Brien" y "Smith", la opción de la cadena de consulta sería `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Tenga en cuenta que las comillas solo son necesarias para los valores que contienen comas.
+
+> [AZURE.NOTE] Al llamar a la **Búsqueda** mediante POST, este parámetro se denomina `scoringParameters` en lugar de `scoringParameter`. Además, lo especifica como una matriz JSON de cadenas, donde cada cadena es un par `name-values` independiente.
 
 `minimumCoverage` (opcional, el valor predeterminado es 100): un número entre 0 y 100 que indica el porcentaje del índice que debe estar cubierto por una consulta de búsqueda para que la consulta se realice correctamente. De forma predeterminada, todo el índice debe estar disponible o `Search` se devolverá el código de estado HTTP 503. Si establece `minimumCoverage` y `Search` se realiza correctamente, devolverá HTTP 200 e incluye un valor `@search.coverage` en la respuesta que indica el porcentaje del índice que se incluyó en la consulta.
 
@@ -1492,13 +1573,13 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 13) Busque en el índice suponiendo que hay un perfil de puntuaciones denominado "geográfico" con dos funciones de puntuación de distancia, una para definir un parámetro llamado "currentLocation" y otra para definir un parámetro llamado "lastLocation"
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Busque documentos en el índice utilizando la [sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx). Esta consulta devuelve los hoteles, en los que los campos de búsqueda contienen los términos "comodidad" y "ubicación", pero no "motel":
@@ -1772,4 +1853,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

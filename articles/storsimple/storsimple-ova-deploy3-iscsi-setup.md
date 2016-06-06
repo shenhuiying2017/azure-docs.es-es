@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli" />
 
 
@@ -108,7 +108,7 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     1. Proporcione la **dirección URL de proxy web** en este formato: *http://host-IP dirección* o *nombre de dominio completo: Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
 
-    2. Especifique **Authentication** (Autenticación) como **Basic** (Básica), **NTLM** o **None** (Ninguna).
+    2. Especifique **Authentication** (Autenticación) como **Basic** (Básica) o **None** (Ninguna).
 
     3. Si utiliza autenticación, también debe proporcionar un **nombre de usuario** y una **contraseña**.
 
@@ -120,19 +120,19 @@ Use las siguientes instrucciones paso a paso para instalar y configurar el dispo
 
     En la página **Time settings** (Configuración de hora):
 
-    1. De la lista desplegable, seleccione la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
+    1. En la lista desplegable, seleccione la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. La zona horaria predeterminada para el dispositivo es la hora del Pacífico (PST). El dispositivo usará esta zona horaria para todas las operaciones programadas.
 
-    2. Especifique un **servidor NTP principal** para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
+    2. Especifique un valor para **Primary NTP server** (Servidor NTP principal) para el dispositivo o acepte el valor predeterminado de time.windows.com. Asegúrese de que su red permite que el tráfico NTP pase del centro de datos a Internet.
 
-    3. Opcionalmente, especifique un **servidor NTP secundario** para el dispositivo.
+    3. Opcionalmente, especifique un valor para **Secondary NTP server** (Servidor NTP secundario) para el dispositivo.
 
     4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
 
 9. Configure las opciones de nube para el dispositivo. En este paso, completa la configuración del dispositivo local y, a continuación, registra el dispositivo en el servicio StorSimple Manager.
 
-    1. Introduzca la **clave de registro del servicio** que obtuvo en **Paso 2: Obtener la clave de registro del servicio** en [Implementar una matriz virtual de StorSimple: Preparar el portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+    1. Escriba la **clave de registro del servicio** que obtuvo en el **Paso 2: Obtener la clave de registro del servicio** en [Implementación de la matriz virtual de StorSimple: preparación del portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte cómo obtener la [clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
+    2. Si no es el primer dispositivo que va a registrar en este servicio, debe proporcionar la **clave de cifrado de datos del servicio**. Esta clave se necesita junto con la clave de registro del servicio para registrar dispositivos adicionales en el servicio StorSimple Manager. Para más información, consulte [Obtener la clave de cifrado de los datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
 
     3. Haga clic en **Registrar**. Se reiniciará el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se registre correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
 
@@ -154,19 +154,19 @@ Siga estos pasos en el Portal de Azure clásico para completar la configuración
 
 #### Para completar la configuración mínima del dispositivo
 
-1. En la página **Devices** (Dispositivos), seleccione el dispositivo que acaba de crear. Este dispositivo se debe mostrar como **Active** (Activo). Haga clic en la flecha situada junto al nombre del dispositivo y, a continuación, haga clic en **Quick Start** (Inicio rápido).
+1. En la página **Devices** (Dispositivos), seleccione el dispositivo que acaba de crear. Este dispositivo se debe mostrar como **Activo**. Haga clic en la flecha situada junto al nombre del dispositivo y luego haga clic en **Inicio rápido**.
 
     ![Página de dispositivos](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
-2. Haga clic en **complete device setup** (Completar configuración del dispositivo) para iniciar el Asistente para configurar dispositivos.
+2. Haga clic en **completar configuración del dispositivo** para iniciar el Asistente para configurar dispositivos.
 
     ![Asistente para configurar dispositivos](./media/storsimple-ova-deploy3-iscsi-setup/image14.png)
 
-3. En la página **Basic Settings** (Configuración básica) del Asistente para configurar dispositivos, haga lo siguiente:
+3. En la página **Configuración básica** del Asistente para configurar dispositivos, haga lo siguiente:
 
-   1. Especifique una cuenta de almacenamiento para usarla con el dispositivo. En esta suscripción, puede seleccionar una cuenta de almacenamiento existente de la lista desplegable o puede especificar **Add more** (Agregar más) para elegir una cuenta de una suscripción diferente.
+   1. Especifique una cuenta de almacenamiento para usarla con el dispositivo. En esta suscripción, puede seleccionar una cuenta de almacenamiento existente en la lista desplegable o puede especificar **Add more** (Agregar más) para elegir una cuenta de una suscripción diferente.
 
-   2. Defina la configuración de cifrado para todos los datos en reposo que se enviarán a la nube. (StorSimple usa el cifrado AES-256). Para cifrar los datos, active la casilla **Enable cloud storage encryption** (Habilitar cifrado de almacenamiento en la nube). Escriba un cifrado de almacenamiento en la nube que contenga 32 caracteres. Vuelva a escribir la clave para confirmarla.
+   2. Defina la configuración de cifrado para todos los datos en reposo que se enviarán a la nube. (StorSimple usa el cifrado AES-256). Para cifrar los datos, active la casilla **Habilitar cifrado de almacenamiento en la nube**. Escriba un cifrado de almacenamiento en la nube que contenga 32 caracteres. Vuelva a escribir la clave para confirmarla.
 
    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -190,13 +190,13 @@ Siga estos pasos en el Portal de Azure clásico para crear un volumen.
 
     2. Proporcione una descripción para el volumen. La descripción ayudará a identificar a los propietarios del volumen.
 
-    3. Seleccione un tipo de uso para el volumen. El tipo de uso puede ser **Tiered volume** (Volumen en capas) o **Locally pinned volume** (Volumen anclado localmente). (**Tiered volume** es el valor predeterminado). Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione **Locally pinned** **volume** (Volumen anclado localmente). Para todos los demás datos, seleccione **Tiered** **volume** (Volumen en capas).
+    3. Seleccione un tipo de uso para el volumen. El tipo de uso puede ser **Volumen en capas** o **Volumen anclado localmente**. (**Volumen en capas** es el valor predeterminado). Para las cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione **Volumen anclado** **localmente**. Para todos los demás datos, seleccione **Volumen** **en capas**.
 
         Un volumen anclado localmente se aprovisiona de forma intensa y garantiza que los datos principales del volumen se mantengan en el dispositivo y que no se traspasan a la nube. Si crea un volumen anclado localmente, el dispositivo comprobará el espacio disponible en las capas locales para aprovisionar un volumen del tamaño solicitado. Crear un volumen anclado localmente puede implicar traspasar los datos existentes del dispositivo a la nube, por lo que la creación del volumen puede llevar mucho tiempo. El tiempo total depende del tamaño del volumen aprovisionado, el ancho de banda de red disponible y los datos en el dispositivo.
 
-        Por otro lado, un volumen en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un volumen en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas (porque el 10 % no estará disponible).
+        Por otro lado, un volumen en capas se aprovisiona de manera fina y se puede crear muy rápidamente. Cuando se crea un volumen en capas, el 10 % del espacio se aprovisiona en la capa local y el 90 % del espacio se aprovisiona en la nube. Por ejemplo, si se aprovisiona un volumen de 1 TB, 100 GB residirían en el espacio local y 900 GB se utilizarían en la nube cuando se apilen los datos. A su vez, esto hace que, si agota todo el espacio local en el dispositivo, no se puede aprovisionar un recurso compartido en capas (porque el 10 % no estará disponible).
 
-    4. Especifique la capacidad aprovisionada para el volumen. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si va a crear un volumen en capas, el tamaño debe estar entre 500 GB y 20 TB. Para un volumen anclado localmente, especifique un tamaño de volumen de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un volumen. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar un volumen anclado localmente o en capas.
+    4. Especifique la capacidad aprovisionada para el volumen. Tenga en cuenta que la capacidad especificada debe ser menor que la capacidad disponible. Si va a crear un volumen en capas, el tamaño debe estar entre 500 GB y 20 TB. Para un volumen anclado localmente, especifique un tamaño de volumen de 50 GB a 2 TB. Use la capacidad disponible como guía para aprovisionar un volumen. Si la capacidad local disponible es de 0 GB, no podrá aprovisionar un volumen anclado localmente o en capas.
 
         ![Configuración básica](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
 
@@ -242,7 +242,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
     ![destinos detectados](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Seleccione un dispositivo de destino y, a continuación, haga clic en **Connect** (Conectar). Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. (Para más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Instalar y configurar el iniciador iSCSI de Microsoft][1]).
+5. Seleccione un dispositivo de destino y luego haga clic en **Connect** (Conectar). Después de conectar el dispositivo, el estado debería cambiar a **Conectado**. (Para más información sobre el uso del iniciador iSCSI de Microsoft, consulte [Instalar y configurar el iniciador iSCSI de Microsoft][1]).
 
     ![seleccionar dispositivo de destino](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -258,15 +258,15 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
     ![inicializar disco 1](./media/storsimple-ova-deploy3-iscsi-setup/image27.png)
 
-10. En el cuadro de diálogo, seleccione los discos que desea inicializar y, a continuación, haga clic en **OK** (Aceptar).
+10. En el cuadro de diálogo, seleccione los discos que desea inicializar y luego haga clic en **OK** (Aceptar).
 
     ![inicializar disco 2](./media/storsimple-ova-deploy3-iscsi-setup/image28.png)
 
-11. Se inicia el Asistente para nuevo volumen simple. Seleccione un tamaño de disco y, a continuación, haga clic en **Next** (Siguiente).
+11. Se inicia el Asistente para nuevo volumen simple. Seleccione un tamaño de disco y luego haga clic en **Next** (Siguiente).
 
     ![asistente para nuevo volumen 1](./media/storsimple-ova-deploy3-iscsi-setup/image29.png)
 
-12. Asigne una letra de unidad al volumen y, a continuación, haga clic en **Next** (Siguiente).
+12. Asigne una letra de unidad al volumen y luego haga clic en **Next** (Siguiente).
 
     ![asistente para nuevo volumen 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
 
@@ -274,7 +274,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
     ![asistente para nuevo volumen 3](./media/storsimple-ova-deploy3-iscsi-setup/image31.png)
 
-14. Compruebe los valores para el volumen y, a continuación, haga clic en **Finish** (Finalizar).
+14. Compruebe los valores para el volumen y luego haga clic en **Finish** (Finalizar).
 
     ![asistente para nuevo volumen 4](./media/storsimple-ova-deploy3-iscsi-setup/image32.png)
 
@@ -284,7 +284,7 @@ Realice los pasos siguientes para montar, inicializar y formatear los volúmenes
 
 ## Pasos siguientes
 
-[Obtenga información sobre cómo usar la interfaz de usuario web local para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
 ## Apéndice A: Obtener el IQN de un host de Windows Server
 
@@ -303,4 +303,4 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

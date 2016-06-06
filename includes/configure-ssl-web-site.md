@@ -203,7 +203,7 @@ Si está familiarizado con el Administrador de IIS, puede usarlo para generar un
 
 	> [AZURE.NOTE] Durante el proceso de exportación, asegúrese de seleccionar la opción <strong>Exportar la clave privada</strong>. Dicha exportación incluye la clave privada en el certificado exportado.
 
-	> [AZURE.NOTE] Durante el proceso de exportación, asegúrese de seleccionar las opciones **Incluir todos los certificados en la ruta de certificación** y **Exportar todas las propiedades extendidas**. Dicha exportación incluye todos los certificados intermedios, si procede, en el certificado exportado.
+	> Durante el proceso de exportación, asegúrese de seleccionar las opciones **Incluir todos los certificados en la ruta de certificación** y **Exportar todas las propiedades extendidas**. Dicha exportación incluye todos los certificados intermedios, si procede, en el certificado exportado.
 
 <a name="bkmk_subjectaltname"></a>
 ### Obtención de un certificado SubjectAltName con OpenSSL
@@ -455,7 +455,9 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 >
 > 2. Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
 
-> [AZURE.NOTE] Si agrega una **SSL basada en IP** a una aplicación web que ya tenía un **enlace de SNI** con un certificado diferente, en cuanto la SSL de IP se habilite para la aplicación web, reasignaremos el nombre host del sitio a esa dirección IP. Así, si otro nombre de host se asigna mediante CNAME al nombre de host de ese sitio, también recibirá el tráfico en la dirección SSL de IP. Para estos casos, hemos creado una entrada DNS más: sni.&lt;nombreDeLaAplicaciónWeb&gt;.azurewebsites.net, donde &lt;nombreDeLaAplicaciónWeb&gt; es el nombre de la aplicación web del Servicio de aplicaciones de Azure. Por lo tanto, debe cambiar los registros DNS que apuntan al nombre usado en el enlace de SNI, de forma que apunte en su lugar a sni.&lt;nombreDeLaAplicaciónWeb&gt;.azurewebsites.net.
+<br> Si agrega una **SSL basada en IP** a una aplicación web que ya tenía un **enlace de SNI** con un certificado diferente, en cuanto la SSL de IP se habilite para la aplicación web, reasignaremos el nombre de host del sitio a esa dirección IP. Así, si otro nombre de host se asigna mediante CNAME al nombre de host de ese sitio, también recibirá el tráfico en la dirección SSL de IP.
+
+Para estos casos, hemos creado una entrada DNS más: sni.&lt;nombreDeLaAplicaciónWeb&gt;.azurewebsites.net, donde &lt;nombreDeLaAplicaciónWeb&gt; es el nombre de la aplicación web del Servicio de aplicaciones de Azure. Por lo tanto, debe cambiar los registros DNS que apuntan al nombre usado en el enlace de SNI, de forma que apunte en su lugar a sni.&lt;nombreDeLaAplicaciónWeb&gt;.azurewebsites.net.
 
 Llegados a este punto, debería poder visitar la aplicación web con `HTTPS://`, en lugar de `HTTP://`, para comprobar que el certificado se ha configurado correctamente.
 
@@ -523,7 +525,7 @@ Para recuperar y modificar el archivo generado automáticamente desde la aplicac
 
 		El archivo web.config para aplicaciones Java que utilizan Apache Tomcat no contiene una sección **&lt;rewrite>**, por lo que debe agregar la sección **&lt;rewrite>** del ejemplo a la sección **&lt;system.webServer>**.
 
-4. Implemente el proyecto de nuevo (incluyendo en archivo web.config actualizado) en Azure.
+4. Vuelva a colocarlo en la carpeta /site/wwwroot.
 
 Una vez que implemente un archivo web.config con una regla de reescritura para imponer el uso de HTTPS, esta debería surtir efecto de inmediato y redirigir todas las solicitudes a HTTPS.
 
@@ -564,3 +566,5 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
+
+<!---HONumber=AcomDC_0525_2016-->

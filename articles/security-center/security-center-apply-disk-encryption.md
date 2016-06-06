@@ -41,7 +41,7 @@ Para cifrar las máquinas virtuales de Azure que Security Center ha identificado
 
 La sección [Cifrado de una máquina virtual de Azure](security-center-disk-encryption.md) le guiará a través de estos pasos. En este tema se asume que utiliza Windows 10 como máquina cliente desde la que configurará el cifrado de disco.
 
-Existen varios enfoques que pueden usarse para configurar los requisitos previos y el cifrado para máquinas virtuales de Azure. Si conoce bien Azure PowerShell o CLI de Azure, puede preferir el uso de métodos alternativos. Para más información sobre estos otros enfoques, consulte [Vista previa de cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows](../azure-security-disk-encryption.md).
+Existen varios enfoques que pueden usarse para configurar los requisitos previos y el cifrado para máquinas virtuales de Azure. Si conoce bien Azure PowerShell o CLI de Azure, puede preferir el uso de métodos alternativos. Para más información sobre estos otros enfoques, consulte [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md).
 
 
 
@@ -51,7 +51,7 @@ En este documento, mostramos cómo implementar la recomendación "Aplicar el cif
 
 - [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (Cifrado y administración de claves con el Almacén de claves de Azure) (vídeo, 36 m y 39 s): aprenda a usar la administración del cifrado de discos para máquinas virtuales IaaS y el Almacén de claves de Azure para ayudar a proteger sus datos.
 - [Cifrado de una máquina virtual de Azure](security-center-disk-encryption.md) (documento), aprenda a cifrar las máquinas virtuales de Azure.
-- [Versión preliminar del Cifrado de discos de Azure para máquinas virtuales IaaS de Windows y Linux](../azure-security-disk-encryption.md) (documento): aprenda a habilitar el cifrado de discos para máquinas virtuales de Windows y Linux.
+- [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md) (documento): aprenda a habilitar el cifrado de discos para máquinas virtuales de Windows y Linux.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
@@ -67,4 +67,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

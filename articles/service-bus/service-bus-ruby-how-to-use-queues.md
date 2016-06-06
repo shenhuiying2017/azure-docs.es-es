@@ -130,7 +130,7 @@ message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+El tamaño máximo de mensaje que admiten las colas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
 ## Recepción de mensajes de una cola
 
@@ -164,7 +164,7 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 -   Información general de [colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 -   Visite el repositorio del [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.
 
-Para ver una comparación entre las colas del Bus de servicio de Azure de este artículo y el servicio Colas de Azure que se describe en el artículo [How to use Queue storage from Ruby](../storage/storage-ruby-how-to-use-queue-storage.md) (Uso del almacenamiento en cola desde Ruby), consulte [Colas de Azure y colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Para ver una comparación entre las colas del Bus de servicio de Azure de este artículo y el servicio Colas de Azure que se describe en el artículo [Uso del almacenamiento de colas de Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), consulte [Colas de Bus de servicio y colas de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->
