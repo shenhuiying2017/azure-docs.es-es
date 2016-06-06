@@ -87,7 +87,7 @@ Para obtener más ejemplos de PowerShell, consulte:
 - [Restauración desde instantánea][]
 - [Restauración geográfica desde instantánea][]
 
-Para obtener una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] (Cmdlets de Base de datos SQL de Azure). Para una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
+Para obtener una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] \(Cmdlets de Base de datos SQL de Azure). Para una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
 
 <!--Image references-->
 

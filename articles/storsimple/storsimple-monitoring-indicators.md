@@ -163,7 +163,12 @@ Use la siguiente tabla para saber si el módulo del controlador EBOD funciona co
 
 |Estado | Módulo de E/S correcto (verde) | Error del módulo de E/S (ámbar) | Actividad de puerto del host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo de controlador correcto | Encendido | Apagado | - | | Error del módulo de controlador | Apagado | Encendido | - | | Sin conexión de puerto de host externo | - | - | Apagado | | Conexión de puerto de host externo: sin actividad | - | - | Encendido| | Conexión de puerto de host externo: actividad | - | - | Intermitente | | Error de metadatos del módulo de controlador | Intermitente | - | - |
+| Módulo de controlador correcto | Encendido | Apagado | - |
+| Error del módulo de controlador | Apagado | Encendido | - |
+| Sin conexión de puerto de host externo | - | - | Apagado |
+| Conexión de puerto de host externo: sin actividad | - | - | Encendido|
+| Conexión de puerto de host externo: actividad | - | - | Intermitente |
+| Error de metadatos del módulo de controlador | Intermitente | - | - |
 
 ## Indicadores LED de unidad de disco del revestimiento principal y el revestimiento de EBOD
 

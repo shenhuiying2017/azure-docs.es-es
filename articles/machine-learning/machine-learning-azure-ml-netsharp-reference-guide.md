@@ -397,12 +397,12 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La red tiene una tercera capa oculta, _Hid3_, que está totalmente conectada a la segunda capa oculta, _Conv2_.
 -	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **all** indica que la capa de salida está conectada por completo a _Hid3_..
 -	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
--	El número de ponderaciones por kernel es _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
+-	El número de ponderaciones por kernel es _1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+-	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Dado que **Sharing**[d] es falso solo para _d == 0_, el número de los kernel es _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 

@@ -30,7 +30,7 @@ Como amplía OAuth 2.0, también permite que las aplicaciones adquieran con segu
 
 Azure AD B2C extiende el protocolo OpenID Connect estándar para realizar algo más que una autorización y autenticación simples. Presenta el [**parámetro de directiva**](active-directory-b2c-reference-policies.md), que le permite usar OpenID Connect para agregar experiencias de usuario a su aplicación, como registro, inicio de sesión y administración de perfiles. Aquí le mostraremos cómo usar OpenID Connect y directivas para implementar cada una de estas experiencias en sus aplicaciones web. También le mostraremos cómo obtener elementos access\_tokens para acceder a las API web.
 
-Las siguientes solicitudes HTTP de ejemplo usarán nuestro directorio de ejemplo B2C, **fabrikamb2c.onmicrosoft.com**, así como nuestras directivas y la aplicación de ejemplo ****https://aadb2cplayground.azurewebsites.net**. Puede probar las solicitudes por sí mismo con estos valores, o bien puede reemplazarlos por los suyos propios. Aprenda a [obtener su propio inquilino, aplicación y directivas B2C](#use-your-own-b2c-directory).
+Las siguientes solicitudes HTTP de ejemplo usarán nuestro directorio de ejemplo B2C, **fabrikamb2c.onmicrosoft.com**, así como nuestras directivas y la aplicación de ejemplo **https://aadb2cplayground.azurewebsites.net**. Puede probar las solicitudes por sí mismo con estos valores, o bien puede reemplazarlos por los suyos propios. Aprenda a [obtener su propio inquilino, aplicación y directivas B2C](#use-your-own-b2c-directory).
 
 ## Envío de solicitudes de autenticación
 Cuando su aplicación web necesita autenticar al usuario y ejecutar la directiva, puede dirigir al usuario al extremo `/authorize`. Esta es la parte interactiva del flujo, donde el usuario actuará realmente de acuerdo con la directiva.
@@ -170,8 +170,14 @@ POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
-
+{
+	"grant_type": "authorization_code",
+	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+	"scope": "openid offline_access",
+	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+	"client_secret": "<your-application-secret>"
+}
 ```
 
 | Parámetro | ¿Necesario? | Descripción |
@@ -243,7 +249,14 @@ POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+{
+	"grant_type": "refresh_token",
+	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+	"scope": "openid offline_access",
+	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+	"client_secret": "<your-application-secret>"
+}
 ```
 
 | Parámetro | Obligatorio | Descripción |

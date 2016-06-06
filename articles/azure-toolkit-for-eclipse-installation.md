@@ -36,7 +36,7 @@ En los pasos siguientes se muestra cómo instalar el Kit de herramientas de Azur
 
     ![Instalación del Kit de herramientas de Azure para Eclipse][01]
 
-1. En el cuadro de diálogo **Available Software** (Software disponible), en el cuadro de texto **Work with** (Trabajar con), escriba ****http://dl.microsoft.com/eclipse** seguido de la tecla **Intro**.
+1. En el cuadro de diálogo **Available Software** (Software disponible), en el cuadro de texto **Work with** (Trabajar con), escriba **http://dl.microsoft.com/eclipse** seguido de la tecla **Intro**.
 
 1. En el panel **Nombre**, active **Kit de herramientas de Azure para Eclipse** y desactive **Contact all update sites during install to find required software** (Ponerse en contacto con todos los sitios de actualización durante la instalación para encontrar el software necesario). La pantalla debe parecerse a la siguiente:
 

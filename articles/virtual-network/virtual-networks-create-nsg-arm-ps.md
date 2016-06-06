@@ -154,7 +154,7 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 5. Agregue las reglas creadas anteriormente a un nuevo grupo de seguridad de red denominado **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Asocie el grupo de seguridad de red creado anteriormente a la subred *Back-end*.

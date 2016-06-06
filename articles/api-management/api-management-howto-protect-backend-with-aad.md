@@ -237,9 +237,9 @@ Elija **Aplicación web y/o API web**, escriba un nombre y haga clic en la flech
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-1]
 
-Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa ****https://contoso5.portal.azure-api.net/signin **.
+Para la **Dirección URL de inicio de sesión**escriba la dirección URL de su servicio de administración de API y anexe `/signin`. En este ejemplo se usa **https://contoso5.portal.azure-api.net/signin**.
 
-Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa ****https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
+Para la **dirección URL de id. de aplicación** escriba la dirección URL de su servicio de administración de API y anexe algunos caracteres únicos. Puede tratarse de cualquier carácter que se desee y en este ejemplo se usa **https://contoso5.portal.azure-api.net/dp**. Cuando se configuran las **Propiedades de la aplicación** deseadas, haga clic en la marca de verificación para crear la aplicación.
 
 ![Nueva aplicación][api-management-aad-new-application-devportal-2]
 
@@ -257,7 +257,7 @@ Para la **URL de página de registro de cliente** escriba un valor de marcador d
 
 ![Agregar servidor de autorización][api-management-add-authorization-server-1]
 
-A continuación, especifique la ** URL del punto de conexión de autorización** y la **URL del punto de conexión de token**.
+A continuación, especifique la **URL del punto de conexión de autorización** y la **URL del punto de conexión de token**.
 
 ![Servidor de autorización][api-management-add-authorization-server-1a]
 

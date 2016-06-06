@@ -54,7 +54,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesitará.
 - [Cuentas es Active Directory](active-directory-aadconnect-accounts-permissions.md) si usa la ruta de acceso de instalación de la configuración personalizada.
 
 ### Configuración de servidor de Azure AD Connect
-- Si los administradores globales tienen MFA habilitado, la dirección URL ****https://secure.aadcdn.microsoftonline-p.com** debe estar en la lista de sitios de confianza. En caso de que no lo esté, se le pedirá que la agregue a la lista de sitios de confianza antes de que se le pida un desafío MFA. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
+- Si los administradores globales tienen MFA habilitado, la dirección URL **https://secure.aadcdn.microsoftonline-p.com** debe estar en la lista de sitios de confianza. En caso de que no lo esté, se le pedirá que la agregue a la lista de sitios de confianza antes de que se le pida un desafío MFA. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
 
 ### Conectividad
 - El servidor de Azure AD Connect necesita resolución DNS para intranet e Internet. El servidor DNS debe ser capaz de resolver nombres en su Active Directory local así como en los puntos de conexión de Azure AD.

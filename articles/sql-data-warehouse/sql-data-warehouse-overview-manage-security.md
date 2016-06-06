@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más detalles sobre cómo se usa la vista preliminar de Azure AD de Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Conexión a Almacenamiento de datos SQL con autenticación en Azure Active Directory).
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más detalles sobre cómo se usa la vista preliminar de Azure AD de Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Conexión a Almacenamiento de datos SQL con autenticación en Azure Active Directory).
 
 
 ## Autorización

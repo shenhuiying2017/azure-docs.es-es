@@ -539,7 +539,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName****. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
+    3.  Escriba el identificador del grupo para la propiedad **poolName** **. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
     

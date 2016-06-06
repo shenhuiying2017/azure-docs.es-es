@@ -318,7 +318,7 @@ El resultado es:
 
 * *ColumnName:* en el resultado, las matrices en la columna indicada se expanden a varias filas. 
 * *ArrayExpression:* expresión que produce una matriz. Si se usa esta forma, se agrega una nueva columna y se conserva la existente.
-* *Name:* un nombre para la nueva columna.
+* *Nombre:* un nombre para la nueva columna.
 * *Typename:* convierte la expresión expandida en un tipo determinado.
 * *RowLimit:* el número máximo de filas generadas a partir de cada fila original. El valor predeterminado es 128.
 
@@ -1359,7 +1359,16 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
+| - | Restar |
+| * | Multiplicar |
+| / | Dividir |
+| % | Aplicar módulo |
+||
+|`<` |Menor que
+|`<=`|Menor que o Igual a
+|`>` |Mayor que
+|`>=`|Mayor que o Igual a
+|`<>`|No igual a |`!=`|No igual a
 
 
 ### abs

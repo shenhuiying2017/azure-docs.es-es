@@ -91,7 +91,7 @@ Al habilitar e implementar Cifrado de disco de Azure para las máquinas virtuale
 
 El cifrado de disco de Azure para la solución Máquinas virtuales IaaS para Windows y Linux incluye la extensión de cifrado de disco para Windows, la extensión de cifrado del disco para Linux, cmdlets de PowerShell de cifrado de disco, cmdlets de CLI de cifrado de disco y plantillas de Administrador de recursos de Azure de cifrado de disco. La solución Cifrado de disco de Azure es compatible con las máquinas virtuales IaaS que ejecutan los sistemas operativos Windows o Linux. Para más información sobre los sistemas operativos compatibles, consulte la sección de requisitos previos a continuación.
 
-****Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
+**Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
 
 ### Propuesta de valor
 

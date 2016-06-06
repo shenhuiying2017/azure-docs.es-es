@@ -127,7 +127,7 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 2. Abra un explorador y vaya a la dirección URL siguiente.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	La página predeterminada de la aplicación web se mostrará como sigue.
 

@@ -145,7 +145,7 @@ Para más información, vea la [API de REST de la IU de Storm](http://storm.apac
 
 ### URI base
 
-El URI base para la API de REST en clústeres de HDInsight basado en Linux está disponible en el nodo principal en ****https://HEADNODEFQDN:8744/api/v1/**; sin embargo, el nombre del dominio del nodo principal se genera durante la creación del clúster y no es estático.
+El URI base para la API de REST en clústeres de HDInsight basado en Linux está disponible en el nodo principal en **https://HEADNODEFQDN:8744/api/v1/**; sin embargo, el nombre del dominio del nodo principal se genera durante la creación del clúster y no es estático.
 
 Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clúster de varias maneras distintas:
 

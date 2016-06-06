@@ -52,7 +52,7 @@ Actualmente, MSDN es el foro principal de AMS.
 
 ## Póngase en contacto con el equipo
 
-El correo electrónico principal de Servicios multimedia de Azure es: ****mediaservices@microsoft.com**.
+El correo electrónico principal de Servicios multimedia de Azure es: **mediaservices@microsoft.com**.
 
 La siguiente tabla enumera el correo electrónico de los subequipos de las características:
 
