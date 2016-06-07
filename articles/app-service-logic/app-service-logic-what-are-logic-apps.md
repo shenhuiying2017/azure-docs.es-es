@@ -21,8 +21,8 @@
 | Referencia rápida |
 | --------------- |
 | [Lenguaje de definición de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Documentación de API administrada de aplicaciones lógicas](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [Documentación del conector de aplicaciones lógicas](../connectors/apis-list.md) |
+| [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurelogicapps) |
 
 Servicio de aplicaciones de Azure cuenta con PaaS (plataforma como servicio) totalmente administrada para desarrolladores que facilita la creación de aplicaciones web, móviles y de integración. Aplicaciones lógicas forma parte de este conjunto y permite a cualquier usuario técnico o desarrollador automatizar el flujo de trabajo y la ejecución de procesos de negocio mediante un diseñador visual fácil de usar.
 
@@ -68,7 +68,8 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 ## Introducción  
 
  - Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica][create].  
- - [Con las aplicaciones lógicas puede automatizar procesos empresariales](http://channel9.msdn.com/Events/Build/2016/T694). 
+ - [Ejemplos de aplicaciones lógicas y escenarios comunes](app-service-logic-examples-and-scenarios.md)
+ - [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
  - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
 - Para obtener más información sobre la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][appservice].
 
@@ -80,4 +81,4 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

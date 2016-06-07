@@ -20,8 +20,8 @@
 
 | Referencia rápida |
 | --------------- |
-| [Lenguaje de definición de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
+| [Lenguaje de definición de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
+| [Documentación del conector de aplicaciones lógicas](../connectors/apis-list.md) |
 | [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurelogicapps) |
 
 En este tema se muestra cómo, en solo unos minutos, puede comenzar a trabajar con las [aplicaciones lógicas de Servicios de aplicaciones](app-service-logic-what-are-logic-apps.md). Recorreremos un flujo de trabajo que le permite entregar un conjunto de tweets que le interesa en un buzón de correo.
@@ -67,4 +67,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Azure portal]: https://portal.azure.com
 [Uso de las características de aplicaciones lógicas]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -258,17 +258,42 @@ Para montar el recurso compartido de archivos desde un cliente local, es preciso
 
 ## Desarrollo con almacenamiento de archivos
 
-Para trabajar mediante programación con el almacenamiento de archivos, puede usar las bibliotecas del cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. En el ejemplo de esta sección se muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) desde una aplicación de consola simple que se ejecuta en el escritorio.
+Para escribir código que llame a Almacenamiento de archivos, puede usar las bibliotecas de cliente de almacenamiento para .NET y Java, o la API de REST de Almacenamiento de Azure. En el ejemplo de esta sección se muestra cómo trabajar con un recurso compartido de archivos mediante el uso de la [Biblioteca del cliente de Almacenamiento de Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) desde una aplicación de consola simple que se ejecuta en el escritorio.
 
-[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
+### Creación de la aplicación de consola y obtención del ensamblado
 
-[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
+Para crear una nueva aplicación de consola en Visual Studio e instalar el paquete NuGet que contiene la Biblioteca de cliente de Almacenamiento de Azure:
+
+1. En Visual Studio, elija **Archivo > Proyecto nuevo** y, a continuación, elija **Windows > Aplicación de consola** en la lista de plantillas de Visual C#.
+2. Asigne un nombre a la aplicación de consola y, a continuación, haga clic en **Aceptar**.
+3. Una vez creado el proyecto, haga clic con el botón derecho en el Explorador de soluciones y elija **Administrar paquetes de NuGet**. Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar tanto el paquete de la biblioteca de cliente de Almacenamiento de Azure para .NET como sus dependencias.
+
+Los ejemplos de código de este artículo también utilizan la [biblioteca del Administrador de configuración de Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx) para recuperar la cadena de conexión de almacenamiento de un archivo app.config de la aplicación de consola. Con el Administrador de configuración de Azure, se puede recuperar la cadena de conexión en tiempo de ejecución, independientemente de que la aplicación se ejecute en Microsoft Azure o desde una aplicación web, móvil o de escritorio.
+
+Para instalar el paquete del Administrador de configuración de Azure, haga clic con el botón derecho en el proyecto en el Explorador de soluciones y elija **Administrar paquetes NuGet**. Busque "ConfigurationManager" en línea y haga clic en **Instalar** para instalar el paquete.
+
+El uso del Administrador de configuración Azure es opcional. También se puede utilizar una API, como la [clase ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) de .NET Framework.
+
+### Guardar las credenciales de la cuenta de almacenamiento en el archivo app.config
+
+A continuación, guardará las credenciales en el archivo app.config del proyecto. Edite el archivo app.config de forma que su aspecto sea similar al del siguiente ejemplo, pero reemplace `myaccount` por el nombre de su cuenta de almacenamiento y `mykey` por la clave de su cuenta de almacenamiento.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
 
 > [AZURE.NOTE] La versión más reciente del emulador de Almacenamiento de Azure no admite Almacenamiento de archivos. Para trabajar con el almacenamiento de archivos, el objetivo de la cadena de conexión debe ser una cuenta de almacenamiento de Azure en la nube.
 
 ### Incorporación de declaraciones de espacio de nombres
 
-Abra el archivo `program.cs` desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior del archivo.
+Abra el archivo `program.cs` desde el Explorador de soluciones y agregue las siguientes declaraciones de espacio de nombres en la parte superior.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
 	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
@@ -513,7 +538,7 @@ En primer lugar, agregue las siguientes instrucciones `using` a su archivo progr
 	using Microsoft.WindowsAzure.Storage.File.Protocol;
 	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Tenga en cuenta que mientras que los almacenamientos de blobs, tablas y en cola utilizan el tipo `ServiceProperties` compartido en el espacio de nombres `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Almacenamiento de archivos utiliza el suyo propio, el tipo `FileServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.File.Protocol`. No obstante, se debe hacer referencia a ambos espacios de nombres en el código para que se pueda compilar.
+Tenga en cuenta que mientras que los almacenamientos en blobs, tablas y colas utilizan el tipo `ServiceProperties` compartido en el espacio de nombres `Microsoft.WindowsAzure.Storage.Shared.Protocol`, el Almacenamiento de archivos utiliza el suyo propio, el tipo `FileServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.File.Protocol`. No obstante, se debe hacer referencia a ambos espacios de nombres en el código para que se pueda compilar.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -609,7 +634,7 @@ Tenga en cuenta que mientras que los almacenamientos de blobs, tablas y en cola 
 
 13. **Revisión publicada para corregir el problema de rendimiento lento con archivos de Azure**
 
-	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo asociado de la Knowledge Base, [Rendimiento lento en el acceso a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025).
+	El equipo de Windows ha publicado recientemente una revisión para solucionar un problema de rendimiento lento cuando el cliente accede a Almacenamiento de archivos de Azure desde Windows 8.1 o Windows Server 2012 R2. Para más información, consulte el artículo asociado de Knowledge Base, [Rendimiento lento en el acceso a Almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2](https://support.microsoft.com/es-ES/kb/3114025).
 
 14. **Uso del Almacenamiento de archivos de Azure con IBM MQ**
 
@@ -642,4 +667,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

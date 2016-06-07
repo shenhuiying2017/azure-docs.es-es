@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Lista de conectores administrados por Microsoft | Servicio de aplicaciones de Microsoft Azure"
+	pageTitle="Lista de conectores administrados de Microsoft para usar en aplicaciones lógicas de Microsoft Azure | Servicio de aplicaciones de Microsoft Azure"
 	description="Obtenga una lista completa de los conectores administrados de Microsoft que puede usar para crear Aplicaciones lógicas en el Servicio de aplicaciones de Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
 # Lista de conectores administrados
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Lista de conectores](../app-service-logic/app-service-logic-connectors-list.md).
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Lista de conectores](../app-service-logic/app-service-logic-connectors-list.md).
 
 Para obtener información y una lista de lo que se incluye con cada nivel de servicio de precios, consulte [Precios del Servicio de aplicaciones de Azure](https://azure.microsoft.com/pricing/details/app-service/).
 
@@ -29,14 +29,14 @@ Seleccione un icono para aprender a aprovechar rápidamente estos conectores a f
 
 |Conectores||||
 |-----------|-----------|-----------|-----------|
-|[![Icono de API][blobicon]<br/>**Blob de Azure**][azureblobdoc]|[![Icono de API][bingsearchicon]<br/>**Búsqueda de Bing**][bingsearchdoc]|[![Icono de API][boxicon]<br/>**Box**][boxDoc]|[![Icono de API][crmonlineicon]<br/>**CRM en línea**][crmonlinedoc]|
-|[![Icono de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![Icono de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icono de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icono de API][githubicon]<br/>**GitHub**][githubdoc]|
-[![Icono de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|[![Icono de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|
-|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Usuarios**][office365usersdoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Vídeo**][office365videodoc]|[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][onedriveicon]<br/>** OneDrive<br/>para la Empresa**][onedriveforbusinessdoc]|
-|[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|[![Icono de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icono de API][rssicon]<br/>**RSS**][rssdoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
-|[![Icono de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icono de API][trelloicon]<br/>**Trello**][trellodoc]|
-[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![Icono de API][blobicon]<br/>**Blob de Azure**][azureblobdoc]|[![Icono de API][boxicon]<br/>**Box**][boxDoc]|[![Icono de API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icono de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![Icono de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icono de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icono de API][githubicon]<br/>**GitHub**][githubdoc]|[![Icono de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
+|[![Icono de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|
+|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][onedriveicon]<br/>**OneDrive<br/>para la Empresa**][onedriveforbusinessdoc]|[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![Icono de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icono de API][rssicon]<br/>**RSS**][rssdoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icono de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
+|[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icono de API][trelloicon]<br/>**Trello**][trellodoc]|[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|
+|[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] Si ha creado aplicaciones lógicas con el esquema 2014-12-01-preview, observará que los conectores de integración de empresas, como las de BizTalk, no se han enumerado. Sabemos que son importantes y trabajamos mucho para pueda disponer de ellas pronto. Aunque aún no se conoce la fecha en que estarán disponibles, debe saber que una de nuestras principales prioridades es que lleguen a los usuarios. Entretanto, puede acceder a sus [API v1 y a las API de BizTalk desde Aplicaciones lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Gracias por su comprensión. Permanezca atento.
 
@@ -57,7 +57,7 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
 [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)  
+[Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."
@@ -128,4 +128,4 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

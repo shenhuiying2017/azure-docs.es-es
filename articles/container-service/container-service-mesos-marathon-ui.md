@@ -29,19 +29,19 @@ Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas
 
 ## Exploración de la interfaz de usuario de DC/OS
 
-Con un túnel Secure Shell (SSH) establecido, vaya a http://localhost/. Así se cargará la interfaz de usuario web de DC/OS y mostrar información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución que se pueden ver.
+Con un túnel Secure Shell (SSH) establecido, vaya a http://localhost/. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
 
-![](media/dcos/dcos2.png)
+![Interfaz de usuario de DC/OS](media/dcos/dcos2.png)
 
 ## Exploración de la interfaz de usuario de Marathon
 
 Para ver la interfaz de usuario de Marathon, vaya a http://localhost/Marathon. En esta pantalla puede iniciar un nuevo contenedor u otra aplicación en el clúster de DC/OS del servicio Contenedor de Azure. También puede ver información acerca de cómo ejecutar contenedores y aplicaciones.
 
-![](media/dcos/dcos3.png)
+![Interfaz de usuario de Marathon](media/dcos/dcos3.png)
 
 ## Implementación de un contenedor con formato Docker
 
-Para implementar un nuevo contenedor mediante Marathon, haga clic en el botón **Create Application** (Crear aplicación) y escriba la siguiente información en el formulario. Cuando esté listo, haga clic en **Create Application** (Crear aplicación).
+Para implementar un nuevo contenedor mediante Marathon, haga clic en el botón **Create Application** (Crear aplicación) y escriba la siguiente información en el formulario:
 
 Campo | Valor
 ----------------|-----------
@@ -51,50 +51,50 @@ Red | Bridged
 Puerto de host | 80
 Protocolo | TCP
 
-![](media/dcos/dcos4.png)
+![Nueva interfaz de usuario de la aplicación: General](media/dcos/dcos4.png)
 
-![](media/dcos/dcos5.png)
+![Nueva interfaz de usuario de la aplicación: Contenedor de Docker](media/dcos/dcos5.png)
 
-![](media/dcos/dcos6.png)
+![Nueva interfaz de usuario de la aplicación: Detección de servicios y puertos](media/dcos/dcos6.png)
 
-Si desea asignar estáticamente el puerto del contenedor a un puerto en el agente, debe realizarse mediante el "modo de JSON". Para ello, cambie al Asistente para nuevas aplicaciones al modo de JSON mediante el botón de alternancia y, después, escriba lo siguiente en la sección 'portMappings' de la definición de la aplicación. En este ejemplo enlace el puerto 80 del contenedor al puerto 80 del agente DC/OS. Este asistente puede cambiar del modo de JSON una vez que se haya realizado este cambio.
+Si desea asignar estáticamente el puerto del contenedor a un puerto en el agente, debe utilizar el modo JSON. Para ello, cambie el Asistente para nuevas aplicaciones al **modo JSON** mediante el botón de alternancia. A continuación, escriba lo siguiente en la sección `portMappings` de la definición de la aplicación. En este ejemplo se enlaza el puerto 80 del contenedor al puerto 80 del agente DC/OS. Puede volver a cambiar el modo JSON del Asistente después de realizar este cambio.
 
 ```none
 “hostPort”: 80,
 ```
 
-![](media/dcos/dcos13.png)
+![Nueva interfaz de usuario de la aplicación: Ejemplo con el puerto 80](media/dcos/dcos13.png)
 
-El clúster de DC/OS se implementa con un conjunto de agentes públicos y privados. Para acceder a la aplicación desde Internet, debe implementarse en un agente público. Para ello, seleccione la pestaña "Optional" (Opcional) del Asistente para nuevas aplicaciones y escriba "slave\_public" en "Accepted Resource Roles" (Roles de recursos aceptados).
+El clúster de DC/OS se implementa con un conjunto de agentes públicos y privados. Para que el clúster pueda acceder a aplicaciones de Internet, debe implementar las aplicaciones en un agente público. Para ello, seleccione la pestaña **Optional** (Opcional) del Asistente para nuevas aplicaciones y escriba **slave\_public** en **Accepted Resource Roles** (Roles de recursos aceptados).
 
-![](media/dcos/dcos14.png)
+![Nueva interfaz de usuario de la aplicación: Configuración del agente público](media/dcos/dcos14.png)
 
 De nuevo en la página principal de Marathon, puede ver el estado de implementación para el contenedor.
 
-![](media/dcos/dcos7.png)
+![Página principal de la interfaz de usuario de Marathon: Estado de la implementación del contenedor](media/dcos/dcos7.png)
 
-Si vuelve a la aplicación DC/OS (http://localhost/)), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
+Si vuelve a la interfaz de usuario de DC/OS (http://localhost/)), verá que se está ejecutando una tarea, en este caso un contenedor con formato Docker, en el clúster de DC/OS.
 
-![](media/dcos/dcos8.png)
+![Interfaz de usuario web de DC/OS: Tarea que se ejecuta en el clúster](media/dcos/dcos8.png)
 
 También puede ver el nodo del clúster en el que se está ejecutando la tarea.
 
-![](media/dcos/dcos9.png)
+![Interfaz de usuario web de DC/OS: nodo de clúster de la tarea](media/dcos/dcos9.png)
 
 ## Escalado de los contenedores
 
-La interfaz de usuario de Marathon se puede utilizar para escalar el recuento de instancias de un contenedor. Para ello, navegue a la página de Marathon, seleccione el contenedor que desea escalar y haga clic en el botón **Scale** (Escalar). En el cuadro de diálogo **Scale Application** (Escalar aplicación), escriba el número de instancias del contenedor que desea y seleccione **Scale Application** (Escalar aplicación).
+La interfaz de usuario de Marathon se puede utilizar para escalar el recuento de instancias de un contenedor. Para ello, navegue a la página de **Marathon**, seleccione el contenedor que desea escalar y haga clic en el botón **Scale** (Escalar). En el cuadro de diálogo **Scale Application** (Escalar aplicación), escriba el número de instancias del contenedor que desea y seleccione **Scale Application** (Escalar aplicación).
 
-![](media/dcos/dcos10.png)
+![Interfaz de usuario de Marathon: Cuadro de diálogo Scale Application (Escalar aplicación)](media/dcos/dcos10.png)
 
-Una vez que se completa la operación de escalado, verá varias instancias de la misma tarea distribuidas entre los agentes de DC/OS.
+Una vez que finaliza la operación de escalado, verá varias instancias de la misma tarea distribuidas entre los agentes de DC/OS.
 
-![](media/dcos/dcos11.png)
+![Panel de interfaz de usuario web de DC/OS: Tarea distribuida entre varios agentes](media/dcos/dcos11.png)
 
-![](media/dcos/dcos12.png)
+![Interfaz de usuario web de DC/OS: Nodos](media/dcos/dcos12.png)
 
 ## Pasos siguientes
 
-[Trabajo con la API de DC/OS y Marathon](container-service-mesos-marathon-rest.md)
+- [Trabajo con la API de DC/OS y Marathon](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

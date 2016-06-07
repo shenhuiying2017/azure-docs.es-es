@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Administración de la seguridad en Azure
@@ -28,11 +28,11 @@ En este tipo de entorno, el riesgo de ataques es mayor porque es difícil constr
 
 ### Amenazas de la administración remota
 
-Para obtener acceso con privilegios, los atacantes intentan comprometer las credenciales de cuenta (por ejemplo, forzando la contraseña, o mediante la suplantación de identidad [phishing] o la recopilación de credenciales), o intentan engañar a los usuarios para que ejecuten código perjudicial (por ejemplo, desde sitios web malintencionados con descargas dirigidas, o desde datos adjuntos de correo electrónico malintencionado). En un entorno de nube administrado de forma remota, las infracciones de cuenta permiten el acceso desde cualquier lugar y en cualquier momento, lo que provoca un riesgo mayor.
+Para obtener acceso con privilegios, los atacantes intentan comprometer las credenciales de cuenta (por ejemplo, forzando la contraseña, mediante suplantación de identidad [phishing] o recopilando credenciales), o intentan engañar a los usuarios para que ejecuten código perjudicial (por ejemplo, desde sitios web malintencionados con descargas ocultas o desde datos adjuntos de correo electrónico perjudiciales). En un entorno de nube administrado de forma remota, las infracciones de cuenta permiten el acceso desde cualquier lugar y en cualquier momento, lo que provoca un riesgo mayor.
 
 Incluso con controles estrictos en las cuentas de los administradores principales, las cuentas de usuario de niveles inferiores se pueden usar para vulnerar los puntos débiles de la estrategia de seguridad de cada uno. La falta de un aprendizaje de seguridad adecuado también puede provocar infracciones debidas a la revelación o la exposición accidental de información de la cuenta.
 
-Cuando una estación de trabajo de usuario se usa también para realizar tareas administrativas, puede presentar muchos puntos de riesgo distintos, por ejemplo, cuando un usuario explora la Web, usa herramientas de código abierto y de terceros, o abre un archivo de documento malintencionado que contiene un troyano.
+Cuando una estación de trabajo de usuario se usa también para realizar tareas administrativas, puede presentar muchos puntos de riesgo distintos, por ejemplo, al explorar la Web, al utilizar herramientas de código abierto y de terceros o al abrir un documento perjudicial que contiene un troyano.
 
 En general, la mayoría de los ataques dirigidos que provocan infracciones de datos pueden rastrearse hasta vulnerabilidades del navegador, complementos (por ejemplo, Flash, PDF, Java) y suplantación de identidad (correo electrónico) en equipos de escritorio. Estos equipos pueden tener permisos de nivel administrativo o de nivel de servicio para tener acceso a los servidores activos o los dispositivos de red para operaciones cuando se usan para el desarrollo o la administración de otros activos.
 
@@ -185,7 +185,7 @@ En la ilustración siguiente, la imagen portátil es un sistema unido a un domin
 
 ![][4]
 
-Es importante tener en cuenta que las unidades flash USB se pierden más fácilmente que un equipo de escritorio promedio. El uso de BitLocker para cifrar todo el volumen, junto con una contraseña segura, reducen las probabilidades de que un atacante pueda usar la imagen de la unidad con fines malintencionados. Además, si se pierde la unidad flash USB, puede revocar y [emitir un nuevo certificado de administración](https://technet.microsoft.com/library/hh831574.aspx), y restablecer la contraseña rápidamente, para reducir la exposición. Los registros de auditoría administrativa residen en Azure, no en el cliente, lo que reduce aún más las posibles pérdida de datos.
+Es importante tener en cuenta que las unidades flash USB se pierden más fácilmente que un equipo de escritorio promedio. Si se utiliza BitLocker para cifrar todo el volumen junto con una contraseña segura, se reducen las probabilidades de que un atacante pueda usar la imagen de la unidad con fines malintencionados. Además, si se pierde la unidad flash USB, puede revocar y [emitir un nuevo certificado de administración](https://technet.microsoft.com/library/hh831574.aspx), y restablecer la contraseña rápidamente, para reducir la exposición. Los registros de auditoría administrativa residen en Azure, no en el cliente, lo que reduce aún más las posibles pérdida de datos.
 
 ## Prácticas recomendadas
 
@@ -219,7 +219,7 @@ Además, en la red de Microsoft se usan cuadros de salto dedicados que requieren
 
 Reducir el número de tareas que los administradores pueden realizar en una estación de trabajo protegida le ayudará a minimizar la superficie de ataque en su entorno de administración y desarrollo. Use las siguientes tecnologías para ayudar a asegurar su estación de trabajo protegida:
 
-- Protección de Internet Explorer. El explorador Internet Explorer (o cualquier explorador web en realidad) es un punto de entrada clave para código malintencionado debido a sus amplias interacciones con servidores externos. Revise las directivas de cliente y aplique la ejecución en modo protegido, la deshabilitación de complementos, la deshabilitación de las descargas de archivos y el uso del filtrado [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Asegúrese de que se muestran las advertencias de seguridad. Aproveche las ventajas de las zonas de Internet y crear una lista de sitios de confianza para los que ha configurado una protección razonable. Bloquee todos los demás sitios y el código en el explorador, como ActiveX y Java.
+- Protección de Internet Explorer. El explorador Internet Explorer (o, en este caso, cualquier explorador web) es un punto de entrada clave para el código perjudicial debido a sus amplias interacciones con servidores externos. Revise las directivas de cliente y aplique la ejecución en modo protegido, la deshabilitación de complementos, la deshabilitación de las descargas de archivos y el uso del filtrado [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Asegúrese de que se muestran las advertencias de seguridad. Aproveche las ventajas de las zonas de Internet y crear una lista de sitios de confianza para los que ha configurado una protección razonable. Bloquee todos los demás sitios y el código en el explorador, como ActiveX y Java.
 - Usuario estándar Trabajar como usuario estándar ofrece una serie de ventajas, la principal es que dificulta el robo de las credenciales de administrador mediante software malintencionado. Además, una cuenta de usuario estándar no tiene privilegios elevados en el sistema operativo raíz, y muchas opciones de configuración y API están bloqueadas de forma predeterminada.
 - AppLocker. Puede usar [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) para restringir los programas y los scripts que los usuarios pueden ejecutar. Puede ejecutar AppLocker en modo auditoría o cumplimiento. De forma predeterminada, AppLocker tiene una regla de permiso que permite a los usuarios que tengan un token de administrador ejecutar todo el código en el cliente. Esta regla existe para impedir que los administradores se bloqueen a sí mismos y solo se aplica a los tokens con privilegios elevados. Vea también el tema sobre la integridad del código, que forma parte de la [seguridad fundamental](http://technet.microsoft.com/library/dd348705.aspx) de Windows Server.
 - Firma del código. La firma del código de todas las herramientas y scripts que usan los administradores es un mecanismo fácil de administrar para la implementación de directivas de bloqueo de aplicaciones. Los valores hash no se escalan con cambios rápidos al código y las rutas de acceso de archivo no proporcionan un alto nivel de seguridad. Debe combinar reglas de AppLocker con una [directiva de ejecución](http://technet.microsoft.com/library/ee176961.aspx) de PowerShell que solo permita la [ejecución](http://technet.microsoft.com/library/hh849812.aspx) de código y scripts específicos firmados.
@@ -247,4 +247,4 @@ Los siguientes recursos proporcionan más información general acerca de los ser
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

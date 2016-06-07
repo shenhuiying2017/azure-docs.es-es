@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"
 />
 # Realización de una consulta en el índice de Búsqueda de Azure mediante el Portal de Azure
@@ -26,9 +26,9 @@ Esta guía le mostrará cómo consultar en el índice de Búsqueda de Azure en e
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda de Azure](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md).
 
-## I. Vaya a la hoja de Búsqueda de Azure
+## I. Vaya a la hoja Búsqueda de Azure.
 1. Haga clic en "Todos los recursos" en el menú en el lado izquierdo del [Portal de Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Seleccione el servicio Búsqueda de Azure
+2. Seleccione el servicio Búsqueda de Azure.
 
 ## II. Seleccione el índice que desea buscar
 1. Seleccione el índice que desea buscar en el icono "Índices".
@@ -47,4 +47,4 @@ Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda d
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->
