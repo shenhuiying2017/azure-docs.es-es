@@ -322,7 +322,7 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de ARM en el Portal de Azure. La plantilla se encuentra en https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Escriba **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** y **STORAGEACCOUNTKEY** para la cuenta que creó en la última sección y, a continuación, haga clic en **Aceptar**. El nombre de Data Factory debe ser único globalmente.
 3. En **Grupo de recursos**, seleccione el mismo grupo de recursos que usó en la última sección.
