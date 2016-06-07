@@ -159,11 +159,11 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
 
         node server.js
 
-1. Cuando va a ****http://localhost:8000/contacts**, aparece el resultado JSON de la lista de contactos (o se le solicita que lo descargue, según el explorador).
+1. Cuando va a **http://localhost:8000/contacts**, aparece el resultado JSON de la lista de contactos (o se le solicita que lo descargue, según el explorador).
 
     ![Todas las llamadas de la API de contactos](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Cuando vaya a ****http://localhost:8000/contacts/2**, verá el contacto representado por ese valor de identificador.
+1. Cuando vaya a **http://localhost:8000/contacts/2**, verá el contacto representado por ese valor de identificador.
 
     ![Llamada de la API de contactos específica](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
