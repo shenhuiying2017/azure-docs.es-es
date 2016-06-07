@@ -99,16 +99,15 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 ### Protocolos de autenticación
 
-- [Referencia del protocolo SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): el protocolo SAML 2.0 permite que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios.
+- [Azure Active Directory authentication protocols](active-directory-protocols.md) (Protocolos de autenticación de Azure Active Directory): obtenga información acerca de los distintos protocolos de autenticación y autorización compatibles con Azure Active Directory.
 
+- [Referencia del protocolo SAML 2.0](active-directory-saml-protocol-reference.md): el protocolo SAML 2.0 permite que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios.
 
-- [Referencia del protocolo OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): puede usar el protocolo OAuth 2.0 para autorizar el acceso a las aplicaciones web y las API web en su inquilino de Azure Active Directory.
+- [Referencia del protocolo OAuth 2.0](active-directory-protocols-oauth-code.md): puede usar el protocolo OAuth 2.0 para autorizar el acceso a las aplicaciones web y las API web en su inquilino de Azure Active Directory.
 
+- [Referencia del protocolo OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): el protocolo OpenID Connect 1.0 amplía OAuth 2.0 para su uso como protocolo de autenticación.
 
-- [Referencia del protocolo OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): el protocolo OpenID Connect 1.0 amplía OAuth 2.0 para su uso como protocolo de autenticación.
-
-
-- [Referencia del protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): el protocolo WS-Federation 1.2 se describe en la especificación de Web Services Federation, versión 1.2.
+- [Protocolo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory admite WS-Federation 1.2 según la especificación Web Services Federation versión 1.2.
 
 - [Tipos de token y de notificación admitidos](active-directory-token-and-claims.md): puede usar esta guía para entender y evaluar las notificaciones en los tokens web JSON (JWT) y SAML 2.0.
 
@@ -140,4 +139,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

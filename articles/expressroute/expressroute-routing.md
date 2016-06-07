@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="05/26/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 
 **Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
-## Soporte técnico para las comunidades de BGP (próximamente)
+## Soporte técnico para las comunidades de BGP
 
 
 Esta sección proporciona información general de cómo se usarán las comunidades de BGP con ExpressRoute. Microsoft anunciará rutas en las rutas de acceso de configuración de pares privados y de Microsoft con rutas etiquetadas con valores de la comunidad adecuada. La razón para hacerlo y los detalles de los valores de la comunidad se describen a continuación. Sin embargo, Microsoft no acepta los valores de comunidad etiquetados en las rutas anunciadas a Microsoft.
@@ -116,7 +116,7 @@ Consulte la página [Partners de ExpressRoute de Azure y ubicaciones de empareja
 
 Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener varias conexiones ofrece importantes ventajas para la alta disponibilidad debido a la redundancia geográfica. En los casos en que tenga varios circuitos de ExpressRoute, recibirá el mismo conjunto de prefijos anunciados de Microsoft en las rutas de acceso de la configuración de pares públicos y de la configuración de pares de Microsoft. Esto significa que tendrá varias rutas de acceso desde su red a Microsoft. Potencialmente, esto puede provocar que se tomen decisiones de enrutamiento en la red que no sean óptimas. Como consecuencia, puede sufrir una conectividad con los diferentes servicios que no sea óptima.
 
-Microsoft etiquetará los prefijos anunciados a través de la configuración de pares públicos y de la configuración de pares de Microsoft con los valores de comunidad de BGP adecuados que indican la región en que se hospedan. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un enrutamiento óptimo a los clientes.
+Microsoft etiquetará los prefijos anunciados a través de la configuración de pares públicos y de la configuración de pares de Microsoft con los valores de comunidad de BGP adecuados que indican la región en que se hospedan. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un [enrutamiento óptimo a los clientes](expressroute-optimize-routing.md).
 
 | **Región geopolítica** | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 |---|---|---|
@@ -163,17 +163,14 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 | **CRM en línea** | 12076:5040 |
 | **Otros servicios de Office 365** | 12076:5100 |
 
-
-### Manipulación de preferencias de enrutamiento
-
-Microsoft no admite los valores de las comunidades de BGP que defina. Se requiere que configure un par de sesiones BGP por emparejamiento para asegurarse de que se cumplen los requisitos del [contrato de nivel de servicio de disponibilidad ](https://azure.microsoft.com/support/legal/sla/). Sin embargo, puede configurar la red para que prefiera un vínculo a otro mediante el uso de técnicas de manipulación de ruta BGP estándar. Puede aplicar diferentes preferencias locales de BGP a cada vínculo para favorecer un vínculo sobre otro de la red a Microsoft. Puede anteponer la ruta de acceso AS en los anuncios de las rutas para modificar el flujo de tráfico de Microsoft a su red.
+>[AZURE.NOTE] Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.
 
 ## Pasos siguientes
 
 - Configure su conexión ExpressRoute.
 
-	- [Creación y modificación de un circuito ExpressRoute según el modelo de clásico de implementación](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute según el modelo de implementación de Resource Manager](expressroute-howto-circuit-arm.md)
+	- [Creación y modificación de un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Creación y modificación de un circuito ExpressRoute según el modelo de implementación de Azure Resource Manager](expressroute-howto-circuit-arm.md)
 	- [Configuración del enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configuración del enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
