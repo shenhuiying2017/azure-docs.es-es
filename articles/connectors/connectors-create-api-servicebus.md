@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usar la API del Bus de servicio de Azure en las aplicaciones lógicas | Microsoft Azure"
-description="Introducción al uso de la API del Bus de servicio de Azure (conector) en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Uso del conector del Bus de servicio de Azure en las aplicaciones lógicas | Microsoft Azure"
+description="Introducción al uso del conector del Bus de servicio de Azure (conector) en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/23/2016"
 ms.author="deonhe"/>
 
-# Introducción a la API del Bus de servicio de Azure
+# Introducción al conector del Bus de servicio de Azure 
 
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
 
@@ -29,11 +29,11 @@ Con el Bus de servicio de Azure, puede:
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Hablemos de desencadenadores y acciones
+## Hablemos de acciones y desencadenadores
 
-La API del Bus de servicio de Azure puede usarse como una acción; tiene desencadenadores. Todas las API admiten datos en formato JSON y XML.
+El conector del Bus de servicio de Azure puede usarse como una acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
 
- La API del Bus de servicio de Azure tiene las siguientes acciones o desencadenadores disponibles:
+ El conector del Bus de servicio de Azure tiene las siguientes acciones o desencadenadores disponibles:
 
 ### Acciones del Bus de servicio de Azure
 Puede realizar estas acciones:
@@ -51,27 +51,9 @@ Se pueden escuchar estos eventos:
 
 
 ## Crear una conexión al Bus de servicio de Azure
-Para usar la API del bus de servicio de Azure, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
+Para usar el conector del Bus de servicio de Azure, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-|ConnectionString|Sí|Proporcionar una cadena de conexión del Bus de servicio de Azure|  
-
-Siga estos pasos para crear una **conexión** de bus de servicio, que podrá usar después en la aplicación lógica:
-
-1. Seleccione **Periodicidad**.
-2. Seleccione un valor para **Frecuencia** y especifique el correspondiente a **Intervalo**.
-![Configurar Bus de servicio][1] 
-3. Seleccione **Agregar una acción**.
-![Configurar Bus de servicio][2]   
-4. Escriba **Bus de servicio** en el cuadro de búsqueda y espere a que aparezcan todas las entradas que incluyan "Bus de servicio" en el nombre.
-5. Seleccione **Bus de servicio - Enviar mensaje**.
-![Configurar Bus de servicio][3]
-7. Escriba un valor para **Nombre de conexión** y otro para **Cadena de conexión**. Luego, seleccione **Crear conexión**.
-![Configurar Bus de servicio][4]
-7. Una vez creada la conexión, se mostrará el diálogo **Enviar mensaje**. Escriba toda la información necesaria para enviar un mensaje.
-![Configurar Bus de servicio][5]
-8. Seleccione el botón **Guardar** en el menú superior para guardar su trabajo.    
+>[AZURE.INCLUDE [Pasos para crear una conexión a ServiceBus](../../includes/connectors-create-api-servicebus.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -161,13 +143,6 @@ ContentTransferEncoding
 
 
 ## Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-[1]: ./media/connectors-create-api-servicebus/connectionconfig1.png
-[2]: ./media/connectors-create-api-servicebus/connectionconfig2.png
-[3]: ./media/connectors-create-api-servicebus/connectionconfig3.png
-[4]: ./media/connectors-create-api-servicebus/connectionconfig4.png
-[5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
-[6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

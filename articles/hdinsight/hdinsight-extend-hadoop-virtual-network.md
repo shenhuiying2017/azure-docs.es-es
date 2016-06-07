@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/04/2016"
+   ms.date="05/19/2016"
    ms.author="larryfr"/>
 
 
@@ -77,6 +77,12 @@ Se recomienda encarecidamente crear una única subred para cada clúster de HDIn
 Los clústeres basados en Windows requieren una red virtual v1 (clásica), mientras que los clústeres basados en Linux requieren una red virtual v2 (Administrador de recursos de Azure). Si no dispone del tipo correcto de red, no se podrá usar cuando cree el clúster.
 
 Si dispone de recursos en una red virtual que no se puede usar por el clúster que planea crear, puede crear una nueva red virtual que se pueda usar por el clúster y conectarla a la red virtual incompatible. Luego puede crear el clúster en la versión de la red que requiere y podrá tener acceso a los recursos de la otra red puesto que los dos están combinadas. Para más información sobre cómo conectar redes virtuales clásicas y nuevas, vea [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###DNS personalizado
+
+Al crear una red virtual, Azure proporciona la funcionalidad de resolución de nombres predeterminada para los servicios de Azure instalados en la red, como HDInsight. Sin embargo, quizás tenga que utilizar su propio Sistema de nombres de dominio (DNS) en situaciones como la resolución de nombres de dominio de distintas redes, por ejemplo, cuando se establece comunicación entre servicios que se encuentran en dos redes virtuales unidas. HDInsight admite tanto la resolución de nombres predeterminada de Azure como un DNS personalizado cuando se utiliza con la red virtual de Azure.
+
+Para obtener más información acerca de cómo utilizar su propio servidor DNS con la red virtual de Azure, consulte la sección __Resolución de nombres mediante su propio servidor DNS__ del documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 ###Redes virtuales protegidas
 
@@ -192,10 +198,10 @@ __Uso de la CLI de Azure__
 >
 > Por ejemplo, para permitir el acceso SSH desde Internet, deberá agregar una regla similar al siguiente:
 >
-> * Azure PowerShell - ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
-> * CLI de Azure - ```azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "22" -f "*" -e "VirtualNetwork" -c "Allow" -y 304 -r "Inbound"```
+> * Azure PowerShell: ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
+> * CLI de Azure: ```azure network nsg rule create RESOURCEGROUPNAME hdisecure hdirule4 -p "*" -o "*" -u "22" -f "*" -e "VirtualNetwork" -c "Allow" -y 304 -r "Inbound"```
 
-Para más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) Para más información sobre cómo controlar el enrutamiento en una red virtual de Azure, consulte [¿Qué son las rutas definidas por el usuario y el reenvío IP?](../virtual-network/virtual-networks-udr-overview.md).
+Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md) Para obtener más información sobre el control del enrutamiento en una red virtual de Azure, consulte [¿Qué son las rutas definidas por el usuario y el reenvío IP?](../virtual-network/virtual-networks-udr-overview.md)
 
 ##<a id="tasks"></a>Tareas e información
 
@@ -303,4 +309,4 @@ Los siguientes ejemplos demuestran cómo usar HDInsight con Red virtual de Azure
 
 Para obtener más información acerca de Redes virtuales de Azure, consulte la [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

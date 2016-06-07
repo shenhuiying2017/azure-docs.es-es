@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/18/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -82,7 +82,7 @@ Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja de
 ## Para habilitar o deshabilitar la característica de actualización automática
 Se puede habilitar o deshabilitar la característica de actualización automática de la forma siguiente:
 
-1. Inicie Windows PowerShell en el equipo de la puerta de enlace. 
+1. Inicie Windows **PowerShell** en la máquina de puerta de enlace como administrador (**Ejecutar como administrador**). 
 2. Cambie a la carpeta C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
 
@@ -98,18 +98,18 @@ Existen dos firewalls que debe tener en cuenta: el **firewall corporativo** que 
 ![Firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
 ### Conexión de la puerta de enlace con servicios en la nube
-Para mantener la conectividad de la puerta de enlace con Factoría de datos de Azure y otros servicios en la nube, debe asegurarse de que la regla de salida para los puertos **TCP** **80** y **443** esté configurada. Además, cuenta con la opción de habilitar los puertos del **9350** al **9354**, usados por el Bus de servicio de Microsoft Azure para establecer una conexión entre Factoría de datos de Azure y Data Management Gateway. Esto puede mejorar el rendimiento de la comunicación entre ellos.
+Para mantener la conectividad de la puerta de enlace con Data Factory de Azure y otros servicios en la nube, debe asegurarse de que la regla de salida para los puertos **TCP** **80** y **443** esté configurada. Además, cuenta con la opción de habilitar los puertos del **9350** al **9354**, usados por el Bus de servicio de Microsoft Azure para establecer una conexión entre Data Factory de Azure y Data Management Gateway. Esto puede mejorar el rendimiento de la comunicación entre ellos.
 
 En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
 | Nombres de dominio | Puertos | Descripción |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
-| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.servicebus.windows.net | 9350-9354, 5671 | Retransmisión de bus de servicio opcional a través de TCP |
 | *.core.windows.net | 443 | HTTPS |
 | *.clouddatahub.net | 443 | HTTPS |
 | graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS | 
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
@@ -120,16 +120,16 @@ Si se usa un firewall de terceros, puede abrir manualmente el puerto 8050. Si se
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si decide no abrir el puerto 8050 en el equipo de la puerta de enlace, para configurar un servicio vinculado local, debe usar mecanismos diferentes de la aplicación **Configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte la sección [Configuración de credenciales y seguridad](#set-credentials-and-securityy) para obtener información sobre cómo configurar las credenciales del almacén de datos.
+Si decide no abrir el puerto 8050 en la máquina de la puerta de enlace, para configurar un servicio vinculado local, debe usar mecanismos diferentes de la aplicación **Configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte la sección [Configuración de credenciales y seguridad](#set-credentials-and-securityy) para obtener información sobre cómo configurar las credenciales del almacén de datos.
 
 **Para copiar datos de un almacén de datos de origen a un almacén de datos receptor:**
 
 Debe asegurarse de que las reglas de firewall se habilitan correctamente en el firewall corporativo, en el Firewall de Windows en la máquina de puerta de enlace y en el mismo almacén de datos. Esto permite que la puerta de enlace se conecte tanto al origen como al receptor correctamente. Debe habilitar las reglas de cada almacén de datos que está implicado en la operación de copia.
 
-Por ejemplo, para copiar de **un almacén de datos local a un receptor de Base de datos SQL de Azure o un receptor de Almacenamiento de datos SQL de Azure**, necesita permitir la comunicación **TCP** saliente en el puerto **1433** tanto para el Firewall de Windows como para el firewall corporativo, y debe establecer la configuración del firewall del servidor SQL de Azure para agregar la dirección IP del equipo de la puerta de enlace a la lista de direcciones IP permitidas.
+Por ejemplo, para copiar de **un almacén de datos local a un receptor de Base de datos SQL de Azure o un receptor de Almacenamiento de datos SQL de Azure**, necesita permitir la comunicación **TCP** saliente en el puerto **1433** tanto para el Firewall de Windows como para el firewall corporativo, y debe establecer la configuración del firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de la puerta de enlace a la lista de direcciones IP permitidas.
 
 ### Consideraciones acerca del servidor proxy
-De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede establecer la **configuración del servidor proxy**, tal como se muestra a continuación, para asegurarse de que la puerta de enlace se pueda conectar a Factoría de datos de Azure:
+De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede establecer la **configuración del servidor proxy**, tal como se muestra a continuación, para asegurarse de que la puerta de enlace se pueda conectar a Data Factory de Azure:
 
 1.	Después de instalar Data Management Gateway, en Explorador de archivos, haga una copia de “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config” para hacer una copia de seguridad del archivo original.
 2.	Inicie Notepad.exe como administrador y abra el archivo de texto “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config”. Encontrará la etiqueta predeterminada para system.net de la forma siguiente:
@@ -165,7 +165,7 @@ Si se producen errores como los siguientes, es probable que sea debido a una con
 
 - Puede obtener más información en los registros de la puerta de enlace de los registros de eventos de Windows. Puede encontrarlos mediante el **Visor de eventos** de Windows en **Registros de aplicaciones y servicios** > **Data Management Gateway**. Cuando soluciones problemas relacionados con la puerta de enlace consulte los eventos de error en el Visor de eventos.
 - Si la puerta de enlace deja de funcionar después de **haber cambiado el certificado**, reinicie (detenga e inicie) el **Servicio Data Management Gateway** mediante la herramienta Administrador de configuración de Microsoft Data Management Gateway o el applet del panel de control Servicios. Si todavía ve un error, puede que tenga que dar permisos explícitos para el usuario del servicio de Data Management Gateway para que tenga acceso al certificado en el Administrador de certificados (certmgr.msc). La cuenta de usuario predeterminada para el servicio es: **NT Service\\DIAHostService**. 
-- Si ve errores relacionados con el controlador o la conexión del almacén de datos, inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace, cambie a la pestaña **Diagnóstico**, seleccione o especifique los valores adecuados en los campos del grupo **Probar la conexión a un origen de datos local con esta puerta de enlace** y haga clic en **Probar conexión** para ver si se puede conectar al origen de datos local desde el equipo de la puerta de enlace con la información de conexión y las credenciales. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.  
+- Si ve errores relacionados con el controlador o la conexión del almacén de datos, inicie **Administrador de configuración de Data Management Gateway** en la máquina de la puerta de enlace, cambie a la pestaña **Diagnóstico**, seleccione o especifique los valores adecuados en los campos del grupo **Probar la conexión a un origen de datos local con esta puerta de enlace** y haga clic en **Prueba de conexión** para ver si se puede conectar al origen de datos local desde la máquina de la puerta de enlace con la información de conexión y las credenciales. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.  
 
 	![Probar conexión](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
@@ -173,7 +173,7 @@ Si se producen errores como los siguientes, es probable que sea debido a una con
 En este tutorial se crea una factoría de datos con una canalización que mueve los datos de una base de datos de SQL Server local a un blob de Azure.
 
 ### Paso 1: Creación de una factoría de datos de Azure
-En este paso, use el Portal de Azure para crear una instancia de Factoría de datos de Azure denominada **ADFTutorialOnPremDF**. También puede crear una factoría de datos mediante cmdlets de la Factoría de datos de Azure.
+En este paso, use el Portal de Azure para crear una instancia de Data Factory de Azure denominada **ADFTutorialOnPremDF**. También puede crear una factoría de datos mediante cmdlets de la Factoría de datos de Azure.
 
 1.	Tras iniciar sesión en el [Portal de Azure](https://portal.azure.com), haga clic en **NUEVO** en la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
 
@@ -217,7 +217,7 @@ En este paso, use el Portal de Azure para crear una instancia de Factoría de da
 	> [AZURE.NOTE] 
 	Utilice Internet Explorer o un explorador web compatible con Microsoft ClickOnce.
 	> 
-	> Si usa Chrome, vaya a la [Chrome Web Store](https://chrome.google.com/webstore/), busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
+	> Si usa Chrome, vaya a [Chrome Web Store](https://chrome.google.com/webstore/), busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 	>  
 	> Debe hacer lo mismo para Firefox (complemento de instalación). Haga clic en el botón **Abrir menú** de la barra de herramientas (**tres líneas horizontales** en la esquina superior derecha), haga clic en **Complementos**, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 
@@ -255,7 +255,7 @@ En este paso, use el Portal de Azure para crear una instancia de Factoría de da
 	
 
 ### Paso 3: Crear servicios vinculados 
-En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **SqlServerLinkedService**. El servicio **SqlServerLinkedService** vincula una base de datos de SQL Server local y **AzureStorageLinkedService** vincula un almacén de blobs de Azure a la Data Factory. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
+En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **SqlServerLinkedService**. El servicio **SqlServerLinkedService** vincula una base de datos de SQL Server local y **AzureStorageLinkedService** vincula un almacén de blobs de Azure a la factoría de datos. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
 
 #### Adición de un servicio vinculado a una base de datos de SQL Server local
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo almacén de datos** en la barra de herramientas y seleccione **SQL Server**. 
@@ -276,6 +276,8 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
             		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
+                
+            > [AZURE.NOTE] Si utiliza la autenticación de Windows (IntegratedSecurity=true), especificar el nombre de usuario y la contraseña es opcional. Si no se especifican estas propiedades, Data Management Gateway utiliza las credenciales del usuario que ha iniciado sesión en la máquina de la puerta de enlace para acceder a la base de datos. Si desea que la puerta de enlace utilice otras credenciales para acceder a la base de datos, indique el nombre de usuario y la contraseña explícitamente.
 
 	4. Si está usando la autenticación de SQL:
 		1. Especifique el **nombre del servidor** de la base de datos, el **nombre de la base de datos**, el **Id. de usuario** y la **Contraseña** en **connectionString**.       
@@ -594,7 +596,7 @@ Para cifrar las credenciales en el Editor de Data Factory, siga estos pasos:
 2. En el editor de JSON, escriba el nombre de la puerta de enlace para la propiedad **gatewayName**. 
 3. Escriba el nombre del servidor para la propiedad **Origen de datos** en **connectionString**.
 4. Escriba el nombre de la base de datos para la propiedad **Catálogo inicial** en **connectionString**.    
-5. Haga clic en el botón **Cifrar** de la barra de comandos. Se mostrará el cuadro de diálogo **Establecer credenciales**. ![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+5. Haga clic en el botón **Cifrar** de la barra de comandos. Se mostrará el cuadro de diálogo **Setting Credentials** (Establecer credenciales). ![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
 6. En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:  
 	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
 	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
@@ -616,9 +618,9 @@ Para cifrar las credenciales en el Editor de Data Factory, siga estos pasos:
 
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
 
-Cuando usa la aplicación **Establecer credenciales** iniciada desde el Portal de Azure con el objetivo de establecer credenciales para un origen de datos local, el portal cifra las credenciales con el certificado especificado en la pestaña **Certificado** del **Administrador de configuración de Data Management Gateway** en el equipo de puerta de enlace.
+Cuando usa la aplicación **Setting Credentials** (Establecer credenciales) iniciada desde el Portal de Azure con el objetivo de establecer credenciales para un origen de datos local, el portal cifra las credenciales con el certificado especificado en la pestaña **Certificado** del **Administrador de configuración de Data Management Gateway** en el equipo de puerta de enlace.
 
-Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento **EncryptedCredential** de **connectionString** en el archivo JSON que se va a emplear con el cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) o en el fragmento de código JSON en el Editor de Data Factory en el portal.
+Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento **EncryptedCredential** de **connectionString** en el archivo JSON que se va a emplear con el cmdlet [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) o en el fragmento de código JSON en el editor de Data Factory en el portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -691,4 +693,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

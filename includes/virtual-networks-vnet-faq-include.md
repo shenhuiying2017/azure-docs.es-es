@@ -183,7 +183,7 @@ Sí. Puede implementar cualquier distribución de Linux compatible con Azure.
 
 ### ¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?
 
-No, no puede reservar una dirección IP interna. Si hay una dirección IP interna disponible, el servidor DHCP puede asignarla a una máquina virtual. Esa máquina virtual puede ser, o no, la que desea asignar a la dirección IP interna. Sin embargo, puede cambiar la dirección IP interna de una máquina virtual ya creada a una dirección IP interna disponible.
+No, no puede reservar una dirección IP interna. Si hay una dirección IP interna disponible, el servidor DHCP puede asignarla a una máquina virtual o instancia de rol. Esa máquina virtual puede ser, o no, la que desea asignar a la dirección IP interna. Sin embargo, puede cambiar la dirección IP interna de una máquina virtual ya creada a una dirección IP interna disponible.
 
 ### ¿Cambian las direcciones IP internas de las máquinas virtuales en una red virtual?
 
@@ -270,4 +270,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

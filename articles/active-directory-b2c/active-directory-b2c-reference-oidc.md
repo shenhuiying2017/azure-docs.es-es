@@ -168,7 +168,7 @@ Puede canjear el elemento authorization\_code que adquirió (mediante `response_
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
 {
 	"grant_type": "authorization_code",
@@ -247,7 +247,7 @@ Los elementos id\_token tienen una corta duración. Debe actualizarlos después 
 ```
 POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
 {
 	"grant_type": "refresh_token",
@@ -355,4 +355,4 @@ image goes here
 
 -->
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

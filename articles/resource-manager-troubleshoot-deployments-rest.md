@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Solución de problemas de implementaciones con la API de REST | Microsoft Azure"
-   description="Describe cómo usar la API de REST de Azure Resource Manager para detectar y corregir los problemas de la implementación de Resource Manager."
+   pageTitle="Visualización de operaciones de implementación con la API de REST | Microsoft Azure"
+   description="Describe cómo usar la API de REST de Azure Resource Manager para detectar los problemas de la implementación de Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Solución de problemas de implementaciones de grupo de recursos con la API de REST de Azure Resource Manager
+# Visualización de operaciones de implementación con la API de REST de Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [CLI de Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API DE REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Si ha recibido un error al implementar recursos en Azure, debe solucionar los errores que se hayan producido. La API de REST proporciona operaciones que permiten buscar los errores y determinar las posibles correcciones.
+Si recibe un error al implementar recursos en Azure, quizás desee conocer más detalles acerca de las operaciones de implementación ejecutadas. La API de REST proporciona operaciones que permiten buscar los errores y determinar las posibles correcciones.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -113,4 +113,4 @@ Si ha recibido un error al implementar recursos en Azure, debe solucionar los er
 - Para obtener más información sobre el uso de los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Para validar la implementación antes de ejecutarla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

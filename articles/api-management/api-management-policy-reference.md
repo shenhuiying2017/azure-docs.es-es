@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -119,4 +119,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

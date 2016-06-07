@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/04/2016"
+   ms.date="05/20/2016"
    ms.author="larryfr"/>
 
 #Uso de Vista de Hive con Hadoop en HDInsight
@@ -199,4 +199,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

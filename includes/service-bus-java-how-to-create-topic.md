@@ -20,9 +20,11 @@ Para crear un espacio de nombres:
 
 2.  En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal, haga clic en **Crear**. ![][0]
+3.  En el panel inferior del Portal, haga clic en **Crear**.
+    ![][0]
 
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][2]
+4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+    ![][2]
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
@@ -39,11 +41,14 @@ Para realizar operaciones de administración (como la creación de un tema o una
 
 ### Para obtener las credenciales de administración desde el portal
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![][0]
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles:
+    ![][0]
 
-2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada: ![][3]
+2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada:
+    ![][3]
 
-3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres.
+	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Anote la clave principal o cópiela en el Portapapeles.
 
@@ -56,3 +61,6 @@ Para realizar operaciones de administración (como la creación de un tema o una
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+
+
+

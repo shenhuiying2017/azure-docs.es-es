@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Cómo usar el almacenamiento de blobs (C++) | Microsoft Azure"
+    pageTitle="Uso de Almacenamiento de blobs (almacenamiento de objetos) de C++ | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
     services="storage"
     documentationCenter=".net"
@@ -21,6 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
+
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
+
 Esta guía demuestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de almacenamiento de Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs.
 
 >[AZURE.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento de Azure para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 2.2.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
@@ -238,4 +241,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 -	[Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

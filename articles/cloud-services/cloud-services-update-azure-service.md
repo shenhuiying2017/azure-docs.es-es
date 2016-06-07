@@ -47,17 +47,19 @@ La siguiente tabla muestra los cambios permitidos en un servicio durante una act
 |---|---|---|---|
 |Versión del sistema operativo|Sí|Sí|Sí
 |Nivel de confianza de .NET|Sí|Sí|Sí|
-|Tamaño de la máquina virtual|Sí*|Sí|Sí|
-|Configuración de almacenamiento local|Solo aumentar *|Sí|Sí|
+|Tamaño de la máquina virtual<sup>1</sup>|Sí<sup>2</sup>|Sí|Sí|
+|Configuración de almacenamiento local|Solo aumentar<sup>2</sup>|Sí|Sí|
 |Agregar o quitar roles en un servicio|Sí|Sí|Sí|
 |Número de instancias de un rol concreto|Sí|Sí|Sí|
-|Número o tipo de puntos de conexión de un servicio|Sí*|No|Sí|
+|Número o tipo de puntos de conexión de un servicio|Sí<sup>2</sup>|No|Sí|
 |Nombres y valores de configuración|Sí|Sí|Sí|
 |Valores (pero no nombres) de configuración|Sí|Sí|Sí|
 |Incorporación de nuevos certificados|Sí|Sí|Sí|
 |Cambio de certificados existentes|Sí|Sí|Sí|
 |Implementación de nuevo código|Sí|Sí|Sí|
-* Requiere Azure SDK 1.5 o versiones posteriores.
+<sup>1</sup> Cambio de tamaño limitado al subconjunto de tamaños disponibles para el servicio en la nube.
+
+<sup>2</sup> Requiere Azure SDK 1.5 o versiones posteriores.
 
 > [AZURE.WARNING] Cambiar el tamaño de la máquina virtual destruirá los datos locales.
 
@@ -178,8 +180,8 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 > [AZURE.NOTE] Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br> 
-[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br> 
+[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br>
+[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br>
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

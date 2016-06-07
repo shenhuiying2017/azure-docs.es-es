@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/20/2016"
    	ms.author="larryfr"/>
 
 #Crear clústeres basados en Linux en HDInsight con la CLI de Azure
@@ -58,54 +58,51 @@ Los siguientes pasos se deben realizar desde un símbolo del sistema, el shell o
 
         azure config mode arm
 
-4. Cree una plantilla para el clúster de HDInsight. A continuación encontrará algunas plantillas de ejemplo básico:
+4. Cree un nuevo grupo de recursos. Este contendrá el clúster de HDInsight y la cuenta de almacenamiento asociada.
 
-    * [Clúster basado en Linux, con una clave SSH pública](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
-    * [Clúster basado en Linux, con una contraseña para la cuenta SSH](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
+        azure group create groupname location
+        
+    * Reemplace __groupname__ con un nombre único para el grupo. 
+    * Reemplace __location__ por la región geográfica en la que desee crear los recursos. 
+    
+        Para obtener una lista de ubicaciones válidas, use el comando `azure locations list` y, luego, una de las ubicaciones de la columna __Nombre__.
 
-    Ambas plantillas también crean la cuenta de Almacenamiento de Azure predeterminada que usa HDInsight.
+5. Cree una cuenta de almacenamiento nueva. Se usará como el almacenamiento predeterminado del clúster de HDInsight.
 
-    Los archivos que va a necesitar son __azuredeploy.json__ y __azuredeploy.parameters.json__. Copie estos archivos localmente para continuar.
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        
+     * Reemplace __groupname__ por el nombre del grupo que creó en el paso anterior.
+     * Sustituya __location__ con la misma ubicación usada en el paso anterior. 
+     * Reemplace __storagename__ por un nombre único para la cuenta de almacenamiento.
+     
+     > [AZURE.NOTE] Si desea obtener más información sobre los parámetros utilizados en este comando, use `azure storage account create -h` para ver la ayuda correspondiente.
 
-5. Abra el archivo __azuredeploy.parameters.json__ en un editor y especifique los valores de los elementos en la sección `parameters`:
+5. Recupere la clave utilizada para tener acceso a la cuenta de almacenamiento.
 
-    * __location__: el centro de datos que se crean los recursos. En la sección `location` del archivo __azuredeploy.json__ puede obtener una lista de ubicaciones permitidas.
-    * __clusterName__: el nombre del clúster de HDInsight. Este nombre debe ser único o se producirá un error en la implementación.
-    * __clusterStorageAccountName__: el nombre de la cuenta de Almacenamiento de Azure que se creará para el clúster de HDInsight. Este nombre debe ser único o se producirá un error en la implementación.
-    * __clusterLoginPassword__: la contraseña del usuario del administrador de clúster. Debe ser una contraseña segura, ya que se usa para el acceso a sitios web y a los servicios REST del clúster.
-    * __sshUserName__: el nombre del primer usuario SSH para crear para este clúster. SSH se usará para acceder de forma remota al clúster con esta cuenta.
-    * __sshPublicKey__: si usa la plantilla que requiere una clave pública SSH, debe agregarla en esta línea. Para obtener más información sobre cómo generar claves públicas y trabajar con ellas, consulte los siguientes artículos:
+        azure storage account keys list -g groupname storagename
+        
+    * Reemplace __groupname__ por el nombre del grupo de recursos.
+    * Sustituya __storagename__ con el nombre de la cuenta de almacenamiento.
+    
+    En los datos que se devuelven, guarde el valor de __key__ para __key1__.
 
-        * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+6. Cree un clúster de HDInsight nuevo.
 
-    * __sshPassword__: si usa la plantilla que requiere una contraseña SSH, debe agregarla en esta línea.
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    Una vez que haya terminado, guarde el archivo y ciérrelo.
+    * Reemplace __groupname__ por el nombre del grupo de recursos.
+    * Sustituya __location__ con la misma ubicación usada en los pasos anteriores.
+    * Reemplace __storagename__ con el nombre de la cuenta de almacenamiento.
+    * Sustituya __storagekey__ con la clave que obtuvo en el paso anterior. 
+    * Para el parámetro `--defaultStorageContainer`, use el mismo nombre que utiliza para el clúster.
+    * Reemplace __admin__ y __httppassword__ con el nombre y la contraseña que desea utilizar al acceder al clúster mediante HTTPS.
+    * Sustituya __sshuser__ y __sshuserpassword__ con el nombre de usuario y la contraseña que quiere usar al acceder al clúster mediante SSH.
 
-5. Utilice la siguiente instrucción para crear un grupo de recursos vacío. Reemplace __RESOURCEGROUPNAME__ por el nombre que desea usar para este grupo. Reemplace __UBICACIÓN__ por el centro de datos que en el que quiere crear su clúster de HDInsight:
-
-        azure group create RESOURCEGROUPNAME LOCATION
-
-    > [AZURE.NOTE] Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo, "Centro-Sur de EE.UU."
-
-6. Utilice el siguiente comando para crear la implementación inicial de este grupo de recursos. Reemplace __PATHTOTEMPLATE__ por la ruta de acceso al archivo de plantilla __azuredeploy.json__. Reemplace __PATHTOPARAMETERSFILE__ por la ruta de acceso al archivo de plantilla __azuredeploy.parameters.json__. Reemplace __RESOURCEGROUPNAME__ por el nombre del grupo que creó en el paso anterior:
-
-        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
-
-    Una vez aceptada la implementación, debería ver un mensaje similar a `group deployment create command ok`.
-
-7. La implementación puede tardar un tiempo en completarse, unos 15 minutos. Puede ver información acerca de la implementación con el siguiente comando. Reemplace __RESOURCEGROUPNAME__ por el nombre del grupo de recursos que se usó en el paso anterior:
-
-        azure group log show -l RESOURCEGROUPNAME
-
-    Cuando finalice la implementación, el campo __Estado__ contendrá el valor __Correcto__. Si se produce un error durante la implementación, puede obtener más información sobre dicho error con el siguiente comando
-
-        azure group log show -l -v RESOURCEGROUPNAME
+    Pueden pasar varios minutos (por lo general, unos quince) hasta que finalice el proceso de creación del clúster.
 
 ##Pasos siguientes
 
-Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para aprender a trabajar con el clúster:
+Una vez creado correctamente un clúster de HDInsight correctamente mediante la CLI de Azure, use los siguientes vínculos para aprender a trabajar con él:
 
 ###Clústeres Hadoop
 
@@ -124,4 +121,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

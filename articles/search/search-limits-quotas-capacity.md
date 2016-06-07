@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/28/2016"
+	ms.date="05/19/2016"
 	ms.author="heidist"/>
 
 # Límites de servicio en la Búsqueda de Azure
@@ -44,7 +44,7 @@ Las claves de API se usan para la autenticación del servicio. Hay dos tipos. La
 - Longitud máxima de dirección URL de 8 KB
 - Máximo de 1000 documentos por lote del índice de cargas de índices, combinaciones o eliminaciones
 - Máximo de 32 campos en cláusula $orderby
-- El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
+- El tamaño máximo del término de búsqueda es de 32 766 bytes (32 KB menos 2 bytes) de texto con codificación UTF-8
 
 ## Límites de respuestas
 
@@ -59,4 +59,4 @@ Aunque se proporcionan cálculos aproximados en la página de precios y en el gr
 
 En el nivel Estándar, puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Consulte la sección de procedimientos recomendados en [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener instrucciones sobre cómo calcular el número de QPS para las cargas de trabajo.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

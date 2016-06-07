@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
@@ -111,4 +111,4 @@ Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver 
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

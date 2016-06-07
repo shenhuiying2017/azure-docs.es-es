@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del almacenamiento de blobs de Java | Microsoft Azure"
+	pageTitle="Uso de Almacenamiento de blobs de Azure (almacenamiento de objetos) en Java | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter="java"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
+
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 Este artículo le muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs de Microsoft Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información sobre los blobs, consulte la sección [Pasos siguientes](#Next-Steps).
 
@@ -258,7 +260,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 - [API de REST de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+Para más información, consulte también el [Centro de desarrolladores de Java](/develop/java/).
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
@@ -268,4 +270,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [API de REST de almacenamiento de Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

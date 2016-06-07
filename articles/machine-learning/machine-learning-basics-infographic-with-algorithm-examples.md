@@ -20,17 +20,17 @@
 
 # Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 
-Descargue esta introducción de infografía fácil de comprender sobre conceptos básicos de aprendizaje automático para identificar los algoritmos populares utilizados para responder a preguntas comunes sobre el aprendizaje automático. Los vínculos a ejemplos de algoritmos ayudan a los principiantes de aprendizaje automático a comprender qué algoritmos usar y para qué.
+Descargue esta introducción infográfica fácil de entender sobre los conceptos básicos del aprendizaje automático. Obtenga información sobre algoritmos populares que se usan para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.
 
-## Algoritmos populares disponibles en Estudio de aprendizaje automático
+## Algoritmos populares en Estudio de aprendizaje automático
 
-[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) viene con un gran número de algoritmos de aprendizaje automático que puede usar para resolver problemas de análisis predictivo. La infografía descargable siguiente muestra cómo se pueden usar los cuatro tipos de algoritmos de aprendizaje automático (**regresión**, **detección de anomalías**, **agrupación en clústeres** y **clasificación**) para responder a sus preguntas sobre aprendizaje automático.
+[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía muestra familias populares de algoritmos: **regresión**, **detección de anomalías**, **agrupación en clústeres** y **clasificación**.
 
-La [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) contiene muchos ejemplos que muestran cómo se pueden aplicar estos algoritmos en soluciones del mundo real. Los vínculos insertados en la infografía le llevan a ejemplos prácticos de cada algoritmo.
+La [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) muestra cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real. Siga los vínculos de la infografía para ver ejemplos de trabajo.
 
-## Descarga de la infografía de conceptos básicos de aprendizaje automático
+## Descargue la infografía con ejemplos de algoritmos
 
-**[Descarga: Infografía de conceptos básicos de aprendizaje automático con vínculos a ejemplos de algoritmos](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Descarga: Infografía de conceptos básicos del aprendizaje automático con vínculos a ejemplos de algoritmos (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infografía: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos. Algoritmos populares. Aprendizaje automático para principiantes.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
@@ -52,4 +52,4 @@ La [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) 
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

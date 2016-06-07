@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows
@@ -91,7 +91,7 @@ Para conocer el procedimiento de desarrollo del programa MapReduce de Java, cons
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `
@@ -1000,4 +1000,4 @@ En esta sección se analiza el código del programa de MapReduce de TeraSort.
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Sincronización de Azure AD Connect: Synchronization Service Manager
 
-| [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
@@ -31,22 +31,22 @@ La mitad superior muestra todas las ejecuciones en orden cronológico. De forma 
 
 En la columna **Estado** se encuentra la información más importante, puesto que muestra el problema más grave de una ejecución. A continuación tiene un resumen rápido de los estados más comunes que debe analizar por orden de prioridad (donde * indica varias cadenas de error posibles).
 
-| Estado | Comentario |
-| --- | --- |
-| stopped-* | No se ha podido completar la ejecución. Por ejemplo, si el sistema remoto está inactivo y no se puede contactar. |
-| stopped-error-limit | Se han generado más de 5000 errores. La ejecución se ha detenido automáticamente debido al elevado número de errores. |
-| completed-*-errors | La ejecución se ha completado, pero hay errores (menos de 5000) que deben investigarse. | 
-| completed-*-warnings | La ejecución se ha completado, pero algunos datos no tienen el estado esperado. Si se producen errores, es posible que se trate únicamente de un síntoma. Le recomendamos que primero resuelva los errores y que luego investigue las advertencias. |
-| Correcto | No hay ningún problema. |
+Estado | Comentario
+--- | ---
+stopped-* | No se ha podido completar la ejecución. Por ejemplo, si el sistema remoto está inactivo y no se puede contactar.
+stopped-error-limit | Se han generado más de 5000 errores. La ejecución se ha detenido automáticamente debido al elevado número de errores.
+completed-*-errors | Se completa la ejecución, pero hay errores (menos de 5000) que deben investigarse.
+completed-*-warnings | La ejecución se ha completado, pero algunos datos no tienen el estado esperado. Si se producen errores, es posible que se trate únicamente de un síntoma. Le recomendamos que primero resuelva los errores y que luego investigue las advertencias.
+Correcto | No hay ningún problema.
 
-Cuando seleccione una fila, la parte inferior se actualizará para mostrar los detalles de la ejecución. En el extremo izquierdo de la parte inferior, es posible que aparezca una lista con la información **Paso #**. Solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En **Synchronization Statistics (Estadísticas de sincronización)** puede encontrar más información acerca del número de cambios que se han procesado. Puede hacer clic en los vínculos para obtener una lista de los objetos modificados. Si hay objetos con un error, estos que se mostrarán en **Synchronization Errors (Errores de sincronización)**.
+Cuando seleccione una fila, la parte inferior se actualizará para mostrar los detalles de la ejecución. En el extremo izquierdo de la parte inferior, es posible que aparezca una lista con la información **Paso #**. Solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En **Synchronization Statistics** (Estadísticas de sincronización) puede encontrar más información sobre el número de cambios que se han procesado. Puede hacer clic en los vínculos para obtener una lista de los objetos modificados. Si hay objetos con un error, estos se mostrarán en **Errores de sincronización**.
 
 ## Solución de problemas en la pestaña Operaciones
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png) Cuando se producen errores, tanto el objeto del error como el propio error son vínculos que proporcionarán información adicional.
 
-Empiece haciendo clic en la cadena de error (en la imagen anterior, **sync-rule-error-function-triggered**). En primer lugar aparecerá información general del objeto. Para ver el error real, haga clic en el botón **Stack Trace (Seguimiento de la pila)**. De esta forma, podrá consultar información de depuración del error.
+Empiece haciendo clic en la cadena de error (en la imagen anterior, **sync-rule-error-function-triggered**). En primer lugar aparecerá información general del objeto. Para ver el error real, haga clic en el botón **Seguimiento de la pila**. De esta forma, podrá consultar información de depuración del error.
 
-**SUGERENCIA:** Puede hacer clic con el botón derecho en la casilla **call stack information (información de la pila de llamadas)**, hacer clic en **seleccionar todo** y, a continuación, en **copiar**. A continuación, puede copiar la pila y buscar el error en el editor que prefiera, como el Bloc de notas.
+**SUGERENCIA:** Puede hacer clic con el botón derecho en la casilla **call stack information** (información de la pila de llamadas), hacer clic en **seleccionar todo** y, después, en **copiar**. A continuación, puede copiar la pila y buscar el error en el editor que prefiera, como el Bloc de notas.
 
 - Si el error procede de **SyncRulesEngine**, la información de la pila de llamadas tendrá en primer lugar una lista de todos los atributos del objeto. Desplácese hacia abajo hasta que vea el encabezado **InnerException = >**. ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png) La línea siguiente mostrará el error. En la imagen anterior, el error procede de una regla de sincronización personalizada creada por Fabrikam.
 
@@ -57,4 +57,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

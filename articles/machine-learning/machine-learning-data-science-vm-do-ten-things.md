@@ -845,7 +845,7 @@ Debe realizar los siguientes pasos como requisitos previos para tener acceso a D
 1. Instale el SDK de Python de DocumentDB (ejecute ```pip install pydocumentdb``` desde el símbolo del sistema).
 1. Cree una cuenta y una base de datos de DocumentDB desde el [Portal de Azure](https://portal.azure.com).
 1. Descargue la "herramienta de migración de DocumentDB" desde [aquí](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
-1. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en DocumentDB con los siguientes parámetros de comandos para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de DocumentDB). Especifique los parámetros de ubicación de origen y destino de los que se muestran a continuación.
+1. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en DocumentDB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de DocumentDB). Especifique los parámetros de ubicación de origen y destino de los que se muestran a continuación.
 
 	/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
@@ -910,4 +910,4 @@ Para mejorar su entorno de análisis, puede sacar provecho de otros servicios ta
 ## Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

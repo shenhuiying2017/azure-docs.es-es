@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del almacenamiento de blobs de Ruby | Microsoft Azure"
+	pageTitle="Uso del almacenamiento de blobs (almacenamiento de objetos) en Ruby | Microsoft Azure"
 	description="Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure."
 	services="storage"
 	documentationCenter="ruby"
@@ -22,6 +22,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Información general
+
+Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
 En esta guía se muestra cómo realizar algunas tareas comunes con Almacenamiento de blobs. Los ejemplos están escritos usando la API Ruby. Entre los escenarios descritos se incluyen **cargar, enumerar, descargar** y **eliminar** blobs.
 
@@ -155,4 +157,4 @@ Para obtener información acerca de tareas de almacenamiento más complejas, sig
 - Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

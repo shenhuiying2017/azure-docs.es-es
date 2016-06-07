@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/11/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -207,7 +207,7 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
     >[AZURE.NOTE] ProgramData es una carpeta oculta.
 
@@ -239,7 +239,7 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
     4. En el panel derecho, en **Servicio de administración de Microsoft StorSimple**, haga clic en **Detener el servicio**.
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
      >[AZURE.NOTE] ProgramData es una carpeta oculta.
 
@@ -261,4 +261,4 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 - Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

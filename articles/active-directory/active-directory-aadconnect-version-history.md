@@ -24,11 +24,11 @@ Este artículo está diseñado para ayudarle a realizar un seguimiento de las ve
 
 Esta es la lista de temas relacionados.
 
-| Tema. | |
-| --------- | --------- |
-| Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect. |
-| Permisos necesarios | Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade) |
-| Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Tema. |  
+--------- | --------- |
+Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
+Permisos necesarios | Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
+Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.180.0
 Fecha de publicación: mayo de 2016
@@ -51,8 +51,8 @@ Fecha de publicación: abril de 2016
 
 **Nuevas características:**
 
-- Se ha añadido compatibilidad para atributos multivalor a las [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md).
-- Se ha añadido compatibilidad para más variaciones de configuración para que la [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) se considere apta para la actualización.
+- Se ha agregado compatibilidad con atributos multivalor en las [extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Se ha agregado compatibilidad con más variaciones de configuración para que la [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) se considere apta para la actualización.
 - Se han agregado algunos cmdlets para el [programador personalizado](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1\.1.119.0
@@ -70,7 +70,7 @@ Fecha de publicación: febrero de 2016
 **Problemas corregidos:**
 
 - La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
-- Si efectúa la instalación y anula la selección de **Inicie el proceso de sincronización...** al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho Asistente.
+- Si efectúa la instalación y anula la selección de **Start the synchronization process** (Iniciar el proceso de instalación) al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho asistente.
 - El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
 - Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
@@ -89,8 +89,8 @@ Fecha de publicación: febrero de 2016
 
 **Características promocionadas desde la vista previa a GA:**
 
-- [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md).
-- [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md).
+- [Reescritura dispositivos](active-directory-aadconnect-feature-device-writeback.md)
+- [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 **Nuevas características de la versión preliminar:**
 
@@ -284,4 +284,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

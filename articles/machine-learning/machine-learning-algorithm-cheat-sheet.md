@@ -20,22 +20,22 @@
 
 # Hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure
 
-La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivos de la biblioteca de algoritmos de aprendizaje automático de Microsoft Azure.
+La **hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure** le ayuda a elegir el algoritmo correcto para un modelo de análisis predictivo.
 
-[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran número de algoritmos de aprendizaje automático para sus soluciones de análisis predictivo. Estos algoritmos se incluyen en las categorías generales de aprendizaje automático de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada una de ellas está diseñada para resolver un tipo de problema de aprendizaje automático diferente.
+[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) tiene una gran biblioteca de algoritmos de las familias de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada uno de ellos está diseñado para resolver un tipo de problema de aprendizaje automático diferente.
 
-> [AZURE.NOTE] Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
-## Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
+## Descarga: Hoja de referencia rápida de algoritmos de aprendizaje automático
 
-Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático para obtener ayuda para comprender cómo elegir un algoritmo de aprendizaje automático para su solución. Para mantenerla cerca, puede imprimir la hoja de referencia en tamaño tabloide (11 x 17 pulg.).
-
-**Descargue aquí la hoja de referencia rápida: [Hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Descargue la hoja de referencia rápida aquí: [Hoja de referencia rápida de algoritmos de aprendizaje automático](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Hoja de referencia rápida de algoritmos de aprendizaje automático: elección de un algoritmo de aprendizaje automático.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+Descargue e imprima la hoja de referencia rápida de algoritmos de aprendizaje automático en tamaño tabloide para tenerlo a mano y que le sirva de ayuda al elegir un algoritmo.
+
+> [AZURE.NOTE] Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Selección de algoritmos para Aprendizaje automático de Microsoft Azure](machine-learning-algorithm-choice.md).
 
 ## Más ayuda con los algoritmos
 
@@ -79,7 +79,7 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@ Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

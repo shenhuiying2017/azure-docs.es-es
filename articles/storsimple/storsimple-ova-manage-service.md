@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Implementación del servicio StorSimple Manager en una matriz virtual de StorSimple
@@ -38,7 +38,7 @@ Las tareas comunes que se pueden realizar a través de la página de StorSimple 
 - Obtener la clave de registro del servicio
 - Volver a generar la clave de registro de servicio
 
-Este tutorial describe cómo realizar cada una de estas tareas.
+Este tutorial describe cómo realizar cada una de estas tareas. La información contenida en este artículo se aplica solo a las matrices virtuales de StorSimple. Para más información acerca de la serie 8000 de StorSimple, vaya a [Implementar el servicio StorSimple Manager](storsimple-manage-service.md).
 
 ## Crear un servicio
 
@@ -51,6 +51,8 @@ Utilice la opción **Creación rápida** para crear un servicio de StorSimple Ma
 También puede generar una cuenta de almacenamiento predeterminada cuando se crea el servicio.
 
 Un único servicio puede administrar varios dispositivos. Sin embargo, un dispositivo no puede abarcar varios servicios. Una gran empresa puede tener varias instancias de servicio para trabajar con distintas suscripciones, organizaciones o incluso las ubicaciones de implementación.
+
+> [AZURE.NOTE] Necesita instancias separadas del servicio StorSimple Manager para administrar matrices virtuales de StorSimple y dispositivos de la serie StorSimple 8000.
 
 Realice los siguientes pasos para crear un servicio.
 
@@ -74,7 +76,7 @@ Realice los siguientes pasos para eliminar un servicio.
 
 ## Obtener la clave de registro del servicio
 
-Después de haber creado correctamente un servicio, deberá registrar el dispositivo StorSimple con el servicio. Para registrar el primer dispositivo StorSimple, necesitará la clave de registro del servicio. Para registrar dispositivos adicionales con un servicio existente StorSimple, necesitará la clave de registro y la clave de cifrado de datos de servicio (que se genera en el primer dispositivo durante el registro). Para obtener más información acerca de la clave de cifrado de datos de servicio, consulte [Obtener clave de cifrado de datos de servicio de la interfaz de usuario web local](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
+Después de haber creado correctamente un servicio, deberá registrar el dispositivo StorSimple con el servicio. Para registrar el primer dispositivo StorSimple, necesitará la clave de registro del servicio. Para registrar dispositivos adicionales con un servicio existente StorSimple, necesitará la clave de registro y la clave de cifrado de datos de servicio (que se genera en el primer dispositivo durante el registro). Para más información acerca de la clave de cifrado de datos de servicio, consulte [Obtener la clave de cifrado de los datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 Realice los pasos siguientes para obtener la clave de registro del servicio.
 
@@ -105,10 +107,10 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 
 ## Pasos siguientes
 
-- Lea una [introducción](storsimple-ova-deploy1-portal-prep.md) a las matrices virtuales de StorSimple.
+- Lea una [introducción](storsimple-ova-deploy1-portal-prep.md) a la matriz virtual de StorSimple.
 	
 - Obtenga información sobre cómo [administrar el dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

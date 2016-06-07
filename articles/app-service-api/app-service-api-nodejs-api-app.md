@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="bradygaster"/>
 
 # Creación de una API de RESTful de Node.js e implementación en una aplicación de API de Azure
@@ -24,10 +24,12 @@ En este tutorial se muestra cómo crear una API de [Node.js](http://nodejs.org) 
 
 ## Requisitos previos
 
+1. Cuenta de Microsoft Azure ([abra aquí una cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/))
 1. [Node.js](http://nodejs.org) instalado (en este ejemplo se considera que tiene Node.js versión 4.2.2)
 2. [Git](https://git-scm.com/) instalado
 1. Cuenta [GitHub](https://github.com/)
-1. [Cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) de Microsoft Azure
+
+Aunque el Servicio de aplicaciones admite muchas maneras de implementar el código en una aplicación de API, en este tutorial se muestra el método Git y se da por hecho que tiene conocimientos básicos de cómo trabajar con Git. Para más información sobre otras opciones de implementación, consulte [Documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
 
 ## Obtención del código de ejemplo
 
@@ -39,13 +41,15 @@ En este tutorial se muestra cómo crear una API de [Node.js](http://nodejs.org) 
 
 	La API de ejemplo proporciona dos puntos de conexión: una solicitud Get a `/contacts` devuelve una lista de nombres y direcciones de correo electrónico en formato JSON, mientras que `/contacts/{id}` solo devuelve el contacto seleccionado.
 
-## Código de Node.js scaffold basado en los metadatos de Swagger
+## Código de Node.js scaffold (generación automática) basado en los metadatos de Swagger
 
-[Swagger](http://swagger.io/) es un formato de archivo para metadatos que describe una API de RESTful. El Servicio de aplicaciones de Azure tiene [compatibilidad integrada para los metadatos de Swagger](app-service-api-metadata.md). En este tutorial se modela un flujo de trabajo de desarrollo de API que primero crea los metadatos de Swagger y los usa para aplicar la técnica scaffolding al código del servidor para la API. En esta parte del tutorial, se aprende a aplicar la técnica scaffolding al código del servidor de Node.js basándose en un archivo de metadatos de Swagger.
+[Swagger](http://swagger.io/) es un formato de archivo para metadatos que describe una API de RESTful. El Servicio de aplicaciones de Azure tiene [compatibilidad integrada para los metadatos de Swagger](app-service-api-metadata.md). En esta sección del tutorial se modela un flujo de trabajo de desarrollo de API en el que primero crea los metadatos de Swagger y los usa para aplicar la técnica scaffolding (generación automática) al código del servidor para la API.
 
->[AZURE.NOTE] Si no desea seguir los pasos de scaffolding, basta con implementar el código de ejemplo en una aplicación de API; vaya directamente a la sección [Creación de una aplicación de API en el Portal de Azure](#createapiapp).
+>[AZURE.NOTE] Puede omitir esta sección si no desea aprender cómo aplicar la técnica scaffolding a código Node.js desde un archivo de metadatos de Swagger. Si únicamente desea implementar código de ejemplo en una nueva aplicación de API, vaya directamente a la sección [Creación de una aplicación de API en Azure](#createapiapp).
 
-1. Ejecute los comandos siguientes para instalar los módulos de NPM **yo** y **sgenerator-swaggerize** globalmente.
+### Instalación y ejecución de Swaggerize
+
+1. Ejecute los comandos siguientes para instalar los módulos de NPM **yo** y **generator-swaggerize** globalmente.
 
 		npm install -g yo
 		npm install -g generator-swaggerize
@@ -84,7 +88,7 @@ En este tutorial se muestra cómo crear una API de [Node.js](http://nodejs.org) 
         
     ![Instalación de la interfaz de usuario de swaggerize](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-## Personalización del código con scaffold
+### Personalización del código con scaffold
 
 1. Copie la carpeta **lib** de la carpeta **start** a la carpeta **ContactList** creada por el procesador de scaffolding. 
 
@@ -149,7 +153,7 @@ En este tutorial se muestra cómo crear una API de [Node.js](http://nodejs.org) 
         server.listen(port, function () { // fifth and final change
         });
 
-## Prueba con la API ejecutada localmente
+### Prueba con la API ejecutada localmente
 
 1. Active el servidor mediante el archivo ejecutable de línea de comandos de Node.js. 
 
@@ -171,9 +175,9 @@ En este tutorial se muestra cómo crear una API de [Node.js](http://nodejs.org) 
 
     ![Interfaz de usuario de Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Creación de una aplicación de API en el Portal de Azure
+## <a id="createapiapp"></a> Creación de una nueva aplicación de API
 
-En esta sección se muestra el proceso de creación de una aplicación de API vacía en Azure. En la siguiente sección, conectará la aplicación a un repositorio de Git para poder habilitar la entrega continua de los cambios de código.
+En esta sección, use el Portal de Azure para crear una nueva aplicación de API en Azure. Esta aplicación de API representa los recursos de procesos que proporcionará Azure para ejecutar su código. En secciones posteriores, implementará su código en la nueva aplicación de API.
 
 1. Vaya al [Portal de Azure](https://portal.azure.com/). 
 
@@ -183,9 +187,9 @@ En esta sección se muestra el proceso de creación de una aplicación de API va
 
 4. Escriba en **Nombre de aplicación** un nombre único en el dominio *azurewebsites.net*; por ejemplo, NodejsAPIApp más un número para hacerlo único.
 
-	Si escribe un nombre que ya haya sido usado, verá un signo de exclamación rojo a la derecha, en lugar de una marca de verificación verde, y será preciso que escriba otro nombre.
+	Por ejemplo, si el nombre es `NodejsAPIApp`, la dirección URL será `nodejsapiapp.azurewebsites.net`.
 
-	Azure usa este nombre como prefijo de la dirección URL de la API. La dirección URL completa consta de este nombre, más *.azurewebsites.net*. Por ejemplo, si el nombre es `NodejsAPIApp`, la dirección URL será `nodejsapiapp.azurewebsites.net`.
+	Si escribe un nombre que alguien haya usado, aparecerá un signo de exclamación rojo a la derecha.
 
 6. En la lista desplegable **Grupo de recursos**, haga clic en **Nuevo** y luego en **Nombre del nuevo grupo de recursos** y escriba "NodejsAPIAppGroup" u otro nombre que prefiera.
 
@@ -197,11 +201,11 @@ En esta sección se muestra el proceso de creación de una aplicación de API va
 
 	En los siguientes pasos se creará un plan del Servicio de aplicaciones para el nuevo grupo de recursos. Un plan del Servicio de aplicaciones especifica los recursos de proceso en los que se ejecuta la aplicación de API. Por ejemplo, si elige el nivel Gratis, la aplicación de API se ejecuta en máquinas virtuales compartidas, mientras que para algunos niveles de pago, se ejecuta en máquinas virtuales dedicadas. Para más información sobre los planes del Servicio de aplicaciones, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. En la hoja **Plan de servicio de aplicaciones**, escriba "NodejsAPIAppPlan" u otro nombre si lo prefiere.
+5. En la hoja **Plan del servicio de aplicaciones**, escriba "NodejsAPIAppPlan" u otro nombre si lo prefiere.
 
 5. En la lista desplegable **Ubicación**, elija la ubicación más cercana.
 
-	Esta opción especifica en qué centro de datos de Azure se ejecutará su aplicación. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, Pero para una aplicación de producción, es aconsejable que el servidor esté lo más próximo posible a los clientes que vayan a acceder a él, con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	Esta opción especifica en qué centro de datos de Azure se ejecutará su aplicación. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, pero para una aplicación de producción, es aconsejable que el servidor esté lo más próximo posible a los clientes que vayan a acceder a él, con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Haga clic en **Plan de tarifa > Ver todo > F1 Free** (F1 gratis).
 
@@ -209,27 +213,25 @@ En esta sección se muestra el proceso de creación de una aplicación de API va
 
 	![Selección del plan de tarifa Gratis](./media/app-service-api-nodejs-api-app/selectfreetier.png)
 
-6. En la hoja **Plan de servicio de aplicaciones**, haga clic en **Aceptar**.
+6. En la hoja **Plan del servicio de aplicaciones**, haga clic en **Aceptar**.
 
 7. En la hoja **Aplicación de API**, haga clic en **Crear**.
 
 ## Configuración de la nueva aplicación de API para la implementación de Git
 
-En esta sección del tutorial, creará las credenciales que va a utilizar para la implementación y un repositorio de Git para la aplicación de API en el Servicio de aplicaciones de Azure. Implementará el código en la aplicación de API insertando confirmaciones a este repositorio en el Servicio de aplicaciones de Azure.
+Implementará el código en la aplicación de API insertando confirmaciones en un repositorio de Git en el Servicio de aplicaciones de Azure. En esta sección del tutorial, creará las credenciales y el repositorio de Git en Azure que va a usar para la implementación.
 
 1. Una vez creada la aplicación de API, haga clic en **Servicios de aplicaciones > {su aplicación de API}** en la página principal del portal. 
 
 	El portal muestra las hojas **Aplicación de API** y **Configuración**.
 
-    ![Hoja de aplicación de API en el portal](media/app-service-api-nodejs-api-app/portalapiappblade.png)
-
-    ![Hoja Configuración del portal](media/app-service-api-nodejs-api-app/portalsettingsblade.png)
+    ![Hoja de aplicación de API y configuración del portal](media/app-service-api-nodejs-api-app/portalapiappblade.png)
 
 1. En la hoja **Configuración**, baje hasta la sección **Publicación** y haga clic en **Credenciales de implementación**.
  
 3. En la hoja **Configurar credenciales de implementación**, escriba un nombre de usuario y una contraseña, y haga clic en **Guardar**.
 
-	Usará estas credenciales para publicar el código de Node.js en su aplicación de API. En el siguiente paso, se crea el repositorio de Git de Azure asociado a la aplicación de API.
+	Usará estas credenciales para publicar el código de Node.js en su aplicación de API.
 
     ![Credenciales de implementación](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
@@ -245,21 +247,15 @@ En esta sección del tutorial, creará las credenciales que va a utilizar para l
 
     ![Obtención de la dirección URL de Git desde el Portal](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
-    **Nota**: necesitará la dirección URL de clonación de Git en el paso siguiente, por tanto asegúrese de guardarla de momento.
+    **Nota**: Necesitará la dirección URL de clonación de Git en la sección siguiente, por tanto asegúrese de guardarla de momento.
 
 Ahora que dispone de una aplicación de API con el repositorio de Git correspondiente, puede insertar código en el repositorio para implementarlo en la aplicación de API.
 
 ## Implementación del código de API en Azure
 
-En esta sección realizará los siguientes pasos:
+En esta sección, creará un repositorio de Git local que contiene su código de servidor de la API y luego insertará su código desde ese repositorio al repositorio de Azure que ha creado anteriormente.
 
-* Cree un repositorio de Git local que contiene el código del servidor de la API.
-* En ese repositorio creará un Git remoto que apunta al repositorio que ha creado para su aplicación de API de Azure.
-* Inserte su código desde el repositorio local en el repositorio remoto. 
-
-Las características de entrega continua integradas del Servicio de aplicaciones de Azure permiten implementar el código simplemente insertando confirmaciones en un repositorio de Git asociado a la aplicación de API.
-
-1. Si ya realizó la primera parte del tutorial, copie la carpeta `start\ContactList` que creó mediante el procesador de scaffolding swaggerize a otra carpeta. De lo contrario, copie la carpeta `end\ContactList` a otra carpeta.
+1. Copie la carpeta `ContactList` en una ubicación que pueda usar para un nuevo repositorio de Git local. Si ha realizado la primera parte del tutorial, copie `ContactList` desde la carpeta `start`; de lo contrario, copie `ContactList` desde la carpeta `end`.
 
 1. En la herramienta de la línea de comandos, vaya a la nueva carpeta y ejecute el siguiente comando para crear un nuevo repositorio de Git local.
 
@@ -302,9 +298,7 @@ Las características de entrega continua integradas del Servicio de aplicaciones
 
     ![Implementación completada](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
-1. Con un cliente de la API de REST, como Postman o Fiddler (o el explorador web), proporcione la dirección URL de la llamada API de los contactos, que está en el punto de conexión `/contacts` de la aplicación de API.
-
-    **Nota:** La dirección URL será `https://{your API app name}.azurewebsites.net/contacts`.
+1. Con un cliente de la API de REST, como Postman o Fiddler (o el explorador web), proporcione la dirección URL de la llamada API de los contactos, que está en el punto de conexión `/contacts` de la aplicación de API. La dirección URL será `https://{your API app name}.azurewebsites.net/contacts`.
 
     Cuando se envía una solicitud GET a este punto de conexión, se obtiene el resultado JSON de la aplicación de API.
 
@@ -316,6 +310,6 @@ Ahora que tiene conectada la entrega continua, puede realizar cambios en el cód
 
 ## Pasos siguientes
 
-Ya ha creado e implementado correctamente su primera aplicación de API con Node.js. El siguiente tutorial muestra cómo [consumir aplicaciones de API desde clientes de JavaScript con CORS](app-service-api-cors-consume-javascript.md). Otros tutoriales de la serie muestran cómo implementar la autenticación y autorización.
+Ya ha creado una aplicación de API e implementado código de API Node.js en ella correctamente. El siguiente tutorial muestra cómo [consumir aplicaciones de API desde clientes de JavaScript con CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

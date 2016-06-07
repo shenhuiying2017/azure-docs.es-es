@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/18/2016"
 	ms.author="nitinme"/>
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)
@@ -122,9 +122,9 @@ Este script de PowerShell muestra cómo instalar Spark en un clúster de HDInsig
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_GRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $storageAccountKey  
@@ -323,4 +323,4 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

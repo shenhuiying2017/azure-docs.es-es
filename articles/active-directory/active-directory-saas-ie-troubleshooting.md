@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/19/2016"
     ms.author="markvi;liviodlc"/>
 
 #Solución de problemas de la extensión del Panel de acceso para Internet Explorer
@@ -109,4 +109,4 @@ Si encuentra problemas al desinstalar la extensión, también puede quitarla usa
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 - [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

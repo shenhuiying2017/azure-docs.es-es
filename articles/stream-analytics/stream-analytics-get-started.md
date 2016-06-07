@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/20/2016"
 	ms.author="jeffstok" />
 
 
@@ -59,8 +59,14 @@ Para crear un Centro de eventos:
 
 Proporcionamos una aplicación cliente que generará los metadatos de llamada entrante de ejemplo y los insertará en el Centro de eventos. Siga los pasos que se indican a continuación para configurar esta aplicación.
 
-1.	Descargue el [archivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
-2.	Reemplace los valores de Microsoft.ServiceBus.ConnectionString y EventHubName en el archivo **telcodatagen.exe.config** con la cadena de conexión del Centro de eventos y el nombre.
+1.	Descargue el [archivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip). A continuación, descomprima el archivo en un directorio.
+
+    **Nota**: Windows puede bloquear el archivo zip descargado. Haga clic con el botón derecho en el archivo y seleccione Propiedades. Si aparece el mensaje "Este archivo proviene de otro equipo y podría bloquearse para ayudar a proteger este equipo." active la casilla "Desbloquear" y haga clic en Aplicar en el archivo .zip.
+
+2.	Reemplace los valores Microsoft.ServiceBus.ConnectionString y EventHubName en el archivo **telcodatagen.exe.config** por la cadena de conexión y el nombre del Centro de eventos.
+
+    **Nota**: La cadena de conexión copiada del Portal de Azure coloca el nombre de la conexión al final. Asegúrese de quitar ";EntityPath=<value>" del campo agregar clave=.
+
 3.	Inicie la aplicación. El uso es como sigue:
 
    telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
@@ -149,7 +155,7 @@ Si desea archivar todos los eventos, puede usar una consulta de paso a través p
 	> Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que especificó anteriormente.
 
 3.	Haga clic en **Prueba** en el editor de consultas.
-4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
+4.	Proporcione un archivo de prueba, ya sea uno creado siguiendo los pasos anteriores o [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Haga clic en el botón de comprobación y vea los resultados que aparecen debajo de la definición de consulta.
 
 	![Resultados de la definición de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -259,4 +265,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

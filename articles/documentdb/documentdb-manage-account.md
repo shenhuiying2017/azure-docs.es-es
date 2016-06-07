@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Administración de una cuenta de DocumentDB
@@ -38,11 +38,11 @@ También incluye las claves de solo lectura para proporcionar a los usuarios acc
 
 ### Visualización y copia de una clave de acceso en el Portal de Azure
 
-1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
 
-2.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
+2.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
 
-3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
+3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
 
   ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
 
@@ -54,17 +54,17 @@ Cambie las claves de acceso de la cuenta de DocumentDB de forma periódica para 
 
 Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de DocumentDB y regenera las claves, perderá las conexiones. Para evitarlo, sustituya las claves. Los siguientes pasos describen el proceso de distribución de las claves.
 
-1.      Actualice la clave de acceso en el código de aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de DocumentDB.
+1.      Actualice la clave de acceso en el código de aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de DocumentDB.
 
-2.      Vuelva a generar la clave de acceso primaria para su cuenta de DocumentDB. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
+2.      Vuelva a generar la clave de acceso primaria para su cuenta de DocumentDB. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
 
-3.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
+3.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
 
-4.      En la hoja** Claves**, haga clic en el comando **Regenerar principal** y haga clic en **Aceptar** para confirmar que quiere generar una clave nueva.
+4.      En la hoja** Claves**, haga clic en el comando **Regenerar principal** y haga clic en **Aceptar** para confirmar que quiere generar una clave nueva.
 
-5.      Tras comprobar que la clave nueva está disponible para su uso (aproximadamente 5 minutos después de la regeneración), actualice la clave de acceso en el código de aplicación para hacer referencia a la nueva clave de acceso principal.
+5.      Tras comprobar que la clave nueva está disponible para su uso (aproximadamente 5 minutos después de la regeneración), actualice la clave de acceso en el código de aplicación para hacer referencia a la nueva clave de acceso principal.
 
-6.      Vuelva a generar la clave de acceso secundaria.
+6.      Vuelva a generar la clave de acceso secundaria.
 
 *Tenga en cuenta que pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.*
 
@@ -83,17 +83,17 @@ DocumentDB admite cuatro niveles diferenciados de coherencia de datos que el usu
 
 ### Para especificar la coherencia predeterminada de una cuenta de DocumentDB:
 
-1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
 
-2.      En la hoja de cuenta, si la hoja **Configuración** no está abierta, haga clic en el icono **Configuración** de la barra de herramientas superior.
+2.      En la hoja de cuenta, si la hoja **Configuración** no está abierta, haga clic en el icono **Configuración** de la barra de herramientas superior.
 
-3.      En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**.
+3.      En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**.
 
 ![Sesión de coherencia predeterminada](./media/documentdb-manage-account/chooseandsaveconsistency.png)
 
-4.      En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
+4.      En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
 
-5.      Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
+5.      Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
 
 *Tenga en cuenta que pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de DocumentDB.*
 
@@ -102,13 +102,13 @@ Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute 
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
 
-1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar. 
+1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar. 
 
-2.      En la hoja **Cuenta de DocumentDB**, haga clic en el comando **Eliminar**.
+2.      En la hoja **Cuenta de DocumentDB**, haga clic en el comando **Eliminar**.
 
-3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
+3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
 
-4.      En la hoja de confirmación, haga clic en el botón **Eliminar**.
+4.      En la hoja de confirmación, haga clic en el botón **Eliminar**.
 
 ## <a id="next"></a>Pasos siguientes
 
@@ -116,4 +116,4 @@ Descubra cómo [dar sus primeros pasos con una cuenta de DocumentDB](http://go.m
 
 Para obtener más información sobre DocumentDB, consulte la documentación correspondiente en [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

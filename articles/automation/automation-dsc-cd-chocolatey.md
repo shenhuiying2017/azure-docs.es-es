@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/24/2016"
    ms.author="golive"/>
 
 # Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
@@ -171,7 +171,7 @@ Cada vez que una versión pasa un control de calidad y se aprueba para implement
 
 ## Notas
 
-Este ejemplo de uso comienza con una máquina virtual desde una imagen genérica de Windows 2012 R2 procedente de la Galería de Azure. Puede iniciarlo desde cualquier imagen almacenada y después ajustarla con la configuración de DSC. Sin embargo, retocar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
+Este ejemplo de uso comienza con una máquina virtual desde una imagen genérica de Windows 2012 R2 procedente de la Galería de Azure. Puede iniciarlo desde cualquier imagen almacenada y después ajustarla con la configuración de DSC. Sin embargo, cambiar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
 
 No es necesario usar una plantilla de ARM ni la extensión de máquina virtual para emplear esta técnica con sus máquinas virtuales. Además, sus máquinas virtuales tampoco tienen que estar en Azure para administrarlas mediante CD. Todo lo que se necesita es que Chocolatey esté instalado y LCM esté configurado en la máquina virtual para que conozca la ubicación del servidor de extracción.
 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

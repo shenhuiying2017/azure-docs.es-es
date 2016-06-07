@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/03/2016"
+	ms.date="05/23/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Creación de su primera factoría de datos (Introducción)
@@ -222,4 +222,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - Visual Studio
 - Plantillas del Administrador de recursos de Azure 
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

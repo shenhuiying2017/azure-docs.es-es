@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de SQL Azure en las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de SQL Azure con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de SQL Azure a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de SQL Azure con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 
-# Introducción a la API de SQL Azure
+# Introducción al conector de SQL Azure
 Conéctese a Base de datos SQL de Azure para administrar las tablas y filas, como insertar filas, obtener tablas y mucho más.
 
-La API de Base de datos SQL de Azure puede usarse desde:
+El conector de Base de datos SQL de Azure puede usarse desde:
 
 - Aplicaciones lógicas (descritas en este tema)
 - PowerApps (consulte la [lista de conexiones de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obtener una lista completa)
@@ -43,14 +43,12 @@ Desencadenadores | Acciones
 --- | ---
 None | <ul><li>Obtener fila</li><li>Obtener filas</li><li>Insertar fila</li><li>Eliminar fila</li><li>Obtener tablas</li><li>Actualizar fila</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 ## Creación de la conexión a SQL
-Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguientes:
 
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-|Cadena de conexión SQL|Sí|Especificación de la cadena de conexión de Base de datos SQL de Azure|
+>[AZURE.INCLUDE [Pasos para crear una conexión a SQL](../../includes/connectors-create-api-sqlazure.md)]
+
 
 Después de crear la conexión, especifique las propiedades de SQL, como el nombre de tabla. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
@@ -123,7 +121,7 @@ Elimina una fila de una tabla SQL. ```DELETE: /datasets/default/tables/{table}/i
 
 
 ### Obtener tablas 
-Recupera tablas de una Base de datos SQL. ```GET: /datasets/default/tables```
+Recupera tablas de una base de datos SQL. ```GET: /datasets/default/tables```
 
 No hay parámetros para esta llamada.
 
@@ -226,6 +224,6 @@ Actualiza una fila existente en una tabla SQL. ```PATCH: /datasets/default/table
 
 ## Pasos siguientes
 
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

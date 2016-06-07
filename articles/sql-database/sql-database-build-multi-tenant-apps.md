@@ -21,7 +21,7 @@
 
 ## Aprovechamiento de grupos elásticos y generación de aplicaciones multiinquilino más eficaces
 
-Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos de bases de datos elásticas de Base de datos SQL de Azure, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos.
+Si es un desarrollador de aplicaciones SaaS que está escribiendo una aplicación multiinquilino que maneja muchos clientes, a menudo tiene que sacrificar un cierto grado de rendimiento, administración y seguridad para los clientes. Con los grupos de bases de datos elásticas de Base de datos SQL de Azure, ya no tiene que hacerlo. Estos grupos le ayudan a administrar y supervisar aplicaciones multiinquilino y a obtener los beneficios del aislamiento de un cliente por base de datos. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![creación-aplicaciones-multiinquilino](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -65,4 +65,4 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="himad"/>
 
 
@@ -42,4 +42,4 @@ Una vez creado el extremo, puede consumirlo a través de API sincrónicas, API d
  
  Tenga en cuenta que NO se puede eliminar el punto de conexión predeterminado, desde el Estudio o aquí, si ha agregado puntos de conexión a él. Se producirá un error.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

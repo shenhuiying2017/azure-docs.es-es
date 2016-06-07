@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Presentación del Administrador de recursos de clúster de Service Fabric | Microsoft Azure"
-   description="Una introducción a Service Fabric Cluster Resource Manager."
+   pageTitle="Limitación de Cluster Resource Manager de Service Fabric | Microsoft Azure"
+   description="Aprenda a configurar las limitaciones proporcionadas por Cluster Resource Manager de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -43,4 +43,4 @@ Tenga en cuenta que la mayoría de las veces que hemos visto que los clientes us
 - Para más información sobre cómo el Administrador de recursos de clúster administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
 - El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo: [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

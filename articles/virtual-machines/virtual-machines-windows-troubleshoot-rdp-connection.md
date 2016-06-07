@@ -39,7 +39,7 @@ En esta sección se indican los pasos de corrección rápida para los problemas 
 
 Estos pasos pueden resolver la mayoría de los errores de conexión de Escritorio remoto que se producen en las máquinas virtuales de Azure creadas con el modelo de implementación clásico. Después de cada paso, pruebe a conectarse a la máquina virtual.
 
-- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP. Seleccione **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows * > **Reset Remote...** (Restablecer acceso remoto...).
+- Restablezca el servicio de escritorio remoto desde el [portal de Azure](https://portal.azure.com) para solucionar problemas de inicio con el servidor RDP. Seleccione **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual con Windows* > **Reset Remote...** (Restablecer acceso remoto...).
 
 - Reinicie la máquina virtual para tratar otros problemas de inicio. Seleccione **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Reiniciar**.
 

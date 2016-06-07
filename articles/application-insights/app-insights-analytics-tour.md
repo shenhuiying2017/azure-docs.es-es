@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/20/2016" 
 	ms.author="awills"/>
 
 
@@ -103,25 +103,25 @@ También puede cambiar el nombre de las columnas y definir otras nuevas:
 
     requests 
     | top 10 by timestamp desc 
-    | project timestamp, 
-               timeOfDay = floor(timestamp % 1d, 1s), 
-               name, 
-               response = resultCode
+    | project  
+            name, 
+            response = resultCode,
+            timestamp, 
+            ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
 ![result](./media/app-insights-analytics-tour/270.png)
 
-En la expresión escalar:
-
+* Los [nombres de columna](app-insights-analytics-reference.md#names) pueden incluir espacios o símbolos si están entre corchetes: `['...']` o `["..."]`.
 * `%` es el operador de módulo habitual. 
 * `1d` (es decir, el dígito uno y luego una "d") es un literal de intervalo de tiempo que significa un día. Aquí se indican otros literales de intervalo de tiempo: `12h`, `30m`, `10s` y `0.01s`.
 * `floor` (alias `bin`) redondea un valor a la baja al múltiplo más cercano del valor base que proporciona. Por lo tanto, `floor(aTime, 1s)` redondea un tiempo a la baja al segundo más cercano.
 
-Las [expresiones](app-insights-analytics-reference.md#scalars) pueden incluir todos los operadores habituales (`+`, `-`,…) y hay una amplia gama de funciones útiles.
+Las [expresiones](app-insights-analytics-reference.md#scalars) pueden incluir todos los operadores habituales (`+`, `-`, etc.) y hay una amplia gama de funciones útiles.
 
     
 
-## [Extend](app-insights-analytics-reference.md#extend-operator): calcular columnas
+## [Extend](app-insights-analytics-reference.md#extend-operator): cálculo de columnas
 
 Si solo desea agregar columnas a las ya existentes, use [`extend`](app-insights-analytics-reference.md#extend-operator):
 
@@ -175,10 +175,10 @@ Para extraer estos valores en Analytics:
 
 ``` 
 
-> [AZURE.NOTE] En el [Explorador de métricas](app-insights-metrics-explorer.md), todas las medidas personalizadas adjuntas a cualquier tipo de telemetría aparecen juntas en la hoja de métricas junto con las métricas enviadas mediante `TrackMetric()`. Pero en Analytics, las medidas personalizadas siguen adjuntas al tipo de telemetría donde se realizaron y las métricas aparecen en su propia transmisión `metrics`.
+> [AZURE.NOTE] En el [Explorador de métricas](app-insights-metrics-explorer.md), todas las medidas personalizadas adjuntas a cualquier tipo de telemetría aparecen juntas en la hoja de métricas junto con las métricas enviadas mediante `TrackMetric()`. Sin embargo, en Analytics las medidas personalizadas siguen adjuntas al tipo de telemetría donde se realizaron y las métricas aparecen en su propia transmisión `metrics`.
 
 
-## [Summarize](app-insights-analytics-reference.md#summarize-operator): agregar grupos de filas
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): adición de grupos de filas
 
 `Summarize` aplica una *función de agregación* específica sobre grupos de filas.
 
@@ -197,7 +197,7 @@ O bien, podríamos agrupar los resultados en función de la hora del día:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe cómo usamos la función `bin` (también conocida como `floor`). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que es realmente solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
+Observe cómo usamos la función `bin` (también conocida como "`floor`"). Si solo usáramos `by timestamp`, cada fila de entrada terminaría en su pequeño grupo. Para cualquier escalar continuo, como horas o números, tenemos que dividir el intervalo continuo en un número manejable de valores discretos y `bin`, que es realmente solo la función `floor` de redondeo a la baja, es la forma más sencilla de hacerlo.
 
 Podemos usar la misma técnica para reducir los intervalos de cadenas:
 
@@ -260,11 +260,11 @@ Veamos solo las excepciones de las que informan los exploradores:
 
 El operador `where` acepta una expresión booleana. He aquí algunos puntos clave:
 
- * `and`, `or`: operadores booleanos
- * `==`, `<>`: igual que y no igual que
+ * `and`, `or`: operadores booleanos.
+ * `==`, `<>`: igual que y no igual que.
  * `=~`, `!=`: igual que y no igual que cadena que no distingue mayúsculas de minúsculas. Hay muchos más operadores de comparación de cadenas.
 
-Lea toda la información acerca de las [expresiones escalares](app-insights-analytics-reference.md#scalars).
+Lea toda la información sobre las [expresiones escalares](app-insights-analytics-reference.md#scalars).
 
 ### Filtrado de eventos
 
@@ -307,7 +307,7 @@ El eje x para los gráficos de líneas debe ser de tipo DateTime.
 
 ## Varias series 
 
-Use varios valores en un cláusula `summarize by` para crear una fila independiente para cada combinación de valores:
+Use varios valores en una cláusula `summarize by` para crear una fila independiente para cada combinación de valores:
 
 ```AIQL
 
@@ -450,7 +450,7 @@ Es recomendable usar `project` para seleccionar solo las columnas que se necesit
 
 
 
-## [Let](app-insights-analytics-reference.md#let-clause): asignar un resultado a una variable
+## [Let](app-insights-analytics-reference.md#let-clause): asignación de un resultado a una variable
 
 Use [let](./app-insights-analytics-syntax.md#let-statements) para separar las partes de la expresión anterior. Los resultados no cambian:
 
@@ -469,4 +469,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar las pa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

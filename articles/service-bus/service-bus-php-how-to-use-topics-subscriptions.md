@@ -234,7 +234,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
+El tamaño máximo de mensaje que admiten los temas del Bus de servicio es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. Este límite superior para el tamaño del tema es de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio][].
 
 ## de mensajes de una suscripción
 
@@ -338,4 +338,4 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, vea 
 [require-once]: http://php.net/require_once
 [Cuotas del Bus de servicio]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

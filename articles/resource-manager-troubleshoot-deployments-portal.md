@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Solución de problemas de implementaciones con el Portal | Microsoft Azure"
-   description="Describe cómo usar el Portal de Azure para detectar y corregir los problemas de la implementación de Resource Manager."
+   pageTitle="Visualización de operaciones de implementación con el Portal | Microsoft Azure"
+   description="Describe cómo usar el Portal de Azure para detectar los errores de la implementación de Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure
+# Visualización de operaciones de implementación con el Portal de Azure
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [CLI de Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API DE REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Si ha recibido un error al implementar recursos en Azure, debe solucionar los errores que se hayan producido. El Portal de Azure proporciona una interfaz que permite buscar los errores y determinar posibles correcciones con facilidad.
+Si recibe un error al implementar recursos en Azure, quizás desee conocer más detalles acerca de las operaciones de implementación ejecutadas. El Portal de Azure proporciona una interfaz que permite buscar los errores y determinar posibles correcciones con facilidad.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -101,4 +101,4 @@ Para ver las operaciones de implementación, siga estos pasos:
 - Para más información acerca de cómo usar los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Para validar la implementación antes de ejecutarla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

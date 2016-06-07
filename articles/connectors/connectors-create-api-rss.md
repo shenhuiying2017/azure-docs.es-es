@@ -52,11 +52,8 @@ Se pueden escuchar estos eventos:
 
 
 ## Creación de una conexión a RSS
-Para crear aplicaciones lógicas con RSS, primero debe crear una **conexión** y, a continuación, proporcionar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Descripción|
-| ---|---|---|
-Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+>[AZURE.INCLUDE [Pasos para crear una conexión a una fuente RSS](../../includes/connectors-create-api-rss.md)]
 
 >[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
 
@@ -135,4 +132,4 @@ Enumerar todos los elementos de fuente RSS: obtiene todos los elementos de fuent
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

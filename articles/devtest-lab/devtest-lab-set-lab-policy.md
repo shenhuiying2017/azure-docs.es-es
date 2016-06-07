@@ -44,13 +44,13 @@ Para ver (y cambiar) las directivas para un laboratorio, siga estos pasos:
 
 	- [Tamaños de máquina virtual permitidos](#set-allowed-vm-sizes): seleccione la lista de tamaños de máquinas virtuales que se permiten en el laboratorio. Un usuario puede crear máquinas virtuales solo desde esta lista.
 
-	- [Máximo de máquinas virtuales por usuario](#set-maximum-vms-per-user): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio, así como el número máximo de máquinas virtuales que puede crear un usuario.
+	- [Maximum VMs per user](#set-maximum-vms-per-user) (Máximo de máquinas virtuales por usuario): especifique el número máximo de máquinas virtuales que un usuario puede crear.
 
-	- [Total de máquinas virtuales permitidas](#set-total-vms-allowed): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio, así como el número máximo de máquinas virtuales que puede crear un usuario.
+	- [Total VMs allowed](#set-total-vms-allowed) (Total de máquinas virtuales permitidas): especifique el número máximo de máquinas virtuales que se pueden crear para un laboratorio.
 
-	- [Apagado automático](#set-auto-shutdown): especifique la hora a la que se deben apagar las máquinas virtuales del laboratorio actual.
+	- [Auto shutdown](#set-auto-shutdown) (Apagado automático): especifique la hora a la que las máquinas virtuales del laboratorio actual deben apagarse automáticamente.
 
-	- [Inicio automático](#set-auto-start): especifique la hora a la que se deben apagar las máquinas virtuales del laboratorio actual.
+	- [Auto start](#set-auto-start) (Inicio automático): especifique la hora a la que las máquinas virtuales del laboratorio actual deben iniciarse automáticamente.
 
 ## Establecimiento de los tamaños de máquina virtual permitidos
 
@@ -135,4 +135,4 @@ Una vez que defina y aplique las distintas configuraciones de las directivas de 
 - [Configurar imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): Laboratorios de desarrollo y pruebas admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

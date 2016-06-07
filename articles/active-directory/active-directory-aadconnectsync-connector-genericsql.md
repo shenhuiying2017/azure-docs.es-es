@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de SQL genérico
@@ -34,12 +34,12 @@ El conector de SQL genérico permite integrar el servicio de sincronización con
 
 Desde una perspectiva de alto nivel, las siguientes características son compatibles con la versión actual del conector:
 
-| Característica | Soporte técnico |
-| --- | --- |
-| Origen de datos conectado | El conector es compatible con todos los controladores ODBC de 64 bits. Se ha probado con los siguientes elementos: <li>Microsoft SQL Server y SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 y 11g</li><li>MySQL 5.x</li>
-| Escenarios | <li>Administración del ciclo de vida de objetos</li><li>Administración de contraseñas</li> |
-| Operaciones | <li>Importación completa e Importación diferencial, Exportación</li><li>Para Exportación: Agregar, Eliminar, Actualizar y Reemplazar</li><li>Establecer contraseña, Cambiar contraseña</li>
-| Esquema | <li>Detección dinámica de objetos y atributos</li>
+Característica | Soporte técnico
+--- | ---
+Origen de datos conectado | El conector es compatible con todos los controladores ODBC de 64 bits. Se ha probado con los siguientes elementos: <li>Microsoft SQL Server y SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 y 11g</li><li>MySQL 5.x</li>
+Escenarios | <li>Administración del ciclo de vida de objetos</li><li>Administración de contraseñas</li>
+Operaciones | <li>Importación completa e Importación diferencial, Exportación</li><li>Para Exportación: Agregar, Eliminar, Actualizar y Reemplazar</li><li>Establecer contraseña, Cambiar contraseña</li>
+Esquema | <li>Detección dinámica de objetos y atributos</li>
 
 ### Requisitos previos
 
@@ -297,4 +297,4 @@ Si el usuario elige la opción Consulta SQL, la exportación requiere tres consu
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Administración de Bases de datos SQL de Azure con el Portal de Azure clásico"
-	description="Aprenda a usar el Portal de Azure clásico para administrar una base de datos relacional en la nube mediante el Portal de Azure clásico."
+	pageTitle="Administración de bases de datos SQL de Azure con el Portal de Azure"
+	description="Aprenda a usar el Portal de Azure para administrar una base de datos relacional en la nube mediante el Portal de Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
 
 - [Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

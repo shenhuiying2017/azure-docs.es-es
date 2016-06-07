@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte [Manage compute power overview] (Administración de la potencia de proceso (información general)).
+Para más información, consulte [Manage compute power overview][].
 
 
 ## Antes de empezar
@@ -136,4 +136,4 @@ Para otras tareas de administración, consulte [Información general de administ
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->

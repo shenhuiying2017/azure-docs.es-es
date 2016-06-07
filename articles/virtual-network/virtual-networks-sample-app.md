@@ -34,7 +34,7 @@ Esta instrucción simple de PowerShell se puede ejecutar en cualquier máquina v
 **Nota:** si usa los siguientes scripts, esta adición de regla de firewall es la primera instrucción.
 
 ## Iis01: script de instalación de aplicación web
-Este script hará lo siguiente:
+Este script le permitirá hacer lo siguiente:
 
 1.	Abrir IMCPv4 (Ping) en el Firewall de Windows del servidor local para facilitar el proceso de pruebas.
 2.	Instalar IIS y .Net Framework v4.5
@@ -140,7 +140,7 @@ Este script de PowerShell debe ejecutarse localmente mientras el RDP tiene lugar
 
 
 ## AppVM01: script instalación de servidor de archivos
-Este script configura el back-end para esta aplicación simple. Este script hará lo siguiente:
+Este script configura el back-end para esta aplicación simple. Este script le permitirá hacer lo siguiente:
 
 1.	Abrir IMCPv4 (Ping) en el firewall para facilitar el proceso de pruebas.
 2.	Crear un nuevo directorio
@@ -188,4 +188,4 @@ No hay ningún script incluido en esta aplicación de ejemplo para configurar el
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0525_2016-->

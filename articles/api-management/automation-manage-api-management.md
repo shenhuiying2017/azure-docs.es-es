@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/24/2016"
 	ms.author="csand"/>
 
 
@@ -42,6 +42,6 @@ Estos son algunos ejemplos del uso de Administración de API con Automatización
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Administración de API de Azure, siga estos vínculos para obtener más información.
 
-* Consulte el [tutorial de introducción](../automation/automation-first-runbook-graphical) de Automatización de Azure.
+* Consulte el [tutorial de introducción](../automation/automation-first-runbook-graphical.md) de Automatización de Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

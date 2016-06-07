@@ -3,7 +3,7 @@
 	description="Explicación básica de la característica de herramientas de base de datos elástica de Base de datos SQL de Azure, incluida una aplicación de ejemplo de ejecución sencilla." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor="sidneyh"/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/24/2016" 
+	ms.author="sidneyh"/>
 
 # Introducción a las herramientas de base de datos elástica
 
 Este documento le presentaba la experiencia del desarrollador al ejecutar la aplicación de ejemplo. El ejemplo crea una aplicación particionada sencilla y explora las capacidades clave de las herramientas de base de datos elástica. El ejemplo muestra las funciones de la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md)
+
+Para instalar la biblioteca, vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Tenga en cuenta que la biblioteca se instala con la aplicación de ejemplo que se describe a continuación.
 
 ## Requisitos previos
 
@@ -83,6 +85,7 @@ Para obtener más información sobre las herramientas de base de datos elástica
 -    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Anuncio de Escalado elástico)
 -    Canal 9: [vídeo Elastic Scale Overview](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale) (Información general de Escalado elástico)
 -    Foro de discusión: [Foro de Base de datos SQL de Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+-    Para medir el rendimiento: [Creación de bases de datos escalables en la nube](sql-database-elastic-database-client-library.md)
 
 
 <!--Anchors-->
@@ -98,4 +101,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

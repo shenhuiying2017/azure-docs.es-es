@@ -13,7 +13,7 @@
   ms.workload="na"
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="support-article"
   ms.date="05/06/2016"
   ms.author="cjiang"/>
 
@@ -64,7 +64,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 Según las restricciones del servicio en la nube que utilice para crear la nueva máquina virtual, podría recibir un error debido a una de estas dos situaciones.
 
-**Causa 1:** el servicio en la nube está anclado a un clúster concreto o está vinculado a un grupo de afinidad y anclado, por tanto, a un clúster específico por diseño. Por ello, las nuevas solicitudes de recursos de proceso de ese grupo de afinidad se intentan llevar a cabo en el mismo clúster en el que están hospedados los recursos existentes. Sin embargo, el mismo clúster puede no admitir el tamaño solicitado de la máquina virtual o no tener suficiente espacio disponible, lo que generará un error de asignación. Esto es así con independencia de que los nuevos recursos se creen mediante un servicio en la nube nuevo o existente.
+**Causa 1:** El servicio en la nube está anclado a un clúster concreto o está vinculado a un grupo de afinidad y anclado, por tanto, a un clúster específico por diseño. Por ello, las nuevas solicitudes de recursos de proceso de ese grupo de afinidad se intentan llevar a cabo en el mismo clúster en el que están hospedados los recursos existentes. Sin embargo, el mismo clúster puede no admitir el tamaño solicitado de la máquina virtual o no tener suficiente espacio disponible, lo que generará un error de asignación. Esto es así con independencia de que los nuevos recursos se creen mediante un servicio en la nube nuevo o existente.
 
 **Resolución 1:**
 
@@ -73,7 +73,7 @@ Según las restricciones del servicio en la nube que utilice para crear la nueva
 
 > [AZURE.IMPORTANT] Si intentó crear una nueva máquina virtual en un servicio en la nube existente, pero no lo logró y tuvo que crear uno nuevo para la nueva máquina virtual, puede consolidar todas las máquinas virtuales en el mismo servicio en la nube. Para ello, elimine las máquinas virtuales en el servicio en la nube existente y vuelva a capturarlas desde los discos del nuevo servicio en la nube. No obstante, es importante recordar que el nuevo servicio en la nube tendrá un nuevo nombre y dirección VIP, por lo que deberá actualizar esta información en todas las dependencias que utilicen esta información para el servicio en la nube existente.
 
-**Causa 2:** el servicio en la nube está asociado con una red virtual que está vinculada a un grupo de afinidad y anclada, por tanto, a un clúster específico por diseño. Por tanto, todas las nuevas solicitudes de recursos de proceso de ese grupo de afinidad se intentarán llevar a cabo en el mismo clúster en el que están hospedados los recursos existentes. Sin embargo, el mismo clúster puede no admitir el tamaño solicitado de la máquina virtual o no tener suficiente espacio disponible, lo que generará un error de asignación. Esto es así con independencia de que los nuevos recursos se creen mediante un servicio en la nube nuevo o existente.
+**Causa 2:** El servicio en la nube está asociado con una red virtual que está vinculada a un grupo de afinidad y anclada, por tanto, a un clúster específico por diseño. Por tanto, todas las nuevas solicitudes de recursos de proceso de ese grupo de afinidad se intentarán llevar a cabo en el mismo clúster en el que están hospedados los recursos existentes. Sin embargo, el mismo clúster puede no admitir el tamaño solicitado de la máquina virtual o no tener suficiente espacio disponible, lo que generará un error de asignación. Esto es así con independencia de que los nuevos recursos se creen mediante un servicio en la nube nuevo o existente.
 
 **Resolución 2:**
 
@@ -81,4 +81,4 @@ Según las restricciones del servicio en la nube que utilice para crear la nueva
 - Cree la nueva máquina virtual en la nueva red virtual.
 - [Conecte la red virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) a la nueva red virtual. Consulte más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Asimismo, puede [migrar la red virtual basada en un grupo de afinidad a una red virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) y, después, crear la nueva máquina virtual.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

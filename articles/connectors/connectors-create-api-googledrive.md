@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Incorporación de la API de Google Drive a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de Google Drive con parámetros de la API de REST"
-	services=""
+    pageTitle="Incorporación del conector de Google Drive a PowerApps Enterprise o aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de Google Drive con parámetros de la API de REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de Google Drive
-Conéctese a Google Drive para crear archivos, obtener filas, etc. La API de Google Drive puede usarse desde:
+# Introducción al conector de Google Drive
+Conéctese a Google Drive para crear archivos, obtener filas, etc. El conector de Google Drive puede usarse desde:
 
 - Aplicaciones lógicas 
 - PowerApps
@@ -32,9 +32,9 @@ Con Google Drive, puede:
 
 - Compilar el flujo de negocio en función de los datos obtenidos de la búsqueda. 
 - Usar acciones para buscar imágenes, noticias, etc. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede buscar un vídeo y luego usar Twitter para publicar ese vídeo en una fuente de Twitter.
-- Agregar la API de Google Drive a PowerApps Enterprise. Así los usuarios pueden usar esta API en sus aplicaciones. 
+- Agregar el conector de Google Drive a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
 
-Para obtener información sobre cómo agregar una API en PowerApps Enterprise, vaya a [Registro de una API en PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,15 +46,14 @@ Desencadenadores | Acciones
 --- | ---
 None | <ul><li>Crear archivo</li><li>Insertar fila</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Eliminar fila</li><li>Extraer archivo en carpeta</li><li>Obtener contenido de archivo mediante identificador</li><li>Obtener contenido de archivo mediante ruta de acceso</li><li>Obtener metadatos de archivo mediante identificador</li><li>Obtener metadatos de archivo mediante ruta de acceso</li><li>Obtener fila</li><li>Actualizar archivo</li><li>Actualizar fila</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 
 ## Creación de la conexión a Google Drive
 
-Cuando agregue esta API a las aplicaciones lógicas, debe autorizar a estas para que se conecten a Google Drive.
+Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su Google Drive.
 
-1. Inicie sesión en su cuenta de Google Drive.
-2. Permita que las aplicaciones lógicas se conecten a Google Drive y lo usen. 
+>[AZURE.INCLUDE [Pasos para crear una conexión a Google Drive](../../includes/connectors-create-api-googledrive.md)]
 
 Después de crear la conexión, especifique las propiedades de Google Drive, como la ruta de acceso a la carpeta o el nombre de archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
 
@@ -356,4 +355,4 @@ Volver a la [lista de API](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Incorporación de la API de SFTP en las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la API de SFTP con parámetros de la API de REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Incorporación del conector de SFTP a las aplicaciones lógicas | Microsoft Azure"
+    description="Información general del conector de SFTP con parámetros de la API de REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introducción a la API de SFTP
-Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor SFTP, como cargar archivos, eliminar archivos, etc. La API de SFTP se puede usar desde:
+# Introducción al conector de SFTP 
+Conéctese a un servidor SFTP para administrar sus archivos. Puede realizar diferentes tareas en el servidor SFTP, como cargar archivos, eliminar archivos, etc. El conector de SFTP puede usarse desde:
 
 - Aplicaciones lógicas
 
@@ -34,17 +34,17 @@ Para agregar una operación en aplicaciones lógicas, consulte [Creación de una
 
 
 ## Desencadenadores y acciones
-La API de SFTP tiene los siguientes desencadenadores y acciones disponibles.
+El conector de SFTP dispone de los siguientes desencadenadores y acciones.
 
 Desencadenadores | Acciones
 --- | ---
 <ul><li>Cuando se crea o modifica un archivo </li></ul> | <ul><li>Crear archivo</li><li>Copiar archivo</li><li>Eliminar el archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Actualizar archivo</li><li>Cuando se crea o modifica un archivo</li></ul>
 
-Todas las API admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML.
 
 
 ## Creación de una conexión a SFTP
-Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguientes:
+Cuando agregue este conector a las aplicaciones lógicas, escriba los valores siguientes:
 
 |Propiedad| Obligatorio|Descripción|
 | ---|---|---|
@@ -53,7 +53,11 @@ Cuando agregue esta API a las aplicaciones lógicas, escriba los valores siguien
 |Password | Sí | Escriba la contraseña del nombre de usuario.|
 |Huella digital de la tecla del host del servidor SSH | Sí | Especifique la huella digital de la tecla del host pública para el servidor SSH. <br/><br/>Normalmente, el administrador del servidor puede proporcionarle esta tecla. También puede utilizar las herramientas ```WinSCP``` o ```ssh-keygen-g3 -F``` para obtener la huella digital de la tecla. | 
 
-Después de crear la conexión, especifique las propiedades de SFTP, como la ruta de acceso a la carpeta o el archivo. En la **referencia de la API de REST** de este tema se describen estas propiedades.
+Aquí se indican los pasos detallados para crear la conexión:
+
+>[AZURE.INCLUDE [Pasos para crear una conexión a SFTP](../../includes/connectors-create-api-sftp.md)]
+
+Después de crear la conexión, especifique las propiedades de SFTP, como la ruta de acceso a la carpeta o el archivo. En la **referencia de la API de REST** de este tema, se describen estas propiedades.
 
 >[AZURE.TIP] Puede usar esta misma conexión de SFTP en otras aplicaciones lógicas.
 
@@ -134,7 +138,7 @@ Recupera el contenido de un archivo de SFTP mediante el identificador. ```GET: /
 
 
 ### Obtener contenido de archivo mediante la ruta de acceso
-Recupera contenido de archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
+Recupera el contenido de archivo de SFTP mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
 | ---|---|---|---|---|---|
@@ -248,6 +252,6 @@ Desencadena un flujo al modificar un archivo en SFTP. ```GET: /datasets/default/
 
 
 ## Pasos siguientes
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -475,22 +475,9 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
 * [Página de servicio del Bus de servicio][sbwacom]  
 * [Utilización de las colas del Bus de servicio][sbwacomqhowto]  
 
-Para obtener más información sobre los escenarios de niveles múltiples o sobre cómo implementar una aplicación en un servicio en la nube, consulte:
+Para más información sobre los escenarios de niveles múltiples, consulte:
 
 * [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]  
-
-Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure.
-
-Para implementar la aplicación que ha creado en este tutorial como un proyecto web estándar en lugar de como un rol web de servicio en la nube, siga los pasos de este tutorial con las diferentes siguientes:
-
-1. Cuando crea el proyecto, elija la plantilla del proyecto **Aplicación web de ASP.NET MVC** en la categoría **Web** en lugar de la plantilla **Servicio en la nube** en la categoría **Nube**. A continuación, siga las mismas instrucciones para crear la aplicación MVC hasta que llegue a la sección **Administrador de configuración de nube**.
-
-2. Cuando crea el rol de trabajo, créelo de una nueva solución independiente, similar a las instrucciones originales para el rol web. Tenga en cuenta, sin embargo, que está creando solo el rol de trabajo en el proyecto del servicio en la nube. A continuación, siga las mismas instrucciones para crear el rol de trabajo.
-
-3. Puede probar por separado el front-end y el back-end, o bien puede ejecutar ambos simultáneamente en instancias separadas de Visual Studio.
-
-Para obtener información sobre cómo implementar el front-end en un Sitio web de Azure, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md). Para obtener información sobre cómo implementar el back-end en un Servicio en la nube de Azure, consulte [Aplicación de niveles múltiples .NET con colas del Bus de servicio de Azure][mutitierstorage].
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -545,4 +532,4 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

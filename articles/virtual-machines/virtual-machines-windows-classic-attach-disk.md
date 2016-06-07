@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/17/2016"
 	ms.author="cynthn"/>
 
 # Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica
@@ -23,17 +23,16 @@
 
 Si necesita un disco de datos adicional, puede conectar un disco vacío o un disco existente con datos a una máquina virtual. En ambos casos, se trata de archivos .vhd que residen en una cuenta de almacenamiento de Azure. En el caso de un disco nuevo, una vez que lo conecta, también deberá inicializarlo para que esté listo para su uso por parte de una máquina virtual de Windows.
 
-Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. **No use el disco temporal para almacenar datos**. Como su nombre así lo indica, el disco temporal solo ofrece almacenamiento temporal. No ofrece redundancia ni copias de seguridad porque no reside en Almacenamiento de Azure.
+Para obtener más detalles acerca de los discos, consulte [Acerca de los discos y discos duros virtuales para máquinas virtuales](virtual-machines-windows-about-disks-vhds.md).
 
 ## Tutorial en vídeo
 
-A continuación se facilita una guía detallada de los pasos de este tutorial.
+A continuación se facilita una [guía detallada en vídeo](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) de los pasos de este tutorial.
 
-[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Inicialización de un nuevo disco de datos en Windows Server
+## Initialize the disk
 
 1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual que ejecuta Windows Server][logon].
 
@@ -61,4 +60,4 @@ A continuación se facilita una guía detallada de los pasos de este tutorial.
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

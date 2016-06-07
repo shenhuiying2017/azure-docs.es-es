@@ -33,9 +33,11 @@ Con la sección **scheduler** de JSON de la actividad, puede especificar una pro
 
 Como se indicó anteriormente, especificando una programación para la actividad crea una serie de ventanas de saltos. Las ventanas de saltos son series de intervalos de tiempo de tamaño fijo, no superpuestos y contiguos. Estas ventanas de saltos lógicas para la actividad se denominan **ventanas de actividad**.
  
-Para la ventana de actividad actualmente en ejecución, se puede acceder al intervalo de tiempo asociado a la ventana de actividad con las variables del sistema **WindowStart** y **WindowEnd** del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad y en scripts asociados con la actividad, incluido la selección de datos de a partir de conjuntos de datos de entrada y de salida que representan datos de serie temporal.
+Para la ventana de actividad actualmente en ejecución, se puede acceder al intervalo de tiempo asociado a la ventana de actividad con las variables del sistema [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) y [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) del JSON de la actividad. Puede usar estas variables con distintos fines en el JSON de la actividad y en scripts asociados con la actividad, incluido la selección de datos de a partir de conjuntos de datos de entrada y de salida que representan datos de serie temporal.
 
-La propiedad **scheduler** es compatible con las mismas subpropiedades que la propiedad **availability** en un conjunto de datos. Para más información sobre las diferentes propiedades disponibles para el programador como, por ejemplo, la programación con una diferencia horaria específica y el establecimiento del modo para alinear el procesamiento al principio del intervalo de la ventana de actividad o al final, consulte el artículo [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability).
+La propiedad **scheduler** es compatible con las mismas subpropiedades que la propiedad **availability** en un conjunto de datos. Para obtener más información sobre las diferentes propiedades disponibles para el programador como, por ejemplo, la programación con una diferencia horaria específica y el establecimiento del modo para alinear el procesamiento al principio del intervalo de la ventana de actividad o al final, consulte el artículo [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability).
+
+La especificación de las propiedades del programador para una actividad es opcional actualmente. Si las especifica, deben coincidir con la cadencia que indique en la definición del conjunto de datos de salida. En este momento, el conjunto de datos de salida es lo que impulsa la programación, por lo que debe crear un conjunto de datos de salida incluso si la actividad no genera ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
 
 ## Conjuntos de datos y segmentos de datos de series temporales
 
@@ -52,9 +54,11 @@ Cada unidad de datos consumida y producida por la ejecución de una actividad se
 
 ![Programador de disponibilidad](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-Los segmentos de datos de cada hora para el conjunto de datos de entrada y salida se muestran en el diagrama anterior. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento y la ejecución de la actividad 10-11AM en curso que produce el segmento de salida 10-11AM.
+Los segmentos de datos de cada hora para el conjunto de datos de entrada y salida se muestran en el diagrama anterior. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento y la ejecución de la actividad 10-11 AM en curso que produce el segmento de salida 10-11 AM.
 
-Se puede acceder al intervalo de tiempo asociado con el segmento actual que se produce en el JSON del conjunto de datos con las variables **SliceStart** y **SliceEnd**.
+Se puede acceder al intervalo de tiempo asociado al segmento actual que se está produciendo en el JSON del conjunto de datos con las variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) y [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+
+Actualmente Factoría de datos requiere que el programa especificado en la actividad coincida exactamente con el programa especificado en la disponibilidad del conjunto de datos de salida. Esto significa que WindowStart, WindowEnd, SliceStart y SliceEnd siempre se asignan al mismo período de tiempo y un segmento de salida única.
 
 Para obtener más información sobre las diferentes propiedades disponibles para la sección availability, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md).
 
@@ -220,11 +224,11 @@ El artículo [Creación de canalizaciones](data-factory-create-pipelines.md) int
  
 Puede establecer la fecha de inicio para el período activo de la canalización en el pasado y la factoría de datos calculará automáticamente (rellenará) todos los segmentos de datos en el pasado y comenzará a procesarlos.
 
-Con los segmentos de datos con el fondo relleno, es posible configurarlos para que se ejecuten en paralelo. Puede hacerlo estableciendo la propiedad de simultaneidad en la sección **policy** de JSON de la actividad, tal como se muestra en el artículo [Creación de canalizaciones](data-factory-create-pipelines.md).
+Con los segmentos de datos con el fondo relleno, es posible configurarlos para que se ejecuten en paralelo. Puede hacerlo estableciendo la propiedad [concurrency](data-factory-create-pipelines.md) en la sección **policy** del JSON de la actividad, tal como se muestra en el artículo **Canalizaciones y actividades en Data Factory de Azure**.
 
 ## Error al volver a ejecutar segmentos de datos y el seguimiento de dependencias de datos automático
 
-Puede supervisar la ejecución de los segmentos de manera visual enriquecida. Consulte el artículo [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener más información.
+Puede supervisar la ejecución de los segmentos de manera visual enriquecida. Consulte [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) o [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para obtener más información.
 
 Considere el ejemplo siguiente, que muestra dos actividades. Activity1 produce un conjunto de datos de series temporales con segmentos de salida que se han consumido como entrada por Activity2 para generar el conjunto de datos de series temporales de salida final.
 
@@ -235,9 +239,9 @@ Considere el ejemplo siguiente, que muestra dos actividades. Activity1 produce u
 El diagrama anterior muestra que en tres segmentos recientes se produjo un error al generar el segmento 9-10 AM para **Dataset2**. Factoría de datos realiza automáticamente un seguimiento de la dependencia para el conjunto de datos de series temporales y, como resultado, retiene el comienzo de la ejecución de la actividad para el segmento de nivel inferior de 9-10 AM.
 
 
-Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para obtener más información acerca de cómo iniciar las repeticiones, entender las transiciones de estado para segmentos de datos, consulte el artículo [Supervisión y administración](data-factory-monitor-manage-pipelines.md).
+Las herramientas de administración y supervisión de Factoría de datos permiten profundizar en los registros de diagnóstico para que el segmento con error pueda encontrar la causa raíz del problema y solucionarlo. Una vez solucionado el problema, puede iniciar fácilmente la ejecución de la actividad para generar el segmento con error. Para obtener más información sobre cómo iniciar las repeticiones y entender las transiciones de estado para segmentos de datos, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) o [Uso de la Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para obtener más información.
 
-Cuando haya vuelto a realizar la ejecución y el segmento 9-10AM de dataset2 esté preparado, Factoría de datos inicia la ejecución del segmento dependiente 9-10AM en el conjunto de datos final, tal como se muestra en el diagrama siguiente.
+Cuando haya iniciado la repetición de la ejecución y el segmento 9-10 AM para dataset2 esté preparado, la factoría de datos inicia la ejecución del segmento dependiente 9-10 AM en el conjunto de datos final, tal como se muestra en el diagrama siguiente.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -249,7 +253,7 @@ Puede encadenar dos actividades haciendo que el conjunto de datos de salida de u
 Por ejemplo, considere el siguiente caso:
  
 1.	La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de **salida** **D2**.
-2.	La canalización P2 incluye la actividad A2 que requiere una **entrada**del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
+2.	La canalización P2 incluye la actividad A2 que requiere una **entrada** del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
  
 En este escenario, la actividad A1 se ejecutará cuando los datos externos estén disponibles y se alcance la frecuencia de disponibilidad programada. La actividad A2 se ejecutará cuando estén disponibles los segmentos programados de D2 y se alcance la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecutará para ese segmento hasta que esté disponible.
 
@@ -553,7 +557,7 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
 
 ## Funciones y variables del sistema de Data Factory   
 
-Consulte el artículo [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md) para obtener la lista de funciones y variables del sistema admitidas por Data Factory de Azure.
+Consulte el artículo [Data Factory de Azure: funciones y variables del sistema](data-factory-functions-variables.md) para obtener una lista de funciones y variables del sistema admitidas por Data Factory de Azure.
 
 ## Profundización de la dependencia de datos
 
@@ -622,7 +626,7 @@ De forma similar a los conjuntos de datos que produce Factoría de datos, los se
 
 
 ## Canalización de una vez
-Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Consulte [Programación de actividades](#scheduling-and-execution) para más información. También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
+Puede crear y programar una canalización que se ejecute periódicamente (cada hora, diariamente, etc.) entre las horas de inicio y finalización que especifique en la definición de la canalización. Consulte [Programación de actividades](#scheduling-and-execution) para obtener más información. También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización, tal y como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
 
 	{
 	    "name": "CopyPipeline",
@@ -698,4 +702,4 @@ Tenga en cuenta lo siguiente:
 
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

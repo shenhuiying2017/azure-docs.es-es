@@ -1,6 +1,6 @@
 <properties
    pageTitle="Administrador de recursos de clúster de Service Fabric: afinidad | Microsoft Azure"
-   description="Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric"
+   description="Información general sobre la configuración de afinidad para servicios de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,26 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Configuración y uso de la afinidad de servicio en Service Fabric
 
-La afinidad es una de esas cosas que, al menos a primera vista, no parece muy lógico en un entorno de microservicios. Esto se debe a que no tiene mucho sentido en un entorno de microservicios. La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios.
+La afinidad es una de esas cosas que, al menos a primera vista, no parece muy lógico en un entorno de microservicios. La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. Además, también puede usarse en ciertos casos como una optimización legítima para mejorar el rendimiento de servicios, aunque esto conlleva sus efectos secundarios.
 
 Supongamos que desea llevar a Service Fabric una aplicación de mayor tamaño, o bien una aplicación que simplemente no se diseñó teniendo en mente los microservicios. Esto es bastante habitual, y ya ha habido varios clientes (internos y externos) en esta situación. Para empezar, traslade toda la aplicación al entorno y haga que se empaquete y se ejecute. A continuación, divídala en servicios más pequeños que se comuniquen entre sí.
 
 Ahora es cuando surge un problema. Generalmente pertenece a una de estas categorías:
 
 1. El componente X de la aplicación monolítica tenía una dependencia sin documentar en el componente Y que acabamos de convertir en un servicio y mover por el clúster. Ahora se ha roto.
-2.	Estos elementos se comunican a través de (canalizaciones con nombre local | memoria compartida | archivos en disco), pero se necesita poder realizar la actualización de forma independiente para acelerar el proceso.
-3.	Todo es correcto, pero estos dos componentes están muy fragmentados o son muy sensibles al rendimiento y, por eso, al moverlos a servicios separados, el rendimiento se reduce.
+2.	Estos elementos se comunican a través de (canalizaciones con nombre local | memoria compartida | archivos en disco), pero se necesita poder realizar la actualización de forma independiente para acelerar el proceso. Eliminaré la dependencia física más adelante.
+3.	Todo es correcto, pero estos dos componentes están muy fragmentados o son muy sensibles al rendimiento y, por eso, al moverlos a servicios separados, el rendimiento se reduce y ahora la aplicación general no se puede usar.
 
-En todos estos casos, no nos interesa perder nuestro trabajo de refactorización ni volver al monolito, pero nos conviene recomponer las cosas para parezcan locales hasta que podemos arreglarlo todo.
+En todos estos casos, no nos interesa perder nuestro trabajo de refactorización ni volver al monolito, pero nos conviene recomponer las cosas para que parezcan locales hasta que podamos arreglarlo todo.
 
 ¿Qué debe hacer? Podemos intentar activar la afinidad.
 
-## Cómo funciona la afinidad
+## Configuración de la afinidad
 Para configurar la afinidad, debe definir una relación de afinidad entre dos servicios diferentes. Es como si hiciera que un servicio "apuntara" a otro y dijera "Este servicio solo se puede ejecutar donde se esté ejecutando ese otro". A veces se denominan relaciones de tipo primario-secundario (en las que el elemento secundario apunta al elemento primario). Lo que esto hace es garantizar que las réplicas o las instancias de un servicio se colocan en los mismos nodos que las réplicas o las instancias del servicio con las que tiene afinidad.
 
 ``` csharp
@@ -49,11 +49,10 @@ La afinidad se representa mediante uno de varios esquemas de correlación y tien
 ![Modos de afinidad y consecuencias][Image1]
 
 ### Estado de mejor esfuerzo deseado
-Existen algunas diferencias entre las arquitecturas monolíticas y las de afinidad. Casi todas se reducen al hecho de que una relación de afinidad es la mejor opción: como son fundamentalmente servicios diferentes, pueden producir errores de forma independiente, por poner un ejemplo. Otras cosas pueden hacer que las diferentes réplicas del servicio se separen, como las limitaciones de capacidad.
-
+Existen algunas diferencias entre las arquitecturas monolíticas y las de afinidad. Casi todas se reducen al hecho de que una relación de afinidad es la mejor opción: como son fundamentalmente servicios diferentes, pueden producir errores de forma independiente, por poner un ejemplo. Otros factores pueden hacer que las diferentes réplicas o instancias de los servicios con afinidad se separen, como las limitaciones de capacidad. En estos casos, aunque exista una relación de afinidad, no se aplicará temporalmente debido a las otras restricciones. Si más adelante es posible aplicar las demás restricciones y la afinidad, esto se corregirá automáticamente.
 
 ### Cadenas frente a estrellas
-Actualmente no es posible crear cadenas de relaciones de afinidad. Esto significa que un servicio que es un elemento secundario de una relación de afinidad no puede ser un elemento primario de otra relación de afinidad. Como resultado, si desea crear este tipo de relación, debe crearla como una estrella, en vez de como una cadena. Para ello, haga que el elemento secundario más bajo se convierta en el elemento primario del elemento secundario "central".
+Actualmente no es posible crear cadenas de relaciones de afinidad. Esto significa que un servicio que es un elemento secundario de una relación de afinidad no puede ser un elemento primario de otra relación de afinidad. Si desea crear este tipo de relación, debe crearla como una estrella, en vez de como una cadena. Para ello, haga que el elemento secundario más bajo se convierta en el elemento primario del elemento secundario "central". Dependiendo de la disposición de los servicios, puede que sea necesario crear un servicio "marcador de posición" que actúe como el elemento primario de varios elementos secundarios.
 
 ![Cadenas frente a estrellas en el contexto de las relaciones de afinidad][Image2]
 
@@ -64,8 +63,9 @@ Lo último que debe tener en cuenta sobre la afinidad es que no se admiten relac
 
 ## Pasos siguientes
 - Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones del Administrador de recursos de clúster disponibles. [Más información sobre cómo configurar los servicios](service-fabric-cluster-resource-manager-configure-services.md).
+- Los grupos de aplicaciones son una opción más eficaz en muchas de las ocasiones en las que los usuarios intentan usar la afinidad, como al limitar servicios para que se ejecuten en un pequeño conjunto de máquinas o al intentar agregar la carga de una colección de servicios. Consulte [Application Groups](service-fabric-cluster-resource-manager-application-groups.md) (Grupos de aplicaciones).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

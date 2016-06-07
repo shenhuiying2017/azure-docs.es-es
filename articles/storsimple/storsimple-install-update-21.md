@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Instalación de Update 2.1 en el dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 En este tutorial se explica cómo instalar Update 2.1 en un dispositivo StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico y usando el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
 
-Update 2.1 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco provocan interrupciones y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
+Update 2.1 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
 
 > [AZURE.IMPORTANT]
 
@@ -42,7 +42,7 @@ Si va a aplicar Update 2 o una versión posterior (incluida Update 2.1), Microso
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Compruebe que el dispositivo esté ejecutando la **serie StorSimple 8000 Update 2.1 (6.3.9600.17704)**. También se debe modificar **Fecha de última actualización:**. 
+12. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 2.1 (6.3.9600.17705)**. También se debe modificar **Fecha de última actualización:**. 
 
 	Si está realizando la actualización desde una versión anterior a Update 2, también verá que están disponibles las actualizaciones del modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
 
@@ -78,30 +78,32 @@ El método de revisión implica los tres pasos siguientes:
 
 #### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2
 
-Si el dispositivo ejecuta Update 2, debe descargar e instalar las siguientes revisiones en el orden indicado:
+**Si el dispositivo ejecuta Update 2**, debe descargar e instalar las siguientes revisiones en el orden indicado:
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3162954 | Actualización de software | Normal | ~45 min |
+| 1\. | KB3162954 | Actualización de software &#42; | Normal | ~45 min |
 | 2\. | KB3146621 | Paquete iSCSI | Normal | ~20 min |
 | 3\. | KB3103616 | Paquete WMI | Normal | ~12 min |
 
 
+ & #42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` y `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La actualización de software de dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` debe instalarse antes que el agente de Cis y Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+
 #### Descarga de actualizaciones para un dispositivo que ejecuta un software anterior a Update 2
 
-Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0 o 1.1, debe descargar e instalar la actualización de firmware y el controlador LSI. Esta actualización ya está instalada si ejecuta Update 1.2 o 2.
+**Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0 o 1.1**, debe descargar e instalar la actualización de firmware y el controlador LSI. Esta actualización ya está instalada si ejecuta Update 1.2 o 2.
  
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
 | 4\. | KB3121900 | Controlador LSI y firmware | Normal | ~20 min |
 
 
-<br></br> Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0, 1.1 o 1.2, debe descargar e instalar la corrección de Storport y Spaceport. Ya estarán instaladas si ejecuta Update 2.
+<br></br> **Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0, 1.1 o 1.2**, debe descargar e instalar la revisión de Storport y Spaceport. Ya estarán instaladas si ejecuta Update 2.
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5\. | KB3090322 | Corrección de Spaceport </br> Windows Server 2012 R2 | Normal | ~20 min |
-| 6\. | KB3080728 | Corrección de Storport </br> Windows Server 2012 R2 | Normal | ~20 min |
+| 5\. | KB3090322 | Revisión de Spaceport </br> Windows Server 2012 R2 | Normal | ~20 min |
+| 6\. | KB3080728 | Revisión de Storport </br> Windows Server 2012 R2 | Normal | ~20 min |
 
 
 
@@ -128,6 +130,6 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 ## Pasos siguientes
 
-Obtenga más información sobre el [lanzamiento de Update 2.1](storsimple-update21-release-notes.md).
+Más información sobre el [lanzamiento de la actualización 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

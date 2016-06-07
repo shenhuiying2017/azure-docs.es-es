@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/25/2016"
 	ms.author="antonba"/>
 
 # Configuración de conexiones VPN en Administración de API de Azure
@@ -83,4 +83,4 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

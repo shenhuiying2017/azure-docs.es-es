@@ -1,7 +1,7 @@
 <properties
 
 	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
+	description="How to create and manage groups to manage Azure users using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -14,21 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 
 # Administración de grupos en Azure Active Directory
 
-Una de las principales características de Azure Active Directory (Azure AD) es la capacidad para administrar el acceso a los recursos. Estos recursos pueden ser objetos en el directorio, o bien recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure, sitios de SharePoint o recursos locales. Además, el propietario de un recurso puede asignar acceso a un recurso a un grupo de Azure AD. Esto concede a los miembros de ese grupo acceso al recurso. A continuación, el propietario del grupo administra la pertenencia al grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar usuarios a sus recursos.
+Una de las características de la administración de usuarios de Azure Active Directory (Azure AD) es la capacidad para crear grupos de usuarios. Después, puede utilizar un grupo para asignar licencias a una clase de usuarios. También puede usarlos para asignar permiso de acceso a:
+
+- Recursos, como objetos en el directorio;
+- Recursos externos al directorio, como aplicaciones de SaaS, servicios de Azure, sitios de SharePoint o recursos locales.
+
+Además, el propietario de un recurso puede asignar acceso a un recurso a un grupo de Azure AD. Esto concede a los miembros de ese grupo acceso al recurso. A continuación, el propietario del grupo administra la pertenencia al grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar usuarios a sus recursos.
 
 ## ¿Cómo se crea un grupo?
 
-**Para crear un grupo**
+Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el portal de cuentas de Windows Intune o el Portal de Azure clásico, en función de los servicios a los que se haya suscrito su organización. Para más información acerca del uso de portales diferentes del de Azure para administrar su directorio de Azure Active Directory, consulte [Administración del directorio de Azure AD](active-directory-administer.md).
 
-Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el portal de cuentas de Windows Intune o el portal de Azure, en función de los servicios a los que se haya suscrito su organización. Para obtener más información acerca del uso de portales para administrar su directorio de Azure Active Directory, consulte [Administración de su directorio de Azure AD](active-directory-administer.md).
-
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y el nombre del directorio de su organización.
 
 2. Seleccione la pestaña **Grupos**.
 
@@ -41,7 +44,7 @@ Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el port
 
 **Para agregar un usuario individual a un grupo**
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y el nombre del directorio de su organización.
 
 2. Seleccione la pestaña **Grupos**.
 
@@ -49,12 +52,12 @@ Esta tarea puede realizarse mediante el portal de cuentas de Office 365, el port
 
 4. Seleccione **Agregar miembros**.
 
-5. En la página **Agregar miembros**, seleccione el nombre del usuario o el grupo que quiere agregar como miembro de este grupo y asegúrese de que este nombre se agrega al panel **Seleccionado**.
+5. En la página **Agregar miembros**, seleccione el nombre del usuario o el grupo que quiera agregar como miembro de este grupo y asegúrese de que este nombre se agregue al panel **Seleccionado**.
 
 
 **Para quitar un usuario individual de un grupo**
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y el nombre del directorio de su organización.
 
 2. Seleccione la pestaña **Grupos**.
 
@@ -72,13 +75,13 @@ En Azure AD, puede configurar fácilmente una regla sencilla (es decir, una regl
 > [AZURE.NOTE] Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. En este momento, no se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones.
 >
 > La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
-> 
+>
 > - Al administrador que administra la regla en un grupo
 > - A todos los usuarios seleccionados por la regla para que sean miembros del grupo
 
 **Para habilitar la pertenencia dinámica para un grupo**
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y luego el nombre del directorio de su organización.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** y el nombre del directorio de su organización.
 
 2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
 
@@ -102,4 +105,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

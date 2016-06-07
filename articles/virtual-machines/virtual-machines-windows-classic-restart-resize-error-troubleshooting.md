@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-windows"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
    ms.date="05/12/2016"
@@ -81,4 +81,4 @@ Puede consolidar todas las máquinas virtuales en el mismo servicio en la nube. 
 
 Si el servicio en la nube existente no está asociado a una red virtual basada en regiones, tendrá que eliminar sus máquinas virtuales y volver a crearlas en el nuevo servicio en la nube desde los discos. No obstante, es importante recordar que el nuevo servicio en la nube tendrá un nuevo nombre y dirección VIP, por lo que deberá actualizar esta información en todas las dependencias que utilicen esta información para el servicio en la nube existente.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

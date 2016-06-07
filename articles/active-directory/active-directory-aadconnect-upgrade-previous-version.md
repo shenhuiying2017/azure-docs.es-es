@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="05/12/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -23,11 +23,11 @@ Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actu
 
 Hay algunas estrategias distintas para actualizar Azure AD Connect.
 
-| Método | Descripción |
-| --- | --- |
-| [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes con una instalación rápida, este es el método más fácil. |
-| [Actualización local](#in-place-upgrade) | Si tiene un solo servidor, actualice la instalación en contexto en el mismo servidor. |
-| [Migración oscilante](#swing-migration) | Con dos servidores, puede preparar uno de ellos con la nueva versión y cambiar el servidor activo cuando esté listo.
+Método | Descripción
+--- | ---
+[Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes con una instalación rápida, este es el método más fácil.
+[Actualización local](#in-place-upgrade) | Si tiene un solo servidor, actualice la instalación en contexto en el mismo servidor.
+[Migración oscilante](#swing-migration) | Con dos servidores, puede preparar uno de ellos con la nueva versión y cambiar el servidor activo cuando esté listo.
 
 Para conocer los permisos necesarios, consulte [Azure AD Connect: cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
@@ -85,4 +85,4 @@ Debe asegurarse de que la configuración sea la misma en ambos servidores:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

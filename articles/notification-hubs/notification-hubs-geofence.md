@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/16/2016"
+	ms.date="05/31/2016"
 	ms.author="dendeli"/>
     
 # Notificaciones push geovalladas con los Centros de notificaciones de Azure y datos espaciales de Bing
@@ -378,8 +378,8 @@ Ante todo, debe asegurarse de que las geovallas sean dinámicas. Esto requerirá
 
 En segundo lugar, cuando se trabaja para garantizar que se realiza la entrega a los participantes adecuados, puede querer dirigirlos mediante el [etiquetado](notification-hubs-routing-tag-expressions.md).
 
-La solución anterior describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que no hemos limitado el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](msdn.microsoft.com/es-ES/windows/uwp/maps-and-location/set-up-a-geofence).
+La solución anterior describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que no hemos limitado el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Para más información acerca de las funcionalidades de Centros de notificaciones, consulte nuestro [portal de documentación](https://azure.microsoft.com/documentation/services/notification-hubs/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

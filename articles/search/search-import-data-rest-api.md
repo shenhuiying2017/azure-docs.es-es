@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Carga de datos en Búsqueda de Azure con la API de REST
@@ -168,4 +168,4 @@ Para más información sobre las acciones de documentos y las respuestas de éxi
 ## Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

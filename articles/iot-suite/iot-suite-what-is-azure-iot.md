@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -39,11 +39,11 @@ Examine estos recursos para obtener más información sobre IoT en Azure:
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Centro de IoT de Azure]: https://azure.microsoft.com/services/iot-hub/
-[Centros de eventos de Azure]: https://azure.microsoft.com/services/event-hubs/
-[Análisis de transmisiones de Azure]: https://azure.microsoft.com/services/stream-analytics/
-[Aprendizaje automático de Azure]: https://azure.microsoft.com/services/machine-learning/
-[Almacenamiento de Azure]: https://azure.microsoft.com/services/storage/
+[Centro de IoT de Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Centros de eventos de Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
+[Análisis de transmisiones de Azure]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[Aprendizaje automático de Azure]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Almacenamiento de Azure]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

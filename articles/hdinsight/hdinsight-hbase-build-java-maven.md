@@ -14,7 +14,7 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="04/19/2016"
+ms.date="05/18/2016"
 ms.author="larryfr"/>
 
 #Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)
@@ -551,10 +551,9 @@ Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y co
             $resourceGroup = $hdi.ResourceGroup
             $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
             $container=$hdi.DefaultStorageContainer
-            $storageAccountKey=Get-AzureRmStorageAccountKey `
+            $storageAccountKey=(Get-AzureRmStorageAccountKey `
                 -Name $storageAccountName `
-                -ResourceGroupName $resourceGroup `
-                | %{ $_.Key1 }
+            -ResourceGroupName $resourceGroup)[0].Value
             # Get the resource group, in case we need that
             $return.resourceGroup = $resourceGroup
             # Get the storage context, as we can't depend
@@ -632,4 +631,4 @@ Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
 
 Use el parámetro `-showErr` para ver el error estándar (STDERR) producido mientras se ejecutaba el trabajo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

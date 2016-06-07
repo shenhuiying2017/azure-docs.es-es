@@ -153,7 +153,7 @@ Es posible hacer una copia de seguridad y restaurar las máquinas virtuales con 
 
 Con el fin de volver a crear completamente las máquinas virtuales después de restaurarlas en el disco, siga estos pasos:
 
-1. Restaure los discos desde un almacén de Servicios de recuperación mediante [PowerShell](backup-azure-vms-automation.md/#restore-an-azure-vm).
+1. Restaure los discos desde un almacén de Servicios de recuperación mediante [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm).
 
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
 	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
@@ -167,4 +167,4 @@ Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de 
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

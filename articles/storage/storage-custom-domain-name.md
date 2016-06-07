@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 
@@ -116,4 +116,4 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 -   [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

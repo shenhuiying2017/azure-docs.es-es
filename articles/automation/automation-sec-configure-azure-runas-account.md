@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="06/01/2016"
     ms.author="magoedte"/>
 
 # Autenticación de Runbooks con una cuenta de ejecución de Azure
@@ -68,19 +68,16 @@ El procedimiento siguiente actualiza una cuenta de Automatización existente y c
 
 Antes de continuar, compruebe lo siguiente:
 
-1. Ha descargado e instalado el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297).
-2. Ha creado una cuenta de Automatización. Se hará referencia a esta cuenta como valor para los parámetros-AutomationAccountName y - ApplicationDisplayName en el siguiente script.
-3. Ha instalado [Azure Automation Authoring Toolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2) (kit de herramientas de creación de Automatización de Azure).
+1. Si ejecuta Windows 7, asegúrese de que ha descargado e instalado [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855). Si ejecuta Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 o Windows 7 SP1, asegúrese de que [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) está disponible para instalarse.
+2. Azure PowerShell 1.0. Para más información acerca de esta versión y cómo instalarla, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). 
+3. Ha creado una cuenta de Automatización. Se hará referencia a esta cuenta como valor para los parámetros-AutomationAccountName y - ApplicationDisplayName en el siguiente script.
 
-```
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
-```
 
 El script de PowerShell configurará los siguientes elementos:
 
 * Una aplicación de Azure AD que podrá autenticarse con el certificado autofirmado, crear una cuenta de la entidad principal para esta aplicación en Azure AD y la asignación del rol Colaborador (se puede cambiar a propietario o a cualquier otro rol) a esta cuenta de su suscripción actual. Para más información, consulte el artículo [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).  
-* Un recurso de certificado de Automatización de la cuenta especificada denominado **AzureRunAsCertificate**, que contiene el certificado que se usa en la entidad de servicio.
-* Un recurso de conexión de Automatización de la cuenta especificada denominado **AzureRunAsConnection**, que contiene los valores applicationId, tenantId, subscriptionId y la huella digital del certificado.  
+* Un recurso de certificado de Automatización en la cuenta de Automatización especificada denominado **AzureRunAsCertificate**, que contiene el certificado que se usa en la entidad de servicio.
+* Un recurso de conexión de Automatización en la cuenta de Automatización especificada denominado **AzureRunAsConnection**, que contiene los valores applicationId, tenantId, subscriptionId y la huella digital del certificado.  
 
 
 ### Ejecución del script de PowerShell
@@ -167,7 +164,7 @@ El script de PowerShell configurará los siguientes elementos:
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
-2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** con derechos de usuario elevados.
+2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** con permisos de usuario elevados.
 3. En el shell de línea de comandos de PowerShell elevado, vaya a la carpeta que contiene el script que se creó en el paso 1 y ejecútelo después de cambiar los valores de los parámetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* y *-CertPlainPassword*.<br>
 
     ```
@@ -179,7 +176,7 @@ El script de PowerShell configurará los siguientes elementos:
     ```   
 <br>
 
-    >[AZURE.NOTE] Se le solicitará que se autentique en Azure después de ejecutar el script. *Debe* iniciar sesión con una cuenta de administrador de servicios en la suscripción. <br>
+    >[AZURE.NOTE] Se le solicitará que se autentique en Azure después de ejecutar el script. *Debe* iniciar sesión con una cuenta de la suscripción en la que sea Administrador de servicios. <br>
 4. Cuando el script se complete correctamente, pase a la sección siguiente para probar y comprobar la nueva configuración de credenciales.
 
 ### Comprobación de la autenticación
@@ -187,8 +184,8 @@ A continuación, realizaremos una pequeña prueba para confirmar que puede auten
 
 1. En el Portal de Azure, abra la cuenta de Automatización que creó anteriormente.  
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
-3. Haga clic en el botón **Agregar un Runbook** para crear un runbook y, en la hoja **Agregar Runbook**, seleccione **Crear un nuevo Runbook**.
-4. Asigne al runbook el nombre *Test-SecPrin-Runbook* y seleccione PowerShell en **Tipo de Runbook**. Haga clic en **Crear** para crear el runbook.
+3. Cree un nuevo Runbook. Para ello, haga clic en el botón **Agregar un Runbook** y, en la hoja **Agregar Runbook**, seleccione **Crear un nuevo Runbook**.
+4. Asigne al Runbook el nombre *Test-SecPrin-Runbook* y seleccione PowerShell en **Tipo de Runbook**. Haga clic en **Crear** para crear el Runbook.
 5. En la hoja **Editar Runbook de PowerShell**, pegue el siguiente código en el lienzo:<br>
 
     ```
@@ -197,12 +194,12 @@ A continuación, realizaremos una pequeña prueba para confirmar que puede auten
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```  
 <br>
-6. Para guardar el runbook, haga clic en **Guardar**.
+6. Haga clic en **Guardar** para guardar el Runbook.
 7. Haga clic en **Panel de prueba** para abrir la hoja **Prueba**.
 8. Haga clic en **Iniciar** para iniciar la prueba.
 9. Se crea un [trabajo de runbook](automation-runbook-execution.md) y su estado se muestra en el panel.  
-10. El estado del trabajo se iniciará como *En cola*, lo que indica que espera a que haya algún trabajo de runbook en la nube disponible. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
-11. Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, se debería ver el estado **Completado**.<br> ![Prueba de Runbook de entidad de seguridad](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
+10. El estado del trabajo se iniciará como *En cola*, lo que indica que está esperando a que haya algún trabajo de Runbook disponible en la nube. A continuación, pasará a *Iniciando* cuando un trabajador de runbook solicite el trabajo y, a continuación, a *En ejecución* cuando el runbook empiece a ejecutarse realmente.  
+11. Cuando se complete el trabajo del runbook, se mostrará su resultado. En nuestro caso, debería aparecer el estado **Completado**.<br> ![Prueba de Runbook de entidad de seguridad](media/automation-sec-configure-azure-runas-account/runbook-test-results.png)<br>
 12. Cierre la hoja **Prueba** para volver al lienzo.
 13. Cierre la hoja **Editar Runbook de PowerShell**.
 14. Cierre la hoja **Test-SecPrin-Runbook**.
@@ -240,10 +237,10 @@ Puede usar el código de ejemplo actualizado siguiente, procedente del runbook d
    } 
    ```
 
-El script incluye dos líneas adicionales de código para admitir la referencia a un contexto de la suscripción, de forma que pueda trabajar fácilmente entre varias suscripciones. Un recurso de variable denominado SubscriptionId contiene el identificador de la suscripción y, después de la instrucción de cmdlet Add-AzureRmAccount, el [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) se indica con el conjunto de parámetros *-SubscriptionId*. Si el nombre de variable es demasiado genérico, puede modificarlo para que incluya un prefijo u otra convención de nomenclatura que facilite la identificación. Como alternativa, puede usar el conjunto de parámetros -SubscriptionName en lugar de -SubscriptionId con un recurso de variable correspondiente.
+El script incluye dos líneas adicionales de código para admitir la referencia a un contexto de la suscripción, de forma que pueda trabajar fácilmente entre varias suscripciones. Un recurso de variable denominado SubscriptionId contiene el identificador de la suscripción y, después de la instrucción del cmdlet Add-AzureRmAccount, el [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) se declara con el conjunto de parámetros *-SubscriptionId*. Si el nombre de variable es demasiado genérico, puede modificarlo para que incluya un prefijo u otra convención de nomenclatura que facilite la identificación. Como alternativa, puede usar el conjunto de parámetros -SubscriptionName en lugar de -SubscriptionId con un recurso de variable correspondiente.
 
 ## Pasos siguientes
 - Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
-- Para más información acerca del control de acceso basado en rol en Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
+- Para más información acerca del control de acceso basado en roles de Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

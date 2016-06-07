@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/24/2016"
 	ms.author="nitinme"/>
 
 
 # Envío de trabajos de Spark remotamente a un clúster de HDInsight Spark en Linux mediante Livy (versión preliminar)
 
-Un clúster Apache Spark en HDInsight de Azure incluye Livy, una interfaz REST para enviar trabajos de forma remota a un clúster Spark desde cualquier ubicación. Para obtener documentación detallada, vea [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Un clúster Apache Spark en HDInsight de Azure incluye Livy, una interfaz REST para enviar trabajos de forma remota a un clúster Spark. Para obtener documentación detallada, vea [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Puede usar Livy para ejecutar shells de Spark interactivos o enviar trabajos por lotes que se ejecutarán en Spark. Este artículo trata acerca de cómo utilizar Livy para enviar trabajos por lotes. La sintaxis siguiente utiliza Curl para realizar llamadas REST al punto de conexión de Livy.
 
@@ -69,6 +69,14 @@ Antes de enviar un trabajo por lotes, debe cargar el archivo jar de aplicación 
 **Ejemplo**:
 
 	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
+
+## Livy y la alta disponibilidad
+
+Livy proporciona alta disponibilidad para los trabajos de Spark que se ejecuten en el clúster. He aquí un par de ejemplos:
+
+* Si el servicio Livy deja de funcionar después de haber enviado un trabajo de forma remota a un clúster Spark, dicho trabajo continúa ejecutándose en segundo plano. Cuando se restablece el funcionamiento de Livy, restaura el estado del trabajo e informa de ello.
+
+* Los cuadernos de Jupyter Notebook para HDInsight cuentan con la tecnología de Livy en el backend. Si uno de tales cuadernos se ejecuta en un trabajo de Spark y se reinicia el servicio Livy, el cuaderno seguirá ejecutando las celdas de código.
 
 ## Mostrar un ejemplo
 
@@ -189,4 +197,4 @@ Lleve a cabo los siguiente pasos.
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->
