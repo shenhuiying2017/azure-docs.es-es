@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/22/2016"
+   ms.date="05/31/2016"
    ms.author="stepsic"/>
 
-#Aplicación de API de JavaScript
+# Aplicación de API de JavaScript
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-La aplicación de API de JavaScript proporciona una manera sencilla de ejecutar expresiones sencillas de JavaScript *mientras se ejecuta la aplicación lógica*.
+La aplicación de API de JavaScript proporciona una manera sencilla de ejecutar expresiones sencillas de JavaScript *mientras se ejecuta una aplicación lógica*.
 
-##¿Cuándo debe usar esta aplicación de API?
-El escenario clave para esta aplicación de API es cuando se desea que el ciclo de vida del código que escribe sea el mismo que el de la aplicación lógica, y *no* desea que se llame el código en otros escenarios.
+## ¿Cuándo debe usar esta aplicación de API?
+El escenario clave para el uso de esta aplicación de API es cuando quiere que el ciclo de vida del código que escribe sea el mismo que el de la aplicación lógica, y *no* quiere que se llame al código en otros escenarios.
 
 Por otro lado, si desea un fragmento de código reutilizable que tenga un ciclo de vida independiente de la aplicación lógica, debe usar la aplicación de API de WebJobs para crear expresiones de código simples y llamarlas desde la aplicación lógica.
 
@@ -31,11 +31,11 @@ Por último, si desea incluir paquetes adicionales, también necesita usar la ap
 
 Utilice la [aplicación de API de C#](app-service-logic-cs-api.md) si prefiere escribir las expresiones en C#.
 
-##Creación de una aplicación de API de JavaScript
+## Creación de una aplicación de API de JavaScript
 Para usar la aplicación de API de JavaScript, deberá crear primero una instancia de ella. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API en JavaScript Azure Marketplace.
 
-##Uso de la aplicación de API de JavaScript en la superficie del diseñador de aplicaciones lógicas
-###Desencadenador
+## Uso de la aplicación de API de JavaScript en la superficie del diseñador de aplicaciones lógicas
+### Desencadenador
 Puede crear un desencadenador que el servicio de Aplicaciones lógicas sondee (en el intervalo que defina) y, si devuelve cualquier otro contenido, la aplicación lógica se ejecuta. De lo contrario, espera hasta el siguiente intervalo de sondeo para volver a comprobarlo.
 
 Las entradas para el desencadenador son las siguientes:
@@ -48,7 +48,7 @@ Por ejemplo, podría disponer de un desencadenador simple que solo ejecute la ap
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
-###Acción
+### Acción
 
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
@@ -90,13 +90,13 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 La acción devuelve el JSON que devolvió a partir de la función. Por lo tanto, en la aplicación de API de Yammer, puede hacer referencia a `@body('javascriptapi')` para la propiedad **Datos adjuntos**.
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Después de crear el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
  
 
 <!--References -->
 
 <!--Links -->
-[Creating a Logic App]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

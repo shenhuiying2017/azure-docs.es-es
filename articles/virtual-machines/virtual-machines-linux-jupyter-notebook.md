@@ -29,8 +29,6 @@ Azure ofrece un servicio que puede usar para [comenzar rápidamente a usar Jupyt
 
 Si el servicio de cuaderno no sirve en el escenario en cuestión, siga leyendo este artículo, que mostrará cómo implementar Jupyter Notebook en Microsoft Azure, mediante máquinas virtuales de Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creación y configuración de una máquina virtual en Azure
@@ -41,7 +39,7 @@ El primer paso es crear una máquina virtual (VM) que se ejecute en Azure. Esta 
 
 Siga las instrucciones que aparecen [aquí][portal-vm-linux] para crear una máquina virtual de la distribución *Ubuntu*. En este tutorial se usa Ubuntu Server 14.04 LTS. Asumiremos que el nombre de usuario es *azureuser*.
 
-Una vez que se implementa la máquina virtual, es necesario abrir una regla de seguridad en el grupo de seguridad de red. En el Portal de Azure, vaya a **Grupos de seguridad de red** y abra la pestaña del grupo de seguridad que corresponde a la máquina virtual. Debe agregar una regla de seguridad de entrada con la configuración siguiente: **TCP** para el protocolo, **\*** para el puerto de origen (público) y **9999** para el puerto de destino (privado).
+Una vez que se implementa la máquina virtual, es necesario abrir una regla de seguridad en el grupo de seguridad de red. En el Portal de Azure, vaya a **Grupos de seguridad de red** y abra la pestaña del grupo de seguridad que corresponde a la máquina virtual. Debe agregar una regla de seguridad de entrada con la configuración siguiente: **TCP** para el protocolo, ***** para el puerto de origen (público) y **9999** para el puerto de destino (privado).
 
 ![Instantánea](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
@@ -124,7 +122,7 @@ Se le solicitará una contraseña y su confirmación y, luego, se imprimirá la 
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-A continuación, editaremos el archivo de configuración del perfil, que es el archivo `jupyter_notebook_config.py` del directorio en que se encuentra. Observe que es posible que este archivo no exista. Si es así, simplemente créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente. **Asegúrese de reemplazar c.NotebookApp.password en la configuración con sha1 del paso anterior**.
+A continuación, editaremos el archivo de configuración del perfil, que es el archivo `jupyter_notebook_config.py` del directorio en que se encuentra. Observe que es posible que este archivo no exista. Si es así, simplemente créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente. **Asegúrese de reemplazar c.NotebookApp.password en la configuración por sha1 del paso anterior**.
 
     c = get_config()
 
@@ -199,4 +197,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [repositorio]: https://github.com/ipython/ipython
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

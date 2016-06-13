@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 	
 # Nueva versión de esquema 2015-08-01-preview
@@ -27,7 +27,9 @@ La nueva versión de esquema y API de Aplicaciones lógicas presenta varias mejo
 
 ## 1\. Paso a las conexiones de API
 
-El cambio más importante es que ya no es necesario implementar aplicaciones de API en la suscripción de Azure para usar las API. Hay dos maneras de usar las API: *API administradas y *API web personalizadas.
+El cambio más importante es que ya no es necesario implementar aplicaciones de API en la suscripción de Azure para usar las API. Las API se pueden usar de dos formas:
+* API administradas
+* API web personalizadas
 
 Cada una de ellas se controla de forma algo diferente ya que sus modelos de administración y hospedaje son diferentes. Una ventaja de este modelo es que ya no está limitado a los recursos que se implementan en el grupo de recursos.
 
@@ -66,11 +68,11 @@ Dentro de la definición estas acciones se denominan `APIConnection`. A continua
 }
 ```
 
-La parte de las entradas que es específica de las conexiones de API es el objeto `host`. Este contiene dos partes: `api` y `connection`.
+La parte de las entradas que es exclusiva de las conexiones de API es el objeto `host`. Este contiene dos partes: `api` y `connection`.
 
-La parte `api` contiene la URL de tiempo de ejecución del lugar donde se hospeda esa API administrada. Puede ver todas las API administradas disponibles para usted mediante la llamada a `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+La parte `api` contiene la URL de tiempo de ejecución del lugar donde se hospeda la API administrada. Puede ver todas las API administradas disponibles mediante una llamada a `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Cuando use una API, puede tener o no **parámetros de conexión** definidos. Si no tiene, no se requiere ninguna **conexión**. Si tiene, tendrá que crear una conexión. Cuando cree esa conexión, tendrá el nombre que elija y hará referencia a ella en el objeto `connection` dentro del objeto `host`. Para crear una conexión en un grupo de recursos, llame a:
+Cuando use una API, puede tener, o no, **parámetros de conexión** definidos. Si no los tiene, no se requiere ninguna **conexión**. Si tiene, tendrá que crear una conexión. Cuando cree la conexión, tendrá el nombre que elija y hará referencia a ella en el objeto `connection` dentro del objeto `host`. Para crear una conexión en un grupo de recursos, llame a:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
@@ -93,7 +95,7 @@ Con el siguiente cuerpo:
 }
 ```
 
-### Implementación de las API administradas en una plantilla de Azure Resource Manager
+### Implementación de API administradas en una plantilla de Azure Resource Manager
 
 Puede crear una aplicación completa en una plantilla de ARM siempre que no requiera inicio de sesión interactivo. Si requiere inicio de sesión, puede configurar todo con la plantilla de ARM, pero aún así tendrá que visitar el portal para autorizar las conexiones.
 
@@ -188,11 +190,12 @@ Puede crear una aplicación completa en una plantilla de ARM siempre que no requ
 
 En este ejemplo puede ver que las conexiones son recursos normales que residen en su grupo de recursos. Hacen referencia a las API administradas disponibles en su suscripción.
 
-### API web personalizadas
+### Sus API web personalizadas
 
-Si utiliza sus propias API (en concreto, las que no están administradas por Microsoft), debe emplear la acción **HTTP** integrada para llamarlas. Para tener una buena experiencia, debe exponer un punto de conexión de Swagger para la API. De esta forma, el diseñador de aplicaciones lógicas podrá representar las entradas y salidas de la API. Sin un punto de conexión de Swagger, el diseñador solo podrá mostrar las entradas y salidas como objetos JSON opacos.
+Si utiliza sus propias API (en concreto, las que no están administradas por Microsoft), debe usar la acción **HTTP** integrada para llamarlas. Para tener una buena experiencia, debe exponer un punto de conexión de Swagger para la API. De esta forma, el diseñador de aplicaciones lógicas podrá representar las entradas y salidas de la API. Sin un punto de conexión de Swagger, el diseñador solo podrá mostrar las entradas y salidas como objetos JSON opacos.
 
-Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl`: ```
+Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl`:
+```
 {
    "actions": {
         "mycustomAPI": {
@@ -215,7 +218,8 @@ Si hospeda su API web en el **Servicio de aplicaciones**, se mostrará automáti
 
 Si anteriormente implementó una aplicación de API, puede llamarla mediante la acción **HTTP**.
 
-Por ejemplo, si utiliza Dropbox para mostrar archivos, tendrá algo parecido a esto en su definición de versión de esquema **2014-12-01-preview**: ```
+Por ejemplo, si utiliza Dropbox para enumerar archivos, tendrá algo parecido a esto en su definición de versión de esquema **2014-12-01-preview**:
+```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
     "contentVersion": "1.0.0.0",
@@ -296,7 +300,7 @@ Este enfoque debería funcionar para todas las acciones de aplicación de API. S
 
 ## 2\. Cambio de nombre de Repeat a Foreach
 
-En la versión de esquema anterior, recibimos numerosos comentarios de los clientes diciendo que la instrucción **Repeat** era confusa y no captaba adecuadamente el significado de "para cada bucle". Por eso, le hemos cambiado el nombre por **Foreach**. Por ejemplo:
+En la versión de esquema anterior, recibimos numerosos comentarios de los clientes en que se indicaba que la instrucción **Repeat** era confusa y no captaba adecuadamente el significado de "para cada bucle". Por eso, le hemos cambiado el nombre por **Foreach**. Por ejemplo:
 
 ```
 {
@@ -330,10 +334,10 @@ Ahora se escribiría como:
 }
 ```
 
-Anteriormente, la función `@repeatItem()` se utilizó para hacer referencia al elemento actual que se repite. Esto se ha simplificado a solo `@item()`.
+Anteriormente, la función `@repeatItem()` se utilizaba para hacer referencia al elemento actual que se itera. Esto se ha simplificado a solo `@item()`.
 
 ### Referencia a las salidas de Foreach
-Para simplificarlo aún más, las salidas de las acciones de **Foreach** no se incluirán en un objeto llamado **repeatItems**. Esto significa que, mientras que las salidas de la instrucción Repeat anterior eran:
+Para simplificarlo aún más, las salidas de las acciones de **Foreach** no se encapsularán en un objeto llamado **repeatItems**. Esto significa que, mientras que las salidas de la instrucción Repeat anterior eran:
 
 ```
 {
@@ -409,16 +413,16 @@ Ahora puede hacer esto en su lugar:
 }
 ```
 
-Con estos cambios, las funciones `@repeatItem()`, `@repeatBody()` y `@repeatOutputs()` se eliminan.
+Con estos cambios, se eliminan las funciones `@repeatItem()`, `@repeatBody()` y `@repeatOutputs()`.
 
 ## 3\. Agente de escucha HTTP nativo 
-Las funcionalidades de agente de escucha HTTP ahora están integradas, así que ya no necesita implementar una aplicación de API de agente de escucha HTTP. Consulte aquí [los detalles completos de cómo crear puntos de conexión de aplicación lógica que se pueden llamar](app-service-logic-http-endpoint.md).
+Las funcionalidades de agente de escucha HTTP ahora están integradas, así que ya no necesita implementar una aplicación de API de agente de escucha HTTP. Consulte aquí [los detalles completos de cómo hacer que los puntos de conexión de Aplicaciones lógicas se pueden llamar](app-service-logic-http-endpoint.md).
 
-Con estos cambios, la función `@accessKeys()` se elimina y se ha sustituido por la función `@listCallbackURL()` a efectos de obtener el punto de conexión (cuando es necesario). Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si quiere ejecutar el flujo de trabajo con `/run`, deberá tener un desencadenador `manual`, `apiConnectionWebhook` o `httpWebhook`.
+Con estos cambios, se elimina la función `@accessKeys()` y se sustituye por la función `@listCallbackURL()` a efectos de obtener el punto de conexión (cuando sea necesario). Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si desea `/run` el flujo de trabajo, necesitará tener uno de estos tres desencadenadores: `manual`, `apiConnectionWebhook` o `httpWebhook`.
 
-## 4\. Llamada a los flujos de trabajo secundarios
+## 4\. Llamada a flujos de trabajo secundarios
 
-Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir a ese flujo de trabajo, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica deseada. Con la nueva versión de esquema, el motor de Aplicaciones lógicas generará automáticamente una firma SAS en tiempo de ejecución del flujo de trabajo secundario, lo que significa que no tendrá que pegar ningún secreto en la definición. Aquí tiene un ejemplo:
+Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir a cada uno de ellos, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica deseada. Con la nueva versión de esquema, el motor de Aplicaciones lógicas generará automáticamente una firma SAS en tiempo de ejecución del flujo de trabajo secundario, lo que significa que no tendrá que pegar ningún secreto en la definición. Aquí tiene un ejemplo:
 
 ```
 "mynestedwf" : {
@@ -444,19 +448,19 @@ Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir 
 }
 ```
 
-Una segunda mejora es proporcionaremos a los flujos de trabajo secundarios acceso completo a la solicitud entrante. Esto significa que puede pasar parámetros en la sección *queries* y en el objeto *headers* y que puede definir completamente todo el cuerpo.
+Una segunda mejora es proporcionaremos a los flujos de trabajo secundarios acceso completo a la solicitud entrante. Eso significa que puede pasar parámetros en la sección *queries* y en el objeto *headers*, y que puede definir completamente todo el cuerpo.
 
-Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora deberá definir un punto de conexión de desencadenamiento en el flujo de trabajo para que el elemento primario realice la llamada. Esto significa, por lo general, agregar un desencadenador de tipo **manual** y luego usarlo en la definición del elemento primario. Tenga en cuenta que, en concreto, la propiedad `host` tiene un valor `triggerName` porque siempre debe especificar qué desencadenador va a invocar.
+Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora deberá definir un punto de conexión de desencadenamiento en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, esto significa agregar un desencadenador del tipo **manual** y luego usarlo en la definición del elemento primario. Tenga en cuenta que la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar qué desencadenador va a invocar.
 
 ## Otros cambios
 
 ### Nueva propiedad queries
-Todos los tipos de acción admiten ahora una nueva entrada llamada **queries**. Esta puede ser un objeto estructurado en lugar de tener que ensamblar la cadena a mano.
+Todos los tipos de acción admiten una nueva entrada llamada **queries**. Esta puede ser un objeto estructurado en lugar de tener que ensamblar la cadena a mano.
 
 ### Cambio de nombre de la función parse()
-Como pronto agregaremos más tipos de contenido, el nombre de la función `parse()` a cambiado a `json()`.
+Dado que pronto se van a agregar más tipos de contenido, el nombre de la función `parse()` se ha cambiado a `json()`.
 
 ## Próximamente: API de Enterprise Integration
 En este momento, no disponemos aún de versiones administradas de API de Enterprise Integration (como AS2). Pronto llegarán, como se explica en el [mapa de ruta](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Mientras tanto, puede usar sus API de BizTalk implementadas existentes mediante la acción HTTP, como se ha explicado anteriormente en "Uso de las aplicaciones de API ya implementadas".
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

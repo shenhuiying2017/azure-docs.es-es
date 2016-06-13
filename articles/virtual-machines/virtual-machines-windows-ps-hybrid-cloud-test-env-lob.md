@@ -19,8 +19,6 @@
 
 # Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar una aplicación de línea de negocio (LOB) basada en web Microsoft Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -130,7 +128,7 @@ Después, una SQL1 al dominio de Active Directory CORP con estos comandos en el 
 
 Utilice la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
 
-Después de reiniciar, use el Portal de Azure para conectarse a SQL1 *con la cuenta de administrador local*.
+Después de reiniciar, use el Portal de Azure para conectarse a SQL1 con la *cuenta de administrador local*.
 
 A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
 
@@ -218,6 +216,6 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 
 ## Paso siguiente
 
-- Implementar el [entorno de producción](virtual-machines-windows-lob-overview.md)
+- Implemente el [entorno de producción](virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

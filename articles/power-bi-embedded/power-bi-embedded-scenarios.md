@@ -25,7 +25,6 @@ Estos son algunos escenarios para usar **Power BI Embedded** en sus aplicaciones
 - Se pueden incrustar informes totalmente interactivos que se crearon en Power BI Desktop dentro de su aplicación mediante un nuevo modelo de autenticación de token de aplicación.
 - Los clientes y proveedores de software independiente que crean aplicaciones de acceso al cliente, pueden usar el servicio de **Power BI Embedded** y el SDK de Power BI para incrustar informes interactivos. Para obtener información sobre cómo hacerlo, consulte [Get started with Microsoft Power BI Embedded preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md).
 - Como desarrollador, puede usar el marco de trabajo de visualización de Power BI para crear visualizaciones personalizadas que pueden usarse en su propia aplicación. Consulte [Amplíe Power BI con elementos visuales personalizados](https://powerbi.microsoft.com/custom-visuals/).
-- Actualice siempre los informes interactivos dentro de las aplicaciones. Con **Power BI Embedded**, puede crear su propio panel en tiempo real con informes de Power BI interactivos. Como un ISV, esto proporciona a sus clientes información actualizada de los dispositivos, sensores y aplicaciones.
 
 ## Otras referencias
 
@@ -33,4 +32,4 @@ Estos son algunos escenarios para usar **Power BI Embedded** en sus aplicaciones
 - [Get started sample (Ejemplo de introducción)](power-bi-embedded-get-started.md)
 - [Amplíe Power BI con elementos visuales personalizados](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,8 +3,8 @@ pageTitle="Consideraciones sobre el uso de imágenes de máquina virtual de Orac
 description="Obtenga información acerca de las configuraciones y las limitaciones admitidas de una máquina virtual de Oracle en Windows Server en Azure antes de efectuar la implementación."
 services="virtual-machines-windows"
 documentationCenter=""
-manager=""
-authors="bbenz"
+manager="timlt"
+authors="rickstercdn"
 tags="azure-service-management"/>
 
 <tags
@@ -13,16 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+ms.date="05/17/2016"
+ms.author="rclaus" />
 
 #Consideraciones variadas sobre las imágenes de máquina virtual de Oracle
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
-
-En este artículo se tratan las consideraciones para máquinas virtuales de Oracle en Azure, que se basan en las imágenes de software de Oracle proporcionadas por Microsoft, con Windows Server como sistema operativo.
+En este artículo se tratan las consideraciones que se deben tener con las máquinas virtuales de Oracle en Azure, que se basan en imágenes de software de Oracle proporcionadas por Oracle.
 
 -  Imágenes de máquina virtual de Oracle Database
 -  Imágenes de máquina virtual de Oracle WebLogic Server
@@ -47,13 +45,9 @@ Aunque el enfoque más sencillo consiste en conectar un disco único a la máqui
 
 Considere dos enfoques diferentes para la conexión de varios discos, en función de si desea establecer prioridades en el rendimiento de las operaciones de lectura o escritura para la base de datos:
 
-- **ASM de Oracle en sí** es probable que permita obtener un mejor rendimiento de la operación de escritura, pero un peor IOPS para las operaciones de lectura en comparación con el enfoque consistente en usar grupos de almacenamiento de Windows Server 2012. En la ilustración siguiente se describe de manera lógica esta disposición. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
+- **ASM de Oracle en sí** es probable que permita obtener un mejor rendimiento de la operación de escritura, pero un peor IOPS para las operaciones de lectura en comparación con el enfoque consistente en usar matrices de discos. En la ilustración siguiente se describe de manera lógica esta disposición. ![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
 
-- **ASM de Oracle con grupos de almacenamiento de Windows Server 2012** es probable que permita obtener un mejor rendimiento IOPS de operación de lectura si la base de datos realiza principalmente operaciones de lectura, o si para usted es importante el rendimiento de las operaciones de lectura por encima de las operaciones de escritura. Se requiere una imagen basada en el sistema operativo Windows Server 2012. Consulte [Implementar espacios de almacenamiento en un servidor independiente](http://technet.microsoft.com/library/jj822938.aspx) para obtener más información sobre los grupos de almacenamiento. En esta disposición, en primer lugar se "alinean" dos subconjuntos iguales de discos conectados como discos físicos en dos volúmenes de grupos de almacenamiento y, a continuación, los volúmenes se agregan a un grupo de discos ASM. En la ilustración siguiente se describe de manera lógica esta disposición.
-
-	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)
-
->[AZURE.IMPORTANT] Evalúe el equilibrio entre el rendimiento de escritura y de lectura en función del caso. Los resultados reales pueden variar al usar estos métodos.
+>[AZURE.IMPORTANT] Evalúe el equilibrio entre el rendimiento de escritura y de lectura en función del caso. Los resultados reales pueden variar al usar este método.
 
 ### Consideraciones sobre la alta disponibilidad y la recuperación ante desastres
 
@@ -65,7 +59,7 @@ Con la Protección de datos de Oracle, se puede lograr alta disponibilidad con u
 
 ##Imágenes de máquina virtual de Oracle WebLogic Server
 
--  **La agrupación en clústeres solo se admite en Enterprise Edition.** Si usa imágenes con licencia de Microsoft de WebLogic Server (en concreto, aquellas con Windows Server como sistema operativo), dispondrá de licencia para usar la agrupación en clústeres WebLogic solo cuando use WebLogic Server Enterprise Edition. No use la agrupación en clústeres con WebLogic Server Standard Edition.
+-  **La agrupación en clústeres solo se admite en Enterprise Edition.** Tiene licencia para usar la agrupación en clústeres de WebLogic solo cuando utiliza la versión Enterprise Edition de WebLogic Server. No use la agrupación en clústeres con WebLogic Server Standard Edition.
 
 -  **Tiempos de espera de conexión:** si la aplicación se basa en las conexiones a extremos públicos de otro servicio en la nube de Azure (por ejemplo, un servicio de nivel de base de datos), Azure puede cerrar estas conexiones abiertas después de 4 minutos de inactividad. Esto puede afectar a las características y las aplicaciones basadas en grupos de conexiones, ya que es posible que las conexiones que están inactivas durante un período superior a ese límite no sigan siendo válidas. Si esto afecta a la aplicación, considere la posibilidad de habilitar la lógica "keep-alive" en sus grupos de conexiones.
 
@@ -108,4 +102,4 @@ Para obtener información relacionada, vea el artículo de la KB **860340.1** en
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

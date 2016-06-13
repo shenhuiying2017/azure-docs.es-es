@@ -32,16 +32,24 @@ Hay varias maneras de desencadenar una aplicación lógica desde otra aplicació
 
 - [Respuesta sincrónica de las solicitudes de las aplicaciones lógicas](app-service-logic-http-endpoint.md)
 
+## Acciones personalizadas y de ejecución prolongada
+
+- [Creación de una acción personalizada](app-service-logic-create-api-app.md)
+
+## Implementación y administración de una aplicación lógica
+
+- [Creación de una implementación de aplicación lógica](app-service-logic-create-deploy-template.md)
+- [Diagnóstico de problemas con una aplicación lógica](app-service-logic-diagnosing-failures.md)
+- [Implementación de la aplicación lógica desde Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Supervisión de una aplicación lógica](app-service-logic-monitor-your-logic-apps.md).
+
 ## Tipos de contenido, conversiones y transformaciones
 
-El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de las aplicaciones lógicas contiene muchas funciones que permiten convertir y trabajar con distintos tipos de contenido. Además, el motor hará todo que lo posible para conservar los tipos de contenido, ya que los datos pasan por el flujo de trabajo.
+El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de Aplicaciones lógicas contiene muchas funciones que permiten convertir y trabajar con distintos tipos de contenido. Además, el motor hará todo que lo posible para conservar los tipos de contenido, ya que los datos pasan por el flujo de trabajo.
 
-- [Control de tipos de contenido](app-service-logic-content-type.md) como application/json, application/xml, and plain/text.
-- [Lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs)
-
-## Acciones de ejecución prolongada
-
-- [Creación de una acción de ejecución prolongada](app-service-logic-create-api-app.md)
+- [Control de encabezados Content-Type](app-service-logic-content-type.md) como application/json, application/xml, y plain/text.
+- [Creación de definiciones de flujos de trabajo](app-service-logic-author-definitions.md)
+- [Referencia de lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs)
 
 ## Lotes y bucles
 
@@ -49,9 +57,13 @@ El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-## Integración con flujos de trabajo anidados y funciones de Azure
+## Integración con Funciones de Azure
 
 - [Integración de funciones de Azure](app-service-logic-azure-functions.md)
+
+### Escenarios
+
+- [Función de Azure como desencadenador de Bus de servicio](app-service-logic-scenario-function-sb-trigger.md)
 
 ## HTTP, REST y SOAP
 
@@ -60,4 +72,4 @@ El [lenguaje de definición de flujo de trabajo](http://aka.ms/logicappsdocs) de
 
 Seguiremos agregando ejemplos y escenarios a este documento. Utilice la sección de comentarios que aparece a continuación para indicarnos qué ejemplos o escenarios que le gustaría ver aquí.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

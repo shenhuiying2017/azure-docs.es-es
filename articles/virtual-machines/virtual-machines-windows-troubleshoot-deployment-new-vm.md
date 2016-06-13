@@ -23,8 +23,6 @@
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Recopilación de registros de auditoría
@@ -72,7 +70,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 - Si no se puede cambiar el tamaño de la máquina virtual solicitada:
   - Detenga todas las máquinas virtuales en el conjunto de disponibilidad. Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Máquinas virtuales** > *su máquina virtual* > **Detener**.
   - Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
-  - Inicie la nueva máquina virtual en primer lugar y, a continuación, seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
+  - Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
 
 **Causa 2:** el clúster no tiene recursos disponibles.
 
@@ -83,4 +81,4 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   - Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
   - Agregue la nueva máquina virtual a la misma red virtual.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

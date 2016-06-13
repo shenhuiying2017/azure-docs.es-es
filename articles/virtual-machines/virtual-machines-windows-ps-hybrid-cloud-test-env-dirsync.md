@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
  
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar la sincronización de directorios (DirSync) de Office 365 con la sincronización de contraseña hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
@@ -44,7 +42,7 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración de la versión de prueba de Office 365 FastTrack.
 3.	Configuración del servidor DirSync (DS1).
 
-Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en la página para [probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: configuración del entorno de nube híbrida
 
@@ -132,7 +130,7 @@ A continuación, habilite la sincronización de directorios de la versión de pr
 4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, verá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
-Después, en el símbolo del sistema de Windows PowerShell de DC1, ejecute estos comandos **uno por uno** para crear una nueva unidad organizativa denominada "contoso\_users" y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
+Después, en el símbolo del sistema de Windows PowerShell de DC1, ejecute estos comandos **uno por uno** para crear una nueva unidad organizativa denominada contoso\_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -181,4 +179,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 - Implementar esta carga de trabajo [en producción](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

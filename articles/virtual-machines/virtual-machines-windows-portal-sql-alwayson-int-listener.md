@@ -20,8 +20,6 @@
 
 En este tema, se explica cómo puede crear un equilibrador de carga interno para un grupo de disponibilidad de SQL Server AlwaysOn implementado en máquinas virtuales de Azure que se ejecute en el modelo de Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad AlwaysOn necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clásico.
-
 Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server AlwaysOn implementado en las máquinas virtuales de Azure con el modelo de Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para crear automáticamente el grupo de disponibilidad AlwaysOn en Azure Resource Manager. Esta plantilla crea automáticamente el equilibrador de carga interno.
 
 Si lo prefiere, puede [configurar manualmente un grupo de disponibilidad AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
@@ -56,7 +54,7 @@ En esta parte de la tarea, realizará las siguientes operaciones en el Portal de
 
 El primer paso consiste en crear el equilibrador de carga. En el Portal de Azure, abra el grupo de recursos que contiene las máquinas virtuales de SQL Server. En el grupo de recursos, haga clic en **Agregar**.
 
-- Busque **equilibrador de carga**. En los resultados, seleccione el **equilibrador de carga** publicado por **Microsoft**.
+- Busque el **equilibrador de carga**. En los resultados, seleccione el **Equilibrador de carga**, publicado por **Microsoft**.
 
 - En la hoja **Equilibrador de carga**, haga clic en **Crear**.
 
@@ -136,7 +134,7 @@ El siguiente paso consiste en crear un sondeo. Este sondeo establece el modo en 
 
 - Haga clic en **Aceptar**. 
 
->[AZURE.NOTE] Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de Firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información.
+>[AZURE.NOTE] Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información.
 
 Azure crea el sondeo. Azure usará el sondeo para comprobar qué servidor SQL Server tiene el agente de escucha del grupo de disponibilidad.
 
@@ -157,7 +155,7 @@ Configure las reglas de equilibrio de carga. Las reglas de equilibrio de carga d
 | **Puerto** | *1433* |
 | **Puerto back-end** | *1433*. Tenga en cuenta que esta opción estará deshabilitada porque la regla usa **IP flotante (Direct Server Return)**. |
 | **Sondeo** | Utilice el nombre del sondeo que creó para este equilibrador de carga. |
-| **Session persistance** (Persistencia de sesión) | **None** | 
+| **Session persistance (Persistencia de sesión)** | **None** | 
 | **Tiempo de espera de inactividad (minutos)** | *4* | 
 | **IP flotante (Direct Server Return)** | **Enabled** | 
 
@@ -236,7 +234,7 @@ Una vez que el recurso de agente de escucha del grupo de disponibilidad está co
 - Abra SQL Server Management Studio y conéctese a la réplica principal.
 
 
-- Acceda a **Alta disponibilidad de AlwaysOn** | **Grupos de disponibilidad** | **Agentes de escucha del grupo de disponibilidad**.
+- Vaya a **Alta disponibilidad de AlwaysOn** | **Grupos de disponibilidad** | **Agentes de escucha del grupo de disponibilidad**.
 
 
 - Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
@@ -267,4 +265,4 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 - Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

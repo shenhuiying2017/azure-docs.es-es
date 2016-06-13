@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="05/31/2016" 
 	ms.author="spelluru"/>
 
 # Actividades de movimiento de datos
@@ -44,18 +44,18 @@ La actividad de copia copia los datos de un almacén de datos de **origen** a un
 
 | Orígenes| Receptores |
 |:------- | :---- |
-| <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[Base de datos MySQL local/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[Base de datos DB2 local/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Base de datos Teradata local/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Base de datos Sybase local/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[Base de datos PostgreSQL local/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[Orígenes de datos ODBC locales/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Sistema de archivos distribuido de Hadoop (HDFS) local /Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Orígenes de OData](data-factory-odata-connector.md)</li><li>[Tabla web](data-factory-web-table-connector.md)</li><li>[GE Historian local/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li></ul> |
+| <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[Base de datos MySQL local/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[Base de datos DB2 local/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Base de datos Teradata local/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Base de datos Sybase local/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[Base de datos PostgreSQL local/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[Orígenes de datos ODBC locales/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Sistema de archivos distribuido de Hadoop (HDFS) local /Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Orígenes de OData](data-factory-odata-connector.md)</li><li>[Tabla web](data-factory-web-table-connector.md)</li><li>[GE Historian local/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
 > [AZURE.NOTE] Solo se puede mover a/desde Azure DocumentDB desde/hasta otros servicios de Azure como Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, Almacenamiento de datos SQL de Azure, Azure DocumentDB y Almacenamiento de Azure Data Lake. La matriz completa para Azure DocumentDB también se admitiría en breve.
 
-Si tiene que mover datos a un almacén de datos (o desde él) que no sea compatible con la **actividad de copia**, puede utilizar la **actividad personalizada** en Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para obtener más información sobre la creación y el uso de una actividad personalizada.
+Si tiene que meter (o sacar) datos a un almacén de datos que no sea compatible con la **actividad de copia**, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para más información sobre la creación y el uso de una actividad personalizada.
 
 ## Tutorial
 Para obtener un tutorial rápido sobre el uso de la actividad de copia, consulte [Tutorial: Uso de la actividad de copia en una canalización de la Factoría de datos de Azure](data-factory-get-started.md). En el tutorial, usará la actividad de copia para copiar datos desde un almacenamiento de blobs de Azure en una base de datos SQL de Azure.
 
 ## <a name="copyactivity"></a>Actividad de copia
-Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) a uno de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad. Para obtener más información sobre cómo definir actividades en general, consulte el artículo [Descripción de canalizaciones y actividades](data-factory-create-pipelines.md).
+Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) a uno de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad. Para más información sobre cómo definir actividades en general, consulte el artículo [Canalizaciones y actividades en Data Factory de Azure](data-factory-create-pipelines.md).
 
 La actividad de copia proporciona las siguientes capacidades:
 
@@ -69,7 +69,7 @@ Ubicación de almacén de datos de origen | Ubicación de almacén de datos de d
 local o VM de Azure (IaaS) | nube | **Data Management Gateway** en un equipo local o VM de Azure. Los datos no fluyen a través del servicio en la nube. <br/><br/>Nota: Data Management Gateway puede estar en el mismo equipo local o VM de Azure que el almacén de datos o en uno diferente, siempre que se pueda conectar a ambos almacenes de datos.
 nube | local o VM de Azure (IaaS) | Igual que el anterior. 
 local o VM de Azure (IaaS) | local o VM de Azure | **Data Management Gateway asociado al origen**. Los datos no fluyen a través del servicio en la nube. Consulte la nota anterior.   
-nube | nube | **El servicio en la nube que se permite la actividad de copia**. Factoría de datos de Azure usa la implementación de este servicio en la región más cercana a la ubicación del receptor en la misma zona geográfica. Consulte la tabla siguiente para realizar la asignación: <br/><br/><table><tr><th>Región del almacén de datos de destino</th> <th>Región usada para el movimiento de datos</th></tr><tr><td>Este de EE. UU.</td><td>Este de EE. UU.</td></tr><tr><td>Este de EE. UU. 2</td><td>Este de EE. UU. 2</td><tr/><tr><td>Centro de EE. UU.</td><td>Centro de EE. UU.</td><tr/><tr><td>Oeste de EE. UU.</td><td>Oeste de EE. UU.</td></tr><tr><td>Centro-norte de EE. UU.</td><td>Centro-norte de EE. UU.</td></tr><tr><td>Centro-sur de EE. UU.</td><td>Centro-sur de EE. UU.</td></tr><tr><td>Europa del Norte</td><td>Europa del Norte</td></tr><tr><td>Europa Occidental</td><td>Europa Occidental</td></tr><tr><td>Sudeste Asiático</td><td>Sudeste Asiático</td></tr><tr><td>Asia Oriental</td><td>Asia Suroriental</td></tr><tr><td>Japón Oriental</td><td>Japón Oriental</td></tr><tr><td>Japón Occidental</td><td>Japón Oriental</td></tr><tr><td>Sur de Brasil</td><td>Sur de Brasil</td></tr><tr><td>Este de Australia</td><td>Este de Australia</td></tr><tr><td>Sudeste de Australia</td><td>Sudeste de Australia</td></tr></table>
+nube | nube | **El servicio en la nube que permite la actividad de copia**. Factoría de datos de Azure usa la implementación de este servicio en la región más cercana a la ubicación del receptor en la misma zona geográfica. Consulte la tabla siguiente para realizar la asignación: <br/><br/><table><tr><th>Región del almacén de datos de destino</th> <th>Región usada para el movimiento de datos</th></tr><tr><td>Este de EE. UU.</td><td>Este de EE. UU.</td></tr><tr><td>Este de EE. UU. 2</td><td>Este de EE. UU. 2</td><tr/><tr><td>Centro de EE. UU.</td><td>Centro de EE. UU.</td><tr/><tr><td>Oeste de EE. UU.</td><td>Oeste de EE. UU.</td></tr><tr><td>Centro-norte de EE. UU.</td><td>Centro-norte de EE. UU.</td></tr><tr><td>Centro-sur de EE. UU.</td><td>Centro-sur de EE. UU.</td></tr><tr><td>Europa del Norte</td><td>Europa del Norte</td></tr><tr><td>Europa Occidental</td><td>Europa Occidental</td></tr><tr><td>Sudeste Asiático</td><td>Sudeste Asiático</td></tr><tr><td>Asia Oriental</td><td>Asia Suroriental</td></tr><tr><td>Japón Oriental</td><td>Japón Oriental</td></tr><tr><td>Japón Occidental</td><td>Japón Oriental</td></tr><tr><td>Sur de Brasil</td><td>Sur de Brasil</td></tr><tr><td>Este de Australia</td><td>Este de Australia</td></tr><tr><td>Sudeste de Australia</td><td>Sudeste de Australia</td></tr></table>
 
 
 > [AZURE.NOTE] Si la región del almacén de datos de destino no está en la lista anterior, se producirá un error en la actividad de copia, en lugar de atravesar una región alternativa.
@@ -107,7 +107,7 @@ En los almacenes basados en archivos, la actividad de copia admite una gran vari
 ### Propiedades de la actividad de copia
 Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades. Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad.
 
-En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. Haga clic en un origen/receptor de la sección [Supported Sources/Sinks](#supported-data-stores) (Orígenes/receptores admitidos) para obtener información sobre las propiedades de tipo admitidas por la actividad de copia de ese almacén de datos.
+En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. Haga clic en un origen/receptor de la sección [Almacenes de datos que se admiten](#supported-data-stores) para obtener información sobre las propiedades de tipo admitidas por la actividad de copia de ese almacén de datos.
 
 En cada la página específica del almacén de datos en los documentos enumerados anteriormente se encuentran las propiedades específicas del tipo de almacén de datos.
 
@@ -137,7 +137,7 @@ Vea el artículo [Guía de optimización y rendimiento de la actividad de copia]
 
 
 ## Asistente para copia de Data Factory
-El **Asistente para copia de Data Factory** permite crear una canalización a fin de copiar datos de orígenes compatibles a destinos sin escribir definiciones de JSON para servicios vinculados, conjuntos de datos ni canalizaciones. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página de inicio de su Data Factory.
+El **Asistente para copia de Data Factory** permite crear una canalización para copiar datos de orígenes compatibles a destinos sin escribir definiciones de JSON para servicios vinculados, conjuntos de datos ni canalizaciones. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página de inicio de Data Factory.
 
 ![Asistente para copia de datos](./media/data-factory-data-movement-activities/copy-data-wizard.png)
 
@@ -146,9 +146,9 @@ El **Asistente para copia de Data Factory** permite crear una canalización a fi
 #### Un asistente intuitivo y sin interrupciones para copiar datos 
 Gracias a este asistente, podrá trasladar datos de un origen a un destino en cuestión de minutos con los siguientes sencillos pasos:
 
-1.	Seleccione el **origen**.
-2.	Seleccione el **destino**.
-3.	Ajuste la **configuración**.
+1.	Seleccione el **origen**
+2.	Seleccione el **destino**
+3.	Ajuste la **configuración**
 
 ![Selección de origen de datos](./media/data-factory-data-movement-activities/select-data-source-page.png)
 
@@ -187,12 +187,12 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 	2016/03/01/03
 	...
 
-Haga clic en el botón **Examinar** del **archivo o la carpeta**, vaya a una de estas carpetas, como 2016->03->01->02 y haga clic en **Elegir**. Verá **2016/03/01/02** en el cuadro de texto. Seguidamente, sustituya **2016** por **{year}**, **03** por **{month}**, **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tab**. Aparecerán listas desplegables para seleccionar el **formato** de estas cuatro variables, como puede ver abajo:
+Haga clic en el botón **Examinar** del **archivo o la carpeta**, vaya a una de estas carpetas, como 2016->03->01->02 y haga clic en **Seleccionar**. Verá **2016/03/01/02** en el cuadro de texto. Seguidamente, sustituya **2016** por **{year}**, **03** por **{month}**, **01** por **{day}** y **02** por **{hour}** y presione la tecla **Tab**. Aparecerán listas desplegables para seleccionar el **formato** de estas cuatro variables, como verá a continuación:
 
 ![Uso de variables del sistema](./media/data-factory-data-movement-activities/blob-standard-variables-in-folder-path.png)
 
-También puede utilizar una variable **personalizada** como se muestra abajo y cualquier [cadena de formato admitida](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Asegúrese de seleccionar primero una carpeta con esa estructura utilizando el botón Examinar, sustituya el valor que quiera por **{custom}** y presione la tecla **Tab** para ver el cuadro de texto donde puede escribir la cadena de formato.
+También puede usar una variable **personalizada** como se muestra abajo y cualquier [cadena de formato admitida](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Asegúrese de seleccionar primero una carpeta con esa estructura con el botón Examinar, sustituya el valor que quiera por **{custom}** y presione la tecla **Tab** para ver el cuadro de texto donde puede escribir la cadena de formato.
 
 ![Uso de la variable personalizada](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

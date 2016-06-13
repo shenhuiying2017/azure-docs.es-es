@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida para pruebas
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
  
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida con Microsoft Azure para pruebas. Aquí está la configuración resultante.
 
@@ -45,7 +43,7 @@ Hay cinco fases principales para configurar este entorno de prueba de nube híbr
 4.	Creación de la conexión VPN de sitio a sitio.
 5.	Configuración de DC2. 
 
-Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en la página para [probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Una puerta de enlace de VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure. Para obtener más información, consulte [Precios: red virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar los costos derivados de ejecutar una Puerta de enlace de VPN, hay que crear el entorno de prueba y realizar las pruebas y demostraciones necesarias lo más rápido posible.
 
@@ -331,4 +329,4 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 - Configure una [granja de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

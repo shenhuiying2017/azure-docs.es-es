@@ -19,8 +19,6 @@
 
 # Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 En Azure PowerShell, ejecute el siguiente cmdlet de Azure PowerShell:
@@ -52,4 +50,4 @@ Consulte el siguiente artículo para obtener una plantilla totalmente completa c
 
 Una vez creada la plantilla, puede implementarla con Azure PowerShell.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

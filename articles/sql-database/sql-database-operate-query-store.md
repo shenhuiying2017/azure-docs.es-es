@@ -12,7 +12,7 @@
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
-   ms.tgt_pltfrm="performance"
+   ms.tgt_pltfrm="sqldb-performance"
    ms.workload="data-management"
    ms.date="05/25/2016"
    ms.author="carlrab"/>
@@ -34,10 +34,10 @@ El Almacén de consultas que funciona en Base de datos SQL de Azure se basa en e
 
 El impacto en la carga de trabajo del cliente tiene dos dimensiones:
 
-- ***Disponibilidad***: el SLA (Acuerdo de Nivel de Servicio) para Base de datos SQL no se reduce cuando el Almacén de consultas está en ejecución.
+- ***Disponibilidad***: el [SLA (Acuerdo de Nivel de Servicio) para Base de datos SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/) no se reduce cuando el Almacén de consultas está en ejecución.
 - ***Rendimiento***: la sobrecarga media introducida por el Almacén de consultas suele estar normalmente en el intervalo de 1-2 %.
 
-El Almacén de consultas de Azure funciona con recursos limitados (CPU, memoria, E/S de disco, tamaño en disco, etc.). Respeta varias limitaciones del sistema con el fin de influir lo menos posible en la carga de trabajo normal. En general, el Almacén de consultas respeta las restricciones de recursos en dos aspectos:
+El Almacén de consultas de Azure funciona con recursos limitados (CPU, memoria, E/S de disco, tamaño en disco, etc.). Respeta varias limitaciones del sistema con el fin de influir lo menos posible en la carga de trabajo normal:
 
 - ***Limitaciones estáticas:*** las limitaciones impuestas por la capacidad de recursos de un nivel de servicio determinado (Básico, Estándar, Premium, Grupo elástico).
 - ***Limitaciones dinámicas:*** las limitaciones impuestas por el consumo actual de la carga de trabajo (es decir, los recursos disponibles).
@@ -46,29 +46,30 @@ Para garantizar un funcionamiento continuo y confiable, Base de datos SQL de Azu
 
 - Número de excepciones y mitigaciones automáticas
 - Número de bases de datos en estado READ\_ONLY y duración del estado READ\_ONLY
+- Bases de datos principales con el consumo de memoria del Almacén de consultas por encima del límite.
 - Bases de datos principales por frecuencia de limpieza automática y duración
-- Bases de datos principales por duración de la carga de datos en memoria (durante la inicialización)
+- Bases de datos principales por duración de la carga de datos en memoria (inicialización del Almacén de consultas)
 - Bases de datos principales por duración de vaciado de datos en el disco
 
 Base de datos SQL de Azure usa los datos recopilados para:
 
-- ***Resolver o mitigar los problemas causados por el Almacén de consultas:*** Base de datos SQL de Azure puede detectar y mitigar los problemas que tienen un impacto sustancial sobre la carga de trabajo del cliente, con una latencia baja (menos de una hora). La mayoría de las veces, los problemas se controlan configurando el Almacén de consultas como ***DESACTIVADO*** temporalmente.
 - ***Aprender los patrones de uso sobre un gran número de bases de datos y, en consecuencia, mejorar la confiabilidad y la calidad de las características:*** el Almacén de consultas se ha mejorado con cada actualización de Base de datos SQL de Azure. 
+- ***Resolver o mitigar los problemas causados por el Almacén de consultas:*** Base de datos SQL de Azure puede detectar y mitigar los problemas que tienen un impacto sustancial sobre la carga de trabajo del cliente, con una latencia baja (menos de una hora). La mayoría de las veces, los problemas se controlan configurando el Almacén de consultas como ***DESACTIVADO*** temporalmente.
 
-De vez en cuando, las actualizaciones del Almacén de consultas introducen cambios en los valores predeterminados aplicados a configuraciones internas y pocas veces externas (orientados al cliente). En consecuencia, la experiencia de los clientes con el Almacén de consultas de Base de datos SQL de Azure puede diferir de la que tienen en entornos locales debido a las acciones automáticas realizadas por la plataforma del Almacén de consultas:
+De vez en cuando, las actualizaciones del Almacén de consultas introducen cambios en los valores predeterminados aplicados a configuraciones internas y pocas veces externas (orientados al cliente). En consecuencia, la experiencia de los clientes con el Almacén de consultas de Base de datos SQL de Azure puede diferir de la que tienen en entornos locales debido a las acciones automáticas realizadas por la plataforma de Azure:
 
 - El Almacén de consultas se puede cambiar a ***OFF*** (DESACTIVADO) para mitigar los problemas y volver a ***ON*** (ACTIVADO) cuando el problema se resuelva.
 - La configuración del Almacén de consultas se puede cambiar para garantizar que funcione de manera confiable. Para ello, se pueden realizar:
     - Cambios individuales en la base de datos que solucionan los problemas de inestabilidad.
     - Implementación global de cambios óptimos en la configuración que proporcionan ventajas para todas las bases de datos que usan el Almacén de consultas.
 
-La desactivación (***OFF***) del Almacén de consultas es una acción automática que tiene como ámbito las bases de datos individuales. Se produce cuando el comportamiento de un producto afecta de forma negativa a las bases de datos de usuario y, como consecuencia, el mecanismo de detección dispara una alerta. Para esas bases de datos en particular el Almacén de consultas permanece ***desactivado*** hasta que una nueva versión con la implementación mejorada del Almacén de consultas esté disponible. Cuando se produce una transición al estado ***OFF*** (DESACTIVADO), se informa al cliente por correo electrónico y se le aconseja que se abstenga de volver a habilitar el Almacén de consultas hasta que se implemente una nueva versión. Después de una nueva implementación, la infraestructura de Base de datos SQL de Azure activa automáticamente el Almacén de consultas en cualquier base de datos que se haya establecido en ***OFF*** (DESACTIVADO).
+La desactivación (***OFF***) del Almacén de consultas es una acción automática que tiene como ámbito las bases de datos individuales. Se produce cuando el comportamiento de un producto afecta de forma negativa a las bases de datos de usuario y, como consecuencia, el mecanismo de detección dispara una alerta. Para esas bases de datos en particular, el Almacén de consultas permanece ***desactivado*** hasta que una nueva versión con la implementación mejorada del Almacén de consultas esté disponible. Cuando se produce una transición al estado ***OFF*** (DESACTIVADO), se informa al cliente por correo electrónico y se le aconseja que se abstenga de volver a habilitar el Almacén de consultas hasta que se implemente una nueva versión. Después de una nueva implementación, la infraestructura de Base de datos SQL de Azure activa automáticamente el Almacén de consultas en cualquier base de datos que se haya establecido en ***OFF*** (DESACTIVADO).
 
 Con menor frecuencia, Base de datos SQL de Azure puede aplicar nuevos valores predeterminados de configuración para todas las bases de datos de usuario, optimizados para el funcionamiento confiable y la recopilación continua de datos.
 
 ## Configuración óptima del Almacén de consultas
 
-En esta sección se describe los valores predeterminados de una configuración óptima que están diseñados para garantizar el funcionamiento confiable del Almacén de consultas, así como de las características que de él dependen, como el [Asesor de Base de datos SQL y el Panel de rendimiento](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuración predeterminada está optimizada para una recopilación continua de los datos, es decir, un tiempo mínimo en los estados OFF y READ\_ONLY.
+En esta sección se describen los valores predeterminados de una configuración óptima que están diseñados para garantizar el funcionamiento confiable del Almacén de consultas, así como de las características que de él dependen, como el [Asesor de Base de datos SQL y el Panel de rendimiento](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). La configuración predeterminada está optimizada para una recopilación continua de los datos, es decir, un tiempo mínimo en los estados OFF y READ\_ONLY.
 
 | Configuración | Descripción | Valor predeterminado | Comentario |
 | ------------- | ----------- | ------- | ------- |
@@ -80,9 +81,9 @@ En esta sección se describe los valores predeterminados de una configuración �
 | FLUSH\_INTERVAL\_SECONDS | Especifica el período máximo durante el que las estadísticas en tiempo de ejecución capturadas se conservarán en memoria, antes de vaciarlas en el disco. | 900 | Se aplica a nuevas bases de datos. |
 ||||||
 
-Por encima de los valores predeterminados se aplicará automáticamente en la fase final de la activación del Almacén de consultas en todas las bases de datos de SQL de Azure. Después de esta optimización, Base de datos SQL de Azure no cambiará los valores de configuración establecidos por los clientes, a no ser que influyan negativamente en la carga de trabajo principal o en las operaciones confiables del Almacén de consultas.
+> [AZURE.IMPORTANT] Estos valores predeterminados se aplicarán automáticamente en la fase final de la activación del Almacén de consultas en todas las bases de datos de SQL de Azure (consulte arriba las observaciones importantes). Después de esta optimización, Base de datos SQL de Azure no cambiará los valores de configuración establecidos por los clientes, a no ser que influyan negativamente en la carga de trabajo principal o en las operaciones confiables del Almacén de consultas.
 
-Si desea permanecer con su configuración personalizada, utilice [ALTER DATABASE con las opciones del Almacén de consultas](https://msdn.microsoft.com/library/bb522682.aspx) para revertir la configuración al estado anterior. Consulte [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) (Procedimientos recomendados con el Almacén de consultas) para aprender a elegir los parámetros de configuración óptima.
+Si quiere permanecer con su configuración personalizada, utilice [ALTER DATABASE con las opciones del Almacén de consultas](https://msdn.microsoft.com/library/bb522682.aspx) para revertir la configuración al estado anterior. Consulte [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) (Procedimientos recomendados con el Almacén de consultas) para aprender a elegir los parámetros de configuración óptima.
 
 ## Pasos siguientes
 
@@ -92,10 +93,12 @@ Si desea permanecer con su configuración personalizada, utilice [ALTER DATABASE
 
 Para más información, consulte los siguientes artículos:
 
-- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) (Una caja negra para la base de datos) 
-
-- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx) (Escenarios de uso del Almacén de consultas)
+- [A flight data recorder for your database (Una caja negra para la base de datos)](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 
 - [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+- [Query Store Usage Scenarios (Escenarios de uso del Almacén de consultas)](https://msdn.microsoft.com/library/mt614796.aspx)
+
+- [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+
+<!---HONumber=AcomDC_0601_2016-->

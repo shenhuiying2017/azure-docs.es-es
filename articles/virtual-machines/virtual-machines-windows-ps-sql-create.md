@@ -26,14 +26,14 @@
 
 Este tutorial muestra cómo crear una máquina virtual de Azure mediante el modelo de implementación de **Azure Resource Manager** mediante los cmdlets de Azure PowerShell. En este tutorial, se creará una máquina virtual con una sola unidad de disco desde una imagen de la Galería de SQL. Se crearán nuevos proveedores para los recurso de almacenamiento, red y proceso que usará la máquina virtual. Si ya dispone de proveedores existentes para cualquiera de estos recursos, puede usarlos en su lugar.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Si necesita la versión clásica de este tema, consulte [Creación de una máquina virtual de SQL Server en Azure PowerShell](virtual-machines-windows-classic-ps-sql-create.md).
+Si necesita la versión clásica de este tema, consulte [Aprovisionamiento de una máquina virtual de SQL mediante Azure PowerShell (clásico)](virtual-machines-windows-classic-ps-sql-create.md).
 
 ## Requisitos previos
 
 Para este tutorial, necesitará:
 
 - una cuenta de Azure y una suscripción antes de empezar. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell](../powershell-install-configure.md), versión 1.0.0 o posterior (en este tutorial se usa la versión 1.0.4).
+- [Azure PowerShell](../powershell-install-configure.md), versión 1.0.0 (mínima) o posterior (en este tutorial se usa la versión 1.0.4).
     - Para recuperar la versión, escriba **Get-Module Azure -ListAvailable**.
 
 ## Configuración de su suscripción
@@ -111,13 +111,13 @@ Tenga en cuenta que con el comando Get-AzureRmVMImageOffer puede obtener una lis
 
     Get-AzureRmVMImageOffer -Location 'East US' -Publisher 'MicrosoftSQLServer'
 
-Por su parte, con el comando Get-AzureRmVMImageSku se pueden ver las SKU disponibles para una oferta. El comando siguiente muestra todos los SKU disponibles para la oferta **SQL2014SP1 WS2012R2**.
+Por su parte, con el comando Get-AzureRmVMImageSku se pueden ver las SKU disponibles para una oferta. El comando siguiente muestra todos los SKU disponibles para la oferta **SQL2014SP1-WS2012R2**.
 
     Get-AzureRmVMImageSku -Location 'East US' -Publisher 'MicrosoftSQLServer' -Offer 'SQL2014SP1-WS2012R2' | Select Skus
 
 ## Crear un grupo de recursos
 
-Con el modelo de implementación de Resource Manager, el primer objeto que se crea es el grupo de recursos. Usaremos el cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx) para crear un grupo de recursos de Azure, y sus propios recursos, con el nombre y la ubicación del grupo de recursos y la ubicación definidos por las variables que inicializó anteriormente.
+Con el modelo de implementación de Resource Manager, el primer objeto que se crea es el grupo de recursos. Usaremos el cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt678985.aspx) para crear un grupo de recursos de Azure y sus propios recursos, con el nombre y la ubicación del grupo de recursos definidos por las variables que inicializó anteriormente.
 
 Ejecute el siguiente cmdlet para crear un nuevo grupo de recursos.
 
@@ -125,7 +125,7 @@ Ejecute el siguiente cmdlet para crear un nuevo grupo de recursos.
 
 ## Crear una cuenta de almacenamiento
 
-La máquina virtual requiere recursos de almacenamiento tanto para el disco del sistema operativo como para los archivos de registro y de datos de SQL Server. Por motivos de simplicidad, crearemos un único disco para ambos. Posteriormente se pueden adjuntar discos adicionales posteriormente mediante el cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx), con el fin de colocar los archivos de registro y de datos de SQL Server en discos dedicados. Usaremos el cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear la cuenta de almacenamiento en el nuevo grupo de recursos y con el nombre de la cuenta de almacenamiento, el nombre de almacenamiento y la ubicación definidos mediante las variables que inicializó anteriormente.
+La máquina virtual requiere recursos de almacenamiento tanto para el disco del sistema operativo como para los archivos de registro y de datos de SQL Server. Por motivos de simplicidad, crearemos un único disco para ambos. Posteriormente se pueden adjuntar discos adicionales mediante el cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) con el fin de colocar los archivos de registro y de datos de SQL Server en discos dedicados. Usaremos el cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear la cuenta de almacenamiento en el nuevo grupo de recursos y con el nombre de la cuenta de almacenamiento, el nombre de almacenamiento y la ubicación definidos mediante las variables que inicializó anteriormente.
 
 Ejecute el siguiente cmdlet para crear una nueva cuenta de almacenamiento.
 
@@ -141,7 +141,7 @@ La máquina virtual requiere un número de recursos de red para la conectividad 
 
 ### Creación de una configuración de subred de una red virtual
 
-Comenzaremos por crear una configuración de subred para la red virtual. Para este tutorial, crearemos una subred predeterminada mediante el cmdlet [AzureRmVirtualNetworkSubnetConfig nuevo](https://msdn.microsoft.com/library/mt619412.aspx). La configuración de subred de la red virtual se crea con el prefijo de nombre y dirección de subred definido mediante las variables que inicializó anteriormente.
+Comenzaremos por crear una configuración de subred para la red virtual. Para este tutorial, crearemos una subred predeterminada mediante el cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx). La configuración de subred de la red virtual se crea con el prefijo de nombre y dirección de subred definido mediante las variables que inicializó anteriormente.
 
 >[AZURE.NOTE] Con este puede definir propiedades adicionales de la configuración de subred de la red virtual, pero eso está fuera del ámbito de este tutorial.
 
@@ -159,7 +159,7 @@ Ejecute el siguiente cmdlet para crear una red virtual.
 
 ### Crear la dirección IP pública
 
-Ahora que la red virtual está definida, es preciso configurar una dirección IP para poder conectarse a la máquina virtual. Para este tutorial, crearemos una dirección IP pública con direccionamiento IP dinámico, con el fin de admitir la conectividad a Internet. Usaremos el cmdlet [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) para crear la dirección IP pública en el grupo de recursos creado anteriormente y con el nombre, ubicación, método de asignación y etiqueta de nombre de dominio de DNS definidos con las variables que inicializó anteriormente.
+Ahora que la red virtual está definida, es preciso configurar una dirección IP para poder conectarse a la máquina virtual. Para este tutorial, crearemos una dirección IP pública con direccionamiento IP dinámico, con el fin de admitir la conectividad a Internet. Usaremos el cmdlet [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) para crear la dirección IP pública en el grupo de recursos creado anteriormente y con el nombre, la ubicación, el método de asignación y la etiqueta de nombre de dominio de DNS definidos con las variables que inicializó anteriormente.
 
 >[AZURE.NOTE] Con este cmdlet se pueden definir propiedades adicionales de la dirección IP pública, pero eso es algo que está fuera del ámbito de este tutorial inicial. También se puede crear una dirección privada o una dirección con una dirección estática, pero eso está también fuera del ámbito de este tutorial.
 
@@ -197,7 +197,7 @@ Ejecute el siguiente cmdlet y, en la ventana de solicitud de credenciales de Win
 
 ### Establecimiento de las propiedades del sistema operativo de la máquina virtual
 
-Ya estamos listos para establecer las propiedades del sistema operativo de la máquina virtual. Usaremos el cmdlet [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) para establecer el tipo de sistema operativo como Windows, requerir que se instale el [agente de la máquina virtual](virtual-machines-windows-classic-agents-and-extensions.md), especificar que el cmdlet habilita la actualización automática y establecer el nombre de la máquina virtual, el nombre del equipo y la credencial mediante las variables que inicializó anteriormente.
+Ya estamos listos para establecer las propiedades del sistema operativo de la máquina virtual. Usaremos el cmdlet [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) para establecer el tipo de sistema operativo como Windows, requerir que se instale el [agente de la máquina virtual](virtual-machines-windows-classic-agents-and-extensions.md), especificar que el cmdlet habilite la actualización automática y establecer el nombre de la máquina virtual, el nombre del equipo y la credencial mediante las variables que inicializó anteriormente.
 
 Ejecute el siguiente cmdlet para establecer las propiedades de sistema operativo de la máquina virtual.
 
@@ -308,6 +308,6 @@ El siguiente script contiene el script de PowerShell completo de este tutorial. 
     New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
 ## Pasos siguientes
-Después de crear la máquina virtual, está listo para conectarse a ella mediante RDP y para configurar la conectividad. Para más información, consulte [Conexión a una máquina virtual de SQL Server en Azure (Administrador de recursos)](virtual-machines-windows-sql-connect.md).
+Después de crear la máquina virtual, está listo para conectarse a ella mediante RDP y para configurar la conectividad. Para más información, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

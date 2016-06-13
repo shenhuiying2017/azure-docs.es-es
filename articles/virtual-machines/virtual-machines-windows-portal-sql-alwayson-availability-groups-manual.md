@@ -24,11 +24,7 @@
 
 <br/>
 
-
-
 Este tutorial integral muestra cómo implementar grupos de disponibilidad con SQL Server AlwaysOn ejecutándose en máquinas virtuales de Azure Resource Manager.
-
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo del Administrador de recursos.
 
 Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de los siguientes elementos:
 
@@ -768,7 +764,7 @@ Para conectarse directamente al grupo de disponibilidad, debe configurar un equi
 
 1. En el Portal de Azure, vaya a **SQL-HA-RG** y haga clic en **+ Agregar**.
 
-1. Busque **Equilibrador de carga**. Elija el equilibrador de carga publicado por Microsoft y haga clic en **Crear**.
+1. Busque el **Equilibrador de carga**. Elija el equilibrador de carga publicado por Microsoft y haga clic en **Crear**.
 
 1. Configure los parámetros siguientes para el equilibrador de carga.
 
@@ -865,4 +861,4 @@ Para probar la conexión:
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

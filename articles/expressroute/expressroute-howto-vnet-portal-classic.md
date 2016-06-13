@@ -14,10 +14,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/08/2016"
+   ms.date="05/25/2016"
    ms.author="cherylmc"/>
 
-# Configuración de una red virtual para ExpressRoute en el Portal clásico
+# Creación de una red virtual para ExpressRoute en el Portal clásico
 
 Los pasos de este artículo le guiarán en la configuración de una red virtual y una puerta de enlace para su uso con ExpressRoute mediante el modelo de implementación clásica y el portal clásico.
 
@@ -27,7 +27,9 @@ Si busca instrucciones para el modelo de implementación de Resource Manager, pu
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Para configurar una red virtual y la puerta de enlace
+## Creación de una red virtual y puerta de enlace clásicas
+
+Con los siguientes pasos podrá crear una red virtual y una puerta de enlace de red virtual clásicas. Si ya dispone de una red virtual clásica, consulte la sección [Configuración de una red virtual clásica ya existente](#config) en este artículo.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 
@@ -41,39 +43,52 @@ Si busca instrucciones para el modelo de implementación de Resource Manager, pu
 4. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 
 	- **Servidores DNS**: escriba el nombre y la dirección IP del servidor DNS o seleccione un servidor DNS previamente registrado de la lista desplegable. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual.
-	- **Configurar VPN de sitio a sitio**: seleccione la casilla **Configurar una VPN de sitio a sitio**.
-	- **Seleccione ExpressRoute**: active la casilla **Usar ExpressRoute**. Esta opción solo aparece si seleccionó ***Configurar una VPN de sitio a sitio*** en el paso anterior.
-	- **Red local**: una red local representa la ubicación física local. Puede seleccionar una red local que haya creado previamente o puede crear una nueva.
+	- **Conectividad de sitio a sitio**: seleccione la casilla **Configurar una VPN de sitio a sitio**.
+	- **ExpressRoute**: active la casilla **Usar ExpressRoute**. Esta opción solo aparece si seleccionó **Configurar una VPN de sitio a sitio**.
+	- **Red local**: es necesario disponer de un sitio de red local para ExpressRoute. Sin embargo, en el caso de una conexión de ExpressRoute, se omitirán los prefijos de dirección especificados para el sitio de red local. En su lugar, los prefijos de dirección anunciados a Microsoft a través del circuito de ExpressRoute se usarán con fines de enrutamiento.<BR>Si ya tiene una red local creada para la conexión de ExpressRoute, puede seleccionarla en la lista desplegable. En caso contrario, seleccione **Especifique una nueva red local**.
 
-	Si selecciona una red local existente, omita el paso 5.
-
-5. Si va a crear una nueva red local, verá la página **Conectividad de sitio a sitio**. Si seleccionó una red local que creó anteriormente, esta página no aparecerá en el asistente y puede pasar a la siguiente sección. Para configurar la red local, escriba la siguiente información y, después, haga clic en la flecha siguiente.
+5. Aparecerá la página **Conectividad de sitio a sitio** si seleccionó la opción para especificar una nueva red local en el paso anterior. Para configurar la red local, escriba la siguiente información y, después, haga clic en la flecha siguiente.
 
 	- **Nombre**: el nombre que quiere para el sitio de red local.
-	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Puede especificar cualquier intervalo de direcciones, siempre que no se solape con el intervalo de direcciones de la red virtual.
-	- **Agregar espacio de direcciones**: este ajuste no es relevante para ExpressRoute. **Nota:** se requiere crear un sitio de red local para ExpressRoute. Los prefijos de dirección especificados para el sitio de red local se ignorarán. Los prefijos de dirección anunciados a Microsoft a través del circuito ExpressRoute se usarán para el enrutamiento.
+	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Puede especificar cualquier intervalo de direcciones, siempre que no se solape con el intervalo de direcciones de la red virtual. Normalmente, esto debería especificar los intervalos de direcciones para las redes locales, pero en el caso de ExpressRoute, no se utiliza esta configuración. Sin embargo, esta configuración es necesaria para crear la red local cuando se utiliza el portal clásico.
+	- **Agregar espacio de direcciones**: este ajuste no es relevante para ExpressRoute.
+
 
 6. En la página **Espacios de direcciones de la red virtual**, escriba la información siguiente y, después, haga clic en la marca de verificación de la parte inferior derecha para configurar la red.
 
 	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el recuento de direcciones. Compruebe que los espacios de direcciones especificados no se solapan con los espacios de direcciones que existen en la red local.
-	- **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales, pero es posible que quiera crear una subred independiente para las máquinas virtuales que tengan direcciones IP dinámicas (DIPS). O bien, puede querer que las máquinas virtuales se encuentren en una subred independiente de las demás instancias PaaS.
-	- **Agregar subred de puerta de enlace**: haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se usa para la puerta de enlace de red virtual y es obligatoria para esta configuración. ***Importante:*** el prefijo de subred de puerta de enlace de ExpressRoute debe ser /28 o menor. (/27, /26 etc.)
+	- **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales.
+	- **Agregar subred de puerta de enlace**: haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace se utiliza únicamente para la puerta de enlace de red virtual y es necesaria para esta configuración.<BR>El CIDR de la subred de puerta de enlace (recuento de direcciones) para ExpressRoute debe ser /28 o superior (/27, /26, etc.). Esto permitirá suficientes direcciones IP en esa subred para hacer que la configuración funcione. En el portal clásico, si ha seleccionado la casilla para usar ExpressRoute, el portal especificará una puerta de enlace con /28. Tenga en cuenta que no se puede ajustar el recuento de direcciones de CIDR en el portal clásico. La subred de puerta de enlace aparecerá como **Gateway** en el portal clásico, aunque el nombre real de la subred de puerta de enlace que se crea es realmente **GatewaySubnet**. Puede ver este nombre mediante PowerShell o en el Portal de Azure.
 
-7. Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando termine, verá **Creado** listado en el **Estado** de la página **Redes** del Portal de Azure clásico.
+7. Haga clic en la marca de verificación de la parte inferior derecha de la página y se empezará a crear la red virtual. Cuando termine, verá el mensaje **Creado** indicado en el **Estado** de la página **Redes** del portal clásico.
 
-8. En la página **Redes**, haga clic en la red virtual recién creada y luego en **Panel**.
-9. En la parte inferior de la página del Panel, haga clic en **CREAR PUERTA DE ENLACE** y, después, haga clic en **Sí**.
+## <a name="gw"></a>Creación de la puerta de enlace
 
-10. Cuando comience a crearse la puerta de enlace, verá un mensaje que le informa de que la puerta de enlace se inició. La puerta de enlace puede tardar hasta 15 minutos en crearse.
+1. En la página **Redes**, haga clic en la red virtual recién creada y luego en **Panel** en la parte superior de la página.
 
-11. Vincule la red a un circuito. Siga las instrucciones del artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md).
+2. En la parte inferior de la página del **Panel**, haga clic en **Crear puerta de enlace** y seleccione **Enrutamiento dinámico**. Haga clic en **Sí** para confirmar que desea crear una puerta de enlace.
+
+3. Cuando comience a crearse la puerta de enlace, verá un mensaje que le informa de que la puerta de enlace se inició. La puerta de enlace puede tardar hasta 45 minutos en crearse.
+
+4. Vincule la red a un circuito. Siga las instrucciones del artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md).
+
+## <a name="config"></a>Configuración de una red virtual clásica existente para ExpressRoute
+
+Si ya dispone de una red virtual clásica, puede configurarla para conectarse a ExpressRoute en el portal clásico. La configuración será la misma que la descrita en las secciones anteriores, así que lea esas secciones para familiarizarse con la configuración necesaria. Si desea crear una conexión coexistente entre ExpressRoute y la conexión de sitio a sitio, consulte [este artículo](expressroute-howto-coexist-classic.md) para conocer los pasos. Son diferentes de los pasos de este artículo.
+ 
+1. Debe crear la red local antes de actualizar el resto de la configuración de la red virtual. Para crear una nueva red local, necesaria al configurar ExpressRoute a través del portal clásico, haga clic en **Nuevo** **>** **Servicios de red** **>** **Red virtual** **>** **Agregar red local**. Siga los pasos del asistente para crear la red local.
+
+2. Utilice la página **Configurar** para actualizar el resto de la configuración de la red virtual y asociar esta a la red local.
+
+3. Después de completar la configuración, vaya a la sección [Creación de la puerta de enlace](#gw) de este artículo para crear la puerta de enlace.
+
 
 ## Pasos siguientes
 
 - Si quiere agregar máquinas virtuales a la red virtual, consulte las [rutas de aprendizaje de máquinas virtuales](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
-- Si quiere obtener más información sobre ExpressRoute, consulte [Descripción general técnica sobre ExpressRoute](expressroute-introduction.md).
+- Si quiere obtener más información sobre ExpressRoute, consulte [Información técnica de ExpressRoute](expressroute-introduction.md).
 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

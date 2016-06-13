@@ -1,6 +1,6 @@
 <properties
    pageTitle="Uso del conector de Informix en el Servicio de aplicaciones de Microsoft Azure | Microsoft Azure"
-   description="Cómo usar el conector de Informix con desencadenadores y acciones de aplicación lógica"
+   description="Uso del conector de Informix con desencadenadores y acciones de aplicación lógica"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="plarsen"/>
 
 # Conector de Informix
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-Microsoft Connector para Informix es una aplicación de API para conectar aplicaciones a los recursos almacenados en una base de datos Informix de IBM a través del Servicio de aplicaciones de Azure. El conector incluye un cliente Microsoft para conectarse a equipos servidores remotos de Informix a través de una conexión de red TCP/IP, incluidas las conexiones híbridas de Azure con servidores locales de Informix mediante la Retransmisión de bus de servicio de Azure. El conector admite las siguientes operaciones de base de datos:
+Microsoft Connector para Informix es una aplicación de API para conectar aplicaciones, mediante el Servicio de aplicaciones de Azure, a los recursos almacenados en una base de datos Informix de IBM. El conector incluye un cliente Microsoft para conectarse a equipos servidores remotos de Informix a través de una conexión de red TCP/IP, incluidas las conexiones híbridas de Azure con servidores locales de Informix mediante la Retransmisión de bus de servicio de Azure. El conector admite las siguientes operaciones de base de datos:
 
 - Leer las filas mediante SELECT
 - Sondear para leer filas mediante SELECT COUNT, seguido de SELECT
@@ -31,7 +31,7 @@ Microsoft Connector para Informix es una aplicación de API para conectar aplica
 - Ejecutar un procedimiento con parámetros de entrada y salida, valor devuelto y conjunto de resultados mediante CALL
 - Comandos personalizados y operaciones compuestas con SELECT, INSERT, UPDATE, DELETE
 
-## Acciones y desencadenadores
+## Desencadenadores y acciones
 El conector admite los siguientes desencadenadores y acciones de aplicación lógica:
 
 Desencadenadores | Acciones
@@ -44,7 +44,7 @@ Puede definir un conector dentro de una aplicación lógica o desde Azure Market
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. En la hoja **Todo**, escriba **informix** en el cuadro **Buscar en todo** y después haga clic en la tecla ENTRAR.
-3. En el panel de resultados para Buscar en todo, seleccione **Conector de Informix**.
+3. En el panel de resultados de Buscar en todo, seleccione **Conector Informix**.
 4. En la hoja de descripción del conector de Informix, seleccione **Crear**.
 5. En la hoja del paquete del conector de Informix, escriba el nombre (por ejemplo, "InformixConnectorNewOrders"), el plan del Servicio de aplicaciones y otras propiedades.
 6. Seleccione **Configuración del paquete** e indique la siguiente configuración para el paquete.
@@ -69,12 +69,12 @@ Puede definir una acción de aplicación lógica para agregar datos a una tabla 
 
 > [AZURE.TIP] Con "*Publicar en EntitySet*" en la conexión de Informix, se devuelve el valor de la columna de identidad y con "*Inserción de API*", se devuelven las filas afectadas.
 
-1. En el panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
 2. Escriba el nombre (por ejemplo, "NewOrdersInformix"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
 3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
-4. En la hoja Desencadenadores y acciones, seleccione **Crear desde cero** en Plantillas de aplicación lógica.
+4. En la hoja Triggers and actions (Desencadenadores y acciones), seleccione **Create from Scratch** (Crear desde cero) en Logic app Templates (Plantillas de aplicación lógica).
 5. En el panel Aplicaciones de API, seleccione **Periodicidad**, establezca un intervalo y una frecuencia y después seleccione la **marca de verificación**.
-6. En el panel Aplicaciones de API, seleccione **Conector de Informix** y expanda la lista de operaciones para seleccionar **Insertar en NEWORDER**.
+6. En el panel Aplicaciones de API, seleccione **Conector Informix** y expanda la lista de operaciones para seleccionar **Insert into NEWORDER** (Insertar en NEWORDER).
 7. Expanda la lista de parámetros para especificar los valores siguientes:  
 
 	Nombre | Valor
@@ -98,19 +98,19 @@ SHIPZIP | 99362
 
 - El conector trunca los nombres de tabla de Informix al formar los nombres de acción de aplicación lógica. Por ejemplo, la operación **Insertar en NEWORDERS** se trunca como **Insertar NEWORDER**.
 - Después de guardar **Desencadenadores y acciones** para la aplicación lógica, esta procesa la operación. Puede haber un retraso de varios segundos (por ejemplo, entre 3 y 5 segundos) antes de que la aplicación lógica procese la operación. Opcionalmente, puede hacer clic en **Ejecutar ahora** para procesar la operación.
-- El conector de Informix define los miembros de EntitySet con atributos, lo que incluye si el miembro corresponde a una columna de Informix con un valor predeterminado o columnas generadas (por ejemplo, identidad). En la aplicación lógica, se muestra un asterisco rojo junto al nombre de identidad del miembro de EntitySet para indicar las columnas de Informix que requieren valores. No debe escribir un valor para el miembro ORDID, que corresponde a la columna de identidad de Informix. Puede escribir valores para otros miembros opcionales (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que corresponden a columnas de Informix con valores predeterminados. 
-- El conector de Informix devuelve a la aplicación lógica la respuesta en la acción Publicar en EntitySet que incluye los valores de las columnas de identidad, que se deriva de SQLDARD (datos de respuesta del área de datos de SQL) de DRDA en la instrucción SQL INSERT preparada. El servidor de Informix no devuelve los valores insertados para aquellas columnas con valores predeterminados.  
+- El conector Informix define los miembros de EntitySet con atributos, incluso si el miembro corresponde a una columna de Informix con un valor predeterminado o a columnas generadas (por ejemplo, identidad). En la aplicación lógica, se muestra un asterisco rojo junto al nombre de identidad del miembro de EntitySet para indicar las columnas de Informix que requieren valores. No debe escribir un valor para el miembro ORDID, que corresponde a la columna de identidad de Informix. Puede escribir valores para otros miembros opcionales (ITEMS, ORDDATE, REQDATE, SHIPID, FREIGHT, SHIPCTRY), que corresponden a columnas de Informix con valores predeterminados. 
+- El conector Informix devuelve a la aplicación lógica la respuesta en la acción Post to EntitySet (Publicar en EntitySet) que incluye los valores de las columnas de identidad, que se deriva de SQLDARD (datos de respuesta del área de datos de SQL) de DRDA en la instrucción SQL INSERT preparada. El servidor de Informix no devuelve los valores insertados para aquellas columnas con valores predeterminados.  
 
 
-## Aplicación lógica con la acción del conector de Informix para agregar datos en masa ##
+## Aplicación lógica con la acción del conector de Informix para agregar datos masivos ##
 Puede definir una acción de aplicación lógica para agregar datos a una tabla de Informix mediante una operación de inserción de API en masa. Por ejemplo, puede insertar dos registros de pedido de cliente nuevos; para ello, se procesa una instrucción SQL INSERT con una matriz de valores de fila en una tabla definida con una columna de identidad, lo que devuelve las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-1. En el panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
 2. Escriba el nombre (por ejemplo, "NewOrdersBulkInformix"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
 3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
-4. En la hoja Desencadenadores y acciones, seleccione **Crear desde cero** en Plantillas de aplicación lógica.
+4. En la hoja Triggers and actions (Desencadenadores y acciones), seleccione **Create from Scratch** (Crear desde cero) en Logic app Templates (Plantillas de aplicación lógica).
 5. En el panel Aplicaciones de API, seleccione **Periodicidad**, establezca un intervalo y una frecuencia y después seleccione la **marca de verificación**.
-6. En el panel Aplicaciones de API, seleccione **Conector de Informix** y expanda la lista de operaciones para seleccionar **Insertar en masa en NEW**.
+6. En el panel Aplicaciones de API, seleccione **Conector Informix** y expanda la lista de operaciones para seleccionar **Bulk Insert into NEW** (Insertar en masa en NEW).
 7. Escriba el valor de **rows** como matriz. Por ejemplo, copie y pegue lo siguiente:  
 
 	```
@@ -161,12 +161,12 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
 En este ejemplo, la aplicación lógica sondeará, leerá, actualizará y después volverá a leer los datos en la tabla de Informix.
 
-1. En el panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
+1. En el Panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
 2. Escriba el nombre (por ejemplo, "ShipOrdersInformix"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
 3. En el panel de inicio de Azure, seleccione la aplicación lógica que acaba de crear, **Configuración** y después **Desencadenadores y acciones**.
-4. En la hoja Desencadenadores y acciones, seleccione **Crear desde cero** en Plantillas de aplicación lógica.
-5. En el panel Aplicaciones de API, seleccione **Conector de Informix**, establezca un intervalo y una frecuencia y después seleccione la **marca de verificación**.
-6. En el panel Aplicaciones de API, seleccione **Conector de Informix** y expanda la lista de operaciones para elegir **Seleccionar desde NEWORDERS**.
+4. En la hoja Triggers and actions (Desencadenadores y acciones), seleccione **Create from Scratch** (Crear desde cero) en Logic app Templates (Plantillas de aplicación lógica).
+5. En el panel Aplicaciones de API, seleccione **Conector Informix**, establezca un intervalo y una frecuencia, y seleccione la **marca de verificación**.
+6. En el panel Aplicaciones de API, seleccione **Conector Informix** y expanda la lista de operaciones para elegir **Select from NEWORDERS** (Seleccionar desde NEWORDERS).
 7. Seleccione la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**. La configuración debe tener el aspecto siguiente: ![][10]
 8. Haga clic para cerrar la hoja **Desencadenadores y acciones**, y después repita la acción para cerrar la hoja **Configuración**.
 9. En la lista **Todas las ejecuciones** de **Operaciones**, haga clic en el primer elemento (ejecución más reciente).
@@ -177,20 +177,20 @@ En este ejemplo, la aplicación lógica sondeará, leerá, actualizará y despu�
 ## Aplicación lógica con la acción del conector de Informix para quitar datos ##
 Puede definir una acción de aplicación lógica para quitar datos de una tabla de Informix mediante una operación de OData para la eliminación de API o la publicación en una entidad. Por ejemplo, puede insertar un registro de pedido de cliente nuevo; para ello, se procesa una instrucción SQL INSERT en una tabla definida con una columna de identidad, lo que devuelve el valor de identidad o las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-## Creación de una aplicación lógica con el conector de Informix para quitar datos ##
-Puede crear una nueva aplicación lógica desde Azure Marketplace y después usar el conector de Informix como acción para quitar pedidos de cliente. Por ejemplo, puede usar la operación de eliminación condicional del conector de Informix para procesar una instrucción SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
+## Creación de una aplicación lógica con el conector Informix para quitar datos ##
+Puede crear una aplicación lógica desde Azure Marketplace y, después, usar el conector de Informix como acción para quitar pedidos de cliente. Por ejemplo, puede usar la operación de eliminación condicional del conector de Informix para procesar una instrucción SQL DELETE (DELETE FROM NEWORDERS WHERE ORDID >= 10000).
 
-1. En el menú del concentrador en el **panel de inicio** de Azure, haga clic en **+** (signo más), en **Web y móvil** y después en **Aplicación lógica**. 
-2. En la hoja **Crear aplicación lógica**, escriba un valor para **Nombre**, como por ejemplo **RemoveOrdersInformix**.
+1. En el menú del concentrador del **panel de inicio** de Azure, haga clic en **+** (signo más), en **Web y móvil** y después en **Aplicación lógica**. 
+2. En la hoja **Create Logic app** (Crear aplicación lógica), escriba un valor en **Nombre**, como por ejemplo **RemoveOrdersInformix**.
 3. Seleccione o defina los valores para las demás configuraciones (por ejemplo, el plan de servicio, el grupo de recursos).
 4. La configuración debe tener el aspecto siguiente. Haga clic en **Crear**: ![][12]
 5. En la hoja **Configuración**, haga clic en **Desencadenadores y acciones**.
-6. En la hoja **Desencadenadores y acciones**, en la lista **Plantillas de aplicación lógica**, haga clic en **Crear desde cero**.
+6. En la hoja **Triggers and actions** (Desencadenadores y acciones), en la lista **Logic app Templates** (Plantillas de aplicación lógica), haga clic en **Create from Scratch** (Crear desde cero).
 7. En la hoja **Desencadenadores y acciones**, en el panel **Aplicaciones de API**, dentro del grupo de recursos, haga clic en **Periodicidad**.
 8. En la superficie de diseño de aplicación lógica, haga clic en el elemento **Periodicidad** y establezca valores en **Frecuencia** e **Intervalo**, por ejemplo **Días** y **1**. Después, haga clic en la **marca de verificación** para guardar la configuración del elemento de periodicidad.
-9. En la hoja **Desencadenadores y acciones**, en el panel **Aplicaciones de API**, dentro del grupo de recursos, haga clic en **Conector de Informix**.
-10. En la superficie de diseño de aplicación lógica, haga clic en el elemento de acción **Conector de Informix**, haga clic en el botón de puntos suspensivos (**…**) para expandir la lista de operaciones y después haga clic en **Eliminación condicional de N**.
-11. En el elemento de acción del conector de Informix, escriba **ordid ge 10000** para una **expresión que identifica un subconjunto de entradas**.
+9. En la hoja **Triggers and actions** (Desencadenadores y acciones), en el panel **Aplicaciones de API**, dentro del grupo de recursos, haga clic en **Conector Informix**.
+10. En la superficie de diseño de la aplicación lógica, haga clic en el elemento de acción **Conector Informix**, en el botón de puntos suspensivos (**…**) para expandir la lista de operaciones y, después, en **Conditional delete from N** (Eliminación condicional de N).
+11. En el elemento de acción del conector Informix, escriba **ORDID ge 10000** para una **expresión que identifica un subconjunto de entradas**.
 12. Haga clic en la **marca de verificación** para guardar la configuración de la acción y después haga clic en **Guardar**. La configuración debe tener el aspecto siguiente: ![][13]
 13. Haga clic para cerrar la hoja **Desencadenadores y acciones**, y después repita la acción para cerrar la hoja **Configuración**.
 14. En la lista **Todas las ejecuciones** de **Operaciones**, haga clic en el primer elemento (ejecución más reciente).
@@ -243,7 +243,7 @@ Puede crear el procedimiento almacenado SPORDERID de ejemplo mediante la siguien
 
 ## Configuración híbrida (opcional)
 
-> [AZURE.NOTE] Este paso solo es necesario si usa un conector de DB2 local tras el firewall.
+> [AZURE.NOTE] Este paso solo es necesario si usa un conector DB2 local tras el firewall.
 
 El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa un servidor IBM DB2 local para Windows, se necesita el Administrador de conexiones híbridas.
 
@@ -251,7 +251,7 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
 Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -274,4 +274,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

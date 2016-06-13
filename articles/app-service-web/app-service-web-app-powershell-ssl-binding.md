@@ -22,7 +22,7 @@ Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-
+Para obtener información acerca del uso de cmdlets de Azure PowerShell basados en Azure Resource Manager para administrar aplicaciones web, consulte [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps](app-service-web-app-azure-resource-manager-powershell.md) (Uso de Powershell basado en Azure Resource Manager para administrar aplicaciones web de Microsoft Azure)
 
 ## Carga y enlace de un nuevo certificado SSL ##
 
@@ -68,7 +68,8 @@ Tenga en cuenta que si el enlace SSL quitado era el último que usaba ese certif
 	Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### Referencias ###
+- [Comandos de PowerShell basados en Azure Resource Manager para aplicación web de Azure](app-service-web-app-azure-resource-manager-powershell.md)
 - [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 - [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0601_2016-->

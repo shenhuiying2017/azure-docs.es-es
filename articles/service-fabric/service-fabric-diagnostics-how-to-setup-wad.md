@@ -28,6 +28,8 @@ Estas herramientas se usarán para realizar algunas de las operaciones que se de
 * [Administrador de recursos de Azure](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient)
+* [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## Diferentes orígenes de registros que podría recopilar
 1. **Registros de Service Fabric:** emitidos por la plataforma a los canales ETW y EventSource estándar. Los registros pueden ser de uno de los varios tipos que hay:
@@ -41,11 +43,11 @@ Estas herramientas se usarán para realizar algunas de las operaciones que se de
 El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. Los pasos varían ligeramente en función de si se usa el Portal de Azure o el Administrador de recursos de Azure, y de si se realiza la implementación como parte de la creación del clúster o para un clúster que ya existe. Echemos un vistazo a los pasos para cada escenario.
 
 ### Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del portal
-Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, se usa el panel Configuración de Diagnósticos que se muestra en la imagen siguiente. Para habilitar la recopilación de eventos de Actor Service o Reliable Service, asegúrese de que Diagnósticos esté definido en **Activado**, que es la configuración predeterminada. Una vez creado el clúster, esta configuración no se puede cambiar mediante el portal.
+Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, se usa el panel Configuración de Diagnósticos que se muestra en la imagen siguiente. Para habilitar la recopilación de eventos de Reliable Actors o Reliable Services, asegúrese de que Diagnósticos esté definido en **Activado**, que es la configuración predeterminada. Una vez creado el clúster, esta configuración no se puede cambiar mediante el portal.
 
 ![Configuración de Diagnósticos en el portal para crear un clúster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en una de las cuentas de almacenamiento creadas en el grupo de recursos. La configuración de Diagnósticos configura eventos de nivel de aplicación, incluidos los eventos de [Actor](service-fabric-reliable-actors-diagnostics.md), los eventos de[Reliable Service](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric de nivel de sistema que se almacenen en Almacenamiento de Azure. Algunos productos como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Cuando se crea un clúster mediante el portal, se recomienda exportar la plantilla una vez finalizada la implementación. Puede exportar las plantillas desde el portal de la siguiente manera:
+Los registros de soporte técnico son **necesarios** para que el equipo de soporte técnico de Azure pueda resolver las solicitudes que se creen. Estos registros se recopilan en tiempo real y se almacenarán en una de las cuentas de almacenamiento creadas en el grupo de recursos. La configuración de Diagnósticos define eventos de nivel de aplicación, incluidos eventos de [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), eventos de [Reliable Services](service-fabric-reliable-services-diagnostics.md) y algunos eventos de Service Fabric de nivel de sistema que se almacenen en Almacenamiento de Azure. Algunos productos como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) o su propio proceso pueden seleccionar los eventos de la cuenta de almacenamiento. Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Cuando se crea un clúster mediante el portal, se recomienda exportar la plantilla una vez finalizada la implementación. Puede exportar las plantillas desde el portal de la siguiente manera:
 
 1. Abra el grupo de recursos
 2. Seleccione Configuración para mostrar el panel Configuración
@@ -54,12 +56,18 @@ Los registros de soporte técnico son **necesarios** para que el equipo de sopor
 5. Seleccione Exportar plantilla para mostrar el panel Plantilla
 6. Seleccione Guardar en archivo para exportar un archivo .zip que contenga la plantilla, los parámetros y los archivos de PowerShell.
 
-Después de exportar los archivos, debe llevar a cabo una modificación. Edite el archivo **parameters.json** y quite el elemento **adminPassword**. Esto provocará un símbolo del sistema para la contraseña cuando se ejecuta el script de implementación.
+Después de exportar los archivos, debe llevar a cabo una modificación. Edite el archivo **parameters.json** y quite el elemento **adminPassword**. Esto provocará un símbolo del sistema para la contraseña cuando se ejecuta el script de implementación. Para usar la plantilla descargada para actualizar una configuración, siga estos pasos:
+
+1. Extraiga el contenido en una carpeta del equipo local.
+2. Modifique el contenido para que refleje la nueva configuración.
+3. Inicie PowerShell y cambie a la carpeta donde extrajo el contenido.
+4. Ejecute **deploy.ps1** y rellene el id. de suscripción, el nombre del grupo de recursos (use el mismo nombre para actualizar la configuración) y el nombre de implementación, que debe ser único.
+
 
 ### Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través de Azure Resource Manager
 Para crear un clúster mediante el Administrador de recursos, tiene que agregar el JSON de la configuración de Diagnósticos a la plantilla del Administrador de recursos del clúster completo antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad) en la galería de ejemplos de Azure. Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo **azuredeploy.json** y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, basta con presionar el botón **Implementar en Azure** disponible en el vínculo anterior.
 
-También puede descargar el ejemplo del Administrador de recursos, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzureRmResourceGroupDeployment` en una ventana de Azure PowerShell. Consulte la información a continuación para los parámetros que necesitará pasar al comando. Para obtener información detallada sobre cómo implementar un grupo de recursos con PowerShell, consulte el artículo [Implementación de un grupo de recursos con una plantilla de Azure Resource Manager](../resource-group-template-deploy.md).
+También puede descargar el ejemplo del Administrador de recursos, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzureRmResourceGroupDeployment` en una ventana de Azure PowerShell. Consulte la información a continuación para los parámetros que necesitará pasar al comando. Para más información sobre cómo implementar un grupo de recursos con PowerShell, consulte el artículo [Implementación de recursos con plantillas de Azure Resource Manager](../resource-group-template-deploy.md).
 
 ```powershell
 
@@ -67,7 +75,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### Implementación de la extensión de Diagnósticos en un clúster existente
-Si tiene un clúster existente que no tiene Diagnósticos implementado, puede agregarlo siguiendo estos pasos. Modifique la plantilla de ARM usada para crear el clúster existente o descargue la plantilla desde el portal, tal como se describió anteriormente. Modifique el archivo **template.json** realizando las siguientes tareas:
+Si tiene un clúster existente que no tiene implementada la extensión Diagnósticos o bien quiere modificar una configuración existente, puede agregarla o implementarla siguiendo estos pasos. Modifique la plantilla de ARM usada para crear el clúster existente o descargue la plantilla desde el portal, tal como se describió anteriormente. Modifique el archivo **template.json** realizando las siguientes tareas:
 
 Agregue un nuevo recurso de almacenamiento a la plantilla mediante una adición en la sección de recursos.
 
@@ -111,7 +119,7 @@ Agregue un nuevo recurso de almacenamiento a la plantilla mediante una adición 
       }
     },
 ```
-Luego, actualice la sección *VirtualMachineProfile* de **template.json**. Para ello, agregue lo siguiente dentro de la matriz "extensiones". Asegúrese de agregar una coma al principio o al final, según donde se inserte.
+Luego, actualice la sección *VirtualMachineProfile* de **template.json**. Para ello, agregue lo siguiente dentro de la matriz de "extensiones". Asegúrese de agregar una coma al principio o al final, según donde se inserte.
 
 ##### Adición en la matriz de extensiones de VirtualMachineProfile
 ```json
@@ -169,14 +177,18 @@ Luego, actualice la sección *VirtualMachineProfile* de **template.json**. Para 
 }
 ```
 
-Después de modificar el archivo **template.json** tal como se indicó, vuelva a publicar la plantilla de ARM. En caso de que la plantilla se haya exportado, si ejecuta el archivo **deploy.ps1**, se volverá a publicar la plantilla. Después de realizar la implementación, asegúrese de que el estado *ProvisioningState* sea *Correcto*.
+Después de modificar el archivo **template.json** tal como se indicó, vuelva a publicar la plantilla de ARM. En caso de que la plantilla se haya exportado, si ejecuta el archivo **deploy.ps1**, se volverá a publicar dicha plantilla. Después de realizar la implementación, asegúrese de que el estado *ProvisioningState* sea *Correcto*.
 
 
 ## Actualización de Diagnósticos para recopilar y cargar registros desde nuevos canales EventSource
-Para actualizar Diagnósticos de forma que recopile registros desde canales EventSource nuevos que representen una nueva aplicación que vaya a implementar, basta con seguir los mismos pasos que en la [sección anterior](#deploywadarm), que describe la configuración de Diagnósticos para un clúster existente. Tendrá que actualizar la sección *EtwEventSourceProviderConfiguration* en **template.json** para agregar entradas para el nuevo valor de EventSources antes de aplicar la actualización de la configuración mediante el comando *New-AzureResourceGroupDeployment* de PowerShell.
+Para actualizar Diagnósticos de forma que recopile registros de canales EventSource nuevos que representen una nueva aplicación que vaya a implementar, basta con seguir los mismos pasos que en la [sección anterior](#deploywadarm), que describe la configuración de Diagnósticos para un clúster existente. Tendrá que actualizar la sección *EtwEventSourceProviderConfiguration* en **template.json** para agregar entradas para el nuevo valor de EventSources antes de aplicar la actualización de la configuración mediante el comando *New-AzureResourceGroupDeployment* de PowerShell.
 
 
 ## Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<!---HONumber=AcomDC_0525_2016-->
+
+## Artículos relacionados
+* [Aprenda a recopilar contadores de rendimiento o registros mediante extensiones de diagnóstico](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
+<!---HONumber=AcomDC_0601_2016-->

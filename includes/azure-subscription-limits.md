@@ -8,7 +8,6 @@ Núcleos por [subscription](../articles/billing-buy-sign-up-azure-subscription.m
 Servidores de base de datos SQL por suscripción|6|150
 Servidores DNS por suscripción|9|100
 Direcciones IP reservadas por suscripción|20|100
-Circuitos ExpressRoute dedicados por suscripción|10|25
 Certificados de servicio hospedados por suscripción|400|400
 [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción|256|256
 Cuentas de [Lote](https://azure.microsoft.com/services/batch/) por región y suscripción|1|50
@@ -16,6 +15,6 @@ Reglas de alerta por suscripción|250|250
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<sup>2</sup>Esto incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 100 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Almacenamiento de Azure revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento.
+<sup>2</sup> Esto incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 100 cuentas de almacenamiento, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Almacenamiento de Azure revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

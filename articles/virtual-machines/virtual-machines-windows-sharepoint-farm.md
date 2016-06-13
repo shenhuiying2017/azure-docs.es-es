@@ -19,11 +19,9 @@
 
 # Creación de granjas de servidores de SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clásico.
-
 Con Marketplace del Portal de Microsoft Azure, puede crear rápidamente granjas de SharePoint Server 2013 preconfiguradas. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
-> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure. Se reemplazó por los elementos **SharePoint 2013 non-HA Farm** y **SharePoint 2013 HA Farm**.
+> [AZURE.NOTE] Se quitó el elemento **Granja de servidores SharePoint** en Azure Marketplace del Portal de Azure. Se reemplazó por los elementos **Granja de SharePoint 2013 sin alta disponibilidad** y **Granja de SharePoint 2013 de alta disponibilidad**.
 
 La granja de SharePoint básica consta de tres máquinas virtuales con esta configuración.
 
@@ -49,9 +47,9 @@ Para crear la granja de SharePoint de alta disponibilidad (de nueve servidores):
 1. Haga clic [aquí](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Haga clic en **Implementar**.
 3. En el panel **Granja de SharePoint 2013 de alta disponibilidad**, haga clic en **Crear**.
-4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 con alta disponibilidad** y, luego, haga clic en **Crear**.
+4. Especifique la configuración en los 7 pasos del panel **Crear granja de SharePoint 2013 de alta disponibilidad** y, luego, haga clic en **Crear**.
 
-> [AZURE.NOTE] No se puede crear la **granja sin alta disponibilidad de SharePoint 2013** o la **granja con alta disponibilidad de SharePoint 2013** con una prueba gratuita de Azure.
+> [AZURE.NOTE] No se puede crear la **Granja de SharePoint 2013 sin alta disponibilidad** o la **Granja de SharePoint 2013 de alta disponibilidad** con una evaluación gratuita de Azure.
 
 El Portal de Azure crea los dos tipos de granja en una red virtual que se encuentra solo en la nube y que tiene presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
 
@@ -67,4 +65,4 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 
 - Descubra más configuraciones de [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

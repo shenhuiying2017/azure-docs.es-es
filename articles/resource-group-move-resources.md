@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="05/31/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -27,11 +27,13 @@ Al mover los recursos, el grupo de origen y el grupo de destino se bloquean dura
 
 No puede cambiar la ubicación del recurso. Si se mueve un recurso, solo se mueve a un nuevo grupo de recursos. El nuevo grupo de recursos puede tener una ubicación diferente, pero no cambia la ubicación del recurso.
 
+> [AZURE.NOTE] En este artículo se describe cómo mover los recursos de una oferta de cuenta de Azure. Si realmente desea cambiar la oferta de cuenta de Azure (por ejemplo, actualizar de pago por uso a prepago) sin dejar de trabajar con los recursos existentes, consulte [Cambio a otra oferta de Azure](billing-how-to-switch-azure-offer.md).
+
 ## Lista de comprobación antes de mover recursos
 
 Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Puede evitar errores mediante la comprobación de estas condiciones.
 
-1. El servicio debe admitir la capacidad de traslado de recursos. Consulte la siguiente lista para más información sobre [los servicios que admiten el traslado de recursos](#services-that-support-move).
+1. El servicio debe admitir la capacidad de traslado de recursos. Consulte la siguiente lista para obtener más información sobre [los servicios que admiten el traslado de recursos](#services-that-support-move).
 2. La suscripción de destino correspondiente al proveedor de recursos del recurso que se traslada debe estar registrada. Si no es así, recibirá un error en el que se indicará que la **suscripción no está registrada para un tipo de recurso**. Podría encontrar este problema al mover un recurso a una nueva suscripción que nunca se ha utilizado el suscripción con ese tipo de recurso. Para obtener más información sobre cómo comprobar el estado de registro y registrar proveedores de recursos, consulte [Tipos y proveedores de recursos](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Si usa Azure PowerShell o la CLI de Azure, utilice la versión más reciente. Para actualizar su versión, ejecute el Instalador de plataforma web de Microsoft y compruebe si hay disponible una nueva versión. Para más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) e [Instalación de la CLI de Azure](xplat-cli-install.md).
 4. Si traslada la aplicación del Servicio de aplicaciones, tiene que revisar las [limitaciones del Servicio de aplicaciones](#app-service-limitations).
@@ -42,11 +44,11 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
 Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
-- Aplicaciones del Servicio de aplicaciones (consulte [Limitaciones del Servicio de aplicaciones](#app-service-limitations))
+- Aplicaciones del Servicio de aplicaciones (consulte las [limitaciones del Servicio de aplicaciones](#app-service-limitations))
 - Automatización
 - Lote
 - Servicio CDN
-- Servicios en la nube (consulte [Limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Servicios en la nube (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
 - Factoría de datos
 - DNS
 - DocumentDB
@@ -58,9 +60,9 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Caché en Redis
 - Programador
 - Search
-- Almacenamiento (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
+- Almacenamiento (clásico) (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
 - Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
-- Máquinas virtuales (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
+- Máquinas virtuales (clásico) (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
 
 ## Servicios parcialmente compatibles con el traslado
 
@@ -76,7 +78,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 - ExpressRoute
 - Almacenamiento
 - Máquinas virtuales
-- Redes virtuales (clásico) (consulte [Classic deployment limitations](#classic-deployment-limitations) [Limitaciones de la implementación clásica])
+- Redes virtuales (clásico) (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
 
 ## Limitaciones del Servicio de aplicaciones
 
@@ -268,8 +270,8 @@ Con el cuerpo de solicitud:
 
 ## Pasos siguientes
 - Para obtener información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
-- Para obtener información sobre los comandos de CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- Para obtener información sobre los comandos de la CLI de Azure para administrar su suscripción, vea [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

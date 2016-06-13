@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Escalabilidad del rendimiento de Almacenamiento de datos SQL de Azure
@@ -56,7 +56,7 @@ Para obtener una lista de DWU, consulte los objetivos de nivel de servicio en el
 
 ### ¿Cómo se realiza el escalado del rendimiento?
 
-Para ampliar aumentar o disminuir de manera elástica la capacidad de proceso, basta con cambiar la configuración de las unidades de almacenamiento de datos (DWU) para la base de datos. En segundo plano, Almacenamiento de datos SQL cambia las asignaciones de CPU y memoria utilizando las capacidades de implementación rápidas y simples de la Base de datos SQL.
+Para ampliar aumentar o disminuir de manera elástica la capacidad de proceso, basta con cambiar la configuración de las unidades de almacenamiento de datos (DWU) para la base de datos. En segundo plano, Almacenamiento de datos SQL detiene la instancia, cambia las asignaciones de CPU y memoria y luego reinicia la instancia.
 
 Se asignan las DWU en bloques de 100, pero no todos los bloques están disponibles. A medida que los DWU aumentan, aumenta el rendimiento de manera lineal. En niveles superiores de DWU, debe agregar más de 100 DWU para observar una mejora considerable del rendimiento. Para ayudarle a seleccionar saltos significativos en las DWU, le ofrecemos los niveles DWU que proporcionarán los mejores resultados.
  
@@ -142,13 +142,11 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 [Reanudación del proceso con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Reanudación del proceso con las API de REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[modelo de simultaneidad]: sql-data-warehouse-develop-concurrency.md
-[diseño de tablas]: sql-data-warehouse-develop-table-design.md
-[selección de una clave de distribución hash para una tabla]: sql-data-warehouse-develop-hash-distribution-key.md
-[estadísticas para mejorar el rendimiento]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[modelo de simultaneidad]: ./sql-data-warehouse-develop-concurrency.md
+[diseño de tablas]: ./sql-data-warehouse-develop-table-design.md
+[selección de una clave de distribución hash para una tabla]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[estadísticas para mejorar el rendimiento]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
@@ -157,4 +155,4 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

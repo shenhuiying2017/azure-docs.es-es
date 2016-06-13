@@ -19,8 +19,6 @@
 
 # Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 La extensión de Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla del Administrador de recursos de Azure. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](virtual-machines-windows-extensions-authoring-templates.md). En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.
   
 
@@ -168,4 +166,4 @@ Cada tabla WADMetrics contendrá las columnas siguientes:
 - Implemente la plantilla del Administrador de recursos mediante [Azure PowerShell](virtual-machines-windows-ps-manage.md) o la [Línea de comandos de Azure](virtual-machines-linux-cli-deploy-templates.md).
 - Obtenga más información sobre la [creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

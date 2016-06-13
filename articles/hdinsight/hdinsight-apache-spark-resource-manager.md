@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/31/2016" 
 	ms.author="nitinme"/>
 
 
 # Administración de recursos para el clúster Apache Spark en HDInsight Linux (versión preliminar)
 
-Spark en HDInsight de Azure (Linux) proporciona la interfaz de usuario web de Ambari para administrar los recursos del clúster y supervisar el estado del clúster. También puede utilizar el servidor de historial de Spark para realizar el seguimiento de las aplicaciones que han terminado de ejecutarse en el clúster. Puede utilizar la interfaz de usuario de YARN para supervisar lo que se encuentra en ejecución en el clúster. En este artículo se ofrecen instrucciones sobre cómo acceder a estas interfaces de usuario y cómo realizar algunas tareas básicas de administración de recursos con estas interfaces.
+En este artículo aprenderá a acceder a interfaces como la interfaz de usuario de Ambari, la de YARN y al servidor de historial de Spark asociado con el clúster Spark. También aprenderá a ajustar la configuración del clúster para conseguir un rendimiento óptimo.
 
 **Requisitos previos:**
 
@@ -54,38 +54,102 @@ Debe tener lo siguiente:
 
 ## ¿Cómo se puede iniciar la interfaz de usuario de Yarn?
 
-Puede utilizar la interfaz de usuario de YARN para supervisar las aplicaciones que se encuentran en ejecución en el clúster Spark. Antes de acceder a la interfaz de usuario de YARN, debe habilitar la tunelización SSH para el clúster. Para obtener instrucciones, vea [Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Ambari](hdinsight-linux-ambari-ssh-tunnel.md)
+Puede utilizar la interfaz de usuario de YARN para supervisar las aplicaciones que se encuentran en ejecución en el clúster Spark.
 
-1. Inicie la interfaz de usuario web de Ambari como se ha indicado en la sección anterior.
+1. En la hoja del clúster, haga clic en **Panel de clúster** y, a continuación, haga clic en **YARN**.
 
-2. En la interfaz de usuario web de Ambari, seleccione YARN en la lista de la izquierda de la página.
+	![Iniciar interfaz de usuario de YARN](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
-3. Cuando se muestra la información del servicio YARN, seleccione **Vínculos rápidos**. Aparecerá una lista de los nodos del clúster principal. Seleccione uno de los nodos principales y luego seleccione **IU de ResourceManager**.
+	>[AZURE.TIP] También puede iniciar la interfaz de usuario de YARN desde la de Ambari. Para iniciar la interfaz de usuario de Ambari, en la hoja del clúster, haga clic en **Panel de clúster** y, luego, en **Panel de clúster de HDInsight**. En la interfaz de usuario de Ambari, haga clic en **YARN**, **Vínculos rápidos**, Resource Manager activo y, finalmente, haga clic en la **interfaz de usuario de Resource Manager**.
 
-	![Iniciar interfaz de usuario de YARN](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png "Iniciar interfaz de usuario de YARN")
+## ¿Cuál es la configuración de clúster óptima para ejecutar aplicaciones de Spark?
 
-4. Esto debería iniciar la interfaz de usuario de YARN y debería ver una página similar a la siguiente:
+Los tres parámetros clave que se pueden utilizar para la configuración de Spark según los requisitos de la aplicación son `spark.executor.instances`, `spark.executor.cores` y `spark.executor.memory`. Un ejecutor es un proceso que se inicia para una aplicación Spark. Se ejecuta en el nodo de trabajo y es responsable de realizar las tareas de la aplicación. El número predeterminado de ejecutores y el tamaño de estos para cada clúster se calcula en función del número de nodos de trabajo y el tamaño de estos. Estos se almacenan en `spark-defaults.conf` en los nodos principales del clúster.
 
-	![IU de YARN](./media/hdinsight-apache-spark-resource-manager/yarn-ui.png "IU de YARN")
+Los tres parámetros de configuración se pueden configurar en el nivel de clúster (para todas las aplicaciones que se ejecutan en el clúster) o se pueden especificar también para cada aplicación individual.
 
-##<a name="scenariosrm"></a>¿Cómo se administran los recursos mediante la interfaz de usuario web de Ambari?
+### Cambio de los parámetros mediante la interfaz de usuario de Ambari
 
-Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark y las instrucciones para abordarlos mediante la interfaz de usuario web de Ambari.
+1. En la interfaz de usuario de Ambari, haga clic en **Spark**, luego, en **Configs** (Configuraciones) y, a continuación, expanda **Custom spark-defaults** (Personalizar valores predeterminados de Spark).
 
-### No uso BI con el clúster Spark. ¿Cómo elimino los recursos de nuevo?
+	![Establecer los parámetros mediante Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 
-1. Inicie la interfaz de usuario web de Ambari como se ha indicado anteriormente. En el panel de navegación izquierdo, haga clic en **Spark** y luego en **Configs** (Configuraciones).
+2. Los valores predeterminados son necesarios para hacer que se ejecuten 4 aplicaciones Spark simultáneamente en el clúster. Puede cambiar estos valores desde la interfaz de usuario, como se muestra a continuación.
 
-2. En la lista de configuraciones disponibles, busque **Custom spark-thrift-sparkconf** (Personalizar spark-thrift-sparkconf) y cambie los valores de **spark.executor.memory** y **spark.drivers.core** a **0**.
+	![Establecer los parámetros mediante Ambari](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
 
-	![Recursos para BI](./media/hdinsight-apache-spark-resource-manager/spark-bi-resources.png "Recursos para BI")
+3. Para guardar los cambios de configuración, haga clic en **Save** (Guardar). En la parte superior de la página, se le pedirá que reinicie todos los servicios afectados. Haga clic en **Restart** (Reiniciar).
 
-3. Haga clic en **Guardar**. Escriba una descripción de los cambios realizados y después vuelva a hacer clic en **Save** (Guardar).
-
-4. En la parte superior de la página, verá un símbolo del sistema para reiniciar el servicio Spark. Haga clic en **Reiniciar** para que los cambios surtan efecto.
+	![Reiniciar los servicios](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
 
 
-### Mis cuadernos de Jupyter no se ejecutan según lo previsto. ¿Cómo se puede reiniciar el servicio?
+### Cambio de los parámetros de una aplicación que se ejecuta en Jupyter Notebook
+
+Para aplicaciones que se ejecutan en Jupyter Notebook, puede utilizar la instrucción mágica `%%configure` para realizar los cambios de configuración. Idealmente, debe realizar estos cambios al comienzo de la aplicación, antes de ejecutar la primera celda de código. Esto garantiza que la configuración se aplicará a la sesión de Livy, cuando esta se cree. Si desea cambiar la configuración en una fase posterior de la aplicación, debe utilizar el parámetro `-f`. Sin embargo, al hacerlo, se perderán todos los progresos en la aplicación.
+
+El siguiente fragmento de código muestra cómo cambiar la configuración de una aplicación que se ejecuta en Jupyter.
+
+	%%configure 
+	{"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+
+Los parámetros de configuración deben pasarse como una cadena JSON y deben estar en la siguiente línea después de la instrucción mágica, como se muestra en la columna de ejemplo.
+
+### Cambio de los parámetros de una aplicación enviada mediante spark-submit
+
+El siguiente comando es un ejemplo de cómo cambiar los parámetros de configuración de una aplicación de lote que se envía mediante `spark-submit`.
+
+	spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+
+### Cambio de los parámetros de una aplicación enviada mediante cURL
+
+El siguiente comando es un ejemplo de cómo cambiar los parámetros de configuración de una aplicación de lote que se envía mediante cURL.
+
+	curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+
+### ¿Cómo se pueden cambiar estos parámetros en un servidor Thrift de Spark?
+
+El servidor Thrift de Spark proporciona acceso JDBC/ODBC a un clúster de Spark y se utiliza para enviar consultas de Spark SQL. Herramientas como Power BI, Tableau, etc. usan el protocolo ODBC para comunicarse con el servidor Thrift de Spark para ejecutar consultas de Spark SQL como una aplicación Spark. Cuando se crea un clúster de Spark, se inician dos instancias del servidor Thrift de Spark, una en cada nodo principal. Cada servidor Thrift de Spark está visible como una aplicación Spark en la interfaz de usuario de YARN.
+
+El servidor Thrift de Spark utiliza la asignación dinámica de ejecutores de Spark y, por tanto, las `spark.executor.instances` no se utilizan. En su lugar, el servidor Thrift de Spark usa `spark.dynamicAllocation.minExecutors` y `spark.dynamicAllocation.maxExecutors` para especificar el recuento de ejecutores. Los parámetros de configuración `spark.executor.cores` y `spark.executor.memory` se usan para modificar el tamaño del ejecutor. Puede cambiar estos parámetros como se muestra a continuación.
+
+* Expanda la categoría **Advanced spark-thrift-sparkconf** para actualizar los parámetros `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` y `spark.executor.memory`.
+
+	![Configurar el servidor Thrift de Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-1.png)
+
+* Expanda la categoría **Custom spark-thrift-sparkconf** para actualizar el parámetro `spark.executor.cores`.
+
+	![Configurar el servidor Thrift de Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
+
+### ¿Cómo se puede cambiar la memoria del controlador del servidor Thrift de Spark?
+
+La memoria del controlador del servidor Thrift de Spark se ha configurado al 25 % del tamaño de la RAM del nodo principal, suponiendo que el tamaño total de la RAM del nodo principal sea superior a 14 GB. Puede utilizar la interfaz de usuario de Ambari para cambiar la configuración de memoria del controlador, tal como se muestra a continuación.
+
+* En la interfaz de usuario de Ambari, haga clic en **Spark**, luego en **Configs** (Configuraciones), expanda **Advanced spark-env** y, a continuación, proporcione el valor de **spark\_thrift\_cmd\_opts**.
+
+	![Configurar la RAM del servidor Thrift de Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-ram.png)
+
+## No uso BI con el clúster Spark. ¿Cómo elimino los recursos de nuevo?
+
+Dado que se utiliza la asignación dinámica de Spark, los únicos recursos consumidos por el servidor Thrift son los recursos de los dos maestros de aplicación. Para recuperar estos recursos debe detener los servicios del servidor Thrift que se estén ejecutando en el clúster.
+
+1. En la interfaz de usuario de Ambari, en el panel izquierdo, haga clic en **Spark**.
+
+2. En la siguiente página, haga clic en **Spark Thrift Servers** (Servidores Thrift de Spark).
+
+	![Reiniciar el servidor Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-1.png)
+
+3. Aparecerán los dos nodos principales en el que se ejecuta el servidor Thrift de Spark. Haga clic en uno de los nodos principales.
+
+	![Reiniciar el servidor Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
+
+4. La siguiente página muestra todos los servicios que se ejecutan en ese nodo principal. En la lista, haga clic en el botón desplegable situado junto al servidor Thrift de Spark y, a continuación, haga clic en **Stop** (Detener).
+
+	![Reiniciar el servidor Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
+
+5. Repita también estos pasos en el otro nodo principal.
+
+
+## Mis cuadernos de Jupyter no se ejecutan según lo previsto. ¿Cómo se puede reiniciar el servicio?
 
 1. Inicie la interfaz de usuario web de Ambari como se ha indicado anteriormente. En el panel de navegación izquierdo, haga clic en **Jupyter**, haga clic en **Service Actions** (Acciones de servicio) y luego haga clic en **Restart All** (Reiniciar todo). Esto iniciará el servicio de Jupyter en todos los nodos principales.
 
@@ -138,4 +202,4 @@ Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

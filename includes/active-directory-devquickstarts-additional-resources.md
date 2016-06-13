@@ -4,4 +4,8 @@
 - [AzureADSamples en GitHub](https://github.com/AzureAdSamples)
 - [CloudIdentity.com](http://cloudidentity.com)
 
-<!---HONumber=AcomDC_0413_2016-->
+## Obtención de actualizaciones de seguridad para nuestros productos
+
+Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+
+<!---HONumber=AcomDC_0601_2016-->

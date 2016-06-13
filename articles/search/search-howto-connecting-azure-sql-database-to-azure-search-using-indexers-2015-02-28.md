@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="05/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="eugenesh"/>
 
 #Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
@@ -68,23 +68,7 @@ En primer lugar, cree el origen de datos:
 
 Puede obtener la cadena de conexión del [Portal de Azure clásico](https://portal.azure.com); use la opción `ADO.NET connection string`.
 
-Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino es compatible con el esquema de la tabla de origen. Consulte en la siguiente tabla la asignación entre los tipos de datos de SQL y Búsqueda de Azure.
-
-## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
-
-|Tipo de datos de SQL | Tipos de campos de índice de destino permitidos |Notas 
-|------|-----|----|
-|bit|Edm.Boolean, Edm.String| |
-|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
-| bigint | Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, numérico decimal de dinero | Edm.String| Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
-| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transformar una columna de cadenas en Collection(Edm.String) requiere el uso de una API de vista previa versión 2015-02-28. Consulte [este artículo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obtener más información| 
-|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
-|uniqueidentifer | Edm.String | |
-|geography | Edm.GeographyPoint | Solo se admiten instancias de geography de tipo POINT con SRID 4326 (que es el valor predeterminado) | | 
-|rowversion| N/D |Las columnas de versión de la fila no se pueden almacenar en el índice de búsqueda, pero pueden usarse para el seguimiento de cambios | |
-| time, timespan, binary, varbinary, image, xml, geometry, tipos CLR | N/D |No compatible |
+Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte [Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure](#TypeMapping) para más información.
 
 Por último, cree el indizador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
@@ -102,6 +86,8 @@ Un indizador creado de esta forma no tiene una programación. Se ejecuta automá
 
 	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
 	api-key: admin-key
+
+Puede personalizar varios aspectos del comportamiento del indexador, como el tamaño de lote y el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error. Para más detalles, consulte [Create Indexer (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx) (Create Indexer [API de REST del servicio Búsqueda de Azure]).
  
 Puede que necesite permitir que los servicios de Azure se conecten a la base de datos. Consulte [Conectarse desde Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para obtener instrucciones sobre cómo hacerlo.
 
@@ -249,15 +235,32 @@ Cuando use la técnica de la eliminación temporal, puede especificar la directi
 
 Tenga en cuenta que **softDeleteMarkerValue** debe ser una cadena. Use la representación de cadena del valor real. Por ejemplo, si tiene una columna de enteros donde las filas eliminadas se marcan con el valor 1, use `"1"`; si tiene una columna de tipo BIT donde las filas eliminadas se marcan con el valor booleano true, use `"True"`.
 
-## Personalizar un indizador de SQL Azure
- 
-Puede personalizar algunos aspectos del comportamiento de indexador (por ejemplo, el tamaño de lote, el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error, etc.). Para obtener más detalles, vea [Personalización del indexador de Búsqueda de Azure](search-indexers-customization.md).
+<a name="TypeMapping"></a>
+## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
+
+|Tipo de datos de SQL | Tipos de campos de índice de destino permitidos |Notas 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, numérico decimal de dinero | Edm.String| Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|Transformar una columna de cadenas en Collection(Edm.String) requiere el uso de una API de vista previa versión 2015-02-28. Consulte [este artículo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obtener más información| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | Solo se admiten instancias de geography de tipo POINT con SRID 4326 (que es el valor predeterminado) | | 
+|rowversion| N/D |Las columnas de versión de la fila no se pueden almacenar en el índice de búsqueda, pero pueden usarse para el seguimiento de cambios | |
+| time, timespan, binary, varbinary, image, xml, geometry, tipos CLR | N/D |No compatible |
+
 
 ## Preguntas más frecuentes
 
 **P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?
 
-R: Sí, siempre que permita que los servicios de Azure se conecten a la base de datos, para lo que debe abrir los puertos adecuados.
+R: Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos:
+
+1. Configure el firewall para permitir el acceso a la dirección IP del servicio de búsqueda. 
+2. Quizá deba también configurar la base de datos con un certificado de confianza para que el servicio de búsqueda pueda abrir conexiones SSL con ella.
 
 **P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan localmente?
 
@@ -275,4 +278,4 @@ R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. 
 
 R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

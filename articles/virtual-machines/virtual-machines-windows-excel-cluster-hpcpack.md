@@ -1,6 +1,6 @@
 <properties
  pageTitle="Clúster de HPC Pack para Excel y SOA | Microsoft Azure"
- description="Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA a gran escala"
+ description="Introducción a la ejecución de cargas de trabajo de Excel y SOA a gran escala en un clúster de HPC Pack en Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/19/2016"
+ ms.date="05/25/2016"
  ms.author="danlep"/>
 
 # Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA
@@ -195,7 +195,7 @@ El script de implementación de HPC Pack se ejecutará durante algún tiempo. Un
     You have enabled REST API or web portal on HPC Pack head node. Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
     C:\Users\hpcuser\Documents\HPCWebComponent_HPCExcelHN004_20150707162011.cer
 
-## Paso 2: Descarga de libros de Excel y ejecución de UDF desde un cliente local
+## Paso 2: Descarga de libros de Excel y ejecución de UDF desde un cliente local
 
 ### Activación de Excel
 
@@ -283,7 +283,7 @@ Una vez que el clúster esté implementado correctamente, siga estos pasos para 
 
     Cuando haya una gran cantidad de celdas para calcular, presione Alt-Mayús-Ctrl + F9 para ejecutar el cálculo en todas las celdas.
 
-## Paso 3: Ejecución de una carga de trabajo de SOA desde un cliente local
+## Paso 3: Ejecución de una carga de trabajo de SOA desde un cliente local
 
 Para ejecutar aplicaciones generales de SOA en el clúster de HPC Pack IaaS, use primero uno de los métodos descritos en el paso 1 para implementar el clúster de IaaS, con una imagen de nodo de proceso genérico (porque no necesitará Excel en los nodos de proceso). A continuación, siga estos pasos.
 
@@ -382,4 +382,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

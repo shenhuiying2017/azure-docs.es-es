@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="guybo"/>
 
 # Información general de conjuntos de escala de máquinas virtuales
@@ -91,7 +91,7 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 - No planee más de 20 máquinas virtuales por cuenta de almacenamiento (a no ser que establezca la propiedad _overprovision_ en "false", en cuyo caso puede aumentar hasta 40).
 - Distancie las primeras letras de los nombres de las cuentas de almacenamiento lo más posible. Las plantillas de conjunto de escalado de máquinas virtuales de ejemplo en la página de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/) muestran cómo hacerlo.
 - Si usa máquinas virtuales personalizadas, no planee más de 40 máquinas virtuales por conjunto de escalado de máquinas virtuales en una única cuenta de almacenamiento. Necesitará copiar antes la imagen en la cuenta de almacenamiento para poder comenzar la implementación del conjunto de escalado de máquinas virtuales. Consulte las preguntas más frecuentes para más información.
-- No planee más de 2048 máquinas virtuales por red virtual. Este límite aumentará en el futuro.
+- No planee más de 4096 máquinas virtuales por red virtual.
 - El número de máquinas virtuales que puede crear está limitado por la cuota de núcleos en la región en la que realiza la implementación. Puede que necesite ponerse en contacto con el servicio de soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: `azure vm list-usage`, y el siguiente comando de PowerShell: `Get-AzureRmVMUsage` (si usa una versión de PowerShell anterior a 1.0, use `Get-AzureVMUsage`).
 
 ## Preguntas más frecuentes sobre los conjuntos de escala de máquinas virtuales
@@ -155,4 +155,4 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con cinco dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/28/2016"
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016"
+    ms.author="torsteng" />
 
 # Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 
@@ -198,4 +198,4 @@ Para consultar bases de datos con particiones horizontales (también llamadas ba
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

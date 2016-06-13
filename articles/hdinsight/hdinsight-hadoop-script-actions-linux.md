@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/14/2016"
+    ms.date="05/31/2016"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
 
-Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o bien instalando servicios adicionales, herramientas u otro software en el clúster. Puede usar las acciones de script durante la creación del clúster o en un clúster en ejecución.
+Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o instalando servicios adicionales, herramientas u otro software en el clúster. Puede usar las acciones de script durante la creación del clúster o en un clúster en ejecución.
 
 > [AZURE.NOTE] La información contenida en este documento es específica de los clústeres de HDInsight basados en Linux. Para obtener información sobre el uso de las acciones de script con clústeres basados en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md).
 
@@ -36,7 +36,7 @@ Se puede aplicar una acción de script a través de los métodos siguientes:
 | SDK .NET de HDInsight | ✓ | ✓ |
 | Plantilla de Azure Resource Manager | ✓ | &nbsp; |
 
-Para obtener más información sobre el uso de estos métodos para aplicar acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+Para más información sobre el uso de estos métodos para aplicar acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Prácticas recomendadas para el desarrollo de scripts
 
@@ -59,7 +59,7 @@ Las distintas versiones de HDInsight tienen distintas versiones de componentes y
 
 ### <a name="bPS2"></a>Proporcionar vínculos estables a los recursos de script
 
-Los usuarios deben asegurarse de que todos los scripts y recursos que se usan en los scripts permanecen disponibles durante la vigencia del clúster y de que las versiones de estos archivos no cambian para la duración. Estos recursos son necesarios si se agregan nodos nuevos al clúster durante operaciones de escalado.
+Debe asegurarse de que los scripts y los recursos que usan los scripts permanecen disponibles durante la vigencia del clúster, y de que las versiones de estos archivos no cambian durante ese tiempo. Estos recursos son necesarios si se agregan nodos nuevos al clúster durante operaciones de escalado.
 
 La práctica recomendada es descargar y archivar todo el contenido de una cuenta de Almacenamiento de Azure en su suscripción.
 
@@ -69,7 +69,7 @@ Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta
 
 ### <a name="bPS4"></a>Uso de recursos compilados previamente
 
-Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan los recursos a partir del código fuente. En su lugar, compile previamente los recursos y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster desde el script.
+Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan recursos a partir del código fuente. En su lugar, compile previamente los recursos y almacene la versión binaria en el almacenamiento de blobs de Azure para que se pueda descargar rápidamente en el clúster desde el script.
 
 ### <a name="bPS3"></a>Asegurarse de que el script de personalización del clúster es idempotente
 
@@ -79,7 +79,7 @@ Por ejemplo, si un script personalizado instaló una aplicación en /usr/local/b
 
 ### <a name="bPS5"></a>Asegurar una alta disponibilidad de la arquitectura de clúster
 
-Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster y las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster.
+Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster, las acciones de script se ejecutan para ambos nodos. Si los componentes que instala esperan un único nodo principal, tiene que diseñar un script que instale el componente en uno de los dos nodos principales del clúster.
 
 > [AZURE.IMPORTANT] Los servicios predeterminados instalados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario, pero esta funcionalidad no se extiende a componentes personalizados instalados a través de las acciones de script. Si necesita que los componentes instalados a través de una acción de script tengan una alta disponibilidad, tiene que implementar su propio mecanismo de conmutación por error que use los dos nodos principales disponibles.
 
@@ -107,7 +107,7 @@ De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a ST
 
 Esto redirige la información que se envía a STDOUT (1, que es el predeterminado, por lo que no se muestran aquí,) a STDERR (2). Para obtener más información sobre la redirección de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Para obtener más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de los clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+Para más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ###<a name="bps8"></a>Guardar los archivos como ASCII con el fin de línea LF
 
@@ -181,7 +181,7 @@ Estos son los pasos que se llevaron a cabo al prepararse para implementar estos 
 
 ## <a name="runScriptAction"></a>Ejecución de una acción de script
 
-Puede usar las acciones de script para personalizar clústeres de HDInsight mediante el Portal de Azure, Azure PowerShell, plantillas de Azure Resource Manager (ARM) o el SDK de .NET para HDInsight. Para obtener instrucciones, consulte [Uso de acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+Puede usar las acciones de script para personalizar clústeres de HDInsight mediante el Portal de Azure, Azure PowerShell, plantillas de Azure Resource Manager (ARM) o el SDK de .NET para HDInsight. Para obtener instrucciones, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Ejemplos de scripts personalizados
 
@@ -227,10 +227,10 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 ## <a name="seeAlso"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [personalizar clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+* Infórmese sobre cómo [Personalizar clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md)
 
 * Use la [referencia del SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
 
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

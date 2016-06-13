@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Información general sobre seguridad de Almacenamiento de Azure
@@ -28,7 +28,7 @@ Almacenamiento de Azure es la solución de almacenamiento en la nube para las ap
 
 Este artículo ofrece una visión general de cada una de estas características de seguridad principales que se pueden usar con Almacenamiento de Azure. Además, se incluyen vínculos a artículos que ofrecen detalles de cada característica para que pueda tener más información al respecto.
 
-Si desea obtener más información sobre la seguridad en Almacenamiento de Azure, consulte la [Guía de seguridad de Almacenamiento de Azure](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
+Para más información sobre la seguridad en Almacenamiento de Azure, consulte la [Guía de seguridad de Almacenamiento de Azure](../storage/storage-security-guide.md).
 
 Estas son las características principales que se tratan en este artículo:
 
@@ -160,4 +160,4 @@ Más información:
 - [Supervisión de una cuenta de almacenamiento en el Portal de Azure](../storage/storage-monitor-storage-account.md)
 - [Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes](../storage/storage-e2e-troubleshooting.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

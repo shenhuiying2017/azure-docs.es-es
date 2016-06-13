@@ -19,8 +19,6 @@
 
 # Entorno de prueba de la configuración básica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure mediante las máquinas virtuales creadas en Administrador de recursos.
 
 Puede utilizar el entorno de prueba resultante:
@@ -304,7 +302,7 @@ La configuración base de Azure ya está lista para entornos de pruebas y desarr
 
 ## Pasos siguientes
 
-- Agregar una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md).
+- Agregue una nueva máquina virtual mediante el [Portal de Azure](virtual-machines-windows-hero-tutorial.md).
 - Cree el [entorno de prueba de nube híbrida simulada](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
@@ -335,4 +333,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

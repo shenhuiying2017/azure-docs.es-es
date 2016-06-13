@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/04/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight  
@@ -43,7 +43,7 @@ Cuando se conecte a un clúster de HBase, deberá conectarse a uno de los ZooKee
 
 **Para usar SQLLine**
 
-1. Conéctese al clúster con SSH. Para obtener instrucciones, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows), según el sistema operativo de su equipo cliente.
+1. Conéctese al clúster con SSH. Para obtener instrucciones, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md), según el sistema operativo de su equipo cliente.
 
 2. Desde SSH, introduzca los siguientes comandos para ejecutar SQLLine:
 
@@ -95,4 +95,4 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

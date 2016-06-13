@@ -58,16 +58,16 @@ No comenzar con una plantilla de ARM también es perfectamente válido. Hay cmdl
 
 ## Paso 1: Configurar la cuenta de automatización y el servidor de extracción
 
-En una línea de comandos de PowerShell (Add-AzureAccount) autenticada: (puede tardar unos minutos mientras se configura el servidor de extracción)
+En una línea de comandos de PowerShell (Add-AzureRmAccount) autenticada: (puede tardar unos minutos mientras se configura el servidor de extracción)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 Puede situar su cuenta de automatización en cualquiera de las siguientes regiones (o ubicaciones): Este de Japón, Este de EE. UU. 2, Europa occidental, Sudeste de Asia, Centro-Sur de EE. UU.
 
 ## Paso 2: Ajustes de la extensión de máquina virtual en la plantilla de ARM
 
-Se proporcionan detalles sobre el registro de máquina virtual (con la extensión de máquina virtual de DSC de PowerShell) en esta [plantilla de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). En este paso, se registra la nueva máquina virtual con el servidor de extracción en la lista de nodos de DSC. Parte de este registro es especificar la configuración del nodo que se aplica al nodo. Esta configuración de nodo no tiene que existir aún en el servidor de extracción, por tanto, es correcto que sea el paso 4 en donde se realice esto por primera vez. Sin embargo, aquí en el paso 2 debe haber decidido el nombre del nodo y el nombre de la configuración. En este ejemplo de uso, el nodo es "isvbox" y la configuración es "ISVBoxConfig". Por tanto, el nombre de configuración del nodo (que se especificará en DeploymentTemplate.json) es "ISVBoxConfig.isvbox".
+Se proporcionan detalles sobre el registro de máquina virtual (con la extensión de máquina virtual de DSC de PowerShell) en esta [plantilla de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). En este paso, se registra la nueva máquina virtual con el servidor de extracción en la lista de nodos de DSC. Parte de este registro es especificar la configuración del nodo que se aplica al nodo. Esta configuración de nodo no tiene que existir aún en el servidor de extracción, por lo que es correcto que sea el paso 4 en donde se realice esto por primera vez. Sin embargo, aquí en el paso 2 debe haber decidido el nombre del nodo y el nombre de la configuración. En este ejemplo de uso, el nodo es "isvbox" y la configuración es "ISVBoxConfig". Por tanto, el nombre de configuración del nodo (que se especificará en DeploymentTemplate.json) es "ISVBoxConfig.isvbox".
 
 ## Paso 3: Agregar recursos de DSC necesarios al servidor de extracción
 
@@ -79,15 +79,15 @@ También podemos aplicar el enfoque manual. La estructura de carpetas de un mód
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
     -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
-    -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la Galería de PowerShell. 
+    -   `Install-Module –Name MODULE-NAME` <—toma el módulo de la Galería de PowerShell. 
 -   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 -   Elimine los ejemplos y la documentación de la carpeta principal. 
 -   Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta. 
--   Coloque el archivo zip en una ubicación http accesible, como almacenamiento de blobs en una cuenta de almacenamiento de Azure.
+-   Coloque el archivo comprimido en una ubicación HTTP accesible, como Almacenamiento de blobs en una cuenta de Almacenamiento de Azure.
 -   Ejecute este código de PowerShell:
 
-        New-AzureAutomationModule ``
-            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+        New-AzureRmAutomationModule `
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
@@ -171,7 +171,7 @@ Cada vez que una versión pasa un control de calidad y se aprueba para implement
 
 ## Notas
 
-Este ejemplo de uso comienza con una máquina virtual desde una imagen genérica de Windows 2012 R2 procedente de la Galería de Azure. Puede iniciarlo desde cualquier imagen almacenada y después ajustarla con la configuración de DSC. Sin embargo, cambiar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
+Este ejemplo de uso comienza con una máquina virtual de una imagen genérica de Windows Server 2012 R2 procedente de la galería de Azure. Puede iniciarla desde cualquier imagen almacenada y después ajustarla con la configuración de DSC. Sin embargo, cambiar la configuración que se incluye en una imagen es mucho más difícil que actualizar dinámicamente la configuración con DSC.
 
 No es necesario usar una plantilla de ARM ni la extensión de máquina virtual para emplear esta técnica con sus máquinas virtuales. Además, sus máquinas virtuales tampoco tienen que estar en Azure para administrarlas mediante CD. Todo lo que se necesita es que Chocolatey esté instalado y LCM esté configurado en la máquina virtual para que conozca la ubicación del servidor de extracción.
 
@@ -185,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

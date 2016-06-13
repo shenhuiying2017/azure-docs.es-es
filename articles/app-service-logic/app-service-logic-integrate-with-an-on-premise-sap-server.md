@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="sameerch"/>
 
 
 # Integración con un servidor SAP local
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-Mediante el [conector SAP](app-service-logic-connector-sap.md), puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Esto permite invocar RFC, BAPI y tRFC, así como enviar IDocs al servidor SAP, incluso si se sitúa detrás del firewall local.
+Mediante el [conector de SAP](app-service-logic-connector-sap.md), puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure a un servidor de SAP existente. Esto permite invocar RFC, BAPI y tRFC, así como enviar IDocs al servidor SAP, incluso si se sitúa detrás del firewall local.
 
 Si tiene un servidor de SAP local, use un agente de escucha híbrido para establecer la conexión con el conector de SAP como se muestra:
 
 ![Flujo de conectividad híbrida][1]
 
-Mientras que un conector de SAP en la nube no se puede conectar directamente a un servidor de SAP detrás de un firewall local, puede utilizar el agente de escucha híbrido para salvar la distancia. Esto se configura hospedando un extremo de retransmisión que permite al conector establecer conectividad con el servidor de SAP de manera segura.
+Dado que un conector de SAP en la nube no se puede conectar directamente a un servidor de SAP detrás de un firewall local, puede utilizar el agente de escucha híbrido para salvar la distancia. Esto se configura hospedando un extremo de retransmisión que permite al conector establecer conectividad con el servidor de SAP de manera segura.
 
 
 ## Diferentes formas de integrar con SAP
@@ -47,7 +47,7 @@ Las bibliotecas de cliente específicas de SAP son necesarias en el equipo clien
 2. Seleccione **Nuevo**.
 3. En la hoja Crear, seleccione **Equipo** > **Azure Marketplace**.
 4. En la hoja Marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda: ![Aplicación de API del conector de SAP][2]
-5. Seleccione el **conector SAP** publicado por Microsoft.
+5. Seleccione el **conector de SAP** publicado por Microsoft.
 6. En la hoja del conector SAP, seleccione **Crear**.
 7. En la nueva hoja que se abre, escriba lo siguiente:  
 	1. **Ubicación**: elija la ubicación geográfica donde desea implementar el conector.
@@ -102,10 +102,10 @@ En la hoja del conector, observe que el estado de la conexión híbrida es *Cone
 ![Conexión híbrida conectada][8]
 
 
-## Uso del conector SAP en aplicaciones lógicas
-Una vez creado el conector SAP, se puede usar dentro del flujo de trabajo de aplicaciones lógicas. Para ello, cree una nueva aplicación lógica a través de **Nuevo** > **Aplicaciones lógicas** > **Crear**. Escriba los metadatos para la aplicación lógica, incluido el grupo de recursos.
+## Uso del conector de SAP en Aplicaciones lógicas
+Una vez creado el conector SAP, se puede usar dentro del flujo de trabajo de Aplicaciones lógicas. Para ello, cree una nueva aplicación lógica a través de **Nuevo** > **Aplicaciones lógicas** > **Crear**. Escriba los metadatos de la aplicación lógica, incluido el grupo de recursos.
 
-Seleccione **Desencadenadores y acciones**. Se abrirá el diseñador de flujo de trabajo de aplicaciones lógicas.
+Seleccione **Desencadenadores y acciones**. Se abrirá el diseñador de flujos de trabajo de Aplicaciones lógicas.
 
 Seleccione el conector SAP en el panel de la derecha y seleccione una acción en la pestaña Acciones.
 
@@ -124,4 +124,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->
