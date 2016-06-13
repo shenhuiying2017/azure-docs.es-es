@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/23/2016"
 	ms.author="jeffstok"/>
 
 # Salidas de transformación de datos de Análisis de transmisiones de destino para herramientas de análisis y opciones de almacenamiento de datos
@@ -86,6 +86,8 @@ Puede usarse [Base de datos SQL de Azure](https://azure.microsoft.com/services/s
 | Nombre de usuario | El nombre del usuario con permiso para escribir en la base de datos |
 | Password | La contraseña para conectarse a la base de datos |
 | Tabla | El nombre de la tabla donde se escribirá la salida El nombre de tabla distingue mayúsculas de minúsculas y el esquema de esta tabla debe coincidir exactamente con el número de campos y tipos que va a generar la salida del trabajo. |
+
+> [AZURE.NOTE] Actualmente, la oferta de Base de datos SQL de Azure se admite para una salida de trabajo de Análisis de transmisiones. Sin embargo, no se admite una máquina virtual de Azure que ejecute SQL Server con una base de datos asociada. Esto está sujeto a cambios en versiones futuras.
 
 ## Almacenamiento de blobs
 
@@ -316,4 +318,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

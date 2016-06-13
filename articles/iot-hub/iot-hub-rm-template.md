@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/03/2016"
+     ms.date="05/31/2016"
      ms.author="dobett"/>
 
 # Creación de un Centro de IoT mediante un programa de C# con una plantilla del Administrador de recursos de Azure
@@ -41,7 +41,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 2. En el Explorador de soluciones, haga clic con el botón secundario en su proyecto y luego haga clic en **Administrar paquetes de NuGet**.
 
-3. En el Administrador de paquetes de NuGet, active **Incluir versión preliminar** y busque **Microsoft.Azure.Management.Resources**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
+3. En el Administrador de paquetes NuGet, active **Incluir versión preliminar** y busque **Microsoft.Azure.Management.ResourceManager**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar las licencias.
 
 4. En el Administrador de paquetes de NuGet, busque **Microsoft.IdentityModel.Clients.ActiveDirectory**. Haga clic en **Instalar**, en **Revisar cambios**, haga clic en **Aceptar** y, luego, en **Acepto** para aceptar la licencia.
 
@@ -51,8 +51,8 @@ Para completar este tutorial, necesitará lo siguiente:
 
     ```
     using System;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
@@ -215,4 +215,4 @@ Ahora que ha implementado un Centro de IoT mediante una plantilla del Administra
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

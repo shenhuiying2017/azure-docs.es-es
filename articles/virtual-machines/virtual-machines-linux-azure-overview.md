@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/01/2016"
+   ms.date="05/24/2016"
    ms.author="rclaus"/>
 
 # Azure y Linux
@@ -60,4 +60,4 @@ Cada suscripción de Azure tiene límites de cuota predeterminados que pueden af
 
 Una cuenta de evaluación gratuita. **[Obtener una](https://azure.microsoft.com/pricing/free-trial/)**. Si ya tiene una, **[instale la CLI de Azure](../xplat-cli-install.md)** para probarla. Si ya lo ha hecho, [cree la máquina virtual de Linux ahora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

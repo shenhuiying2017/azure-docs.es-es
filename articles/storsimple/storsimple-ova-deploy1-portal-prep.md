@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli"/>
 
 # Implementación de la matriz virtual de StorSimple: preparación del portal
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## Información general 
+## Información general
 
 Este artículo se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016. Este es el primer artículo de una serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI. En este artículo se describe la preparación necesaria para crear y configurar el servicio de StorSimple Manager antes de aprovisionar una matriz virtual. Este artículo también presenta vínculos a una lista de comprobación de configuración de implementación, así como a los requisitos previos de configuración.
 
 Necesitará privilegios de administrador para completar el proceso de instalación y configuración. Se recomienda que revise la lista de comprobación de configuración antes de comenzar. La preparación del portal le tomará menos de 10 minutos.
 
 La información publicada en este artículo se aplica a la implementación de matrices virtuales de StorSimple en el Portal de Azure clásico, así como en Microsoft Azure Government Cloud.
- 
+
 ### Primeros pasos
 
 El flujo de trabajo de implementación consta de preparar el portal, aprovisionar una matriz virtual en su entorno virtualizado y completar la instalación. Para comenzar con la implementación de la matriz virtual de StorSimple como servidor de archivos o servidor iSCSI, debe hacer referencia a los siguientes recursos tabulados (artículos y vídeos).
@@ -39,7 +39,7 @@ Consulte los artículos siguientes en la secuencia recomendada para implementar 
 | **de streaming** | **En este paso** | **Hará esto…** | **Use estos documentos.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **Configurar el Portal de Azure clásico** | Cree y configure el servicio de StorSimple Manager antes de aprovisionar un dispositivo virtual StorSimple. |[Preparar el portal](storsimple-ova-deploy1-portal-prep.md)|
-|2\. | **Aprovisionar la matriz virtual** | Para Hyper-V, aprovisione y conéctese a un dispositivo virtual StorSimple en un sistema host que ejecute Hyper-V 2008 R2, Hyper-V 2012 o Hyper-V 2012 R2. <br></br> <br></br> Para VMware, aprovisione y conéctese a un dispositivo virtual local de StorSimple en un sistema host que ejecute VMware ESXi 5.5 o versiones posteriores.<br></br>| [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en Hyper-V (versión preliminar)](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware (versión preliminar)](storsimple-ova-deploy2-provision-vmware.md)|
+|2\. | **Aprovisionar la matriz virtual** | Para Hyper-V, aprovisione un dispositivo virtual de StorSimple en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conéctese a él. <br></br> <br></br> Para VMware, aprovisione y conéctese a un dispositivo virtual local de StorSimple en un sistema host que ejecute VMware ESXi 5.5 o versiones posteriores.<br></br>| [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en Hyper-V (versión preliminar)](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Implementar una matriz virtual de StorSimple: Aprovisionar una matriz virtual en VMware (versión preliminar)](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **Configurar la matriz virtual** | Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br> Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI.| [Implementar una matriz virtual de StorSimple: Configurar un servidor de archivos (versión preliminar)](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Implementar una matriz virtual de StorSimple: Configurar el dispositivo virtual como servidor iSCSI (versión preliminar)](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Vídeos de implementación
@@ -76,23 +76,23 @@ Antes de comenzar, asegúrese de que:
 
 -   Su suscripción de Microsoft Azure debe estar habilitada para el servicio de StorSimple Manager.
 
-### Para el dispositivo virtual StorSimple 
+### Para el dispositivo virtual StorSimple
 
 Antes de implementar un dispositivo virtual, asegúrese de que:
 
--   Tiene acceso a un sistema host que ejecuta Hyper-V (2008 R2 o superior) o VMware (ESXi 5.5 o superior) que pueda utilizarse para aprovisionar un dispositivo.
+-   Tenga acceso a un sistema host que ejecuta Hyper-V en Windows Server 2008 R2 o posterior o VMware (ESXi 5.5 o posterior) que puede utilizarse para aprovisionar un dispositivo.
 
 -   El sistema host es capaz de utilizar los recursos siguientes para aprovisionar el dispositivo virtual:
-	
+
 	-   Un mínimo de 4 núcleos.
-	
+
 	-   Al menos 8 GB de RAM.
-	
+
 	-   Una interfaz de red.
-	
+
 	-   Un disco virtual de 500 GB para datos del sistema.
 
-### Para la red del centro de datos 
+### Para la red del centro de datos
 
 Antes de comenzar, asegúrese de que:
 
@@ -111,12 +111,12 @@ Una única instancia del servicio de StorSimple Manager puede administrar 1200 d
 [AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
-> 
+>
 > Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio.
-> 
+>
 
 > - Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#optional-step-configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
-> 
+>
 
 > - Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
 
@@ -132,7 +132,7 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 [AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
-> 
+>
 > La clave de registro del servicio se usa para registrar todos los dispositivos StorSimple Manager que deben registrarse en el servicio StorSimple Manager.
 
 ## Paso 3: Descargar la imagen del dispositivo virtual
@@ -148,23 +148,15 @@ Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.co
 
 1.  En la página **Servicio de Administrador de StorSimple**, haga clic en el servicio que creó. Esto le llevará a la página **Inicio rápido**. (Puede hacer clic en el icono de inicio rápido ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) para acceder a la página **Inicio rápido** en cualquier momento).
 
+1.  Haga clic en el vínculo correspondiente a la imagen que quiere descargar del Centro de descarga de Microsoft. Los archivos de imagen tienen un tamaño aproximado de 4,8 GB.
 
-1.  Descargue el VHD o VHDX apropiado en un recurso compartido de red en su centro de datos. Hay imágenes independientes disponibles para:
+	-   VHDX para Hyper-V en Windows Server 2012 y versiones posteriores
 
-	-   Hyper-V 2012 y versiones posteriores
-	
-	-   Hyper-V 2008 R2 y versiones posteriores
+	-   VHD para Hyper-V en Windows Server 2008 R2 y versiones posteriores
 
-	-   VMWare ESXi 5.5 y versiones posteriores
+	-   VMDK para VMWare ESXi 5.5 y versiones posteriores
 
-	> [AZURE.IMPORTANT] El software que se ejecuta en la matriz virtual de StorSimple solo puede usarse junto con el servicio StorSimple Manager.
-
-
-1.  Haga clic en la imagen para el sistema operativo host que usará para aprovisionar el dispositivo virtual. Esto le llevará al Centro de descarga de Microsoft.
-
-1.  Si usa Hyper-V, descargue el VHDX para Hyper-V 2012 o el VHD para Hyper-V 2008 R2 y versiones posteriores. Si utiliza VMware, descargue el VMDK. El VHDX es un archivo comprimido de 4,77 GB, al igual que el VHD, y el VMDK es un archivo de 4,75 GB. El tiempo para descargar el archivo depende de la conexión a Internet.
-
-2.  Descomprima el archivo y tome nota de la ubicación sin comprimir en la unidad local.
+2.  Descargue y descomprima el archivo en una unidad local y tome nota de dónde se encuentra el archivo sin comprimir.
 
 ![icono de vídeo](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **Vídeo disponible**
 
@@ -211,4 +203,4 @@ El siguiente paso es aprovisionar una máquina virtual para el dispositivo virtu
 
 -   [Aprovisionamiento de la matriz virtual de StorSimple en VMware](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

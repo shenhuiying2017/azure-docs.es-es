@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Para configurar la integración de Azure AD con SilkRoad Life Suite, necesita lo
 - Un inicio de sesión único de SilkRoad Life Suite en la suscripción habilitada
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -88,10 +88,10 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 5. Inicie sesión en su sitio de la compañía de SilkRoad Life Suite como administrador. 
 
 
-    > [AZURE.NOTE]Para obtener acceso a la aplicación de autenticación de SilkRoad Life Suite para configurar la federación con Microsoft Azure AD, póngase en contacto con el soporte técnico o el representante de servicios de SilkRoad.
+    > [AZURE.NOTE] Para obtener acceso a la aplicación de autenticación de SilkRoad Life Suite para configurar la federación con Microsoft Azure AD, póngase en contacto con el soporte técnico o el representante de servicios de SilkRoad.
 
 
-6. Vaya a **Service Provider** (Proveedor de servicios) y luego haga clic en **Federation Details** (Detalles de federación). <br><br>![Inicio de sesión único de Azure AD][10] <br>
+6. Vaya a **Proveedor de servicios** y, luego, haga clic en **Detalles de federación**. <br><br>![Inicio de sesión único de Azure AD][10] <br>
 
 
 1. Haga clic en **Download Federation Metadata** (Descargar los metadatos de federación). A continuación, guarde el archivo de metadatos en el equipo. <br><br>![Inicio de sesión único de Azure AD][11] <br>
@@ -271,4 +271,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -63,10 +63,10 @@ Para la versión 2.0 o posteriores, los datos predeterminados que se recopilará
 
 Paso 1. Cree un archivo llamado PrivateConfig.json con el siguiente contenido.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName" : "the storage account to receive data",
+        "storageAccountKey" : "the key of the account"
+    }
 
 Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -80,12 +80,15 @@ Para todos los proveedores y variables admitidos, consulte este [documento](http
 
 De forma predeterminada, siempre se recopilan los datos de Rsyslog.
 
-	{
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
-          ]
-	}
+    {
+      	"perfCfg":
+      	[
+      	    {
+      	        "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+      	        "table" : "LinuxMemory"
+      	    }
+      	]
+    }
 
 
 Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -96,27 +99,29 @@ En esta sección se describe cómo recopilar y cargar los archivos de registro c
 
 Paso 1. Cree un archivo denominado PrivateConfig.json con el contenido que se describe en el escenario 1. Cree otro archivo denominado PublicConfig.json con el siguiente contenido.
 
-	{
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
-             "table":"mysqlerr"
-           	}
-          ]
-	}
+    {
+        "fileCfg" : 
+        [
+            {
+                "file" : "/var/log/mysql.err",
+                "table" : "mysqlerr"
+             }
+        ]
+    }
 
 
 Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Escenario 4. Detención del proceso de recopilación de registros por parte de la extensión
-En esta sección se describe cómo hacer que la extensión deje de recopilar registros. Tenga en cuenta que el proceso del agente de supervisión seguirá activo y en ejecución incluso con esta reconfiguración. Por lo tanto, si desea detener el proceso del agente de supervisión por completo, la extensión debe ser desinstalada. Es posible que más adelante agreguemos una propiedad de configuración que simplemente deshabilite la extensión (deteniendo también el proceso del agente de supervisión por completo) sin requerir la desinstalación de toda la extensión.
+En esta sección se describe cómo hacer que la extensión deje de recopilar registros. Tenga en cuenta que el proceso del agente de supervisión seguirá activo y en ejecución incluso con esta reconfiguración. Si desea detener completamente el proceso de agente de supervisión, puede hacerlo deshabilitando la extensión. El comando para deshabilitar la extensión es **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Paso 1. Cree un archivo denominado PrivateConfig.json con el contenido que se describe en el escenario 1. Cree otro archivo denominado PublicConfig.json con el siguiente contenido.
 
-	{
-     	"perfCfg":[],
-     	"enableSyslog":"false"
-	}
+    {
+        "perfCfg" : [],
+        "enableSyslog" : "false"
+    }
 
 
 Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -139,4 +144,4 @@ Si ha habilitado el archivo fileCfg o perfCfg especificado en los escenarios 2 y
 ## Problemas conocidos
 - En la versión 2.0, solo puede tener acceso a la información de Rsyslog y el archivo de registro del cliente especificado a través de scripts.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

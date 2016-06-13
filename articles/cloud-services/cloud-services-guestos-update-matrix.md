@@ -52,7 +52,7 @@ El SO invitado 201511-02 de noviembre se publicó el 4 de enero de 2016 para la 
 ## Lanzamientos de la familia 4
 **Windows Server 2012 R2**
 
-Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
+Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 >[AZURE.NOTE] Las fechas con un asterisco (*) están sujetas a cambios.
 
@@ -182,7 +182,7 @@ Si actualiza manualmente el SO invitado, lea la [Directiva de retirada del SO in
 ## Directiva de compatibilidad y retirada del SO invitado
 La directiva de compatibilidad y retirada del SO invitado se explica [aquí][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/es-ES/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [configuración de actualización del SO invitado de Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -203,4 +203,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -19,7 +19,7 @@
 
 # Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager
 
-En este tema se describe cómo resolver algunos de los errores comunes que puede encontrarse al implementar recursos en Azure. Se asume la aparición de un mensaje descriptivo del error. Si necesita conocer más detalles sobre el motivo del error de la implementación, consulte el artículo sobre [visualización de operaciones de implementación](resource-manager-troubleshoot-deployments-portal.md).
+En este tema se describe cómo resolver algunos de los errores comunes que puede encontrarse al implementar recursos en Azure. Ya debería haber visto un mensaje de error útil. En caso contrario, o si necesita más información sobre el motivo del error de implementación, consulte primero [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md) y, luego, vuelva a este artículo con el fin de obtener ayuda para solucionar el error.
 
 ## Plantilla o recurso no válidos
 
@@ -33,7 +33,7 @@ En función de si el carácter que falta está ubicado en la plantilla, recibir�
 
 ## El nombre de recurso ya existe
 
-Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](./resource-group-template-functions/#uniquestring).
+Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -240,4 +240,4 @@ Sin embargo, puede evitar que Azure informe de que la implementación se produjo
 - Para solucionar errores de Protocolo de escritorio remoto en su máquina virtual de Windows, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
 - Si desea solucionar errores de Secure Shell en su máquina virtual de Linux, consulte [conexiones de escritorio remoto solucionar](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

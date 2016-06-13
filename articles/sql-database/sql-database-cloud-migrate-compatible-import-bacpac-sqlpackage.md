@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Importar a la Base de datos SQL desde un archivo BACPAC mediante SqlPackage
@@ -49,4 +49,15 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 
 	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Pasos siguientes
+
+- [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Más información
+
+- [Base de datos SQL V12](sql-database-v12-whats-new.md)
+- [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
+- [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

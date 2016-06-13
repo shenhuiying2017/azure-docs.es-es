@@ -91,7 +91,7 @@ Al habilitar e implementar Cifrado de disco de Azure para las máquinas virtuale
 
 El cifrado de disco de Azure para la solución Máquinas virtuales IaaS para Windows y Linux incluye la extensión de cifrado de disco para Windows, la extensión de cifrado del disco para Linux, cmdlets de PowerShell de cifrado de disco, cmdlets de CLI de cifrado de disco y plantillas de Administrador de recursos de Azure de cifrado de disco. La solución Cifrado de disco de Azure es compatible con las máquinas virtuales IaaS que ejecutan los sistemas operativos Windows o Linux. Para más información sobre los sistemas operativos compatibles, consulte la sección de requisitos previos a continuación.
 
-**Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
+****Nota: ** No hay cargo alguno por el cifrado de discos de máquinas virtuales con Cifrado de disco de Azure.
 
 ### Propuesta de valor
 
@@ -262,23 +262,23 @@ El secreto y el identificador de cliente de Azure AD también se pueden aprovisi
 
 1\.Haga clic en la pestaña Active Directory como se muestra en la ilustración siguiente:
 
-![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\.Haga clic en Agregar aplicación y escriba el nombre de la aplicación como se muestra a continuación:
 
-![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\.Haga clic en el botón de flecha y configure las propiedades de la aplicación como se muestra a continuación:
 
-![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\. Haga clic en la marca de verificación de la esquina inferior izquierda para finalizar. Aparece la página de configuración de la aplicación. Observe que el identificador de cliente de Azure AD se encuentra en la parte inferior de la página como se muestra en la ilustración siguiente.
 
-![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5\.Guarde el secreto del cliente de Azure AD, para lo que debe hacer clic en el botón Guardar. Haga clic en el botón Guardar y anote el secreto del cuadro de texto de claves, que se trata del secreto del cliente de Azure AD. El secreto del cliente de Azure AD debe protegerse correctamente.
 
-![Cifrado de disco de Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Nota:** Este flujo no se admite en el portal.
@@ -845,4 +845,4 @@ Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.m
 
 [Exploración de Cifrado de disco de Azure con Azure PowerShell, parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

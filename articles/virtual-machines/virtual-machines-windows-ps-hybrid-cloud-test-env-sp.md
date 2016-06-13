@@ -19,8 +19,6 @@
 
 # Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 En este tema se muestran los pasos para crear un entorno de nube híbrida para probar una granja de SharePoint de intranet hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -53,7 +51,7 @@ Esta es su configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph1.png)
 
-> [AZURE.NOTE] Asimismo, puede configurar el [entorno de prueba de nube híbrida simulada para la fase 1](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+> [AZURE.NOTE] Asimismo, puede configurar el [entorno de prueba de nube híbrida simulada](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md) para la fase 1.
  
 ## Fase 2: configuración del equipo con SQL Server (SQL1)
 
@@ -209,10 +207,10 @@ A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de
 11.	En **¿Cómo desea configurar la granja de SharePoint?**, haga clic en **Iniciar el asistente**.
 12.	En la página Configuración de la granja de SharePoint, en **Cuenta de servicio**, haga clic en **Usar una cuenta administrada ya existente**.
 13.	En **Servicios**, desactive las casillas, excepto la casilla junto a **Servicio de estado** y, a continuación, haga clic en **Siguiente**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice.
-14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
+14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL ****http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
 15.	En la página Esto completa el Asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
 16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
-17.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse.
+17.	En la barra de direcciones, escriba ****http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse.
 
 Se trata de la configuración actual.
 
@@ -224,4 +222,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 
 - [Configure](https://technet.microsoft.com/library/ee836142.aspx) su granja de SharePoint.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

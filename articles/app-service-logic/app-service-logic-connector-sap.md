@@ -1,6 +1,6 @@
 <properties
    pageTitle="Uso del conector de SAP en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-   description="Creación y configuración del conector de SAP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+   description="Creación y configuración de un conector de SAP o una aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
@@ -13,33 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de SAP y su incorporación a las aplicaciones lógicas
 
->[AZURE.NOTE] Según los comentarios recibidos, estamos actualizando este conector. Cuando esté listo, actualizaremos esta página. No se recomienda el uso del conector SAP antes de que la nueva versión esté disponible. Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+>[AZURE.NOTE] Según los comentarios recibidos, estamos actualizando este conector. Cuando esté listo, actualizaremos esta página. No se recomienda el uso del conector SAP antes de que la nueva versión esté disponible. Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-Conéctese a SAP local para RFC u obtener metadatos. Hay escenarios donde puede que necesite trabajar con SAP, que se instala localmente y detrás del firewall. El uso del conector de SAP en su flujo de trabajo le permitir conseguir distintos resultados. Ejemplos:
+Conéctese a SAP local para RFC u obtener metadatos. Hay escenarios donde puede que necesite trabajar con SAP, que se instala localmente y detrás del firewall. Al sacar provecho del conector de SAP en un flujo de trabajo, puede lograr distintos escenarios. Ejemplos:
 
 1.	Exponer una parte de los datos que residen en SAP a través de un front-end de usuario móvil o web.
 2.	Publicar datos en SAP después del correspondiente procesamiento.
 3.	Extraer datos de SAP para su uso en un proceso empresarial.
 
-Los conectores pueden utilizarse en aplicaciones lógicas para capturar, procesar o insertar datos como parte de un flujo. Puede agregar el conector de SAP a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
+Los conectores pueden utilizarse en Aplicaciones lógicas para capturar, procesar o insertar datos como parte de un flujo. El conector de SAP se puede agregar a un flujo de trabajo empresarial y los datos se pueden procesar como parte de este flujo de trabajo en una aplicación lógica.
 
 
 Para estos escenarios, deben cumplirse las siguientes condiciones:
 
 1. Creación de una instancia de la aplicación de API del conector de SAP
 2. Establecimiento de conectividad híbrida para la comunicación de la aplicación de API con el SAP local
-3. Utilización de la aplicación de API creada en una aplicación lógica para lograr el proceso empresarial deseado
+3. Uso de la aplicación de API en una aplicación lógica para lograr el proceso de negocio deseado
 
 
 ## Creación de una instancia de la aplicación de API del conector de SAP ##
 
-Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
+Los conectores pueden crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de SAP", selecciónelo y seleccione **Crear**.
@@ -56,7 +56,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> <Name of the API App just created>. Verá el siguiente comportamiento. La instalación está incompleta, ya que todavía no se ha establecido la conexión híbrida: ![][2]
 
-El conector SAP requiere conectividad híbrida para conectarse a *cualquier* extremo SAP. Para establecer la conectividad híbrida, haga lo siguiente:
+El conector de SAP requiere conectividad híbrida para conectarse a *cualquier* punto de conexión de SAP. Para establecer la conectividad híbrida, haga lo siguiente:
 
 1. Copie la cadena de conexión principal.
 2. Haga clic en el vínculo 'Descargar y configurar’.
@@ -71,7 +71,7 @@ Nota: si desea cambiar a la cadena de conexión secundaria, solo tiene que volve
 
 ## Uso en una aplicación lógica ##
 
-El conector de SAP puede usarse como una acción/paso únicamente en una aplicación lógica.
+El conector de SAP solo se puede usar como una acción/paso en una aplicación lógica.
 
 Al crear o editar una aplicación lógica, elija la aplicación de API del conector de SAP que ha creado anteriormente. Con esto se mostrarán todas las acciones permitidas, entre las que podrá elegir: ![][5]
 
@@ -79,12 +79,12 @@ Tras seleccionar una acción, se mostrará una lista de parámetros de entrada p
 
 La acción o paso aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas de la operación y se podrán usar como entradas en un paso posterior: ![][7]
 
-Complete la aplicación lógica para definir el proceso empresarial y, a continuación, ejecútelo para lograr el objetivo deseado.
+Complete la aplicación lógica para definir el proceso de negocio y, a continuación, ejecútelo para lograr el objetivo deseado.
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea una introducción a Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Cree su aplicación del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -99,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

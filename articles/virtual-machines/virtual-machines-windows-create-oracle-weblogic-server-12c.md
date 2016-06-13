@@ -2,7 +2,8 @@
 	pageTitle="Creación de una máquina virtual de Oracle WebLogic Server 12c | Microsoft Azure"
 	description="Cree una máquina virtual de Oracle WebLogic Server 12c que ejecute Windows Server 2012 en Microsoft Azure, usando el modelo de implementación del Administrador de recursos."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-resource-manager"/>
 
@@ -12,43 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Creación de una máquina virtual Oracle WebLogic Server 12c en Azure
-En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen Oracle WebLogic Server 12c que se ejecuta en Microsoft con Windows Server 2012 en Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-
-
-##Para crear una máquina virtual Oracle WebLogic Server 12c en Azure
-
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
-
-2. Haga clic en **Marketplace**, en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda.
-
-3.	Seleccione la imagen **Oracle WebLogic Server 12c Standard Edition en Windows Server 2012** o **Oracle WebLogic Server 12c Enterprise Edition en Windows Server 2012**. Revise la información sobre esta imagen (por ejemplo, el tamaño mínimo recomendado) y, a continuación, haga clic en **Siguiente**.
-
-4.	Especifique un **Nombre de host** para la máquina virtual.
-
-5.	Especifique un **Nombre de usuario** para la máquina virtual. Tenga en cuenta que este usuario permite iniciar sesión de manera remota en la máquina virtual; no es el nombre de usuario de la base de datos de Oracle.
-
-6.	Especifique y confirme una contraseña para la máquina virtual o proporcione una clave pública SSH.
-
-7.	Elija un **Plan de tarifas**. Tenga en cuenta que los planes de tarifas recomendados se muestran de forma predeterminada. Para ver todas las opciones de configuración, haga clic en **Ver todo** en la parte superior derecha.
-
-8.	Establezca la configuración opcional según sea necesario, con estas consideraciones:
-	1. Deje **Cuenta de almacenamiento** tal y como se encuentra para crear una nueva cuenta de almacenamiento con el nombre de la máquina virtual.
-	2. Deje **Conjunto de disponibilidad** como "No configurado".
-	3. No agregue ningún **extremo** en este momento.
-
-9.	Elija o cree un [grupo de recursos](../azure-portal/resource-group-portal.md)
-
-10. Elija una **Suscripción**.
-
-11. Elija una **ubicación**
-
+En el ejemplo siguiente se muestra cómo crear una instancia de WebLogic Server 12c que se ejecuta en una máquina virtual anteriormente creada y donde se ha instalado Oracle WebLogic 12c que se ejecuta en Windows Server 2012 en Azure.
 
 ##Para configurar su máquina virtual Oracle WebLogic Server 12c en Azure
 
@@ -187,4 +159,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

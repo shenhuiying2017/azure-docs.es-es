@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/26/2016"
 	ms.author="jgao"/>
 
 
 # Uso del coordinador de Oozie basado en tiempo con Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
 
-En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Para obtener información sobre la factoría de datos de Azure, consulte[Uso de Pig y Hive con la factoría de datos](../data-factory/data-factory-data-transformation-activities.md).
+En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Además de con Oozie, también puede programar trabajos usando Data Factory de Azure. Para obtener información sobre la factoría de datos de Azure, consulte[Uso de Pig y Hive con la factoría de datos](../data-factory/data-factory-data-transformation-activities.md).
 
 > [AZURE.NOTE] En este artículo se requiere un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Oozie, incluidos los trabajos basados en tiempo, en un clúster basado en Linux, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight basado en Linux](hdinsight-use-oozie-linux-mac.md).
 
-##<a id="whatisoozie"></a>¿Qué es Oozie?
+##¿Qué es Oozie?
 
 Oozie de Apache es un sistema de coordinación o flujo de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop de Apache. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
@@ -57,7 +57,7 @@ El flujo de trabajo contiene dos acciones:
 > [AZURE.NOTE] Para ver las versiones de Oozie compatibles en los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][hdinsight-versions].
 
 
-##<a id="prerequisites"></a>Requisitos previos
+##Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -65,9 +65,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-    Para ejecutar scripts de Windows PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Para obtener más información, consulte [Ejecutar scripts de Windows PowerShell][powershell-script].
-
-- **Un clúster de HDInsight**. Para obtener información sobre cómo crear un clúster de HDInsight, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision] o [Introducción a HDInsight][hdinsight-get-started]. Para completar el tutorial, necesitará los datos siguientes:
+- **Un clúster de HDInsight**. Para más información sobre cómo crear un clúster de HDInsight, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight][hdinsight-provision] o [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux][hdinsight-get-started]. Para completar el tutorial, necesitará los datos siguientes:
 
 	<table border = "1">
 	<tr><th>Propiedad del clúster</th><th>Nombre de variable de Windows PowerShell</th><th>Valor</th><th>Descripción</th></tr>
@@ -94,7 +92,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 > [AZURE.NOTE] Rellene los valores de las tablas. Le resultará útil para completar el tutorial.
 
 
-##<a id="defineworkflow"></a>Definición del flujo de trabajo de Oozie y el script de HiveQL relacionado
+##Definición del flujo de trabajo de Oozie y el script de HiveQL relacionado
 
 Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lenguaje de definición de procesos XML). El nombre de archivo de flujo de trabajo predeterminado es *workflow.xml*. Guardará el archivo de flujo de trabajo localmente y lo implementará en el clúster de HDInsight con Azure PowerShell posteriormente en este tutorial.
 
@@ -241,7 +239,7 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
 
 2. Guarde el archivo como **C:\\Tutorials\\UseOozie\\coordinator.xml** mediante la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
 
-##<a id="deploy"></a>Implementación del proyecto de Oozie y preparación del tutorial
+##Implementación del proyecto de Oozie y preparación del tutorial
 
 Ejecutará el script de Azure PowerShell para realizar las siguientes acciones:
 
@@ -259,7 +257,7 @@ Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almace
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis *asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE] La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
 > [AZURE.NOTE] La ruta de acceso wasb:// es una ruta de acceso virtual. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
@@ -378,7 +376,7 @@ Para obtener más información, consulte [HDInsight: Introducción de tablas int
 
 	![Resultado de preparación del tutorial][img-preparation-output]
 
-##<a id="run"></a>Ejecución del proyecto de Oozie
+##Ejecución del proyecto de Oozie
 
 Azure PowerShell no proporciona actualmente cmdlets para la definición de trabajos de Oozie. Puede usar el cmdlet **Invoke-RestMethod** para invocar los servicios web de Oozie. La API de servicios web de Oozie es una API HTTP REST JSON. Para obtener más información sobre la API de servicios web de Oozie, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 
@@ -648,7 +646,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para comprobar el registro de errores del trabajo**
 
-Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log en el nodo principal del clúster. Para obtener más información sobre RDP, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
+Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log en el nodo principal del clúster. Para más información sobre RDP, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure][hdinsight-admin-portal].
 
 **Para volver a ejecutar el tutorial**
 
@@ -686,7 +684,7 @@ Aquí tiene un script de Windows PowerShell de ejemplo que puede usar:
 	$conn.close()
 
 
-##<a id="nextsteps"></a>Pasos siguientes
+##Pasos siguientes
 En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordinador de Oozie, y a ejecutar un trabajo de coordinador de Oozie mediante Azure PowerShell. Para obtener más información, consulte los artículos siguientes:
 
 - [Introducción a HDInsight][hdinsight-get-started]
@@ -743,4 +741,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

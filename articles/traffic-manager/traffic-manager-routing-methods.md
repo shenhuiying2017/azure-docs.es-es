@@ -3,7 +3,7 @@
    description="Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -12,122 +12,118 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.date="05/25/2016"
+   ms.author="jtuliani" />
 
-# Métodos de enrutamiento del Administrador de tráfico
+# Métodos de enrutamiento de tráfico del Administrador de tráfico
 
-Existen tres métodos de enrutamiento disponibles en el Administrador de tráfico. Cada perfil del Administrador de tráfico solo puede usar un método de enrutamiento del tráfico cada vez, si bien puede seleccionar otro método de enrutamiento del tráfico para su perfil en cualquier momento.
+En esta página se describen los métodos de enrutamiento de tráfico admitidos por el Administrador de tráfico de Azure. Se utilizan para dirigir a los usuarios finales al punto de conexión de servicio correcto.
 
-Es importante tener en cuenta que todos los métodos de enrutamiento del tráfico incluyen la supervisión del extremo. Después de configurar su perfil en el Administrador de tráfico para especificar el método de enrutamiento del tráfico que mejor satisfaga sus necesidades, configure los valores de supervisión. Cuando la supervisión esté configurada correctamente, el Administrador de tráfico supervisará el estado de los extremos, que consisten en los servicios en la nube y sitios web, y no enviará tráfico a los extremos que considera que no están disponibles. Para obtener más información acerca de la supervisión del Administrador de tráfico, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
+> [AZURE.NOTE] La API de Azure Resource Manager (ARM) para el Administrador de tráfico emplea terminología distinta a la de la API de administración de servicios de Azure (ASM). Este cambio se introdujo siguiendo los comentarios del cliente para mejorar la claridad y reducir los malentendidos más comunes. En esta página, usaremos la terminología de ARM. Las diferencias son:
 
-Los tres métodos de enrutamiento del tráfico del Administrador de tráfico son los siguientes:
+>- En ARM, usamos "método de enrutamiento de tráfico" para describir el algoritmo que se utiliza para determinar a qué punto de conexión se debe dirigir a un usuario final determinado en un momento determinado. En ASM, llamamos a esto "método de equilibrio de carga".
 
-- **Conmutación por error**: seleccione este método cuando tenga puntos de conexión en el mismo centro de datos o en distintos centros de datos de Azure (más conocidos como regiones en el Portal de Azure clásico) y desee usar un punto de conexión principal para todo el tráfico, pero proporcione copias de seguridad en caso de que los puntos de conexión principales o de copia de seguridad no estén disponibles. Para obtener más información, consulte [Método de enrutamiento de tráfico de conmutación por error](#failover-traffic-routing-method).
+>- En ARM, usamos "ponderado" para hacer referencia al método de enrutamiento de tráfico que distribuye el tráfico entre todos los puntos de conexión disponibles, en función del peso definido para cada uno. En ASM, llamamos a esto "round-robin".
+>- En ARM, usamos "prioridad" para hacer referencia al método de enrutamiento de tráfico que dirige todo el tráfico al primer punto de conexión disponible en una lista ordenada. En ASM, llamamos a esto "conmutación por error".
 
-- **Round Robin**: seleccione Round Robin cuando desee distribuir la carga entre un conjunto de extremos en el mismo centro de datos o entre diferentes centros de datos. Para obtener más información, consulte [Método de enrutamiento de tráfico round robin](#round-robin-traffic-routing-method).
+> En todos los casos, la única diferencia está en el nombre. No hay ninguna diferencia en la funcionalidad.
 
-- **Rendimiento**: seleccione Rendimiento cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" según la latencia más baja. Para obtener más información, consulte [Método de enrutamiento de tráfico de rendimiento](#performance-traffic-routing-method).
 
-Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del método de enrutamiento de tráfico round robin de conmutación por error para sitios web de un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico permite especificar el enrutamiento de tráfico de conmutación por error y de round robin para sitios web en distintos centros de datos.
+El Administrador de tráfico de Azure admite varios algoritmos para determinar cómo se enruta a los usuarios finales a los diferentes puntos de conexión de servicio. Estos se conocen como métodos de enrutamiento de tráfico. El método de enrutamiento de tráfico se aplica a cada consulta de DNS recibida con el fin de determinar qué punto de conexión se debe devolver en la respuesta DNS.
 
->[AZURE.NOTE] El período de vida (TTL) de DNS informa a los clientes y a las resoluciones DNS en los servidores DNS sobre el período de tiempo durante el que se deben almacenar los nombres resueltos en la memoria caché. Los clientes seguirán usando un extremo determinado cuando resuelvan su nombre de dominio hasta que expire la entrada de la memoria caché de DNS local para el nombre.
+Existen tres métodos de enrutamiento disponibles en el Administrador de tráfico:
 
-## Método de enrutamiento de tráfico de conmutación por error
+- **Prioridad:** seleccione "Prioridad" cuando quiera usar un punto de conexión de servicio primario para todo el tráfico, y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles. Para más información, consulte [Método de enrutamiento del tráfico prioritario](#wriority-traffic-routing-method).
 
-En ocasiones, una organización desea proporcionar confiabilidad en sus servicios. Puede hacerlo mediante servicios de copia de seguridad en caso de que el servicio principal esté desactivado. Un patrón habitual de conmutación por error del servicio es proporcionar un conjunto de extremos idénticos y enviar tráfico a un servicio principal con una lista de una o más copias de seguridad. Si el servicio principal no está disponible, los clientes que realizan la solicitud se envían al siguiente por orden. Si los servicios del primer y segundo puesto de la lista no están disponibles, el tráfico irá al que esté en tercer puesto y así sucesivamente.
+- **Ponderado:** seleccione "Ponderado" cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, o bien de manera uniforme o según los pesos definidos. Para más información, consulte [Método de enrutamiento del tráfico ponderado](#weighted-traffic-routing-method).
 
-Al configurar el método de enrutamiento de tráfico de conmutación por error, es importante el orden de los extremos seleccionados. Con el Portal de Azure clásico, puede configurar el orden de la conmutación por error en la página Configuración del perfil.
+- **Rendimiento**: seleccione "Rendimiento" cuando tenga puntos de conexión en diferentes ubicaciones geográficas y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja. Para más información, consulte [Método de enrutamiento de tráfico de rendimiento](#performance-traffic-routing-method).
 
-La Figura 1 muestra un ejemplo del método de enrutamiento del tráfico de conmutación por error para un conjunto de extremos.
+> [AZURE.NOTE] Todos los perfiles del Administrador de tráfico incluyen supervisión continua del estado y conmutación por error automática del punto de conexión. Esto es aplicable a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 
-![Método de enrutamiento de conmutación por error del Administrador de tráfico](./media/traffic-manager-routing-methods/IC750592.jpg)
+Con un único perfil de Administrador de tráfico solo se puede usar un método de enrutamiento de tráfico. El método de enrutamiento de tráfico para el perfil se puede cambiar en cualquier momento. Los cambios se aplican en un minuto, sin tiempo de inactividad. Los métodos de enrutamiento de tráfico se pueden combinar mediante perfiles anidados del Administrador de tráfico. Esto hace posible la creación de configuraciones de enrutamiento de tráfico sofisticadas y flexibles que satisfacen las necesidades de aplicaciones más grandes y complejas. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md) (Perfiles anidados de Administrador de tráfico).
 
-**Ilustración 1**
+## Método de enrutamiento de tráfico de prioridad
 
-Los siguientes pasos numerados se corresponden con los números de la ilustración 1.
+Habitualmente, las organizaciones desean ofrecer confiabilidad en sus servicios y, para ello, proporcionan uno o varios servicios de reserva para el caso en que su servicio principal se vuelva inactivo. El método de enrutamiento de tráfico de "Prioridad" permite que los clientes de Azure implementen fácilmente este patrón de conmutación por error.
 
-1. El Administrador de tráfico recibe una solicitud entrante de un cliente de un cliente a través de DNS y localiza el perfil.
-2. El perfil contiene una lista ordenada de extremos. El Administrador de tráfico comprueba qué extremo es el primero de la lista. Si el extremo está en línea (según la supervisión continuada del extremo), especificará ese nombre de DNS de ese extremo en la respuesta DNS al cliente. Si el extremo está sin conexión, el Administrador de tráfico determina el siguiente extremo en línea de la lista. En este ejemplo CS-A está sin conexión (no disponible), pero CS-B está en línea (disponible).
-3. El Administrador de tráfico devuelve el nombre de dominio de CS-B al servidor DNS del cliente, que resuelve este nombre de dominio en una dirección IP y lo envía al cliente.
-4. El cliente inicia el tráfico hacia CS-B.
+![Método de enrutamiento de tráfico de "prioridad" del Administrador de tráfico de Azure][1]
 
-## Método de enrutamiento de tráfico de Round robin
+El perfil de Administrador de tráfico está configurado con una lista de puntos de conexión de servicio ordenada por prioridad. De forma predeterminada, todo el tráfico de usuario final se envía al punto de conexión principal (prioridad más alta). Si el punto de conexión principal no está disponible (en función del estado habilitado o deshabilitado del punto de conexión configurado y la supervisión continua del punto de conexión), se remite a los usuarios al segundo punto de conexión. Si los puntos de conexión principal y secundario no están disponibles, el tráfico pasa al tercero, y así sucesivamente.
 
-Un patrón de enrutamiento de tráfico habitual es proporcionar un conjunto de extremos idénticos y enviar tráfico a cada uno por el método round robin. El método round robin divide el tráfico en varios extremos. Selecciona un extremo en buen estado de forma aleatoria y no enviará tráfico a los servicios que se detecten que no están en funcionamiento. Para obtener más información, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
+La configuración de las prioridades de los puntos de conexión se lleva a cabo de forma diferente en las API de ARM (nuevo Portal de Azure) y las API de ASM (portal clásico):
 
-La Figura 2 muestra un ejemplo del método de enrutamiento de tráfico de round robin para un conjunto de extremos.
+- En las API de ARM, la prioridad del punto de conexión se configura explícitamente, mediante la propiedad de prioridad definida en cada punto de conexión. Esta propiedad debe tomar un valor entre 1 y 1000, donde los valores más bajos representan una prioridad más alta. Dos puntos de conexión cualesquiera no pueden compartir el mismo valor de prioridad. La propiedad es opcional y, cuando se omite, se usa una prioridad predeterminada basada en el orden del punto de conexión.
 
-![Método de enrutamiento Round Robin del Administrador de tráfico](./media/traffic-manager-routing-methods/IC750593.jpg)
+- En las API de ASM, la prioridad del punto de conexión se configura implícitamente, según el orden en que se enumeran los puntos de conexión en la definición de perfil. También puede configurar el orden de conmutación por error en el Portal de Azure clásico, en la página de configuración del perfil.
 
-**Ilustración 2**
+## Método de enrutamiento de tráfico ponderado
 
-Los siguientes pasos numerados se corresponden con los números de la ilustración 2.
+Un enfoque común para conseguir alta disponibilidad y maximizar la utilización de los servicios es proporcionar un conjunto de puntos de conexión y distribuir el tráfico entre todos ellos, bien de manera uniforme o según una ponderación definida previamente. Este es el objetivo que persigue el método de enrutamiento de tráfico "ponderado".
 
-1. El Administrador de tráfico recibe una solicitud entrante de un cliente y localiza el perfil.
-2. El perfil contiene una lista de extremos. El Administrador de tráfico selecciona un extremo de esta lista de forma aleatoria, salvo extremos sin conexión (no disponibles) determinados por la supervisión de extremos del Administrador de tráfico. En este ejemplo, es el extremo CS-B.
-3. El Administrador de tráfico devuelve el nombre de dominio de CS-B al servidor DNS del cliente. El servidor DNS del cliente resuelve este nombre de dominio en una dirección IP y lo envía al cliente.
-4. El cliente inicia el tráfico hacia CS-B.
+![Método de enrutamiento de tráfico "ponderado" del Administrador de tráfico de Azure][2]
 
-El enrutamiento de tráfico de round robin actualmente admite una distribución ponderada del tráfico de red. La Figura 3 muestra un ejemplo del método de enrutamiento de tráfico de round robin ponderado para un conjunto de extremos.
+En el método de enrutamiento de tráfico ponderado, a cada punto de conexión se le asigna un peso como parte de la configuración de perfiles de Administrador de tráfico. Cada peso es un entero comprendido entre 1 y 1000. Este parámetro es opcional y, si se omite, se utiliza un peso predeterminado de "1".
+  
+El tráfico de usuario final se distribuye entre todos los puntos de conexión de servicio disponibles (según el estado habilitado o deshabilitado del punto de conexión configurado y la supervisión continua del punto de conexión). Para cada consulta de DNS recibida, se elige de forma aleatoria uno de los puntos de conexión disponibles, con una probabilidad basada en el peso asignado a ese punto de conexión y a los otros puntos de conexión disponibles.
 
-![Método de enrutamiento Round Robin ponderado](./media/traffic-manager-routing-methods/IC750594.png)
-
-**Ilustración 3**
-
-El enrutamiento de tráfico ponderado round robin le permite distribuir la carga en varios extremos basados en un valor asignado de ponderación de cada extremo. Cuanto mayor sea el peso, mayor frecuencia de retornos tendrá el extremo. Entre los escenarios en los que se puede considerar útil este método se incluyen:
+El uso del mismo peso en todos los puntos de conexión da lugar a una distribución uniforme del tráfico, lo que resulta perfecto para crear un uso coherente entre un conjunto de puntos de conexión idénticos. El uso de pesos mayores (o menores) en determinados puntos de conexión hace que dichos puntos de conexión se devuelvan con mayor (o menor) frecuencia en las respuestas DNS y que, por tanto, reciban más tráfico. Esto permite varios escenarios útiles:
 
 - Actualización gradual de aplicaciones: asigne un porcentaje de tráfico para redirigirlo a un nuevo extremo y aumentar gradualmente el tráfico hasta el 100 %.
+
 - Migración de aplicaciones a Azure: cree un perfil con Azure y los extremos externos, y especifique el peso del tráfico que se redirigirá a cada extremo.
+
 - Expansión de la nube para conseguir capacidad adicional: expanda rápidamente una implementación local en la nube colocándola detrás de un perfil de Administrador de tráfico. Cuando necesite capacidad adicional en la nube, puede agregar o habilitar más extremos y especificar la porción de tráfico que va a cada extremo.
 
-En este momento, no puede usar el Portal de Azure clásico para configurar el enrutamiento de tráfico ponderado. Azure proporciona acceso mediante programación a este método con la API de REST de administración de servicios y los cmdlets de Azure PowerShell asociados.
+El enrutamiento de tráfico ponderado se puede configurar mediante el nuevo Portal de Azure, sin embargo, los pesos no se pueden configurar en el portal "clásico". También se puede configurar mediante ARM y ASM mediante Azure PowerShell, la CLI de Azure y las API de REST de Azure.
 
-Para obtener información acerca del uso de las API de REST, consulte [Operaciones en el Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
+Nota: Las respuestas DNS se almacenan en caché por los clientes y los servidores DNS recursivos que usan esos clientes para crear sus consultas DNS. Es importante comprender el posible efecto de este almacenamiento en caché en las distribuciones del tráfico ponderado. Si el número de clientes y servidores DNS recursivos es grande, como en el caso de aplicaciones típicas accesibles desde Internet, la distribución del tráfico funciona como se espera. Sin embargo, si el número de clientes o servidores DNS recursivos es pequeño, entonces este almacenamiento en caché puede sesgar considerablemente la distribución del tráfico. Casos de uso comunes en los que puede darse esto:
 
-Para obtener información acerca del uso de los cmdlets de Azure PowerShell, consulte [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para obtener una configuración de ejemplo, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado a través de PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
+- Entornos de desarrollo y pruebas
+- Comunicaciones de aplicación a aplicación
+- Aplicaciones dirigidas a una base de usuarios limitada que comparte una infraestructura DNS recursiva común, por ejemplo, los empleados de una organización.
 
-Para probar el perfil desde un solo cliente y observar el comportamiento de round robin igual o ponderado, compruebe que el nombre de DNS se resuelve en direcciones IP distintas de los extremos según los valores iguales o ponderados en el perfil. Cuando realice comprobaciones, debe deshabilitar el almacenamiento en memoria caché de DNS del cliente o limpiar la memoria caché de DNS entre cada intento para asegurarse de que se envía una solicitud de nombre de DNS nueva.
+Estos efectos de almacenamiento en caché de DNS son comunes a todos los sistemas de enrutamiento de tráfico basados en DNS, no solo al Administrador de tráfico de Azure. En algunos casos, borrar explícitamente la caché DNS puede proporcionar una solución provisional. En otros, puede resultar más adecuado el uso de un método de enrutamiento de tráfico alternativo.
 
 ## Método de enrutamiento de tráfico de rendimiento
 
-Para redirigir el tráfico a los extremos que se encuentran en distintos centros de datos en todo el mundo, puede dirigir el tráfico de entrada al extremo más cercano en términos de la latencia más baja entre el cliente que realiza la solicitud y el extremo. Normalmente, el extremo "más cercano" se corresponde directamente con la distancia geográfica más corta. El método de enrutamiento de tráfico de rendimiento le permitirá realizar la distribución según la ubicación y la latencia, pero no puede tener en cuenta los cambios en tiempo real de la cuenta en la carga o configuración de red.
+La capacidad de respuesta de muchas aplicaciones se puede mejorar con la implementación de puntos de conexión en dos o más ubicaciones del planeta y el enrutamiento de los usuarios finales a la ubicación más "cercana" a ellos. El método de enrutamiento de tráfico de "rendimiento" sirve a este propósito.
 
-El método de enrutamiento de tráfico de rendimiento identifica el cliente que realiza la solicitud y lo envía al extremo más cercano. La "proximidad" se determina mediante una tabla de latencia de Internet que muestra el tiempo que se invierte en la ida y la vuelta entre varias direcciones IP y cada centro de datos de Azure. Esta tabla se actualiza a intervalos periódicos y no pretende mostrar el rendimiento en tiempo real en Internet. Esto no tiene en cuenta la carga de un servicio determinado, aunque el Administrador de tráfico supervisa los extremos en función del método elegido y no los incluye en las respuestas de las consultas DNS si no están disponibles. En otras palabras, el enrutamiento de tráfico del rendimiento también incorpora el método de enrutamiento de tráfico de conmutación por error.
+![Método de enrutamiento de tráfico de "rendimiento" del Administrador de tráfico de Azure][3]
 
-La Figura 4 muestra un ejemplo del método de enrutamiento de tráfico de rendimiento para un conjunto de extremos.
+Para maximizar la capacidad de respuesta, el punto de conexión "más cercano" no es necesariamente el más cercano según la medición de la distancia geográfica. Si no que el método de enrutamiento de tráfico de "rendimiento" determina qué punto de conexión es el más cercano al usuario final, medido por la latencia de red. La "proximidad" se determina mediante una tabla de latencia de Internet que muestra el tiempo que se invierte en la ida y la vuelta entre intervalos direcciones IP y cada centro de datos de Azure.
 
-![Método de enrutamiento del rendimiento del Administrador de tráfico](./media/traffic-manager-routing-methods/IC753237.jpg)
+El Administrador de tráfico examina las solicitudes DNS de entrada y busca la dirección IP de origen de esa solicitud en la tabla de latencia de Internet. Esto determina la latencia de esa dirección IP para cada centro de datos de Azure. A continuación, elige cuál de los puntos de conexión disponibles (según el estado habilitado o deshabilitado del punto de conexión configurado y la supervisión continua del punto de conexión) tiene la menor latencia y devuelve dicho punto de conexión en la respuesta DNS. De ahí que se dirija al usuario final al punto de conexión que le proporciona la menor latencia y, por tanto, el mejor rendimiento.
 
-**Ilustración 4**
+Como se ha explicado en [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md) (Cómo funciona el Administrador de tráfico), el Administrador de tráfico no recibe consultas DNS directamente de los usuarios finales, sino del servicio DNS recursivo que tienen configurado para usar. Por lo tanto, la dirección IP usada para determinar el punto de conexión "más cercano" no es la dirección IP del usuario final, sino la dirección IP de su servicio DNS recursivo. En la práctica, esta dirección IP constituye un buen proxy para el usuario final a tal efecto.
 
-Los siguientes pasos numerados se corresponden con los números de la ilustración 4.
+Para explicar los cambios en la red Internet mundial y la incorporación de nuevas regiones de Azure, el Administrador de tráfico actualiza regularmente la tabla de latencia de Internet que consume. Sin embargo, no se tienen en cuenta las variaciones en tiempo real en el rendimiento o la carga en Internet.
 
-1. El Administrador de tráfico crea la tabla de latencia de Internet periódicamente. La infraestructura del Administrador de tráfico ejecuta pruebas para determinar el tiempo invertido en viajes de ida y vuelta entre los distintos puntos del mundo y los centros de datos de Azure que hospedan extremos.
-2. El Administrador de tráfico recibe una solicitud entrante de un cliente de un cliente a través de DNS y localiza el perfil.
-3. El Administrador de tráfico localiza la fila de la tabla de latencia de Internet para la dirección IP de la solicitud de DNS entrante. Debido a que el servidor DNS local del usuario está realizando una solicitud de DNS iterativa para encontrar el servidor DNS autoritativo para el nombre del perfil del Administrador de tráfico, la solicitud de DNS se envía desde la dirección IP del servidor DNS local del cliente.
-4. El Administrador de tráfico localiza el centro de datos con el menor tiempo para los centros de datos que hospedan los extremos definidos en el perfil. En este ejemplo, es CS-B.
-5. El Administrador de tráfico devuelve el nombre de dominio de CS-B al servidor DNS local del cliente, que resuelve este nombre de dominio en una dirección IP y lo envía al cliente.
-6. El cliente inicia el tráfico hacia CS-B.
+El enrutamiento de tráfico de rendimiento no tiene en cuenta la carga en un punto de conexión de servicio determinado, aunque el Administrador de tráfico supervisa los puntos de conexión y no los incluye en las respuestas de las consultas de DNS si no están disponibles.
 
-**Puntos a tener en cuenta:**
+Puntos a tener en cuenta:
 
-- Si el perfil contiene varios extremos del mismo centro de datos, el tráfico dirigido a ese centro de datos se distribuye por igual entre los extremos que estén disponibles y en buen estado según la supervisión del extremo.
-- Si todos los extremos de un centro de datos dado no están disponibles (según la supervisión del extremo), el tráfico para los extremos se distribuye por el resto de los extremos disponibles que se especifican en el perfil, no a los extremos más cercanos. Esto ayuda a evitar un error en cascada que podría producirse si se sobrecarga el extremo más cercano.
-- Cuando se actualiza la tabla de latencia de Internet, es posible que identifique una diferencia en los patrones de tráfico y carga en los extremos. Estas diferencias deben ser mínimas.
-- Al usar el Método de enrutamiento de tráfico de rendimiento con extremos externos, deberá especificar la ubicación de estos extremos. Elija la región de Azure más cercana a su implementación. Para obtener más información, consulte [Administrar extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
+- Si el perfil contiene varios puntos de conexión en la misma región de Azure, el tráfico dirigido a esa región se distribuye uniformemente entre los puntos de conexión disponibles (según el estado habilitado o deshabilitado del punto de conexión configurado y la supervisión continua del punto de conexión). Si prefiere una distribución de tráfico diferente dentro de una región, lo puede lograr mediante los [perfiles anidados del Administrador de tráfico](traffic-manager-nested-profiles.md).
 
-## Figuras del Administrador de tráfico
+- Si todos los puntos de conexión de una región de Azure dada están degradados (según la supervisión de puntos de conexión en curso), el tráfico de esos puntos de conexión se distribuirá entre todos los demás puntos de conexión disponibles que se especifiquen en el perfil, y no a los puntos de conexión más próximos. Esto ayuda a evitar un error en cascada que podría producirse si se sobrecarga el extremo más cercano. Si prefiere definir la secuencia de conmutación por error de punto de conexión, puede hacerlo mediante los [perfiles anidados del Administrador de tráfico](traffic-manager-nested-profiles.md).
 
-Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint para su propia presentación sobre el Administrador de tráfico o modificarlas para sus propios fines, consulte [Ilustraciones del Administrador de tráfico en la documentación de MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
+- Al usar el método de enrutamiento de tráfico de rendimiento con puntos de conexión externos anidados, deberá especificar la ubicación de esos puntos de conexión. Elija la región de Azure más cercana a su implementación; las opciones disponibles son las regiones de Azure, dado que esas son las ubicaciones que se admiten en la tabla de latencia de Internet.
+
+- El algoritmo que elige qué punto de conexión devolver a un usuario final dado es determinista, no hay nada aleatorio. Las consultas DNS repetidas del mismo cliente se dirigirán al mismo punto de conexión. Sin embargo, el método de enrutamiento de tráfico de rendimiento no debe basarse en enrutar siempre a un usuario dado a una implementación dada (lo que puede ser necesario si, por ejemplo, los datos de usuario de ese usuario se almacenan solo localmente). El motivo es que cuando un usuario viaja, utiliza normalmente distintos servidores DNS recursivos, así que podrían enrutarse a un punto de conexión diferente. También puede verse afectado por las actualizaciones de la tabla de latencia de Internet.
+
+- Cuando se actualiza la tabla de latencia de Internet, puede observar que a algunos clientes se les dirige a un punto de conexión diferente. El número de usuarios afectados debe ser mínimo y refleja un enrutamiento más preciso basado en los datos de latencia actuales. Estas actualizaciones son esenciales para mantener la precisión del enrutamiento de tráfico de rendimiento dado que Internet evoluciona constantemente.
+
 
 ## Pasos siguientes
 
-[Supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
+Aprenda a desarrollar aplicaciones de alta disponibilidad mediante la [supervisión de puntos de conexión del Administrador de tráfico](traffic-manager-monitoring.md).
 
-[Creación de un perfil](traffic-manager-manage-profiles.md)
+Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-manage-profiles.md).
 
-[Agregación de un extremo](traffic-manager-endpoints.md)
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--Image references-->
+[1]: ./media/traffic-manager-routing-methods/priority.png
+[2]: ./media/traffic-manager-routing-methods/weighted.png
+[3]: ./media/traffic-manager-routing-methods/performance.png
+
+<!---HONumber=AcomDC_0601_2016-->

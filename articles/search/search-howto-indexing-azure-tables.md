@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/12/2016"
+ms.date="05/28/2016"
 ms.author="eugenesh" />
 
 # Indexación de Almacenamiento de tablas de Azure con Búsqueda de Azure
@@ -21,7 +21,7 @@ Este artículo muestra cómo usar Búsqueda de Azure para indexar los datos alma
 
 > [AZURE.IMPORTANT] Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 
-## Configuración de la indexación de tablas
+## Configuración de la indexación de tablas de Azure
 
 Para instalar y configurar un indexador tablas de Azure, puede usar la API de REST de Búsqueda de Azure para crear y administrar **indexadores** y **orígenes de datos**, tal como se describe en[Operaciones de indexador](https://msdn.microsoft.com/library/azure/dn946891.aspx). En el futuro, se agregará la compatibilidad con la indexación de tablas para el SDK de .NET de Búsqueda de Azure y el Portal de Azure.
 
@@ -31,7 +31,8 @@ Un indexador lee datos de un origen de datos y los carga en un índice de búsqu
 
 Para configurar la indexación de tablas:
 
-1. Cree un origen de datos de tipo `azuretable` que haga referencia a una tabla (y, de manera opcional, a una consultar) en una cuenta de almacenamiento de Azure.
+1. Creación de un origen de datos
+	- Establezca el parámetro `type` en `azuretable`.
 	- Transfiera la cadena de conexión de la cuenta de almacenamiento como parámetro `credentials.connectionString`
 	- Especifique el nombre de la tabla con el parámetro `container.name`.
 	- De manera opcional, especifique una consulta con el parámetro `container.query`. Siempre que sea posible, use un filtro en PartitionKey para obtener el mejor rendimiento posible; cualquier otra consulta dará como resultando un recorrido de tabla completo, el que puede generar un rendimiento deficiente en el caso de tablas de gran tamaño.
@@ -51,7 +52,7 @@ Para configurar la indexación de tablas:
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-Para obtener más información sobre la API de creación de origen de datos, consulte [Creación de origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Para más información sobre la API Create Datasource, consulte [Crear origen de datos](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
 ### Creación de índice 
 
@@ -67,7 +68,7 @@ Para obtener más información sobre la API de creación de origen de datos, con
   		]
 	}
 
-Para obtener más información sobre la API de creación de índice, consulte [Creación de índice](https://msdn.microsoft.com/library/dn798941.aspx).
+Para más información sobre la API Create Index, consulte [Create Index (Azure Search Service REST API)](https://msdn.microsoft.com/library/dn798941.aspx) (Create Index [API de REST del servicio Búsqueda de Azure]).
 
 ### Creación de un indexador 
 
@@ -84,25 +85,25 @@ Por último, cree un indexador que haga referencia al origen de datos y un índi
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-Para obtener más detalles sobre la API de creación de indexador, consulte [Creación de un indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Para más detalles sobre la API Create Indexer, consulte [Crear indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 Eso es todo. ¡Feliz indexación!
 
 ## Manejo de distintos nombres de campos
 
-Con frecuencia, los nombres de campos del índice existente serán distintos de los nombres de las propiedades de la tabla. Puede usar **asignaciones de campos** para asignar los nombres de propiedad provenientes de la tabla a los nombres de campo del índice de búsqueda. Para obtener más información sobre las asignaciones de cambio, consulte [Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
+Con frecuencia, los nombres de campos del índice existente serán distintos de los nombres de las propiedades de la tabla. Puede usar **asignaciones de campos** para asignar los nombres de propiedad provenientes de la tabla a los nombres de campo del índice de búsqueda. Para más información sobre las asignaciones de campos, consulte [Las asignaciones de campos de indexador de Búsqueda de Azure salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
 
 ## Control de claves de documentos
 
 En Búsqueda de Azure, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. El campo clave es necesario para cada documento que se agrega al índice (de hecho, es el único campo obligatorio).
 
-Debido a que las filas de tablas tienen una clave compuesta, Búsqueda de Azure genera un campo sintético llamado `Key`, que es una concatenación de valores clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` será `PK1RK1`.
+Como las filas de tablas tienen una clave compuesta, Búsqueda de Azure genera un campo sintético llamado `Key`, que es una concatenación de valores clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` será `PK1RK1`.
 
-> [AZURE.NOTE] El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos mediante el uso de la `base64Encode` [función de asignación de campo](search-indexer-field-mappings.md#base64EncodeFunction). Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
+> [AZURE.NOTE] El valor `Key` puede contener caracteres no válidos en claves de documentos, como guiones. Para tratar con caracteres no válidos, use la [función de asignación de campo](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. Si lo hace, recuerde utilizar también la codificación Base64 de seguridad de direcciones URL al pasar las claves de documento en las llamadas de la API como búsqueda.
 
 ## Indexación incremental y detección de eliminación
  
-Cuando configura un indexador de tablas para que se ejecute según una programación, vuelve a indexar solo las filas nuevas o actualizadas, según lo que determine el valor `Timestamp` de una fila. No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
+Cuando configura un indexador de tablas para que se ejecute según una programación, vuelve a indexar solo las filas nuevas o actualizadas, según lo determine el valor `Timestamp` de una fila. No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
 
 Para indicar que determinados documentos se deben quitar del índice, puede usar una estrategia de eliminación temporal: en lugar de eliminar una fila, agregue una propiedad para indicar que está eliminada y configure una directiva de detección de eliminación temporal en el origen de datos. Por ejemplo, la directiva que se muestra a continuación considerará que una fila está eliminada si tiene una propiedad `IsDeleted` con el valor `"true"`:
 
@@ -123,4 +124,4 @@ Para indicar que determinados documentos se deben quitar del índice, puede usar
 
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

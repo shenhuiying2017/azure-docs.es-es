@@ -19,8 +19,6 @@
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 Este artículo le guiará en el proceso de creación de un entorno de nube híbrida simulado con Microsoft Azure para las pruebas con dos redes virtuales de Azure independientes. Use esta configuración como alternativa a la [configuración de un entorno de nube híbrida para hacer pruebas](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) cuando no tenga conexión directa a Internet ni una dirección IP pública disponible. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
@@ -131,7 +129,7 @@ Esta es su configuración actual.
  
 ##Fase 3: creación de la conexión red virtual a red virtual
 
-En primer lugar, solicite una clave previamente compartida aleatoria criptográficamente segura de 32 caracteres al administrador de red o de seguridad. Como alternativa, use la información que encontrará en [Creación de una cadena aleatoria para una clave previamente compartida IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) para obtener una clave previamente compartida.
+En primer lugar, solicite una clave previamente compartida aleatoria criptográficamente segura de 32 caracteres al administrador de red o de seguridad. Como alternativa, use la información que encontrará en [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Creación de una cadena aleatoria para una clave previamente compartida IPsec) para obtener una clave previamente compartida.
 
 A continuación, use estos comandos para crear la conexión VPN de sitio a sitio, que puede tardar algún tiempo en crearse.
 
@@ -215,4 +213,4 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 - Configure una [granja de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

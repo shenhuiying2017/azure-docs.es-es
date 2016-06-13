@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más detalles sobre cómo se usa la vista preliminar de Azure AD de Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] \(Conexión a Almacenamiento de datos SQL con autenticación en Azure Active Directory).
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Conexión a Almacenamiento de datos SQL con la autenticación de Azure Active Directory).
 
 
 ## Autorización
@@ -101,7 +101,7 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 [Conexión a Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-connections.md
 [Introducción a la auditoría de Base de datos SQL]: ./sql-data-warehouse-overview-auditing.md
 [Introducción al cifrado de datos transparente (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-aad-authentication.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

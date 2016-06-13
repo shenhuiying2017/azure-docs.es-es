@@ -87,11 +87,11 @@ El método de revisión implica los tres pasos siguientes:
 | 3\. | KB3103616 | Paquete WMI | Normal | ~12 min |
 
 
- & #42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` y `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La actualización de software de dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` debe instalarse antes que el agente de Cis y Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+ & #42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` y `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La actualización de software de dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` debe instalarse antes que el agente de Cis y Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. También debe reiniciar el controlador activo mediante el cmdlet `Restart-HcsController` después de aplicar la actualización del agente de Cis y MDS (y antes de aplicar el resto de actualizaciones).*
 
 #### Descarga de actualizaciones para un dispositivo que ejecuta un software anterior a Update 2
 
-**Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0 o 1.1**, debe descargar e instalar la actualización de firmware y el controlador LSI. Esta actualización ya está instalada si ejecuta Update 1.2 o 2.
+**Si el dispositivo está ejecutando las versiones 0.2, 0.3, 1.0 y 1.1**, debe descargar e instalar la actualización del controlador LSI y de firmware, además de las actualizaciones de software, iSCSI y WMI. Esta actualización ya está instalada si ejecuta Update 1.2 o 2.
  
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -107,7 +107,7 @@ El método de revisión implica los tres pasos siguientes:
 
 
 
-<br></br> Es posible que también tenga que instalar actualizaciones de firmware del disco. Puede comprobar si las necesita ejecutando el `Get-HcsFirmwareVersion` cmdlet. Si ejecuta las versiones de firmware `XMGG`, `XGEG`, `KZ50`, `F6C2` o `VR08`, no necesita instalar estas actualizaciones.
+<br></br> Es posible que también tenga que instalar actualizaciones de firmware del disco. Puede comprobar si las necesita ejecutando el cmdlet `Get-HcsFirmwareVersion`. Si ejecuta las versiones de firmware `XMGG`, `XGEG`, `KZ50`, `F6C2` o `VR08`, no necesita instalar estas actualizaciones.
 
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
@@ -132,4 +132,4 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 Más información sobre el [lanzamiento de la actualización 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

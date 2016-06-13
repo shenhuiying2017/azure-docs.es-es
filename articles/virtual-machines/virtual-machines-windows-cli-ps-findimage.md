@@ -22,8 +22,6 @@
 
 Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada ubicación en la que puede implementar. Para dar un ejemplo, algunas de las imágenes de máquina virtual Windows más utilizadas son:
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 ## Tabla de imágenes de Windows más usadas
 
 
@@ -47,4 +45,4 @@ Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada u
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

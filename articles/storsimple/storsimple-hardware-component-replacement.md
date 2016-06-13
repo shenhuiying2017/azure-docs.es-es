@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/26/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Reemplazo de los componentes de hardware de StorSimple
@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

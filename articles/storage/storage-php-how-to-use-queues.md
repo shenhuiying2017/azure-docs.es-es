@@ -3,8 +3,8 @@
 	description="Aprenda a usar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++."
 	documentationCenter="php"
 	services="storage"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 # Uso del almacenamiento de colas de PHP
 
@@ -48,9 +48,9 @@ Para usar las API de almacenamiento en cola de Azure, necesitará:
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
 > [AZURE.NOTE]
-En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el Compositor. Si las instaló manualmente o como un paquete PEAR, tendrá que hacer referencia al archivo autocargador `WindowsAzure.php`.
+En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el Compositor. Si las instaló manualmente, deberá hacer referencia al archivo del cargador automático `WindowsAzure.php`.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -78,7 +78,7 @@ Para crear un cliente de cualquier servicio de Azure, debe usar la clase **Servi
 
 En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -89,11 +89,11 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
 Un objeto **QueueRestProxy** le permite crear una cola con el método **createQueue**. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. El ejemplo siguiente muestra cómo configurar metadatos en una cola.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Queue\Models\CreateQueueOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -123,11 +123,11 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 
 Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El método toma el nombre de la cola, el texto del mensaje y las opciones de mensaje (que son opcionales).
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Queue\Models\CreateMessageOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -150,11 +150,11 @@ Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El m�
 
 Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin quitarlos de la cola, mediante una llamada a **QueueRestProxy->peekMessages**. De forma predeterminada, el método **peekMessage** devuelve un único mensaje, pero puede cambiar el valor con el método **PeekMessagesOptions->setNumberOfMessages**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Queue\Models\PeekMessagesOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -195,10 +195,10 @@ Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin 
 
 El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages**, que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -233,10 +233,10 @@ El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRes
 
 Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRestProxy->updateMessage**. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede usar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -275,11 +275,11 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la visibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **getMessages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for**. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Queue\Models\ListMessagesOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -322,10 +322,10 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **QueueRestProxy->getQueueMetadata** solicita al servicio de Cola devolver los metadatos sobre la cola. Si llama al método **getApproximateMessageCount** en el objeto devuelto, se ofrece un recuento de la cantidad de mensajes que hay en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -350,10 +350,10 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **QueueRestProxy->deleteQueue**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -384,4 +384,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [require\_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

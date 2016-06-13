@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/24/2016"
+   ms.date="05/27/2016"
    ms.author="alkohli" />
 
 # Notas de la versión de la actualización 0.1 de la matriz virtual de StorSimple
@@ -29,17 +29,17 @@ Las notas de la versión se actualizan continuamente y se van agregando a medida
 
 La actualización 0.1 contiene las siguientes correcciones de errores y mejoras.
 
-- **Resistencia respecto de las interrupciones de la nube**: esta versión contiene varias correcciones de errores acerca de la recuperación ante desastres, la copia de seguridad, la restauración y la organización en niveles en caso de que se produzca una interrupción de la conectividad de la nube. 
+- **Resistencia mejorada para las interrupciones de la nube**: esta versión contiene varias correcciones de errores acerca de la recuperación ante desastres, la copia de seguridad, la restauración y la organización en niveles en caso de que se produzca una interrupción de la conectividad de la nube. 
 
 - **Mejor rendimiento de la restauración**: esta versión contiene correcciones de errores que han reducido considerablemente el tiempo de finalización de los trabajos de restauración.
 
 - **Optimización de la recuperación de espacio automatizada:** cuando se eliminan datos en volúmenes con aprovisionamiento fino, se deben recuperar los bloques de almacenamiento no utilizados. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
 
-- **Nuevos VHD, VHDX y VMDK**: ahora hay nuevos VHD, VHDX y VMDK disponibles a través del Portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
+- **Nuevas imágenes de disco virtual**: ahora hay nuevos VHD, VHDX y VMDK disponibles mediante el Portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
 
 - **Mejora la precisión del estado de los trabajos en el portal**: en la versión anterior del software, el estado del trabajo que se notificada en el portal no estaba muy detallado. Este problema se ha corregido en esta versión.
 
-- **Correcciones de errores relacionados con el cambio de nombre y la unión a dominio** del dispositivo.
+- **Experiencias de unión a dominios**: correcciones de errores relacionados con la unión a un dominio y el cambio de nombre del dispositivo.
 
 
 ## Problemas corregidos en la actualización 0.1
@@ -83,4 +83,4 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 
 [Instale la actualización 0.1](storsimple-ova-install-update-01.md) en la matriz virtual de StorSimple.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

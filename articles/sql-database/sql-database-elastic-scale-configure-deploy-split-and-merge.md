@@ -3,7 +3,7 @@
 	description="División y combinación con las herramientas de Base de datos elástica"
 	services="sql-database"  
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ddove"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/27/2016"
 	ms.author="ddove" />
 
 # Implemente un servicio de división y combinación 
@@ -151,14 +151,14 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Asegúrese de que el nombre del servidor no comience por **https://**.
+* Asegúrese de que el nombre del servidor no comience por ****https://**.
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## Prueba de la implementación del servicio
 
 ### Conexión con un explorador web
 
-Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de Azure clásico, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Sustituya **http://** por **https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
+Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de Azure clásico, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL del sitio** en el lado derecho. Sustituya ****http://** por ****https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
 
 ### Pruebas con scripts de PowerShell
 
@@ -339,4 +339,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

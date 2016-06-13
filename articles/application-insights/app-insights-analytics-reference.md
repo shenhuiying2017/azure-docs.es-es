@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # Referencia para Analytics
@@ -318,7 +318,7 @@ El resultado es:
 
 * *ColumnName:* en el resultado, las matrices en la columna indicada se expanden a varias filas. 
 * *ArrayExpression:* expresión que produce una matriz. Si se usa esta forma, se agrega una nueva columna y se conserva la existente.
-* *Nombre:* un nombre para la nueva columna.
+* *Name:* un nombre para la nueva columna.
 * *Typename:* convierte la expresión expandida en un tipo determinado.
 * *RowLimit:* el número máximo de filas generadas a partir de cada fila original. El valor predeterminado es 128.
 
@@ -345,95 +345,129 @@ Divide un registro de excepciones en filas para cada elemento en el campo de det
 
 ### Operador parse
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Extrae los valores de una cadena. Puede usar la coincidencia de expresión regular o simple.
 
-Los elementos de la cláusula `with` se hacen coincidir a su vez con la cadena de origen. Cada elemento arranca un fragmento del texto de origen. Si es una cadena sin formato, el cursor coincidente se mueve hasta la coincidencia. Si es una columna con un nombre de tipo, el cursor se mueve lo suficiente para analizar el tipo especificado. (Las coincidencias de cadena se mueven hasta que se encuentra una coincidencia con el siguiente elemento.) Si es un regex, se hace corresponder la expresión regular (y la columna resultante siempre tiene el tipo de cadena).
-
 **Sintaxis**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Argumentos**
 
-* *T:* la tabla de entrada.
-* *kind:* simple o regex. El valor predeterminado es simple.
-* *StringExpression:* una expresión que se evalúa como cadena o se puede convertir en una.
-* *SimpleMatch:* una cadena que coincide con la siguiente parte del texto.
-* *Column:* especifica la nueva columna para asignarle una coincidencia.
-* *Type:* especifica cómo analizar la siguiente parte de la cadena de origen.
-* *Regex:* una expresión regular para que coincida con la siguiente parte de la cadena. 
+* `T`: la tabla de entrada.
+* `kind`: 
+ * `simple` (valor predeterminado): las cadenas `Match` son cadenas sin formato.
+ * `relaxed`: si el texto no se analiza como el tipo de una columna, la columna se establece en null y el análisis continúa. 
+ * `regex`: las cadenas `Match` son expresiones regulares.
+* `Text`: una columna u otra expresión que se evalúa como cadena o se puede convertir en una.
+* *Match:* compara la siguiente parte de la cadena y la descarta.
+* *Column:* asigna la siguiente parte de la cadena a esta columna. Si no existe, se crea la columna.
+* *Type:* analiza la siguiente parte de la cadena como el tipo especificado, como int, date, double. 
+
 
 **Devoluciones**
 
 La tabla de entrada ampliada según la lista de columnas.
 
+Los elementos de la cláusula `with` se comparan a su vez con el texto de origen. Cada elemento se encarga de un fragmento del texto de origen:
+
+* Una cadena literal o una expresión regular mueve el cursor coincidente la longitud de la coincidencia.
+* En un análisis de regex, una expresión regular puede utilizar el operador de minimización '?' para pasar lo antes posible a la siguiente coincidencia.
+* Un nombre de columna con un tipo analiza el texto como el tipo especificado. A menos que kind=relaxed, un análisis incorrecto invalida la coincidencia del patrón completo.
+* Un nombre de columna sin tipo, o con el tipo 'string', copia el número mínimo de caracteres que se va a obtener en la siguiente coincidencia.
+* ' * ' omite el número mínimo de caracteres que se va a obtener en la siguiente coincidencia. Puede utilizar ' *' al principio y al final del patrón, o bien después de un tipo que no sea una cadena, o entre las coincidencias de la cadena.
+
+Todos los elementos de un patrón de análisis deben coincidir correctamente; de lo contrario, no se producirá ningún resultado. La excepción a esta regla es que cuando kind=relaxed, si no se puede analizar una variable con tipo, el resto del análisis continúa.
 
 **Ejemplos**
 
-El operador `parse` proporciona una manera simplificada de extender (`extend`) una tabla utilizando varias aplicaciones `extract` en la misma expresión `string`. Esto resulta especialmente útil cuando la tabla tiene una columna `string` que contiene varios valores que desea dividir en columnas individuales, como una columna que se ha generado con una instrucción ("`printf`"/"`Console.WriteLine`") de seguimiento de desarrollador.
-
-En el ejemplo siguiente, supongamos que la columna `EventNarrative` de la tabla `StormEvents` contiene cadenas del tipo `{0} at {1} crested at {2} feet around {3} on {4} {5}`. La siguiente operación extenderá la tabla con dos columnas: `SwathSize` y `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|El río Green, en Brownsville, tuvo un punto máximo de crecida de 5,73 metros aproximadamente a las 9:30 EST del 12 de diciembre. (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). La cota de inundación en Brownsville es de 5,49 metros. (Flood stage at Brownsville is 18 feet). A este nivel se produce una inundación menor. (Minor flooding occurs at this level). El río desborda los muros de contención y algunas riberas bajas, así como algunas vegas dedicadas a la agricultura. (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
-|El río Rolling Fork, en Boston, tuvo un punto máximo de crecida de 11,98 metros aproximadamente a las 17:00 EST del 12 de diciembre. (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). La cota de inundación en Boston es de 10,67 metros. (Flood stage at Boston is 35 feet). A este nivel se produce una inundación menor, con algunas vegas dedicadas a la agricultura cubiertas. (Minor flooding occurs at this level, with some agricultural bottom land covered.)|
-|El río Green, en Woodbury, tuvo un punto máximo de crecida de 11,19 metros aproximadamente a las 6:00 EST el 16 de diciembre. (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16.) La cota de inundación en Woodbury es de 10,06 metros. (Flood stage at Woodbury is 33 feet.) A este nivel se produce una inundación menor, con algunas tierras bajas en la ciudad de Woodbury cubierta por el agua. (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.)|
-|El río Ohio, en Tell City, tuvo un punto máximo de crecida de 11,89 metros aproximadamente a las 7:00 EST del 18 de diciembre. (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18.) La cota de inundación en Tell City es de 11,56 metros (Flood stage at Tell City is 38 feet.) A este nivel, el rio empieza a desbordar sus orillas por encima del medidor. (At this level, the river begins to overflow its banks above the gage.) La autopista Indiana 66 se inunda entre Rome y Derby. (Indiana Highway 66 floods between Rome and Derby).|
+*Simple*:
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|Ubicación|Alto|Hora|Mes|Día|
-|---|---|---|---|---|---|
-|The Green River | Woodbury |36\.7| 0600EST | December|16|
-|The Rolling Fork River | Boston |39\.3| 1700EST | December|12|
-|The Green River | Brownsville |18\.8| 0930EST | December|12|
-|The Ohio River | Tell City |39| 7 AM EST | December|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-También es posible realizar coincidencias usando expresiones regulares. Esto produce el mismo resultado, pero todas las columnas de resultados tienen el tipo de cadena:
+*Relaxed*:
+
+Cuando la entrada contiene una coincidencia correcta para cada columna con tipo, un análisis relajado produce los mismos resultados que un análisis simple. Pero si una de las columnas con tipo no se analiza correctamente, un análisis relajado continúa procesando el resto del patrón, mientras que un análisis simple se detiene y no genera ningún resultado.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x | present | Year
+---|---|---
+1 | socks | 63
+
+
+*Regex*:
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\)"
+| project-away x, s
+```
+
+resource | slice | lock | release | previous
+---|---|---|---|---
+Programador | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### Operador project
 
@@ -448,9 +482,9 @@ Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nu
 
 **Argumentos**
 
-* *T:* la tabla de entrada.
-* *ColumnName:* el nombre de una columna para que aparezca en la salida. Si no hay valor de *Expression*, tiene que aparecer una columna de ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
-* *Expression:* expresión escalar opcional que hace referencia a las columnas de entrada. 
+* *T*: la tabla de entrada.
+* *ColumnName*: el nombre de una columna que va a aparecer en la salida. Si no hay ningún valor de *Expression*, tiene que aparecer una columna con ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *Expression*: expresión escalar opcional que hace referencia a las columnas de entrada. 
 
     Es posible devolver una nueva columna calculada con el mismo nombre que una columna existente en la entrada.
 
@@ -499,16 +533,16 @@ Genera una tabla de valores de una columna única. Tenga en cuenta que no tiene 
 
 **Argumentos**
 
-* *ColumnName:* el nombre de la columna única en la tabla de salida.
-* *Start:* el valor menor de la salida.
-* *Stop:* el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* sobrepasa este valor).
-* *Step:* la diferencia entre dos valores consecutivos. 
+* *ColumnName*: el nombre de la única columna de la tabla de salida.
+* *Start*: el valor más pequeño de la salida.
+* *Stop*: el valor más alto que se genera en la salida (o un límite en el valor más alto, si el valor *step* sobrepasa este valor).
+* *Step*: la diferencia entre dos valores consecutivos. 
 
-Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo con base en una tabla de entrada, utilice la función [range*,*](#range), posiblemente con el [operador mvexpand](#mvexpand-operator)).
+Los argumentos tienen que ser valores numéricos, de fecha o intervalo de tiempo. No pueden tener como referencia las columnas de una tabla. (Si desea calcular el intervalo en función de una tabla de entrada, utilice la función [range*,*](#range), quizás con el [operador mvexpand](#mvexpand-operator)).
 
 **Devoluciones**
 
-Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Start*, *Start* + *Step*, etc., hasta *Stop*, que también se incluye.
+Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Start*, *Start* + *Step*, etc., hasta *Stop*, también incluido.
 
 **Ejemplo**
 
@@ -516,7 +550,7 @@ Una tabla con una única columna denominada *ColumnName*, cuyos valores son *Sta
 range Steps from 1 to 8 step 3
 ```
 
-Una tabla con una única columna denominada `Steps` cuyo tipo sea `long` y cuyos valores sean `1`, `4` y `7`.
+Una tabla con una única columna denominada `Steps` cuyo tipo es `long` y cuyos valores son `1`, `4` y `7`.
 
 **Ejemplo**
 
@@ -543,7 +577,7 @@ Muestra cómo el operador `range` puede utilizarse para crear una pequeña tabla
 
     exceptions | reduce by outerMessage
 
-Intenta agrupar registros similares. Para cada grupo, el operador envía el valor `Pattern` que cree que mejor describe a ese grupo y el valor `Count` de registros de ese grupo.
+Intenta agrupar registros similares. Para cada grupo, el operador envía el valor de `Pattern` que cree que mejor describe a ese grupo y el valor de `Count` de registros de ese grupo.
 
 
 ![](./media/app-insights-analytics-reference/reduce.png)
@@ -554,8 +588,8 @@ Intenta agrupar registros similares. Para cada grupo, el operador envía el valo
 
 **Argumentos**
 
-* *ColumnName:* la columna que se va a examinar. Tiene que ser de tipo cadena.
-* *Threshold:* un valor en el intervalo {0..1}. El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
+* *ColumnName*: la columna que se va a examinar. Tiene que ser de tipo cadena.
+* *Threshold*: un valor en el intervalo {0..1}. El valor predeterminado es 0.001. Para las entradas grandes, el valor threshold debe ser pequeño. 
 
 **Devoluciones**
 
@@ -602,9 +636,9 @@ Ordena las filas de la tabla de entrada en una o más columnas.
 
 **Argumentos**
 
-* *T:* la entrada de tabla que se va a ordenar.
-* *Column:* columna de *T* por la que se ordena. El tipo de los valores tiene que ser numérico, fecha, hora o cadena.
-* `asc` Ordenar por orden ascendente, de bajo a alto. El valor predeterminado es `desc`, descendente de alto a bajo.
+* *T*: la entrada de la tabla que se va a ordenar.
+* *Column*: columna de *T* por la que se ordena. El tipo de los valores tiene que ser numérico, fecha, hora o cadena.
+* `asc`: ordena en orden ascendente, de bajo a alto. El valor predeterminado es `desc`, descendente de alto a bajo.
 
 **Ejemplo**
 
@@ -613,7 +647,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas las filas en la tabla Traces que tienen un determinado valor `ActivityId` ordenadas por su marca de tiempo.
+Todas las filas de la tabla Traces que tienen un determinado valor de `ActivityId` ordenadas por su marca de tiempo.
 
 ### Operador summarize
 
@@ -640,25 +674,25 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 
 **Argumentos**
 
-* *Column:* nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
-* *Aggregation:* una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte [Agregaciones](#aggregations).
-* *GroupExpression:* una expresión sobre las columnas que proporciona un conjunto de valores específicos. Normalmente, se trata de un nombre de columna que ya proporciona un conjunto limitado de valores o `bin()` con una columna numérica o temporal como argumento. 
+* *Column*: nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *Aggregation*: una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte [Agregaciones](#aggregations).
+* *GroupExpression*: una expresión sobre las columnas que proporciona un conjunto de valores distintivos. Normalmente, se trata de un nombre de columna que ya proporciona un conjunto limitado de valores o `bin()` con una columna numérica o temporal como argumento. 
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
 
-Si no proporciona un valor *GroupExpression*, toda la tabla se resume en una única fila de salida.
+Si no proporciona ningún elemento *GroupExpression*, toda la tabla se resume en una única fila de salida.
 
 
 
 **Devoluciones**
 
-Las filas de entrada están organizadas en grupos que tienen los mismos valores que las expresiones `by`. A continuación, las funciones de agregación especificadas se calculan sobre cada grupo, generando una fila para cada grupo. El resultado contiene las columnas `by` y también al menos una columna para cada agregación calculada. (Algunas funciones de agregación devuelven varias columnas.)
+Las filas de entrada están organizadas en grupos que tienen los mismos valores que las expresiones `by`. A continuación, las funciones de agregación especificadas se calculan sobre cada grupo, generando una fila para cada grupo. El resultado contiene las columnas `by` y también al menos una columna para cada agregación procesada. (Algunas funciones de agregación devuelven varias columnas.)
 
-El resultado tiene tantas filas como el número de distintas combinaciones de valores `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
+El resultado tiene tantas filas como el número de combinaciones distintivos de los valores `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
 
 **Nota:**
 
-Aunque puede proporcionar expresiones arbitrarias tanto para las expresiones de agregación como para las de agrupación, resulta más eficaz usar nombres de columna sencillos, o aplicar `bin()` a una columna numérica.
+Aunque puede proporcionar expresiones arbitrarias tanto para las expresiones de agregación como para las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
 
 
 
@@ -680,9 +714,9 @@ Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 
 **Argumentos**
 
-* *NumberOfRows:* el número de filas de *T* para devolver.
-* *Sort\_expression:* una expresión para ordenar las filas. Suele ser un nombre de columna. Puede especificar más de una sort\_expression.
-* `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace desde "arriba" o desde "abajo" del intervalo.
+* *NumberOfRows*: el número de filas de *T* que se devuelve.
+* *Sort\_expression*: una expresión por la que se ordenan las filas. Suele ser un nombre de columna. Puede especificar más de una sort\_expression.
+* `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace realmente desde la parte "superior" o desde la parte "inferior" del intervalo.
 
 
 **Sugerencias**
@@ -724,14 +758,14 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Table1*, *Table2* ...
- *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o
- *  Una expresión de consulta como `(requests | where success=="True")`.
- *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comience por "e", junto con la tabla "excepciones".
+* *Table1*, *Table2*...
+ *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o bien
+ *  Una expresión de consulta, como `(requests | where success=="True")`.
+ *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comienza por "e", junto con la tabla "excepciones".
 * `kind`: 
  * `inner`: el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer`: el resultado tiene todas las columnas que aparecen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName*: si se especifica, el resultado incluirá una columna denominada "*ColumnName*" cuyo valor indica qué tabla de origen ha aportado cada fila.
+* `withsource=`*ColumnName*: si se especifica, el resultado incluirá una columna denominada *ColumnName*, cuyo valor indica qué tabla de origen ha aportado cada fila.
 
 **Devoluciones**
 
@@ -756,7 +790,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-El número de usuarios diferentes que han creado, ya sea un evento `exceptions` o un evento `traces` a lo largo del día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
+El número de usuarios distintivos que han creado un evento `exceptions` o un evento `traces` el día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
 
 ```AIQL
 exceptions
@@ -783,7 +817,7 @@ Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 **Argumentos**
 
 * *T*: la entrada tabular cuyos registros se van a filtrar.
-* *Predicate:* una [expresión](#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
+* *Predicate*: una [expresión](#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
 
 **Devoluciones**
 
@@ -793,11 +827,11 @@ Filas en *T* para las que *Predicate* es `true`.
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una cláusula [`let`](#let-clause)).
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante en la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [cláusula `let`](#let-clause)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que impliquen una sola columna. Así pues, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
+* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que afecten a una sola columna. Por tanto, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
 
 
 **Ejemplo**
@@ -969,7 +1003,7 @@ Son equivalentes a un subconjunto de las anotaciones de tipo TypeScript, codific
 
     count([ Predicate ])
 
-Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún valor *Predicate* especificado, se devuelve el número total de registros en el grupo.
+Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún elemento *Predicate* especificado, se devuelve el número total de registros del grupo.
 
 **Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`.
 
@@ -989,7 +1023,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintos de *Expr* en el grupo. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintivos de *Expr* en el grupo. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1010,7 +1044,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintos de *Expr* de filas en el grupo para el que el valor de *Predicate* es True. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintivos de *Expr* de las filas del grupo para el que el valor de *Predicate* es True. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1029,7 +1063,7 @@ Devuelve una estimación del número de valores distintos de *Expr* de filas en 
 
     makelist(Expr [ ,  MaxListSize ] )
 
-Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* en el grupo.
+Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* del grupo.
 
 * *MaxListSize* es un límite de entero opcional para el número máximo de elementos devueltos (el valor predeterminado es *128*).
 
@@ -1037,7 +1071,7 @@ Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* en el grupo.
 
     makeset(Expression [ , MaxSetSize ] )
 
-Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintos, utilice [`dcount`](#dcount)).
+Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintivos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintivos, utilice [`dcount`](#dcount)).
   
 *  *MaxSetSize* es un límite de entero opcional para el número máximo de elementos devueltos (el valor predeterminado es *128*).
 
@@ -1062,7 +1096,7 @@ Calcula el máximo de *Expr*.
 
 Calcula el mínimo de *Expr*.
 
-**Sugerencia**: Esto le ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. Sin embargo, si desea otras columnas de la fila (como el nombre del proveedor con el precio más bajo, por ejemplo), use [argmin o argmax](#argmin-argmax).
+**Sugerencia**: Esto ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. Sin embargo, si desea tener otras columnas de la fila (por ejemplo, el nombre del proveedor con el precio más bajo), use [argmin o argmax](#argmin-argmax).
 
 
 <a name="percentile"></a> <a name="percentiles"></a>
@@ -1074,7 +1108,7 @@ Devuelve una estimación para *Expression* de los percentiles especificados en e
     
     percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
-Es como `percentile()`, pero calcula un número de valores de percentil (lo cual es más rápido que calcular de forma individual cada percentil).
+Es igual que `percentile()`, pero calcula un número de valores de percentil (más rápido que calcular cada percentil de forma individual).
 
 **Ejemplos**
 
@@ -1194,7 +1228,7 @@ Compruebe si se puede convertir una cadena a un tipo específico:
 
 **Devoluciones**
 
-Una cadena que representa el tipo de almacenamiento subyacente de su único argumento. Esto es especialmente útil cuando tienen valores de tipo `dynamic`: en este caso, `gettype()` mostrará cómo se codifica un valor.
+Una cadena que representa el tipo de almacenamiento subyacente de su único argumento. Esto es especialmente útil cuando tiene valores de tipo `dynamic`: en este caso, `gettype()` mostrará cómo se codifica un valor.
 
 **Ejemplos**
 
@@ -1223,7 +1257,7 @@ Una cadena que representa el tipo de almacenamiento subyacente de su único argu
 **Argumentos**
 
 * *source*: el escalar de origen sobre el que se calcula el valor hash.
-* *mod*: el valor de módulo que se aplicará sobre el resultado de hash.
+* *mod*: el valor de módulo que se aplicará al resultado de hash.
 
 **Devoluciones**
 
@@ -1238,7 +1272,7 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-La función `iff()` evalúa el primer argumento (el predicado) y devuelve el valor del argumento segundo o tercero, dependiendo de si el predicado es `true` o `false`. El segundo y tercer argumento deben ser del mismo tipo.
+La función `iff()` evalúa el primer argumento (el predicado) y devuelve el valor del argumento segundo o tercero, en función de si el predicado es `true` o `false`. El segundo y tercer argumento deben ser del mismo tipo.
 
 **Sintaxis**
 
@@ -1247,13 +1281,13 @@ La función `iff()` evalúa el primer argumento (el predicado) y devuelve el val
 
 **Argumentos**
 
-* *predicate:* una expresión que se corresponde con un valor `boolean`.
-* *ifTrue:* una expresión que se calcula y cuyo valor se devuelve desde la función si *predicate* equivale a `true`.
-* *ifFalse:* una expresión que se calcula y cuyo valor se devuelve desde la función si *predicate* equivale a `false`.
+* *predicate*: una expresión que se corresponde con un valor `boolean`.
+* *ifTrue*: una expresión que se evalúa y cuyo valor se devuelve desde la función si *predicate* se evalúa como `true`.
+* *ifFalse*: una expresión que se evalúa y cuyo valor se devuelve desde la función si *predicate* se evalúa como `false`.
 
 **Devoluciones**
 
-Esta función devuelve el valor de *ifTrue* si *predicate* equivale a `true`, o bien el valor de *ifFalse* en caso contrario.
+Esta función devuelve el valor de *ifTrue* si *predicate* se evalúa como `true`, o bien el valor de *ifFalse* en caso contrario.
 
 **Ejemplo**
 
@@ -1359,16 +1393,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que
-|`<=`|Menor que o Igual a
-|`>` |Mayor que
-|`>=`|Mayor que o Igual a
-|`<>`|No igual a |`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -1399,8 +1424,8 @@ Alias `floor`.
 
 **Argumentos**
 
-* *value:* un número, una fecha o un intervalo de tiempo. 
-* *roundTo:* el tamaño del intervalo. Un número, una fecha o un intervalo de tiempo que divide *value*. 
+* *value*: un número, una fecha o un intervalo de tiempo. 
+* *roundTo*: el tamaño del intervalo. Un número, una fecha o un intervalo de tiempo que divide *value*. 
 
 **Devoluciones**
 
@@ -1444,7 +1469,7 @@ Un alias para [`bin()`](#bin).
     log10(v)  // Logarithm base 10 of v
 
 
-`v` debe ser un número real mayor que 0. De lo contrario, se devuelve null.
+`v` debe ser un número real > 0. De lo contrario, se devuelve null.
 
 ### rand
 
@@ -1466,11 +1491,11 @@ La función de raíz cuadrada.
 
 **Argumentos**
 
-* *x:* un número real >= 0.
+* *x*: un número real >= 0.
 
 **Devoluciones**
 
-* Un número positivo como `sqrt(x) * sqrt(x) == x`.
+* Un número positivo, como `sqrt(x) * sqrt(x) == x`.
 * `null` si el argumento es negativo o no se puede convertir a un valor `real`. 
 
 
@@ -1616,7 +1641,7 @@ El número ordinal del día del mes.
 
     dayofweek(datetime("2015-12-14")) == 1d  // Monday
 
-Número total de días transcurridos desde el domingo anterior, como `timespan`.
+Número entero de días transcurridos desde el domingo anterior, como `timespan`.
 
 **Sintaxis**
 
@@ -1770,7 +1795,7 @@ Las reglas son las mismas que en JavaScript.
 
 Las cadenas pueden incluirse entre comillas sencillas o dobles.
 
-La barra diagonal inversa (``) se utiliza para marcar los caracteres de escape como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
+La barra diagonal inversa (``) se utiliza para los caracteres de escape, como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -1828,9 +1853,9 @@ Cuenta las apariciones de una subcadena en una cadena. Las coincidencias de cade
 
 **Argumentos**
 
-* *text:* una cadena.
-* *search:* la cadena sin formato o la expresión regular que coincide en *text*.
-* *kind:* `"normal"|"regex"` el valor predeterminado es `normal`. 
+* *text*: una cadena.
+* *search*: la cadena sin formato o la expresión regular que coincide con *text*.
+* *kind*: `"normal"|"regex"` el valor predeterminado es `normal`. 
 
 **Devoluciones**
 
@@ -1862,20 +1887,20 @@ Obtenga una coincidencia para una [expresión regular](#regular-expressions) des
 
 **Argumentos**
 
-* *regex:* una [expresión regular](#regular-expressions).
-* *captureGroup:* una constante `int` positiva que indica el grupo de captura que se va a extraer. 0 significa toda la coincidencia; 1, el valor que coincide con el primer elemento "("paréntesis")" de la expresión regular; 2 o más, los posteriores paréntesis.
-* *text:* un valor `string` para buscar.
-* *typeLiteral:* un literal de tipo opcional (por ejemplo, `typeof(long)`). Si se proporciona, la subcadena extraída se convierte a este tipo. 
+* *regex*: una [expresión regular](#regular-expressions).
+* *captureGroup*: una constante `int` positiva que indica el grupo de capturas que se va a extraer. 0 significa toda la coincidencia; 1, el valor que coincide con el primer elemento "("paréntesis")" de la expresión regular; 2 o más, los posteriores paréntesis.
+* *text*: un valor de `string` que se buscará.
+* *typeLiteral*: un literal de tipo opcional (por ejemplo, `typeof(long)`). Si se proporciona, la subcadena extraída se convierte a este tipo. 
 
 **Devoluciones**
 
-Si *regex* encuentra una coincidencia en *text*: la subcadena que coincide con el *captureGroup* del grupo de captura indicado, opcionalmente convertido en *typeLiteral*.
+Si *regex* encuentra una coincidencia en *text*, la subcadena que coincide con el *captureGroup* del grupo de capturas indicado, opcionalmente convertido a *typeLiteral*.
 
-Si no hay ninguna coincidencia, o se produce un error en la conversión de tipos: `null`.
+Si no hay ninguna coincidencia, o se produce un error en la conversión del tipo: `null`.
 
 **Ejemplos**
 
-En la cadena de ejemplo `Trace` se busca una definición para `Duration`. La coincidencia se convierte luego en `real` y se multiplica por una constante de tiempo (`1s`) para que `Duration` sea de tipo `timespan`. En este ejemplo, es igual a 123,45 segundos:
+En la cadena de ejemplo `Trace` se busca una definición para `Duration`. La coincidencia se convierte en `real` y se multiplica por una constante de tiempo (`1s`) para que `Duration` sea de tipo `timespan`. En este ejemplo, es igual a 123,45 segundos:
 
 ```AIQL
 ...
@@ -1938,9 +1963,9 @@ Reemplace todas las coincidencias de expresiones regulares por otra cadena.
 
 **Argumentos**
 
-* *regex:* la [expresión regular](https://github.com/google/re2/wiki/Syntax) para buscar *text*. Puede contener grupos de captura entre "("paréntesis")". 
-* *rewrite:* la expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de captura, `\2` y valores sucesivos para los grupos de captura posteriores.
-* *text:* una cadena.
+* *regex*: la [expresión regular](https://github.com/google/re2/wiki/Syntax) para buscar *text*. Puede contener grupos de captura entre "("paréntesis")". 
+* *rewrite*: la expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de capturas, `\2` y valores sucesivos para los grupos de capturas posteriores.
+* *text*: una cadena.
 
 **Devoluciones**
 
@@ -2026,9 +2051,9 @@ Extraiga una subcadena de una cadena de origen determinada a partir de un índic
 
 **Argumentos**
 
-* *source:* la cadena de origen de la que se tomará la subcadena.
-* *startingIndex:* la posición del carácter inicial basado en cero de la subcadena solicitada.
-* *length:* un parámetro opcional que puede utilizarse para especificar el número de caracteres solicitado de la subcadena. 
+* *source*: la cadena de origen de la que se tomará la subcadena.
+* *startingIndex*: la posición del carácter inicial basado en cero de la subcadena solicitada.
+* *length*: un parámetro opcional que puede utilizarse para especificar el número de caracteres solicitado de la subcadena. 
 
 **Devoluciones**
 
@@ -2070,7 +2095,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-insights-analytics-reference/310.png)
 
-**Indexing:** matrices y objetos de índice, al igual que en JavaScript:
+**Indexing**: matrices y objetos de índice, al igual que en JavaScript:
 
     exceptions | take 1
     | extend 
@@ -2079,7 +2104,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 * Sin embargo, use `arraylength` y otras funciones de Analytics (no ".length").
 
-**Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar en su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
+**Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
 
     exceptions 
     | summarize count() 
@@ -2089,12 +2114,12 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Literals**: para crear un objeto explícito de matriz o contenedor de propiedades, escríbalo como una cadena JSON y convierta:
+**Literals**: para crear un objeto explícito de matriz o contenedor de propiedades, escríbalo como una cadena JSON y conviértalo:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
 
-**mvexpand:** para separar las propiedades de un objeto en filas independientes, use mvexpand:
+**mvexpand**: para separar las propiedades de un objeto en filas independientes, use mvexpand:
 
     exceptions | take 1 
     | mvexpand details[0].parsedStack[0]
@@ -2103,7 +2128,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 ![](./media/app-insights-analytics-reference/410.png)
 
 
-**treepath:** para buscar todas las rutas en un objeto complejo:
+**treepath**: para buscar todas las rutas en un objeto complejo:
 
     exceptions | take 1 | project timestamp, details 
     | extend path = treepath(details) 
@@ -2112,7 +2137,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-insights-analytics-reference/420.png)
 
-**buildschema:** para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
+**buildschema**: para buscar el esquema mínimo que admite todos los valores de la expresión en la tabla:
 
     exceptions | summarize buildschema(details)
 
@@ -2182,7 +2207,7 @@ T
 ### Objetos dinámicos en cláusulas let
 
 
-Las [cláusulas let](#let-clause) almacenan valores dinámicos como cadenas, por lo que estas dos cláusulas son equivalentes, y ambas requieren `parsejson` (o `todynamic`) antes de que se utilicen:
+Las [cláusulas let](#let-clause) almacenan valores dinámicos como cadenas, por lo que estas dos cláusulas son equivalentes, y ambas requieren `parsejson` (o `todynamic`) para poder usarse:
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -2202,7 +2227,7 @@ El número de elementos de una matriz dinámica.
 
 **Argumentos**
 
-* *array:* un valor `dynamic`.
+* *array:* un valor de `dynamic`.
 
 **Devoluciones**
 
@@ -2284,7 +2309,7 @@ Interpreta `string` como un [valor JSON](http://json.org/) y devuelve el valor c
 
 **Argumentos**
 
-* *json:* un documento JSON.
+* *json*: un documento JSON.
 
 **Devoluciones**
 
@@ -2292,13 +2317,13 @@ Un objeto de tipo `dynamic` especificado por *json*.
 
 **Ejemplo**
 
-En el ejemplo siguiente, cuando `context_custom_metrics` es un elemento `string` con esta apariencia:
+En el ejemplo siguiente, cuando `context_custom_metrics` es un elemento `string` similar a este:
 
 ```
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y `duration.min` (`118.0` y `110.0` respectivamente).
+Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y `duration.min` (`118.0` y `110.0`, respectivamente).
 
 ```AIQL
 T
@@ -2319,9 +2344,9 @@ La función `range()` (que no se debe confundir con el operador `range`) genera 
 
 **Argumentos**
 
-* *start:* el valor del primer elemento de la matriz resultante. 
-* *stop:* el valor del último elemento de la matriz resultante, o el valor mínimo que sea mayor que el último elemento de la matriz resultante y dentro de un entero múltiplo de *step* desde *start*.
-* *step:* la diferencia entre dos elementos consecutivos de la matriz.
+* *start*: el valor del primer elemento de la matriz resultante. 
+* *stop*: el valor del último elemento de la matriz resultante, o el valor mínimo que sea mayor que el último elemento de la matriz resultante y dentro de un entero múltiplo de *step* desde *start*.
+* *step*: la diferencia entre dos elementos consecutivos de la matriz.
 
 **Ejemplos**
 
@@ -2390,4 +2415,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

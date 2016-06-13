@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/27/2016"
 	ms.author="mimig"/>
 
 # Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB
@@ -66,9 +66,9 @@ La coherencia ocasional proporciona la coherencia de lectura más débil, pero o
 
 	![Captura de pantalla que muestra el icono Configuración y la entrada Coherencia predeterminada](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-5. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
+5. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Aceptar**.
 
-	![Captura de pantalla que muestra el nivel de coherencia y el botón Guardar](./media/documentdb-consistency-levels/database-consistency-level-2.png)
+	![Captura de pantalla que muestra el nivel de coherencia y el botón Aceptar](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Niveles de coherencia para consultas
 
@@ -91,4 +91,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Uso vinculado probabilístico (PBS) para cuórums parciales prácticos. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Coherencia ocasional - Revisión. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

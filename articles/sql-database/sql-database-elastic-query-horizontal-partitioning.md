@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="torsteng;sidneyh" />
+    ms.date="05/27/2016"
+    ms.author="torsteng" />
 
 # Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
 
@@ -208,4 +208,4 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

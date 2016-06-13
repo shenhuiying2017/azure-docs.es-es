@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 #Unidades de solicitud en DocumentDB
+Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de DocumentDB. Obtenga más información en [Estimación de las necesidades de rendimiento](documentdb-request-units.md#estimating-throughput-needs).
 
+![Calculadora de rendimiento][5]
+
+##Introducción
 Este artículo proporciona información general sobre las unidades de solicitud en [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
@@ -31,12 +35,12 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 ##Unidades de solicitud y cargos de solicitud
 DocumentDB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación. Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, DocumentDB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
 
-Con DocumentDB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como moneda de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo. Cada operación de DocumentDB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo. Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*. La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible.
+Con DocumentDB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo. Cada operación de DocumentDB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo. Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*. La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible.
 
 ##Especificación de la capacidad de unidad de solicitud
 Al crear una colección de DocumentDB, especifique el número de unidades de solicitud por segundo (RU) que desee reservar para la colección. Una vez creada la colección, la asignación completa de RU especificadas está reservada para el uso de la colección. Se garantiza que cada colección tiene características de rendimiento dedicadas y aisladas.
 
-Es importante tener en cuenta que DocumentDB funciona en un modelo de reserva; es decir, se le cobrará la cantidad de rendimiento *reservada* para la colección, independientemente del rendimiento que se *utilice* activamente. Sin embargo, tenga en cuenta que a medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar verticalmente y reducir verticalmente de forma sencilla la cantidad de RU reservada mediante el SDK de DocumentDB o con el [Portal de Azure](https://portal.azure.com). Para obtener más información sobre el escalado vertical y la reducción vertical, consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md).
+Es importante tener en cuenta que DocumentDB funciona en un modelo de reserva; es decir, se le cobrará la cantidad de rendimiento *reservada* para la colección, independientemente del rendimiento que se *utilice* activamente. Sin embargo, tenga en cuenta que a medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de RU reservados mediante el SDK de DocumentDB o con el [Portal de Azure](https://portal.azure.com). Para más información sobre el escalado y la reducción verticales, consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md).
 
 ##Consideraciones de la unidad de solicitud
 Al estimar el número de unidades de solicitud que se reservan para la colección de DocumentDB, es importante tener en cuenta las siguientes variables:
@@ -54,13 +58,37 @@ Una unidad de solicitud es una medida normalizada del costo de procesamiento de 
 
 > [AZURE.NOTE] La línea de base de 1 unidad de solicitud de un documento de 1 KB corresponde a una operación GET sencilla mediante una vinculación automática o un Id. del documento.
 
+###Uso de la calculadora de unidades de solicitud
+Para ayudar a los clientes a optimizar sus estimaciones de rendimiento, existe una [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) basada en web que le ayuda a calcular los requisitos de unidades de solicitud para las operaciones habituales, entre las cuales se incluye:
+
+- Creación (escritura) de documentos
+- Lectura de documentos
+- Eliminación de documentos
+
+El uso de la herramienta es simple:
+
+1. Cargue uno o más documentos JSON representativos.
+
+	![Cargar documentos en la calculadora de unidades de solicitud][2]
+
+2. Escriba el número de operaciones de creación, lectura y eliminación de documentos que necesita (por segundo).
+
+	![Especificar los requisitos de rendimiento en la calculadora de unidades de solicitud][3]
+
+3. Haga clic en calcular y examine los resultados.
+
+	![Resultados de la calculadora de unidades de solicitud][4]
+
+>[AZURE.NOTE]Si dispone de tipos de documentos que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, cargue un ejemplo de cada *tipo* de documento típico en la herramienta y calcule los resultados.
+
+###Uso del encabezado de respuesta de cargo de solicitud de DocumentDB
 Cada respuesta del servicio de DocumentDB incluye un encabezado personalizado (x-ms-request-charge) que contiene las unidades de solicitud usadas por la solicitud. Este encabezado también es accesible a través de los SDK de DocumentDB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse. Para las consultas, el Explorador de consultas de DocumentDB en el Portal de Azure proporciona la información de carga de solicitud para las consultas ejecutadas.
 
 ![Comprobación de los cargos de RU en el Explorador de consultas][1]
 
 Con esto en mente, un método para calcular la cantidad de rendimiento reservado requerido por la aplicación es registrar el cargo de la unidad de solicitud asociado a la ejecución de las operaciones típicas frente a un documento representativo utilizado por la aplicación y, a continuación, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas y el uso del script de DocumentDB también.
 
->[AZURE.NOTE]Si dispone de tipos de documento que variarán considerablemente en cuanto a tamaño y el número de propiedades indizadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de documento típico.
+>[AZURE.NOTE]Si dispone de tipos de documento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de documento típico.
 
 Por ejemplo:
 
@@ -178,9 +206,13 @@ Para obtener más información sobre el rendimiento con DocumentDB, consulte est
 
 Para obtener más información acerca de DocumentDB, consulte la [documentación](https://azure.microsoft.com/documentation/services/documentdb/) de Azure DocumentDB.
 
-Para empezar a trabajar con pruebas de escala y rendimiento con DocumentDB, consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
+Para empezar a trabajar con pruebas de escala y rendimiento con DocumentDB, consulte [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Pruebas de escala y rendimiento con Azure DocumentDB).
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

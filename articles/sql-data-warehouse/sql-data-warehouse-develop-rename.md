@@ -13,28 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/28/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Cambio de nombre en el Almacenamiento de datos SQL
-Aunque SQL Server permite cambiar el nombre de base de datos mediante el procedimiento almacenado `sp_renamedb`, el Almacenamiento de datos SQL usa la sintaxis DDL para lograr el mismo objetivo. El comando DDL es `RENAME OBJECT`.
+Almacenamiento de datos SQL usa la instrucción [RENAME][] para cambiar el nombre de las tablas. En esto se diferencia de SQL Server, que utiliza `sp_rename`. Actualmente, solo puede cambiarse el nombre de las tablas de usuario. No se puede cambiar el nombre de bases de datos y tablas externas.
 
 ## Cambio de nombre de una tabla
 
-Actualmente, solo puede cambiarse el nombre de tablas. La sintaxis para cambiar el nombre de una tabla es:
+Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
+
+La sintaxis para cambiar el nombre de una tabla es:
 
 ```sql
 RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
-Al cambiar el nombre de una tabla, se actualizan todos los objetos y las propiedades asociados a la tabla para hacer referencia al nuevo nombre de la tabla. Por ejemplo, se actualizan las definiciones, los índices, las restricciones y los permisos de la tabla. Las vistas no se actualizan.
-
-## Cambio de nombre de una tabla externa
-
-Si se cambia el nombre de una tabla externa, cambia el nombre de tabla en Almacenamiento de datos SQL. No afecta a la ubicación de los datos externos de la tabla.
-
 ## Cambio del esquema de una tabla
-Si se pretende cambiar el esquema al que un objeto pertenece, esto se consigue mediante ALTER SCHEMA:
+
+Para cambiar el esquema al que pertenece un objeto, utilice ALTER SCHEMA:
 
 ```sql
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
@@ -42,20 +39,22 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 
 ## El cambio de nombre de una tabla exige el bloqueo exclusivo de la tabla.
 
-Es importante recordar que no se puede cambiar el nombre de una tabla mientras se usa. El cambio de nombre de una tabla requiere un bloqueo exclusivo en la tabla. Si la tabla se está usando, puede que tenga que terminar la sesión en que se usa la tabla. Para terminar una sesión deberá usar el comando [KILL][]. Tenga cuidado al usar `KILL`, ya que al terminar la sesión se revertirá cualquier trabajo no confirmado. Las sesiones de Almacenamiento de datos SQL llevan el prefijo 'SID'. Tendrá que incluirlo con el número de sesión al invocar el comando KILL. Por ejemplo, `KILL 'SID1234'`. Consulte el artículo sobre conexiones para más información sobre [sesiones]
+No se puede cambiar el nombre de una tabla mientras está en uso. El cambio de nombre de una tabla requiere un bloqueo exclusivo en la tabla. Si la tabla se está usando, puede que tenga que terminar la sesión en que se usa la tabla. Utilice el comando [KILL][] para terminar una sesión. Por ejemplo: `KILL 'SID1234'`. Tenga cuidado cuando utilice KILL, dado que cualquier trabajo transaccional no confirmado se revertirá cuando se termine una sesión. Consulte el artículo sobre conexiones, para más información sobre [sesiones y solicitudes][]. Consulte [Optimización de transacciones para Almacenamiento de datos SQL][] para más información sobre el impacto de eliminar una consulta transaccional y el efecto de una reversión.
 
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para más información, consulte las [referencias sobre T-SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-[sesiones]: sql-data-warehouse-develop-connections.md
-
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[sesiones y solicitudes]: ./sql-data-warehouse-develop-connections.md#sessions-and-requests
+[referencias sobre T-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
+[Optimización de transacciones para Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-best-practices-transactions.md
 
 <!--MSDN references-->
 [KILL]: https://msdn.microsoft.com/library/ms173730.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

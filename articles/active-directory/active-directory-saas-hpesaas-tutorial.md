@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -76,12 +76,12 @@ Para configurar la integración de HPE SaaS en Azure AD, será preciso que agreg
 	![Aplicaciones][4]
 
 6. En el cuadro de búsqueda, escriba **HPE SaaS**.
-	
+
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_01.png)
 
 7. En el panel de resultados, seleccione **HPE SaaS** ,y luego, haga clic en **Completar** para agregar la aplicación.
 
-![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con HPE SaaS con una usuaria de prueba llamada "Britta Simon".
@@ -117,11 +117,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png)
 
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Hightail con el siguiente patrón: `https://<tenant name>.saas.hpe.com`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de HPE SaaS: **https://login.saas.hpe.com/msg**. Los clientes también pueden utilizar la dirección URL específica de la aplicación.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`
-
-    c. Haga clic en **Siguiente**.
+    b. Haga clic en **Siguiente**.
 
 
 4. En la página **Configurar inicio de sesión único en HPE SaaS**, siga estos pasos:
@@ -147,8 +145,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon. En la lista Usuarios, seleccione **Britta Simon**.
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][20]
 
@@ -156,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
+![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -164,7 +161,9 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+
+	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
 
 5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
@@ -176,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
+6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_06.png)
 
@@ -270,4 +269,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

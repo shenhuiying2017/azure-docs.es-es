@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli" />
 
 # Instalación la actualización 0.1 en la matriz virtual de StorSimple
@@ -87,7 +87,7 @@ Realice los pasos siguientes para descargar la actualización de software desde 
 
 3. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base de la revisión que quiera descargar (por ejemplo, **3160441**) y haga clic en **Buscar**.
 
-    Aparece la lista de revisiones, por ejemplo, **Actualización 0.1 de la matriz virtual de Microsoft Azure StorSimple**.
+    Aparece la lista de revisiones, por ejemplo **StorSimple Virtual Array Update 0.1**.
 
     ![Búsqueda de catálogo](./media/storsimple-ova-install-update-01/download1.png)
 
@@ -128,4 +128,4 @@ Antes de instalar la actualización o la revisión, asegúrese de que tiene la a
 
 Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

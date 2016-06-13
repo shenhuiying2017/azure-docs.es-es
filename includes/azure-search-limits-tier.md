@@ -1,12 +1,10 @@
-Resource|Free|Basic (Preview)|S1|S2
+Recurso|Gratuito|Básico (vista preliminar)|S1|S2
 ---|---|---|---|----
-Maximum services at each tier per subscription <sup>1</sup>|1 |12 |12  |1
-Maximum scale per tier <sup>2</sup>|N/A|3 SU (up to 3 replicas and 1 partition)|36 SU|36 SU  
+Servicios máximos en cada nivel por suscripción<sup>1</sup>|1 |12 |12 |1
+Escala máxima por nivel<sup>2</sup>|N/D|3 unidades de búsqueda (hasta 3 réplicas y 1 partición)|36 unidades de búsqueda|36 unidades de búsqueda  
 
-<sup>1</sup> Each service is provisioned at a given pricing tier, with limits on the number of services you can provision at each tier within a single Azure subscription. During the Preview period, tiers are available at an introductory rate of 50% off the full price.
+<sup>1</sup> Cada servicio se aprovisiona con un determinado plan de tarifa y con límites en el número de servicios que pueden aprovisionarse en cada nivel de una sola suscripción de Azure. Durante el periodo de vista previa, los niveles están disponibles con una tarifa inicial del 50 % del precio total.
 
-<sup>2</sup> Scale out limits are defined in terms of Search Units (SU) per tier. Search units are the billable unit for either a **replica** or a **partition**. You need both for storage, indexing, and query operations. Visit [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that stay under the maximum limit of 3 or 36 units, for **Basic** and **Standard** respectively. Because **Free** is based on shared resources used by multiple subscribers, scale out is not provided at this level.
+<sup>2</sup> Los límites de escalabilidad horizontal se definen en términos de unidades de búsqueda (SU) por nivel. Las unidades de búsqueda son la unidad facturable de una **réplica** o una **partición**. Es necesario para las operaciones de almacenamiento, indexación y consulta. Visite [Planeación de la capacidad en Búsqueda de Azure](../articles/search/search-capacity-planning.md) para consultar las combinaciones válidas de réplicas y particiones que lo mantienen dentro del límite máximo de 3 o 36 unidades, para **Básico** y **Estándar**, respectivamente. Dado que **Gratis** se basa en los recursos compartidos que utilizan varios suscriptores, en este nivel no se proporciona escalabilidad horizontal.
 
-
-
-
+<!---HONumber=AcomDC_0601_2016-->

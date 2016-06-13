@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/26/2016"
 	ms.author="cjiang"/>
 
 # Resolución de problemas de suscripción a Azure
 Este artículo le ayudará a solucionar las causas comunes de los problemas que pueden producirse al realizar la suscripción a Azure.
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Aparece un error al escribir la información para suscribirme.
 ¿Es correcta la información del perfil de la cuenta? Los datos del perfil se usan para generar los extractos de facturación, por lo que es importante escribir la información de forma precisa. Estos son algunos ejemplos de información incorrecta en los campos:
@@ -59,19 +61,19 @@ Compruebe su elegibilidad: compruebe en el canal de programa de prestaciones si 
   - Compruebe su estado de elegibilidad en la [página de la cuenta de MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
   - Si no puede comprobar su estado, póngase en contacto con los [Centros de servicio al cliente de Suscripciones a MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx).
 - MPN
-  - Inicie sesión en el [portal de MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y compruebe su estado de idoneidad. Puede ser apto para obtener prestaciones adicionales si tiene las [competencias de la plataforma de nube](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) pertinentes.
+  - Inicie sesión en el [portal de MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y compruebe su estado de idoneidad. Puede ser apto para obtener más ventajas si tiene las [competencias de la plataforma de nube](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) pertinentes.
   - Si no puede comprobar su estado, póngase en contacto con el [soporte técnico de MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
 - Bizpark:
   - Inicie sesión en el [portal de BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) y compruebe su estado de idoneidad para BizSpark y BizSpark Plus. Si no puede comprobar su estado, póngase en contacto con el soporte técnico de BizSpark con el envío de un correo electrónico para [ponerse en contacto con el equipo de BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
 Sugerencias
-- Si intentó activar la suscripción a una nueva prestación y apareció un error durante el registro, compruebe si se ha completado la configuración de la suscripción en la [página de suscripción de Azure](http://account.windowsazure.com/Subscriptions). Puede tardar unos minutos para que la suscripción se muestre como activa. Una vez activada la suscripción, recibirá un correo electrónico. Si el estado de suscripción permanece pendiente durante más de cuatro minutos, [póngase en contacto con soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para obtener ayuda.
+- Si trató de activar la suscripción a una nueva ventaja y apareció un error durante el registro, compruebe si se ha completado la configuración de la suscripción en la [página de suscripción de Azure](http://account.windowsazure.com/Subscriptions). Puede tardar unos minutos para que la suscripción se muestre como activa. Una vez activada la suscripción, recibirá un correo electrónico. Si el estado de suscripción permanece pendiente durante más de cuatro minutos, [póngase en contacto con soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para obtener ayuda.
 
 ## No se puede activar una nueva suscripción de Azure bajo licencia Open?
 Para activar una nueva suscripción de Azure bajo licencia Open tiene que tener una clave OSA válida, con un mínimo de un token de Azure bajo licencia Open asociado a dicha clave.
 
 Sugerencias
-- Si no tiene una clave OSA, póngase en contacto con uno de los asociados de Microsoft que aparecen en [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
+- Si no tiene una clave OSA, póngase en contacto con uno de los partners de Microsoft que aparecen en [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
 ## No se puede activar una evaluación gratuita de Azure.
 ¿Ha utilizado una suscripción de Azure en el pasado? El acuerdo de Condiciones de uso de Azure tiene un límite de una única evaluación gratuita disponible para cualquier usuario que nunca antes haya usado Azure. Si tiene cualquier otro tipo de suscripción de Azure, no podrá activar una evaluación gratuita.
@@ -79,7 +81,4 @@ Sugerencias
 Sugerencias
 - Si ya activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de comprar una suscripción de pago por uso. También puede ser elegible para una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) como alternativa al plan de evaluación gratuita de Azure. Tenga en cuenta que los planes de ofertas y prestaciones requieren requisitos previos específicos.
 
-## ¿Sigue sin poder suscribirse?
-[Póngase en contacto con el soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para que le asistan si sigue experimentando problemas para realizar la suscripción o si el problema que tiene no se trata en este artículo.
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -4,15 +4,15 @@
 	keywords="base de datos elástica, bases de datos SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/23/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -22,7 +22,7 @@
 
 Los grupos elásticos proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles.
 
-> [AZURE.NOTE] Los grupos elásticos están disponible con carácter general (GA) en todas las regiones de Azure excepto centro-norte de EE. UU. sur de Brasil, oeste de la India, sur de India y norte de China, en donde actualmente se encuentran en versión preliminar. La disponibilidad general de los grupos elásticos en estas regiones se proporcionarán tan pronto como sea posible.
+> [AZURE.NOTE] Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto centro-norte de EE. UU., sur de Brasil, oeste de la India y norte de China, en donde actualmente se encuentran en versión preliminar. La disponibilidad general de los grupos elásticos en estas regiones se proporcionarán tan pronto como sea posible.
 
 ## Cómo funciona
 
@@ -104,4 +104,4 @@ Para las aplicaciones que tienen requisitos de recuperación más exigentes que 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

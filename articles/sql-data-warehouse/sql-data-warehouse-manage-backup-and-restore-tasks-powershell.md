@@ -42,7 +42,7 @@ Como Almacenamiento de datos SQL se restaura a una nueva base de datos en su ser
 
 ### Instale PowerShell.
 
-Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0 o superior. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
+Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0 o superior. Puede comprobar la versión ejecutando **Get-Module -Name Azure -ListAvailable**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
 ## Restauración de una base de datos activa
 
@@ -56,7 +56,7 @@ Para restaurar una base de datos a partir de una instantánea, use el cmdlet [Re
 6. Restaure la base de datos al punto de restauración deseado.
 7. Compruebe que la base de datos restaurada está en línea.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -69,7 +69,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
@@ -103,7 +103,7 @@ Para restaurar una base de datos eliminada, use el cmdlet [Restore-AzureRmSqlDat
 5. Restaure la base de datos eliminada.
 6. Compruebe que la base de datos restaurada está en línea.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -141,7 +141,7 @@ Para recuperar una base de datos, use el cmdlet [Restore-AzureRmSqlDatabase][].
 5. Cree la solicitud de recuperación para la base de datos.
 6. Compruebe el estado de la base de datos restaurada geográficamente.
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -193,4 +193,4 @@ Para más información sobre las características de continuidad del negocio de 
 [Azure Portal]: https://portal.azure.com/
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

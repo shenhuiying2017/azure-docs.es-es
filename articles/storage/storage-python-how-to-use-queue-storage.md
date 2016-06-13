@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de colas de Python
@@ -54,7 +54,7 @@ Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo d
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
-		print(message.message_text)
+		print(message.content)
 
 
 ## Cómo quitar mensajes de la cola
@@ -68,7 +68,7 @@ El código borra un mensaje de una cola en dos pasos. Si llama a **get\_messages
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **get\_messages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle for. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
-	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
 		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
@@ -107,4 +107,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento en co
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

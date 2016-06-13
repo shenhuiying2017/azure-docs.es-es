@@ -99,7 +99,7 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 
 <!--Article references-->
 [Conexión a Almacenamiento de datos SQL]: sql-data-warehouse-develop-connections.md
-[Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
+[Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-overview.md
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -113,4 +113,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

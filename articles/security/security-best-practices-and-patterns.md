@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/22/2016"
+   ms.date="05/25/2016"
    ms.author="terrylan"/>
 
 # Patrones y procedimientos recomendados de seguridad en Azure
@@ -34,11 +34,11 @@ Para cada procedimiento recomendado, explicaremos:
 
 Actualmente se pueden consultar los siguientes artículos de patrones y procedimientos recomendados de seguridad de Azure. Asegúrese de visitar este sitio periódicamente para estar al tanto de las novedades de nuestra lista actualizada de patrones y procedimientos recomendados de seguridad de Azure:
 
-- [Procedimientos recomendados de seguridad de la red de Azure](../azure-security-network-security-best-practices.md)
+- [Procedimientos recomendados de seguridad de la red de Azure](azure-security-network-security-best-practices.md)
 - [Procedimientos recomendados de cifrado y seguridad de datos en Azure](azure-security-data-encryption-best-practices.md)
 - [Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure](azure-security-identity-management-best-practices.md)
 - [Procedimientos recomendados de seguridad de Internet de las cosas](azure-security-iot-best-practices.md)
 - [Procedimientos recomendados para actualizaciones de software en IaaS de Microsoft Azure](azure-security-best-practices-software-updates-iaas.md)
 - [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,8 +3,8 @@
    description="Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/26/2016"
    ms.author="bwren" />
 
 # Aprendizaje del flujo de trabajo de Windows PowerShell
@@ -211,7 +211,7 @@ El ejemplo siguiente es similar al ejemplo anterior, en el que se copian archivo
 
 ## Puntos de control
 
-Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se [suspende](suspending-a-workflow), la próxima vez que se ejecute comenzará desde su último punto de comprobación en lugar del inicio del flujo de trabajo. Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow**.
+Un *punto de control* es una instantánea del estado actual del flujo de trabajo que incluye el valor actual de las variables y cualquier salida generada en ese punto. Si un flujo de trabajo termina en error o se suspende, la próxima vez que se ejecute comenzará desde su último punto de comprobación, en lugar de desde el inicio del flujo de trabajo. Puede establecer un punto de control en un flujo de trabajo con la actividad **Checkpoint-Workflow**.
 
 En el código de ejemplo siguiente, se produce una excepción después de Activity2 que provoca la finalización del flujo de trabajo. Cuando se vuelve a ejecutar el flujo de trabajo, se inicia ejecutando Activity2, ya que estaba justo después del último punto de comprobación establecido.
 
@@ -240,13 +240,11 @@ El siguiente ejemplo copia varios archivos en una ubicación de red y establece 
 	}
 
 
-
 Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](http://technet.microsoft.com/library/jj574114.aspx).
 
 
+## Pasos siguientes
 
-## Artículos relacionados
+- Para empezar a trabajar con los Runbooks del flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md). 
 
-- [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

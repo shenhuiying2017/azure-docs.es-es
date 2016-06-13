@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@ La oferta de nivel Premium para HDInsight incluye R Server como parte del clúst
 
 Conectarse al nodo perimetral del servidor de R del clúster de HDInsight con SSH:
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] También puede encontrar la dirección de `RServer.CLUSTERNAME.ssh.azurehdinsight.net` en el Portal de Azure al seleccionar su clúster y después __Todas las configuraciones__, __Aplicaciones__ y __RServer__. Se mostrará la información del punto de conexión de SSH para el nodo perimetral.
+> [AZURE.NOTE] También puede encontrar la dirección de `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` en el Portal de Azure al seleccionar su clúster y después __All Settings__ (Toda la configuración), __Aplicaciones__ y __RServer__. Se mostrará la información del punto de conexión de SSH para el nodo perimetral.
 >
 > ![Imagen del punto de conexión SSH del nodo perimetral](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá la contraseña. Si usa una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la ruta de acceso a la correspondiente clave privada. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
+Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá la contraseña. Si usa una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la ruta de acceso a la correspondiente clave privada. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
     
 Para obtener más información sobre el uso de SSH con HDInsight basado en Linux, vea los siguientes artículos:
 
@@ -353,4 +353,4 @@ Ambas plantillas crean un nuevo clúster de HDInsight y una cuenta de almacenami
 
 Para obtener información general sobre cómo usar plantillas de ARM, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

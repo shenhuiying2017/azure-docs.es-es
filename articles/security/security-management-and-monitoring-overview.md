@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Información general sobre la administración y la supervisión de la seguridad en Azure
@@ -28,7 +28,7 @@ En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Mic
 
 ![Responsabilidad compartida][1]
 
-Para un análisis más profundo sobre la administración de la seguridad, consulte [Administración de la seguridad en Azure](../azure-security-management.md).
+Para un análisis más profundo sobre la administración de la seguridad, consulte [Administración de la seguridad en Azure](azure-security-management.md).
 
 Estas son las características principales que se tratan en este artículo:
 
@@ -134,4 +134,4 @@ Más información:
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

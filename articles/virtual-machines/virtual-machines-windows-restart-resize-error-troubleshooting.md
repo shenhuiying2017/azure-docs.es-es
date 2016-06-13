@@ -25,8 +25,6 @@
 
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Recopilación de registros de auditoría
@@ -76,4 +74,4 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
   2. Después de detener todas las máquinas virtuales, aumente el tamaño de la máquina virtual que quiera.
   3. Seleccione la máquina virtual cuyo tamaño ha cambiado, haga clic en **Iniciar** e inicie las máquinas virtuales detenidas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

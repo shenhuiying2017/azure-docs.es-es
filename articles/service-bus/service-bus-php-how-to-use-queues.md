@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/01/2016" 
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
@@ -48,7 +48,7 @@ En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer
 > [AZURE.NOTE] En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló las bibliotecas manualmente o como un paquete PEAR, debe hacer referencia al archivo autocargador **WindowsAzure.php**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -74,7 +74,7 @@ Para crear cualquier cliente de servicio de Azure, debe usar la clase **Services
 En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 
@@ -90,7 +90,7 @@ Las operaciones de administración para las colas del Bus de servicio pueden rea
 En el ejemplo siguiente se muestra cómo crear una instancia de un **ServiceBusRestProxy** y llamar a **ServiceBusRestProxy->createQueue** para crear una cola llamada `myqueue` en un espacio de nombres de servicio `MySBNamespace`:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -122,7 +122,7 @@ catch(ServiceException $e){
 Para enviar un mensaje a una cola del Bus de servicio, la aplicación llamará al método **ServiceBusRestProxy->sendQueueMessage**. El código siguiente muestra cómo enviar un mensaje a la cola `myqueue` que hemos creado anteriormente en el espacio de nombres de servicio `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -164,7 +164,7 @@ En el modo **PeekLock**, la recepción de un mensaje se convierte en una operaci
 En el ejemplo que aparece a continuación, se indica cómo se puede procesar y recibir un mensaje usando el modo **PeekLock** (no es el modo predeterminado).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -220,4 +220,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

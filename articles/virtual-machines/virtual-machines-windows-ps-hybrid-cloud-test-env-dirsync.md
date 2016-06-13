@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
  
 En este tema se le guiará en el proceso de creación de un entorno de nube híbrida para probar la sincronización de directorios (DirSync) de Office 365 con la sincronización de contraseña hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
@@ -44,7 +42,7 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración de la versión de prueba de Office 365 FastTrack.
 3.	Configuración del servidor DirSync (DS1).
 
-Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en la página para [probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: configuración del entorno de nube híbrida
 
@@ -60,12 +58,12 @@ Esta es su configuración actual.
 
 Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Le recomendamos que use una variante del nombre de la compañía Contoso como nombre de su compañía; esta es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
 
-A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a **http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
+A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a ****http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
 
 A continuación, regístrese para obtener una nueva prueba de Office 365 Enterprise E3.
 
 1.	Inicie sesión en CLIENT1 con las credenciales de cuenta CORP\\User1.
-2.	Abra Internet Explorer y vaya a **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+2.	Abra Internet Explorer y vaya a ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
 3.	Realice paso a paso el proceso de registro de la versión de prueba de Office 365 Enterprise E3.
 
 Cuando se le pida la **dirección de correo electrónico de empresa**, escriba su nueva cuenta de Microsoft.
@@ -132,7 +130,7 @@ A continuación, habilite la sincronización de directorios de la versión de pr
 4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, verá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
-Después, en el símbolo del sistema de Windows PowerShell de DC1, ejecute estos comandos **uno por uno** para crear una nueva unidad organizativa denominada "contoso\_users" y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
+Después, en el símbolo del sistema de Windows PowerShell de DC1, ejecute estos comandos **uno por uno** para crear una nueva unidad organizativa denominada contoso\_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -142,7 +140,7 @@ Cuando ejecute cada comando **New-ADUser** de Windows PowerShell, se le solicita
 
 A continuación, instale y configure la herramienta Azure AD Connect en DS1.
 
-1.	Inicie Internet Explorer, escriba **https://www.microsoft.com/download/details.aspx?id=47594** en la barra de **direcciones** y, a continuación, presione ENTRAR.
+1.	Inicie Internet Explorer, escriba ****https://www.microsoft.com/download/details.aspx?id=47594** en la barra de **direcciones** y, a continuación, presione ENTRAR.
 2.	Ejecute el programa de instalación de Microsoft Azure AD Connect.
 3.	En el escritorio, haga doble clic en **Azure AD Connect**.
 4.	En la página de **Bienvenida**, seleccione **Acepto los términos de licencia y el aviso de privacidad** y, a continuación, haga clic en **Continuar**.
@@ -167,7 +165,7 @@ A continuación, se muestra la sincronización de contraseñas de Office 365 con
 3.	En la pestaña **Asignar licencias**, seleccione una ubicación en **Establecer la ubicación del usuario** (por ejemplo, Estados Unidos).
 4.	Seleccione **Microsoft Office 365 Plan E3** y haga clic en **Guardar**.
 5.	Cierre Internet Explorer.
-6.	Inicie Internet Explorer y vaya a **http://portal.microsoftonline.com**.
+6.	Inicie Internet Explorer y vaya a ****http://portal.microsoftonline.com**.
 7.	Inicie sesión con las credenciales de Office 365 de Lynda Meyer. Su nombre de usuario será lyndam@<*su nombre ficticio*>.onmicrosoft.com. La contraseña es la de la cuenta de usuario de Active Directory de Lynda Meyer.
 8.	Tras realizar correctamente el inicio de sesión, verá la página principal del portal de Office 365 con **Marquemos hoy la diferencia**.
 
@@ -181,4 +179,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
 - Implementar esta carga de trabajo [en producción](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

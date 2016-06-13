@@ -26,12 +26,12 @@ Puede buscar el [repositorio de Maven](http://search.maven.org/) para obtener un
 
 En este artículo, aprenderá a utilizar el paquete [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
 
-**Requisitos previos:**
+##Requisitos previos
 
 Debe tener lo siguiente:
 
 - Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres Apache Spark en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Uso de paquetes externos con cuadernos de Jupyter Notebook 
 
@@ -51,13 +51,13 @@ Debe tener lo siguiente:
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
 
-4. Utilizará la magia `%%configure` para configurar el cuaderno para usar un paquete externo. En los cuadernos que utilizan paquetes externos, asegúrese de invocar la magia `%%configure` en la primera celda de código. Esto garantiza que el kernel se configure para utilizar el paquete antes de iniciar la sesión.
+4. Utilizará la instrucción mágica `%%configure` para configurar el cuaderno para usar un paquete externo. En los cuadernos que utilizan paquetes externos, asegúrese de invocar la instrucción mágica `%%configure` en la primera celda de código. Esto garantiza que el kernel se configure para utilizar el paquete antes de iniciar la sesión.
 
 		%%configure
 		{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-	>[AZURE.IMPORTANT] Si se olvida de configurar el kernel en la primera celda, puede utilizar el `%%configure` con el parámetro `-f`, pero ello reiniciará la sesión y se perderá todo el trabajo.
+	>[AZURE.IMPORTANT] Si se olvida de configurar el kernel en la primera celda, puede utilizar el parámetro `%%configure` con el parámetro `-f`, pero ello reiniciará la sesión y se perderá todo el trabajo.
 
 5. En el fragmento de código anterior, `packages` espera una lista de coordenadas de Maven en Maven Central Repository. En este fragmento de código, `com.databricks:spark-csv_2.10:1.4.0` es la coordenada de Maven para el paquete **spark-csv**. Le mostramos cómo crear las coordenadas de un paquete.
 
@@ -71,7 +71,7 @@ Debe tener lo siguiente:
 
 		com.databricks:spark-csv_2.10:1.4.0
 
-6. Ejecute la celda de código con la magia `%%configure`. De esta forma, se configurará la sesión de Livy subyacente para utilizar el paquete que facilitó. En las siguientes celdas del cuaderno, ya podrá usar el paquete como se muestra a continuación.
+6. Ejecute la celda de código con la instrucción mágica `%%configure`. De esta forma, se configurará la sesión de Livy subyacente para utilizar el paquete que facilitó. En las siguientes celdas del cuaderno, ya podrá usar el paquete como se muestra a continuación.
 
 		val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
@@ -118,4 +118,4 @@ Debe tener lo siguiente:
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

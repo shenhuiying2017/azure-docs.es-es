@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/02/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # ¿Qué es Búsqueda de Azure?
@@ -83,4 +83,4 @@ Puede probar búsqueda de Azure hoy mismo. Si ya tiene una cuenta de Azure, pued
 
 Si no tiene una cuenta de Azure, puede probar una sesión gratuita de 60 minutos sin necesidad de registrarse. Vaya a [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) y seleccione "Aplicación web". A continuación, seleccione la plantilla "ASP.NET + Azure Search" para empezar.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

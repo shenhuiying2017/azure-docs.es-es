@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con e-Builder
@@ -72,7 +72,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurar inicio de sesión único")
 
-2.  En la página **¿Cómo desea que los usuarios inicien sesión en e-Builder?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+2.  En la página **¿Cómo desea que los usuarios inicien sesión en e-Builder?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego, haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurar inicio de sesión único")
 
@@ -110,4 +110,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

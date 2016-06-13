@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
-	description="How to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure AD."
+	pageTitle="Información general sobre el protocolo .NET de Azure AD | Microsoft Azure"
+	description="Descubra cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino de Azure AD."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -18,22 +18,24 @@
 
 <!--TODO: Introduction -->
 
-## Register your application with your AD tenant
+## Registro de la aplicación con el inquilino de AD
 
-First, you will need to register your application with your Active Directory tenant. This will give you a client ID for your application, as well as enable it to receive tokens.
+En primer lugar, tendrá que registrar la aplicación con el inquilino de Active Directory. De este modo, se generará un id. de cliente para la aplicación y también se podrán recibir tokens.
 
-- Sign into the Azure Management Portal.
+- Inicie sesión en el Portal de administración de Azure.
 
-- In the left hand navigation pane, click on **Active Directory**.
+- En el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-- Select a tenant in which to register the application.
+- Seleccione el inquilino en el que va a registrar la aplicación.
 
-- Click on the **Applications** tab, and click **Add** in the bottom drawer.
+- Haga clic en la pestaña **Aplicaciones** y en el botón **Agregar** del cajón inferior.
 
-- Follow the prompts and create a new application. It doesn't matter if it is a web application or a native application for this tutorial, but if you'd like specific examples for web applications or native applications, check out our quickstarts [here](../articles/active-directory/active-directory-developers-guide.md).
+- Siga las indicaciones y cree una nueva aplicación. Para este tutorial, no es relevante que se trate de una aplicación web o nativa, pero si desea ver ejemplos específicos de aplicaciones web o nativas, consulte nuestras guías de inicio rápido [aquí](../articles/active-directory/active-directory-developers-guide.md).
 
-- For Web Applications, provide the **Sign-On URL** which is the base URL of your app, where users can sign in e.g `http://localhost:12345`. The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
+- Para aplicaciones web, proporcione la **dirección URL de inicio de sesión**, que es la URL base de la aplicación, donde los usuarios pueden iniciar sesión; por ejemplo, `http://localhost:12345`. El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
 
-- For Native Applications, provide a **Redirect URI**, which Azure AD will use to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+- Para las aplicaciones nativas, proporcione un **URI de redirección**, que utilizará Azure AD para devolver las respuestas de token. Escriba un valor específico para la aplicación, por ejemplo, `http://MyFirstAADApp`.
 
-- Once you've completed registration, AAD will assign your application a unique client identifier. You will need this value in the next sections, so copy it in the **Configure** tab of your application.
+- Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo en la pestaña **Configurar** de la aplicación.
+
+<!---HONumber=AcomDC_0601_2016-->

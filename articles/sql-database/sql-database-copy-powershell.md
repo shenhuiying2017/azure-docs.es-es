@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -46,29 +46,9 @@ Para completar este artículo, necesitará lo siguiente:
 
 
 
-## Configuración de las credenciales y selección de la suscripción
+## Copiar la base de datos SQL
 
-En primer lugar debe establecer el acceso a su cuenta de Azure; por tanto, inicie PowerShell y luego ejecute el siguiente cmdlet. En la pantalla de inicio de sesión escriba el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el Portal de Azure clásico.
-
-	Add-AzureAccount
-
-Después de iniciar sesión correctamente, verá información en la pantalla que incluye el identificador con el que ha iniciado sesión y las suscripciones a Azure a las que tiene acceso.
-
-
-### Selección de su suscripción a Azure
-
-Para seleccionar la suscripción, necesitará el nombre o el identificador de suscripción (**-SubscriptionName**). Puede copiar el identificador de suscripción de la información mostrada en el paso anterior o, si dispone de varias suscripciones y necesita más detalles, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción que desee del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Después de ejecutar correctamente **Select-AzureSubscription** volverá al símbolo del sistema de PowerShell. Si tiene más de una suscripción, puede ejecutar **Get-AzureSubscription** y comprobar que la suscripción que desea usar muestra **IsCurrent: True**.
-
-
-## Configuración de las variables para su entorno específico
-
-Hay algunas variables en las que es necesario reemplazar los valores de ejemplo por los valores específicos de la base de datos y los servidores.
-
-Reemplace los valores de marcador de posición por los valores para su entorno:
+Hay algunas variables en las que es necesario reemplazar los valores de ejemplo por los valores específicos de la base de datos y los servidores. Reemplace los valores de marcador de posición por los valores para su entorno:
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
@@ -86,14 +66,14 @@ Reemplace los valores de marcador de posición por los valores para su entorno:
 
 
 
-## Copiar una base de datos SQL en el mismo servidor
+### Copiar una base de datos SQL en el mismo servidor
 
 Este comando envía la solicitud de copia de base de datos para el servicio. Según el tamaño de su base de datos, la operación de copia puede tardar algún tiempo en completarse.
 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
-## Copiar una base de datos SQL en un servidor diferente
+### Copiar una base de datos SQL en un servidor diferente
 
 Este comando envía la solicitud de copia de base de datos para el servicio. Según el tamaño de su base de datos, la operación de copia puede tardar algún tiempo en completarse.
 
@@ -109,7 +89,7 @@ Después de ejecutar **Start-AzureSqlDatabaseCopy**, puede comprobar el estado d
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
 
-## Copia de un script de PowerShell de base de datos SQL
+## Script de PowerShell de ejemplo
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"
@@ -146,4 +126,4 @@ Después de ejecutar **Start-AzureSqlDatabaseCopy**, puede comprobar el estado d
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->
