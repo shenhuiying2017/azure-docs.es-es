@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
   
-El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Dropbox para Empresas.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de prueba en Dropbox para empresas

@@ -100,7 +100,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure AD, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **e-Builder ** haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **e-Builder** haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-e-builder-tutorial/IC777386.png "Asignar usuarios")
 

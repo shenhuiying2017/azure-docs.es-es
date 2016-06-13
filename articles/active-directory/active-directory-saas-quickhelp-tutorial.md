@@ -148,7 +148,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     b. Para cargar el archivo de metadatos de Azure descargado, haga clic en **Examinar**, navegue hasta el archivo y luego haga clic en **Cargar metadatos**.
 
-    c. En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     d. En el cuadro de texto **First Name** (Nombre), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 

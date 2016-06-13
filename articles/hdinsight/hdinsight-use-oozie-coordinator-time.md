@@ -257,7 +257,7 @@ Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almace
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis *asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
 > [AZURE.NOTE] La ruta de acceso wasb:// es una ruta de acceso virtual. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 

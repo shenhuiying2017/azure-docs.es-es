@@ -44,9 +44,9 @@ Para obtener la documentación completa de la API, entre ellos, varios parámetr
 
 <a name="backup-on-demand"></a>
 ## Copia de seguridad de una aplicación a petición
-Para realizar una copia de seguridad de una aplicación de inmediato, envíe una solicitud **POST** a****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
+Para realizar una copia de seguridad de una aplicación de inmediato, envíe una solicitud **POST** a**https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
-Este es el aspecto de la dirección URL al utilizar nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
+Este es el aspecto de la dirección URL al utilizar nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
 Debe proporcionar un objeto JSON en el cuerpo de la solicitud para especificar qué cuenta de almacenamiento se usa para almacenar la copia de seguridad. El objeto JSON debe tener una propiedad denominada **storageAccountUrl**, que contiene una [URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md), que concede acceso de escritura al contenedor de Almacenamiento de Azure que contendrá el blob de copia de seguridad. Si desea hacer una copia de seguridad de las bases de datos, debe proporcionar igualmente una lista con los nombres, tipos y cadenas de conexión de las bases de datos de las que va a realizar una copia de seguridad.
 
@@ -103,9 +103,9 @@ Se iniciará de inmediato una copia de seguridad de la aplicación al recibir la
 Además de la copia de seguridad de una aplicación a petición, también puede programar la ejecución de una copia de seguridad automática.
 
 ### Configuración de una nueva programación de copias de seguridad automáticas
-Para configurar una programación de copia de seguridad, envíe una solicitud **PUT** a ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
+Para configurar una programación de copia de seguridad, envíe una solicitud **PUT** a **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
 
-Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
+Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
 
 El cuerpo de la solicitud debe tener un objeto JSON que especifique la configuración de la copia de seguridad. Este es un ejemplo con todos los parámetros necesarios.
 
@@ -132,17 +132,17 @@ En este ejemplo se configura la ejecución de una copia de seguridad automática
 Las copias de seguridad anteriores se quitarán automáticamente de la cuenta de almacenamiento. Puede controlar la antigüedad de las copias de seguridad mediante la configuración del parámetro **retentionPeriodInDays**. Si desea tener siempre al menos una copia de seguridad guardada, independientemente de su antigüedad, establezca **keepAtLeastOneBackup** en true.
 
 ### Obtención de la programación de copias de seguridad automáticas
-Para obtener una configuración de copia de seguridad de una aplicación, envíe una solicitud **POST** a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
+Para obtener una configuración de copia de seguridad de una aplicación, envíe una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
 
-La dirección URL de nuestro sitio de ejemplo es ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
+La dirección URL de nuestro sitio de ejemplo es **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
 ## Obtención del estado de una copia de seguridad
-En función de lo grande que sea la aplicación, una copia de seguridad puede tardar varios minutos en completarse. Las copias de seguridad pueden también provocar errores, alargar el tiempo de espera o completarse solo parcialmente. Para ver el estado de todas las copias de seguridad de una aplicación, envíe una solicitud **GET** a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
+En función de lo grande que sea la aplicación, una copia de seguridad puede tardar varios minutos en completarse. Las copias de seguridad pueden también provocar errores, alargar el tiempo de espera o completarse solo parcialmente. Para ver el estado de todas las copias de seguridad de una aplicación, envíe una solicitud **GET** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
-Para ver el estado de una copia de seguridad específica, envíe una solicitud GET a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+Para ver el estado de una copia de seguridad específica, envíe una solicitud GET a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
+Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 El cuerpo de respuesta contendrá un objeto JSON similar a este ejemplo.
 
@@ -180,9 +180,9 @@ El estado de una copia de seguridad es un tipo enumerado. Mostramos, a continuac
 
 <a name="restore-app"></a>
 ## Restauración de una aplicación desde una copia de seguridad
-Si se ha eliminado la aplicación, o si desea revertir la aplicación a una versión anterior, puede restaurar la aplicación desde una copia de seguridad. Para invocar una restauración, envíe una solicitud **POST** a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
+Si se ha eliminado la aplicación, o si desea revertir la aplicación a una versión anterior, puede restaurar la aplicación desde una copia de seguridad. Para invocar una restauración, envíe una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
-Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
+Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
 
 En el cuerpo de la solicitud, envíe un objeto JSON que contiene las propiedades de la operación de restauración. Este es un ejemplo que contiene todas las propiedades necesarias:
 
@@ -208,15 +208,15 @@ A veces, es posible que desee crear una nueva aplicación al restaurar una copia
 
 <a name="delete-app-backup"></a>
 ## Eliminación de una copia de seguridad de aplicación
-Si desea eliminar una copia de seguridad, envíe una solicitud **DELETE** a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
+Si desea eliminar una copia de seguridad, envíe una solicitud **DELETE** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
+Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
 ## Administración de la dirección URL de SAS de una copia de seguridad
-Servicio de aplicaciones de Azure intentará eliminar la copia de seguridad de Almacenamiento de Azure con la dirección URL de SAS proporcionada al crear la copia de seguridad. Si esta dirección URL de SAS ya no es válida, no se puede eliminar la copia de seguridad mediante la API de REST. Sin embargo, puede actualizar la dirección URL de SAS asociada a una copia de seguridad mediante el envío de una solicitud **POST** a la dirección URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
+Servicio de aplicaciones de Azure intentará eliminar la copia de seguridad de Almacenamiento de Azure con la dirección URL de SAS proporcionada al crear la copia de seguridad. Si esta dirección URL de SAS ya no es válida, no se puede eliminar la copia de seguridad mediante la API de REST. Sin embargo, puede actualizar la dirección URL de SAS asociada a una copia de seguridad mediante el envío de una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
-Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
+Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
 
 En el cuerpo de la solicitud, envíe un objeto JSON que contiene la nueva dirección URL de SAS. Aquí tiene un ejemplo.
 

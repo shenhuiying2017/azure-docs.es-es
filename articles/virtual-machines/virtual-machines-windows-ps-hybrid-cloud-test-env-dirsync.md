@@ -58,12 +58,12 @@ Esta es su configuración actual.
 
 Para iniciar la versión de prueba de Office 365 FastTrack, necesita un nombre de compañía ficticio y una cuenta de Microsoft. Le recomendamos que use una variante del nombre de la compañía Contoso como nombre de su compañía; esta es una compañía ficticia que se usa en el contenido de ejemplo de Microsoft, pero no es obligatorio.
 
-A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a ****http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
+A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a **http://outlook.com** y cree una cuenta con una dirección de correo electrónico como user123@outlook.com. Regístrese para una prueba de Office 365 FastTrack con esa cuenta.
 
 A continuación, regístrese para obtener una nueva prueba de Office 365 Enterprise E3.
 
 1.	Inicie sesión en CLIENT1 con las credenciales de cuenta CORP\\User1.
-2.	Abra Internet Explorer y vaya a ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+2.	Abra Internet Explorer y vaya a **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
 3.	Realice paso a paso el proceso de registro de la versión de prueba de Office 365 Enterprise E3.
 
 Cuando se le pida la **dirección de correo electrónico de empresa**, escriba su nueva cuenta de Microsoft.
@@ -140,7 +140,7 @@ Cuando ejecute cada comando **New-ADUser** de Windows PowerShell, se le solicita
 
 A continuación, instale y configure la herramienta Azure AD Connect en DS1.
 
-1.	Inicie Internet Explorer, escriba ****https://www.microsoft.com/download/details.aspx?id=47594** en la barra de **direcciones** y, a continuación, presione ENTRAR.
+1.	Inicie Internet Explorer, escriba **https://www.microsoft.com/download/details.aspx?id=47594** en la barra de **direcciones** y, a continuación, presione ENTRAR.
 2.	Ejecute el programa de instalación de Microsoft Azure AD Connect.
 3.	En el escritorio, haga doble clic en **Azure AD Connect**.
 4.	En la página de **Bienvenida**, seleccione **Acepto los términos de licencia y el aviso de privacidad** y, a continuación, haga clic en **Continuar**.
@@ -165,7 +165,7 @@ A continuación, se muestra la sincronización de contraseñas de Office 365 con
 3.	En la pestaña **Asignar licencias**, seleccione una ubicación en **Establecer la ubicación del usuario** (por ejemplo, Estados Unidos).
 4.	Seleccione **Microsoft Office 365 Plan E3** y haga clic en **Guardar**.
 5.	Cierre Internet Explorer.
-6.	Inicie Internet Explorer y vaya a ****http://portal.microsoftonline.com**.
+6.	Inicie Internet Explorer y vaya a **http://portal.microsoftonline.com**.
 7.	Inicie sesión con las credenciales de Office 365 de Lynda Meyer. Su nombre de usuario será lyndam@<*su nombre ficticio*>.onmicrosoft.com. La contraseña es la de la cuenta de usuario de Active Directory de Lynda Meyer.
 8.	Tras realizar correctamente el inicio de sesión, verá la página principal del portal de Office 365 con **Marquemos hoy la diferencia**.
 
