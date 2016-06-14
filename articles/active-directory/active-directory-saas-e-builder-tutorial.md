@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de e-Builder**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>.e-Builder.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de e-Builder**, escriba su dirección URL con el siguiente patrón " *https://\<nombreDeInquilino\>.e-Builder.com* " y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurar dirección URL de la aplicación")
 

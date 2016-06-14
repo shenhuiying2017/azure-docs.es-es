@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zoom-tutorial/IC784697.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zoom**, escriba su dirección URL con el siguiente patrón "**http://company.zoom.us*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zoom**, escriba su dirección URL con el siguiente patrón "*http://company.zoom.us*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zoom-tutorial/IC784698.png "Configurar dirección URL de la aplicación")
 
