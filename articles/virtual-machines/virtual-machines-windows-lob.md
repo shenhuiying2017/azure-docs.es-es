@@ -19,8 +19,6 @@
 
 # Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 Configure la primera o siguiente aplicación de línea de negocio basada en web solo de intranet en Microsoft Azure y aprovéchese de la facilidad de configuración y de la posibilidad de ampliar rápidamente la aplicación para que incluya una nueva capacidad.
  
 Con las máquinas virtuales y las características de la Red virtual de los Servicios de infraestructura de Azure, podrá implementar y ejecutar rápidamente una aplicación de línea de negocio que sea accesible para los usuarios de su organización. Por ejemplo, puede configurar lo siguiente.
@@ -85,4 +83,4 @@ Una vez configurada, puede ampliar fácilmente esta aplicación de línea de neg
 
 - Obtenga [información general](virtual-machines-windows-lob-overview.md) de la carga de trabajo de producción antes de comenzar con la configuración.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

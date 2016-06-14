@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # Crear clústeres de Hadoop en HDInsight con plantillas del Administrador de recursos de Azure (Windows)
@@ -294,4 +294,4 @@ La siguiente plantilla de Administrador de recursos de Azure crea un clúster de
         }
     }
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

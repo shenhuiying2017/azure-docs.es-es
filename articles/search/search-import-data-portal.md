@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="06/08/2016"
 	ms.author="heidist"/>
 
 # Importación de datos en Búsqueda de Azure con el Portal
 
-El Portal de Azure incluye un comando **Importar datos** en el panel de Búsqueda de Azure que lo guía por la ingesta de datos de Búsqueda de Azure. El comando se basa en la característica de indexadores integrados que rastrea un origen de datos existente, y crea y carga documentos basados en el conjunto de filas que se encuentra en el origen de datos.
+El Portal de Azure incluye un comando **Importar datos** en el panel de Búsqueda de Azure que le permite cargar datos en un índice. El comando se basa en la característica de indexadores integrados que rastrea un origen de datos existente, y crea y carga documentos basados en el conjunto de filas extraído del origen de datos.
 
 Con el Asistente, la importación de datos es una construcción con tres partes:
 
@@ -68,6 +68,12 @@ La operación de importación de datos que acaba de completar ha creado un index
 
 ##Edición de un indexador existente
 
-En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo.
+En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo. Puede reemplazar el índice con otro existente, cambiar el origen de datos y establecer las opciones de los umbrales de error durante la indexación.
 
-<!---HONumber=AcomDC_0316_2016-->
+##Edición de un índice existente
+
+En Búsqueda de Azure, las actualizaciones estructurales de un índice requieren que se realice una recompilación de ese índice, que consiste en eliminar el índice, volver a crearlo y volver a cargar los datos. Las actualizaciones estructurales incluyen el cambio de un tipo de datos y el cambio de nombre o eliminación de un campo.
+
+Entre las modificaciones que no requieren una recompilación se incluyen la incorporación de un nuevo campo, el cambio los perfiles de puntuación, el cambio de los proveedores de sugerencias o el cambio de los analizadores de lenguaje. Consulte [Actualización de un índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para más información.
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Procedimientos recomendados de seguridad de la red de Azure | Microsoft Azure"
    description="Este artículo proporciona un conjunto de procedimientos recomendados de seguridad de la red con funcionalidades de Azure integradas."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="swadhwa"
    editor="TomShinder"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/25/2016"
    ms.author="TomSh"/>
 
 # Procedimientos recomendados de seguridad de la red de Azure
@@ -21,7 +21,7 @@
 Microsoft Azure permite conectar máquinas virtuales y aplicaciones a otros dispositivos en red, colocándolos en redes virtuales de Azure. Una red virtual de Azure es una construcción de red virtual que permite conectar tarjetas de interfaz de red virtual a una red virtual para permitir las comunicaciones basadas en TCP/IP entre dispositivos habilitados para red. Las máquinas virtuales conectadas a una red virtual de Azure pueden conectarse a dispositivos en la misma red virtual de Azure, distintas redes virtuales de Azure, en Internet o, incluso, en sus propias redes locales.
 
 En este artículo veremos un conjunto de procedimientos recomendados de seguridad de la red de Azure. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
- 
+
 Para cada procedimiento recomendado, explicaremos:
 
 - Qué es el procedimiento recomendado
@@ -34,16 +34,16 @@ Este artículo de Procedimientos recomendados de seguridad de la red de Azure se
 
 Los procedimientos recomendados de seguridad de la red de Azure descritos en este artículo incluyen:
 
-- Segmentación lógica de subredes 
-- Control del comportamiento de enrutamiento 
-- Habilitación de la tunelización forzada 
-- Uso de aplicaciones de red virtual 
+- Segmentación lógica de subredes
+- Control del comportamiento de enrutamiento
+- Habilitación de la tunelización forzada
+- Uso de aplicaciones de red virtual
 - Implementación de redes perimetrales para zonas de seguridad
 - Uso de vínculos WAN dedicados para evitar la exposición en Internet
-- Optimización del rendimiento y el tiempo de actividad 
+- Optimización del rendimiento y el tiempo de actividad
 - Uso del equilibrio de carga global
 - Deshabilitación del acceso RDP a máquinas virtuales de Azure
-- Habilitación de Azure Security Center 
+- Habilitación de Azure Security Center
 - Extensión de su centro de datos en Azure
 
 
@@ -77,7 +77,7 @@ Se recomienda configurar rutas definidas por el usuario al implementar una aplic
 
 Para aprender más acerca de las rutas definidas por el usuario y cómo configurarlas, lea el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](../virtual-network/virtual-networks-udr-overview.md).
 
-## Habilitación de la tunelización forzada 
+## Habilitación de la tunelización forzada
 
 Para entender mejor la tunelización forzada, resulta útil entender qué es el "túnel dividido". El ejemplo más común de túnel dividido se ve con conexiones VPN. Imagine que establece una conexión VPN de la habitación de hotel a su red corporativa. Esta conexión le permite conectarse a recursos de la red corporativa y todas las comunicaciones a los recursos de la red corporativa pasan a través del túnel VPN.
 
@@ -94,7 +94,7 @@ Para más información sobre la tunelización forzada y cómo habilitarla, consu
 Si bien los grupos de seguridad de red y el enrutamiento definido por el usuario pueden proporcionar un cierto grado de seguridad de la red en los niveles de red y de transporte del [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), habrá situaciones en la que deseará o necesitará habilitar la seguridad en los niveles altos de la pila. En tales situaciones, se recomienda implementar aplicaciones de seguridad de la red virtual proporcionadas por asociados de Azure.
 
 Las aplicaciones de seguridad de la red de Azure pueden proporcionar niveles de seguridad mucho mejores que los proporcionados por los controles de nivel de red. Algunas de las funcionalidades de seguridad de la red proporcionadas por las aplicaciones de seguridad de la red virtual son:
- 
+
 - Firewalls
 - Detección y prevención de intrusiones
 - Administración de vulnerabilidades
@@ -110,7 +110,7 @@ Para aprender acerca de qué las aplicaciones de seguridad de la red virtual est
 
 ##Implementación de redes perimetrales para zonas de seguridad
 Una red perimetral es un segmento de red físico o lógico que está diseñado para proporcionar un nivel de seguridad adicional entre los recursos e Internet. El objetivo de la red perimetral es colocar dispositivos de control de acceso a la red especializados en el borde de la red perimetral, de forma que solo se permita al tráfico deseado pasar por el dispositivo de seguridad de la red y en la red virtual de Azure.
- 
+
 Las redes perimetrales son útiles porque permiten centrar la administración, supervisión, registro y generación de informes sobre los dispositivos del control de acceso a la red en el borde de la red virtual de Azure. Aquí normalmente habilitaría la prevención DDoS, los sistemas de prevención y detección de intrusiones (IDS/IPS), las reglas y directivas de firewall, el filtrado web, el antimalware de la red, etc. Los dispositivos de seguridad de la red se sitúan entre Internet y la red virtual de Azure y tienen una interfaz en ambas redes.
 
 Aunque este es el diseño básico de una red perimetral, existen muchos diseños diferentes, como configuración opuesta, con triple alojamiento, con múltiple alojamiento, etc.
@@ -135,7 +135,7 @@ Si necesita un nivel de seguridad o de rendimiento excepcional para las conexion
 
 Para aprender más sobre cómo funciona Azure ExpressRoute y cómo implementarlo, consulte el artículo [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## Optimización del rendimiento y el tiempo de actividad 
+## Optimización del rendimiento y el tiempo de actividad
 La confidencialidad, la integridad y la disponibilidad (CIA) constituyen la triada del modelo de seguridad más influyente en la actualidad. La confidencialidad se refiere al cifrado y la privacidad, la integridad consiste en garantizar que personas no autorizadas no modifiquen los datos, y la disponibilidad consiste en asegurarse de que las personas autorizadas puedan acceder a la información para la que tengan autorización. Un error en cualquiera de estas áreas representa una posible infracción de seguridad.
 
 La disponibilidad puede referirse al tiempo de actividad y el rendimiento. Si un servicio está inactivo, no puede accederse a la información. Si el rendimiento es tan bajo que no se pueden utilizar los datos, podemos considerar que los datos son inaccesibles. Por lo tanto, desde una perspectiva de seguridad, necesitamos hacer todo lo posible para asegurarnos de que nuestros servicios tienen un rendimiento y un tiempo de actividad óptimos. Un método popular y eficaz usado para mejorar la disponibilidad y el rendimiento es usar el equilibrio de carga. El equilibrio de carga es un método para distribuir el tráfico de la red entre los servidores que forman parte de un servicio. Por ejemplo, si tiene servidores web front-end que forman parte de su servicio, puede usar el equilibrio de carga para distribuir el tráfico entre ellos.
@@ -150,7 +150,7 @@ Se recomienda usar el equilibrio de carga siempre que se pueda y, según sea ade
 
 ## Equilibrio de carga basado en HTTP
 El equilibrio de carga basado en HTTP toma las decisiones acerca de a qué servidor enviar las conexiones de acuerdo con las características del protocolo HTTP. Azure tiene un equilibrio de carga HTTP llamado Puerta de enlace de aplicaciones.
- 
+
 Se recomienda usar la Puerta de enlace de aplicaciones de Azure cuando hay:
 
 - Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual back-end. Ejemplos de esto serían las aplicaciones de carro de la compra y los servidores de correo web.
@@ -161,9 +161,9 @@ Para aprender más acerca sobre cómo funciona Puerta de enlace de aplicaciones 
 
 ## Equilibrio de carga externo
 El equilibrio de carga externo tiene lugar cuando se realiza una carga equilibrada de las conexiones entrantes de Internet entre los servidores situados en una red virtual de Azure. El equilibrio de carga externo de Azure puede proporcionar esta funcionalidad, y se recomienda utilizarlo cuando no se requieren sesiones persistentes o la descarga SSL.
- 
+
 A diferencia de equilibrio de carga basado en HTTP, el equilibrio de carga externo utiliza información en los niveles de red y transporte del modelo de redes OSI para tomar decisiones sobre en qué servidor equilibrar la carga de la conexión.
- 
+
 Recomendamos usar el equilibrio de carga externo siempre que tenga [aplicaciones sin estado](http://whatis.techtarget.com/definition/stateless-app) que aceptan solicitudes entrantes de Internet.
 
 Para aprender más acerca de cómo funciona el equilibrio de carga externo de Azure y cómo implementarlo, lea el artículo [Introducción a la creación de un equilibrio de carga orientado a Internet en Resource Manager con PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
@@ -179,11 +179,11 @@ Para aprender más acerca de cómo funciona el equilibrio de carga interno de Az
 El proceso de la nube pública permite implementar globalmente aplicaciones distribuidas que tienen componentes ubicados en centros de datos de todo el mundo. Esto es posible en Microsoft Azure gracias a la presencia de un centro de datos global de Azure. A diferencia de la tecnologías de equilibrio de carga mencionadas anteriormente, el equilibrio de carga global permite que los servicios estén disponibles incluso aunque ninguno de los centros de datos esté disponible.
 
 Puede obtener este tipo de equilibrio de carga global en Azure mediante el [Administrador de tráfico de Azure ](https://azure.microsoft.com/documentation/services/traffic-manager/). El Administrador de tráfico permite equilibrar las conexiones a los servicios según la ubicación del usuario.
- 
+
 Por ejemplo, si el usuario realiza una solicitud a su servicio desde la Unión Europea, la conexión se dirige a sus servicios situados en un centro de datos de la Unión Europea. Esta parte del equilibrio de carga global del Administrador de tráfico ayuda a mejorar el rendimiento, ya que la conexión al centro de datos más cercano es más rápida que a los centros de datos que están lejos.
 
 En relación a la disponibilidad, el equilibrio de carga global garantiza que el servicio esté disponible incluso si todo un centro de datos deja de estar disponible.
- 
+
 Por ejemplo, si un centro de datos de Azure deja de estar disponible por motivos ambientales o debido a interrupciones (como errores en la red regional), las conexiones al servicio se vuelven a enrutar al centro de datos en línea más cercano. Este equilibrio de carga global se logra al aprovechar las directivas DNS que se pueden crear en el Administrador de tráfico.
 
 Se recomienda usar el Administrador de tráfico para cualquier solución en la nube que desarrolle, tenga un ámbito ampliamente distribuido en varias regiones y requiera el tiempo de actividad más alto posible.
@@ -209,7 +209,7 @@ Una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md) co
 
 También puede utilizar un vínculo WAN dedicado para ofrecer una funcionalidad similar a la VPN de sitio a sitio. Las principales diferencias son 1. el vínculo WAN dedicado no atraviesa Internet y 2. los vínculos WAN dedicados suelen ser más estables y eficaces. Azure proporciona una solución de vínculo WAN dedicado mediante [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Habilitación de Azure Security Center 
+## Habilitación de Azure Security Center
 Azure Security Center ayuda a evitar, detectar y responder a amenazas, al tiempo que proporciona más visibilidad y control de la seguridad de los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 Azure Security Center le ayuda a optimizar y controlar la seguridad de la red al:
@@ -226,9 +226,9 @@ Para aprender más acerca de Azure Security Center y cómo habilitarlo para las 
 Muchas organizaciones de TI desean expandirse en la nube en lugar de hacer que crezcan sus centros de datos locales. Esta expansión representa una extensión de la infraestructura de TI existente en la nube pública. Al aprovechar las opciones de conectividad entre locales, es posible tratar las redes virtuales de Azure como otra subred en la infraestructura de red local.
 
 Sin embargo, hay mucho planeamiento y problemas de diseño que deben solucionarse antes. Esto es especialmente importante en el área de seguridad de la red. Una de las mejores formas de comprender cómo enfocar dicho diseño es ver un ejemplo.
- 
+
 Microsoft ha creado el [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) (Diagrama de arquitectura de referencia de extensión de centro de datos) y otro material auxiliar para ayudarle a comprender cuál sería la apariencia de una extensión del centro de datos. Esto proporciona un ejemplo de implementación de referencia que puede usar para planear y diseñar una extensión del centro de datos empresarial seguro en la nube. Se recomienda leer este documento para hacerse una idea de los componentes clave de una solución segura.
 
 Para aprender más sobre cómo extender su centro de datos de forma segura en Azure, vea el vídeo [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA) (Extensión de su centro de datos a Azure).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

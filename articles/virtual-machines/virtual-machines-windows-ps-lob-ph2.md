@@ -19,9 +19,6 @@
 
 # Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
- 
-
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, configurará dos controladores de dominio de réplica en la red virtual de Azure para que las solicitudes web de cliente de recursos web se puedan autenticar localmente en la red virtual de Azure, en lugar de enviar ese tráfico de autenticación a través de la conexión con la red local.
 
 Debe completar esta fase antes de pasar a la [fase 3](virtual-machines-windows-ps-lob-ph3.md). Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-windows-lob-overview.md) en todas las fases.
@@ -197,4 +194,4 @@ Este diagrama muestra la configuración resultante de la realización correcta d
 
 - Para continuar con la configuración de esta carga de trabajo, vaya a la [Fase 3](virtual-machines-windows-ps-lob-ph3.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

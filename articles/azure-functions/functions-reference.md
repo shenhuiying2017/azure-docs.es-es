@@ -129,21 +129,21 @@ Los contenedores de funciones se integran en el Servicio de aplicaciones, por lo
 
 3. Vaya a `D:\home\site\wwwroot` para actualizar *host.json* o `D:\home\site\wwwroot<function_name>` para actualizar los archivos de la función.
 
-4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos.
+4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos. Hay dos áreas en la cuadrícula de archivos donde puede colocar un archivo. Para los archivos *.zip*, aparece un cuadro con la etiqueta "Drag here to upload and unzip" (Arrastre aquí para cargar y descomprimir). Para otros tipos de archivo, colóquelos en la cuadrícula de archivos, pero fuera del cuadro para "descomprimir".
 
 #### Para usar FTP
 
 1. Siga las instrucciones descritas [aquí](../app-service-web/web-sites-deploy.md#ftp) para configurar el FTP.
 
-2. Cuando esté conectado al sitio del contenedor de funciones, copie el archivo *host.json* actualizado en `/site/wwwroot` o copie los archivos de funciones en `/site/wwwroot/<function_name>`.
+2. Cuando esté conectado al sitio de aplicaciones de función, copie el archivo *host.json* actualizado en `/site/wwwroot` o copie los archivos de funciones en `/site/wwwroot/<function_name>`.
 
 ## Ejecución en paralelo
 
-Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo. Si un contenedor de funciones usa el [Plan de servicio dinámico](functions-scale.md#dynamic-service-plan), el contenedor de funciones podría escalar horizontalmente hasta 10 instancias simultáneas de forma automática. Cada instancia del contenedor de funciones, si la aplicación se ejecuta en el Plan de servicio dinámico o el [Plan de servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos. El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tamaño de la memoria del contenedor de funciones.
+Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo. Si una aplicación de función usa el [plan de servicio dinámico](functions-scale.md#dynamic-service-plan), esta aplicación podría escalarse horizontalmente a hasta 10 instancias simultáneas de forma automática. Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de servicio dinámico como en el [plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos. El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tamaño de la memoria del contenedor de funciones.
 
 ## Impulso de funciones de Azure  
 
-El impulso es una secuencia de eventos en directo que muestra con qué frecuencia se ejecuta la función, así como las operaciones correctas y erróneas. También puede supervisar el tiempo medio de ejecución. Iremos agregando más características y personalización con el paso del tiempo. Puede obtener acceso a la página **Impulso** desde la pestaña **Supervisión**.
+El impulso es una secuencia de eventos en directo que muestra con qué frecuencia se ejecuta la función, así como las operaciones correctas y erróneas. También puede supervisar el tiempo medio de ejecución. Iremos agregando más características y personalización con el paso del tiempo. Puede acceder a la página **Impulso** desde la pestaña **Supervisión**.
 
 ## Repositorios
 
@@ -174,4 +174,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

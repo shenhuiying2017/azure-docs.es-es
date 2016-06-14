@@ -24,9 +24,6 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo clásico.
-
-
 Este tutorial completo muestra cómo crear un grupo de disponibilidad de SQL Server con máquinas virtuales del Administrador de recursos de Azure. El tutorial utiliza hojas de Azure para configurar una plantilla. Revisará la configuración predeterminada, escribirá la configuración requerida y actualizará las hojas en el portal a medida que recorra este tutorial.
 
 >[AZURE.NOTE] El Portal de administración de Azure incluye una nueva configuración de la galería para grupos de disponibilidad AlwaysOn con un agente de escucha. Así se configura automáticamente todo lo necesario para los grupos de disponibilidad. Para más información, consulte [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Oferta de AlwaysOn de SQL Server en la galería del Portal de Microsoft Azure clásico).
@@ -76,7 +73,7 @@ Azure ofrece una galería de imágenes para toda la solución. Para encontrar la
 1. 	Inicie sesión en el Portal de Azure con su cuenta.
 1.	En el Portal de Azure, haga clic en **+Nuevo.** El portal abrirá la hoja Nuevo.
 1.	En la hoja Nuevo, busque **AlwaysOn**. ![Buscar la plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	En los resultados de la búsqueda, localice **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	En los resultados de la búsqueda, busque **Clúster AlwaysOn de SQL Server**. ![Plantilla de AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	En **Seleccionar un modelo de implementación,** elija **Resource Manager**.
 
 ### Aspectos básicos
@@ -115,7 +112,7 @@ En la hoja **Domain and network settings** (Configuración de dominio y red), re
 
 Para más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-La hoja **Domain and network settings** (Configuración de red y dominio) debería se similar a esta:
+La hoja **Domain and network settings** (Configuración de red y dominio) debería ser similar a esta:
 
 ![Configuración de red y dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
@@ -125,7 +122,7 @@ Si es necesario, puede cambiar estos valores. En este tutorial usamos los valore
 
 ###Configuración de grupos de disponibilidad
 
-En **Configuración de grupo de disponibilidad**, revise los valores preestablecidos tanto del grupo de disponibilidad como del agente de escucha.
+En **availability group settings** (Configuración de grupo de disponibilidad), revise los valores preestablecidos tanto del grupo de disponibilidad como del agente de escucha.
 
 - **Availablity group name** (Nombre del grupo de disponibilidad) es el nombre del recurso en clúster para el grupo de disponibilidad. Use **Contoso-ag** en este tutorial.
 
@@ -141,9 +138,9 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 ###Tamaño de VM y configuración de almacenamiento
 
-En **VM size, storage settings** (Tamaño de VM y configuración de almacenamiento), elija un tamaño de máquina virtual con SQL Server y revise el resto de las opciones.
+En **VM size, storage settings** (Configuración de tamaño y almacenamiento de máquina virtual), elija un tamaño de máquina virtual con SQL Server y revise el resto de las opciones.
 
-- **SQL Server virtual machine size** (Tamaño de máquina virtual con SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4**, o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de las máquinas virtuales con Linux en Azure](virtual-machines-linux-sizes.md).
+- **SQL Server virtual machine size** (Tamaño de máquina virtual de SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4**, o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de las máquinas virtuales en Azure](virtual-machines-linux-sizes.md).
 
 >[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para más información acerca de los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
@@ -151,7 +148,7 @@ En **VM size, storage settings** (Tamaño de VM y configuración de almacenamien
 
 - **File Share Witness virtual machine size** (Tamaño de la máquina virtual del testigo del recurso compartido de archivos) es el tamaño de la máquina virtual del testigo del recurso compartido de archivos. Use **A1** en este tutorial.
 
-- **SQL Storage account** (Cuenta de almacenamiento SQL) es el nombre de la cuenta de almacenamiento que contiene los datos de SQL Server y los discos del sistema operativo. Use **alwaysonsql01** en este tutorial.
+- **SQL Storage account** (Cuenta de almacenamiento SQL) es el nombre de la cuenta de almacenamiento que contiene los discos del sistema operativo y los datos de SQL Server. Use **alwaysonsql01** en este tutorial.
 
 - **DC Storage account** (Cuenta de almacenamiento de controladores de dominio) es el nombre de la cuenta de almacenamiento para los controladores de dominio. Use **alwaysondc01** en este tutorial.
 
@@ -159,13 +156,13 @@ En **VM size, storage settings** (Tamaño de VM y configuración de almacenamien
 
 - **Storage optimization** (Optimización de almacenamiento) establece una configuración de almacenamiento específica para las máquinas virtuales con SQL Server en función del tipo de carga de trabajo. Todos los servidores SQL Server en este escenario usan almacenamiento premium con caché de host de disco de Azure establecida en solo lectura. Además, puede optimizar la configuración de SQL Server para la carga de trabajo eligiendo una de estas tres configuraciones:
 
-    - **Carga de trabajo general** no establece ninguna configuración específica.
+    - **General workload** (Carga de trabajo general) no establece ninguna configuración específica.
 
     - **Transactional processing** (Procesamiento transaccional) establece las marcas de seguimiento 1117 y 1118.
 
     - **Data warehousing** (Almacenamiento de datos) establece las marcas de seguimiento 1117 y 610.
 
-Use **Carga de trabajo general** en este tutorial.
+Use **General workload** (Carga de trabajo general) en este tutorial.
 
 ![Configuración de almacenamiento del tamaño de VM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
 
@@ -189,12 +186,12 @@ Para obtener información adicional sobre el espacio de almacenamiento y los blo
 
 - [Copias de seguridad de Windows Server y bloques de almacenamiento](http://technet.microsoft.com/library/dn390929.aspx)
 
-Para más información acerca de los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
+Para más información acerca de los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
 
 
 ###Configuración de SQL Server
 
-En **Configuración de SQL Server**, revise y modifique el prefijo del nombre de máquina virtual con SQL Server, la versión de SQL Server, la cuenta de servicio y la contraseña de SQL Server, y la programación del mantenimiento de la aplicación de revisión automatizada de SQL.
+En **Configuración de SQL Server**, revise y modifique el prefijo del nombre de máquina virtual con SQL Server, la versión de SQL Server, la cuenta de servicio y la contraseña de SQL Server y la programación del mantenimiento de la aplicación de revisión automatizada de SQL.
 
 - **SQL Server Name Prefix** (Prefijo de nombre de SQL Server) se usa para crear un nombre para cada servidor SQL Server. Use **Contoso-ag** en este tutorial. Los nombres de SQL Server serán *Contoso-ag-0* y *Contoso-ag-1*.
 
@@ -220,7 +217,7 @@ Azure valida la configuración en la página de resumen. También puede descarga
 
 ###Comprar
 
-Esta hoja final contiene las **Condiciones de uso** y la **política de privacidad**. Revise esta información. Cuando esté listo para que Azure empiece a crear las máquinas virtuales y el resto de los recursos requeridos para el grupo de disponibilidad, haga clic en **Crear**.
+Esta hoja final contiene las **Condiciones de uso** y la **directiva de privacidad**. Revise esta información. Cuando esté listo para que Azure empiece a crear las máquinas virtuales y el resto de los recursos requeridos para el grupo de disponibilidad, haga clic en **Crear**.
 
 El Portal de Azure creará el grupo de recursos y todos los recursos.
 
@@ -259,4 +256,4 @@ Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Ser
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad está configurado.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

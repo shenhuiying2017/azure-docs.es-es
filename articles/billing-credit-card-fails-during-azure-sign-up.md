@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
 # Mi tarjeta de crédito no se acepta cuando intento suscribirme a Azure
@@ -31,7 +31,7 @@ Asegúrese también de que el método de pago esté activo y de que su entidad b
 - El código CVV que especifique tiene que coincidir exactamente con el código que aparece en el reverso o anverso de la tarjeta de crédito o débito.
 
 ## ¿Está intentando activar una evaluación gratuita de Azure?
-La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya ha activado una evaluación gratuita anteriormente o tenía una suscripción de Azure en el pasado pero ahora está intentando activar una evaluación gratuita, el sistema no le permitirá continuar. En su lugar, utilice uno de los otros planes de Azure disponibles que se indican en la página [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
+La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya ha activado una evaluación gratuita anteriormente con esta tarjeta de crédito o tenía en otro momento una suscripción de Azure vinculada a dicha tarjeta, el sistema no le permitirá activar ahora una evaluación gratuita. En su lugar, utilice uno de los otros planes de Azure disponibles que se indican en la página [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## ¿Desea usar otra opción de pago aparte de una tarjeta de crédito o débito?
 También puede pagar la suscripción de Azure mediante métodos de pago de facturación, como cheques, cheques urgentes y transferencias bancarias.
@@ -40,4 +40,4 @@ Para usar la opción de pago con factura, debe representar a una empresa. Esta o
 
 Para iniciar el proceso de configuración de una factura, consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para más información.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

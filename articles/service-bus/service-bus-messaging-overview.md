@@ -52,8 +52,8 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Colas, temas y suscripciones del bus de servicio](service-bus-queues-topics-subscriptions.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 - [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

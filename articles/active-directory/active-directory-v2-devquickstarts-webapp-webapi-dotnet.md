@@ -18,7 +18,7 @@
 
 # Llamada a una API web desde una aplicación web .NET
 
-Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del software intermedio OWIN de Microsoft. La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
+Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del middleware OWIN de Microsoft. La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
 
 > [AZURE.NOTE]
 	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
@@ -45,7 +45,7 @@ Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 
 
 ## Instalar OWIN
-Agregue los paquetes NuGet del software intermedio OWIN al proyecto `TodoList-WebApp` mediante la Consola del Administrador de paquetes. Se usará el software intermedio OWIN para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
+Agregue los paquetes NuGet del middleware OWIN al proyecto `TodoList-WebApp` mediante la Consola del Administrador de paquetes. Se usará el middleware OWIN para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
@@ -54,7 +54,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
 ## Iniciar la sesión del usuario
-Ahora configure el software intermedio OWIN para usar el [protocolo de autenticación OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).
+Ahora configure el middleware OWIN para usar el [protocolo de autenticación OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).
 
 -	Abra el archivo `web.config` en la raíz del proyecto `TodoList-WebApp` y escriba los valores de configuración de su aplicación en la sección `<appSettings>`.
     -	El `ida:ClientId` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
@@ -63,7 +63,7 @@ Ahora configure el software intermedio OWIN para usar el [protocolo de autentica
 - Abra el archivo `web.config` en la raíz del proyecto `TodoList-Service` y reemplace el `ida:Audience` con el mismo **Id. de aplicación** que en el caso anterior.
 
 
-- Abra el archivo `App_Start\Startup.Auth.cs` y agregue instrucciones de `using` para las bibliotecas anteriores.
+- Abra el archivo `App_Start\Startup.Auth.cs` y agregue instrucciones `using` para las bibliotecas anteriores.
 - Implemente el método `ConfigureAuth(...)` en el mismo archivo. Los parámetros que proporciona en `OpenIDConnectAuthenticationOptions` servirán como coordenadas para que su aplicación se comunique con Azure AD.
 
 ```C#
@@ -109,7 +109,9 @@ Queremos usar [OAuth 2.0 conjuntamente con OpenID Connect](active-directory-v2-p
 
 - En primer lugar, instale la versión preliminar de ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para ADAL. - Ahora agregue un método nuevo, el controlador de eventos `OnAuthorizationCodeReceived`. Este controlador usará ADAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de ADAL para su uso posterior:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para ADAL.
+- Ahora agregue un nuevo método, el controlador de eventos `OnAuthorizationCodeReceived`. Este controlador usará ADAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de ADAL para su uso posterior:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -191,6 +193,12 @@ Como referencia, [aquí puede ver](https://github.com/AzureADQuickStarts/AppMode
 
 ## Pasos siguientes
 
-Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obtener recursos adicionales, consulte:
+- [La guía del desarrollador v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Etiqueta "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obtención de actualizaciones de seguridad para nuestros productos
+
+Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+
+<!---HONumber=AcomDC_0601_2016-->

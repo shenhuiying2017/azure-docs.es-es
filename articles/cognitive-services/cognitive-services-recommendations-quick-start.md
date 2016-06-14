@@ -3,7 +3,7 @@
 	description="Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Cognitive Services
@@ -129,12 +129,14 @@ En esta tarea, utilizaremos la aplicación de ejemplo para crear el primer model
 
 1. Cuando se cree el modelo, tome nota del **id. del modelo**, ya que lo necesitará al pedir recomendaciones en el entorno de producción.
 
+>  Obtenga más información sobre los tipos de compilación y la evaluación de la calidad de las compilaciones [aquí](cognitive-services-recommendations-buildtypes.md).
+
 <a name="Ex1Task4"></a>
 ### Envío del modelo al entorno de producción ###
 
 Ahora que sabe cómo crear un modelo y recomendaciones de uso, el siguiente paso consiste en enviarlo al entorno de producción en su sitio web o aplicación móviles, o bien integrarlo en el sistema CRM o ERP. Evidentemente, cada una de estas implementaciones sería diferente. Puesto que la API de recomendaciones se pide como un servicio web, podrá invocarla fácilmente desde cualquiera de estos entornos diferentes.
 
-**Importante:** Si desea mostrar recomendaciones desde un cliente público (por ejemplo, su sitio de comercio electrónico), debe crear un servidor proxy para proporcionar las recomendaciones. Esto es importante para que la clave de API no esté expuesta a entidades externas (que posiblemente no sean confiables).
+**Importante:** Si desea mostrar recomendaciones desde un cliente público (por ejemplo, su sitio de comercio electrónico), debe crear un servidor proxy para proporcionarlas. Esto es importante para que la clave de API no esté expuesta a entidades externas (que posiblemente no sean confiables).
 
 Aquí presentamos algunas ideas de ubicaciones donde se pueden utilizar las recomendaciones:
 
@@ -164,6 +166,6 @@ Consulte la [documentación de obtención de recomendaciones de artículos](http
 
 <a name="Ex1Task6"></a>
 ### Pasos siguientes
-Enhorabuena por haber llegado hasta este paso. Para más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones); si tiene alguna pregunta, no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
+Enhorabuena por haber llegado hasta este paso. Para más información, puede visitar la sección completa [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) (Referencia de la API de recomendaciones). Si tiene alguna pregunta, no dude en ponerse en contacto con nosotros en mlapi@microsoft.com.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

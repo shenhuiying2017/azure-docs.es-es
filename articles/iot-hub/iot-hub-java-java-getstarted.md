@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/06/2016"
      ms.author="dobett"/>
 
 # Introducción al Centro de IoT de Azure para Java
@@ -148,7 +148,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
 
 ## Recepción de mensajes de dispositivo a nube
 
-En esta sección, creará una aplicación de consola de Java que lee los mensajes de dispositivo a nube desde el Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
+En esta sección, creará una aplicación de consola de Java que lee los mensajes de dispositivo a nube desde el Centro de IoT. Un Centro de IoT expone un punto de conexión compatible con [Centros de eventos ][lnk-event-hubs-overview] para poder leer los mensajes de dispositivo a nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a los Centros de eventos][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde los Centros de eventos. Dicha información se puede aplicar a los puntos de conexión compatibles con Centros de eventos de Centro de IoT.
 
 > [AZURE.NOTE] El punto de conexión compatible con los Centros de eventos para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQPS.
 
@@ -163,10 +163,10 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 3. Con un editor de texto, abra el archivo pom.xml en la carpeta read-d2c-messages y agregue la siguiente dependencia al nodo **dependencies**. Esto permite usar el paquete eventhubs-client en la aplicación para leer desde el punto de conexión compatible con Centros de eventos:
 
     ```
-    <dependency>
-      <groupId>com.microsoft.eventhubs.client</groupId>
-      <artifactId>eventhubs-client</artifactId>
-      <version>1.0</version>
+    <dependency> 
+        <groupId>com.microsoft.azure</groupId> 
+        <artifactId>azure-eventhubs</artifactId> 
+        <version>0.7.1</version> 
     </dependency>
     ```
 
@@ -178,104 +178,119 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 
     ```
     import java.io.IOException;
-    import com.microsoft.eventhubs.client.Constants;
-    import com.microsoft.eventhubs.client.EventHubClient;
-    import com.microsoft.eventhubs.client.EventHubEnqueueTimeFilter;
-    import com.microsoft.eventhubs.client.EventHubException;
-    import com.microsoft.eventhubs.client.EventHubMessage;
-    import com.microsoft.eventhubs.client.EventHubReceiver;
-    import com.microsoft.eventhubs.client.ConnectionStringBuilder;
+    import com.microsoft.azure.eventhubs.*;
+    import com.microsoft.azure.servicebus.*;
+    
+    import java.io.IOException;
+    import java.nio.charset.Charset;
+    import java.time.*;
+    import java.util.Collection;
+    import java.util.concurrent.ExecutionException;
+    import java.util.function.*;
+    import java.util.logging.*;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**:
+7. Agregue las siguientes variables de nivel de clase a la clase **App**. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores que ha anotado antes. El valor del marcador de posición **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con el Centro de eventos** y adopta la forma siguiente: **xyznamespace** (dicho de otro modo, quite el prefijo ****sb://** y el sufijo **.servicebus.windows.net** del valor de punto de conexión compatible con el Centro de eventos del portal):
 
     ```
-    private static EventHubClient client;
+    private static String namespaceName = "{youreventhubcompatiblenamespace}";
+    private static String eventHubName = "{youreventhubcompatiblename}";
+    private static String sasKeyName = "iothubowner";
+    private static String sasKey = "{youriothubkey}";
     private static long now = System.currentTimeMillis();
     ```
 
-8. Agregue la siguiente clase anidada dentro de la clase **App**. La aplicación crea dos subprocesos para ejecutar la clase **MessageReceiver** para leer mensajes de las dos particiones del Centro de eventos:
+8. Agregue el siguiente método **receiveMessages** a la clase **App**. Este método crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible con el Centro de eventos y, a continuación, crea de forma asincrónica una instancia de **PartitionReceiver** para leer desde una partición del Centro de eventos. Se repite continuamente e imprime los detalles de los mensajes hasta que finaliza la aplicación.
 
     ```
-    private static class MessageReceiver implements Runnable
+    private static EventHubClient receiveMessages(final String partitionId)
     {
-        public volatile boolean stopThread = false;
-        private String partitionId;
-    }
-    ```
-
-9. Agregue el siguiente constructor a la clase **MessageReceiver**:
-
-    ```
-    public MessageReceiver(String partitionId) {
-        this.partitionId = partitionId;
-    }
-    ```
-
-10. Agregue el siguiente método **run** a la clase **MessageReceiver**. Este método crea una instancia de **EventHubReceiver** para leer desde una partición de Centro de eventos. Reproduce en bucle continuo e imprime los detalles del mensaje en la consola de imprime hasta que la clase **stopThread** sea true.
-
-    ```
-    public void run() {
+      EventHubClient client = null;
       try {
-        EventHubReceiver receiver = client.getConsumerGroup(null).createReceiver(partitionId, new EventHubEnqueueTimeFilter(now), Constants.DefaultAmqpCredits);
-        System.out.println("** Created receiver on partition " + partitionId);
-        while (!stopThread) {
-          EventHubMessage message = EventHubMessage.parseAmqpMessage(receiver.receive(5000));
-          if(message != null) {
-            System.out.println("Received: (" + message.getOffset() + " | "
-                + message.getSequence() + " | " + message.getEnqueuedTimestamp()
-                + ") => " + message.getDataAsString());
+        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+      }
+      catch(Exception e) {
+        System.out.println("Failed to create client: " + e.getMessage());
+        System.exit(1);
+      }
+      try {
+        client.createReceiver( 
+          EventHubClient.DEFAULT_CONSUMER_GROUP_NAME,  
+          partitionId,  
+          Instant.now()).thenAccept(new Consumer<PartitionReceiver>()
+        {
+          public void accept(PartitionReceiver receiver)
+          {
+            System.out.println("** Created receiver on partition " + partitionId);
+            try {
+              while (true) {
+                Iterable<EventData> receivedEvents = receiver.receive().get();
+                int batchSize = 0;
+                if (receivedEvents != null)
+                {
+                  for(EventData receivedEvent: receivedEvents)
+                  {
+                    System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
+                      receivedEvent.getSystemProperties().getOffset(), 
+                      receivedEvent.getSystemProperties().getSequenceNumber(), 
+                      receivedEvent.getSystemProperties().getEnqueuedTime()));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
+                      Charset.defaultCharset())));
+                    batchSize++;
+                  }
+                }
+                System.out.println(String.format("Partition: %s, ReceivedBatch Size: %s", partitionId,batchSize));
+              }
+            }
+            catch (Exception e)
+            {
+              System.out.println("Failed to receive messages: " + e.getMessage());
+            }
           }
-        }
-        receiver.close();
+        });
       }
-      catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
+      catch (Exception e)
+      {
+        System.out.println("Failed to create receiver: " + e.getMessage());
       }
+      return client;
     }
     ```
 
     > [AZURE.NOTE] Este método utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] para más información.
 
-11. Modifique la firma del método **main** para incluir las excepciones que se muestran a continuación:
+9. Modifique la firma del método **main** para incluir la excepción que se muestra a continuación:
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-12. Agregue el siguiente código al método **main** en la clase **App**. Este código crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible del Centro eventos en Centro de IoT. Después, crea dos subprocesos para leer de las dos particiones. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores que ha anotado antes. El valor del marcador de posición **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con el Centro de eventos** y adopta la forma siguiente: **xxxxnamespace** (dicho de otro modo, quite el prefijo ****sb://** y el sufijo **.servicebus.windows.net** del valor de punto de conexión compatible con el Centro de eventos del portal).
+10. Agregue el siguiente código al método **main** en la clase **App**. Este código crea dos instancias de **EventHubClient** y **PartitionReceiver** lo cual le permite cerrar la aplicación cuando termina de procesar los mensajes:
 
     ```
-    String policyName = "iothubowner";
-    String policyKey = "{youriothubkey}";
-    String namespace = "{youreventhubcompatiblenamespace}";
-    String name = "{youreventhubcompatiblename}";
-    try {
-      ConnectionStringBuilder csb = new ConnectionStringBuilder(policyName, policyKey, namespace);
-      client = EventHubClient.create(csb.getConnectionString(), name);
-    }
-    catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
-    }
-    
-    MessageReceiver mr0 = new MessageReceiver("0");
-    MessageReceiver mr1 = new MessageReceiver("1");
-    Thread t0 = new Thread(mr0);
-    Thread t1 = new Thread(mr1);
-    t0.start(); t1.start();
-
+    EventHubClient client0 = receiveMessages("0");
+    EventHubClient client1 = receiveMessages("1");
     System.out.println("Press ENTER to exit.");
     System.in.read();
-    mr0.stopThread = true;
-    mr1.stopThread = true;
-    client.close();
+    try
+    {
+      client0.closeSync();
+      client1.closeSync();
+      System.exit(0);
+    }
+    catch (ServiceBusException sbe)
+    {
+      System.exit(1);
+    }
     ```
 
-    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1". Si creó el Centro de IoT con otro plan de tarifa, debe ajustar el código para crear una clase **MessageReceiver** para cada partición.
+    > [AZURE.NOTE] Este código supone que usted creó el Centro de IoT en el nivel de F1 (gratis). Un Centro de IoT gratis tiene dos particiones denominadas "0" y "1".
 
-13. Guarde y cierre el archivo App.java.
+11. Guarde y cierre el archivo App.java.
 
-14. Para compilar la aplicación **read-d2c-messages** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta read-d2c-messages:
+12. Para compilar la aplicación **read-d2c-messages** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta read-d2c-messages:
 
     ```
     mvn clean package -DskipTests
@@ -442,10 +457,18 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
 Ahora está preparado para ejecutar las aplicaciones.
 
-1. En un símbolo del sistema, en la carpeta read-d2c, ejecute el siguiente comando para empezar la supervisión del Centro de IoT:
+1. En un símbolo del sistema, en la carpeta read-d2c, ejecute el siguiente comando para empezar la supervisión de la primera partición del Centro de IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
+    ```
+
+    ![][7]
+
+1. En un símbolo del sistema, en la carpeta read-d2c, ejecute el siguiente comando para empezar la supervisión de la segunda partición del Centro de IoT:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
     ```
 
     ![][7]
@@ -492,4 +515,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

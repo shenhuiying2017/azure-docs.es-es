@@ -18,13 +18,13 @@
     ms.author="monicar"/>
 
 
-# Glosario de Microsoft Azure: un diccionario de la terminología de la nube sobre la plataforma Azure
+# Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
 
 El glosario de Microsoft Azure es un breve diccionario de terminología de la nube para la plataforma Azure.
 
 ## Búsqueda de definiciones de servicios y otros términos sobre la nube
 
-* Para obtener definiciones de los servicios de Azure y sus equivalentes de AWS, consulte [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) (Microsoft Azure y servicios web de Amazon).
+* Para obtener definiciones de los servicios de Azure y sus equivalentes de AWS, consulte [Microsoft Azure y Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 * Para consultar términos generales del sector, visite [Términos de informática en la nube](https://azure.microsoft.com/overview/cloud-computing-dictionary/).
 
@@ -50,15 +50,15 @@ Uno de los dos [modelos de implementación](resource-manager-deployment-model.md
 
 
 ### <a name="powershell"></a>Azure PowerShell.  
-[Interfaz de la línea de comandos](powershell-install-configure.md) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. Orientación sobre cada uno de los modelos con los que se pueden implementar los recursos de Azure. Consulte también [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+[Interfaz de la línea de comandos](powershell-install-configure.md) para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. En las guías de los recursos de Azure se detalla con qué modelo o modelos se puede implementar cada recurso. Consulte también [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 
 ### <a name="armmodel"></a>Modelo de implementación de Azure Resource Manager  
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Microsoft Azure (el otro es el modelo de implementación clásica). Algunos recursos de Azure pueden implementarse solo en uno de los dos modelos, mientras que otros pueden hacerlo en cualquiera de ellos. Orientación sobre cada uno de los modelos con los que se pueden implementar los recursos de Azure.
 
 
-### <a name="faultdomain"></a>dominio de error  
-La colección de máquinas virtuales de un conjunto de disponibilidad que posiblemente den error al mismo tiempo. Un ejemplo es un grupo de máquinas en una estantería que comparten una fuente de alimentación común y un conmutador de red. En Azure, las máquinas virtuales de un conjunto de disponibilidad se separan automáticamente en varios dominios de error. Consulte también [Administración de la disponibilidad de las máquinas virtuales de Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Administración de la disponibilidad de las máquinas virtuales con Linux](./virtual-machines/virtual-machines-linux-manage-availability.md).
+### <a name="fault-domain"></a>dominio de error  
+La colección de máquinas virtuales de un conjunto de disponibilidad que posiblemente den error al mismo tiempo. Un ejemplo es un grupo de máquinas en bastidor que comparten una fuente de alimentación y un conmutador de red. En Azure, las máquinas virtuales de un conjunto de disponibilidad se separan automáticamente en varios dominios de error. Consulte también [Administración de la disponibilidad de las máquinas virtuales de Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Administración de la disponibilidad de las máquinas virtuales con Linux](./virtual-machines/virtual-machines-linux-manage-availability.md).
 
 
 ### <a name="geo"></a>geoárea  
@@ -114,7 +114,7 @@ Un medio para controlar el acceso que se puede asignar a usuarios, grupos y serv
 
 
 ### <a name="sla"></a>contrato de nivel de servicio (SLA)  
-El contrato que describe los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Cada servicio de Azure tiene un contrato de nivel de servicio específico. Vea también [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
+El contrato que describe los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Cada servicio de Azure tiene un acuerdo de nivel de servicio específico. Vea también [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
 
 ### <a name="storageaccount"></a>cuenta de almacenamiento  
@@ -130,7 +130,7 @@ Un término de indexación que permite clasificar los recursos según sus requis
 
 
 ### <a name="updatedomain"></a>dominio de actualización  
-La colección de máquinas virtuales en un conjunto de disponibilidad que se actualizan al mismo tiempo. Las máquinas virtuales que se encuentran en el mismo dominio de actualización se reinician en conjunto durante el mantenimiento planificado. Azure no reinicia nunca más de un dominio de actualización a la vez. Así es como funcionan los dominios de actualización. Consulte también [Administración de la disponibilidad de las máquinas virtuales de Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Administración de la disponibilidad de las máquinas virtuales con Linux](./virtual-machines/virtual-machines-linux-manage-availability.md).
+La colección de máquinas virtuales en un conjunto de disponibilidad que se actualizan al mismo tiempo. Las máquinas virtuales que se encuentran en el mismo dominio de actualización se reinician en conjunto durante el mantenimiento planeado. Azure no reinicia nunca más de un dominio de actualización a la vez. Así es como funcionan los dominios de actualización. Consulte también [Administración de la disponibilidad de las máquinas virtuales de Windows](./virtual-machines/virtual-machines-windows-manage-availability.md) o [Administración de la disponibilidad de las máquinas virtuales con Linux](./virtual-machines/virtual-machines-linux-manage-availability.md).
 
 
 ### <a name="vm"></a>máquina virtual  
@@ -142,7 +142,7 @@ Un recurso que implementa comportamientos o características que cooperan en el 
 
 
 ### <a name="vnet"></a>red virtual  
-Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Se puede conectar a otras redes virtuales de Azure a través de una [Puerta de enlace de VPN de Azure](vpn-gateway-about-vpngateways/) y a la red local mediante [varias opciones](vpn-gateway-cross-premises-options/). Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. Consulte también [Información general sobre redes virtuales](./virtual-network/virtual-networks-overview.md).
+Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Se puede conectar a otras redes virtuales de Azure a través de una [Puerta de enlace de VPN de Azure](./vpn-gateway/vpn-gateway-about-vpngateways.md) y a la red local mediante [varias opciones](./vpn-gateway/vpn-gateway-cross-premises-options.md). Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. Consulte también [Información general sobre redes virtuales](./virtual-network/virtual-networks-overview.md).
 
 ###**Consulte también**  
 - [Comience a usar Azure](https://azure.microsoft.com/get-started/)
@@ -150,4 +150,4 @@ Una red que proporciona conectividad entre los recursos de Azure que se encuentr
 - [Azure para aplicaciones empresariales](https://azure.microsoft.com/overview/business-apps-on-azure/)
 - [Azure en su centro de datos](https://azure.microsoft.com/overview/business-apps-on-azure/) 
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

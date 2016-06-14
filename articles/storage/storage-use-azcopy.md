@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transferencia de datos con la utilidad en línea de comandos AzCopy
@@ -374,13 +374,15 @@ Puede ejecutar el comando siguiente para importar las entidades en una tabla med
 
 ### Solo copie los datos que no existan en el destino
 
-Los parámetros `/XO` y `/XN` le permiten excluir los recursos de origen anteriores o posteriores a la copia, respectivamente. No se admite cuando el origen o el destino es una tabla. Si solo desea copiar los recursos de origen que no existen en el destino, puede especificar ambos parámetros en el comando de AzCopy:
+Los parámetros `/XO` y `/XN` le permiten excluir los recursos de origen anteriores o posteriores a la copia, respectivamente. Si solo desea copiar los recursos de origen que no existen en el destino, puede especificar ambos parámetros en el comando de AzCopy:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Nota: Esto no se admite cuando el origen o el destino es una tabla.
 
 ### Uso de un archivo de respuesta para especificar parámetros de línea de comandos
 
@@ -864,4 +866,4 @@ Para más información acerca de Almacenamiento de Azure y AzCopy, consulte los 
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

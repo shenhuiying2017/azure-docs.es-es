@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth" />
 
 # Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure
@@ -53,7 +53,9 @@ En este tutorial, aprenderá lo siguiente:
 
 1. Cada plantilla identifica una versión de SQL Server y un sistema operativo. Seleccione una de las imágenes de la lista. A continuación, revise la hoja de detalles, donde aparece una descripción de la imagen de máquina virtual.
 
-1. En **Seleccionar un modelo de implementación**, compruebe que la opción **Resource Manager** está seleccionada y haga clic en **Crear**.
+	>[AZURE.NOTE] Las imágenes de máquina virtual de SQL incluyen los costos de licencias para SQL Server en los precios por minuto de la máquina virtual que se crea. Existe otra opción para traer su propia licencia (BYOL) y pagar solo la máquina virtual. Esos nombres de imagen tienen el prefijo {BYOL}. Para más información sobre esta opción, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. En **Seleccionar un modelo de implementación**, compruebe que la opción **Resource Manager** está seleccionada. Resource Manager es el modelo de implementación recomendado para las máquinas virtuales nuevas. Haga clic en **Crear**.
 
 	![Creación de una máquina virtual de SQL con Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -69,17 +71,17 @@ Existen cinco hojas en las que puede configurar una máquina virtual de SQL Serv
 | **Resumen** | [Revisión del resumen](#5-review-the-summary) |
 
 ## 1\. Configuración básica
-En la hoja **Aspectos básicos**, especifique la siguiente información:
+En la hoja **Básico**, especifique la siguiente información:
 
-* Escriba un **nombre** de máquina virtual único.
-* Especifique el **nombre de usuario** de la cuenta de administrador local de la máquina virtual. Esta cuenta se agregará también al rol fijo de servidor de SQL Server **sysadmin**.
-* Proporcione una **contraseña** segura.
+* Escriba un nombre de máquina virtual único en **Nombre**.
+* Especifique un valor en **Nombre de usuario** para la cuenta de administrador local de la máquina virtual. Esta cuenta se agregará también al rol fijo de servidor de SQL Server **sysadmin**.
+* Proporcione una contraseña segura en **Contraseña**.
 * Si tiene varias suscripciones, compruebe que la suscripción de la nueva máquina virtual es correcta.
-* En el cuadro **Grupo de recursos**, escriba un nombre para el nuevo grupo de recursos. Si lo desea, también puede hacer clic en **Seleccionar existente** para usar un grupo de recursos existente. Un grupo de recursos es una colección de recursos relacionados de Azure (máquinas virtuales, cuentas de almacenamiento, redes virtuales, etc.).
+* En el cuadro **Grupo de recursos**, escriba un nombre para el nuevo grupo de recursos. Si lo desea, también puede hacer clic en **Seleccionar existente** para usar uno existente. Un grupo de recursos es una colección de recursos relacionados de Azure (máquinas virtuales, cuentas de almacenamiento, redes virtuales, etc.).
 
 	>[AZURE.NOTE] El uso de un grupo de recursos resulta útil si solo está probando o aprendiendo sobre las implementaciones de SQL Server en Azure. Cuando haya terminado la prueba, elimine el grupo de recursos. De ese modo, se eliminará automáticamente la máquina virtual y los recursos asociados a ese grupo. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
-* Seleccione la **ubicación** de esta implementación.
+* Seleccione un valor de **Ubicación** para esta implementación.
 * Haga clic en **Aceptar** para guardar la configuración.
 
 	![Hoja Datos básicos de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
@@ -89,24 +91,24 @@ En el paso **Tamaño**, elija un tamaño de máquina virtual en la hoja **Elegir
 
 ![Opciones de tamaño de la máquina virtual de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Para las cargas de trabajo de producción, se recomienda seleccionar un tamaño de máquina virtual que admita [Almacenamiento premium](../storage/storage-premium-storage.md). Si no necesita ese nivel de rendimiento, utilice el botón **Ver todo** para consultar todas las opciones de tamaño de la máquina. Por ejemplo, podría usar un tamaño de máquina más pequeño para un entorno de prueba o desarrollo.
+Para las cargas de trabajo de producción, se recomienda seleccionar un tamaño de máquina virtual que admita [Almacenamiento premium](../storage/storage-premium-storage.md). Si no necesita ese nivel de rendimiento, use el botón **Ver todo** para consultar todas las opciones de tamaño de máquina. Por ejemplo, podría usar un tamaño de máquina más pequeño para un entorno de prueba o desarrollo.
 
 >[AZURE.NOTE] Para más información sobre los tamaños de máquina virtual, consulte [Tamaños de máquina virtual](virtual-machines-windows-sizes.md). Para más información sobre los tamaños de las máquinas virtuales de SQL Server, consulte [Procedimientos recomendados para mejorar el rendimiento de SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
 
 Elija el tamaño de la máquina y haga clic en **Seleccionar**.
 
 ## 3\. Configuración de características opcionales
-En la hoja **Configuración**, configure el almacenamiento de Azure, la red y la supervisión para la máquina virtual.
+En la hoja **Configuración**, configure el Almacenamiento de Azure, la red y la supervisión para la máquina virtual.
 
-- En **Almacenamiento**, especifique un **Tipo de disco** Estándar o Premium (SSD). Se recomienda Almacenamiento premium para cargas de trabajo de producción.
+- En **Almacenamiento**, especifique Estándar o Premium (SSD) en **Tipo de disco**. Se recomienda Almacenamiento premium para cargas de trabajo de producción.
 
 >[AZURE.NOTE] Si selecciona Premium (SSD) para un tamaño de máquina que no admite el Almacenamiento premium, el tamaño de la máquina se ajustará automáticamente.
 
-- En **Cuenta de almacenamiento**, puede aceptar el nombre de la cuenta de almacenamiento generado automáticamente. También puede hacer clic en **Cuenta de almacenamiento** para elegir una cuenta existente y configurar el tipo de cuenta de almacenamiento. De forma predeterminada, Azure crea una nueva cuenta de almacenamiento con redundancia local. Para más información sobre las opciones de almacenamiento, consulte [Replicación de Almacenamiento de Azure](../storage/storage-redundancy.md).
+- En **Cuenta de almacenamiento**, puede aceptar el nombre de la cuenta de almacenamiento aprovisionado automáticamente. También puede hacer clic en **Cuenta de almacenamiento** para elegir una existente y configurar el tipo de cuenta de almacenamiento. De forma predeterminada, Azure crea una nueva cuenta de almacenamiento con redundancia local. Para más información sobre las opciones de almacenamiento, consulte [Replicación de Almacenamiento de Azure](../storage/storage-redundancy.md).
 
-- En **Red**, puede aceptar los valores generados de forma automática. También puede hacer clic en cada una de las características para configurar manualmente los campos **Red virtual**, **Subred**, **Dirección IP pública** y **Grupo de seguridad de red**. Para este tutorial, conserve los valores predeterminados.
+- En **Red**, puede aceptar los valores rellenados de forma automática. También puede hacer clic en cada una de las características para configurar manualmente los campos **Red virtual**, **Subred**, **Dirección IP pública** y **Grupo de seguridad de red**. Para este tutorial, conserve los valores predeterminados.
 
-- De forma predeterminada, Azure permite la **supervisión** con la misma cuenta de almacenamiento que se designó para la máquina virtual. Puede cambiar estas opciones aquí.
+- De forma predeterminada, Azure habilita **Supervisión** con la misma cuenta de almacenamiento que se designó para la máquina virtual. Puede cambiar estas opciones aquí.
 
 - En **Conjunto de disponibilidad**, especifique uno. Por lo que respecta a este tutorial, puede seleccionar la opción **Ninguno**. Si va a configurar grupos de disponibilidad AlwaysOn de SQL, configure la disponibilidad para evitar volver a crear la máquina virtual. Para obtener más información, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-windows-manage-availability.md).
 
@@ -125,7 +127,7 @@ En la hoja **Configuración de SQL Server**, configure las optimizaciones y los 
 | [Integración del Almacén de claves de Azure](#azure-key-vault-integration) |
 
 ### Conectividad
-En **Conectividad SQL**, especifique el tipo de acceso que desea para la instancia de SQL Server de esta máquina virtual. En este tutorial, seleccione **Público (Internet)** para permitir que se puedan establecer conexiones a SQL Server desde equipos o servicios de Internet. Si esta opción está seleccionada, Azure configurará automáticamente el firewall y el grupo de seguridad de red para permitir el tráfico en el puerto 1433.
+En **Conectividad SQL**, especifique el tipo de acceso que desea para la instancia de SQL Server de esta máquina virtual. En este tutorial, seleccione **Público (Internet)** para permitir que se establezcan conexiones a SQL Server desde equipos o servicios de Internet. Si esta opción está seleccionada, Azure configurará automáticamente el firewall y el grupo de seguridad de red para permitir el tráfico en el puerto 1433.
 
 ![Opciones de conectividad de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
@@ -135,12 +137,12 @@ Para conectarse a SQL Server a través de Internet, también debe habilitar la a
 
 Si prefiere no permitir las conexiones al motor de base de datos a través de Internet, elija una de las siguientes opciones:
 
-- **Local (inside VM only)** (Local (solo dentro de la máquina virtual)): elija esta opción para permitir conexiones a SQL Server únicamente desde dentro de la máquina virtual.
-- **Private (within Virtual Network)** (Privado (dentro de la red virtual)): elija esta opción para permitir conexiones a SQL Server desde máquinas o servicios que se encuentren en la misma red virtual.
+- **Local (inside VM only)** [Local (solo dentro de la máquina virtual)]: elija esta opción para permitir conexiones a SQL Server únicamente desde dentro de la máquina virtual.
+- **Private (within Virtual Network)** [Privado (dentro de la red virtual)]: elija esta opción para permitir conexiones a SQL Server desde máquinas o servicios que se encuentren en la misma red virtual.
 
 En general, mejore la seguridad al elegir la conectividad más restrictiva que permita su escenario. No obstante, todas las opciones se pueden proteger mediante reglas del grupo de seguridad de red y la autenticación de SQL o Windows.
 
-El valor predeterminado de **Puerto** es 1433. Puede especificar un número de puerto diferente. Para más información, consulte [Conexión a una máquina virtual de SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+El valor predeterminado de **Puerto** es 1433. Puede especificar un número de puerto diferente. Para más información, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 ### Autenticación
 Si la autenticación de SQL Server es necesaria, en **Autenticación de SQL**, haga clic en **Habilitar**.
@@ -164,9 +166,9 @@ Puede especificar requisitos como operaciones de entrada/salida por segundo (IOP
 
 De forma predeterminada, Azure optimiza el almacenamiento de 5000 IOPS, 200 MB y 1 TB de espacio de almacenamiento. Puede cambiar estos valores de almacenamiento en función de la carga de trabajo. En **Storage optimized for** (Optimización de almacenamiento para), seleccione una de las siguientes opciones:
 
-- **General**: es la configuración predeterminada y admite la mayoría de cargas de trabajo.
-- **Transactional processing** (Procesamiento transaccional): optimiza el almacenamiento en las cargas de trabajo OLTP de bases de datos tradicionales.
-- **Data warehousing** (Almacenamiento de datos): optimiza el almacenamiento en las cargas de trabajo de informes y análisis.
+- **General** es la configuración predeterminada y admite la mayoría de las cargas de trabajo.
+- El procesamiento **Transaccional** optimiza el almacenamiento en las cargas de trabajo OLTP de bases de datos tradicionales.
+- **Data warehousing** (Almacenamiento de datos) optimiza el almacenamiento en las cargas de trabajo de informes y análisis.
 
 >[AZURE.NOTE] Los límites superiores de los controles deslizantes varían según el tamaño de la máquina virtual seleccionada.
 
@@ -186,7 +188,7 @@ Si la copia de seguridad automática de SQL está habilitada, puede configurar l
 - La cuenta de almacenamiento que se utilizará para las copias de seguridad
 - La opción de cifrado y la contraseña de las copias de seguridad
 
-Para cifrar la copia de seguridad, haga clic en **Habilitar**. Después, especifique una **contraseña**. Azure crea un certificado para cifrar las copias de seguridad y utiliza la contraseña especificada para proteger ese certificado.
+Para cifrar la copia de seguridad, haga clic en **Habilitar**. Después, especifique un valor en **Contraseña**. Azure crea un certificado para cifrar las copias de seguridad y utiliza la contraseña especificada para proteger ese certificado.
 
 ![Copia de seguridad automatizada de SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
@@ -208,7 +210,7 @@ En la tabla siguiente se enumeran los parámetros necesarios para configurar la 
 
 Para más información, consulte [Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásica)](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
-Cuando haya terminado de definir la configuración de SQL Server, haga clic en **Aceptar**.
+Cuando termine de definir la configuración de SQL Server, haga clic en **Aceptar**.
 
 ## 5\. Revisión del resumen
 En la hoja **Resumen**, revise el resumen y haga clic en **Aceptar** para crear la instancia de SQL Server, el grupo de recursos y los recursos especificados para esta máquina virtual.
@@ -228,7 +230,7 @@ Use los pasos siguientes para conectarse a la máquina virtual con Escritorio re
 1. En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
 1. En **Nombre de usuario**, escriba **<nombreDeUsuario>**, donde <user name> es el nombre de usuario que especificó al configurar la máquina virtual. Tiene que agregar una barra diagonal inversa delante del nombre.
 1. Escriba la **contraseña** que configuró previamente para esta máquina virtual y haga clic en **Aceptar** para conectarse.
-1. Si otro cuadro de diálogo **Conexión a Escritorio remoto** le pregunta si desea conectarse, haga clic en **Sí**.
+1. Si se le pregunta en otro cuadro de diálogo **Conexión a Escritorio remoto** si desea conectarse, haga clic en **Sí**.
 
 Después de conectarse a la máquina virtual de SQL Server, puede iniciar SQL Server Management Studio y conectarse con la autenticación de Windows mediante sus credenciales de administrador local. Si ha habilitado la autenticación de SQL Server, también puede conectarse con la autenticación de SQL mediante el inicio de sesión de SQL y la contraseña configurada durante el aprovisionamiento.
 
@@ -249,4 +251,4 @@ Para más información sobre el uso de SQL Server en Azure, consulte [Informaci�
 
 Para obtener información general sobre Máquinas virtuales de Azure, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

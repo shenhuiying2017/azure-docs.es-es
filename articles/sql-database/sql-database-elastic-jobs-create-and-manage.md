@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016"
+	ms.author="ddove"/>
 
 # Creación y administración de bases de datos de SQL de Azure escaladas horizontalmente (versión preliminar)
 
@@ -115,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

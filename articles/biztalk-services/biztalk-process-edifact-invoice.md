@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/29/2016"
+   ms.date="05/31/2016"
    ms.author="deonhe"/>
 
-# Tutorial: Procesamiento de facturas EDIFACT mediante los Servicios de BizTalk de Azure
+# Tutorial: procesamiento de facturas de EDIFACT mediante los Servicios de BizTalk de Azure
 Puede usar el Portal de Servicios de BizTalk para configurar e implementar los contratos X12 y EDIFACT. En este tutorial, vemos cómo crear un contrato EDIFACT para intercambiar facturas entre socios comerciales. Este tutorial se centra en una solución empresarial integral que involucra a dos socios comerciales, Northwind y Contoso, que intercambian mensajes EDIFACT.
 
 ## Ejemplo basado en este tutorial
@@ -313,4 +313,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

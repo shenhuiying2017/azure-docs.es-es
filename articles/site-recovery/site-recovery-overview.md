@@ -61,7 +61,7 @@ Cargas de trabajo que se ejecutan en servidores físicos de Windows o Linux | Se
 Site Recovery puede ayudarle con la estrategia de BCDR en función de la aplicación para que las cargas de trabajo y aplicaciones sigan ejecutándose de forma coherente cuando se producen interrupciones. Site Recovery proporciona:
 
 - **Instantáneas coherentes con la aplicación**: replicación mediante instantáneas coherentes con la aplicación para aplicaciones únicas o de n niveles. **Replicación casi sincrónica**: frecuencia de replicación de tan solo 30 segundos para Hyper-V y replicación continua para VMware. **Integración con SQL Server AlwaysOn**: puede administrar la conmutación por error de grupos de disponibilidad en los planes de recuperación de Site Recovery. 
-- **Planes de recuperación flexibles**: puede crear y personalizar planes de recuperación con scripts externos, acciones manuales y runbooks de Automatización de Azure que permiten recuperar una pila de toda la aplicación con un solo clic.
+- **Planes de recuperación flexibles**: puede crear y personalizar planes de recuperación con scripts externos, acciones manuales y runbooks de Automatización de Azure que permiten recuperar toda la pila de aplicaciones con un solo clic.
 - **Biblioteca de automatización**: una biblioteca de Automatización de Azure completa proporciona scripts específicos de aplicación, listos para la producción, que se pueden descargar e integrar con Site Recovery. -** Administración de red simple **: administración de red avanzada de Site Recovery y Azure simplifica los requisitos de red de aplicación, incluida la reserva de direcciones IP, la configuración de equilibradores de carga y la integración de Administrador de tráfico de Azure para unas conmutaciones de red eficientes.
 
 
@@ -71,4 +71,4 @@ Site Recovery puede ayudarle con la estrategia de BCDR en función de la aplicac
 - Más información acerca de la arquitectura de Site Recovery en [¿Cómo funciona Azure Site Recovery?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

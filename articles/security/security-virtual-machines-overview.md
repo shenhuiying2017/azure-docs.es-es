@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Información general de seguridad de Máquinas virtuales de Azure
@@ -91,7 +91,7 @@ La solución se integra con el Almacén de claves de Azure para ayudarle a contr
 
 Más información:
 
-- [Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0/file/150942/1/Azure%25)
+- [Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 - [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/) (Cifrado de discos de Azure para máquinas virtuales de Linux y Windows)
 - [Cifrado de una máquina virtual de Azure](../security-center/security-center-disk-encryption.md)
 
@@ -157,4 +157,4 @@ Más información:
 - [Centro de confianza de Microsoft: conformidad](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf) (La nube de confianza: Seguridad, privacidad y cumplimiento de Microsoft Azure)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="huvalo;bradsev" />
 
 
 #Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Aprendizaje automático de Azure 
 
-La vista previa de la biblioteca de cliente de Python de Aprendizaje automático de Microsoft Azure puede permitir un acceso seguro a los conjuntos de datos de Aprendizaje automático de Azure desde un entorno local de Python, así como la creación y administración de conjuntos de datos en el área de trabajo.
+La versión preliminar de la biblioteca de cliente de Python de Aprendizaje automático de Microsoft Azure puede permitir un acceso seguro a los conjuntos de datos de Aprendizaje automático de Azure desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
 
 Este tema proporciona instrucciones sobre cómo:
 
@@ -108,7 +108,7 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
 
 	![Bloc de notas][ipython-dataset]
 
-### <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Aprendizaje automático
+## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Aprendizaje automático
 
 Después de ejecutar un experimento en el Estudio de aprendizaje automático, es posible tener acceso a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
 
@@ -367,4 +367,4 @@ Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lug
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

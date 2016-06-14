@@ -19,9 +19,6 @@
 
 # Creación de una máquina virtual con Linux en el Portal de Azure
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 Es fácil crear una máquina virtual (VM) de Azure que ejecute Linux. En este tutorial se muestra cómo usar el Portal de Azure para crear una rápidamente y se usa el archivo de clave pública `~/.ssh/id_rsa.pub` para proteger una conexión **SSH** a la máquina virtual. También puede crear máquinas virtuales con Linux usando [sus propias imágenes como plantillas](virtual-machines-linux-classic-create-upload-vhd.md).
 
 
@@ -126,4 +123,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

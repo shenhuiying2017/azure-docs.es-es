@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
 # Cómo interpretar los resultados del modelo de aprendizaje automático de Azure 
  
-**Descripción y visualización del resultado del 'Modelo de puntuación'**
+**Descripción y visualización del resultado del 'Modelo de puntuación'** 
 En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -310,5 +310,4 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!----HONumber=AcomDC_0309_2016-->
-
+<!---HONumber=AcomDC_0601_2016-->

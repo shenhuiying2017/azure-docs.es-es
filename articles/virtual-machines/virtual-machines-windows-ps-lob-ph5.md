@@ -19,8 +19,6 @@
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 En esta fase final de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn de SQL Server y agregará las bases de datos de la aplicación.
 
 Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-windows-lob-overview.md) en todas las fases.
@@ -80,7 +78,7 @@ Use estos pasos para reiniciar una base de datos.
 Después de preparar al menos una base de datos (mediante el método de copia de seguridad y restauración), cree un grupo de disponibilidad.
 
 1.	Vuelva a la sesión de Escritorio remoto del servidor de base de datos principal.
-2.	En **SQL Server Management Studio**, en el panel izquierdo, haga clic en **Alta disponibilidad AlwaysOn** y, a continuación, en **Asistente para nuevo grupo de disponibilidad**.
+2.	En **SQL Server Management Studio**, en el panel izquierdo, haga clic con el botón derecho en **Always On High Availability** (Alta disponibilidad AlwaysOn) y, a continuación, en **Asistente para nuevo grupo de disponibilidad**.
 3.	En la página **Introducción**, haga clic en **Siguiente**. 
 4.	En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad en **Nombre de grupo de disponibilidad** (ejemplo: AG1) y después haga clic en **Siguiente**.
 5.	En la página **Seleccionar bases de datos**, seleccione las bases de datos para la aplicación de la que se realizó la copia de seguridad y haga clic en **Siguiente**. Estas bases de datos cumplen los requisitos previos para un grupo de disponibilidad porque se ha realizado al menos una copia de seguridad completa en la réplica principal pretendida.
@@ -120,4 +118,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 - Ver estas [directrices](virtual-machines-linux-infrastructure-service-guidelines.md) si implementa su propia carga de trabajo de TI en Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

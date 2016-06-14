@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="06/06/2016"
  ms.author="dobett"/>
 
 # ¿Qué es el centro de IoT de Azure?
@@ -31,7 +31,7 @@ En el artículo [Comparación del Centro de IoT y los Centros de eventos][lnk-co
 
 ![Centro de IoT de Azure como solución de puerta de enlace de nube en Internet de las cosas][img-architecture]
 
-> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Arquitectura de referencia de IoT de Microsoft Azure).
+> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Arquitectura de referencia de IoT de Microsoft Azure).
 
 ## Problemas de conectividad de dispositivos IoT
 
@@ -70,7 +70,7 @@ Estas ventajas son genéricas para varios patrones de comunicación. El Centro d
 
 -   **Mensajería fiable de nube a dispositivo (o *comandos*).** El back-end de soluciones puede usar el Centro de IoT para enviar mensajes con garantía de entrega al menos una vez a dispositivos individuales. Cada mensaje tiene una configuración de período de vida individual y el back-end puede solicitar confirmación de entrega y vencimiento. Esto garantiza una visibilidad completa en el ciclo de vida de un mensaje de la nube al dispositivo. Luego puede implementar la lógica de negocios que incluye las operaciones que se ejecutan en dispositivos.
 
-También puede implementar otros patrones comunes, como la carga y descarga de archivos, aprovechando las ventajas de las características específicas de IoT del Centro de IoT. Estas características incluyen la administración de identidades de dispositivo uniforme, la supervisión de conectividad y la escalabilidad.
+-   **Carga de archivos y datos de sensor en caché a la nube.** Los dispositivos pueden cargar archivos en el Almacenamiento de Azure mediante los URI de SAS gestionados por el Centro de IoT. El Centro de IoT puede generar notificaciones cuando llegan los archivos en la nube para permitir que el back-end los procese.
 
 ## Puertas de enlace
 
@@ -121,4 +121,4 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

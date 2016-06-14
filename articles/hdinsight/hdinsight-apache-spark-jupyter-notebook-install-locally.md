@@ -14,16 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="05/27/2016" 
 	ms.author="nitinme"/>
 
 
 # Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure (versión preliminar)
 
-En este artículo obtendrá información sobre cómo instalar un cuaderno de Jupyter Notebook con PySpark personalizado (para Python) y los kernels de Spark (para Scala) con la Sparkmagic, y conecte el cuaderno a un clúster de HDInsight.
-
-Aunque los cuadernos de Jupyter Notebook ya están disponibles en el clúster de Spark en HDInsight de Azure, la instalación de Jupyter en el equipo ofrece la opción de crear cuadernos de forma local, probar la aplicación en un clúster en ejecución y cargar los cuadernos en el clúster. Para cargar los cuadernos en el clúster, puede hacerlo mediante el cuaderno de Jupyter Notebook en ejecución o el clúster, o bien guardarlos en la carpeta /HdiNotebooks de la cuenta de almacenamiento asociada al clúster. Para obtener más información acerca de cómo se almacenan los cuadernos en el clúster, consulte [Where are Jupyter notebooks stored](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored) (Almacenamiento de los cuadernos de Jupyter Notebook).
-
+En este artículo obtendrá información sobre cómo instalar un cuaderno de Jupyter Notebook con PySpark personalizado (para Python) y los kernels de Spark (para Scala) con la Sparkmagic, y conecte el cuaderno a un clúster de HDInsight. Puede haber varias razones para instalar Jupyter en el equipo local y también algunos desafíos. Para conocer una lista de ambos, consulte la sección [¿Por qué debo instalar Jupyter en mi equipo?](#why-should-i-install-jupyter-on-my-computer) al final de este artículo.
 
 Existen tres pasos principales en la instalación de Jupyter y Sparkmagic en el equipo.
 
@@ -31,9 +28,9 @@ Existen tres pasos principales en la instalación de Jupyter y Sparkmagic en el 
 * Instalación de los kernels de PySpark y Spark con Sparkmagic
 * Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
 
-Para obtener más información acerca de los kernels personalizados y Sparkmagic disponibles para cuadernos de Jupyter Notebook con el clúster de HDInsight, consulte [Kernels available for Jupyter notebooks with Apache Spark Linux clusters on HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md) (Kernels disponibles para cuadernos de Jupyter Notebook con clústeres de Apache Spark en Linux).
+Para más información acerca de los kernels personalizados y Sparkmagic disponibles para cuadernos de Jupyter Notebook con el clúster de HDInsight, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
-**Requisitos previos:**
+##Requisitos previos
 
 Los requisitos previos descritos aquí no se aplican a la instalación de Jupyter. Se facilitan para conectar el cuaderno de Jupyter Notebook con un clúster de HDInsight, una vez instalado el cuaderno.
 
@@ -42,7 +39,7 @@ Los requisitos previos descritos aquí no se aplican a la instalación de Jupyte
 
 ## Instalación de cuadernos de Jupyter Notebook en el equipo
 
-Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y Jupyter están disponibles como parte de la [distribución Ananconda](https://www.continuum.io/downloads). Al instalar Anaconda, realmente instalará una distribución de Python. Una vez se haya instalado Anaconda, agregue la instalación de Jupyter ejecutando un comando. Esta sección facilita las instrucciones que debe seguir.
+Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y Jupyter están disponibles como parte de la [distribución Anaconda](https://www.continuum.io/downloads). Al instalar Anaconda, realmente instalará una distribución de Python. Una vez se haya instalado Anaconda, agregue la instalación de Jupyter ejecutando un comando. Esta sección facilita las instrucciones que debe seguir.
 
 1. Descargue el [instalador de Anaconda](https://www.continuum.io/downloads) para su plataforma y ejecute el programa de instalación. Durante la ejecución del Asistente para instalación, asegúrese de seleccionar la opción para agregar Anaconda a la variable PATH.
 
@@ -50,7 +47,7 @@ Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y
 
 		conda install jupyter
 
-	Para obtener más información sobre la instalación de Jupyter, consulte [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html) (Instalación de Jupyter con Anaconda).
+	Para más información sobre la instalación de Jupyter, consulte [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html) (Instalación de Jupyter con Anaconda).
 
 ## Instalación de kernels y Sparkmagic
 
@@ -90,7 +87,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
 2. Navegue hasta el directorio principal y cree una carpeta denominada **.sparkmagic** si todavía no existe.
 
-3. Dentro de la carpeta, cree un archivo llamado **config.json** y agregue el siguiente fragmento JSON en él.
+3. Dentro de la carpeta, cree un archivo llamado **config.json** y agregue el siguiente fragmento de código JSON en él.
 
 		{
 		  "kernel_python_credentials" : {
@@ -132,6 +129,18 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
 	>[AZURE.TIP] Si desea actualizar la configuración del cuaderno para conectarse a un clúster distinto, actualice el archivo config.json con el nuevo conjunto de valores como se muestra en el paso 3 anterior.
 
+## ¿Por qué debo instalar Jupyter en mi equipo?
+
+Puede haber varios motivos por los que podría querer instalar Jupyter en el equipo y, a continuación, conectarlo a un clúster de Spark en HDInsight.
+
+* Aunque los cuadernos de Jupyter Notebook ya están disponibles en el clúster de Spark en HDInsight de Azure, la instalación de Jupyter en el equipo ofrece la opción de crear cuadernos de forma local, probar la aplicación en un clúster en ejecución y cargar los cuadernos en el clúster. Para cargar los cuadernos en el clúster, puede hacerlo mediante el cuaderno de Jupyter Notebook en ejecución o el clúster, o bien guardarlos en la carpeta /HdiNotebooks de la cuenta de almacenamiento asociada al clúster. Para más información acerca de cómo se almacenan los cuadernos en el clúster, consulte la sección [Where are Jupyter notebooks stored](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)? (Almacenamiento de los cuadernos de Jupyter Notebook).
+* Con los cuadernos disponibles localmente, puede conectarse a diferentes clústeres de Spark según los requisitos de la aplicación.
+* Puede usar GitHub para implementar un sistema de control de código fuente y tener el control de las versiones de los cuadernos. También puede tener un entorno de colaboración donde varios usuarios pueden trabajar con el mismo cuaderno.
+* Puede trabajar con cuadernos localmente sin necesidad de un clúster activo. Solo necesita un clúster para probar los cuadernos, no para administrar manualmente los cuadernos o un entorno de desarrollo.
+* Puede resultar más fácil configurar su propio entorno de desarrollo local que configurar la instalación de Jupyter en el clúster. Puede aprovechar todo el software que haya instalado localmente sin configurar uno o más clústeres remotos.
+
+>[AZURE.WARNING] Con Jupyter instalado en el equipo local, varios usuarios pueden ejecutar el mismo cuaderno en el mismo clúster de Spark al mismo tiempo. En tal situación, se crean varias sesiones de Livy. Si surge un problema y desea depurarlo, es una tarea compleja realizar el seguimiento de a qué sesión de Livy pertenece cada usuario.
+
 
 
 
@@ -168,4 +177,4 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

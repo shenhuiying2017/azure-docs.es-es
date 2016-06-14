@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/27/2016"
 	ms.author="jgao"/>
 
 #Uso de Sqoop con Hadoop en HDInsight
@@ -623,4 +623,4 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

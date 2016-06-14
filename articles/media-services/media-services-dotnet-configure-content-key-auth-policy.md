@@ -400,6 +400,7 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 ##<a id="types"></a>Tipos usados al definir ContentKeyAuthorizationPolicy
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -442,4 +443,4 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

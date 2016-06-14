@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/31/2016" 
 	ms.author="kbaroni;garye" />
 
 # Uso de regresión lineal en Aprendizaje automático de Azure
@@ -63,8 +63,8 @@ Al principio, el modelo de Excel superaba claramente al de Aprendizaje automáti
 |Rendimiento| | |
 |<ul style="list-style-type: none;"><li>R cuadrado ajustado</li></ul>| 0,96 |N/D|
 |<ul style="list-style-type: none;"><li>Coeficiente de <br />determinación</li></ul>|N/D|	0,78<br />(baja precisión)|
-|Error medio absoluto |	9,5 millones de $|	19,4 millones de $|
-|Error medio absoluto (%)|	6,03 %|	12,2 %
+|Error medio absoluto |	9,5 millones de $|	19,4 millones de $|
+|Error medio absoluto (%)|	6,03 %|	12,2 %
 
 Cuando ejecutamos el proceso y los resultados para los desarrolladores y científicos de datos del equipo de Aprendizaje automático de Azure, rápidamente nos proporcionaron algunas sugerencias útiles.
 
@@ -87,17 +87,17 @@ Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base 
 |**Rendimiento**||||
 |R cuadrado ajustado|0,96|N/D||
 |Coeficiente de determinación|N/D|0,78|0,952049|
-|Error medio absoluto |9,5 millones de $|19,4 millones de $|9,5 millones de $|
-|Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
+|Error medio absoluto |9,5 millones de $|19,4 millones de $|9,5 millones de $|
+|Error medio absoluto (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %|<span style="background-color: 00FF00;"> 6,03 %</span>|
 
 Además, los coeficientes de Excel son muy similares a los pesos de la característica en el modelo de entrenamiento de Azure:
 
 ||Coeficientes de Excel|Ponderaciones de la característica de Azure|
 |---|:---:|:---:|
-|Intersección/sesgo|19 470 209,88|19 328 500|
+|Intersección/sesgo|19 470 209,88|19 328 500|
 |Característica A|0,832653063|0,834156|
-|Característica B|11 071 967,08|11 007 300|
-|Característica C|25 383 318,09|25 140 800|
+|Característica B|11 071 967,08|11 007 300|
+|Característica C|25 383 318,09|25 140 800|
 
 ## Pasos siguientes
 
@@ -117,7 +117,7 @@ Con el libro abierto, copie los parámetros predefinidos en la sección de pará
 ![][2]
  
 ### Optimización y otros experimentos
-Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Aprendizaje automático de Azure. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. Para proyectos futuros, utilizaremos esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para buscar el conjunto correcto de características que se utilizará para el modelado.
+Ahora que teníamos una línea de base con nuestro modelo de Excel, dimos un paso más para optimizar nuestro modelo de regresión lineal de Aprendizaje automático de Azure. Usamos el módulo [Selección de características basada en filtros][filter-based-feature-selection] para mejorar nuestra selección de datos iniciales de elementos. Ello nos ayudó a lograr una mejora del rendimiento del 4,6 % en el error medio absoluto. Para proyectos futuros, utilizaremos esta característica que nos permitirá ahorrar semanas de iteración en los atributos de los datos para buscar el conjunto correcto de características que se utilizará para el modelado.
 
 A continuación, tenemos previsto incluir algoritmos adicionales como [bayesianos][bayesian-linear-regression] o [árboles de decisiones incrementados][boosted-decision-tree-regression] en nuestro experimento para comparar el rendimiento.
 
@@ -159,4 +159,4 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

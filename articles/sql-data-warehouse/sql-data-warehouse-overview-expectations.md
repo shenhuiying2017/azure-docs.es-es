@@ -13,21 +13,21 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
 # Expectativas de la versión preliminar de Almacenamiento de datos SQL
 
-En este artículo se describen las capacidades de la versión preliminar de Almacenamiento de datos SQL y nuestros objetivos de disponibilidad general del servicio. Actualizaremos esta información de manera continua mientras mejoramos las capacidades de la versión preliminar pública.
+En este artículo se describen las funcionalidades de la versión preliminar de Almacenamiento de datos SQL y nuestros objetivos de disponibilidad general del servicio. Actualizaremos esta información de manera continua mientras mejoramos las capacidades de la versión preliminar pública.
 
 Nuestros objetivos para el Almacenamiento de datos SQL:
 
-- Rendimiento predecible y escalabilidad lineal hasta petabytes de datos.
+- Rendimiento predecible y escalabilidad lineal hasta petabytes de datos
 - Alta confiabilidad para todas las operaciones de almacenamiento de datos
 - Poco tiempo desde la carga de los datos hasta obtener información detallada sobre los datos en datos no relacionales y relacionales.
 
-Trabajaremos de manera continua en la consecución de estos objetivos antes de poner a Almacenamiento de datos SQL a disposición del público en general.
+Seguiremos trabajando para lograr estos objetivos durante la versión preliminar de Almacenamiento de datos SQL.
 
 ## Rendimiento predecible y escalable
 
@@ -40,29 +40,22 @@ Cualquier almacén de datos tiene 2 métricas de rendimiento fundamentales:
 
 Se están midiendo algunas mejoras importantes del rendimiento y pronto se compartirán las velocidades esperadas. Durante la versión preliminar, realizaremos mejoras continuas (por ejemplo, aumentar la compresión y el almacenamiento en caché) para aumentar estas métricas de rendimiento y asegurar que se escalan de forma predecible.
 
+## Protección de datos
 
-## Alta confiabilidad
+Almacenamiento de datos SQL almacena todos los datos en Almacenamiento de Azure mediante almacenamiento con redundancia local. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados.
 
-### Protección de datos
-
-Almacenamiento de datos SQL almacena todos los datos en el Almacenamiento de Azure con blobs de redundancia geográfica. Se mantienen tres copias sincrónicas de los datos en la región de Azure local para garantizar la protección de datos transparente en caso de errores localizados (por ejemplo, errores en la unidad de almacenamiento). Además, se mantienen tres copias asincrónicas más en una región remota de Azure para garantizar la protección de los datos en caso de errores regionales (recuperación ante desastres). Las regiones locales y remotas están emparejadas para mantener latencias de sincronización aceptables (p. ej., Este de EE. UU y Oeste de EE. UU).
-
-
-### Copias de seguridad
+## Copias de seguridad
 
 Almacenamiento de datos SQL de Azure realiza una copia de seguridad de todos los datos cada 8 horas como mínimo mediante instantáneas de Almacenamiento de Azure. Estas instantáneas se mantienen durante 7 días. Esto permite restaurar los datos en un mínimo de 21 momentos anteriores en los últimos 7 días hasta la hora en que se tomó la última instantánea. Puede restaurar datos desde una instantánea mediante las API de PowerShell o REST.
 
-Las instantáneas se copian de forma asincrónica en una región de Azure remota para aumentar la capacidad de recuperación en caso de errores regionales (recuperación ante desastres).
+## Confiabilidad de las consultas
+
+Almacenamiento de datos SQL se basa en una arquitectura de procesamiento paralelo masivo (MPP). Almacenamiento de datos SQL detecta automáticamente los errores de nodo de proceso y control, realiza la migración. Sin embargo, se puede producir un error en una operación (como una carga de datos o una consulta) como resultado de un error en un nodo o la migración. En la versión preliminar, realizamos mejoras continuas para completar correctamente las operaciones a pesar de los errores de nodo.
 
 
-### Finalización de consultas
+## Actualizaciones y tiempo de inactividad
 
-Almacenamiento de datos SQL almacena los datos en uno o más nodos informáticos que almacenan cada uno algunos de los datos de usuario y controlan la ejecución de consultas en esos datos. Como parte de la arquitectura de procesamiento masivamente paralela (MPP), las consultas se ejecutan en paralelo en los nodos de cálculo. Almacenamiento de datos SQL detecta y mitiga automáticamente los errores de nodo de cálculo. Sin embargo, en la versión preliminar, es posible que una operación falle (por ejemplo, la carga o la consulta de datos) debido a errores de nodo individual. En la versión preliminar, realizamos mejoras continuas para completar correctamente las operaciones a pesar de los errores de nodo.
-
-
-### Actualizaciones y tiempo de inactividad
-
-Durante la versión preliminar, Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características y de instaslar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso provoca demasiadas interrupciones, es aconsejable que [cree una incidencia de soporte técnico][] para que podemos ayudarle a solucionar este proceso.
+Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características e instalar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso causa demasiadas interrupciones, es aconsejable que [cree una incidencia de soporte técnico][] para que podamos proporcionarle una alternativa.
 
 
 ## Pasos siguientes
@@ -79,4 +72,4 @@ Durante la versión preliminar, Almacenamiento de datos SQL se actualizará peri
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

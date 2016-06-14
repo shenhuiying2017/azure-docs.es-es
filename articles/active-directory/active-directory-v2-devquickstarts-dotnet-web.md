@@ -105,7 +105,7 @@ public void ConfigureAuth(IAppBuilder app)
 ```
 
 ## Envío de solicitudes de autenticación
-Ahora la aplicación está correctamente configurada para comunicarse con el extremo v2.0 mediante el protocolo de autenticación de OpenID Connect. OWIN se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario. Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
+Ahora la aplicación está correctamente configurada para comunicarse con el extremo v2.0 mediante el protocolo de autenticación de OpenID Connect.  OWIN se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario. Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
 
 - Puede usar etiquetas Autorizar en sus controladores para solicitar que el usuario inicie sesión antes de tener acceso a una página determinada. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[Authorize]` al controlador Acerca de.
 
@@ -207,4 +207,8 @@ Para obtener recursos adicionales, consulte:
 - [La guía del desarrollador v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0323_2016-->
+## Obtención de actualizaciones de seguridad para nuestros productos
+
+Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+
+<!---HONumber=AcomDC_0601_2016-->

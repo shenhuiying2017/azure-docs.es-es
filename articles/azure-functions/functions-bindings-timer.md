@@ -47,9 +47,7 @@ El desencadenador de temporizador controla el escalado horizontal de varias inst
 
 ## Formato de expresión de programación
 
-La expresión de programación puede ser una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye 6 campos: {segundo} {minuto} {hora} {día} {mes} {día de la semana}. Muchos de los documentos de la expresión CRON que puede encontrar en Internet omiten el campo {segundo}, por lo que si copia uno de ellos tendrá que ajustar el campo adicional.
-
-La expresión de programación también puede presentarse en el formato *hh:mm:ss* para especificar el retraso cada vez que se desencadena la función.
+La expresión de programación es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye 6 campos: {segundo} {minuto} {hora} {día} {mes} {día de la semana}. Muchos de los documentos de la expresión CRON que puede encontrar en Internet omiten el campo {segundo}, por lo que si copia uno de ellos tendrá que ajustar el campo adicional.
 
 Estos son algunos ejemplos de expresiones de programación.
 
@@ -67,13 +65,6 @@ Para desencadenar inmediatamente y, luego, cada dos horas a partir de entonces:
 "runOnStartup": true,
 ```
 
-Para desencadenar cada 15 segundos:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
-```
-
 ## Ejemplo de código de C# de desencadenador de temporizador
 
 Este ejemplo de código de C# escribe un único registro cada vez que se desencadena la función.
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

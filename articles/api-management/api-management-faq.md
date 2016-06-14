@@ -36,6 +36,7 @@ Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas p
 -	[¿Se puede configurar un servidor de autorización de OAUth 2.0 con seguridad ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[¿Qué método de enrutamiento utiliza Administración de API cuando se implementa en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[¿Puedo crear una instancia del servicio de Administración de API mediante una plantilla ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[¿Puedo usar un certificado SSL autofirmado para un back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 
 
 
@@ -47,7 +48,7 @@ Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas p
 
 ### ¿Qué significa que una característica se encuentra en su versión preliminar?
 
-Una característica en versión preliminar es completa funcionalmente, pero se encuentra en ese estado porque buscamos activamente comentarios sobre ella. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene cualquier comentario sobre las características en versión preliminar, háganoslo llegar mediante uno de los mecanismos descritos en [¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
+Una característica en versión preliminar es completa funcionalmente, pero se encuentra en ese estado porque buscamos activamente comentarios sobre ella. Es posible que hagamos cambios importantes en respuesta a los comentarios de los clientes, por lo que recomendamos no depender de la característica en entornos de producción. Si tiene cualquier comentario sobre las características de la versión preliminar, háganoslo llegar mediante uno de los mecanismos descritos en [¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 ### ¿Cuáles son las opciones admitidas para proteger la conexión entre la puerta de enlace de Administración de API y mis servicios de back-end?
 
@@ -55,7 +56,7 @@ Hay varias opciones admitidas.
 
 1. Use la autenticación básica HTTP. Para más información, consulte [Definición de la configuración de la API](api-management-howto-create-apis.md#configure-api-settings).
 2. Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Administración de API de Azure](api-management-howto-mutual-certificates.md).
-3. Utilice la lista blanca IP en su servicio back-end. Si tiene una instancia de Administración de API de nivel Estándar o Premium, la dirección IP de la puerta de enlace permanece constante y puede configurar la lista blanca para permitir esta dirección IP. Puede recuperar la dirección IP de la instancia de Administración de API en el **Panel** en el Portal de Azure clásico.
+3. Utilice la lista blanca IP en su servicio back-end. Si tiene una instancia de Administración de API de nivel Estándar o Premium, la dirección IP de la puerta de enlace permanece constante y puede configurar la lista blanca para permitir esta dirección IP. Puede recuperar la dirección IP de la instancia de Administración de API en el **Panel** del Portal de Azure clásico.
 4. Puede conectar la instancia de Administración de API a una Red virtual de Azure (clásica). Para más información, consulte [Configuración de conexiones VPN en Administración de API de Azure](api-management-howto-setup-vpn.md).
 
 ### ¿Cómo se puede copiar una instancia de Administración de API en una nueva instancia?
@@ -94,8 +95,8 @@ Si la directiva que desea agregar no está habilitada, asegúrese de que se encu
 ### ¿Cómo se puede conseguir el control de versiones de API con Administración de API?
 
 -	Puede configurar distintas API en Administración de API que representen distintas versiones. Por ejemplo, puede tener `MyAPI v1` y `MyAPI v2` como dos API diferentes y los desarrolladores pueden elegir la versión que deseen usar.
--	También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión, por ejemplo: `https://my.api`. A continuación, puede configurar un segmento de versión en la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación; por ejemplo puede tener una operación con una [plantilla de URL](api-management-howto-add-operations.md#url-template) de `/resource` y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. De esta forma, podrá cambiar el valor del segmento de versión en cada operación por separado.
--	Si desea mantener un segmento de versión "predeterminado" en la dirección URL del servicio de la API, puede establecer en operaciones seleccionadas una directiva que use la directiva [Establecer el servicio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) para cambiar la ruta de acceso de la solicitud de back-end.
+-	También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión; por ejemplo: `https://my.api`. A continuación, puede configurar un segmento de versión en la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación; por ejemplo puede tener una operación con una [plantilla de URL](api-management-howto-add-operations.md#url-template) de `/resource` y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) de `/v1/Resource`. De esta forma, podrá cambiar el valor del segmento de versión en cada operación por separado.
+-	Si desea mantener un segmento de versión "predeterminado" en la dirección URL del servicio de la API, puede establecer una directiva que use la directiva [Servicio de back-end de conjunto](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) en operaciones seleccionadas para cambiar la ruta de acceso de la solicitud de back-end.
 
 ### ¿Cómo se pueden configurar varios entornos de API, como Sandbox y Production?
 
@@ -108,7 +109,7 @@ En este momento, las opciones son:
 
 Actualmente, ofrecemos compatibilidad limitada para SOAP dentro de Administración de API de Azure; es una característica que se está investigando actualmente. Estamos muy interesados en obtener cualquier ejemplo de WSDL de sus clientes y una descripción de las características que necesitan, ya que esto nos facilitaría el proceso. Póngase en contacto con nosotros mediante la información de contacto que se menciona en [¿Cómo puedo formular una pregunta al equipo de Administración de API?](#how-can-i-ask-a-question-to-the-api-management-team)
 
-Si necesita ponerlo en marcha, algunos miembros de la comunidad han sugerido soluciones temporales (consulte [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) [Administración de API de Azure: APIM, consumo de un servicio WCF de SOAP a través de HTTP]).
+Si necesita ponerlo en marcha, miembros de la comunidad han sugerido soluciones temporales (vea [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html) (Administración de API de Azure: APIM, consumo de un servicio WCF de SOAP a través de HTTP)).
 
 La implementación de la solución de este modo requiere algunos procesos de configuración manual de las directivas; no admite la importación y exportación de WSDL; y los usuarios deben formar parte del cuerpo de las solicitudes realizadas con la consola de prueba en el portal para desarrolladores.
 
@@ -137,4 +138,12 @@ Administración de API usa el [método de enrutamiento de tráfico de rendimient
 
 Sí, consulte las plantillas de inicio rápido en [Azure API Management Service](http://aka.ms/apimtemplate) (Servicio de Administración de API de Azure).
 
-<!---HONumber=AcomDC_0525_2016-->
+### ¿Puedo usar un certificado SSL autofirmado para un back-end
+
+Sí. Siga estos pasos:
+
+1. Creación de una entidad de [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) mediante la API de administración.
+2. Establecimiento de la propiedad skipCertificateChainValidation en true.
+3. Cuando ya no desea permitir el certificado autofirmado, puede eliminar la entidad de back-end o establecer la propiedad skipCertificateChainValidation en false.
+
+<!---HONumber=AcomDC_0601_2016-->

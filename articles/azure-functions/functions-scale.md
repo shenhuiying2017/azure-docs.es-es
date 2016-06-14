@@ -17,34 +17,34 @@
    ms.workload="na"
    ms.date="03/09/2016"
    ms.author="edlaure"/>
-  
+
 # Escalado de Funciones de Azure
-     
+
 ## Introducción
 
-Una de las ventajas de Funciones de Azure es que solo se usan los recursos según lo necesite el código de ejecución. Esto significa que no paga por máquinas virtuales inactivas o que no tiene que reservar capacidad para cuando la necesite. En vez de esto, la plataforma asigna potencia de computación cuando se ejecuta el código, se realiza el escalado vertical según sea necesario para administrar la carga y se vuelve al estado inicial cuando el código no se está ejecutando.
+Una ventaja de Funciones de Azure es que los recursos de procesos solo se consumen cuando son necesarios. Esto significa que no paga por las máquinas virtuales inactivas ni tiene que reservar capacidad por si la necesita. En cambio, la plataforma asigna potencia de computación cuando se ejecuta el código, realiza un escalado vertical cuando sea necesario para administrar la carga y reduce el escalado cuando el código no se está ejecutando.
 
-El mecanismo para esta nueva funcionalidad es el Plan de servicio dinámico. Este nuevo plan de servicio proporciona un contenedor dinámico para el código que realiza la escalación vertical a petición, mientras que se le cobra solo la cantidad de memoria que usa el código y el tiempo que tarda en ejecutarse, ya que se mide en segundos por gigabyte.
+El mecanismo para esta nueva funcionalidad es el plan de servicio dinámico.
 
-Este artículo proporciona una visión general de cómo funciona el Plan de servicio dinámico y cómo se realiza la escalación de la plataforma a petición para ejecutar el código.
+En este artículo se proporciona información general sobre cómo funciona el plan de servicio dinámico y cómo se realiza el escalado de la plataforma a petición para ejecutar el código.
 
-Si todavía no está familiarizado con Funciones de Azure, asegúrese de comprobar la [Información general sobre Funciones de Azure](functions-overview.md) para comprender mejor sus capacidades.
+Si aún no conoce Funciones de Azure, asegúrese de consultar [Información general sobre Funciones de Azure](functions-overview.md) para comprender mejor sus funcionalidades.
 
-## Configuración del contenedor de aplicaciones
+## Configuración de Funciones de Azure
 
-Hay dos configuraciones principales relacionadas con la escalación:
+Hay dos configuraciones principales relacionadas con el escalado:
 
-* El [Plan de servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) o el Plan de servicio dinámico 
-* Tamaño de memoria para el entorno de ejecución 
+* [Plan del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) o plan de servicio dinámico
+* Tamaño de memoria para el entorno de ejecución
 
-El costo de los cambios de función cambia según el tipo de plan de servicio que seleccione. Con los planes de servicio dinámico, el costo es una función de tiempo de ejecución, el tamaño de la memoria y el número de ejecuciones. Los cambios solo se acumulan cuando está utilizando realmente un código de ejecución.
+El costo de los cambios de función cambia según el plan de servicio que seleccione. Con un plan de servicio dinámico, el costo es en función del tiempo de ejecución, el tamaño de la memoria y el número de ejecuciones. Solo se acumulan cargos cuando el código se está ejecutando.
 
-Los planes de servicio normales le permiten hospedar las funciones en las máquinas virtuales existentes que también pueden usarse para ejecutar otro código. Después de pagar por estas máquinas virtuales al mes, no hay ningún costo adicional para las funciones de ejecución en ellas.
+Un plan del Servicio de aplicaciones hospeda las funciones en máquinas virtuales existentes, que también pueden usarse para ejecutar otro código. Una vez abonado el pago mensual de estas máquinas virtuales, no hay ningún costo adicional para las funciones de ejecución en ellas.
 
-## Selección de un Plan de servicio
+## Selección de un plan de servicio
 
-Al crear aplicaciones de funciones, puede seleccionar ejecutarlas en un Plan de servicio dinámico (novedad) o en un [Plan de servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal. En el Plan de servicio de aplicación, las funciones se ejecutarán en una máquina virtual específica, como funcionan las aplicaciones web hoy en día (para SKU Premium, Standard o Basic). Esta máquina virtual dedicada se asigna a sus aplicaciones o funciones, y está disponible independientemente de cualquier código que se esté ejecutando activamente. Esto es una buena opción si tiene una máquina virtual existente que ya está ejecutando otro código, pero que no se utiliza al completo, o si piensa ejecutar continuamente funciones o hacerlo prácticamente de manera continua. Usar la máquina virtual desvincula el costo del tamaño de la memoria y del tiempo de ejecución, lo que le permite limitar el costo de un gran número de funciones de larga ejecución al costo de uno o más máquinas virtuales que ejecutan.
+Cuando crea funciones, puede seleccionar ejecutarlas en un plan de servicio dinámico o en un [plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). En el plan del Servicio de aplicaciones, las funciones se ejecutarán en una máquina virtual dedicada, como funcionan las aplicaciones web actualmente (para las SKU Premium, Standard o Basic). Esta máquina virtual dedicada se asigna a sus aplicaciones y funciones, y está siempre disponible, con independencia de si se está ejecutando código activamente o no. Se trata de una buena opción si tiene máquinas virtuales infrautilizadas que ya estén ejecutando otro código o si piensa ejecutar funciones de forma continua o casi continua. Una máquina virtual desvincula el costo del tiempo de ejecución y el tamaño de la memoria. Como resultado, puede limitar el costo de muchas funciones de ejecución prolongada al correspondiente a la máquina o máquinas virtuales donde se ejecutan.
 
 [AZURE.INCLUDE [Plan de servicio dinámico](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

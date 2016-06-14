@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/31/2016"
-   ms.author="jesseb; mikhegn; vturecek"/>
+   ms.author="vturecek;mikhegn"/>
 
 # Depurar la aplicación de Service Fabric con Visual Studio
 
@@ -70,7 +70,7 @@ Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Ser
 1. Vaya a su clúster de **Cloud Explorer**, haga clic con el botón derecho y elija **Habilitar depuración**.
 
     ![Habilitar la depuración remota][enableremotedebugging]
-    
+
     De esta forma se inicia el proceso de habilitar la extensión de depuración remota en los nodos del clúster, así como las configuraciones de red necesarias.
 
 2. Haga clic con el botón derecho en el nodo de clúster en **Cloud Explorer** y elija **Adjuntar depurador**.
@@ -80,20 +80,20 @@ Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Ser
 3. En el cuadro de diálogo **Asociar al proceso**, elija el proceso que quiere depurar y haga clic en **Adjuntar**
 
     ![Elegir proceso][chooseprocess]
-    
+
     El nombre del proceso que desea asociar equivale al nombre del ensamblado del proyecto de servicio.
 
     El depurador se asociará a todos los nodos que ejecutan el proceso.
     - En caso de que vaya a depurar un servicio sin estado, todas las instancias del servicio en todos los nodos forman parte de la sesión de depuración.
     - Si va a depurar un servicio con estado, solo la réplica principal de cualquier partición estará activa y, por tanto, será la que capture el depurador. Si se mueve la réplica principal durante la sesión de depuración, el procesamiento de esa réplica todavía será parte de la sesión de depuración.
     - Para capturar solo las particiones o instancias pertinentes de un servicio determinado, puede utilizar puntos de interrupción condicionales para interrumpir solo una instancia o una partición específica.
-        
+
     ![Punto de interrupción condicional][conditionalbreakpoint]
-    
+
     > [AZURE.NOTE] Actualmente no se admite la depuración de un clúster de Service Fabric con varias instancias del mismo nombre ejecutable de servicio.
-    
+
 4. Cuando termine de depurar la aplicación, puede deshabilitar la extensión de depuración remota; para ello, haga clic con el botón derecho en el clúster en **Cloud Explorer** y elija **Deshabilitar depuración**
-    
+
     ![Deshabilitar la depuración remota][disableremotedebugging]
 
 ## Seguimientos en streaming desde un nodo de clúster remoto
@@ -108,17 +108,17 @@ También puede trasmitir seguimientos directamente desde un nodo de clúster rem
 1. Vaya a su clúster en **Cloud Explorer**, haga clic con el botón derecho y elija **Habilitar seguimientos en streaming**.
 
     ![Habilitar seguimientos en streaming remotos][enablestreamingtraces]
-    
+
     De esta forma se inicia el proceso de habilitar la extensión de seguimientos en streaming en los nodos del clúster, así como las configuraciones de red necesarias.
 
 2. Expanda el elemento **Nodos** en **Cloud Explorer**, haga clic con el botón derecho en el nodo desde el que desea transmitir seguimientos y elija **Ver seguimientos en streaming**.
 
     ![Ver seguimientos en streaming remotos][viewremotestreamingtraces]
-    
+
     Repita el paso 2 en todos los nodos desde los que quiera ver seguimientos. Cada transmisión de nodos se mostrará en una ventana dedicada.
-    
+
     Ahora puede ver los seguimientos emitidos por Service Fabric y sus servicios. Si quiere filtrar los eventos para mostrar solo una aplicación específica, simplemente escriba el nombre de la aplicación en el filtro.
-    
+
     ![Ver seguimientos en streaming][viewingstreamingtraces]
 
 4. Cuando haya realizado los seguimientos en streaming desde el clúster, puede deshabilitar los seguimientos en streaming remotos; para ello, haga clic con el botón derecho en el clúster en **Cloud Explorer** y elija **Deshabilitar seguimientos en streaming**.
@@ -146,4 +146,4 @@ También puede trasmitir seguimientos directamente desde un nodo de clúster rem
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -18,16 +18,13 @@
 
 # Versión preliminar de Azure AD B2C: creación de una aplicación de escritorio de Windows
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-native-switcher](../../includes/active-directory-b2c-devquickstarts-native-switcher.md)]-->
-
 Con Azure Active Directory (Azure AD) B2C, puede agregar eficaces características de administración de identidades autoservicio a sus aplicaciones de escritorio en pocos pasos. En este artículo se le mostrará cómo crear una aplicación de "lista de tareas pendientes" de Windows Presentation Foundation (WPF) para .NET que incluya tareas de registro, inicio de sesión y administración de perfiles de usuarios. La aplicación permitirá registrarse e iniciar sesión mediante un nombre de usuario o un correo electrónico. También será posible registrarse e iniciar sesión con cuentas sociales, como Facebook y Google.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Obtener un directorio de Azure AD B2C
 
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, las aplicaciones, los grupos, etc. Si aún no tiene uno, [cree un directorio B2C](active-directory-b2c-get-started.md) antes de continuar con esta guía.
+Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, las aplicaciones, los grupos, etc. Si no tiene ninguno, [cree un directorio B2C](active-directory-b2c-get-started.md) antes de continuar con esta guía.
 
 ## Creación de una aplicación
 
@@ -43,10 +40,10 @@ A continuación, debe crear una aplicación en su directorio B2C. Esto proporcio
 
 En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Tendrá que crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Cuando cree las tres directivas, asegúrese de:
 
-- Elegir **Registro con id. de usuario** o **Registro con correo electrónico** en la hoja de proveedores de identidades.
+- Elegir **User ID sign-up** (Registro con id. de usuario) o **Email sign-up** (Registro con correo electrónico) en la hoja de proveedores de identidades.
 - Seleccionar **Nombre para mostrar** y otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones **Nombre para mostrar** e **Id. de objeto** como notificaciones de aplicación en todas las directivas. Puede elegir también otras notificaciones.
-- Copiar el **nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará estos nombres de directiva más adelante.
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará estos nombres de directiva más adelante.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -54,13 +51,13 @@ Cuando haya creado correctamente las tres directivas, estará listo para crear s
 
 ## Descargar el código
 
-El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para generar el ejemplo a medida que avance, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
+El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para generar el ejemplo a medida que avanza, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-La aplicación completada también estará [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
+La aplicación completada también está [disponible como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
 Una vez descargado el código de ejemplo, abra el archivo .sln de Visual Studio para empezar. Hay dos proyectos en la solución: un proyecto `TaskClient` y un proyecto `TaskService`. `TaskClient` es la aplicación de escritorio de WPF con la que el usuario interactúa. `TaskService` es la API web del back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este caso, tanto `TaskClient` como `TaskService` se representan mediante un único identificador de aplicación, porque conforman una aplicación lógica.
 
@@ -89,7 +86,7 @@ Para saber de qué forma una API web autentica de forma segura las solicitudes c
 Cuando `TaskService` esté listo para autenticar las solicitudes, puede implementar `TaskClient`. La aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación de HTTP que especifican la directiva que desean ejecutar como parte de la solicitud. Para aplicaciones de escritorio .NET, puede usar la Biblioteca de autenticación de Active Directory (AAL) para enviar mensajes de autenticación de OAuth 2.0, ejecutar directivas y obtener tokens para llamar a las API web.
 
 ### Instalación de AAL
-Agregue AAL al proyecto `TaskClient` mediante la Consola del Administrador de paquetes de Visual Studio.
+Agregue ADAL al proyecto `TaskClient` mediante la Consola del Administrador de paquetes de Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease
@@ -139,7 +136,7 @@ public partial class MainWindow : Window
 ```
 
 ### Inicio de un flujo de registro
-Cuando un usuario decide registrarse, quiere iniciar un flujo de registro que usa la directiva de registro que ha creado. Con ADAL, llama simplemente a `authContext.AcquireTokenAsync(...)`. Los parámetros que pasan a `AcquireTokenAsync(...)` determinan el token que recibe, la directiva usada en la solicitud de autenticación, etc.
+Cuando un usuario decide registrarse, quiere iniciar un flujo de registro que usa la directiva de registro que ha creado. Con ADAL, simplemente llama a `authContext.AcquireTokenAsync(...)`. Los parámetros que pasa a `AcquireTokenAsync(...)` determinan el token que recibe, la directiva usada en la solicitud de autenticación, etc.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -220,10 +217,10 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
 ```
 
-En todos estos casos, ADAL devuelve un token en `AuthenticationResult` o produce una excepción. Cada vez que reciba un token de ADAL, puede usar el objeto `AuthenticationResult.UserInfo` para actualizar los datos de usuario en la aplicación, como la interfaz de usuario. ADAL también almacena en caché el token para usarlo en otras partes de la aplicación.
+En todos estos casos, ADAL devuelve un token en `AuthenticationResult` o genera una excepción. Cada vez que reciba un token de ADAL, puede usar el objeto `AuthenticationResult.UserInfo` para actualizar los datos de usuario en la aplicación, como la interfaz de usuario. ADAL también almacena en caché el token para usarlo en otras partes de la aplicación.
 
 ## Llamar a API
-Ya hemos usado ADAL para ejecutar directivas y obtener tokens. En muchos casos, sin embargo, le interesará comprobar si existe un token almacenado en caché sin ejecutar una directiva. Uno de estos casos se da cuando la aplicación intenta obtener la lista de tareas pendientes de un usuario de `TaskService`. Puede usar el mismo método `authContext.AcquireTokenAsync(...)` para ello, de nuevo usando `clientId` como parámetro de ámbito, pero esta vez también con `PromptBehavior.Never`:
+Ya hemos usado ADAL para ejecutar directivas y obtener tokens. En muchos casos, sin embargo, le interesará comprobar si existe un token almacenado en caché sin ejecutar una directiva. Uno de estos casos se da cuando la aplicación intenta obtener la lista de tareas pendientes de un usuario de `TaskService`. Puede usar el mismo método `authContext.AcquireTokenAsync(...)` para ello, de nuevo con `clientId` como parámetro de ámbito, pero esta vez también con `PromptBehavior.Never`:
 
 ```C#
 private async void GetTodoList()
@@ -273,7 +270,7 @@ private async void GetTodoList()
 	...
 ```
 
-Cuando la llamada a `AcquireTokenAsync(...)` se realiza correctamente y se encuentra un token en la memoria caché, puede agregarlo al encabezado `Authorization` de la solicitud HTTP. De este modo, `TaskService` puede autenticar la solicitud para leer la lista de tareas pendientes del usuario:
+Cuando la llamada a `AcquireTokenAsync(...)` se realiza correctamente y hay un token en la memoria caché, puede agregarlo al encabezado `Authorization` de la solicitud HTTP. De este modo, `TaskService` puede autenticar la solicitud para leer la lista de tareas pendientes del usuario:
 
 ```C#
 	...
@@ -285,7 +282,7 @@ Cuando la llamada a `AcquireTokenAsync(...)` se realiza correctamente y se encue
 	...
 ```
 
-Puede usar este mismo patrón cada vez que desee comprobar la caché de tokens para ver los tokens sin solicitar a un usuario que inicie sesión. Por ejemplo, cuando se inicia la aplicación, es aconsejable comprobar todos los token existentes en `FileCache`. De este modo, la sesión del usuario de inicio de sesión se mantiene cada vez que la aplicación se ejecuta. Puede ver el mismo código en el caso `OnInitialized` de `MainWindow`. `OnInitialized` administra este caso de primera ejecución.
+Puede usar este mismo patrón cada vez que desee comprobar la caché de tokens para ver los tokens sin solicitar a un usuario que inicie sesión. Por ejemplo, cuando se inicia la aplicación, puede desear buscar todos los token existentes en `FileCache`. De este modo, la sesión del usuario de inicio de sesión se mantiene cada vez que la aplicación se ejecuta. Puede ver el mismo código en el caso `OnInitialized` de `MainWindow`. `OnInitialized` administra este caso de primera ejecución.
 
 ## Cierre de la sesión del usuario
 Puede usar ADAL para finalizar la sesión de un usuario en la aplicación cuando el usuario selecciona **Cerrar sesión**. Con ADAL, esto se logra borrando todos los tokens de la caché de tokens:
@@ -315,7 +312,7 @@ Por último, compile y ejecute `TaskClient` y `TaskService`. Regístrese en la a
 
 ## Agregar IDP sociales
 
-Actualmente, la aplicación admite solo registros e inicios de sesión de usuarios mediante **cuentas locales**. Se trata de cuentas almacenadas en el directorio B2C que utilizan un nombre de usuario y una contraseña. Con Azure AD B2C, puede agregar compatibilidad con otros proveedores de identidades (IDP) sin cambiar el código.
+Actualmente, la aplicación solo admite registros e inicios de sesión de usuarios que usan **cuentas locales**. Se trata de cuentas almacenadas en el directorio B2C que utilizan un nombre de usuario y una contraseña. Con Azure AD B2C, puede agregar compatibilidad con otros proveedores de identidades (IDP) sin cambiar el código.
 
 Para agregar proveedores de identidades sociales a su aplicación, comience siguiendo las instrucciones detalladas en estos artículos. Para cada proveedor de identidades que desee admitir, necesitará registrar una aplicación en ese sistema y obtener un identificador de cliente.
 
@@ -324,11 +321,11 @@ Para agregar proveedores de identidades sociales a su aplicación, comience sigu
 - [Configurar Amazon como una IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar LinkedIn como una IDP](active-directory-b2c-setup-li-app.md)
 
-Después de agregar los proveedores de identidades a su directorio B2C, tendrá que editar cada una de las tres directivas para incluir los nuevos proveedores de identidades, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md). Después de guardar las directivas, vuelva a ejecutar la aplicación. Debería ver los proveedores de identidades nuevos agregados como opciones de inicio de sesión y registro en cada una de sus experiencias de identidad.
+Después de agregar los proveedores de identidades a su directorio B2C, tendrá que editar cada una de las tres directivas para incluir los nuevos proveedores de identidades, tal y como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md). Después de guardar las directivas, vuelva a ejecutar la aplicación. Debería ver los proveedores de identidades nuevos agregados como opciones de inicio de sesión y registro en cada una de sus experiencias de identidad.
 
 Puede experimentar con las directivas y observar los efectos en la aplicación de ejemplo. Agregue o quite proveedores de identidades, manipule notificaciones de aplicación o cambie atributos de registro. Experimente para ver cómo se combinan directivas, solicitudes de autenticación y ADAL.
 
-Como referencia, el ejemplo completo [se proporciona como un archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
+Como referencia, la muestra completa [se proporciona como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). También puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
@@ -344,4 +341,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

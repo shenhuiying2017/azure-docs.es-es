@@ -13,15 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Migrar base de datos de SQL Server a la Base de datos SQL con la replicación transaccional
+# Migración de una base de datos SQL Server a Base de datos SQL de Azure mediante la replicación transaccional
 
-Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Con la replicación transaccional, todos los cambios en los datos o el esquema que se producen entre el momento en que se inicia la migración y el momento en que finaliza aparecerán en Base de datos SQL de Azure. Una vez completada la migración, basta con cambiar la cadena de conexión de las aplicaciones para que apunte a Base de datos SQL de Azure en lugar de apuntar a la base de datos local. Cuando la replicación transaccional recupera todos los cambios pendientes en la base de datos local y todas las aplicaciones apuntan a la base de datos de Azure, ya se puede desinstalar con seguridad la replicación y dejar Base de datos SQL de Azure como sistema de producción.
+> [AZURE.SELECTOR]
+- [Asistente para migración de SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Exportación a un archivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importación desde un archivo BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replicación transaccional](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+
+En este artículo, aprenderá a migrar una base de datos SQL Server compatible a Base de datos SQL Azure con un tiempo de inactividad mínimo mediante la replicación transaccional de SQL Server.
+
+## Descripción de la arquitectura de replicación transaccional
+
+Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para utilizar esta solución, configurará su instancia de Base de datos SQL de Azure como suscriptor de la instancia de SQL Server local que quiere migrar. El distribuidor de la replicación transaccional local sincronizará los datos de la base de datos local de modo que estén sincronizados (el publicador) mientras se siguen produciendo nuevas transacciones.
+
+También puede usar la replicación transaccional para migrar un subconjunto de la base de datos local. La publicación que se replica en Base de datos SQL de Azure puede limitarse a un subconjunto de las tablas de la base de datos que se replica. Además, para cada tabla que se replica, puede limitar los datos a un subconjunto de filas o un subconjunto de columnas.
+
+Con la replicación transaccional, todos los cambios en los datos o el esquema que se producen entre el momento en que se inicia la migración y el momento en que finaliza aparecerán en Base de datos SQL de Azure.
+
+Cuando finalice la sincronización y esté listo para realizar la migración, solo debe cambiar la cadena de conexión de las aplicaciones para que apunten a la instancia de Base de datos SQL de Azure en lugar de a la base de datos local. Cuando la replicación transaccional recupera todos los cambios pendientes en la base de datos local y todas las aplicaciones apuntan a la base de datos de Azure, ya se puede desinstalar con seguridad la replicación y dejar Base de datos SQL de Azure como sistema de producción.
 
  ![Diagrama de SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
+## Requisitos de la replicación transaccional
 
 La replicación transaccional es una tecnología integrada con SQL Server desde SQL Server 6.5. Es una tecnología muy madura y comprobada, que conocen la mayoría de los administradores de base de datos y con la que tienen experiencia. Con la [vista previa de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/), ahora es posible configurar Base de datos SQL de Azure como un [suscriptor de replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) a la publicación local. La experiencia que obtiene configurándolo desde Management Studio es exactamente la misma que si configura un suscriptor de replicación transaccional en un servidor local. Se admite la compatibilidad con este escenario cuando el publicador y el distribuidor es al menos de una de las siguientes versiones de SQL Server:
 
@@ -35,6 +52,17 @@ La replicación transaccional es una tecnología integrada con SQL Server desde 
 > [AZURE.IMPORTANT] Debe usar siempre la versión más reciente de SQL Server Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. Las versiones anteriores de SQL Server Management Studio no podrán configurar la instancia de Base de datos SQL como suscriptor. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-También puede usar la replicación transaccional para migrar un subconjunto de la base de datos local. La publicación que se replica en Base de datos SQL de Azure puede limitarse a un subconjunto de las tablas de la base de datos que se replica. Además, para cada tabla que se replica, puede limitar los datos a un subconjunto de filas o un subconjunto de columnas.
+## Pasos siguientes
 
-<!---HONumber=AcomDC_0518_2016-->
+- [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versión preliminar de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+
+## Más información
+
+- [Replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx)
+- [Base de datos SQL V12](sql-database-v12-whats-new.md)
+- [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
+- [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

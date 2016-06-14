@@ -32,7 +32,8 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-La aplicación de esqueleto incluye todo el código reutilizable para una API sencilla, pero no tiene las partes relacionadas con la identidad. Si no desea continuar por este camino, en su lugar puede clonar o [descargar el ejemplo finalizado](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+La estructura de aplicación incluye todo el código reutilizable para una API sencilla, pero no tiene las partes relacionadas con la identidad.  
+Si no desea continuar por este camino, en su lugar puede clonar o [descargar el ejemplo finalizado](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -45,7 +46,7 @@ Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 
 La solución de Visual Studio también contiene "TodoListClient", que es una sencilla aplicación WPF. TodoListClient se utiliza para demostrar cómo el usuario inicia sesión y cómo el cliente puede enviar solicitudes a la API de web. En este caso, tanto TodoListClient como TodoListService se representan por la misma aplicación. Para configurar TodoListClient, también debe:
 
-- Agregar la plataforma **Móvil** a la aplicación.
+- Agregar la plataforma **Móvil** a la aplicación.
 - Copiar el **URI de redirección** desde el portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -159,6 +160,12 @@ Ahora puede pasar a otros temas adicionales. Es posible que desee probar:
 
 [Llamada a una API web desde una aplicación web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obtener recursos adicionales, consulte:
+- [La guía del desarrollador v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obtención de actualizaciones de seguridad para nuestros productos
+
+Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+
+<!---HONumber=AcomDC_0601_2016-->

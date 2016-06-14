@@ -2,7 +2,8 @@
 	pageTitle="Configuración de la protección de datos de Oracle en máquinas virtuales | Microsoft Azure"
 	description="Realice un tutorial para configurar e implementar la protección de datos de Oracle en máquinas virtuales de Azure para obtener alta disponibilidad y recuperación ante desastres."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,12 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Configuración de la protección de datos de Oracle para Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
 
 En este tutorial se muestra cómo instalar e implementar la protección de datos de Oracle en un entorno de máquinas virtuales de Azure para obtener una alta disponibilidad y recuperación ante desastres. El tutorial se centra en la replicación unidireccional para bases de datos de Oracle distintas de RAC.
@@ -30,7 +29,7 @@ Además, en el tutorial se supone que ya se han implementado los siguientes requ
 - Ya ha revisado la sección Consideraciones de recuperación ante desastres y de alta disponibilidad en el tema [Imágenes de máquina virtual de Oracle: consideraciones variadas](virtual-machines-windows-classic-oracle-considerations.md). Tenga en cuenta que actualmente Azure es compatible con las instancias de base de datos de Oracle independientes, pero no con los clústeres de aplicación reales de Oracle (RAC de Oracle).
 
 
-- Ha creado dos máquinas virtuales (VM) en Azure con la misma plataforma que proporciona la imagen de Oracle Enterprise Edition en Windows Server. Para obtener información, consulte [Creación de una máquina virtual de base de datos de Oracle 12c en Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) y [Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-windows-load-balance.md) y en la misma [red virtual](azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, se recomienda colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Tenga en cuenta que la protección de datos de Oracle solo está disponible con Oracle Database Enterprise Edition. Cada máquina debe tener al menos 2 GB de memoria y 5 GB de espacio en disco. Para obtener la información más actualizada sobre los tamaños de máquina virtual proporcionados por la plataforma, consulte [Tamaños de máquina virtual de Azure](virtual-machines-windows-sizes.md). Si necesita un volumen de disco adicional para las máquinas virtuales, puede conectar discos adicionales. Para obtener información, consulte [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-windows-classic-attach-disk.md).
+- Ha creado dos máquinas virtuales (VM) en Azure con la misma plataforma que proporciona la imagen de Oracle Enterprise Edition. Asegúrese de que las máquinas virtuales estén en el [mismo servicio en la nube](virtual-machines-windows-load-balance.md) y en la misma [red virtual](azure.microsoft.com/documentation/services/virtual-network/) para asegurarse de que pueden tener acceso entre sí a través de la dirección IP privada persistente. Además, se recomienda colocar las máquinas virtuales en el mismo [conjunto de disponibilidad](virtual-machines-windows-manage-availability.md) para permitir a Azure colocarlas en dominios de error y de actualización independientes. Tenga en cuenta que la protección de datos de Oracle solo está disponible con Oracle Database Enterprise Edition. Cada máquina debe tener al menos 2 GB de memoria y 5 GB de espacio en disco. Para obtener la información más actualizada sobre los tamaños de máquina virtual proporcionados por la plataforma, consulte [Tamaños de máquina virtual de Azure](virtual-machines-windows-sizes.md). Si necesita un volumen de disco adicional para las máquinas virtuales, puede conectar discos adicionales. Para obtener información, consulte [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -631,4 +630,4 @@ Es recomendable habilitar la base de datos flashback en las bases de datos princ
 ##Recursos adicionales
 [Imágenes de máquina virtual de Oracle para Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

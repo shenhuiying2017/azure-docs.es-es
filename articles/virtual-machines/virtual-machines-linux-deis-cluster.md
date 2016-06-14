@@ -21,9 +21,6 @@
 
 Este artículo le guiará a través de aprovisionamiento de un clúster [Deis](http://deis.io/) en Azure. Abarca todos los pasos de creación de los certificados necesarios para implementar y escalar una aplicación **Go** de ejemplo en el clúster recién suministrado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
-
 El siguiente diagrama muestra la arquitectura del sistema implementado. Un administrador del sistema administra el clúster con herramientas Deis como **deis** y **deisctl**. Las conexiones se establecen a través de un equilibrador de carga de Azure, que reenvía las conexiones a uno de los nodos de los miembros del clúster. Los clientes acceden a aplicaciones implementadas a través del equilibrador de carga también. En este caso, el equilibrador de carga reenvía el tráfico a una malla de enrutador Deis, que enruta el tráfico a los contenedores Docker correspondientes alojados en el clúster.
 
   ![Diagrama de arquitectura del clúster Desis implementado](media/virtual-machines-linux-deis-cluster/architecture-overview.png)
@@ -78,7 +75,7 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
 
 8. Modifique el parámetro **newStorageAccountName**. Esta es la cuenta de almacenamiento para los discos del sistema operativo de la máquina virtual. Este nombre de cuenta debe ser único globalmente.
 
-9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de _[valor de este parámetro]_._[región]_.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
+9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de _[valor de este parámetro]_._[región]_.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
 
 10. Guarde el archivo de parámetros. A continuación, podrá aprovisionar el clúster usando Azure PowerShell:
 
@@ -260,4 +257,4 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

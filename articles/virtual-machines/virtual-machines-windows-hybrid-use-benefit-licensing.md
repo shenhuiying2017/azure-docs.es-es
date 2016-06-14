@@ -25,8 +25,8 @@ Para los clientes que usan Windows Server con Software Assurance, puede llevar s
 ## Requisitos previos
 Se deben cumplir un par de requisitos previos para poder utilizar la ventaja de uso híbrido de Azure para máquinas virtuales de Windows Server en Azure:
 
-- Tener el módulo de Azure PowerShell instalado
-- Un VHD de Windows Server que se carga en Almacenamiento de Azure
+- Tener instalado el módulo de Azure PowerShell.
+- Haber cargado el VHD de Windows Server en Almacenamiento de Azure.
 
 ### Azure PowerShell
 Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta de Azure. Aunque vaya a implementar las máquinas virtuales con plantillas de Resource Manager, necesitará tener instalado Azure PowerShell para poder cargar el VHD de Windows Server (consulte el siguiente paso).
@@ -164,4 +164,4 @@ Obtenga más información sobre la [licencia de la ventaja de uso híbrido de Az
 
 Obtenga más información sobre el [uso de plantillas de Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

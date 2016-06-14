@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
@@ -29,11 +29,11 @@ Para crear un laboratorio necesitará:
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Pulse **Examinar**.
+1. Seleccione **Examinar**.
 
-1. Pulse **Laboratorio de desarrollo y pruebas** de la lista.
+1. Pulse **DevTest Labs** en la lista.
 
-1. En la hoja **Laboratorio de desarrollo y pruebas**, pulse **Agregar**.
+1. En la hoja **DevTest Labs**, pulse **Agregar**.
 
     ![Incorporación de un laboratorio](./media/devtest-lab-create-lab/add-lab-button.png)
 
@@ -42,7 +42,7 @@ Para crear un laboratorio necesitará:
     1. Escriba un **Nombre de laboratorio** para el nuevo laboratorio.
     1. Seleccione una **Suscripción** para asociar al laboratorio.
     1. Seleccione una **Ubicación** en la que se va a almacenar el laboratorio.
-    1. Pulse **Crear**.
+    1. Seleccione **Crear**.
 
     ![Creación de una hoja de laboratorio](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -60,4 +60,4 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migración de los datos
-El objetivo principal al migrar datos es rellenar la base de datos SQLDW. Este proceso se puede lograr de varias maneras. Puede usarse Copia de ADF, SSIS y bcp para lograr este objetivo. Sin embargo, a medida que la cantidad de datos aumente debería pensar en descomponer en pasos el proceso de migración de datos. Esto le ofrece la posibilidad de optimizar cada paso en cuanto a rendimiento y resistencia para garantizar una migración de datos sin problemas.
+Se pueden mover datos de distintos orígenes a Almacenamiento de datos SQL con diversas herramientas. Puede usarse Copia de ADF, SSIS y bcp para lograr este objetivo. Sin embargo, a medida que la cantidad de datos aumente debería pensar en descomponer en pasos el proceso de migración de datos. Esto le ofrece la posibilidad de optimizar cada paso en cuanto a rendimiento y resistencia para garantizar una migración de datos sin problemas.
 
 En este artículo se describen en primer lugar los escenarios sencillos de migración de Copia de ADF, SSIS y bcp. Luego ahonda algo más en cómo se puede optimizar la migración.
 
@@ -30,7 +30,7 @@ PolyBase ofrece también una opción de muy alto rendimiento para cargar los dat
 
 > [AZURE.NOTE] PolyBase requiere que los archivos de datos estén en UTF-8. Se trata de la codificación predeterminada de la Copia de ADF, por lo que no es necesario cambiar nada. Esto es solo un aviso para que no cambie el comportamiento predeterminado de Copia de ADF.
 
-Vaya al siguiente artículo para ver algunos excelentes [ejemplos de Copia de ADF].
+Vaya al siguiente artículo para ver algunos excelentes [ejemplos de Copia de ADF][].
 
 ## Servicios de integración ##
 Integration Services (SSIS) es una herramienta eficaz y flexible de extracción, transformación y carga de datos (ETL) que admite varias opciones de carga de datos, flujos de trabajo complejos y transformación de datos. Use SSIS para transferir simplemente datos a Azure o como parte de una migración más amplia.
@@ -104,7 +104,7 @@ Una de las partes más lentas de la migración de datos es la transferencia de l
 Afortunadamente se cuenta con varias opciones para mejorar la velocidad y la resistencia de este proceso:
 
 ### [ExpressRoute][]
-Es aconsejable considerar el uso de [ExpressRoute][] para acelerar la transferencia. [ExpressRoute][] le proporcionará una conexión privada establecida en Azure para que la conexión no vaya por la red Internet pública. No se trata en ningún caso de un paso obligatorio. Sin embargo, mejorará el rendimiento al insertar datos en Azure desde una instalación local o de ubicación compartida.
+Es aconsejable considerar el uso de [ExpressRoute][] para acelerar la transferencia. [ExpressRoute][] le proporcionará una conexión privada establecida en Azure para que la conexión no vaya por la red pública de Internet. No se trata en ningún caso de un paso obligatorio. Sin embargo, mejorará el rendimiento al insertar datos en Azure desde una instalación local o de ubicación compartida.
 
 Las ventajas de usar [ExpressRoute][] son:
 
@@ -194,4 +194,4 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 [Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

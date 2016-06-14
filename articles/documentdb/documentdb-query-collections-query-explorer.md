@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Escritura, edición y ejecución de consultas SQL para DocumentDB mediante Explorador de consultas 
@@ -79,4 +79,4 @@ El Explorador de consultas del Portal de Azure es simplemente una forma de ejecu
 
 Para más información acerca de la gramática de SQL de DocumentDB compatible con el Explorador de consultas, consulte el artículo sobre [consulta SQL y sintaxis SQL](documentdb-sql-query.md) o imprima la [hoja de referencia rápida de consultas SQL](documentdb-sql-query-cheat-sheet.md). También puede disfrutar de la experimentación con [Query Playground](https://www.documentdb.com/sql/demo), donde puede probar las consultas en línea con un conjunto de datos de ejemplo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -281,4 +281,4 @@ Si tiene sugerencias o comentarios, o si encuentra algún problema al usar esta 
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->
