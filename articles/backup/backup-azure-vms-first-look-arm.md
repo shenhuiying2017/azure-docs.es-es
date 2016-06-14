@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protección de máquinas virtuales de ARM con Copia de seguridad de Azure | Microsoft Azure"
-	description="Proteja las máquinas virtuales de ARM con el servicio Copia de seguridad de Azure. Use copias de seguridad de máquinas virtuales de ARM y máquinas virtuales de almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
+	pageTitle="Protección de máquinas virtuales implementadas de Resource Manager con Copia de seguridad de Azure | Microsoft Azure"
+	description="Proteja las máquinas virtuales implementadas de Resource Manager con el servicio Copia de seguridad de Azure. Use copias de seguridad de máquinas virtuales implementadas de Resource Manager y máquinas virtuales de Almacenamiento premium para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -26,14 +26,14 @@
 
 Este tutorial le guiará por los pasos para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
 
-- Las máquinas virtuales de Azure Resource Manager (ARM)
+- Máquinas virtuales implementadas en Azure Resource Manager
 - Máquinas virtuales clásicas
 - Máquinas virtuales de almacenamiento estándar
 - Máquinas virtuales de almacenamiento premium
 
 Para obtener información adicional sobre la protección de máquinas virtuales de almacenamiento premium, consulte [Copia de seguridad y restauración de máquinas virtuales de almacenamiento premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] Aquí se da por hecho que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad tenga acceso a dicha máquina virtual. Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Este artículo es para su uso con Resource Manager y máquinas virtuales basadas en ARM.
+>[AZURE.NOTE] Aquí se da por hecho que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad tenga acceso a dicha máquina virtual. Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). En este artículo se van a usar Resource Manager y máquinas virtuales implementadas de Resource Manager.
 
 A un alto nivel, estos son los pasos que debe completar.
 
@@ -189,35 +189,7 @@ Para ejecutar **Backup now** (Iniciar copia de seguridad).
 
     Una vez finalizado el trabajo de copia de seguridad, el estado es *Completado*.
 
-## Definición de una directiva de copia de seguridad
-
-Una directiva de copia de seguridad define una matriz del momento en que se toman las instantáneas de datos y cuánto tiempo se retienen las instantáneas. Al definir una directiva para la copia de seguridad de una máquina virtual, puede desencadenar un trabajo de copia de seguridad *una vez al día*. Cuando se crea una nueva directiva, se aplica al almacén. La interfaz de la directiva de copia de seguridad tiene el siguiente aspecto:
-
-![Directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
-
-Para crear una directiva:
-
-1. En **Nombre de directiva**, asigne un nombre a la directiva.
-
-2. Puede tomar instantáneas de los datos con un intervalo diario o semanal. Use el menú desplegable **Frecuencia de copia de seguridad** para elegir si las instantáneas de datos se realizan diaria o semanalmente.
-
-    - Si elige un intervalo diario, use el control resaltado para seleccionar la hora del día para la instantánea. Para cambiar la hora, anule la selección de la hora actual y seleccione la nueva.
-
-    ![Directiva de copia de seguridad diaria](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
-
-    - Si elige un intervalo semanal, use los controles resaltados para seleccionar los días de la semana y la hora del día para realizar la instantánea. En el menú del día, seleccione uno o varios días. En el menú de hora, seleccione una hora. Para cambiar la hora, anule la selección de la hora actual y seleccione la nueva.
-
-    ![Directiva de copia de seguridad semanal](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
-
-3. De forma predeterminada, todas las opciones de **Duración de retención** están seleccionadas. Desactive los límites de intervalo de retención que no quiera usar.
-
-    >[AZURE.NOTE] Al proteger una máquina virtual, un trabajo de copia de seguridad se ejecuta una vez al día. La hora a la que se ejecuta la copia de seguridad es la misma en cada intervalo de retención.
-
-    En los controles correspondientes, especifique los intervalos que se usarán. Los intervalos de retención mensual y anual le permiten especificar las instantáneas con un incremento diario o semanal.
-
-4. Después de configurar todas las opciones de la directiva, en la parte inferior de la hoja, haga clic en **Aceptar**.
-
-    La nueva directiva está establecida para aplicarse al almacén una vez completada la configuración del almacén de Servicios de recuperación. Vuelva al paso 6 de la sección, [Selección del escenario, y definición de la directiva y los elementos para proteger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect).
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Instale el agente de máquina virtual en la máquina virtual.
 
@@ -230,7 +202,7 @@ La tabla siguiente proporciona información adicional acerca del agente de máqu
 | **Operación** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalación del agente de la máquina virtual | <li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. | <li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Necesitará privilegios de administrador para efectuar la instalación. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
-| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. | Siga las instrucciones que se indican en la sección sobre la [actualización del agente de máquina virtual para Linux](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. |
+| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. | Siga las instrucciones que aparecen en [Actualización del Agente de Linux de Azure en una máquina virtual a la última versión desde Github](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual | <li>Vaya a la carpeta *C:\\WindowsAzure\\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y, luego, seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. | N/D |
 
 
@@ -238,7 +210,7 @@ La tabla siguiente proporciona información adicional acerca del agente de máqu
 
 Una vez que el agente de máquina virtual está instalado en la máquina virtual, el servicio Copia de seguridad de Azure instala la extensión de copia de seguridad en el agente de máquina virtual. El servicio Copia de seguridad de Azure actualiza y aplica revisiones perfectamente a la extensión de copia de seguridad sin la intervención del usuario.
 
-El servicio Copia de seguridad instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Copia de seguridad de Azure realizará la copia de seguridad aunque esté apagada y no haya sido posible instalar la extensión. Esto se conoce como máquina virtual sin conexión. En este caso, el punto de recuperación será *coherente con los bloqueos*.
+El servicio Copia de seguridad instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está. Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación. Sin embargo, el servicio Copia de seguridad de Azure realizará la copia de seguridad aunque esté apagada y no haya sido posible instalar la extensión. Esto se conoce como máquina virtual sin conexión. En este caso, el punto de recuperación será *coherente frente a bloqueos*.
 
 ## Información para solución de problemas
 Si tiene problemas para realizar algunas de las tareas en este artículo, consulte la [guía de solución de problemas](backup-azure-vms-troubleshoot.md).
@@ -247,4 +219,4 @@ Si tiene problemas para realizar algunas de las tareas en este artículo, consul
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

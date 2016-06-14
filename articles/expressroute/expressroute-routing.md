@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/01/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 
 **Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
-## Soporte técnico para las comunidades de BGP
+## Soporte técnico para las comunidades de BGP (versión preliminar)
 
 
 Esta sección proporciona información general de cómo se usarán las comunidades de BGP con ExpressRoute. Microsoft anunciará rutas en las rutas de acceso de configuración de pares privados y de Microsoft con rutas etiquetadas con valores de la comunidad adecuada. La razón para hacerlo y los detalles de los valores de la comunidad se describen a continuación. Sin embargo, Microsoft no acepta los valores de comunidad etiquetados en las rutas anunciadas a Microsoft.
@@ -173,4 +173,4 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 	- [Configuración del enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configuración del enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vinculación de una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

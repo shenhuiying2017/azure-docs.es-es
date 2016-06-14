@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="hero-article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Versión preliminar de B2C: protección de una API web mediante node.js
@@ -675,8 +675,7 @@ Asegúrese de que la instancia de MongoDB se esté ejecutando.
 
 Cambie al directorio `azuread` y utilice `curl`.
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -882,4 +881,4 @@ Ahora puede pasar a temas más avanzados, como:
 
 [Conexión a una API web mediante iOS con B2C](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

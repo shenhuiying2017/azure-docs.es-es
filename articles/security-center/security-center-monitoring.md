@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/06/2016"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -34,7 +34,7 @@ Para más información sobre cómo aplicar las recomendaciones, lea [Implementac
 
 El icono **Estado de seguridad de los recursos** permite supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
 
-![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
+![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
 Si el Centro de seguridad identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md), se enumerará aquí.
 
@@ -100,20 +100,19 @@ Esta hoja tiene los detalles de seguridad de la máquina virtual. En la parte in
 ###Supervisión de redes virtuales
 Al hacer clic en **Redes** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja **Redes**, donde encontrará con más detalles, tal como se muestra a continuación:
 
-![Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
+![Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 ####Recomendaciones de redes
 
 De manera similar a la información del estado de los recursos de las máquinas virtuales, esta hoja proporciona una lista resumida de los problemas en la parte superior de la hoja y una lista de las redes supervisadas en la parte inferior.
 
-![Hoja Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
-
 La sección de desglose del estado de las redes enumera los potenciales problemas de seguridad y ofrece recomendaciones. Entre los posibles problemas se pueden incluir:
 
+- Firewall de próxima generación (NGFW) no instalado
 - Grupos de seguridad de red (NSG) en subredes no habilitados
 - NSG en máquinas virtuales no habilitados
 - Restringir el acceso externo por medio de puntos de conexión externos públicos
-- Subredes con estado correcto
+- Puntos de conexión con conexión a Internet correctos
 
 Al hacer clic en una de las recomendaciones, se abrirá una nueva hoja con más detalles acerca de ella, como se muestra en el ejemplo siguiente.
 
@@ -123,29 +122,40 @@ En este ejemplo, la hoja **Configure Missing Network Security Groups for Subnets
 
 En la hoja **Elegir grupo de seguridad de red**, seleccione el grupo de seguridad de red más adecuado para la subred o cree uno.
 
-####Sección Redes
+####Sección Internet facing endpoints
 
-En la sección **Redes**, se ofrece una vista jerárquica de los recursos, como se muestra a continuación:
+En la sección **Internet facing endpoints** (Puntos de conexión con conexión a Internet), verá las máquinas virtuales que están configuradas con un punto de conexión con conexión a Internet y su estado actual.
 
-![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
+![Punto de conexión con conexión a Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
+
+Esta tabla incluye el nombre del punto de conexión que representa la máquina virtual, la dirección IP con conexión a Internet, el estado de gravedad actual del NSG y el NGFW. La tabla está ordenada por gravedad, tal como se describe a continuación:
+- Rojo (arriba): alta prioridad; se debe solucionar de inmediato. 
+- Naranja: prioridad media; se debe solucionar lo antes posible.
+- Verde (al final): estado de mantenimiento.
+
+####Sección Networking topology
+
+En la sección **Networking topology** (Topología de red), se ofrece una vista jerárquica de los recursos, como se muestra a continuación:
+
+![Topología de red](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad, como se describe a continuación:
 - Rojo (arriba): alta prioridad; se debe solucionar de inmediato. 
 - Naranja: prioridad media; se debe solucionar lo antes posible.
 - Verde (al final): estado de mantenimiento.
 
-En esta jerarquía, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y [red virtual (clásica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red (NSG) para esos recursos. En el ejemplo siguiente se ve el resultado de seleccionar la máquina virtual VM-CL-W1:
+En esta jerarquía, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y la [red virtual (clásica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red (NSG) para esos recursos. En el ejemplo siguiente se ve el resultado de seleccionar la máquina virtual VM-CL-W1:
 
 ![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
 En la parte inferior de esta hoja, aparecen las recomendaciones para la máquina virtual, parecidas a lo que se ha descrito antes. Puede hacer clic en una recomendación para ver más información o aplicar la configuración o el control de seguridad necesario.
 
 ###Supervisión de recursos de SQL
-Al hacer clic en **SQL** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja SQL con las recomendaciones para problemas como que la auditoría o el cifrado de datos transparente no están habilitados. También tiene las recomendaciones sobre el estado general de la base de datos.
+Al hacer clic en **SQL** en el icono **Resources security health** (Estado de seguridad de los recursos), se abrirá la hoja SQL con recomendaciones para problemas como que la auditoría o el cifrado de datos transparente no estén habilitados. También tiene las recomendaciones sobre el estado general de la base de datos.
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
-Puede hacer clic en cualquiera de estas recomendaciones para obtener más detalles sobre las acciones que deben llevarse a cabo para solucionar el problema. El ejemplo siguiente muestra la expansión de la recomendación **Auditoría de base de datos no habilitada**.
+Puede hacer clic en cualquiera de estas recomendaciones para obtener más detalles sobre las acciones que deben llevarse a cabo para solucionar el problema. El ejemplo siguiente muestra la expansión de la recomendación **Database Auditing not enabled** (Auditoría de base de datos no habilitada).
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig16-new.png)
 
@@ -185,4 +195,4 @@ En este documento, aprendió a usar las funcionalidades de supervisión en el Ce
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -80,23 +80,23 @@ Normalmente, un conjunto de datos requiere algún procesamiento previo antes de 
 
 En primer lugar, eliminaremos la columna **normalized-losses** y luego las filas que tienen datos que faltan.
 
-1. Escriba **columnas del proyecto** en el cuadro de búsqueda, en la parte superior de la paleta del módulo, para encontrar el módulo [Columnas del proyecto][project-columns]; arrástrelo después hasta el lienzo de experimentos y conéctelo al puerto de salida del conjunto de datos **Datos de precios de automóviles (sin formato)**. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
+1. Escriba **seleccionar columnas** en el cuadro de búsqueda, en la parte superior de la paleta del módulo, para encontrar el módulo [Seleccionar columnas en el conjunto de datos][select-columns]; arrástrelo después hasta el lienzo de experimentos y conéctelo al puerto de salida del conjunto de datos **Datos de precios de automóviles (sin formato)**. Este módulo nos permite seleccionar las columnas de datos que queremos incluir o excluir del modelo.
 
-2. Seleccione el módulo [Proyectar columnas][project-columns] y haga clic en **Iniciar el selector de columnas** en el panel de **propiedades**.
+2. Seleccione el módulo [Seleccionar columnas en el conjunto de datos][select-columns] y haga clic en **Iniciar el selector de columnas** en el panel de **propiedades**.
 
-	- Asegúrese de que **Todas las columnas** esté seleccionado en la lista desplegable del filtro **Comenzar con**. Esto indica a [Proyectar columnas][project-columns] que pase todas las columnas (excepto las que se van a excluir).
+	- Asegúrese de que **Todas las columnas** esté seleccionado en la lista desplegable del filtro **Comenzar con**. Esto indica a [Seleccionar columnas en el conjunto de datos][select-columns] que pase todas las columnas (excepto las que se van a excluir).
 	- En la siguiente fila, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** y se agregará al cuadro de texto.
 	- Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas.
 
     ![Select columns][screen3]
 
-	El panel de propiedades de **Proyectar columnas** indica que se pasarán todas las columnas del conjunto de datos excepto **normalized-losses**.
+	El panel de propiedades de **Seleccionar columnas en el conjunto de datos** indica que se pasarán todas las columnas del conjunto de datos excepto **normalized-losses**.
 
-    ![Project Columns properties][screen4]
+    ![Selección de columnas en propiedades del conjunto de datos][screen4]
 
-    > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Proyectar columnas][project-columns] y escriba el comentario "Excluir normalized-losses".
+    > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Seleccionar columnas en el conjunto de datos][select-columns] y escriba el comentario "Excluir normalized-losses".
 
-3. Arrastre el módulo [Limpiar valores que faltan][clean-missing-data] al lienzo de experimentos y conéctelo al módulo [Proyectar columnas][project-columns]. En el panel **Propiedades**, seleccione **Quitar la fila entera** en **Modo de limpieza** para limpiar los datos eliminando las filas que tienen valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
+3. Arrastre el módulo [Limpiar valores que faltan][clean-missing-data] al lienzo de experimentos y conéctelo al módulo [Seleccionar columnas en el conjunto de datos][select-columns]. En el panel **Propiedades**, seleccione **Quitar la fila entera** en **Modo de limpieza** para limpiar los datos eliminando las filas que tienen valores que faltan. Haga doble clic en el módulo y escriba el comentario "Quitar las filas sin valor".
 
 	![Propiedades de Limpiar datos que faltan][screen4a]
 
@@ -114,17 +114,17 @@ Ahora los datos están limpios y ya puede especificar qué características se v
 
 En el aprendizaje automático, las *características* son propiedades mensurables individuales de algo que le interesa. En nuestro conjunto de datos, cada fila representa un automóvil y cada columna es una característica de ese automóvil. Encontrar un buen conjunto de funciones para la creación de un modelo de predicción requiere experimentación y conocimientos acerca del problema que desea resolver. Algunas características son mejores para predecir el destino que otras. Además, algunas funciones tienen una fuerte correlación con otras (por ejemplo, city-mpg frente a highway-mpg), por lo tanto, no agregarán mucha información nueva al modelo y se podrán eliminar.
 
-Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de datos. Puede volver y seleccionar diferentes funciones, ejecutar de nuevo el experimento y ver si obtiene mejores resultados. Como primera suposición, seleccionaremos las siguientes características (columnas) con el módulo [Proyectar columnas][project-columns]. Tenga en cuenta que para entrenar el modelo, debemos incluir el valor *precio* que vamos a predecir.
+Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de datos. Puede volver y seleccionar diferentes funciones, ejecutar de nuevo el experimento y ver si obtiene mejores resultados. Como primera suposición, seleccionaremos las siguientes características (columnas) con el módulo [Seleccionar columnas en el conjunto de datos][select-columns]. Tenga en cuenta que para entrenar el modelo, debemos incluir el valor *precio* que vamos a predecir.
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Arrastre otro módulo [Proyectar columnas][project-columns] al lienzo de experimentos y conéctelo al puerto de salida izquierdo del módulo [Limpiar datos que faltan][clean-missing-data]. Haga doble clic en el módulo y escriba "Seleccionar funciones para la predicción".
+1. Arrastre otro módulo [Seleccionar columnas en el conjunto de datos][select-columns] al lienzo de experimentos y conéctelo al puerto de salida izquierdo del módulo [Limpiar datos que faltan][clean-missing-data]. Haga doble clic en el módulo y escriba "Seleccionar funciones para la predicción".
 
 2. Haga clic en **Iniciar el selector de columnas** en el panel **Propiedades**.
 
 3. En el selector de columnas, seleccione **Sin columnas** en **Comenzar con** y luego seleccione **Incluir** y **nombres de columna** en la fila de filtro. Escriba nuestra lista de nombres de columnas. Esto indica al módulo que pase solo las columnas que le especificamos.
 
-	> [AZURE.TIP] Como hemos ejecutado el experimento, las definiciones de columna de nuestros datos han pasado del conjunto de datos original al módulo [Limpiar datos que faltan][clean-missing-data]. Cuando conecta [Proyectar columnas][project-columns] a [Limpiar datos que faltan][clean-missing-data], el módulo [Proyectar columnas][project-columns] descubre las definiciones de columna de nuestros datos. Cuando hace clic en el cuadro **nombres de columna**, se muestra una lista de columnas y puede seleccionar las que quiera agregar a la lista.
+	> [AZURE.TIP] Como hemos ejecutado el experimento, las definiciones de columna de nuestros datos han pasado del conjunto de datos original al módulo [Limpiar datos que faltan][clean-missing-data]. Cuando conecta [Seleccionar columnas en el conjunto de datos][select-columns] a [Limpiar datos que faltan][clean-missing-data], el módulo [Seleccionar columnas en el conjunto de datos][select-columns] descubre las definiciones de columna de nuestros datos. Cuando hace clic en el cuadro **nombres de columna**, se muestra una lista de columnas y puede seleccionar las que quiera agregar a la lista.
 
 4. Haga clic en el botón de marca de verificación (Aceptar).
 
@@ -140,11 +140,11 @@ Ahora que los datos están listos, la construcción de un modelo predictivo cons
 
 Queremos predecir el precio de un automóvil, que puede ser cualquier valor, así que usaremos un modelo de regresión. En este ejemplo, entrenaremos un modelo sencillo de *regresión lineal* y en el siguiente paso lo probaremos.
 
-1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Columnas del proyecto][project-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
+1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Seleccionar columnas en el conjunto de datos][select-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
 	> [AZURE.TIP] Al cambiar el parámetro **Valor de inicialización aleatorio**, puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
-2. Ejecute el experimento. De esta forma, los módulos [Columnas del proyecto][project-columns] y [Dividir datos][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.
+2. Ejecute el experimento. De esta forma, los módulos [Seleccionar columnas en el conjunto de datos][select-columns] y [Dividir datos][split] pasan las definiciones de columna a los módulos que se agregarán a continuación.
 
 3. Para seleccionar el algoritmo de aprendizaje, expanda la categoría **Aprendizaje automático** en la paleta de módulos situada a la izquierda del lienzo y luego expanda **Inicializar modelo**. Se muestran varias categorías de módulos que se pueden usar para inicializar algoritmos de Aprendizaje automático.
 
@@ -229,9 +229,9 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

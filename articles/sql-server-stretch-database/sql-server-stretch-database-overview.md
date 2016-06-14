@@ -63,11 +63,11 @@ Stretch Database está pensado para bases de datos transaccionales con grandes c
 
 Si utiliza la característica de tabla temporal de SQL Server 2016, use Stretch Database para migrar toda la tabla histórica asociada o parte de ella a un almacenamiento rentable en Azure. Para más información, consulte [Manage Retention of Historical Data in System-Versioned Temporal Tables (Administración de la retención de datos históricos en tablas temporales con versión del sistema)](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Use Stretch Database Advisor, una característica del Asesor de actualizaciones de SQL Server 2016, para identificar las bases de datos y tablas para Stretch Database. Para más información, consulte [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor). Para más información sobre los posibles problemas de bloqueo, consulte [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md) (Limitaciones de área expuesta y problemas de bloqueo para Stretch Database).
+Use Stretch Database Advisor, una característica del Asesor de actualizaciones de SQL Server 2016, para identificar las bases de datos y tablas para Stretch Database. Para más información, consulte [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor). Para más información acerca de posibles problemas de bloqueo, consulte [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
 
 ## <a name="FAQ"></a>Preguntas más frecuentes sobre Stretch Database
 **¿Funciona Stretch Database con &lt;Nombre de la característica de SQL Server&gt;?**
--   Para ver una lista de características de SQL Server que hacen que una tabla no sea válida para Stretch, consulte [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md) (Limitaciones de área expuesta y problemas de bloqueo de Stretch Database).
+-   Para ver una lista de características de SQL Server que hacen que una tabla no sea válida para Stretch, consulte [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Para identificar las bases de datos y las tablas que son candidatas a Stretch Database, descargue el Asesor de actualizaciones de SQL Server 2016 y ejecute Stretch Database Advisor. Para más información, consulte [Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor).
 
@@ -123,4 +123,4 @@ Stretch Database no cambia el modelo de permisos de una base de datos ya existen
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

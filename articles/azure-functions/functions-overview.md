@@ -44,7 +44,7 @@ Funciones de Azure es una excelente solución para procesar datos e integrar sis
 Funciones de Azure ofrece plantillas para comenzar con situaciones clave, incluidas las siguientes:
 
 * **BlobTrigger**: procesar blobs de Almacenamiento de Azure cuando se agregan a los contenedores. Se puede usar para cambiar el tamaño de las imágenes.
-* **EventHubTrigger**: responder a eventos que se producen en los dispositivos de IoT.
+* **EventHubTrigger**: responder a eventos proporcionados a un Centro de eventos de Azure. Especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
 * **Webhook genérico**: procesar las solicitudes HTTP de webhook de cualquier servicio que admita webhooks.
 * **GitHub webhook**: responder a los eventos que se producen en los repositorios de GitHub. Para ver un ejemplo, consulte [Creación de un webhook o una función de API de Azure](functions-create-a-web-hook-or-api-function.md).
 * **HTTPTrigger**: desencadenar la ejecución del código mediante una solicitud HTTP.
@@ -87,4 +87,4 @@ Para más información acerca de cómo escalar sus funciones, consulte [Escalado
 + [Escalado de Funciones de Azure](functions-scale.md) Aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado. 
 + [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md) Funciones de Azure aprovecha la plataforma de Servicio de aplicaciones de Azure para obtener funcionalidad básica como implementaciones, variables de entorno y diagnósticos. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

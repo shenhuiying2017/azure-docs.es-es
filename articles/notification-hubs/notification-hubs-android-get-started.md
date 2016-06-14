@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="05/27/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a Android con los Centros de notificaciones de Azure
@@ -74,13 +74,13 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 ###Incorporación de bibliotecas de Centros de notificaciones de Azure
 
-1. Descargue el archivo `notification-hubs-0.4.jar` de la pestaña **Archivos** del [Notification-Hubs-Android-SDK en Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Arrastre el archivo a la carpeta **libs** del directorio del proyecto.
 
-2. En el archivo `Build.Gradle` de la **aplicación**, agregue la siguiente línea en la sección **dependencies**.
+1. En el archivo `Build.Gradle` de la **aplicación**, agregue las siguientes líneas en la sección **dependencies**.
 
-	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+		compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+		compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
-	Agregue el repositorio siguiente después de la sección de **dependencias**.
+2. Agregue el repositorio siguiente después de la sección de **dependencias**.
 
 		repositories {
 		    maven {
@@ -322,7 +322,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 	    }
 
 
-9. Agregue estos métodos adicionales a `MainActivity` para comprobar el estado de aplicación y de informe de la aplicación.
+9. Agregue estos métodos adicionales a `MainActivity` para comprobar el estado de la aplicación y el del informe de la aplicación.
 
 	    @Override
 	    protected void onStart() {
@@ -724,4 +724,4 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

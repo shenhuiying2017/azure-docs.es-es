@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="Tutorial de REST de mensajería asíncrona del Bus de servicio | Microsoft Azure"
-   description="Tutorial de REST de mensajería asíncrona."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Tutorial de REST de mensajería asíncrona del Bus de servicio | Microsoft Azure"
+    description="Tutorial de REST de mensajería asíncrona."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/15/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # Tutorial de REST de mensajería asíncrona del Bus de servicio
 
-En este tutorial se muestra cómo crear una cola básica del Bus de servicio de Azure basada en REST y un tema o servicio de suscripción.
+En este tutorial se muestra cómo crear una cola básica del Bus de servicio de Azure basada en REST y un tema o suscripción.
 
 ## Paso 1: crear un espacio de nombres
 
 El primer paso es crear un espacio de nombres de servicio y obtener una clave de [firma de acceso compartido](service-bus-sas-overview.md) (SAS) Un espacio de nombres de servicio proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
 
-### Creación de un espacio de nombres y obtención de una clave secreta compartida
+### Creación de un espacio de nombres y obtención de una clave SAS
 
 1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
@@ -186,17 +186,19 @@ Pegue el código siguiente directamente después del código `GetSASToken()` que
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
-    // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
+    // Create the URI of the new queue, note that this uses the HTTPS scheme
+    string queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
     webClient.Headers[HttpRequestHeader.Authorization] = token;
 
     Console.WriteLine("\nCreating queue {0}", queueAddress);
-    // Prepare the body of the create queue requestvar putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
-                                  <title type=""text"">" + queueName + @"</title>
-                                  <content type=""application/xml"">
-                                    <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
-                                  </content>
-                                </entry>";
+    // Prepare the body of the create queue request
+    var putData = @"<entry xmlns=""http://www.w3.org/2005/Atom"">
+                          <title type=""text"">" + queueName + @"</title>
+                          <content type=""application/xml"">
+                            <QueueDescription xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"" />
+                          </content>
+                        </entry>";
 
     byte[] response = webClient.UploadData(queueAddress, "PUT", Encoding.UTF8.GetBytes(putData));
     return Encoding.UTF8.GetString(response);
@@ -633,4 +635,4 @@ Para obtener más información, consulte los artículos siguientes:
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->
