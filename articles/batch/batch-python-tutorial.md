@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Introducción al cliente Python de Lote de Azure
@@ -24,7 +24,7 @@
 
 Aprenda los conceptos básicos del cliente [Lote de Azure][azure_batch] y [Python de Lote][py_azure_sdk] gracias a una pequeña aplicación de Lote escrita en Python que verá. Se examinará la forma en que estos dos scripts de ejemplo aprovechan del servicio Lote para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Almacenamiento de Azure](./../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
 
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) y las [tareas de múltiples instancias](batch-mpi.md) no son **compatibles actualmente** con los nodos de proceso de Linux.
+> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) **no se admiten actualmente** en los nodos de proceso de Linux.
 
 ![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
 
@@ -34,13 +34,13 @@ En este artículo se considera que tiene conocimientos prácticos de Python y es
 
 ### Cuentas
 
-- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, [cree una cuenta de Azure gratuita][azure_free_account].
+- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, [cree una cuenta gratuita de Azure][azure_free_account].
 - **Cuenta de Lote**: una vez que tenga una suscripción a Azure, [cree una cuenta de Lote de Azure](batch-account-create-portal.md).
 - **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de Almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
 ### Código de ejemplo
 
-El ejemplo de código del tutorial de Python es uno de los muchos ejemplos de código de Lote que se encuentran en el repositorio [azure-batch-samples][github_samples] de GitHub. Para descargar todos los ejemplos, haga clic en **Clone or download > Download ZIP** (Clonar o descargar > Descargar ZIP), en la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez que haya extraído el contenido del archivo ZIP, los dos scripts de este tutorial estarán encuentran en el directorio de `article_samples`:
+El ejemplo de código del tutorial de Python es uno de los muchos ejemplos de código de Lote que se encuentran en el repositorio [azure-batch-samples][github_samples] de GitHub. Para descargar todos los ejemplos, haga clic en **Clone or download > Download ZIP** (Clonar o descargar > Descargar ZIP), en la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez que haya extraído el contenido del archivo ZIP, los dos scripts de este tutorial estarán en el directorio de `article_samples`:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/> `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
@@ -120,7 +120,7 @@ if __name__ == '__main__':
 Lote incluye compatibilidad integrada con la interacción con Almacenamiento de Azure. Los contenedores de la cuenta de Almacenamiento proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Lote. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace el script *python\_tutorial\_client.py* es crear tres contenedores en [Almacenamiento de blobs de Azure](../storage/storage-introduction.md#blob-storage):
 
 - **aplicación**: este contenedor almacenará el script de Python ejecutado por las tareas, *python\_tutorial\_task.py*.
-- **entrada**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *entrada*.
+- **input**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *input*.
 - **salida**: cuando las tareas completen el procesamiento de los archivos de entrada, cargarán los resultados en el contenedor *salida*.
 
 Para interactuar con una cuenta de Almacenamiento y crear contenedores, se usa el paquete [azure-storage][pypi_storage] para crear un objeto [BlockBlobService][py_blockblobservice] (el "cliente de blob"). A continuación, se crearán tres contenedores en la cuenta de Almacenamiento mediante el cliente de blob.
@@ -216,22 +216,22 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ### ResourceFiles
 
-[ResourceFile][py_resource_file] proporciona tareas de Lote con la dirección URL a un archivo de Almacenamiento de Azure que se descargará en un nodo de proceso antes de que la tarea se ejecute. La propiedad [ResourceFile][py_resource_file].**blob\_source** especifica la dirección URL completa del archivo, tal como existe en Almacenamiento de Azure. La dirección URL también puede incluir una firma de acceso compartido (SAS) que proporcione acceso seguro al archivo. La mayoría de tipos de tareas de Lote contienen una propiedad *ResourceFiles*, que incluye:
+[ResourceFile][py_resource_file] proporciona tareas de Lote con la dirección URL a un archivo de Almacenamiento de Azure que se descargará en un nodo de proceso antes de que la tarea se ejecute. La propiedad [ResourceFile][py_resource_file].**blob\_source** especifica la dirección URL completa del archivo, tal como existe en Almacenamiento de Azure. La dirección URL también puede incluir una firma de acceso compartido (SAS) que proporcione acceso seguro al archivo. La mayoría de los tipos de tareas de Lote contienen una propiedad *ResourceFiles*, que incluye:
 
 - [CloudTask][py_task]
 - [StartTask][py_starttask]
 - [JobPreparationTask][py_jobpreptask]
 - [JobReleaseTask][py_jobreltask]
 
-Este ejemplo no usa los tipos de tarea JobPreparationTask o JobReleaseTask. Para más información acerca de estos tipos de tarea, consulte [Ejecución de tareas de preparación y finalización de trabajos en nodos de proceso de Lote de Azure](batch-job-prep-release.md).
+Este ejemplo no usa los tipos de tarea JobPreparationTask o JobReleaseTask, pero puede leer más acerca de estos tipos de tarea en [Ejecución de tareas de preparación y finalización de trabajos en nodos de proceso de Lote de Azure](batch-job-prep-release.md).
 
 ### Firma de acceso compartido (SAS)
 
 Las Firmas de acceso compartido son cadenas que proporcionan acceso seguro a contenedores y blobs en Almacenamiento de Azure. El script *python\_tutorial\_client.py* utiliza Firmas de acceso compartido de blobs y contenedores, y muestra cómo obtener estas cadenas de Firma de acceso compartido en el servicio Almacenamiento.
 
-- **Firmas de acceso compartido de blobs**: la clase StartTask del grupo usa Firmas de acceso compartido de blobs al descargar el script de la tarea y los archivos de datos de entrada de Almacenamiento (consulte el [paso 3](#step-3-create-batch-pool)). La función `upload_file_to_container` en *python\_tutorial\_client.py* contiene el código que obtiene cada Firma de acceso compartido de blobs. Lo hace mediante una llamada a [BlockBlobService.make\_blob\_url][py_make_blob_url] en el módulo Almacenamiento.
+- **Firmas de acceso compartido de blobs**: la clase StartTask del grupo usa Firmas de acceso compartido de blobs al descargar el script de la tarea y los archivos de datos de entrada de Almacenamiento (consulte el [paso 3](#step-3-create-batch-pool)). La función `upload_file_to_container` en *python\_tutorial\_client.py* contiene el código obtenido por cada Firma de acceso compartido de blobs. Lo hace mediante una llamada a [BlockBlobService.make\_blob\_url][py_make_blob_url] en el módulo Almacenamiento.
 
-- **Firma de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *salida* de Almacenamiento de Azure. Para ello, *python\_tutorial\_task.py* utiliza una Firma de acceso compartido de contenedor que proporciona un acceso de escritura al contenedor. La función `get_container_sas_token` en *python\_tutorial\_client.py* obtiene la Firma de acceso compartido del contenedor, que se pasa como un argumento de la línea de comandos a las tareas. En el paso 5, [Agregar tareas a un trabajo](#step-5-add-tasks-to-job), se describe el uso del contenedor SAS.
+- **Firma de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *salida* de Almacenamiento de Azure. Para ello, *python\_tutorial\_task.py* utiliza una Firma de acceso compartido del contenedor que proporciona un acceso de escritura al contenedor. La función `get_container_sas_token` en *python\_tutorial\_client.py* obtiene la Firma de acceso compartido del contenedor, que se pasa como un argumento de la línea de comandos a las tareas. En el paso 5, [Agregar tareas a un trabajo](#step-5-add-tasks-to-job), se describe el uso de la SAS del contenedor.
 
 > [AZURE.TIP] Consulte la serie de dos partes sobre las Firmas de acceso compartido, [Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) y [Parte 2: Creación y uso de una firma de acceso compartido con el servicio Blob](../storage/storage-dotnet-shared-access-signature-part-2.md), para más información sobre cómo proporcionar acceso seguro a los datos de la cuenta de Almacenamiento.
 
@@ -250,9 +250,8 @@ Después de cargar los archivos de datos y el script de la tarea en la cuenta de
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 A continuación, se crea un grupo de nodos de proceso en la cuenta de Lote con una llamada a `create_pool`.
@@ -328,13 +327,13 @@ Cuando crea un grupo, se define una instancia de [PoolAddParameter][py_pooladdpa
 
 - **Tamaño de los nodos de proceso** (*vm\_size*: necesario)<p/>Puesto que se están especificando nodos de Linux para nuestra instancia de [VirtualMachineConfiguration][py_vm_config], especifique un tamaño de máquina virtual (`STANDARD_A1` en este ejemplo) en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md). De nuevo, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md) para más información.
 
-- **Tarea de inicio** (*start\_task*: no necesario)<p/>Junto con las anteriores propiedades de nodo físico, también puede especificar una tarea [StartTask][py_starttask] para el grupo (no es necesario). La clase StartTask se ejecutará en cada nodo cuando el nodo se una al grupo, así como cada vez que se reinicie el nodo. La tarea StartTask es especialmente útil para preparar los nodos de proceso para la ejecución de tareas, como la instalación de las aplicaciones que se ejecutarán las tareas.<p/>En esta aplicación de ejemplo, la tarea StartTask copia los archivos que descarga de Almacenamiento (que se especifican mediante la propiedad **ResourceFiles** de StartTask) desde el *directorio de trabajo* de StartTask al directorio *compartido* al que pueden acceder todas las tareas que se ejecutan en el nodo. Básicamente, copia `python_tutorial_task.py` y sus dependencias en el directorio compartido de cada nodo cuando el nodo se une al grupo, con el fin de que las tareas que se ejecutan en el nodo puedan acceder a él.
+- **Tarea de inicio** (*start\_task*: no necesario)<p/>Junto con las anteriores propiedades de nodo físico, también puede especificar una tarea [StartTask][py_starttask] para el grupo (no es necesario). La clase StartTask se ejecutará en cada nodo cuando el nodo se una al grupo, así como cada vez que se reinicie el nodo. La tarea StartTask es especialmente útil para preparar los nodos de proceso para la ejecución de tareas, como la instalación de las aplicaciones que se ejecutarán las tareas.<p/>En esta aplicación de ejemplo, la tarea StartTask copia los archivos que descarga de Almacenamiento (especificados mediante la propiedad **resource\_files** de StartTask) desde el *directorio de trabajo* de StartTask en el directorio *compartido* al que pueden acceder todas las tareas que se ejecutan en el nodo. Básicamente, copia `python_tutorial_task.py` y sus dependencias en el directorio compartido de cada nodo cuando el nodo se une al grupo, con el fin de que las tareas que se ejecutan en el nodo puedan acceder a él.
 
-Puede observa la llamada a la función auxiliar `wrap_commands_in_shell`. Esta función toma una colección de comandos independientes y crea una línea de comandos adecuada para la propiedad de la línea de comandos de la tarea.
+Puede ver la llamada a la función auxiliar `wrap_commands_in_shell`. Esta función toma una colección de comandos independientes y crea una línea de comandos adecuada para la propiedad de la línea de comandos de la tarea.
 
 En el fragmento de código anterior, cabe destacar también el uso de dos variables de entorno en la propiedad **command\_line** de StartTask: `AZ_BATCH_TASK_WORKING_DIR` y `AZ_BATCH_NODE_SHARED_DIR`. Cada nodo de proceso de un grupo de Lote se configura automáticamente con un número de variables de entorno específicas de Lote. Todos los procesos que ejecute una tarea tienen acceso a estas variables de entorno.
 
-> [AZURE.TIP] Para más información acerca de las variables de entorno disponibles en los nodos de proceso de un grupo de Lote, así como de los directorios de trabajo de las tareas, consulte **Configuración del entorno para las tareas** y **Archivos y directorios** de [Información general de las características de Lote de Azure](batch-api-basics.md).
+> [AZURE.TIP] Para más información acerca de las variables de entorno disponibles en los nodos de proceso de un grupo de Lote, así como de los directorios de trabajo de las tareas, consulte **Configuración del entorno para las tareas** y **Archivos y directorios** en [Información general de las características de Lote de Azure](batch-api-basics.md).
 
 ## Paso 4: Crear el trabajo de Lote
 
@@ -344,7 +343,7 @@ Un **trabajo** de Lote es básicamente una colección de tareas asociadas a un g
 
 Se puede usar un trabajo no solo para la organización y seguimiento de las tareas en las cargas de trabajo relacionadas, sino también para imponer ciertas restricciones, como el tiempo máximo de ejecución del trabajo (y, por extensión, sus tareas), así como la prioridad del trabajo, en relación con los restantes trabajos de la cuenta de Lote. Sin embargo, en este ejemplo, el trabajo está asociado solo con el grupo que se creó en el paso 3. No hay propiedades adicionales configuradas.
 
-Todos los trabajos de Lote están asociados a un grupo específico. Esta asociación indica en qué nodos se ejecutarán las tareas del trabajo. Para especificarlo, use la propiedad [CloudJob.PoolInformation][py_poolinfo], como se muestra en el siguiente fragmento de código.
+Todos los trabajos de Lote están asociados a un grupo específico. Esta asociación indica en qué nodos se ejecutarán las tareas del trabajo. Para especificarlo, use la propiedad [PoolInformation][py_poolinfo], como se muestra en el siguiente fragmento de código.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -377,7 +376,7 @@ Ahora que se ha creado un trabajo, se agregan las tareas para realizar dicho tra
 
 Las **tareas** de Lote son unidades de trabajo individuales que se ejecutan en los nodos de proceso. Una tarea tiene una línea de comandos y ejecuta los scripts o archivos ejecutables que se especifican en la línea de comandos.
 
-Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][py_task] se configura mediante una propiedad de la línea de comandos y [ResourceFiles][py_resource_file] (al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el ejemplo, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
+Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][py_task] se configura mediante una propiedad de la línea de comandos y el objeto [ResourceFiles][py_resource_file] (al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el ejemplo, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -421,7 +420,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] Cuando acceden a variables de entorno como `$AZ_BATCH_NODE_SHARED_DIR` o ejecutan una aplicación que no se encuentra en `PATH` del nodo, las líneas de comandos de la tarea deben ir precedidas de `/bin/bash` (Linux) o `cmd /c` (Windows). Así se ejecutará explícitamente el shell de comandos y se dará la orden de finalización después de ejecutar el comando. Este requisito no es necesario si las tareas ejecutan una aplicación en la instancia `PATH` del nodo (como *python* en el fragmento de código anterior).
+> [AZURE.IMPORTANT] Cuando acceden a variables de entorno como `$AZ_BATCH_NODE_SHARED_DIR` o ejecutan una aplicación que no se encuentra en el elemento `PATH` del nodo, las líneas de comandos de la tarea deben ir precedidas de `/bin/bash` (Linux) o `cmd /c` (Windows). Así se ejecutará explícitamente el shell de comandos y se dará la orden de finalización después de ejecutar el comando. Este requisito no es necesario si las tareas ejecutan una aplicación en el elemento `PATH` del nodo (como *python* en el fragmento de código anterior).
 
 En el bucle `for` del fragmento de código anterior, puede ver que la línea de comandos de la tarea se construye con cinco argumentos de la línea de comandos que se pasan a *python\_tutorial\_task.py*:
 
@@ -559,7 +558,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Ejecución del script de ejemplo
 
-Al ejecutar el script *python\_tutorial\_client.py*, el resultado de la consola será similar al siguiente. Verá una pausa en `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` mientras se crean e se inician los nodos de proceso del grupo, y se ejecutan los comandos de la tarea de inicio del grupo. Use el [Portal de Azure][azure_portal] o el [Explorador de Lote][github_batchexplorer] para supervisar el grupo, los nodos de proceso, el trabajo y las tareas tanto durante la ejecución como después de ella. Use el [Portal de Azure][azure_portal] o el [Explorador de Almacenamiento de Microsoft Azure][storage_explorer] para ver los recursos de Almacenamiento (contenedores y blobs) que crea la aplicación.
+Al ejecutar el script *python\_tutorial\_client.py*, el resultado de la consola será similar al siguiente. Verá una pausa en `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` mientras se crean e se inician los nodos de proceso del grupo, y se ejecutan los comandos de la tarea de inicio del grupo. Use el [Portal de Azure][azure_portal] o el [Explorador de Lote][github_batchexplorer] para supervisar el grupo, los nodos de proceso, el trabajo y las tareas, tanto durante la ejecución como después de ella. Use el [Portal de Azure][azure_portal] o el [Explorador de Almacenamiento de Microsoft Azure][storage_explorer] para ver los recursos de Almacenamiento (contenedores y blobs) que crea la aplicación.
 
 El tiempo de ejecución suele ser **aproximadamente de 5-7 minutos** cuando se ejecuta la aplicación en su configuración predeterminada.
 
@@ -665,4 +664,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

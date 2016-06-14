@@ -69,26 +69,50 @@ Después de haber creado la zona DNS en DNS de Azure, es necesario configurar lo
 
 Por ejemplo, supongamos que adquiere el dominio “contoso.com” y que crea una zona con el nombre “contoso.com” en DNS de Azure. Como propietario del dominio, el registrador le ofrecerá la opción de configurar las direcciones del servidor de nombres (es decir, los registros NS) para el dominio. El registrador almacenará estos registros NS en el dominio primario, en este caso, “.com”. A los clientes de todo el mundo se les remitirá entonces al dominio en cuestión en la zona DNS de Azure al tratar de resolver registros DNS en “contoso.com”.
 
-### Configuración de la delegación
+### Búsqueda de los nombres del servidor de nombres
 
-Para configurar la delegación, necesita saber los nombres del servidor de nombres de la zona de que se trate. DNS de Azure asigna los servidores de nombres a partir de un grupo cada vez que se crea una zona y los almacena en registros NS autoritativos que se crean automáticamente dentro de la zona correspondiente. Por tanto, para ver los nombres del servidor de nombres, solo necesita recuperar estos registros.
+Antes de poder delegar la zona DNS a DNS de Azure, primero debe conocer los nombres del servidor de nombres de la zona. El DNS de Azure asigna los servidores de nombres de un grupo cada vez que se crea una zona.
 
-Con el uso de PowerShell de Azure, los registros NS autoritativos pueden obtenerse como sigue. Tenga en cuenta que el nombre del registro "@" se usa para referirse a registros en la cúspide de la zona. En este ejemplo, a la zona “contoso.com” se le han asignado los servidores de nombres “ns1-04.azure-dns.com”, “ns2-04.azure-dns.net”, “ns3-04.azure-dns.org” y “ns4-04.azure-dns.info”.
+Para ver los servidores de nombres asignados a su zona, lo más sencillo es mediante el Portal de Azure. En este ejemplo, a la zona “contoso.net” se le han asignado los servidores de nombres “ns1-01.azure-dns.com”, “ns2-01.azure-dns.net”, “ns3-01.azure-dns.org” y “ns4-01.azure-dns.info”’:
 
+ ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-	$zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+El DNS de Azure crea automáticamente los registros NS autoritativos en la zona que contiene los servidores de nombres asignados. Para ver los nombres del servidor de nombres mediante Azure PowerShell o CLI de Azure, simplemente necesita recuperar estos registros.
+
+Con el uso de PowerShell de Azure, los registros NS autoritativos pueden obtenerse como sigue. Tenga en cuenta que el nombre del registro "@" se usa para referirse a registros en la cúspide de la zona.
+
+	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
+	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
-	ZoneName          : contoso.com
+	ZoneName          : contoso.net
 	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
-                     ns4-04.azure-dns.info}
+	Records           : {ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org,
+                        ns4-01.azure-dns.info}
 	Tags              : {}
 
+También puede utilizar la CLI de Azure multiplataforma para recuperar los registros NS autoritativos y, por tanto, detectar los servidores de nombres asignados a la zona:
+
+	C:\> azure network dns record-set show MyResourceGroup contoso.net @ NS
+	info:    Executing command network dns record-set show
+		+ Looking up the DNS Record Set "@" of type "NS"
+	data:    Id                              : /subscriptions/.../resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.net/NS/@
+	data:    Name                            : @
+	data:    Type                            : Microsoft.Network/dnszones/NS
+	data:    Location                        : global
+	data:    TTL                             : 172800
+	data:    NS records
+	data:        Name server domain name     : ns1-01.azure-dns.com.
+	data:        Name server domain name     : ns2-01.azure-dns.net.
+	data:        Name server domain name     : ns3-01.azure-dns.org.
+	data:        Name server domain name     : ns4-01.azure-dns.info.
+	data:
+	info:    network dns record-set show command OK
+
+### Configuración de la delegación
 
 Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos con los que DNS de Azure ha creado.
 
@@ -126,10 +150,9 @@ Configurar un subdominio sigue un proceso similar al de una delegación normal. 
 3. Delegue la zona secundaria mediante la configuración de los registros NS de la zona principal que apuntan a la zona secundaria.
 
 
-
 ### Delegación de un subdominio.
 
-En el siguiente ejemplo de PowerShell se muestra cómo funciona.
+En el siguiente ejemplo de PowerShell se muestra cómo funciona. Los mismos pasos se pueden ejecutar mediante el Portal de Azure, o mediante la CLI de Azure multiplataforma.
 
 #### Paso 1. Creación de las zonas primarias y secundarias
 
@@ -140,7 +163,7 @@ Primero se crean las zonas primarias y secundarias Se pueden crear dentro del mi
 
 #### Paso 2: Recuperación de registros NS
 
-A continuación, se recuperan los registros NS autoritativos de la zona secundaria, tal como se muestra en el ejemplo siguiente:
+A continuación, se recuperan los registros NS autoritativos de la zona secundaria, tal como se muestra en el ejemplo siguiente: Contiene los servidores de nombres asignados a la zona secundaria.
 
 	$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -176,4 +199,4 @@ Se puede comprobar que todo está configurado correctamente mirando el registro 
 
 [Administración de registros DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

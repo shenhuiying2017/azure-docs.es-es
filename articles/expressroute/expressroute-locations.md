@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/05/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -23,15 +23,15 @@ Las tablas de este artículo proporcionan información acerca de los proveedores
 
 ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El siguiente mapa proporciona una lista de regiones de Azure y ubicaciones de ExpressRoute. Las ubicaciones de ExpressRoute hacen referencia a los emparejamientos de Microsoft con varios proveedores de servicio.
 
-![](./media/expressroute-locations/expressroute-locations-map.png)
+![Mapa de ubicación][0]
 
 Tendrá acceso a los servicios de Azure en todas las regiones dentro de una región geopolítica si se conectó al menos a una ubicación de ExpressRoute dentro de la región geopolítica. La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|
-|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Toronto|
+|**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
-|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres|
+|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres, Newport(Wales)+, París+|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
 |**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokyo|
 |**Australia**|Este de Australia y Sudeste de Australia|Melbourne, Sidney|
@@ -43,7 +43,7 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 |**Región geopolítica**|**Regiones de Azure**|**Ubicaciones de ExpressRoute**|
 |---|---|---|---|
-|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Nueva York +, Washington DC|
+|**Nube del gobierno de Estados Unidos**|Gobierno de EE. UU. - Iowa, Gobierno de EE. UU. - Virginia|Chicago, Dallas+, Nueva York, Washington DC|
 |**China**|Este de China, Norte de China|Beijing, Shanghai|
 |**Alemania**|Centro de Alemania, Alemania oriental|Berlín+, Fráncfort|
 
@@ -59,11 +59,11 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Compatible | Compatible | Ámsterdam, Silicon Valley, Singapur, Tokyo, Washington DC |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapur, Sídney, Washington DC |
-| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Tokio, Washington DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 |**CenturyLink** | Próximamente | Próximamente| Silicon Valley |
 |**China Telecom Global** | Compatible | No compatible | Hong Kong |
 |**Cologix** | Compatible | Próximamente | Montreal+, Toronto |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres, Tokio |
 | **Comcast** | Compatible | Compatible | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Toronto, Washington DC |
@@ -83,6 +83,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Softbank** | Compatible | Compatible | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Compatible | Ámsterdam, Chennai, Hong Kong, Londres, Mumbai, Silicon Valley, Singapur, Washington DC |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam y Londres |
+| **Telefónica** | Próximamente | Próximamente | São Paulo+ |
 | **Telenor** | Compatible | Compatible | Ámsterdam y Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
@@ -98,9 +99,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Nueva York +, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Nueva York, Washington DC |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Próximamente | Chicago, Nueva York +, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Nueva York +, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Nueva York, Washington DC |
 
 #### China
 
@@ -113,7 +114,7 @@ Para obtener más información, consulte [ExpressRoute en China](http://www.wind
 
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Próximamente | No compatible | Berlín+, Fráncfort+|
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | No compatible | Berlín+, Fráncfort|
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Próximamente | No compatible | Fráncfort+|
 | **e-shelter** | Próximamente | No compatible | Berlín+|
 | **Interxion** | Compatible | No compatible | Fráncfort|
@@ -157,4 +158,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 - Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!--Image References-->
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
+
+<!---HONumber=AcomDC_0608_2016-->

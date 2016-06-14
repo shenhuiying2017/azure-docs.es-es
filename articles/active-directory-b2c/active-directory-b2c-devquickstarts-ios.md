@@ -7,13 +7,9 @@
 	manager="mbaldwin"
 	editor=""/>
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="objectivec"
-	ms.topic="hero-article"
-	ms.date="02/17/2016"
+<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Versión preliminar AD B2C: llamar a una API web desde una aplicación iOS
@@ -630,4 +626,4 @@ Ahora puede pasar a temas más avanzados de B2C. Puede probar:
 
 [Personalización de la experiencia de usuario en una aplicación B2C]()
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->
