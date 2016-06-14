@@ -160,7 +160,10 @@ Para utilizar paquetes NuGet en una función de C#, cargue un archivo *project.j
 }
 ```
 
-Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a los ensamblados del mismo. No es necesario agregar directivas `#r "AssemblyName"`. Simplemente agregue las instrucciones `using` necesarias para que el archivo *run.csx* use los tipos definidos en los paquetes NuGet.
+Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json* especifique `net46` como se muestra aquí.
+
+Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"`. Basta con agregar las instrucciones `using` necesarias al archivo *run.csx* para que use los tipos definidos en los paquetes NuGet.
+
 
 ### Cómo cargar un archivo project.json
 
@@ -168,7 +171,7 @@ Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene 
 
 	Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
 
-2. Para cargar un archivo project.json, utilice uno de los métodos descritos en la sección **Actualización de los archivos del contenedor de funciones** del [tema de referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
+2. Para cargar un archivo project.json, utilice uno de los métodos descritos en la sección **Actualización de los archivos de la aplicación de función** del [tema Referencia para desarrolladores de Funciones de Azure](functions-reference.md#fileupdate).
 
 3. Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
@@ -191,7 +194,7 @@ Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene 
 
 ## Variables de entorno
 
-Para obtener una variable de entorno o un valor de configuración de la aplicación, utilice `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
+Para obtener una variable de entorno o un valor de configuración de aplicación, utilice `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -210,7 +213,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## Reutilización del código .csx
 
-Puede utilizar las clases y métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*, como se muestra en el ejemplo siguiente.
+Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*, como se muestra en el ejemplo siguiente.
 
 Archivo *run.csx* de ejemplo:
 
@@ -233,15 +236,15 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Puede utilizar una ruta de acceso relativa con la directiva `#load`:
+Puede usar una ruta de acceso relativa con la directiva `#load`:
 
 * `#load "mylogger.csx"` carga un archivo que se encuentra en la carpeta de la función.
 
-* `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta que a su vez está en la carpeta de la función.
+* `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta dentro de la carpeta de la función.
 
-* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta que está en el mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
+* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
  
-La directiva `#load` solo funciona con archivos (script de C#) *.csx*, no con archivos *.cs*.
+La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con archivos *.cs*.
 
 ## Pasos siguientes
 
@@ -251,4 +254,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

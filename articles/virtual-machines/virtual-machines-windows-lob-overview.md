@@ -19,8 +19,6 @@
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 Este artículo contiene vínculos a las instrucciones detalladas para implementar una aplicación de línea de negocio basada en web, solo de intranet y de alta disponibilidad, con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La aplicación se hospeda en estos equipos:
 
 - Dos servidores web
@@ -75,7 +73,7 @@ Esta configuración se implementa en las siguientes fases:
 - [Fase 2: Configuración de los controladores de dominio](virtual-machines-windows-ps-lob-ph2.md). Cree y configure los controladores de dominio de los Servicios de dominio de Active Directory (AD DS) de réplica.
 - [Fase 3: Configuración de la infraestructura de SQL Server](virtual-machines-windows-ps-lob-ph3.md). Cree y configure las máquinas virtuales que ejecutan SQL Server, cree el clúster y habilite los grupos de disponibilidad AlwaysOn de SQL Server.
 - [Fase 4: Configuración de servidores web](virtual-machines-windows-ps-lob-ph4.md). Cree y configure las dos máquinas virtuales de servidor web.
-- [Fase 5: Adición de las bases de datos de la aplicación a un grupo de disponibilidad AlwaysOn de SQL Server](virtual-machines-windows-ps-lob-ph5.md). Prepare las bases de datos de la aplicación de línea de negocio y agréguelas a un grupo de disponibilidad AlwaysOn de SQL Server.
+- [Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación](virtual-machines-windows-ps-lob-ph5.md). Prepare las bases de datos de la aplicación de línea de negocio y agréguelas a un grupo de disponibilidad AlwaysOn de SQL Server.
 
 Esta implementación está diseñada para complementar el [Plano de arquitectura de aplicaciones de línea de negocio](http://msdn.microsoft.com/dn630664) e incorpora las últimas recomendaciones.
 
@@ -93,4 +91,4 @@ Para obtener más información sobre el diseño de cargas de trabajo de TI en Az
 
 - Inicie la configuración de esta carga de trabajo con la [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Escribir datos en Power BI desde Apache Storm | Microsoft Azure"
- description="Escriba datos en Power BI desde una topología de C# que se ejecuta en un clúster de Apache Storm en HDInsight. Además, cree un informe y un panel en tiempo real con Power BI."
+ pageTitle="Uso de Apache Storm con Power BI | Microsoft Azure"
+ description="Creación de un informe de Power BI usando datos de una topología de C# que se ejecuta en un clúster de Apache Storm en HDInsight."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -14,14 +14,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/01/2016"
+ ms.date="05/27/2016"
  ms.author="larryfr"/>
 
 # Uso de Power BI para visualizar datos de una topología de Apache Storm
 
-Power BI permite mostrar visualmente los datos como informes o paneles. Con la API de REST de Power BI puede usar fácilmente datos de una topología que se ejecuta en clúster de Apache Storm en HDInsight en Power BI.
+Power BI permite mostrar visualmente los datos como informes. Mediante las plantillas de Visual Studio para Storm en HDInsight, se pueden utilizar fácilmente datos almacenados de una topología que se ejecutan en un clúster de HDInsight de Apache Storm en SQL Azure y luego visualizarlos con Power BI.
 
-En este documento, aprenderá a usar Power BI para crear un informe y un panel a partir de datos creados por una topología de Storm.
+En este documento, aprenderá a usar Power BI para crear un informe a partir de los datos generados por una topología de Apache Storm y almacenados en Base de datos de SQL de Azure.
 
 ## Requisitos previos
 
@@ -35,101 +35,116 @@ En este documento, aprenderá a usar Power BI para crear un informe y un panel a
 
     * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
 
-    * Visual Studio 2015 [CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+    * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 
 * Herramientas de HDInsight para Visual Studio: vea [Introducción al uso de Herramientas de HDInsight para Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obtener información acerca de la instalación.
 
 ## Cómo funciona
 
-Este ejemplo contiene una topología de Storm en C# que genera una oración aleatoriamente, divide la oración en palabras, cuenta las palabras y envía el recuento de palabras a la API de REST de Power BI. El paquete de Nuget [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) se usa para comunicación con Power BI.
+Este ejemplo contiene una topología de Storm en C# que genera de forma aleatoria los datos de registro de Internet Information Services (IIS). Estos datos se escriben en una Base de datos SQL y desde allí se utilizan para generar informes en Power BI.
 
-Los siguientes archivos de este proyecto implementan la funcionalidad específica de Power BI:
+La siguiente es una lista de los archivos que implementan la funcionalidad principal de este ejemplo.
 
-* **PowerBiBolt.cs**: implementa el bolt de Storm, que envía datos a Power BI.
+* **SqlAzureBolt.cs**: escribe la información generada en la topología de Storm para Base de datos SQL.
 
-* **Data.cs**: describe el objeto o fila de datos que se enviará a Power BI.
+* **IISLogsTable.sql**: las instrucciones Transact-SQL usadas para generar la base de datos en la que se almacenan los datos.
 
-> [AZURE.WARNING] Parece que Power BI permite la creación de varios conjuntos de datos con el mismo nombre. Esto puede ocurrir si el conjunto de datos no existe y la topología crea varias instancias del bolt de Power BI. Para evitar esto, establezca la sugerencia de paralelismo del bolt en 1 (como ocurre en este ejemplo) o cree el conjunto de datos antes de implementar la topología.
->
-> La aplicación de consola **CreateDataset** que se incluye en esta solución se proporciona como un ejemplo de cómo crear el conjunto de datos fuera de la topología.
-
-## Registro de una aplicación de Power BI
-
-1. Siga los pasos de la [guía rápida de Power BI](https://msdn.microsoft.com/library/dn931989.aspx) para suscribirse a Power BI.
-
-2. Siga los pasos de [Registro de una aplicación](https://msdn.microsoft.com/library/dn877542.aspx) para crear un registro de aplicación. Se utilizará al obtener acceso a la API de REST de Power BI.
-
-    > [AZURE.IMPORTANT] Guarde el **identificador de cliente** para el registro de la aplicación.
+> [AZURE.WARNING] Tiene que crear la tabla en Base de datos SQL antes de iniciar la topología en el clúster de HDInsight.
 
 ## Descarga del ejemplo
 
 Descargue el [ejemplo de Power BI de Storm en C# de HDInsight ](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). Para descargarlo, bifúrquelo o clónelo mediante [git](http://git-scm.com/), o use el vínculo **Descargar** para descargar un archivo .zip del archivo.
 
+## Creación de una base de datos
+
+1. Siga los pasos del [Tutorial de Base de datos SQL](../sql-database/sql-database-get-started.md) para crear una nueva Base de datos SQL.
+
+2. Conecte a la base de datos siguiendo los pasos del documento [Conexión a una Base de datos de SQL con Visual Studio](../sql-database/sql-database-connect-query.md) para conectarse a la base de datos.
+
+4. Haga clic con el botón derecho en el Explorador de objetos de base de datos y cree una __Nueva consulta__. Pegue el contenido del archivo __IISLogsTable.sql__ incluido en el proyecto descargado en la ventana de consulta, y use Ctrl + Mayús + E para ejecutar la consulta. Debería recibir un mensaje de que los comandos se han completado correctamente.
+
+    Una vez que se haya completado este proceso, habrá una nueva tabla llamada __IISLOGS__ en la base de datos.
+
 ## Configuración del ejemplo
 
-1. Abra el ejemplo en Visual Studio. Desde el **Explorador de soluciones**, abra el archivo **App.config** y luego busque el elemento **<OAuth .../>**. Escriba valores para las siguientes propiedades de este elemento.
+1. En el [Portal de Azure](https://portal.azure.com), seleccione la Base de datos SQL. Desde la sección __Información esencial__ de la hoja de Base de datos SQL, seleccione __Mostrar las cadenas de conexión de la base de datos__. En la lista que aparece, copie la información __ADO.NET (autenticación de SQL)__.
 
-    * **Cliente**: identificador del cliente para el registro de la aplicación que creó anteriormente.
+1. Abra el ejemplo en Visual Studio. Desde el **Explorador de soluciones**, abra el archivo **App.config** y luego busque el elemento:
 
-    * **Usuario**: cuenta de Azure Active Directory que tiene acceso a Power BI.
-
-    * **Contraseña**: contraseña de la cuenta de Azure Active Directory.
-
-2. (Opcional). El nombre del conjunto de datos predeterminado usado por este proyecto es **Words**. Para cambiarlo, haga clic con el botón secundario en el proyecto **WordCount** en el **Explorador de soluciones**, seleccione **Propiedades** y, a continuación, seleccione **Configuración**. Cambie la entrada **DatasetName** al valor que desee.
+        <add key="SqlAzureConnectionString" value="##TOBEFILLED##" />
+    
+    Reemplace el valor __TOBEFILLED ##__ con la cadena de conexión de base de datos copiada en el paso anterior. Reemplace __{your\_username}__ y __{your\_password}__ con el nombre de usuario y la contraseña para la base de datos.
 
 2. Guarde y cierre los archivos.
 
 ## Implementación del ejemplo
 
-1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto **WordCount** y seleccione **Enviar a Storm en HDInsight**. Seleccione el clúster de HDInsight desde el cuadro desplegable **Clúster de Storm**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **StormToSQL** y seleccione **Submit to Storm on HDInsight** (Enviar a Storm en HDInsight). Seleccione el clúster de HDInsight desde el cuadro desplegable **Clúster de Storm**.
 
     > [AZURE.NOTE] El cuadro desplegable **Storm clúster** puede tardar unos segundos en rellenarse con los nombres de servidor.
     >
     > Si se le solicita, escriba las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
-2. Cuando la topología se envíe correctamente, debe aparecer topologías de Storm para el clúster. Seleccione la topología WordCount en la lista para consultar la información acerca de la topología en ejecución.
+2. Cuando la topología se envíe correctamente, debe aparecer topologías de Storm para el clúster. Seleccione la entrada SqlAzureWriterTopology en la lista para consultar la información de la topología en ejecución.
 
-    ![Las topologías, con la topología WordCount seleccionada](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
+    ![Las topologías, con la topología seleccionada](./media/hdinsight-storm-power-bi-topology/topologyview.png)
 
-    > [AZURE.NOTE] También puede ver las topologías de Storm en el Explorador de servidores: expanda Azure, HDInsight, haga clic con el botón secundario en un clúster de Storm en HDInsight y seleccione Ver topologías de Storm.
+    Puede utilizar esta vista para ver información de la topología o hacer doble clic en las entradas (como SqlAzureBolt) para ver información específica de un componente de la topología.
 
-3. Cuando vea **Resumen de la topología**, desplácese hasta que vea la sección **Bolts**. En esta sección, observe la columna **Ejecutados** columna para el bolt **PowerBI**. Utilice el botón Actualizar situado en la parte superior de la página para actualizar hasta que el valor cambie a un valor distinto de cero. Cuando este número empieza a aumentar, indica que los elementos se escriben en Power BI.
+3. Después de que la topología se haya ejecutado durante unos minutos, vuelva a la ventana de consulta SQL que usó para crear la base de datos. Sustituya las instrucciones existentes por las siguientes:
+
+        select * from iislogs;
+    
+    Use Ctrl + Mayús + E para ejecutar la consulta, debería recibir resultados similares a los siguientes:
+    
+        1	2016-05-27 17:57:14.797	255.255.255.255	/bar	GET	200
+        2	2016-05-27 17:57:14.843	127.0.0.1	/spam/eggs	POST	500
+        3	2016-05-27 17:57:14.850	123.123.123.123	/eggs	DELETE	200
+        4	2016-05-27 17:57:14.853	127.0.0.1	/foo	POST	404
+        5	2016-05-27 17:57:14.853	10.9.8.7	/bar	GET	200
+        6	2016-05-27 17:57:14.857	192.168.1.1	/spam	DELETE	200
+
+    Se trata de datos que se ha escrito a partir de la topología de Storm.
 
 ## Creación de un informe
 
-1. En un explorador, visite [https://PowerBI.com](https://powerbi.com). Inicie sesión con su cuenta.
+1. Conectarse al [conector de Base de datos SQL de Azure](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) para Power BI.
 
-2. En el lado izquierdo de la página, expanda **Conjuntos de datos**. Seleccione la entrada **Words**. Se trata del conjunto de datos creado por la topología de ejemplo.
+2. Dentro de __Bases de datos__, seleccione __Obtener__.
 
-    ![Entrada del conjunto de datos Words](./media/hdinsight-storm-power-bi-topology/words.png)
+3. Seleccione __Base de datos SQL de Azure__ y __Conectar__.
 
-3. En el área **Campos**, expanda **WordCount**. Arrastre las entradas **Recuento** y **Palabra** a la parte central de la página. Esto creará un nuevo gráfico que muestra una barra para cada palabra que indica cuántas veces aparece la palabra.
+4. Escriba la información para conectarse a la Base de datos SQL de Azure. Puede encontrar esto acudiendo al [Portal de Azure](https://portal.azure.com) y seleccionando la Base de datos SQL.
 
-    ![Gráfico de WordCount](./media/hdinsight-storm-power-bi-topology/wordcountchart.png)
+    > [AZURE.NOTE] También puede establecer el intervalo de actualización y los filtros personalizados con __Habilitar opciones avanzadas__ en el cuadro de diálogo Conectar.
 
-4. En la parte superior izquierda de la página, seleccione **Guardar** para crear un nuevo informe. Escriba **Recuento de palabras** como el nombre del informe.
+5. Una vez que haya conectado, verá un nuevo conjunto de datos con el mismo nombre que la base de datos a la que está conectado. Seleccione el conjunto de datos para comenzar a diseñar un informe.
 
-5. Seleccione el logotipo de Power BI para volver al panel. El informe **Recuento de palabras** aparece ahora en **Informes**.
+3. Desde __Campos__, expanda la entrada __IISLOGS__. Seleccione la casilla de __URISTEM__. Esto creará un nuevo informe que enumera los recursos URI (/ foo/bar, etc.) registrados en la base de datos.
 
-## Creación de un panel activo
+    ![Creación de un informe](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
-1. Junto a **Panel**, seleccione el icono **+** para crear un nuevo panel. Asigne el nombre **Recuento de palabras activo ** al nuevo panel.
+5. A continuación, arrastre __METHOD__ al informe. El informe se actualizará para mostrar los recursos y el método HTTP correspondiente que se utiliza para la solicitud HTTP.
 
-2. Seleccione el informe **Recuento de palabras** que creó anteriormente. Cuando aparezca, seleccione el gráfico y, a continuación, seleccione el icono de chincheta que aparece en la esquina superior derecha del gráfico. Debería recibir una notificación que informa de que se ha fijado al panel.
+    ![incorporación de los datos de método](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
-    ![gráfico con la chincheta mostrada](./media/hdinsight-storm-power-bi-topology/pushpin.png)
+4. En la columna __Visualizaciones__, seleccione el icono __Campos__ icono y luego seleccione la flecha hacia abajo junto a __METHOD__ en la sección __Valores__. En la lista que aparece, seleccione __Recuento__. Esto cambiará el informe para mostrar un recuento de las veces que se ha accedido a un identificador URI específico.
 
-2. Seleccione el logotipo de Power BI para volver al panel. Seleccione el panel **Recuento de palabras activo**. Ahora contiene el gráfico de recuento de palabras y el gráfico se actualiza cuando las entradas nuevas se envían a Power BI desde la topología WordCount que se ejecuta en HDInsight.
+    ![Cambio a un recuento de métodos](./media/hdinsight-storm-power-bi-topology/count.png)
 
-    ![El panel activo](./media/hdinsight-storm-power-bi-topology/dashboard.png)
+6. A continuación, seleccione __Gráfico de columnas apiladas__ para cambiar la forma en la que se muestra la información.
 
-## Detención de la topología WordCount
+    ![Cambio a un gráfico apilado](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
+
+7. Una vez que tenga el informe en la forma que desea, utilice la entrada __Guardar__ en el menú para escribir un nombre y guardar el informe.
+
+## Detención de la topología
 
 La topología continuará ejecutándose hasta que la detenga o elimine el clúster de Storm en HDInsight. Realice los pasos siguientes para detener la topología.
 
-1. En Visual Studio, abra la ventana **Resumen de la topología** para la topología WordCount. Si la ventana Resumen de la topología todavía no está abierta, vaya a **Explorador de servidores**, expanda las entradas **Azure** y **HDInsight**, haga clic con el botón secundario en el clúster de Storm en HDInsight y seleccione **Ver topologías de Storm**. Por último, seleccione la topología **WordCount**.
+1. En Visual Studio, vuelva al visor de topologías y seleccione la topología.
 
-2. Seleccione el botón **Cerrar** para detener la topología **WordCount**.
+2. Seleccione el botón **Cerrar** para detener la topología.
 
     ![Botón Cerrar botón en el resumen de la topología](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
@@ -139,8 +154,8 @@ La topología continuará ejecutándose hasta que la detenga o elimine el clúst
 
 ## Pasos siguientes
 
-En este documento aprendió a enviar datos de una topología de Storm a Power BI mediante REST. Para obtener información sobre cómo trabajar con otras tecnologías de Azure, vea lo siguiente:
+En este documento ha aprendido a enviar datos de una topología de Storm a Base de datos SQL, y a visualizar los datos después usando Power BI. Para obtener información sobre cómo trabajar con otras tecnologías de Azure usando Storm en HDInsight, consulte el siguiente artículo:
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Tutorial de REST de Bus de servicio con mensajería retransmitida | Microsoft Azure"
-   description="Cree una sencilla aplicación host de retransmisión de Bus de servicio que expone una interfaz basada en REST."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Tutorial de REST de Bus de servicio con mensajería retransmitida | Microsoft Azure"
+    description="Cree una sencilla aplicación host de retransmisión de Bus de servicio que expone una interfaz basada en REST."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/14/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/03/2016"
+    ms.author="sethm" />
 
 # Tutorial de REST de Bus de servicio
 
@@ -21,19 +21,17 @@ En este tutorial se describe cómo compilar una sencilla aplicación host de Bus
 
 En este tutorial se usa el modelo de programación REST de Windows Communication Foundation (WCF) para construir un servicio REST de Bus de servicio. Para obtener más información, consulte [Modelo de programación REST de WCF](https://msdn.microsoft.com/library/bb412169.aspx) y [Diseño e implementación de servicios](https://msdn.microsoft.com/library/ms729746.aspx) en la documentación de WCF.
 
-## Paso 1: Registrarse para obtener una cuenta de Azure
+## Paso 1: Creación de un espacio de nombres de servicio
 
-El primer paso es crear un espacio de nombres de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
+El primer paso consiste en crear un espacio de nombres y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
 
-### Para crear un espacio de nombres de servicio y obtener una clave SAS
+1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y luego haga clic en la marca de verificación.
 
-1. Para crear un espacio de nombres de servicio, visite el [Portal de Azure clásico][]. Haga clic en **Bus de servicio** en el lado izquierdo y después en **Crear**. Escriba un nombre para el espacio de nombres y haga clic en la marca de verificación.
+2. En la ventana principal del [Portal de Azure clásico][], haga clic en el nombre del espacio de nombres que creó en el paso anterior.
 
-2. En la ventana principal del Portal, haga clic en el nombre del espacio de nombres de servicio que creó en el paso anterior.
+3. Haga clic en la pestaña **Configurar**.
 
-3. Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres.
-
-4. Tome nota de la clave principal para la directiva **RootManageSharedAccessKey**, o cópiela en el Portapapeles. Este valor se utilizará más adelante en el tutorial.
+4. En la sección **Generador de claves de acceso compartido**, anote el valor de **Clave principal ** asociado con la directiva **RootManageSharedAccessKey**, o cópielo en el Portapapeles. Usará este valor más adelante en el tutorial.
 
 ## Paso 2: Definir un contrato de servicio de WCF basado en REST para utilizar con el Bus de servicio
 
@@ -45,30 +43,30 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 
 1. Abra Visual Studio como administrador: haga clic con el botón derecho en el programa en el menú **Inicio** y, a continuación, haga clic en **Ejecutar como administrador**.
 
-2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros lenguajes**), seleccione la plantilla **Aplicación de consola** y asígnele el nombre **ImageListener**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
+2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#**, seleccione la plantilla **Aplicación de consola** y asígnele el nombre **ImageListener**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
 
 3. Para un proyecto de C#, Visual Studio crea un archivo `Program.cs`. Esta clase contiene un método `Main()` vacío, necesario para que un proyecto de aplicación de consola se compile correctamente.
 
-4. Agregue una referencia a **System.ServiceModel.dll** al proyecto:
+4. Agregue referencias al Bus de servicio y **System.ServiceModel.dll** al proyecto mediante la instalación del paquete NuGet del Bus de servicio. Este paquete agrega automáticamente referencias a las bibliotecas del Bus de servicio, así como a **System.ServiceModel** de WCF. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ImageListener** y haga clic en **Administrar paquetes NuGet**. Haga clic en la pestaña **Examinar** y luego busque `Microsoft Azure Service Bus`. Haga clic en **Instalar** y acepte las condiciones de uso.
+
+5. Debe agregar explícitamente una referencia a **System.ServiceModel.Web.dll** al proyecto:
 
 	a. En el Explorador de soluciones, haga clic en la carpeta **Referencias** bajo la carpeta del proyecto y, a continuación, haga clic en **Agregar referencia**.
 
-	b. Haga clic en la pestaña **.NET** del cuadro de diálogo **Agregar referencia** y desplácese hacia abajo hasta que vea **System.ServiceModel**. Selecciónelo y haga clic en **Aceptar**.
+	b. En el cuadro de diálogo **Agregar referencia**, haga clic en la pestaña **Framework** a la izquierda y, en el cuadro **Buscar**, escriba **System.ServiceModel.Web**. Active la casilla **System.ServiceModel.Web** y haga clic en **Aceptar**.
 
-5. Repita el paso anterior para agregar una referencia al ensamblado **System.ServiceModel.Web.dll**.
+6. Agregue las siguientes instrucciones `using` al principio del archivo Program.cs.
 
-6. Agregue instrucciones `using` para los espacios de nombres **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web** y **System.IO**.
-
-	```c
-  	using System.ServiceModel;
-  	using System.ServiceModel.Channels;
-  	using System.ServiceModel.Web;
-  	using System.IO;
+	```
+	using System.ServiceModel;
+	using System.ServiceModel.Channels;
+	using System.ServiceModel.Web;
+	using System.IO;
 	```
 
 	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. Bus de servicio utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio. Usará este espacio de nombres en la mayoría de las aplicaciones de Retransmisión de bus de servicio. De forma similar, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ayuda a definir el canal, que es el objeto a través del cual se comunica con el Bus de servicio y el explorador web del cliente. Por último, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contiene los tipos que permiten crear aplicaciones basadas en web.
 
-7. Cambie el nombre predeterminado de Visual Studio del espacio de nombres del programa a **Microsoft.ServiceBus.Samples**.
+7. Cambie el nombre del espacio de nombres `ImageListener` a **Microsoft.ServiceBus.Samples**.
 
  	```
 	namespace Microsoft.ServiceBus.Samples
@@ -76,7 +74,7 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 		...
 	```
 
-8. Directamente después de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
+8. Justo después de la llave de apertura de la declaración del espacio de nombres, defina una nueva interfaz denominada **IImageContract** y aplique el atributo **ServiceContractAttribute** a la interfaz con un valor de `http://samples.microsoft.com/ServiceModel/Relay/`. El valor del espacio de nombres difiere del espacio de nombres que utiliza en todo el ámbito de su código. El valor del espacio de nombres se utiliza como identificador único para este contrato, y debe tener información de la versión. Para más información, consulte [Control de versiones del servicio](http://go.microsoft.com/fwlink/?LinkID=180498). La especificación del espacio de nombres impide explícitamente que el valor del espacio de nombres predeterminado se agregue al nombre del contrato.
 
 	```
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -95,7 +93,7 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 	}
 	```
 
-10. Tras el atributo **OperationContract**, aplique el atributo **WebGet**.
+10. En el atributo **OperationContract**, agregue el valor **WebGet**.
 
 	```
 	public interface IImageContract
@@ -105,18 +103,11 @@ La diferencia principal entre un contrato básico del Bus de servicio y un contr
 	}
 	```
 
-	De este modo, el Bus de servicio podrá enrutar las solicitudes HTTP GET a **GetImage** y convertir los valores devueltos de **GetImage** en una respuesta HTTP GETRESPONSE. Más adelante en el tutorial, utilizará un explorador web para tener acceso a este método y mostrar la imagen en el explorador.
+	De este modo, el Bus de servicio podrá redirigir las solicitudes HTTP GET a `GetImage` y convertir los valores devueltos de `GetImage` en una respuesta HTTP GETRESPONSE. Más adelante en el tutorial, utilizará un explorador web para tener acceso a este método y mostrar la imagen en el explorador.
 
 11. Inmediatamente después de la definición `IImageContract`, declare un canal que herede de las interfaces `IImageContract` y `IClientChannel`.
 
 	```
-	[ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	public interface IImageContract
-	{
-		[OperationContract, WebGet]
-		Stream GetImage();
-	}
-
 	public interface IImageChannel : IImageContract, IClientChannel { }
 	```
 
@@ -193,9 +184,9 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 	Al agregar el archivo, asegúrese de que está seleccionada la opción **Todos los archivos** en la lista desplegable situada junto al campo **Nombre de archivo:**. En el resto de este tutorial se supone que el nombre de la imagen es "image.jpg". Si tiene un archivo diferente, debe cambiar el nombre de la imagen o cambiar su código para compensar.
 
-4. Para asegurarse de que el servicio en ejecución puede encontrar el archivo de imagen, en el **Explorador de soluciones**, haga clic con el botón derecho en el archivo de imagen. En el panel **Propiedades** , establezca **Copiar en el directorio de salida** en **Copiar si es posterior**.
+4. Para asegurarse de que el servicio en ejecución pueda encontrar el archivo de imagen, en el **Explorador de soluciones**, haga clic con el botón derecho en el archivo de imagen y haga clic en **Propiedades**. En el panel **Propiedades** , establezca **Copiar en el directorio de salida** en **Copiar si es posterior**.
 
-5. Agregue referencias a los ensamblados **System.Drawing.dll**, **System.Runtime.Serialization.dll** y **Microsoft.ServiceBus.dll** al proyecto, y agregue también las siguientes declaraciones `using` asociadas.
+5. Agregue una referencia al ensamblado **System.Drawing.dll** al proyecto, además de las siguientes instrucciones `using` asociadas.
 
 	```
 	using System.Drawing;
@@ -241,32 +232,11 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 ### Para definir la configuración para ejecutar el servicio web en el Bus de servicio
 
-1. Haga clic en el proyecto **ImageListener**. A continuación, haga clic en **Agregar** y, a continuación, en **Nuevo elemento**.
+1. En el **Explorador de soluciones**, haga doble clic en **App.config** para abrirlo en el editor de Visual Studio.
 
-2. En el **Explorador de soluciones**, haga doble clic en **App.config**, que actualmente contiene los elementos XML siguientes.
+	El archivo **App.config** se parece a un archivo de configuración de WCF, e incluye el nombre del servicio, el punto de conexión (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia aquí es que el punto de conexión de servicio configurado hace referencia a un enlace [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), que no forma parte de .NET Framework.
 
-	```
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	</configuration>
-	```
-
-	El archivo de configuración es similar a un archivo de configuración de WCF, e incluye el nombre del servicio, el extremo (es decir, la ubicación que el Bus de servicio expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia aquí es que el punto de conexión de servicio configurado hace referencia a un enlace [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), que no forma parte de .NET Framework. Para obtener más información sobre cómo configurar una aplicación de Bus de servicio, consulte [Configuración de un servicio de WCF para registrar con el Bus de servicio](https://msdn.microsoft.com/library/ee173579.aspx).
-
-
-3. Agregue un elemento XML `<system.serviceModel>` al archivo App.config. Se trata de un elemento de WCF que define uno o varios servicios. En este caso, se utiliza para definir el nombre del servicio y el extremo.
-
-	```
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-		<system.serviceModel>
-
-		</system.serviceModel>
-
-	</configuration>
-	```
-
-4. Dentro del elemento `system.serviceModel`, agregue un elemento `<bindings>` que tiene el siguiente contenido. Esto define los enlaces utilizados en la aplicación. Puede definir varios enlaces, pero para este tutorial está definiendo solo uno.
+2. El elemento XML `<system.serviceModel>` es un elemento de WCF que define uno o varios servicios. En este caso, se utiliza para definir el nombre del servicio y el extremo. En la parte inferior del elemento `<system.serviceModel>` (pero aún dentro de `<system.serviceModel>`), agregue un elemento `<bindings>` con el siguiente contenido. Esto define los enlaces utilizados en la aplicación. Puede definir varios enlaces, pero para este tutorial está definiendo solo uno.
 
 	```
 	<bindings>
@@ -281,7 +251,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 	Este paso define un enlace [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) de Bus de servicio con **relayClientAuthenticationType** establecido en **Ninguno**. Este valor indica que un extremo que usa este enlace no requiere una credencial de cliente.
 
-5. Después del elemento `<bindings>`, agregue un elemento `<services>`. Al igual que los enlaces, puede definir varios servicios en un solo archivo de configuración. Sin embargo, para este tutorial, solo se define uno.
+3. Después del elemento `<bindings>`, agregue un elemento `<services>`. Al igual que los enlaces, puede definir varios servicios en un solo archivo de configuración. Sin embargo, para este tutorial, solo se define uno.
 
 	```
 	<services>
@@ -300,7 +270,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 
 	Este paso configura un servicio que utiliza el valor predeterminado definido anteriormente **webHttpRelayBinding**. También usa el valor predeterminado **sbTokenProvider**, que se define en el paso siguiente.
 
-6. Después del elemento `<services>`, cree un elemento `<behaviors>` con el contenido siguiente, reemplazando "SAS\_KEY" por la clave de *Firma de acceso compartido* (SAS) que obtuvo en el [Portal de Azure clásico][] en el paso 1.
+4. Después del elemento `<services>`, cree un elemento `<behaviors>` con el contenido siguiente, reemplazando "SAS\_KEY" por la clave de *Firma de acceso compartido* (SAS) que obtuvo en el [Portal de Azure clásico][] en el paso 1.
 
 	```
 	<behaviors>
@@ -321,7 +291,17 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
 	</behaviors>
 	```
 
-7. Desde el menú **Compilar**, haga clic en **Compilar solución** para compilar la solución completa.
+5. Aún en App.config, en el elemento `<appSettings>`, sustituya el valor completo de cadena de conexión por la cadena de conexión que obtuvo antes en el portal.
+
+	```
+	<appSettings>
+   	<!-- Service Bus specific app settings for messaging connections -->
+   	<add key="Microsoft.ServiceBus.ConnectionString"
+	       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+	</appSettings>
+	```
+
+6. Desde el menú **Compilar**, haga clic en **Compilar solución** para compilar la solución completa.
 
 ### Ejemplo
 
@@ -390,50 +370,93 @@ namespace Microsoft.ServiceBus.Samples
 En el ejemplo siguiente se muestra el archivo App.config asociado con el servicio.
 
 ```
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
-  <system.serviceModel>
-    <bindings>
-      <!-- Application Binding -->
-      <webHttpRelayBinding>
-        <binding name="default">
-          <!-- Turn off client authentication so that client does not need to present credential through browser or fiddler -->
-          <security relayClientAuthenticationType="None" />
-        </binding>
-      </webHttpRelayBinding>
-    </bindings>
-
-    <services>
-      <!-- Application Service -->
-      <service name="Microsoft.ServiceBus.Samples.ImageService"
-               behaviorConfiguration="default">
-        <endpoint name="RelayEndpoint"
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2"/>
+    </startup>
+    <system.serviceModel>
+        <extensions>
+            <!-- In this extension section we are introducing all known service bus extensions. User can remove the ones they don't need. -->
+            <behaviorExtensions>
+                <add name="connectionStatusBehavior"
+                    type="Microsoft.ServiceBus.Configuration.ConnectionStatusElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior"
+                    type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="serviceRegistrySettings"
+                    type="Microsoft.ServiceBus.Configuration.ServiceRegistrySettingsElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+            </behaviorExtensions>
+            <bindingElementExtensions>
+                <add name="netMessagingTransport"
+                    type="Microsoft.ServiceBus.Messaging.Configuration.NetMessagingTransportExtensionElement, Microsoft.ServiceBus,  Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="tcpRelayTransport"
+                    type="Microsoft.ServiceBus.Configuration.TcpRelayTransportElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="httpRelayTransport"
+                    type="Microsoft.ServiceBus.Configuration.HttpRelayTransportElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="httpsRelayTransport"
+                    type="Microsoft.ServiceBus.Configuration.HttpsRelayTransportElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="onewayRelayTransport"
+                    type="Microsoft.ServiceBus.Configuration.RelayedOnewayTransportElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+            </bindingElementExtensions>
+            <bindingExtensions>
+                <add name="basicHttpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.BasicHttpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="webHttpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.WebHttpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="ws2007HttpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.WS2007HttpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="netOnewayRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetOnewayRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="netEventRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetEventRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="netMessagingBinding"
+                    type="Microsoft.ServiceBus.Messaging.Configuration.NetMessagingBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+            </bindingExtensions>
+        </extensions>
+      <bindings>
+        <!-- Application Binding -->
+        <webHttpRelayBinding>
+          <binding name="default">
+            <security relayClientAuthenticationType="None" />
+          </binding>
+        </webHttpRelayBinding>
+      </bindings>
+      <services>
+        <!-- Application Service -->
+        <service name="Microsoft.ServiceBus.Samples.ImageService"
+             behaviorConfiguration="default">
+          <endpoint name="RelayEndpoint"
                   contract="Microsoft.ServiceBus.Samples.IImageContract"
                   binding="webHttpRelayBinding"
                   bindingConfiguration="default"
                   behaviorConfiguration="sbTokenProvider"
                   address="" />
-      </service>
-    </services>
-
-    <behaviors>
-      <endpointBehaviors>
-        <behavior name="sbTokenProvider">
-          <transportClientEndpointBehavior>
-            <tokenProvider>
-              <sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
-            </tokenProvider>
-          <transportClientEndpointBehavior>
-        </behavior>
-      </endpointBehaviors>
-      <serviceBehaviors>
-        <behavior name="default">
-          <serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
-        </behavior>
-      </serviceBehaviors>
-    </behaviors>
-
-  </system.serviceModel>
+        </service>
+      </services>
+      <behaviors>
+        <endpointBehaviors>
+          <behavior name="sbTokenProvider">
+            <transportClientEndpointBehavior>
+              <tokenProvider>
+                <sharedAccessSignature keyName="RootManageSharedAccessKey" key="[SAS_KEY]" />
+              </tokenProvider>
+            </transportClientEndpointBehavior>
+          </behavior>
+        </endpointBehaviors>
+        <serviceBehaviors>
+          <behavior name="default">
+            <serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
+          </behavior>
+        </serviceBehaviors>
+      </behaviors>
+    </system.serviceModel>
+    <appSettings>
+        <!-- Service Bus specific app setings for messaging connections -->
+        <add key="Microsoft.ServiceBus.ConnectionString"
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+    </appSettings>
 </configuration>
 ```
 
@@ -443,10 +466,10 @@ Este paso describe cómo ejecutar un servicio web mediante una aplicación de co
 
 ### Para crear una dirección base para el servicio
 
-1. En la declaración de la función `Main()`, cree una variable para almacenar el espacio de nombres del proyecto del Bus de servicio.
+1. En la declaración de la función `Main()`, cree una variable para almacenar el espacio de nombres del proyecto del Bus de servicio. Asegúrese de reemplazar `yourNamespace` por el nombre del espacio de nombres de servicio que creó antes.
 
 	```
-	string serviceNamespace = "InsertServiceNamespaceHere";
+	string serviceNamespace = "yourNamespace";
 	```
 	El Bus de servicio utiliza el nombre del espacio de nombres para crear un URI único.
 
@@ -486,7 +509,7 @@ Este paso describe cómo ejecutar un servicio web mediante una aplicación de co
 
 3. Cuando termine, cierre el host del servicio.
 
-	```c
+	```
 	host.Close();
 	```
 
@@ -570,9 +593,11 @@ namespace Microsoft.ServiceBus.Samples
 
 Después de compilar la solución, haga lo siguiente para ejecutar la aplicación:
 
-1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\bin\Debug\ImageListener.exe).
+1. Presione **F5** o busque la ubicación del archivo ejecutable (ImageListener\\bin\\Debug\\ImageListener.exe) para ejecutar el servicio. Mantenga la aplicación en ejecución, ya que se necesita para realizar el paso siguiente.
 
 2. Copie y pegue la dirección desde el símbolo del sistema en un explorador para ver la imagen.
+
+3. Cuando haya terminado, presione **ENTRAR** en la ventana de símbolo del sistema para cerrar la aplicación.
 
 ## Pasos siguientes
 
@@ -584,4 +609,4 @@ Ahora que ha creado una aplicación que utiliza el servicio de Retransmisión de
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0608_2016-->

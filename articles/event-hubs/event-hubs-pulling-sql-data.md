@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/26/2016"
-   ms.author="spyros;spyrossak" />
+   ms.date="05/31/2016"
+   ms.author="spyros;sethm" />
 
 # Extracción de datos de SQL a un Centro de eventos de Azure
 
@@ -42,4 +42,4 @@ Una vez que la aplicación ha leído el archivo de configuración, entra en un b
 
 Para implementar la solución, clone o descargue la aplicación SqlToEventHub, edite el archivo App.config, compílelo y finalmente, publíquelo. Una vez publicada la aplicación, puede verla ejecutándose en el Portal de Azure clásico, en Servicios en la nube, y supervisar los eventos que entran en el Centro de eventos. Tenga en cuenta que la frecuencia vendrá determinada por dos cosas: la frecuencia de las actualizaciones de la tabla SQL y el intervalo de suspensión que haya especificado en el archivo de configuración de la aplicación.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

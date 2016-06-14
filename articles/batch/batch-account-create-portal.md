@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/26/2016"
+	ms.date="06/01/2016"
 	ms.author="marsma"/>
 
 # Creación y administración de una cuenta de Lote de Azure en el Portal de Azure
@@ -34,11 +34,7 @@ El [Portal de Azure][azure_portal] proporciona las herramientas necesarias para 
 
 	![Lote en Marketplace][marketplace_portal]
 
-3. Revise la información de la hoja **Servicio de Lote** y haga clic en **Crear**. Tenga en cuenta que el servicio Lote solo utiliza el modelo de implementación de Resource Manager.
-
-	![Hoja de creación del servicio Lote en el Portal de Azure][3]
-
-4. Se muestra la hoja **Nueva cuenta de Lote**. Para obtener descripciones de cada elemento de la hoja, consulte los elementos *a* a *e*.
+3. Se muestra la hoja **Nueva cuenta de Lote**. Para obtener descripciones de cada elemento de la hoja, consulte los elementos *a* a *e*.
 
     ![Crear una cuenta de lote][account_portal]
 
@@ -46,17 +42,17 @@ El [Portal de Azure][azure_portal] proporciona las herramientas necesarias para 
 
 	b. **Suscripción**: suscripción en la que se va a crear la cuenta de Lote. Si tiene una sola suscripción, se selecciona de forma predeterminada.
 
-	c. **Grupo de recursos**: grupo de recursos de la nueva cuenta de Lote (también se puede crear uno nuevo).
+	c. **Grupo de recursos**: grupo de recursos existentes de la nueva cuenta de Lote (también se puede crear uno nuevo).
 
 	d. **Ubicación**: región de Azure en la que se va a crear la cuenta de Lote. Solo se mostrarán como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
     e. **Cuenta de almacenamiento** (opcional): cuenta de almacenamiento **de uso general** que se va a asociar (vincular) a la nueva cuenta de Lote. La característica de [paquetes de aplicación](batch-application-packages.md) de Lote usará la cuenta de almacenamiento vinculada para el almacenamiento y la recuperación de paquetes de aplicación. Para más información acerca de esta característica, consulte [Implementación de aplicaciones con paquetes de aplicación de Lote de Azure](batch-application-packages.md).
 
-     > [AZURE.TIP] La regeneración de claves en una cuenta de almacenamiento vinculada requiere consideraciones especiales. Para más información, consulte [Consideraciones de las cuentas de Lote](#considerations-for-batch-accounts) más adelante.
+     > [AZURE.IMPORTANT] La regeneración de claves en una cuenta de almacenamiento vinculada requiere consideraciones especiales. Para más información, consulte [Consideraciones de las cuentas de Lote](#considerations-for-batch-accounts) más adelante.
 
-5. Haga clic en **Crear** para crear la cuenta.
+4. Haga clic en **Crear** para crear la cuenta.
 
-  El portal indicará que está **implementando** la cuenta y, cuando termine, mostrará la hoja Cuenta de Lote.
+  El portal indicará que la cuenta se está **implementando** y, tras la finalización, se mostrará una notificación de **Implementaciones correctas** en *Notificaciones*.
 
 ## Visualización de propiedades de la cuenta de Lote
 
@@ -94,7 +90,7 @@ La hoja Cuenta de lote muestra varias propiedades de la cuenta y proporciona acc
 
 * Para más información acerca de los conceptos y las características del servicio Lote, consulte [Información general de las características de Lote de Azure](batch-api-basics.md). El artículo describe los principales recursos de Lote como grupos, nodos de proceso, trabajos y tareas, y proporciona información general acerca de las características del servicio que permiten la ejecución de cargas de trabajo de proceso a gran escala.
 
-* Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Lote, consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). El [artículo introductorio](batch-dotnet-get-started.md) lo guía a través de una aplicación activa que usa el servicio Lote para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Almacenamiento de Azure para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
+* Para conocer los aspectos básicos del desarrollo de una aplicación habilitada para Lote, consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md). El [artículo introductorio](batch-dotnet-get-started.md) le guía a través de una aplicación activa que usa el servicio Lote para ejecutar una carga de trabajo en varios nodos de proceso e incluye el uso de Almacenamiento de Azure para el almacenamiento provisional y la recuperación del archivo de la carga de trabajo.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -102,11 +98,10 @@ La hoja Cuenta de lote muestra varias propiedades de la cuenta y proporciona acc
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[3]: ./media/batch-account-create-portal/batch_acct_03.png "Hoja de creación del servicio Lote en el Portal de Azure"
 [4]: ./media/batch-account-create-portal/batch_acct_04.png "Regeneración de claves de cuenta de almacenamiento"
 [5]: ./media/batch-account-create-portal/batch_acct_05.png "Hojas de propiedades y configuración de la cuenta de Lote"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

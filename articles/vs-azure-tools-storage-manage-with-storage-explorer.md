@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar) | Microsoft Azure"
-	description="Describe cómo utilizar el Explorador de almacenamiento de Microsoft Azure (versión preliminar) para crear y administrar recursos de almacenamiento de Azure."
+	pageTitle="Introducción al Explorador de almacenamiento (versión preliminar) | Microsoft Azure"
+	description="Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)"
 	services="visual-studio-online"
 	documentationCenter="na"
 	authors="TomArcher"
@@ -10,176 +10,284 @@
  <tags
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/08/2016"
+	ms.date="06/05/2016"
 	ms.author="tarcher" />
 
-# Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)
+# Introducción al Explorador de almacenamiento (versión preliminar)
 
-El Explorador de almacenamiento de Microsoft Azure (versión preliminar) es una herramienta independiente que permite administrar fácilmente las cuentas de almacenamiento de Azure. Es útil en situaciones donde desea administrar rápidamente el almacenamiento fuera del Portal de Azure, por ejemplo, a la hora de desarrollar aplicaciones en Visual Studio. Esta versión preliminar permite trabajar fácilmente con el almacenamiento de blobs. Puede crear y eliminar contenedores, cargar, descargar y eliminar blobs y buscar en todos los contenedores y blobs. Las características avanzadas permiten a desarrolladores y operadores trabajar con las directivas y las claves SAS. Los desarrolladores de Windows también pueden usar el emulador de almacenamiento de Azure para probar su código con la cuenta de almacenamiento de desarrollo local.
+## Información general 
 
-Para ver o administrar los recursos de almacenamiento en el Explorador de almacenamiento, es necesario que tenga acceso a una cuenta de almacenamiento de Azure, bien en su suscripción o en una cuenta externa. Si no tiene ninguna, puede crear una cuenta de almacenamiento en un par de minutos. Si tiene una suscripción a MSDN, consulte [Ventajas de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
+La versión preliminar del Explorador de almacenamiento de Microsoft Azure es una aplicación independiente que permite trabajar fácilmente con los datos de Almacenamiento de Azure en Windows, OSX y Linux. En este artículo aprenderá las diferentes maneras de conectarse a sus cuentas de Almacenamiento de Azure y de administrarlas.
 
-## Administración de suscripciones y cuentas de Azure
+## Requisitos previos
 
-Para ver los recursos de almacenamiento de Azure en el Explorador de almacenamiento, tendrá que iniciar sesión en una cuenta de Azure con una o más suscripciones activas. Si tiene más de una cuenta de Azure, puede agregarlas en el Explorador de almacenamiento y, a continuación, elegir las suscripciones que desea incluir en la vista de recursos del Explorador. Si no ha usado Azure antes, o no ha agregado las cuentas necesarias a Visual Studio, se le pedirá que inicie sesión en una cuenta de Azure.
+- [Descargue e instale el Explorador de almacenamiento (versión preliminar)](http://go.microsoft.com/fwlink/?LinkId=708343)
 
-### Incorporación de una cuenta de Azure al Explorador de almacenamiento
+## Conexión a una cuenta de almacenamiento o servicio
 
-1.	Elija el icono de **Configuración** (engranaje) de la barra de herramientas del Explorador de almacenamiento.
-1.	Seleccione el vínculo **Agregar una cuenta**. Inicie sesión en la cuenta de Azure cuyos recursos de almacenamiento desea examinar. La cuenta que acaba de agregar debería estar seleccionada en la lista desplegable de selección de cuenta. Todas las suscripciones para esa cuenta aparecen bajo la entrada de cuenta.
+El Explorador de almacenamiento (versión preliminar) proporciona innumerables formas de conectar con las cuentas de almacenamiento. Esto incluye la conexión a cuentas de almacenamiento asociadas a las suscripciones de Azure, la conexión a cuentas de almacenamiento y servicios compartidas desde otras suscripciones de Azure, e incluso la conexión y administración del almacenamiento local mediante el emulador de almacenamiento de Azure:
+
+- [Conexión a una suscripción de Azure](#connect-to-an-azure-subscription): administre recursos de almacenamiento que pertenecen a su suscripción de Azure.
+- [Conexión al almacenamiento local](#connect-to-local-storage): administre el almacenamiento local mediante el emulador de almacenamiento de Azure. 
+- [Asociación y desasociación de una cuenta de almacenamiento externo](#attach-or-detach-an-external-storage-account): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure utilizando el nombre de cuenta de la cuenta de almacenamiento y la clave.
+- [Asociación de cuentas mediante SAS](#attach-account-using-sas): administre los recursos de almacenamiento que pertenezcan a otra suscripción de Azure usando una SAS.
+- [Asociación de servicios mediante SAS](#attach-service-using-sas): administre un servicio de almacenamiento específico (contenedor de blob, cola o tabla) que pertenezca a otra suscripción de Azure usando una SAS.
+
+## Conexión a una suscripción de Azure
+
+> [AZURE.NOTE] Si aún no tiene ninguna cuenta de Azure, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+1. Inicie el Explorador de almacenamiento (versión preliminar). 
+
+1. Si ejecuta el Explorador de almacenamiento (versión preliminar) por primera vez o si lo ha ejecutado antes pero sin conectarse a una cuenta de Azure, verá una barra de información que le permite conectarse a una cuenta de Azure.
 
 	![][0]
+	
+1. Seleccione **Conectar con Microsoft Azure** y siga los cuadros de diálogo para iniciar sesión con una cuenta de Microsoft que esté asociada con al menos una suscripción activa de Azure.
 
-1.	Active las casillas de las suscripciones de cuenta que desea examinar y, luego, elija el botón **Aplicar**.
+Una vez que haya iniciado sesión correctamente en una cuenta de Microsoft, el panel izquierdo del Explorador de almacenamiento (versión preliminar) se rellenará con todas las cuentas de almacenamiento asociadas a todas las suscripciones de Azure que están a su vez asociadas con la cuenta de Microsoft.
+
+### Filtrado de las suscripciones de Azure
+
+El Explorador de almacenamiento (versión preliminar) le permite filtrar cuáles de las suscripciones de Azure asociadas a las cuentas de Microsoft con las que ha iniciado sesión tendrán sus cuentas de almacenamiento enumeradas en el panel izquierdo.
+
+1. Seleccione el icono de **configuración** (engranaje).
 
 	![][1]
 
-	Los recursos de almacenamiento de Azure para las suscripciones seleccionadas aparecen en el Explorador de almacenamiento.
-
-### Asociación de un almacenamiento externo
-
-1. Obtenga el nombre de cuenta y la clave para la cuenta de almacenamiento que desea adjuntar.
-	1.	En el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), elija la cuenta de almacenamiento que desea adjuntar.
-	1.	En la sección **Administrar** del panel **Configuración**, elija el botón **Claves**.
-	1.	Copie los valores de los campos **Nombre de la cuenta de almacenamiento** y **Clave de acceso principal**.
-
-		![][2]
-
-1.	En el menú contextual del nodo **Cuentas de almacenamiento** en el Explorador de almacenamiento, elija el comando **Asociar almacenamiento externo**.
+1. 	En la parte superior del panel izquierdo, verá una lista desplegable que contiene todas las cuentas de Microsoft en las que ha iniciado sesión.
 
 	![][3]
-
-1. Escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de cuenta** y la clave de acceso principal en el cuadro **Clave de cuenta**. Elija el botón **Aceptar** para continuar.
+	 
+1.	Seleccione la flecha abajo junto a la lista desplegable para ver todas las cuentas de Microsoft en las que ya tiene una sesión abierta, así como un vínculo para agregar (iniciar sesión) en otras cuentas adicionales de Microsoft.
 
 	![][4]
 
-	El almacenamiento externo aparece en el Explorador de almacenamiento.
+1.	En la lista desplegable, seleccione la cuenta de Microsoft deseada.
+
+1. 	El panel izquierdo mostrará todas las suscripciones de Azure asociadas a la cuenta de Microsoft seleccionada. La casilla a la izquierda de cada suscripción de Azure le permite especificar si desea o no que el Explorador de almacenamiento (versión preliminar) enumere todas las cuentas de almacenamiento asociadas con dicha suscripción de Azure. La activación o desactivación de **All subscriptions** (Todas las suscripciones) alterna entre la selección de todas o de ninguna de las suscripciones de Azure que aparecen enumeradas.
+
+	![][2]
+
+1.	Cuando haya terminado de seleccionar las suscripciones de Azure que desea administrar, pulse **Aplicar**. Se actualizará el panel izquierdo con una lista de todas las cuentas de almacenamiento de cada suscripción de Azure seleccionada para la cuenta actual de Microsoft.
+
+### Incorporación de cuentas de Microsoft adicionales
+
+Los siguientes pasos le guiarán a través de la conexión con cuentas de Microsoft adicionales para ver las suscripciones de Azure y las cuentas de almacenamiento de cada cuenta.
+
+1.	Seleccione el icono de **configuración** (engranaje).
+
+	![][1]
+
+1. 	En la parte superior del panel izquierdo, verá una lista desplegable que contiene todas las cuentas de Microsoft conectadas en ese momento.
+
+	![][3]
+	 
+1.	Seleccione la flecha abajo junto a la lista desplegable para ver todas las cuentas de Microsoft en las que ya tiene una sesión abierta, así como un vínculo para agregar (iniciar sesión) en otras cuentas adicionales de Microsoft.
+
+	![][4]
+
+1.	Seleccione **Agregar una cuenta** y siga los cuadros de diálogo para iniciar sesión en una cuenta asociada con al menos una suscripción activa de Azure.
+
+1.	Seleccione las casillas de las suscripciones de Azure que desea examinar.
+
+	![][2]
+
+1.	Seleccione **Aplicar**.
+
+### Cambio entre cuentas de Microsoft
+
+Aunque puede conectarse a varias cuentas de Microsoft, el panel izquierdo muestra solo las cuentas de almacenamiento asociadas con las suscripciones de una sola cuenta de Microsoft (la actual). Si se conecta a varias cuentas de Microsoft, puede cambiar entre ellas realizando los pasos siguientes:
+
+1.	Seleccione el icono de **configuración** (engranaje).
+
+	![][1]
+
+1. 	En la parte superior del panel izquierdo, verá una lista desplegable que contiene todas las cuentas de Microsoft conectadas en ese momento.
+
+	![][3]
+	 
+1.	Seleccione la flecha abajo junto a la lista desplegable para ver todas las cuentas de Microsoft en las que ya tiene una sesión abierta, así como un vínculo para agregar (iniciar sesión) en otras cuentas adicionales de Microsoft.
+
+	![][4]
+
+1.	Seleccione la cuenta de Microsoft deseada.
+
+1.	Seleccione las casillas de las suscripciones de Azure que desea examinar.
+
+	![][2]
+
+1.	Seleccione **Aplicar**.
+  
+## Conexión al almacenamiento local
+
+El Explorador de almacenamiento (versión preliminar) le permite trabajar con almacenamiento local mediante el emulador de almacenamiento de Azure. Esto le permite escribir código y realizar pruebas de almacenamiento sin necesidad de tener una cuenta de almacenamiento implementada en Azure (ya que el emulador de almacenamiento de Azure emula dicha cuenta).
+
+>[AZURE.NOTE] El emulador de almacenamiento de Azure actualmente solo se admite para Windows.
+
+1. Inicie el Explorador de almacenamiento (versión preliminar). 
+
+1. En el panel izquierdo, amplíe el nodo **(Desarrollo)**.
+
+	![][21]
+
+1. Si aún no ha instalado el emulador de almacenamiento de Azure, se solicitará que lo haga a través de una barra de información. Si se muestra la barra de información, seleccione **Descargar la última versión**, e instale el emulador.
+
+	![][22]
+
+1. Una vez instalado el emulador,podrá crear y trabajar con tablas, colas y blobs locales. Para informarse sobre cómo trabajar con cada tipo de cuenta de almacenamiento, seleccione a continuación el vínculo apropiado:
+
+	- [Administración de recursos de Almacenamiento de blobs de Azure](./vs-azure-tools-storage-explorer-blobs.md)
+	- Administración de recursos de Almacenamiento en cola de Azure; *próximamente*.
+	- Administración de recursos de Almacenamiento de tablas de Azure; *próximamente*.
+
+## Asociación y desasociación de una cuenta de almacenamiento externo
+
+El Explorador de almacenamiento (versión preliminar) permite asociar cuentas de almacenamiento externo, lo que proporciona la capacidad de compartir fácilmente las cuentas de almacenamiento. En esta sección se explica cómo asociar (y desasociar) cuentas de almacenamiento externo.
+
+### Obtención de las credenciales de la cuenta de almacenamiento
+
+Para compartir una cuenta de almacenamiento externo, el propietario de la misma tiene que obtener primero las credenciales (nombre de cuenta y clave) de la cuenta, y compartir esa información con la persona que desea asociar a esa cuenta (externa). La obtención de las credenciales de cuenta de almacenamiento puede realizarse a través del Portal de Azure siguiendo estos pasos:
+
+1.	Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1.	Seleccione **Examinar**.
+1.	Seleccione **Cuentas de almacenamiento**.
+1.	En la hoja **Cuentas de almacenamiento**, seleccione la cuenta de almacenamiento deseada.
+1.	En el hoja **Configuración** de la cuenta de almacenamiento elegida, seleccione **Claves de acceso**.
 
 	![][5]
-
-1. Para quitar el almacenamiento externo, en el menú contextual del mismo elija el comando Desasociar.
+	
+1.	En la hoja **Claves de acceso**, copie los valores **NOMBRE DE LA CUENTA DE ALMACENAMIENTO** y **CLAVE 1** valores para su uso en la conexión con la cuenta de almacenamiento.
 
 	![][6]
 
-## Visualizar y navegar por los recursos de almacenamiento
+### Asociación de una cuenta de almacenamiento externo
 
-Para navegar a un recurso de almacenamiento de Azure y ver su información en el Explorador de almacenamiento, expanda el tipo de almacenamiento y, luego, elija el recurso. En las pestaña **Acciones** y **Propiedades** en la parte inferior del Explorador de almacenamiento encontrará información sobre el recurso seleccionado.
+1.	En el Explorador de almacenamiento (versión preliminar), haga clic en **Cuentas de almacenamiento**, y en el menú contextual seleccione **Asociar almacenamiento externo**.
 
-![][7]
+	![][7]
+	
+1.	La sección *Obtención de las credenciales de la cuenta de almacenamiento*, explica cómo obtener los valores de nombre y clave 1 de la cuenta de almacenamiento. Estos valores se usarán en este paso. En el cuadro de diálogo **Asociar almacenamiento externo**, escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de la cuenta** y el valor Clave 1 en el cuadro **Clave de cuenta**. Pulse **Aceptar** cuando haya terminado.
 
--	La pestaña **Acciones** muestra las acciones que puede realizar en el Explorador de almacenamiento para el recurso de almacenamiento seleccionado, como abrir, copiar o eliminar. Las acciones también aparecen en el menú contextual del recurso.
+	![][8]
 
--	La pestaña **Propiedades** muestra las propiedades del recurso, como su tipo, configuración regional, grupo de recursos al que está asociado y URL.
+	Una vez se haya realizado la asociación, se mostrará la cuenta de almacenamiento externo con el texto **(Externa)** junto al nombre de la cuenta.
 
-Todas las cuentas de almacenamiento tienen la acción **Abrir en el portal**. Cuando se selecciona esta acción, el Explorador de almacenamiento muestra la cuenta de almacenamiento seleccionada en el Portal de vista previa de Azure.
+	![][9]
 
-Según el recurso seleccionado, aparecen otras acciones y valores de propiedad adicionales. Por ejemplo, todos los nodos de contenedores de blobs, colas y tablas tienen una acción **Crear**. Los elementos individuales (como los contenedores de blobs) tienen acciones como **Abrir**, **Eliminar**, y **Obtener firma de acceso compartido**. Cuando se elige un blob de cuenta de almacenamiento, aparecen acciones para abrir el editor de blob.
+### Desasociación de una cuenta de almacenamiento externo
 
-## Búsqueda de cuentas de almacenamiento y contenedores de blobs
-
-Para buscar cuentas de almacenamiento y contenedores de blobs con un nombre específico en las suscripciones de cuenta de Azure, escriba el nombre en el cuadro de **búsqueda** en el Explorador de almacenamiento.
-
-![][8]
-
-A medida que va escribiendo caracteres en el cuadro de **búsqueda**, irán apareciendo en el árbol de recursos las cuentas de almacenamiento o contenedores de blobs cuyos nombres coinciden con dichos caracteres. Para borrar la búsqueda, elija el botón **x** en el cuadro de **búsqueda**.
-
-## Edición de las cuentas de almacenamiento
-
-Para agregar o cambiar el contenido de una cuenta de almacenamiento, elija el comando **Abrir Editor** para ese tipo de almacenamiento. Puede elegir las acciones en el menú contextual del elemento seleccionado o en la pestaña **Acciones** en la parte inferior del Explorador de almacenamiento.
-
-![][9]
-
-Puede crear o eliminar contenedores de blobs, colas y tablas. También puede editar blobs en el Explorador de almacenamiento eligiendo la acción **Abrir editor de contenedor de blobs**.
-
-### Edición de un contenedor de blobs
-
-1.	Elija la acción **Abrir editor de contenedor de blobs**. El editor de contenedor de blobs aparece en el panel derecho.
+1. 	Haga clic con el botón derecho en la cuenta de almacenamiento externo que desea desasociar y en el menú contextual seleccione **Desconectar**.
 
 	![][10]
 
-1.	Elija el botón **Cargar** y, a continuación, elija el comando **Cargar archivos**.
-
-	![][11]
-
-	Si los archivos que desea cargar se encuentran en una única carpeta, puede elegir también el comando Cargar carpeta.
-
-1. En el cuadro de diálogo **Cargar archivos**, seleccione el botón de puntos suspensivos (**...**) a la derecha del cuadro de archivos para seleccionar aquellos que desea cargar. A continuación, elija qué tipo de blob desea para cargarlo (en bloques, en páginas o anexado). Si lo desea, puede cargar los archivos en una carpeta en el contenedor de blobs. Escriba el nombre de la carpeta en el cuadro **Cargar en carpeta (opcional)**. Si la carpeta no existe, se creará
+1.	Cuando aparezca el cuadro de mensaje de confirmación, seleccione **Sí** para confirmar la desasociación de la cuenta de almacenamiento externo.
 
 	![][12]
 
-	En la siguiente captura de pantalla, se han cargado tres archivos de imagen en una carpeta nueva llamada **Mis archivos nuevos** en el contenedor de blobs **Imágenes**.
+## Asociación de cuentas mediante SAS
+
+Una SAS (firma de acceso compartido) proporciona al administrador de una suscripción de Azure la capacidad de conceder acceso a una cuenta de almacenamiento de forma temporal, sin tener que proporcionar sus credenciales de suscripción de Azure.
+
+Para ilustrar este punto, supongamos que el Usuario A es el administrador de una suscripción de Azure que desea permitir al Usuario B el acceso a una cuenta de almacenamiento durante un tiempo limitado con determinados permisos:
+
+1. El Usuario A genera una SAS (que consiste en una cadena de conexión para la cuenta de almacenamiento) durante un período de tiempo específico y con los permisos deseados.
+1. El Usuario A comparte la SAS con la persona que desea tener acceso a la cuenta de almacenamiento (en nuestro ejemplo el Usuario B).  
+1. El Usuario B utiliza el Explorador de almacenamiento (versión preliminar) para asociarse a la cuenta de la que es propietario el Usuario A, usando la SAS proporcionada. 
+
+### Obtención de una SAS para la cuenta que se desea compartir
+
+1.	Abra el Explorador de almacenamiento (versión preliminar).
+1.	En el panel izquierdo, haga clic con el botón derecho en la cuenta de almacenamiento que desea compartir y en el menú contextual seleccione **Get Shared Access Signature** (Obtener firma de acceso compartido).
 
 	![][13]
 
-	Los botones de la barra de herramientas del editor de blobs le permiten seleccionar, descargar, abrir, copiar y eliminar archivos y mucho más. El panel **Actividad** en la parte inferior del cuadro de diálogo muestra si la operación se realizó correctamente, y le permite quitar de la vista solo las actividades que se llevaron a cabo sin problemas o vaciar completamente el panel. Elija el icono **+**, junto a los archivos cargados, para ver una lista detallada de los archivos cargados.
-
-## Creación de una firma de acceso compartido (SAS)
-
-Para algunas operaciones, puede que necesite una SAS para acceder a un recurso de almacenamiento. Puede crear una utilizando el Explorador de almacenamiento.
-
-1.	Seleccione el elemento para el que desea crear una SAS y, a continuación, elija el comando **Obtener firma de acceso compartido** en el panel **Acciones** panel o en el menú contextual del elemento.
+1. En el cuadro de diálogo **Firma de acceso compartido**, especifique el período de tiempo y los permisos que desee para la cuenta y seleccione **Crear**.
 
 	![][14]
+ 
+1. Aparecerá un segundo cuadro de diálogo **Firma de acceso compartido** mostrando la SAS. Seleccione **Copiar** junto a la **Cadena de conexión** para copiarla en el Portapapeles. Seleccione **Cerrar** para descartar el cuadro de diálogo.
 
-1.	En el cuadro de diálogo **Firma de acceso compartido**, seleccione la directiva, las fechas de inicio y de expiración y la zona horaria. Seleccione también las casillas de los niveles de acceso que desea aplicar al recurso, como solo lectura o lectura y escritura, etc. Cuando haya terminado, elija el botón **Crear** para crear la SAS.
+### Asociación a la cuenta compartida con SAS
 
-	![][15]
+1.	Abra el Explorador de almacenamiento (versión preliminar).
+1.	En el panel izquierdo, haga clic con el botón derecho en **Cuentas de almacenamiento**, y en el menú contextual seleccione **Attach account using SAS** (Asociar cuenta usando SAS). ![][15]
 
-1.	El cuadro de diálogo **Firma de acceso compartido** incluye el contenedor junto con la dirección URL y las QueryStrings que se pueden utilizar para obtener acceso al recurso de almacenamiento. Elija el botón **Copiar** para copiar las cadenas.
+1. En el diálogo** Attach Account using SAS** (Asociar cuenta usando SAS):
 
+	- **Nombre de la cuenta**: escriba el nombre que desea asociar con esta cuenta. **NOTA:** El nombre de cuenta no tiene que coincidir con el nombre de la cuenta de almacenamiento original para la que se generó la SAS. 
+ 	- **Cadena de conexión**: pegue la cadena de conexión que copió anteriormente.
+ 	- Pulse **Aceptar** cuando haya terminado.
+	
 	![][16]
 
-## Administración de las SAS y los permisos
+Una vez se haya realizado la asociación, se mostrará la cuenta de almacenamiento externo con el texto (SAS) junto al nombre de cuenta que ha proporcionado.
 
-Para controlar el acceso a los contenedores de blobs, puede elegir los comandos **Administrar la lista de control de acceso** y **Establecer el nivel de acceso público**.
+![][17]
 
--	Administrar la lista de control de acceso le permite agregar, editar y quitar directivas de acceso (que regulan si los usuarios pueden leer, escribir etc.) en el contenedor de blobs seleccionado.
--	Establecer el nivel de acceso público le permite determinar qué cantidad de acceso al recurso proporciona a los usuarios públicos.  
+## Asociación de servicios mediante SAS
 
--
+La sección [Asociación de cuentas mediante SAS](#attach-account-using-sas) muestra cómo un administrador de suscripción de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación (y uso compartido) de una SAS para la cuenta de almacenamiento. De forma similar, se puede generar una SAS para un servicio específico (contenedor de blob, cola o tabla) dentro de una cuenta de almacenamiento.
 
-1.	Escoja el contenedor de blobs y, a continuación, elija el comando **Administrar la lista de control de acceso** en el menú contextual o en el panel **Acciones**.
+### Generación de una SAS para el servicio que se desea compartir
 
-	![][17]
+En este contexto, un servicio puede ser un contenedor de blob, una cola o una tabla. Las siguientes secciones explican cómo generar la SAS para el servicio de lista:
 
-1.	En el cuadro de diálogo **Lista de control de acceso**, seleccione el botón **Agregar** para añadir directivas de acceso. Elija una directiva de acceso y, a continuación, seleccione sus permisos. Cuando haya terminado, elija el botón **Guardar**.
+- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container) (Obtención de la SAS para un contenedor de blob)
+- Obtención de la SAS para una cola; *próximamente*.
+- Obtención de la SAS para una tabla; *próximamente*.
 
-	![][18]
+### Asociación al servicio de cuenta compartida con SAS
 
-1.	Para establecer un nivel de acceso para un contenedor de blobs, elíjalo en el Explorador de almacenamiento y, a continuación, seleccione el comando **Establecer el nivel de acceso público** en el menú contextual o en el panel **Acciones**.
+1.	Abra el Explorador de almacenamiento (versión preliminar).
+1.	En el panel izquierdo, haga clic con el botón derecho en **Cuentas de almacenamiento**, y en el menú contextual seleccione **Attach service using SAS** (Asociar servicio usando SAS). ![][18]
+
+1. En el cuadro de diálogo **Attach service using SAS** (Asociar servicio usando SAS) pegue el URI de SAS que copió anteriormente y seleccione **Aceptar**.
 
 	![][19]
 
-1.	En el cuadro de diálogo **Establecer el nivel de acceso público del contenedor**, seleccione el botón de opción del nivel de acceso que desea conceder a los usuarios públicos y después elija el botón **Aplicar**.
+Una vez asociado, el servicio aparecerá en el nodo **(Sevice SAS)** (SAS de servicio).
 
-	![][20]
+![][20]
+
+## Búsqueda de cuentas de almacenamiento
+
+Si tiene una larga lista de cuentas de almacenamiento, puede usar el cuadro de búsqueda en la parte superior del panel izquierdo para encontrar rápidamente una cuenta de almacenamiento concreta.
+
+A medida que vaya escribiendo en el cuadro de búsqueda, el panel izquierdo mostrará solo las cuentas de almacenamiento que coincidan con el valor de búsqueda que haya escrito hasta ese momento. La captura de pantalla a continuación muestra un ejemplo en el que hemos buscado todas las cuentas de almacenamiento en las que el nombre de la cuenta de almacenamiento contiene el texto "tarcher".
+
+![][11]
+	
+Para borrar la búsqueda, seleccione el botón **x** en el cuadro de búsqueda.
 
 ## Pasos siguientes
-Obtenga más información sobre las características de los servicios de Almacenamiento de Azure en los artículos que encontrará en [Introducción a Almacenamiento de Microsoft Azure](./storage/storage-introduction.md).
+- [Administración de recursos de Almacenamiento de blobs de Azure con el Explorador de almacenamiento (versión preliminar)](./vs-azure-tools-storage-explorer-blobs.md)
 
-[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External1c.png
-[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External2c.png
-[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External3c.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External4c.png
-[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External5c.png
-[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Navigatec.png
-[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Searchc.png
-[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit1c.png
-[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit2c.png
-[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit3c.png
-[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit4c.png
-[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit5c.png
-[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS1c.png
-[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS2c.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS3c.png
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS1c.png
-[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS2c.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
-[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
+[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure.png
+[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-gear.png
+[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-subscriptions.png
+[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/filter-accounts.png
+[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/accounts-drop-down.png
+[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys.png
+[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/access-keys-copy.png
+[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage.png
+[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-external-storage-dlg.png
+[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/external-storage-account.png
+[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage.png
+[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-account-search.png
+[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
+[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-context-menu.png
+[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-dlg1.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-context-menu.png
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-dlg.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-finished.png
+[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-context-menu.png
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-dlg.png
+[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
+[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/local-storage-drop-down.png
+[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

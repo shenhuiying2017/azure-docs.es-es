@@ -85,7 +85,7 @@ Los siguientes módulos solo admiten conjuntos de datos que tengan menos de 10 
 - Módulo SMOTE.
 - Módulos de script: R, Python y SQL
 - Módulos donde el tamaño de los datos de salida puede ser mayor que el tamaño de los datos de entrada, como en la aplicación de hash de característica o unión.
-- Validación cruzada, parámetros de barrido, regresión ordinal y "uno frente a todo multiclase", cuando el número de iteraciones sea muy grande.
+- Validación cruzada, ajuste de los hiperparámetros del modelo, regresión ordinal y multiclase uno contra todos, cuando el número de iteraciones sea muy grande.
 
 En el caso de conjuntos de datos que tengan varios gigas, hay que cargar los datos en el almacenamiento de Azure o en la Base de datos SQL de Azure o usar HDInsight, en lugar de cargarlos directamente desde el archivo local.
 
@@ -95,7 +95,7 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos a Almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, luego, utilizar el módulo [Lector][reader] para incluirlos en el experimento.
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [Importar datos][import-data]. Para transferir grandes cantidades de datos a Almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, luego, utilizar el módulo [Importar datos][import-data] para incluirlos en el experimento.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -227,7 +227,7 @@ Cuando el modelo predictivo se ha implementado, puede supervisarlo desde el Port
 
 **¿Hay algún lugar donde pueda ver la salida de mi RRS/BES?**
 
-Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo [Exportación de datos][writer].
+Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo [Exportación de datos][export-data].
 
 **¿Solamente puedo crear servicios web a partir de modelos creados en Estudio de aprendizaje automático?**
 
@@ -326,10 +326,10 @@ Aprendizaje automático de Azure cuenta también con un foro de la comunidad en 
 [join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

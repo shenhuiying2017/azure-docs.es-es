@@ -21,9 +21,6 @@
 
 En este artículo se proporciona información general sobre la escritura de plantillas del Administrador de recursos de Azure con la extensión de scripts personalizados para cargas de trabajo de arranque en una máquina virtual de Linux.
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-extensions-customscript.md).
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Ejemplo de plantilla para una máquina virtual de Linux
@@ -42,8 +39,8 @@ Definición del siguiente recurso de extensión en la sección Recurso de la pla
       "type": "CustomScriptForLinux",
       "typeHandlerVersion": "1.2",
       "settings": {
-      "fileUris": [ "https: //raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh                        ],
-      "commandToExecute": "shmongo-install-ubuntu.sh"
+      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
       }
     }
     }
@@ -54,6 +51,6 @@ Una vez creada la plantilla, puede implementarla con la CLI de Azure.
 
 Consulte el ejemplo siguiente para obtener un ejemplo completo de configuración de aplicaciones en una máquina virtual con una extensión de script personalizado.
 
-* [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
+* [Extensión del script personalizado en una máquina virtual de Linux.](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

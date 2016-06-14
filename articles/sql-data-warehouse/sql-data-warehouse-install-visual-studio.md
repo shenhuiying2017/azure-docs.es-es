@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess"/>
 
 # Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL
 
-Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2015 junto con la versión más reciente de SQL Server Data Tools (SSDT). También se admite Visual Studio 2013 con SSDT.
+Para desarrollar aplicaciones para Almacenamiento de datos SQL, se recomienda usar Visual Studio 2015 junto con la versión más reciente de SQL Server Data Tools (SSDT). También se admite Visual Studio 2013 con SSDT por compatibilidad con versiones anteriores.
 
-Además, se necesita **la actualización de Microsoft SQL Server para herramientas de base de datos**, para ejecutar consultas desde el entorno de desarrollo integrado (IDE) de Visual Studio. Una vez instalada esta extensión, podrá ver los objetos de base de datos en el árbol del Explorador de objetos y ejecutar consultas en el Almacenamiento de datos SQL.
+Con Visual Studio con SSDT, podrá usar el Explorador de objetos de SQL Server para explorar visualmente tablas, vistas, procedimientos almacenados y muchos más objetos en su instancia de Almacenamiento de datos SQL, así como para ejecutar consultas.
 
 > [AZURE.NOTE] Almacenamiento de datos SQL no es compatible aún con proyectos de base de datos de Visual Studio. Esta característica se agregará en una versión futura.
 
@@ -28,31 +28,32 @@ Además, se necesita **la actualización de Microsoft SQL Server para herramient
 
 Siga estos vínculos para descargar e instalar Visual Studio 2015. Si ya tiene Visual Studio 2013 o 2015 instalado, vaya directamente al paso 2 para instalar SSDT.
 
-1. [Descargue Visual Studio 2015][] desde Visual Studio Team Services.
-2. Siga la guía [Instalación de Visual Studio][] en MSDN para elegir las configuraciones predeterminadas.
+1. [Descargue Visual Studio 2015][].
+2. Siga la guía [Instalar Visual Studio][] en MSDN y elija las configuraciones predeterminadas.
 
 ## Paso 2: Instalación de SSDT
 
 Para instalar SSDT para Visual Studio, simplemente busque una actualización de SSDT desde dentro de Visual Studio siguiendo estos pasos.
 
-1. En Visual Studio haga clic en **Herramientas** / **Extensiones y actualizaciones…** / **Actualizaciones**
-2. Seleccione **Actualizaciones de productos** y, a continuación, busque la **actualización de Microsoft SQL Server para herramientas de base de datos**
+1. En Visual Studio, haga clic en **Herramientas**, **Extensiones y actualizaciones** y **Actualizaciones**.
+2. Seleccione **Actualizaciones de productos** y busque la actualización **Microsoft SQL Server Update para herramientas de base de datos**.
 
-Si no hay ninguna actualización, tiene la última versión instalada. Para confirmar que SSDT está instalada, haga clic en **Ayuda** / **Acerca de Microsoft Visual Studio** y busque SQL Server Data Tools en la lista.
+Si no hay ninguna actualización, debería tener la última versión instalada. Para confirmar que SSDT está instalado, haga clic en **Ayuda** y **Acerca de Microsoft Visual Studio**, y busque SQL Server Data Tools en la lista. La versión más reciente de SSDT es 14.0.60525.0. Si la opción para instalar no está disponible en Visual Studio, también puede visitar la página [Descargar las últimas herramientas de datos SQL Server][] para descargar e instalar SSDT manualmente.
 
 ## Pasos siguientes
 
-Ahora que tiene la versión más reciente de SSDT, está listo para [conectar][] la base de datos.
+Ahora que tiene la versión más reciente de SSDT, está listo para [conectarse][] a su instancia de Almacenamiento de datos SQL.
 
 <!--Anchors-->
 
 <!--Image references-->
 
 <!--Articles-->
-[conectar]: ./sql-data-warehouse-get-started-connect.md
+[conectarse]: ./sql-data-warehouse-get-started-connect.md
 
 <!--Other-->
 [Descargue Visual Studio 2015]: https://www.visualstudio.com/downloads/
-[Instalación de Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[Instalar Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[Descargar las últimas herramientas de datos SQL Server]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

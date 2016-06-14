@@ -55,7 +55,7 @@ La publicación de aplicaciones en Azure Marketplace conlleva dos pasos. En prim
 |-------|---------------|----------------|
 |types |Los tipos de clúster con los que es compatible la aplicación. |Hadoop, HBase, Storm y Spark (o cualquier combinación de éstos)|
 |tiers |Los niveles de clúster con los que es compatible la aplicación. |Standard, Premium (o ambos)|
-|versions|	Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3\.4|
+|versions|	Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4|
 
 ## Empaquetado de aplicación
 
@@ -64,17 +64,17 @@ Cree un archivo zip que contenga todos los archivos requeridos para instalar apl
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. En [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md), puede encontrar un ejemplo.
 
-	>[AZURE.IMPORTANT] El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente.
+>[AZURE.IMPORTANT] El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente.
 	
 	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
 		
-	>Tenga en cuenta que el nombre del script consta de tres partes:
+>Tenga en cuenta que el nombre del script consta de tres partes:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+>1. El prefijo del nombre del script, que incluirá el nombre de la aplicación o un nombre relevante para la aplicación.
+>2. Un signo "-", para mejorar la legibilidad.
+>3. Una función de cadena única con el nombre de la aplicación como parámetro.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+>El ejemplo anterior se acaba convirtiendo en: hue-install-v0-4wkahss55hlas en la lista de acciones de script persistentes. Para ver una carga de JSON de ejemplo, diríjase a [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Todos los scripts requeridos.
 
@@ -86,7 +86,7 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 
 1. Inicie sesión en el [Portal de publicación de Azure](https://publish.windowsazure.com/).
 2. Haga clic en **Solution templates** (Plantillas de solución) para crear una nueva plantilla de solución.
-3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)
+3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
 5. Adición de una nueva versión
 6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).  

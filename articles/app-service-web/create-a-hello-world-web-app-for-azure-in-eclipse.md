@@ -56,7 +56,7 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
    ![][03]
    
-   O bien, mientras está seleccionado el proyecto de aplicación web en el Explorador de proyectos, puede hacer clic en el botón desplegable **Publicar** de la barra de herramientas y seleccionar el botón **Publish as Azure Web App** (Publicar como aplicación Web de Azure) desde allí:
+   O bien, mientras está seleccionado el proyecto de aplicación web en el Explorador de proyectos, puede hacer clic en el botón desplegable **Publish** (Publicar) de la barra de herramientas y seleccionar el botón **Publish as Azure Web App** (Publicar como una aplicación web de Azure) desde allí:
    
    ![][publishDropdownButton]
    
@@ -65,29 +65,29 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
    ![][04]
    
    Nota: Si tiene varias cuentas de Azure, puede que algunos de los avisos que aparecen durante el proceso de inicio de sesión se muestren más de una vez, incluso si parecen ser iguales. Cuando esto ocurra, siga la instrucciones de inicio de sesión.
-1. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Administrar suscripciones** mostrará una lista de suscripciones que están asociados con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Cerrar**.
+1. Cuando haya iniciado sesión correctamente en su cuenta de Azure, el cuadro de diálogo **Manage Subscriptions** (Administrar suscripciones) mostrará una lista de suscripciones que están asociados con sus credenciales. Si aparecen varias suscripciones y quiere trabajar solo con un subconjunto específico de ellas, opcionalmente puede desactivar las que no utilice. Cuando haya seleccionado las suscripciones, haga clic en **Close** (Cerrar).
 
    ![][05]
    
-1. Cuando aparezca el cuadro de diálogo **Implementar en el contenedor de aplicaciones web de Azure**, se mostrarán los contenedores de aplicaciones web creados anteriormente; si no ha creado ningún contenedor, la lista estará vacía.
+1. Cuando aparezca el cuadro de diálogo **Deploy to Azure Web App Container (Implementar en el contenedor de aplicaciones web de Azure)**, se mostrarán los contenedores de aplicaciones web creados anteriormente; si no ha creado ningún contenedor, la lista estará vacía.
 
    ![][06]
    
 1. Si no ha creado un contenedor de aplicaciones web de Azure antes, o si quiere publicar la aplicación en un nuevo contenedor, siga estos pasos. De lo contrario, seleccione un contenedor de aplicaciones web existente y vaya al paso 7 a continuación.
 
-  1. Haga clic en **Nuevo...**
+  1. Haga clic en **New** (Nuevo)...
 
-  1. Se muestra el cuadro de diálogo **Nuevo contenedor de aplicaciones web**:
+  1. Se muestra el cuadro de diálogo **New Web App Container** (Nuevo contenedor de aplicaciones web):
 
         ![][07]
 
-  1. Escriba un valor para **Etiqueta DNS** para el contenedor de aplicaciones web; esta será la etiqueta DNS hoja de la dirección URL del host de la aplicación web en Azure. Nota: El nombre debe estar disponible y ajustarse a los requisitos de nomenclatura de las aplicaciones web de Azure.
+  1. Escriba un valor para **DNS Label** (Etiqueta DNS) para el contenedor de aplicaciones web; esta será la etiqueta DNS hoja de la dirección URL del host de la aplicación web en Azure. Nota: El nombre debe estar disponible y ajustarse a los requisitos de nomenclatura de las aplicaciones web de Azure.
 
   1. En el menú desplegable **Contenedor web**, seleccione el software adecuado para su aplicación.
 
         Actualmente, puede elegir entre Tomcat 8, Tomcat 7 o Jetty 9. Azure proporcionará una distribución reciente del software seleccionado y se ejecutará en una distribución reciente de JDK 8 creada por Oracle y proporcionada por Azure.
 
-  1. En el menú desplegable **Suscripción**, seleccione la suscripción que quiere usar para esta implementación.
+  1. En el menú desplegable **Subscription** (Suscripción), seleccione la suscripción que quiere usar para esta implementación.
 
   1. En el menú desplegable **Grupo de recursos**, seleccione el grupo de recursos con el que desea asociar la aplicación web.
 
@@ -95,15 +95,15 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
         Puede seleccionar un grupo de recursos existente (si tiene alguno) y pasar al paso g a continuación o usar los siguientes pasos para crear un nuevo grupo de recursos:
 
-      * Haga clic en **Nuevo...**
+      * Haga clic en **New** (Nuevo)...
 
       * Se muestra el cuadro de diálogo **Nuevo grupo de recursos**:
 
             ![][08]
 
-      * En el cuadro de texto **Nombre**, especifique un nombre para el nuevo grupo de recursos.
+      * En el cuadro de texto **Name** (Nombre), especifique un nombre para el nuevo grupo de recursos.
 
-      * En el menú desplegable **Región**, seleccione la ubicación adecuada del centro de recursos de Azure para su grupo de recursos.
+      * En el menú desplegable **Region** (Región), seleccione la ubicación adecuada del centro de recursos de Azure para su grupo de recursos.
 
       * Haga clic en **Aceptar**.
 
@@ -113,19 +113,19 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
         Puede seleccionar un plan de servicio de aplicaciones existente (si tiene alguno) y pasar al paso h a continuación o usar los siguientes pasos para crear un nuevo plan:
 
-      * Haga clic en **Nuevo...**
+      * Haga clic en **New** (Nuevo)...
 
       * Se muestra el cuadro de diálogo **Nuevo plan del servicio de aplicaciones**:
 
             ![][09]
 
-      * En el cuadro de texto **Nombre**, especifique un nombre para el nuevo plan.
+      * En el cuadro de texto **Name** (Nombre), especifique un nombre para el nuevo plan.
 
-      * En el menú desplegable **Ubicación**, seleccione la ubicación adecuada del centro de recursos de Azure para el plan.
+      * En el menú desplegable **Location** (Ubicación), seleccione la ubicación adecuada del centro de recursos de Azure para el plan.
 
       * En el menú desplegable **Plan de tarifa**, seleccione la tarifa adecuada para el plan. Con fines de prueba, puede elegir **Gratis**.
 
-      * En el menú desplegable **Tamaño de instancia**, seleccione el tamaño de instancia adecuado para el plan. Con fines de prueba, puede elegir **Pequeño**.
+      * En el menú desplegable **Tamaño de instancia**, seleccione el tamaño de instancia adecuado para el plan. Con fines de prueba, puede elegir **Small** (Pequeña).
 
   1. Cuando haya completado todos los pasos anteriores, el cuadro de diálogo Nuevo contenedor de aplicaciones web debe parecerse al de la siguiente ilustración:
 
@@ -141,7 +141,7 @@ Existen varias maneras de implementar una aplicación web de Java en Azure. En e
 
     Haga clic en **Aceptar** para implementar su aplicación Java en el contenedor de aplicaciones web seleccionado.
 
-    Nota: De forma predeterminada, la aplicación se implementará como un subdirectorio del servidor de aplicaciones. Si desea que se implemente como la aplicación raíz, active la casilla **Implementar en raíz** antes de hacer clic en **Aceptar**.
+    Nota: De forma predeterminada, la aplicación se implementará como un subdirectorio del servidor de aplicaciones. Si desea que se implemente como la aplicación raíz, active la casilla **Deploy to root** (Implementar en raíz) antes de hacer clic en **Aceptar**.
 
 1. A continuación, debería mostrarse la vista **Azure Activity Log** (Registro de actividad de Azure), que indicará el estado de implementación de la aplicación web.
 

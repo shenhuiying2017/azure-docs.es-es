@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma"/>
 
 
@@ -81,7 +81,7 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
 	- **name**. Nombre del recurso. Observe el uso de **[parameters('applicationGatewayName')]**, lo que significa el nombre lo proporcionará el usuario o un archivo de parámetros durante la implementación.
 	- **properties**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la puerta de enlace de aplicaciones.
 
-7. Vuelva a https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/.
+7. Vuelva a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Haga clic en **azuredeploy-paremeters.json**, y, a continuación, haga clic en **RAW**.
 9. Guarde el archivo en un una carpeta local en su equipo.
 10. Abra el archivo que acaba de guardar y edite los valores de los parámetros. Use los siguientes valores para implementar la red puerta de enlace de aplicaciones que se describe en nuestro escenario.
@@ -112,11 +112,11 @@ Puede descargar la plantilla del Administrador de recursos de Azure existente pa
     	}
 		}
 
-11. Guarde el archivo . Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas de validación de JSON en línea como [JSlint.com](http://www.jslint.com/).
+11. Guarde el archivo . Puede probar la plantilla de JSON y la plantilla de parámetros mediante las herramientas en línea de validación de JSON como [JSlint.com](http://www.jslint.com/).
 
 ## Implementación de la plantilla del Administrador de recursos de Azure mediante PowerShell
 
-Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md), y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
 ### Paso 1
 
@@ -130,7 +130,7 @@ Compruebe las suscripciones para la cuenta.
 
 		get-AzureRmSubscription
 
-Se le pedirá que se autentique con sus credenciales.<BR>
+Se le solicitará que se autentique con sus credenciales.<BR>
 
 ### Paso 3
 
@@ -140,10 +140,10 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Paso 4
+### Paso 4
 
 
-Si es necesario, crear un nuevo grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, creará un grupo de recursos nuevo denominado AppgatewayRG en la ubicación East US.
+Si es necesario, cree un nuevo grupo de recursos mediante el cmdlet **New-AzureResourceGroup**. En el ejemplo siguiente, creará un grupo de recursos nuevo denominado AppgatewayRG en la ubicación East US.
 
 	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -160,7 +160,7 @@ Si es necesario, crear un nuevo grupo de recursos mediante el cmdlet **New-Azure
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que se descargó y modificó antes.
+Ejecute el cmdlet **New-AzureRmResourceGroupDeployment** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó antes.
 
 		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -191,7 +191,7 @@ La salida generada por la línea de comandos será la siguiente:
 
 Para implementar la plantilla del Administrador de recursos de Azure descargada mediante la CLI de Azure, siga estos pasos:
 
-1. Si nunca ha usado la CLI de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto en que se selecciona la cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto en que se seleccionan la cuenta y la suscripción de Azure.
 2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
@@ -200,7 +200,7 @@ Este es el resultado esperado del comando anterior:
 
 		info:	New mode is arm
 
-3. En caso necesario, ejecute el comando **azure group create** para crear un grupo de recursos nuevo, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general de Azure Resource Manager](../resource-group-overview.md).
+3. En caso necesario, ejecute el comando **azure group create** para crear un grupo de recursos nuevo, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para más información sobre los grupos de recursos, visite [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 		azure group create -n appgatewayRG -l eastus
 
@@ -208,7 +208,7 @@ Este es el resultado esperado del comando anterior:
 
 **-l (o --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, es *eastus*.
 
-4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que se descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
+4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante los archivos de plantillas y parámetros que descargó y modificó antes. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -263,7 +263,7 @@ Rellene los parámetros de la plantilla de implementación en el portal y haga c
 
 ![Parámetros](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
-### Paso 4
+### Paso 4
 
 Seleccione **Términos legales** y haga clic en **Comprar**.
 
@@ -277,11 +277,11 @@ En la hoja Implementación personalizada, haga clic en **Crear**.
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si desea configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

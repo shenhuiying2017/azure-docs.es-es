@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="04/27/2016"
-    ms.author="jimpark; markgal"/>
+    ms.author="jimpark; markgal;genli"/>
 
 # Se ha producido un error en la copia de seguridad de la máquina virtual de Azure: no se pudo comunicar con el agente de máquina virtual para el estado de la instantánea: la subtarea de la máquina virtual de la instantánea agotó el tiempo de espera
 
@@ -132,4 +132,4 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90%) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 |La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP.|DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Obtenga más información acerca del [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

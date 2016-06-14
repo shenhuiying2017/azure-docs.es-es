@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,18 +15,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="05/26/2016"
 	ms.author="genli"/>
 
 # No puedo iniciar sesión para administrar mi suscripción de Azure
+
+> [AZURE.NOTE]Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) y haga clic en Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Este artículo le ayudará a solucionar algunas de las causas comunes de los problemas de inicio de sesión.
 
 ## ¿A qué portal está intentando obtener acceso?
 
-Un administrador de cuenta solo puede tener acceso al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
+Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
 
-Para más información sobre los roles de administrador de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
+Para obtener más información sobre los roles de administrador de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
 
 ## ¿Está su suscripción asociada a una cuenta de Microsoft o a una cuenta de organización?
 
@@ -48,8 +50,8 @@ Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos 
 |Cuenta Microsoft |Sí|No|No|
 |Cuenta de organización|Sí|Sí|No|
 
-## Intente eliminar caché o cookies, usando el modo de exploración de InPrivate en Internet Explorer y también mediante un explorador diferente.
+## ¿Hay un problema con el Explorador de Internet?
 
-Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Trate de eliminar caché o cookies usando el modo de exploración de InPrivate de Internet Explorer y también mediante otro explorador.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

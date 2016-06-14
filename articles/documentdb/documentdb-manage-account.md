@@ -38,13 +38,13 @@ También incluye las claves de solo lectura para proporcionar a los usuarios acc
 
 ### Visualización y copia de una clave de acceso en el Portal de Azure
 
-1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+1.      En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
 
-2.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
+2.      En la barra **Operaciones básicas** de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
 
-3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
+3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
 
-  ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
+ ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar las claves de acceso
 

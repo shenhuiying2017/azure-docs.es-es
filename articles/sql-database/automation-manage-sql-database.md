@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/26/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,7 +34,7 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede Automatización de Azure ayudar a administrar bases de datos SQL de Azure?
 
-La base de datos SQL de Azure puede administrarse en Automatización de Azure mediante los [cmdlets de PowerShell de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn546726.aspx) que están disponibles en las [herramientas de PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de base de datos SQL de Azure disponibles directamente para que pueda realizar todas las tareas de administración de base de datos SQL dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+La base de datos SQL de Azure puede administrarse en Automatización de Azure mediante los [cmdlets de PowerShell de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546723.aspx) que están disponibles en las [herramientas de PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de base de datos SQL de Azure disponibles directamente para que pueda realizar todas las tareas de administración de base de datos SQL dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 Automatización de Azure también tiene la capacidad de comunicarse con servidores SQL Server directamente, mediante la emisión de comandos SQL con PowerShell.
 
@@ -55,4 +55,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 - [Automatización de Azure: el agente SQL en la nube](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

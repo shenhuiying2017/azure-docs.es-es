@@ -21,9 +21,6 @@
 
 Azure ofrece varias formas de crear una máquina virtual porque las máquinas virtuales son adecuadas para distintos usuarios y objetivos. Esto significa que tendrá tomar algunas decisiones sobre la máquina virtual y cómo crearla. Este artículo ofrece un resumen de estas opciones y vínculos a instrucciones.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
-
 ## Portal de Azure
 
 El portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure.
@@ -34,12 +31,12 @@ El portal de Azure es una manera fácil de probar una máquina virtual, especial
 
 Si prefiere trabajar en un shell de comandos, puede usar PowerShell de Azure.
 
-- [Creación de una máquina virtual de Windows con PowerShell](virtual-machines-windows-ps-create.md)
+- [Creación de una máquina virtual Windows con PowerShell](virtual-machines-windows-ps-create.md)
 - [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos](virtual-machines-windows-ps-template.md)
 
 ## Plantilla
 
-Las máquinas virtuales requieren una combinación de recursos (por ejemplo, conjuntos de disponibilidad y cuentas de almacenamiento). En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos en una operación única y coordinada.
+Las máquinas virtuales requieren una combinación de recursos (por ejemplo, conjuntos de disponibilidad y cuentas de almacenamiento). En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla de Azure Resource Manager que implementa y aprovisiona todos los recursos en una operación única y coordinada.
 
 - [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos](virtual-machines-windows-ps-template.md)
 
@@ -47,4 +44,4 @@ Las máquinas virtuales requieren una combinación de recursos (por ejemplo, con
 
 [Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento](virtual-machines-windows-csharp.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

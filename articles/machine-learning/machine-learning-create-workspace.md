@@ -85,7 +85,7 @@ A continuación se muestra una tabla que clarificar la diferencia entre un admin
 | Acceder a [Estudio de aprendizaje automático] | No * | Sí |
 
 
-> [AZURE.NOTE] * Los administradores de suscripciones de Azure se convierten automáticamente en propietarios de un área de trabajo al crear un área de trabajo; sin embargo, el acceso solo se les conceden porque son los propietarios de un área de trabajo.
+> [AZURE.NOTE] * Se agregará automáticamente un administrador de suscripciones de Azure al área de trabajo que crea como propietario del área de trabajo. Sin embargo, el mero hecho de ser administrador de suscripciones de Azure no le concede acceso a ningún área de trabajo de esa suscripción.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -105,4 +105,4 @@ A continuación se muestra una tabla que clarificar la diferencia entre un admin
 [Estudio de aprendizaje automático]: https://studio.azureml.net/
 [Portal de Microsoft Azure clásico]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

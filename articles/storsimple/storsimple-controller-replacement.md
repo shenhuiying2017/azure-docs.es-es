@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Reemplazar un módulos de controladores en el dispositivo StorSimple
@@ -69,7 +69,7 @@ Un reemplazo de un controlador único, primero debe quitar el controlador defect
 
 ### Pasos de reemplazo de un único controlador
 
-Complete los pasos siguientes si se produce un error en uno de los controladores del dispositivo StorSimple de Microsoft Azure. (El otro controlador debe estar activo y en funcionamiento. Si ambos controladores fallan o no funcionan, vaya a [Pasos de reemplazo de dos controladores](#dual-controller-replacement-steps).)
+Complete los pasos siguientes si se produce un error en uno de los controladores del dispositivo StorSimple de Microsoft Azure. (El otro controlador debe estar activo y en funcionamiento. Si ambos controladores dan error o no funcionan, vaya a los [pasos de reemplazo de dos controladores](#dual-controller-replacement-steps).)
 
 >[AZURE.NOTE] Puede tardar entre 30 y 45 minutos para que el controlador se reinicie y recupere completamente del procedimiento de reemplazo de un único controlador. El tiempo total para el procedimiento completo, incluida la conexión de los cables, es de aproximadamente dos horas.
 
@@ -77,7 +77,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 1. En el Portal de Azure clásico del servicio StorSimple Manager, haga clic en la pestaña **Dispositivos** y, a continuación, haga clic en el nombre del dispositivo que quiera supervisar.
 
-2. Haga clic en la pestaña **Mantenimiento** y, a continuación, vaya a **Estado del hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
+2. Vaya a **Mantenimiento > Estado de Hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
 
     >[AZURE.NOTE] El controlador defectuoso en un reemplazo de un único controlador siempre es un controlador en modo de espera.
 
@@ -96,9 +96,9 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 4. En el controlador defectuoso, quite todos los cables de red conectados a los puertos de datos. Si utiliza un modelo 8600, quite también los cables SAS que conectan el controlador al controlador EBOD.
 
-5. Siga los pasos en [Quitar un controlador](#remove-a-controller) para quitar el controlador defectuoso.
+5. Siga los pasos de la sección sobre [cómo quitar un controlador](#remove-a-controller) para quitar el controlador defectuoso.
 
-6. Instale el reemplazo de fábrica en la misma ranura de la que se quitó el controlador defectuoso. Esto desencadena la lógica de reemplazo de un único controlador. Para obtener más información, vea [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
+6. Instale el reemplazo de fábrica en la misma ranura de la que se quitó el controlador defectuoso. Esto desencadena la lógica de reemplazo de un único controlador. Para más información, consulte la [lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
 
 7. Mientras que la lógica de reemplazo de un único controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo.
 
@@ -128,7 +128,7 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
 
 3. Mientras tanto, el controlador en la ranura 1 espera el controlador 0 para completar la creación de imágenes e iniciarse.
 
-4. Una vez que se inicia el controlador 0, el controlador 1 detecta el clúster creado por el controlador 0, que activa la lógica de reemplazo de un único controlador. Para obtener más información, vea [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
+4. Una vez que se inicia el controlador 0, el controlador 1 detecta el clúster creado por el controlador 0, que activa la lógica de reemplazo de un único controlador. Para más información, consulte la [lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
 
 5. Después, se ejecutarán ambos controladores y el clúster se conectará.
 
@@ -150,11 +150,11 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 
 2. Quite todos los cables de red que están conectados a los puertos de datos. Si utiliza un modelo 8600, quite también los cables SAS que conectan el gabinete principal al gabinete EBOD.
 
-3. Quite ambos controladores del dispositivo StorSimple. Para obtener más información, vea [Quitar un controlador](#remove-a-controller).
+3. Quite ambos controladores del dispositivo StorSimple. Para más información, consulte la sección sobre [cómo quitar un controlador](#remove-a-controller).
 
-4. Inserte primero el reemplazo de fábrica del Controlador 0 y, a continuación, instale el Controlador 1. Para obtener más información, vea [Insertar un controlador](#insert-a-controller). Esto desencadena la lógica de reemplazo de dos controladores. Para obtener más información, consulte [Lógica de reemplazo de dos controladores](#dual-controller-replacement-logic).
+4. Inserte primero el reemplazo de fábrica del Controlador 0 y, a continuación, instale el Controlador 1. Para más información, consulte la sección sobre [cómo insertar un controlador](#insert-a-controller). Esto desencadena la lógica de reemplazo de dos controladores. Para más información, consulte la [lógica de reemplazo de dos controladores](#dual-controller-replacement-logic).
 
-5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Consulte las instrucciones detalladas para el modelo en la sección Cableado del dispositivo de [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Consulte las instrucciones detalladas para su modelo en la sección de cableado del dispositivo, las partes sobre [cómo instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [cómo instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
 6. Encienda el dispositivo StorSimple. Si está usando un modelo 8600:
 
@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

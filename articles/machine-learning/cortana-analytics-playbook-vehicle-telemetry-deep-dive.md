@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -387,7 +387,7 @@ Este patrón también es aplicable a escenarios donde desea integrar una aplicac
 
 Haga clic en la [descarga de RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para descargar la solución de Visual Studio de RealtimeDashboardApp para las personalizaciones.
 
-**** Para ejecutar la aplicación de panel en tiempo real **
+**Para ejecutar la aplicación de panel en tiempo real**
 
 1.	Haga clic en el nodo de Power BI en la vista de diagrama y luego en el vínculo Descargar aplicación del panel en tiempo real, en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Ilustración 17: Instrucciones de configuración del panel de Power BI*
 2.	Extraer y guardar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Ilustración 18: Carpeta RealtimeDashboardApp*
@@ -706,4 +706,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

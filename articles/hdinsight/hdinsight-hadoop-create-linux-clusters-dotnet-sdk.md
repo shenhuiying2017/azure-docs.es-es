@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/27/2016"
    	ms.author="jgao"/>
 
 #Crear clústeres basados en Linux en HDInsight con el SDK de .NET
@@ -167,7 +167,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 ## Uso de bootstrap
 
-Para más información, consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
+Para más información, consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 Modifique el ejemplo para [crear clústeres](#create-clusters) a fin de configurar un valor de Hive:
 
@@ -348,7 +348,7 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 ###Clústeres HBase
 
 * [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clústeres Storm
 
@@ -371,4 +371,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 - [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)
 - [Run Oozie jobs in HDInsightt](hdinsight-use-oozie.md) (Ejecución de trabajos de Oozie en HDInsight)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

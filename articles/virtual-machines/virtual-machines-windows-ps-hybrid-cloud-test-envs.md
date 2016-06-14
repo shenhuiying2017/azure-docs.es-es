@@ -19,8 +19,6 @@
 
 # Entornos de prueba de nube híbrida de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
-
 Para desarrollo/prueba o una prueba de concepto, los entornos de prueba de nube híbrida usan la conexión local a Internet y una de las direcciones IP públicas y le guiarán durante el proceso de configuración de una red virtual de Azure (VNet) entre locales y en funcionamiento. Cuando haya finalizado, puede desarrollar y probar aplicaciones, experimentar con cargas de trabajo de TI simplificadas y medir el rendimiento de una conexión de red privada virtual (VPN) de sitio a sitio con respecto a su ubicación en Internet.
 
 ## Configuración básica de nube híbrida
@@ -52,4 +50,4 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 - Obtenga información sobre las [directrices de implementación](virtual-machines-linux-infrastructure-service-guidelines.md) para diseñar una implementación personalizada de desarrollo, prueba o producción en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

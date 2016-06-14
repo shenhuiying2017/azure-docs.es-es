@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/31/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -108,12 +108,25 @@ Cuando un usuario abre el Centro de seguridad de Azure, solo se verán las recom
 
 Para editar una directiva de seguridad, debe ser propietario o colaborador de la suscripción.
 
+## Máquinas virtuales
+
 ### ¿Qué tipos de máquinas virtuales serán compatibles?
-Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
+Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
 
 Las recomendaciones de lista de control de acceso se aplican actualmente a las máquinas virtuales (clásicas). Los grupos de seguridad de red solo se aplican actualmente a las máquinas virtuales (Administrador de recursos).
 
-### ¿Las máquinas virtuales de Linux son compatibles?
-El Centro de seguridad de Azure ofrece supervisión de línea base para máquinas virtuales de Linux (solo Ubuntu versiones 12.04, 14.04, 14.10 y 15.04). En el futuro, habrá disponible una supervisión del estado de seguridad y colección de datos/análisis adicionales, además de compatibilidad para otras distribuciones de Linux.
+Máquinas virtuales con Windows admitidas:
 
-<!---HONumber=AcomDC_0504_2016-->
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+Máquinas virtuales con Linux admitidas:
+
+- Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
+- Versiones de Debian 7.0 y 8.0
+- Versiones de CentOS 6.0, 7.0
+- Versiones de Red Hat Enterprise Linux (RHEL) 6, 7
+- Versiones de SUSE Linux Enterprise Server (SLES) 11, 12
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Llamada a una API personalizada en aplicaciones lógicas"
+	pageTitle="Llamada a una API personalizada en Aplicaciones lógicas"
 	description="Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas
 
-Aunque Aplicaciones lógicas tiene un conjunto completo de más de 40 conectores para una gran variedad de servicios, puede que desee recurrir a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo se explica cómo llamar a cualquier API web hospedada en una aplicación de API del Servicio de aplicaciones, en una aplicación web o en una aplicación móvil.
+Aunque las aplicaciones lógicas poseen un amplio conjunto de más de 40 conectores para diversos servicios, es posible que prefiera llamar a su propia API personalizada que puede ejecutar su propio código. Una de las maneras más fáciles y escalables de hospedar sus propias API web personalizadas es usar Servicio de aplicaciones. En este artículo se explica cómo llamar a cualquier API web hospedada en una aplicación de API del Servicio de aplicaciones, en una aplicación web o en una aplicación móvil.
 
-Para obtener información sobre la creación de API como desencadenador o acción en las aplicaciones lógicas, consulte [este artículo](app-service-logic-create-api-app.md).
+Para obtener información sobre la generación de API como desencadenador o acción en Aplicaciones lógicas, consulte [este artículo](app-service-logic-create-api-app.md).
 
 ## Implementación de la aplicación web
 
-En primer lugar, necesitará implementar la API como aplicación web en Servicio de aplicaciones. En estas instrucciones, se explica la implementación básica: [Creación de una aplicación web ASP.NET en Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md). Aunque puede llamar a cualquier API desde una aplicación lógica, para obtener la mejor experiencia le recomendamos que agregue metadatos de Swagger para integrarse fácilmente con acciones de aplicaciones lógicas. Puede encontrar más información sobre [cómo agregar Swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+En primer lugar, necesitará implementar la API como aplicación web en Servicio de aplicaciones. En estas instrucciones, se explica la implementación básica: [Creación de una aplicación web ASP.NET en Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md). Aunque puede llamar a cualquier API desde una aplicación lógica, le recomendamos que agregue metadatos de Swagger para que la integración con las Aplicaciones lógicas sea sencilla. En el vínculo siguiente puede encontrar más información sobre [cómo agregar Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### Configuración de la API
 
-Para que el diseñador de aplicaciones lógicas analice su Swagger, es importante que habilite CORS y establezca las propiedades de definición de la API de su aplicación web. Es muy fácil establecerlas dentro del Portal de Azure. Solo tiene que abrir la hoja de configuración de la aplicación web y, en la sección de la API, establezca el campo "Definición de la API" como la dirección URL de su archivo swagger.json (que normalmente es https://{name}.azurewebsites.net/swagger/docs/v1)) y agregue una directiva CORS a "*" para permitir las solicitudes del diseñador de aplicaciones lógicas.
+Para que el diseñador de aplicaciones lógicas analice su Swagger, es importante que habilite CORS y que establezca las propiedades de Definición de la API de la aplicación web. Es muy fácil establecerlas dentro del Portal de Azure. Solo tiene que abrir la hoja de configuración de la aplicación web y, en la sección de la API, seleccionar en el campo "Definición de la API" la dirección URL de su archivo swagger.json (que normalmente es https://{name}.azurewebsites.net/swagger/docs/v1)) y agregar una directiva CORS a "*" que permita las solicitudes del diseñador de aplicaciones lógicas.
 
 ## Llamada a la API
 
-Cuando se encuentre dentro del portal de aplicaciones lógicas, si ha establecido CORS y las propiedades de Definición de la API, debería poder agregar fácilmente acciones de API personalizadas dentro de su flujo. En el diseñador, puede seleccionar si quiere examinar los sitios web de suscripción para enumerar los sitios web que tengan definida una dirección URL de Swagger. También puede usar la acción HTTP + Swagger para apuntar a Swagger y enumerar las acciones y las entradas disponibles. Por último, siempre puede crear una solicitud mediante la acción HTTP para llamar a cualquier API, incluso aquellas que no tengan ni expongan un documento de Swagger.
+En el portal de aplicaciones lógicas, si ha establecido las propiedades de Definición de la API y CORS, debería poder agregar fácilmente acciones de API personalizadas dentro de su flujo. En el diseñador, puede seleccionar si quiere examinar los sitios web de suscripción para enumerar los sitios web que tengan definida una dirección URL de Swagger. También puede usar la acción HTTP + Swagger para apuntar a Swagger y enumerar las acciones y las entradas disponibles. Por último, siempre puede crear una solicitud mediante la acción HTTP para llamar a cualquier API, incluso aquellas que no tengan ni expongan un documento de Swagger.
 
 Si desea proteger su API, existen distintas formas de hacerlo:
 
@@ -41,7 +41,7 @@ Si desea proteger su API, existen distintas formas de hacerlo:
 
 ## Protección de las llamadas a la API sin cambios en el código
 
-En esta sección, creará dos aplicaciones de Azure Active Directory: una para la aplicación lógica y otra para la aplicación web. Podrá autenticar las llamadas a la aplicación web mediante la entidad de servicio (id. de cliente y secreto) asociada a la aplicación AAD para la aplicación lógica. Por último, incluirá el identificador de la aplicación en la definición de la aplicación lógica.
+En esta sección creará dos aplicaciones de Azure Active Directory: una para la aplicación lógica y otra para la aplicación web. Autenticará las llamadas a la aplicación web mediante la entidad de servicio (Id. de cliente y secreto) asociada a la aplicación AAD de la aplicación lógica. Por último, incluirá el identificador de la aplicación en la definición de la aplicación lógica.
 
 ### Parte 1: Configurar una identidad de aplicación para la aplicación lógica
 
@@ -169,4 +169,4 @@ Además, si desea implementarla totalmente en su propio código y no aprovechar 
 
 Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

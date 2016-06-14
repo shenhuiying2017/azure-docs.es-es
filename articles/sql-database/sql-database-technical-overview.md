@@ -59,4 +59,4 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 - Para crear su primera aplicación en C#, Java, Node.js, PHP, Python o Ruby, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 - Para ver un índice de los títulos y las descripciones, consulte [Todos los temas del servicio Base de datos SQL de Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

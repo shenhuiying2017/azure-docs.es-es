@@ -127,7 +127,7 @@ Use el SDK de Centros de notificaciones para enviar notificaciones push desde el
 [Portal de Azure]: https://portal.azure.com
 [Creación de una aplicación de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
 
 [complemento de Apache Cordova para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [su primera aplicación de Apache Cordova]: http://cordova.apache.org/#getstarted

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -74,6 +74,7 @@ Como resultado, puede que le resulte útil considerar decidir cuáles deben ser 
 - [Suscripción](#subscription-limits)
 - [Administrador de tráfico](#traffic-manager-limits)
 - [Máquinas virtuales](#virtual-machines-limits)
+- [Conjuntos de escalado de máquina virtual](#virtual-machine-scale-sets-limits)
 
 
 ### Límites de suscripción
@@ -91,7 +92,6 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Límites de máquinas virtuales
 #### Límites de máquinas virtuales
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Límites de los conjuntos de escalas de máquinas virtuales
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Límites de red
 
@@ -184,13 +187,19 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 
 Los planes de tarifa determinan la capacidad y los límites de su servicio de búsqueda. Los planes incluyen:
 
-- El servicio multiempresa **Gratis**, compartido con otros suscriptores de Azure, diseñado para proyectos de evaluación y de desarrollo de pequeña envergadura.
-- El plan **Básico (versión preliminar)** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un precio reducido.
-- El plan **Estándar (S1 y S2)** está destinado a cargas de trabajo de producción. Hay disponible una versión de mayor capacidad (**S2**) a petición (envíe un correo electrónico a azuresearch_contact@microsoft.com).
+- El servicio multiempresa *Gratis*, compartido con otros suscriptores de Azure, se ha diseñado para proyectos de evaluación y de desarrollo de pequeña envergadura.
+- El plan *Básico (vista preliminar)* proporciona recursos de proceso exclusivos para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un precio reducido.
+- El plan *Estándar (S1 y S2)* está destinado a cargas de trabajo de producción. Hay disponible una versión de mayor capacidad (*S2*) a petición (póngase en contacto con el servicio de soporte técnico o envíe un mensaje de correo electrónico a azuresearch_contact@microsoft.com para obtener ayuda).
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Límites de los niveles**
 
-Para más información sobre otros límites, como el tamaño de documento, las claves, las solicitudes y las respuestas, consulte [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+
+**Límites de almacenamiento**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+
+Para obtener más información sobre otros límites, como el tamaño de documento, las consultas por segundo, las claves, las solicitudes y las respuestas, consulte [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
 
 ### Límites de Servicios multimedia
 
@@ -291,4 +300,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

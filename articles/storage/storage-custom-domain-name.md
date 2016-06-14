@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configurar un nombre de dominio para el punto de conexión de Almacenamiento de blobs | Microsoft Azure"
-	description="Obtenga información sobre cómo asignar un dominio de usuario personalizado para el punto de conexión de Almacenamiento de blobs para una cuenta de almacenamiento de Azure."
+	description="Aprenda a asignar un dominio de usuario personalizado al punto de conexión de Almacenamiento de blobs para una cuenta de almacenamiento de Azure en el Portal de Azure clásico."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -22,9 +22,6 @@
 ## Información general
 
 Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado para Almacenamiento de blobs es https://<*mystorageaccount*>.blob.core.windows.net. Si asigna un subdominio y un dominio personalizado, como **www.contoso.com**, al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento a través de ese dominio.
-
-
-> [AZURE.NOTE]	Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la información relativa a los Servicios en la nube, consulte <a href = "/develop/net/common-tasks/custom-dns/">Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure</a>; para Sitios web, consulte <a href="/develop/net/common-tasks/custom-dns-web-site/">Configuración de un nombre de dominio personalizado en Servicio de aplicaciones de Azure</a>.
 
 Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
 
@@ -112,8 +109,23 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 -   http://photos.contoso.com/myforms/applicationform.htm
 
+## Anular el registro de un dominio personalizado para la cuenta de almacenamiento
+
+Para anular el registro de un dominio personalizado, siga estos pasos:
+
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com). 
+
+2. En el panel de navegación, haz clic en **Almacenamiento**.
+
+3. En la página **Almacenamiento**, haga clic en el nombre de la cuenta de almacenamiento para mostrar el panel.
+
+5. En la cinta de opciones, haga clic en **Administrar dominio**.
+
+6. En el cuadro de diálogo **Administrar dominio personalizado**, haga clic en **Unregister** (Anular el registro).
+
+
 ## Recursos adicionales
 
 -   [Cómo asignar un dominio personalizado al punto de conexión de la Red de entrega de contenido (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

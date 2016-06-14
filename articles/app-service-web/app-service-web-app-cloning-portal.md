@@ -59,6 +59,7 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 - No se clona la configuración de Easy Auth.
 - No se clona la extensión Kudu.
 - No se clonan las reglas de TiP.
+- No se clona el contenido de la base de datos
 
 
 ### Referencias ###
@@ -72,4 +73,4 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

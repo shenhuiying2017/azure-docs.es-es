@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/23/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Solución de problemas de compatibilidad de bases de datos de SQL Server mediante el Asistente para migración de SQL Azure antes de la migración a la Base de datos SQL
-
-Si determina que la Base de datos SQL Server de origen no es compatible, tiene varias opciones para corregir los problemas de compatibilidad de bases de datos identificados anteriormente.
+# Uso del Asistente para migración de SQL Azure para corregir problemas de compatibilidad con bases de datos SQL Server antes de realizar la migración a Base de datos SQL de Azure
 
 > [AZURE.SELECTOR]
 - Uso del [Asistente para migración a SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Usar [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Usar [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- Uso de [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- Uso de [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+
+En este artículo, aprenderá a detectar y corregir problemas de compatibilidad con bases de datos de SQL Server mediante el Asistente para migración de SQL Azure antes de la migración a Base de datos SQL de Azure.
 
 ## Uso del Asistente para migración a SQL de Azure
 
@@ -33,8 +33,16 @@ Use la herramienta de CodePlex del [Asistente para migración de SQL Azure](http
 
   > [AZURE.NOTE] Tenga en cuenta que no todos los esquemas incompatibles que se pueden detectar por el asistente se pueden corregir por sus transformaciones integradas. El script incompatible que no se pueda resolver se notificará como un error, con comentarios insertados en el script generado. Si se detectan numerosos errores, use Visual Studio o SQL Server Management Studio para analizar y corregir cada error que no se pudo corregir con el Asistente para migración de SQL Server.
 
-## Siguiente paso: seleccionar el método de migración y realizar la migración
+## Pasos siguientes
 
-[Seleccione el método de migración](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+- [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migración de una Base de datos SQL Server compatible con la Base de datos SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!---HONumber=AcomDC_0330_2016-->
+## Más información
+
+- [Base de datos SQL V12](sql-database-v12-whats-new.md)
+- [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
+- [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

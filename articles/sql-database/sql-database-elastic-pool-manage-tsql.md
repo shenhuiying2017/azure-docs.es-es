@@ -3,18 +3,18 @@
     description="Use T-SQL para crear una Base de datos SQL de Azure en un grupo elástico. O bien, use T-SQL para mover la base de datos dentro y fuera de los grupos." 
 	services="sql-database" 
     documentationCenter="" 
-    authors="sidneyh" 
+    authors="srinia" 
     manager="jhubbard" 
     editor=""/>
 
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
-    ms.author="sidneyh"/>
+    ms.date="05/27/2016"
+    ms.author="srinia"/>
 
 # Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL  
 
@@ -31,7 +31,7 @@ Utilice los comandos [Create Database (Base de datos SQL de Azure)](https://msdn
 
 
 ## Creación de una nueva base de datos en un grupo elástico
-Use el comando CREATE DATABASE con la opción SERVICE_OBJECTIVE.
+Use el comando CREATE DATABASE con la opción SERVICE\_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -46,13 +46,13 @@ Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE c
 	-- Move the database named db1 to a pool named P1M125  
 
 ## Movimiento de una base de datos a un grupo elástico 
-Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE como ELASTIC_POOL. Establezca como nombre el nombre del grupo de destino.
+Utilice el comando ALTER DATABASE con las opciones MODIFY y SERVICE\_OBJECTIVE como ELASTIC\_POOL. Establezca como nombre el nombre del grupo de destino.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Movimiento de una base de datos fuera de un grupo elástico
-Utilice el comando ALTER DATABASE y establezca SERVICE_OBJECTIVE en uno de los niveles de rendimiento (S0, S1, etc).
+Utilice el comando ALTER DATABASE y establezca SERVICE\_OBJECTIVE en uno de los niveles de rendimiento (S0, S1, etc).
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
@@ -84,4 +84,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, consultar o crear transacciones.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

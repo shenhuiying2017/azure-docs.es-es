@@ -66,9 +66,11 @@ Solo se puede importar directamente desde la Galería de Runbooks mediante el Po
 
 Microsoft recomienda agregar a la Galería de Runbooks aquellos runbooks que piense que podrían ser útiles para otros clientes. Puede agregar un runbook si [lo carga al Centro de scripts](http://gallery.technet.microsoft.com/site/upload) teniendo en cuenta los siguientes detalles.
 
-- Debe especificar *Windows Azure* como **categoría** y *Automatización* como **subcategoría** para el runbook que se mostrará en el asistente.  
+- Debe especificar *Microsoft Azure* como **categoría** y *Automatización* como **subcategoría** para el runbook que se mostrará en el asistente.  
 
 - Se debe cargar un único archivo. ps1 o .graphrunbook. Si el runbook requiere módulos, runbooks secundarios o recursos, debe enumerarlos en la descripción del envío y en la sección de comentarios del runbook. Si tiene una solución que requiere varios runbooks, cargue cada uno por separado e indique los nombres de los runbooks relacionados en cada una de sus descripciones. Asegúrese de usar las mismas etiquetas para que se muestren en la misma categoría. Un usuario tendrá que leer la descripción para saber que se requieren otros runbooks para que funcione la solución.
+
+- Agregue la etiqueta "GraphicalPS" si va a publicar un **runbook gráfico** (no en un flujo de trabajo gráfico).
 
 - Inserte un fragmento de código de Flujo de trabajo de PowerShell o PowerShell en la descripción con el icono **Insertar sección de código**.
 
@@ -100,7 +102,7 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 1. En el Portal de Azure, abra su cuenta de Automatización.
 2. Haga clic en el icono **Recursos** para abrir la lista de recursos.
 3. Haga clic en el icono **Módulos** para abrir la lista de módulos.
-4. Haga clic en el botón **Examinar galería**. Aparece la hoja Examinar galería.
+4. Haga clic en el botón **Examinar la galería** y se iniciará la hoja Examinar la galería.
 
     ![Galería de módulos](media/automation-runbook-gallery/modules-blade.png) <br>
 5. Cuando haya aparecido la hoja Examinar galería, puede buscar por los campos siguientes:
@@ -119,7 +121,7 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
     ![Botón de importación de módulo](media/automation-runbook-gallery/module-import-button.png)
 
 8. Al hacer clic en el botón Importar, verá el nombre del módulo que se va a importar. Si están instaladas todas las dependencias, el botón **Aceptar** estará activo. Si faltan dependencias, debe importarlas antes de importar este módulo.
-9. Haga clic en **Aceptar** para importar el módulo y aparecerá la hoja del módulo. Cuando Automatización de Azure importa un módulo en la cuenta, extrae metadatos sobre el módulo y los cmdlets.
+9. Haga clic en **Aceptar** para importar el módulo y se iniciará la hoja del módulo. Cuando Automatización de Azure importa un módulo en la cuenta, extrae metadatos sobre el módulo y los cmdlets.
 
     ![Hoja de importación de módulo](media/automation-runbook-gallery/module-import-blade.png)
 
@@ -136,4 +138,4 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 - [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

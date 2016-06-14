@@ -19,8 +19,6 @@
 
 # Aplicación de directivas en máquinas virtuales de Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica
-
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describiremos cómo puede utilizar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.
 
 Los pasos para lograr esto se describen a continuación:
@@ -108,4 +106,4 @@ Después de crear la directiva, debe aplicarla en un ámbito definido. El ámbit
 
 * [Creación de una directiva](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

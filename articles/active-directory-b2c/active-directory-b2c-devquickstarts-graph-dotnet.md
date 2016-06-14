@@ -18,9 +18,6 @@
 
 # Versión preliminar de Azure AD B2C: uso de la API Graph
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
-
 Los inquilinos de Azure Active Directory (Azure AD) B2C tienden a ser muy grandes. Esto supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios. Quizá necesite migrar un almacén de usuario existente a un inquilino de B2C. Puede que desee hospedar un registro de usuarios en su propia página y crear cuentas de usuario en Azure AD en segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario. Puede realizar estas tareas mediante la API de Azure AD Graph.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -34,11 +31,11 @@ En este artículo, abordaremos cómo realizar este caso de uso automatizado. Par
 
 ## Obtención de un inquilino de Azure AD B2C
 
-Antes de crear aplicaciones, usuarios o interactuar con Azure AD, necesitará un inquilino de Azure AD B2C y una cuenta de administrador global en ese inquilino. Si aún no tiene un inquilino, [comience con la introducción a Azure AD B2C](active-directory-b2c-get-started.md).
+Antes de crear aplicaciones, usuarios o interactuar con Azure AD, necesitará un inquilino de Azure AD B2C y una cuenta de administrador global en ese inquilino. Si aún no tiene ningún inquilino, [comience con la introducción a Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## Registro de una aplicación de servicio en el inquilino
 
-Cuando tenga un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD PowerShell. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+Cuando tenga un inquilino de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD PowerShell. En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
 > [AZURE.NOTE]
 Para usar la API Graph con su inquilino de B2C, deberá registrar una aplicación dedicada con PowerShell. Para ello, siga las instrucciones de este artículo. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la versión preliminar de Azure AD B2C que se eliminará previsiblemente en un futuro cercano. Actualizaremos este artículo cuando suceda.
@@ -123,7 +120,7 @@ Para usar B2CGraphClient, abra un símbolo del sistema de Windows `cmd` y cambie
 > B2C Help
 ```
 
-Se mostrará una breve descripción de cada comando. Cada vez que invoque uno de estos comandos, `B2CGraphClient` realiza una solicitud a la API de Azure AD Graph.
+Se mostrará una breve descripción de cada comando. Cada vez que invoque uno de estos comandos, `B2CGraphClient` realiza una solicitud a la API Graph de Azure AD.
 
 ### Obtención de un token de acceso
 
@@ -168,7 +165,7 @@ Puede obtener un token de acceso para la API Graph mediante una llamada al méto
 
 ### Lectura de usuarios
 
-Si desea obtener una lista de usuarios o un usuario determinado de la API Graph, puede enviar una solicitud HTTP GET `GET` al punto de conexión `/users`. Una solicitud para todos los usuarios de un inquilino tiene este aspecto:
+Si desea obtener una lista de usuarios o un usuario determinado de la API Graph, puede enviar una solicitud HTTP `GET` al punto de conexión `/users`. Una solicitud para todos los usuarios de un inquilino tiene este aspecto:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -358,7 +355,7 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar los usuarios del inquilino de B2C mediante programación. `B2CGraphClient` usa su propia identidad de aplicación para autenticarse en la API Graph de Azure AD. También adquiere tokens mediante un secreto de cliente. Según vaya incorporando esta funcionalidad a su aplicación, debe recordar algunos puntos clave para las aplicaciones B2C:
+Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar sus usuarios del inquilino de B2C mediante programación. `B2CGraphClient` usa su propia identidad de aplicación para autenticarse en la API Graph de Azure AD. También adquiere tokens mediante un secreto de cliente. Según vaya incorporando esta funcionalidad a su aplicación, debe recordar algunos puntos clave para las aplicaciones B2C:
 
 - Tiene que conceder a la aplicación los permisos adecuados en el inquilino.
 - Por ahora, debe usar ADAL v2 para obtener tokens de acceso. (Puede también enviar mensajes de protocolo directamente, sin usar una biblioteca.)
@@ -367,4 +364,4 @@ Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar lo
 
 Si tiene alguna pregunta o desea presentar una solicitud para acciones que le gustaría realizar con la API Graph en su inquilino B2C, deje un comentario en este artículo o registre un problema en el repositorio de ejemplos de código de GitHub.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

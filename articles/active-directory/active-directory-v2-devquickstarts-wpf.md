@@ -41,7 +41,7 @@ La aplicación completa se ofrece también al final de este tutorial.
 Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
-- Agregar la plataforma **Móvil** a la aplicación.
+- Agregar la plataforma **Móvil** a la aplicación.
 - Copiar el **URI de redirección** desde el portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Instalar y configurar ADAL
@@ -214,7 +214,12 @@ private async void GetTodoList()
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
 ```C#
-private async void SignIn(object sender = null, RoutedEventArgs args = null) { // If the user clicked the 'clear cache' button, // clear the ADAL token cache and show the user as signed out. // It's also necessary to clear the cookies from the browser // control so the next user has a chance to sign in.
+private async void SignIn(object sender = null, RoutedEventArgs args = null)
+{
+		// If the user clicked the 'clear cache' button,
+		// clear the ADAL token cache and show the user as signed out.
+		// It's also necessary to clear the cookies from the browser
+		// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{
@@ -230,7 +235,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 
 ## Ejecute
 
-¡Enhorabuena! Ya tiene una aplicación .NET WPF en funcionamiento con la capacidad de autenticar a usuarios y API web de llamadas de forma segura mediante OAuth 2.0. Ejecute sus dos proyectos e inicie sesión con una cuenta de Microsoft personal o una cuenta profesional o educativa. Agregue tareas a la lista de tareas pendientes de ese usuario.   Cierre sesión e iníciela de nuevo como otro usuario para ver su lista de tareas pendientes. Cierre la aplicación y vuelva a ejecutarla. Observe que la sesión del usuario permanece intacta. Esto es debido a que la aplicación captura tokens de un archivo local.
+¡Enhorabuena! Ya tiene una aplicación .NET WPF en funcionamiento con la capacidad de autenticar a usuarios y API web de llamadas de forma segura mediante OAuth 2.0. Ejecute sus dos proyectos e inicie sesión con una cuenta de Microsoft personal o una cuenta profesional o educativa. Agregue tareas a la lista de tareas pendientes de ese usuario.   Cierre sesión e iníciela de nuevo como otro usuario para ver su lista de tareas pendientes. Cierre la aplicación y vuelva a ejecutarla. Observe que la sesión del usuario permanece intacta. Esto es debido a que la aplicación captura tokens de un archivo local.
 
 ADAL facilita la incorporación de las características de identidades comunes a la aplicación, tanto mediante las cuentas personales como las profesionales. Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireTokenAsync(...)`.
 
@@ -244,6 +249,12 @@ Ahora puede pasar a temas más avanzados. Es posible que desee probar:
 
 - [Proteger la API web TodoListService con el punto de conexión v2.0 >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obtener recursos adicionales, consulte:
+- [La guía del desarrollador v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Etiqueta "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obtención de actualizaciones de seguridad para nuestros productos
+
+Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
+
+<!---HONumber=AcomDC_0601_2016-->

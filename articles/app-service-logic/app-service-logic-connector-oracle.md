@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso del conector de base de datos de Oracle en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-   description="Creación y configuración del conector de base de datos de Oracle o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+   pageTitle="Uso del conector de Oracle Database en aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+   description="Creación y configuración del conector de Oracle Database o la aplicación de API y su uso en una aplicación lógica en el Servicio de aplicaciones de Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,38 +13,38 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Introducción al conector de base de datos de Oracle y su incorporación a su aplicación lógica
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+# Introducción al conector de Oracle Database y su incorporación a la aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
 
-Conéctese a un servidor de base de datos de Oracle local para crear y modificar la información o los datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de Oracle en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
+Conéctese a un servidor de base de datos de Oracle local para crear y modificar la información o los datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un "flujo de trabajo". Al utilizar el conector de Oracle en su flujo de trabajo, puede conseguir diversos escenarios. Por ejemplo, puede:
 
 - Exponer una parte de los datos que residen en la base de datos Oracle a través de una aplicación móvil o web.
 - Insertar los datos en la tabla de base de datos de Oracle para almacenarlos. Por ejemplo, puede especificar los registros de empleados, actualizar los pedidos de ventas y así sucesivamente.
 - Obtener datos de Oracle para usarlos en un proceso empresarial. Por ejemplo, puede obtener los registros de clientes y colocarlos en SalesForce.
 
 
-## Acciones y desencadenadores
+## Desencadenadores y acciones
 Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualiza un pedido,se envía una alerta al vendedor. O bien, cuando se agrega un nuevo cliente, a este se le envía un correo electrónico de bienvenida.
 
-El conector de base de datos Oracle puede usarse como un desencadenador o una acción en una aplicación lógica y es compatible con los datos en formato JSON y XML. Para cada tabla incluida en la configuración del paquete (puede encontrar información adicional al respecto más adelante en este tema), hay un conjunto de acciones JSON y un conjunto de acciones XML. Si se utiliza la acción/desencadenador XML, puede utilizar la [aplicación de API de transformación](app-service-logic-transform-xml-documents.md) para convertir datos en otro formato de datos XML.
+El conector de Oracle Database puede usarse como un desencadenador o una acción en una aplicación lógica, y es compatible con los datos en formato JSON y XML. Para cada tabla incluida en la configuración del paquete (puede encontrar información adicional al respecto más adelante en este tema), hay un conjunto de acciones JSON y un conjunto de acciones XML. Si se utiliza la acción/desencadenador XML, puede utilizar la [aplicación de API de transformación](app-service-logic-transform-xml-documents.md) para convertir datos en otro formato de datos XML.
 
-El conector de base de datos de Oracle tiene los siguientes desencadenadores y acciones disponibles:
+El conector de Oracle Database tiene los siguientes desencadenadores y acciones disponibles:
 
 Desencadenadores | Acciones
 --- | ---
 Datos de sondeo | <ul><li>Insertar en tabla</li><li>Actualizar tabla</li><li>Seleccionar en tabla</li><li>Eliminar de tabla</li><li>Llamar a procedimiento almacenado</li>
 
 
-## Creación de un conector de base de datos de Oracle
+## Creación de un conector de Oracle Database
 
-Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
+Los conectores pueden crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
-2. Seleccione **Aplicaciones de API** y busque "Conector de base de datos de Oracle".
+2. Seleccione **Aplicaciones de API** y busque "Conector de Oracle Database".
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
 4. Escriba la siguiente configuración del paquete:
 
@@ -67,7 +67,7 @@ Instrucción de sondeo de envío | No | Especifique la instrucción para ejecuta
 
 
 ## Uso del conector como desencadenador
-Veamos una aplicación lógica sencilla que sondea datos en una tabla de Oracle, agrega los datos en otra tabla y actualiza los datos.
+Veamos una aplicación lógica sencilla que sondea datos en una tabla de Oracle, agrega los datos a otra tabla y actualiza los datos.
 
 ### Incorporación del desencadenador
 1. Al crear o editar una aplicación lógica, seleccione el conector de Oracle que ha creado como desencadenador. Se mostrarán los desencadenadores disponibles: **Datos de sondeo (JSON)** y **Datos de sondeo (XML)**: <br/> ![][5]
@@ -77,9 +77,9 @@ Veamos una aplicación lógica sencilla que sondea datos en una tabla de Oracle,
 3. El desencadenador aparece ahora como configurado en la aplicación lógica. Se muestran las salidas del desencadenador y se pueden utilizar como entradas en un paso posterior: <br/> ![][7]
 
 ## Uso del conector como acción
-Vamos a usar una aplicación lógica sencilla que sondea datos en una tabla de Oracle, agrega los datos en otra tabla y actualiza los datos.
+Mediante nuestra sencilla aplicación lógica que sondea datos de una tabla de Oracle, agrega los datos a otra tabla y actualiza los datos.
 
-Para usar el conector de Oracle como una acción, escriba el nombre de las tablas o procedimientos almacenados que especificó al crear el conector de Oracle:
+Para usar el conector de Oracle como una acción, escriba el nombre de las tablas y los procedimientos almacenados que especificó al crear el conector de Oracle:
 
 1. Seleccione el mismo conector de Oracle de la Galería como una acción. Seleccione una de las acciones de inserción, como *insertar en TempEmployeeDetails (JSON)*: <br/> ![][8]
 
@@ -100,9 +100,9 @@ El Servicio de aplicaciones utiliza el Administrador de configuración híbrida 
 Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md).
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea una introducción a Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Cree su aplicación del Servicio de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -120,4 +120,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

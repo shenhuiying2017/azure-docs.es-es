@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/03/2016" 
-	ms.author="sidneyh"/>
+	ms.author="ddove"/>
 
 # Preguntas frecuentes de herramientas de Base de datos elástica 
 
@@ -56,4 +56,4 @@ No. En el caso de las operaciones de **división**, la base de datos de destino 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

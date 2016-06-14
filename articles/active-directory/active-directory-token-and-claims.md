@@ -18,6 +18,8 @@
 
 # Tipos de notificaciones y tokens admitidos
 
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+
 Este tema está diseñado para ayudarle a entender y evaluar las notificaciones en los tokens SAML 2.0 y tokens web JSON (JWT) que emite Azure Active Directory (Azure AD).
 
 El tema empieza con una descripción de cada notificación de token y muestra un ejemplo de la notificación en un token SAML y un token JWT token, según corresponda. Las notificaciones que se encuentran en estado de vista previa se enumeran por separado. El tema finaliza con tokens de ejemplo para que pueda ver las notificaciones en contexto.
@@ -412,4 +414,4 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
 
 [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

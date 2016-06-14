@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="klam"/>
 
-# Uso de las plantillas de aplicaciones lógicas
+# Uso de plantillas de aplicaciones lógicas
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
-Las Plantillas de aplicaciones lógicas son un conjunto de aplicaciones lógicas preintegradas y selectas que le ayudarán a comenzar rápidamente la creación de sus propias aplicaciones de integración.
+Las plantillas de aplicaciones lógicas son un conjunto de aplicaciones lógicas preintegradas y selectas que le ayudarán a comenzar rápidamente la creación de sus propias aplicaciones de integración.
 
-Estas plantillas muestran cómo utilizar algunos de los muchos conectores disponibles en Marketplace, así como ser una buena forma de detectar patrones distintos que se pueden crear con aplicaciones lógicas. Puede usar estas plantillas tal cual o modificarlas para adaptarlas a su escenario.
+Estas plantillas muestran cómo utilizar algunos de los muchos conectores disponibles en Marketplace, además de ser una buena forma de detectar patrones distintos que se pueden crear con Aplicaciones lógicas. Puede usar estas plantillas tal cual o modificarlas para adaptarlas a su escenario.
 
-Para comenzar a usar una Plantilla de aplicación lógica, vaya a Marketplace, busque "Plantilla de aplicación lógica" y elija una de las plantillas de aplicación lógica de la lista selecta. O bien, cuando se crea una nueva aplicación lógica, seleccione "Desencadenadores y acciones" y elija entre el conjunto de Plantillas de aplicación lógica en el diseñador.
+Para comenzar a usar una plantilla de aplicación lógica, vaya a Marketplace, busque "Plantilla de aplicación lógica" y elija una de las plantillas de aplicaciones lógicas de la lista. O bien, cuando se crea una nueva aplicación lógica, seleccione "Desencadenadores y acciones", y elija una plantilla del conjunto de plantillas de aplicaciones lógicas en el diseñador.
 
 ## Plantillas de ejemplo disponibles
 
@@ -43,7 +43,7 @@ Procesos automatizados para el control de procedimientos frecuentes de Azure que
 ### Plantillas en la nube del consumidor
 Las plantillas sencillas que se integran con los servicios de redes sociales como Twitter, Yammer y correo electrónico. Pueden resultar ser aplicaciones de gran productividad personal que están al día de las actualizaciones y que intervienen cuando llegan nuevos elementos.
 
-Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Los pasos detallados están en [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md).
+Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Los pasos detallados puede encontrarlos en [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

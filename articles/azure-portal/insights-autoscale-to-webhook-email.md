@@ -21,7 +21,7 @@
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.
 
 ## Webhooks
-Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros sistemas para procesarlas posteriormente o notificaciones personalizadas. Un ejemplo de esto puede ser el enrutamiento de la alerta a los servicios que pueden controlar una solicitud web entrante para enviar SMS, registrar errores o notificar a un equipo mediante servicios de chat y mensajería. El URI de Webhook debe ser un extremo HTTP o HTTPS válido.
+Los Webhook permiten enrutar las notificaciones de alerta de Azure a otros sistemas para procesarlas posteriormente o notificaciones personalizadas. Un ejemplo de esto puede ser el enrutamiento de la alerta a los servicios que pueden controlar una solicitud web entrante para enviar SMS, registrar errores o notificar a un equipo mediante servicios de chat y mensajería. El identificador URI de webhook debe ser un punto de conexión HTTP o HTTPS válido.
 
 ## Email
 Se pueden enviar mensajes de correo electrónico a cualquier dirección de correo electrónico válida. También se enviará una notificación a los administradores y los coadministradores de la suscripción en la que se ejecuta la regla.
@@ -39,10 +39,10 @@ Para máquinas virtuales basadas en ARM (conjuntos de escalado de máquina virtu
 
 
 ## Autenticación en Webhook
-URI tiene dos formas de autenticación:
+Hay dos formas de identificador URI de autenticación:
 
-	1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Autenticación basada en token, en la que se guarda el identificador URI de webhook con un identificador de token como parámetro de consulta. Por ejemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Autenticación básica, en la que se usa un identificador de usuario y una contraseña. Por ejemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## Esquema de carga de Webhook de notificación de escalado automático
 Cuando se genera la notificación de escalado automático, los metadatos siguientes se incluyen en la carga de Webhook:
@@ -93,4 +93,4 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 |newCapacity|	Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso.|
 |Propiedades|	No|	Opcional. Conjunto de <Key  Value> pares (por ejemplo, Diccionario <String  String>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta).|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

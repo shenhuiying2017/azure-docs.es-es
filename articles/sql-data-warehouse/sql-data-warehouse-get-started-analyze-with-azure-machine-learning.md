@@ -132,9 +132,9 @@ Para obtener más información sobre la creación de modelos de aprendizaje auto
 <!--Article references-->
 [Estudio de aprendizaje automático de Microsoft Azure]: https://studio.azureml.net/
 [Introducción al aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-manually-load-samples.md
+[cargar manualmente los datos de ejemplo]: sql-data-warehouse-get-started-load-sample-databases.md
 [Creación de un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Aprendizaje automático de Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

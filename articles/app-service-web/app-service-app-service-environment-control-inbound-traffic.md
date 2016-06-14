@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
@@ -41,7 +41,7 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 80: puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 443: puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP.
-- 10001-10020: canales de datos para FTP. Al igual que ocurre con el canal de control, estos puertos se pueden bloquear de forma segura si no se utiliza FTP (**Nota:** Los canales de datos FTP pueden cambiar durante la vista previa).
+- 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP.   
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
@@ -49,7 +49,7 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 ## Requisitos de DNS y conectividad saliente ##
 Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como a la Base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
 
-Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno seleccionará la nueva configuración de DNS.
+Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", situado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno seleccionará la nueva configuración de DNS.
 
 La siguiente lista detalla los requisitos de conectividad y DNS para un Entorno del Servicio de aplicaciones:
 
@@ -149,4 +149,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

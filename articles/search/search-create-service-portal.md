@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Creación de un servicio Búsqueda de Azure mediante el Portal de Azure
@@ -74,4 +74,4 @@ Las *__réplicas__* permiten que el servicio gestione una carga más elevada de 
 ## Pasos siguientes
 Después de aprovisionar un servicio Búsqueda de Azure, estará listo para [definir un índice de Búsqueda de Azure](search-what-is-an-index.md) para que pueda cargar y buscar los datos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->
