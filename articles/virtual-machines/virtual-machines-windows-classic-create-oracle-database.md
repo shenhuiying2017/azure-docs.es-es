@@ -73,7 +73,7 @@ En el ejemplo siguiente se muestra cómo crear una base de datos Oracle en una m
 
 ##Para confirmar que la base de datos está instalada
 
-1.	Todavía conectado a la máquina virtual, inicie un símbolo del sistema de SQL Plus. En Windows, haga clic en *Inicio** y luego escriba **SQL Plus**. Haga clic en el icono **SQL Plus**.
+1.	Todavía conectado a la máquina virtual, inicie un símbolo del sistema de SQL Plus. En Windows, haga clic en *Inicio* y luego escriba **SQL Plus**. Haga clic en el icono **SQL Plus**.
 
 2.	Cuando se le solicite, inicie sesión con el nombre de usuario de **SYSTEM** y la contraseña que especificó cuando creó la base de datos de Oracle.
 
