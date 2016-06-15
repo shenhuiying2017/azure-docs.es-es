@@ -64,17 +64,17 @@ Cree un archivo zip que contenga todos los archivos requeridos para instalar apl
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. En [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md), puede encontrar un ejemplo.
 
->[AZURE.IMPORTANT] El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente.
+	>[AZURE.IMPORTANT] El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y tener el formato siguiente.
 	
 	>	name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
 		
->Tenga en cuenta que el nombre del script consta de tres partes:
+	>Tenga en cuenta que el nombre del script consta de tres partes:
 		
->1. El prefijo del nombre del script, que incluirá el nombre de la aplicación o un nombre relevante para la aplicación.
->2. Un signo "-", para mejorar la legibilidad.
->3. Una función de cadena única con el nombre de la aplicación como parámetro.
+	>	1. El prefijo del nombre del script, que incluirá el nombre de la aplicación o un nombre relevante para la aplicación.
+	>	2. Un signo "-", para mejorar la legibilidad.
+	>	3. Una función de cadena única con el nombre de la aplicación como parámetro.
 
->El ejemplo anterior se acaba convirtiendo en: hue-install-v0-4wkahss55hlas en la lista de acciones de script persistentes. Para ver una carga de JSON de ejemplo, diríjase a [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	El ejemplo anterior se acaba convirtiendo en: hue-install-v0-4wkahss55hlas en la lista de acciones de script persistentes. Para ver una carga de JSON de ejemplo, diríjase a [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Todos los scripts requeridos.
 
@@ -98,4 +98,4 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 - [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
 - [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a invocar plantillas de ARM para crear clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!-----HONumber=AcomDC_0601_2016-->
