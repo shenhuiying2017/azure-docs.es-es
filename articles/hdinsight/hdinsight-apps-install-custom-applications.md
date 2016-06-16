@@ -142,4 +142,4 @@ Mediante la CLI de Azure, puede eliminar el clúster o el grupo de recursos. Con
 - [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
 - [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a invocar plantillas de ARM para crear clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!-----HONumber=AcomDC_0608_2016-->
