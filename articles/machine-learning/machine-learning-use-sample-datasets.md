@@ -34,7 +34,9 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+>[AZURE.NOTE (Pruebe gratis Aprendizaje automático de Azure)]
+>
+>No se necesita una tarjeta de crédito ni una suscripción de Azure. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Comience ahora >**</a>
 
 
 <table>
