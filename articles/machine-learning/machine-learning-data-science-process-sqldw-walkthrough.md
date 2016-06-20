@@ -544,7 +544,7 @@ Este es un ejemplo para llamar a esta función para generar características en 
 
 ### Preparar datos para la generación de modelos
 
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de Base de datos SQL en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped**, una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra del conjunto de datos combinado completo. El muestreo se realiza mediante la recuperación de un subconjunto de los viajes en función de la hora de recogida. Esta consulta se puede copiar y pegar directamente en el módulo [Importar datos](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][import-data] para la ingesta directa de datos desde la instancia de Base de datos SQL de Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -563,8 +563,8 @@ La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
 
 Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:
 
-1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Lector][reader] de Aprendizaje automático de Azure; o bien
-2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos de una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Lector][reader] de Aprendizaje automático de Azure. El script de PowerShell del paso anterior se ha encargado de hacerlo. Puede leer directamente de esta tabla en el módulo Lector.
+1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Aprendizaje automático de Azure; o bien
+2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de Almacenamiento de datos SQL y usar la nueva tabla en el módulo [Importar datos][import-data] de Aprendizaje automático de Azure. El script de PowerShell del paso anterior se ha encargado de hacerlo. Puede leer directamente de esta tabla en el módulo Importar datos.
 
 
 ## <a name="ipnb"></a>Exploración de datos e ingeniería de características en IPython Notebook
@@ -869,9 +869,9 @@ Un experimento de entrenamiento típico consta de los pasos siguientes:
 
 En este ejercicio, ya se han explorado y diseñado los datos en Almacenamiento de datos SQL, y también se ha decidido el tamaño de la muestra para la ingesta en Aprendizaje automático de Azure. Este es el procedimiento para crear uno o varios de los modelos de predicción:
 
-1. Proporcionar los datos a Aprendizaje automático de Azure con el módulo [Lector][reader], disponible en la sección **Entrada y salida de datos**. Para obtener más información, consulte la página de referencia del módulo [Lector][reader].
+1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo [Importar datos][import-data], que se encuentra disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
 
-	![Lector de Aprendizaje automático de Azure][17]
+	![Datos de importación de Aprendizaje automático de Azure][17]
 
 2. Seleccionar **Base de datos SQL de Azure** como **Origen de datos** en el panel **Propiedades**.
 
@@ -891,7 +891,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 > [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
-> Para excluir cualquier columna innecesaria o fugas de destino, puede usar el módulo [Proyectar columnas][project-columns] o el [Editor de metadatos][metadata-editor]. Para obtener más información, consulte las páginas de referencia de [Proyectar columnas][project-columns] y [Editor de metadatos][metadata-editor].
+> Para excluir cualquier columna innecesaria o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o el módulo [Editar metadatos][edit-metadata]. Para más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
 
 ## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
 
@@ -912,7 +912,7 @@ Aprendizaje automático de Azure intentará crear un experimento de puntuación 
 2. Identificar un **puerto de entrada** lógico que represente el esquema de datos de entrada esperado.
 3. Identificar un **puerto de salida** lógico que represente el esquema de salida del servicio web.
 
-Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es común excluir todos los campos de entrada e incluir solo las **Etiquetas puntuadas** y las **Probabilidades puntuadas** en la salida mediante el módulo [Proyectar columnas][project-columns].
+Cuando se crea el experimento de puntuación, revíselo y ajústelo según sea necesario. Un ajuste común consiste en reemplazar la consulta o el conjunto de datos de entrada por uno que excluya los campos de etiqueta, ya que estos no estarán disponibles cuando se llame al servicio. También es una buena práctica reducir el tamaño de la consulta o del conjunto de datos de entrada a unos pocos registros, los necesarios para indicar el esquema de entrada. En el caso del puerto de salida, es habitual excluir todos los campos de entrada e incluir solo las **etiquetas puntuadas** y las **probabilidades puntuadas** en la salida mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 En la ilustración siguiente se muestra un ejemplo de experimento de puntuación. Cuando todo esté listo para implementar, haga clic en el botón **PUBLICAR SERVICIO WEB** de la barra de acciones inferior.
 
@@ -960,8 +960,8 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 
 
 <!-- Module References -->
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

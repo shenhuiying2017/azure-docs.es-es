@@ -156,9 +156,6 @@ Para hacer persistente el recurso compartido de montaje:
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Actualización de los controladores de Linux
-En algún momento tendrá que actualizar los controladores de Infiniband en los nodos de proceso Linux. Para más información, lea el artículo [Actualización de los controladores de Linux RDMA para SLES 12](virtual-machines-linux-classic-rdma-cluster.md/#update-the-linux-rdma-drivers-for-sles-12).
-
 ## Instalación de STAR-CCM+
 Las instancias A8 y A9 de máquina virtual de Azure proporcionan compatibilidad con InfiniBand y funcionalidad de RDMA. Los controladores de kernel que habilitan tales funcionalidades están disponibles para Windows Server 2012 R2, SUSE 12, CentOS 6.5 e imágenes de CentOS 7.1 en Azure Marketplace. Microsoft MPI e Intel MPI (versión 5.x) son las dos bibliotecas MPI compatibles con estos controladores en Azure.
 
@@ -212,7 +209,7 @@ Como STAR-CCM+ puede llenar el ancho de banda de memoria, suele ser mejor usar m
 
 Los nodos se asignan exclusivamente para el trabajo y no se pueden compartir con otros trabajos. El trabajo no se inicia como un trabajo de MPI directamente. El script de shell **runstarccm.sh** iniciará el iniciador MPI.
 
-El modelo de entrada y el script **runstarccm.sh** se almacenan en el recurso compartido **/hpcdata** montado antes.
+El modelo de entrada y el script **runstarccm.sh** se almacenan en el recurso compartido **/hpcdata** montado anteriormente.
 
 Los archivos de registro reciben un nombre que incluye el identificador del trabajo y se almacenan en el **recurso compartido /hpcdata**, junto con los archivos de salida de STAR-CCM+.
 
@@ -341,11 +338,11 @@ Pruebe a ejecutar otras cargas de trabajo Linux. Por ejemplo, consulte:
 
 * [Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
-* [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+* [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure.](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

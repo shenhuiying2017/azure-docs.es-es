@@ -64,7 +64,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 6.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-7.  Lea los datos de blobs de Azure mediante el módulo [Lector][reader].
+7.  Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 
 8. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos introducidos.
 
@@ -90,7 +90,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 8. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-9. Lea los datos de blobs de Azure mediante el módulo [Lector][reader].
+9. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 
 10. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos introducidos.
 
@@ -132,7 +132,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 9. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-10. Lea los datos directamente desde SQL Server mediante el módulo [Lector][reader]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Lector][reader].
+10. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 
 11. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos introducidos.
 
@@ -176,7 +176,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 7.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-8. Lea los datos directamente desde SQL Server mediante el módulo [Lector][reader]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Lector][reader].
+8. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 
 9. Flujo de experimento de Aprendizaje automático de Azure sencillo comenzando con conjuntos de datos cargados.
 
@@ -216,7 +216,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 
 7.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-8. Lea los datos directamente desde SQL Server mediante el módulo [Lector][reader]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Lector][reader].
+8. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 
 9. Flujo de experimento de Aprendizaje automático de Azure sencillo comenzando con conjuntos de datos cargados.
 
@@ -280,7 +280,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
 8.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
 
-9. Lea los datos directamente desde `Hive Queries` mediante el módulo [Lector][reader]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Lector][reader].
+9. Lea los datos directamente desde `Hive Queries` mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta[Importar datos][import-data].
 
 10. Flujo de experimento de Aprendizaje automático de Azure sencillo comenzando con conjuntos de datos cargados.
 
@@ -312,6 +312,6 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

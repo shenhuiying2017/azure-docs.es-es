@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure"
+   pageTitle="Modelos de diseño para aplicaciones SaaS multiempresa con Base de datos SQL de Azure | Microsoft Azure" 
    description="En este artículo se explican los requisitos y modelos de arquitectura de datos comunes de las aplicaciones de base de datos multiinquilino que se ejecutan en un entorno de nube que debe tener en cuenta y los distintos inconvenientes de estos modelos. También se explica cómo ayuda el servicio de base de datos SQL de Azure con sus grupos de bases de datos elásticas y herramientas elásticas a afrontar estos requisitos de forma garantizada."
    keywords=""
    services="sql-database"
@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.workload="sqldb-design"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure
@@ -172,4 +172,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base 
 
 	
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

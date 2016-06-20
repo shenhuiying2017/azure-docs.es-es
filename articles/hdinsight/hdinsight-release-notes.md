@@ -14,11 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="06/06/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+## Notas de la versión del 06/06/2016 de HDinsight
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+|HDP |Versión de HDI |Versión de Spark |Número de compilación de Ambari |Número de compilación de HDP|
+|-------|---------------|---------------|-----------------------|----------------|
+|2\.3 |3\.3.1000.0.7702215|	1\.5.2|	2\.2.1.8-2|	2\.3.3.1-18|
+|2\.4 |3\.4.1000.0.7702224|	1\.6.1|	2\.2.1.8-2|	2\.4.2.0|
+
+
+Esta versión contiene las siguientes actualizaciones.
+
+| Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Spark en HDInsight está disponible con carácter general | Esta versión ofrece mejoras de disponibilidad, escalabilidad y productividad para el código fuente de Apache Spark en HDInsight. <ul><li>Acuerdo de Nivel de Servicio (SLA) líder del sector de disponibilidad del 99,9 %, lo que resulta adecuado para cargas de trabajo empresariales exigentes.</li><li>Capa de almacenamiento escalable mediante el almacén de Azure Data Lake.</li><li>Herramientas de productividad en cada fase de la exploración y el desarrollo de los datos. Los cuadernos de Jupyter con el kernel Spark personalizado permiten la exploración interactiva de los datos, la integración con paneles de BI, como Power BI, Tableau y Qlik, resulta adecuada para compartir datos rápidamente y la creación continua de informes y el complemento IntelliJ es la opción en la que se puede confiar para el desarrollo y la depuración de artefactos de código a largo plazo.</li></ul>| Servicio | Spark| N/D|
+| Herramientas de HDInsight para IntelliJ | Se trata de un complemento IntelliJ IDEA para clústeres HDInsight Spark, y presenta las siguientes características.<ul><li>Creación y escritura de una aplicación Spark de forma fácil en Scala y Java con compatibilidad con herramientas de creación de primera clase para IntelliSense, formato automático, comprobación de errores, etc.</li><li>Prueba local de la aplicación Spark.</li><li>Envío de trabajos al clúster de HDInsight Spark y recuperación de los resultados.</li><li>Inicio de sesión en Azure y acceso a todos los clústeres Spark asociados a sus suscripciones de Azure.</li><li>Navegación por todos los recursos de almacenamiento asociados del clúster de HDInsight Spark.</li><li>Navegación por el historial de todos los trabajos e información de trabajos para el clúster HDInsight Spark.</li><li>Depuración de los trabajos de Spark de forma remota desde su equipo de escritorio.</li></ul>| Herramientas | Spark| N/D
 
 ## Notas de la versión del 13/05/2016 de HDinsight
 
@@ -59,8 +76,8 @@ Esta versión contiene las siguientes actualizaciones.
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Problemas de actualización de la tienda de metadatos personalizada de HDI 3.4 | Si utilizó una tienda de metadatos personalizada, que se utilizó antes en una versión anterior de otro clúster de HDInsight, se produciría un error en el proceso de creación del clúster. Esto se debía a un error del script de actualización que ya se ha resuelto.| Creación de clústeres | Todo | N/D
 | Recuperación tras bloqueo de Livy | Proporciona resistencia de estado de trabajos en todos los trabajos que se envíen a través de Livy. | Confiabilidad | Spark en Linux| N/D
-| Contenido de Jupyter (alta disponibilidad) | Ofrece la posibilidad de guardar y cargar contenido de Jupyter Notebook en la cuenta de almacenamiento asociada al clúster. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Spark en Linux| N/D
-| Eliminación de hiveContext en cuadernos de Jupyter Notebook | Use la instrucción mágica `%%sql` en lugar de `%%hive`. SqlContext es equivalente a hiveContext. Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Clústeres de Spark en Linux| N/D
+| Contenido de Jupyter (alta disponibilidad) | Ofrece la posibilidad de guardar y cargar contenido de Jupyter Notebook en la cuenta de almacenamiento asociada al clúster. Para más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Spark en Linux| N/D
+| Eliminación de hiveContext en cuadernos de Jupyter Notebook | Use la instrucción mágica `%%sql` en lugar de `%%hive`. SqlContext es equivalente a hiveContext. Para más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Cuadernos | Clústeres de Spark en Linux| N/D
 | Degradación de las versiones anteriores de Spark | El 31 de mayo se quitará del servicio la versión anterior 1.3.1 de Spark. | Servicio | Clústeres de Spark en Windows | N/D
 
 ## Notas de la versión del 29/03/2016 de HDinsight
@@ -81,11 +98,11 @@ Esta versión contiene las siguientes actualizaciones.
 
 | Título | Descripción | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Se ha agregado la versión HDInsight 3.4 y se han actualizado las versiones HDP en todos los clústeres de HDInsight | En esta versión, se ha agregado HDInsight v3.4 (basado en HDP 2.4) y se han actualizado otras versiones de HDP. Las notas de la versión HDP 2.4 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) y encontrará más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md).| Servicio | Todos los clústeres de Linux| N/D
-| HDInsight Premium | Ahora, HDInsight está disponible en dos categorías: Standard y Premium. Actualmente, HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Hadoop y Spark en Linux. Para obtener más información, visite [esta página](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servicio | Hadoop y Spark en Linux| N/D
-| Microsoft R Server | HDInsight Premium proporciona Microsoft R Server, que puede incluirse con los clústeres de Hadoop y Spark de Linux. Para obtener más información, consulte [Información general: Servidor de R en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-overview.md).| Servicio | Hadoop y Spark en Linux| N/D
+| Se ha agregado la versión HDInsight 3.4 y se han actualizado las versiones HDP en todos los clústeres de HDInsight | En esta versión, se ha agregado HDInsight v3.4 (basado en HDP 2.4) y se han actualizado otras versiones de HDP. Las notas de la versión HDP 2.4 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md).| Servicio | Todos los clústeres de Linux| N/D
+| HDInsight Premium | Ahora, HDInsight está disponible en dos categorías: Standard y Premium. Actualmente, HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Hadoop y Spark en Linux. Para más información, visite [esta página](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| Servicio | Hadoop y Spark en Linux| N/D
+| Microsoft R Server | HDInsight Premium proporciona Microsoft R Server, que puede incluirse con los clústeres de Hadoop y Spark de Linux. Para más información, consulte [Información general: Servidor de R en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-overview.md).| Servicio | Hadoop y Spark en Linux| N/D
 | Spark 1.6.0 | Ahora, los clústeres de HDInsight 3.4 incluyen Spark 1.6.0| Servicio | Clústeres de Spark en Linux| N/D
-| Mejoras de Jupyter Notebook | Ahora, Jupyter Notebooks, disponible con los clústeres de Spark, proporciona kernels de Spark adicionales. También incluye mejoras como el uso de la visualización automática %%mágica y la integración con las bibliotecas de visualización de Python (como matplotlib). Para obtener más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servicio | Clústeres de Spark en Linux | N/D
+| Mejoras de Jupyter Notebook | Ahora, Jupyter Notebooks, disponible con los clústeres de Spark, proporciona kernels de Spark adicionales. También incluye mejoras como el uso de la visualización automática %%mágica y la integración con las bibliotecas de visualización de Python (como matplotlib). Para más información, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md). | Servicio | Clústeres de Spark en Linux | N/D
 
 ## Notas de la versión del 22/03/2016 de HDinsight
 
@@ -1312,7 +1329,7 @@ Respecto al mensaje de error de Azure PowerShell y el SDK de HDInsight: "*El cl�
 
 * este error es un [problema de compatibilidad](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conocido que puede deberse a una diferencia entre la versión del SDK de HDInsight o de Azure PowerShell y la versión del clúster. Los clústeres creados a partir del 15/8 cuentan con nueva funcionalidad de aprovisionamiento en redes virtuales. Pero las versiones anteriores del SDK de HDInsight o de Azure PowerShell no interpretan correctamente esta funcionalidad. El resultado es un error en algunas operaciones de envío. Si usa las API del SDK de HDInsight o cmdlets de Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**), para enviar trabajos, esas operaciones pueden generar el mensaje de error "*El clúster <clustername> no está configurado para el acceso a servicios HTTP*". O bien, (en función de la operación), puede recibir otros mensajes de error, como "*No se puede conectar al clúster*".
 
-* Estos problemas de compatibilidad se han resuelto en las últimas versiones del SDK de HDInsight y Azure PowerShell. Se recomienda actualizar el SDK de HDInsight a la versión 1.3.1.6 o posterior y Azure PowerShell Tools a la versión 0.8.8 o posterior. Puede obtener acceso al último SDK de HDInsight desde [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) y a Azure PowerShell Tools en [Instalación y configuración de Azure PowerShell](../powershell-install-configure/).
+* Estos problemas de compatibilidad se han resuelto en las últimas versiones del SDK de HDInsight y Azure PowerShell. Se recomienda actualizar el SDK de HDInsight a la versión 1.3.1.6 o posterior y Azure PowerShell Tools a la versión 0.8.8 o posterior. Puede obtener acceso al último SDK de HDInsight desde [](http://nuget.codeplex.com/wikipage?title=Getting%20Started) y a Azure PowerShell Tools en [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -1353,7 +1370,7 @@ Estos problemas de compatibilidad se han resuelto en las últimas versiones del 
 	* Asia oriental
 	* Centro-Norte de EE. UU
 	* Centro-Sur de EE. UU
-* Se están quitando HDInsight versión 1.6 (HDP 1.1 y Hadoop 1.0.3) y HDInsight versión 2.1 (HDP1.3 y Hadoop 1.2) del portal de Azure. Sin embargo, puede seguir creando clústeres de Hadoop para estas versiones mediante el cmdlet de Azure PowerShell, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx), o mediante el [SDK de HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Consulte la página de [versiones de componentes de HDInsight](../hdinsight-component-versioning/) para obtener más información.
+* Se están quitando HDInsight versión 1.6 (HDP 1.1 y Hadoop 1.0.3) y HDInsight versión 2.1 (HDP1.3 y Hadoop 1.2) del portal de Azure. Sin embargo, puede seguir creando clústeres de Hadoop para estas versiones mediante el cmdlet de Azure PowerShell, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx), o mediante el [SDK de HDInsight](http://msdn.microsoft.com/library/azure/dn469975.aspx). Consulte la página de [versiones de componentes de HDInsight](hdinsight-component-versioning.md) para obtener más información.
 * Hortonworks Data Platform (HDP) cambia en esta versión:
 
 <table border="1">
@@ -1542,7 +1559,7 @@ Se han realizado los siguientes cambios de versión entre HDInsight 2.x (HDP1.x)
 
 
 ### Controladores
-El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
+El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Corrección de errores
@@ -1584,4 +1601,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

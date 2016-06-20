@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
+	ms.date="06/05/2016"
 	ms.author="heidist"/>
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
@@ -24,7 +24,8 @@ Búsqueda de Azure es un servicio de búsqueda hospedado en la nube en Microsoft
 
 Característica|Fecha de publicación|Estado|Detalles
 -------|--------|------|-------
-[SDK de .NET 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Febrero de 2016|GA|Esta es la primera versión disponible con carácter general de la biblioteca de cliente de .NET `Microsoft.Azure.Search.dll`. Esta versión presenta cambios importantes. Vea [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md) para obtener instrucciones sobre la migración.
+[Límites de servicio en la Búsqueda de Azure](search-limits-quotas-capacity.md)|Junio de 2016|Versión preliminar y disponibilidad con carácter general|Las SKU de nivel Basic y Standard 2 (S2), cuya versión preliminar se lanzó en marzo de 2016, están ahora disponibles con carácter general. <br/><br/>En esta actualización se presentan versiones preliminares de nuevas SKU: Standard 3 (S3) y S3 High Density (S3 HD). Consulte [Choose a SKU or tier for Azure Search](search-sku-tier.md) (Selección de una SKU o un nivel para Búsqueda de Azure).
+[SDK de .NET 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|Febrero de 2016|GA|Esta es la primera versión disponible con carácter general de la biblioteca de cliente de .NET `Microsoft.Azure.Search.dll`. Esta versión presenta cambios importantes. Consulte [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md) para obtener instrucciones sobre la migración.
 [Compatibilidad con la sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx)|Febrero de 2016|[GA](search-api-2015-02-28-preview.md)|La sintaxis de consulta de Lucene está disponible con carácter general en la API de REST y el SDK de .NET. Para habilitar la sintaxis de Lucene, establezca el parámetro `queryType` en `full` en la API de REST y la propiedad `SearchParameters.QueryType` en `QueryType.Full` en el SDK de .NET.
 [Analizadores personalizados](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|Enero de 2016|[Vista previa](search-api-2015-02-28-preview.md)|Configuraciones definidas por el usuario de Tokenizer y filtros de token. Consulte [Análisis en Búsqueda de Azure](https://msdn.microsoft.com/library/azure/mt605304.aspx) en MSDN.
 [Indexador de Almacenamiento de blobs de Azure](search-howto-indexing-azure-blob-storage.md)|Enero de 2016|[Vista previa](search-api-2015-02-28-preview.md)|Los archivos PDF, documentos de Office, XML, HTML o los archivos de audio y vídeo pueden combinarse o introducirse en un índice de Búsqueda de Azure.
@@ -71,4 +72,4 @@ Las características de vista previa y de disponibilidad general (GA) están vin
 
 Se espera que las características que se basen exclusivamente en una herramienta o en el portal cambien con el tiempo y no se clasifican como vista previa o GA.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

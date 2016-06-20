@@ -22,9 +22,9 @@ Aprenda a planear el aprovisionamiento de los clústeres de HDInsight.
 
 > [AZURE.IMPORTANT] En los pasos de este documento se usa el Portal de Azure clásico. Microsoft no recomienda usar el portal clásico al crear nuevos servicios. Para obtener una explicación de las ventajas del Portal de Azure, consulte [Portal de Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Este documento también incluye información sobre el uso de Azure PowerShell y la CLI de Azure. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
+> Este documento también incluye información sobre el uso de Azure PowerShell, la CLI de Azure y el SDK de .NET para HDInsight. Los fragmentos de código proporcionados se basan en comandos que usan Azure Service Management (ASM) para trabajar con HDInsight y están __en desuso__. Estos comandos se eliminarán el 1 de enero de 2017.
 >
->Para ver una versión de este documento donde se usa el Portal de Azure, junto con fragmentos de código de PowerShell y la CLI de Azure que usan Azure Resource Manager (ARM), consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md).
+>Para ver una versión de este documento donde se usa el Portal de Azure, junto con fragmentos de código de PowerShell, la CLI de Azure y el SDK de .NET para HDInsight que usan Azure Resource Manager (ARM), consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md).
 
 **Requisitos previos:**
 
@@ -300,7 +300,7 @@ Puede revisar la sección [opciones de configuración básica] y la sección [op
 ### Uso de Azure PowerShell
 Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Esta sección proporciona instrucciones sobre cómo aprovisionar un clúster de HDInsight con Azure PowerShell. Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-> [AZURE.NOTE] Si bien los scripts de esta sección se pueden usar para configurar un clúster de HDInsight en una red virtual de Azure, no crearán una red virtual de Azure. Para obtener información sobre la creación de una red virtual de Azure, consulte [Tareas de configuración de la red virtual](../services/virtual-machines/).
+> [AZURE.NOTE] Si bien los scripts de esta sección se pueden usar para configurar un clúster de HDInsight en una red virtual de Azure, no crearán una red virtual de Azure. Para obtener información sobre la creación de una red virtual de Azure, consulte [Tareas de configuración de la red virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight con Azure PowerShell:
 
@@ -534,7 +534,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 **Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**.
+1.	Vaya a ****http://azure.microsoft.com/downloads/**.
 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
@@ -815,4 +815,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

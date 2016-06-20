@@ -72,7 +72,7 @@ Haga clic en **API** en el menú **Administración de API** de la izquierda y ha
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Escriba **API de demostración de Aprendizaje automático de Azure** como el **nombre de API web**. Escriba **https://ussouthcentral.services.azureml.net** como la **dirección URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
+Escriba **API de demostración de Aprendizaje automático de Azure** como el **nombre de API web**. Escriba ****https://ussouthcentral.services.azureml.net** como la **dirección URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -162,15 +162,15 @@ Cambie su nombre a **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de da
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Expanda **Transformación de datos** y **Manipulación** y arrastre **Columnas del proyecto** al experimento. Conecte **Book Reviews from Amazon** a **Columnas del proyecto**.
+Expanda **Transformación de datos** y **Manipulación** y arrastre **Seleccionar columnas de conjunto de datos** al experimento. Conecte **Reseñas de libros de Amazon** a **Seleccionar columnas de conjunto de datos**.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Haga clic en **Columnas del proyecto** y después haga clic en **Iniciar selector de columnas** y seleccione **Col2**. Haga clic en la marca de verificación para aplicar estos cambios.
+Haga clic en **Seleccionar columnas de conjunto de datos** y después haga clic en **Launch column selector** (Iniciar el selector de columnas) y seleccione **Col2**. Haga clic en la marca de verificación para aplicar estos cambios.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Expanda **Análisis de texto** y arrastre **Hash de características** al experimento. Conecte **Columnas del proyecto** a **Hash de características**.
+Expanda **Análisis de texto** y arrastre **Hash de características** al experimento. Conecte **Seleccionar columnas de conjunto de datos** a **Hash de características**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

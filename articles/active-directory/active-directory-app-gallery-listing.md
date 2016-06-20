@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/19/2016"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 
@@ -97,4 +97,4 @@ Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con
 > 
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,22 +1,20 @@
-You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier within a single Azure subscription. Maximum services per tier are noted below. As indicated, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. 
+Puede crear varios servicios en una suscripción, cada uno de ellos aprovisionado en un nivel concreto y limitado solo por el número de servicios permitidos en cada nivel en una sola suscripción de Azure. Los servicios máximos por nivel se especifican a continuación. Como se indica, puede crear hasta 12 servicios en el nivel básico y otros 12 servicios en el nivel de S1 dentro de la misma suscripción.
 
-Other tiers are one per subscription. You can contact Azure Support if you need more than one S2, S3, or S3 HD per subscription.
+En el resto de niveles, corresponde uno por suscripción. Puede ponerse en contacto con soporte técnico de Azure si necesita más de un S2, S3 o S3 HD por suscripción.
 
-Resource|Free|Basic|S1|S2|S3 <sup>1</sup> <br/>(Preview) |S3 HD <sup>1</sup> <br/>(Preview) 
+Recurso|Gratuito|Básica|S1|S2|S3 <sup>1</sup> <br/>(Versión preliminar) |S3 HD <sup>1</sup> <br/>(Versión preliminar) 
 ---|---|---|---|----|---|----
-Maximum services |1 |12 |12  |1 |1 |1 
-Maximum scale in SU <sup>2</sup>|N/A <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU <sup>5</sup>
+Servicios máximos |1 |12 |12 |1 |1 |1 
+Escala máxima en unidad de búsqueda <sup>2</sup>|N/D <sup>3</sup>|3 unidades de búsqueda <sup>4</sup> |36 unidades de búsqueda|36 unidades de búsqueda|36 unidades de búsqueda|12 unidades de búsqueda <sup>5</sup>
 
-<sup>1</sup> **Preview** tiers are billed at an introductory rate of 50% off the full price. Prior to general availability (GA) tiers are introduced as a Preview feature. During Preview, there is no service level agreement (SLA). See [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md) for more information about tiers.
+<sup>1</sup> Los niveles en **versión preliminar** se facturan a una tarifa inicial del 50 % del precio completo. Antes de la disponibilidad general, los niveles se presentan como una característica en versión preliminar. Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio en vigor. Consulte [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md) (Elegir SKU o nivel de Búsqueda de Azure) para más información acerca de los niveles.
 
-<sup>2</sup> **Search units (SU)** are billable units per service, allocated as either a **replica** or a **partition**. You need both resource types for storage, indexing, and query operations. See [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations that stay under the maximum limits. 
+<sup>2</sup> Las **unidades de búsqueda** son unidades facturables por servicio, asignadas como **réplica** o como **partición**. Necesita ambos tipos de recursos para las operaciones de para las operaciones de almacenamiento, indexación y consulta. Consulte [Planeación de la capacidad en Búsqueda de Azure](../articles/search/search-capacity-planning.md) para ver las combinaciones válidas que permanecen dentro de los límites máximos.
 
-<sup>3</sup> **Free** is based on shared resources used by multiple subscribers. At this tier, there are no dedicated resources for an individual subscriber. For this reason, scalability is not supported.
+<sup>3</sup> **Gratis** se basa en los recursos compartidos utilizados por varios suscriptores. En este nivel, no hay ningún recurso dedicado para un suscriptor individual. Por este motivo, no se admite la escalabilidad.
 
-<sup>4</sup> **Basic** has one fixed partition. SUs are used to allocate replicas for scaling query workloads.
+<sup>4</sup> **Básico** tiene una partición fija. Las unidades de búsqueda se utilizan para asignar réplicas para el escalado de cargas de trabajo de consulta.
 
-<sup>5</sup> **S3 HD** is based on the same hardware as S3, but in a configuration that's optimized for a large number of smaller indexes. It has 1 very large partition instead of 12 smaller partitions, and it has a maximum of 12 replicas, similar to S3.
+<sup>5</sup> **S3 HD** se basa en el mismo hardware como S3, pero en una configuración que está optimizada para un número mayor de índices más pequeños. Tiene 1 partición muy grande en lugar de 12 particiones más pequeñas y tiene un máximo de 12 réplicas, similares a S3.
 
-
-
-
+<!---HONumber=AcomDC_0608_2016-->

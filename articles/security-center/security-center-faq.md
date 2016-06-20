@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -113,8 +113,6 @@ Para editar una directiva de seguridad, debe ser propietario o colaborador de la
 ### ¿Qué tipos de máquinas virtuales serán compatibles?
 Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
 
-Las recomendaciones de lista de control de acceso se aplican actualmente a las máquinas virtuales (clásicas). Los grupos de seguridad de red solo se aplican actualmente a las máquinas virtuales (Administrador de recursos).
-
 Máquinas virtuales con Windows admitidas:
 
 - Windows Server 2008 R2
@@ -124,9 +122,9 @@ Máquinas virtuales con Windows admitidas:
 Máquinas virtuales con Linux admitidas:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
-- Versiones de Debian 7.0 y 8.0
-- Versiones de CentOS 6.0, 7.0
-- Versiones de Red Hat Enterprise Linux (RHEL) 6, 7
-- Versiones de SUSE Linux Enterprise Server (SLES) 11, 12
+- Versiones de Debian 7, 8
+- Versiones de CentOS 6.*, 7.*
+- Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

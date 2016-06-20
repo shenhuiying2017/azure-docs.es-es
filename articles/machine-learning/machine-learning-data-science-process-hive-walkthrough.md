@@ -543,20 +543,20 @@ Para ver el contenido de un archivo determinado, por ejemplo 000000\_0, se usa e
 
 **Advertencia:** `copyToLocal` puede ser muy lento para archivos de gran tamaño y no se recomienda para su uso con ellos.
 
-Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Aprendizaje automático de Azure mediante el módulo [Lector][reader].
+Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Aprendizaje automático de Azure mediante el módulo [Importar datos][import-data].
 
 
 ## <a name="#downsample"></a>Reducción de datos y creación de modelos en Aprendizaje automático de Azure
 
 **Nota**: esta tarea la suelen hacer los **científicos de datos**.
 
-Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Aprendizaje automático de Azure. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Lector][reader] de Aprendizaje automático de Azure.
+Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Aprendizaje automático de Azure. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Aprendizaje automático de Azure.
 
 ### Reducción de los datos
 
 Este procedimiento incluye dos pasos. En primer lugar se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: "medallion", "hack\_license" y "pickup\_datetime". Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
 
-Para usar los datos reducidos directamente desde el módulo [Lector][reader] de Aprendizaje automático de Azure, se deben almacenar los resultados de la consulta anterior en una tabla interna de Hive. En lo que sigue, se crea una tabla interna de Hive y se rellena su contenido con los datos reducidos y combinados.
+Para usar los datos muestreados directamente desde el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, se deben almacenar los resultados de la consulta anterior en una tabla interna de Hive. En lo que sigue, se crea una tabla interna de Hive y se rellena su contenido con los datos reducidos y combinados.
 
 La consulta aplica funciones estándar de Hive directamente para generar la hora del día, la semana del año, el día de la semana (1 representa el lunes y 7 el domingo) a partir del campo "pickup\_datetime", y la distancia directa entre las ubicaciones de recogida y destino. Los usuarios pueden consultar [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Manual de lenguaje: campos definidos por el usuario) para obtener una lista completa de estas funciones.
 
@@ -689,13 +689,13 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Ahora tenemos una tabla interna "nyctaxidb.nyctaxi\_downsampled\_dataset", a la que se puede acceder mediante el módulo [Lector][reader] de Aprendizaje automático de Azure. También se puede utilizar este conjunto de datos para generar modelos de Aprendizaje automático.
+Ahora tenemos una tabla interna "nyctaxidb.nyctaxi\_downsampled\_dataset", a la que se puede acceder mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure. También se puede utilizar este conjunto de datos para generar modelos de Aprendizaje automático.
 
-### Uso del módulo Lector de Aprendizaje automático de Azure para tener acceso a los datos reducidos
+### Uso del módulo Importar datos de Aprendizaje automático de Azure para acceder a los datos muestreados
 
-Como requisitos previos para la emisión de consultas de Hive en el módulo [Lector][reader] de Aprendizaje automático de Azure, se necesita acceso a un área de trabajo de Aprendizaje automático de Azure y a las credenciales del clúster y su cuenta de almacenamiento asociada.
+Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, se necesita acceso a un área de trabajo de Aprendizaje automático de Azure y a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
-A continuación se indican algunos detalles del módulo [Lector][reader] y los parámetros de entrada:
+A continuación se indican algunos detalles del módulo [Importar datos][import-data] y los parámetros de entrada:
 
 **URI del servidor de HCatalog**: si el nombre del clúster es abc123, sería: https://abc123.azurehdinsight.net
 
@@ -709,7 +709,7 @@ A continuación se indican algunos detalles del módulo [Lector][reader] y los p
 
 **Nombre de contenedor de Azure**: este es el nombre del contenedor predeterminado para el clúster y suele ser el mismo que el nombre del clúster. En un clúster denominado "abc123", es abc123.
 
-**Nota importante:** **cualquier tabla que desee consultar mediante el módulo [Lector][reader] de Aprendizaje automático de Azure debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
+**Nota importante:** **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
 
 Desde el símbolo de sistema del directorio de Hive, emita el siguiente comando:
 
@@ -717,7 +717,7 @@ Desde el símbolo de sistema del directorio de Hive, emita el siguiente comando:
 
 Si la tabla es una tabla interna y está rellena, su contenido se debe mostrar aquí. Otro modo de determinar si una tabla es una tabla interna es utilizar Explorador de almacenamiento de Azure. Úselo para navegar al nombre del contenedor predeterminado del clúster y, después, filtre por el nombre de tabla. Si se muestran la tabla y su contenido, se confirma que es una tabla interna.
 
-A continuación se muestra una instantánea de la consulta de Hive y el módulo [Lector][reader]\:
+A continuación, se muestra una instantánea de la consulta de Hive y el módulo [Importar datos][import-data]\:
 
 ![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
@@ -733,7 +733,7 @@ Ya se puede pasar a la creación del modelo y la implementación del mismo en [A
 
 **Lector usado**: regresión logística de dos clases
 
-a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de: tip\_class, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Proyectar columnas][project-columns].
+a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de: tip\_class, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 La siguiente instantánea muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada.
 
@@ -753,7 +753,7 @@ Como resultado, obtenemos un área bajo la curva de 0,987 tal como se muestra en
 
 **Lector usado**: regresión logística de múltiples clases
 
-a. En este problema, la etiqueta de destino (o clase) es "tip\_class", que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: tipped, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Proyectar columnas][project-columns].
+a. En este problema, la etiqueta de destino (o clase) es "tip\_class", que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: tipped, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 La siguiente instantánea muestra nuestro experimento para predecir en qué ubicación es probable que se incluya una propina (clase 0: propina = 0 $, clase 1: propina > 0 $ y < = 5 $, clase 2: propina > 5 $ y < = 10 $, clase 3: propina > 10 $ y < = 20 $, clase 4: propina > 20 $)
 
@@ -774,7 +774,7 @@ Observe que, aunque la precisión para las clases frecuentes es bastante buena, 
 
 **Lector usado**: árbol de decisión incrementado
 
-a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este caso las pérdidas de destino son: tipped, tip\_class, total\_amount; todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Proyectar columnas][project-columns].
+a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este caso las pérdidas de destino son: tipped, tip\_class, total\_amount; todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 La instantánea siguiente muestra nuestro experimento para predecir el importe de una propina determinada.
 
@@ -794,9 +794,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 
 ## Referencias
 
-•	[Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC's Taxi Trip Data de Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Estadísticas e investigación de la Comisión de taxis y limusinas de la Ciudad de Nueva York](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -807,7 +805,7 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

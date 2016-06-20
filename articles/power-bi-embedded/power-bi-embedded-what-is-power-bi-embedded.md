@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jocaplan"/>
 
 
@@ -99,4 +99,4 @@ Para obtener un ejemplo de cómo usar [CreateProvisionToken](https://msdn.micros
 - [Power BI REST APIs (API de REST de Power BI)](http://docs.powerbi.apiary.io/reference)
 - [Regiones de Azure](https://azure.microsoft.com/regions/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

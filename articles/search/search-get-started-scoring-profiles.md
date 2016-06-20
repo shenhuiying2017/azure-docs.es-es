@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/04/2016" 
 	ms.author="heidist"/>
 
 # Uso de los perfiles de puntuación en la Búsqueda de Azure
@@ -27,7 +27,7 @@ La aplicación de ejemplo demuestra los comportamientos de puntuación con la ut
 <a id="sub-1"></a>
 ## Requisitos previos
 
-La aplicación de ejemplo está escrita en C# con Visual Studio 2013. Si no tiene Visual Studio, pruebe gratuitamente la [edición Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+La aplicación de ejemplo está escrita en C# con Visual Studio 2013. Si no tiene Visual Studio, pruebe gratuitamente la [edición Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 Necesitará una suscripción de Azure y un servicio de Búsqueda de Azure para completar el tutorial. Consulte [Creación de un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda con la configuración del servicio.
 
@@ -47,7 +47,7 @@ En la pestaña Código de origen, haga clic en **Descargar** para obtener un arc
 
 1. Después de extraer los archivos, abra la solución en Visual Studio para editar el archivo de configuración.
 1. En el Explorador de soluciones, haga doble clic en **app.config**. Este archivo especifica el extremo de servicio y una `api-key` usada para autenticar la solicitud. Puede obtener estos valores en el Portal clásico.
-1. Inicie sesión en el [Portal de Azure clásico](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 1. Vaya al panel de servicio de Búsqueda de Azure.
 1. Haga clic en el icono **Propiedades** para copiar la dirección URL del servicio.
 1. Haga clic en el icono **Claves** para copiar la `api-key`.
@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

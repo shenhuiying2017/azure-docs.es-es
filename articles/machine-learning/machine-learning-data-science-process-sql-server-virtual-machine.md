@@ -120,7 +120,7 @@ Las características basadas en ubicación anteriores se pueden usar aún más p
 
 ###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
-La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o tener acceso a las características si ya se han creado, mediante el módulo [Importar datos][reader] en Aprendizaje automático de Azure, como se muestra a continuación:
+La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o tener acceso a las características si ya se han creado, mediante el módulo [Importar datos][import-data] en Aprendizaje automático de Azure, como se muestra a continuación:
 
 ![Lectores de azureml][1]
 
@@ -149,7 +149,7 @@ Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de 
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

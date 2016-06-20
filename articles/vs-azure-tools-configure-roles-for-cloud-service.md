@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configuración de los roles para un servicio en la nube de Azure con Visual Studio
@@ -235,7 +235,7 @@ Los valores de almacenamiento local se aplican a todas las configuraciones de se
 
 1. (Opcional) Para ver este archivo que ha creado al ejecuta su servicio en la nube localmente, lleve a cabo los pasos siguientes:
 
-  1. Ejecute el rol web y haga clic en **Button1** para asegurarse de que el código que se encuentra dentro de `Button1_Click` recibe la llamada.
+  1. Ejecute el rol web y seleccione **Button1** para asegurarse de que se llama al código que se encuentra dentro de `Button1_Click`.
 
   1. En el área de notificación, abra el menú contextual del icono de Azure y elija **Mostrar la interfaz de usuario del emulador de proceso**. Aparece el cuadro de diálogo **Emulador de proceso de Azure** .
 
@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

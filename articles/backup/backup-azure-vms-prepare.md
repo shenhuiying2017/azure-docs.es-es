@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="copias de seguridad; realizar copia de seguridad"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparación del entorno de copia de seguridad de máquinas virtuales de Azure
 
 > [AZURE.SELECTOR]
-- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md) (Preparación para realizar una copia de seguridad de máquinas virtuales de ARM)
-- [Preparación del entorno de copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
+- [Modelo de Resource Manager](backup-azure-arm-vms-prepare.md).
+- [Modelo clásico](backup-azure-vms-prepare.md)
 
 Para hacer copias de seguridad de una máquina virtual (VM) de Azure, deben darse tres condiciones.
 
@@ -133,11 +133,11 @@ En este paso se configura el servidor proxy para la cuenta de sistema local.
      ```
     Se abrirá la ventana de Internet Explorer.
 3. Vaya a Herramientas -> Opciones de Internet -> Conexiones -> Configuración de LAN.
-4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto. 
+4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto.
 5. Cierre Internet Explorer.
 
 Se configurará el proxy en todo el equipo y se usará para el tráfico saliente de HTTP/HTTPS.
-   
+
 Si ha configurado un servidor proxy en una cuenta de usuario actual (no en una cuenta de sistema local), use el siguiente script para aplicarlo a SYSTEMACCOUNT:
 
 ```
@@ -151,7 +151,7 @@ Si ha configurado un servidor proxy en una cuenta de usuario actual (no en una c
 
 >[AZURE.NOTE] Si ve el mensaje "(407) Se requiere autenticación del proxy" en el registro del servidor proxy, compruebe que su autenticación está configurada correctamente.
 
-######Para máquinas Linux 
+######Para máquinas Linux
 
 Agregue la siguiente línea al archivo ```/etc/environment```:
 
@@ -160,7 +160,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Agregue las líneas siguientes al archivo ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -238,4 +238,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

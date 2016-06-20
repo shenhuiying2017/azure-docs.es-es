@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
@@ -35,7 +35,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 
 | Categoría | Descripción | Máxima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Base de datos | Tamaño máximo | 60 TB comprimidos en disco<br/><br/>Almacenamiento de datos SQL permite un máximo de 60 TB de espacio sin formato en disco por base de datos. El espacio en disco es el tamaño comprimido de las tablas permanentes. Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a las tablas permanentes. La compresión del almacén de columnas agrupado se calcula mediante un factor de 5, lo que significa que el tamaño sin comprimir de la base de datos podría aumentar hasta unos 300 TB cuando todas las tablas se agrupan en el almacén de columnas (que es el tipo de tabla predeterminado). El límite de 60 TB aumentará a 240 TB al final de la versión preliminar pública, lo que permitirá que casi todas las bases de datos crezcan por encima de 1 PB de datos sin comprimir.|
+| Base de datos | Tamaño máximo | 240 TB comprimidos en un disco<br/><br/>Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a tablas permanentes. La compresión del almacén de columnas agrupado se calcula mediante un factor de 5, lo que significa que el tamaño sin comprimir de la base de datos podría aumentar hasta unos 1 PB cuando todas las tablas se agrupan en el almacén de columnas (que es el tipo de tabla predeterminado).|
 | Tabla | Tamaño máximo | 60 TB comprimidos en disco |
 | Tabla | Tablas por base de datos | 2 mil millones |
 | Tabla | Columnas por tabla | 1024 columnas |
@@ -109,4 +109,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

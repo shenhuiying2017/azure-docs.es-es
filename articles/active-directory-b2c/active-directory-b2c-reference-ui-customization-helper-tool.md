@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario de la página
@@ -91,4 +91,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
 
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de Almacenamiento de blobs de Azure, y tiene la posibilidad de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

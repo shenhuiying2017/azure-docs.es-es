@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="06/07/2016" 
 	ms.author="awills"/>
 
 # Referencia para Analytics
@@ -22,30 +22,32 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[Operador summarize](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[Operador join](#join-operator)|[range](#range)|[Operador take](#take-operator)
-|[cualquiera](#any)|[dcount](#dcount)|[Expresiones de ruta de JSON](#json-path-expressions)|[Operador range](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[Cláusula let](#let-clause)|[Operador reduce](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)|[Operador limit](#limit-operator)|[Directiva render](#render-directive)|[todynamic](#todynamic)
-|[Operadores aritméticos](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Literales de matriz y objeto](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[Cláusula restrict](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Comparaciones escalares](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[Operador sort](#sort-operator)|[Operador top](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Literales booleanos](#boolean-literals)|[Operador extend](#extend-operator)|[Operador mvexpand](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Operadores booleanos](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Conversiones de tipos](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Literales numéricos](#numeric-literals)|[startofyear](#startofyear)|[Operador union](#union-operator)
-|[Operador count](#count-operator)|[gettype](#gettype)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[Operador parse](#parse-operator)|[strcat](#strcat)|[WeekOfYear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[Comparaciones de cadenas](#string-comparisons)|[Operador where](#where-operator)
-|[Expresiones de fecha y hora](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[Literales de cadena](#string-literals)
-|[Literales de fecha y hora](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[Operador project](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[Operador project-away](#project-away-operator)|[sum](#sum)
+## Índice
+
+|Consultas y operadores|Agregaciones|Escalares|Números|Fecha y hora|Cadena|Matrices, objetos y dinámica
+|---|---|---|---|---|---|---
+|[count](#count-operator)|[cualquiera](#any)|[Literales booleanos](#boolean-literals)|[Operadores aritméticos](#arithmetic-operators)|[Expresiones de fecha y hora](#date-and-time-expressions)|[GUID](#guids)|[Literales de matriz y objeto](#array-and-object-literals)
+|[extend](#extend-operator)|[argmax](#argmax)|[Operadores booleanos](#boolean-operators)|[Literales numéricos](#numeric-literals)|[Literales de fecha y hora](#date-and-time-literals)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[Funciones del objeto dinámico](#dynamic-object-functions)
+|[join](#join-operator)|[argmin](#argmin)|[Conversiones de tipos](#casts)|[abs](#abs)|[ago](#ago)|[Literales de cadena](#string-literals)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)
+|[Cláusula let](#let-clause)|[avg](#avg)|[Comparaciones escalares](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Comparaciones de cadenas](#string-comparisons)|[Expresiones de ruta de JSON](#json-path-expressions)
+|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Nombres](#names)
+|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
+|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
+|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
+|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
+|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
+|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
+|[Directiva render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
+|[Cláusula restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
+|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
+|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
+|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
+|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
+|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
+|[union](#union-operator)||||[todatetime](#todatetime)||
+|[donde](#where-operator)||||[totimespan](#totimespan)||
+|||||[WeekOfYear](#weekofyear)||
+
 
 
 
@@ -61,7 +63,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Cada filtro precedido por el carácter de barra vertical `|` es una instancia de un *operador* con algunos parámetros. La entrada del operador es la tabla que resulta de la canalización anterior. En la mayoría de los casos, los parámetros son [expresiones escalares](##scalars) sobre las columnas de entrada. En algunos casos, los parámetros son los nombres de las columnas de entrada y, en otros casos, el parámetro es una segunda tabla. El resultado de una consulta siempre es una tabla, incluso si solo tiene una columna y una fila.
+Cada filtro precedido por el carácter de barra vertical `|` es una instancia de un *operador* con algunos parámetros. La entrada del operador es la tabla que resulta de la canalización anterior. En la mayoría de los casos, los parámetros son [expresiones escalares](#scalars) sobre las columnas de entrada. En algunos casos, los parámetros son los nombres de las columnas de entrada y, en otros casos, el parámetro es una segunda tabla. El resultado de una consulta siempre es una tabla, incluso si solo tiene una columna y una fila.
 
 Las consultas pueden contener saltos de línea únicos, pero terminan en una línea en blanco. Pueden contener comentarios entre `//` y el final de la línea.
 
@@ -392,7 +394,7 @@ Todos los elementos de un patrón de análisis deben coincidir correctamente; de
 
 **Ejemplos**
 
-*Simple*:
+*Simple:*
 
 ```AIQL
 
@@ -416,7 +418,7 @@ x | counter | present | Year
 ---|---|---|---
 1 | 2 | socks | 63
 
-*Relaxed*:
+*Relaxed:*
 
 Cuando la entrada contiene una coincidencia correcta para cada columna con tipo, un análisis relajado produce los mismos resultados que un análisis simple. Pero si una de las columnas con tipo no se analiza correctamente, un análisis relajado continúa procesando el resto del patrón, mientras que un análisis simple se detiene y no genera ningún resultado.
 
@@ -446,7 +448,7 @@ x | present | Year
 1 | socks | 63
 
 
-*Regex*:
+*Regex:*
 
 ```AIQL
 
@@ -482,7 +484,7 @@ Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nu
 
 **Argumentos**
 
-* *T*: la tabla de entrada.
+* *T:* la tabla de entrada.
 * *ColumnName*: el nombre de una columna que va a aparecer en la salida. Si no hay ningún valor de *Expression*, tiene que aparecer una columna con ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Expression*: expresión escalar opcional que hace referencia a las columnas de entrada. 
 
@@ -688,7 +690,7 @@ Si no proporciona ningún elemento *GroupExpression*, toda la tabla se resume en
 
 Las filas de entrada están organizadas en grupos que tienen los mismos valores que las expresiones `by`. A continuación, las funciones de agregación especificadas se calculan sobre cada grupo, generando una fila para cada grupo. El resultado contiene las columnas `by` y también al menos una columna para cada agregación procesada. (Algunas funciones de agregación devuelven varias columnas.)
 
-El resultado tiene tantas filas como el número de combinaciones distintivos de los valores `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
+El resultado tiene tantas filas como el número de combinaciones distintas de los valores `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
 
 **Nota:**
 
@@ -790,7 +792,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-El número de usuarios distintivos que han creado un evento `exceptions` o un evento `traces` el día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
+El número de usuarios distintos que han creado un evento `exceptions` o un evento `traces` el día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
 
 ```AIQL
 exceptions
@@ -1007,7 +1009,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no h
 
 **Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`.
 
-> [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
+> [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos mantenido en Application Insights será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
 ### countif
 
@@ -1023,7 +1025,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintivos de *Expr* en el grupo. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintos de *Expr* en el grupo. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1044,7 +1046,7 @@ Devuelve una estimación del número de valores distintivos de *Expr* en el grup
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintivos de *Expr* de las filas del grupo para el que el valor de *Predicate* es True. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintos de *Expr* de las filas del grupo para el que el valor de *Predicate* es True. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1071,7 +1073,7 @@ Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* del grupo.
 
     makeset(Expression [ , MaxSetSize ] )
 
-Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintivos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintivos, utilice [`dcount`](#dcount)).
+Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintos, utilice [`dcount`](#dcount)).
   
 *  *MaxSetSize* es un límite de entero opcional para el número máximo de elementos devueltos (el valor predeterminado es *128*).
 
@@ -1361,7 +1363,6 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 
 
 
-## Booleano 
 
 ### Literales booleanos
 
@@ -1393,17 +1394,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que
-|`<=`|Menor que o Igual a
-|`>`|Mayor que
-|`>=`|Mayor que o Igual a
-|`<>`|No igual a
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -2091,7 +2082,7 @@ Convierte una cadena a mayúsculas.
 
 
 
-## GUID
+### GUID
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2199,7 +2190,7 @@ T
 ```
 
 
-## Funciones del objeto dinámico
+### Funciones del objeto dinámico
 
 |||
 |---|---|
@@ -2400,7 +2391,7 @@ Una matriz de expresiones de ruta.
 
 Observe que "[0]" indica la presencia de una matriz, pero no especifica el índice utilizado por una ruta específica.
 
-## Nombres
+### Nombres
 
 Los nombres pueden contener hasta 1024 caracteres. Se distinguen mayúsculas de minúsculas y pueden contener letras, dígitos y caracteres de subrayado (`_`).
 
@@ -2425,4 +2416,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

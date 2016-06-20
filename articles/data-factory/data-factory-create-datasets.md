@@ -13,17 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/08/2016" 
 	ms.author="spelluru"/>
 
 # Conjuntos de datos en Data Factory de Azure
 Los conjuntos de datos de Data Factory de Azure son punteros o referencias con nombre que señalan a los datos que se quieran usar como entrada o salida de una actividad de una canalización. Los conjuntos de datos identifican datos en distintos almacenes de datos, que incluyen tablas, archivos, carpetas y documentos.
 
-Cuando crea una factoría de datos, crea servicios vinculados que vinculan los almacenes de datos a la factoría de datos. Un **servicio vinculado** define la información necesaria para que Data Factory de Azure se **conecte** a un almacén de datos como, por ejemplo, una cuenta de Almacenamiento de Azure o una base de datos SQL de Azure. El servicio vinculado define el mecanismo (dirección, protocolo, esquema de autenticación, etc.) para tener acceso al almacén de datos.
+Un **servicio vinculado** define la información necesaria para que Data Factory de Azure se **conecte** a un **almacén de datos** (como una cuenta de Almacenamiento de Azure o una base de datos SQL de Azure) o un **proceso** (como Azure HDInsight y Lote de Azure). El servicio vinculado define el mecanismo (dirección, protocolo, esquema de autenticación, etc.) para tener acceso al almacén de datos o proceso.
 
-Un **conjunto de datos** de Data Factory representa las estructuras de datos (por ejemplo: contenedor de blobs o tabla de SQL) dentro de este almacén de datos que se pueden utilizar como entrada o salida de una actividad en una canalización. Después de crear conjuntos de datos, puede utilizarlos con actividades de la canalización. Por ejemplo, puede tener un conjunto de datos como un conjunto de datos de entrada y salida de una actividad de HDInsightHive o una actividad de copia.
+Consulte [Almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores) para ver una lista de los servicios vinculados de almacén de datos admitidos. Haga clic en un origen de datos de la tabla para ir al tema que proporciona información detallada sobre cómo crear y configurar un servicio vinculado para ese almacén de datos.
+
+Para obtener una lista de los servicios vinculados de procesos admitidos, consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md). Para comprender las actividades que usan estos servicios vinculados, vea [Transformación y análisis con Data Factory de Azure](data-factory-data-transformation-activities.md).
+
+Un **conjunto de datos** de Data Factory representa las estructuras de datos dentro de un almacén de datos por medio de un **servicio vinculado al almacén de datos** (por ejemplo, un contenedor de blob en una cuenta de Almacenamiento de Azure o una tabla en una Base de datos SQL de Azure). Se puede utilizar como elemento de entrada o de salida de una actividad en una canalización. Después de crear conjuntos de datos, puede utilizarlos con actividades de la canalización. Por ejemplo, puede tener un conjunto de datos como un conjunto de datos de entrada y salida de una actividad de HDInsightHive o una actividad de copia.
 
 > [AZURE.NOTE] Si no está familiarizado con Data Factory de Azure, consulte [Introducción al servicio Data Factory de Azure](data-factory-introduction.md) para obtener información general del servicio de la factoría de datos y [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md) para obtener un tutorial sobre cómo crear su primera factoría de datos. Estos dos artículos le proporcionarán el contexto necesario para comprender mejor este artículo.
+
 
 ## Definición de conjuntos de datos
 Un conjunto de datos en Data Factory de Azure se define como sigue:
@@ -61,11 +66,11 @@ La tabla siguiente describe las propiedades del JSON anterior:
 | -------- | ----------- | -------- | ------- |
 | name | Nombre del conjunto de datos. Consulte [Data Factory de Azure: reglas de nomenclatura](data-factory-naming-rules.md) para consultar este tipo de reglas. | Sí | N/D |
 | type | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory de Azure (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Consulte [Tipo de conjunto de datos](#Type) para más información. | Sí | N/D |
-| structure | Esquema del conjunto de datos<br/><br/>Consulte la sección [Estructura del conjunto de datos](#Structure) para más detalles | Nº | N/D |
+| structure | Esquema del conjunto de datos<br/><br/>Consulte la sección [Estructura del conjunto de datos](#Structure) para ver más detalles. | Nº | N/D |
 | typeProperties | Propiedades correspondientes al tipo seleccionado. Consulte la sección [Tipo de conjunto de datos](#Type) para más información sobre los tipos admitidos y sus propiedades. | Sí | N/D |
 | external | Marca booleana para especificar si un conjunto de datos es generado explícitamente por una canalización de la factoría de datos o no. | No | false | 
-| availability | Define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. <br/><br/>Consulte el tema [Disponibilidad del conjunto de datos](#Availability) para más detalles<br/><br/>Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más detalles sobre el modelo de segmentación del conjunto de datos | Sí | N/D
-| policy | Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Consulte el tema [Directiva del conjunto de datos](#Policy) para más detalles | No | N/D |
+| availability | Define la ventana de procesamiento o el modelo de segmentación para la producción del conjunto de datos. <br/><br/>Consulte el tema [Disponibilidad del conjunto de datos](#Availability) para más información<br/><br/>Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para más información sobre el modelo de segmentación del conjunto de datos | Sí | N/D
+| policy | Define los criterios o la condición que deben cumplir los segmentos del conjunto de datos. <br/><br/>Consulte el tema [Directiva del conjunto de datos](#Policy) para más información. | No | N/D |
 
 ### Ejemplo
 
@@ -133,7 +138,7 @@ La sección **structure** define el esquema del conjunto de datos. Contiene una 
 	]
 
 ## <a name="Availability"></a> Disponibilidad del conjunto de datos
-En la sección **availability** de un conjunto de datos se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc...) o el modelo de segmentación del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
+En la sección **availability** de un conjunto de datos se define la ventana de procesamiento (cada hora, diariamente, semanalmente, etc.) o el modelo de segmentación del conjunto de datos. Consulte el artículo [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener más detalles sobre el modelo de segmentación y dependencia del conjunto de datos.
 
 La sección availability siguiente especifica que el conjunto de datos se produce cada hora en el caso de un conjunto de datos de salida (o) que está disponible cada hora en el caso de un conjunto de datos de entrada.
 
@@ -147,7 +152,7 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | -------- | ----------- | -------- | ------- |
-| frequency | Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/>**Frecuencia admitida**: Minute, Hour, Day, Week, Month | Sí | N/D |
+| frequency | Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/>**Frecuencia admitida**: Minute, Hour, Day, Week, Month. | Sí | N/D |
 | interval | Especifica un multiplicador para frecuencia<br/><br/>"Frequency x interval" determina la frecuencia con la que se genera el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca **Frequency** en **Hour** e **interval** en **1**.<br/><br/>**Nota:** Si especifica Frequency en Minute, se recomienda establecer interval en más de 15 | Sí | N/D |
 | style | Especifica si se debe generar el segmento al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si se establece Frequency en Month y style se establece en EndOfInterval, se genera el segmento en el último día del mes. Si style está establecido en StartOfInterval, se genera el segmento en el primer día del mes.<br/><br/>Si se establece Frequency en Day y style se establece en EndOfInterval, el segmento se produce en la última hora del día.<br/><br/>Si se establece Frequency en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. | No | EndOfInterval |
 | anchorDateTime | Define la posición absoluta en tiempo usada por el programador para calcular los límites de los segmentos del conjunto de datos.<br/><br/>**Nota:** si AnchorDateTime tiene partes de fecha más detalladas que frequency, se ignorarán las partes más detalladas. <br/><br/>Por ejemplo, si **interval** es **hourly** (frequency: hour e interval: 1) y **AnchorDateTime** contiene **minutes and seconds**, las partes **minutes and seconds** de AnchorDateTime se omitirán. | No | 01/01/0001 |
@@ -164,7 +169,7 @@ Segmentos diarios que comienzan a las 6 a.m., en lugar de a medianoche, que es e
 		"offset": "06:00:00"
 	}
 
-**frequency** está establecido en **Month** e **interval** está establecido en **1** (una vez al mes): si desea que el segmento se genere el día 9 de cada mes a las 6 A.M., establezca el offset en "09.06:00:00". Recuerde que esta es una hora UTC.
+**frequency** está establecido en **Month** e **interval** está establecido en **1** (una vez al mes): si desea que el segmento se genere el día 9 de cada mes a las 6 A.M., establezca offset en "09.06:00:00". Recuerde que esta es una hora UTC.
 
 Para un programación de 12 meses (frecuency = month; interval = 12), offset: 60.00:00:00 significa el 1 o 2 de marzo de cada año (60 días desde el principio del año si style = StartOfInterval), en función de si el año es bisiesto o no.
 
@@ -251,7 +256,7 @@ A menos que se esté produciendo un conjunto de datos mediante Data Factory de A
 ## Conjuntos de datos limitados
 Puede crear conjuntos de datos que se limitan a una canalización mediante el uso de la propiedad **datasets**. Estos conjuntos de datos solo los pueden usar las actividades dentro de esta canalización, pero no las actividades de otras canalizaciones. En el ejemplo siguiente se define una canalización con dos conjuntos de datos: InputDataset-rdc y OutputDataset-rdc, que se usarán dentro de la canalización.
 
-> [AZURE.IMPORTANT] Los conjuntos de datos con ámbito solo se admiten con las canalizaciones de un solo uso (**pipelineMode** establecido en **OneTime**). Consulte la sección sobre [una canalización](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información.
+> [AZURE.IMPORTANT] Los conjuntos de datos con ámbito solo se admiten con las canalizaciones de un solo uso (**pipelineMode** establecido en **OneTime**). Consulte la sección [Canalización de una vez](data-factory-scheduling-and-execution.md#onetime-pipeline) para más información.
 
 	{
 	    "name": "CopyPipeline-rdc",
@@ -342,4 +347,4 @@ Puede crear conjuntos de datos que se limitan a una canalización mediante el us
 	    }
 	}
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

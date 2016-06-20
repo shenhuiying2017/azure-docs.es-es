@@ -61,6 +61,7 @@ También puede [configurar][registry-config] Docker Registry de dos maneras dife
 Por simplicidad, este tema sigue la opción 2, el uso de variables de entorno.
 
 Para ejecutar una instancia del Registro de Docker que:
+
 * Use la cuenta de almacenamiento de Azure para almacenar las imágenes.
 * Realice la escucha en el puerto 5000 de la máquina virtual.
 * No tenga autenticaciones configuradas (no se recomienda, consulte la nota siguiente).
@@ -99,4 +100,4 @@ Una vez configurado el registro, es hora de usarlo más. Comience con [registry-
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

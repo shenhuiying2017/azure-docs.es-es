@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="06/07/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -248,4 +248,4 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 ### ¿Se puede acceder a Dynamics AX a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="tamram"/>
 
 
@@ -38,7 +38,7 @@ En primer lugar, asegúrese de tener instalada la biblioteca del cliente de alma
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a los archivos **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll** de una de las siguientes formas:
 
-- 	Si desea instalar el paquete de NuGet, instale en primer lugar la extensión [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (Administrador de paquetes NuGet para Visual Studio). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Almacenamiento de Azure** y siga las instrucciones de instalación.
+- 	Si quiere instalar el paquete NuGet, instale primero el [cliente NuGet](https://docs.nuget.org/consume/installing-nuget). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Almacenamiento de Azure** y siga las instrucciones de instalación.
 - 	También puede buscar los ensamblados en la instalación del SDK de Azure y agregar referencias a estos.
 
 En la parte superior del archivo Program.cs, agregue las siguientes instrucciones **using**:
@@ -554,4 +554,4 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

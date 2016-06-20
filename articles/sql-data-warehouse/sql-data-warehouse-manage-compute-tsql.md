@@ -19,7 +19,7 @@
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (T-SQL)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-overview-manage-compute.md)
+- [Información general](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -35,7 +35,7 @@ Esta colección de tareas usa T-SQL para:
 
 Para pausar o reanudar una base de datos, elija una de las otras opciones de plataforma en la parte superior de este artículo.
 
-Para más información, consulte [Manage compute power overview][] (Administración de la potencia de proceso (información general)).
+Para más información, consulte [Manage compute power overview][] (Administración de la eficacia de los procesos (información general)).
 
 <a name="current-dwu-bk"></a>
 
@@ -86,7 +86,7 @@ Para otras tareas de administración, consulte [Información general de administ
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Información general de administración]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute-power.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -97,4 +97,4 @@ Para otras tareas de administración, consulte [Información general de administ
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

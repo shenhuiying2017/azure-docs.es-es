@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma" />
 
 # Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
@@ -50,7 +50,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Paso 4
+### Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -129,7 +129,7 @@ Los parámetros utilizados son:
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
-### Paso 4
+### Paso 4
 
 Configure la puerta de enlace de aplicaciones "poolsetting01" para el tráfico del grupo del back-end. Este paso también tiene una configuración de tiempo de espera para la respuesta del grupo del back-end a una solicitud de puerta de enlace de aplicaciones. Cuando una respuesta del back-end alcanza un límite de tiempo de espera, Puerta de enlace de aplicaciones cancela la solicitud. Esto es diferente al tiempo de espera de sondeo, que es solo para que la respuesta del back-end a las comprobaciones de sondeo.
 
@@ -142,7 +142,7 @@ Configure el puerto IP del front-end denominado "frontendport01" para el punto d
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
-### Paso 6
+### Paso 6
 
 Cree la configuración de direcciones IP del front-end denominada "fipconfig01" y asocie la dirección IP pública con dicha configuración.
 
@@ -190,7 +190,7 @@ Cargue el recurso de puerta de enlace de aplicaciones en una variable de PowerSh
 
 Agregue un sondeo a la configuración de puerta de enlace existente.
 
-	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+	$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
 En el ejemplo, el sondeo personalizado está configurado para comprobar la dirección URL contoso.com/path/custompath.htm cada 30 segundos. Se configura un umbral de tiempo de espera de 120 segundos con un número máximo de 8 solicitudes de sondeo con error.
@@ -202,7 +202,7 @@ Agregue el sondeo a la configuración y al tiempo de espera del grupo de back-en
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
-### Paso 4
+### Paso 4
 
 Guarde la configuración en la puerta de enlace de aplicaciones mediante **Set-AzureRmApplicationGateway**.
 
@@ -232,10 +232,10 @@ Actualice la configuración del grupo de back-end para quitar la configuración 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
-### Paso 4
+### Paso 4
 
 Guarde la configuración en la puerta de enlace de aplicaciones mediante **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

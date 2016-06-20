@@ -122,7 +122,7 @@ Las imágenes que envía junto con su experimento se usarán para crear un mosai
 
 Si el conjunto de datos forma parte del experimento y no se importa a través de un módulo lector, se publica en la Galería junto con el experimento. Es por esta razón que debe asegurarse de que el conjunto de datos que publica con el experimento cuenta con los términos de licencia que permiten que todo usuario pueda usarlo de manera compartida y descargarlo.
 
-**Tengo un experimento que usa un módulo lector para extraer datos desde HDInsight o SQL. Usa mis credenciales para recuperar los datos. ¿Cómo puedo publicar ese experimento y tener la seguridad de que mis credenciales no se compartirán?**
+**Tengo un experimento que usa un módulo Importar datos para extraer datos desde HDInsight o SQL. Usa mis credenciales para recuperar los datos. ¿Cómo puedo publicar ese experimento y tener la seguridad de que mis credenciales no se compartirán?**
 
 En este momento no permitimos la publicación de experimentos que usan credenciales.
 
@@ -136,4 +136,4 @@ La representación de la descripción enriquecida no está disponible para todos
 
 **[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

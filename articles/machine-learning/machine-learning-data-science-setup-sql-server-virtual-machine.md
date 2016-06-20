@@ -82,7 +82,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución
 
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -113,8 +113,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 	+ Para la conectividad remota del servidor de Bloc de notas de IPython
 	+ La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
 	+ La descarga e instalación de paquetes de Python de ciencia de datos útiles
-	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure  
-<br>
+	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure <br>
 - Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
 - El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
@@ -132,7 +131,7 @@ Para conectar discos de datos adicionales, siga los pasos descritos en [Acoplami
 
 ##<a name="SSMS"></a>Conexión a SQL Server Management Studio y habilitación de la autenticación de modo mixto
 
-El motor de base de datos de SQL Server no puede utilizar la autenticación de Windows sin un entorno de dominio. Para conectarse al motor de base de datos desde otro equipo, configure SQL Server para autenticación de modo mixto. La autenticación de modo mixto permite la autenticación de SQL Server y la autenticación de Windows. El modo de autenticación de SQL es necesario para la ingesta de datos directamente desde las bases de datos de una máquina virtual de SQL Server en el [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) mediante el módulo del Lector.
+El motor de base de datos de SQL Server no puede utilizar la autenticación de Windows sin un entorno de dominio. Para conectarse al motor de base de datos desde otro equipo, configure SQL Server para autenticación de modo mixto. La autenticación de modo mixto permite la autenticación de SQL Server y la autenticación de Windows. El modo de autenticación de SQL es necesario para la ingesta de datos directamente desde las bases de datos de máquina virtual de SQL Server en el [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) mediante el módulo Importar datos.
 
 1.  Mientras esté conectado a la máquina virtual a través del Escritorio remoto , use el panel **Búsqueda** de Windows y escriba **SQL Server Management Studio** (SMSS). Haga clic para iniciar SQL Server Management Studio (SSMS). Puede que quiera agregar un acceso directo a SSMS en el escritorio para su uso futuro.
 
@@ -234,13 +233,13 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En el Portal de Azure clásico (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por ****http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
 ##<a name="cde"></a>Conexión al motor de base de datos desde otro equipo
 
 1.  En un equipo conectado a Internet, abra SQL Server Management Studio.
 
-2.  En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
+2.  En el cuadro de diálogo **Conectar al servidor ** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
 
 3.  En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
@@ -252,9 +251,9 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 ##<a name="amlconnect"></a>Conexión al motor de base de datos desde Aprendizaje automático de Azure
 
-En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de los datos de las bases de datos de una VM de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo del [Lector](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata con mayor profundidad en los vínculos de ayuda del proceso de Cortana Analytics. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
+En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de datos de las bases de datos de máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo [Importar datos](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata con mayor profundidad en los vínculos de ayuda del proceso de Cortana Analytics. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
 
-2.	En el panel **Propiedades** del [módulo Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx), seleccione **Base de datos SQL de Azure** en la lista desplegable **Origen de datos**.
+2.	En el panel **Propiedades** del [módulo Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx), seleccione **Base de datos SQL de Azure** en la lista desplegable **Origen de datos**.
 
 3.	En el cuadro de texto **Nombre del servidor de la base de datos**, escriba `tcp:<DNS name of your virtual machine>,1433`
 
@@ -262,7 +261,7 @@ En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de
 
 5.	Escriba la contraseña de usuario de SQL en el cuadro de texto **Contraseña de la cuenta de usuario del servidor**.
 
-	![Lector de Aprendizaje automático de Azure][13]
+	![Datos de importación de Aprendizaje automático de Azure][13]
 
 ##<a name="shutdown"></a>Apagado y desasignación de la máquina virtual cuando no esté en uso
 
@@ -307,4 +306,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

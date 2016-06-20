@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Control de errores en OAuth 2.0
@@ -137,4 +137,4 @@ La especificación RFC 6750 define los siguientes errores de los recursos que ut
 | 403 | insufficient\_scope | El token de acceso no contiene los permisos de suplantación necesarios para acceder al recurso. | Envíe una nueva solicitud de autorización al punto de conexión de autorización. Si la respuesta contiene el parámetro de ámbito, utilice el valor de ámbito de la solicitud en el recurso. |
 | 403 | insufficient\_access | El asunto del token no tiene los permisos necesarios para acceder al recurso. | Pida al usuario que utilice una cuenta diferente o que solicite permisos al recurso especificado. |
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

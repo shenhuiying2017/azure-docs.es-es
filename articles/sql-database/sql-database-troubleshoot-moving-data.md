@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Movimiento de bases de datos de un servidor a otro, de una suscripción a otra, y dentro y fuera de Azure
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##Para mover una base de datos a un servidor diferente en la misma suscripción
 - En el [Portal de Azure](https://portal.azure.com), haga clic en **Bases de datos SQL**, seleccione una base de datos de la lista y haga clic en **Copiar**. Para más información, consulte [Copia de una Base de datos SQL de Azure](sql-database-copy.md).
 
@@ -29,4 +31,4 @@
 ## Para crear una copia de una base de datos para su uso fuera de Azure
 - [Exportación de un archivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

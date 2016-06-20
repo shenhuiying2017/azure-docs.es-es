@@ -439,7 +439,7 @@ type | La propiedad type se debe establecer en **OnPremisesFileServer**. | Sí
 host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\\servername.<br/><br/>Si el sistema de archivos es local en el equipo de puerta de enlace, use Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\\servername. | Sí
 userid | Especifique el identificador del usuario que tiene acceso al servidor. | No (si elige encryptedCredential)
 contraseña | Especifique la contraseña del usuario (identificador de usuario). | No (si elige encryptedCredential) 
-encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>**Nota:** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureRmDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
+encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureRmDataFactoryEncryptValue<br/><br/>** Nota: ** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureRmDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servidor de archivos local. | Sí
 
 Vea [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
@@ -484,9 +484,9 @@ Propiedad | Descripción | Obligatorio
 folderPath | Ruta de acceso a la carpeta. Ejemplo: myfolder<br/><br/>Use el carácter de escape ' \\ ' para los caracteres especiales de la cadena. Por ejemplo: para folder\\subfolder, especifique folder\\subfolder y para d:\\samplefolder, especifique d:\\samplefolder.<br/><br/>Puede combinarlo con **partitionBy** para tener rutas de acceso a carpetas basadas en las fechas y horas de inicio y finalización de los segmentos. | Sí
 fileName | Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo tendría este formato: <br/><br/>Data.<Guid>. txt (por ejemplo: : Data.0a405f8a 93ff 4c6f b3be f69616f1df7a.txt | No
 partitionedBy | partitionedBy se puede usar para especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No
-Formato | Se admiten los siguientes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** y **OrcFormat**. Deberá establecer la propiedad **type** de formato en uno de los siguientes valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte las secciones [Especificación de TextFormat](#specifying-textformat), [Especificación de AvroFormat](#specifying-avroformat), [Especificación de JsonFormat](#specifying-jsonformat) y [Especificación de OrcFormat](#specifying-orcformat) para obtener más detalles. Si desea realizar una **copia binaria tal cual**, no especifique el formato de los conjuntos de datos de origen y de destino. | No
-fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <br/><br/>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).<br/><br/>Ejemplo 1: "fileFilter": "*. log"<br/>Ejemplo 2: "fileFilter": 2014-1-?. txt"<br/><br/>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada. | No
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2**, y los niveles admitidos son: **Óptimo** y **Más rápida**. Tenga en cuenta que actualmente la configuración de compresión no es compatible con los datos de **AvroFormat** u **OrcFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
+Formato | Se admiten los siguientes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** y **OrcFormat**. Deberá establecer la propiedad **type** de formato en uno de los siguientes valores. Consulte las secciones [Especificación de TextFormat](#specifying-textformat), [Especificación de AvroFormat](#specifying-avroformat), [Especificación de JsonFormat](#specifying-jsonformat) y [Especificación de OrcFormat](#specifying-orcformat) para obtener más detalles. Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), puede omitir la sección de formato en las definiciones de conjunto de datos de entrada y salida. | No
+fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <br/><br/>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).<br/><br/>Ejemplo 1: "fileFilter": "*. log"<br/>Ejemplo 2: "fileFilter": 2014-1-?. txt"<br/><br/>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada | No
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2** y los niveles admitidos son: **óptimo** y **más rápido**. Tenga en cuenta que actualmente la configuración de compresión no es compatible con los datos de **AvroFormat** u **OrcFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
 > [AZURE.NOTE] filename y fileFilter no pueden usarse simultáneamente.
 
@@ -555,7 +555,7 @@ false | mergeFiles | Para una carpeta de origen Folder1 con la siguiente estruct
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
 
 
@@ -564,4 +564,4 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

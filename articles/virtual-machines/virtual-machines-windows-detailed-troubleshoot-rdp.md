@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="04/06/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Solución de problemas detallada de conexiones de Escritorio remoto a máquinas virtuales de Azure basadas en Windows
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
 
 > [AZURE.IMPORTANT] Para eliminar los errores más comunes de Escritorio remoto, asegúrese de leer [el artículo sobre la solución de problemas básicos de Escritorio remoto](virtual-machines-windows-troubleshoot-rdp-connection.md) antes de continuar.
 
-Si obtiene un mensaje de error de Escritorio remoto que no se parece a ninguno de los mensajes de error específicos que se tratan en el artículo [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md), puede seguir estos pasos e intentar averiguar por qué el cliente de Escritorio remoto (o [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) no se puede conectar al servicio RDP en la máquina virtual de Azure.
+Si obtiene un mensaje de error de Escritorio remoto que no se parece a ninguno de los mensajes de error específicos que se tratan en el artículo [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-windows-troubleshoot-rdp-connection.md), puede seguir estos pasos e intentar averiguar por qué el cliente de Escritorio remoto (RDP) no se puede conectar al servicio RDP en la máquina virtual de Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
@@ -47,7 +47,7 @@ Antes de continuar, podría resultar útil revisar mentalmente qué ha cambiado 
 Antes de continuar con la solución de problemas detallada,
 
 - compruebe el estado de la máquina virtual en el Portal de Azure clásico o en el Portal de Azure para detectar cualquier error obvio
-- Siga los [pasos de corrección rápida para los errores comunes de RDP en la Guía de solución de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md#quickfixrdp)
+- Siga los [pasos de corrección rápida para los errores comunes de RDP en la Guía de solución de problemas básicos](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 
 Vuelva a conectarse a la máquina virtual a través de Escritorio remoto después de realizar estos pasos.
@@ -102,7 +102,7 @@ Para las máquinas virtuales creadas mediante el modelo clásico de implementaci
 
 > [AZURE.NOTE] Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: grupos de seguridad de red](#nsgs).
 
-Si no tiene otra máquina virtual en el mismo servicio en la nube o la misma red virtual, puede crear una nueva siguiendo los pasos descritos en [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](virtual-machines-windows-hero-tutorial.md). Una vez completada la prueba, elimine la máquina virtual adicional.
+Si no tiene otra máquina virtual en el mismo servicio en la nube o la misma red virtual, puede crear una nueva siguiendo los pasos descritos en [Creación de la primera máquina virtual de Windows en el Portal de Azure](virtual-machines-windows-hero-tutorial.md). Una vez completada la prueba, elimine la máquina virtual adicional.
 
 Si puede conectarse a una máquina virtual en el mismo servicio en la nube o la misma red virtual mediante Escritorio remoto, compruebe lo siguiente:
 
@@ -133,7 +133,7 @@ Pruebe de nuevo la conexión desde su equipo. Si todavía no puede conectarse me
 - El firewall de Windows u otro firewall local tiene una regla de salida que impide el tráfico de Escritorio remoto.
 - El software de detección de intrusiones o supervisión de red que se ejecuta en la máquina virtual de Azure impide las conexiones a Escritorio remoto.
 
-Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, deberá instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configurar el acceso remoto seguro de PowerShell a máquinas virtuales de Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
+Para las máquinas virtuales creadas con el modelo de implementación clásico, puede utilizar una sesión remota de Azure PowerShell para la máquina virtual de Azure. En primer lugar, deberá instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configure Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) (Configuración del acceso remoto seguro de PowerShell a Máquinas virtuales de Azure) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en el equipo local.
 
 A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
@@ -148,7 +148,7 @@ A continuación, rellene su nombre de suscripción a Azure, el nombre del servic
 
 Puede obtener el nombre de suscripción correcto en la propiedad _SubscriptionName_ de la pantalla del comando **Get-AzureSubscription**. Puede obtener el nombre del servicio en la nube de la máquina virtual en la columna _ServiceName_ de la pantalla del comando **Get-AzureVM**.
 
-Compruebe que tiene el nuevo certificado, abra un complemento Certificados para el usuario actual y vaya a la carpeta **Trusted Root Certification Authorities\\Certificates**. Debería ver un certificado con el nombre DNS del servicio en la nube en la columna Emitido para (ejemplo: cloudservice4testing.cloudapp.net).
+Compruebe que tiene el nuevo certificado, abra un complemento Certificados para el usuario actual y vaya a la carpeta **Entidades de certificación raíz de confianza\\Certificados**. Debería ver un certificado con el nombre DNS del servicio en la nube en la columna Emitido para (ejemplo: cloudservice4testing.cloudapp.net).
 
 A continuación, inicie una sesión remota de Azure PowerShell mediante el uso de estos comandos.
 
@@ -195,4 +195,4 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

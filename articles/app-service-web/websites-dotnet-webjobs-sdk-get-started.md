@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/01/2016"
 	ms.author="tdykstra"/>
 
 # Creación de un WebJob .NET en el Servicio de aplicaciones de Azure
@@ -36,7 +36,13 @@ El tutorial se escribió para Visual Studio 2013. Si no aún no tiene Visual Stu
 
 El tutorial se puede usar con Visual Studio 2015 pero, antes de ejecutar la aplicación localmente, tiene que cambiar la parte `Data Source` de la cadena de conexión LocalDB de SQL Server en los archivos Web.config y App.config de `Data Source=(localdb)\v11.0` a `Data Source=(LocalDb)\MSSQLLocalDB`.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
+> [AZURE.NOTE] <a name="note"></a>Para completar este tutorial, necesitará una cuenta de Azure:
+  >
+  > + Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
+  >
+  > + Puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
+  >
+  >Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## <a id="learn"></a>Temas que se abordarán
 
@@ -73,13 +79,11 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
-2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**.  
-![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**. ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
 
-5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**.  
-![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**. ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
 
@@ -299,7 +303,7 @@ Un procedimiento recomendado de seguridad consiste en [evitar insertar informaci
 
 En esta sección se usa el **Explorador de servidores** para definir los valores de cadena de conexión en Azure.
 
-7. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación web en **Azure > Servicio de aplicaciones > {su grupo de recursos}** y, a continuación, haga clic en **Ver configuración**.
+7. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación web en **Azure > Servicio de aplicaciones > {su grupo de recursos}** y luego haga clic en **Ver configuración**.
 
 	La ventana **Aplicación web de Azure** se abrirá en la pestaña **Configuración**.
 
@@ -817,4 +821,4 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/04/2015"
+   ms.date="05/31/2016"
    ms.author="mbaldwin"/>
 
 # Solución de problemas: El elemento "Active Directory" falta o no está disponible
@@ -40,7 +40,7 @@ El elemento Active Directory se muestra en el menú de navegación izquierdo cua
 
     OR
 
-* El inquilino de Azure tiene al menos un proveedor de Multi-Factor Authentication. Para obtener más información, consulte [Administración de proveedores de Azure Multi-Factor Authentication](multi-factor-authentication-get-started-cloud.md/creating-an-azure-multi-factor-auth-provider).
+* El inquilino de Azure tiene al menos un proveedor de Multi-Factor Authentication. Para obtener más información, consulte [Administración de proveedores de Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Para crear un espacio de nombres de Control de acceso o un proveedor de Multi-Factor Authentication, haga clic en **+Nuevo** > **Servicios de aplicaciones** > **Active Directory**.
 
@@ -54,4 +54,4 @@ Sin embargo, mientras se carga la página, el elemento aparece atenuado y marcad
 
 ![Captura de pantalla: Active Directory no está disponible](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -19,7 +19,7 @@
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-overview-manage-compute.md)
+- [Información general](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte [Manage compute power overview][] (Administración de la potencia de proceso (información general)).
+Para más información, consulte [Manage compute power overview][] (Administración de la eficacia de los procesos (información general)).
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -89,8 +89,7 @@ Para otras tareas de administración, consulte [Management overview][] (Informac
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
@@ -101,4 +100,4 @@ Para otras tareas de administración, consulte [Management overview][] (Informac
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

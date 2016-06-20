@@ -24,12 +24,14 @@
 
 Este artículo contiene información sobre las diversas versiones y actualizaciones más recientes para el kit de herramientas de Azure para Eclipse.
 
+> [AZURE.NOTE] También hay un Kit de herramientas de Azure para el IDE de IntelliJ. Para más información, consulte [Kit de herramientas de Azure para IntelliJ].
+
 ### 12 de abril de 2016
 
 El kit de herramientas de Azure para Eclipse, versión de abril de 2016, incluye las siguientes mejoras:
 
 * **Compatibilidad con la versión 2.9.0 del SDK de Azure**. La versión más reciente del SDK de Azure ahora es el requisito previo mínimo para el kit de herramientas de Azure para Eclipse.
-* **Mejoras variadas en la facilidad de uso, la capacidad de respuesta y el rendimiento relacionadas con la compatibilidad de Aplicación web de Azure**. Diversas optimizaciones de rendimiento con respecto a la manera en que el kit de herramientas se comunica con Azure generan una IU con mayor capacidad de respuesta.
+* **Mejoras variadas en la facilidad de uso, la capacidad de respuesta y el rendimiento relacionadas con la compatibilidad de aplicaciones web de Azure**. Diversas optimizaciones de rendimiento con respecto a la manera en que el kit de herramientas se comunica con Azure generan una IU con mayor capacidad de respuesta.
 * **Capacidad de eliminar un contenedor de aplicaciones web en Azure desde Eclipse**. El kit de herramientas de Azure para Eclipse ahora le permite eliminar un contenedor web de Azure existente sin salir de Eclipse.
 
 ### 7 de marzo de 2016
@@ -37,7 +39,7 @@ El kit de herramientas de Azure para Eclipse, versión de abril de 2016, incluye
 El kit de herramientas de Azure para Eclipse, versión de marzo de 2016, incluye las siguientes mejoras:
 
 * **Compatibilidad para la implementación rápida de las aplicaciones Java ligeras**. El kit de herramientas de Azure para Eclipse ahora admite la implementación rápida de las aplicaciones Java ligeras en contenedores de aplicaciones web de Azure, por lo que la implementación de aplicaciones Java ahora tarda segundos en lugar de minutos.
-* **Compatibilidad para la administración de la aplicaciones web mediante la vista del explorador de Azure**. La vista del explorador de Azure del kit de herramientas ahora admite la enumeración, inicio y detención de aplicaciones web de Azure.
+* **Compatibilidad con la administración de aplicaciones web mediante la vista Azure Explorer**. La vista del explorador de Azure del kit de herramientas ahora admite la enumeración, inicio y detención de aplicaciones web de Azure.
 * **Distribuciones actualizadas de OpenJDK de Zulu, Jetty y Tomcat**. El kit de herramientas de Azure para Eclipse proporciona compatibilidad con versiones actualizadas de OpenJDK de Zulu, Jetty y Tomcat para las implementaciones de Java en servicios en la nube de Azure.
 
 ### 4 de enero de 2016
@@ -46,7 +48,7 @@ El kit de herramientas de Azure para Eclipse, versión de enero de 2016, incluye
 
 * **Compatibilidad con las actualizaciones de Zulu de OpenJDK**. Para más información, consulte la [página web de Azul Systems para Zulu de OpenJDK].
 * **Distribuciones actualizadas de Tomcat y Jetty**. Se han actualizado las distribuciones de Jetty y Tomcat que están disponibles en Microsoft Azure para su uso con el kit de herramientas de Azure para Eclipse.
-* **Paridad de características entre Eclipse y kits de herramientas de IntelliJ para Azure**. El kit de herramientas de Azure para Eclipse y el [ kit de herramientas de Azure para IntelliJ] ahora admiten el mismo conjunto de características.
+* **Paridad de características entre Eclipse y kits de herramientas de IntelliJ para Azure**. El kit de herramientas de Azure para Eclipse y el [kit de herramientas de Azure para IntelliJ] ahora admiten el mismo conjunto de características.
 
 ### 1 de septiembre de 2015
 
@@ -297,22 +299,31 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de diciembre de 2011. 
 
 ## Otras referencias ##
 
-[Kit de herramientas de Azure para Eclipse]
+Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
-[Instalación del Kit de herramientas de Azure para Eclipse]
+- [Kit de herramientas de Azure para Eclipse]
+  - [Instalación del Kit de herramientas de Azure para Eclipse]
+  - [Creación de una aplicación web Hello World para Azure en Eclipse]
+  - *Novedades del kit de herramientas de Azure para Eclipse (este artículo)*
+- [Kit de herramientas de Azure para IntelliJ]
+  - [Instalación del kit de herramientas de Azure para IntelliJ]
+  - [Creación de una aplicación web Hello World para Azure en IntelliJ]
 
-[Creación de una aplicación Hola a todos para Azure en Eclipse]
-
-Para más información sobre el uso de Azure con Java, vea el [Centro de desarrolladores de Java de Azure].
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
 <!-- URL List -->
 
+[Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
+[Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+
 [página web de Azul Systems para Zulu de OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centro de desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Puntos de conexión de servicio de Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de cuentas de almacenamiento de Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[ kit de herramientas de Azure para IntelliJ]: https://plugins.jetbrains.com/plugin/8053
 [Propiedades de componentes]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
 [Creación de una aplicación Hola a todos para Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Depuración de aplicaciones de Azure en Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
@@ -341,4 +352,4 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

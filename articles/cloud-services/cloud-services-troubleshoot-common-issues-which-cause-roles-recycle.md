@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Problemas comunes que causan el reciclaje de los roles
 
 En este artículo se describen algunas de las causas comunes de problemas relacionados con la implementación y se proporcionan sugerencias para la resolución de dichos problemas. Aparece una indicación de que existe un problema con una aplicación cuando la instancia de rol no se inicia o cuando alterna entre los estados inicializando, ocupado y deteniendo.
 
-## Póngase en contacto con el servicio de atención al cliente de Azure
-
-Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/).
-
-Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Dependencias en tiempo de ejecución que faltan
 
@@ -32,7 +28,7 @@ Si un rol de la aplicación se basa en algún ensamblado que no forma parte de .
 
 Antes de compilar y empaquetar la aplicación, compruebe lo siguiente:
 
-- Si usa Visual Studio, asegúrese de que la propiedad **Copy Local** se establece en **True** para cada ensamblado del proyecto que no forme parte de Azure SDK o de .NET Framework.
+- Si usa Visual studio, asegúrese de que la propiedad **Copy Local** se establece en **True** para cada ensamblado del proyecto que no forme parte de Azure SDK o de .NET Framework.
 
 - Asegúrese de que el archivo web.config no hace referencia a ningún ensamblado sin usar en el elemento de compilación.
 
@@ -70,7 +66,7 @@ Para ejecutar un rol web con SSL, debe asegurarse de que el certificado de admin
 
 ## Pasos siguientes
 
-Vea más [artículos de solución de problemas](..\?tag=top-support-issue&service=cloud-services) para servicios en la nube.
+Vea más [artículos de solución de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para servicios en la nube.
 
 En la [series de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) puede ver más escenarios de reciclaje de roles.
 
@@ -82,4 +78,4 @@ En la [series de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archiv
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

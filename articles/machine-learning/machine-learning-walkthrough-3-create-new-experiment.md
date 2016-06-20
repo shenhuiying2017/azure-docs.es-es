@@ -46,25 +46,25 @@ Para ver las primeras 100 filas de datos y alguna información estadística de t
 
 Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). Los encabezados buenos no son esenciales para crear un modelo, pero facilitarán el trabajo con los datos en el experimento. Además, si finalmente se publicara este modelo en un servicio web, los encabezados ayudarían al usuario del servicio a identificar las columnas.
 
-Podemos agregar encabezados de columna mediante el módulo [Editor de metadatos][metadata-editor]. Use el módulo [Editor de metadatos][metadata-editor] para cambiar los metadatos asociados a un conjunto de datos. En este caso, puede proporcionar nombres más descriptivos para los encabezados de columna.
+Podemos agregar encabezados de columna mediante el módulo [Editar metadatos][edit-metadata]. Use el módulo [Editar metadatos][edit-metadata] para cambiar los metadatos asociados a un conjunto de datos. En este caso, puede proporcionar nombres más descriptivos para los encabezados de columna.
 
-Para usar el [Editor de metadatos][metadata-editor], especifique primero las columnas que desea modificar (en este caso, todas) y luego especifique la acción que se realizará en esas columnas (en este caso, cambiar los encabezados de columna).
+Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las columnas que desea modificar (en este caso, todas) y luego especifique la acción que se realizará en esas columnas (en este caso, cambiar los encabezados de columna).
 
-1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El [Editor de metadatos][metadata-editor] aparecerá en la lista de módulos.
-2.	Haga clic en el módulo [Editor de metadatos][metadata-editor], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
-3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]\: haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El módulo [Editar metadatos][edit-metadata] aparecerá en la lista de módulos.
+2.	Haga clic en el módulo [Editar metadatos][edit-metadata], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
+3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 
     El experimento debería tener ahora un aspecto similar al siguiente:
 
-    ![Adding Metadata Editor][2]
+    ![Agregar metadatos de edición][2]
     
     El signo de exclamación rojo indica que no hemos configurado aún las propiedades de este módulo. Lo haremos a continuación.
     
-    > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Editor de metadatos][metadata-editor] y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Haga clic en la flecha abajo en el módulo para mostrar el comentario.
+    > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Editar metadatos][edit-metadata] y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Haga clic en la flecha abajo en el módulo para mostrar el comentario.
 
-4.	Seleccione [Editor de metadatos][metadata-editor], luego, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Iniciar el selector de columnas**.
+4.	Seleccione [Editar metadatos][edit-metadata], luego, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
 5.	En el cuadro de diálogo **Seleccionar columnas**, establezca el campo **Empieza por** en "Todas las columnas".
-6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar *todas* las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
+6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el módulo [Editar metadatos][edit-metadata] las modifique. Puesto que deseamos modificar *todas* las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
 7.	Haga clic en la marca de verificación **Aceptar**.
 8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
 
@@ -72,18 +72,18 @@ Para usar el [Editor de metadatos][metadata-editor], especifique primero las col
 
     El panel Propiedades tendrá un aspecto similar al siguiente:
 
-    ![Properties for Metadata Editor][1]
+    ![Propiedades de los metadatos de edición][1]
 
-> [AZURE.TIP] Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse (aparecerá una marca de verificación verde en [Editor de metadatos][metadata-editor]), haga clic en el puerto de salida del módulo [Editor de metadatos][metadata-editor] y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
+> [AZURE.TIP] Si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** debajo del lienzo del experimento). Cuando termine de ejecutarse (aparecerá una marca de verificación verde en [Editar metadatos][edit-metadata]), haga clic en el puerto de salida del módulo [Editar metadatos][edit-metadata] y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a lo largo del experimento.
 
 ##Creación de conjuntos de datos de entrenamiento y prueba
 El siguiente paso del experimento es generar conjuntos de datos independientes que se utilizarán para entrenar y probar nuestro modelo.
 
 Para ello, utilizamos el módulo [Dividir datos][split].
 
-1.	Busque el módulo [Dividir datos][split], arrástrelo al lienzo y conéctelo al último módulo [Editor de metadatos][metadata-editor].
+1.	Busque el módulo [Dividir datos][split], arrástrelo al lienzo y conéctelo al último módulo [Editar metadatos][edit-metadata].
 2.	De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria**. Esto significa que una mitad aleatoria de los datos saldrá a través de un puerto del módulo [Dividir datos][split] y la otra mitad por el otro. Puede cambiar estos ajustes, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. Para este ejemplo, lo dejaremos como está.
-	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
+	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
 3. Haga doble clic en el módulo [Dividir datos][split] y escriba el comentario "Dividir 50% de los datos de entrenamiento y pruebas". 
 
 Podemos utilizar las salidas del módulo [Dividir datos][split] como deseemos, pero vamos a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.
@@ -128,7 +128,7 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

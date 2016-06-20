@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="derrickv"/>
 
 # Preguntas más frecuentes sobre Power BI Embedded
@@ -50,7 +50,7 @@
 
     El servicio Power BI Embedded está disponible en Norteamérica a partir de nuestro anuncio en la conferencia BUILD 2016 (en el Centro de datos del Centro y Sur de EE. UU.). Esperamos extender este servicio al resto de centros de datos de Azure muy poco tiempo después.
 
-9.	**¿Cuál es el SLA disponible para el servicio?**
+9. **¿Cuál es el SLA disponible para el servicio?**
 
     Power BI Embedded está ya disponible como una servicio de Azure en versión preliminar sin un SLA formal. Un SLA se proporciona cuando el servicio pasa de versión preliminar a disponibilidad con carácter general.
 
@@ -61,7 +61,8 @@
 
     Puede usar el servicio Power BI Embedded en una aplicación que desarrolle solo si la aplicación cumple estos requisitos: 1) agrega una funcionalidad primaria e importante a nuestro servicio y no es en buena medida un sustituto de ningún servicio Power BI y 2) si se proporciona solamente para usuarios externos. No puede usar el servicio Power BI Embedded en aplicaciones empresariales internas.
 
-    ![](media\power-bi-embedded-faq\price.png)
+
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**¿Qué es una representación y cómo se factura?**
 
@@ -91,7 +92,7 @@
 
 16.	**¿Cómo funciona la autenticación de usuarios con Power BI Embedded?**
 
-    El servicio Power BI Embedded usa tokens de aplicación para la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En el modelo de token de aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. Luego, cuando es necesario, la aplicación crea y envía los tokens de aplicación que indican a nuestro servicio que represente el informe solicitado. En este diseño no es necesario que la aplicación use Azure Active Directory para la autenticación y la autorización de usuarios, aunque puede hacerlo. Para más información sobre los tokens de aplicación, consulte la página de documentación [Get started with Microsoft Power BI Embedded sample](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started-sample/#key-flow) (Introducción a Microsoft Power BI Embedded: ejemplo).
+    El servicio Power BI Embedded usa tokens de aplicación para la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En el modelo de token de aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. Luego, cuando es necesario, la aplicación crea y envía los tokens de aplicación que indican a nuestro servicio que represente el informe solicitado. En este diseño no es necesario que la aplicación use Azure Active Directory para la autenticación y la autorización de usuarios, aunque puede hacerlo. Para más información sobre los tokens de aplicación, consulte la página de documentación [Introducción al ejemplo de Microsoft Power BI Embedded](https://azure.microsoft.com/es-ES/documentation/articles/power-bi-embedded-get-started-sample/#key-flow).
 
 17.	**¿Qué orígenes de datos se admiten actualmente con Power BI Embedded?**
 
@@ -101,7 +102,7 @@
 
     En el modelo de Power BI Embedded, no hay ningún requisito explícito de que los clientes sean inquilinos de Azure Active Directory (Azure AD). Puede elegir que Azure AD sea un requisito para sus clientes, o no. Como resultado, la arquitectura de la aplicación y la infraestructura son lo que determina el modelo de arrendamiento necesario para Power BI Embedded.
 
-    Los desarrolladores o empleados que trabajan en la aplicación deberán tener una cuenta de usuario de Azure AD para poder administrar su suscripción de Azure y las colecciones de áreas de trabajo mediante el Portal de Azure. Las API de programación que permiten a los desarrolladores importar informes, modificar cadenas de conexión y obtener direcciones URL insertadas usan en su lugar tokens de aplicación para la autenticación y, como consecuencia, no necesitan Azure AD. Encontrará detalles sobre cómo usar nuestras API y el Portal de Azure en la [página de documentación de Power BI Embedded en azure.com](https://azure.microsoft.com/documentation/services/power-bi-embedded/).
+    Los desarrolladores o empleados que trabajan en la aplicación deberán tener una cuenta de usuario de Azure AD para poder administrar su suscripción de Azure y las colecciones de áreas de trabajo mediante el Portal de Azure. Las API de programación que permiten a los desarrolladores importar informes, modificar cadenas de conexión y obtener direcciones URL insertadas usan en su lugar tokens de aplicación para la autenticación y, como consecuencia, no necesitan Azure AD. Encontrará detalles sobre cómo usar nuestras API y el Portal de Azure en la [página de documentación de Power BI Embedded en azure.com](https://azure.microsoft.com/es-ES/documentation/services/power-bi-embedded/).
 
 19.	**¿Dónde puedo obtener más información?**
 
@@ -113,7 +114,7 @@
 
 ## Consulte también
 
-- [¿Qué es Microsoft Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md) (Introducción a la versión preliminar de Microsoft Power BI Embedded)
+- [What is Microsoft Power BI Embedded (Qué es Microsoft Power BI Embedded)](power-bi-embedded-what-is-power-bi-embedded.md)
+- [Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

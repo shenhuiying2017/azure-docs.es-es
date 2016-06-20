@@ -25,11 +25,11 @@ Al diseñar el proceso de actualización de la aplicación, el objetivo principa
 1.	Tiempo máximo aceptable que la aplicación tendrá sus capacidades reducidas 
 2.	Conjunto mínimo de características que estarán disponibles durante el proceso de actualización
 3.	Capacidad para deshacer el proceso en caso de errores durante la actualización
-4.	Coste total en dólares asociado Esto incluye el coste de los componentes de aplicación adicionales necesarios para crear una copia temporal (como, por ejemplo, las bases de datos premium adicionales para la replicación geográfica activa) y los costes incrementales de las implementaciones temporales que usa el proceso de actualización. 
+4.	Coste total en dólares asociado Aquí se incluye el costo de los componentes de aplicación adicionales necesarios para crear una copia temporal (como, por ejemplo, las bases de datos adicionales para la replicación geográfica activa) y los costos incrementales de las implementaciones temporales que usa el proceso de actualización. 
 
 Si la aplicación puede funcionar temporalmente en modo de solo lectura, el flujo de trabajo de actualización se puede diseñar para eliminar de manera eficaz el tiempo de inactividad. Para entender cómo implementar el flujo de trabajo de actualizaciones para su topología de aplicaciones específica, consulte [Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de Base de datos SQL](sql-database-manage-application-rolling-upgrade.md).
  
  
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

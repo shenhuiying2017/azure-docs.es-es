@@ -154,7 +154,7 @@ El servidor de procesos de Site Recovery puede detectar automáticamente las má
 ## Creación de un almacén de Servicios de recuperación
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **Nueva** > **Integración híbrida** > **Servicios de recuperación**. También puede hacer clic en **Examinar** > **Almacenes de servicios de recuperación** > **Agregar**.
+2. Haga clic en **Nueva** > **Administración** > **Backup and Site Recovery (OMS)** (Copia de seguridad y recuperación del sitio (OMS)). También puede hacer clic en **Examinar** > **Almacén de Servicios de recuperación** > **Agregar**.
 
 	![Almacén nuevo](./media/site-recovery-vmware-to-azure/new-vault3.png)
 
@@ -533,8 +533,7 @@ Los instaladores están disponibles en **C:\\Archivos de programa (x86)\\Microso
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
 Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
-SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -832,4 +831,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

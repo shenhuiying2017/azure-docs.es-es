@@ -12,7 +12,7 @@
 
 	- El **nombre de máquina virtual** solo puede contener letras, números y guiones. También debe empezar por una letra y terminar por una letra o un número.
 	- **Nuevo nombre de usuario** se refiere a la cuenta administrativa que se usa para administrar el servidor. La contraseña debe tener entre 8 y 123 caracteres y al menos tres de los siguientes valores: una minúscula, una mayúscula, un número y un carácter especial. **Necesitará el nombre de usuario y la contraseña para conectarse e iniciar sesión en la máquina virtual**.
-	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como el número de discos de datos que se pueden acoplar. Para más información, consulta el tema [Tamaños de máquinas virtuales](virtual-machines-linux-sizes.md).
+	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como el número de discos de datos que se pueden acoplar. Para más información, consulta el tema [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md).
 
 6. La tercera pantalla permite configurar los recursos relacionados con las redes, el almacenamiento y la disponibilidad. A continuación se incluyen algunas sugerencias:
 
@@ -32,4 +32,4 @@
 
 	![Configure el agente de máquina virtual y los puntos de conexión de la máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

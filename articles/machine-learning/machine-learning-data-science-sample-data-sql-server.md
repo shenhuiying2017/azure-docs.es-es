@@ -60,7 +60,7 @@ Tablesample se puede usar para el muestreo, como se muestra a continuación. Pod
 
 ###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
-Puede utilizar directamente las consultas de ejemplo anteriores en el módulo del Lector de Aprendizaje automático de Azure para reducir los datos sobre la marcha y usarlos en un experimento de Aprendizaje automático de Azure. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
+Puede utilizar directamente las consultas de ejemplo anteriores en el módulo Importar datos de Aprendizaje automático de Azure para reducir los datos sobre la marcha y usarlos en un experimento de Aprendizaje automático de Azure. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
    
 ![lector sql][1]
 
@@ -83,7 +83,7 @@ Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas.
 
 ###<a name="python-aml"></a>Conexión con Aprendizaje automático de Azure
 
-Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Aprendizaje automático de Azure mediante el *módulo Lector*. Los pasos son los siguientes:
+Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Aprendizaje automático de Azure mediante el *módulo Importar datos*. Los pasos son los siguientes:
 
 1. Escribir la trama de datos de Pandas en un archivo local
 
@@ -111,7 +111,7 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leer datos de un blob de Azure mediante el *módulo Lector* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
+3. Leer datos de un blob de Azure mediante el *módulo Importar datos* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
  
 ![lector de blobs][2]
 
@@ -124,4 +124,4 @@ Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana usa
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

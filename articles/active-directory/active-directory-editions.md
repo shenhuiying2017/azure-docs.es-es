@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/07/2016"
 	ms.author="markvi"/>
 
 # Ediciones de Azure Active Directory
@@ -454,6 +454,20 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 | | | ![Comprobar][12]| |
 
 
+#### Enterprise State Roaming
+
+**Tipo:** Azure Active Directory Join, solo características de Windows 10
+
+
+**Disponibilidad:**
+
+| Edición gratuita| Edición básica| Edición premium| Solo aplicaciones de Office 365 |
+| :-: | :-: | :-: | :-: |
+| | | ![Comprobar][12]| |
+
+**Más detalles:**
+
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
 ## Características de vista previa de Azure AD
@@ -465,7 +479,6 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 - [Unidades administrativas](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [Integración de aplicaciones de HR](active-directory-saas-workday-inbound-tutorial.md)
-- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
@@ -482,4 +495,4 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

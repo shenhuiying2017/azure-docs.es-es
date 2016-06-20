@@ -19,8 +19,7 @@
 
 # Cómo interpretar los resultados del modelo de aprendizaje automático de Azure 
  
-**Descripción y visualización del resultado del 'Modelo de puntuación'** 
-En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
+**Descripción y visualización del resultado del 'Modelo de puntuación'** En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -80,7 +79,7 @@ Una vez comprendidos los resultados de la predicción, el experimento puede publ
 
 Figura 3: Experimento de puntuación del problema de clasificación de dos clases de Iris
 
-Ahora debemos establecer la entrada y salida del servicio web. Obviamente, la entrada es el puerto de entrada derecho del [Módulo de puntuación][score-model], que es la entrada de las características de la flor Iris. La elección del resultado depende de si estamos interesados en la clase de predicción (etiqueta puntuada), en la probabilidad puntuada o en ambas. En este caso, se supone que estamos interesados en ambas. Para seleccionar las columnas de salida deseadas, debemos usar un módulo [Columnas de proyecto][project-columns]. Haga clic en el módulo [Columnas de proyecto][project-columns], haga clic en **Selector de columna de inicio** en el panel derecho y seleccione **Etiquetas puntuadas** y **Probabilidades puntuadas**. Después de configurar el puerto de salida del módulo [Columnas de proyecto][project-columns] y ejecutarlo de nuevo, deberíamos estar preparados para publicar el experimento de puntuación como un servicio web haciendo clic en **PUBLICAR SERVICIO WEB** en la parte inferior. El experimento final es similar a la figura 4.
+Ahora debemos establecer la entrada y salida del servicio web. Obviamente, la entrada es el puerto de entrada derecho del [Módulo de puntuación][score-model], que es la entrada de las características de la flor Iris. La elección del resultado depende de si estamos interesados en la clase de predicción (etiqueta puntuada), en la probabilidad puntuada o en ambas. En este caso, se supone que estamos interesados en ambas. Para seleccionar las columnas de salida deseadas, debemos usar un módulo [Seleccionar columnas de conjunto de datos][select-columns]. Haga clic en el módulo [Seleccionar columnas de conjunto de datos][select-columns], haga clic en **Launch column selector** (Iniciar el selector de columnas) y seleccione **Scored Labels** (Etiquetas puntuadas) y **Scored Probabilities** (Probabilidades puntuadas). Después de configurar el puerto de salida del módulo [Seleccionar columnas de conjunto de datos proyecto][select-columns] y ejecutarlo de nuevo, deberíamos estar preparados para publicar el experimento de puntuación como un servicio web haciendo clic en **PUBLICAR SERVICIO WEB** en la parte inferior. El experimento final es similar a la figura 4.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
@@ -117,7 +116,7 @@ Las dieciséis columnas de la izquierda representan los valores de característi
 
 **Publicación de servicios web**
 
-Esta vez, en lugar de usar las [Columnas de proyecto][project-columns] para seleccionar algunas columnas como el resultado de nuestro servicio web, nos gustaría obtener la etiqueta puntuada para cada entrada y la probabilidad de la etiqueta puntuada. La lógica básica es encontrar la probabilidad más alta entre todas las probabilidades puntuadas. Para ello, debemos usar el módulo [Ejecutar script R][execute-r-script]. El código de R se muestra en la figura 8, y el experimento es como la figura 9.
+Esta vez, en lugar de usar [Seleccionar columnas de conjunto de datos][select-columns] para seleccionar algunas columnas como la salida de nuestro servicio web, nos gustaría obtener la etiqueta puntuada para cada entrada y la probabilidad de la etiqueta puntuada. La lógica básica es encontrar la probabilidad más alta entre todas las probabilidades puntuadas. Para ello, debemos usar el módulo [Ejecutar script R][execute-r-script]. El código de R se muestra en la figura 8, y el experimento es como la figura 9.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
@@ -265,7 +264,7 @@ Hay seis columnas. La primera columna representa los id. de usuario determinados
 
 *Buscar usuarios relacionados con un usuario determinado*
 
-Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recomendación”, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción “De elementos valorados (para la evaluación de modelos)” es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos “De todos los usuarios”. La visualización del resultado del [Score Matchbox Recommender][score-matchbox-recommender] es similar a la de la figura 23.
+Al seleccionar usuarios relacionados en el menú “Tipo de predicción de recomendación”, pedimos al sistema de recomendación que busque usuarios relacionados a un usuario determinado. Los usuarios relacionados son los usuarios que tienen preferencias similares. Hay un parámetro más que necesitamos elegir en este escenario, la selección de usuarios relacionados. La opción “De elementos valorados (para la evaluación de modelos)” es principalmente para la evaluación de modelos durante el proceso de entrenamiento. Para esta fase de predicción, elegiremos “De todos los usuarios”. La visualización del resultado del Score Matchbox Recommender es similar a la de la figura 23.
  
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/23.png)
 
@@ -303,11 +302,11 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

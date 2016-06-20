@@ -48,12 +48,12 @@ El módulo de [partición y ejemplo][partition-and-sample] se puede usar para as
 
 
 ## Definir métrica
-El módulo [Parámetros de barrido][sweep-parameters] proporciona compatibilidad para elegir empíricamente el mejor conjunto de parámetros para un algoritmo determinado y el conjunto de datos. El panel de propiedades de este módulo incluye, además de otra información referente a entrenar el modelo, la métrica que se utilizará para determinar el mejor conjunto de parámetros. Tiene dos listas desplegables diferentes para los algoritmos de clasificación y regresión, respectivamente. Si el algoritmo en cuestión es un algoritmo de clasificación, se ignorará la métrica de regresión y viceversa. En este ejemplo concreto, elegimos **Precisión** como la métrica.
+El módulo [Optimizar el modelo Hiperparámetros][tune-model-hyperparameters] proporciona compatibilidad para elegir empíricamente el mejor conjunto de parámetros para un algoritmo determinado y el conjunto de datos. El panel de propiedades de este módulo incluye, además de otra información referente a entrenar el modelo, la métrica que se utilizará para determinar el mejor conjunto de parámetros. Tiene dos listas desplegables diferentes para los algoritmos de clasificación y regresión, respectivamente. Si el algoritmo en cuestión es un algoritmo de clasificación, se ignorará la métrica de regresión y viceversa. En este ejemplo concreto, elegimos **Precisión** como la métrica.
  
 ![imagen5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Formar, evaluar y comparar:  
-El mismo módulo [Parámetros de barrido][sweep-parameters] entrena todos los modelos correspondientes al conjunto de parámetros, evalúa varias métricas y, a continuación, genera el mejor modelo formado en función de la métrica elegida por el usuario. Este módulo contiene dos entradas obligatorias
+El mismo módulo [Optimizar el modelo Hiperparámetros][tune-model-hyperparameters] entrena todos los modelos correspondientes al conjunto de parámetros, evalúa varias métricas y, a continuación, genera el mejor modelo entrenado en función de la métrica elegida por el usuario. Este módulo contiene dos entradas obligatorias
 
 * el aprendiz no formado 
 * el conjunto de datos 
@@ -67,7 +67,7 @@ Podemos ver los parámetros exactos elegidos mediante la visualización del puer
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

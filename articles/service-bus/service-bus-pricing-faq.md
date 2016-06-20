@@ -100,7 +100,7 @@ Al igual que con otros servicios de Azure, Bus de servicio aplica un conjunto de
 
 - **Número de filtros SQL por tema**: el número máximo de filtros SQL por tema está limitado a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
-- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
+- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
 Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio](service-bus-quotas.md).
 
@@ -112,8 +112,8 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Introducción a la mensajería Premium del Bus de servicio de Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Información general sobre la arquitectura de Bus de servicio de Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

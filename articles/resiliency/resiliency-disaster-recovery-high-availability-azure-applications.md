@@ -76,7 +76,7 @@ El objetivo de tiempo de recuperación (RTO) es la cantidad máxima de tiempo as
 El objetivo de punto de recuperación (RPO) es el período aceptable de pérdida de datos debido al proceso de recuperación. Por ejemplo, si el RPO es de una hora, debe hacer una copia de seguridad completa de los datos o replicarlos al menos una vez cada hora. Una vez que se recupera la aplicación en una región alternativa, puede que la copia de seguridad carezca de los datos correspondientes a un máximo de una hora. Al igual que el RTO, las aplicaciones críticas necesitan un RPO mucho menor.
 
 ##Lista de comprobación
-Resumamos los puntos clave que se han tratado en este artículo (y los artículos relacionados sobre la [alta disponibilidad](./resiliency-high-availability-azure-applications.md) y la [recuperación ante desastres](./resiliency-disaster-recovery-azure-applications.md) para aplicaciones de Azure). Este resumen servirá de lista de comprobación de aquellos elementos que debe considerar para su planeamiento para la disponibilidad y la recuperación ante desastres. Se trata de los procedimientos recomendados que han resultados útiles a los clientes que buscan en serio la implementación de una solución satisfactoria. Este tipo de solución funciona realmente: logra una recuperación oportuna y correcta cuando se produce un error del sistema.
+Resumamos los puntos clave que se han tratado en este artículo (y los artículos relacionados sobre la [alta disponibilidad](resiliency-high-availability-azure-applications.md) y la [recuperación ante desastres](resiliency-disaster-recovery-azure-applications.md) para aplicaciones de Azure). Este resumen servirá de lista de comprobación de aquellos elementos que debe considerar para su planeamiento para la disponibilidad y la recuperación ante desastres. Se trata de los procedimientos recomendados que han resultados útiles a los clientes que buscan en serio la implementación de una solución satisfactoria. Este tipo de solución funciona realmente: logra una recuperación oportuna y correcta cuando se produce un error del sistema.
 
 1. Lleve a cabo una evaluación de los riesgos para cada aplicación, ya que cada una puede tener requisitos diferentes. Algunas aplicaciones son más críticas que otras y justificarían el costo adicional de diseñarlas para la recuperación ante desastres.
 1. Utilice esta información para definir el RTO y RPO para cada aplicación.
@@ -99,11 +99,11 @@ Azure detecta y controla muchos errores, pero hay muchos tipos que requieren est
 Al crear el plan de recuperación ante desastres y disponibilidad de la aplicación, considere las consecuencias empresariales del error de la aplicación. La definición de los procesos, las directivas y los procedimientos para restaurar sistemas críticos después de un evento catastrófico conlleva tiempo, planeamiento y dedicación. Y una vez establecidos los planes, no se puede detener ahí. Debe analizar con regularidad, probar y mejorar continuamente los planes según su cartera de aplicaciones, las necesidades del negocio y las tecnologías disponibles. Azure proporciona nuevas funcionalidades y nuevos desafíos para crear aplicaciones sólidas que resistan los errores.
 
 ##Recursos adicionales
-[Alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-high-availability-azure-applications.md)
+[Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Recuperación ante desastres para aplicaciones generadas en Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
+[Recuperación ante desastres para aplicaciones generadas en Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md)
+[Guía técnica sobre resistencia en Azure](resiliency-technical-guidance.md)
 
 [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](../sql-database/sql-database-business-continuity.md)
 
@@ -114,6 +114,6 @@ Al crear el plan de recuperación ante desastres y disponibilidad de la aplicaci
 [Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Procedimientos recomendados para el diseño de servicios a gran escala en Servicios en la nube de Azure)
 
 ##Pasos siguientes
-Este artículo forma parte de una serie enfocada a la recuperación ante desastres y la alta disponibilidad para las aplicaciones de Azure. El siguiente artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+Este artículo forma parte de una serie enfocada a la recuperación ante desastres y la alta disponibilidad para las aplicaciones de Azure. El siguiente artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

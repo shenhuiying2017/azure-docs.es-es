@@ -94,11 +94,11 @@
 [deployment-guide-3.3]: virtual-machines-linux-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 "Escenario 2: Implementación de una máquina virtual con una imagen personalizada para SAP"
 [deployment-guide-3.4]: virtual-machines-linux-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 "Escenario 3: Mover una máquina virtual desde una ubicación local con un VHD no generalizado de Azure con SAP"
 [deployment-guide-4.1]: virtual-machines-linux-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 "Implementación de cmdlets de Azure PowerShell"
-[deployment-guide-4.2]: virtual-machines-linux-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e "Descarga e implementación de cmdlets de PowerShell para SAP"
-[deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Unión de una VM a un dominio local (solo Windows)"
+[deployment-guide-4.2]: virtual-machines-linux-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e "Descarga e importación de cmdlets de PowerShell para SAP"
+[deployment-guide-4.3]: virtual-machines-linux-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc "Unión de una máquina virtual a un dominio local (solo Windows)"
 [deployment-guide-4.4]: virtual-machines-linux-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d "Descarga, instalación y habilitación del agente de máquina virtual de Azure"
 [deployment-guide-4.4.2]: virtual-machines-linux-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 "Linux"
-[deployment-guide-4.5]: virtual-machines-linux-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca "Configuración de la extensión de supervisión mejorada de Azure para SAP"
+[deployment-guide-4.5]: virtual-machines-linux-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca "Configurar la extensión de supervisión mejorada de Azure para SAP"
 [deployment-guide-4.5.1]: virtual-machines-linux-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 "Azure PowerShell"
 [deployment-guide-4.5.2]: virtual-machines-linux-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f "Azure CLI"
 [deployment-guide-5.1]: virtual-machines-linux-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 "Comprobación de preparación de la supervisión mejorada de Azure para SAP"
@@ -193,7 +193,7 @@
 [dbms-guide-5.8]: virtual-machines-linux-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 "Resumen general de SQL Server para SAP en Azure"
 [dbms-guide-8.4.1]: virtual-machines-linux-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 "Configuración de almacenamiento"
 [dbms-guide-8.4.2]: virtual-machines-linux-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d "Copia de seguridad y restauración"
-[dbms-guide-8.4.3]: virtual-machines-linux-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c "Consideraciones de rendimiento para copia de seguridad y restauración"
+[dbms-guide-8.4.3]: virtual-machines-linux-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c "Consideraciones de rendimiento para copias de seguridad y restauraciones"
 [dbms-guide-8.4.4]: virtual-machines-linux-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 "Otros"
 [dbms-guide-figure-100]: ./media/virtual-machines-linux-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]: ./media/virtual-machines-linux-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]: virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]: virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]: virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]: virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]: virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]: https://msdn.microsoft.com/library/azure/mt670598.aspx
@@ -442,7 +442,7 @@ El asistente le guiará a través de los parámetros que se requieren para crear
 Cuando finalice el asistente, la máquina virtual se implementará en el grupo de recursos que seleccionó.
 
 #### Creación de una máquina virtual con una plantilla
-También puede crear una implementación con una de las plantillas de SAP que están publicadas en el [repositorio azure-quickstart-templates de GitHub][azure-quickstart-templates-github]. O bien puede crear una máquina virtual manualmente con el [Portal de Azure][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] o la [CLI de Azure][virtual-machines-linux-tutorial].
+También puede crear una implementación con una de las plantillas de SAP que están publicadas en el [repositorio azure-quickstart-templates de GitHub][azure-quickstart-templates-github]. O bien, puede crear una máquina virtual manualmente con el [Portal de Azure][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] o la [CLI de Azure][virtual-machines-linux-tutorial].
 
 * [Plantilla de configuración de 2 niveles (solo una máquina virtual)][sap-templates-2-tier-marketplace-image] Use esta plantilla si quiere crear un sistema de 2 niveles con solo una máquina virtual.
 * [Plantilla de configuración de 3 niveles (varias máquinas virtuales)][sap-templates-3-tier-marketplace-image] Use esta plantilla si quiere crear un sistema de 3 niveles con varias máquinas virtuales.
@@ -554,7 +554,7 @@ ___
 >
 > ![Linux][Logo_Linux] Linux
 >
-> <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/>
+> <https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-linux-agent-user-guide/>
 
 ___
 
@@ -938,4 +938,4 @@ Vea la nota de SAP [1999351] con información adicional sobre la solución de pr
 
 Si la solución de problemas que se describe en la nota de SAP [1999351] no funcionó, vuelva a ejecutar el script de configuración Set-AzureRmVMAEMExtension según lo descrito en el capítulo [Configuración de la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Puede que tenga que esperar una hora porque los contadores de diagnóstico o el análisis de almacenamiento probablemente no se creen de inmediato una vez habilitados. Si el problema continúa, abra un mensaje de servicio al cliente de SAP en el componente BC-OP-NT-AZR para una máquina virtual de Windows o BC-OP-LNX-AZR para una máquina virtual de Linux.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -126,7 +126,7 @@ Básicamente, la biblioteca de cliente se encarga de la comunicación entre el d
 
 Se acaba de explicar cómo se podría implementar la lógica específica del dispositivo para realizar trabajos de dispositivo. Ahora se explicará qué objetos están disponibles para su uso.
 
-Algunos de estos objetos son necesarios, lo que significa que hay que implementar la lógica de específica de dispositivo para que pueda formar parte de la administración de dispositivos de Centro de IoT. Otros son opcionales, por lo que puede elegir según sus necesidades de servicio (por ejemplo, puede elegir no realizar las actualizaciones de firmware con Centro de IoT). Esta es una descripción de cada uno:
+Algunos de estos objetos son necesarios, lo que significa que hay que implementar la lógica específica de dispositivo para que pueda formar parte de la administración de dispositivos del Centro de IoT. Otros son opcionales, por lo que puede elegir según sus necesidades de servicio (por ejemplo, puede elegir no realizar las actualizaciones de firmware con Centro de IoT). Esta es una descripción de cada uno:
 
 - **Objeto de dispositivo (necesario)**: proporciona información específica del dispositivo, como información del fabricante, número de modelo, número de serie u hora del dispositivo. El servicio puede leer esta información y, en algunos casos, actualizarla. También define dos acciones que puede realizar el servicio en un dispositivo: reinicio y restablecimiento de fábrica.
 - **Objeto de servidor (obligatorio)**: contiene los parámetros y la configuración de conexión que se utilizan para conectarse a Centro de IoT, como la duración del registro y el enlace de transporte. El servicio solo puede leer esta información.
@@ -222,4 +222,4 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

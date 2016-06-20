@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Escalar automáticamente un servicio en la nube en el portal | Microsoft Azure"
-	description="Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure."
+	description="(clásico) Obtenga información sobre cómo usar el portal clásico para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -19,13 +19,17 @@
 
 # Cómo escalar automáticamente un servicio en la nube
 
+> [AZURE.SELECTOR]
+- [Portal de Azure](cloud-services-how-to-scale-portal.md)
+- [Portal de Azure clásico](cloud-services-how-to-scale.md)
+
 En la página Escalar del Portal de Azure clásico, puede escalar manualmente su rol web o rol de trabajo, o puede habilitar el escalado automático basado en la carga de la CPU o en una cola de mensajes.
 
->[AZURE.NOTE] Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual directamente, esta se hospeda en un servicio en la nube. Parte de esta información se aplica a estos tipos de máquinas virtuales. Escalar un conjunto de disponibilidad de máquinas virtuales consiste simplemente en encenderlas y apagarlas basándose en las reglas de escalado que configure. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
+>[AZURE.NOTE] Este artículo se centra en los roles de trabajo y en los roles web de Servicio en la nube. Al crear una máquina virtual (clásica) directamente, esta se hospeda en un servicio en la nube. Parte de esta información se aplica a estos tipos de máquinas virtuales. Escalar un conjunto de disponibilidad de máquinas virtuales consiste simplemente en encenderlas y apagarlas basándose en las reglas de escalado que configure. Para más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](../virtual-machines/virtual-machines-windows-classic-configure-availability.md).
 
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
 
-- El uso de núcleos afecta el escalado. Las instancias de rol más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos servicios en la nube de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones del servicio en la nube en su suscripción con dieciséis núcleos. Consulte [Tamaños de servicios en la nube](cloud-services-sizes-specs.md) para obtener más información sobre los tamaños.
+- El uso de núcleos afecta el escalado. Las instancias de rol más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos servicios en la nube de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones del servicio en la nube en su suscripción con dieciséis núcleos. Consulte [Tamaños de los servicios en la nube](cloud-services-sizes-specs.md) para más información sobre los tamaños.
 
 - Debe crear una cola y asociarla con un rol para poder escalar una aplicación según el umbral de un mensaje. Para obtener más información, consulte [Uso del servicio de almacenamiento de colas](../storage/storage-dotnet-how-to-use-queues.md).
 
@@ -48,7 +52,7 @@ De forma predeterminada, todos los roles no siguen una programación específica
 
 Esto se configura en el [Portal de Azure clásico](https://manage.windowsazure.com/) en la página **Servicios en la nube** > **[Su servicio en la nube]** > **Escala** > **[Producción o almacenamiento provisional]**.
 
-Haga clic en el botón **configurar horas de programación** para cada rol que quiera cambiar.
+Haga clic en el botón **Configurar horas de programación** para cada rol que quiera cambiar.
 
 ![Escalado automático en un servicio en la nube basado en una programación][scale_schedules]
 
@@ -132,9 +136,9 @@ A menudo, cuando se escala un rol, es beneficioso también escalar la base de da
 
 2. Haga clic en **Escalar**.
 
-3. Encuentre la sección **recursos vinculados** y haga clic en **Administrar el escalado de esta base de datos**.
+3. Busque la sección **recursos vinculados** y haga clic en **Administrar el escalado de esta base de datos**.
 
-    > [AZURE.NOTE] Si no ve una sección **recursos vinculados**, probablemente no tenga ningún recurso vinculado.
+    > [AZURE.NOTE] Si no ve la sección **recursos vinculados**, probablemente no tenga ningún recurso vinculado.
 
 ![][linked_resource]
 
@@ -147,4 +151,4 @@ A menudo, cuando se escala un rol, es beneficioso también escalar la base de da
 [scale_popup]: ./media/cloud-services-how-to-scale/schedules-dialog.png
 [linked_resource]: ./media/cloud-services-how-to-scale/linked-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

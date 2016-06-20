@@ -30,7 +30,7 @@ En el panel de visualización se pueden ver las entradas, así como la consulta 
 
 Para tener acceso a este visualizador, simplemente haga clic en el botón "Diagrama de diagnóstico" en la hoja "Configuración" del trabajo de Análisis de transmisiones.
 
-![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram.png)
+![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
 
 Cada entrada y salida está codificada con colores para indicar el estado actual de cada componente, como se muestra a continuación.
 
@@ -51,4 +51,4 @@ Cuando el usuario quiera examinar los pasos de consulta intermedios para compren
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

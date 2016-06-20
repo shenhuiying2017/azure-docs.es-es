@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="06/01/2016"
    ms.author="jeffstok"/>
 
 
@@ -31,17 +31,19 @@ Para incluir el servidor de R en un clúster de HDInsight, debe crear un clúste
 
 ## Opciones de almacenamiento de datos
 
-Los clústeres de HDInsight se almacenan de forma predeterminada en el Blob de Azure (WASB) con el sistema de archivos HDFS asignado a un contenedor de blobs. Esto garantiza que cualquier dato cargado en el almacenamiento de clúster o escrito en él durante el transcurso del análisis se convierte en persistente. Un método práctico para copiar datos en blobs (y desde estos) es usar la utilidad [AzCopy](../storage/storage-use-azcopy/).
+Los clústeres de HDInsight se almacenan de forma predeterminada en el Blob de Azure (WASB) con el sistema de archivos HDFS asignado a un contenedor de blobs. Esto garantiza que cualquier dato cargado en el almacenamiento de clúster o escrito en él durante el transcurso del análisis se convierte en persistente. Un método práctico para copiar datos en blobs (y desde estos) es usar la utilidad [AzCopy](../storage/storage-use-azcopy.md).
 
-También se puede usar [Archivos de Azure](../storage/storage-how-to-use-files-linux.md) como opción de almacenamiento para su uso en el nodo perimetral. Archivos de Azure permite montar un recurso compartido de archivos creado en una cuenta de almacenamiento de Azure en el sistema de archivos Linux. Para más información sobre las opciones de almacenamiento de datos del servidor de R en un clúster de HDInsight, consulte [Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md) (Opciones de almacenamiento del servidor de R en clústeres de HDInsight).
+Además de Blob, existe la opción de agregar el uso del [Almacenamiento de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) (ADLS) al clúster. Si agrega el uso de ADLS, podrá combinar el uso de Blob y ADLS para el almacenamiento HDFS.
+
+También se puede usar [Archivos de Azure](../storage/storage-how-to-use-files-linux.md) como opción de almacenamiento para su uso en el nodo perimetral. Archivos de Azure permite montar un recurso compartido de archivos creado en una cuenta de almacenamiento de Azure en el sistema de archivos Linux. Para más información sobre las opciones de almacenamiento de datos del servidor de R en un clúster de HDInsight, consulte [Opciones de almacenamiento de Azure del servidor de R en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-storage.md).
   
 ## Acceso al servidor de R en el clúster
 
-Una vez que se haya creado un clúster con el servidor de R, puede conectarse a la consola R en el nodo perimetral del clúster mediante SSH/Putty o a través de un explorador si decide instalar el IDE de RStudio Server en el nodo perimetral. Para más información sobre cómo instalar RStudio Server, consulte [Installing RStudio Server on HDInsight clusters](hdinsight-hadoop-r-server-install-r-studio.md) (Instalación de RStudio Server en clústeres de HDInsight).
+Una vez que se haya creado un clúster con el servidor de R, puede conectarse a la consola R en el nodo perimetral del clúster mediante SSH/Putty o a través de un explorador si decide instalar el IDE de RStudio Server en el nodo perimetral. Para más información sobre cómo instalar RStudio Server, consulte [Instalación de RStudio con R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-install-r-studio.md).
 
 ## Desarrollar y ejecutar scripts de R
 
-Los scripts de R que se crean y ejecutan pueden usar cualquiera de los más de 8000 paquetes de código abierto, además de las rutinas distribuidas y en paralelo de la biblioteca ScaleR. Un script ejecutado en el servidor de R en el nodo perimetral lo hará mediante el intérprete de R, excepto los pasos en los que se llame a una de las funciones de ScaleR con un contexto de proceso establecido en MapReduce de Hadoop (RxHadoopMR) o en Spark (RxSpark). En esos casos, la función se ejecutará de forma distribuida entre los nodos de datos (tarea) del clúster asociado a los datos de referencia. Para más información sobre las distintas opciones de contexto deproceso, consulte [Compute context options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md) (Opciones de contexto de proceso del servidor de R en HDInsight Premium).
+Los scripts de R que se crean y ejecutan pueden usar cualquiera de los más de 8000 paquetes de código abierto, además de las rutinas distribuidas y en paralelo de la biblioteca ScaleR. Un script ejecutado en el servidor de R en el nodo perimetral lo hará mediante el intérprete de R, excepto los pasos en los que se llame a una de las funciones de ScaleR con un contexto de proceso establecido en MapReduce de Hadoop (RxHadoopMR) o en Spark (RxSpark). En esos casos, la función se ejecutará de forma distribuida entre los nodos de datos (tarea) del clúster asociado a los datos de referencia. Para más información sobre las distintas opciones de contexto de proceso, consulte [Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ## Funcionamiento de un modelo
 
@@ -57,7 +59,7 @@ Para puntuar mediante un servicio web de Aprendizaje automático de Azure, puede
   
 ### Puntuación local
 
-Para puntuar de forma local después de crear el modelo, dicho modelo se puede serializar en R, descargarlo en una ubicación local, anular su serialización y después usarlo para puntuar nuevos datos. Para ello, puede usar el método descrito anteriormente de [puntuación en HDInsight](#scoring-in-hdinsight) o bien mediante [DeployR](https://deployr.revolutionanalytics.com/).
+Para puntuar de forma local después de crear el modelo, dicho modelo se puede serializar en R, descargarlo en una ubicación local, anular su serialización y después usarlo para puntuar nuevos datos. Para ello, puede usar el método descrito anteriormente de [puntuación en HDInsight](#scoring-in-hdinsight) o bien [DeployR](https://deployr.revolutionanalytics.com/).
 
 ## Mantenimiento del clúster 
 
@@ -77,7 +79,7 @@ También es posible cambiar la cantidad de memoria disponible en el servidor de 
 
 ### Escalado del clúster
 
-Un clúster existente se puede escalar horizontal o verticalmente a través del Portal de Azure. Esto puede servir para obtener la capacidad adicional que se necesita en procesamientos más voluminosos o para escalar un clúster cuando está inactivo. Para obtener instrucciones sobre cómo escalar un clúster, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-portal-linux.md).
+Un clúster existente se puede escalar horizontal o verticalmente a través del Portal de Azure. Esto puede servir para obtener la capacidad adicional que se necesita en procesamientos más voluminosos o para escalar un clúster cuando está inactivo. Para obtener instrucciones sobre cómo escalar un clúster, consulte [Manage HDInsight clusters](hdinsight-administer-use-portal-linux.md) (Administración de clústeres de HDInsight).
 
 ### Mantenimiento del sistema 
 
@@ -93,20 +95,20 @@ Otra opción consiste en instalar un IDE en el propio nodo perimetral de Linux. 
 
 ## Precios
  
-Las cuotas por un clúster de HDInsight Premium con el servidor de R están estructuradas de manera similar a las de los clústeres de HDInsight estándar, y se basarán en el tamaño de las máquinas virtuales subyacentes en los nodos de nombre, de datos y perimetral, con el extra de un aumento de la hora de núcleo para Premium. Para más información sobre los precios de HDInsight Premium, incluido el precio de la versión de vista previa pública y la disponibilidad de una evaluación gratuita de 30 días, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Las cuotas por un clúster de HDInsight Premium con el servidor de R están estructuradas de manera similar a las de los clústeres de HDInsight estándar, y se basarán en el tamaño de las máquinas virtuales subyacentes en los nodos de nombre, de datos y perimetral, con el extra de un aumento de la hora de núcleo para Premium. Para más información sobre los precios de HDInsight Premium, incluido el precio de la versión preliminar pública y la disponibilidad de una evaluación gratuita de 30 días, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Pasos siguientes
 
 Use los siguientes vínculos para obtener más información sobre cómo usar el servidor de R con clústeres de HDInsight.
 
-- [Getting Started with R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) (Introducción al servidor de R en HDInsight)
+- [Getting Started with R Server on HDInsight (Introducción al servidor de R en HDInsight)](hdinsight-hadoop-r-server-get-started.md)
 
-- [Add RStudio Server to HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md) (Agregar un servidor de RStudio a HDInsight Premium)
+- [Add RStudio Server to HDInsight Premium (Agregar un servidor de RStudio a HDInsight Premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 
-- [Compute context options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md) (Opciones de contexto de proceso del servidor de R en HDInsight Premium)
+- [Compute context options for R Server on HDInsight Premium (Opciones de contexto de proceso del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-compute-contexts.md)
 
-- [Azure Storage options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-storage.md) (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)
+- [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

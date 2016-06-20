@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Paneles en el portal de Application Insights"
-	description="Muestre datos de telemetría desde varios componentes de la aplicación en un panel."
+	pageTitle="Uso del portal de Application Insights"
+	description="Métricas, búsqueda, paneles y configuración en el portal de Application Insights."
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/25/2016"
+	ms.date="06/03/2016"
 	ms.author="awills"/>
 
 # Navegación y paneles en el portal de Application Insights
@@ -34,11 +34,12 @@ La hoja de información general (página) de la aplicación muestra un resumen d
 
 Haga clic en:
 
-* **Cualquier gráfico o icono** para ver más detalles.
-* **Configuración** para acceder a las páginas predefinidas de otras métricas.
+* **Cualquier gráfico o icono** para más información sobre lo que se muestra en el gráfico.
+* **Configuración** para obtener acceso a hojas predefinidas de otras métricas, así como páginas de configuración.
 * [**Explorador de métricas**](app-insights-metrics-explorer.md) para crear páginas de las métricas de su elección.
 * [**Búsqueda**](app-insights-diagnostic-search.md) para investigar casos específicos de eventos como solicitudes, excepciones o seguimientos de registro.
 * [**Análisis**](app-insights-analytics.md) para consultas eficaces sobre los datos de telemetría.
+* [**Stream en vivo**](app-insights-metrics-explorer.md#live-stream) para obtener un conjunto fijo de métricas casi instantáneas, útiles al implementar una nueva compilación o depurar.
 
 
 ![Rutas principales para ver los datos de telemetría](./media/app-insights-dashboards/010-oview.png)
@@ -109,4 +110,4 @@ Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
 Obtenga información acerca de [Recursos, roles y control de acceso en Application Insights](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

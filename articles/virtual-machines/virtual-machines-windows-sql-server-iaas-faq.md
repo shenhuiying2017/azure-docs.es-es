@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="v-shysun"
-	manager="msmets"
+	manager="felixwu"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,12 +14,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/27/2016"
+	ms.date="06/03/2016"
 	ms.author="v-shysun"/>
 
 # Preguntas más frecuentes sobre SQL Server en Máquinas virtuales de Azure
 
 En este tema se proporcionan respuestas a algunas de las preguntas más comunes sobre la ejecución de [SQL Server en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Preguntas frecuentes
 
@@ -49,11 +51,11 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 
 5. **¿Se deben pagar los costos de SQL de una máquina virtual si solo se usará para el modo de espera/conmutación por error?**
 
-	Si crea la máquina virtual de SQL mediante la galería, debe tener una licencia independiente para la máquina virtual de SQL en modo de espera y los precios son los mismos. Si instala manualmente SQL Server en una máquina virtual con [Movilidad de licencias](https://azure.microsoft.com/pricing/license-mobility/), tiene la opción de tener una instancia SQL pasiva gratis para la conmutación por error. Revise las restricciones y los requisitos.
+	Si crea la máquina virtual de SQL mediante la galería, debe tener una licencia independiente para la máquina virtual de SQL en modo de espera y los precios son los mismos. Si instala manualmente SQL Server en una máquina virtual con [Movilidad de licencias](https://azure.microsoft.com/pricing/license-mobility/), dispone de la opción de tener una instancia SQL pasiva gratis para la conmutación por error. Revise las restricciones y los requisitos.
 
 6. **¿Cómo se aplican las actualizaciones y los Service Packs en una máquina virtual de SQL Server?**
 
-	Las máquinas virtuales brindan control sobre la máquina virtual, incluido el momento en que se aplican las actualizaciones y la manera de hacerlas. En el caso del sistema operativo, puede aplicar manualmente las actualizaciones de Windows, o bien puede habilitar un servicio de programación llamado [Aplicación de revisión automatizada](virtual-machines-windows-classic-sql-automated-patching.md). Aplicación de revisión automatizada instala las actualizaciones marcadas como importantes, incluidas las actualizaciones de SQL Server que tienen esa categoría. Otras actualizaciones opcionales a SQL Server se deben instalar manualmente.
+	Las máquinas virtuales brindan control sobre la máquina virtual, incluido el momento en que se aplican las actualizaciones y la manera de hacerlas. En el caso del sistema operativo, puede aplicar manualmente las actualizaciones de Windows, o bien puede habilitar un servicio de programación llamado [Aplicación de revisiones automatizada](virtual-machines-windows-classic-sql-automated-patching.md). Aplicación de revisión automatizada instala las actualizaciones marcadas como importantes, incluidas las actualizaciones de SQL Server que tienen esa categoría. Otras actualizaciones opcionales a SQL Server se deben instalar manualmente.
 
 7. **¿Es posible configurar configuraciones que no aparecen en la galería de máquinas virtuales (por ejemplo, Windows 2008 R2 + SQL Server 2012)?**
 
@@ -65,7 +67,7 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 
 ## Recursos
 
-Si desea obtener información general sobre las Máquinas virtuales de Azure, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016). También puede consultar una buena introducción en el tema [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Si desea obtener información general sobre Máquinas virtuales de Azure, vea el vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) (VM de Azure es la mejor plataforma para SQL Server 2016). También puede consultar una buena introducción en el tema [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 Otros recursos son los siguientes:
 
@@ -75,4 +77,4 @@ Otros recursos son los siguientes:
 - [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md)
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

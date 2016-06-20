@@ -198,7 +198,7 @@ Para consumir el modelo desde una aplicación cliente, usaremos la biblioteca de
 
 DSVM no solo le permite crear la solución de análisis localmente en la máquina virtual, sino que también posibilita el acceso a servicios en la nube de Microsoft Azure. Azure proporciona varios servicios de proceso, almacenamiento, análisis de datos y de otra índole que puede administrar desde su DSVM y a los que puede tener acceso desde dicho entorno.
 
-Para administrar una suscripción y los recursos en la nube de Azure, puede usar el explorador y apuntar al [Portal de Azure](portal.azure.com). También puede usar Azure Powershell para administrar la suscripción y los recursos de Azure mediante un script. Puede ejecutar Azure Powershell desde un acceso directo en el escritorio o desde el menú de inicio denominado "Microsoft Azure Powershell". Para obtener más información sobre cómo administrar su suscripción y los recursos de Azure mediante los scripts de Windows Powershell, consulte la [documentación de Microsoft Azure Powershell](../powershell-azure-resource-manager.md).
+Para administrar una suscripción y los recursos en la nube de Azure, puede usar el explorador y apuntar al [Portal de Azure](https://portal.azure.com). También puede usar Azure Powershell para administrar la suscripción y los recursos de Azure mediante un script. Puede ejecutar Azure Powershell desde un acceso directo en el escritorio o desde el menú de inicio denominado "Microsoft Azure Powershell". Para obtener más información sobre cómo administrar su suscripción y los recursos de Azure mediante los scripts de Windows Powershell, consulte la [documentación de Microsoft Azure Powershell](../powershell-azure-resource-manager.md).
 
 
 ## 5\. Ampliar el espacio de almacenamiento con un sistema de archivos compartidos
@@ -268,7 +268,7 @@ Un blob de Azure es un almacenamiento confiable y económico para muchos y pocos
 
 **Requisito previo**
 
-- **Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](http://portal.azure.com).**
+- **Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](https://portal.azure.com).**
 
 ![Create\_Azure\_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -287,7 +287,7 @@ Para mover datos entre los archivos locales y el almacenamiento de blobs, puede 
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Reemplace **C:\\myfolder** por la ruta de acceso al lugar donde está almacenado su archivo, **mystorageaccount** por el nombre de su cuenta de Almacenamiento de blobs, **mycontainer** por el nombre del contenedor y **storage account key** por la clave de acceso a Almacenamiento de blobs. Las credenciales de su cuenta de almacenamiento pueden encontrarlas en el [Portal de Azure](http://portal.azure.com).
+Reemplace **C:\\myfolder** por la ruta de acceso al lugar donde está almacenado su archivo, **mystorageaccount** por el nombre de su cuenta de Almacenamiento de blobs, **mycontainer** por el nombre del contenedor y **storage account key** por la clave de acceso a Almacenamiento de blobs. Las credenciales de su cuenta de almacenamiento puede encontrarlas en el [Portal de Azure](https://portal.azure.com).
 
 ![StorageAccountCredential\_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -318,7 +318,7 @@ También puede cargar datos desde el archivo local en la máquina virtual median
 
 **Lectura de datos de Blob de Azure: módulo lector de Aprendizaje automático de Azure**
 
-En Estudio de aprendizaje automático de Azure puede usar un **módulo lector** para leer datos del blob.
+En Estudio de aprendizaje automático de Azure puede usar un **módulo Importar datos** para leer datos del blob.
 
 
 ![AML\_ReaderBlob\_Module\_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
@@ -379,7 +379,7 @@ El Almacén de Azure Data Lake es un repositorio a gran escala para cargas de tr
 
 **Requisito previo**
 
-- Cree un Análisis de Azure Data Lake en el [Portal de Azure](http://portal.azure.com).
+- Cree un análisis de Azure Data Lake en el [Portal de Azure](https://portal.azure.com).
 
 ![Azure\_Data\_Lake\_Create\_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
@@ -404,7 +404,7 @@ Si los datos residen en el Almacenamiento de blobs de Azure, puede leer directam
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 
-En Visual Studio, puede leer datos de un Almacenamiento de blobs, manipular los datos, realizar ingeniería de características y presentar los datos resultantes en Azure Data Lake o Almacenamiento de blobs de Azure. Cuando haga referencia a los datos en el Almacenamiento de blobs, use **wasb://**; sin embargo, cuando haga referencia a los datos de Azure Data Lake, use **swbhdfs://**
+En Visual Studio, puede leer datos de un Almacenamiento de blobs, manipular los datos, realizar ingeniería de características y presentar los datos resultantes en Azure Data Lake o Almacenamiento de blobs de Azure. Cuando haga referencia a los datos en el Almacenamiento de blobs, use ****wasb://**; sin embargo, cuando haga referencia a los datos de Azure Data Lake, use ****swbhdfs://**
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -474,7 +474,7 @@ HDInsight de Azure es un servicio administrado de Apache Hadoop, Spark, HBase y 
 
 **Requisito previo**
 
-- Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](http://portal.azure.com). Esta cuenta de almacenamiento se utiliza para almacenar datos para clústeres de HDInsight.
+- Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](https://portal.azure.com). Esta cuenta de almacenamiento se utiliza para almacenar datos para clústeres de HDInsight.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -910,4 +910,4 @@ Para mejorar su entorno de análisis, puede sacar provecho de otros servicios ta
 ## Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

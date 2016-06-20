@@ -81,6 +81,6 @@ Consulte los siguientes artículos para más información sobre las colas de Bus
 - [Ejemplo de reenvío automático](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Ejemplo de transacciones atómicas con el Bus de servicio](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Comparación de colas de Azure y colas del Bus de servicio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

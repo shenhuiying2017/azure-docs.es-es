@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Copia de seguridad y restauración de una base de datos en Almacenamiento de datos SQL de Azure (PowerShell)
 
@@ -30,7 +30,6 @@ Tareas de este tema:
 
 - Restauración de una base de datos activa
 - Restauración de una base de datos eliminada
-- Restauración de una base de datos inaccesible desde otra región geográfica de Azure
 
 [AZURE.INCLUDE [Directiva de retención de copia de seguridad de Almacenamiento de datos SQL](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -46,7 +45,7 @@ Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar
 
 ## Restauración de una base de datos activa
 
-Para restaurar una base de datos a partir de una instantánea, use el cmdlet [Restore-AzureRmSqlDatabase][].
+Para restaurar una base de datos a partir de una instantánea, use el cmdlet [Restore-AzureRmSqlDatabase][] de PowerShell.
 
 1. Abra Windows PowerShell.
 2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
@@ -90,7 +89,7 @@ $RestoredDatabase.status
 
 >[AZURE.NOTE] Para el servidor foo.database.windows.net, use "foo" como -ServerName en los cmdlets de PowerShell anteriores.
 
-Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
+Cuando finalice la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 ## Restauración de una base de datos eliminada
 
@@ -128,49 +127,10 @@ $RestoredDatabase.status
 
 >[AZURE.NOTE] Para el servidor foo.database.windows.net, use "foo" como -ServerName en los cmdlets de PowerShell anteriores.
 
-Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
-
-## Restauración dese una región geográfica de Azure
-
-Para recuperar una base de datos, use el cmdlet [Restore-AzureRmSqlDatabase][].
-
-1. Abra Windows PowerShell.
-2. Conéctese a su cuenta de Azure y enumere todas las suscripciones asociadas a su cuenta.
-3. Seleccione la suscripción que contiene la base de datos que se va a restaurar.
-4. Obtenga la base de datos que desea recuperar.
-5. Cree la solicitud de recuperación para la base de datos.
-6. Compruebe el estado de la base de datos restaurada geográficamente.
-
-```Powershell
-
-Login-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
-
-# Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
-
-# Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
-
-# Verify that the geo-restored database is online
-$GeoRestoredDatabase.status
-
-```
-
-### Configuración de la base de datos después de realizar una restauración geográfica
-Esta es una lista de comprobación que le ayudará a tener preparada la producción de la base de datos recuperada.
-
-1. **Actualización de cadenas de conexión**: compruebe que las cadenas de conexión de las herramientas del cliente apuntan a la base de datos recién recuperada.
-2. **Modificación de las reglas de firewall**: compruebe las reglas de firewall en el servidor de destino y asegúrese de que están habilitadas las conexiones desde los equipos cliente, o bien Azure al servidor y a la base de datos recién recuperada.
-3. **Comprobación de los inicios de sesión del servidor y los usuarios de la base de datos**: compruebe si todos los inicios de sesión que usa la aplicación existen en el servidor que hospeda la base de datos recuperada. Vuelva a crear los inicios de sesión que falten y concédales los permisos adecuados en la base de datos recuperada. 
-4. **Habilitar auditoría**: si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos.
-
-La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
-
+Cuando finalice la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 ## Pasos siguientes
-Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][] e [Información general de administración][].
+Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][] e [Administración de base datos en Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
@@ -178,7 +138,7 @@ Para más información, consulte [Información general: continuidad del negocio 
 [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: sql-database-business-continuity.md
 [Finalización de una base de datos SQL de Azure recuperada]: sql-database-recovered-finalize.md
 [Cómo instalar y configurar Azure PowerShell]: powershell-install-configure.md
-[Información general de administración]: sql-data-warehouse-overview-manage.md
+[Administración de base datos en Almacenamiento de datos SQL de Azure]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -194,4 +154,4 @@ Para más información, consulte [Información general: continuidad del negocio 
 [Azure Portal]: https://portal.azure.com/
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

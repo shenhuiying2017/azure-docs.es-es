@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="05/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -45,12 +45,12 @@ Cree los archivos de certificado y de clave para la comunicación Docker conform
 En la línea de comandos, use **`base64`** u otra herramienta de codificación que prefiera para crear temas con la codificación base64. Hacer esto con un conjunto sencillo de archivos de certificado y clave podría tener un aspecto similar al siguiente:
 
 ```
- ~/.docker$ l
+ ~/.docker$ ls
  ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
  ~/.docker$ base64 ca.pem > ca64.pem
  ~/.docker$ base64 server-cert.pem > server-cert64.pem
  ~/.docker$ base64 server-key.pem > server-key64.pem
- ~/.docker$ l
+ ~/.docker$ ls
  ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
@@ -79,11 +79,11 @@ En los campos del formulario, escriba las versiones con codificación base64 del
 > [AZURE.NOTE] Tenga en cuenta que (como en la imagen anterior), se usa 2376 de forma predeterminada. Puede escribir cualquier extremo aquí, pero el paso siguiente será abrir el extremo coincidente. Si cambia el valor predeterminado, asegúrese de abrir el extremo coincidente en el paso siguiente.
 
 ## Adición del extremo de comunicación de Docker
-Cuando vea su máquina virtual en el grupo de recursos que ha creado, desplácese hacia abajo para hacer clic en **Extremos** para ver los extremos en la máquina virtual tal y como se muestra aquí.
+Al ver el grupo de recursos que ha creado, seleccione el grupo de seguridad de red asociado a la máquina virtual y haga clic en **Reglas de seguridad de entrada** para ver las reglas, como se muestra aquí.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
-Haga clic en **+ Agregar** para agregar otro extremo y, en el caso predeterminado, escriba un nombre para el extremo (en este ejemplo **docker**) y 2376 tanto para puertos privados como para puertos públicos. Deje el valor del protocolo que se muestra en **TCP** y haga clic en **Aceptar** para crear el extremo.
+Haga clic en **+ Agregar** para agregar otra regla y, en el caso predeterminado, escriba un nombre para el punto de conexión (en este ejemplo **Docker**) y 2376 para "Intervalo de puertos de destino". Deje el valor del protocolo que se muestra en **TCP** y haga clic en **Aceptar** para crear el punto de conexión.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
@@ -148,4 +148,4 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Ejecución de Docker con https]: http://docs.docker.com/articles/https/
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solución de problemas | Microsoft Azure"
-   description="Solución de problemas del Almacenamiento de datos SQL."
+   pageTitle="Solución de problemas de Almacenamiento de datos SQL de Azure | Microsoft Azure"
+   description="Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,8 +16,8 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# Solución de problemas
-En el siguiente tema se muestran algunos de los problemas más comunes que los clientes encuentran con el Almacenamiento de datos SQL de Azure.
+# Solución de problemas de Almacenamiento de datos SQL de Azure
+En el siguiente tema se muestran algunos de los problemas más comunes que podría encontrarse con Almacenamiento de datos SQL de Azure.
 
 ## Conectividad
 Estos son los problemas de conectividad más comunes:
@@ -33,13 +33,13 @@ Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] p
 
 ## Rendimiento de las consultas
 
-Hay varias acciones sencillas que puede realizar en el diseño de la base de datos para asegurarse de obtener un rendimiento óptimo de las consultas desde Almacenamiento de datos SQL. Un buen lugar para comenzar a entender el rendimiento de las consultas es el artículo [Supervisión de la carga de trabajo mediante DMV][]. A veces, para que una consulta se ejecute más rápido basta con agregar más potencia de proceso a las consultas [escalando Almacenamiento de datos SQL][]. Para encontrar muchas de estas optimizaciones en un solo lugar, eche un vistazo al artículo [Procedimientos recomendados para el Almacenamiento de datos SQL][].
+Hay varias acciones sencillas que puede realizar en el diseño de la base de datos para asegurarse de obtener un rendimiento óptimo de las consultas desde Almacenamiento de datos SQL. Un buen lugar para comenzar a entender el rendimiento de las consultas es el artículo [Supervisión de la carga de trabajo mediante DMV][]. A veces, para que una consulta se ejecute más rápido, basta con agregar más potencia de proceso a las consultas [escalando el Almacenamiento de datos SQL][]. Para encontrar muchas de estas optimizaciones en un solo lugar, eche un vistazo al artículo [Procedimientos recomendados para el Almacenamiento de datos SQL][].
 
 A continuación se muestran algunas de las causas más comunes de los problemas con el rendimiento de las consultas que observamos.
 
 ### Estadísticas
 
-Las [estadísticas][] de las tablas contienen información sobre el intervalo y la frecuencia de valores en una columna de base de datos o en una combinación de columnas. El motor de consultas usa estas estadísticas para optimizar la ejecución de consultas y mejorar el rendimiento de las consultas. A diferencia de SQL Server o Base de datos SQL, Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Las estadísticas deben mantenerse manualmente en todas las tablas. Para obtener información sobre cómo administrar las estadísticas e identificar las tablas que necesitan estadísticas, eche un vistazo al artículo [Administración de estadísticas en el Almacenamiento de datos SQL][].
+Las [estadísticas][] de las tablas contienen información sobre el intervalo y la frecuencia de valores en una columna de base de datos o en una combinación de columnas. El motor de consultas usa estas estadísticas para optimizar la ejecución de consultas y mejorar el rendimiento de las consultas. A diferencia de SQL Server o Base de datos SQL, Almacenamiento de datos SQL no crea ni actualiza estadísticas automáticamente. Las estadísticas deben mantenerse manualmente en todas las tablas. Para obtener información sobre cómo administrar las estadísticas e identificar las tablas que necesitan estadísticas, eche un vistazo al artículo [Administración de estadísticas en el Almacenamiento de datos SQL][].
 
 ### Diseño de tablas
 
@@ -109,7 +109,7 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 <!--Image references-->
 
 <!--Article references-->
-[escalando Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-scalability.md
+[escalando el Almacenamiento de datos SQL]: ./sql-data-warehouse-manage-compute-overview.md
 [el diseño de tabla]: ./sql-data-warehouse-develop-table-design.md
 [elegir la clave de distribución hash correcta para la tabla]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
@@ -126,4 +126,4 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

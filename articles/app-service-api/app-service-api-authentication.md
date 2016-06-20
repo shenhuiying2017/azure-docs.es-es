@@ -18,11 +18,9 @@
 
 # Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure
 
-[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
-
 ## Información general 
 
-> [AZURE.NOTE] Este tema se migrará a un tema de [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md) consolidado, que abarca las aplicaciones web, móviles y de API.
+> [AZURE.NOTE] Este tema se migrará a un tema de [Autenticación/autorización del servicio de aplicaciones](../app-service/app-service-authentication-overview.md) consolidado, que abarca la web, los móviles y las aplicaciones de API.
 
 El Servicio de aplicaciones de Azure ofrece servicios de autenticación y autorización integrados que implementan [OAuth 2.0](#oauth) y [OpenID Connect](#oauth). Este artículo describe los servicios y las opciones que están disponibles para aplicaciones de API en el Servicio de aplicaciones de Azure.
 
@@ -71,7 +69,7 @@ En el [Portal de Azure](https://portal.azure.com/), seleccione la opción que de
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Para las opciones 1 y 2, active **Autenticación del servicio de aplicaciones** y, en la lista desplegable **Acción necesaria cuando la solicitud no está autenticada**, elija **Iniciar sesión** o **Permitir solicitud (sin acción)**. Si elige **Iniciar sesión**, tendrá que elegir un proveedor de autenticación y configurarlo.
+Para las opciones 1 y 2, active **Autenticación de Servicio de aplicaciones** y en la lista desplegable **Acción que se realiza cuando la solicitud no está autenticada** elija **Iniciar sesión** o **Permitir solicitud (ninguna acción)**. Si elige **Iniciar sesión**, tendrá que elegir un proveedor de autenticación y configurarlo.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
@@ -95,8 +93,8 @@ Para más información sobre cómo controlar la autenticación desde clientes m�
 
 Para más información sobre la autenticación y la autorización del Servicio de aplicaciones de Azure, consulte los siguientes recursos:
 
-* [Expanding App Service authentication / authorization (Expansión de la autenticación/autorización del Servicio de aplicaciones)](/blog/announcing-app-service-authentication-authorization/)
-* [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (incluye vínculos a otros proveedores de autenticación en la parte superior de la página). 
+* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) (Expansión de la autenticación/autorización del Servicio de aplicaciones)
+* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Cómo configurar la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory), con vínculos a otros proveedores de autenticación en la parte superior de la página. 
 
 Para obtener más información sobre OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT), consulte los siguientes recursos.
 
@@ -114,4 +112,4 @@ Para más información acerca de Azure Active Directory, consulte los siguientes
 
 En este artículo se han explicado las características de autenticación y autorización del Servicio de aplicaciones que puede utilizar para las aplicaciones de API. En el siguiente tutorial de la serie de introducción, aprenderá a implementar la [autenticación de usuario para aplicaciones de API del Servicio de aplicaciones](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

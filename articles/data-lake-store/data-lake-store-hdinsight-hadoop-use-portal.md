@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Creación de un clúster de Hadoop en HDInsight con el Almacén de Azure Data Lake mediante el portal | Azure"
-   description="Use el Portal de Azure para crear y usar clústeres de Hadoop en HDInsight con el Almacén de Azure Data Lake."
+   pageTitle="Creación de clústeres de HDInsight con el Almacén de Azure Data Lake mediante el Portal | Azure"
+   description="Uso del Portal de Azure para crear y uso de clústeres de HDInsight con el Almacén de Azure Data Lake"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -23,15 +23,15 @@
 - [Uso de PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, HBase o Storm) con acceso al Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
+Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, HBase, Spark o Storm) con acceso al Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
 
-* **En clústeres de Hadoop (Windows y Linux)**, el Almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
+* **En clústeres de Spark (Linux) y Hadoop (Windows y Linux)**, el Almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
 
 * **En clústeres de Storm (Windows y Linux)**, el Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Almacén de Data Lake también puede utilizarse para almacenar datos de referencia que luego puede leer una topología de Storm. Para obtener más información, consulte [Usar el Almacén de Data Lake en una topología de Storm](#use-data-lake-store-in-a-storm-topology).
 
 * **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional. Para obtener más información, consulte [Usar el Almacén de Data Lake con clústeres de HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] La opción para crear clústeres de HDInsight con acceso al Almacén de Data Lake solo está disponible para HDInsight versión 3.2 (para Windows y Linux).
+> [AZURE.NOTE] La opción para crear clústeres de HDInsight con acceso al Almacén de Data Lake solo está disponible para HDInsight versión 3.2 y 3.4 (para clústeres de Hadoop, HBase y Storm en Windows y Linux). Para los clústeres Spark en Linux, esta opción solo está disponible en los clústeres de HDInsight 3.4.
 
 
 ## Requisitos previos
@@ -258,4 +258,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

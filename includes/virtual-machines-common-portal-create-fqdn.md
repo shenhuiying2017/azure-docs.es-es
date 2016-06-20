@@ -1,9 +1,6 @@
+## Pasos rápidos 
 
-
-
-Cuando crea una máquina virtual en el [Portal de Azure](https://portal.azure.com) mediante el modelo de implementación del **Administrador de recursos**, se crea automáticamente un recurso de IP pública para la máquina virtual. Puede usar esta dirección IP para obtener acceso remoto a la máquina virtual. Sin embargo, el portal no crea un [nombre de dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN de forma predeterminada, es más sencillo hacerlo una vez creada la máquina virtual. Este artículo muestra los pasos para crear un nombre DNS o FQDN.
-
-En el artículo se supone que ha iniciado la sesión en su suscripción en el portal y que ha creado una máquina virtual con las imágenes disponibles con el **Administrador de recursos**. Cuando comience a ejecutarse la máquina virtual, siga estos pasos.
+En el artículo se supone que ha iniciado sesión en su suscripción en el portal y que ha creado una máquina virtual con las imágenes disponibles mediante el modelo de implementación de Resource Manager. Cuando comience a ejecutarse la máquina virtual, siga estos pasos.
 
 1.  Vea la configuración de la máquina virtual en el portal y haga clic en la dirección IP pública.
 
@@ -23,7 +20,4 @@ En el artículo se supone que ha iniciado la sesión en su suscripción en el po
 
     ![Se crea el FQDN](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-    Ahora puede conectarse de manera remota a la máquina virtual con este nombre DNS. Por ejemplo, use `ssh adminuser@testdnslabel.centralus.cloudapp.azure.com` al conectarse a una máquina virtual de Linux que tiene el nombre de dominio completo nombre de `testdnslabel.centralus.cloudapp.azure.com` y el nombre de usuario de `adminuser`.
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

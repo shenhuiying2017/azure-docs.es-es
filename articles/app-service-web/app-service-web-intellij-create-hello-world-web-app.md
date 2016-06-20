@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="06/07/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Creación de una aplicación web Hello World para Azure en IntelliJ
@@ -215,18 +215,33 @@ Cuando se muestre la vista **Azure Explorer** (Explorador de Azure), siga estos 
 
 ## Pasos siguientes
 
-Para obtener más información, consulte los vínculos siguientes:
+Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
-* [Centro de desarrolladores de Java]
-* [Introducción a Aplicaciones web]
+- [Kit de herramientas de Azure para Eclipse]
+  - [Instalación del Kit de herramientas de Azure para Eclipse]
+  - [Creación de una aplicación web Hello World para Azure en Eclipse]
+  - [Novedades del kit de herramientas de Azure para Eclipse]
+- [Kit de herramientas de Azure para IntelliJ]
+  - [Instalación del kit de herramientas de Azure para IntelliJ]
+  - *Creación de una aplicación web Hello World para Azure en IntelliJ (este artículo)*
+
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
+
+Para obtener información adicional acerca de cómo crear Aplicaciones web de Azure, consulte [Introducción a Aplicaciones web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
+[Kit de herramientas de Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de herramientas de Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
+[Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Instalación del Kit de herramientas de Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Centro de desarrolladores de Java]: https://azure.microsoft.com/develop/java/
+[Instalación del kit de herramientas de Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Novedades del kit de herramientas de Azure para Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
+
+[Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
 [Introducción a Aplicaciones web]: ./app-service-web-overview.md
 
 <!-- IMG List -->
@@ -251,4 +266,4 @@ Para obtener más información, consulte los vínculos siguientes:
 [17]: ./media/app-service-web-intellij-create-hello-world-web-app/17-Browse-Web-App.png
 [18]: ./media/app-service-web-intellij-create-hello-world-web-app/18-Stop-Web-App.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -12,20 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/27/2016" 
 	ms.author="awills"/>
  
 # Solución de problemas cuando no hay datos: Application Insights para .NET
 
+## Falta parte de mi telemetría
+
+*En Application Insights, solo veo una fracción de los eventos generados por mi aplicación.*
+
+* Si observa la misma fracción constantemente, es probable que se deba al [muestreo](app-insights-sampling.md) adaptable. Para confirmarlo, abra Búsqueda (desde la hoja de información general) y examine una instancia de una solicitud u otro evento. En la parte inferior de la sección Propiedades, haga clic en "..." para obtener todos los detalles de la propiedad. Si Recuento de solicitudes > 1, hay un muestreo en curso. 
+* De lo contrario, es posible que se esté aproximando a un [límite de velocidad de datos](app-insights-pricing.md#limits-summary) para su plan de precios. Estos límites se aplican por minuto.
 
 ## Problemas del monitor de estado
 
-*Se [instala el monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
+*He [instalado el monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor web para supervisar las aplicaciones existentes. No se ve ningún resultado.*
 
 Consulte [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting). Los puertos del firewall son el problema más común.
 
 
-## <a name="q01"></a>No hay ninguna opción 'Agregar Application Insights' en Visual Studio
+## <a name="q01"></a>No hay ninguna opción "Agregar Application Insights" en Visual Studio
 
 *Al crear un nuevo proyecto en Visual Studio, o al hacer clic con el botón derecho en un proyecto existente en el Explorador de soluciones, no se ve ninguna opción de Application Insights.*
 
@@ -122,9 +128,9 @@ Solución:
 
 ## ¿Dónde se encuentra la telemetría?
 
-*Una vez iniciada la sesión en el [Portal de Microsoft Azure](https://portal.azure.com), se ve el panel de inicio de Azure. ¿Dónde se encuentran los datos de Application Insights?*
+*He iniciado sesión en el [Portal de Microsoft Azure](https://portal.azure.com) y estoy mirando el panel de inicio de Azure. ¿Dónde se encuentran los datos de Application Insights?*
 
-* En la barra de navegación izquierda, haga clic en Application Insights y luego en el nombre de la aplicación. Si no tiene allí ningún proyecto, es necesario [agregar o configurar Application Insights en el proyecto web](app-insights-asp-net.md).
+* En la barra de navegación izquierda, haga clic en Application Insights y luego en el nombre de la aplicación. Si no tiene ahí ningún proyecto, es necesario [agregar o configurar Application Insights en el proyecto web](app-insights-asp-net.md).
 
     Ahí verá algunos gráficos de resumen. Puede hacer clic en ellos para ver su contenido con más detalle.
 
@@ -133,13 +139,13 @@ Solución:
 
 ## <a name="q03"></a> No hay datos de servidor (o ningún dato en absoluto)
 
-*Se ejecuta la aplicación y se abre el servicio de Application Insights en Microsoft Azure pero todos los gráficos muestran 'Obtenga información sobre cómo recopilar...' o 'No está configurado.'* o bien, *solo vista de página y datos de usuario, pero no hay datos de servidor.*
+*Se ejecuta la aplicación y se abre el servicio de Application Insights en Microsoft Azure pero todos los gráficos muestran 'Obtenga información sobre cómo recopilar...' o 'No está configurado.'* O bien, *solo vista de página y datos de usuario, pero no hay datos de servidor.*
 
 + Ejecute la aplicación en modo de depuración en Visual Studio (F5). Utilice la aplicación para generar telemetría. Compruebe que puede ver los eventos registrados en la ventana de resultados de Visual Studio. 
 
     ![](./media/app-insights-asp-net-troubleshoot-no-data/output-window.png)
 
-+ En el portal de Application Insights, abra [Búsqueda de diagnóstico](app-insights-diagnostic-search.md). Los datos suelen aparecer aquí en primer lugar.
++ En el portal de Application Insights, abra [Diagnostic Search](app-insights-diagnostic-search.md) (Búsqueda de diagnóstico). Los datos suelen aparecer aquí en primer lugar.
 + Haga clic en el botón Actualizar. La hoja se actualiza periódicamente, pero también puede hacerlo manualmente. El intervalo de actualización es mayor para intervalos de tiempo mayores.
 + Compruebe las claves de instrumentación coincidan. En la hoja principal de la aplicación en el portal de Application Insights, en la lista desplegable de **Essentials**, vea **Clave de instrumentación**. A continuación, en el proyecto de Visual Studio, abra ApplicationInsights.config y busque `<instrumentationkey>`. Compruebe que las dos claves sean iguales. Si no es así:
  + En el portal, haga clic en Application Insights y busque el recurso de aplicación con la clave correcta, o
@@ -189,7 +195,7 @@ No están disponibles para los sitios web de Azure.
 
 ## No veo todos los datos que esperaba
 
-Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET, versión 2.0.0-beta3 o posterior, la característica de [muestreo adaptativo](app-insights-sampling.md) puede operar y enviar solamente un porcentaje de los datos de telemetría.
+Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de [muestreo adaptable](app-insights-sampling.md) puede operar y enviar solamente un porcentaje de los datos de telemetría.
 
 Se puede deshabilitar, pero no se recomienda. El muestreo está diseñado para que la telemetría relacionada se transmita correctamente, con fines de diagnóstico.
 
@@ -205,4 +211,4 @@ La ciudad, región y dimensiones del país proceden de las direcciones IP y no s
 
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # ¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 La forma en que los desarrolladores de software nos planteamos la factorización de una aplicación en sus distintos componentes no es nueva en absoluto. Es el paradigma central de la orientación a objetos, las abstracciones de software y la componentización. En la actualidad, dicha factorización tiende a adoptar la forma de clases e interfaces entre bibliotecas compartidas y niveles de tecnología, normalmente mediante un enfoque por capas, con un almacén back-end, lógica de negocios en el nivel intermedio y una interfaz de usuario front-end. Lo que *ha* cambiado en los últimos años es que los desarrolladores ahora crean aplicaciones distribuidas para la nube impulsados por las empresas.
@@ -143,9 +143,9 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 
 * Para obtener más información:
 	* [Información general de Service Fabric](service-fabric-overview.md)
-    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (microservicios: una revolución en las aplicaciones con la tecnología de la nube)
+    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/es-ES/blog/microservices-an-application-revolution-powered-by-the-cloud/) (microservicios: una revolución en las aplicaciones con la tecnología de la nube)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/20/2016"
+ ms.date="06/03/2016"
  ms.author="larryfr"/>
 
 #Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive
@@ -161,15 +161,15 @@ __Síntomas__: Al conectarse a un clúster de HDInsight cuya versión es la 3.3 
     at java.util.concurrent.FutureTas...(FutureTask.java:122)
     at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
-__Causa__: Este error se debe a una incoherencia en la versión del archivo common-codec.jar usado por SQuirreL y el requerido por los componentes JDBC de Hive descargados desde el clúster de HDInsight.
+__Causa__: este error se debe a una incoherencia en la versión del archivo commons-codec.jar usado por SQuirreL y el requerido por los componentes JDBC de Hive descargados desde el clúster de HDInsight.
 
 __Resolución__: Para corregir este error, siga estos pasos.
 
-1. Descargue el archivo common-codec.jar desde el clúster de HDInsight.
+1. Descargue el archivo commons-codec.jar desde el clúster de HDInsight.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Salga de SQuirreL y, luego, vaya al directorio donde está instalado SQuirreL en el sistema. En el directorio de SQuirreL, bajo el directorio `lib`, reemplace el archivo common-codec.jar existente con el descargado desde el clúster de HDInsight.
+2. Salga de SQuirreL y, luego, vaya al directorio donde está instalado SQuirreL en el sistema. En el directorio de SQuirreL, bajo el directorio `lib`, reemplace el archivo commons-codec.jar existente por el descargado desde el clúster de HDInsight.
 
 3. Reinicie SQuirreL. El error ya no debería ocurrir al conectarse a Hive en HDInsight.
 
@@ -182,4 +182,4 @@ Ahora que aprendió a usar JDBC para que funcione con Hive, utilice los siguient
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

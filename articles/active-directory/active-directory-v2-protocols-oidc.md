@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Protocolos de la versión 2.0: OpenID Connect
@@ -202,4 +202,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Una vez que ha obtenido un `code` de autorización y un `id_token`, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el `id_token` exactamente como se ha descrito [anteriormente](#validating-the-id-token). Para obtener tokens de acceso, puede seguir los pasos que se describen en nuestra [documentación del protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->
