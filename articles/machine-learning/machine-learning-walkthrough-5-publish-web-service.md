@@ -48,7 +48,7 @@ Es necesario eliminar los siguientes módulos:
 
 - [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]
 - Los módulos [Entrenar modelo][train-model] y [Puntuar modelo][score-model] conectados a ella.
-- [Normalizar datos][normalize-data] (ambos)
+- [Normalizar datos][normalize-data] \(ambos)
 - [Evaluar modelo][evaluate-model]
 
 Simplemente seleccione el módulo y presione la tecla Supr o haga clic con el botón derecho en el módulo y seleccione **Eliminar**.

@@ -163,7 +163,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita| Edición básica| Edición premium| Solo aplicaciones de Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicaciones por usuario [1] (SaaS preintegrado y aplicaciones integradas por el desarrollador)| 10 aplicaciones por usuario [1] (nivel Gratis y aplicaciones de proxy de aplicación) | No hay límite [2] (niveles Básico y Gratis + plantillas de integración de aplicaciones de autoservicio)| 10 aplicaciones por usuario [1] (SaaS preintegrado y aplicaciones integradas por el desarrollador)|
+| 10 aplicaciones por usuario [1] \(SaaS preintegrado y aplicaciones integradas por el desarrollador)| 10 aplicaciones por usuario [1] \(nivel Gratis y aplicaciones de proxy de aplicación) | No hay límite [2] \(niveles Básico y Gratis + plantillas de integración de aplicaciones de autoservicio)| 10 aplicaciones por usuario [1] \(SaaS preintegrado y aplicaciones integradas por el desarrollador)|
 
 [1] Con las ediciones Gratis y Básico de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
 

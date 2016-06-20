@@ -59,7 +59,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Se inicia la clase **wordcount**, que está contenida en el archivo **hadoop-mapreduce-examples.jar**. Como entrada, usa el documento ****wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en ****wasb:///example/data/WordCountOutput**.
+	Se inicia la clase **wordcount**, que está contenida en el archivo **hadoop-mapreduce-examples.jar**. Como entrada, usa el documento **wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Para obtener más información sobre este trabajo de MapReduce y los datos de ejemplo, vea [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
 
@@ -70,7 +70,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en ****wasb://example/data/WordCountOutput**:
+3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en **wasb://example/data/WordCountOutput**:
 
 		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
@@ -82,7 +82,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Utilización de 
 
 		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Se muestra una lista de las palabras que están contenidas en el archivo ****wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
+	Se muestra una lista de las palabras que están contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
 		wreathed        3
 		wreathing       1

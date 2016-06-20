@@ -224,7 +224,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	![Configurar inicio de sesión único][24]
 
-    a. En el cuadro de texto **Nombre de atributo**, escriba ****https://aws.amazon.com/SAML/Attributes/Role**.
+    a. En el cuadro de texto **Nombre de atributo**, escriba **https://aws.amazon.com/SAML/Attributes/Role**.
 
     b. En el cuadro de texto **Valor del atributo**, escriba **[el valor de ARN de rol], [el valor de ARN de la entidad de confianza]**.
 
@@ -242,7 +242,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único][25]
 
 
-     a. En el cuadro de texto **Nombre de atributo**, escriba ****https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
+     a. En el cuadro de texto **Nombre de atributo**, escriba **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
      b. En el cuadro de texto **Nombre de atributo**, escriba **userprincipalname**.
 

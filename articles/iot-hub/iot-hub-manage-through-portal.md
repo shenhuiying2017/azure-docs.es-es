@@ -44,7 +44,7 @@ Para crear un Centro de IoT, debe asignar un nombre al centro. Tenga en cuenta q
 
 ### Elección del plan de tarifa
 
-Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
+Puede elegir entre tres planes: **Gratis**, **Estándar 1** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
 
 **S1 (baja frecuencia)**: la edición S1 (baja frecuencia) de Centros de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 (baja frecuencia) permite transmitir hasta 400 000 mensajes al día a través de todos los dispositivos conectados.
 

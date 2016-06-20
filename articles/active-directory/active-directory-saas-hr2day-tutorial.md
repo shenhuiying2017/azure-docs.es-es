@@ -169,7 +169,7 @@ Antes de configurar la aserción SAML, debe ponerse en contacto con el equipo de
 5. Para que se configure el SSO para la aplicación, póngase en contacto con su equipo de soporte técnico de HR2day by Merces a través de [servicedesk@merces.nl](emailTo:servicedesk@merces.nl) y adjunte el archivo de certificado descargado a su correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
 
 
-> [AZURE.NOTE] Explique al equipo de Merces que esta integración necesita que el id. de entidad se establezca con este patrón ****https://hr2day.force.com/INSTANCENAME**.
+> [AZURE.NOTE] Explique al equipo de Merces que esta integración necesita que el id. de entidad se establezca con este patrón **https://hr2day.force.com/INSTANCENAME**.
 
 
 

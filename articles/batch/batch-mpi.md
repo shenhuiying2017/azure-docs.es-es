@@ -209,7 +209,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Pasos siguientes
 
-- Puede crear una aplicación sencilla de MS-MPI para utilizar durante la prueba de tareas de instancias múltiples en Lote. El artículo del blog de Microsoft HPC & Azure Batch, [How to compile and run a simple MS-MPI program][msmpi_howto] (Cómo compilar y ejecutar un programa sencillo de MS-MPI), contiene un tutorial para la creación de una aplicación de MPI sencilla mediante MS-MPI.
+- Puede crear una aplicación sencilla de MS-MPI para utilizar durante la prueba de tareas de instancias múltiples en Lote. El artículo del blog de Microsoft HPC & Azure Batch, [How to compile and run a simple MS-MPI program][msmpi_howto] \(Cómo compilar y ejecutar un programa sencillo de MS-MPI), contiene un tutorial para la creación de una aplicación de MPI sencilla mediante MS-MPI.
 
 - Consulte la página [Microsoft MPI][msmpi_msdn] de MSDN para obtener la información más reciente sobre MS-MPI.
 

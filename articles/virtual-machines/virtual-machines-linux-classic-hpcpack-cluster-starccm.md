@@ -286,7 +286,7 @@ Reemplace **runner.java** por el iniciador de modelo Java de STAR-CCM+ y el cód
     exit ${RTNSTS}
 ```
 
-En nuestra prueba, se ha utilizado un token de licencia Power-On-Demand. Para ese token tendrá que establecer la variable de entorno **$CDLMD\_LICENSE\_FILE** en ****1999@flex.cd-adapco.com** y la clave en la opción **-podkey** de la línea de comandos.
+En nuestra prueba, se ha utilizado un token de licencia Power-On-Demand. Para ese token tendrá que establecer la variable de entorno **$CDLMD\_LICENSE\_FILE** en **1999@flex.cd-adapco.com** y la clave en la opción **-podkey** de la línea de comandos.
 
 Después de la inicialización, el script extrae de las variables de entorno **$CCP\_NODES\_CORES** establecidas por HPC Pack la lista de nodos para crear un archivo de host utilizado por el iniciador de MPI. Este archivo de host contendrá la lista de nombres de nodos de proceso usados para el trabajo, con un nombre por línea.
 

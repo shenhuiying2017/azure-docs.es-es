@@ -288,9 +288,9 @@ app.get('/logout', function(req, res){
 
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
+// Use este middleware de ruta en cualquier recurso que se tenga que proteger.  Si
+//   la se autentica la solicitud (normalmente a través de una sesión de inicio de sesión persistente),
+//   se llevará a cabo la solicitud. De lo contrario, se redirigirá al usuario a la función
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }

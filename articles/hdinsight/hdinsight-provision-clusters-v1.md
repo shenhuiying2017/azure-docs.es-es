@@ -534,7 +534,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 **Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a ****http://azure.microsoft.com/downloads/**.
+1.	Vaya a **http://azure.microsoft.com/downloads/**.
 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**

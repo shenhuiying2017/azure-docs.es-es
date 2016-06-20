@@ -152,7 +152,7 @@ Combina las filas de dos tablas haciendo coincidir los valores de la columna esp
 
 **Sintaxis**
 
-    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
 
 **Argumentos**
 

@@ -30,7 +30,7 @@ Cuando haya completado este tutorial, la aplicación se parecerá a la que se mu
 * IntelliJ IDEA Ultimate Edition. Esto se puede descargar en <https://www.jetbrains.com/idea/download/index.html>.
 * Una distribución de un servidor web basado en Java o un servidor de aplicaciones, como Apache Tomcat o Jetty.
 * Una suscripción de Azure, que se puede adquirir en <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
-* El kit de herramientas de Azure para IntelliJ. Para obtener más información, consulte [Installing the Azure Toolkit for IntelliJ] (Instalación del kit de herramientas de Azure para IntelliJ).
+* El kit de herramientas de Azure para IntelliJ. Para obtener más información, consulte [Installing the Azure Toolkit for IntelliJ] \(Instalación del kit de herramientas de Azure para IntelliJ).
 
 ## Para crear una aplicación Hello World, siga estos pasos:
 

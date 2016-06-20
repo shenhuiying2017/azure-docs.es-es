@@ -35,7 +35,7 @@ Esta colección de tareas usa T-SQL para:
 
 Para pausar o reanudar una base de datos, elija una de las otras opciones de plataforma en la parte superior de este artículo.
 
-Para más información, consulte [Manage compute power overview][] (Administración de la eficacia de los procesos (información general)).
+Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
 
 <a name="current-dwu-bk"></a>
 

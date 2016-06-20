@@ -119,7 +119,7 @@ Para ejecutar el ejemplo:
 
 ## Pasos siguientes
 
-Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Azure IoT Gateway SDK][lnk-gateway-sdk] (SDK de puerta de enlace de IoT de Azure) en GitHub.
+Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Azure IoT Gateway SDK][lnk-gateway-sdk] \(SDK de puerta de enlace de IoT de Azure) en GitHub.
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md

@@ -80,7 +80,7 @@ Al igual que con otros servicios de Azure, Bus de servicio aplica un conjunto de
 	- **Cola/tema/suscripción**: el número de conexiones TCP simultáneas en una cola/tema/suscripción está limitado a 100. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Para cada generador de mensajes, el Bus de servicio mantiene una conexión TCP si cualquiera de los clientes creados por esa factoría de mensajes tiene una operación activa pendiente o ha completado una operación hace menos de 60 segundos. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas.
 
 
-- **Número de agentes de escucha simultáneos en una retransmisión**: el número de agentes de escucha **netTcpRelay** y **netHttpRelay ** en una retransmisión está limitada a 25 (1 para una retransmisión **NetOneway**).
+- **Número de agentes de escucha simultáneos en una retransmisión**: el número de agentes de escucha **netTcpRelay** y **netHttpRelay** en una retransmisión está limitada a 25 (1 para una retransmisión **NetOneway**).
 
 - **Número de agentes de escucha de retransmisión simultáneos por espacio de nombres**: el Bus de servicio impone un límite de 2000 agentes de escucha de retransmisión simultáneos por espacio de nombres del servicio. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores para abrir agentes de escucha de retransmisión y el código de llamada recibirá una excepción.
 

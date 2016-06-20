@@ -133,7 +133,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para que se configure el SSO para la aplicación, póngase en contacto con su equipo de soporte técnico de AppBlade a través de ****support@appblade.com** y adjunte el archivo de metadatos descargado a su correo electrónico. Además, pídales que configuren la **dirección URL del emisor de SSO** como ****https://appblade.com/saml**. Esta configuración es necesaria para que el inicio de sesión único funcione.
+5. Para que se configure el SSO para la aplicación, póngase en contacto con su equipo de soporte técnico de AppBlade a través de **support@appblade.com** y adjunte el archivo de metadatos descargado a su correo electrónico. Además, pídales que configuren la **dirección URL del emisor de SSO** como **https://appblade.com/saml**. Esta configuración es necesaria para que el inicio de sesión único funcione.
 
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.

@@ -50,7 +50,7 @@ Para habilitar su aplicación a fin de autenticar a los usuarios, primero deber�
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `http://localhost:8080/adal4jsample/`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-Una vez en el portal de la aplicación, cree un **Secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
+Una vez en el portal de la aplicación, cree un **Secreto de aplicación** para la aplicación y cópielo. Lo necesitará en breve.
 
 
 ## 2\. Configuración de la aplicación para que use la biblioteca ADAL4J y requisitos previos con Maven

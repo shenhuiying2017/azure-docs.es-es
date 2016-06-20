@@ -49,7 +49,7 @@ Todos los datos de Almacenamiento de datos SQL se almacenan en Almacenamiento pr
 
 ### Restauración de base de datos
 
-La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Las características de instantánea y restauración automáticas permiten proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. Para más información sobre la restauración de bases de datos, consulte [Restore a database in Azure SQL Data Warehouse (Portal)][] (Restauración de una base de datos en Almacenamiento de datos SQL de Azure (Portal)).
+La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Las características de instantánea y restauración automáticas permiten proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. Para más información sobre la restauración de bases de datos, consulte [Restore a database in Azure SQL Data Warehouse (Portal)][] \(Restauración de una base de datos en Almacenamiento de datos SQL de Azure (Portal)).
 
 ## Pasos siguientes
 Para otras tareas de administración importantes, consulte [Información general de administración][].
