@@ -3,7 +3,7 @@
 	description="Descubra cómo utilizar los enlaces de Aplicaciones móviles en funciones de Azure."
 	services="functions"
 	documentationCenter="na"
-	authors="christopheranderson"
+	authors="ggailey777"
 	manager="erikre"
 	editor=""
 	tags=""
@@ -15,8 +15,8 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="06/02/2016"
+	ms.author="glenga"/>
 
 # Enlaces de Aplicaciones móviles en funciones de Azure
 
@@ -25,6 +25,24 @@ Este artículo explica cómo configurar y codificar desencadenadores y enlaces d
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 Las Aplicaciones móviles del Servicio de aplicaciones de Azure le permiten exponer los datos de punto de conexión de la tabla a clientes móviles. Estos mismos datos tabulares se pueden usar con los enlaces de entrada y salida de Funciones de Azure. Dado que admiten el esquema dinámico, las aplicaciones móviles del back-end de Node.js son ideales para exponer los datos tabulares que se van a usar con las funciones. El esquema dinámico está habilitado de forma predeterminada y debe deshabilitarse en una aplicación móvil de producción. Para obtener más información acerca de los puntos de conexión de tabla en un back-end de Node.js, consulte [Información general: Operaciones de tabla](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). En Aplicaciones móviles, el back-end de Node.js admite la exploración y la edición de tablas en el portal. Para obtener más información, consulte [in-portal editing](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) (Edición en el portal) en el tema de SDK de Node.js. Si utiliza una aplicación móvil de back-end de .NET con Funciones de Azure, debe actualizar manualmente el modelo de datos, tal como lo requiera la función. Para obtener más información acerca de los punto de conexión de la tabla en una aplicación móvil del back-end .NET, consulte [Cómo definir un controlador de tabla](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) en el tema de SDK de back-end de Node.js.
+
+## Creación de una variable de entorno para la dirección URL de back-end de aplicación móvil
+
+Los enlaces de Aplicaciones móviles actualmente requieren la creación de una variable de entorno que devuelva la dirección URL del propio back-end de la aplicación móvil. Esta dirección URL puede encontrarse en el [Portal de Azure](https://portal.azure.com); para ello, busque su aplicación móvil y abra la hoja.
+
+![Hoja de Aplicaciones móviles en el portal de Azure](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+
+Para establecer esta dirección URL como una variable de entorno en su Function App:
+
+1. En su Function App del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de la aplicación de función) > **Go to App Service settings** (Ir a la configuración del Servicio de aplicaciones). 
+
+	![Hoja Configuración de Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
+
+2. En Function App, haga clic en **Toda la configuración** y desplácese hacia abajo hasta **Configuración de la aplicación**. En **configuración de la aplicación**, escriba un nuevo **Nombre** para la variable de entorno, pegue la dirección URL en **Valor**, asegúrese de utilizar el esquema HTTPS y, a continuación, haga clic en **Guardar** y cierre la hoja Function App para volver al portal de funciones.
+
+	![Agregar una variable de entorno de configuración de aplicación](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+
+Ahora puede establecer esta variable de entorno nuevo como el campo *conexión* en los enlaces.
 
 ## <a id="mobiletablesapikey"></a> Use una clave de API para proteger el acceso a los puntos de conexión de las tablas de Aplicaciones móviles.
 
@@ -45,7 +63,7 @@ El archivo *function.json* admite las siguientes propiedades:
 - `tableName`: tabla donde se creará el nuevo registro.
 - `id`: identificador del registro que se recupera. Esta propiedad admite enlaces similares a `{queueTrigger}`, que usarán el valor de cadena del mensaje en cola como identificador del registro.
 - `apiKey`: cadena que constituye el parámetro de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
-- `connection`: cadena que constituye la configuración de la aplicación que especifica el identificador URI de la aplicación móvil.
+- `connection`: cadena que es el nombre de la variable de entorno en la configuración de la aplicación que especifica la dirección URL del back-end de su aplicación móvil.
 - `direction`: dirección del enlace, que se debe establecer en *in*.
 
 Archivo *function.json* de ejemplo:
@@ -57,7 +75,7 @@ Archivo *function.json* de ejemplo:
 	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
-	      "connection": "My_MobileApp_Uri",
+	      "connection": "My_MobileApp_Url",
 	      "apiKey": "My_MobileApp_Key",
 	      "direction": "in"
 	    }
@@ -102,7 +120,7 @@ El archivo function.json admite las siguientes propiedades:
 - `type`: el tipo de enlace que se debe establecer en *mobileTable*.
 - `tableName`: la tabla donde se crea el nuevo registro.
 - `apiKey`: cadena que constituye el parámetro de la aplicación que especifica la clave de API opcional para la aplicación móvil. Esta es necesaria si la aplicación móvil usa una clave de API para restringir el acceso de cliente.
-- `connection`: cadena que constituye la configuración de la aplicación que especifica el identificador URI de la aplicación móvil.
+- `connection`: cadena que es el nombre de la variable de entorno en la configuración de la aplicación que especifica la dirección URL del back-end de su aplicación móvil.
 - `direction`: dirección de enlace, que se debe establecer en *out*.
 
 Function.json de ejemplo:
@@ -113,7 +131,7 @@ Function.json de ejemplo:
 	      "name": "record",
 	      "type": "mobileTable",
 	      "tableName": "MyTable",
-	      "connection": "My_MobileApp_Uri",
+	      "connection": "My_MobileApp_Url",
 	      "apiKey": "My_MobileApp_Key",
 	      "direction": "out"
 	    }
@@ -149,4 +167,4 @@ Este ejemplo de código de Node.js inserta un registro nuevo en un punto de cone
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

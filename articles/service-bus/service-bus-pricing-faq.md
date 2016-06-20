@@ -80,7 +80,7 @@ Al igual que con otros servicios de Azure, Bus de servicio aplica un conjunto de
 	- **Cola/tema/suscripción**: el número de conexiones TCP simultáneas en una cola/tema/suscripción está limitado a 100. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Para cada generador de mensajes, el Bus de servicio mantiene una conexión TCP si cualquiera de los clientes creados por esa factoría de mensajes tiene una operación activa pendiente o ha completado una operación hace menos de 60 segundos. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas.
 
 
-- **Número de agentes de escucha simultáneos en una retransmisión**: el número de agentes de escucha **netTcpRelay** y **netHttpRelay ** en una retransmisión está limitada a 25 (1 para una retransmisión **NetOneway**).
+- **Número de agentes de escucha simultáneos en una retransmisión**: el número de agentes de escucha **netTcpRelay** y **netHttpRelay** en una retransmisión está limitada a 25 (1 para una retransmisión **NetOneway**).
 
 - **Número de agentes de escucha de retransmisión simultáneos por espacio de nombres**: el Bus de servicio impone un límite de 2000 agentes de escucha de retransmisión simultáneos por espacio de nombres del servicio. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores para abrir agentes de escucha de retransmisión y el código de llamada recibirá una excepción.
 
@@ -100,7 +100,7 @@ Al igual que con otros servicios de Azure, Bus de servicio aplica un conjunto de
 
 - **Número de filtros SQL por tema**: el número máximo de filtros SQL por tema está limitado a 2000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
-- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
+- **Número de filtros de correlación por tema**: el número máximo de filtros de correlación por tema se limita a 100 000. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de creación de filtros adicionales en el tema y el código de llamada recibirá una excepción.
 
 Para obtener más información sobre las cuotas, consulte [Cuotas del Bus de servicio](service-bus-quotas.md).
 
@@ -112,8 +112,8 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Introducción a la mensajería Premium del Bus de servicio de Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Información general sobre la arquitectura de Bus de servicio de Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

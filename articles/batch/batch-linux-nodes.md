@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure
 
 El servicio Lote de Azure le permite ejecutar cargas de trabajo de proceso paralelas en máquinas virtuales de Linux y Windows. Este artículo detalla cómo crear grupos de nodos de proceso de Linux en el servicio Lote mediante las bibliotecas de cliente de [Python de Lote][py_batch_package] y [.NET de Lote][api_net].
 
-> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) y las [tareas de instancias múltiples](batch-mpi.md) no son **compatibles actualmente** con los nodos de proceso de Linux.
+> [AZURE.NOTE] La compatibilidad con Linux en el servicio Lote está actualmente en vista previa. Pueden cambiar algunos aspectos de la característica aquí descrita antes de que tenga disponibilidad general. Los [paquetes de aplicación](batch-application-packages.md) **no se admiten actualmente** en los nodos de proceso de Linux.
 
 ## Configuración de la máquina virtual
 
@@ -28,7 +28,7 @@ Cuando crea un grupo de nodos de proceso en el servicio Lote, tiene dos opciones
 
 **Configuración de servicios en la nube** *solo* proporciona nodos de proceso de Windows. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md) y los sistemas operativos disponibles se enumeran en [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Cuando se crea un grupo que contiene los nodos de servicios en la nube, debe especificar únicamente el tamaño del nodo y la "familia del SO" que se encuentran en estos artículos. Cuando se crean grupos de nodos de proceso de Windows, la mayoría de las veces se utilizan los servicios en la nube.
 
-La **Configuración de máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) y [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de los nodos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** del servicio Lote que desea instalar en los nodos.
+La **Configuración de máquina virtual** proporciona imágenes de Linux y Windows para los nodos de proceso. Los tamaños de nodos de proceso disponibles se muestran en [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) y [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-windows-sizes.md) (Windows). Cuando se crea un grupo que contiene los nodos de configuración de máquina virtual, debe especificar no solo el tamaño de los nodos, sino también la **referencia de la imagen de máquina virtual** y el **SKU del agente de nodo** del servicio Lote que desea instalar en los nodos.
 
 ### Referencia de imagen de máquina virtual
 
@@ -41,7 +41,7 @@ El servicio Lote utiliza [conjuntos de escalas de máquina virtual](../virtual-m
 | SKU | 14\.04.4-LTS |
 | Versión | más reciente |
 
-> [AZURE.TIP] Puede encontrar más información acerca de estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con CLI o Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote, consulte [SKU del agente de nodo](#node-agent-sku) a continuación.
+> [AZURE.TIP] Puede encontrar más información acerca de estas propiedades y cómo mostrar imágenes de Marketplace en [Navegación y selección de las imágenes de máquina virtual Linux en Azure con la CLI o Powershell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Tenga en cuenta que no todas las imágenes de Marketplace son actualmente compatibles con el servicio Lote, consulte [SKU del agente de nodo](#node-agent-sku) a continuación.
 
 ### SKU del agente de nodo
 
@@ -51,7 +51,7 @@ El agente de nodo del servicio Lote es un programa que se ejecuta en cada nodo d
 * batch.node.centos 7
 * batch.node.windows amd64
 
-> [AZURE.IMPORTANT] No todas las imágenes de máquinas virtuales disponibles en Marketplace son compatibles con los agentes de nodo del servicio Lote disponibles actualmente. Debe utilizar los SDK del servicio Lote para mostrar las SKU del agente de nodo disponibles y las imágenes de máquina virtual con las que son compatibles. Consulte la [lista de imágenes de máquina virtual](#list-of-virtual-machine-images) a continuación para más información.
+> [AZURE.IMPORTANT] No todas las imágenes de máquinas virtuales disponibles en Marketplace son compatibles con los agentes de nodo del servicio Lote disponibles actualmente. Debe utilizar los SDK del servicio Lote para mostrar las SKU del agente de nodo disponibles y las imágenes de máquina virtual con las que son compatibles. Consulte la [Lista de imágenes de máquinas virtuales](#list-of-virtual-machine-images) a continuación para más información.
 
 ## Cree un grupo de Linux: Python de Lote
 
@@ -134,7 +134,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 
 ## Cree un grupo de Linux: .NET de Lote
 
-El fragmento de código siguiente muestra la creación de un grupo de nodos de proceso de servidor de Ubuntu mediante la [biblioteca de cliente de .NET de Lote][nuget_batch_net]. Puede encontrar la [documentación de referencia de .NET de Lote][api_net] en MSDN.
+El fragmento de código siguiente muestra la creación de un grupo de nodos de proceso de servidor de Ubuntu mediante la biblioteca de cliente de [.NET de Lote][nuget_batch_net]. Puede encontrar la [documentación de referencia de .NET de Lote][api_net] en MSDN.
 
 El fragmento de código siguiente utiliza el método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para seleccionar entre la lista de combinaciones de imágenes de Marketplace y SKU del agente de nodo admitidas actualmente. Esta técnica es recomendable porque la lista de combinaciones admitidas puede cambiar de vez en cuando (normalmente se agregan más combinaciones admitidas).
 
@@ -210,11 +210,13 @@ La tabla siguiente enumera las imágenes de máquinas virtuales de Marketplace q
 | Canonical | UbuntuServer | 14\.04.3-LTS | más reciente | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | más reciente | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 15\.10 | más reciente | batch.node.debian 8 |
+| Canonical | UbuntuServer | 16\.04.0-LTS | más reciente | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | más reciente | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | más reciente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1 | más reciente | batch.node.centos 7 |
 | OpenLogic | CentOS | 7,2 | más reciente | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | más reciente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7\.1 | más reciente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7\.0 | más reciente | batch.node.centos 7 |
 | SUSE | SLES | 12 | más reciente | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | más reciente | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12 | más reciente | batch.node.opensuse 42.1 |
@@ -283,9 +285,13 @@ El servicio Lote de Azure se basa en la tecnología de Servicios en la nube de A
 
 ## Pasos siguientes
 
+### Tutorial de Python de Lote
+
+Para obtener un tutorial más completo sobre cómo trabajar con Lote mediante Python, consulte [Introducción al cliente Python de Lote de Azure](batch-python-tutorial.md). El [código de ejemplo][github_samples_pyclient] complementario incluye una función auxiliar, `get_vm_config_for_distro`, que muestra otra técnica para obtener una configuración de máquina virtual.
+
 ### Ejemplos de código de Python de lote
 
-Extraiga los [ejemplos de código de Python][github_samples_py] del repositorio [azure-batch-samples][github_samples] en GitHub para obtener varios scripts que muestran cómo realizar operaciones comunes del servicio de Lote como crear grupos, trabajos, tareas y muchas más. El archivo [LÉAME][github_py_readme] que acompaña a los ejemplos de Python incluye detalles acerca de cómo instalar los paquetes necesarios.
+Extraiga los otros [ejemplos de código de Python][github_samples_py] del repositorio [azure-batch-samples][github_samples] en GitHub para obtener varios scripts que muestran cómo realizar operaciones comunes del servicio de Lote como crear grupos, trabajos, tareas y muchas más. El archivo [LÉAME][github_py_readme] que acompaña a los ejemplos de Python incluye detalles acerca de cómo instalar los paquetes necesarios.
 
 ### Foro de Batch
 
@@ -299,6 +305,7 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
@@ -320,4 +327,4 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Diagrama de alto nivel de paquetes de aplicación"
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

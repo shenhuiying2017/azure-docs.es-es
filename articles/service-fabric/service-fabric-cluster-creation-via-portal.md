@@ -100,24 +100,20 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
 15. Opcionalmente: establezca la **configuración del clúster de Service** Fabric. Con esta opción avanzada, puede cambiar la configuración predeterminada para el clúster de Service Fabric. Se recomienda no cambiar los valores predeterminados a menos que esté seguro de que la aplicación o el clúster así lo requieren.
 
-
-
 ## Paso 3: Configuración de seguridad
 
-En la actualidad, Service Fabric solo admite la protección de clústeres mediante un certificado X509. Antes de comenzar este proceso, tendrá que cargar el certificado en el almacén de claves. Consulte [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para obtener más detalles de cómo hacerlo.
+Los conceptos y escenarios de seguridad se documentan en [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md). En este momento, Service Fabric solo admite la protección de clústeres a través de un certificado X509. Consulte [Secure a Service Fabric cluster on Azure using certificates](service-fabric-secure-azure-cluster-with-certs.md) (Protección de un clúster de Service Fabric en Azure mediante certificados).
 
 La protección de los clústeres es opcional pero es muy recomendable. Si decide no proteger el clúster, cambie el **Modo de seguridad** a **No seguro**. Tenga en cuenta que **no** podrá actualizar un clúster no seguro a uno seguro posteriormente.
-
-Puede encontrar documentación sobre las consideraciones e instrucciones de seguridad en [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md).
 
 ![Captura de pantalla de las configuraciones de seguridad del Portal de Azure.][SecurityConfigs]
 
 
 ## Paso 4: Finalización de la creación del clúster
 
-Para completar la creación del clúster, haga clic en **Resumen** para ver las configuraciones que ha proporcionado, o descargar la plantilla de Azure Resource Manager que se utilizará para implementar el clúster. Una vez que haya proporcionado los valores de configuración obligatorios, se habilitará el botón **Aceptar** y podrá iniciar el proceso de creación del clúster al hacer clic en él.
+Para completar la creación del clúster, haga clic en **Resumen** para ver las configuraciones que ha proporcionado, o descargue la plantilla de Azure Resource Manager que se utilizará para implementar el clúster. Cuando haya proporcionado los valores de configuración obligatorios, se habilitará el botón **Aceptar** y podrá iniciar el proceso de creación del clúster al hacer clic en él.
 
-Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "Campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Implementando el clúster de Service Fabric** anclado en el panel de **Inicio**.
+Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "Campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando el clúster de Service Fabric) anclado al panel de **Inicio**.
 
 ![Captura de pantalla de panel de inicio, donde se muestra "Implementando el clúster de Service Fabric".][Notifications]
 
@@ -129,9 +125,9 @@ Una vez finalizado el clúster, puede inspeccionarlo en el portal:
 
 2. Busque el clúster y haga clic en él. ![Captura de pantalla de la identificación del clúster en el portal.][BrowseCluster]
 
-3. Ahora puede ver los detalles del clúster en el panel, incluida la dirección de IP pública del clúster. Tenga en cuenta que al mantener el mouse sobre **Dirección IP pública del clúster** aparecerá un portapapeles en el que puede hacer clic para copiar la dirección. ![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
+3. Ahora puede ver los detalles del clúster en el panel, incluida la dirección de IP pública del clúster. Tenga en cuenta que al mantener el mouse sobre **Cluster Public IP Address** (Dirección IP pública del clúster) aparecerá un portapapeles en el que puede hacer clic para copiar la dirección. ![Captura de pantalla de los detalles del clúster en el panel.][ClusterDashboard]
 
-  En la sección **Monitor de nodo** de la hoja del panel del clúster se indica el número de máquinas virtuales correctas e incorrectas. Puede encontrar más detalles sobre el estado del clúster en [Introducción al modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md).
+  En la sección **Node Monitor** (Monitor de nodo) de la hoja del panel del clúster se indica el número de máquinas virtuales correctas e incorrectas. Puede encontrar más detalles sobre el estado del clúster en [Introducción a la supervisión del mantenimiento de Service Fabric](service-fabric-health-introduction.md).
 
 >[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
 
@@ -229,4 +225,4 @@ Después de crear un clúster, obtenga más información sobre cómo protegerlo 
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

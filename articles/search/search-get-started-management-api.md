@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 # Introducción a la API de REST de administración de búsqueda de Azure
@@ -38,7 +38,7 @@ Para completar este tutorial, deberá tener una cuenta de Azure:
 
 Este tutorial se basa en una aplicación de consola de Windows escrita en C#, que puede editar y ejecutar en Visual Studio 2012 o 2013
 
-Puede encontrar la aplicación cliente en Codeplex en [Demostración de la API de administración de Búsqueda de Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
+Puede encontrar la aplicación cliente en Github en la [demostración de la API de administración de Búsqueda de Azure](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configuración de la aplicación
@@ -208,4 +208,4 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

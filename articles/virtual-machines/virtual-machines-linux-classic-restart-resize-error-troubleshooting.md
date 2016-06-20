@@ -57,7 +57,7 @@ Si se produce un error al intentar crear un nuevo servicio en la nube, vuelva a 
 
 > [AZURE.IMPORTANT] El nuevo servicio en la nube tendrá un nuevo nombre y dirección VIP, por lo que deberá cambiar dicha información en todas las dependencias que utilicen dicha información para el servicio en la nube existente.
 
-## Problema: Error al reiniciar una máquina virtual existente
+## Problema: error al reiniciar una máquina virtual existente
 
 Intenta cambiar el tamaño de una máquina virtual existente, pero obtiene un error de asignación.
 
@@ -81,4 +81,4 @@ Puede consolidar todas las máquinas virtuales en el mismo servicio en la nube. 
 
 Si el servicio en la nube existente no está asociado a una red virtual basada en regiones, tendrá que eliminar sus máquinas virtuales y volver a crearlas en el nuevo servicio en la nube desde los discos. No obstante, es importante recordar que el nuevo servicio en la nube tendrá un nuevo nombre y dirección VIP, por lo que deberá actualizar esta información en todas las dependencias que utilicen esta información para el servicio en la nube existente.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

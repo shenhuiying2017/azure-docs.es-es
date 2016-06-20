@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/05/2016" 
 	ms.author="awills"/>
  
 # Diagnóstico proactivo en tiempo casi real
@@ -23,9 +23,11 @@ Esta característica funciona para aplicaciones web ASP.NET y de Java, hospedada
 
 Después de configurar [Application Insights para su proyecto](app-insights-get-started.md), y siempre que la aplicación genere una cantidad mínima determinada de datos de telemetría, el diagnóstico proactivo en tiempo casi real tarda 24 horas en familiarizarse con el comportamiento normal de la aplicación. Después, se activará y podrá enviar alertas.
 
-Esta es una alerta de ejemplo:
+Esta es una alerta de ejemplo.
 
 ![El ejemplo de alerta inteligente muestra el análisis del clúster sobre el error](./media/app-insights-nrt-proactive-diagnostics/010.png)
+
+> [AZURE.NOTE] De forma predeterminada, obtendrá un correo de formato más corto que este ejemplo. Pero puede [cambiar a este formato detallado](#configure-alerts).
 
 Observe que le indica:
 
@@ -35,7 +37,9 @@ Observe que le indica:
 * Las excepciones, seguimientos de registros y errores de dependencias (bases de datos u otros componentes externos) que parecen estar asociados con las solicitudes erróneas caracterizadas.
 * Los vínculos directos a búsquedas significativas en los datos de telemetría en Application Insights.
 
-Normalmente las [alertas de métricas](app-insights-alerts.md) le comunican que puede haber un problema. Pero el diagnóstico proactivo en tiempo casi real, empieza el trabajo de diagnóstico, realizando muchos de los análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
+## Ventajas de alertas proactivas
+
+Las [alertas de métricas](app-insights-alerts.md) normales le comunican que puede haber un problema. Pero el diagnóstico proactivo en tiempo casi real, empieza el trabajo de diagnóstico, realizando muchos de los análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
 
 ## Cómo funciona
 
@@ -53,17 +57,40 @@ El análisis resultante se le envía como una alerta, a no ser que configurara l
 
 Al igual que sucede con las [alertas que establece manualmente](app-insights-alerts.md), puede inspeccionar el estado de la alerta y configurarla en la hoja Alertas del recurso de Application Insights. No obstante, a diferencia de otras alertas, no tiene que instalar ni configurar un diagnóstico proactivo en tiempo casi real. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
+
+## Configurar alertas 
+
+Puede deshabilitar los diagnósticos proactivos, cambiar los destinatarios de correo electrónico, crear un proyecto de Webhook u optar por recibir mensajes de alerta más detallados.
+
+Abra la página Alertas. Se incluye el diagnóstico proactivo en cualquier alerta configurada manualmente, y puede ver si se encuentra actualmente en el estado de alerta.
+
+![En la página de información general, haga clic en el icono Alertas. O bien, en cualquier página de métricas, haga clic en el botón Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+
+Haga clic en la alerta para configurarla.
+
+![Configuración](./media/app-insights-nrt-proactive-diagnostics/031.png)
+
+
+Observe que puede deshabilitar el diagnóstico proactivo, pero no puede eliminarlo (ni crear otro).
+
+#### Alertas detalladas
+
+Si selecciona "Recibir análisis detallado", el correo electrónico contendrá más información de diagnóstico. A veces podrá diagnosticar el problema simplemente con los datos del correo electrónico.
+
+Existe un pequeño riesgo de que la alerta más detallada contenga información confidencial, ya que incluye mensajes de excepciones y seguimientos. Sin embargo, esto solo podría ocurrir si el código permitiera información confidencial en esos mensajes.
+
+
 ## Clasificación y diagnóstico de una alerta
 
 Una alerta indica que se detectó un aumento anómalo de la tasa de solicitudes con errores. Es probable que haya algún problema con la aplicación o con su entorno.
 
-Puede determinar la urgencia del problema a partir del porcentaje de solicitudes y del número de usuarios afectados. En el ejemplo anterior, la tasa de error del 15 % se compara con una tasa normal del 1,3 %, lo que indica que hay algo que no va bien. 22 usuarios diferenciados se vieron afectados por errores en una operación determinada. Si se tratara de su aplicación, podría evaluar la importancia que tiene el problema.
+Puede determinar la urgencia del problema a partir del porcentaje de solicitudes y del número de usuarios afectados. En el ejemplo anterior, la tasa de error del 22.5 % se compara con una tasa normal del 1 %, lo que indica que hay algo que no va bien. Por otro lado, solo 11 usuarios se vieron afectados. Si se tratara de su aplicación, podría evaluar la importancia que tiene el problema.
 
 En muchos casos, podrá diagnosticar el problema rápidamente a partir del nombre de la solicitud, las excepciones, los errores de dependencias y otros datos de seguimiento proporcionados.
 
 Hay algunas otras pistas. Por ejemplo, la tasa de error de dependencia en este ejemplo es la misma que la tasa de excepción (89,3 %). Esto sugiere que la excepción se produce directamente desde el error de dependencia, lo que le da una idea clara de dónde puede empezar a buscar en el código.
 
-Pero si necesita investigar más, los vínculos de cada sección le llevarán directamente a una [página de búsqueda](app-insights-diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento relevantes. O bien puede abrir el [Portal de Azure](https://portal.azure.com), navegar hasta el recurso de Application Insights de su aplicación y abrir la hoja Problemas.
+Pero si necesita investigar más, los vínculos de cada sección le llevarán directamente a una [página de búsqueda](app-insights-diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento correspondientes. O puede abrir el [Portal de Azure](https://portal.azure.com), navegar hasta el recurso de Application Insights de su aplicación y abrir la hoja Errores.
 
 En este ejemplo, al hacer clic en el vínculo 'Ver detalles de errores de dependencias' se abre la hoja de búsqueda de Application Insights en la instrucción SQL con la causa principal: se proporcionaron valores NULL en campos obligatorios y, por ello, no se superó la validación durante la operación de guardado.
 
@@ -74,22 +101,16 @@ En este ejemplo, al hacer clic en el vínculo 'Ver detalles de errores de depend
 
 Para consultar las alertas en el portal, abra **Configuración, Registros de auditoría**.
 
-![Resumen de alertas](./media/app-insights-nrt-proactive-diagnostics/040.png)
+![Resumen de alertas](./media/app-insights-nrt-proactive-diagnostics/041.png)
+
 
 Haga clic en cualquier alerta para ver sus detalles completos.
 
+O haga clic en **Detección proactiva** para ir directamente a la alerta más reciente:
 
-## Configurar alertas 
+![Resumen de alertas](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-Abra la página Alertas. Se incluye el diagnóstico proactivo en cualquier alerta configurada manualmente, y puede ver si se encuentra actualmente en el estado de alerta.
 
-![En la página de información general, haga clic en el icono Alertas. O bien, en cualquier página de métricas, haga clic en el botón Alertas.](./media/app-insights-nrt-proactive-diagnostics/021.png)
-
-Haga clic en la alerta para configurarla.
-
-![Configuración](./media/app-insights-nrt-proactive-diagnostics/031.png)
-
-Observe que puede deshabilitar el diagnóstico proactivo, pero no puede eliminarlo (ni crear otro).
 
 
 ## ¿Cuál es la diferencia ...
@@ -138,4 +159,4 @@ El diagnóstico proactivo NRT complementa a otras características diferentes pe
 
 *Estamos muy interesados en saber lo que piensa sobre esto. Envíe sus comentarios a* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

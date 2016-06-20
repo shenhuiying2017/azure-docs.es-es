@@ -36,13 +36,13 @@ Vamos a usar un [experimento de entrenamiento](https://gallery.cortanaintelligen
 
 >[AZURE.NOTE] Para seguir este ejemplo, puede que le interese usar un área de trabajo estándar en lugar de un área de trabajo gratis. Crearemos un punto de conexión para cada cliente (para un total de 10 puntos de conexión) y que requerirá un área de trabajo estándar, ya que un área de trabajo gratis se limitado a 3 puntos de conexión. Si solo tiene un área de trabajo gratis, solo tiene que modificar los scripts siguientes para permitir solo 3 ubicaciones.
 
-El experimento usa un módulo **Lector** para importar el conjunto de datos de entrenamiento *customer001.csv* desde una cuenta de almacenamiento de Azure. Supongamos que hemos recopilado los conjuntos de datos de entrenamiento de todas las ubicaciones de alquiler de bicicletas y los hemos almacenado en la misma ubicación de almacenamiento de blobs con nombres de archivo que van desde *rentalloc001.csv* a *rentalloc10.csv*.
+El experimento usa un módulo **Importar datos** para importar el conjunto de datos de entrenamiento *customer001.csv* desde una cuenta de almacenamiento de Azure. Supongamos que hemos recopilado los conjuntos de datos de entrenamiento de todas las ubicaciones de alquiler de bicicletas y los hemos almacenado en la misma ubicación de almacenamiento de blobs con nombres de archivo que van desde *rentalloc001.csv* a *rentalloc10.csv*.
 
 ![imagen](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
 Tenga en cuenta que se ha agregado un módulo **Web Service Output** (Salida del servicio web) al módulo **Entrenar modelo**. Cuando este experimento se implementa como un servicio web, el punto de conexión asociado a esa salida devolverá el modelo entrenado con el formato de un archivo .ilearner.
 
-Observe también que configuramos un parámetro de servicio web para la dirección URL que el módulo **Lector** utiliza. Esto nos permite utilizar el parámetro para especificar conjuntos de datos de entrenamiento individuales para entrenar el modelo para cada ubicación. Hay otras maneras mediante las que podríamos haber hecho esto, por ejemplo, usando una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos SQL Azure, o simplemente usando un módulo **Web Service Input** (Entrada del servicio web) para pasar en un conjunto de datos al servicio web.
+Observe también que configuramos un parámetro de servicio web para la dirección URL que el módulo **Importar datos** utiliza. Esto nos permite utilizar el parámetro para especificar conjuntos de datos de entrenamiento individuales para entrenar el modelo para cada ubicación. Hay otras maneras mediante las que podríamos haber hecho esto, por ejemplo, usando una consulta SQL con un parámetro de servicio web para obtener datos de una base de datos SQL Azure, o simplemente usando un módulo **Web Service Input** (Entrada del servicio web) para pasar en un conjunto de datos al servicio web.
 
 ![imagen](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -159,4 +159,4 @@ Este es el listado del código fuente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

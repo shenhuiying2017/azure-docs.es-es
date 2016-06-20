@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: marco de directiva extensible
@@ -161,4 +161,4 @@ Para habilitar en su aplicación el restablecimiento de contraseña específica,
 
 - [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

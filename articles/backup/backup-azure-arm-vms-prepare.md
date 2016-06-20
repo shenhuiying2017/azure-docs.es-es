@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Preparación del entorno para la copia de seguridad de máquinas virtuales de ARM | Microsoft Azure"
+	pageTitle="Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager | Microsoft Azure"
 	description="Asegúrese de que el entorno está preparado para la copia de seguridad de máquinas virtuales en Azure"
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="copias de seguridad; realizar copia de seguridad"/>
 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Preparación del entorno de copia de seguridad de máquinas virtuales de ARM
+# Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
 > [AZURE.SELECTOR]
 - [Modelo de Resource Manager](backup-azure-arm-vms-prepare.md).
 - [Modelo clásico](backup-azure-vms-prepare.md)
 
-En este artículo se proporcionan los pasos necesarios para preparar el entorno de copia de seguridad de una máquina virtual (VM) de Azure Resource Manager (ARM). Los pasos que se muestran en los procedimientos utilizan el Portal de Azure.
+En este artículo se proporcionan los pasos necesarios para preparar el entorno de copia de seguridad de una máquina virtual (VM) implementada según el modelo de Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure.
 
-El servicio Copia de seguridad de Azure dispone de dos tipos de almacenes (almacenes de copia de seguridad y almacenes de servicios de recuperación) para proteger las máquinas virtuales. Un almacén de copia de seguridad protege las máquinas virtuales implementadas mediante el modelo de implementación clásica. Un almacén de servicios de recuperación protege **tanto máquinas virtuales implementadas con el modelo clásico como las implementadas mediante ARM**. Para proteger las máquinas virtuales implementadas con ARM, debe usar un almacén de Servicios de recuperación.
+El servicio Copia de seguridad de Azure dispone de dos tipos de almacenes (almacenes de copia de seguridad y almacenes de servicios de recuperación) para proteger las máquinas virtuales. Un almacén de copia de seguridad protege las máquinas virtuales implementadas mediante el modelo de implementación clásica. Un almacén de servicios de recuperación protege **tanto máquinas virtuales implementadas con el modelo clásico como las implementadas mediante Resource Manager**. Para proteger las máquinas virtuales implementadas según el modelo de Resource Manager, debe usar un almacén de Servicios de recuperación.
 
 >[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Consulte [Preparación del entorno de copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-prepare.md) para más información sobre cómo trabajar con las máquinas virtuales del modelo de implementación clásica.
 
-Antes de poder proteger una máquina virtual (VM) de ARM o realizar una copia de seguridad de una de estas máquinas, asegúrese de cumplir los siguientes requisitos previos:
+Para proteger una máquina virtual implementada según el modelo de Resource Manager o realizar una copia de seguridad de una de estas máquinas, asegúrese de cumplir los siguientes requisitos previos:
 
 - Ha creado un almacén de Servicios de recuperación (o ha identificado uno existente) *en la misma ubicación que la VM*.
 - Ha seleccionado un escenario, ha definido la directiva de copia de seguridad y ha definido los elementos que quiere proteger.
@@ -238,11 +238,11 @@ En este paso se configura el servidor proxy para la cuenta de sistema local.
      ```
     Se abrirá la ventana de Internet Explorer.
 3. Vaya a Herramientas -> Opciones de Internet -> Conexiones -> Configuración de LAN.
-4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto. 
+4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto.
 5. Cierre Internet Explorer.
 
 Se configurará el proxy en todo el equipo y se usará para el tráfico saliente de HTTP/HTTPS.
-   
+
 Si ha configurado un servidor proxy en una cuenta de usuario actual (no en una cuenta de sistema local), use el siguiente script para aplicarlo a SYSTEMACCOUNT:
 
 ```
@@ -256,7 +256,7 @@ Si ha configurado un servidor proxy en una cuenta de usuario actual (no en una c
 
 >[AZURE.NOTE] Si ve el mensaje "(407) Se requiere autenticación del proxy" en el registro del servidor proxy, compruebe que su autenticación está configurada correctamente.
 
-######Para máquinas Linux 
+######Para máquinas Linux
 
 Agregue la siguiente línea al archivo ```/etc/environment```:
 
@@ -265,7 +265,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Agregue las líneas siguientes al archivo ```/etc/waagent.conf```:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -309,7 +309,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *En estos pasos se utilizan valores y nombres específicos para este ejemplo. Cuando especifique detalles en el código, o los corte o pegue, use los nombres y los valores de su implementación.*
 
 
-Ahora que sabe que tiene conectividad de red, está listo para realizar la copia de seguridad de la máquina virtual. Consulte [Copia de seguridad de máquinas virtuales (VM) de Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
+Ahora que sabe que tiene conectividad de red, está listo para realizar la copia de seguridad de la máquina virtual. Consulte [Copia de seguridad de máquinas virtuales de Azure Resource Manager (ARM)](backup-azure-arm-vms.md).
 
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
@@ -321,4 +321,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

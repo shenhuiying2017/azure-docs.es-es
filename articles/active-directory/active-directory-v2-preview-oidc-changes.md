@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Actualizaciones importantes de los protocolos de autenticación de la versión 2.0
@@ -67,7 +67,8 @@ Anteriormente, el punto de conexión v2.0 ha estado devolviendo un objeto JSON c
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-La respuesta se parecerá al siguiente objeto JSON: ```
+La respuesta era como el siguiente objeto JSON:
+```
 { 
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -216,4 +217,4 @@ Por último, queremos darles las gracias por probar las funciones durante el per
 
 Microsoft Identity Division
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

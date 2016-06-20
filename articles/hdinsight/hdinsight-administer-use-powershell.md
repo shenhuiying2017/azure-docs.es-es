@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
@@ -60,10 +60,15 @@ Use el comando siguiente para mostrar los detalles de un clúster específico en
 	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Eliminación de clústeres
+
 Use el comando siguiente para eliminar un clúster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
+También puede eliminar un clúster quitando el grupo de recursos que contiene el clúster. Tenga en cuenta que esto eliminará todos los recursos del grupo, incluida la cuenta de almacenamiento predeterminada.
+
+	Remove-AzureRmResourceGroup -Name <Resource Group Name>
+			
 ##Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
@@ -234,4 +239,4 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

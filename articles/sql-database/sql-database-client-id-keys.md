@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="03/15/2016"
+   ms.date="06/06/2016"
    ms.author="sstein"/>
 
 # Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código
@@ -57,8 +57,8 @@ Para crear una nueva aplicación y registrarla, haga lo siguiente:
 
 1. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
-1. Seleccione **API de administración de servicios de Windows Azure** y, después, complete el asistente.
-2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Windows Azure** y haga clic en **Permisos delegados**.
+1. Seleccione **API de administración de servicios de Microsoft Azure** y, después, complete el asistente.
+2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
 3. Seleccione **Acceder a la administración de servicios de Azure...**
 
     ![permisos][2]
@@ -108,8 +108,8 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
 1. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
-1. Busque la opción **API de administración de servicios de Windows Azure** y selecciónela y, después, complete el asistente.
-2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Windows Azure** y haga clic en **Permisos delegados**.
+1. Busque la opción **API de administración de servicios de Microsoft Azure** y selecciónela y, después, complete el asistente.
+2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
 3. Seleccione **Acceder a la administración de servicios de Azure...**
 
     ![permisos][2]
@@ -250,4 +250,4 @@ Para ejemplos de código específicos y que estén relacionados con la autentica
 [13]: ./media/sql-database-client-id-keys/key-duration.png
 [14]: ./media/sql-database-client-id-keys/web-secrets.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

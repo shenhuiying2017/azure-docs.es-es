@@ -19,7 +19,7 @@
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-overview-manage-compute.md)
+- [Información general](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte [Manage compute power overview][] (Administración de la potencia de proceso (información general)).
+Para más información, consulte [Manage compute power overview][] \(Administración de la eficacia de los procesos (información general)).
 
 <a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
 
@@ -61,7 +61,7 @@ Content-Type: application/json; charset=UTF-8
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description (Descripción de pausa de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar una base de datos, use la API de REST [Pause Database][] (Pausar la base de datos). El siguiente ejemplo pausa una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+Para pausar una base de datos, use la API de REST [Pause Database][] \(Pausar la base de datos). El siguiente ejemplo pausa una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description (Descripción de reanudación de Almacenamiento de datos SQL)](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para iniciar una base de datos, use la API de REST [Resume Database][] (Reanudar la base de datos). El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
+Para iniciar una base de datos, use la API de REST [Resume Database][] \(Reanudar la base de datos). El siguiente ejemplo inicia una base de datos denominada Database02 que está hospedada en un servidor llamado Server01. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -83,14 +83,13 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 ## Pasos siguientes
 
-Para otras tareas de administración, consulte [Management overview][] (Información general de administración).
+Para otras tareas de administración, consulte [Management overview][] \(Información general de administración).
 
 <!--Image references-->
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
@@ -101,4 +100,4 @@ Para otras tareas de administración, consulte [Management overview][] (Informac
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

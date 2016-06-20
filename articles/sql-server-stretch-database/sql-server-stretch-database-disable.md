@@ -24,9 +24,9 @@ Para deshabilitar Stretch Database para una tabla, seleccione **Stretch** para u
 
 -   **Deshabilitar | Dejar los datos en Azure**. Deshabilita Stretch Database para la tabla. Abandona los datos remotos para la tabla en Azure.
 
-Después de deshabilitar Stretch Database para una tabla, se detiene la migración de datos y los resultados de la consulta dejan de incluir los resultados de la tabla remota.
-
 También puede utilizar Transact-SQL para deshabilitar Stretch Database para una tabla o una base de datos.
+
+Después de deshabilitar Stretch Database para una tabla, se detiene la migración de datos y los resultados de la consulta dejan de incluir los resultados de la tabla remota.
 
 Si simplemente desea pausar la migración de datos, consulte [Pausa y reanudación de Stretch Database](sql-server-stretch-database-pause.md).
 
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Pausa y reanudación Stretch Database](sql-server-stretch-database-pause.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

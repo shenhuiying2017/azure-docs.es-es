@@ -45,7 +45,7 @@ Las extensiones que aparecen en esta sección proporcionan características de s
 |**McAfeeEndpointSecurity**|Protege la máquina virtual contra software malintencionado.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
 |**TrendMicroDSA**|Habilita la compatibilidad para la plataforma Deep Security de TrendMicro para proporcionar detección y prevención de intrusiones, firewall, antimalware, reputación web, inspección de registros y supervisión de la integridad.|[Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md)|
 |**PortalProtectExtension**|Protege contra las amenazas al entorno de Microsoft SharePoint.|[Securing Your SharePoint Deployment on Azure (Protección de la implementación de SharePoint en Azure)](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar para cuando software malintencionado o no deseado conocido intente se intente instalar o ejecutar en el sistema.|[Descargue información sobre antimalware](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**IaaSAntimalware**|Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure es una funcionalidad de protección en tiempo real que ayuda a identificar y eliminar virus, spyware y otro software malintencionado, con alertas que se pueden configurar para cuando software malintencionado o no deseado conocido intente se intente instalar o ejecutar en el sistema.|[Microsoft Antimalware para Servicios en la nube y Máquinas virtuales de Azure](../articles/azure-security-antimalware.md)|
 |**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 habilita la seguridad y el rendimiento entre sistemas físicos y virtuales.|[Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 
 ##Administración y operaciones de máquinas virtuales
@@ -78,7 +78,7 @@ Estas extensiones brindan la compatibilidad para otras características de máqu
 
 |Nombre de la extensión de máquina virtual|Descripción de la característica|Más información|
 |---|---|---|
-|**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/mt589195.aspx)|
 |**HpcVmDrivers**|Instala, configura y mantiene los controladores de dispositivos de red para el acceso directo a memoria remota (RDMA) en una máquina virtual de tamaño A8 o A9 que ejecute Windows Server 2012 R2 o Windows Server 2012. Permite que las máquinas virtuales A8 o A9 agrupadas utilicen la red RDMA cuando ejecuten aplicaciones MPI en paralelo.|[Sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

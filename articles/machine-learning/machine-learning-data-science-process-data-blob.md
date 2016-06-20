@@ -180,7 +180,7 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Ahora se pueden leer los datos del blob mediante el módulo [Lector][reader] de Aprendizaje automático de Azure, como se muestra en la pantalla siguiente:
+3. Ahora se pueden leer los datos del blob mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, como se muestra en la pantalla siguiente:
  
 ![lector de blobs][1]
 
@@ -188,7 +188,7 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

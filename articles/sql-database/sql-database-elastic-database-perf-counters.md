@@ -36,7 +36,7 @@ Para crear los contadores, llame al método CreatePeformanceCategoryAndCounters 
 
 	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-El método crea los siguientes contadores de rendimiento:
+También puede usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script de PowerShell para ejecutar el método. El método crea los siguientes contadores de rendimiento:
 
 * **Cached mappings** (Asignaciones en caché): número de asignaciones almacenadas en caché para el mapa de particiones.
 *  **DDR operations/sec** (Operaciones de DDR/s): tasa de operaciones de enrutamiento dependientes de los datos para el mapa de particiones. Este contador se actualiza cuando una llamada a [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) da lugar a una conexión correcta a la partición de destino. 
@@ -73,4 +73,4 @@ Los contadores de rendimiento se actualizarán con todas las operaciones de cach
 <!--Anchors-->
 <!--Image references-->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

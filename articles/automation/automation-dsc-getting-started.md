@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="05/05/2016"
-   ms.author="eslesar"/>
+   ms.date="06/06/2016"
+   ms.author="magoedte;eslesar"/>
    
 
 # Introducción al DSC de Automatización de Azure:
 
-En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para ver la documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell] (Información general sobre la configuración de estado deseado de Windows PowerShell).
+En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para ver la documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell] \(Información general sobre la configuración de estado deseado de Windows PowerShell).
 
 Este tema proporciona a una guía paso a paso para usar DSC de Automatización de Azure. Si desea un entorno de ejemplo que ya se ha configurado sin seguir los pasos descritos en este tema, puede usar la plantilla de ARM de https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. Esta plantilla configura un entorno de DSC de Automatización de Azure completado, incluida una máquina virtual de Azure administrada por DSC de Automatización de Azure.
  
@@ -27,7 +27,7 @@ Este tema proporciona a una guía paso a paso para usar DSC de Automatización d
 
 Para completar los ejemplos de este tema, se requiere lo siguiente:
 
-- Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de Automatización de Azure, consulte [Configuración de Automatización de Azure](automation-configuring.md).
+- Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Automatización de Azure, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
 - Una máquina virtual de Azure Resource Manager (no clásico) ejecuta Windows Server 2008 R2, o cualquier versión posterior. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## Creación de una configuración de DSC
@@ -266,4 +266,4 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

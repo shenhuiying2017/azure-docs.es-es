@@ -64,6 +64,11 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
 ### ¿Se puede cambiar el nombre de una Factoría de datos?
 No. Al igual que otros recursos de Azure, el nombre de una Factorías de datos de Azure no se puede cambiar.
 
+### ¿Puedo mover una factoría de datos de una suscripción a Azure a otra? 
+Sí. Utilice el botón **Mover** situado en la hoja de la factoría de datos tal como se muestra a continuación:
+
+![Mover factoría de datos](media/data-factory-faq/move-data-factory.png)
+
 ## Actividades: preguntas más frecuentes
 ### ¿Qué tipos de actividades diferentes se pueden usar en una canalización de Data Factory? 
 
@@ -128,7 +133,7 @@ Si tiene otra factoría de datos con una canalización que toma dataset4 (produc
 Si la propiedad externa está configurada correctamente, compruebe si los datos de entrada existen en la ubicación especificada en la definición del conjunto de datos de entrada.
 
 ### ¿Cómo se ejecuta un segmento en otro momento que no sea medianoche cuando este se produce diariamente?
-Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para obtener más información sobre esta propiedad. Este es un ejemplo rápido:
+Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para más información sobre esta propiedad. Este es un ejemplo rápido:
 
 	"availability":
 	{
@@ -151,7 +156,7 @@ Puede volver a ejecutar un segmento de una de las siguientes maneras:
 Consulte [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
 
 ### ¿Cuánto tiempo se tardó en procesar un segmento?
-Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más detalles.
+Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para más información.
 
 También puede hacer lo siguiente en el Portal de Azure:
 
@@ -182,4 +187,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

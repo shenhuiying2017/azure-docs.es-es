@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
+   ms.date="06/07/2016"
    ms.author="jonatul"/>
 
 # Cómo funciona el Administrador de tráfico
@@ -64,14 +64,71 @@ Cuando un usuario solicita la página https://partners.contoso.com/login.aspx (c
 
 Tenga en cuenta que el servicio DNS recursivo almacenará en caché las respuestas DNS que reciba, al igual que hará el cliente DNS en el dispositivo del usuario final. De este modo, las consultas DNS posteriores se responderán más rápidamente al utilizar datos de la memoria caché en lugar de consultar otros servidores DNS. La duración de la memoria caché viene determinada por la propiedad de período de vida (TTL) de cada registro DNS. Unos valores más breves darán lugar a una expiración de la caché más rápida y, por tanto, a más consultas a los servidores DNS del Administrador de tráfico; unos valores más largos implican que es posible que se tarde más en redirigir el tráfico desde un punto de conexión no válido. El Administrador de tráfico permite configurar el valor TTL utilizado en las respuestas DNS del Administrador de tráfico, lo que le permite elegir el valor que responda mejor a las necesidades de su aplicación.
 
+## P+F
+
+### ¿Qué dirección IP usa el Administrador de tráfico?
+
+Tal y como se explica al comienzo de este artículo, este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
+
+Por lo tanto, este servicio no proporciona un punto de conexión o una dirección IP para que los clientes puedan conectarse. En resumen, se requiere, por ejemplo, una dirección IP estática que debe configurarse en el servicio, no en el Administrador de tráfico.
+
+### ¿Admite el Administrador de tráfico sesiones temporales?
+
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico. Por lo tanto, el Administrador de tráfico no observa el tráfico HTTP entre cliente y servidor, ni tampoco las cookies.
+
+Además, tenga en cuenta que la dirección IP de origen de la consulta de DNS que recibe el Administrador de tráfico es la del servicio DNS recursivo, no la dirección IP del cliente.
+
+Por lo tanto, el Administrador de tráfico no tiene forma de identificar clientes individuales ni de realizar un seguimiento de ellos, así que no puede implementar sesiones temporales. Esto es algo común en todos los sistemas de administración de tráfico basado en DNS; no se trata de una restricción del Administrador de tráfico.
+
+### ¿Por qué obtengo un error HTTP al utilizar el Administrador de tráfico?
+
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
+
+Por lo tanto, el Administrador de tráfico no observa el tráfico HTTP entre cliente y servidor, ni tampoco puede generar errores HTTP. Todos los errores HTTP que obtenga deben provenir de la aplicación. Como el cliente se conecta a la aplicación, esto también significa que debe haberse completado la resolución DNS, incluido el rol de Administrador de tráfico.
+
+Por tanto, debe llevar a cabo una investigación más extensa centrándose en la aplicación.
+
+Un problema común sucede cuando se utiliza el Administrador de tráfico. El encabezado HTTP de host que transmite el explorador a la aplicación mostrará el nombre de dominio que emplea el explorador. Puede ser el nombre de dominio del Administrador de tráfico (por ejemplo, miperfil.trafficmanager.net) si lo utiliza durante las pruebas, o bien el registro CNAME de dominio personal configurado para apuntar al nombre de dominio del Administrador de tráfico. En cualquier caso, compruebe que la aplicación está configurada para aceptar este encabezado de host.
+
+Si la aplicación se hospeda en el Servicio de aplicaciones de Azure, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+
+### ¿Cómo afecta al rendimiento el uso del Administrador de tráfico?
+
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS para dirigir a los clientes al punto de conexión de servicio adecuado. Después, los clientes se conectan directamente al punto de conexión de servicio, y no a través del Administrador de tráfico.
+
+Puesto que los clientes se conectan directamente a los puntos de conexión de servicio, el rendimiento no se verá afectado cuando se utiliza el Administrador de tráfico una vez establecida la conexión.
+
+Como el Administrador de tráfico se integra con las aplicaciones en el nivel de DNS, hay que insertar una búsqueda DNS adicional en la cadena de resolución DNS (consulte [Ejemplo de Administrador de tráfico](#traffic-manager-example)). El impacto del Administrador de tráfico en el tiempo de resolución DNS es mínimo. El Administrador de tráfico usa una red global de servidores de nombres y redes de difusión por proximidad (anycast) para asegurarse de que siempre se enruten las consultas de DNS en el servidor de nombres disponible más cercano. Además, como las respuestas DNS se almacenan en caché, la latencia DNS adicional que se genera por utilizar Administrador de tráfico se aplica solo a una fracción de las sesiones.
+
+Como consecuencia, el impacto de rendimiento general asociado a incorporar el Administrador de tráfico en una aplicación debería ser mínimo.
+
+Además, en los sitios donde se utiliza el [método de enrutamiento de tráfico "Rendimiento"](traffic-manager-routing-methods.md#performance-traffic-routing-method), el aumento de la latencia DNS debe quedar más que compensado con la mejora de rendimiento que se obtiene al dirigir a los usuarios finales a su punto de conexión disponible más cercano.
+
+### ¿Qué protocolos de aplicación puedo usar con el Administrador de tráfico?
+Tal y como explicamos [anteriormente](#how-clients-connect-using-traffic-manager), este servicio funciona utilizando respuestas DNS. Una vez finalizada la búsqueda DNS, los clientes se conectan directamente al punto de conexión de la aplicación, y no a través del Administrador de tráfico. Por tanto, esta conexión puede emplear cualquier protocolo de aplicación.
+
+Sin embargo, para realizar las comprobaciones de estado del Administrador de tráfico se requiere un punto de conexión HTTP o HTTPS. Puede ser independiente del punto de conexión de la aplicación al que los clientes se conectan si se especifica una ruta de acceso URI o un puerto TCP distintos en la configuración de comprobación de estado de perfil del Administrador de tráfico.
+
+### ¿Puedo usar el Administrador de tráfico con un nombre de dominio vacío (sin el "www")?
+
+Actualmente, no.
+
+El tipo de registro CNAME de DNS se utiliza para crear una asignación de nombre DNS a otro. Tal y como se explica en la sección [Ejemplo de Administrador de tráfico](#traffic-manager-example), este servicio requiere un registro CNAME de DNS para asignar el nombre DNS personal (por ejemplo, www.contoso.com) al nombre DNS del perfil de Administrador de tráfico (por ejemplo, contoso.trafficmanager.net). Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
+
+Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo tipo. Puesto que el vértice (o raíz) de una zona DNS siempre contiene dos registros DNS existentes (los SOA y los NS autoritativos), no podrá crearse un registro CNAME en el vértice de zona sin infringir los estándares DNS.
+
+Para evitar este problema, recomendamos que los servicios que empleen un dominio vacío (sin el "www") que quiera que utilice el Administrador de tráfico usen el redireccionamiento de HTTP para dirigir el tráfico del dominio vacío a una dirección URL diferente, que, luego, puede emplear el Administrador de tráfico. Por ejemplo, el dominio vacío contoso.com puede redirigir a los usuarios a www.contoso.com que, posteriormente, podrá utilizar el Administrador de tráfico.
+
+En nuestra cola de trabajos pendientes de características realizamos un seguimiento de los dominios vacíos que son totalmente compatibles con el Administrador de tráfico. Si le interesa esta característica, registre su idea [votando por ella en nuestro sitio de comentarios de la comunidad](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+
 ## Pasos siguientes
 
-Obtenga más información acerca de la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md) del Administrador de tráfico.
+Obtenga más información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md) del Administrador de tráfico.
 
-Obtenga más información acerca de los [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
+Obtenga más información sobre los [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) del Administrador de tráfico.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

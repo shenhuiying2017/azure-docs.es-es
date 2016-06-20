@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
@@ -48,7 +48,7 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse al Almacen
 
     ![Cuadro de diálogo Agregar servicio conectado - Almacenamiento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. En el cuadro de diálogo **Almacenamiento de Azure**, elija una cuenta de almacenamiento existente y haga clic en **Agregar**.
+1. En el cuadro de diálogo **Almacenamiento de Azure**, elija una cuenta de almacenamiento existente y seleccione **Agregar**.
 
     Si necesita crear una nueva cuenta de almacenamiento, vaya al siguiente paso. De lo contrario, vaya al paso 6.
 
@@ -94,4 +94,4 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

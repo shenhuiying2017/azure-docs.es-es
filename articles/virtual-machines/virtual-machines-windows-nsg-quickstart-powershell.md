@@ -22,7 +22,7 @@
 ## Comandos rápidos
 Para crear reglas de los grupos de seguridad de red y ACL necesitará [que esté instalada la versión más reciente de Azure PowerShell](../powershell-install-configure.md). También puede [llevar a cabo estos pasos con el Portal de Azure](virtual-machines-windows-nsg-quickstart-portal.md).
 
-En primer lugar, debe crear una regla para permitir el tráfico HTTP en el puerto TCP 80 como sigue, escribiendo su propio nombre y descripción:
+En primer lugar, debe crear una regla para permitir el tráfico HTTP en el puerto TCP 80, escribiendo un nombre y una descripción propios:
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -38,13 +38,13 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westu
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-Ahora hay que asignar el grupo de seguridad de red a una subred. En primer lugar, seleccione la red virtual como sigue:
+Ahora hay que asignar el grupo de seguridad de red a una subred. En primer lugar, seleccione la red virtual:
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-Asocie el grupo de seguridad de red a la subred como sigue:
+Asocie el grupo de seguridad de red a la subred:
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
@@ -72,4 +72,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

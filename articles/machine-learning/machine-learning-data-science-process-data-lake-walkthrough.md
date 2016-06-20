@@ -701,7 +701,7 @@ Cuando finalice la consulta, verá los resultados similares a los siguientes:
 
 Ahora estamos preparados para generar e implementar con Aprendizaje automático de Azure un modelo que prediga si se paga o no propina. Los datos de ejemplo estratificados están listos para usarse en este problema de clasificación binaria (propina o no). Los modelos predictivos que utilizan la clasificación de varias clases (tip\_class) y la regresión (tip\_amount) también se pueden generar e implementar con Estudio de aprendizaje automático de Azure. Sin embargo, aquí solo se muestra cómo hacerlo con el modelo de clasificación binaria.
 
-1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo **Lector**, que se encuentra disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el [módulo Lector](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
+1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo **Importar datos**, que se encuentra disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/).
 2. Seleccione **Hive Query** (Consulta de Hive) en **Data source** (Origen de datos) en el panel **Properties** (Propiedades).
 3. Pegue el siguiente script de Hive en el editor **Hive database query** (Consulta de base de datos de Hive).
 
@@ -741,4 +741,4 @@ La ruta de aprendizaje para el [Proceso de Cortana Analytics (CAP)](http://aka.m
 - [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

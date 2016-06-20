@@ -24,7 +24,7 @@
 
 
 
-Aprenda a usar la [replicación geográfica](sql-database-geo-replication-overview.md) en Base de datos SQL para diseñar aplicaciones de base de datos resistentes a errores regionales e interrupciones catastróficas. Para planificar la continuidad del negocio, tenga en cuenta la topología de implementación de aplicación, el contrato de nivel de servicio que tiene como objetivo, la latencia del tráfico y los costos. En este artículo observaremos los patrones comunes de aplicación y analizaremos las ventajas y desventajas de cada opción.
+Aprenda a usar la [replicación geográfica activa](sql-database-geo-replication-overview.md) en Base de datos SQL para diseñar aplicaciones de base de datos resistentes a errores regionales e interrupciones catastróficas. Para planificar la continuidad del negocio, tenga en cuenta la topología de implementación de aplicación, el contrato de nivel de servicio que tiene como objetivo, la latencia del tráfico y los costos. En este artículo observaremos los patrones comunes de aplicación y analizaremos las ventajas y desventajas de cada opción.
 
 ## Patrón de diseño 1: implementación activa-pasiva para la recuperación ante desastres en la nube con una base de datos colocada
 
@@ -44,7 +44,7 @@ Además de las instancias de la aplicación principal, debe considerar la implem
 
 El diagrama siguiente muestra esta configuración antes de una interrupción.
 
-![Configuración de replicación geográfica de la Base de datos SQL. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
+![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
 Después de una interrupción en la región principal, la aplicación de supervisión detecta que la base de datos principal no está accesible y registra una alerta. Dependiendo del contrato de nivel de servicios de su aplicación puede decidir cuántos sondeos de supervisión consecutivos deberán producir un error antes de que se declare una interrupción de la base de datos. Para lograr la conmutación por error coordinada de la base de datos y el extremo de la aplicación, debe hacer que la aplicación de supervisión realice los pasos siguientes:
 
@@ -54,7 +54,7 @@ Después de una interrupción en la región principal, la aplicación de supervi
 Después de la conmutación por error, la aplicación procesará las solicitudes de usuario en la región secundaria, pero permanecerá colocada con la base de datos porque la base de datos principal se encuentra ahora en la región secundaria. Esto se ilustra en el diagrama siguiente. En todos los diagramas las líneas sólidas indican conexiones activas, mientras que las líneas de puntos indican conexiones suspendidas y las señales de stop indican activadores de acción.
 
 
-![Replicación geográfica: conmutación por error de la base de datos secundaria. Copia de seguridad de datos de la aplicación.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+![Replicación geográfica: conmutación por error a la base de datos secundaria. Copia de seguridad de datos de la aplicación.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 
 Si se produce una interrupción en la región secundaria, se suspende el vínculo de replicación entre la base de datos principal y la secundaria, y la aplicación de supervisión registrará una alerta de que la base de datos principal está expuesta. Esto no afectará al rendimiento de la aplicación pero funcionará expuesta y, por tanto, con un riesgo más alto en caso de que ambas regiones tengan un error en sucesión.
 
@@ -86,7 +86,7 @@ Como en el patrón nº 1, debe considerar la posibilidad de implementar una apli
 
 > [AZURE.NOTE] Mientras que este patrón usa más de una base de datos secundaria, solo uno de las secundarias se usará para la conmutación por error por los motivos que se indicaron anteriormente. Puesto que este patrón requiere acceso de solo lectura a la base de datos secundaria, necesitará la replicación geográfica activa.
 
-El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Si se detecta una interrupción de la base de datos en la región principal se inicia la conmutación por error de la base de datos principal a una de las regiones secundarias, lo que cambiará la ubicación de la base de datos principal. El Administrador de tráfico excluirá automáticamente el extremo sin conexión de la tabla de enrutamiento, pero continuará el enrutamiento del tráfico de usuario final a las instancias restantes en línea. Dado que la base de datos principal está ahora en una región distinta, todas las instancias en línea tienen que cambiar su cadena de conexión de SQL de lectura y escritura para conectarse con el nuevo elemento principal. Es importante que realice este cambio antes de iniciar la conmutación por error de la base de datos. Las cadenas de conexión de SQL de solo lectura deben permanecer sin cambios ya que siempre señalan a la base de datos en la misma región. Los pasos de conmutación por error son:
 
@@ -163,4 +163,4 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

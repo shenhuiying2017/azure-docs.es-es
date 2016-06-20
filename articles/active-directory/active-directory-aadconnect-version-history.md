@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/11/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: historial de versiones
@@ -30,14 +30,23 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para obtener información sobre los permisos necesarios para aplicar una actualización, vea [cuentas y permisos](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.189.0
+Fecha de publicación: junio de 2016
+
+**Problemas corregidos y mejoras:**
+
+- Azure AD Connect ahora puede instalarse en un servidor conforme a FIPS.
+    - Para la sincronización de contraseñas, consulte [Sincronización de contraseñas y FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
+- Se ha corregido un problema por el cual un nombre NetBIOS no se pudo resolver en el FQDN en el conector de Active Directory.
+
 ## 1\.1.180.0
 Fecha de publicación: mayo de 2016
 
 **Nuevas características:**
 
 - Le advierte y ayuda a comprobar los dominios, si no lo ha hecho, antes de ejecutar Azure AD Connect.
-- Agrega compatibilidad con [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
-- Agrega compatibilidad con la versión más reciente de la infraestructura de [Microsoft Azure Government Cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) con los nuevos requisitos de dirección URL.
+- Se ha agregado compatibilidad con [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Se ha agregado compatibilidad con la versión más reciente de la infraestructura de [Microsoft Azure Government Cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) con los nuevos requisitos de dirección URL.
 
 **Problemas corregidos y mejoras:**
 
@@ -70,7 +79,7 @@ Fecha de publicación: febrero de 2016
 **Problemas corregidos:**
 
 - La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
-- Si efectúa la instalación y anula la selección de **Start the synchronization process** (Iniciar el proceso de instalación) al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho asistente.
+- Si efectúa la instalación y anula la selección de **Inicie el proceso de sincronización...** al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho asistente.
 - El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
 - Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
@@ -84,12 +93,12 @@ Fecha de publicación: febrero de 2016
     - Tiene que permitir que el proxy también permita el tráfico a https://secure.aadcdn.microsoftonline-p.com si usa MFA.
     - Tiene que agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que MFA funcione correctamente.
 - Permite cambiar el método de inicio de sesión del usuario después de la instalación inicial.
-- Permita el [Filtrado de dominios y unidades organizativas](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el Asistente para instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
+- Permita el [filtrado de dominios y unidades organizativas](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el Asistente para instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
 - El [programador](active-directory-aadconnectsync-feature-scheduler.md) está integrado en el motor de sincronización.
 
 **Características promocionadas desde la vista previa a GA:**
 
-- [Reescritura dispositivos](active-directory-aadconnect-feature-device-writeback.md)
+- [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md)
 - [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 **Nuevas características de la versión preliminar:**
@@ -284,4 +293,4 @@ Fecha de publicación: septiembre de 2014
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

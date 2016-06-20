@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -176,6 +176,16 @@ Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga 
 
 ![En los botones situados en la parte superior del Explorador de métricas](./media/app-insights-metrics-explorer/17-reset.png)
 
+## Stream en vivo: métricas instantáneas para una estrecha supervisión
+
+Stream en vivo muestra las métricas de la aplicación de este mismo momento, con una latencia casi de tiempo real de 1 segundo. Esto resulta muy útil si está publicando una compilación nueva y desea asegurarse de que todo esté funcionando como se esperaba o si quiere investigar un incidente en tiempo real.
+
+![En la hoja de información general, haga clic en Stream en vivo.](./media/app-insights-metrics-explorer/live-stream.png)
+
+A diferencia del Explorador de métricas, Stream en vivo muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
+
+Stream en vivo está disponible con el SDK de Application Insights para ASP.NET, versión 2.1.0 o posterior.
+
 ## Establecer alertas
 
 Para recibir notificaciones por correo electrónico de los valores no habituales de cualquier métrica, agregue una alerta. Puede decidir si se debe enviar un mensaje de correo electrónico a los administradores de cuentas o a direcciones de correo electrónico específicas.
@@ -197,9 +207,9 @@ Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tie
 
 *Actualmente, la función de exportación funciona solo para Internet Explorer y Chrome. Estamos trabajando para incluir compatibilidad con otros exploradores.*
 
-### Exportación continua
+## Exportación continua
 
-Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la función [Exportación continua](app-insights-export-telemetry.md).
+Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la [Exportación continua](app-insights-export-telemetry.md).
 
 ### Power BI
 
@@ -211,7 +221,7 @@ El [análisis](app-insights-analytics.md) es una forma más versátil de analiza
 
 ## Solución de problemas
 
-*No veo ningún dato en el gráfico*.
+*No veo ningún dato en el gráfico.*
 
 * Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro. 
 
@@ -236,4 +246,4 @@ El [análisis](app-insights-analytics.md) es una forma más versátil de analiza
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

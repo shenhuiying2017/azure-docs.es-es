@@ -22,7 +22,7 @@
 ## Comandos rápidos
 Para crear un grupo de seguridad de red y las reglas que necesitará [la CLI de Azure](../xplat-cli-install.md) en modo de Resource Manager (`azure config mode arm`).
 
-Cree el grupo de seguridad de red de la manera siguiente y escriba sus propios nombres y ubicación según sea adecuado:
+Cree el grupo de seguridad de red y escriba sus propios nombres y su propia ubicación según sea adecuado:
 
 ```
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
@@ -61,4 +61,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Compatibilidad de Azure Resource Manager con el Equilibrador de carga](../load-balancer2 /load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

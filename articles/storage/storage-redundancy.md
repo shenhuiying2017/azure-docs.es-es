@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/01/2016"
 	ms.author="tamram"/>
 
 # Replicación de almacenamiento de Azure
@@ -36,6 +36,7 @@ La siguiente tabla proporciona una breve descripción de las diferencias entre L
 | Los datos se pueden leer desde la ubicación secundaria al igual que desde la ubicación principal | No | No | No | Sí |
 | Cantidad de copias de datos mantenidas en nodos independientes | 3 | 3 | 6 | 6 |
 
+Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para más información sobre las diferentes opciones de redundancia.
 
 ## Almacenamiento con redundancia local
 
@@ -67,32 +68,8 @@ En el caso de una cuenta de almacenamiento con GRS habilitado, una actualizació
 
 > [AZURE.NOTE] Con GRS, las solicitudes para escribir datos se replican de manera asincrónica a la región secundaria. Es importante tener en cuenta que optar por GRS no afecta la latencia de las solicitudes realizadas respecto de la región principal. Sin embargo, como la replicación asincrónica implica un retraso, ante la eventualidad de un desastre regional es posible que los cambios que todavía no se hayan replicado a la región secundaria se pierdan si no es posible recuperar los datos desde la región principal.
  
-Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria se determina según la región principal y no es posible cambiarla. La siguiente tabla muestra los emparejamientos de la región principal y la secundaria.
+Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria se determina según la región principal y no es posible cambiarla. Para obtener información actualizada sobre los emparejamientos de la región principal y secundaria, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
  
-| Principal | Secundario |
-|---------------------|---------------------|
-| Centro-Norte de EE. UU | Centro-Sur de EE. UU |
-| Centro-Sur de EE. UU | Centro-Norte de EE. UU |
-| Este de EE. UU. | Oeste de EE. UU. |
-| Oeste de EE. UU. | Este de EE. UU. |
-| Este de EE. UU. - 2 | Central EE. UU.: |
-| Central EE. UU.: | Este de EE. UU. - 2 |
-| Europa del Norte | Europa occidental |
-| Europa occidental | Europa del Norte |
-| Sudeste de Asia | Asia oriental |
-| Asia oriental | Sudeste de Asia |
-| Este de China | Norte de China |
-| Norte de China | Este de China |
-| Este de Japón | Oeste de Japón |
-| Oeste de Japón | Este de Japón |
-| Sur de Brasil | Centro-Sur de EE. UU |
-| Australia Oriental | Sudeste de Australia |
-| Sudeste de Australia | Australia Oriental |
-| Sur de India | India central |
-| India central | Sur de India |
-| Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia |
-| Gobierno de EE. UU. - Virginia | Gobierno de EE. UU. - Iowa |
-
 ## Almacenamiento con redundancia geográfica con acceso de lectura
 
 El almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) maximiza la disponibilidad para la cuenta de almacenamiento al proporcionar acceso de solo lectura a los datos de la ubicación secundaria, además de la replicación entre dos regiones que proporciona GRS. Ante la eventualidad de que los datos dejen de estar disponibles en la región principal, la aplicación puede leer datos desde la región secundaria.
@@ -101,10 +78,10 @@ Cuando habilita el acceso de solo lectura a los datos en la región secundaria, 
 
 ## Pasos siguientes
 
+- [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/)
 - [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md)
 - [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md)
 - [Opciones de redundancia de Almacenamiento de Microsoft Azure y Almacenamiento con redundancia geográfica con acceso de lectura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [Emulador de almacenamiento de Microsoft Azure 3.1 con RA-GRS ](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Documento de SOSP: Almacenamiento de Azure: un servicio de almacenamiento en la nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

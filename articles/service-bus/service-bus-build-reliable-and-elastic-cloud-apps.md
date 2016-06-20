@@ -29,7 +29,7 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. De la
  
 ## Compilación
 
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md) 
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md) 
 - [Problemas de entrega en mensajería asincrónica de Bus de servicio (publicación en el blog el 21 de octubre de 2011)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Procedimientos recomendados para aislar aplicaciones de Bus de servicio ante interrupciones y desastres de Bus de servicio](service-bus-outages-disasters.md)
 - [Mensajería asíncrona: ejemplo de respuesta de solicitud](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -46,4 +46,4 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. De la
 - [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

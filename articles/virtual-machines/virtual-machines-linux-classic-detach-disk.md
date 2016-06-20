@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Desacoplamiento de un disco de una máquina virtual de Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
-
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
-## Recursos adicionales
+## Pasos siguientes
+Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes artículos:
 
-[Acoplamiento de un disco de datos a una máquina virtual de Linux](virtual-machines-linux-classic-attach-disk.md)
+- [Acoplamiento de un disco de datos a una máquina virtual de Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[Uso de la CLI de Azure con la API de administración de servicios](../virtual-machines-command-line-tools.md)
+- [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

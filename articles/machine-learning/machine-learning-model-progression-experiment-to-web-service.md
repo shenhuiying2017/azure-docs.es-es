@@ -128,7 +128,7 @@ Depende de lo que necesite actualizar:
 
 Si no cambia el modelo, pero está cambiando cómo el servicio web administra los datos, puede modificar el experimento predictivo y después volver a hacer clic en **Implementar servicio web**. El servicio web se detendrá, el experimento predictivo actualizado se implementará y el servicio web se volverá a iniciar.
 
-Por ejemplo: imagine que el experimento predictivo devuelve toda la fila de datos de entrada con el resultado de la predicción. Puede decidir que quiere que el servicio web solo devuelva el resultado. Por tanto agrega un módulo de **columnas del proyecto** en el experimento predictivo, justo antes del puerto de salida, para excluir otras columnas que no sean el resultado. Al volver a hacer clic en **Implementar servicio web**, se actualiza el servicio web.
+Por ejemplo: imagine que el experimento predictivo devuelve toda la fila de datos de entrada con el resultado de la predicción. Puede decidir que quiere que el servicio web solo devuelva el resultado. Por tanto, agrega un módulo **Seleccionar columnas de conjunto de datos** en el experimento predictivo, justo antes del puerto de salida, para excluir otras columnas que no sean el resultado. Al volver a hacer clic en **Implementar servicio web**, se actualiza el servicio web.
 
 **Quiere reciclar el modelo con nuevos datos**
 
@@ -160,4 +160,4 @@ Para ver ejemplos de todo el proceso, consulte:
 
 -   [Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

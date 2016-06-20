@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/06/2016"
 	ms.author="swkrish"/>
 
 
@@ -43,4 +43,4 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 > [AZURE.NOTE]
 Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de compañía](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->
