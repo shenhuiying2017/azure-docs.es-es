@@ -28,7 +28,7 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
 
 -   Antes de configurar una base de datos para Stretch, se recomienda ejecutar el Asesor de Stretch Database para identificar las bases de datos y las tablas que son elegibles para el ajuste. El Asesor de Stretch Database también identifica los problemas de bloqueo. Para obtener más información, vea [Identificación de bases de datos y tablas para Stretch Database](sql-server-stretch-database-identify-databases.md).
 
--   Consulte [Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md).
+-   Revise [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Stretch Database migra los datos a Azure. Por lo tanto, es necesario tener una cuenta de Azure y una suscripción para la facturación. Para obtener una cuenta de Azure, [haga clic aquí](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,7 +52,7 @@ GO
 Para obtener más información, vea [Establecimiento de la opción de configuración del servidor del archivo de datos remotos](https://msdn.microsoft.com/library/mt143175.aspx) y [sp\_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
 ## <a name="Wizard"></a>Uso del asistente para habilitar Stretch Database en una base de datos
-Para obtener información acerca del asistente para habilitar la base de datos para Stretch, incluida la información que se debe especificar y las opciones que se deben realizar, vea [Asistente para habilitar la base de datos para Stretch ](sql-server-stretch-database-wizard.md).
+Para más información sobre el asistente Habilitar la base de datos para Stretch, incluida la información que se debe especificar y las opciones que se deben seleccionar, consulte [Ejecución del asistente para habilitar la base de datos para Stretch](sql-server-stretch-database-wizard.md).
 
 ## <a name="EnableTSQLDatabase"></a>Uso de Transact-SQL para habilitar Stretch Database en una base de datos
 Para poder habilitar Stretch Database en tablas individuales, tendrá que habilitarlo en la base de datos.
@@ -133,4 +133,4 @@ Habilitación tablas adicionales para Stretch Database Supervisión de la migrac
 
 [Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

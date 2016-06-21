@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migración del código SQL a Almacenamiento de datos SQL
 
@@ -80,7 +80,7 @@ Estas son algunas de las limitaciones de las expresiones de tabla comunes en Alm
 
 Las CTE recursivas no se admiten en Almacenamiento de datos SQL. La migración de CTE recursivas puede ser bastante completa y el mejor proceso es desglosarla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula agrupar por con opciones de acumulación/cubo/agrupación][].
 
-### Funciones del sistema
+## Funciones del sistema
 
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:
 
@@ -103,34 +103,35 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## Pasos siguientes
-Para obtener consejos sobre el desarrollo del código, consulte la [información general sobre desarrollo][].
+Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consulte [Temas de Transact-SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[ANSI JOINS en UPDATE]: sql-data-warehouse-develop-ctas.md
-[ANSI JOINS en DELETE]: sql-data-warehouse-develop-ctas.md
-[instrucción MERGE]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[ANSI JOINS en UPDATE]: ./sql-data-warehouse-develop-ctas.md
+[ANSI JOINS en DELETE]: ./sql-data-warehouse-develop-ctas.md
+[instrucción MERGE]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Temas de Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[cursores]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: sql-data-warehouse-develop-group-by-options.md
-[cláusula agrupar por con opciones de acumulación/cubo/agrupación]: sql-data-warehouse-develop-group-by-options.md
-[anidación de niveles más allá de 8]: sql-data-warehouse-develop-transactions.md
-[actualización a través de vistas]: sql-data-warehouse-develop-views.md
-[uso de SELECT para la asignación de variables]: sql-data-warehouse-develop-variable-assignment.md
-[No escriba ningún tipo de datos MAX en cadenas de SQL dinámico]: sql-data-warehouse-develop-dynamic-sql.md
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[cursores]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: ./sql-data-warehouse-develop-group-by-options.md
+[cláusula agrupar por con opciones de acumulación/cubo/agrupación]: ./sql-data-warehouse-develop-group-by-options.md
+[anidación de niveles más allá de 8]: ./sql-data-warehouse-develop-transactions.md
+[actualización a través de vistas]: ./sql-data-warehouse-develop-views.md
+[uso de SELECT para la asignación de variables]: ./sql-data-warehouse-develop-variable-assignment.md
+[No escriba ningún tipo de datos MAX en cadenas de SQL dinámico]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

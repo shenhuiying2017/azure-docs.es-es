@@ -72,7 +72,7 @@ El coeficiente de determinación, que también se conoce como R cuadrado, es tam
 Ilustración 2. Métricas de evaluación de regresión lineal.
 
 ###Uso de la validación cruzada###
-Como se mencionó anteriormente, puede realizar entrenamientos, puntuaciones y evaluaciones de forma repetida y automática mediante el módulo [Validar modelo de forma cruzada][cross-validate-model]. Lo único que necesita en este caso es un conjunto de datos, un modelo sin entrenar y un módulo [Validar modelo de forma cruzada][cross-validate-model] (consulte la ilustración siguiente). Tenga en cuenta que debe establecer la columna de etiqueta en *price* en las propiedades del módulo [Validar modelo de forma cruzada][cross-validate-model].
+Como se mencionó anteriormente, puede realizar entrenamientos, puntuaciones y evaluaciones de forma repetida y automática mediante el módulo [Validar modelo de forma cruzada][cross-validate-model]. Lo único que necesita en este caso es un conjunto de datos, un modelo sin entrenar y un módulo [Validar modelo de forma cruzada][cross-validate-model] \(consulte la ilustración siguiente). Tenga en cuenta que debe establecer la columna de etiqueta en *price* en las propiedades del módulo [Validar modelo de forma cruzada][cross-validate-model].
 
 ![Validación cruzada de un modelo de regresión](media/machine-learning-evaluate-model-performance/3.png)
 
@@ -133,12 +133,12 @@ Figura 8. Validación cruzada de un modelo de clasificación binaria.
 Figura 9. Resultados de la validación cruzada de un clasificador binario.
 
 ##Evaluación de un modelo de clasificación multiclase##
-En este experimento se usará el conocido conjunto de datos [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay 4 valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en el repositorio [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][reader].
+En este experimento se usará el conocido conjunto de datos [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), que contiene las instancias de tres tipos (clases) distintos de la planta iris. Hay 4 valores de características (longitud y ancho del sépalo y del pétalo) para cada instancia. En los experimentos anteriores se entrenaron y probaron los modelos con los mismos conjuntos de datos. Aquí usaremos el módulo [Dividir datos][split] para crear dos subconjuntos de los datos, con el fin de entrenar en el primero y puntuar y evaluar en el segundo. El conjunto de datos Iris está disponible públicamente en el repositorio [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) (Repositorio de aprendizaje automático de UCI) y se puede descargar mediante un módulo [Importar datos][import-data].
 
 ###Creación del experimento###
 Agregue los módulos siguientes al área de trabajo en Estudio de aprendizaje automático de Azure:
 
-- [Import Data][reader]
+- [Import Data][import-data]
 - [Bosque de decisión multiclase][multiclass-decision-forest]
 - [Dividir datos][split]
 - [Entrenar modelo][train-model]
@@ -149,9 +149,9 @@ Conecte los puertos tal como se muestra a continuación en la Figura 10.
 
 Establezca el índice de la columna de etiqueta del módulo [Entrenar modelo][train-model] en 5. El conjunto de datos no tiene fila de encabezado, pero se sabe que las etiquetas de clase están en la quinta columna.
 
-Haga clic en el módulo [Importar datos][reader] y establezca la propiedad *Origen de datos* en *Dirección URL de web a través de HTTP* y la *dirección URL* en http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Haga clic en el módulo [Importar datos][import-data] y establezca la propiedad *Origen de datos* en *Dirección URL de web a través de HTTP* y la *dirección URL* en http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Establezca la fracción de instancias que se usarán para el entrenamiento en el módulo [Dividir datos][split] (en 0,7 por ejemplo).
+Establezca la fracción de instancias que se usarán para el entrenamiento en el módulo [Dividir datos][split] \(en 0,7 por ejemplo).
  
 ![Evaluar un clasificador multiclase](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -165,7 +165,7 @@ Ejecute el experimento y haga clic en el puerto de salida de [Evaluar modelo][ev
 Figura 11. Resultados de la evaluación de clasificación multiclase.
 
 ###Uso de la validación cruzada###
-Como se mencionó anteriormente, puede realizar entrenamientos, puntuaciones y evaluaciones de forma repetida y automática mediante el módulo [Validar modelo de forma cruzada][cross-validate-model]. Necesitaría un conjunto de datos, un modelo sin entrenar y un módulo [Validar modelo de forma cruzada][cross-validate-model] (consulte la ilustración siguiente). De nuevo, debe establecer la columna de etiqueta del módulo [Evaluar modelo de forma cruzada][cross-validate-model] (índice 5 de columna en este caso). Después de ejecutar el experimento y hacer clic en el puerto de salida derecha de [Validar modelo de forma cruzada][cross-validate-model], puede inspeccionar los valores de métricas de cada subconjunto, así como las desviaciones media y estándar. Las métricas que se muestran aquí son similares a las descritas en el caso de clasificación binaria. Sin embargo, tenga en cuenta que en la clasificación multiclase, se realiza el cálculo de los positivos y negativos verdaderos, y de los falsos positivos y negativos con un recuento por clase, ya que no existe ninguna clase general positiva o negativa. Por ejemplo, al calcular la precisión o la recuperación de la clase 'Iris-setosa', se supone que se trata de la clase positiva y que todas las demás son negativas.
+Como se mencionó anteriormente, puede realizar entrenamientos, puntuaciones y evaluaciones de forma repetida y automática mediante el módulo [Validar modelo de forma cruzada][cross-validate-model]. Necesitaría un conjunto de datos, un modelo sin entrenar y un módulo [Validar modelo de forma cruzada][cross-validate-model] \(consulte la ilustración siguiente). De nuevo, debe establecer la columna de etiqueta del módulo [Evaluar modelo de forma cruzada][cross-validate-model] (índice 5 de columna en este caso). Después de ejecutar el experimento y hacer clic en el puerto de salida derecha de [Validar modelo de forma cruzada][cross-validate-model], puede inspeccionar los valores de métricas de cada subconjunto, así como las desviaciones media y estándar. Las métricas que se muestran aquí son similares a las descritas en el caso de clasificación binaria. Sin embargo, tenga en cuenta que en la clasificación multiclase, se realiza el cálculo de los positivos y negativos verdaderos, y de los falsos positivos y negativos con un recuento por clase, ya que no existe ninguna clase general positiva o negativa. Por ejemplo, al calcular la precisión o la recuperación de la clase 'Iris-setosa', se supone que se trata de la clase positiva y que todas las demás son negativas.
  
 ![Validación cruzada de un modelo de clasificación multiclase](media/machine-learning-evaluate-model-performance/12.png)
 
@@ -182,11 +182,11 @@ Ilustración 13. Resultados de una validación cruzada de un modelo de clasifica
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

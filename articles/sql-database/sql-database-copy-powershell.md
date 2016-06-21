@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # Copia de una Base de datos SQL de Azure con PowerShell
 
-**Base de datos única**
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-copy.md)
@@ -126,4 +125,4 @@ Después de ejecutar **Start-AzureSqlDatabaseCopy**, puede comprobar el estado d
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

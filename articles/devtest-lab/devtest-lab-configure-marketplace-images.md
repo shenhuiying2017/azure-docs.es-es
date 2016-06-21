@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Configuración de valores de imágenes de Azure Marketplace en un laboratorio
@@ -26,13 +26,13 @@ Laboratorios de desarrollo y pruebas admite la creación de nuevas máquinas vir
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
+1. Seleccione **Examinar**, y, a continuación, seleccione **DevTest Labs** en la lista.
 
-1. En la lista de laboratorios, pulse el laboratorio que desee.
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
 1. Se mostrará la hoja **Configuración** del laboratorio seleccionado.
 
-1. En la hoja **Configuración**, puntee **Imágenes de Marketplace**
+1. En la hoja **Configuración**, seleccione **Marketplace images** (Imágenes de Marketplace).
 
 	![Configurar cómo se utilizan las imágenes de Azure Marketplace](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
 
@@ -54,4 +54,4 @@ Laboratorios de desarrollo y pruebas admite la creación de nuevas máquinas vir
 
 Una vez que haya configurado cómo se permiten las imágenes de Azure Marketplace al crear una máquina virtual, el siguiente paso es [agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

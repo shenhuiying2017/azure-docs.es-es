@@ -35,7 +35,7 @@ La restauración geográfica proporciona la opción de recuperación predetermin
 
 ## Detalles de la restauración geográfica
 
-La restauración geográfica usa la misma tecnología como la restauración a un momento dado, pero hay una diferencia importante. Restaura la base de datos a partir de una copia de la última copia de seguridad diaria en el almacenamiento de blobs con replicación geográfica (RA-GRS). Para cada base de datos activa, el servicio mantiene una cadena de copias de seguridad que incluye una copia de seguridad completa semanal, varias copias de seguridad diferenciales diarias y registros de transacciones que se guardan cada 5 minutos. Estos blobs tienen replicación geográfica, lo que garantiza que las copias de seguridad diarias están disponibles, incluso después de un error masivo en la región principal. A continuación se muestra la replicación geográfica de las copias de seguridad diarias y semanales copiadas en los contenedores de almacenamiento.
+La restauración geográfica usa la misma tecnología como la restauración a un momento dado, pero hay una diferencia importante. Restaura la base de datos a partir de una copia de la última copia de seguridad diaria en el almacenamiento de blobs con replicación geográfica (RA-GRS). Para cada base de datos activa, el servicio mantiene una cadena de copias de seguridad que incluye una copia de seguridad completa semanal, varias copias de seguridad diferenciales diarias y registros de transacciones que se guardan cada 5 minutos. Estos blobs tienen replicación geográfica, lo que garantiza que las copias de seguridad diarias están disponibles, incluso después de un error masivo en la región principal. A continuación, se muestra la replicación geográfica de las copias de seguridad diarias y semanales copiadas en los contenedores de almacenamiento.
 
 ![restauración geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
@@ -54,7 +54,7 @@ El tiempo de recuperación se ve afectado por diversos factores: el tamaño y ni
 
 ## Resumen
 
-Aunque la restauración geográfica está disponible en todos los niveles de servicio, es la más básica de las soluciones de recuperación ante desastres disponibles en Base de datos de SQL con el RPO y el tiempo de recuperación estimado (ERT) más largos. En las bases de datos Basic con un tamaño máximo de 2 GB, la restauración geográfica proporciona una solución de recuperación ante desastres razonable con un ERT de 12 horas. En las bases de datos Standard o Premium más grandes, si se desean tiempos de recuperación más cortos o reducir la probabilidad de pérdida de datos, sería conveniente considerar la posibilidad de usar la replicación geográfica activa. La replicación geográfica activa ofrece un RPO y un ERT mucho menores, ya que solo requiere que se inicie una conmutación por error en un elemento secundario replicado continuamente. Para más información, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+Aunque la restauración geográfica está disponible en todos los niveles de servicio, es la más básica de las soluciones de recuperación ante desastres disponibles en Base de datos de SQL con el RPO y el tiempo de recuperación estimado (ERT) más largos. En las bases de datos Basic con un tamaño máximo de 2 GB, la restauración geográfica proporciona una solución de recuperación ante desastres razonable con un ERT de 12 horas. En bases de datos Standard o Premium más grandes, si se desean tiempos de recuperación más cortos o reducir la probabilidad de pérdida de datos, sería conveniente considerar la posibilidad de usar la replicación geográfica activa. La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Para más información, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 
 ## Recursos adicionales
 
@@ -65,4 +65,4 @@ Aunque la restauración geográfica está disponible en todos los niveles de ser
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

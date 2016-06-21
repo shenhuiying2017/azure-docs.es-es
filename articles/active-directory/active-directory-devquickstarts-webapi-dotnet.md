@@ -124,9 +124,8 @@ Para poder ver el servicio de lista Todo en acción, deberá configurar el clien
 - Cree una nueva aplicación en su inquilino de Azure AD y seleccione **Aplicación de cliente nativo** en la indicación resultante.
     -	El **nombre** de la aplicación describirá su aplicación a los usuarios finales
     -	Escriba `http://TodoListClient/` para el valor **Uri de redirección**.
-- Una vez que haya completado el registro, AAD asignará a su aplicación un **id. de aplicación** único. Necesitará este valor en los pasos siguientes, de modo que cópielo desde la pestaña Configurar.
--	Una vez completado el registro, diríjase a la pestaña **Configurar** y busque el campo **URI de id. de aplicación**. Escriba un identificador específico de un inquilino para este valor, p. ej. `https://contoso.onmicrosoft.com/TodoListService`
-- También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Haga clic en "Agregar aplicación". Seleccione "Otras" en la lista desplegable "Mostrar" y haga clic en la marca de comprobación superior. Busque y haga clic en su servicio de lista de tareas pendientes y en la marca de comprobación inferior para agregar la aplicación. Seleccione "Acceso al servicio de lista de tareas pendientes" en la lista desplegable "Permisos delegados" y guarde la configuración.
+- Una vez que haya completado el registro, AAD asignará a su aplicación un **identificador de cliente** único. Necesitará este valor en los pasos siguientes, de modo que cópielo desde la pestaña Configurar.
+- También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Haga clic en "Agregar aplicación". Seleccione "Todas las aplicaciones" en la lista desplegable "Mostrar" y haga clic en la marca de comprobación superior. Busque y haga clic en su servicio de lista de tareas pendientes y en la marca de comprobación inferior para agregar la aplicación. Seleccione "Acceso al servicio de lista de tareas pendientes" en la lista desplegable "Permisos delegados" y guarde la configuración.
 
 
 - En Visual Studio, abra `App.config` en el proyecto de ClienteListaTodo y escriba sus valores de configuración en la sección `<appSettings>`.
@@ -140,4 +139,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-Dot
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

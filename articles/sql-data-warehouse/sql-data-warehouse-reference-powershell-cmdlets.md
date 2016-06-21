@@ -18,7 +18,7 @@
 
 # Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL
 
-Muchas tareas de administración de Almacenamiento de datos SQL se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST. A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en Almacenamiento de datos SQL. Para algunos buenos ejemplos de REST, consulte el artículo [Administración de tareas de escalabilidad de Almacenamiento de datos SQL de Azure (REST)][].
+Muchas tareas de administración de Almacenamiento de datos SQL se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST. A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en Almacenamiento de datos SQL. Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)][].
 
 > [AZURE.NOTE]  Para usar Azure Powershell con Almacenamiento de datos SQL, se necesita instalar Azure PowerShell versión 1.0.3 o superior. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
@@ -84,19 +84,17 @@ Estos cmdlets de PowerShell se usan con frecuencia con Almacenamiento de datos S
 Para obtener más ejemplos de PowerShell, consulte:
 
 - [Creación de Almacenamiento de datos SQL con PowerShell][]
-- [Restauración desde instantánea][]
-- [Restauración geográfica desde instantánea][]
+- [Restauración de base de datos][]
 
-Para obtener una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] \(Cmdlets de Base de datos SQL de Azure). Para una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
+Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][] \(Cmdlets de Base de datos SQL de Azure). Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Cómo instalar y configurar Azure PowerShell]: ./powershell-install-configure.md
 [Creación de Almacenamiento de datos SQL con PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Restauración desde instantánea]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Restauración geográfica desde instantánea]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
-[Administración de tareas de escalabilidad de Almacenamiento de datos SQL de Azure (REST)]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
+[Restauración de base de datos]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -116,4 +114,4 @@ Para obtener una lista de todas las tareas que se pueden automatizar con PowerSh
 <!--Other Web references-->
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

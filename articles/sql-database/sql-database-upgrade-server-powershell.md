@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"/>
 
 # Actualización a la Base de datos SQL V12 de Azure mediante PowerShell
@@ -47,7 +47,7 @@ Después de realizar la actualización a V12, las [recomendaciones de nivel de s
 ## Preparación de la actualización
 
 - **Actualizar todas las bases de datos de tipo Web y Business**: consulte la sección [Actualizar todas las bases de datos de tipo Web y Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) que tiene a continuación o use [PowerShell para actualizar las bases de datos y el servidor](sql-database-upgrade-server-powershell.md).
-- **Revisar y suspender la replicación geográfica**: si la Base de datos SQL de Azure está configurada para replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
+- **Revisar y suspender la replicación geográfica**: si la base de datos SQL de Azure está configurada para la replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
 - **Abra los siguientes puertos si tiene clientes en una máquina virtual de Azure**: si el programa cliente se conecta a la Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto 11000 a 11999 y de 14000 a 14999 en la máquina virtual. Para obtener más información, consulte [Puertos de la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -201,4 +201,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

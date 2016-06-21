@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="06/01/2016"
    ms.author="barbkess;sonyama"/>
 
 # Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-overview-manage-compute.md)
+- [Información general](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -62,10 +62,10 @@ Se asignan las DWU en bloques de 100, pero no todos los bloques están disponibl
  
 Para ajustar las DWU, puede utilizar cualquiera de estos métodos individuales.
 
-- [Scale compute power with Azure portal][] (Escalado de la potencia de proceso con el Portal de Azure)
-- [Scale compute power with PowerShell][] (Escalado de la potencia de proceso con PowerShell)
-- [Scale compute power with REST APIs][] (Escalado de la potencia de proceso con API de REST)
-- [Scale compute power with TSQL][] (Escalado de la potencia de proceso con TSQL)
+- [Scale compute power with Azure portal (Escalado de la potencia de proceso con el Portal de Azure)][]
+- [Scale compute power with PowerShell (Escalado de la potencia de proceso con PowerShell)][]
+- [Scale compute power with REST APIs (Escalado de la potencia de proceso con API de REST)][]
+- [Scale compute power with TSQL (Escalado de la potencia de proceso con TSQL)][]
 
 ### ¿Cuántas DWU debería usar?
  
@@ -128,19 +128,20 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 
 <!--Article references-->
 
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-tasks-portal.md#task-1-scale-performance
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-1-scale-performance
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-1-scale-performance
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tasks-tsql.md
+[Scale compute power with Azure portal (Escalado de la potencia de proceso con el Portal de Azure)]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Scale compute power with PowerShell (Escalado de la potencia de proceso con PowerShell)]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Scale compute power with REST APIs (Escalado de la potencia de proceso con API de REST)]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Scale compute power with TSQL (Escalado de la potencia de proceso con TSQL)]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [Límites de capacidad]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pausa del proceso con el Portal de Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[Pausa del proceso con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[Pausa del proceso con las API de REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Reanudación del proceso con el Portal de Azure]: ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[Reanudación del proceso con PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[Reanudación del proceso con las API de REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Pausa del proceso con el Portal de Azure]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Pausa del proceso con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Pausa del proceso con las API de REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+
+[Reanudación del proceso con el Portal de Azure]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Reanudación del proceso con PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Reanudación del proceso con las API de REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
 [modelo de simultaneidad]: sql-data-warehouse-develop-concurrency.md
 [diseño de tablas]: sql-data-warehouse-develop-table-design.md
@@ -157,4 +158,4 @@ Consulte los artículos siguientes para comprender mejor algunos conceptos funda
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

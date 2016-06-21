@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con el [Portal de Azure](http://portal.azure.com). Para configurar la replicación geográfica, vea [Configuración de replicación geográfica para Base de datos SQL de Azure](sql-database-geo-replication-portal.md).
+En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con el [Portal de Azure](http://portal.azure.com). Para configurar la replicación geográfica, consulte [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md).
 
 
 ## Inicio de una conmutación por error
@@ -51,8 +51,8 @@ Hay un breve período durante el que ambas bases de datos no están disponibles 
 
 
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
+- [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
@@ -61,4 +61,4 @@ Hay un breve período durante el que ambas bases de datos no están disponibles 
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

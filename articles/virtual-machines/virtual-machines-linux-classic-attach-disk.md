@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. Consulte cómo [acoplar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. También puede [conectar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md).
 
 Puede acoplar tanto discos vacíos como discos que contengan datos a las máquinas virtuales de Azure. Ambos tipos de discos son archivos .vhd que residen en una cuenta de almacenamiento de Azure. Como sucede al agregar cualquier disco a una máquina Linux, después de acoplarlo, deberá inicializarlo y formatearlo para que esté listo para su uso. En este artículo se detalla cómo acoplar discos vacíos y discos que ya contengan datos a las máquinas virtuales, así como la forma de inicializar y formatear un disco nuevo.
 
@@ -160,15 +160,17 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
 
 >[AZURE.NOTE] Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no se monta al arrancar. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-## Recursos adicionales
-[Inicio de sesión en una máquina virtual con Linux][Logon]
+## Pasos siguientes
+Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes artículos:
 
-[Desconexión de un disco de una máquina virtual de Linux](virtual-machines-linux-classic-detach-disk.md)
+- [Inicio de sesión en una máquina virtual con Linux][Logon]
 
-[Uso de la CLI de Azure con la API de administración de servicios](../virtual-machines-command-line-tools.md)
+- [Desconexión de un disco de una máquina virtual de Linux](virtual-machines-linux-classic-detach-disk.md)
+
+- [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

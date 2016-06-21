@@ -250,7 +250,7 @@ Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProx
 
 
 	try	{
-		// Delete container.
+		// Delete blob.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
@@ -308,4 +308,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

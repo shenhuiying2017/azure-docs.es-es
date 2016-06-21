@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
@@ -35,12 +35,12 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 
 | Categoría | Descripción | Máxima |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Base de datos | Tamaño máximo | 60 TB comprimidos en disco<br/><br/>Almacenamiento de datos SQL permite un máximo de 60 TB de espacio sin formato en disco por base de datos. El espacio en disco es el tamaño comprimido de las tablas permanentes. Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a las tablas permanentes. La compresión del almacén de columnas agrupado se calcula mediante un factor de 5, lo que significa que el tamaño sin comprimir de la base de datos podría aumentar hasta unos 300 TB cuando todas las tablas se agrupan en el almacén de columnas (que es el tipo de tabla predeterminado). El límite de 60 TB aumentará a 240 TB al final de la versión preliminar pública, lo que permitirá que casi todas las bases de datos crezcan por encima de 1 PB de datos sin comprimir.|
+| Base de datos | Tamaño máximo | 240 TB comprimidos en un disco<br/><br/>Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a tablas permanentes. La compresión del almacén de columnas agrupado se calcula mediante un factor de 5, lo que significa que el tamaño sin comprimir de la base de datos podría aumentar hasta unos 1 PB cuando todas las tablas se agrupan en el almacén de columnas (que es el tipo de tabla predeterminado).|
 | Tabla | Tamaño máximo | 60 TB comprimidos en disco |
 | Tabla | Tablas por base de datos | 2 mil millones |
 | Tabla | Columnas por tabla | 1024 columnas |
 | Tabla | Bytes por columna | 8000 bytes |
-| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 KB][] disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)][] (CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
+| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 KB][] disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)][] \(CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
 | Tabla | Particiones por tabla | 15 000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir el número de particiones que necesita pero sin perder de vista sus necesidades empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento.|
 | Tabla | Caracteres por valor de límite de partición| 4000 |
 | Índice | Índices no agrupados por tabla | 999<br/><br/>Solo se aplica a tablas de almacén de filas.|
@@ -109,4 +109,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

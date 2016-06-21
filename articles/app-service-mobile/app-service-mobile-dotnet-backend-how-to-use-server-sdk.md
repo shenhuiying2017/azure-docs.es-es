@@ -303,7 +303,7 @@ Cuando un usuario se autentica mediante el Servicio de aplicaciones, se puede te
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-El SID se deriva del identificador de usuario específico del proveedor y es estático para un usuario y un proveedor de inicio de sesión dados.
+El SID se deriva del identificador de usuario específico del proveedor y es estático para un usuario y un proveedor de inicio de sesión dados. Cuando un usuario accede a un punto de conexión de forma anónima, la propiedad User devuelve null.
 
 El Servicio de aplicaciones también le permite solicitar notificaciones específicas de su proveedor de inicio de sesión. De esta forma puede solicitar más información del proveedor, por ejemplo, mediante las API Graph de Facebook. Puede especificar notificaciones en la hoja de proveedor en el portal. Algunas notificaciones requieren configuración adicional con el proveedor.
 
@@ -332,6 +332,19 @@ El código siguiente llama al método de extensión **GetAppServiceIdentityAsync
     }
 
 Tenga en cuenta que debe agregar una instrucción using a `System.Security.Principal` para que el método de extensión **GetAppServiceIdentityAsync** funcione.
+
+### <a name="authorize"></a>Restricción del acceso a datos para los usuarios autorizados
+
+En la sección anterior, hemos mostrado cómo recuperar el identificador de usuario de un usuario autenticado. Puede restringir el acceso a datos y otros recursos basándose en este valor. Por ejemplo, agregar una columna de identificador de usuario (userId) a las tablas y filtrar los resultados de la consulta de un usuario por el identificador de usuario es una manera sencilla de limitar los datos devueltos únicamente a los usuarios autorizados. El código siguiente devuelve filas de datos solo cuando el identificador del usuario actual coincide con el valor de la columna UserId de la tabla TodoItem:
+
+    // Get the SID of the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    
+    // Only return data rows that belong to the current user.
+    return Query().Where(t => t.UserId == sid);
+
+Según cada escenario específico, también conviene crear tablas de usuarios o de roles para realizar un seguimiento de la información de autorización de usuario más detallada, como los extremos a los que un usuario determinado tiene permiso de acceso.
 
 ## Cómo agregar notificaciones push a un proyecto de servidor
 
@@ -373,9 +386,9 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
 
 En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para más información, vea [Incorporación de notificaciones push a la aplicación](app-service-mobile-ios-get-started-push.md). Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>Cómo incorporar etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
+##<a name="tags"></a>Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción dirigida
 
-Los Centros de notificaciones permite enviar notificaciones dirigidas a registros específicos mediante el uso de etiquetas. Una etiqueta que se crea automáticamente es el identificador de instalación, que es específico de una instancia de la aplicación en un dispositivo determinado. Un registro con un id. de instalación también se denomina una *instalación*. Puede utilizar el identificador de instalación para administrar la instalación; por ejemplo, para agregar etiquetas. Se puede acceder al id. de instalación desde la propiedad **installationId** en **MobileServiceClient**.
+Los Centros de notificaciones permite enviar notificaciones dirigidas a registros específicos mediante el uso de etiquetas. Una etiqueta que se crea automáticamente es el identificador de instalación, que es específico de una instancia de la aplicación en un dispositivo determinado. Un registro con un identificador de instalación también se denomina una *instalación*. Puede utilizar el identificador de instalación para administrar la instalación; por ejemplo, para agregar etiquetas. Se puede acceder al identificador de instalación desde la propiedad **installationId** en **MobileServiceClient**.
 
 En el ejemplo siguiente se muestra cómo usar un identificador de instalación para agregar una etiqueta a una instalación específica en los Centros de notificaciones:
 
@@ -391,7 +404,7 @@ En el ejemplo siguiente se muestra cómo usar un identificador de instalación p
 
 Tenga en cuenta que, al crear la instalación, el back-end ignora las etiquetas proporcionadas por el cliente durante el registro de notificaciones push. Para que un cliente pueda agregar etiquetas a la instalación, debe crear una nueva API personalizada que agregue etiquetas mediante el patrón anterior. Para ver un ejemplo de un controlador de API personalizado que permite a los clientes agregar etiquetas a una instalación, consulte [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) (Etiquetas de notificaciones push agregadas por el cliente) en el ejemplo de inicio rápido de Aplicaciones móviles del Servicio de aplicaciones completado para el back-end de .NET.
 
-##<a name="push-user"></a>Cómo enviar notificaciones push a un usuario autenticado
+##<a name="push-user"></a>Envío de notificaciones push a un usuario autenticado
 
 Cuando un usuario autenticado se registra para las notificaciones push, se agrega automáticamente una etiqueta con el identificador de usuario al registro. Mediante el uso de esta etiqueta, puede enviar notificaciones push a todos los dispositivos registrados por un usuario específico. El código siguiente obtiene el SID del usuario que realiza la solicitud y envía una notificación push de plantilla a cada registro de dispositivo para ese usuario:
 
@@ -465,4 +478,4 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

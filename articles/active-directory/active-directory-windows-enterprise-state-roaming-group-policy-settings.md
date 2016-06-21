@@ -5,7 +5,7 @@
     keywords="¿cuál es la configuración de directiva de grupo y MDM para Enterprise State Roaming, Enterprise State Roaming, nube de windows"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Configuración de MDM y directivas de grupo
@@ -24,20 +24,20 @@ Use esta configuración de directiva de grupo y de dispositivos móviles (MDM) d
 Las empresas que desean administrar la movilidad para sus dispositivos personales (no administrados) pueden usar el Portal de Azure para habilitar o deshabilitar la movilidad, en lugar de usar la directiva de grupo o MDM. Las tablas siguientes describen la configuración de la directiva disponible.
 
 ## Configuración de MDM
-La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile.
+La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile. El soporte para Windows 10 Mobile existe solo para la itinerancia basada en cuentas de Microsoft a través de la cuenta OneDrive del usuario. Consulte la sección "Dispositivos y puntos de conexión" para obtener detalles sobre qué dispositivos son compatibles para la sincronización basad en Azure AD.
 
 | Nombre | Descripción |
 |------------------------------------|----------------------------------------------------------------------|
 | Permitir la conexión con una cuenta de Microsoft | Permite a los usuarios autenticarse con una cuenta de Microsoft en el dispositivo. |
-| Permitir la sincronización de mi configuración | Permite a los usuarios movilizar los datos de la aplicación y la configuración de Windows. |
- 
+| Permitir la sincronización de mi configuración | Permite a los usuarios usar un perfil itinerante para la configuración de Windows y los datos de la aplicación; si deshabilita esta directiva se deshabilitará la sincronización, así como las copias de seguridad en dispositivos móviles |
+
 ## Configuración de directiva de grupo
-La configuración de directiva de grupo se aplica a dispositivos de Windows 10 que están unidos a un dominio de Active Directory. La tabla incluye la configuración heredada que aparecerá para administrar la configuración de sincronización, pero que no funcionan para Enterprise State Roaming para Windows 10.
+La configuración de directiva de grupo se aplica a dispositivos de Windows 10 que están unidos a un dominio de Active Directory. La tabla incluye también la configuración heredada que aparecerá para administrar la configuración de sincronización, pero que no funciona para Enterprise State Roaming para Windows 10. Esto se indica con "No utilizar" en la descripción.
 
 | Nombre | Descripción |
 |-------------------------------------|-------------|
 | Cuentas: bloquear cuentas Microsoft |Esta configuración de directiva impide a los usuarios agregar nuevas cuentas de Microsoft en este equipo.|
-| No sincronizar |Permite a los usuarios movilizar los datos de la aplicación y la configuración de Windows.|
+| No sincronizar |Impide a los usuarios usar un perfil itinerante para los datos de la aplicación y la configuración de Windows.|
 | No sincronizar personalización |Deshabilita la sincronización del grupo Temas.|
 | No sincronizar la configuración del explorador |Deshabilita la sincronización del grupo Internet Explorer.|
 | No sincronizar contraseñas |Deshabilita la sincronización del grupo Contraseñas.|
@@ -55,4 +55,4 @@ La configuración de directiva de grupo se aplica a dispositivos de Windows 10 q
 - [Preguntas más frecuentes sobre itinerancia de datos y configuración](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->

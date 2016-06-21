@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Configuración de una red virtual para un laboratorio
@@ -27,23 +27,23 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
+1. Seleccione **Examinar**, y, a continuación, seleccione **DevTest Labs** en la lista.
 
-1. En la lista de laboratorios, pulse el laboratorio que desee.
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
 1. Se mostrará la hoja **Configuración** del laboratorio seleccionado.
 
-1. Pulse **Redes virtuales**.
+1. Seleccione **Redes virtuales**.
 
 	![Las redes virtuales se pueden configurar desde la hoja Configuración del laboratorio.](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. En la hoja **Redes virtuales**, verá una lista de redes virtuales que se han configurado para el laboratorio actual, así como la red virtual predeterminada que se crea para el laboratorio.
 
-1. Pulse **+ Agregar**.
+1. Seleccione **+Agregar**.
 
 	![Incorporación de una red virtual existente al laboratorio](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
-1. En la hoja **Red virtual**, pulse **[Seleccionar red virtual]**.
+1. En la hoja **Red virtual**, elija **[Seleccionar red virtual]**.
 
 	![Selección de una red virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
@@ -61,7 +61,7 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
 
 1. En el campo **MÁXIMO DE VM POR USUARIO**, especifique el número máximo de máquinas virtuales por usuario para cada subred. Si quiere un número ilimitado de máquinas virtuales, deje este campo en blanco.
 
-1. Pulse **Guardar**.
+1. Seleccione **Guardar**.
 
 1. Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. Esto se explica en el artículo [Incorporación de una máquina virtual con artefactos a DevTest Labs](devtest-lab-add-vm-with-artifacts.md).
 
@@ -69,4 +69,4 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
 
 Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

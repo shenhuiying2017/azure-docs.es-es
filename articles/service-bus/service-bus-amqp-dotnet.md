@@ -171,7 +171,7 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 - [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]
 - [AMQP de Bus de servicio para Windows Server]
 
-  [Utilización de las colas del Bus de servicio]: service-bus-dotnet-how-to-use-queues.md
+  [Utilización de las colas del Bus de servicio]: service-bus-dotnet-get-started-with-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
   [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
@@ -203,4 +203,4 @@ Las API de .NET exponen varias opciones para controlar el comportamiento del pro
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

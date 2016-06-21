@@ -67,7 +67,7 @@ Para obtener información detallada acerca de los niveles de servicio Basic, Sta
 ### Revisión de la configuración de replicación geográfica
 
 
-Si la base de datos SQL de Azure está configurada para replicación geográfica, debe documentar la configuración actual y detener la replicación geográfica antes de comenzar a preparar la actualización. Una vez completada la actualización debe volver a configurar la base de datos para la replicación geográfica.
+Si la base de datos SQL de Azure está configurada para la replicación geográfica, debe documentar la configuración actual y detener la replicación geográfica antes de comenzar a preparar la actualización. Cuando finalice la actualización, debe volver a configurar la base de datos para la replicación geográfica.
 
 
 La estrategia es dejar intacto el origen y realizar pruebas en una copia de la base de datos.
@@ -103,7 +103,7 @@ Si no sabe a qué nivel de servicio cambiar, el nivel S2 del nivel Standard pued
 No se puede ejecutar la actualización a V12 si la replicación geográfica está activa en la base de datos. Primero debe volver a configurar la base de datos para dejar de usar la replicación geográfica.
 
 
-Una vez completada la actualización puede configurar la base de datos para volver a usar la replicación geográfica.
+Cuando finalice la actualización, puede configurar la base de datos para volver a usar la replicación geográfica.
 
 
 ### Cliente en una VM de Azure
@@ -167,7 +167,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 | Limitación | Descripción |
 | :--- | :--- |
 | Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
-| Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que está implicado actualmente en una actualización desde V11. |
+| Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que actualmente se encuentra en proceso de realizar una actualización desde V11. |
 | La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Pero la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
 
 
@@ -253,4 +253,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

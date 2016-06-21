@@ -355,7 +355,7 @@ Los trabajos por lotes en ejecución se pueden cancelar en cualquier momento lla
 
 El [paquete de NuGet SDK de BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) proporciona funciones que simplifican la llamada a BES para su puntuación en el modo por lotes. Para instalar el paquete NuGet, en Visual Studio, en el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y haga clic en **Consola del Administrador de paquetes**.
 
-Los experimentos de Aprendizaje automático de Azure implementados como servicios web pueden incluir módulos de entrada de servicio web. Esto significa que esperan que la entrada se realice a través de la llamada de servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo **lector**. En ese caso, el módulo **lector** normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
+Los experimentos de Aprendizaje automático de Azure implementados como servicios web pueden incluir módulos de entrada de servicio web. Esto significa que esperan que la entrada se realice a través de la llamada de servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo **Importar datos**. En ese caso, el módulo **Importar datos** normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
 
 El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un trabajo por lotes con un extremo de servicio de Aprendizaje automático de Azure mediante el SDK de BES. En los comentarios encontrará más información sobre la configuración y las llamadas.
 
@@ -685,4 +685,4 @@ Ahora puede usar cualquiera de las herramientas swagger. Aquí encontrará las i
 	        "operationId": "getSwaggerDocument",
 	        
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

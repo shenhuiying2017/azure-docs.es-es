@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Tendencia de costo estimado mensual
@@ -28,15 +28,15 @@ Para ver el gráfico de tendencias de costo estimado mensual, siga estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Pulse **Examinar** y luego pulse **Laboratorios de desarrollo y pruebas** en la lista.
+1. Seleccione **Examinar**, y, a continuación, seleccione **DevTest Labs** en la lista.
 
-1. En la lista de laboratorios, pulse el laboratorio que desee.
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
-1. Pulse **Configuración**.
+1. Seleccione **Configuración**.
 
 	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. En la hoja **Settings** (Configuración) del laboratorio, en **Cost Management** (Administración de costos), pulse **Thresholds** (Umbrales).
+1. En la hoja **Configuración** del laboratorio, en **Cost Management** (Administración de costos), seleccione **Umbrales**.
 
 	![Menú](./media/devtest-lab-configure-cost-management/menu.png)
  
@@ -69,4 +69,4 @@ Vea algunas acciones que puede probar a continuación:
 - [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) (Configuración de imágenes de Marketplace): DevTest Labs admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) (Creación de una máquina virtual en un laboratorio): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

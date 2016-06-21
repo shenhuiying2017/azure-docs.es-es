@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Cómo registrar una aplicación con el punto de conexión v2.0
@@ -30,7 +30,8 @@ Inicie sesión con una cuenta personal o una cuenta profesional o educativa de M
 
 ¿Ha acabado? Ahora debería estar viendo su lista de aplicaciones de Microsoft, que probablemente esté vacía. Cambiemos eso.
 
-Haga clic en **Agregar una aplicación** y asígnele un nombre. El portal le asignará a su aplicación un id. de aplicación único global que usará más adelante en su código. Si su aplicación incluye un componente del lado del servidor que necesita tokens de acceso para llamar a las API (como Office, Azure o su propia API web), aquí también le interesará crear un **Secreto de la aplicación**. <!-- TODO: Link for app secrets -->
+Haga clic en **Agregar una aplicación** y asígnele un nombre. El portal le asignará a su aplicación un id. de aplicación único global que usará más adelante en su código. Si su aplicación incluye un componente del lado del servidor que necesita tokens de acceso para llamar a las API (como Office, Azure o su propia API web), aquí también le interesará crear un **Secreto de la aplicación**.
+<!-- TODO: Link for app secrets -->
 
 A continuación, agregue las plataformas que usará la aplicación.
 
@@ -46,4 +47,4 @@ Ahora que tiene una aplicación de Microsoft, puede completar uno de nuestros tu
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

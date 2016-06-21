@@ -21,7 +21,10 @@
 <a name="TypeofBuilds"></a>
 ## ¿Qué tipo de compilación de recomendaciones debo utilizar? ##
 
-Actualmente se admiten dos tipos de compilación: las compilaciones de *recomendación* y *FBT*. Cada una de ellos se genera con algoritmos diferentes y tiene sus propios puntos fuertes.
+Actualmente se admiten dos tipos de compilación: las compilaciones de *recomendación* y *FBT*. Cada una de ellos se genera con algoritmos diferentes y tiene sus propios puntos fuertes. Este documento describe cada una de estas compilaciones, así como técnicas para comparar la calidad de los modelos generados.
+
+
+> Si aún no lo ha hecho, le animamos a que se complete la [guía de inicio rápido](cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Tipo de compilación de recomendación ###
@@ -238,4 +241,4 @@ Esto desencadenará una compilación que utiliza solo un subconjunto de los dato
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

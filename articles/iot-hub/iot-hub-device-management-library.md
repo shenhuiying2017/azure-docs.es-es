@@ -20,7 +20,7 @@
 
 ## Información general
 
-La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] (Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
+La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] \(Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
 
 - Dispositivos gemelos
 - Trabajos del dispositivo
@@ -126,7 +126,7 @@ Básicamente, la biblioteca de cliente se encarga de la comunicación entre el d
 
 Se acaba de explicar cómo se podría implementar la lógica específica del dispositivo para realizar trabajos de dispositivo. Ahora se explicará qué objetos están disponibles para su uso.
 
-Algunos de estos objetos son necesarios, lo que significa que hay que implementar la lógica de específica de dispositivo para que pueda formar parte de la administración de dispositivos de Centro de IoT. Otros son opcionales, por lo que puede elegir según sus necesidades de servicio (por ejemplo, puede elegir no realizar las actualizaciones de firmware con Centro de IoT). Esta es una descripción de cada uno:
+Algunos de estos objetos son necesarios, lo que significa que hay que implementar la lógica específica de dispositivo para que pueda formar parte de la administración de dispositivos del Centro de IoT. Otros son opcionales, por lo que puede elegir según sus necesidades de servicio (por ejemplo, puede elegir no realizar las actualizaciones de firmware con Centro de IoT). Esta es una descripción de cada uno:
 
 - **Objeto de dispositivo (necesario)**: proporciona información específica del dispositivo, como información del fabricante, número de modelo, número de serie u hora del dispositivo. El servicio puede leer esta información y, en algunos casos, actualizarla. También define dos acciones que puede realizar el servicio en un dispositivo: reinicio y restablecimiento de fábrica.
 - **Objeto de servidor (obligatorio)**: contiene los parámetros y la configuración de conexión que se utilizan para conectarse a Centro de IoT, como la duración del registro y el enlace de transporte. El servicio solo puede leer esta información.
@@ -152,7 +152,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 - Ejemplo de actualización de firmware de Intel Edison: ejemplo con características de administración de dispositivos habilitadas con un dispositivo Intel Edison. Consulte [iotdm\_edison\_sample][lnk-edison-sample].
 - Ejemplo de dispositivos simulados: un ejemplo de dispositivos independientes de plataforma que se ejecuta en dispositivos con Linux y Windows. Consulte [iotdm\_simple\_sample][lnk-simple-sample]
-- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] (Registro de recursos y objetos OMA LWM2M).
+- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] \(Registro de recursos y objetos OMA LWM2M).
 
 ## Apéndice: Recursos y objetos LWM2M admitidos
 
@@ -222,4 +222,4 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

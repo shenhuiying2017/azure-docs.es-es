@@ -211,7 +211,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
 | 105 | [Preguntas frecuentes sobre la continuidad del negocio](sql-database-bcdr-faq.md) | Preguntas comunes y respuestas de clientes acerca de las características integradas y opcionales de continuidad de negocio y recuperación ante desastres de base de datos SQL de Azure. |
-| 106 | [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Obtenga información acerca de cómo diseñar soluciones de recuperación ante desastres en la nube para planificar la continuidad del negocio mediante la replicación geográfica de la copia de seguridad de datos de la aplicación con la Base de datos SQL de Azure. |
+| 106 | [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) | Aprenda a diseñar soluciones de recuperación ante desastres en la nube para planear la continuidad empresarial mediante la replicación geográfica de la copia de seguridad de datos de la aplicación con Base de datos SQL de Azure. |
 | 107 | [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md) | Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL. |
 | 108 | [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md) | Restauración a un momento dado, base de datos de Microsoft Azure SQL, restaurar base de datos, recuperar base de datos, Portal de Azure clásico, Portal de Azure clásico |
 | 109 | [Restauración de una única tabla a partir de una copia de seguridad de Base de datos SQL de Azure](sql-database-cloud-migrate-restore-single-table-azure-backup.md) | Obtenga información sobre cómo restaurar una única tabla de la copia de seguridad de Base de datos SQL de Azure. |
@@ -307,9 +307,9 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 | &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
-| 160 | [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md) | replicación geográfica para Base de datos SQL con PowerShell |
+| 160 | [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md) | Replicación geográfica para Base de datos SQL de Azure con PowerShell |
 | 161 | [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md) | Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure |
-| 162 | [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configuración de la replicación geográfica de la Base de datos SQL de Azure con Transact-SQL |
+| 162 | [Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md) | Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL |
 | 163 | [Administración de la seguridad después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) | En este tema, se explican las consideraciones de seguridad para administrar escenarios de Replicación geográfica activa para Base de datos SQL. |
 | 164 | [Información general: Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) | La replicación geográfica activa permite configurar cuatro réplicas de la base de datos en cualquiera de los centros de datos de Azure. |
 
@@ -378,4 +378,4 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 - Gráfico de ruta de aprendizaje: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

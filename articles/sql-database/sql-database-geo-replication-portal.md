@@ -48,7 +48,7 @@ Para agregar una base de datos secundaria debe ser el propietario o copropietari
 
 La base de datos secundaria tendrá el mismo nombre que la base de datos principal y, de forma predeterminada, tienen el mismo nivel de servicio. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para más información, vea [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
-> [AZURE.NOTE] Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
+> [AZURE.NOTE] Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior), se producirá un error en el comando.
 
 
 
@@ -96,7 +96,7 @@ La operación termina de forma permanente la replicación en la base de datos se
     ![quitar secundaria][7]
 
 
-5. Al hacer clic en **Detener replicación** se abre una ventana de confirmación, haga clic en **Sí** para quitar la base de datos de la asociación de replicación geográfica (establézcala en una base de datos de lectura y escritura que no forma parte de ninguna replicación).
+5. Al hacer clic en **Detener replicación** se abre una ventana de confirmación, haga clic en **Sí** para quitar la base de datos de la asociación de replicación geográfica (establézcala en una base de datos de lectura y escritura que no forme parte de ninguna replicación).
 
 
     ![confirmar eliminación][8]
@@ -108,14 +108,14 @@ La operación termina de forma permanente la replicación en la base de datos se
 ## Pasos siguientes
 
 - [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-portal.md)
-- [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 
 
 ## Recursos adicionales
 
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
@@ -135,4 +135,4 @@ La operación termina de forma permanente la replicación en la base de datos se
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

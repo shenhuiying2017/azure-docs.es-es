@@ -342,4 +342,8 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Si desea agregar funcionalidades gráficas a esta salida del informe, lea la información de la publicación del blog de TechNet [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) (Gráficos con PowerShell).
 
-<!---HONumber=AcomDC_0525_2016-->
+## Pasos siguientes
+
+Si prefiere usar PowerShell para atraer a los recursos de Azure, consulte el artículo de PowerShell para proteger Windows Server, [Implementación y administración de copias de seguridad en Azure para Windows Server](./backup-client-automation-classic.md). También hay un artículo de PowerShell para administrar las copias de seguridad DPM, [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](./backup-dpm-automation-classic.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager, así como las implementaciones clásicas.
+
+<!---HONumber=AcomDC_0608_2016-->

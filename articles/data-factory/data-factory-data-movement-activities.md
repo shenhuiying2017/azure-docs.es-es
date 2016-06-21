@@ -102,7 +102,7 @@ Los diferentes almacenes de datos tienen sistemas con distintos tipos nativos. L
 Puede encontrar la asignación de un determinado sistema de tipo nativo a .NET para el almacén de datos en los respectivos artículos del conector del almacén de datos. Puede usar estas asignaciones para determinar los tipos adecuados al crear las tablas, de forma que se realicen las conversiones adecuadas durante la actividad de copia.
 
 ### Trabajo con diferentes formatos de archivo
-En los almacenes basados en archivos, la actividad de copia admite una gran variedad de formatos de archivo, incluidos los formatos binario, de texto, Avro y JSON. Puede usar la actividad de copia para convertir los datos de un formato a otro. Ejemplo: texto (CSV) para Avro. Si los datos no están estructurados, puede omitir la propiedad **Structure** en la definición de JSON del [conjunto de datos](data-factory-create-datasets.md).
+En los almacenes basados en archivos, la actividad de copia admite una gran variedad de formatos de archivo, incluidos los formatos binario, de texto, Avro, ORC y JSON. Puede usar la actividad de copia para convertir los datos de un formato a otro. Ejemplo: texto (CSV) para Avro. Si los datos no están estructurados, puede omitir la propiedad **Structure** en la definición de JSON del [conjunto de datos](data-factory-create-datasets.md).
 
 ### Propiedades de la actividad de copia
 Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades. Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad.
@@ -195,4 +195,4 @@ También puede usar una variable **personalizada** como se muestra abajo y cualq
 
 ![Uso de la variable personalizada](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

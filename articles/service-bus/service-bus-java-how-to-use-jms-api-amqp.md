@@ -27,7 +27,7 @@ En este artículo se explica cómo utilizar las funciones de mensajería asincr�
 
 ## Introducción al Bus de servicio
 
-En esta guía se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-how-to-use-queues.md).
+En esta guía se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-get-started-with-queues.md).
 
 > [AZURE.NOTE] Los temas y colas con particiones también admiten AMQP. Para obtener más información, consulte [Entidades de mensajería con particiones](service-bus-partitioning.md) y [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 
@@ -332,11 +332,11 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 * [Compatibilidad de AMQP 1.0 en el Bus de servicio de Azure](service-bus-amqp-overview.md)
 * [Uso de AMQP 1.0 con la API .NET del bus de servicio](service-bus-dotnet-advanced-message-queuing.md)
 * [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](service-bus-amqp-dotnet.md)
-* [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+* [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de desarrolladores de Java](/develop/java/).
 
 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

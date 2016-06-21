@@ -276,7 +276,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 |Coste de transacción en cola|**0,0036 $**<br/><br/>(por cada 100 000 transacciones)|**Nivel básico**: **0,05 $**<br/><br/>(por operaciones de millones)|
 |Operaciones facturables|**Todas**|**Enviar/recibir solo**<br/><br/>(sin coste para otras operaciones)|
 |Transacciones inactivas|**Facturables**<br/><br/>(la consulta de una cola vacía se cuenta como transacción facturable)|**Facturables**<br/><br/>(una recepción con una cola vacía se considera mensaje facturable)|
-|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00**|
+|Coste del almacenamiento|**0,07 $**<br/><br/>(por GB/mes)|**0,00 **|
 |Costes de transferencia de datos salientes|**0,12 $ - 0,19 $**<br/><br/>(según la geografía)|**0,12 $ - 0,19 $**<br/><br/>(según la geografía)|
 
 ### Información adicional
@@ -301,7 +301,7 @@ Dado que las colas de Service Bus ofrecen varias características avanzadas, com
 
 En los artículos siguientes se ofrece más orientación e información acerca del uso de las colas de Azure o las colas de Service Bus.
 
-- [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 - [Uso del servicio de almacenamiento en cola](../storage/storage-dotnet-how-to-use-queues.md)
 - [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](service-bus-performance-improvements.md)
 - [Introducción a las colas y los temas de Service Bus de Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
@@ -314,4 +314,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 [Portal de Azure clásico]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

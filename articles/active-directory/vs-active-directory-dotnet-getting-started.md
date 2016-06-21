@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/01/2016" 
 	ms.author="tarcher"/>
 
 # Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de MVC)
@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, utilice la vista parcial **\_L
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

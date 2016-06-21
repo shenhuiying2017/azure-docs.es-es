@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-linux"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
@@ -53,7 +53,7 @@ La solicitud de iniciar la máquina virtual detenida se debe intentar en el clú
 
 *	Vuelva a intentar solicitar el reinicio más tarde.
 
-## Problema: Error al reiniciar una máquina virtual existente
+## Problema: error al reiniciar una máquina virtual existente
 
 Intenta cambiar el tamaño de una máquina virtual existente, pero obtiene un error de asignación.
 
@@ -74,4 +74,4 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
   2. Después de detener todas las máquinas virtuales, aumente el tamaño de la máquina virtual que quiera.
   3. Seleccione la máquina virtual cuyo tamaño ha cambiado, haga clic en **Iniciar** e inicie las máquinas virtuales detenidas.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

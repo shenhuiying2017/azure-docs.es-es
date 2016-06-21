@@ -33,9 +33,6 @@ Seleccione **Tareas | Stretch | Monitor** para una base de datos en SQL Server M
 Abra la vista de administración dinámica **sys.dm\_db\_rda\_migration\_status** para ver cuántos lotes y filas de datos se han migrado. Para más información, consulte [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Solución de problemas de migración de datos
-**El firewall de Azure bloquea las conexiones de mi servidor local.**
-
-Es posible que tenga que agregar una regla en la configuración del Firewall de Azure para permitir que SQL Server se comunique con el servidor remoto de Azure.
 
 **Las filas de mi tabla habilitada para Stretch no se están migrando a Azure. ¿Cuál es el problema?**
 
@@ -47,9 +44,13 @@ Hay varios problemas que pueden afectar a la migración. Compruebe lo siguiente.
 
 -   Compruebe el estado del lote más reciente en la vista de administración dinámica **sys.dm\_db\_rda\_migration\_status**. Si se ha producido un error, compruebe los valores error\_number, error\_state y error\_severity para el lote.
 
-    -   Para obtener más información sobre la vista, consulte [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
+    -   Para más información sobre la vista, consulte [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-    -   Para obtener más información sobre el contenido de un mensaje de error de SQL Server, consulte [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
+    -   Para más información sobre el contenido de un mensaje de error de SQL Server, consulte [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
+
+**El firewall de Azure bloquea las conexiones de mi servidor local.**
+
+Es posible que tenga que agregar una regla en la configuración del Firewall de Azure para permitir que SQL Server se comunique con el servidor remoto de Azure.
 
 ## Otras referencias
 
@@ -58,4 +59,4 @@ Hay varios problemas que pueden afectar a la migración. Compruebe lo siguiente.
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

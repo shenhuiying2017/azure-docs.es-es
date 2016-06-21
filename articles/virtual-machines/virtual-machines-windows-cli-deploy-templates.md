@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="06/06/2016"
 	ms.author="rasquill"/>
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y CLI de Azure
@@ -27,4 +27,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

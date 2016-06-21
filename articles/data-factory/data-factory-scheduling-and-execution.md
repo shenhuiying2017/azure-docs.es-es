@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="06/06/2016" 
 	ms.author="spelluru"/>
 
 # Programación y ejecución con Factoría de datos
@@ -282,7 +282,7 @@ ActividadCopia2: entrada: ConjuntoDatos3 y ConjuntoDatos2; salida: ConjuntoDatos
 
 Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. ActividadCopia2 solo empezaría a ejecutarse cuando se cumplieran las siguientes condiciones:
 
-- ActividadCopia2 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.   
+- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usará al copiar datos en ConjuntoDatos4. Solo actúa como una dependencia de programación de ActividadCopia2.   
 - ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
 
 
@@ -702,4 +702,4 @@ Tenga en cuenta lo siguiente:
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

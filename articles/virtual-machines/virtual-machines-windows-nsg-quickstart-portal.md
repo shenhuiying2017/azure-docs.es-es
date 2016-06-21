@@ -22,7 +22,7 @@
 ## Comandos rápidos
 También puede [llevar a cabo estos pasos con Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
-En primer lugar, cree el grupo de seguridad de red. Seleccione un grupo de recursos en el portal, haga clic en "Agregar" y busque para seleccionar "Grupo de seguridad de red":
+En primer lugar, cree el grupo de seguridad de red. Seleccione un grupo de recursos en el portal, haga clic en "Agregar" y busque y seleccione "Grupo de seguridad de red":
 
 ![Agregar un grupo de seguridad de red](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
@@ -63,4 +63,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 - [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 - [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

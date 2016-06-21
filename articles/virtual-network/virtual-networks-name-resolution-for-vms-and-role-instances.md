@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="06/03/2016"
    ms.author="telmos" />
 
 # Resolución de nombres para las máquinas virtuales e instancias de rol
@@ -101,7 +101,7 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 	- agregar “prepend domain-name-servers 127.0.0.1;” en “/etc/dhclient-eth0.conf”
 	- reiniciar el servicio de red ("service network restart") para establecer la memoria caché como el solucionador DNS local
 
-> [AZURE.NOTE]\: El paquete 'dnsmasq' es solo una de las muchas cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no se instale ninguna otra memoria caché.
+> [AZURE.NOTE] El paquete 'dnsmasq' es solo una de las muchas cachés DNS disponibles para Linux. Antes de usarlo, compruebe su idoneidad para sus necesidades concretas y que no se instale ninguna otra memoria caché.
 
 **Reintentos de cliente:**
 
@@ -131,24 +131,26 @@ Hay una serie de situaciones donde sus necesidades de resolución de nombres pue
 
 Los servidores DNS de una red virtual pueden reenviar consultas DNS a resoluciones recursivas de Azure para resolver los nombres de host en la red virtual. Por ejemplo, un controlador de dominio (DC) que se ejecute en Azure puede responder a las consultas DNS referidas a sus dominios y reenviar todas las demás consultas a Azure. Esto permite que las máquinas virtuales vean sus recursos locales (mediante el controlador de dominio) y los nombres de host proporcionados por Azure (mediante el reenviador). El acceso a las resoluciones recursivas de Azure se proporciona a través de la IP virtual 168.63.129.16.
 
-El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite a los equipos locales resolver nombres de host proporcionados por Azure. Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure. Como el sufijo DNS es diferente en cada red virtual, puede usar las reglas de reenvío condicional para enviar consultas DNS a la red virtual correcta para su resolución. La imagen siguiente muestra dos redes virtuales y una red local realizando la resolución DNS entre redes virtuales con este método:
+El reenvío de DNS también habilita la resolución de DNS entre redes virtuales y permite a los equipos locales resolver nombres de host proporcionados por Azure. Para resolver el nombre de host de una máquina virtual, la máquina virtual del servidor DNS debe residir en la misma red virtual y debe configurarse para reenviar consultas de nombre de host a Azure. Como el sufijo DNS es diferente en cada red virtual, puede usar las reglas de reenvío condicional para enviar consultas DNS a la red virtual correcta para su resolución. En la imagen siguiente se muestran dos redes virtuales y una red local realizando la resolución DNS entre redes virtuales con este método: Se puede encontrar un ejemplo de un reenviador DNS de ejemplo está disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS entre redes virtuales](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Cuando se utiliza la resolución de nombres proporcionada por Azure, el sufijo DNS interno se proporciona a cada máquina virtual mediante DHCP. Cuando se utiliza su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS. Para hacer referencia a equipos mediante el FQDN (o para configurar el sufijo en las máquinas virtuales), el sufijo puede determinarse mediante PowerShell o la API:
+Cuando se utiliza la resolución de nombres proporcionada por Azure, se proporciona un sufijo DNS interno (*.internal.cloudapp.net) a cada máquina virtual mediante DHCP. Esto permite la resolución de nombre de host, dado que los registros de nombre de host están en la zona internal.cloudapp.net. Cuando se utiliza su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS (como es el caso de los escenarios de unión a un dominio). En su lugar, proporcionamos un marcador de posición no funcional (reddog.microsoft.com).
 
--  En el caso de las redes virtuales en modelos de implementación de Resource Manager, el sufijo está disponible mediante el recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) o del cmdlet [AzureRmNetworkInterface Get](https://msdn.microsoft.com/library/mt619434.aspx).    
--  En los modelos de implementación clásicos, el sufijo está disponible mediante la llamada a la [API Obtener implementación](https://msdn.microsoft.com/library/azure/ee460804.aspx) o del cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
+Si es necesario, el sufijo DNS interno se puede determinar con PowerShell o la API:
+
+-  En el caso de redes virtuales en modelos de implementación de Resource Manager, el sufijo está disponible mediante el recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx) o del cmdlet [AzureRmNetworkInterface Get](https://msdn.microsoft.com/library/mt619434.aspx).    
+-  En los modelos de implementación clásica, el sufijo está disponible mediante la llamada a la [API Obtener implementación](https://msdn.microsoft.com/library/azure/ee460804.aspx) o por medio del cmdlet [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx).
 
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debe proporcionar su propia solución de DNS. La solución de DNS deberá cumplir estos requisitos:
 
--  Proporcionar la resolución apropiada para el nombre de host, por ejemplo, a través de [DDNS](virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente. 
+-  Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante[DDNS](virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente. 
 -  Proporcionar la resolución recursiva adecuada para permitir la resolución de nombres de dominio externos.
 -  Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
 -  Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
 
-> [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.mp) a cada máquina virtual del servidor DNS. Si opta por usar Windows Server como el servidor DNS, [este artículo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) proporciona optimizaciones y análisis de rendimiento adicionales.
+> [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.md) a cada máquina virtual del servidor DNS. Si opta por usar Windows Server como servidor DNS, en [este artículo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) se proporcionan optimizaciones y análisis de rendimiento adicionales.
 
 
 ### Especificar los servidores DNS
@@ -160,7 +162,7 @@ Si usa sus propios servidores DNS, Azure permite especificar varios servidores D
 
 Cuando se usa el modelo de implementación de Resource Manager, se pueden especificar servidores DNS en el Portal, en la API y en las plantillas ([vnet](https://msdn.microsoft.com/library/azure/mt163661.aspx), [nic](https://msdn.microsoft.com/library/azure/mt163668.aspx)) o en PowerShell ([vnet](https://msdn.microsoft.com/library/mt603657.aspx), [nic](https://msdn.microsoft.com/library/mt619370.aspx)).
 
-Cuando se usa el modelo de implementación clásico, los servidores DNS de la red virtual pueden especificarse en el Portal o en el [archivo de *configuración de red*](https://msdn.microsoft.com/library/azure/jj157100). En el caso de los servicios en la nube, los servidores DNS se especifican mediante [el archivo de *configuración del servicio* ](https://msdn.microsoft.com/library/azure/ee758710) o en PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
+Cuando se usa el modelo de implementación clásica, los servidores DNS de la red virtual pueden especificarse en el Portal o en el [archivo de *configuración de red*](https://msdn.microsoft.com/library/azure/jj157100). En el caso de los servicios en la nube, los servidores DNS se especifican mediante [el archivo de *configuración del servicio* ](https://msdn.microsoft.com/library/azure/ee758710) o en PowerShell ([New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)).
 
 > [AZURE.NOTE] Si cambia la configuración de DNS para una red virtual o una máquina virtual que ya están implementadas, deberá reiniciar cada máquina virtual afectada para que los cambios surtan efecto.
 
@@ -181,4 +183,4 @@ Modelo de implementación clásico:
 - [Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
 - [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

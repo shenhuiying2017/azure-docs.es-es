@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Para configurar la integración de Showpad en Azure AD, deberá agregar Showpad 
 
 1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
 
-	![Active Directory][1]
+	![Aplicaciones][1]
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -80,10 +80,11 @@ Para configurar la integración de Showpad en Azure AD, deberá agregar Showpad 
 
 6. En el cuadro de búsqueda, escriba **Showpad**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+	![Aplicaciones](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
 
 7. En el panel de resultados, seleccione **Showpad** y, luego, haga clic en **Completar** para agregar la aplicación.
 
+	![Aplicaciones](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_02.png)
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Showpad con un usuario de prueba llamado Britta Simon.
@@ -116,19 +117,19 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_03.png)
 
-3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**:
+3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**:
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png)
 
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Showpad con el siguiente patrón: `https://<company name>.showpad.biz/login`.
 
-	b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: `https://<company name>.showpad.biz`.
+	b. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón: `https://<company name>.showpad.biz`.
 
 	c. Haga clic en **Siguiente**.
 
 
-4. En la página **Configurar inicio de sesión único en People**, lleve a cabo estos pasos y luego haga clic en **Siguiente**:
+4. En la página **Configurar inicio de sesión único en Showpad**, lleve a cabo estos pasos y luego haga clic en **Siguiente**:
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_05.png)
 
@@ -155,9 +156,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 	b. Como **origen de metadatos**, seleccione **XML**.
 
-	c. Copie el contenido del archivo de metadatos descargado y, a continuación, péguelo en el cuadro de texto **XML de metadatos**.
+	c. Copie el contenido del archivo XML de metadatos descargado y, a continuación, péguelo en el cuadro de texto **XML de metadatos**.
 
-	d. Seleccione **Aprovisionar cuentas automáticamente para nuevos usuarios cuando inicien sesión**.
+	d. Seleccione **Auto-provision accounts for new users when they log in** (Aprovisionar cuentas automáticamente para nuevos usuarios cuando inicien sesión).
 
 	e. Haga clic en **Enviar**.
 
@@ -193,7 +194,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png)
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png)
 
@@ -303,4 +304,4 @@ Al hacer clic en el icono de **Showpad** del panel de acceso, debería iniciar s
 [204]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

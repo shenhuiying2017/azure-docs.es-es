@@ -1,7 +1,7 @@
 > [AZURE.SELECTOR]
 - [Información general](../articles/application-insights/app-insights-analytics.md)
-- [Paseo](../articles/application-insights/app-insights-analytics-tour.md)
-- [Si se utiliza](../articles/application-insights/app-insights-analytics-using.md)
-- [Referencia](../articles/application-insights/app-insights-analytics-reference.md)
+- [Un paseo por Analytics](../articles/application-insights/app-insights-analytics-tour.md)
+- [Uso de Analytics](../articles/application-insights/app-insights-analytics-using.md)
+- [Referencia de lenguaje](../articles/application-insights/app-insights-analytics-reference.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

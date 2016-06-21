@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="06/02/2016"
 	ms.author="robb"/>
 
 
@@ -56,6 +56,7 @@ Tenga en cuenta que las aplicaciones web no utilizan Diagnósticos de Azure. Pue
 - [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
 Para temas más avanzados, consulte
+
 - [Application Insights para los Servicios en la nube de Azure](./application-insights/app-insights-cloudservices.md)
 - [Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 - [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
@@ -66,6 +67,7 @@ Para temas más avanzados, consulte
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines-dotnet-diagnostics.md) (Configuración de Diagnósticos de Azure en una máquina virtual de Azure)
 
 Para temas más avanzados, consulte
+
 - [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 - [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla del Administrador de recursos de Azure](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
@@ -79,4 +81,4 @@ Empiece por el artículo [Supervisión y diagnóstico de servicios en una config
 - Aprenda a [redirigir la información de diagnóstico de Azure a Application Insights](./azure-diagnostics-configure-applicationinsights.md).
 - Si tiene problemas al iniciar los diagnósticos o al buscar datos en las tablas de Almacenamiento de Azure, consulte [Azure Diagnostics Troubleshooting](./azure-diagnostics-troubleshooting.md) (Solución de problemas de Diagnósticos de Azure).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

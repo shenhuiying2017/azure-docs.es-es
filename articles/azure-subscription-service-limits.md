@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -188,18 +188,18 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 Los planes de tarifa determinan la capacidad y los límites de su servicio de búsqueda. Los planes incluyen:
 
 - El servicio multiempresa *Gratis*, compartido con otros suscriptores de Azure, se ha diseñado para proyectos de evaluación y de desarrollo de pequeña envergadura.
-- El plan *Básico (vista preliminar)* proporciona recursos de proceso exclusivos para cargas de trabajo de producción a escala más pequeña. Este plan está actualmente en vista preliminar y se ofrece a un precio reducido.
-- El plan *Estándar (S1 y S2)* está destinado a cargas de trabajo de producción. Hay disponible una versión de mayor capacidad (*S2*) a petición (póngase en contacto con el servicio de soporte técnico o envíe un mensaje de correo electrónico a azuresearch_contact@microsoft.com para obtener ayuda).
+- El nivel *Básico* proporciona recursos informáticos dedicados para cargas de trabajo de producción en una escala menor, con hasta 3 réplicas para cargas de trabajo de consulta de alta disponibilidad.
+- El nivel *Estándar (S1, S2, S3, S3 de alta densidad)* es para mayores cargas de trabajo de producción. Existen varios niveles en el nivel estándar para que pueda elegir una configuración de recursos para escenarios específicos.
 
-**Límites de los niveles**
+**Límites por suscripción**
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
 
-**Límites de almacenamiento**
+**Límites por servicio de búsqueda**
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+[AZURE.INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Para obtener más información sobre otros límites, como el tamaño de documento, las consultas por segundo, las claves, las solicitudes y las respuestas, consulte [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
+Para más información sobre otros límites, incluido el tamaño de documento, las consultas por segundo, las claves, las solicitudes y las respuestas, consulte [Límites de servicio en la Búsqueda de Azure](search/search-limits-quotas-capacity.md).
 
 ### Límites de Servicios multimedia
 
@@ -300,4 +300,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

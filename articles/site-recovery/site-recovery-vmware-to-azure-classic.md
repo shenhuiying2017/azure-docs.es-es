@@ -43,7 +43,7 @@ En este artículo, se incluyen instrucciones para realizar una implementación m
 
 La implementación mejorada es una actualización importante. A continuación, presentamos un resumen de las mejoras realizadas:
 
-- **Sin máquinas virtuales de infraestructura de Azure**: los datos se replican directamente en una cuenta de almacenamiento de Azure. Además de la replicación y la conmutación por error no hay ninguna infraestructura de máquinas virtuales configurada (servidor de configuración, servidor de destino maestro) ya que la necesitamos en la implementación heredada.  
+- **Sin máquinas virtuales de infraestructura de Azure**: los datos se replican directamente en una cuenta de almacenamiento de Azure. Además de la replicación y la conmutación por error, no es necesario configurar ninguna máquina virtual de infraestructura (servidor de configuración, servidor de destino maestro) ya que la necesitaremos en la implementación heredada.  
 - **Instalación unificada**: una instalación única proporciona configuración y escalabilidad únicas para los componentes locales.
 - **Implementación segura**: se cifra todo el tráfico y las comunicaciones de administración se envían a través de HTTPS 443.
 - **Puntos de recuperación**: compatibilidad con puntos de recuperación coherentes tras bloqueo y coherentes con la aplicación para entornos de Windows y Linux, además de compatibilidad con configuraciones coherentes con una sola máquina virtual y con varias máquinas virtuales.
@@ -306,11 +306,11 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 	![Resumen](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Debe instalarse el proxy del agente del servicio de recuperación de Microsoft Azure. Una vez completada la instalación, inicie una aplicación denominada "Shell de servicios de recuperación de Microsoft Azure" en el menú Inicio de Windows. En la ventana de comandos que se abre, ejecute el siguiente conjunto de comandos para definir la configuración del servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword
-	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName dominio\\nombre de usuario -ProxyPassword $pwd
-	net stop obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword 
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd 
+	net stop obengine 
 	net start obengine
-	 
+
 
 
 ### Ejecución de la configuración desde la línea de comandos
@@ -464,7 +464,7 @@ Los instaladores están disponibles en C:\\Program Files (x86)\\Microsoft Azure 
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
 Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz 
 SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
@@ -761,4 +761,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [Aprenda más sobre la conmutación por recuperación](site-recovery-failback-azure-to-vmware-classic.md) para que las máquinas a las que se realizó la conmutación por error y que se ejecutan en Azure vuelvan al entorno local.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

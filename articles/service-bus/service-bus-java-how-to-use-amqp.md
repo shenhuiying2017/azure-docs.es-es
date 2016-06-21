@@ -26,7 +26,7 @@ En esta guía de instrucciones se explica cómo utilizar las funciones de mensaj
 
 ## Introducción al Bus de servicio
 
-En esta guía se asume que ya dispone de un espacio de nombres de Bus de servicio con una cola denominada **queue1**. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Bus de servicio, consulte [Utilización de las colas de Bus de servicio](service-bus-dotnet-how-to-use-queues.md).
+En esta guía se asume que ya dispone de un espacio de nombres de Bus de servicio con una cola denominada **queue1**. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de Azure clásico](http://manage.windowsazure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Bus de servicio, consulte [Utilización de las colas de Bus de servicio](service-bus-dotnet-get-started-with-queues.md).
 
 ### Descarga de la biblioteca de cliente AMQP 1.0 JMS
 
@@ -329,7 +329,7 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 * [Compatibilidad de AMQP 1.0 en el Bus de servicio de Azure](service-bus-amqp-overview.md)
 * [Uso de AMQP 1.0 con la API .NET del bus de servicio](service-bus-dotnet-advanced-message-queuing.md)
 * [Guía para desarrolladores sobre AMQP 1.0 de Bus de servicio](service-bus-amqp-dotnet.md)
-* [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+* [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

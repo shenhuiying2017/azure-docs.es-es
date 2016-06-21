@@ -64,7 +64,7 @@ Con la debida autorización, puede hacer lo siguiente:
 
 Los SDK siguientes están disponibles para trabajar con Almacén de claves:
 
-|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[Documentación del SDK de .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentación del SDK de Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Paquete del SDK de .NET](https://azure.microsoft.com/documentation/api/)|[Paquete del SDK de Node.js](https://www.npmjs.com/package/azure-keyvault)|
@@ -97,4 +97,4 @@ Para obtener más instrucciones específicas sobre las tareas de integración y 
 - [Blog de Almacén de claves](http://aka.ms/kvblog)
 - [Foro sobre Almacén de claves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

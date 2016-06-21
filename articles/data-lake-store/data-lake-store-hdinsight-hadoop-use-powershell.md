@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creación de un clúster de HDInsight con el Almacén de Azure Data Lake mediante Azure PowerShell | Azure"
-   description="Use Azure PowerShell para crear y usar clústeres de Hadoop en HDInsight con Azure Data Lake"
+   description="Uso de Azure PowerShell para crear y usar clústeres de HDInsight con Azure Data Lake"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="06/03/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante Azure PowerShell
@@ -25,7 +25,7 @@
 
 Aprenda a usar Azure PowerShell para configurar un clúster de HDInsight (Hadoop, HBase o Storm) con acceso a un Almacén de Azure Data Lake. Algunas consideraciones importantes sobre esta versión:
 
-* **En clústeres de Hadoop y Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
+* **En clústeres de Spark (Linux) y clústeres de Hadoop/Storm (Windows y Linux)**, el almacén de Data Lake solo puede usarse como cuenta de almacenamiento adicional. La cuenta de almacenamiento predeterminada para los clústeres de este tipo seguirán Blobs de almacenamiento de Azure (WASB).
 
 * **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional.
 
@@ -107,7 +107,7 @@ Siga estos pasos para crear un Almacén de Data Lake.
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Creación de un grupo de recursos de Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
+	![Crear un grupo de recursos de Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
 
 2. Cree una cuenta de Almacén de Azure Data Lake. El nombre de cuenta que especifique debe contener solo letras minúsculas y números.
 
@@ -380,4 +380,4 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/14/2016"
+   ms.date="06/02/2016"
    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: tareas y consideraciones operativas
@@ -30,7 +30,9 @@ Con un servidor en modo provisional puede realizar cambios en la configuración 
 
 Durante la instalación puede seleccionar que el servidor esté en **modo provisional**. Esto activará el servidor para la importación y sincronización pero no realizará ninguna exportación. Un servidor en modo provisional no ejecutará la sincronización de contraseñas ni habilitará la escritura diferida de contraseñas incluso aunque estas características estén seleccionadas. Cuando se deshabilita el modo provisional, el servidor iniciará la exportación, y habilitará la sincronización de contraseñas y la escritura diferida de contraseñas (si están habilitadas).
 
-Un servidor en modo provisional seguirá recibiendo cambios de Active Directory y Azure AD. Por lo tanto, siempre tendrá una copia de los cambios más recientes y podrá asumir muy rápidamente las responsabilidades de otro servidor. Si realiza cambios de configuración en el servidor principal, es su responsabilidad realizar los mismos cambios en el servidor o servidores en modo provisional.
+Todavía puede forzar una exportación mediante el administrador del servicio de sincronización.
+
+Un servidor en modo provisional seguirá recibiendo cambios de Active Directory y Azure AD. Siempre tendrá una copia de los cambios más recientes y podrá asumir muy rápidamente las responsabilidades de otro servidor. Si realiza cambios de configuración en el servidor principal, es su responsabilidad realizar los mismos cambios en el servidor o servidores en modo provisional.
 
 Para aquellos con conocimientos de tecnologías de sincronización anteriores, el modo provisional es diferente, ya que el servidor tiene su propia base de datos SQL. Esto permite que el servidor en modo provisional se encuentre en otro centro de datos.
 
@@ -51,15 +53,15 @@ Para aplicar este método, siga estos pasos:
 
 1. Seleccione **Conectores** y elija el primer conector de tipo **Servicios de dominio de Active Directory**. Haga clic en **Ejecutar**, seleccione **Importación completa** y **Aceptar**. Haga esto para todos los conectores de este tipo.
 2. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Importación completa** y **Aceptar**.
-4. Asegúrese de que Conectores sigue aún seleccionado y para cada conector de tipo **Servicios de dominio de Active Directory**, haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y **Aceptar**.
-5. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y, a continuación, Aceptar.
+3. Asegúrese de que Conectores sigue aún seleccionado y para cada conector de tipo **Servicios de dominio de Active Directory**, haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y **Aceptar**.
+4. Seleccione el conector de tipo **Azure Active Directory (Microsoft)**. Haga clic en **Ejecutar**, seleccione **Sincronización diferencial** y, a continuación, Aceptar.
 
-Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y AD local (si está usando la implementación híbrida de Exchange). Los siguientes pasos le permitirán inspeccionar lo que está a punto de cambiar antes de que comience realmente la exportación a los directorios.
+Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y AD local (si está usando la implementación híbrida de Exchange). Los siguientes pasos le permiten inspeccionar lo que está a punto de cambiar antes de que comience realmente la exportación a los directorios.
 
 **Verify**
 
-1. Inicie un símbolo del sistema y vaya a `%Program Files%\Microsoft Azure AD Sync\bin`.
-2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> El nombre del conector puede encontrarse en Servicio de sincronización. Tendrá un nombre similar a “contoso.com – AAD” para Azure AD.
+1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
+2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a "contoso.com – AAD" para Azure AD.
 3. Ejecute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Ahora tiene un archivo en %temp% denominado export.csv que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
 5. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
@@ -114,4 +116,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

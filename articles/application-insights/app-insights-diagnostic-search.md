@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
 
-Búsqueda de diagnóstico es la hoja de [Application Insights][start] que se usa para buscar y explorar elementos de telemetría individuales, como vistas de página, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
+Búsqueda de diagnóstico es una característica de [Application Insights][start] que se usa para buscar y explorar elementos de telemetría individuales, como vistas de página, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
-## ¿Cuando ve Búsqueda de diagnóstico?
+## ¿Dónde ve Búsqueda de diagnóstico?
 
 
 ### En el Portal de Azure
@@ -52,10 +52,11 @@ La ventana de búsqueda tiene las mismas características que el portal web:
 ![](./media/app-insights-diagnostic-search/34.png)
 
 
-### Muestreo
+## Muestreo
 
 Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos.
-> [Más información sobre el muestreo](app-insights-sampling.md).
+
+[Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## Inspección de elementos individuales
@@ -157,8 +158,8 @@ A continuación se muestran las expresiones de búsqueda que puede utilizar:
 Consulta de ejemplo | Efecto 
 ---|---
 lento|Busca todos los eventos del intervalo de datos cuyos campos incluyen el término "lento"
-base de datos??|Las coincidencias con base de datos01, base de datosAB...<br/>? no se permiten al comienzo de un término de búsqueda.
-base de datos*|Las coincidencias con base de datos, base de datos01, base de datosNNNN<br/>* no se permiten al comienzo de un término de búsqueda.
+base de datos|Las coincidencias con base de datos01, base de datosAB...<br/>? no se permiten al comienzo de un término de búsqueda.
+base de datos* |Las coincidencias con base de datos, base de datos01, base de datosNNNN<br/>* no se permiten al comienzo de un término de búsqueda.
 manzana AND plátano|Buscar eventos que contienen ambos términos. Utilizar "AND" en mayúsculas, no "and".
 Manzana, plátano OR<br/>manzana plátano|Buscar eventos que contienen cualquiera de los dos términos. Utilice "OR" no "or".</br/>Forma abreviada.
 manzana NOT plátano<br/>manzana -plátano|Encuentre eventos que contengan un término pero no el otro.<br/>Forma abreviada.
@@ -216,8 +217,8 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

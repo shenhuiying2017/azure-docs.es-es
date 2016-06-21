@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/21/2016"
+	ms.date="06/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,8 +19,6 @@
 
 
 # Copiar una base de datos SQL de Azure
-
-**Base de datos única**
 
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-copy.md)
@@ -102,4 +100,4 @@ Abra la hoja de base de datos SQL correspondiente a la base de datos que desea c
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

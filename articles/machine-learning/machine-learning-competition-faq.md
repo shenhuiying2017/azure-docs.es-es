@@ -73,7 +73,7 @@ En la mayoría de las competiciones, recibirá una puntuación pública por cada
 
 * El conjunto de datos completo que se usa en la competición se divide al azar por estratificación entre datos de entrenamiento y datos de prueba (el resto). La división aleatoria se estratifica para asegurarnos de que la distribución de las etiquetas de los datos de entrenamiento y los de pruebas sea coherente.
  
-* Los datos de entrenamiento se cargan y se proporcionan a los usuarios como parte del experimento inicial en la configuración del módulo lector.
+* Los datos de entrenamiento se cargan y se proporcionan a los usuarios como parte del experimento inicial en la configuración del módulo Importar datos.
 
 * Además, los datos de prueba se dividen en datos de pruebas públicas y privadas con la misma estratificación.
 
@@ -115,4 +115,4 @@ La plataforma de competición actual solo admite el envío de entradas que se re
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

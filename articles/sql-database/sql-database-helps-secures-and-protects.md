@@ -27,7 +27,7 @@ La base de datos de SQL Azure admite millones de bases de datos esenciales en la
 
 ## ¡Puede contar con nosotros!
 
-La única esperanza es que no necesite tener acceso a las copias de seguridad de ayer o recuperarse de un desastre. Pero si se encuentra en esta situación, Base de datos SQL está ahí para ayudarle. Con una disponibilidad del 99,99%, copias de seguridad automáticas, restauración a un momento dado, replicación geográfica integrada y opciones de conmutación por error, se podrá despreocupar por completo ya que sabe que su aplicación está a salvo.
+La única esperanza es que no necesite tener acceso a las copias de seguridad de ayer o recuperarse de un desastre. Pero si se encuentra en esta situación, Base de datos SQL está ahí para ayudarle. Con una disponibilidad del 99,99 %, copias de seguridad automáticas, restauración a un momento dado, replicación geográfica integrada y opciones de conmutación por error, se podrá despreocupar por completo ya que sabe que su aplicación está a salvo.
 
 [Lea la documentación](sql-database-business-continuity.md)
 
@@ -55,4 +55,4 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

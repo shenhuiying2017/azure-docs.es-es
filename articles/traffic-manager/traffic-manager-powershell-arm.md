@@ -3,7 +3,7 @@
    description="Uso de PowerShell para el Administrador de tráfico con Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="jtuliani" />
 
 # Compatibilidad de Azure Resource Manager con el Administrador de tráfico de Azure
 El Administrador de recursos de Azure (ARM) es el nuevo marco de administración de servicios en Azure. Los perfiles del Administrador de tráfico de Azure ahora pueden administrarse mediante las herramientas y las API basadas en el Administrador de recursos de Azure.
@@ -129,9 +129,9 @@ Todas las propiedades del perfil se pueden cambiar, con la excepción de que el 
 
 Por ejemplo, para cambiar el perfil de TTL:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
 	PS C:\> $profile.Ttl = 300
-	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
 
 ## Agregue puntos de conexión de Administrador de tráfico
 Existen tres tipos de puntos de conexión de Administrador de tráfico:
@@ -295,12 +295,12 @@ Para eliminar un perfil de Administrador de tráfico, use el cmdlet Remove-Azure
 
 Este cmdlet le pedirá confirmación. Se puede utilizar el conmutador '-Force' opcional para suprimir este mensaje. El perfil que se va a eliminar también se puede especificar con un objeto de perfil:
 
-	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
-	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+	PS C:\> Remove-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Se puede canalizar igualmente esta secuencia:
 
-	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
 
 ## Pasos siguientes
 
@@ -309,4 +309,4 @@ Se puede canalizar igualmente esta secuencia:
 [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

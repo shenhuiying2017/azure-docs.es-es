@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/02/2016"
 	ms.author="daleche"/>
 
 
@@ -67,4 +67,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 ## Paso de comprobación
 1. Consulte y pruebe la tabla copiada recientemente para asegurarse de que los datos estén intactos. Tras la confirmación, puede deshacerse de la tabla a la que ha cambiado el nombre en la sección **Pasos de preparación** (por ejemplo, &lt;nombre de la tabla&gt;\_old).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

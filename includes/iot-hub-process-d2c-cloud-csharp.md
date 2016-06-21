@@ -1,47 +1,47 @@
-## Procesamiento de mensajes de dispositivo a nube
+## Procesamiento de mensajes de dispositivo a la nube
 
-En esta sección, creará una aplicación de consola de Windows que procesa mensajes de dispositivo a nube desde el Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ] que habilita a una aplicación para poder leer los mensajes de dispositivo a nube. En este tutorial se utiliza la clase [EventProcessorHost] para procesar estos mensajes en una aplicación de consola. Para obtener más información sobre cómo procesar los mensajes de los Centros de eventos, puede consultar el tutorial [Introducción a los Centros de eventos].
+En esta sección, creará una aplicación de consola de Windows que procesa mensajes de dispositivo a nube desde el Centro de IoT. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos ] que habilita a una aplicación para poder leer los mensajes de dispositivo a nube. En este tutorial se utiliza la clase [EventProcessorHost] para procesar estos mensajes en una aplicación de consola. Para obtener más información sobre cómo procesar los mensajes de los Centros de eventos, consulte el tutorial [Introducción a los Centros de eventos].
 
 La principal dificultad a la que se enfrenta a la hora de implementar un almacenamiento confiable de mensajes de puntos de datos o de reenviar los mensajes interactivos, es que el procesamiento de eventos de los Centros de eventos depende del consumidor de mensajes para ejecutar puntos de control de su progreso. Además, para lograr un alto rendimiento, al leer desde Centros de eventos debería ejecutar puntos de control en lotes grandes. Esto crea la posibilidad de realizar un procesamiento duplicado para un gran número de mensajes si se produce un error y tiene que volver al punto de control anterior. En este tutorial puede ver cómo sincronizar escrituras de Almacenamiento de Azure y ventanas de desduplicación de Bus de servicio con puntos de control de la clase **EventProcessorHost**.
 
-Para escribir mensajes de manera confiable en el Almacenamiento de Azure, en el ejemplo se utiliza la característica de confirmación de bloques individuales de [blobs en bloques][Azure Block Blobs]. El procesador de eventos acumula los mensajes en memoria hasta que llega la hora de ejecutar un punto de control (por ejemplo, cuando el búfer acumulado de mensajes es mayor que el tamaño máximo de bloque de 4 MB, o bien una vez que transcurre la ventana de tiempo de desduplicación del Bus de servicio). A continuación, antes de ejecutar los puntos de control, el código confirma un nuevo bloque en el blob.
+Para escribir mensajes de manera confiable en Almacenamiento de Azure, en el ejemplo se utiliza la característica de confirmación de bloques individuales de [blobs en bloques][Azure Block Blobs]. El procesador de eventos acumula los mensajes en memoria hasta que llega la hora de proporcionar un punto de control (por ejemplo, cuando el búfer acumulado de mensajes es mayor que el tamaño máximo de bloque de 4 MB, o bien una vez que transcurre la ventana de tiempo de desduplicación del Bus de servicio). Después, antes de ejecutar los puntos de control, el código confirma un nuevo bloque en el blob.
 
-El procesador de eventos usa desplazamientos de mensajes de Centros de eventos como identificadores de bloque. Esto le permite realizar una comprobación de desduplicación antes de confirmar el nuevo bloque en el almacenamiento, vigilando la posibilidad de un bloqueo entre la confirmación de un bloque y el punto de control.
+El procesador de eventos usa desplazamientos de mensajes de Centros de eventos como identificadores de bloque. Esto permite realizar una comprobación de desduplicación antes de confirmar el nuevo bloque en el almacenamiento, con lo que se vigila la posibilidad de que se produzca un bloqueo entre la confirmación de un bloque y el punto de control.
 
-> [AZURE.NOTE] En este tutorial se usa una sola cuenta de almacenamiento para escribir todos los mensajes que se recuperan del Centro de IoT. Consulte [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure] para decidir si necesita utilizar varias cuentas de Almacenamiento de Azure en su solución.
+> [AZURE.NOTE] En este tutorial se usa una sola cuenta de almacenamiento para escribir todos los mensajes que se recuperan del Centro de IoT. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure] para decidir si necesita utilizar varias cuentas de Almacenamiento de Azure en su solución.
 
-La aplicación utiliza la característica de desduplicación del Bus de servicio para evitar duplicados cuando procesa mensajes interactivos. El dispositivo simulado marca cada mensaje interactivo con un valor de **MessageId** exclusivo que permite al Bus de servicio asegurarse de que, en la ventana de tiempo especificada de la desduplicación, no se entregan dos mensajes con el mismo valor de **MessageId** a los receptores. Esta desduplicación, junto con la semántica de finalización de cada mensaje proporcionada por las colas del Bus de servicio, facilita la implementación de un procesamiento confiable de los mensajes interactivos.
+La aplicación utiliza la característica de desduplicación del Bus de servicio para evitar duplicados cuando procesa mensajes interactivos. El dispositivo simulado marca cada mensaje interactivo con un único **MessageId**. De este modo, el Bus de servicio puede garantizar que, en la ventana de tiempo de desduplicación especificada, no se entregarán dos mensajes con el mismo **MessageId** a los receptores. Esta desduplicación, junto con la semántica de finalización de cada mensaje que proporcionan las colas del Bus de servicio, facilita la implementación de un procesamiento confiable de los mensajes interactivos.
 
 Para tener la seguridad de que no se reenvía ningún mensaje fuera de la ventana de desduplicación, el código sincroniza el mecanismo de ejecución de puntos de control de la clase **EventProcessorHost** con la ventana de desduplicación de cola del Bus de servicio. Para ello, se fuerza un punto de control al menos una vez cada vez que transcurre una ventana de tiempo de desduplicación (en este tutorial, una hora).
 
-> [AZURE.NOTE] En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio] para más información sobre cómo utilizar las colas del Bus de servicio para reunir los requisitos de escalabilidad de su solución.
+> [AZURE.NOTE] En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio] para obtener más información sobre cómo utilizar las colas del Bus de servicio para cumplir los requisitos de escalabilidad de su solución.
 
 ### Aprovisionamiento de una cuenta de almacenamiento de Azure y una cola del Bus de servicio
 Para poder utilizar la clase [EventProcessorHost], debe tener una cuenta de Almacenamiento de Azure que habilite la clase **EventProcessorHost** para que registre la información del punto de control. Puede utilizar una cuenta de almacenamiento que ya exista o seguir las instrucciones que se indican en [Acerca de las cuentas de Almacenamiento de Azure] para crear una nueva. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
 
 > [AZURE.NOTE] Al copiar y pegar la cadena de conexión de la cuenta de almacenamiento, asegúrese de que no contenga ningún espacio.
 
-También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con un periodo de desduplicación de una hora, tal y como se explica en [Utilización de las colas del Bus de servicio][Service Bus Queue], o bien usar el [Portal de Azure clásico] siguiendo estos pasos:
+También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de 1 hora, tal y como se explica en [Utilización de las colas del Bus de servicio][Service Bus Queue]. Como alternativa, puede usar el [Portal de Azure clásico] siguiendo estos pasos:
 
-1. Haga clic en **NUEVO** en la esquina inferior izquierda, en **Servicios de aplicaciones**, en **Bus de servicio**, en **Cola** y en **Creación personalizada**. Escriba el nombre **d2ctutorial**, seleccione una región, use un espacio de nombres existente o cree uno nuevo y luego, en la siguiente página, seleccione **Habilitar detección de duplicados** y establezca el valor de **Período de tiempo de historial de detección de duplicados** en una hora. A continuación, haga clic en la marca de verificación para guardar la configuración de la cola.
+1. Haga clic en la opción **Nuevo** de la esquina inferior izquierda. Después, haga clic en **Servicios de aplicaciones** > **Bus de servicio** > **Cola** > **Creación personalizada**. Escriba el nombre **d2ctutorial**, seleccione una región y use un espacio de nombres existente o cree uno nuevo. En la siguiente página, seleccione **Habilitar detección de duplicados**, y establezca el valor de **Período de tiempo de historial de detección de duplicados** en una hora. Haga clic en la marca de verificación de la esquina inferior derecha para guardar la configuración de la cola.
 
-    ![][30]
+    ![Creación de colas en el Portal de Azure][30]
 
-2. En la lista de colas del Bus de servicio, haga clic en **d2ctutorial** y luego en **Configurar**. Cree dos directivas de acceso compartido, una llamada **enviar** con permisos de **envío** y otra llamada **escuchar** con permisos de **escucha**. Haga clic en **Guardar** en la parte inferior de la página.
+2. En la lista de colas del Bus de servicio, haga clic en **d2ctutorial** y luego en **Configurar**. Cree dos directivas de acceso compartido, una llamada **enviar** con permisos de **envío** y otra llamada **escuchar** con permisos de **escucha**. Cuando haya terminado, haga clic en la opción **Guardar** de la parte inferior.
 
-    ![][31]
+    ![Configuración de colas en el Portal de Azure][31]
 
-3. Haga clic en **Panel**, en la parte superior, luego en **Información de conexión**, en la parte inferior, y anote las dos cadenas de conexión.
+3. Haga clic en la pestaña **Panel** de la parte superior y, luego, en **Información de conexión**, que se encuentra en la parte inferior. Anote las dos cadenas de conexión.
 
-    ![][32]
+    ![Panel de colas en el Portal de Azure][32]
 
 ### Creación del procesador de eventos
 
-1. En la solución actual de Visual Studio, haga clic en **Archivo**, en **Agregar** y en **Nuevo proyecto** para crear un nuevo proyecto de Visual C# para Windows con la plantilla de proyecto **Aplicación de consola**. Asegúrese de que la versión de .NET Framework sea 4.5.1 o una posterior. Denomine el proyecto **ProcessDeviceToCloudMessages**.
+1. En la solución actual de Visual Studio, haga clic en **Archivo** > **Agregar** > **Nuevo proyecto** para crear un nuevo proyecto de Visual C# para Windows con la plantilla de proyecto **Aplicación de consola**. Asegúrese de que la versión de .NET Framework sea 4.5.1 o una posterior. Denomine el proyecto "**ProcessDeviceToCloudMessages**" y haga clic en **Aceptar**.
 
-    ![][10]
+    ![Nuevo proyecto en Visual Studio][10]
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProcessDeviceToCloudMessages** y luego haga clic en **Administrar paquetes NuGet**. Aparece el cuadro de diálogo **Administrador de paquetes NuGet**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProcessDeviceToCloudMessages** y, luego, con el botón principal, en **Administrar paquetes NuGet**. Aparece el cuadro de diálogo **Administrador de paquetes NuGet**.
 
 3. Busque **WindowsAzure.ServiceBus**, haga clic en **Instalar** y acepte los términos de uso. De esta forma, se descarga, instala y agrega una referencia al [paquete de NuGet del Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus), con todas sus dependencias.
 
@@ -196,13 +196,15 @@ También necesitará una cola del Bus de servicio para habilitar el procesamient
     }
     ```
 
-    La clase **EventProcessorHost** llama a esta clase para procesar los mensajes del dispositivo a la nube recibidos del Centro de IoT. El código de esta clase implementa la lógica para almacenar los mensajes de manera confiable en un contenedor de blobs y reenviar los mensajes interactivos a la cola del Bus de servicio. El método **OpenAsync** inicializa la variable **currentBlockInitOffset**, que realiza un seguimiento del desplazamiento actual del primer mensaje que leyó este procesador de eventos. Recuerde que cada procesador es responsable de una sola partición.
-    
-    El método **ProcessEventsAsync** recibe un lote de mensajes desde el Centro de IoT y los procesa del modo siguiente: envía mensajes interactivos a la cola del Bus de servicio y anexa mensajes de punto de datos al búfer de memoria denominado **toAppend**. Si el búfer de memoria alcanza el límite de bloques de 4 MB o si las ventanas de tiempo de desduplicación del Bus de servicio transcurrieron desde el último punto de control (en este tutorial, una hora), se desencadenará un punto de control.
+    La clase **EventProcessorHost** llama a esta clase para procesar los mensajes del dispositivo a la nube recibidos del Centro de IoT. El código de esta clase implementa la lógica para almacenar los mensajes de manera confiable en un contenedor de blobs y reenviar los mensajes interactivos a la cola del Bus de servicio.
 
-    El método **AppendAndCheckpoint** genera primero un identificador de bloque para el bloque que se va a anexar. El Almacenamiento de Azure requiere que todos los identificadores de bloque tengan la misma longitud, por lo que el método rellena el desplazamiento con ceros iniciales (`currentBlockInitOffset.ToString("0000000000000000000000000")`). Luego, si ya existe un bloque con este identificador en el blob, el método lo sobrescribe con el contenido actual del búfer.
+    El método **OpenAsync** inicializa la variable **currentBlockInitOffset**, que realiza un seguimiento del desplazamiento actual del primer mensaje que leyó este procesador de eventos. Recuerde que cada procesador es responsable de una sola partición.
 
-    > [AZURE.NOTE] Para simplificar el código, en este tutorial se usa un solo archivo de blob por partición para almacenar los mensajes. En una solución real se implementan los archivos gradualmente, de modo que se crean archivos adicionales cuando alcanzan un determinado tamaño (tenga en cuenta que el blob en bloques de Azure puede tener como máximo 195 GB), o después de un determinado período de tiempo.
+    El método **ProcessEventsAsync** recibe un lote de mensajes desde el Centro de IoT y los procesa del modo siguiente: envía mensajes interactivos a la cola del Bus de servicio y anexa mensajes de punto de datos al búfer de memoria denominado "**toAppend**". Si el búfer de memoria alcanza el límite de bloques de 4 MB o si las ventanas de tiempo de desduplicación del Bus de servicio transcurrieron desde el último punto de control (en este tutorial, una hora), se desencadenará un punto de control.
+
+    El método **AppendAndCheckpoint** genera primero un identificador de bloque para el bloque que se va a anexar. Almacenamiento de Azure requiere que todos los identificadores de bloque tengan la misma longitud, por lo que el método rellena el desplazamiento con ceros iniciales (`currentBlockInitOffset.ToString("0000000000000000000000000")`). Luego, si ya existe un bloque con este identificador en el blob, el método lo sobrescribe con el contenido actual del búfer.
+
+    > [AZURE.NOTE] Para simplificar el código, en este tutorial se usa un solo archivo de blob por partición para almacenar los mensajes. En una solución real se implementarían los archivos gradualmente, de modo que se crean archivos adicionales cuando alcanzan un determinado tamaño (tenga en cuenta que el blob en bloques de Azure puede tener como máximo 195 GB), o bien después de un determinado periodo.
 
 8. En la clase **Program**, agregue las instrucciones **using** siguientes en la parte superior:
 
@@ -210,7 +212,7 @@ También necesitará una cola del Bus de servicio para habilitar el procesamient
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. Modifique el método **Main** de la clase **Program** tal y como se muestra a continuación y sustituya la cadena de conexión **iothubowner** del Centro de IoT (del tutorial [Introducción al Centro de IoT]), la cadena de conexión de almacenamiento y la cadena de conexión del bus de servicio por los permisos de **envío** de la cola llamada "**d2ctutorial**":
+9. Modifique el método **Main** de la clase **Program** tal y como se muestra a continuación. Sustituya la cadena de conexión **iothubowner** del Centro de IoT (del tutorial [Introducción al Centro de IoT]), la cadena de conexión de almacenamiento y la cadena de conexión del Bus de servicio por los permisos de **envío** de la cola llamada "**d2ctutorial**":
 
     ```
     static void Main(string[] args)
@@ -230,26 +232,26 @@ También necesitará una cola del Bus de servicio para habilitar el procesamient
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
     ```
-    
-    > [AZURE.NOTE] Para simplificar, en este tutorial se usa una sola instancia de la clase [EventProcessorHost]. Consulte [Guía de programación de Centros de eventos] para obtener más información.
+
+    > [AZURE.NOTE] Para simplificar, en este tutorial se usa una sola instancia de la clase [EventProcessorHost]. Para obtener más información, consulte la [Guía de programación de Centros de eventos].
 
 ## Recepción de mensajes interactivos
 En esta sección, escribirá una aplicación de consola de Windows que recibe los mensajes interactivos de la cola del Bus de servicio. Para obtener más información sobre cómo diseñar una solución con el Bus de servicio, consulte [Compilación de aplicaciones de varios con el Bus de servicio][].
 
 1. En la solución actual de Visual Studio, cree un nuevo proyecto de aplicación de Visual C# para Windows con la plantilla de proyecto **Aplicación de consola**. Ponga al proyecto el nombre **ProcessD2CInteractiveMessages**.
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProcessD2CInteractiveMessages** y luego haga clic en **Administrar paquetes NuGet**. Aparecerá la ventana **Administrador de paquetes NuGet**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProcessD2CInteractiveMessages** y luego, con el botón principal, en **Administrar paquetes NuGet**. Aparecerá la ventana **Administrador de paquetes NuGet**.
 
 3. Busque **WindowsAzure.Service Bus**, haga clic en **Instalar** y acepte los términos de uso. De esta forma, se descarga, se instala y se agrega una referencia al [Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
-4. Agregue la siguiente instrucción **using** en la parte superior del archivo **Program.cs**:
+4. En la parte superior del archivo **Program.cs**, agregue las siguientes instrucciones **using**:
 
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
-5. Por último, agregue las siguientes líneas al método **Main** y sustituya la cadena de conexión por los permisos de **escucha** para la cola llamada **d2ctutorial**:
+5. Finalmente, agregue las líneas siguientes al método **Main**. Sustituya la cadena de conexión por los permisos de **escucha** de la cola llamada "**d2ctutorial**":
 
     ```
     Console.WriteLine("Process D2C Interactive Messages app\n");
@@ -289,7 +291,7 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Introducción a los Centros de eventos]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [IoT Hub Developer Guide - Identity Registry]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
-[Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure]: ../articles/storage/storage-scalability-targets.md
+[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure]: ../articles/storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Centros de eventos ]: ../articles/event-hubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
@@ -297,7 +299,7 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 [Guía de programación de Centros de eventos]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-how-to-use-queues.md
+[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-get-started-with-queues.md
 [Compilación de aplicaciones de varios con el Bus de servicio]: ../articles/service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [Introducción al Centro de IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 [documentación del Bus de servicio]: https://azure.microsoft.com/documentation/services/service-bus/
@@ -314,3 +316,4 @@ En esta sección, escribirá una aplicación de consola de Windows que recibe lo
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
+<!---HONumber=AcomDC_0608_2016-->

@@ -3,7 +3,7 @@
    description="Aprenda a usar Visual Studio Tools para Docker para publicar una aplicación web ASP.NET 5 en un contenedor de Docker que se ejecute en una máquina de host de Docker de Azure"   
    services="visual-studio-online"
    documentationCenter=".net"
-   authors="tomarcher"
+   authors="allclark"
    manager="douge"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/08/2016"
-   ms.author="tarcher"/>
+   ms.date="06/08/2016"
+   ms.author="allclark"/>
 
 # Implementación de un contenedor ASP.NET en un host remoto de Docker
 
@@ -57,13 +57,13 @@ Antes de implementar la aplicación de Visual Studio en Azure, agregue el punto 
 
     1.  Vaya al [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
-    1.  Pulse en **MÁQUINAS VIRTUALES**.
+    1.  Seleccione **Máquinas virtuales**.
     
     1.  Seleccione la máquina virtual del host de Docker.
     
-    1.  Pulse la pestaña **PUNTOS DE CONEXIÓN**.
+    1.  Elija la pestaña **PUNTOS DE CONEXIÓN**.
     
-    1.  Pulse **AGREGAR** (en la parte inferior de la página).
+    1.  Haga clic en **AGREGAR** en la parte inferior de la página.
     
     1.  Siga las instrucciones para exponer el puerto 80, que lo usa el script de implementación de manera predeterminada.
 
@@ -83,7 +83,7 @@ Al realizar implementaciones en hosts remotos, la característica de asignación
 
 1.  Cambie el destino de inicio a **Docker**.
 
-1.  Pulse el icono de **Docker** para compilar y ejecutar la aplicación.
+1.  Seleccione el icono de **Docker** para compilar y ejecutar la aplicación.
 
 ![Inicie la aplicación.][2]
 
@@ -96,4 +96,4 @@ Debería ver resultados similares a los siguientes:
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

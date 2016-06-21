@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Exploración de tutoriales de Base de datos SQL"
+   pageTitle="Exploración de tutoriales de Base de datos SQL de Azure | Microsoft Azure"
    description="Información sobre las funcionalidades y características de Base de datos SQL"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Exploración de tutoriales de Base de datos SQL
+# Exploración de tutoriales de Base de datos SQL de Azure
 
-En los siguientes vínculos obtendrá información general de cada área de características enumerada y un tutorial de inicio rápido para cada área.
+En los siguientes vínculos obtendrá información general de cada área de características enumerada y un tutorial de inicio rápido para cada área. Para ver tutoriales enfocados a soluciones que demuestran el uso de Base de datos SQL en una solución completa basada en escenarios del mundo real, consulte [Exploración de tutoriales de soluciones de Base de datos SQL de Azure](sql-database-solution-quick-starts.md).
 
 ## Uso de SQL Server Management Studio
 
@@ -81,7 +81,7 @@ En los tutoriales siguientes, aprenderá a optimizar el [rendimiento de bases de
 
 ## Archivado y migración de Base de datos SQL 
 
-En los tutoriales siguientes, aprenderá a [migrar una base de datos de SQL Server existente a Base de datos SQL de Azure](sql-database-cloud-migrate.md).
+En los tutoriales siguientes, aprenderá a [migrar una base de datos SQL Server existente a Base de datos SQL de Azure](sql-database-cloud-migrate.md).
 
 | Tutorial | Descripción |
 |---|---|---|
@@ -92,12 +92,12 @@ En los tutoriales siguientes, aprenderá a [migrar una base de datos de SQL Serv
 | [Migrar la base de datos de SQL Server a Base de datos SQL con el Asistente para implementar base de datos en Base de datos de Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) | En este tutorial, aprenderá a migrar una base de datos de SQL Server compatible con Base de datos SQL de Azure mediante el Asistente para implementar bases de datos de Microsoft Azure en SQL Server Management Studio.
 | [Exportación de una Base de datos SQL Server a un archivo BACPAC mediante SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) | En este tutorial, aprenderá a exportar una base de datos de SQL Server compatible a un archivo BACPAC mediante el Asistente para exportar aplicaciones de capas de datos en SQL Server Management Studio.|
 | [Exportación de una Base de datos SQL Server a un archivo BACPAC mediante SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md) | En este tutorial, aprenderá a exportar una base de datos de SQL Server compatible con un archivo BACPAC mediante la utilidad de línea de comandos SQLPackage.exe.|
-| [Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | En este tutorial, aprenderá a importar una base de datos a Base de datos SQL de Azure desde un archivo BACPAC mediante el Asistente para exportar aplicaciones de capas de datos en SQL Server Management Studio. |
+| [Importar desde BACPAC a la Base de datos SQL con SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) | En este tutorial, aprenderá a importar una base de datos a Base de datos SQL de Azure desde un archivo BACPAC mediante el Asistente para exportar aplicaciones de capas de datos en SQL Server Management Studio. |
 | [Importar a la Base de datos SQL desde un archivo BACPAC mediante SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage) | En este tutorial, aprenderá a importar una base de datos a Base de datos SQL de Azure desde un archivo BACPAC mediante la utilidad de línea de comandos SQLPackage.exe. |
 | [Importar un archivo BACPAC para crear una base de datos SQL de Azure](sql-database-import.md) | En este tutorial, aprenderá a importar una base de datos a Base de datos SQL de Azure desde un archivo BACPAC almacenado en un blob de Azure mediante el Portal de Azure.|
 | [Importar un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell](sql-database-import-powershell.md) | En este tutorial, aprenderá a importar una base de datos a Base de datos SQL de Azure desde un archivo BACPAC mediante PowerShell.|
 | [Archivar una base de datos de SQL Azure en un archivo BACPAC mediante el Portal de Azure](sql-database-export.md#export-your-database) | En este tutorial, aprenderá a archivar una Base de datos SQL de Azure en un archivo BACPAC mediante el Portal de Azure. |
-| [Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell](sql-database-export-powershell.md) | En este tutorial, aprenderá a archivar una Base de datos SQL de Azure en un archivo BACPAC mediante el Portal de Azure. |
+| [Archivo de una base de datos SQL de Azure en un archivo BACPAC mediante PowerShell](sql-database-export-powershell.md) | En este tutorial, aprenderá a archivar una base de datos SQL de Azure en un archivo BACPAC mediante el Portal de Azure. |
 | [Copiar una base de datos SQL de Azure](sql-database-copy.md#copy-your-sql-database) | En este tutorial, aprenderá a copiar una Base de datos SQL de Azure mediante el Portal de Azure. |
 | [Copia de una Base de datos SQL de Azure con PowerShell](sql-database-copy-powershell#copy-your-sql-database) | En este tutorial, aprenderá a copiar una Base de datos SQL de Azure mediante PowerShell. |
 | [Copia de una Base de datos SQL de Azure con Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) | En este tutorial, aprenderá a copiar una Base de datos SQL de Azure mediante Transact-SQL. |
@@ -105,7 +105,7 @@ En los tutoriales siguientes, aprenderá a [migrar una base de datos de SQL Serv
 
 ##Desarrollo
 
-En los tutoriales siguientes, aprenderá sobre la [conectividad de cliente a la base de datos SQL de Azure](sql-database-connect-central-recommendations.md) y el uso de [bibliotecas de conectividad](sql-database-libraries.md).
+En los tutoriales siguientes, aprenderá sobre la [conectividad de cliente a Base de datos SQL de Azure](sql-database-connect-central-recommendations.md) y el uso de [bibliotecas de conectividad](sql-database-libraries.md).
 
 | Tutorial | Descripción |
 |---|---|---|
@@ -129,7 +129,7 @@ En los tutoriales siguientes, aprenderá a [crear y administrar inicios de sesi�
 | [Configuración del firewall en la Base de datos SQL de Azure mediante PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-using-powershell) | En este tutorial, aprenderá a administrar un firewall de nivel de servidor de Base de datos SQL de Azure mediante PowerShell.|
 | [Configuración del firewall en la Base de datos SQL de Azure mediante la API de REST](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-service-management-rest-api) | En este tutorial, aprenderá a administrar un firewall de nivel de servidor de Base de datos SQL de Azure mediante la API de REST.|
 | [Conexión a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login)| En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor.|
-| [Conceder acceso de base de datos a un inicio de sesión] (sql-database-manage-logins.md#granting-database-access-to-a-login() | En este tutorial, aprenderá a conceder acceso de base de datos a un inicio de sesión de nivel de servidor.|
+| [Conceder acceso de base de datos a un inicio de sesión](sql-database-manage-logins.md#granting-database-access-to-a-login() | En este tutorial, aprenderá a conceder acceso de base de datos a un inicio de sesión de nivel de servidor.|
 | [Creación de un nuevo usuario de base de datos con SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) | En este tutorial, aprenderá a crear un nuevo usuario de base de datos en una base de datos existente con SSMS.|
 | [Concesión de permisos de db\_owner de usuario de base de datos nueva](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) | En este tutorial, aprenderá a conceder a usuario de una base de datos existente permisos de db\_owner.|
 | [Conexión a Base de datos SQL de Azure como usuario](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) | En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante una cuenta de usuario de nivel de base de datos.|
@@ -158,10 +158,10 @@ En los tutoriales siguientes, aprenderá a usar [la restauración geográfica y 
 | [Restauración de una base de datos SQL de Azure a un momento dado anterior con el Portal de Azure](sql-database-point-in-time-restore-portal.md)| En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante el Portal de Azure.|
 | [Restauración de una Base de datos SQL de Azure a un momento dado anterior con PowerShell](sql-database-point-in-time-restore-powershell.md) | En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante PowerShell.|
 | [Restaurar una base de datos SQL de Azure eliminada con el Portal de Azure](sql-database-restore-deleted-database-portal.md) | En este tutorial, aprenderá a restaurar una base de datos eliminada mediante el Portal de Azure.|
-| [Restore a deleted Azure SQL Database using PowerShell](sql-database-restore-deleted-database-powershell.md) (Restauración de una Base de datos SQL de Azure eliminada mediante PowerShell) | En este tutorial, aprenderá a restaurar una base de datos eliminada mediante PowerShell.|
+| [Restore a deleted Azure SQL Database using PowerShell (Restauración de una Base de datos SQL de Azure eliminada mediante PowerShell)](sql-database-restore-deleted-database-powershell.md) | En este tutorial, aprenderá a restaurar una base de datos eliminada mediante PowerShell.|
 | [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md)| En este tutorial, aprenderá a configurar la replicación geográfica activa mediante el Portal de Azure.|
-| [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md)| En este tutorial, aprenderá a configurar la replicación geográfica activa mediante Transact-SQL.|
-| [Configuración de la replicación geográfica de la Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)| En este tutorial, aprenderá a configurar la replicación geográfica activa mediante Transact-SQL.|
+| [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md)| En este tutorial, aprenderá a configurar la replicación geográfica activa mediante PowerShell.|
+| [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)| En este tutorial, aprenderá a configurar la replicación geográfica activa mediante Transact-SQL.|
 | [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-failover-portal.md) | En este tutorial, aprenderá a conmutar por error en una réplica secundaria de replicación geográfica mediante el Portal de Azure.|
 | [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-failover-powershell.md) | En este tutorial, aprenderá a conmutar por error en una réplica secundaria de replicación geográfica mediante PowerShell.|
 | [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) | En este tutorial, aprenderá a conmutar por error en una réplica secundaria de replicación geográfica mediante Transact-SQL.|
@@ -176,4 +176,8 @@ En este tutorial, aprenderá sobre la [sincronización de datos](http://download
 | [Introducción a SQL Data Sync de Azure (vista previa)](sql-database-get-started-sql-data-sync.md) | En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de Azure clásico. |
 ||||
 
-<!---HONumber=AcomDC_0518_2016-->
+## Pasos siguientes
+
+[Exploración de tutoriales de soluciones de Base de datos SQL de Azure](sql-database-solution-quick-starts.md)
+
+<!---HONumber=AcomDC_0608_2016-->
