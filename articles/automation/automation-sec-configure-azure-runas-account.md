@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="06/09/2016"
     ms.author="magoedte"/>
 
 # Autenticación de Runbooks con una cuenta de ejecución de Azure
@@ -159,7 +159,7 @@ El script de PowerShell configurará los siguientes elementos:
     # Create a Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
     $ConnectionAssetName = "AzureRunAsConnection"
     Remove-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -Force -ErrorAction SilentlyContinue
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId.SubscriptionId}
+    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
     New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
     ```
 <br>
@@ -242,4 +242,4 @@ El script incluye dos líneas adicionales de código para admitir la referencia 
 - Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 - Para más información acerca del control de acceso basado en roles de Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

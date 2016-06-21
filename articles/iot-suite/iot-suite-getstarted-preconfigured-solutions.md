@@ -29,33 +29,7 @@ Para completar este tutorial, deberá tener una suscripción de Azure activa.
 
 > [AZURE.NOTE]  En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
 
-## Aprovisionamiento de la solución preconfigurada de supervisión remota
-
-1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
-
-    > [AZURE.NOTE] Si tiene problemas con los permisos necesarios para aprovisionar una solución, eche un vistazo a [Permisos en el sitio azureiotsuite.com][lnk-permissions] para obtener instrucciones.
-
-2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
-
-3.  Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.
-
-4.  Seleccione el valor en **Región** y **Suscripción** que desea usar para aprovisionar la solución.
-
-5.  Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Normalmente tarda varios minutos en ejecutarse.
-
-## Espere a que se complete el proceso de aprovisionamiento
-
-1. Haga clic en el icono de la solución con el estado **Aprovisionando**.
- 
-2. Observe los **Estados de aprovisionamiento**, ya que los servicios de Azure se implementan en su suscripción de Azure.
-
-3. Una vez que se complete el aprovisionamiento, el estado cambia a **Listo**.
-
-4. Haga clic en el icono y verá los detalles de la solución en el panel derecho.
-
-> [AZURE.NOTE] Si surgen problemas al implementar la solución preconfigurada, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions] y [Preguntas más frecuentes][lnk-faq]. Si los problemas persisten, cree un vale de servicio en el [portal][lnk-portal].
-
-¿Hay detalles que esperaría ver que no aparezcan para su solución? Puede sugerirnos nuevas en características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
+[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 ## Visualización del panel de la solución de supervisión remota
 
@@ -72,8 +46,8 @@ El panel de la solución permite administrar la solución implementada. Por ejem
 El panel muestra la siguiente información:
 
 - El mapa muestra la ubicación de cada dispositivo conectado a la solución. La primera vez que se ejecuta la solución hay cuatro dispositivos simulados. Los dispositivos simulados se implementan como WebJobs de Azure y la solución utiliza la API de Mapas de Bing para trazar la información en el mapa.
-- El panel **Telemetry History** traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
-- El panel **Alarm History** muestra los eventos de alarma recientes cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
+- El panel **Telemetry History** (Historial de telemetría) traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
+- El panel **Alarm History** (Historial de alarmas) muestra los últimos eventos de alarma cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
 
 ## Visualización de la lista de dispositivos de la solución
 
@@ -89,11 +63,11 @@ La lista de dispositivos muestra todos los dispositivos registrados en la soluci
 
     ![][img-devicedetails]
 
-El panel **Device Details** contiene tres secciones:
+El panel **Device Details** (Detalles de dispositivo) contiene tres secciones:
 
-- En la sección **Actions** se enumeran las acciones que se pueden realizar en el dispositivo. Si se deshabilita el dispositivo, no se podrán enviar datos de telemetría ni recibir comandos. Aunque se deshabilite un dispositivo, se puede volver a habilitar posteriormente. Se puede agregar una regla asociada con el dispositivo que desencadena una alarma cuando un valor de telemetría supera un umbral. También se puede enviar un comando a un dispositivo. La primera vez que un dispositivo se conecta indica a la solución los comandos a los que puede responder.
-- En la sección **Device Properties** se enumeran los metadatos del dispositivo. Algunos de estos metadatos proceden del propio dispositivo (como por ejemplo, el fabricante), mientras que otros los genera la solución (como la hora de creación). Los metadatos del dispositivo se pueden editar desde aquí.
-- En la sección **Authentication Key** se enumeran las claves que puede usar el dispositivo para autenticarse en la solución.
+- En la sección **Actions** (Acciones) se enumeran las acciones que se pueden realizar en el dispositivo. Si se deshabilita el dispositivo, no se podrán enviar datos de telemetría ni recibir comandos. Aunque se deshabilite un dispositivo, se puede volver a habilitar posteriormente. Se puede agregar una regla asociada con el dispositivo que desencadena una alarma cuando un valor de telemetría supera un umbral. También se puede enviar un comando a un dispositivo. La primera vez que un dispositivo se conecta indica a la solución los comandos a los que puede responder.
+- En la sección **Device Properties** (Propiedades de dispositivo) se enumeran los metadatos del dispositivo. Algunos de estos metadatos proceden del propio dispositivo (como por ejemplo, el fabricante), mientras que otros los genera la solución (como la hora de creación). Los metadatos del dispositivo se pueden editar desde aquí.
+- En la sección **Authentication Key** (Clave de autenticación) se enumeran las claves que puede usar el dispositivo para autenticarse en la solución.
 
 ## Envío de un comando a un dispositivo
 
@@ -111,7 +85,7 @@ El panel de detalles del dispositivo muestra todos los comandos que admite un di
 
     ![][img-pingcommand]
 
-La solución hace un seguimiento del estado de cada comando que envía. Inicialmente, el resultado es **Pendiente**. Cuando el dispositivo informa de que ha ejecutado el comando, el resultado se establece en **Correcto**.
+La solución hace un seguimiento del estado de cada comando que envía. Inicialmente, el resultado es **Pending** (Pendiente). Cuando el dispositivo informa de que ha ejecutado el comando, el resultado se establece en **Success** (Correcto).
 
 ## Adición de un nuevo dispositivo simulado
 
@@ -125,7 +99,7 @@ La solución hace un seguimiento del estado de cada comando que envía. Inicialm
 
     ![][img-addnew]
     
-    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting-devices].
+    Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información al respecto, consulte [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connecting-devices].
 
 4.  Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
 
@@ -147,7 +121,7 @@ La solución hace un seguimiento del estado de cada comando que envía. Inicialm
 
 1.  Vuelva a navegar hasta la lista de dispositivos.
 
-2.  Seleccione el nuevo dispositivo en la **lista de dispositivos**, y, luego, haga clic en **Editar** para editar las **propiedades del dispositivo**:
+2.  Seleccione el nuevo dispositivo en la **lista de dispositivos** y haga clic en **Editar** para editar las **propiedades del dispositivo**:
 
     ![][img-editdevice]
 
@@ -165,9 +139,9 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
 
 1.  Vuelva a navegar hasta la lista de dispositivos.
 
-2.  Seleccione el nuevo dispositivo en la **lista de dispositivos**, y, luego, haga clic en **Agregar regla** para agregar una regla nueva al dispositivo.
+2.  Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Agregar regla** para agregar una regla nueva al dispositivo.
 
-3. Crear una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
+3. Cree una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
 
     ![][img-adddevicerule]
 
@@ -177,11 +151,11 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
 
     ![][img-adddevicerule2]
 
-6.  Seleccione **ChangeSetPointTemp** en la lista de comandos y establezca **SetPointTemp** en 45. Después, haga clic en **Send Command** (Enviar comando):
+6.  Seleccione **ChangeSetPointTemp** en la lista de comandos y en **SetPointTemp** seleccione 45. Después, haga clic en **Send Command** (Enviar comando):
 
     ![][img-adddevicerule3]
 
-7.  Vuelva a navegar al panel de la solución. Al poco tiempo, verá una nueva entrada en el panel **Alarm History** cuando la temperatura que notifique el nuevo dispositivo supere el umbral de 47 grados:
+7.  Vuelva a navegar al panel de la solución. Al poco tiempo, verá una entrada nueva en el panel **Alarm History** (Historial de alarmas) cuando la temperatura que notifique el nuevo dispositivo supere el umbral de 47 grados:
 
     ![][img-adddevicerule4]
 
@@ -207,11 +181,11 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 
 - La carpeta **DeviceAdministration** contiene el código fuente del panel.
 - La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
-- La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla la telemetría entrante.
+- La carpeta **EventProcessor** contiene el código fuente del proceso de back-end que controla los datos de telemetría entrantes.
 
-Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]; esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada.
+Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite] \(esto le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando se creó la solución preconfigurada).
 
-> [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo de m [azureiotsuite.com][lnk-azureiotsuite], no elimine simplemente el grupo de recursos del portal.
+> [AZURE.NOTE] Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo de m [azureiotsuite.com][lnk-azureiotsuite], no elimine simplemente el grupo de recursos en el portal.
 
 ## Pasos siguientes
 
@@ -254,4 +228,4 @@ Ahora que ha creado una solución preconfigurada que funciona, puede pasar a los
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

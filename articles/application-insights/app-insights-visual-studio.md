@@ -65,7 +65,11 @@ Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exceptio
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Seguimiento de la pila de excepción](./media/app-insights-visual-studio/17.png)
+
+Además, en la línea de Code Lens sobre cada método, verá un recuento de las excepciones registradas por Application Insights en las últimas 24 horas.
+
+![Seguimiento de la pila de excepción](./media/app-insights-visual-studio/21.png)
 
 
 ## Supervisión local
@@ -86,8 +90,6 @@ También es útil si tiene [datos de telemetría personalizados](app-insights-ap
 
 
 
-
-
 ## Para actualizar a futuras versiones del SDK
 
 Para actualizar a una [nueva versión del SDK](app-insights-release-notes-dotnet.md), vuelva a abrir el Administrador de paquetes de NuGet y filtre los paquetes instalados. Seleccione Microsoft.ApplicationInsights.Web y elija Actualizar.
@@ -100,10 +102,10 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
 ||
 |---|---
-|**[Agregar más datos](app-insights-asp-net-more.md)**<br/>Supervisar el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. | ![Visual studio](./media/app-insights-asp-net/64.png)
+|**[Agregar más datos](app-insights-asp-net-more.md)**<br/>Supervisar el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 |**[Trabajar con el portal de Application Insights](app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa de dependencias en vivo de la aplicación y la exportación de datos de telemetría. |![Visual studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

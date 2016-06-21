@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/05/2016"
+   ms.date="06/09/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -85,7 +85,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Compatible | Compatible | Ámsterdam y Londres |
 | **Telefónica** | Próximamente | Próximamente | São Paulo+ |
 | **Telenor** | Compatible | Compatible | Ámsterdam y Londres |
-| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne, Sidney |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | Próximamente | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 | **Vodafone** | Compatible | No compatible | Londres | 
 | **[Zayo Group](http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Compatible | Compatible | Chicago, Los Ángeles, Nueva York, Silicon Valley, Toronto, Washington DC |
@@ -161,4 +161,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
