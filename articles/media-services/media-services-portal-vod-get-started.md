@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Introducción a la entrega de contenido a petición mediante el Portal de Azure (vista previa)
+# Introducción a la entrega de contenido a petición mediante el Portal de Azure
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Servicios multimedia de Azure (AMS) mediante el Portal de Azure.
 
@@ -229,4 +229,4 @@ Se aplican algunas consideraciones:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

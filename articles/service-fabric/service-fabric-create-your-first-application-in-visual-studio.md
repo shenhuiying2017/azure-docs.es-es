@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Creación de la primera aplicación de Azure Service Fabric en Visual Studio
@@ -46,7 +46,7 @@ Una aplicación de Service Fabric puede contener uno o varios servicios, cada un
 
 	![Cuadro de diálogo de servicio nuevo en Visual Studio.][2]
 
-	>[AZURE.NOTE] Para más información sobre las opciones, consulte [Elección de un marco para su servicio](service-fabric-choose-framework.md).
+	>[AZURE.NOTE] Para más información acerca de las opciones, consulte [Información general del modelo de programación de Service Fabric](service-fabric-choose-framework.md).
 
 	Visual Studio crea el proyecto de aplicación y el proyecto de servicio con estado y los muestra en el Explorador de soluciones.
 
@@ -110,31 +110,19 @@ Ahora que tiene una aplicación, puede probar a ejecutarla.
 
     ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
 
-### Limpiar
+## Limpiar
 
-  Antes de concluir, es importante recordar que el clúster local es real. Incluso después de detener el depurador y de cerrar Visual Studio, las aplicaciones se seguirán ejecutando en segundo plano. Según la naturaleza de las aplicaciones, esta actividad en segundo plano puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
+  Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador eliminará la instancia de la aplicación y anulará el registro del tipo de aplicación. No obstante, el clúster se seguirá ejecutando en segundo plano. Tiene varias opciones para administrar esto:
 
-  1. Para quitar una aplicación individual y todos sus datos, utilice la acción **Eliminar aplicación** en el explorador de Service Fabric con el menú **ACCIONES** o el menú contextual en la vista de lista de aplicaciones del panel izquierdo.
+  1. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 
-    ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
-
-  2. Después de eliminar la aplicación del clúster, a continuación, puede elegir **el tipo de anulación de aprovisionamiento** para la aplicación que quita el paquete de la aplicación, incluido el código y la configuración, del almacén de imágenes del clúster.
-  3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Detener clúster local** en la aplicación de bandeja del sistema.
-
-  4. Para eliminar totalmente el clúster, haga clic en **Quitar clúster local** en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
-
-
+  2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
 
 ## Pasos siguientes
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Más información sobre cómo crear clústeres en Azure](service-fabric-cluster-creation-via-portal.md)
-- [Más información sobre Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [Intente crear un servicio con el modelo de programación Reliable Actors](service-fabric-reliable-actors-get-started.md)
+- Aprenda a crear un [clúster en Azure](service-fabric-cluster-creation-via-portal.md) o un [clúster independiente en Windows](service-fabric-cluster-creation-for-windows-server.md).
+- Intente crear un servicio con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) o [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+- Vea cómo puede exponer los servicios a Internet con un [front-end de servicio web](service-fabric-add-a-web-frontend.md).
 
 <!-- Image References -->
 
@@ -150,4 +138,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

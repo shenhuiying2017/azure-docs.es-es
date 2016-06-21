@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 # ¿Qué es Estudio de aprendizaje automático de Azure?
@@ -47,6 +47,7 @@ Hay tres pestañas en la parte superior: **Inicio** (donde se empieza), **Estudi
 
 Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su cuenta de Microsoft o su cuenta profesional o educativa. Después de iniciar sesión, verá las pestañas siguientes a la izquierda:
 
+- **PROYECTOS**: colecciones de experimentos, conjuntos de datos, cuadernos y otros recursos que representan un proyecto individual.
 - **EXPERIMENTOS**: experimentos que se crearon, ejecutaron y guardaron como borradores.
 - **SERVICIOS WEB**: servicios web que implementó a partir de los experimentos
 - **CUADERNOS**: cuadernos de Jupyter que creó
@@ -58,7 +59,7 @@ Haga clic en la pestaña **Estudio** y se le pedirá que inicie sesión con su c
 
 Haga clic en la pestaña **Galería** y se le dirigirá a la Galería de Cortana Intelligence. La Galería es un lugar donde una comunidad de científicos de datos y desarrolladores puede compartir soluciones creadas con componentes de Cortana Intelligence Suite.
 
-Para obtener más información sobre la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+Para más información sobre la galería, consulte [Uso compartido y descubrimiento de soluciones en la Galería de Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componentes de un experimento
 
@@ -93,7 +94,7 @@ Para obtener una lista de conjuntos de datos de ejemplo incluidos en Estudio de 
 Un módulo es un algoritmo que puede aplicar sobre sus datos. Estudio de aprendizaje automático cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
 
 - [Convertir a ARFF][convert-to-arff]\: convierte un conjunto de datos serializados de .NET a formato ARFF.
-- [Estadísticas elementales sobre procesos][elementary-statistics]\: calcula estadísticas elementales como la media, la desviación estándar, etc.
+- [Estadísticas elementales de procesos][elementary-statistics]\: calcula estadísticas elementales como la media, la desviación estándar, etc.
 - [Regresión lineal][linear-regression]\: crea un modelo de regresión lineal basado en un descenso de gradiente en línea.
 - [Puntuar modelo][score-model]\: puntúa un modelo entrenado de clasificación o regresión.
 
@@ -115,4 +116,4 @@ Cuando el modelo de análisis predictivo esté listo, puede implementarlo como s
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

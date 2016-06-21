@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
@@ -132,7 +132,11 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 
 ## Replicación para obtener durabilidad y alta disponibilidad
 
-Los datos de la cuenta de Almacenamiento de Microsoft Azure siempre se replican para garantizar la durabilidad y la alta disponibilidad, y cumplen el [Contrato de nivel de servicio para Almacenamiento](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores de hardware transitorios. Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes opciones de replicación:
+Los datos de la cuenta de Almacenamiento de Microsoft Azure siempre se replican para garantizar la durabilidad y la alta disponibilidad, y cumplen el [Contrato de nivel de servicio para Almacenamiento](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores de hardware transitorios.
+
+Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para más información acerca de qué servicios están disponibles en cada región.
+
+Cuando cree una cuenta de almacenamiento, debe seleccionar una de las siguientes opciones de replicación:
 
 - **Almacenamiento con redundancia local (LRS).** El almacenamiento con redundancia local mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una única instalación.  
   
@@ -149,12 +153,13 @@ Los datos de la cuenta de Almacenamiento de Microsoft Azure siempre se replican 
 
 - **Almacenamiento con redundancia geográfica (GRS)**. El almacenamiento con redundancia geográfica está habilitado para su cuenta de almacenamiento de manera predeterminada cuando la crea. GRS mantiene seis copias de sus datos. Con GRS, sus datos se replican tres veces dentro de la región primaria, y se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región primaria, proporcionando el nivel más alto de durabilidad. En caso de que se produzca un error en la región primaria, Almacenamiento de Azure conmutará por error a la región secundaria. GRS garantiza la durabilidad de sus datos en dos regiones independientes.
 
+	Para obtener información sobre los emparejamientos principales y secundarios por región, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 - **Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)**. El almacenamiento con redundancia geográfica con acceso de lectura replica sus datos a una ubicación geográfica secundaria y, además, proporciona acceso de lectura a sus datos en la ubicación secundaria. El almacenamiento con redundancia geográfica con acceso de lectura le permite tener acceso a los datos desde la ubicación principal o la secundaria, ante la eventualidad de que alguna de las ubicaciones deje de estar disponible.
 
 	> [AZURE.IMPORTANT] Si no especificó ZRS cuando creó la cuenta, puede cambiar cómo se replican los datos después de haber creado su cuenta. Sin embargo, tenga en cuenta que cambiar de LRS a GRS o RA-GRS puede suponer un coste adicional único de transferencia de datos.
  
-Consulte [Replicación de almacenamiento de Azure](storage-redundancy.md) para más información sobre las opciones de replicación de almacenamiento.
+Consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md) para más información sobre las opciones de replicación de almacenamiento.
 
 Para más información sobre precios de la replicación de cuentas de almacenamiento, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -163,11 +168,11 @@ Para obtener detalles de arquitectura sobre la durabilidad con Almacenamiento de
 
 ## Transferencia de datos hacia y desde el Almacenamiento de Azure
 
-Puede utilizar la utilidad de línea de comandos de AzCopy para copiar datos de blobs, archivos y tablas en la cuenta de almacenamiento o entre las cuentas de almacenamiento. Consulte [Transferencia de datos con la utilidad de línea de comandos AzCopy](storage-use-azcopy.md) para más información.
+Puede utilizar la utilidad de línea de comandos de AzCopy para copiar datos de blobs, archivos y tablas en la cuenta de almacenamiento o entre las cuentas de almacenamiento. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md) para más información.
 
 AzCopy se instala sobre la [biblioteca de movimiento de datos de Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), que está disponible actualmente en versión preliminar.
 
-El servicio Importación/Exportación de Azure proporciona una manera de importar datos de blob a la cuenta de almacenamiento o exportarlos desde la misma a través de un disco duro enviado al centro de datos de Azure. Para más información sobre el servicio de importación y exportación, consulte [Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al Almacenamiento en blobs](storage-import-export-service.md).
+El servicio Importación/Exportación de Azure proporciona una manera de importar datos de blob a la cuenta de almacenamiento o exportarlos desde la misma a través de un disco duro enviado al centro de datos de Azure. Para más información sobre el servicio de importación y exportación, consulte [Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs](storage-import-export-service.md).
 
 ## Precios
 
@@ -260,4 +265,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 - [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

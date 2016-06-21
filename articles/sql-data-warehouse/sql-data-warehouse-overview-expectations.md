@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/11/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -31,7 +31,7 @@ Seguiremos trabajando para lograr estos objetivos durante la versión preliminar
 
 ## Rendimiento predecible y escalable
 
-Almacenamiento de datos SQL de Azure presenta Unidades de almacenamiento de datos (DWU) como una forma de medir los recursos informáticos (CPU, memoria, E/S de almacenamiento) disponibles para el almacenamiento de datos. Aumentar el número de DWU aumenta los recursos. A medida que aumenta el número de DWU, el Almacenamiento de datos SQL ejecuta operaciones en paralelo (por ejemplo, la carga o la consulta de datos) a través de recursos más distribuidos. Esto reduce la latencia y mejora el rendimiento.
+Almacenamiento de datos SQL presenta Unidades de almacenamiento de datos (DWU) como una forma de medir los recursos informáticos (CPU, memoria, E/S de almacenamiento) disponibles para el almacenamiento de datos. Aumentar el número de DWU aumenta los recursos. A medida que aumenta el número de DWU, el Almacenamiento de datos SQL ejecuta operaciones en paralelo (por ejemplo, la carga o la consulta de datos) a través de recursos más distribuidos. Esto reduce la latencia y mejora el rendimiento.
 
 Cualquier almacén de datos tiene 2 métricas de rendimiento fundamentales:
 
@@ -42,21 +42,15 @@ Se están midiendo algunas mejoras importantes del rendimiento y pronto se compa
 
 ## Protección de datos
 
-Almacenamiento de datos SQL almacena todos los datos en Almacenamiento de Azure mediante almacenamiento con redundancia local. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados.
-
-## Copias de seguridad
-
-Almacenamiento de datos SQL de Azure realiza una copia de seguridad de todos los datos cada 8 horas como mínimo mediante instantáneas de Almacenamiento de Azure. Estas instantáneas se mantienen durante 7 días. Esto permite restaurar los datos en un mínimo de 21 momentos anteriores en los últimos 7 días hasta la hora en que se tomó la última instantánea. Puede restaurar datos desde una instantánea mediante las API de PowerShell o REST.
+Almacenamiento de datos SQL almacena todos los datos en Azure mediante almacenamiento con redundancia local. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados. Además, Almacenamiento de datos SQL realiza automáticamente una copia de seguridad de las bases de datos activas (no en pausa) a intervalos periódicos mediante instantáneas de Almacenamiento de Azure. Para más información acerca de cómo usar las copias de seguridad y la restauración, consulte [Restore an Azure SQL Data Warehouse (Overview)][] (Restauración de Almacenamiento de datos SQL de Azure [Información general]).
 
 ## Confiabilidad de las consultas
 
 Almacenamiento de datos SQL se basa en una arquitectura de procesamiento paralelo masivo (MPP). Almacenamiento de datos SQL detecta automáticamente los errores de nodo de proceso y control, realiza la migración. Sin embargo, se puede producir un error en una operación (como una carga de datos o una consulta) como resultado de un error en un nodo o la migración. En la versión preliminar, realizamos mejoras continuas para completar correctamente las operaciones a pesar de los errores de nodo.
 
-
 ## Actualizaciones y tiempo de inactividad
 
 Almacenamiento de datos SQL se actualizará periódicamente con el fin de agregar nuevas características e instalar correcciones críticas. Estas actualizaciones pueden interrumpir y en este momento las actualizaciones no se realizan con una programación previsible. Si piensa que este proceso causa demasiadas interrupciones, es aconsejable que [cree una incidencia de soporte técnico][] para que podamos proporcionarle una alternativa.
-
 
 ## Pasos siguientes
 
@@ -67,9 +61,10 @@ Almacenamiento de datos SQL se actualizará periódicamente con el fin de agrega
 <!--Article references-->
 [cree una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Introducción]: ./sql-data-warehouse-get-started-provision.md
+[Restore an Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -20,6 +20,11 @@
 
 # SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal (Tutorial de Base de datos SQL: Creación de cuentas de base de datos SQL para acceder a una base de datos y administrarla mediante el Portal de Azure)
 
+
+> [AZURE.SELECTOR]
+- [Tutorial introductorio](sql-database-get-started-security.md)
+- [Conceder acceso](sql-database-manage-logins.md)
+
 En este tutorial, aprenderá a usar el Portal de Azure para:
 
 - Iniciar sesión en Base de datos SQL mediante un inicio de sesión de entidad de seguridad de nivel de servidor
@@ -45,4 +50,4 @@ En este tutorial, aprenderá a usar el Portal de Azure para:
 ## Pasos siguientes
 Ahora que ha completado este tutorial de Base de datos SQL, ha creado una cuenta de usuario y ha concedido a la cuenta de usuario permisos de dbo, está preparado para aprender más sobre la [seguridad de Base de datos SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="06/07/2016"
    ms.author="charwen"/>
 
 # Optimización de enrutamiento de ExpressRoute
@@ -42,4 +42,4 @@ La segunda solución es que continúe anunciando ambos prefijos para los dos cir
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

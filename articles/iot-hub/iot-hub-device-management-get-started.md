@@ -3,7 +3,7 @@
 	description="Tutorial de introducción del Centro de IoT de Azure con C# sobre la administración de dispositivos. Use el Centro de IoT de Azure y C# con los SDK de IoT de Microsoft Azure para implementar la administración de dispositivos."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,27 +14,32 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Introducción a la administración de dispositivos de Centro de IoT de Azure con C# (versión preliminar)
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introducción
-Para comenzar con la administración de dispositivos en un Centro de IoT de Azure, primero debe crear un Centro de IoT de Azure, abastecerlo de dispositivos e iniciar varios dispositivos simulados. Este tutorial le guiará a través de estos pasos.
+Para comenzar con la administración de dispositivos en un Centro de IoT de Azure, primero debe crear un Centro de IoT de Azure, abastecerlo de dispositivos, iniciar varios dispositivos simulados y ver estos dispositivos en la interfaz de usuario de ejemplo de administración de dispositivos. Este tutorial le guiará a través de estos pasos.
 
 > [AZURE.NOTE]  Debe crear un nuevo Centro de IoT para habilitar las funcionalidades de administración de dispositivos, aunque ya disponga de un Centro de IoT existente, puesto que los Centros de IoT existentes aún no pueden administrar dispositivos. Una vez que la administración de dispositivos esté completamente operativa, todos los Centros de IoT existentes se actualizarán con las funcionalidades de administración de dispositivos.
 
 ## Requisitos previos
 
+En este tutorial se asume que está utilizando un equipo de desarrollo de Windows.
+
 Para llevar esto a cabo, necesita tener lo siguiente instalado:
 
 - Microsoft Visual Studio 2015
-- Git
-- CMake (versión 2.8 o posterior). Instale CMake desde <https://cmake.org/download/>. Para un equipo con Windows, elija la opción Windows Installer (.msi). Asegúrese de marcar la casilla para agregar CMake a la variable PATH del usuario actual.
-- Una suscripción de Azure activa.
 
-	En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
+- Git
+
+- CMake (versión 2.8 o posterior). Instale CMake desde <https://cmake.org/download/>. Para un equipo con Windows, elija la opción Windows Installer (.msi). Asegúrese de marcar la casilla para agregar CMake a la variable PATH del usuario actual.
+
+- Node.js 6.1.0 o superior. Instale Node.js para su plataforma desde <https://nodejs.org/>.
+
+- Una suscripción de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
 ## Creación de un Centro de IoT con la administración de dispositivos habilitada
 
@@ -45,15 +50,15 @@ Debe crear un Centro de IoT con la administración de dispositivos habilitada pa
 
 	![][img-new-hub]
 
-3.  En la hoja **Centro de IoT**, elija la configuración para el Centro de IoT.
+3.  En la hoja **Centro de IoT**, elija la configuración para su Centro de IoT.
 
 	![][img-configure-hub]
 
-  -   En el cuadro **Nombre**, escriba un nombre para su Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
+  -   En el cuadro **Nombre**, escriba un nombre para identificar el Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
   -   Seleccione un **Plan de tarifa y escalado**. Este tutorial no requiere ningún nivel determinado.
   -   En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure].
   -   Active la casilla **Enable Device Management** (Habilitar la administración de dispositivos).
-  -   En **Ubicación**, seleccione la ubicación para hospedar el Centro de IoT. La administración de dispositivos del Centro de IoT solo está disponible en el este de EE. UU., Europa del Norte y Asia Oriental. En el futuro, estará disponible en todas las regiones.
+  -   En **Ubicación**, seleccione la ubicación para hospedar su Centro de IoT. La administración de dispositivos del Centro de IoT solo está disponible en el este de EE. UU., Europa del Norte y Asia Oriental. En el futuro, estará disponible en todas las regiones.
 
     > [AZURE.NOTE]  Si no activa la casilla **Enable Device Management** (Habilitar la administración de dispositivos), los ejemplos no funcionarán.
 
@@ -125,17 +130,54 @@ A continuación se muestra la salida de la aplicación de prueba **iotdm\_simple
 
 ![][img-output]
 
-Asegúrese de dejar todos los dispositivos simulados en ejecución mientras completa los tutoriales con "Pasos siguientes".
+Asegúrese de dejar todos los dispositivos simulados en ejecución mientras completa las secciones siguientes.
 
-## Pasos siguientes
+## Ejecución de la interfaz de usuario de ejemplo de administración de dispositivos
 
-Para más información sobre las características de administración de dispositivos del Centro de IoT de Azure, puede consultar los tutoriales:
+Ahora que ha aprovisionado un Centro de IoT y tiene varios dispositivos simulados en ejecución y registrados para administración, puede implementar la interfaz de usuario de ejemplo de administración de dispositivos. La interfaz de usuario de ejemplo de administración de dispositivos proporciona un ejemplo práctico de cómo utilizar las API de administración de dispositivos para crear una experiencia interactiva de la interfaz de usuario. Para más información sobre la interfaz de usuario de ejemplo de administración de dispositivos, incluidos los [problemas conocidos](https://github.com/Azure/azure-iot-device-management#knownissues), consulte el repositorio de GitHub sobre la [interfaz de usuario de administración de dispositivos de IoT de Azure][lnk-dm-github].
 
-- [How to use the device twin (Uso del conjunto de dispositivos)][lnk-tutorial-twin]
+Para recuperar, compilar y ejecutar la interfaz de usuario de ejemplo de administración de dispositivos, siga estos pasos:
 
-- [How to find device twins using queries (Búsqueda de dispositivos gemelos mediante consultas)][lnk-tutorial-queries]
+1. Abra el **símbolo del sistema**.
 
-- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-tutorial-jobs]
+2. Confirme que ha instalado Node.js 6.1.0, o una versión superior, según la sección de requisitos previos, escriba `node --version`.
+
+3. Clone el repositorio de GitHub de la interfaz de usuario de administración de dispositivos de IoT de Azure mediante la ejecución del siguiente comando:
+
+	```
+	git clone https://github.com/Azure/azure-iot-device-management.git
+	```
+	
+4. En la carpeta raíz de la copia clonada del repositorio de interfaz de usuario de administración de dispositivos de IoT de Azure, ejecute el comando siguiente para recuperar los paquetes dependientes:
+
+	```
+	npm install
+	```
+
+5. Cuando se haya completado el comando npm install, ejecute el comando siguiente para compilar el código:
+
+	```
+	npm run build
+	```
+
+6. Utilice un editor de texto para abrir el archivo user-config-json en la raíz de la carpeta clonada. Reemplace el texto "&lt;LA CADENA DE CONEXIÓN AQUÍ&gt;" por la cadena de conexión de Centro de IoT de la sección anterior y guarde el archivo.
+
+7. En el símbolo del sistema, ejecute el siguiente comando para iniciar la aplicación de experiencia de usuario de administración de dispositivos:
+
+	```
+	npm run start
+	```
+
+8. Cuando el símbolo del sistema informa que los servicios se han iniciado, abra un explorador web (Edge/IE 11+/Safari/Chrome se admiten en este momento) y vaya a la aplicación de administración de dispositivos en la siguiente dirección URL para ver los dispositivos simulados: <http://127.0.0.1:3003>.
+
+	![][img-dm-ui]
+
+Deje ejecutándose los dispositivos simulados y la aplicación de administración de dispositivos mientras trabaja en el siguiente tutorial de administración de dispositivos.
+
+
+## Paso siguiente
+
+Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] (Exploración de administración de dispositivos de Centro de IoT de Azure mediante la interfaz de usuario de ejemplo).
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
@@ -144,12 +186,12 @@ Para más información sobre las características de administración de disposit
 [img-keys]: media/iot-hub-device-management-get-started/image4.png
 [img-connection]: media/iot-hub-device-management-get-started/image5.png
 [img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Portal de Azure]: https://portal.azure.com/
 [Uso de grupos de recursos para administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

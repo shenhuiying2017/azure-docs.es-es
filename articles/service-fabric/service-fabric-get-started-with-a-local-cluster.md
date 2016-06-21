@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Introducción a la implementación y actualización de aplicaciones en un clúster local
@@ -66,7 +66,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
     cd c:\ServiceFabric\
     ```
 
-4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó.
+4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó. Nota: El explorador Microsoft Edge guardará el archivo con una extensión *.zip*. Deberá cambiar la extensión del archivo a *.sfpkg*.
 
 5. Conecte con el clúster local:
 
@@ -88,7 +88,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
 
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
 
-    La aplicación WordCount es muy simple. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra.
+    La aplicación WordCount es muy simple. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra. El código fuente de la aplicación WordCount se puede encontrar en los [ejemplos de introducción](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
     La aplicación que hemos implementado contiene cuatro particiones. Por tanto las palabras que empiezan de la A a la G se almacenan en la primera partición, las que comienzan de la H a la N en la segunda partición, y así sucesivamente.
 
@@ -129,7 +129,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
 
     ![Ver detalles de aplicación en el Explorador de Service Fabric][sfx-service-overview]
 
-    > [AZURE.NOTE] Para más información acerca del Explorador de Service Fabric, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
+    > [AZURE.NOTE] Para más información acerca de Service Fabric Explorer, consulte [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Actualizar una aplicación
 Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Vamos realizar una actualización simple de la aplicación WordCount.
@@ -168,6 +168,33 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 
     ![Ver la nueva versión de la aplicación en el explorador][deployed-app-ui-v2]
 
+## Limpiar
+
+Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten. Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar esto:
+
+1. Para quitar una aplicación individual y todos sus datos, ejecute lo siguiente:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    También puede usar la acción **Eliminar aplicación** de Service Fabric Explorer con el menú **ACCIONES** o el menú contextual en la vista de lista de aplicaciones del panel izquierdo.
+
+    ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
+
+2. Después de eliminar la aplicación del clúster, puede anular el registro de las versiones 1.0.0 y 2.0.0 del tipo de aplicación WordCount. De este modo, los paquetes de la aplicación, incluido el código y la configuración, se quitarán del almacén de imágenes del clúster.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    También puede seleccionar **Unprovision Type** (Tipo de anulación de aprovisionamiento) para la aplicación en Service Fabric Explorer.
+
+3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
+
+4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Úsela solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
+
 ## Pasos siguientes
 - Tras la implementación y actualización de algunas aplicaciones pregeneradas, puede [intentar compilar la suya propia en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 - Todas las acciones realizadas en el clúster local en este artículo se pueden realizar también en un [clúster de Azure](service-fabric-cluster-creation-via-portal.md).
@@ -189,5 +216,6 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

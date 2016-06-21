@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Información técnica de ExpressRoute
@@ -68,6 +68,8 @@ Microsoft usa el protocolo de enrutamiento dinámico estándar del sector (BGP) 
 Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores de perímetro de Microsoft Enterprise (MSEEs) desde proveedor de conectividad o la red perimetral. Microsoft requiere conexión BGP dual desde el proveedor de conectividad o su sitio, uno a cada MSEE. Si lo desea tiene la opción de no implementar dispositivos redundantes o Ethernet de circuitos en su extremo. Sin embargo, los proveedores de conectividad usan dispositivos redundantes para garantizar que las conexiones se entregan a Microsoft de forma redundante. Una configuración de conectividad redundante de nivel 3 es un requisito para nuestro [SLA](https://azure.microsoft.com/support/legal/sla/) sea válido.
 
 ### Conectividad con los Servicios en la nube de Microsoft
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 Las conexiones ExpressRoute habilitan el acceso a los servicios siguientes:
 
@@ -134,4 +136,4 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->
