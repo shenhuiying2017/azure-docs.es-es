@@ -39,4 +39,8 @@ Pruebe una máquina virtual mediante la creación de una máquina virtual simple
 
 Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual de Windows con Resource Manager](virtual-machines-windows-creation-choices.md).
 
+[Servicio de aplicaciones]: app-service-choose-me.md
+[Servicios en la nube]: cloud-services-choose-me.md
+[Máquinas virtuales]: #tellmevm
+
 <!---HONumber=AcomDC_0615_2016-->

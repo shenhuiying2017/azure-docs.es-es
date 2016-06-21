@@ -184,7 +184,7 @@ Deje ejecutándose los dispositivos simulados y la aplicación de administració
 
 ## Paso siguiente
 
-Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] (Exploración de administración de dispositivos de Centro de IoT de Azure mediante la interfaz de usuario de ejemplo).
+Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] \(Exploración de administración de dispositivos de Centro de IoT de Azure mediante la interfaz de usuario de ejemplo).
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
