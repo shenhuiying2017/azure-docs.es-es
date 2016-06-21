@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio
@@ -82,7 +82,9 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 ## Leer y eliminar un mensaje de una cola
 
-Su código puede quitar un mensaje de una cola en dos pasos. 1. Llame a GetMessage() para obtener el siguiente mensaje en una cola. Un mensaje devuelto por GetMessage() se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. 2. Para terminar de quitar el mensaje de la cola, llame a **DeleteMessage**.
+Su código puede quitar un mensaje de una cola en dos pasos.
+1. Llame a GetMessage() para obtener el siguiente mensaje en una cola. Un mensaje devuelto por GetMessage() se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos.
+2.	Para terminar de quitar el mensaje de la cola, llame a **DeleteMessage**.
 
 Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a **DeleteMessage** justo después de haber procesado el mensaje.
 
@@ -154,4 +156,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="06/06/2016" 
 	ms.author="bharaths"/>
 
 #Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
@@ -77,4 +77,4 @@ Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microso
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0608_2016-->

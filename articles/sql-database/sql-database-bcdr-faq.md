@@ -50,8 +50,8 @@ Para la recuperación tras una interrupción: use la opción [Obtener base de da
 
 No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script denominado [Base de datos SQL de Azure: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666), es un ejemplo de uno de los diferentes modos de realizar esta tarea.
 
-## 8\. ¿Cuál es el retraso de replicación al usar la replicación geográfica activa?
+## 8\. ¿Cuál es el retraso de la replicación al usar la replicación geográfica?
 
 Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

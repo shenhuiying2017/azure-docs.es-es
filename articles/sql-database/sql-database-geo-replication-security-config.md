@@ -41,7 +41,7 @@ Para que la base de datos secundaria se pueda utilizar como base de datos secund
 
 Los permisos específicos para cada paso se describen más adelante en este tema.
 
-La preparación de acceso de usuario a una base de datos secundaria de replicación geográfica debe realizarse como parte de la configuración de replicación geográfica. La preparación de acceso de usuario a las bases de datos georrestauradas debe realizarse en cualquier momento en que el servidor original esté en línea (por ejemplo, como parte de la obtención de detalles de recuperación ante desastres).
+La preparación del acceso de usuario a una base de datos secundaria de replicación geográfica debe realizarse como parte de la configuración de replicación geográfica. La preparación de acceso de usuario a las bases de datos georrestauradas debe realizarse en cualquier momento en que el servidor original esté en línea (por ejemplo, como parte de la obtención de detalles de recuperación ante desastres).
 
 >[AZURE.NOTE] Si realiza una conmutación por error o la georrestauración en un servidor que no tiene configurado correctamente el acceso de inicio de sesión al mismo, se limitará a la cuenta de administrador del servidor.
 
@@ -100,4 +100,4 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

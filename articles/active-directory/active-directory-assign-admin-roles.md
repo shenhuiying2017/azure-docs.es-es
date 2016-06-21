@@ -28,7 +28,11 @@ Los roles de administrador disponibles son los siguientes:
 
 - **Administrador global**: tiene acceso a todas las características administrativas. La persona que se suscribe a la cuenta de Azure se convierte en un administrador global. Los administradores globales son los únicos que pueden asignar otros roles de administrador. Puede haber más de un administrador global en su empresa.
 
+	> [AZURE.NOTE] En la API Graph de Microsoft, la API Graph de Azure AD y Azure AD PowerShell, este rol se identifica como "Administrador de empresa".
+
 - **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas pueden restablecer contraseñas solo para los usuarios y otros administradores de contraseñas.
+
+	> [AZURE.NOTE] En la API Graph de Microsoft, la API Graph de Azure AD y Azure AD PowerShell, este rol se identifica como "Administrador de soporte técnico".
 
 - **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
 
@@ -94,7 +98,7 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 - Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md).
 
-- Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+- Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 - [Administrar usuarios](active-directory-create-users.md)
 
@@ -102,4 +106,4 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 - [Administrar grupos](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

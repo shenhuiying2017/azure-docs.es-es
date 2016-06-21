@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Versión preliminar de Azure AD B2C: llamada a una API web desde una aplicación Android
@@ -975,4 +975,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [Aprenda más acerca de las cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

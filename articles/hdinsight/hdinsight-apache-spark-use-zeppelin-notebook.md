@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/06/2016" 
 	ms.author="nitinme"/>
 
 
-# Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight Linux (versión preliminar)
+# Uso de cuadernos de Zeppelin con un clúster Apache Spark en HDInsight Linux
 
-Obtenga información sobre cómo instalar los cuadernos de Zeppelin en clústeres Spark y cómo usar los cuadernos de Zeppelin.
+Obtenga información sobre cómo instalar cuadernos de Zeppelin en clústeres Apache Spark y cómo usar los cuadernos de Zeppelin para ejecutar trabajos de Spark.
 
 > [AZURE.IMPORTANT] Cuaderno de Zeppelin Notebook para un clúster de HDInsight Spark es una oferta solo para mostrar cómo usar Zeppelin en un entorno de Azure HDInsight Spark. Si desea utilizar cuadernos para trabajar con HDInsight Spark, se recomienda utilizar cuadernos de Jupyter Notebook. Los cuadernos de Jupyter Notebook también proporcionan diferentes opciones de kernel, como Scala, y se seguirán mejorando sus características. Para obtener instrucciones acerca de cómo usar cuadernos de Jupyter Notebook con HDInsight Spark, consulte [Ejecución de consultas Spark SQL mediante un cuaderno de Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter).
 
 **Requisitos previos:**
 
 * Antes de comenzar este tutorial, debe tener una suscripción a Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un clúster Apache Spark. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-hadoop-provision-linux-clusters.md).
+* Un clúster Apache Spark. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Un cliente SSH. Para las distribuciones de Linux y Unix o Macintosh OS X, el comando `ssh` se proporciona con el sistema operativo. Para Windows, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 	> [AZURE.NOTE] Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
@@ -37,9 +37,9 @@ Obtenga información sobre cómo instalar los cuadernos de Zeppelin en clústere
 
 	> [AZURE.WARNING] Sin un complemento como FoxyProxy, todas las solicitudes realizadas a través del explorador se pueden enrutar a través del túnel. Esto puede producir una carga más lenta de las páginas web en el explorador.
 
-## Instalación de Zeppelin como parte de la creación del clúster
+## Instalación de Zeppelin en un clúster Spark
 
-Puede instalar Zeppelin en un clúster Spark mediante la acción de scripts. La acción de scripts usa scripts personalizados para instalar los componentes en el clúster que no están disponibles de forma predeterminada. Puede utilizar el script personalizado para instalar Zeppelin desde el Portal de Azure, mediante el uso del SDK de .NET para HDInsight o Azure PowerShell.
+Puede instalar Zeppelin en un clúster Spark mediante la acción de scripts. La acción de scripts usa scripts personalizados para instalar los componentes en el clúster que no están disponibles de forma predeterminada. Puede utilizar el script personalizado para instalar Zeppelin desde el Portal de Azure, mediante el uso del SDK de .NET para HDInsight o Azure PowerShell. Puede utilizar el script para instalar Zeppelin como parte de la creación del clúster, o una vez que el clúster está en funcionamiento. Los vínculos en las secciones siguientes proporcionan las instrucciones sobre cómo hacerlo.
 
 ### Uso del portal de Azure
 
@@ -325,11 +325,19 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)
+
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Administración de recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -342,4 +350,4 @@ Después de haber configurado la tunelización SSH, puede usar los pasos siguien
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

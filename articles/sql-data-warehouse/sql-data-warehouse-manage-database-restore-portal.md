@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/02/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Copia de seguridad y restauración de una base de datos en Almacenamiento de datos SQL de Azure (Portal de Azure)
@@ -30,8 +30,6 @@ Tareas de este tema:
 
 - Restauración de una base de datos activa
 - Restauración de una base de datos eliminada
-- Restauración de una base de datos inaccesible desde otra región geográfica de Azure
-
 
 ## Antes de empezar
 
@@ -46,7 +44,7 @@ Para restaurar una base de datos:
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la base de datos y selecciónela.
 4. En la parte superior de la hoja de la base de datos, haga clic en **Restaurar**.
-5. Especifique un nuevo **Nombre de base de datos**, seleccione un **Punto de restauración** y después haga clic en **Crear**.
+5. Especifique un nuevo **nombre de base de datos**, seleccione un **punto de restauración** y después haga clic en **Crear**.
 6. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**.
 
 
@@ -59,30 +57,19 @@ Para restaurar una base de datos eliminada, consulte:
 3. Vaya al servidor y selecciónelo.
 4. Desplácese hacia abajo hasta la opción Operaciones de la hoja del servidor y haga clic en el icono **Bases de datos eliminadas**.
 5. Seleccione la base de datos eliminada que desee restaurar.
-5. Especifique un nuevo **Nombre de base de datos** y haga clic en **Crear**.
+5. Especifique un nuevo **nombre de base de datos** y haga clic en **Crear**.
 6. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**.
 
 
-## Restauración dese una región geográfica de Azure
-
-Para realizar una restauración geográfica:
-
-1. Inicie sesión en el [Portal de Azure][].
-2. En el lado izquierdo de la pantalla, seleccione **+NUEVO**, **Datos y almacenamiento** y, por último, **Almacenamiento de datos SQL**.
-3. Seleccione **COPIA DE SEGURIDAD** como origen y, después, la copia de seguridad con redundancia geográfica desde la que desea realizar la recuperación.
-4. Especifique el resto de propiedades de la base de datos y haga clic en **Crear**.
-5. El proceso de restauración de base de datos se iniciará y se puede supervisar mediante **NOTIFICACIONES**.
-
 ## Pasos siguientes
-Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][] e [Información general de administración][].
+Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][] e [Administración de base datos en Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Información general de administración]: sql-data-warehouse-overview-manage.md
+[Administración de base datos en Almacenamiento de datos SQL de Azure]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
@@ -92,4 +79,4 @@ Para más información, consulte [Información general: continuidad del negocio 
 <!--Other Web references-->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

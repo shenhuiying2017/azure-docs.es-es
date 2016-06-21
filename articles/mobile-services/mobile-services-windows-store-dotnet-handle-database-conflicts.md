@@ -128,9 +128,9 @@ En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemen
 	> [AZURE.NOTE] Cuando use tablas sin tipo, habilite la simultaneidad optimista agregando la marca de versión en las SystemProperties de la tabla.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. Al agregar la propiedad `Version` a la clase `TodoItem`, la aplicación recibirá una notificación con una excepción `MobileServicePreconditionFailedException` durante una actualización si el registro ha cambiado desde la última consulta. Esta excepción incluye la última versión del elemento desde el servidor. En MainPage.cs para el proyecto compartido, agregue el siguiente código para controlar la excepción en el método `UpdateToDoItem()`.
@@ -369,4 +369,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0608_2016-->

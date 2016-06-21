@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
@@ -515,15 +515,15 @@ En el ejemplo siguiente se muestran varias maneras de escribir registros:
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-En el panel del SDK de WebJobs, la salida del objeto **TextWriter** aparece cuando va a la página para una invocación de función determinada y hace clic en **Alternar salida**:
+En el panel del SDK de WebJobs, la salida del objeto **TextWriter** aparece cuando va a la página para una invocación de función determinada y selecciona **Toggle Output** (Alternar salida):
 
-![Clic en el vínculo de invocación de la función](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
+![Vínculo de invocación](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![Registros en la página de invocación de la función](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-En el Panel del SDK de WebJobs, las 100 líneas más recientes de los resultados de la consola aparecen cuando va a la página de WebJob (no de la invocación de función) y hace clic en **Alternar resultados**.
+En el panel del SDK de WebJobs, las 100 líneas más recientes de los resultados de la consola aparecen cuando va a la página de WebJob (no de la invocación de función) y selecciona **Toggle Output** (Alternar salida).
 
-![Clic en Alternar resultados](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![Alternar salida](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
 En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/*{webjobname}*/job\_log.txt en el sistema de archivos de la aplicación web.
 
@@ -543,4 +543,4 @@ Y en una tabla de Azure los registros **Console.Out** y **Console.Error** tienen
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

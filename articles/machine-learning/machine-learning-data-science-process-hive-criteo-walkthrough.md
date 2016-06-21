@@ -438,17 +438,17 @@ Nuestro modelo del proceso de creación con el Aprendizaje automático de Azure 
 5. [Evaluación del modelo](#step5)
 6. [Publicación del modelo como un servicio web para su consumo](#step6)
 
-Ahora estamos preparados para generar modelos en Estudio de aprendizaje automático de Azure. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Usaremos el módulo **Lector** de Aprendizaje automático de Azure para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster se proporcionan a continuación.
+Ahora estamos preparados para generar modelos en Estudio de aprendizaje automático de Azure. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Usaremos el módulo **Importar datos** de Aprendizaje automático de Azure para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster se proporcionan a continuación.
 
-### <a name="step1"></a> Paso 1: obtención de datos a partir de las tablas de Hive para el Aprendizaje automático de Azure con el módulo Reader (Lector) y selección para un experimento de Aprendizaje automático
+### <a name="step1"></a> Paso 1: Obtenga los datos a partir de las tablas de Hive para Aprendizaje automático de Azure con el módulo Importar datos y selecciónelo para un experimento de Aprendizaje automático.
 
-Para empezar, seleccione **+ NUEVO** -> **EXPERIMENTO** -> **Experimento en blanco**. A continuación, en el cuadro **Búsqueda**, en la parte superior izquierda, busque "Lector". Arrastre y coloque el módulo **Lector** en el lienzo del experimento (la parte central de la pantalla) para usar el módulo para acceder a los datos.
+Para empezar, seleccione **+ NUEVO** -> **EXPERIMENTO** -> **Experimento en blanco**. A continuación, en el cuadro **Búsqueda**, en la parte superior izquierda, busque "Importar datos". Arrastre y coloque el módulo **Importar datos** en el lienzo del experimento (la parte central de la pantalla) para usar el módulo para acceder a los datos.
 
-Este es el aspecto del módulo **Lector** al obtener los datos de la tabla de Hive:
+Este es el aspecto del módulo **Importar datos** al obtener los datos de la tabla de Hive:
 
-![Obtener los datos del lector](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
+![Importar datos obtiene los datos](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-Para el módulo **Lector**, los valores de los parámetros que se proporcionan en el gráfico son solo algunos ejemplos de la ordenación de los valores que deberá proporcionar. Aquí se proporcionan algunas instrucciones generales acerca de cómo rellenar el conjunto de parámetros para el módulo **Lector**.
+Para el módulo **Importar datos**, los valores de los parámetros que se proporcionan en el gráfico son solo algunos ejemplos de la ordenación de los valores que deberá proporcionar. Aquí se proporcionan algunas instrucciones generales acerca de cómo rellenar el conjunto de parámetros para el módulo **Importar datos**.
 
 1. Elija "Consulta de Hive" como **Origen de datos**.
 2. En el cuadro **Consulta de base de datos de Hive**, basta con seleccionar SELECT * FROM <nombre\_base\_datos.nombre\_tabla>.
@@ -461,11 +461,11 @@ Para el módulo **Lector**, los valores de los parámetros que se proporcionan e
 9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc".
 
 
-Una vez que el módulo **Lector** finaliza la obtención de datos (se muestra una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
+Una vez que el módulo **Importar datos** finaliza la obtención de datos (se muestra una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
 
-![Guardar los datos del lector](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
+![Importar datos guarda los datos](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-Haga clic con el botón derecho en el puerto de salida del módulo **Lector**. Se muestran las opciones **Save as dataset** (Guardar como conjunto de datos) y **Visualize** (Visualizar). Si se hace clic en la opción **Visualize** (Visualizar), se muestran 100 filas de los datos, junto con un panel derecho que es útil para algunas estadísticas de resumen. Para guardar los datos, simplemente seleccione **Save as dataset** (Guardar como conjunto de datos) y siga las instrucciones.
+Haga clic con el botón derecho en el puerto de salida del módulo **Importar datos**. Se muestran las opciones **Save as dataset** (Guardar como conjunto de datos) y **Visualize** (Visualizar). Si se hace clic en la opción **Visualize** (Visualizar), se muestran 100 filas de los datos, junto con un panel derecho que es útil para algunas estadísticas de resumen. Para guardar los datos, simplemente seleccione **Save as dataset** (Guardar como conjunto de datos) y siga las instrucciones.
 
 Para seleccionar el conjunto de datos guardado para usarlo en un experimento de Aprendizaje automático, busque los conjuntos de datos usando el cuadro **Búsqueda** que se muestra a continuación. A continuación, escriba parcialmente el nombre que asignó al conjunto de datos para acceder a él y arrastre el conjunto de datos hasta el panel principal. Al depositarlo en el panel principal, se selecciona para su uso en el modelado de Aprendizaje automático.
 
@@ -624,13 +624,13 @@ Nota: para el formato de datos de entrada, utilizaremos ahora la salida del mód
 
 #### Puntuación del experimento para la publicación del servicio web
 
-En primer lugar, veamos el aspecto que tiene. La estructura fundamental es un módulo **Puntuar modelo** que acepta el objeto del modelo entrenado y unas pocas líneas de datos de entrada que hemos generado en los pasos anteriores mediante el módulo **Caracterizador de recuento**. Utilizamos "Columnas del proyecto" para proyectar las etiquetas puntuadas y las probabilidades de puntuación.
+En primer lugar, veamos el aspecto que tiene. La estructura fundamental es un módulo **Puntuar modelo** que acepta el objeto del modelo entrenado y unas pocas líneas de datos de entrada que hemos generado en los pasos anteriores mediante el módulo **Caracterizador de recuento**. Utilizamos "Seleccionar columnas de conjunto de datos" para proyectar las etiquetas puntuadas y las probabilidades de puntuación.
 
-![Columnas del proyecto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
+![Seleccionar columnas de conjunto de datos](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-Observe cómo el módulo **Columnas del proyecto** puede usarse para 'filtrar' datos de un conjunto de datos. El contenido se muestra a continuación:
+Observe cómo el módulo **Seleccionar columnas de conjunto de datos** puede usarse para 'filtrar' datos de un conjunto de datos. El contenido se muestra a continuación:
 
-![Filtrar con el módulo Columnas del proyecto](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
+![Filtrado con el módulo Seleccionar columnas de conjunto de datos](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
 Para obtener los puertos de salida y entrada azules, basta con hacer clic en **Preparar servicio web** en la esquina inferior derecha. Al realizar este experimento también podemos publicar el servicio web haciendo clic en el icono **Publish webservice** (Publicar servicio web) situado en la esquina inferior derecha, como se muestra a continuación.
 
@@ -663,4 +663,4 @@ Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en
 
 Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

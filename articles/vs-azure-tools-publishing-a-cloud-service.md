@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Publicar un servicio en la nube mediante Azure Tools
@@ -97,7 +97,7 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
     El servicio en la nube se publicará. La máquina virtual que se crea tiene conexiones remotas habilitadas para IIS para que Web Deploy se pueda usar a fin de actualizar sus roles web sin volver a publicarlos.
 
-    >[AZURE.NOTE] Si tiene configurada más de una instancia para un rol web, aparece un mensaje de advertencia que indica que cada rol web solo se limitará a una instancia en el paquete que se crea para publicar su aplicación. Haga clic en Aceptar para continuar. Como se indica en la sección Requisitos, puede tener más de un rol web, pero solo una instancia de cada rol.
+    >[AZURE.NOTE] Si tiene configurada más de una instancia para un rol web, aparece un mensaje de advertencia que indica que cada rol web solo se limitará a una instancia en el paquete que se crea para publicar su aplicación. Seleccione **Aceptar** para continuar. Como se indica en la sección Requisitos, puede tener más de un rol web, pero solo una instancia de cada rol.
 
 ### Para actualizar su rol web usando Web Deploy
 
@@ -121,15 +121,15 @@ En el siguiente procedimiento se supone que usa el asistente **Publicar aplicaci
 
 1. Web Deploy usa de forma predeterminada un certificado autofirmado no de confianza, que no se recomienda para cargar datos confidenciales. Si necesita proteger este proceso por que hay datos confidenciales, puede agregar un certificado SSL para que sea usa para las conexiones de Web Deploy. Este certificado debe ser un certificado de confianza, que haya obtenido de una entidad de certificación (CA).
 
-    Para proteger Web Deploy para cada máquina virtual de cada uno de sus roles web, tiene que cargar el certificado de confianza que desea usar para Web Deploy en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Esto garantiza que el certificado se agrega a la máquina virtual que se crea para el rol web al publicar su aplicación.
+    Para proteger Web Deploy para cada máquina virtual de cada uno de sus roles web, debe cargar el certificado de confianza que desea usar para la implementación web en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Esto garantiza que el certificado se agrega a la máquina virtual que se crea para el rol web al publicar su aplicación.
 
 1. Para agregar un certificado SSL de confianza a IIS para usarlo para las conexiones remotas, siga estos pasos:
 
-  1. Para conectarse a la máquina virtual que está ejecutando el rol web, haga clic en la instancia del rol web en el **Cloud Explorer** o **Explorador de servidores** y después elija **Conectar utilizando Escritorio remoto**. Para obtener pasos detallados sobre cómo conectar a la máquina virtual, consulte [Usar Escritorio remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
+  1. Para conectarse a la máquina virtual que está ejecutando el rol web, seleccione la instancia del rol web en **Cloud Explorer** o en el **Explorador de servidores** y después elija **Conectar utilizando Escritorio remoto**. Para obtener pasos detallados sobre cómo conectar a la máquina virtual, consulte [Usar Escritorio remoto con los roles de Azure](vs-azure-tools-remote-desktop-roles.md).
 
       El explorador le solicitará que descargue un archivo .RDP.
 
-  1. Para agregar un certificado SSL, abra el servicio de administración en el Administrador de IIS. En el Administrador de IIS, habilite SSL abriendo el vínculo **Enlaces** en el panel **Acción**. Aparecerá el cuadro de diálogo **Agregar enlace de sitio**. Elija **Agregar** y, después, seleccione HTTPS en la lista desplegable **Tipo**. En la lista de **certificados SSL**, elija el certificado SSL que obtuvo firmado por una entidad de certificación y que cargó en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Para obtener más información, consulte [Configurar los valores de conexión para el servicio de administración](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Para agregar un certificado SSL, abra el servicio de administración en el Administrador de IIS. En el Administrador de IIS, habilite SSL abriendo el vínculo **Enlaces** en el panel **Acción**. Aparecerá el cuadro de diálogo **Agregar enlace de sitio**. Elija **Agregar** y, después, seleccione HTTPS en la lista desplegable **Tipo**. En la lista de **certificados SSL**, elija el certificado SSL que obtuvo, firmado por una entidad de certificación y que cargó en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). Para obtener más información, consulte [Configurar los valores de conexión para el servicio de administración](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] Si agrega un certificado SSL de confianza, el triángulo de advertencia amarillo ya no aparece en el **Asistente para publicación**.
 
@@ -173,4 +173,4 @@ Puede que deba incluir archivos específicos en su paquete de servicio para que 
 
 Para obtener más información sobre la publicación en Azure desde Visual Studio, consulte [Asistente Publicar aplicaciones de Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

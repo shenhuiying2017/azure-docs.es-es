@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # ¿Qué hay diferente en el punto de conexión v2.0?
@@ -132,4 +132,4 @@ Para obtener información sobre las notificaciones específicas emitidas en toke
 ## Limitaciones
 Es necesario tener en cuenta algunas restricciones cuando se usa el punto v2.0. Consulte el [documento de limitaciones de v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0608_2016-->

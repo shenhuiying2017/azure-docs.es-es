@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, vea [Configuración de replicación geográfica para Base de datos SQL de Azure](sql-database-geo-replication-transact-sql.md).
+En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
 
 
 
@@ -92,10 +92,10 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
 ## Recursos adicionales
 
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Diseño de aplicaciones de nube para la continuidad del negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
+- [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

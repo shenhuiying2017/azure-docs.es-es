@@ -47,7 +47,7 @@ Descargue e instale el Asesor de actualizaciones desde [aquí](http://go.microso
 
 2.  En la lista de tablas recomendadas de la hoja **Resultados del análisis**, seleccione una de las tablas recomendadas para mostrar la hoja **Resultados de la tabla**.
 
-    En la hoja **Resultados de la tabla** se muestran los problemas de bloqueo de la tabla seleccionada. Para más información sobre los problemas de bloqueo detectados por Stretch Database Advisor, consulte [Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md).
+    En la hoja **Resultados de la tabla** se muestran los problemas de bloqueo de la tabla seleccionada. Para más información sobre los problemas de bloqueo detectados por Stretch Database Advisor, consulte [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
 
 3.  En la lista de problemas de bloqueo de la hoja **Resultados de la tabla**, seleccione uno de los problemas para mostrar la hoja **Resultado de la regla**.
 
@@ -62,10 +62,10 @@ Habilite Stretch Database.
 
 ## Consulte también
 
-[Limitaciones de área expuesta y problemas de bloqueo de Stretch Database](sql-server-stretch-database-limitations.md)
+[Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md)
 
 [Habilitación de Stretch Database para una base de datos](sql-server-stretch-database-enable-database.md)
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Configuración de la replicación geográfica activa para Base de datos SQL de Azure con PowerShell | Microsoft Azure " 
-    description="replicación geográfica para Base de datos SQL con PowerShell" 
+    description="Configuración de la replicación geográfica activa para Base de datos SQL de Azure con PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -73,7 +73,7 @@ Este cmdlet reemplaza **Start AzureSqlDatabaseCopy** por el parámetro **–IsCo
 
 La base de datos replicada en el servidor secundario tendrá el mismo nombre que la base de datos en el servidor principal y, de forma predeterminada, tendrán el mismo nivel de servicio. La base de datos secundaria puede ser legible o no legible, y puede ser una base de datos única o elástica. Para más información, consulte [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) y [Niveles de servicio](sql-database-service-tiers.md). Después de crear e inicializar la base de datos secundaria, los datos comenzarán a replicarse desde la base de datos principal a la nueva base de datos secundaria. Los pasos siguientes describen cómo llevar a cabo esta tarea mediante PowerShell para crear bases de datos secundarias legibles y no legibles, con una base de datos única o una base de datos elástica.
 
-Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior) se producirá un error en el comando.
+Si la base de datos del asociado ya existe (por ejemplo, como resultado de la terminación de una relación de replicación geográfica anterior), se producirá un error en el comando.
 
 
 
@@ -158,11 +158,11 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 ## Recursos adicionales
 
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

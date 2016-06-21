@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database) | Microsoft Azure"
-	description="Aprenda a usar un predicado de filtro para seleccionar las filas que quiere migrar."
+	pageTitle="Selección de las filas que se van a migrar mediante un predicado de filtro (Stretch Database) | Microsoft Azure"
+	description="Aprenda a seleccionar filas para migrar mediante un predicado de filtro."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -16,7 +16,7 @@
 	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
-# Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)
+# Selección de las filas que se van a migrar mediante un predicado de filtro (Stretch Database)
 
 Si almacena los datos históricos en una tabla independiente, puede configurar Stretch Database para migrar toda la tabla. Por otra parte, si la tabla contiene datos históricos y actuales, puede especificar un predicado de filtro para seleccionar las filas que quiere migrar. El predicado de filtro es una función con valores de tabla insertada. Este tema describe cómo escribir una función con valores de tabla insertada para seleccionar filas que migrar.
 
@@ -24,7 +24,7 @@ Si almacena los datos históricos en una tabla independiente, puede configurar S
 
 Si no especifica un predicado de filtro, se migra toda la tabla.
 
-Cuando ejecute el Asistente para la habilitación de Stretch Database, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en la fecha en el asistente. Si desea usar un predicado de filtro diferente para seleccionar filas que migrar, realice una de las siguientes acciones.
+Cuando ejecute el asistente Habilitar la base de datos para Stretch, puede migrar una tabla entera o puede especificar un simple predicado de filtro basado en el asistente. Si quiere usar un tipo diferente de predicado de filtro para seleccionar las filas que quiere migrar, realice una de las siguientes acciones.
 
 -   Salga del asistente y ejecute la instrucción ALTER TABLE para habilitar Stretch para la tabla y especificar un predicado.
 
@@ -32,7 +32,7 @@ Cuando ejecute el Asistente para la habilitación de Stretch Database, puede mig
 
 La sintaxis de ALTER TABLE para la adición de un predicado se describe más adelante en este tema.
 
-## Requisitos básicos para la función con valores de tabla insertada
+## Requisitos básicos para el predicado de filtro
 La función con valores de tabla insertada necesaria para un predicado de filtro de Stretch Database es similar al ejemplo siguiente.
 
 ```tsql
@@ -155,6 +155,58 @@ Después de vincular la función con la tabla como un predicado, se cumple lo si
 -   Las columnas usadas por la función cuentan con una vinculación de esquema. No puede modificar estas columnas si la tabla usa la función como predicado de filtro.
 
 No puede quitar la función con valores de tabla insertada si la tabla está usando la función como predicado de filtro.
+
+>   [AZURE.NOTE] Para mejorar el rendimiento de la función de filtro, cree un índice en las columnas utilizadas por la función.
+
+### Paso de los nombres de columna al predicado de filtro
+Al asignar una función de filtro a una tabla, especifique los nombres de columna que se pasan a la función de filtro con un nombre de una parte. Si especifica un nombre de tres partes al pasar los nombres de columna, las posteriores consultas a la tabla habilitada para Stretch darán error.
+
+Por ejemplo, si especifica un nombre de columna de tres partes como se muestra en el ejemplo siguiente, la instrucción se ejecutará correctamente, pero las posteriores consultas a la tabla darán error.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(dbo.SensorTelemetry.ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+En su lugar, especifique la función de filtro con un nombre de columna de una parte, tal como se muestra en el ejemplo siguiente.
+
+```tsql
+ALTER TABLE SensorTelemetry
+  SET ( REMOTE_DATA_ARCHIVE = ON  (
+    FILTER_PREDICATE=dbo.fn_stretchpredicate(ScanDate),
+    MIGRATION_STATE = OUTBOUND )
+  )
+```
+
+## <a name="addafterwiz"></a>Agregar un predicado de filtro después de ejecutar el Asistente  
+
+Si desea usar un predicado que no se puede crear en el asistente **Habilitar la base de datos para Stretch**, puede ejecutar la instrucción ALTER TABLE para especificar un predicado después de salir del asistente. Para poder aplicar un predicado, sin embargo, tendrá que detener la migración de datos que ya está en curso y recuperar los datos migrados. (Para más información sobre por qué esto es necesario, consulte [Sustitución de un predicado de filtro existente](#replacePredicate).
+
+1. Invierta la dirección de la migración y recupere los datos ya migrados. Una vez iniciada esta operación, no puede cancelarse. También se le pueden aplicar cargos en Azure por las transferencias de datos de salida (salida). Para más información, consulte [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/).  
+
+    ```tsql  
+    ALTER TABLE <table name>  
+         SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
+    ```  
+
+2. Espere a que finalice la migración. Puede comprobar el estado de **Stretch Database Monitor** desde SQL Server Management Studio, o bien puede consultar la vista **sys.dm\_db\_rda\_migration\_status**. Para más información, consulte [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md) o [sys.dm\_db\_rda\_migration\_status](https://msdn.microsoft.com/library/dn935017.aspx).
+
+3. Cree el predicado de filtro que quiera aplicar a la tabla.
+
+4. Agregue el predicado a la tabla y reinicie la migración de datos a Azure.
+
+    ```tsql  
+    ALTER TABLE <table name>  
+        SET ( REMOTE_DATA_ARCHIVE  
+            (           
+                FILTER_PREDICATE = <predicate>,  
+                MIGRATION_STATE = OUTBOUND  
+            )  
+        );   
+    ```  
 
 ## Filtrar filas por fecha
 En el ejemplo siguiente se migran las filas cuya columna **date** contiene un valor anterior al 1 de enero de 2016.
@@ -405,7 +457,7 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 Si la función devuelve un resultado no vacío para la fila, la fila es elegible para la migración.
 
-## Reemplazo de un predicado de filtro existente
+## <a name="replacePredicate"></a>Reemplazo de un predicado de filtro existente
 Puede reemplazar un predicado de filtro especificado anteriormente ejecutando de nuevo la instrucción ALTER TABLE y especificando un nuevo valor para el parámetro FILTER\_PREDICATE. Por ejemplo:
 
 ```tsql
@@ -502,10 +554,17 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
 Después de quitar el predicado de filtro, todas las filas de la tabla son elegibles para la migración. Como resultado, no puede especificar un predicado de filtro para la misma tabla más adelante, a menos que primero vuelva a traer todos los datos remotos de la tabla de Azure. Esta restricción existe para evitar la situación en que las filas que no son aptas para la migración al proporcionar un predicado de filtro nuevo ya se hayan migrado a Azure.
 
 ## Comprobación del predicado de filtro aplicado a una tabla
-Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y verifique el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para obtener más información, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Para comprobar el predicado de filtro aplicado a una tabla, abra la vista de catálogo **sys.remote\_data\_archive\_tables** y confirme el valor de la columna **filter\_predicate**. Si el valor es null, la tabla completa es elegible para el archivado. Para más información, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+
+## Notas de seguridad para los predicados de filtro  
+Una cuenta comprometida con privilegios db\_owner puede realizar las siguientes cosas.
+
+-   Crear y aplicar una función con valores de tabla que consume gran cantidad de recursos del servidor o que espera durante un tiempo prolongado, lo que da lugar a una denegación de servicio.  
+
+-   Crear y aplicar una función con valores de tabla que hace posible deducir el contenido de una tabla para la que el usuario tiene denegado explícitamente el acceso de lectura.
 
 ## Consulte también
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

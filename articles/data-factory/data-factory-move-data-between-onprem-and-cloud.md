@@ -344,7 +344,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección **transformation**, **SqlSource** está especificado como **tipo de origen** y **BlobSink** está especificado como **tipo de receptor**.
-	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -521,8 +521,10 @@ Debe asegurarse de que las reglas de firewall se habilitan correctamente en el f
 
 Por ejemplo, para copiar de **un almacén de datos local a un receptor de Base de datos SQL de Azure o un receptor de Almacenamiento de datos SQL de Azure**, necesita permitir la comunicación **TCP** de salida en el puerto **1433** tanto para Firewall de Windows como para el firewall corporativo, y debe establecer la configuración del firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de la puerta de enlace a la lista de direcciones IP permitidas.
 
+Tenga en cuenta que al cargar datos en el Almacenamiento de datos SQL, puede utilizar la característica de [copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para evitar la apertura de puertos adicionales en el firewall corporativo.
+
 ### Consideraciones acerca del servidor proxy
-De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede establecer la **configuración del servidor proxy**, tal como se muestra a continuación, para asegurarse de que la puerta de enlace se pueda conectar a Data Factory de Azure:
+De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede establecer la **configuración del servidor proxy** tal como se muestra a continuación para asegurarse de que la puerta de enlace se pueda conectar a Data Factory de Azure:
 
 1.	Después de instalar Data Management Gateway, en Explorador de archivos, haga una copia de “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config” para hacer una copia de seguridad del archivo original.
 2.	Inicie Notepad.exe como administrador y abra el archivo de texto “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config”. Encontrará la etiqueta predeterminada para system.net de la forma siguiente:
@@ -557,7 +559,7 @@ Si se producen errores como los siguientes, es probable que sea debido a una con
 
 
 - Puede obtener más información en los registros de la puerta de enlace de los registros de eventos de Windows. Puede encontrarlos mediante el **Visor de eventos** de Windows en **Registros de aplicaciones y servicios** > **Data Management Gateway**. Cuando soluciones problemas relacionados con la puerta de enlace consulte los eventos de error en el Visor de eventos.
-- Si la puerta de enlace deja de funcionar después de **haber cambiado el certificado**, reinicie (detenga e inicie) el **Servicio Data Management Gateway** con la herramienta Administrador de configuración de Microsoft Data Management Gateway o el applet del panel de control Servicios. Si todavía ve un error, puede que tenga que dar permisos explícitos para el usuario del servicio de Data Management Gateway para que tenga acceso al certificado en el Administrador de certificados (certmgr.msc). La cuenta de usuario predeterminada para el servicio es: **NT Service\\DIAHostService**. 
+- Si la puerta de enlace deja de funcionar después de **haber cambiado el certificado**, reinicie (detenga e inicie) el **Servicio Data Management Gateway** con la herramienta Administrador de configuración de Microsoft Data Management Gateway o el applet del panel de control Servicios. Si todavía ve un error, puede que tenga que dar permisos explícitos para el usuario del servicio de Data Management Gateway para que tenga acceso al certificado en el Administrador de certificados (certmgr.msc). La cuenta de usuario predeterminada para el servicio es **NT Service\\DIAHostService**. 
 - Si ve errores relacionados con el controlador o la conexión del almacén de datos, inicie el **Administrador de configuración de Data Management Gateway** en la máquina de la puerta de enlace, cambie a la pestaña **Diagnóstico**, seleccione o especifique los valores adecuados en los campos del grupo **Probar la conexión a un origen de datos local con esta puerta de enlace** y haga clic en **Prueba de conexión** para ver si se puede conectar al origen de datos local desde la máquina de la puerta de enlace con la información de conexión y las credenciales. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.  
 
 	![Probar conexión](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
@@ -687,4 +689,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureRmDataFactoryGatew
 	
 	Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
@@ -36,7 +36,7 @@ Existen algunos detalles importantes para cada uno de esos elementos.
 - Todas las aplicaciones que se creen en un ASE estarán en la misma suscripción en la que se encuentre el ASE.
 - Si no tiene acceso a la suscripción utilizada para crear el ASE, no podrá utilizarlo para crear aplicaciones.
 - Las redes virtuales que se utilizan para hospedar un ASE deben ser redes virtuales clásicas y regionales del tipo "v1". 
-- La subred utilizada para hospedar el ASE no debe contener otros recursos informáticos.
+- **La subred utilizada para hospedar el ASE no debe contener otros recursos informáticos.**
 - En una subred solo puede haber un ASE.
 - En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
 
@@ -165,4 +165,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

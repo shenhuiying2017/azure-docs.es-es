@@ -23,7 +23,7 @@
 Para usar sus propios datos en Estudio de aprendizaje automático para desarrollar y entrenar una solución de análisis predictivo, puede:
 
 - cargar datos de un **archivo local** con antelación desde el disco duro para crear un módulo de conjunto de datos en el área de trabajo.  
-- acceder a los datos desde cualquiera de los **orígenes de datos en línea** mientras su experimento se ejecuta con el módulo [Lector][reader]. 
+- acceder a los datos desde cualquiera de los **orígenes de datos en línea** mientras su experimento se ejecuta con el módulo [Importar datos][import-data]. 
 - usar datos de otro experimento de Aprendizaje automático de Azure guardado como un **conjunto de datos**. 
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -65,7 +65,7 @@ Si importa datos en un formato distinto de ARFF que incluyan metadatos, Estudio 
 
 Si importa datos en formato TSV o CSV que no incluyan estos metadatos, Estudio de aprendizaje automático infiere el tipo de datos de cada columna tomando una muestra de los mismos. Si los datos no tienen encabezados de columna, Estudio de aprendizaje automático proporciona nombres predeterminados.
 
-Puede especificar o cambiar explícitamente los encabezados y los tipos de datos de las columnas usando el [editor de metadatos][metadata-editor].
+Puede especificar o cambiar explícitamente los encabezados y los tipos de datos de las columnas usando el módulo [Editar metadatos][edit-metadata].
 
 Estudio de aprendizaje automático reconoce los siguientes **tipos de datos**:
 
@@ -86,7 +86,7 @@ En caso de ser necesario, puede convertir el formato Tabla de datos de vuelta al
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

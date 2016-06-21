@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/18/2016"
+ ms.date="06/06/2016"
  ms.author="nberdy"/>
 
 # Introducción a la supervisión de operaciones
@@ -122,6 +122,25 @@ La categoría Conexiones supervisa los errores cuando los dispositivos se conect
          "deviceId": "device-ID"
     }
 
+### Cargas de archivos
+
+La categoría de carga de archivos supervisa los errores que se producen en el Centro de IoT y está relacionada con la funcionalidad de carga de archivos. Aquí se incluyen los errores que se producen con el URI de SAS (por ejemplo, cuando caduca antes de que un dispositivo notifique al centro una carga completada), las cargas con errores notificadas por el dispositivo y cuando un archivo no se encuentra en el almacenamiento durante la creación de mensajes de notificación del Centro de IoT. Tenga en cuenta que esta categoría no puede detectar los errores que se producen directamente mientras el dispositivo está cargando un archivo en el almacenamiento.
+
+    {
+         "authType": "{"scope":"hub","type":"sas","issuer":"iothub"}",
+         "protocol": "HTTP",
+         "time": " UTC timestamp",
+         "operationName": "ingress",
+         "category": "fileUpload",
+         "level": "Error",
+         "statusCode": 4XX,
+         "statusType": 4XX001,
+         "statusDescription": "MessageDescription",
+         "deviceId": "device-ID",
+         "blobUri": "http//bloburi.com",
+         "durationMs": 1234
+    }
+
 ## Pasos siguientes
 
 Ahora que vio información general sobre la supervisión de operaciones, siga estos vínculos para obtener más información:
@@ -139,4 +158,4 @@ Ahora que vio información general sobre la supervisión de operaciones, siga es
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

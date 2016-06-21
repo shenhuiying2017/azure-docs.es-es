@@ -208,7 +208,13 @@ Tenga en cuenta que puede usar `name=` para establecer el nombre de una columna 
 
 ## Recuento de datos muestreados
 
-`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) está en funcionamiento, solo se retendrá una fracción de los eventos originales como punto de datos en Application Insights, por lo que para cada punto de datos que vea, existen eventos `itemCount`. Por lo tanto, resumir itemCount proporciona una buena estimación del número original de eventos.
+`sum(itemCount)` es la agregación recomendada para contar eventos. En muchos casos, itemCount == 1, por lo que la función simplemente cuenta el número de filas del grupo. Pero cuando el [muestreo](app-insights-sampling.md) está en funcionamiento, solo se retendrá una fracción de los eventos originales como puntos de datos en Application Insights, por lo que para cada punto de datos que vea, existen eventos `itemCount`.
+
+Por ejemplo, si el muestreo descarta el 75 % de los eventos originales, itemCount ==4 en los registros retenidos; es decir, para cada registro retenido, había cuatro registros originales.
+
+El muestreo adaptable hace que itemCount sea mayor durante los períodos en que la aplicación se utiliza más.
+
+Por lo tanto, resumir itemCount proporciona una buena estimación del número original de eventos.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -220,7 +226,6 @@ Existe una gama de [funciones de agregación](app-insights-analytics-reference.m
 
 
 ## Crear gráficos de los resultados
-
 
 
 ```AIQL
@@ -260,9 +265,9 @@ Veamos solo las excepciones de las que informan los exploradores:
 
 El operador `where` acepta una expresión booleana. He aquí algunos puntos clave:
 
- * `and`, `or`: operadores booleanos.
- * `==`, `<>`: igual que y no igual que.
- * `=~`, `!=`: igual que y no igual que cadena que no distingue mayúsculas de minúsculas. Hay muchos más operadores de comparación de cadenas.
+ * `and`, `or`: operadores booleanos
+ * `==`, `<>`: igual que y no igual que
+ * `=~`, `!=`: cadena que no distingue entre mayúsculas y minúsculas igual que y no igual que. Hay muchos más operadores de comparación de cadenas.
 
 Lea toda la información sobre las [expresiones escalares](app-insights-analytics-reference.md#scalars).
 
@@ -276,7 +281,7 @@ Buscar solicitudes incorrectas:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tiene el tipo de cadena, por lo que debemos [convertirlo](app-insights-analytics-reference.md#casts) para una comparación numérica.
+`responseCode` tiene una cadena de tipo, por lo que debemos [convertirlo](app-insights-analytics-reference.md#casts) para una comparación numérica.
 
 Resumir las diferentes respuestas:
 
@@ -318,7 +323,7 @@ Use varios valores en una cláusula `summarize by` para crear una fila independi
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Para mostrar varias líneas en un gráfico, haga clic en **Dividir por** y elija una columna.
+Para mostrar varias líneas en un gráfico, haga clic en **Split by (Dividir por)** y elija una columna.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -469,4 +474,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar las pa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

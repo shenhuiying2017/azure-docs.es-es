@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="06/03/2016" 
 	ms.author="genemi"/>
 
 
 # Código de destino de búfer de anillo para eventos extendidos en Base de datos SQL
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Desea tener un ejemplo de código completo de la manera más rápida y fácil para capturar y notificar información de un evento extendido durante una prueba. El destino más fácil para los datos de eventos extendidos es el [destino de búfer de anillo](http://msdn.microsoft.com/library/ff878182.aspx).
 
@@ -385,4 +386,4 @@ Otros temas de ejemplo de código para eventos extendidos están disponibles en 
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

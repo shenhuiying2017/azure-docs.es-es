@@ -3,7 +3,7 @@
    description="Obtenga información acerca de cómo modificar una aplicación que se ejecuta en un contenedor de Docker local, a actualizar el contenedor mediante la edición y actualización, y a establecer puntos de interrupción para la depuración"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="AllenClark"
+   authors="allclark"
    manager="douge"
    editor="" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/13/2016"
+   ms.date="06/08/2016"
    ms.author="allclark" />
 
 # Depuración de aplicaciones en un contenedor de Docker local
@@ -29,7 +29,7 @@ Es necesario instalar las siguientes herramientas.
 - [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools para Docker](https://aka.ms/DockerToolsForVS)
 
-Para ejecutar los contenedores de Docker de forma local, se necesita a un cliente Docker local. Puede usar la versión de [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) que requiere que Hyper-V que esté deshabilitado, o bien puede usar la [versión beta de Docker para Windows](https://beta.docker.com), que usa Hyper-V y requiere Windows 10.
+Para ejecutar los contenedores de Docker de forma local, se necesita a un cliente Docker local. Puede usar la versión de [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) que requiere que Hyper-V esté deshabilitado, o bien puede usar la [versión beta de Docker para Windows](https://beta.docker.com), que usa Hyper-V y requiere Windows 10.
 
 Si usa Docker Toolbox, tendrá que [configurar el cliente Docker](./vs-azure-tools-docker-setup.md)
 
@@ -56,26 +56,35 @@ Visual Studio 2015 Tools para Docker permite a los desarrolladores de aplicacion
 
 	![][1]
 
-> [AZURE.NOTE] Si utiliza la [versión beta de Docker para Windows](https://beta.docker.com), abra Properties\\Docker.props, elimine el valor predeterminado y reinicie Visual Studio para que el valor surta efecto. ![][2]
+> [AZURE.NOTE] Si utiliza la [versión beta de Docker para Windows](https://beta.docker.com), abra Properties\\Docker.props, elimine el valor predeterminado y reinicie Visual Studio para que el valor surta efecto.
+>
+> ![][2]
 
 ##Edición y actualización
 Para iterar rápidamente los cambios, puede iniciar la aplicación dentro de un contenedor, seguir realizando cambios y verlos como lo haría con IIS Express.
 
-1. Establezca la Configuración de soluciones en `Debug` y presione **&lt;CTRL + F5 >** para generar la imagen de Docker y ejecutarla localmente. Vea la ventana de salida mediante la compilación.
+1. Establezca la Configuración de soluciones en `Debug` y presione **&lt;CTRL + F5 >** para generar la imagen de Docker y ejecutarla localmente.
 
-1. Una vez que se haya creado la imagen del contenedor y se esté ejecutando en un contenedor de Docker, Visual Studio intentará iniciar la aplicación web en el explorador predeterminado. Si utiliza el explorador Microsoft Edge o aparece algún error, consulte la sección [Solución de problemas](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+    Cuando se haya creado la imagen del contenedor y se esté ejecutando en un contenedor de Docker, Visual Studio iniciará la aplicación web en el explorador predeterminado. Si utiliza el explorador Microsoft Edge o aparece algún error, consulte la sección [Solución de problemas](vs-azure-tools-docker-troubleshooting-docker-errors.md).
+
+1. Vaya a la página Acerca de, que es donde vamos a realizar los cambios.
 
 1. Vuelva a Visual Studio y abra `Views\Home\About.cshtml`.
 
-1. Anexe el siguiente contenido HTML al final del archivo y guarde los cambios.
+1. Agregue el siguiente contenido HTML al final del archivo y guarde los cambios.
 
 	```
 	<h1>Hello from a Docker Container!</h1>
 	```
 
-1.	Viendo la ventana de salida, cuando se haya completado la compilación de .NET y vea `Application started. Press Ctrl+C to shut down`, vuelva al explorador y actualice la página.
+1.	Viendo la ventana de salida, cuando se haya completado la compilación de .NET y vea estas líneas, vuelva al explorador y actualice la página Acerca de.
 
-1.	Debería ver que se han aplicado los cambios.
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
+
+1.	Se han aplicado los cambios.
 
 ##Puntos de interrupción para depuración  
 
@@ -101,36 +110,36 @@ A menudo, será preciso inspeccionar más detalladamente los cambios realizados,
 	![][3]
 
 ##Resumen
-Con [Visual Studio 2015 Tools para Docker](https://aka.ms/DockerToolsForVS) puede obtener la productividad de trabajar de forma local, con el realismo de producción de desarrollar en un contenedor de Docker.
+Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS) puede conseguir la productividad de trabajar de forma local, con el realismo de producción de desarrollar en un contenedor de Docker.
 
 ## Solución de problemas
 [Solución de problemas de desarrollo de Docker en Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## Más información acerca de Docker con Visual Studio, Windows y Azure
 
-- [Docker Tools para Visual Studio](http://aka.ms/dockertoolsforvs): desarrollo de código de .NET Core en un contenedor
-- [Docker Tools para Visual Studio Team Services](http://aka.ms/dockertoolsforvsts): compilación e implementación de contenedores de Docker
-- [Docker Tools para Visual Studio Code](http://aka.ms/dockertoolsforvscode): servicios del lenguaje para editar archivos de Docker, a los que próximamente se incorporarán más escenarios de E2E
-- [Información del contenedor de Windows](http://aka.ms/containers): información de Windows Server y Nano Server
-- [Servicio de contenedores de Azure](https://azure.microsoft.com/services/container-service/): [Contenido del servicio Contenedor de Azure](http://aka.ms/AzureContainerService)
+- [Docker Tools for Visual Studio](http://aka.ms/dockertoolsforvs): desarrollo de código de .NET Core en un contenedor
+- [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts): compilación e implementación de contenedores de Docker
+- [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode): servicios de lenguaje para editar archivos de Docker, a los que próximamente se incorporarán más escenarios de E2E
+- [Documentación acerca de los contenedores de Windows](http://aka.ms/containers): información de Windows Server y Nano Server
+- [Servicio de contenedores de Azure](https://azure.microsoft.com/services/container-service/): [Presentación del servicio Contenedor de Azure](http://aka.ms/AzureContainerService)
 
 ## Varias herramientas de Docker
 
-[Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/) (Herramientas excelentes de Docker [blog de Steve])
+[Some great docker tools (Steve Lasker's blog) (Herramientas excelentes de Docker [blog de Steve])](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
 ## Buenos artículos
 
-[Introduction to Microservices](https://www.nginx.com/blog/introduction-to-microservices/) (Introducción a Microservicios) de NGINX
+[Introduction to Microservices (Introducción a Microservicios) de NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
 
 ## Presentaciones
 
 - [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Introducción a ASP.NET Core @ compilación 2016)
-- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/) (Desarrollo de aplicaciones .NET en contenedores, Channel 9)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo (Introducción a ASP.NET Core @ compilación 2016)](https://channel9.msdn.com/Events/Build/2016/B810)
+- [Developing .NET apps in containers, Channel 9 (Desarrollo de aplicaciones .NET en contenedores, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
 [1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
 [3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

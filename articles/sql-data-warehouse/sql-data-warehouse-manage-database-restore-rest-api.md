@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="elfish;barbkess;sonyama"/>
+   ms.date="06/01/2016"
+   ms.author="elfish;barbkess;sonyama;kevin"/>
 
 # Copia de seguridad y restauración de una base de datos en Almacenamiento de datos SQL de Azure (API de REST)
 
@@ -30,7 +30,6 @@ Tareas de este tema:
 
 - Restauración de una base de datos activa
 - Restauración de una base de datos eliminada
-- Restauración de una base de datos inaccesible desde otra región geográfica de Azure
 
 ## Antes de empezar
 
@@ -44,7 +43,7 @@ Para restaurar una base de datos:
 2. Inicie la restauración con la operación [Crear solicitud de restauración de base de datos][].
 3. Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos][].
 
->[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
+>[AZURE.NOTE] Cuando finalice la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 ## Restauración de una base de datos eliminada
 
@@ -55,26 +54,7 @@ Para restaurar una base de datos eliminada
 3.	Inicie la restauración con la operación [Crear solicitud de restauración de base de datos][].
 4.	Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos][].
 
->[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
-
-## Restauración dese una región geográfica de Azure
-
-Para realizar una restauración geográfica:
-
-1. Obtenga la lista de bases de datos recuperables mediante la operación [Enumerar bases de datos recuperables].
-2. Obtenga la base de datos que desea recuperar mediante la operación [Obtener base de datos recuperable].
-3. Cree la solicitud de recuperación mediante la operación [Crear solicitud de recuperación de base de datos].
-4. Realice un seguimiento del estado de la recuperación mediante la operación [Estado de la operación de base de datos][].
-
-### Configuración de la base de datos después de realizar una restauración geográfica
-Esta es una lista de comprobación que le ayudará a tener preparada la producción de la base de datos recuperada.
-
-1. **Actualización de cadenas de conexión**: compruebe que las cadenas de conexión de las herramientas del cliente apuntan a la base de datos recién recuperada.
-2. **Modificación de las reglas de firewall**: compruebe las reglas de firewall en el servidor de destino y asegúrese de que están habilitadas las conexiones desde los equipos cliente, o bien Azure al servidor y a la base de datos recién recuperada.
-3. **Comprobación de los inicios de sesión del servidor y los usuarios de la base de datos**: compruebe si todos los inicios de sesión que usa la aplicación existen en el servidor que hospeda la base de datos recuperada. Vuelva a crear los inicios de sesión que falten y concédales los permisos adecuados en la base de datos recuperada. 
-4. **Habilitar auditoría**: si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos.
-
-La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
+>[AZURE.NOTE] Cuando finalice la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
 
 ## Pasos siguientes
@@ -89,7 +69,6 @@ Para más información sobre las características de continuidad del negocio de 
 
 <!--MSDN references-->
 [Crear solicitud de restauración de base de datos]: https://msdn.microsoft.com/library/azure/dn509571.aspx
-[Estado de la operación de base de datos]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Estado de operación de base de datos]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtener base de datos eliminada que se puede restaurar]: https://msdn.microsoft.com/library/azure/dn509574.aspx
 [Lista de bases de datos eliminadas que se pueden restaurar]: https://msdn.microsoft.com/library/azure/dn509562.aspx
@@ -102,4 +81,4 @@ Para más información sobre las características de continuidad del negocio de 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

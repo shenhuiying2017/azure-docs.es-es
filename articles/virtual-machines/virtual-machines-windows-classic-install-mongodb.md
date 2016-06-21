@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="06/07/2016"
 	ms.author="iainfou"/>
 
 #Instalación de MongoDB en una máquina virtual de Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
 
-
-[MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. Con el [Portal de Azure clásico][AzurePortal], puede crear una máquina virtual que ejecute Windows Server desde la galería de imágenes, con el modelo de implementación clásica. A continuación, puede instalar y configurar una base de datos MongoDB en la máquina virtual.
+[MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. Este artículo le guía en la creación de una nueva máquina virtual (VM) de Windows Server mediante el [Portal de Azure clásico][AzurePortal], la creación y conexión de un disco de datos a la máquina virtual y la instalación y configuración de MongoDB. Si tiene una máquina virtual existente en Azure que le gustaría utilizar, puede ir directamente a la [instalación y configuración de MongoDB](#install-and-run-mongo-on-win2k8-vm).
 
 
 ## Creación de una máquina virtual que ejecuta Windows Server
@@ -44,11 +43,11 @@ Para obtener instrucciones sobre la inicialización del disco, consulte "Inicial
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-##Resumen
+## Resumen
 En este tutorial se ha descrito cómo crear una máquina virtual con Windows Server, conectarse a ella de forma remota y acoplar un disco de datos. También se ha descrito cómo instalar y configurar MongoDB en la máquina virtual basada en Windows. Ahora es posible acceder a MongoDB en la máquina virtual basada en Windows. Para ello, hay que seguir los temas avanzados de la [documentación de MongoDB][MongoDocs].
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

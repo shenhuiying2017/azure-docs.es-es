@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/02/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -25,16 +25,13 @@
 - [PowerShell](sql-data-warehouse-manage-database-restore-powershell.md)
 - [REST](sql-data-warehouse-manage-database-restore-rest-api.md)
 
-Describe las opciones para restaurar una base de datos en Almacenamiento de datos SQL de Azure. Entre estas se incluye la restauración de una base de datos activa, una base de datos eliminada y una base de datos inaccesible. La base de datos activa y eliminada se restauran con una instantánea desde el mismo centro de datos. La base de datos inaccesible puede estar sin conexión a causa de una interrupción. En este caso, la restauración se realiza desde un centro de datos de otra ubicación geográfica.
-
+En este artículo se describen las opciones para restaurar una base de datos en Almacenamiento de datos SQL de Azure. Entre estas se incluyen la restauración de un almacenamiento de datos activo y de un almacenamiento de datos eliminado. Los almacenamientos de datos activos y eliminados se restauran de las instantáneas automáticas creadas partir de todos los almacenamientos de datos.
 
 ## Escenarios de recuperación
 
 **Recuperación de errores de infraestructura:** este escenario se refiere a la recuperación de problemas de infraestructura tales como, errores de disco, etc. Un cliente quiere garantizar la continuidad del negocio mediante una infraestructura de alta disponibilidad con tolerancia a errores.
 
 **Recuperación de errores de usuario:** este escenario se refiere a la recuperación de datos dañados o eliminados de manera fortuita o involuntaria. Por si un usuario modificara o eliminara datos de manera fortuita o involuntaria, un cliente desea tener la opción de garantizar la continuidad del negocio mediante la restauración de la base de datos a un momento anterior en el tiempo.
-
-**Recuperación ante desastres (DR):** este escenario se refiere a la recuperación de una catástrofe grave. Por si se diera el caso de que una interrupción, como un desastre natural o un apagón regional, hiciera que la base de datos dejase de estar disponible, un cliente desea tener la opción de recuperar la base de datos en otra región para continuar con las operaciones del negocio.
 
 ## Directivas de instantánea
 
@@ -48,21 +45,11 @@ Veamos cómo Almacenamiento de datos SQL mejora la confiabilidad de la base de d
 
 ### Redundancia de datos
 
-Almacenamiento de datos SQL almacena todos los datos en Almacenamiento de Azure con redundancia geográfica (RA-GRS). El almacenamiento con redundancia geográfica replica sus datos a una región secundaria que se encuentra a cientos de kilómetros de distancia de la región principal. Los datos se replican tres veces en cada región primaria y secundaria, en dominios de error y en dominios de actualización independientes. Esto garantiza que los datos perduran incluso en el caso de un apagón regional completo o un desastre que haga que una de las regiones deje de estar disponible. Para obtener más información sobre almacenamiento con redundancia geográfica con acceso de lectura, lea [Opciones de redundancia de Almacenamiento de Azure][].
+Todos los datos de Almacenamiento de datos SQL se almacenan en Almacenamiento premium de Azure [con redundancia local (LRS)](../storage/storage-redundancy.md), y se mantienen 3 copias de los datos.
 
 ### Restauración de base de datos
 
-La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Estas copias de seguridad se almacenan en Almacenamiento de Azure RA-GRS y, por lo tanto, tienen redundancia geográfica de forma predeterminada. Las características de instantánea y restauración automáticas permiten proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. Para más información sobre la restauración de bases de datos, consulte [Database restore tasks] (Tareas de restauración de bases de datos).
-
-### Restauración geográfica
-
-La restauración geográfica se ha diseñado para recuperar la base de datos en caso de que deje de estar disponible por una interrupción. Dado que la copia de seguridad tiene redundancia geográfica, puede usarse para recuperar una base de datos aunque la base de datos sea inaccesible debido a una interrupción. La base de datos restaurada se puede crear en cualquier servidor y en cualquier región de Azure. Además de la recuperación de una interrupción, la restauración geográfica también se puede usar para otros escenarios como la migración o copia de una base de datos a un servidor o una región diferente.
-
-**Cuándo iniciar la recuperación** La operación de recuperación requiere cambiar la cadena de conexión SQL en la recuperación y puede provocar la pérdida de datos permanente. Por lo tanto, debe realizarse solo cuando la duración de la interrupción pueda durar más que el RTO de su aplicación. Utilice los siguientes puntos de datos para reafirmar que la recuperación está garantizada:
-
-- Error de conectividad permanente en la base de datos.
-- El Portal de Azure muestra una alerta sobre una incidencia en una región con un gran impacto.
-
+La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Las características de instantánea y restauración automáticas permiten proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. Para más información sobre la restauración de bases de datos, consulte [Restore a database in Azure SQL Data Warehouse (Portal)][] \(Restauración de una base de datos en Almacenamiento de datos SQL de Azure (Portal)).
 
 ## Pasos siguientes
 Para otras tareas de administración importantes, consulte [Información general de administración][].
@@ -70,14 +57,14 @@ Para otras tareas de administración importantes, consulte [Información general
 <!--Image references-->
 
 <!--Article references-->
-[Opciones de redundancia de Almacenamiento de Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
+[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Información general de administración]: sql-data-warehouse-overview-management.md
+[Restore a database in Azure SQL Data Warehouse (Portal)]: sql-data-warehouse-manage-database-restore-portal.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -22,7 +22,7 @@ El enrutamiento basado en URL permite asociar rutas en función de la dirección
 
 El enrutamiento basado en URL introduce un nuevo tipo de regla en la puerta de enlace de aplicaciones. La puerta de enlace de aplicaciones tiene dos tipos de reglas: básicas y PathBasedRouting. El tipo de regla básica proporciona un servicio round robin mientras que el tipo PathBasedRouting, además de la distribución round robin, también tiene en cuenta el patrón de ruta de acceso de la URL de la solicitud durante la elección del grupo de back-end.
 
->[AZURE.IMPORTANT] PathPattern: la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter * es al final, después de un carácter '/'. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten.
+>[AZURE.IMPORTANT] PathPattern: la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter * es al final. Ejemplos válidos son /xyz, /xyz* o /xyz/*. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer ? o #, y esos caracteres no se permiten.
 
 ## Escenario
 En el ejemplo siguiente, la puerta de enlace de aplicaciones atiende el tráfico de contoso.com con dos grupos de servidores de back-end: el grupo de servidores de vídeo y el grupo de servidores de imagen.
@@ -194,6 +194,6 @@ Cree una puerta de enlace de aplicaciones con todos los objetos de configuració
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
 
 ## Obtención de la puerta de enlace de aplicaciones
-	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

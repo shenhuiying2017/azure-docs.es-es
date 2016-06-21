@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Configuración de la replicación geográfica de la Base de datos SQL de Azure con Transact-SQL | Microsoft Azure"
-    description="Configuración de la replicación geográfica de la Base de datos SQL de Azure con Transact-SQL"
+    pageTitle="Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL | Microsoft Azure"
+    description="Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL"
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
@@ -16,7 +16,7 @@
     ms.date="04/27/2016"
     ms.author="carlrab"/>
 
-# Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL
+# Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL
 
 
 
@@ -176,11 +176,11 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 ## Recursos adicionales
 
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Lo más destacado de las nuevas funcionalidades de replicación geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

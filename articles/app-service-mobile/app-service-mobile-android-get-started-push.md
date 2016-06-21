@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Android."
 	services="app-service\mobile"
 	documentationCenter="android"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	authors="ysxu"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="06/07/2016"
 	ms.author="yuaxu;ricksal"/>
 
 # Incorporación de notificaciones push a la aplicación de Android
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ##Configuración del back-end de aplicaciones de móvil para enviar solicitudes push
 
@@ -80,4 +80,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 
 [Configuración del SDK de Google Play Services]: https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/31/2016"
 	ms.author="hawong"/>
 
 # Tutorial de Power BI para DocumentDB: visualizar datos mediante el conector de Power BI
@@ -111,8 +111,7 @@ Quiere recuperar los datos de los volcanes de la cuenta DocumentDB y visualizar 
 11. Haga clic en **Editar** para iniciar el Editor de consultas, para que podamos transformar los datos.
 
 ## Eliminación de formato y transformación de documentos JSON
-1. En el Editor de consultas de Power BI, debería ver la columna **Documento** en el panel central.
-![Editor de consultas de Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. En el Editor de consultas de Power BI, debería ver la columna **Documento** en el panel central. ![Editor de consultas de Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Haga clic en el botón de expansión en el lado derecho del encabezado de columna **Documento**. Se muestra el menú contextual con una lista de campos. Seleccione los campos necesarios para el informe, por ejemplo, nombre de volcán, país, región, ubicación, elevación, tipo, estado y última erupción conocida y, después, haga clic en **Aceptar**.
 
@@ -195,4 +194,4 @@ Para compartir el informe, debe tener una cuenta en PowerBI.com.
 - Haga clic [aquí](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) para obtener más información sobre Power BI.
 - Para obtener más información sobre DocumentDB, haga clic [aquí](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0608_2016-->

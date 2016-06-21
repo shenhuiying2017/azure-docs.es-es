@@ -53,7 +53,7 @@ En un editor de texto, abra el archivo **samples/simulated\_device\_cloud\_uploa
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub_http/libiothub_http_hl.so",
+            "module path" : "./build/modules/iothubhttp/libiothubhttp_hl.so",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -62,7 +62,7 @@ En un editor de texto, abra el archivo **samples/simulated\_device\_cloud\_uploa
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/mac_iothub_id_map/libmac_iothub_id_map_hl.so",
+            "module path" : "./build/modules/identitymap/libidentitymap_hl.so",
             "args" : 
             [
                 {
@@ -121,7 +121,7 @@ Para ejecutar el ejemplo:
 
 ## Pasos siguientes
 
-Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Azure IoT Gateway SDK][lnk-gateway-sdk] (SDK de puerta de enlace de IoT de Azure) en GitHub.
+Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Azure IoT Gateway SDK][lnk-gateway-sdk] \(SDK de puerta de enlace de IoT de Azure) en GitHub.
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -130,4 +130,4 @@ Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Az
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

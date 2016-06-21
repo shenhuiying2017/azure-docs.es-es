@@ -46,7 +46,7 @@ Después de realizar la actualización a V12, las [Recomendaciones sobre el nive
 ## Preparación de la actualización
 
 - **Actualizar todas las bases de datos de tipo Web y Business**: consulte la sección [Actualizar todas las bases de datos de tipo Web y Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) que aparece a continuación, o bien [Supervisión y administración de un grupo de bases de datos elásticas (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
-- **Revisar y suspender la replicación geográfica**: si la Base de datos SQL de Azure está configurada para replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
+- **Revisar y suspender la replicación geográfica**: si la base de datos SQL de Azure está configurada para la replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
 - **Abra los siguientes puertos si tiene clientes en una máquina virtual de Azure**: si el programa cliente se conecta a la Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto 11000 a 11999 y de 14000 a 14999 en la máquina virtual. Para obtener más información, consulte [Puertos de la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
@@ -167,4 +167,4 @@ Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje d
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

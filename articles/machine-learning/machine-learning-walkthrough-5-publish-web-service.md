@@ -48,7 +48,7 @@ Es necesario eliminar los siguientes módulos:
 
 - [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]
 - Los módulos [Entrenar modelo][train-model] y [Puntuar modelo][score-model] conectados a ella.
-- [Normalizar datos][normalize-data] (ambos)
+- [Normalizar datos][normalize-data] \(ambos)
 - [Evaluar modelo][evaluate-model]
 
 Simplemente seleccione el módulo y presione la tecla Supr o haga clic con el botón derecho en el módulo y seleccione **Eliminar**.
@@ -78,7 +78,7 @@ Al hacer clic en **Implementar servicio web**, suceden varias cosas:
 
 > [AZURE.NOTE] Se ha guardado el experimento en dos partes en pestañas que se han agregado en la parte superior del lienzo del experimento: el experimento de entrenamiento original está en la pestaña **Experimento de entrenamiento**, y los experimentos predictivos recién creados se encuentran en **Experimento predictivo**.
 
-Necesitamos realizar un paso adicional con este experimento concreto. Hemos agregado dos módulos [Ejecutar script R][execute-r-script] para proporcionar una función de ponderación a los datos de entrenamiento y prueba. No necesitamos hacer esto en el modelo final. Estudio de aprendizaje automático quitó un módulo [Ejecutar script R][execute-r-script] al quitar el módulo [Dividir][split], de modo que ahora podemos quitar el otro y conectar [Editor de metadatos][metadata-editor] directamente a [Puntuar modelo][score-model].
+Necesitamos realizar un paso adicional con este experimento concreto. Hemos agregado dos módulos [Ejecutar script R][execute-r-script] para proporcionar una función de ponderación a los datos de entrenamiento y prueba. No necesitamos hacer esto en el modelo final. El Estudio de aprendizaje automático quitó un módulo [Ejecutar script R][execute-r-script] al quitar el módulo [Dividir][split], de modo que ahora podemos quitar el otro y conectar [Editar metadatos][edit-metadata] directamente a [Puntuar modelo][score-model].
 
 Nuestro experimento debería tener ahora un aspecto similar al siguiente:
 
@@ -108,9 +108,9 @@ En la página **PANEL**, haga clic en el botón **Probar** en **Punto de conexi�
 
 Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.
 
-En el servicio web, los datos se escriben a través del módulo **Entrada de servicio web**, a través del módulo [Editor de metadatos][metadata-editor], y en el módulo [Puntuar modelo][score-model] en el que se puntúa. Después, los resultados salen del servicio web a través de **Salida de servicio web**.
+En el servicio web, los datos se escriben a través del módulo **Entrada de servicio web**, mediante el módulo [Editar metadatos][edit-metadata], y en el módulo [Puntuar modelo][score-model] en el que se puntúa. Después, los resultados salen del servicio web a través de **Salida de servicio web**.
 
-> [AZURE.TIP] La forma en que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Puntuar modelo][score-model]. Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente: por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Columnas del proyecto][project-columns] entre [Puntuar modelo][score-model] y **Salida de servicio web** para eliminar las columnas que el servicio web no debe devolver.
+> [AZURE.TIP] La forma en que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Puntuar modelo][score-model]. Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente, por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Seleccionar columnas de conjunto de datos][select-columns] entre [Puntuar modelo][score-model] y **Salida de servicio web** para eliminar las columnas que el servicio web no debe devolver.
 
 ## Administración del servicio web
 Cuando se haya implementado el servicio web, puede administrarlo desde el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -145,13 +145,13 @@ Para obtener información, consulte:
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/es-ES/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/es-ES/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

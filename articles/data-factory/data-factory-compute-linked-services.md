@@ -336,7 +336,12 @@ Para más información sobre las clases de Data Factory que se usan en el códig
  
 
 ## Servicio vinculado SQL de Azure
-
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para más información sobre este servicio vinculado.
 
-<!---HONumber=AcomDC_0601_2016-->
+## Servicio vinculado del Almacenamiento de datos SQL de Azure
+Cree un servicio vinculado de Almacenamiento de datos SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Vea el artículo [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#azure-sql-data-warehouse-linked-service-properties) (Conector del Almacenamiento de datos SQL de Azure) para más información sobre este servicio vinculado.
+
+## Servicio vinculado de SQL Server
+Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Vea el artículo [SQL Server connector](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) (Conector de SQL Server) para más información sobre este servicio vinculado.
+
+<!---HONumber=AcomDC_0608_2016-->

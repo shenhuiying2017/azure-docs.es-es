@@ -23,7 +23,7 @@
 
 Cuando se crea un área de trabajo nueva en Aprendizaje automático de Azure, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de muestra. Muchos de estos conjuntos de datos de muestra se usan en los modelos de ejemplo de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/), y otros se incluyen como ejemplos de diversos tipos de datos que se emplean normalmente en el aprendizaje automático.
 
-Algunos de estos conjuntos de datos están disponibles en el almacenamiento de blobs de Azure. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Lector][reader].
+Algunos de estos conjuntos de datos están disponibles en el almacenamiento de blobs de Azure. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Importar datos][import-data].
 
 El resto de estos conjuntos de datos de muestra aparece en **Conjuntos de datos guardados** en la paleta de módulos a la izquierda del lienzo de experimentos al abrir o crear un experimento nuevo en Estudio de aprendizaje automático. Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
@@ -34,7 +34,9 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+>[AZURE.NOTE (Pruebe gratis Aprendizaje automático de Azure)]
+>
+>No se necesita una tarjeta de crédito ni una suscripción de Azure. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Comience ahora >**</a>
 
 
 <table>
@@ -303,7 +305,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+Estos datos se han extraído del concurso de evaluación del rendimiento de los estudiantes KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">evaluación del rendimiento de estudiantes</a>). Los datos utilizados se corresponden con el conjunto de formación de álgebra 2008 y 2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Álgebra I 2008-2009. Conjunto de datos obtenidos de la minería de datos educativos de KDD Cup 2010. Puede encontrarlos en <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> o <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra\_2008\_2009.zip</a>.<p> </p>El conjunto de datos se ha descargado y almacenado en Almacenamiento de blobs de Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student\_performance.txt</a>) y contiene archivos de registro e un sistema de tutoría de estudiantes. Las características suministradas incluyen el identificador del problema y una breve descripción, el identificador del alumno, la marca de tiempo y cuántos intentos realizó el estudiante antes de solucionar el problema de la manera correcta. El conjunto de datos original contiene 8,9 millones de registros; este conjunto de datos se ha muestreado para las primeras 100.000 filas. El conjunto de datos tiene 23 columnas de varios tipos separadas por tabulaciones: numéricas, categóricas y con marcas de tiempo.]
   </td>
 </tr>
 
@@ -314,6 +316,6 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0608_2016-->

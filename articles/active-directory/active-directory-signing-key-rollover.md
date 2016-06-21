@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/31/2016"
 	ms.author="priyamo"/>
 
 # Sustitución de claves de firma de Azure Active Directory
@@ -228,4 +228,4 @@ Si el tipo de aplicación o plataforma no admite en estos momentos un mecanismo 
 
 Acaba de crear el certificado X509 que se utiliza como la clave pública de Azure AD. Con los detalles del certificado, como su huella digital y fecha de expiración, puede comprobar manualmente o mediante programación que la huella digital y el certificado que utiliza actualmente la aplicación son válidos.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

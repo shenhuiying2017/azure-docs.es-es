@@ -161,4 +161,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!-----HONumber=AcomDC_0525_2016-->

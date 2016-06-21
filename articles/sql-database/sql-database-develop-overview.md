@@ -42,7 +42,7 @@ Base de datos SQL de Azure proporciona recursos para limitar el acceso, proteger
 * Más información: [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md)
 
 ## Resistencia
-Cuando se produce un error transitorio al conectar con Base de datos SQL, el código debe reintentar la llamada. Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará innecesariamente Base de datos SQL con los reintentos de varios clientes a la vez.
+Cuando se produce un error transitorio al conectar con Base de datos SQL, el código debe reintentar la llamada. Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará innecesariamente la Base de datos SQL con los reintentos de varios clientes a la vez.
 
 * Ejemplos de código: puede ver ejemplos de código que ilustran la lógica de reintento en el lenguaje de su elección en: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 * Más información: [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md)
@@ -53,7 +53,7 @@ Cuando se produce un error transitorio al conectar con Base de datos SQL, el có
 
 ## Consideraciones de red
 * En el equipo que hospeda el programa cliente, asegúrese de que el firewall permita la comunicación TCP saliente en el puerto 1433. Más información: [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
-* Si el programa cliente se conecta a Base de datos SQL V12 mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto en la VM. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Si el programa cliente se conecta a Base de datos SQL V12 mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir determinados intervalos de puerto en la máquina virtual. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 * En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Más información: [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## Particionamiento de datos con la escala elástica
@@ -62,4 +62,4 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 * [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

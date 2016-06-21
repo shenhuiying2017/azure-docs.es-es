@@ -10,7 +10,7 @@
 
 1. Asigne un nombre a la nueva aplicación (o utilice el valor predeterminado).
 
-1. Pulse **Aceptar**.
+1. Seleccione **Aceptar**.
 
 1. Aparece el cuadro de diálogo **Nuevo proyecto de ASP.NET**.
 
@@ -18,6 +18,6 @@
 
 1. En Plantillas de ASP.NET 5, seleccione Aplicación web ASP.NET.
 
-1. Pulse **Aceptar**.
+1. Seleccione **Aceptar**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

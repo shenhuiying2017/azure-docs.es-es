@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -62,7 +62,7 @@ Para configurar la integración de Predictix Price Reporting en Azure AD, deber�
 
 1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
-	![Active Directory][1]
+	![Aplicaciones][1]
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
 3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
@@ -79,10 +79,11 @@ Para configurar la integración de Predictix Price Reporting en Azure AD, deber�
 
 6. En el cuadro de búsqueda, escriba **Predictix Price Reporting**.
 
-	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+	![Aplicaciones](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_01.png)
+
 7. En el panel de resultados, seleccione **Predictix Price Reporting** y luego haga clic en **Completar** para agregar la aplicación.
 
-
+	![Aplicaciones](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_02.png)
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Predictix Price Reporting con un usuario de prueba llamado "Britta Simon".
@@ -118,7 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_predictixpricereporting_04.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación de Predictix Price Reporting con el siguiente patrón: **https://\<nombre de la compañía-pricing>.predictix.com/sso/request**.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Predictix Price Reporting con el siguiente patrón: `https://<company name-pricing>.predictix.com/sso/request`
 	
 	b. Haga clic en **Siguiente**.
  
@@ -137,9 +138,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 	• El **identificador de entidad**
 
-	• La **dirección URL de inicio de sesión único de SAML**
+	La **dirección URL de inicio de sesión único de SAML**
 
-	• La **dirección URL del servicio de cierre de sesión único**
+	La **dirección URL del servicio de cierre de sesión único**
 
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 	
@@ -180,7 +181,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página del cuadro de diálogo **Perfil de usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_06.png)
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -196,7 +197,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_07.png)
 
-8. En la página de diálogo **Obtener contraseña temporal**, siga estos pasos:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-predictixpricereporting-tutorial/create_aaduser_08.png)
 
@@ -269,4 +270,4 @@ Al hacer clic en el icono de Predictix Price Reporting en el panel de acceso, de
 [204]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-predictixpricereporting-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0608_2016-->

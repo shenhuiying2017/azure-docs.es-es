@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Adición de propietarios y usuarios a un laboratorio
 
-> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo establecer la seguridad de DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab).
+> [AZURE.NOTE] Vea el vídeo que acompaña a este artículo: [How to set security in DevTest Labs](/documentation/videos/how-to-set-security-in-your-devtest-lab) (Cómo establecer la seguridad de DevTest Labs).
 
 ## Información general
 El acceso a DevTest Labs se controla mediante el control de acceso basado en rol (RBAC) de Azure. Busque [Control de acceso basado en rol (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) para más información.
@@ -40,29 +40,29 @@ Para agregar un propietario a una suscripción de Azure donde tiene laboratorios
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. En el panel de navegación izquierdo, pulse **Suscripciones**.
+1. En el panel de navegación izquierdo, seleccione **Suscripciones**.
 
 	![Vínculo de suscripciones](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Pulse la suscripción que contendrá los laboratorios.
+1. Seleccione la suscripción que contendrá los laboratorios.
 
-1. Pulse el icono **Acceso**.
+1. Seleccione el icono **Acceso**.
 
 	![Usuarios de acceso](./media/devtest-lab-add-devtest-user/access-users.png)
 
-1. En la hoja **Usuarios**, pulse **Agregar**.
+1. Seleccione **Agregar** en la hoja **Usuarios**.
 
 	![Agregar usuario](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. En la hoja **Seleccionar un rol**, pulse **Propietario**.
+1. En la hoja **Seleccionar un rol**, seleccione **Propietario**.
 
 1. En el cuadro de texto **Usuario** escriba el correo electrónico del usuario que desea agregar como propietario. Si no se encuentra el usuario, aparecerá un mensaje de error que explica el problema. Si se encuentra el usuario, dicho usuario se mostrará en el cuadro de texto **Usuario**.
 
-1. Pulse el nombre de usuario encontrado.
+1. Seleccione el nombre de usuario encontrado.
 
-1. Pulse **Seleccionar**.
+1. Elija **Seleccionar**.
 
-1. Pulse **Aceptar** para cerrar la hoja **Agregar acceso**.
+1. Seleccione **Aceptar** para cerrar la hoja **Agregar acceso**.
 
 1. Cuando vuelva a la hoja **Usuarios**, verá que el usuario se ha agregado como propietario. Esta persona ahora será un propietario de cualquier laboratorio creado con esta suscripción y, por tanto, podrá realizar tareas de propietario.
 
@@ -72,32 +72,32 @@ Para agregar un usuario de DevTest Labs al laboratorio, siga estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Pulse **Examinar**.
+1. Seleccione **Examinar**.
 
-1. Pulse **Laboratorios de desarrollo y pruebas**.
+1. Seleccione **DevTest Labs**.
 
-1. En la lista de laboratorios, pulse el laboratorio que desee.
+1. En la lista de laboratorios, seleccione el laboratorio que desee.
 
-1. Pulse el icono **Acceso**.
+1. Seleccione el icono **Acceso**.
 
 	![Acceso de usuario](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. En la hoja **Usuarios**, pulse **Agregar**.
+1. Seleccione **Agregar** en la hoja **Usuarios**.
 
 	![Agregar usuario](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. En la hoja **Seleccionar un rol**, pulse **Usuario de DevTest Labs**.
+1. En la hoja **Seleccionar un rol**, seleccione **DevTest Labs User** (Usuario de DevTest Labs).
 
 1. En la hoja **Agregar usuarios**:
 
-	1. La hoja **Agregar usuarios** mostrará una lista de usuarios integrados. Si el usuario que desea ya está en la lista, basta con pulsar la fila del usuario para seleccionarlo. Aparecerá una marca de verificación a la izquierda del usuario para indicar que este se ha seleccionado. Para seleccionar varios usuarios, mantenga presionada la tecla **& lt; Ctrl >** mientras hace clic en cada usuario. Para anular la selección de un usuario, mantenga presionada la tecla **& lt; Ctrl >** y haga clic en el usuario. Un contador en la parte inferior de la hoja indica el número de usuarios seleccionados.
+	1. La hoja **Agregar usuarios** mostrará una lista de usuarios integrados. Si el usuario que desea ya está en la lista, basta con seleccionar la fila del usuario para seleccionarlo. Aparecerá una marca de verificación a la izquierda del usuario para indicar que este se ha seleccionado. Para seleccionar varios usuarios, mantenga presionada la tecla **&lt;Ctrl>** mientras selecciona cada usuario. Para anular la selección de un usuario, mantenga presionada la tecla **&lt;Ctrl>** y seleccione el usuario. Un contador en la parte inferior de la hoja indica el número de usuarios seleccionados.
 
-	1. Si el usuario que desea no está en la lista, escriba una cuenta de correo electrónico de Microsoft válida en el cuadro de texto **Usuarios**. Si la dirección de correo electrónico es válida, el usuario se mostrará debajo del cuadro de texto **Usuario**. Basta con pulsar en él para seleccionarlo.
+	1. Si el usuario que desea no está en la lista, escriba una cuenta de correo electrónico de Microsoft válida en el cuadro de texto **Usuarios**. Si la dirección de correo electrónico es válida, el usuario se mostrará debajo del cuadro de texto **Usuario**.
 
-	1. Cuando haya seleccionado los usuarios que desea agregar al laboratorio, pulse **Seleccionar**.
+	1. Cuando haya seleccionado los usuarios que desea agregar al laboratorio, elija **Seleccionar**.
 
-	1. Pulse **Aceptar** para cerrar la hoja **Agregar acceso**.
+	1. Seleccione **Aceptar** para cerrar la hoja **Agregar acceso**.
 
 1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -89,6 +89,6 @@ while(true)
 Consulte los siguientes artículos para más información sobre las colas de Bus de servicio:
 
 - [Comparación de colas de Azure y colas del Bus de servicio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Utilización de las [colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
+- Utilización de las [colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0608_2016-->

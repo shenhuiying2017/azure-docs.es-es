@@ -1,12 +1,12 @@
 =======
-Entidad|Oferta (estándar)
+Entidad|Cuota predeterminada (oferta estándar)
 ---|---
-Cuentas de la base de datos*|50
-Almacenamiento máximo de documentos por cuenta de base de datos* |1 TB (o más por solicitud)
-Almacenamiento de documentos*/colección|250 GB (o más por solicitud)
-Máximo de [unidades de solicitud](../articles/documentdb/documentdb-request-units.md)*/segundos por colección|250 000 RU/s(o superior por solicitud)
-Tamaño máximo de solicitud de documento |512KB
-Tiempo de ejecución máximo para el procedimiento almacenado y desencadenador|5 segundos
-Tamaño máximo de respuesta|1 MB
+Cuentas de la base de datos|50*
+Almacenamiento de documentos por cuenta de base de datos|1 TB*
+Almacenamiento de documentos por colección|250 GB*
+Rendimiento por colección, medido en [unidades de solicitud](../articles/documentdb/documentdb-request-units.md) por segundo por colección|250\.000 RU/s*
+Tiempo de ejecución para desencadenadores y procedimientos almacenados|5 segundos
+Tamaño del documento de solicitud |512KB
+Tamaño del documento de respuesta|1 MB
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

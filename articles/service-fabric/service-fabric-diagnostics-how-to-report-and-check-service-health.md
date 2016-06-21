@@ -3,8 +3,8 @@
    description="Conozca cómo se pueden enviar informes de estado desde el código de servicio y comprobar el estado del servicio mediante las herramientas de supervisión de estado que proporciona Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="punewa"
-   manager="timlt"
+   authors="toddabel"
+   manager="mfussell"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/18/2016"
+   ms.date="06/07/2016"
    ms.author="toddabel"/>
 
 # Notificación y comprobación del estado del servicio
@@ -86,7 +86,7 @@ Las plantillas de proyecto de Service Fabric en Visual Studio contienen código 
     ```
     Informamos sobre el estado de la réplica porque se está informando desde un servicio con estado. El parámetro `HealthInformation` almacena información sobre el problema de estado del que se está informando.
 
-    Para un servicio sin estado, use el código siguiente.
+    Si ha creado un servicio sin estado, use el código siguiente.
 
     ```csharp
     if (!result.HasValue)
@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Pasos siguientes
 [Profundización en el estado de Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

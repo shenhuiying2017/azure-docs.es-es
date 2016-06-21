@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/03/2016"
 	ms.author="spelluru"/>
 
 
@@ -168,6 +168,68 @@ Consulte aquí los [ejemplos de casos de uso](#case-study---parallel-copy) para 
  
 Es **importante** recordar que se le cobrará según el tiempo total de la operación de copia. Por tanto, si un trabajo de copia solía tardar 1 hora con 1 unidad en la nube y ahora tarda 15 minutos con 4 unidades en la nube, la factura total será prácticamente la misma. A continuación se expone otro escenario: imaginemos que está usando 4 unidades en la nube y la primera de ellas emplea 10 minutos, la segunda 10 minutos, la tercera 5 minutos y la cuarta 5 minutos en una ejecución de actividad de copia. En este caso se le cobrará por el tiempo de copia total (movimiento de datos), que es 10 + 10 + 5 + 5 = 30 minutos. El uso de **parallelCopies** no tiene ningún impacto en la facturación.
 
+## Copias almacenadas provisionalmente
+Al copiar datos de un almacén de datos de origen a uno de tipo receptor, se puede utilizar un almacenamiento de blobs de Azure como almacén provisional. Esta funcionalidad de almacenamiento provisional resulta especialmente útil en los siguientes casos:
+
+1.	**A veces, el movimiento híbrido de datos (es decir, de un almacén de datos local a uno en la nube, o viceversa) dura bastante tiempo cuando se emplea una conexión de red lenta.** Para mejorar el rendimiento de este proceso, puede comprimir los datos de forma local para que se tarde menos en moverlos, a través de Internet, al almacén de datos provisional en la nube. Después, puede descomprimirlos en un almacén provisional antes de cargarlos en el almacén de datos de destino. 
+2.	**No quiere abrir los puertos 80 y 443 en el firewall debido a las directivas de TI.** Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o de Almacenamiento de datos SQL de Azure, hay que habilitar la comunicación TCP saliente del puerto 1433 en el firewall corporativo y en el de Windows. En este caso, puede utilizar Data Management Gateway para, primero, copiar los datos en un almacenamiento de blobs de Azure provisional, lo que se realiza a través de HTTP o HTTPS —es decir, en el puerto 443— y, después, cargarlos en Base de datos SQL o Almacenamiento de datos SQL desde el almacenamiento de blobs provisional. En este tipo de flujo, no hay que habilitar el puerto 1433. 
+3.	**Introduce datos de varios almacenes de datos en Almacenamiento de datos SQL de Azure a través de PolyBase.** Almacenamiento de datos SQL de Azure ofrece PolyBase como mecanismo de alto rendimiento para cargar grandes cantidades de datos en este servicio de almacenamiento. Sin embargo, se precisa que los datos de origen estén en Almacenamiento de blobs de Azure, así como que se cumplan algunos criterios adicionales. Al cargar datos de un almacén de datos distinto al almacenamiento de blobs de Azure, puede habilitar la copia de datos a través de un almacenamiento de blobs de Azure provisional, en cuyo caso Data Factory de Azure realizará las transformaciones necesarias en los datos para asegurarse de que cumplen los requisitos de PolyBase y, luego, utilizará PolyBase para cargarlos en Almacenamiento de datos SQL. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
+
+### Cómo funcionan las copias almacenadas provisionalmente
+Al habilitar la característica de almacenamiento provisional, los datos se copian primero del almacén de datos de origen al provisional (el suyo propio) y, luego, se copian del provisional al receptor. Data Factory de Azure administrará automáticamente el flujo de 2 fases y también limpiará los datos temporales del almacenamiento provisional cuando se termine de realizar el movimiento de datos.
+
+En el **escenario de copia en la nube**, donde los almacenes de datos de origen y receptor se encuentran en la nube y no utilizan Data Management Gateway, el **servicio Data Factory de Azure** se encarga de llevar a cabo las operaciones de copia.
+
+![Copias almacenadas provisionalmente: escenario de modelo en la nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+
+En el **escenario de copia híbrida**, donde el almacén de origen se encuentra en un entorno local y el receptor está en la nube, el proceso de mover datos del almacén de datos de origen al provisional se realiza mediante **Data Management Gateway**, mientras que el movimiento de datos del almacén de datos provisional al receptor lo lleva a cabo el **servicio Data Factory de Azure**.
+
+![Copias almacenadas provisionalmente: escenario de modelo híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+
+Cuando se habilita el movimiento de datos mediante el almacenamiento provisional, puede especificar si desea que los datos se compriman antes de moverlos del almacén de datos de origen al provisional o al de almacenamiento provisional, y que se descompriman antes de moverlos del provisional o del de almacenamiento provisional al receptor.
+
+En este momento, no se pueden copiar datos de un almacén de datos en la nube a uno local, ni tampoco entre dos almacenes locales, aunque está previsto que pueda hacerse en breve.
+
+### Configuración
+Puede configurar el valor **enableStaging** de la actividad de copia para especificar si desea que los datos se almacenen provisionalmente en un almacenamiento de blobs de Azure antes de cargarlos en un almacén de datos de destino. Cuando el valor de enableStaging se establece en True, debe determinar otras propiedades que aparecen en la tabla siguiente. Además, tiene que crear un servicio vinculado de Almacenamiento de Azure o de SAS de Almacenamiento de Azure como almacenamiento provisional si aún no tiene ninguno.
+
+Propiedad | Descripción | Valor predeterminado | Obligatorio
+--------- | ----------- | ------------ | --------
+enableStaging | Especifique si desea copiar los datos a través de un almacén provisional. | False | No
+linkedServiceName | Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que hace referencia al almacenamiento de Azure que se usará como almacén provisional. <br/><br/> Tenga en cuenta que no se puede usar un almacenamiento de Azure con SAS (firma de acceso compartido) para cargar datos en Almacenamiento de datos SQL de Azure a través de PolyBase. Sí que se puede utilizar en el resto de los casos. | N/D | Sí, cuando el valor de enableStaging es True. 
+path | Especifique la ruta de acceso del almacenamiento de blobs de Azure que contendrá los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> No tiene que especificar la ruta de acceso, salvo que esté utilizando el almacenamiento de Azure con SAS o que tenga un requisito exigente respecto a la ubicación en la que deben residir los datos temporales. | N/D | No
+enableCompression | Especifique si se deben comprimir los datos cuando se muevan del almacén de datos de origen al receptor con el fin de reducir el volumen de datos transferidos a través de Internet. | False | No
+
+Aquí puede encontrar un ejemplo de definición de una actividad de copia con las propiedades anteriores:
+
+	"activities":[  
+	{
+		"name": "Sample copy activity",
+		"type": "Copy",
+		"inputs": [{ "name": "OnpremisesSQLServerInput" }],
+		"outputs": [{ "name": "AzureSQLDBOutput" }],
+		"typeProperties": {
+			"source": {
+				"type": "SqlSource",
+			},
+			"sink": {
+				"type": "SqlSink"
+			},
+	    	"enableStaging": true,
+			"stagingSettings": {
+				"linkedServiceName": "MyStagingBlob",
+				"path": "stagingcontainer/path",
+				"enableCompression": true
+			}
+		}
+	}
+	]
+
+### Impacto en la facturación
+Tenga en cuenta que se le cobrará según las dos fases de duración de la copia y su tipo de copia respectivamente, es decir:
+
+- Al utilizar un almacenamiento provisional durante una copia de nube (copiando datos de un almacén de datos en la nube a otro de este tipo, por ejemplo, de Azure Data Lake a Almacenamiento de datos SQL de Azure), se le cobrará de la siguiente forma: [suma de la duración de la copia de los pasos 1 y 2] x [precio unitario de la copia de nube].
+- Al utilizar un almacenamiento provisional durante una copia híbrida (copiando datos de un almacén de datos local a uno en la nube, por ejemplo, de la base de datos de SQL Server local a Almacenamiento de datos SQL de Azure), se le cobrará de la siguiente forma: [duración de la copia híbrida] x [precio unitario de la copia híbrida] + [duración de la copia de nube] x [precio unitario de la copia de nube].
 
 
 ## Consideraciones sobre el origen
@@ -176,7 +238,7 @@ Asegúrese de que el almacén de datos subyacente no está desbordado por otras 
 
 Para los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#appendix-data-store-performance-tuning-reference) específicos del almacén de datos, que pueden ayudarle a comprender las características de rendimiento del almacén de datos, a minimizar los tiempos de respuesta y a maximizar la capacidad de proceso.
 
-Si va a copiar datos desde **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para más información.
+Si va a copiar datos de **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 
 
 ### Almacenes de datos basados en archivos
@@ -200,7 +262,7 @@ Asegúrese de que el almacén de datos subyacente no está desbordado por otras 
 
 Para los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#appendix-data-store-performance-tuning-reference) específicos del almacén de datos, que pueden ayudarle a comprender las características de rendimiento del almacén de datos, a minimizar los tiempos de respuesta y a maximizar la capacidad de proceso.
 
-Si va a copiar datos desde **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para más información.
+Si va a copiar datos de **Almacenamiento de blobs de Azure** a **Almacenamiento de datos SQL de Azure**, considere la posibilidad de habilitar **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 
 
 ### Almacenes de datos basados en archivos
@@ -303,15 +365,15 @@ En este caso, la compresión de datos BZIP2 podría estar ralentizando toda la c
 
 ## Caso práctico: copia en paralelo  
 
-**Escenario I:** copiar 1000 archivos de 1 MB del sistema de archivos local al Almacenamiento de blobs de Azure
+**Escenario I**: copiar 1000 archivos de 1 MB del sistema de archivos local al almacenamiento de blobs de Azure.
 
-**Análisis y optimización de rendimiento:** suponga que tiene instalado Data Management Gateway en un equipo de cuatro núcleos, Data Factory utilizará de forma predeterminada 16 copias en paralelo para mover los archivos del sistema de archivos al blob de Azure simultáneamente. Esto debería dar como resultado un buen rendimiento. También puede especificar el número de copias en paralelo explícitamente si lo desea. Al copiar un gran número de archivos pequeños, las copias en paralelo ayudarán espectacularmente al rendimiento gracias a la utilización de los recursos implicados de forma más eficaz.
+**Análisis y optimización de rendimiento**: suponga que tiene instalado Data Management Gateway en una máquina de 4 núcleos, Data Factory utilizará de forma predeterminada 16 copias en paralelo para mover los archivos del sistema de archivos al blob de Azure simultáneamente. Esto debería dar como resultado un buen rendimiento. También puede especificar el número de copias en paralelo explícitamente si lo desea. Al copiar un gran número de archivos pequeños, las copias en paralelo ayudarán espectacularmente al rendimiento gracias a la utilización de los recursos implicados de forma más eficaz.
 
 ![Escenario 1.](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Escenario II:** copiar 20 blobs de 500 MB cada uno desde Almacenamiento de blobs de Azure al Almacén de Azure Data Lake para analizar y optimizar el rendimiento.
+**Escenario II**: copiar 20 blobs de 500 MB cada uno de Almacenamiento de blobs de Azure a Almacén de Azure Data Lake para analizar y optimizar el rendimiento.
 
-**Análisis y optimización de rendimiento:** para este escenario, de forma predeterminada, Data Factory copiará los datos del blob de Azure a Azure Data Lake mediante una copia única (propiedad parallelCopies establecida en 1) y el uso de una unidad de movimiento de datos de nube. Observará que el rendimiento está más cerca de lo que se indica en la [sección Referencia de rendimiento](#performance-reference) más arriba.
+**Análisis y optimización de rendimiento**: en este escenario, de forma predeterminada, Data Factory copiará los datos del blob de Azure a Azure Data Lake mediante una copia única (el valor de la propiedad parallelCopies establecido en 1) y el uso de una unidad de movimiento de datos en la nube. Observará que el rendimiento es más próximo al indicado en la sección [Referencia de rendimiento](#performance-reference) de más arriba.
 
 ![Escenario 2.](./media/data-factory-copy-activity-performance/scenario-2.png)
 
@@ -324,9 +386,9 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 
 - Almacenamiento de Azure (incluidos Blob de Azure y Tabla de Azure): [Objetivos de escalabilidad de Almacenamiento de Azure](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage//storage-performance-checklist.md)
 - Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md#monitoring-performance) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
-- Almacenamiento de datos SQL de Azure: su capacidad se mide por unidades de almacenamiento de datos (DWU). Consulte [Rendimiento y escala flexibles con Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-overview-scalability.md).
+- Almacenamiento de datos SQL de Azure: su capacidad se mide por unidades de almacenamiento de datos (DWU). Consulte [Rendimiento y escala flexibles con Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 - Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

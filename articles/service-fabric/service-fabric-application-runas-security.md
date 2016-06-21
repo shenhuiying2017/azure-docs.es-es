@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.author="mfussell"/>
 
 # RunAs: ejecutar de una aplicación de Service Fabric con diferentes permisos de seguridad
 Azure Service Fabric permite proteger aplicaciones que se ejecutan en el clúster en distintas cuentas de usuario, lo que se conoce como **RunAs**. También protege los recursos que usan las aplicaciones con la cuenta de usuario, como archivos, directorios y certificados.
@@ -155,14 +155,14 @@ En el archivo de PowerShell, agregue el siguiente procedimiento para establecer 
 ~~~
 
 **Nota:** De forma predeterminada, cuando se ejecuta el archivo por lotes, la búsqueda de archivos se realiza en la carpeta de aplicación denominada **work**. En este caso, cuando se ejecuta MySetup.bat queremos que encuentre MySetup.ps1 en la misma carpeta, que es la carpeta **paquete de código** de la aplicación. Para cambiar esta carpeta, configure la carpeta de trabajo, como se muestra a continuación.
-    
+
 ~~~
 <SetupEntryPoint>
     <ExeHost>
     <Program>MySetup.bat</Program>
     <WorkingFolder>CodePackage</WorkingFolder>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 ## Uso de la directiva de redireccionamiento de consola para la depuración local de los puntos de entrada
@@ -179,13 +179,13 @@ En el ejemplo siguiente, se muestra cómo establecer el redireccionamiento de la
     <WorkingFolder>CodePackage</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="10"/>
     </ExeHost>
-</SetupEntryPoint> 
+</SetupEntryPoint>
 ~~~
 
 Si cambia el archivo MySetup.ps1 para escribir un comando **Echo**, este se escribirá en el archivo de salida con fines de depuración.
 
 ~~~
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
 **Después de haber depurado la secuencia de comandos, quite inmediatamente esta directiva de redireccionamiento de consola.**
@@ -351,4 +351,4 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores 
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/03/2016"
 	ms.author="larryfr"/>
 
 # Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
@@ -22,6 +22,8 @@
 HDInsight proporciona una opción de configuración llamada **Acción de script** que invoca scripts personalizados que personalizan el clúster. Estos scripts pueden utilizarse durante la creación del clúster o en un clúster ya en ejecución para instalar componentes adicionales o cambiar los valores de configuración.
 
 > [AZURE.NOTE] La posibilidad de usar acciones de script en un clúster ya en ejecución solo está disponible para clústeres de HDInsight basados en Linux. Para más información sobre el uso de las acciones de script con clústeres basados en Windows, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md).
+
+Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight. Algunos de los ejemplos de este documento muestran cómo puede instalar una aplicación de HDInsight mediante comandos de acción de script de PowerShell y el SDK. NET. Para más información sobre aplicaciones de HDInsight, consulte [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## Descripción de las acciones de script
 
@@ -35,17 +37,19 @@ Una acción de script es un script de Bash al que se proporciona una dirección 
     
     Para obtener ejemplos de URI de scripts que se almacenan en un contenedor de blobs (con legibilidad pública), consulte la sección [Ejemplo de scripts de acción de script](#example-script-action-scripts).
 
-* Su __ejecución se puede limitar a determinados tipos de nodos__, como a nodos principales o de trabajador.
+* Su __ejecución se puede limitar a determinados tipos de nodos__, como a nodos principales o de trabajo.
 
-* Pueden ser __persistentes__ o __ad hoc__.
+    > [AZURE.NOTE] Cuando se utiliza con HDInsight Premium, puede especificar que el script se tenga que usar en el nodo perimetral.
 
-    Los scripts __persistentes__ son aquellos que se aplican a nodos de trabajador y se ejecutan automáticamente en los nuevos nodos creados al escalar un clúster verticalmente.
+* Esto pueden ser __persistentes__ o __ad hoc__.
+
+    Los scripts __persistentes__ son aquellos que se aplican a nodos de trabajo y se ejecutan automáticamente en los nuevos nodos creados al escalar un clúster verticalmente.
 
     Un script persistente podría también aplicar cambios a otro tipo de nodo, por ejemplo, a un nodo principal, pero desde una perspectiva de la funcionalidad, la única razón para guardar un script es que se aplica a los nuevos nodos de trabajo creados cuando un clúster se escala horizontalmente.
 
     > [AZURE.IMPORTANT] Las acciones de scripts persistentes deben tener un nombre único.
 
-    Los scripts __ad hoc__ no son persistentes; sin embargo, pueden promoverse posteriormente a scripts persistentes o disminuir de nivel los scripts persistentes a scripts ad hoc.
+    Los scripts __ad hoc__ no son persistentes; sin embargo, es posible promoverlos posteriormente a scripts persistentes o bien disminuir de nivel los scripts persistentes a scripts ad hoc.
 
     > [AZURE.IMPORTANT] Las acciones de script usadas durante la creación de un clúster se guardan automáticamente.
     >
@@ -140,6 +144,8 @@ En esta sección se proporcionan ejemplos sobre las diferentes maneras en que pu
 ### Use una acción de script de las plantillas de Azure Resource Manager
 
 En esta sección, usamos plantillas de Azure Resource Manager (ARM) para crear un clúster de HDInsight y usar una acción de script para instalar componentes personalizados (en este ejemplo, R) en el clúster. En esta sección se proporciona una plantilla ARM de ejemplo para crear un clúster mediante la acción de script.
+
+> [AZURE.NOTE] Los pasos de esta sección muestran cómo crear un clúster mediante una acción de script. Para obtener un ejemplo de creación de un clúster desde una plantilla de ARM mediante una aplicación de HDInsight, consulte [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
 #### Antes de empezar
 
@@ -448,9 +454,9 @@ En esta sección se proporcionan ejemplos sobre las diferentes maneras en que pu
 
     * __Nombre__: nombre descriptivo que se usará para esta acción de script. En este ejemplo, `R`.
     * __URI DE SCRIPT__: el identificador URI del script. En este ejemplo, `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`.
-    * __Encabezado__, __Trabajador__ y __Zookeeper__: active los nodos a los que se debe aplicar este script. En este ejemplo, se marcan Principal y Trabajo.
+    * __Encabezado__, __Trabajo__ y __Zookeeper__: active los nodos a los que se debe aplicar este script. En este ejemplo, se marcan Principal y Trabajo.
     * __PARÁMETROS__: si el script acepta parámetros, especifíquelos aquí.
-    * __PERSISTENTE__: active esta entrada si desea guardar un script como persistente para que se aplique a nuevos nodos de trabajador cuando escale el clúster verticalmente.
+    * __PERSISTENTE__: active esta entrada si desea guardar un script como persistente para que se aplique a nuevos nodos de trabajo cuando escale el clúster verticalmente.
 
 6. Por último, use el botón __Crear__ para aplicar el script al clúster.
 
@@ -468,7 +474,8 @@ Antes de continuar, asegúrese de que ha instalado y configurado Azure PowerShel
         $saName = "<ScriptActionName>"                  # Name of the script action
         $saURI = "<URI to the script>"                  # The URI where the script is located
         $nodeTypes = "headnode", "workernode"
-
+        
+    > [AZURE.NOTE] Si utiliza un clúster de HDInsight Premium, puede utilizar un nodetype de `"edgenode"` para ejecutar el script en el nodo perimetral.
 
 2. Utilice el siguiente comando para aplicar el script al clúster:
 
@@ -485,7 +492,7 @@ Antes de continuar, asegúrese de que ha instalado y configurado Azure PowerShel
 
 ### Aplicación de una acción de script a un clúster en ejecución desde la CLI de Azure
 
-Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure. Para obtener más información, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
+Antes de continuar, asegúrese de que ha instalado y configurado la CLI de Azure. Para más información, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md).
 
 	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
@@ -556,7 +563,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 | Set-AzureRmHDInsightPersistedScriptAction | Promover una acción de script ad hoc a una acción de script persistente |
 | Remove-AzureRmHDInsightPersistedScriptAction | Disminuir de nivel una acción de script persistente a una acción ad hoc |
 
-> [AZURE.IMPORTANT] El uso de `Remove-AzureRmHDInsightPersistedScriptAction` no deshace las acciones que realiza un script, sino que solo elimina la marca de persistencia para que el script no se ejecute en los nuevos nodos de trabajador agregados al clúster.
+> [AZURE.IMPORTANT] El uso de `Remove-AzureRmHDInsightPersistedScriptAction` no deshace las acciones que realiza un script, sino que solo elimina la marca de persistencia para que el script no se ejecute en los nuevos nodos de trabajo agregados al clúster.
 
 El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover y luego disminuir de nivel un script.
 
@@ -587,11 +594,13 @@ El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover 
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Promover una acción de script ad hoc a una acción de script persistente |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Disminuir de nivel una acción de script persistente a una acción ad hoc |
 
-> [AZURE.IMPORTANT] El uso de `azure hdinsight script-action persisted delete` no deshace las acciones que realiza un script, sino que solo elimina la marca de persistencia para que el script no se ejecute en los nuevos nodos de trabajador agregados al clúster.
+> [AZURE.IMPORTANT] El uso de `azure hdinsight script-action persisted delete` no deshace las acciones que realiza un script, sino que solo elimina la marca de persistencia para que el script no se ejecute en los nuevos nodos de trabajo agregados al clúster.
 
 ### Uso del SDK de .NET de HDInsight
 
 Si desea ver un ejemplo de uso del SDK de .NET para recuperar el historial de scripts de un clúster, o bien promover scripts o disminuir el nivel de estos, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+
+> [AZURE.NOTE] En este ejemplo también muestra cómo instalar una aplicación de HDInsight mediante el SDK. de NET.
 
 ## Solución de problemas
 
@@ -623,7 +632,7 @@ Si se produce un error en la creación del clúster debido a un error en la acci
 
 	En este caso, los registros se organizan por separado para el nodo principal, el nodo de trabajo y el nodo de Zookeeper. A continuación, se indican algunos ejemplos:
 	* **Nodo principal**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nodo de trabajador**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nodo de trabajo**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Nodo de Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos los stdout y stderr del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-*.txt** y **errors-*.txt** para cada acción de script. El archivo de output-*.txt contiene información sobre el identificador URI del script que se ejecuta en el host. Por ejemplo:
@@ -690,4 +699,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

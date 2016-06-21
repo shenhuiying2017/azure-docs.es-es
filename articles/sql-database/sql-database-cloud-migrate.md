@@ -13,8 +13,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.workload="sqldb-migrate"
+   ms.date="06/07/2016"
    ms.author="carlrab"/>
 
 # Migración de una base de datos de SQL Server a una Base de datos SQL en la nube
@@ -108,4 +108,4 @@ Para migrar con el tiempo de inactividad mínimo, use la [replicación de transa
 - [Base de datos SQL V12](sql-database-v12-whats-new.md) [Funciones de Transact-SQL no admitidas o parcialmente admitidas](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

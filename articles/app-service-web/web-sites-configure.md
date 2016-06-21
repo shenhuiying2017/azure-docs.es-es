@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Configuración de aplicaciones web en el Servicio de aplicaciones de Azure" 
 	description="Cómo configurar una aplicación web en servicios de aplicaciones de Azure" 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
-	ms.author="tdykstra"/>
-
+	ms.date="06/02/2016" 
+	ms.author="robmcm"/>
 
 # Configuración de aplicaciones web en el Servicio de aplicaciones de Azure #
 
-En este tema se explica cómo configurar una aplicación web con el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+En este tema se explica cómo configurar una aplicación web con el [Portal de Azure].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Configuración de la aplicación
 
-1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
+1. En el [Portal de Azure], abra la hoja de la aplicación web.
 2. Haga clic en **Toda la configuración**.
 3. Haga clic en **Configuración de la aplicación**.
 
-![](./media/web-sites-configure/configure01.png)
+![Configuración de la aplicación][configure01]
 
 La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en varias categorías.
 
@@ -46,19 +45,17 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 
 <a name="platform"></a> **Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
-**Sockets web**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](web-sites-nodejs-chat-app-socketio.md).
+**Sockets web**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR] o [socket.io].
 
 <a name="alwayson"></a> **Siempre activado**. De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar **Siempre disponible** para mantener el sitio cargado continuamente. Cuando tenga trabajos web continuos en ejecución en la aplicación, debe habilitar la opción **Siempre disponible** de lo contrario es posible que los trabajos no se realicen de manera fiable
 
-**Versión de canalización administrada**. Configura el [modo de canalización](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application) IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
+**Versión de canalización administrada**. Configura el [modo de canalización] IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
 
 **Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para obtener más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en el servicio de aplicaciones de Azure](web-sites-staged-publishing.md).
-
 
 ### Depuración
 
 **Depuración remota**. Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su aplicación web de Azure. La depuración remota permanecerá habilitada durante 48 horas.
-
 
 ### Configuración de la aplicación
 
@@ -76,10 +73,10 @@ En las aplicaciones .NET, estas cadenas de conexión se insertan en la sección 
 
 En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán disponibles como variables de entorno en tiempo de ejecución, con el tipo de conexión como prefijo. Los prefijos de variable de entorno son los siguientes:
 
-- SQL Server: SQLCONNSTR\_
-- MySQL: MYSQLCONNSTR\_
-- Base de datos SQL: SQLAZURECONNSTR\_
-- Personalizado: CUSTOMCONNSTR\_
+- SQL Server: `SQLCONNSTR_`
+- MySQL: `MYSQLCONNSTR_`
+- Base de datos SQL: `SQLAZURECONNSTR_`
+- Personalizado: `CUSTOMCONNSTR_`
 
 Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
@@ -129,52 +126,67 @@ Para ver los archivos de registro, debe crear las credenciales FTP, de la forma 
 3. Escriba un nombre de usuario y una contraseña.
 4. Haga clic en **Guardar**.
 
-![](./media/web-sites-configure/configure03.png)
-
+![Configurar credenciales de implementación][configure03]
 
 El nombre de usuario de FTP completo es *app* en el que app es el nombre de su aplicación web. El nombre de usuario se indica en la tarjeta única de la aplicación web, en **Essentials**
 
-![](./media/web-sites-configure/configure02.png)
+![Credenciales de implementación de FTP][configure02]
 
 ## Otras tareas de configuración
 
 ### SSL 
 
-En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Habilitar HTTPS para una aplicación web](web-sites-configure-ssl-certificate.md).
+En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para más información, consulte [Habilitación de HTTPS para una aplicación web].
 
 Para ver los certificados cargados, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
 ### Nombres de dominio
 
-Agregue nombres de dominio personalizados para su aplicación web. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en el servicio de aplicaciones de Azure](web-sites-custom-domain-name.md).
+Agregue nombres de dominio personalizados para su aplicación web. Para más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en el servicio de aplicaciones de Azure].
 
 Para ver los nombres de dominios, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
 ### Implementaciones
 
-- Configure la implementación continua. Consulte [Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
-- Ranuras de implementación. Consulte [Implementación en entornos de ensayo para las aplicaciones Web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md)
+- Configure la implementación continua. Consulte [Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure].
+- Ranuras de implementación. Consulte [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure].
 
 Para ver las ranuras de implementación, haga clic en **Toda la configuración** > **Ranuras de implementación**.
-
 
 ### Supervisión
 
 En modo estándar, pruebe la disponibilidad de los extremos HTTP o HTTPS desde ubicaciones geodistribuidas. Una prueba de supervisión da error si el código de respuesta HTTP es un error (4xx o 5xx) o si la respuesta se retrasa más de 30 segundos. Un extremo se considera disponible si sus pruebas de supervisión se realizan correctamente desde todas las ubicaciones especificadas.
 
-Para obtener más información, consulte [Supervisión de estado de extremo web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
+Para obtener más información, consulte [Supervisión de estado de extremo web].
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones], donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Pasos siguientes
 
-- [Configuración de un nombre de dominio personalizado](web-sites-custom-domain-name.md)
-- [Habilitación de HTTPS](web-sites-configure-ssl-certificate.md)
-- [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md)
-- [Aspectos básicos de supervisión para las aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
+- [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure]
+- [Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure]
+- [Escalación de una aplicación web en el Servicio de aplicaciones de Azure]
+- [Aspectos básicos de supervisión para las aplicaciones web en Servicio de aplicaciones de Azure]
 
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
+<!-- URL List -->
 
-<!---HONumber=AcomDC_0518_2016-->
+[ASP.NET SignalR]: http://www.asp.net/signalr
+[Portal de Azure]: https://portal.azure.com/
+[Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure]: ./web-sites-custom-domain-name.md
+[Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure]: ./web-sites-staged-publishing.md
+[Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure]: ./web-sites-configure-ssl-certificate.md
+[Supervisión de estado de extremo web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Aspectos básicos de supervisión para las aplicaciones web en Servicio de aplicaciones de Azure]: ./web-sites-monitor.md
+[modo de canalización]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Escalación de una aplicación web en el Servicio de aplicaciones de Azure]: ./web-sites-scale.md
+[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
+[Prueba del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure]: ./web-sites-publish-source-control.md
+
+<!-- IMG List -->
+
+[configure01]: ./media/web-sites-configure/configure01.png
+[configure02]: ./media/web-sites-configure/configure02.png
+[configure03]: ./media/web-sites-configure/configure03.png
+
+<!---HONumber=AcomDC_0608_2016-->

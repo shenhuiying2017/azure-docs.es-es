@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Copia de seguridad y restauración de bases de datos habilitadas para Stretch | Microsoft Azure"
-	description="Aprenda a realizar una copia de seguridad y restaurar bases de datos habilitadas para Stretch."
+	pageTitle="Copia de seguridad de bases de datos habilitadas para Stretch | Microsoft Azure"
+	description="Obtenga información sobre cómo realizar una copia de seguridad de bases de datos habilitadas para Stretch."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -13,42 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/03/2016"
 	ms.author="douglasl"/>
-
 
 # Copia de seguridad y restauración de bases de datos habilitadas para Stretch
 
-Para realizar la copia de seguridad y la restauración de bases de datos habilitadas para Stretch, puede seguir usando los métodos que utiliza actualmente. Para obtener más información acerca de la copia de seguridad y la restauración de SQL Server, consulte [Copias de seguridad y restauración de Bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
+Gracias a las copias de seguridad de bases de datos, podrá recuperarse de muchos tipos de errores y desastres.
 
-Una copia de seguridad de una base de datos habilitada para Stretch es una copia de seguridad superficial que no incluye los datos migrados al servidor remoto.
+-   Tiene que realizar una copia de seguridad de las bases de datos de SQL Server habilitadas para Stretch.  
 
-Stretch Database proporciona compatibilidad total con la restauración a un momento dado. Después de restaurar la Base de datos de SQL Server a un momento dado y autorizar de nuevo la conexión a Azure, Stretch Database concilia los datos remotos en el mismo momento dado. Para obtener más información sobre la restauración a un momento dado en SQL Server, vea [Restauración de Base de datos de SQL Server a un momento dado (modelo de recuperación completa)](https://msdn.microsoft.com/library/ms179451.aspx). Para obtener información sobre el procedimiento almacenado que debe ejecutar después de una restauración para autorizar de nuevo la conexión a Azure, vea [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx).
+-   Microsoft Azure realiza automáticamente copias de seguridad de los datos remotos que Stretch Database ha migrado de SQL Server a Azure.
 
-## <a name="Reconnect"></a>Restauración de una base de datos habilitada para Stretch desde una copia de seguridad
+>    [AZURE.NOTE] La copia de seguridad solo es uno de los componentes que conforman una solución de continuidad empresarial y de alta disponibilidad. Para obtener más información sobre la alta disponibilidad, consulte [Soluciones de alta disponibilidad (SQL Server)](https://msdn.microsoft.com/library/ms190202.aspx).
 
-1.  Restaure la base de datos desde una copia de seguridad.
+## Copia de seguridad de los datos de SQL Server  
 
-2.  Ejecute el procedimiento almacenado [sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) para volver a conectar la base de datos local habilitada para Stretch a Azure.
+Para realizar una copia de seguridad de las bases de datos de SQL Server habilitadas para Stretch, puede seguir usando los métodos de copia de seguridad de SQL Server que utiliza actualmente. Para obtener más información, consulte [Realizar copias de seguridad y restaurar bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
 
-    -   Proporcione la credencial existente con ámbito de base de datos como un valor sysname o varchar (128). (No se varchar(max).) Puede buscar el nombre de la credencial en la vista **sys.database\_scoped\_credentials**.
+Las copias de seguridad de una base de datos de SQL Server contienen únicamente datos locales y datos elegibles que pueden migrarse a un momento dado cuando se ejecuta la copia de seguridad (Los datos elegibles constituyen información que aún no se ha migrado, pero que se migrará a Azure según la configuración de migración de las tablas). Este proceso se conoce como "copia de seguridad **superficial**" y no incluye los datos que ya se han migrado a Azure.
 
-	-   Especifique si desea hacer una copia de los datos remotos y conectarse a ella.
+## Copia de seguridad de los datos de Azure remotos   
 
-    ```tsql
-    Declare @credentialName nvarchar(128);
-    SET @credentialName = N'<database_scoped_credential_name_created_previously>';
-    EXEC sp_rda_reauthorize_db @credential = @credentialName, @with_copy = 0;
-    ```
+Microsoft Azure realiza automáticamente copias de seguridad de los datos remotos que Stretch Database ha migrado de SQL Server a Azure.
 
-## <a name="MoreInfo"></a>Más información sobre copias de seguridad y restauración
-Las copias de seguridad en bases de datos con Stretch Database habilitado contienen únicamente datos locales y datos elegibles en un momento dado cuando se ejecuta la copia de seguridad. Estas copias de seguridad también contienen información sobre el punto de conexión remoto en el que residen los datos remotos de la base de datos. A esto se le conoce como "copia de seguridad superficial". No son compatibles las copias de seguridad en profundidad que contienen todos los datos de la base de datos , locales y remotas.
+### Azure reduce el riesgo de pérdida de datos gracias a las copias de seguridad automáticas  
+El servicio SQL Server Stretch Database de Azure protege las bases de datos remotos con instantáneas de almacenamiento automático cada 8 horas como mínimo. Conserva cada instantánea durante 7 días para proporcionar diferentes puntos de restauración posibles.
 
-Cuando se restaura una copia de seguridad de una base de datos con Stretch Database habilitado, esta operación restaura los datos locales y elegibles en la base de datos según lo esperado. (Los datos elegibles son datos que aún no se han movido, pero que se moverán a Azure según la configuración de Stretch Database de las tablas). Después de ejecutar la operación de restauración, la base de datos contiene datos locales y elegibles a partir del momento en el que se ejecutó la copia de seguridad, pero no tiene las credenciales necesarias y los artefactos para conectarse al punto de conexión remoto.
+### Azure reduce el riesgo de pérdida de datos gracias a la redundancia geográfica  
+Las copias de seguridad de bases de datos de Azure se almacenan en el Almacenamiento de Azure con redundancia geográfica (RA-GRS) y, por tanto, tienen esta característica de forma predeterminada. El almacenamiento con redundancia geográfica replica sus datos a una región secundaria que se encuentra a cientos de kilómetros de distancia de la región principal. Los datos se replican tres veces en cada región primaria y secundaria, en dominios de error y en dominios de actualización independientes. Esto garantiza que los datos perduren incluso en el caso de un apagón regional completo o un desastre que haga que una de las regiones de Azure deje de estar disponible.
 
-Debe ejecutar el procedimiento almacenado **sys.sp\_rda\_reauthorize\_db** para volver a establecer la conexión entre la base de datos local y el punto de conexión remoto. Solo db\_owner puede realizar esta operación. Este procedimiento almacenado también precisa los datos de inicio de sesión del administrador y la contraseña para el servidor de Azure de destino.
+### <a name="stretchRPO"></a>Stretch Database reduce el riesgo de pérdida de los datos de Azure al conservar filas migradas temporalmente
+Una vez que Stretch Database migre las filas elegibles de SQL Server a Azure, conserva estas filas de la tabla de almacenamiento provisional durante un periodo mínimo de 8 horas. Si restaura una copia de seguridad de la base de datos de Azure, Stretch Database utilizará las filas que se guardan en la tabla de almacenamiento provisional para conciliar las bases de datos de SQL Server y de Azure.
 
-Después de volver a establecer la conexión, Stretch Database intenta conciliar los datos elegibles en la base de datos local con datos remotos mediante la creación de una copia de los datos remotos en el punto de conexión remoto y su vinculación con la base de datos local. Este proceso es automático y no requiere la intervención del usuario. Después de que se ejecute la conciliación, la base de datos local y el punto de conexión remoto se encuentran en un estado coherente.
+Después de restaurar una copia de seguridad de los datos de Azure, tendrá que ejecutar el procedimiento almacenado [sys.sp\_rda\_reauthorize\_db](https://msdn.microsoft.com/library/mt131016.aspx) para volver a establecer la conexión entre la base de datos de SQL Server habilitada para Stretch y la de Azure remota. Al ejecutar **sys.sp\_rda\_reauthorize\_db**, Stretch Database conciliará automáticamente las bases de datos de SQL Server y Azure.
+
+Para aumentar el número de horas de los datos migrados que Stretch Database conserva temporalmente en la tabla de almacenamiento provisional, ejecute el procedimiento almacenado [sys.sp\_rda\_set\_rpo\_duration](https://msdn.microsoft.com/library/mt707766.aspx) y especifique un número de horas mayor que 8. Para decidir la cantidad de datos que conservará, tenga en cuenta los siguientes factores:
+-   La frecuencia de las copias de seguridad de Azure automáticas (al menos, cada 8 horas).
+-   Después de que se produzca un problema, el tiempo que se necesita en detectarlo y decidir restaurar una copia de seguridad.
+-   La duración de la operación de restauración de Azure.
+
+> [AZURE.NOTE] Al aumentar la cantidad de datos que Stretch Database conserva temporalmente en la tabla de almacenamiento provisional, se incrementa el espacio necesario en la instancia de SQL Server.
+
+Para comprobar el número de horas que Stretch Database conserva en estos momentos temporalmente en la tabla de almacenamiento provisional, ejecute el procedimiento almacenado [sys.sp\_rda\_get\_rpo\_duration](https://msdn.microsoft.com/library/mt707767.aspx).
 
 ## Consulte también
 
@@ -58,4 +64,4 @@ Después de volver a establecer la conexión, Stretch Database intenta conciliar
 
 [Copia de seguridad y restauración de bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

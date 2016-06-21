@@ -161,7 +161,7 @@ En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, int
 
 | **Componente** | **Threat** | **Mitigación** | **Riesgo** | **Implementación** |
 |---------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dispositivo | S | Asignación de identidad para el dispositivo y autenticación del dispositivo | Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo sabemos que hablamos al dispositivo correcto? | Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Use Azure AD, OAuth (<http://www.rfc-editor.org/in-notes/internet-drafts/draft-tschofenig-ace-oauth-iot-00.txt>) |
+| Dispositivo | S | Asignación de identidad para el dispositivo y autenticación del dispositivo | Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo sabemos que hablamos al dispositivo correcto? | Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Use Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 | | TRID | Aplicar mecanismos a prueba de manipulaciones al dispositivo, por ejemplo, haciendo que sea casi Imposible extraer claves y otro material criptográfico del dispositivo. | El riesgo es que alguien altere el dispositivo (interferencias físicas). ¿Cómo tenemos la certeza de que el dispositivo no se ha alterado? | La mitigación más eficaz es una funcionalidad de Módulo de plataforma segura (TPM) que permita almacenar claves en el conjunto de circuitos del procesador desde el que no se pueden leer las claves, solo se pueden usar para las operaciones criptográficas que utilizan la clave, pero nunca la revelan. Cifrado de la memoria del dispositivo. Administración de claves para el dispositivo. Firma del código. |
 | | E | Tener el control de acceso del dispositivo. Esquema de autorización. | Si el dispositivo permite que se realicen acciones individuales con los comandos de un origen externo. o incluso sensores en peligro, permitirá que el ataque realice operaciones a las que no podría acceder de otra forma. | Tener el esquema de autorización del dispositivo |
 | Puerta de enlace de campo | S | Autenticación de la puerta de enlace de campo en la puerta de enlace en la nube (basada en certificado, PSK, basada en notificación, etc.). | Si alguien puede suplantar la identidad de la puerta de enlace de campo, puede presentarse como cualquier dispositivo. | TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Los mismos problemas de almacenamiento de claves y atestación de los dispositivos en general (lo mejor es usar TPM). Extensión de 6LowPAN para IPSec para admitir redes de sensores inalámbricas (WSN). |
@@ -172,7 +172,7 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 Suplantación de identidad: un atacante puede extraer material criptográfico clave de un dispositivo, en el nivel de hardware o en el de software, y posteriormente acceder al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material clave.
 
-**Denegación de servicio:** un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se han interrumpido intencionadamente cubriendo no notificarán datos.
+**Denegación de servicio**: un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se han interrumpido intencionadamente cubriendo no notificarán datos.
 
 **Manipulación:** un atacante puede reemplazar total o parcialmente el software que se ejecuta en el dispositivo, lo que potencialmente permite que el software reemplazado use la identidad genuina del dispositivo si el material clave o las instalaciones criptográficas que contienen materiales clave estaban disponibles para el programa ilícito.
 
@@ -192,7 +192,7 @@ Suplantación de identidad: un atacante puede extraer material criptográfico cl
 
 **Denegación de servicio:** el dispositivo se puede pasar a un estado en el que no sea posible la comunicación.
 
-**Manipulación:** el dispositivo se puede reconfigurar para que opere en un estado desconocido para el sistema de control (fuera de los parámetros de calibrado conocidos) y, por tanto, proporcionar datos que se puedan interpretar erróneamente.
+**Manipulación:** el dispositivo se puede reconfigurar para que opere en un estado desconocido para el sistema de control (fuera de los parámetros de calibrado conocidos) y así proporcionar datos que se puedan interpretar erróneamente.
  
 **Suplantación de identidad, manipulación o rechazo:** si no está protegido (que casi nunca es el caso de los mandos a distancia de los consumidores), un atacante puede manipular el estado de un dispositivo de forma anónima. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
 
@@ -212,9 +212,9 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 **Denegación de servicio:** los dispositivos restringidos suelen estar bajo la amenaza de denegación de servicio cuando escuchan activamente conexiones entrantes o datagramas no solicitados en una red, porque un atacante puede abrir muchas conexiones en paralelo y no prestarles servicio o prestárselo muy lentamente, o bien el dispositivo se puede inundar con tráfico no solicitado. En ambos casos, el dispositivo puede representarse eficazmente como no operativo en la red.
 
-**Suplantación, revelación de información:** tanto los dispositivos restringidos como los dispositivos especiales tienen a menudo funciones de seguridad del tipo "una para todos", como la protección mediante PIN o contraseña, o se basan totalmente en confiar en la red, lo que significa que concederán acceso a la información cuando un dispositivo se encuentre en la misma red y con frecuencia dicha red solo está protegida por una clave compartida. Esto significa que cuando el secreto compartido se revela al dispositivo o a la red, es posible controlar el dispositivo u observar los datos emitidos desde el dispositivo.
+**Suplantación, revelación de información:** tanto los dispositivos restringidos como los dispositivos especiales tienen a menudo funciones de seguridad del tipo "una para todos", como la protección mediante PIN o contraseña, o se basan totalmente en confiar en la red, lo que significa que concederán acceso a la información cuando un dispositivo se encuentre en la misma red y con frecuencia dicha red solo esté protegida por una clave compartida. Esto significa que cuando el secreto compartido se revela al dispositivo o a la red, es posible controlar el dispositivo u observar los datos emitidos desde el dispositivo.
 
-**Suplantación:** un atacante puede interceptar o invalidar parcialmente la difusión y suplantar al originador ("Man in the middle")
+**Suplantación:** un atacante puede interceptar o invalidar parcialmente la difusión y suplantar al originador ("Man in the middle").
 
 **Manipulación:** un atacante puede interceptar o invalidar parcialmente la difusión y enviar información falsa. Divulgación de información: un atacante puede interceptar una difusión y obtener información sin autorización. Denegación de servicio: un atacante puede bloquear la señal de difusión y denegar la distribución de la información.
 
@@ -250,3 +250,5 @@ Para más información, consulte los artículos siguientes:
 
 - [Microsoft Azure IoT reference architecture available (Arquitectura de referencia de IoT de Microsoft Azure disponible)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
+
+<!---HONumber=AcomDC_0608_2016-->

@@ -302,13 +302,16 @@ Cuando los tres informes se crean y las visualizaciones correspondientes se ancl
 
 Nota: La canalización del procesamiento por lotes de un extremo a otro tarda unas dos horas en ejecutarse (a partir de la finalización correcta de la implementación) y en procesar un año de datos generados. Espere antes de continuar con los siguientes pasos.
 
-**Descargue el archivo del diseñador de Power BI** • Se incluye un archivo del diseñador de Power BI preconfigurado como parte de la implementación • Haga clic en el nodo de Power BI en la vista de diagrama y haga clic en el vínculo 'Descargar el archivo del diseñador de Power BI’ en el panel de propiedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+**Descargue el archivo del Diseñador de Power BI**
+-	Un archivo de diseñador PowerBI configurado previamente se incluye como parte de la implementación.
+-	Haga clic en el nodo de Power BI en la vista de diagrama y haga clic en el vínculo de archivo para descargar el diseñador de Power BI en el panel de propiedades ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png).
 
-• Guarde localmente.
+-	Guarde localmente.
 
-**Configure los informes de Power BI** • Abra el archivo de diseñador 'VehicleTelemetryAnalytics - Desktop Report.pbix' mediante Power BI Desktop. Si no lo ha hecho ya, instale Power BI Desktop desde la instalación de [PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+**Configuración de informes de PowerBI**
+-	Abra el archivo de diseñador 'VehicleTelemetryAnalytics - Desktop Report.pbix' mediante Power BI Desktop. Si no lo ha hecho ya, instale Power BI Desktop desde la instalación de [PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331). 
 
-• Haga clic en el **Editar consultas**.
+-	Haga clic en el **Editar consultas**.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
@@ -393,4 +396,4 @@ Ancle los gráficos al panel existente **Panel de análisis de telemetría de ve
 
 ¡Enhorabuena! Ha creado correctamente los informes y el panel para obtener información predictiva y por lotes en tiempo real sobre los hábitos de mantenimiento y conducción.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

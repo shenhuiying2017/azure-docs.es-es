@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="06/07/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL
@@ -23,7 +23,7 @@
 
 El Cifrado de datos transparente (TDE) del Almacenamiento de datos SQL facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin requerir cambios en la aplicación.
 
-TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En Base de datos SQL la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
+TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En Base de datos SQL la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL. Microsoft alterna automáticamente estos certificados al menos cada 90 días. El algoritmo de cifrado usado por Almacenamiento de datos SQL es AES-256. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
 
 ##Habilitar el cifrado
 
@@ -45,12 +45,17 @@ Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 4. Seleccione el valor **Desactivado** ![][4]
 5. Seleccione **Guardar** ![][5]  
 
+##DMV de cifrado
 
+El cifrado se puede confirmar con las siguientes DMV:
 
+- [Sys.Databases]
+- [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
 
-<!--Anchors-->
+<!--MSDN references-->
 [Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png
@@ -61,4 +66,4 @@ Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

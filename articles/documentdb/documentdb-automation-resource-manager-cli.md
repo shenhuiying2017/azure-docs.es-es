@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/03/2016" 
 	ms.author="mimig"/>
 
 # Automatización de la creación de cuentas de DocumentDB con la CLI de Azure y plantillas del Administrador de recursos de Azure
@@ -37,7 +37,7 @@ Para poder usar la CLI de Azure con grupos de recursos de Azure, necesitará la 
 
 ### Actualización de la versión de la CLI de Azure
 
-En el símbolo del sistema, escriba `azure --version` para ver si ya tiene instalada la versión 0.9.11 o una posterior.
+En el símbolo del sistema, escriba `azure --version` para ver si ya tiene instalada la versión 0.9.11 o una posterior. Es posible que se le pida su participación en la recopilación de datos de la CLI de Microsoft Azure en este paso, y puede optar por hacerlo o no.
 
 	azure --version
     0.9.11 (node: 0.12.7)
@@ -56,8 +56,7 @@ Lo que genera el siguiente resultado:
 
     info:    Executing command login
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
-    Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
-    AD application, use the --username and --password parameters.
+    Enter the code E1A2B3C4D to authenticate.
 
 > [AZURE.NOTE] Si no tiene una cuenta de Azure, verá un mensaje de error que indica que necesita un otro tipo de cuenta. Para crear una a partir su cuenta de Azure actual, consulte [Crear una identidad profesional o educativa en Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
@@ -78,7 +77,7 @@ El shell de comandos también proporciona el siguiente resultado.
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
     +
-    info:    login command OKK
+    info:    login command OK
 
 Además del método de inicio de sesión interactivo que se describe aquí, existen otros métodos de inicio de sesión en la CLI de Azure. Para más información sobre otros métodos y sobre el control de varias suscripciones, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
 
@@ -94,7 +93,7 @@ Lo que genera el siguiente resultado:
     info:    New mode is arm
     info:    config mode command OK
 
-Puede volver a cambiar al conjunto predeterminado de comandos escribiendo `azure config mode asm`.
+Si fuera necesario, puede volver a cambiar al conjunto predeterminado de comandos escribiendo `azure config mode asm`.
 
 ## <a id="quick-create-documentdb-account"></a>Tarea: Creación de una cuenta de DocumentDB con la CLI de Azure
 
@@ -226,7 +225,7 @@ Para crear un archivo de parámetros, copie el siguiente contenido en un nuevo a
         }
     }
 
-En el archivo azuredeploy.parameters.json, actualice el valor "samplearmacct" al nombre de base de datos que desee usar y después guarde el archivo. `<databaseAccountName>` solo admite minúsculas, números, el carácter "-", y debe tener entre 3 y 50 caracteres.
+En el archivo azuredeploy.parameters.json, actualice el valor "samplearmacct" al nombre de base de datos que desee usar y después guarde el archivo. `"databaseAccountName"` solo admite minúsculas, números, el carácter "-", y debe tener entre 3 y 50 caracteres.
 
 ### Paso 2: Creación o recuperación del grupo de recursos
 
@@ -298,15 +297,21 @@ Cuando se haya aprovisionado la cuenta, aparecerá la siguiente información:
     + Creating a deployment
     info:    Created template deployment "azuredeploy"
     + Waiting for deployment to complete
+    + 
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
     data:    ResourceGroupName  : new_res_group
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
     data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
     data:    databaseAccountName  String  samplearmacct
-    data:    location             String  West US
     info:    group deployment create command OK
 
 Si se producen errores, consulte [Solución de problemas](#troubleshooting).
@@ -354,4 +359,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
 Para obtener más plantillas que puede usar, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0608_2016-->

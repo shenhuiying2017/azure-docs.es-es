@@ -64,7 +64,7 @@ Las bases de datos SQL de Azure también pueden configurarse para enmascarar los
 
 ![Replicación geográfica](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica en el portal permite seleccionar la región de Azure en la que le gustaría que residiera la base de datos secundaria.
+Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente las transacciones confirmadas en una base de datos secundaria. La parte de la replicación geográfica del portal permite seleccionar la región de Azure en la que le gustaría que residiera la base de datos secundaria.
 
 - [Replicación geográfica](sql-database-geo-replication-overview.md)
 
@@ -74,4 +74,4 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
 
 - [Base de datos SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

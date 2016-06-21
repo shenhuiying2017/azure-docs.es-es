@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/01/2016"
 	ms.author="stefsch"/>
 
 # Opciones de configuración personalizada para Entornos del Servicio de aplicaciones
@@ -76,7 +76,7 @@ TLS 1.0 se puede deshabilitar mediante la siguiente entrada de **clusterSettings
         ],
 
 ## Cambio del orden del conjunto de aplicaciones de cifrado TLS ##
-Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings**, como se muestra a continuación. La lista de conjuntos de aplicaciones de cifrado disponibles se puede recuperar desde [en este artículo MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
+Otra pregunta de los clientes es si pueden modificar la lista de cifrados negociados por su servidor, y si esto puede lograrse mediante la modificación del atributo **clusterSettings**, como se muestra a continuación. La lista de conjuntos de aplicaciones de cifrado disponibles se puede recuperar desde [en este artículo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
         "clusterSettings": [
             {
@@ -85,14 +85,14 @@ Otra pregunta de los clientes es si pueden modificar la lista de cifrados negoci
             }
         ],
 
-> Nota: Si se establecen valores incorrectos para el conjunto de aplicaciones de cifrado que SChannel no entiende, toda la comunicación TLS en el servidor podría dejar de funcionar. En ese caso, necesitará volver a implementar el entorno del Servicio de aplicaciones, lo que causará un tiempo de inactividad significativo y una posible pérdida de datos. Utilice esta funcionalidad con precaución.
+> [AZURE.WARNING]  Nota: Si se establecen valores incorrectos para el conjunto de aplicaciones de cifrado que SChannel no entiende, toda la comunicación TLS en el servidor podría dejar de funcionar. En tal caso, debe quitar la entrada *FrontEndSSLCipherSuiteOrder* de **clusterSettings** y enviar la plantilla actualizada de ARM para volver a la configuración de conjunto de cifrado predeterminada. Utilice esta funcionalidad con precaución.
 
 ## Primeros pasos
-El sitio de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno del Servicio de aplicaciones](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+El sitio de inicio rápido de plantillas de Azure Resource Manager incluye una plantilla con la definición base para [crear un entorno del Servicio de aplicaciones](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
 <!-- LINKS -->
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

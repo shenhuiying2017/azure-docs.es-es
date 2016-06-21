@@ -5,7 +5,7 @@
     keywords="enterprise state roaming, nube de windows"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Referencia de la configuración de movilidad de Windows 10
@@ -33,7 +33,7 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 
 ##¿Qué es una copia de seguridad?
-La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
+La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Copia de seguridad está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Copia de seguridad utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
 
 ## Introducción a la configuración de Windows
 Los grupos de configuración siguientes están disponibles para que los usuarios finales puedan habilitar o deshabilitar en ellos la sincronización de configuración en dispositivos de Windows 10.
@@ -46,6 +46,10 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 - Otras configuraciones de Windows: consultar Detalles de configuración de Windows
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+
+Es posible habilitar o deshabilitar la sincronización de un grupo de configuración del explorador Edge a través de la opción de menú Configuración del explorador Edge.
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
  
 ## Detalles de configuración de Windows
 En la tabla siguiente, las entradas Otros en la columna Grupo de la configuración se refieren a configuraciones que se pueden deshabilitar en Configuración > Cuentas > Sincronizar la configuración > Otras configuraciones de Windows.
@@ -57,11 +61,11 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |----------------------------------|---------|---------|-------|
 | **Cuentas**: imagen de la cuenta | sync |X |Tema |
 | **Cuentas**: otras configuraciones de la cuenta |X |X | |
-| **Ancho de banda móvil avanzado**: conexión a Internet que comparte el nombre de red (permite la detección automática de zonas con cobertura inalámbrica móvil a través de Bluetooth)|sync |sync |Contraseñas |
+| **Ancho de banda móvil avanzado**: conexión a Internet que comparte el nombre de red (permite la detección automática de zonas con cobertura inalámbrica móvil a través de Bluetooth)|X |X |Contraseñas |
 |**Datos de la aplicación**: las aplicaciones individuales pueden sincronizar datos|sincronización copia de seguridad | sincronización copia de seguridad|interno |
 |**Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 |**Bluetooth**: toda la configuración de Bluetooth |X |X | |
-|**Símbolo del sistema**: toda la configuración de línea de comandos |sync| |X |Otros
+|**Símbolo del sistema**: toda la configuración de línea de comandos |sync |X | |
 |**Cortana**: activar o desactivar |X |X | |
 |**Cortana**: habilitar Cortana en la pantalla de bloqueo |X |X | |
 |**Cortana**: nombre de usuario |sync |sync |interno|
@@ -69,8 +73,8 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |**Cortana**: Búsqueda segura |X |sync |interno|
 |**Cortana**: buscar información sobre vuelos, etc.|X |sync |interno|
 |**Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña|
-|**Fecha, hora y región**: hora automática (sincronización de tiempo de Internet) |sync |sync |language|
-|**Fecha, hora y región**: formato de 24 horas|sync |sync |language|
+|**Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language|
+|**Fecha, hora y región**: formato de 24 horas|sync |X |language|
 |**Fecha, hora y región**: fecha y hora|sync |X |language|
 |**Fecha, hora y región**: zona horaria | |X |language|
 |**Fecha, hora y región**: horario de verano|sync |X |language|
@@ -83,10 +87,10 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |**Fecha, hora y región**: hora larga |sync |X |language|
 |**Personalización del escritorio**: tema de escritorio (fondo, color del sistema, sonidos del sistema predeterminados, protector de pantalla) |sync |X |Tema|
 |**Personalización del escritorio**: papel tapiz de presentación |sync |X |Tema|
-|**Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.). |sync |X |Tema|
-|**Personalización del escritorio**: diseño de pantalla de inicio |sync |backup ||
-|**Dispositivos**: impresoras compartidas a las que se conecta |sync | X |otros |
-|**Explorador Edge**: lista de lectura |sync |sync |interno|
+|**Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.) |sync |X |Tema|
+|**Personalización del escritorio**: diseño de pantalla de inicio |X |backup ||
+|**Dispositivos**: impresoras compartidas a las que se conecta |X | X |otros |
+|**Explorador de Edge**: lista de lectura |sync |sync |interno|
 |**Explorador Edge**: favoritos |sync |sync |interno|
 |**Explorador Edge**: el resto de la configuración de Edge|X |X ||
 |**Contraste alto**: activar o desactivar |sync |sync |Facilidad de acceso|
@@ -109,7 +113,7 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |**Idioma**: QWERTY chino simplificado - juego de caracteres de chino tradicional|sync |X |Idioma|
 |**Idioma**: QWERTY chino simplificado - pinyin aproximado|sync |sync |Idioma|
 |**Idioma**: QWERTY chino simplificado - pares aproximados|sync |sync |Idioma|
-|**Idioma**: QWERTY chino simplificado - pinyin completo||sync |X |Idioma|
+|**Idioma**: QWERTY chino simplificado - pinyin completo|sync |X |Idioma|
 |**Idioma**: QWERTY chino simplificado - pinyin doble|sync |X |Idioma|
 |**Idioma**: QWERTY chino simplificado - corrección automática de lectura|sync |X |Idioma|
 |**Idioma**: QWERTY chino simplificado - tecla de modificador C/E, MAYÚS|sync |X |Idioma|
@@ -125,7 +129,7 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |**Idioma**: corrector ortográfico - autocorrección y resaltar errores ortográficos|sync |backup |Idioma|
 |**Idioma**: lista de teclados|sync |backup |Idioma|
 |**Pantalla de bloqueo**: toda la configuración de pantalla de bloqueo|X |X ||
-|**Lupa**: activar o desactivar (alternancia de maestro)|X |backup |Facilidad de acceso|
+|**Lupa**: activar o desactivar (alternancia de maestro)|X |X |Facilidad de acceso|
 |**Lupa**: activar o desactivar inversión del color (desactivado de forma predeterminada)|sync |X |Facilidad de acceso|
 |**Lupa**: seguimiento - seguimiento del foco del teclado|sync |X |Facilidad de acceso|
 |**Lupa**: seguimiento - seguimiento del cursor del mouse|sync |X |Facilidad de acceso|
@@ -138,9 +142,9 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 |**Narrador**: los usuarios pueden activar o desactivar las sugerencias de lectura del narrador para los elementos comunes (activado de forma predeterminada)|sync |X |Facilidad de acceso|
 |**Narrador**: los usuarios pueden activar o desactivar si pueden oír los caracteres escritos (activado de forma predeterminada)|sync |X |Facilidad de acceso|
 |**Narrador**: los usuarios pueden activar o desactivar si pueden oír las palabras escritas (activado de forma predeterminada)|sync |X |Facilidad de acceso|
-|**Narrador**: insertar cursor en función del narrador (activado de forma predeterminada)|sync |X |Facilidad de acceso|
+|**Narrador**: insertar cursor a continuación del narrador (activado de forma predeterminada)|sync |X |Facilidad de acceso|
 |**Narrador**: habilitar resaltado visual del cursor del narrador (activado de forma predeterminada)|sync |X |Facilidad de acceso|
-|**Narrador**: reproducir entradas de sonido (activado de forma predeterminada)|sync |X |Facilidad de acceso|
+|**Narrador**: reproducir indicaciones de sonido (activado de forma predeterminada)|sync |X |Facilidad de acceso|
 |**Narrador**: activar teclas del teclado táctil al levantar el dedo (desactivado de forma predeterminada)|sync |sync |Facilidad de acceso|
 |**Facilidad de acceso**: establecer el grosor del cursor intermitente|sync |X |Facilidad de acceso|
 |**Facilidad de acceso**: quitar imágenes de fondo (desactivado de forma predeterminada)|sync |X |Facilidad de acceso|
@@ -172,4 +176,4 @@ Las entradas Interno de la columna Grupo de la configuración hacen referencia a
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0608_2016-->
