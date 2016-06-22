@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Información general de Análisis de Microsoft Azure Data Lake
@@ -77,4 +77,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

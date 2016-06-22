@@ -21,7 +21,7 @@
 
 # Conexión a un clúster del servicio Contenedor de Azure
 
-Los clústeres de DC/OS y Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Cuando se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
+Los clústeres de DC/OS y Docker Swarm que implementa el servicio Contenedor de Azure exponen los puntos de conexión REST. Sin embargo, estos puntos de conexión no están abiertos al mundo exterior. Para administrar dichos puntos de conexión, es preciso crear un túnel de Secure Shell (SSH). Después de que se haya establecido un túnel SSH, puede ejecutar comandos contra los puntos de conexión y ver la interfaz de usuario del clúster a través de un explorador en su propio sistema. Este documento le guía en la creación de un túnel de SSH en Linux, OSX y Windows.
 
 >[AZURE.NOTE] Puede crear una sesión de SSH con un sistema de administración de clústeres. Sin embargo, no es aconsejable. Si se trabaja directamente en un sistema de administración, es preciso asumir el riesgo de que se produzcan cambios involuntarios en la configuración.
 
@@ -34,14 +34,14 @@ Lo primero que se hace al crear un túnel de SSH en Linux u OS X es buscar el no
 
 Ahora, abra un shell y ejecute el siguiente comando, donde:
 
-**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos. **PATH\_TO\_PRIVATE\_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster del servicio de contenedor. Utilice esta opción con la marca -i.
+**PORT** es el puerto del punto de conexión que desea exponer. En el caso de Swarm, es el 2375. En el de DC/OS, utilice el puerto 80. **USERNAME** es el nombre de usuario que se especificó cuando se implementó el clúster. **DNSPREFIX** es el prefijo DNS que proporcionó al implementar el clúster. **REGION** es la región en la que está ubicado el grupo de recursos. **PATH\_TO\_PRIVATE\_KEY** [OPCIONAL] es la ruta de acceso a la clave privada correspondiente a la clave pública que proporcionó al crear el clúster del servicio Contenedor. Utilice esta opción con la marca -i.
 
 ```bash
 # ssh sample
 
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> El puerto de conexión SSH es el 2200 y no el 22 estándar.
+> El puerto de conexión SSH es el 2200 y no el puerto 22 estándar.
 
 ## Túnel de DC/OS
 
@@ -71,7 +71,7 @@ Para abrir un túnel al punto de conexión de Swarm, ejecute un comando parecido
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Ya puede establecer la variable de entorno DOCKER\_HOST como se indica a continuación y seguir usando la interfaz de línea de comandos (CLI) de Docker de la manera habitual.
+Ahora puede establecer la variable de entorno DOCKER\_HOST de la forma siguiente. Puede usar la interfaz de la línea de comandos (CLI) de Docker de la forma habitual.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -87,11 +87,11 @@ Escriba un nombre de host que conste del nombre de usuario de administrador de c
 
 ![Configuración 1 de PuTTY](media/putty1.png)
 
-Seleccione `SSH` y `Authentication`. Agregue el archivo de clave privada para la autenticación.
+Seleccione **SSH** y **Autenticación**. Agregue el archivo de clave privada para la autenticación.
 
 ![Configuración 2 de PuTTY](media/putty2.png)
 
-Seleccione `Tunnels` y configure los siguientes puertos reenviados:
+Seleccione **Túneles** y configure los siguientes puertos reenviados:
 - **Puerto de origen:** su preferencia (use 80 para DC/OS o 2375 para Swarm).
 - **Destino:** use localhost:80 para DC/OS o localhost:2375 para Swarm.
 
@@ -111,12 +111,13 @@ Cuando haya configurado el túnel para DC/OS, podrá acceder al punto de conexi�
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-Cuando haya configurado el túnel para Docker y enjambre, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
+Cuando haya configurado el túnel para Docker Swarm, podrá acceder al clúster de Swarm a través de la CLI de Docker. Primero será preciso que configure una variable de entorno de Windows denominada `DOCKER_HOST` cuyo valor será ` :2375`.
 
 ## Pasos siguientes
 
-Implemente y administre contenedores con DC/OS o Swarm.
+Implemente y administre contenedores con DC/OS o Swarm:
 
-[Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md) [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
+- [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
+- [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

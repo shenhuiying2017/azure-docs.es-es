@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Es cierto que se trata de un problema difícil. Pero vamos a simplificar un poco
 En este tutorial detallado, seguiremos el proceso de desarrollar un modelo de análisis predictivo en el Estudio de aprendizaje automático y, luego, implementarlo como un servicio web de Aprendizaje automático de Azure. Comenzaremos con los datos de riesgo de crédito que se encuentran disponibles públicamente, desarrollaremos y entrenaremos un modelo predictivo en función de esos datos y luego implementaremos el modelo como un servicio web que otros pueden usar para la evaluación del crédito de riesgo.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, vea [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
 
@@ -41,4 +43,4 @@ Para crear una solución de evaluación del riesgo de crédito, seguiremos estos
 
 Este tutorial se basa en una versión simplificada del experimento de ejemplo [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Clasificación binaria: predicción de riesgo de crédito) de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

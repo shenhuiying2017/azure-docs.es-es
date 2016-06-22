@@ -44,9 +44,9 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Java:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -95,10 +95,10 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     import java.net.URISyntaxException;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**, reemplazando **{yourhubname}** y **{yourhubkey}** por los valores indicados anteriormente:
+7. Agregue las siguientes variables de nivel de clase a la clase **App**, pero reemplace **{yourhostname}** y **{yourhubkey}** por los valores anotados anteriormente:
 
     ```
-    private static final String connectionString = "HostName={yourhubname}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -190,25 +190,20 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     import java.util.logging.*;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores que ha anotado antes. El valor del marcador de posición **{youreventhubcompatiblenamespace}** proviene del **punto de conexión compatible con el Centro de eventos** y adopta la forma siguiente: **xyznamespace** (dicho de otro modo, quite el prefijo ****sb://** y el sufijo **.servicebus.windows.net** del valor de punto de conexión compatible con el Centro de eventos del portal):
+7. Agregue las siguientes variables de nivel de clase a la clase **App**. Reemplace **{youriothubkey}**, **{youreventhubcompatiblenamespace}** y **{youreventhubcompatiblename}** por los valores anotados anteriormente:
 
     ```
-    private static String namespaceName = "{youreventhubcompatiblenamespace}";
-    private static String eventHubName = "{youreventhubcompatiblename}";
-    private static String sasKeyName = "iothubowner";
-    private static String sasKey = "{youriothubkey}";
-    private static long now = System.currentTimeMillis();
+    private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
-8. Agregue el siguiente método **receiveMessages** a la clase **App**. Este método crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible con el Centro de eventos y, a continuación, crea de forma asincrónica una instancia de **PartitionReceiver** para leer desde una partición del Centro de eventos. Se repite continuamente e imprime los detalles de los mensajes hasta que finaliza la aplicación.
+8. Agregue el siguiente método **receiveMessages** a la clase **App**. Dicho método crea una instancia de **EventHubClient** para conectarse al punto de conexión compatible con el Centro de eventos y, luego, crea de forma asincrónica una instancia de **PartitionReceiver** para leer desde una partición del Centro de eventos. Se repite continuamente e imprime los detalles de los mensajes hasta que finaliza la aplicación.
 
     ```
     private static EventHubClient receiveMessages(final String partitionId)
     {
       EventHubClient client = null;
       try {
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+        client = EventHubClient.createFromConnectionStringSync(connStr);
       }
       catch(Exception e) {
         System.out.println("Failed to create client: " + e.getMessage());
@@ -225,7 +220,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
             System.out.println("** Created receiver on partition " + partitionId);
             try {
               while (true) {
-                Iterable<EventData> receivedEvents = receiver.receive().get();
+                Iterable<EventData> receivedEvents = receiver.receive(100).get();
                 int batchSize = 0;
                 if (receivedEvents != null)
                 {
@@ -259,7 +254,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     }
     ```
 
-    > [AZURE.NOTE] Este método utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto es útil en un entorno de prueba, porque puede ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes. Consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial] para más información.
+    > [AZURE.NOTE] Este método utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Esto resulta útil en los entornos de prueba, ya que permite ver el conjunto actual de mensajes, pero en un entorno de producción el código debe asegurarse de que se procesan todos los mensajes (para más información, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-process-d2c-tutorial]).
 
 9. Modifique la firma del método **main** para incluir la excepción que se muestra a continuación:
 
@@ -267,7 +262,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
     public static void main( String[] args ) throws IOException
     ```
 
-10. Agregue el siguiente código al método **main** en la clase **App**. Este código crea dos instancias de **EventHubClient** y **PartitionReceiver** lo cual le permite cerrar la aplicación cuando termina de procesar los mensajes:
+10. Agregue el siguiente código al método **main** de la clase **App**. Este código crea dos instancias de **EventHubClient** y **PartitionReceiver**, lo que le permite cerrar la aplicación cuando haya terminado de procesar los mensajes:
 
     ```
     EventHubClient client0 = receiveMessages("0");
@@ -300,7 +295,7 @@ En esta sección, creará una aplicación de consola de Java que lee los mensaje
 
 En esta sección, creará una aplicación de consola de Java que simula un dispositivo que envía mensajes de dispositivo a nube a un Centro de IoT.
 
-1. En la carpeta iot-java-get-started creada en la sección *Creación de una identidad de dispositivo*, cree un nuevo proyecto de Maven denominado **simulated-device** mediante el comando siguiente en el símbolo del sistema. Tenga en cuenta que es un comando único y largo.
+1. En la carpeta iot-java-get-started que ha creado en la sección *Creación de una identidad de dispositivo*, cree un nuevo proyecto de Maven denominado **simulated-device** mediante el comando siguiente en el símbolo del sistema. Tenga en cuenta que es un comando único y largo.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -308,7 +303,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
 2. En el símbolo del sistema, navegue a la nueva carpeta simulated-device.
 
-3. Con un editor de texto, abra el archivo pom.xml en la carpeta simulated-device y agregue las siguientes dependencias al nodo **dependencies**. Esto le permite usar el paquete iothub-java-client en la aplicación para comunicarse con el Centro de IoT y serializar los objetos de Java a JSON:
+3. Con un editor de texto, abra el archivo pom.xml de la carpeta simulated-device y agregue las siguientes dependencias al nodo **dependencies**. Esto le permite usar el paquete iothub-java-client en la aplicación para comunicarse con el Centro de IoT y serializar los objetos de Java a JSON:
 
     ```
     <dependency>
@@ -344,7 +339,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     import com.google.gson.Gson;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**, reemplazando **{youriothubname}** por el nombre del Centro de IoT y **{yourdeviceid}** y **{yourdevicekey}** por los valores del dispositivo generados en la sección *Creación de una identidad de dispositivo*:
+7. Agregue las siguientes variables de nivel de clase a la clase **App**, y reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdeviceid}** y **{yourdevicekey}** por los valores del dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
@@ -352,7 +347,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     private static boolean stopThread = false;
     ```
 
-    Esta aplicación de ejemplo usa la variable **protocol** cuando se crea una instancia de un objeto **DeviceClient**. Puede usar el protocolo HTTPS o AMQPS para comunicarse con el Centro de IoT.
+    Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. Puede usar el protocolo HTTPS o AMQPS para comunicarse con el Centro de IoT.
 
 8. Agregue la siguiente clase **TelemetryDataPoint** anidada dentro de la clase **App** para especificar los datos de telemetría que envía el dispositivo al Centro de IoT:
 
@@ -385,7 +380,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     }
     ```
 
-10. Agregue la siguiente clase **MessageSender** anidada dentro de la clase **App**. El método **run** de esta clase genera datos de telemetría de ejemplo para enviar al Centro de IoT y espera una confirmación antes de enviar el mensaje siguiente:
+10. Agregue la siguiente clase **MessageSender** anidada dentro de la clase **App**. El método **run** de esta clase genera datos de telemetría de ejemplo que se envían al Centro de IoT y espera confirmación antes de enviar el siguiente mensaje:
 
     ```
     private static class MessageSender implements Runnable {
@@ -428,7 +423,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
     Este método envía un nuevo mensaje de dispositivo a nube un segundo después de que Centro de IoT reconozca el mensaje anterior. El mensaje contiene un objeto JSON serializado con el valor de deviceId y un número generado aleatoriamente para simular un sensor de velocidad del viento.
 
-11. Reemplace el método **main** con el siguiente código que crea un subproceso para enviar mensajes de dispositivo a nube a su Centro de IoT:
+11. Reemplace el método **main** por el siguiente código, que crea un subproceso para enviar mensajes de dispositivo a nube a su Centro de IoT:
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
@@ -515,4 +510,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

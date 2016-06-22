@@ -81,7 +81,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
-9. Seleccione la ubicación geográfica para la cuenta de almacenamiento.
+9. Seleccione la ubicación geográfica para la cuenta de almacenamiento. Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para más información acerca de qué servicios están disponibles en cada región.
 
 10. Haga clic en **Crear** para crear la cuenta de almacenamiento.
 
@@ -95,7 +95,7 @@ Después de crear la cuenta de almacenamiento, puede modificar su configuración
 
 Si se cambia la opción de replicación, cambiarán los precios. Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para más información.
 
-Para las cuentas de Almacenamiento de blobs, cambiar el nivel de acceso puede generar cargos por el cambio, además de cambios en el precio. Consulte [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md#pricing-and-billing) (Almacenamiento de blobs de Azure: niveles de acceso Frecuente y Esporádico) para más detalles.
+Para las cuentas de Almacenamiento de blobs, cambiar el nivel de acceso puede generar cargos por el cambio, además de cambios en el precio. Consulte [Almacenamiento de blobs de Azure: capas de almacenamiento de acceso frecuente y esporádico](storage-blob-storage-tiers.md#pricing-and-billing) para más detalles.
 
 ### Administración de las claves de acceso de almacenamiento
 
@@ -117,7 +117,7 @@ Recomendamos que cambie las claves de acceso de su cuenta de almacenamiento peri
 
 **Aplicaciones**: si tiene aplicaciones web o servicios en la nube que usan la cuenta de almacenamiento, perderá las conexiones si regenera las claves, a menos que las convierta.
 
-**Exploradores de almacenamiento**: si va a usar algunas de las [aplicaciones del Explorador de almacenamiento](storage-explorers.md), probablemente necesite actualizar la clave de almacenamiento utilizada por las aplicaciones.
+**Exploradores de almacenamiento**: si usa alguna [aplicación exploradora de almacenamiento](storage-explorers.md), es probable que tenga que actualizar la clave de almacenamiento que usan dichas aplicaciones.
 
 Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
@@ -157,4 +157,4 @@ Para más información, consulte la [documentación sobre máquinas virtuales de
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

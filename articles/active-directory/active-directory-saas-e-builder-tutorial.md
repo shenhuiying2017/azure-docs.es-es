@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **e-Builder**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **e-Builder**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurar inicio de sesión único")
 
@@ -110,4 +110,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!----HONumber=AcomDC_0601_2016-->

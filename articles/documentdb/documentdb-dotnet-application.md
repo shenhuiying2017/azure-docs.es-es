@@ -333,7 +333,7 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 			}
 		}
 
-	> [AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
+	>	[AZURE.TIP] Al crear DocumentCollection nuevo, puede proporcionar un parámetro RequestOptions opcional de OfferType, que le permite especificar el nivel de rendimiento de la nueva colección. Si no se pasa este parámetro, se utilizará el tipo de oferta predeterminado. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de coherencia de DocumentDB](documentdb-performance-levels.md)
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
@@ -405,7 +405,7 @@ Abra ***App\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaul
 
 Esto indica ahora a ASP.NET MVC que si no ha especificado un valor en la dirección URL para controlar el comportamiento de enrutamiento que, en lugar de **Inicio**, usa **Elemento** como controlador e **Índice** de usuario como vista.
 
-Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas** **Elemento** **Índice**.
+Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\**Elemento**\**Índice**.
 
 Si crea y ejecuta este proyecto ahora, deberá ver algo parecido a esto.
 
@@ -591,4 +591,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

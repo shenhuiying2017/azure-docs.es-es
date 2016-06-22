@@ -8,8 +8,8 @@ En esta sección se muestra cómo conectar la aplicación al back-end de Mobile 
 
 3. El monitor está listo para mostrar en tiempo real cualquier dispositivo que iniciará su aplicación.
 	 
-4. Inicie su aplicación en el emulador/simulador o en un dispositivo conectado. Debería ver una sesión en el monitor si su integración es correcta, lo que significa que la aplicación está ahora conectada al back-end de Mobile Engagement y le está enviando datos.
+4. Inicie la aplicación ahora. Debería ver una sesión en el monitor si su integración es correcta, lo que significa que la aplicación está ahora conectada al back-end de Mobile Engagement y le está enviando datos.
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0615_2016-->

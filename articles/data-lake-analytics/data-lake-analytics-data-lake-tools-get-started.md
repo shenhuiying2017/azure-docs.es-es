@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio
@@ -131,7 +131,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
 		IntelliSense para las entidades de catálogo (bases de datos, esquemas, tablas, UDO, etc.) está relacionado con la cuenta de proceso. Puede comprobar la cuenta de proceso activa actual, la base de datos y el esquema en la barra de herramientas superior y cambiarlos en las listas desplegables.
 
     - **Expandir * columnas**
-
+    
         Haga clic a la derecha de *; aparecerá subrayado azul bajo *. Mantenga el cursor del ratón sobre el subrayado azul y después haga clic en la flecha hacia abajo. 
         ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
@@ -236,7 +236,7 @@ El vídeo siguiente muestra la característica de ejecución local U-SQL:
 
     - En la entrada del script (EXTRACT * FROM “/path/abc”): se buscará tanto en la ruta de acceso de DataRoot como en la ruta de acceso del script.
     - En la salida del script (OUTPUT TO “path/abc”): se usará la ruta de acceso de DataRoot como la carpeta de salida.
-    - En el registro de ensamblado (CRREATE ASSEMBLY xyz FROM “/path/abc”): se buscará en la ruta de acceso del script, pero no la DataRoot.
+    - En el registro de ensamblado (CREATE ASSEMBLY xyz FROM “/path/abc”): se buscará en la ruta de acceso del script, pero no la DataRoot.
     - En la vista/TVF registrada u otras entidades de metadatos: se buscará en la ruta de acceso de DataRoot, pero no en la ruta de acceso del script.
 
     Para los scripts ejecutados en el servicio de Data Lake, la cuenta de almacenamiento predeterminada se usará como carpeta raíz y se buscará en ella en consecuencia.
@@ -362,4 +362,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

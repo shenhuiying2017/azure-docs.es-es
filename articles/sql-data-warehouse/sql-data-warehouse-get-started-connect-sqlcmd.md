@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a la conexión a Almacenamiento de datos SQL de Azure | Microsoft Azure"
-   description="Introducción a la conexión a Almacenamiento de datos SQL y ejecución de algunas consultas."
+   pageTitle="Consulta con SQLCMD | Microsoft Azure"
+   description="Consulta del Almacenamiento de datos con SQLCMD."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,41 +13,25 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="06/09/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Conexión y consultas con SQLCMD
+# Consulta con SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI][]
+- [Aprendizaje automático de Azure][]
+- [SQLCMD][]
 
-
-En este tutorial se muestra cómo conectarse y realizar consultas a una base de datos de Almacenamiento de datos SQL de Azure en solo unos minutos con la utilidad sqlcmd.exe. En este tutorial realizará lo siguiente:
-
-+ Instalar el software necesario
-+ Conectarse a una base de datos que contenga la base de datos de ejemplo AdventureWorksDW
-+ Ejecutar una consulta en la base de datos de ejemplo  
+Este tutorial muestra cómo se consulta el Almacenamiento de datos SQL de Azure con la utilidad sqlcmd.exe.
 
 ## Requisitos previos
 
 + Para descargar el archivo [sqlcmd.exe][], consulte la página de [Utilidades de la línea de comandos 11 de Microsoft para SQL Server][].
 
-## Obtención del nombre completo del servidor de Azure SQL Server
+## Conectar
 
-Para conectarse a la base de datos, necesita el nombre completo del servidor (****servername**.database.windows.net*) que contiene la base de datos a la que quiere conectarse.
-
-1. Vaya al [Portal de Azure][].
-2. Vaya a la base de datos a la que quiere conectarse.
-3. Busque el nombre de servidor completo (se usará en los pasos siguientes):
-
-![][1]
-
-
-## Conexión a Almacenamiento de datos SQL con sqlcmd
-
-Para conectarse a una instancia específica de Almacenamiento de datos SQL cuando use sqlcmd, deberá abrir el símbolo del sistema y escribir **sqlcmd**, seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros obligatorios:
+Para empezar a trabajar con sqlcmd, abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros obligatorios:
 
 + **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
 + **Base de datos (-d):** nombre de la base de datos.
@@ -55,44 +39,51 @@ Para conectarse a una instancia específica de Almacenamiento de datos SQL cuand
 + **Contraseña (-P):** la contraseña asociada con el usuario.
 + **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de Almacenamiento de datos SQL.
 
-Por lo tanto, para ello, debe escribir lo siguiente:
+Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Ejecutar consultas de ejemplo
+> [AZURE.NOTE] El parámetro opcional -I, que habilita identificadores entre comillas, es actualmente obligatorio para conectarse al Almacenamiento de datos SQL.
 
-Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia.
+## Consultar
+
+Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia. En este ejemplo, las consultas se envían en modo interactivo.
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-Para obtener información adicional sobre sqlcmd, consulte la [documentación de sqlcmd][sqlcmd.exe].
+Los siguientes ejemplos muestran cómo se pueden ejecutar las consultas en el modo por lotes con la opción -Q o mediante la canalización de su SQL a sqlcmd.
 
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Pasos siguientes
 
-Ahora que puede conectarse y realizar consultas, pruebe a [conectarse con PowerBI][].
-
-Para configurar el entorno para la autenticación de Windows, consulte [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory][] (Conexión a Base de datos SQL o Almacenamiento de datos SQL mediante Azure Active Directory).
+Para más información acerca de todas las opciones de sqlcmd, consulte la [documentación de sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[conectarse con PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
+[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Aprendizaje automático de Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other-->
 [sqlcmd.exe]: https://msdn.microsoft.com/es-ES/library/ms162773.aspx
 [Utilidades de la línea de comandos 11 de Microsoft para SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Portal de Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
