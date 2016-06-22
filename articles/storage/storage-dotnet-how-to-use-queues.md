@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción al Almacenamiento en cola de Azure mediante .NET | Microsoft Azure"
-	description="Envíe y reciba mensajes de forma asincrónica entre los componentes de aplicación mediante el Almacenamiento en cola de Azure. Introducción a las operaciones simples de Almacenamiento en cola, entre las que se incluyen crear y eliminar colas y agregar, leer y eliminar mensajes de la cola."
+	description="Las colas de Azure proporcionan mensajería asincrónica confiable entre componentes de aplicaciones. La mensajería en la nube permite que los componentes de las aplicaciones se escalen de forma independiente."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="06/09/2016"
 	ms.author="gusapost"/>
 
 # Introducción al Almacenamiento en cola de Azure mediante .NET
@@ -22,7 +22,7 @@
 
 ## Información general
 
-El Almacenamiento en cola de Azure es un servicio que proporciona colas de mensajes en la nube. A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento de colas ofrece una solución de mensajería de confianza para la comunicación asincrónica entre los componentes de las aplicaciones, independientemente de que se ejecuten en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
+El almacenamiento en cola de Azure proporciona mensajería en la nube entre componentes de aplicaciones. A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento en cola ofrece mensajería asincrónica para la comunicación entre los componentes de las aplicaciones, independientemente de si se ejecutan en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
 
 ### Acerca de este tutorial
 
@@ -275,4 +275,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

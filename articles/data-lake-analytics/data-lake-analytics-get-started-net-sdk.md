@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante .NET SDK
@@ -129,7 +129,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                     
                     // Authenticate the user
                     // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/es-ES/documentation/articles/resource-group-create-service-principal-portal/
+                    //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
                     
@@ -182,7 +182,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/es-ES/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -196,7 +196,7 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
                 //   For more information and instructions on how to register your application with AAD, see: 
-                //   https://azure.microsoft.com/es-ES/documentation/articles/resource-group-create-service-principal-portal/
+                //   https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
                     var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenantId);
@@ -354,10 +354,10 @@ Se ha copiado un registro de búsqueda de ejemplo en un contenedor de Blob de Az
 ## Consulte también
 
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
-- Para ver una consulta más compleja, consulte [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
+- Para ver una consulta más compleja, consulte la página sobre el [análisis de registros de sitio web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 - Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Para aprender U-SQL, consulte [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md) y la página de [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

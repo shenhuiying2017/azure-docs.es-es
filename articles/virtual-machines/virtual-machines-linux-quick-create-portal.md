@@ -23,14 +23,14 @@
 
 En este artículo se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com/) para crear una máquina virtual de Linux rápidamente. Los únicos requisitos son [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) y [archivos de clave pública y privada SSH](virtual-machines-linux-mac-create-ssh-keys.md).
 
-[AZURE.NOTE] Si decide usar una contraseña para proteger el acceso a la máquina virtual, debe tener más de 12 caracteres y al menos una mayúscula, una minúscula, un carácter especial y un número.
+> [AZURE.NOTE] Si decide usar una contraseña para proteger el acceso a la máquina virtual, debe tener más de 12 caracteres y al menos una mayúscula, una minúscula, un carácter especial y un número.
 
 
 1. Inicie sesión en el Portal de Azure con la identidad de la cuenta de Azure y haga clic en **+ Nuevo** en la esquina superior izquierda:
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
-2. Haga clic en **Máquinas virtuales** en **Marketplace** y luego en **Ubuntu Server 14.04 LTS** en la lista de imágenes de **Aplicaciones destacadas**. En la parte inferior, compruebe que el modelo de implementación sea `Resource Manager` y haga clic en **Crear**.
+2. Haga clic en **Máquinas virtuales** en **Marketplace** y luego en **Ubuntu Server 14.04 LTS** en la lista de imágenes **Aplicaciones destacadas**. En la parte inferior, compruebe que el modelo de implementación es `Resource Manager` y haga clic en **Crear**.
 
     ![screen2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
@@ -49,15 +49,15 @@ En este artículo se muestra cómo utilizar el [Portal de Azure](https://portal.
 
     ![screen4](../media/virtual-machines-linux-quick-create-portal/screen4.png)
 
-5. En **Configuración**, deje los valores predeterminados de almacenamiento y red y haga clic en **Aceptar** para ver el resumen. Observe que el tipo de disco se ha establecido en Premium (SSD) al elegir DS1; la **S** indica SSD.
+5. En **Configuración**, deje los valores predeterminados de Almacenamiento y Red y haga clic en **Aceptar** para ver el resumen. Observe que el tipo de disco se ha establecido en Premium (SSD) al elegir DS1; la **S** indica SSD.
 
     ![screen5](../media/virtual-machines-linux-quick-create-portal/screen5.png)
 
-6. Confirme la configuración de la nueva máquina virtual con Ubuntu y haga clic en **Aceptar**.
+6. Confirme la configuración de la nueva máquina virtual de Ubuntu y haga clic en **Aceptar**.
 
     ![screen6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
-7. Abra el Panel del portal y, en **Interfaces de red**, elija su NIC.
+7. Abra el panel del portal y, en **Interfaces de red**, elija su NIC.
 
     ![screen7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
@@ -81,4 +81,4 @@ Ahora ha creado una máquina virtual con Linux rápidamente para usarla con fine
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

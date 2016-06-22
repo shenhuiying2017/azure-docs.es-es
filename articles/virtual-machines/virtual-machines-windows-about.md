@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/10/2016"
+	ms.date="06/15/2016"
 	ms.author="cynthn"/>
 
 #Acerca de las máquinas virtuales de Windows en Azure
@@ -42,4 +42,5 @@ Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestr
 [Servicio de aplicaciones]: app-service-choose-me.md
 [Servicios en la nube]: cloud-services-choose-me.md
 [Máquinas virtuales]: #tellmevm
-<!---HONumber=AcomDC_0413_2016-->
+
+<!---HONumber=AcomDC_0615_2016-->

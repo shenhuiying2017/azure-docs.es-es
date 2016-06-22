@@ -139,29 +139,45 @@ En esta sección se mostrarán los siguientes escenarios con el Portal de Azure:
 
 3. Escriba un nombre para la cuenta de almacenamiento.
 
+	Este nombre debe ser único a nivel global; formará parte de la dirección URL utilizada para acceder a los objetos de la cuenta de almacenamiento.
+
 4. Seleccione **Resource Manager** como modelo de implementación.
 
-5. Seleccione **Almacenamiento de blobs** como tipo de cuenta de almacenamiento.
+	El almacenamiento en capas solo puede utilizarse con cuentas de almacenamiento de Resource Manager, que es el modelo de implementación recomendado para nuevos recursos. Para más información, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
-6. Seleccione la capa de acceso: **Hot** (Frecuente) o **Cool** (Esporádico). El valor predeterminado es **Hot** (Frecuente).
+5. En la lista desplegable Account Kind (Tipo de cuenta), seleccione **Almacenamiento de blobs**.
 
-7. Seleccione la opción de replicación de la cuenta de almacenamiento: **LRS**, **GRS** o **RA-GRS**. El valor predeterminado es **RA-GRS**. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
+	Aquí seleccionará el tipo de cuenta de almacenamiento. El almacenamiento en capas no está disponible en cuentas de almacenamiento de uso general, solo está disponible en cuentas de Almacenamiento de blobs.
+
+	Tenga en cuenta que, cuando se selecciona esta opción, se establece el nivel de rendimiento Estándar. El almacenamiento en capas no está disponible con el nivel de rendimiento Premium.
+
+6. Seleccione la opción de replicación de la cuenta de almacenamiento: **LRS**, **GRS** o **RA-GRS**. El valor predeterminado es **RA-GRS**.
+ 
+	LRS = almacenamiento con redundancia local; GRS = almacenamiento con redundancia geográfica (dos regiones); RA-GRS = almacenamiento con redundancia geográfica con acceso de lectura (dos regiones con acceso de lectura a la región secundaria).
+
+	Para más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).
+
+7. Seleccione la capa de acceso: **Cool** (Esporádico) o **Hot** (Frecuente). El valor predeterminado es **Hot** (Frecuente).
 
 8. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
 9. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
 
-10. Seleccione la ubicación geográfica para la cuenta de almacenamiento.
+10. Seleccione la región para la cuenta de almacenamiento.
 
 11. Haga clic en **Crear** para crear la cuenta de almacenamiento.
 
 #### Cambio del nivel de acceso en una cuenta de Almacenamiento de blobs mediante el Portal de Azure
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y vaya a su cuenta de almacenamiento.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en **Toda la configuración** y después en **Configuración** para ver o cambiar la configuración de la cuenta.
+2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
-3. Especifique la capa de acceso deseado: **Hot** (Frecuente) o **Cool** (Esporádico).
+3. En la hoja Configuración, haga clic en **Configuración** para ver o cambiar la configuración de la cuenta.
+
+4. Seleccione la capa de acceso deseada: **Hot** (Frecuente) o **Cool** (Esporádico).
+
+5. Haga clic en Guardar en la parte superior de la hoja.
 
     > [AZURE.NOTE] El cambio del nivel de acceso puede conllevar cargos adicionales. Para más información, consulte la sección [Precios y facturación](storage-blob-storage-tiers.md#pricing-and-billing).
 
@@ -176,7 +192,7 @@ Si va a mover los datos a una cuenta de Almacenamiento de blobs, es probable que
 - El patrón de consumo del almacenamiento: ¿cuántos datos se almacenan y la cantidad de datos almacenados cambia mensualmente?
 - Los patrones de acceso de almacenamiento: ¿qué cantidad de datos se leen de la cuenta, y se escriben en ella (incluidos los datos nuevos)? ¿Cuántas transacciones se utilizan para el acceso a los datos, y qué tipo de transacciones?
 
-Para supervisar las cuentas de almacenamiento existentes y recopilar estos datos, consulte [Habilitar las métricas de almacenamiento de Azure y ver sus datos](storage-enable-and-view-metrics.md). Con estos datos, puede usar la [Calculadora de precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costos.
+Para supervisar las cuentas de almacenamiento existentes y recopilar estos datos, consulte [Habilitar las métricas de Almacenamiento de Azure y ver sus datos](storage-enable-and-view-metrics.md). Con estos datos, puede usar la [Calculadora de precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costos.
 
 ### Migración de datos existentes
 
@@ -232,7 +248,7 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 
     Los blobs en la capa de acceso frecuente al almacenamiento tienen la misma latencia que los blobs en cuentas de almacenamiento de uso general. Los blobs en la capa de acceso esporádico al almacenamiento tienen una latencia similar (en milisegundos) a los blobs de las cuentas de almacenamiento de uso general.
 
-    Los blobs en la capa de acceso esporádico al almacenamiento tendrán un Acuerdo de Nivel de Servicio ligeramente inferior a los blobs almacenados en la de acceso frecuente. Para más información, consulte [Contrato de nivel de servicio para Almacenamiento](https://azure.microsoft.com/support/legal/sla/storage).
+    Los blobs en la capa de acceso esporádico al almacenamiento tendrán un Acuerdo de Nivel de Servicio ligeramente inferior a los blobs almacenados en la de acceso frecuente. Para más información, consulte [Acuerdo de Nivel de Servicio para Almacenamiento](https://azure.microsoft.com/support/legal/sla/storage).
 
 8. **¿Puedo almacenar blobs en páginas y discos de máquinas virtuales en las cuentas de Almacenamiento de blobs?**
 
@@ -240,7 +256,7 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 
 9. **¿Es preciso cambiar las aplicaciones existentes para usar las cuentas de Almacenamiento de blobs?**
 
-    Las cuentas de almacenamiento de blobs tienen una coherencia del 100 % con la API con las cuentas de almacenamiento de uso general para blobs en bloques y en anexos. Si la aplicación usa los blobs en bloques o blobs en anexos y el usuario utiliza la versión 2014-02-14 de los [servicios Blob, Cola y Tabla de Windows Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) o superior, la aplicación debería funcionar. Si se utiliza una versión anterior del protocolo, será preciso actualizar la aplicación para que use la nueva versión, con el fin de poder trabajar sin problemas con ambos tipos de cuentas de almacenamiento. En general, siempre se recomienda utilizar la versión más reciente, independientemente del tipo de cuenta de almacenamiento que se use.
+    Las cuentas de almacenamiento de blobs tienen una coherencia del 100 % con la API con las cuentas de almacenamiento de uso general para blobs en bloques y en anexos. Si la aplicación usa los blobs en bloques o blobs en anexos y el usuario utiliza la versión 2014-02-14 de los [servicios Blob, Cola y Tabla de Microsoft Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx) o superior, la aplicación debería funcionar. Si se utiliza una versión anterior del protocolo, será preciso actualizar la aplicación para que use la nueva versión, con el fin de poder trabajar sin problemas con ambos tipos de cuentas de almacenamiento. En general, siempre se recomienda utilizar la versión más reciente, independientemente del tipo de cuenta de almacenamiento que se use.
 
 10. **¿Habrá un cambio en la experiencia del usuario?**
 
@@ -266,4 +282,4 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 
 [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

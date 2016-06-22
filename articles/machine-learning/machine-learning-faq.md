@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="06/13/2016"
 	ms.author="garye"/>
 
 # Preguntas más frecuentes de Aprendizaje automático de Azure: facturación, capacidades, limitaciones y compatibilidad
@@ -51,7 +51,9 @@ Para obtener información sobre precios y facturación, consulte [Precios de Apr
 
 **¿Dispone Aprendizaje automático de una evaluación gratuita?**
 
- Cuando se registra para una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para más información sobre la evaluación gratuita de Azure, consulte las [preguntas más frecuentes sobre la evaluación gratuita de Azure](/pricing/free-trial-faq/).
+ Aprendizaje automático de Azure tiene una opción de suscripción gratuita (para más información, consulte [Precios de aprendizaje automático](https://azure.microsoft.com/pricing/details/machine-learning/)), mientras que Estudio de aprendizaje automático tiene una versión de evaluación rápida de 8 horas disponible (para acceder a esta versión, inicie sesión en [Estudio de aprendizaje automático](https://studio.azureml.net/?selectAccess=true&o=2)).
+ 
+ Además, al registrarse para obtener una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para más información sobre la evaluación gratuita de Azure, visite [Preguntas más frecuentes sobre la evaluación gratuita de Azure](/pricing/free-trial-faq/).
 
 ## Preguntas sobre Estudio de aprendizaje automático
 
@@ -95,7 +97,7 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [Importar datos][import-data]. Para transferir grandes cantidades de datos a Almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, luego, utilizar el módulo [Importar datos][import-data] para incluirlos en el experimento.
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo [Importar datos][import-data]. En el caso de grandes cantidades de datos, primero es preciso transferirlos a Almacenamiento de Azure y, luego, hay que utilizar el módulo [Importar datos][import-data] para incluirlos en el experimento.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -170,7 +172,7 @@ Actualmente, solo se pueden crear nuevos módulos personalizados en R.
 
 **¿Qué paquetes de R están disponibles en Estudio de aprendizaje automático?**
 
-Estudio de aprendizaje automático admite en la actualidad más de 400 paquetes de CRAN R. Esta es la [lista actual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos los paquetes incluidos. Consulte [Extender el experimentos con R](machine-learning-extend-your-experiment-with-r.md) para averiguar cómo recuperar esta lista. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
+En la actualidad, Estudio de aprendizaje automático admite más de 400 paquetes de CRAN R y esta es la [lista actual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos los paquetes incluidos. Consulte [Extender el experimento con R](machine-learning-extend-your-experiment-with-r.md) para averiguar cómo recuperar esta lista. Si el paquete que desea no está en la lista, especifique el nombre del paquete en el [foro de comentarios de los usuarios](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **¿Es posible crear un módulo personalizado de R?**
 
@@ -196,7 +198,7 @@ Puede usar Jupyter Notebooks en Estudio de aprendizaje automático de Azure. Par
 
 **¿Cómo reentreno los modelos de Aprendizaje automático de Azure mediante programación?**
 
-Use las API de reentrenamiento. Para más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md). También se puede encontrar código de ejemplo en la [demostración de reentrenamiento de Aprendizaje automático de Azure](https://azuremlretrain.codeplex.com/).
+Use las API de reentrenamiento. Para más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md). También se puede encontrar código de ejemplo en [Microsoft Azure Maching Learning Retraining Demo](https://azuremlretrain.codeplex.com/) (Demostración de reentrenamiento de Aprendizaje automático de Azure).
 
 ### Crear
 
@@ -219,15 +221,15 @@ El servicio de solicitud-respuesta (RRS) es un servicio web de alta escala y baj
 
 Actualizar un modelo predictivo para un servicio ya implementado es tan fácil como modificar y volver a ejecutar el experimento usado para crear y guardar el modelo entrenado. Una vez que puede disponer de una nueva versión del modelo entrenado, Estudio de aprendizaje automático le preguntará si quiere actualizar el servicio web. Vea [Implementación de un servicio web de Aprendizaje automático](machine-learning-publish-a-machine-learning-web-service.md) para obtener detalles sobre cómo actualizar un servicio web implementado.
 
-También puede usar las API de reciclaje. Para más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md). También se puede encontrar código de ejemplo en la [demostración de reentrenamiento de Aprendizaje automático de Azure](https://azuremlretrain.codeplex.com/).
+También puede usar las API de reciclaje. Para más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md). También se puede encontrar código de ejemplo en [Microsoft Azure Maching Learning Retraining Demo](https://azuremlretrain.codeplex.com/) (Demostración de reentrenamiento de Aprendizaje automático de Azure).
 
 **¿Cómo se supervisa el servicio web implementado en producción?**
 
-Cuando el modelo predictivo se ha implementado, puede supervisarlo desde el Portal de Azure clásico. Cada servicio implementado cuenta con su propio panel, donde se puede ver la información de supervisión de ese servicio.
+Cuando el modelo predictivo se ha implementado, puede supervisarlo desde el Portal de Azure clásico. Cada servicio implementado cuenta con su propio panel, donde se puede ver la información de supervisión de ese servicio. Para más información sobre cómo administrar los servicios web implementados, consulte [Administración de un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md).
 
 **¿Hay algún lugar donde pueda ver la salida de mi RRS/BES?**
 
-Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo [Exportación de datos][export-data].
+Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o en una tabla con el módulo [Exportar datos][export-data].
 
 **¿Solamente puedo crear servicios web a partir de modelos creados en Estudio de aprendizaje automático?**
 
@@ -235,13 +237,13 @@ No. También puede crear servicios web directamente desde Jupyter Notebooks y RS
 
 **¿Dónde puedo encontrar información sobre los códigos de error?**
 
-Consulte [Códigos de Error del módulo de Aprendizaje automático](https://msdn.microsoft.com/library/azure/dn905910.aspx) para ver una lista de códigos de error y sus descripciones.
+Consulte [Códigos de error del módulo de Aprendizaje automático](https://msdn.microsoft.com/library/azure/dn905910.aspx) para ver una lista de códigos de error y sus descripciones.
 
 ## Escalabilidad
 
 **¿Qué es la escalabilidad del servicio web?**
 
-En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 20 solicitudes simultáneas de RRS por punto de conexión. Puede escalar este número hasta 200 solicitudes simultáneas por punto de conexión y puede escalar cada servicio web a 10 000 puntos de conexión por servicio web, como se describe en el artículo sobre [Escalado de puntos de conexión de API](machine-learning-scaling-endpoints.md). En BES, cada punto de conexión permite el procesamiento de 40 solicitudes a la vez y se ponen en cola las solicitudes adicionales que superan este número. Estas solicitudes en cola se ejecutarán automáticamente a medida que avanza la cola.
+En la actualidad, el punto de conexión predeterminado se ha aprovisionado con 20 solicitudes simultáneas de RRS por punto de conexión. Puede escalar este número hasta 200 solicitudes simultáneas por punto de conexión y puede escalar cada servicio web a 10 000 puntos de conexión por servicio web, como se describe en [Escalado de puntos de conexión de API](machine-learning-scaling-endpoints.md). En BES, cada punto de conexión permite el procesamiento de 40 solicitudes a la vez y se ponen en cola las solicitudes adicionales que superan este número. Estas solicitudes en cola se ejecutarán automáticamente a medida que avanza la cola.
 
 
 **¿Los trabajos de R se reparten entre nodos?**
@@ -251,7 +253,7 @@ Nº
 
 **¿Cuántos datos se pueden usar para el entrenamiento?**
 
-Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, el tamaño total de todas las entradas juntas es 10 GB. También puede realizar un muestreo de conjuntos de datos más grandes mediante consultas de Base de datos SQL de Azure o Hive o usando el procesamiento previo de [Recuentos de aprendizaje][counts], antes de la ingesta.
+Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, el tamaño total de todas las entradas juntas es 10 GB. También puede realizar un muestreo de conjuntos de datos mayores mediante consultas de Base de datos SQL de Azure o de Hive, o bien mediante el procesamiento previo con los módulos de [Recuentos de aprendizaje][counts] antes de la ingesta.
 
 Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
 
@@ -302,7 +304,7 @@ Si han cambiado las claves de acceso de la cuenta de almacenamiento, asegúrese 
 
 ## Azure Marketplace
 
-Consulte [Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes](machine-learning-marketplace-faq.md)
+Consulte [Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes](machine-learning-marketplace-faq.md).
 
 ## Soporte técnico y entrenamiento
 
@@ -310,13 +312,13 @@ Consulte [Publicación y uso de aplicaciones de Aprendizaje automático en Azure
 
 El [Centro de Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/) contiene tutoriales de vídeo y guías de procedimientos. Estas guías paso a paso proporcionan una introducción a los servicios y un recorrido por el ciclo de vida científico de los datos consistente en importar los datos, limpiarlos, construir modelos predictivos e implementarlos en producción con Aprendizaje automático de Azure.
 
-Iremos agregando continuamente nuevo material al Centro de Aprendizaje automático. Puede enviarnos una solicitud de material de aprendizaje adicional en el Centro de Aprendizaje automático a través del [foro de comentarios de los usuarios](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+Iremos agregando continuamente nuevo material al Centro de Aprendizaje automático. Puede enviar solicitudes de material de aprendizaje adicional en el Centro de Aprendizaje automático del [foro de comentarios de los usuarios](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
 También puede encontrar cursos en [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
 
 **¿Dónde puedo recibir soporte técnico para Aprendizaje automático de Azure?**
 
-Para recibir soporte técnico para Aprendizaje automático de Azure, vaya al [Soporte técnico de Azure](/support/options/) y elija **Aprendizaje automático**.
+Para obtener soporte técnico para Aprendizaje automático de Azure, vaya al [Soporte técnico de Azure](/support/options/) y elija **Aprendizaje automático**.
 
 Aprendizaje automático de Azure cuenta también con un foro de la comunidad en MSDN, donde puede plantear preguntas sobre el tema. El foro está supervisado por el equipo de Aprendizaje automático de Azure. Visite el [foro de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
@@ -332,4 +334,4 @@ Aprendizaje automático de Azure cuenta también con un foro de la comunidad en 
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
