@@ -843,7 +843,7 @@ Conéctese con SSH a la Máquina virtual de Azure y siga estos pasos para ejecut
             * Debe mostrar una entrada similar a "python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon".
     * Asegúrese de que la extensión de supervisión mejorada de Azure esté instalada y se haya iniciado.
         * sudo ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/
-    * Debe mostrar el contenido del directorio de la extensión de supervisión mejorada de Azure.
+            * Debe mostrar el contenido del directorio de la extensión de supervisión mejorada de Azure.
         * ps -ax | grep AzureEnhanced
             * Debe mostrar una entrada similar a "python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon".
 * Instale SAP Host Agent tal como se describe en la nota de SAP 1031096 y compruebe la salida de saposcol.
