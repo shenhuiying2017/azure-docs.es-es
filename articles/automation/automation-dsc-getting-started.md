@@ -19,7 +19,7 @@
 
 # Introducción al DSC de Automatización de Azure:
 
-En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para ver la documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell] \(Información general sobre la configuración de estado deseado de Windows PowerShell).
+En este tema se explica cómo realizar las mayoría de las tareas comunes con configuración de estado deseado (DSC) de Automatización de Azure, como crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para obtener información general sobre qué es DSC de Automatización de Azure es, consulte [Información general de DSC de Automatización de Azure](automation-dsc-overview.md). Para ver la documentación de DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](Información general sobre la configuración de estado deseado de Windows PowerShell).
 
 Este tema proporciona a una guía paso a paso para usar DSC de Automatización de Azure. Si desea un entorno de ejemplo que ya se ha configurado sin seguir los pasos descritos en este tema, puede usar la plantilla de ARM de https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup. Esta plantilla configura un entorno de DSC de Automatización de Azure completado, incluida una máquina virtual de Azure administrada por DSC de Automatización de Azure.
  
@@ -262,7 +262,7 @@ Si ya no desea que DSC de Automatización de Azure administre un nodo, puede anu
 ## Artículos relacionados
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
-* [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/powershell/dsc/overview) (Información general de la configuración de estado deseado de Windows Powershell)
+* [Información general sobre la configuración de estado deseado de Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Precios de DSC de Automatización de Azure](https://azure.microsoft.com/pricing/details/automation/)
 
