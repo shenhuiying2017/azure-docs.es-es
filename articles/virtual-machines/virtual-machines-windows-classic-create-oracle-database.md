@@ -43,7 +43,7 @@ En el ejemplo siguiente se muestra cómo crear una base de datos Oracle en una m
 
 	c. En la sección **Variables del sistema**, haga clic en **Nuevo** para crear la variable.
 
-	d. En el cuadro de diálogo **Nueva variable del sistema**, escriba **ORACLE\_HOSTNAME** para el nombre de la variable y, luego, el nombre del equipo de la máquina virtual como valor. Para determinar el nombre del equipo, abra un símbolo del sistema y ejecute **SET COMPUTERNAME** (el resultado de ese comando contendrá el nombre del equipo).
+	d. En el cuadro de diálogo **Nueva variable del sistema**, escriba **ORACLE_HOSTNAME** para el nombre de la variable y, luego, el nombre del equipo de la máquina virtual como valor. Para determinar el nombre del equipo, abra un símbolo del sistema y ejecute **SET COMPUTERNAME** (el resultado de ese comando contendrá el nombre del equipo).
 
 	e. Haga clic en **Aceptar** para guardar la nueva variable de entorno y cierre el cuadro de diálogo **Nueva variable del sistema**.
 
@@ -79,7 +79,7 @@ En el ejemplo siguiente se muestra cómo crear una base de datos Oracle en una m
 
 3.	Ejecute el comando siguiente en el símbolo del sistema SQL Plus.
 
-		**select * from GLOBAL\_NAME;**
+		**select * from GLOBAL_NAME;**
 
 	El resultado debe ser el nombre global de la base de datos que ha creado.
 
@@ -146,7 +146,7 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 ##Habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle
 Si desea habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle, abra el puerto 5500 de del firewall y cree un punto de conexión de máquina virtual para 5500 en el Portal de Azure clásico (mediante los pasos indicados anteriormente para abrir el puerto 1521 y crear un punto de conexión para 1521). A continuación, para ejecutar el Administrador corporativo de Oracle desde el equipo remoto, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] (Puede determinar el valor de *<<unique\_domain\_name>>* dentro del [Portal de Azure clásico](https://portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos de Oracle).
+> [AZURE.NOTE] \(Puede determinar el valor de *<<unique\_domain\_name>>* dentro del [Portal de Azure clásico](https://portal.azure.com/) haciendo clic en **Máquinas virtuales** y, luego, seleccionando la máquina virtual que está usando para ejecutar la base de datos de Oracle).
 
 ##Configuración de opciones conocidas y paquetes de opciones avanzadas
 Si eligió la **Base de datos de Oracle con opciones conocidas** o la **Base de datos de Oracle con paquetes de opciones avanzadas**, el paso siguiente consiste en configurar las características de complemento en su instalación de Oracle. Consulte la documentación de Oracle para obtener instrucciones acerca de cómo configurarlas en Windows, ya que las configuraciones pueden variar ampliamente en función de sus necesidades para cada componente individual.
