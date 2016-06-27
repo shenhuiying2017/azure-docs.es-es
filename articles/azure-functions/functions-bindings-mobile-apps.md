@@ -34,7 +34,7 @@ Los enlaces de Aplicaciones móviles actualmente requieren la creación de una v
 
 Para establecer esta dirección URL como una variable de entorno en su Function App:
 
-1. En su Function App del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de la aplicación de función) > **Go to App Service settings** (Ir a la configuración del Servicio de aplicaciones). 
+1. En la aplicación de función del [portal de Funciones de Azure](https://functions.azure.com/signin), haga clic en **Function App Settings** (Configuración de Function App) > **Go to App Service settings** (Ir a la configuración del Servicio de aplicaciones). 
 
 	![Hoja Configuración de Function App](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
 
@@ -167,4 +167,4 @@ Este ejemplo de código de Node.js inserta un registro nuevo en un punto de cone
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!----HONumber=AcomDC_0608_2016-->
