@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -61,6 +61,7 @@ La mayoría de los servicios de Azure son compatibles con ExpressRoute.
 	- Servicio CDN
 	- Pruebas de carga de Visual Studio Team Services
 	- Multi-Factor Authentication
+	- Administrador de tráfico
 
 ## Datos y conexiones
 
@@ -177,7 +178,7 @@ Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet 
 ### ¿Qué es ExpressRoute Premium?
 ExpressRoute Premium es la colección de características que se enumera a continuación.
 
- - Límite de tabla de enrutamiento aumentado de 4000 rutas a 10.000 rutas para el intercambio público y privado.
+ - Aumento del límite de la tabla de enrutamiento de 4000 rutas a 10 000 rutas para el emparejamiento privado.
  - Mayor número de redes virtuales que puede conectarse al circuito ExpressRoute (el valor predeterminado es 10). Vea la tabla siguiente para obtener más información.
  - Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región. **Ejemplo:** puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley.
  - Conectividad con los servicios de Office 365 y CRM Online.
@@ -217,6 +218,8 @@ Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito Ex
 
 ## ExpressRoute, servicios de Office 365 y CRM Online.
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 ### ¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365 y CRM Online?
 
 1. Revise la [página de requisitos previos de ExpressRoute](expressroute-prerequisites.md) para asegurarse de que se cumplen los requisitos.
@@ -248,4 +251,4 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 ### ¿Se puede acceder a Dynamics AX a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

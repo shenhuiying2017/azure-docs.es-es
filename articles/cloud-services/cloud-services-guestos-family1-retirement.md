@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/19/2015"
+   ms.date="06/10/2016"
    ms.author="yuemlu"/>
 
 
@@ -81,4 +81,4 @@ Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. 
 ## Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

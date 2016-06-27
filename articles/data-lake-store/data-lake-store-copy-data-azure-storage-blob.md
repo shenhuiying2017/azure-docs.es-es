@@ -110,7 +110,7 @@ Por ejemplo:
 
 ## Consideraciones para usar AdlCopy
 
-* AdlCopy no admite la copia de datos de orígenes que tienen más de 1000 archivos y carpetas de forma colectiva. Lo que se podría hacer en este caso es distribuir los archivos o carpetas en subcarpetas diferentes y usar la ruta de acceso a esas subcarpetas como origen en su lugar.
+* AdlCopy (para la versión 1.0.4) admite la copia de datos desde orígenes que en conjunto tienen más de miles de archivos y carpetas. Sin embargo, si tiene problemas al copiar un conjunto de datos grande, puede distribuir los archivos o carpetas en subcarpetas diferentes y usar la ruta de acceso a esas subcarpetas como origen en su lugar.
 
 ## Pasos siguientes
 
@@ -118,4 +118,4 @@ Por ejemplo:
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -106,4 +106,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 
 - [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

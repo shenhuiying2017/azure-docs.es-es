@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -47,21 +47,21 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 -	Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250.000 * 10 = 2,5 millones de solicitudes por segundo.
 -	El rendimiento para los tamaños de clave más grandes es más alto en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Ancho de banda disponible | Tamaño de clave de 1 KB |
-|----------------------|--------|----------------------------|--------------------------------|
-| **Tamaños de caché estándar** | &nbsp; |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** | **Solicitudes por segundo (RPS)** |
-| C0 | 250 MB | 5 / 0.625 | 600 |
-| C1 | 1 GB | 100 / 12.5 | 12200 |
-| C2 | 2,5 GB | 200 / 25 | 24000 |
-| C3 | 6 GB | 400 / 50 | 49000 |
-| C4 | 13 GB | 500 / 62.5 | 61000 |
-| C5 | 26 GB | 1000 / 125 | 115000 |
-| C6 | 53 GB | 2000 / 250 | 150000 |
-| **Tamaños de caché Premium** | &nbsp; | &nbsp; | **Solicitudes por segundo (RPS), por partición** |
-| P1 | 6 GB | 1000 / 125 | 140000 |
-| P2 | 13 GB | 2000 / 250 | 220000 |
-| P3 | 26 GB | 2000 / 250 | 220000 |
-| P4 | 53 GB | 4000 / 500 | 250000 |
+| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de 1 KB |
+|--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
+| **Tamaños de caché estándar** | | | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** | **Solicitudes por segundo (RPS)** |
+| C0 | 250 MB | Compartido | 5 / 0.625 | 600 |
+| C1 | 1 GB | 1 | 100 / 12.5 | 12200 |
+| C2 | 2,5 GB | 2 | 200 / 25 | 24000 |
+| C3 | 6 GB | 4 | 400 / 50 | 49000 |
+| C4 | 13 GB | 2 | 500 / 62.5 | 61000 |
+| C5 | 26 GB | 4 | 1000 / 125 | 115000 |
+| C6 | 53 GB | 8 | 2000 / 250 | 150000 |
+| **Tamaños de caché Premium** | | **Núcleos de CPU por partición** | | **Solicitudes por segundo (RPS), por partición** |
+| P1 | 6 GB | 2 | 1000 / 125 | 140000 |
+| P2 | 13 GB | 4 | 2000 / 250 | 220000 |
+| P3 | 26 GB | 4 | 2000 / 250 | 220000 |
+| P4 | 53 GB | 8 | 4000 / 500 | 250000 |
 
 
 Para obtener instrucciones acerca de cómo descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands).
@@ -168,11 +168,11 @@ Dada esta información, se recomienda encarecidamente que los clientes establezc
 
 Cómo configurar este valor:
 
--	En ASP.NET, utilice el [valor de configuración "minIoThreads"][] que se encuentra en el elemento de configuración `<processModel>` en web.config. Si está trabajando dentro de Sitios web de Azure, esta configuración no se expone a través de las opciones de configuración. Sin embargo, todavía podrá establecerlo mediante programación (consulte a continuación) con el método Application\_Start de global.asax.cs.
+-	En ASP.NET, use el [valor de configuración "minIoThreads"][] que se encuentra en el elemento de configuración `<processModel>` en web.config. Si está trabajando dentro de Sitios web de Azure, esta configuración no se expone a través de las opciones de configuración. Sin embargo, todavía podrá establecerlo mediante programación (consulte a continuación) con el método Application\_Start de global.asax.cs.
 
-> **Nota importante:** El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de cuatro núcleos y desea que su configuración de minIOThreads sea 200 en tiempo de ejecución, usaría `<processModel minIoThreads="50"/>`.
+> **Nota importante:** El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de cuatro núcleos y desea que su configuración de minIOThreads sea 200 en tiempo de ejecución, usará `<processModel minIoThreads="50"/>`.
 
--	Fuera de ASP.NET, utilice la API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
+-	Fuera de ASP.NET, use la API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
 <a name="server-gc"></a>
 ## Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis
@@ -228,7 +228,7 @@ Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://r
 <a name="cache-emulator"></a>
 ## ¿Hay un emulador local para Azure Redis Cache?
 
-No hay ningún emulador local para Azure Redis Cache, pero puede ejecutar la versión MSOpenTech de redis server.exe desde las [Herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) de su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de la memoria caché local, tal y como se muestra en el ejemplo siguiente.
+No hay ningún emulador local para Caché en Redis de Azure, pero puede ejecutar la versión MSOpenTech de redis-server.exe desde las [Herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) de su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de la memoria caché local, tal y como se muestra en el ejemplo siguiente.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -264,7 +264,7 @@ Dado que cada cliente es diferente, no hay no una referencia de clase centraliza
 
 ## ¿Qué oferta de caché de Azure es adecuada para mí?
 
->[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, el Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
 
 ### Caché en Redis de Azure
 Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
@@ -285,4 +285,4 @@ Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea 
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -15,11 +15,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
-# Solución de problemas de pertenencias dinámicas a grupos
+# Solución de problemas relacionados con las pertenencias dinámicas para grupos
 
 **He configurado una regla en un grupo, pero las pertenencias no se actualizan en el grupo**<br/>Compruebe que el valor de **Habilitar la administración de grupos delegados** está establecido en **Sí** en la pestaña **Configurar**. Esta opción solo se verá si ha iniciado sesión como un usuario a quien se ha asignado una licencia de Active Directory Premium de Azure. Compruebe los valores de atributos de usuario en la regla: ¿hay usuarios que cumplen la regla?
 
@@ -34,4 +34,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
 # Operaciones de auditoría con el Administrador de recursos
@@ -125,4 +125,4 @@ Las operaciones REST para trabajar con el registro de auditoría forman parte de
 - Para obtener más información sobre los comandos para la solución de problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Para aprender a evitar eliminaciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

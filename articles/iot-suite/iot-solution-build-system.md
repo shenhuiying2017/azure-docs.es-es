@@ -2,16 +2,16 @@
 	pageTitle="Ejemplo de IoT de Azure MyDriving: compilación | Microsoft Azure"
 	description="Compile una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -109,7 +109,7 @@ Descomprima el archivo en una carpeta con una ruta de acceso corta, como C:\\cod
 
 Como alternativa, si desea mantenerse al día de nuestro código o contribuir a él, clone el repositorio del modo siguiente:
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Obtención de la clave de API de mapas de Bing
 
@@ -438,7 +438,7 @@ Condiciones:
 
 Para más información, consulte:
 
--   Resumen de [cuotas y límites del servicio de Azure](../azure-subscription-service-limits/#iot-hub-limits)
+-   Resumen de [cuotas y límites del servicio de Azure](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/) de Azure
 
@@ -462,4 +462,4 @@ Esperamos sus noticias.
 
 Se recomienda la lectura de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), donde se describe de manera detallada el diseño del sistema y sus componentes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

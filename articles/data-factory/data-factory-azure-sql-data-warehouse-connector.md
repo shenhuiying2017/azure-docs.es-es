@@ -485,7 +485,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
     }
 
 ## Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL
-**PolyBase** es una manera eficaz de cargar grandes cantidades de datos de Almacenamiento de blobs de Azure a Almacenamiento de datos SQL de Azure con un alto rendimiento. Puede ver una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado.
+Usar **PolyBase** es una manera eficaz de cargar grandes cantidades de datos en Almacenamiento de datos SQL de Azure con un alto rendimiento. Puede ver una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado.
 
 Establezca el valor de la propiedad **allowPolyBase** en **True**, tal y como se muestra en el ejemplo siguiente de Data Factory de Azure para usar PolyBase con el fin de copiar datos de Almacenamiento de blobs de Azure a Almacenamiento de datos SQL de Azure. Cuando se establece allowPolyBase en true, puede especificar las propiedades específicas de PolyBase mediante el grupo de propiedades **polyBaseSettings**. Consulte la sección [SqlDWSink](#SqlDWSink) anterior para más información acerca de las propiedades que puede utilizar con las propiedades polyBaseSettings.
 
@@ -504,18 +504,17 @@ Establezca el valor de la propiedad **allowPolyBase** en **True**, tal y como se
     }
 
 ### Copias directas con PolyBase
-Si el origen de datos cumple los criterios siguientes, puede realizar las copias directamente desde el almacén de datos de origen al Almacenamiento de datos SQL de Azure mediante PolyBase. De lo contrario, podría copiar los datos del almacén de datos de origen a un almacenamiento de blobs de Azure provisional que cumpla los criterios siguientes y, después, utilizar PolyBase para cargar los datos en el Almacenamiento de datos SQL de Azure. Consulte la sección [Copias almacenadas provisionalmente con PolyBase](#staged-copy-using-polybase) para obtener más información sobre las copias almacenadas provisionalmente.
+Si el origen de datos cumple los criterios siguientes, puede realizar las copias directamente desde el almacén de datos de origen a Almacenamiento de datos SQL de Azure mediante PolyBase con referencia a la configuración de ejemplo anterior. De lo contrario, puede aprovechar [Copias almacenadas provisionalmente con PolyBase](#staged-copy-using-polybase).
 
 Tenga en cuenta que, si no se cumplen los requisitos, Data Factory de Azure comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
 1.	**Servicio vinculado de origen** es de tipo **Almacenamiento de Azure** y no está configurado para utilizar la autenticación de SAS (firma de acceso compartido). Consulte [Servicio vinculado de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para obtener más información.  
-2. El **conjunto de datos de entrada** es de tipo **Blob de Azure** y las propiedades de tipo del conjunto de datos cumplen los criterios siguientes: 
-	1. **Type** debe ser **TextFormat** u **OrcFormat**. 
-	2. **rowDelimiter** debe ser **\\n**. 
-	3. **nullValue** está establecido en **cadena vacía** (""). 
-	4. **encodingName** está establecido en **utf-8**, el valor **predeterminado**, por lo que no se establece en un valor diferente. 
-	5. **escapeChar** y **quoteChar** no se han especificado. 
-	6. **Compression** no es **BZIP2**.
+2. El **conjunto de datos de entrada** es de tipo **Blob de Azure** y el tipo de formato en las propiedades de tipo es **OrcFormat** o **TextFormat** con las configuraciones siguientes:
+	1. **rowDelimiter** debe ser **\\n**. 
+	2. **nullValue** está establecido en **cadena vacía** (""). 
+	3. **encodingName** está establecido en **utf-8**, el valor **predeterminado**, por lo que no se establece en un valor diferente. 
+	4. **escapeChar** y **quoteChar** no se han especificado. 
+	5. **Compression** no es **BZIP2**.
 	 
 			"typeProperties": {
 				"folderPath": "<blobpath>",
@@ -533,12 +532,14 @@ Tenga en cuenta que, si no se cumplen los requisitos, Data Factory de Azure comp
 			},
 3.	No hay ninguna configuración de **skipHeaderLineCount** en **BlobSource** para la actividad de copia de la canalización. 
 4.	No hay ninguna configuración de **sliceIdentifierColumnName** en **SqlDWSink** para la actividad de copia de la canalización. (PolyBase garantiza que todos los datos se actualizan o que no se actualiza ninguno en una única ejecución). Para lograr la **repetibilidad**, podría usar **sqlWriterCleanupScript**.
-5.	No se utiliza ningún receptor **columnMapping** en la actividad de copia asociada. 
+5.	No se usa ningún receptor **columnMapping** en la actividad de copia asociada. 
 
 ### Copias almacenadas provisionalmente con PolyBase
-El mecanismo de PolyBase requiere que los datos de origen estén en un almacenamiento de blobs de Azure y con uno de los formatos admitidos (DELIMITEDTEXT con restricción RCFILE, ORC o PARQUET). Cuando los datos de origen no cumplan los criterios de la sección anterior, puede habilitar la copia de datos a través de un almacenamiento de blobs de Azure provisional, en cuyo caso Data Factory de Azure realizará las transformaciones necesarias en los datos para que se cumplan los requisitos de PolyBase. Después, utilizará PolyBase para cargarlos en Almacenamiento de datos SQL. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para obtener más información sobre cómo copiar datos a través de los trabajos de almacenamiento de blobs de Azure provisional.
+Cuando los datos de origen no cumplan los criterios de la sección anterior, puede habilitar la copia de datos a través de un almacenamiento de blobs de Azure provisional, en cuyo caso Data Factory de Azure realizará las transformaciones necesarias en los datos para que se cumplan los requisitos de PolyBase. Después, utilizará PolyBase para cargarlos en Almacenamiento de datos SQL. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para más información sobre cómo funciona en general la copia de datos por medio de un blob de Azure de almacenamiento provisional.
 
-Para utilizar esta característica, cree un [servicio vinculado de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que haga referencia a la cuenta de almacenamiento de Azure que tenga el almacenamiento de blobs provisional. Después, especifique las propiedades **enableStaging** y **stagingSettings** de la actividad de copia tal y como se muestra a continuación:
+> [AZURE.IMPORTANT] Si va a copiar datos del almacén de datos local a Almacenamiento de datos SQL de Azure mediante PolyBase y almacenamiento provisional, debe instalar JRE (Java Runtime Environment) en la máquina de puerta de enlace que se usará para transformar los datos de origen en un formato correcto. Tenga en cuenta que una puerta de enlace de 64 bits requiere JRE de 64 bits y una de 32 bits, JRE de 32 bits. Puede encontrar ambas versiones [aquí](http://go.microsoft.com/fwlink/?LinkId=808605); elija la correcta.
+
+Para usar esta característica, cree un [servicio vinculado de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que haga referencia a la cuenta de Almacenamiento de Azure que tenga el almacenamiento de blobs provisional. Después, especifique las propiedades **enableStaging** y **stagingSettings** de la actividad de copia tal y como se muestra a continuación:
 
 	"activities":[  
 	{
@@ -555,16 +556,12 @@ Para utilizar esta característica, cree un [servicio vinculado de Almacenamient
 				"allowPolyBase": true
 			},
     		"enableStaging": true,
-				"stagingSettings": {
+			"stagingSettings": {
 				"linkedServiceName": "MyStagingBlob"
 			}
 		}
 	}
 	]
-
-
-Nota: Si va a copiar datos del almacén de datos local a Almacenamiento de datos SQL de Azure mediante PolyBase y almacenamiento provisional, debe instalar JRE (Java Runtime Environment) en la máquina de puerta de enlace que se utilizará para transformar los datos de origen en un formato correcto.
-
 
 
 ### Procedimientos recomendados al usar PolyBase
@@ -655,6 +652,6 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

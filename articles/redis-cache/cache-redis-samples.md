@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Ejemplos de Caché en Redis de Azure" 
+	pageTitle="Ejemplos de Caché en Redis de Azure | Microsoft Azure" 
 	description="Obtener información acerca de cómo usar Caché en Redis de Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/22/2016" 
+	ms.date="06/09/2016" 
 	ms.author="sdanie"/>
 
 # Ejemplos de Caché en Redis de Azure 
@@ -74,4 +74,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

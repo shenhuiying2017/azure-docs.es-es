@@ -14,14 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="06/09/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication (Conexión a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory)
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 - [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
@@ -55,7 +54,7 @@ En los pasos de configuración se incluyen los siguientes procedimientos para co
 Las principales diferencias entre el uso de la autenticación de Azure Active Directory con Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure es que debe utilizar SQL Server Data Tools en lugar de SQL Server Management Studio para conectarse a Almacenamiento de datos SQL. Almacenamiento de datos SQL requiere al menos la versión de abril de 2016 (14.0.60311.1) de SQL Server Data Tools para Visual Studio 2015. Actualmente los usuarios de Azure Active Directory no se muestran en el Explorador de objetos de SSDT. Como solución alternativa, consulte los usuarios de [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ## Pasos siguientes 
-- Siga los pasos detallados. Los pasos detallados para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure. Siga los pasos detallados en el tema [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+- Siga los pasos detallados. Los pasos detallados para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure. Siga los pasos detallados del tema [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 - Cree roles de base de datos personalizados y agrégueles usuarios. A continuación, conceda permisos específicos a los roles. Para más información, consulte [Introducción a los permisos de los motores de bases de datos](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

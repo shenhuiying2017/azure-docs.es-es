@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2016"
+   ms.date="06/13/2016"
    ms.author="seanmck"/>
 
-# VISTA PREVIA: Crear un clúster de Service Fabric con Azure Active Directory para la autenticación de cliente
+# Creación de un clúster de Service Fabric con Azure Active Directory para la autenticación de cliente
 
 Puede proteger el acceso a los puntos de conexión de administración de un clúster de Service Fabric con Azure Active Directory (AAD). Este artículo trata sobre cómo crear los artefactos de AAD necesarios, cómo rellenarlos durante la creación de clústeres y cómo conectarse a esos clústeres posteriormente.
-
->[AZURE.IMPORTANT] La integración de AAD con clústeres de Service Fabric está actualmente en vista previa. Todo lo que se describe en este artículo está disponible en el tiempo de ejecución de Service Fabric 5.0, pero se recomienda que no lo use para clústeres de producción en este momento.
 
 ## Modelar un clúster de Service Fabric en AAD
 
@@ -160,4 +158,4 @@ Para solucionar este problema, agregue **http://<i></i>localhost** como identifi
 [setupapp-script-output]: ./media/service-fabric-cluster-security-client-auth-with-aad/setupapp-script-arm-json-output.png
 [vs-publish-aad-login]: ./media/service-fabric-cluster-security-client-auth-with-aad/vs-login-prompt.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

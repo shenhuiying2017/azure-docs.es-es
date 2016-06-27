@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
@@ -203,10 +203,9 @@ La sesión del usuario expira cuando expira la duración del token emitido por A
 
 ### Aplicación de una sola página (SPA)
 
+En esta sección se describe la autenticación de una aplicación de una sola página, donde se usa Azure AD y la concesión de autorización implícita OAuth 2.0 para proteger su back-end de API web. Las aplicaciones de una sola página normalmente están estructuradas como una capa de presentación (front-end) de JavaScript que se ejecuta en el explorador y un back-end de API web que se ejecuta en un servidor e implementa la lógica de negocios de la aplicación. Para conocer más sobre la concesión de autorización implícita y ayudarle a decidir si es adecuada para el escenario de su aplicación, consulte [Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-Esta sección describe la autenticación para una aplicación de una sola página que usa Azure AD para proteger su back-end de la API web. Las aplicaciones de una sola página normalmente están estructuradas como una capa de presentación (front-end) de JavaScript que se ejecuta en el explorador y un back-end de la API web que se ejecuta en un servidor e implementa la lógica de negocios de la aplicación. En este escenario, cuando el usuario inicia sesión, el front-end de JavaScript usa la [biblioteca de autenticación de Active Directory para JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) y el protocolo de concesión implícita OAuth 2.0 para obtener un token de identificador (id\_token) de Azure AD. El token se almacena en caché y el cliente lo adjunta a la solicitud como token portador al realizar llamadas al back-end de la API web, que se protege con el middleware de OWIN.
-
-
+En este escenario, cuando el usuario inicia sesión, el front-end de JavaScript usa la [biblioteca de autenticación de Active Directory para JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) y la concesión de autorización implícita para obtener un token de identificación (id\_token) de Azure AD. El token se almacena en caché y el cliente lo adjunta a la solicitud como token de portador al realizar llamadas al back-end de la API web, que está protegido con el middleware de OWIN.
 #### Diagrama
 
 ![Diagrama de aplicación de una sola página](./media/active-directory-authentication-scenarios/single_page_app.png)
@@ -324,9 +323,9 @@ Cuando la aplicación nativa usa su código de autorización para obtener un tok
 
 En esta sección se describe una aplicación web que necesita obtener recursos de una API web. En este escenario, existen dos tipos de identidad que la aplicación web puede usar para autenticar y llamar a la API web: una identidad de aplicación o una identidad de usuario delegado.
 
-*Identidad de aplicación:* en este escenario se usan credenciales de cliente de OAuth 2.0 concedidas para autenticarse como aplicación y obtener acceso a la API web. Cuando se usa una identidad de aplicación, la API web solo puede detectar que la aplicación web la llama, ya que la API web no recibe ninguna información sobre el usuario. Si la aplicación recibe información sobre el usuario, se enviará mediante el protocolo de aplicación, sin la firma de Azure AD. La API web confía en que la aplicación web autenticó al usuario. Por ello, este patrón se conoce como subsistema de confianza.
+*Identidad de aplicación:* en este escenario se usa la concesión de credenciales de cliente de OAuth 2.0 para autenticarse como aplicación y obtener acceso a la API web. Cuando se usa una identidad de aplicación, la API web solo puede detectar que la aplicación web la llama, ya que la API web no recibe ninguna información sobre el usuario. Si la aplicación recibe información sobre el usuario, se enviará mediante el protocolo de aplicación, sin la firma de Azure AD. La API web confía en que la aplicación web autenticó al usuario. Por ello, este patrón se conoce como subsistema de confianza.
 
-*Identidad de usuario delegado:* este escenario se puede conseguir de dos maneras: concesión de código de autorización OpenID Connect y OAuth 2.0 con un cliente confidencial. La aplicación web obtiene un token de acceso para el usuario, que demuestra a la API web que el usuario se autenticó correctamente ante la aplicación web y que la aplicación web pudo obtener una identidad de usuario delegado para llamar a la API web. Este token de acceso se envía en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
+*Identidad de usuario delegado:* este escenario se puede conseguir de dos maneras: OpenID Connect y concesión de código de autorización OAuth 2.0 con un cliente confidencial. La aplicación web obtiene un token de acceso para el usuario, que demuestra a la API web que el usuario se autenticó correctamente ante la aplicación web y que la aplicación web pudo obtener una identidad de usuario delegado para llamar a la API web. Este token de acceso se envía en la respuesta a la API web, que autoriza al usuario y devuelve el recurso deseado.
 
 #### Diagrama
 
@@ -469,4 +468,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

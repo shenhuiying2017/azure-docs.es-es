@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="06/14/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -28,7 +28,7 @@ Estas preguntas más frecuentes responden a preguntas sobre el Centro de segurid
 El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 ### ¿Cómo puedo obtener el Centro de seguridad de Azure?
-El Centro de seguridad de Azure se habilita con la suscripción de Microsoft Azure y es posible tener acceso a él desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**). Puede consultar algunas recomendaciones de seguridad en el panel inmediatamente. Esto se debe a que el servicio puede evaluar el estado de seguridad de algunos controles según su configuración en Azure. Para habilitar el conjunto total de funcionalidades de supervisión, recomendaciones y alertas de seguridad, deberá [habilitar la colección de datos](#data-collection).
+El Centro de seguridad de Azure se habilita con la suscripción de Microsoft Azure y es posible tener acceso a él desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). ([Inicie sesión en el portal](https://portal.azure.com), seleccione **Examinar** y desplácese al **Centro de seguridad**).
 
 ## Facturación
 
@@ -37,24 +37,27 @@ Vea [Precios del Centro de seguridad de Azure](https://azure.microsoft.com/prici
 
 ## Colección de datos
 
-### ¿Cómo habilito la colección de datos?<a name=data-collection></a>
-Puede habilitar la colección de datos de las suscripciones de Azure en la directiva de seguridad. Para habilitar la colección de datos, [inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**. Establezca **Colección de datos** en **Habilitada** y configure las cuentas de almacenamiento donde desea colectar los datos (consulte la pregunta "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)"). Una vez habilitada la **colección de datos**, colecta automáticamente información de eventos y configuración de seguridad de todas las máquinas virtuales compatibles de la suscripción.
+Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Azure Security Center la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar [desactivando la recopilación de datos](#how-do-i-disable-data-collection) en la directiva de Security Center.
+
+### ¿Cómo se puede deshabilitar la recolección de datos?
+
+Puede deshabilitar la **recopilación de datos** de una suscripción en la directiva de seguridad en cualquier momento. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la **colección de datos**. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
+
+> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero tiene que seleccionar una suscripción para desactivar la recolección de datos.
+
+### ¿Cómo se puede habilitar la recolección de datos?
+Puede habilitar la colección de datos de las suscripciones de Azure en la directiva de seguridad. Para habilitar la colección de datos, [inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**. Establezca **Colección de datos** en **Habilitada** y configure las cuentas de almacenamiento donde desea colectar los datos (consulte la pregunta "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)"). Una vez habilitada la **colección de datos**, colecta automáticamente información de eventos y configuración de seguridad de todas las máquinas virtuales compatibles de la suscripción.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos tiene lugar solo en el nivel de suscripción.
 
-### ¿Qué sucede cuando habilito la colección de datos?
-La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversos eventos y configuraciones de seguridad importantes y los envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
+### ¿Qué sucede cuando se habilita la colección de datos?
+La colección de datos se habilita a través de la extensión Supervisión de seguridad de Azure y el Agente de supervisión de Azure. La extensión Supervisión de seguridad de Azure busca diversas configuraciones de seguridad importantes y las envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo crea las entradas del registro de eventos. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis. Esta es la cuenta de almacenamiento que configuró en la directiva de seguridad. Para obtener más información sobre la cuenta de almacenamiento, consulte "[¿Dónde se almacenan los datos?](#where-is-my-data-stored)".
 
 ### ¿El Agente de supervisión o la extensión Supervisión de seguridad afecta el rendimiento de los servidores?
 El agente y la extensión utilizan una cantidad simbólica de los recursos del sistema y tienen un impacto menor en el rendimiento.
 
-### ¿Cómo puedo revertir la habilitación de la colección de datos si ya no la deseo?
-Puede deshabilitar la **colección de datos** de una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando se selecciona una suscripción, se abre una hoja nueva que le brinda la opción de deshabilitar la colección de datos. Seleccione la opción **Eliminar agentes** en la barra de herramientas superior para quitar los agentes de las máquinas virtuales existentes.
-
-> [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero debe seleccionar una suscripción para desactivar la colección de datos.
-
-### ¿Dónde se almacenan los datos?<a name=where-is-my-data-stored></a>
-Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Centro de seguridad** y, luego, **Directiva de seguridad**). Cuando hace clic en una suscripción, se abre una hoja nueva. Seleccione **Elegir cuentas de almacenamiento** para seleccionar una región. Los datos colectados se aíslan lógicamente de los datos de otros clientes por motivos de seguridad.
+### ¿Dónde se almacenan los datos?
+Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Esto facilita el mantenimiento de los datos en la misma zona geográfica para fines de privacidad y soberanía de datos. Elija la cuenta de almacenamiento para una suscripción en la directiva de seguridad. ([Inicie sesión en el Portal de Azure](https://portal.azure.com), seleccione **Examinar**, **Security Center** y, luego, **Directiva**.) Cuando hace clic en una suscripción, se abre una hoja nueva. Seleccione **Elija las cuentas de almacenamiento** para seleccionar una región.
 
 > [AZURE.NOTE] Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la selección de una región para la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
 
@@ -127,4 +130,4 @@ Máquinas virtuales con Linux admitidas:
 - Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
 - Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

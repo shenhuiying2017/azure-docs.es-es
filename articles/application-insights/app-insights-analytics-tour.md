@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Un paseo por Analytics de Application Insights" 
+	pageTitle="Un paseo por Analytics de Application Insights | Microsoft Azure" 
 	description="Ejemplos breves de todas las principales consultas de Analytics, la potente herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -22,14 +22,12 @@
 
 [Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
-
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
  
 Recorramos algunas preguntas básicas para comenzar.
 
 ## Conexión a los datos de Application Insights
 
-Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights:
+Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su instancia de Application Insights:
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics-tour/001.png)
 
@@ -84,7 +82,7 @@ El resultado sería el mismo, pero se ejecutaría un poco más lento. (También 
 Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
 
 
-## [Project](app-insights-analytics-reference.md#project-operator): seleccionar, cambiar el nombre y calcular columnas
+## [Project](app-insights-analytics-reference.md#project-operator): seleccionar, cambiar nombre y calcular columnas
 
 Use [`project`](app-insights-analytics-reference.md#project-operator) para seleccionar solamente las columnas que desea:
 
@@ -247,7 +245,7 @@ Podemos hacerlo mejor que la vista de la tabla. Echemos un vistazo a los resulta
 Tenga en cuenta que aunque no ordenamos los resultados por tiempo (como puede ver en la visualización de la tabla), la visualización del gráfico siempre muestra las fechas en el orden correcto.
 
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtrado de una condición
+## [Where](app-insights-analytics-reference.md#where-operator): filtrado de una condición.
 
 Si ha configurado la supervisión de Application Insights tanto para el lado [cliente](app-insights-javascript.md) como para el lado servidor de la aplicación, parte de la telemetría de la base de datos procede de los exploradores.
 
@@ -323,7 +321,7 @@ Use varios valores en una cláusula `summarize by` para crear una fila independi
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Para mostrar varias líneas en un gráfico, haga clic en **Split by (Dividir por)** y elija una columna.
+Para mostrar varias líneas en un gráfico, haga clic en **Split by** (Dividir por) y elija una columna.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -474,4 +472,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar las pa
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

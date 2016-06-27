@@ -83,7 +83,7 @@ En este ejemplo, la zona se especifica mediante el nombre de la zona y el nombre
 
 ### 3\. Incorporación de un registro
 
-Para poder usar el conjunto de registros "www" recién creado, es necesario añadirle registros. Puede agregar registros de IPv4 *A* al conjunto de registros "www" con el ejemplo siguiente. Este ejemplo se basa en la variable *$rs* que estableció en el paso anterior.
+Para poder usar el conjunto de registros "www" recién creado, es necesario añadirle registros. Puede agregar registros *A* de IPv4 al conjunto de registros "www" con el ejemplo siguiente. Este ejemplo se basa en la variable *$rs* que estableció en el paso anterior.
 
 Agregar registros a un conjunto de registros mediante `Add-AzureRmDnsRecordConfig` es una operación sin conexión. Se actualiza únicamente la variable local *$rs*.
 
@@ -145,4 +145,4 @@ En los ejemplos siguientes se muestra cómo crear un conjunto de registros de ca
 
 [Automate Azure operations with .NET SDK](dns-sdk.md) (Automatización de operaciones de Azure con el SDK de .NET)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

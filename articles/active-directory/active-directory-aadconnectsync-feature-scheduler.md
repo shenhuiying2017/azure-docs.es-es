@@ -38,6 +38,8 @@ Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncSchedu
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
+Si al ejecutar este cmdlet, aparece el error **The sync command or cmdlet is not available** (El comando de sincronización o el cmdlet no están disponibles), significa que el módulo de PowerShell no está cargado. Esto podría suceder si ejecuta Azure AD Connect en un controlador de dominio o en un servidor con niveles de restricción para PowerShell más elevados que la configuración predeterminada. Si ve este error, ejecute `Import-Module ADSync` para que esté disponible el cmdlet.
+
 - **AllowedSyncCycleInterval**. En la mayoría de los casos Azure AD permitirá que se produzcan las sincronizaciones. No se puede sincronizar con más frecuencia que esto y mantener la compatibilidad.
 - **CurrentlyEffectiveSyncCycleInterval**. La programación en vigor actualmente. Tendrá el mismo valor que CustomizedSyncInterval (si está establecido) si no es más frecuente que AllowedSyncInterval. Si cambia CustomizedSyncCycleInterval, esto surtirá efecto tras el próximo ciclo de sincronización.
 - **CustomizedSyncCycleInterval**. Si desea que el programador se ejecute con cualquier otra frecuencia distinta a la del valor predeterminado de 30 minutos, configure este valor. En la imagen anterior, el programador se ha establecido para que se ejecute cada hora. Si se establece en un valor inferior al de AllowedSyncInterval, se utilizará el último.
@@ -90,8 +92,8 @@ Si el programador está ejecutando actualmente un ciclo de sincronización puede
 
 Cuando se está ejecutando un ciclo de sincronización, no puede realizar cambios de configuración. Debe esperar hasta que el programador haya terminado el proceso, pero también es posible detenerlo para poder realizar los cambios inmediatamente. Detener el ciclo actual no es perjudicial y los cambios que aún no se hayan procesado se procesarán en la próxima ejecución.
 
-1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet de PowerShell `Stop-ADSyncSyncCycle`.
-2. La detención del programador no hará que el conector en cuestión detenga su tarea actual. Para forzar al conector para que se detenga, tome las medidas siguientes: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
+1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet `Stop-ADSyncSyncCycle` de PowerShell.
+2. La detención del programador no hará que el conector en cuestión detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
     - Inicie el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores**, seleccione el conector con el estado **En ejecución** y seleccione **Detener** en la lista de acciones.
 
 El programador permanecerá todavía activo y se iniciará de nuevo a la siguiente oportunidad.
@@ -108,11 +110,11 @@ Puede iniciar un perfil para un conector de esta manera:
 Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name of profile"
 ```
 
-Los nombres para utilizar para [Nombres de conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) y [Nombres de perfil de ejecución](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) pueden encontrarse en la [interfaz de usuario de Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
+Los nombres para utilizar como [nombres de conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) y [nombres de perfil de ejecución](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) pueden encontrarse en la [interfaz de usuario de Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
 ![Invocar el perfil de ejecución](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
 
-El cmdlet `Invoke-ADSyncRunProfile` es sincrónico; es decir, no devolverá el control hasta que el conector haya completado la operación, ya sea correctamente o con error.
+El cmdlet `Invoke-ADSyncRunProfile` es sincrónico; es decir, no devolverá el control hasta que el conector haya completado la operación, ya sea correcta o incorrectamente.
 
 Al programar los conectores, se recomienda hacerlo en el siguiente orden:
 
@@ -142,4 +144,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

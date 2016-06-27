@@ -507,7 +507,7 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
  - [Construcciones de Transact-SQL no admitidas en In-Memory OLTP.](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-## Pasos adicionales
+## Pasos siguientes
 
 
 - Consulte [Uso de In-Memory (vista previa) para mejorar el rendimiento de la aplicación de Base de datos SQL de Azure.](sql-database-in-memory-oltp-migration.md)
@@ -537,4 +537,4 @@ Si una base de datos contiene cualquiera de los siguientes tipos de objetos o ti
 
 - [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md) para In-Memory OLTP.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -156,7 +156,7 @@ Una vez creado el [grupo de bases de datos elásticas](sql-database-elastic-pool
 
 **Tiempo estimado para completar el tutorial:** 10 minutos.
 
-1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://ms.portal.azure.com/#), haga clic en **Crear trabajo**.
+1. En la vista del panel del grupo de bases de datos elásticas a través del [Portal de Azure](https://portal.azure.com/#), haga clic en **Crear trabajo**.
 2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de base de datos elástica** haciendo clic en **TÉRMINOS DE VISTA PREVIA**.
 3. Acepte los términos haciendo clic en la casilla de verificación.
 4. En la vista "Instalar servicios", haga clic en **CREDENCIALES DEL TRABAJO**.
@@ -187,4 +187,4 @@ La garantía de una credencial con los derechos adecuados para la ejecución del
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

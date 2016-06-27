@@ -17,7 +17,7 @@
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal de Azure clásico](sql-database-elastic-jobs-create-and-manage.md)
+- [Portal de Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -238,21 +238,7 @@ Cuando las contraseñas cambian, use el cmdlet [**Set-AzureSqlJobCredential**](h
 
 Para ejecutar un trabajo en todas las bases de datos de un conjunto de particiones (creado con la [biblioteca cliente de Base de datos elástica](sql-database-elastic-database-client-library.md)), use un mapa de particiones como base de datos de destino. Este ejemplo requiere crear una aplicación con particiones con la biblioteca cliente de Base de datos elástica. Consulte [Introducción a las herramientas de Base de datos elástica](sql-database-elastic-scale-get-started.md).
 
-###Creación de un administrador de mapas de particiones con la aplicación de ejemplo
-
-En este ejemplo se crea un administrador de mapas de particiones junto con varias particiones y se insertan datos en las particiones.
-
-1. Cree y ejecute la aplicación de ejemplo de **Introducción a las herramientas de base de datos elástica**. Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). Al final del paso 7, verá la siguiente línea de comandos:
-
-	![símbolo del sistema][1]
-
-2.  En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
-  
-3.  El [Portal de Azure](https://portal.azure.com) debe mostrar tres nuevas bases de datos en el servidor v12:
-
-	![Confirmación de Visual Studio][2]
-
-Cree un destino del mapa de particiones con el cmdlet [**New-AzureSqlJobCredential**](https://msdn.microsoft.com/library/mt346063.aspx). Se debe establecer la base de datos de administrador del mapa de particiones como base de datos de destino y luego especificar ese mapa de particiones como destino.
+Se debe establecer la base de datos de administrador del mapa de particiones como base de datos de destino y luego especificar ese mapa de particiones como destino.
 
 	$shardMapCredentialName = "{Credential Name}"
 	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -694,4 +680,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

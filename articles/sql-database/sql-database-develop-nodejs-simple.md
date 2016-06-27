@@ -38,4 +38,8 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx) (Prueba de concepto que se conecta a SQL con Node.js)
 
-<!---HONumber=AcomDC_0518_2016-->
+## Recursos adicionales
+
+Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

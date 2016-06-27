@@ -6,13 +6,10 @@
    authors="joaoma"
    manager="carmonm"
    editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/22/2016"
+<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
+   
+   ms.date="06/10/2016"
+
    ms.author="joaoma" />
 
 # Deshabilitación, habilitación o eliminación de un perfil
@@ -31,7 +28,7 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 1. Seleccione el perfil que desea habilitar. Para seleccionar el perfil, en la página Administrador de tráfico, resalte el perfil haciendo clic en la columna situada junto al nombre del perfil. No haga clic en el nombre del perfil ni en la flecha que aparece junto al nombre, ya que esto le llevará a la página de configuración del perfil.
 1. Después de seleccionar el perfil, haga clic en Habilitar en la parte inferior de la página.
-1. Modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil del Administrador de tráfico. Para obtener más información, consulte [Hacer que un dominio de Internet de la compañía apunte a un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
+1. Modifique el registro de recursos DNS del servidor DNS de Internet para que use el tipo de registro CNAME, que asigna el nombre de dominio de la empresa al nombre de dominio del perfil del Administrador de tráfico. Para obtener más información, consulte [Hacer que un dominio de Internet de la compañía apunte a un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 1. El tráfico comenzará a dirigirse de nuevo a los extremos.
 
 ## Eliminación de un perfil
@@ -54,4 +51,4 @@ Puede deshabilitar un perfil de Administrador de tráfico existente de para que 
 
 [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

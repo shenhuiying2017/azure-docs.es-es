@@ -49,10 +49,10 @@ Vaya a la página principal para ver qué mas puede ofrecerle Base de datos SQL.
 
 Obtenga una [suscripción a Azure gratuita](https://azure.microsoft.com/get-started/) y [cree su primera Base de datos SQL de Azure](sql-database-get-started.md).
 
-## Más información
+## Recursos adicionales
 
 Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

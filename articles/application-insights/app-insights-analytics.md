@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics: la eficaz herramienta de búsqueda de Application Insights" 
+	pageTitle="Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Azure" 
 	description="Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,10 +21,9 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
  
-Una consulta típica de AIQL consiste en una tabla de *origen* seguida de una serie de *operadores* separados por `|`.
+Una consulta típica consta de una tabla de *origen* seguida de una serie de *operadores* separados por `|`.
 
 Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hyderabad nuestra aplicación web. Y ya puestos, veamos qué códigos de resultados se devuelven a sus solicitudes HTTP.
 
@@ -54,7 +53,7 @@ También hay operaciones estadísticas potentes:
 El lenguaje tiene muchas características atractivas:
 
 * [Filtre](app-insights-analytics-reference.md#where-operator) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
-* [Una](app-insights-analytics-reference.md#join-operator) varias tablas: ponga en correlación las solicitudes con las vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
+* [Una](app-insights-analytics-reference.md#join-operator) varias tablas: ponga en correlación las solicitudes con vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
 * [Agregaciones](app-insights-analytics-reference.md#aggregations) estadísticas de gran eficacia.
 * Son tan eficaces como SQL, pero mucho más fáciles de usar para las consultas complejas: en lugar de anidar instrucciones, canaliza los datos de una operación básica a la siguiente.
 * Visualizaciones inmediatas y potentes.
@@ -69,7 +68,7 @@ El lenguaje tiene muchas características atractivas:
 ## Conexión a los datos de Application Insights
 
 
-Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights:
+Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su instancia de Application Insights:
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics/001.png)
 
@@ -82,4 +81,4 @@ En la actualidad, los resultados de consulta están limitados exclusivamente a s
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -82,19 +82,19 @@ Esta sección proporciona instrucciones sobre cómo crear cada uno de estos recu
 
 ### Creación de un Almacén de Azure Data Lake
 
-Cree un ADLS desde el [Portal de Azure](http://ms.portal.azure.com). Para más información, consulte [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de configurar la identidad de AAD del clúster en la hoja **Origen de datos** de la hoja **Configuración opcional** descrita allí.
+Cree un ADLS desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de configurar la identidad de AAD del clúster en la hoja **Origen de datos** de la hoja **Configuración opcional** descrita allí.
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Creación de una cuenta de Análisis de Azure Data Lake
-Cree una cuenta de ADLA desde el [Portal de Azure](http://ms.portal.azure.com). Para más información, consulte [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Cree una cuenta de ADLA desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Creación de una cuenta de Almacenamiento de blobs de Azure
-Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](http://ms.portal.azure.com). Para más información, consulte la sección Crear una cuenta de almacenamiento de [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+Cree una cuenta de Almacenamiento de blobs de Azure desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte la sección Crear una cuenta de almacenamiento de [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -640,7 +640,7 @@ Estudio de aprendizaje automático de Azure puede leer datos directamente desde 
 
 ### Creación de un clúster de HDInsight Linux
 
-Cree un clúster de HDInsight (Linux) desde el [Portal de Azure](http://ms.portal.azure.com). Para más información, consulte la sección **Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake** en [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Cree un clúster de HDInsight (Linux) desde el [Portal de Azure](http://portal.azure.com). Para más información, consulte la sección **Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake** de [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -741,4 +741,4 @@ La ruta de aprendizaje para el [Proceso de Cortana Analytics (CAP)](http://aka.m
 - [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 - [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

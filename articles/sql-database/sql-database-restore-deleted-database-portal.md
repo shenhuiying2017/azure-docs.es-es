@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,16 +19,10 @@
 
 # Restaurar una base de datos SQL de Azure eliminada con el Portal de Azure
 
-
 > [AZURE.SELECTOR]
+- [Información general](sql-database-restore-deleted-database.md)
 - [Portal de Azure](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
-
-En este artículo se muestra cómo restaurar una Base de datos SQL de Azure eliminada.
-
-En caso de que se elimine una base de datos, Base de datos SQL de Azure le permite restaurar la base de datos eliminada en el momento en que se eliminó. Base de datos SQL de Azure almacena la copia de seguridad de la base de datos eliminada durante el período de retención de la base de datos.
-
-El período de retención de una base de datos eliminada lo determinan el nivel de servicio de la base de datos mientras esta existe, o bien el número de días en que existe la base de datos, el menor de estos dos valores. Para más información acerca de la retención de la base de datos, lea [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md).
 
 ## Selección de la base de datos que se va a restaurar 
 
@@ -46,13 +40,17 @@ Para restaurar una base de datos en el Portal de Azure, haga lo siguiente:
 ## Pasos siguientes
 
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
-
-
+- [Restauración de una base de datos eliminada](sql-database-restore-deleted-database.md)
+- [Restauración de una base de datos eliminada con PowerShell](sql-database-restore-deleted-database-powershell.md)
+- [Restauración de una base de datos eliminada con la API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
 ## Recursos adicionales
 
+- [Restauración a un momento dado](sql-database-point-in-time-restore.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Restauración geográfica](sql-database-geo-restore.md)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

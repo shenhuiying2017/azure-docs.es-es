@@ -3,8 +3,8 @@
    description="Restauración a un momento dado, base de datos de Microsoft Azure SQL, restaurar base de datos, recuperar base de datos, Portal de Azure clásico, Portal de Azure clásico"
    services="sql-database"
    documentationCenter=""
-   authors="elfisher"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
    ms.date="02/09/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Finalización de una base de datos SQL de Azure recuperada
 
@@ -29,7 +29,7 @@ Compruebe que las cadenas de conexión de la aplicación apuntan a la base de da
   + La base de datos recuperada utiliza un nombre diferente del nombre de la base de datos de origen
   + La base de datos recuperada está en un servidor diferente del servidor de origen
 
-Para obtener más información acerca de cómo cambiar las cadenas de conexión, consulte [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx) y [Conexiones a la Base de datos SQL: Recomendaciones centrales ](sql-database-connect-central-recommendations.md).
+Para obtener más información sobre cómo cambiar las cadenas de conexión, consulte [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx) y [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
  
 ## Modificación de reglas de firewall
 Compruebe las reglas de firewall tanto en el nivel de servidor como en el nivel de base de datos y asegúrese de que están habilitadas las conexiones desde los equipos cliente o Azure al servidor y a la base de datos recién recuperada. Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx) y [Procedimiento: Establecer la configuración de firewall (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
@@ -56,4 +56,4 @@ Para obtener más información sobre las reglas de alerta de bases de datos, con
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0615_2016-->

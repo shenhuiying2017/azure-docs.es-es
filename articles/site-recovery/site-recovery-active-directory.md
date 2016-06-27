@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/10/2016"
+	ms.date="06/13/2016"
 	ms.author="pratshar"/>
 
 # Protección de Active Directory y DNS con Azure Site Recovery
@@ -121,4 +121,4 @@ Puede utilizar un servidor DNS nuevo y crear todas las zonas necesarias. Por eje
 
 Consulte [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../site-recovery/site-recovery-workload.md) para obtener más información sobre cómo proteger las cargas de trabajo empresariales con Azure Site Recovery.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

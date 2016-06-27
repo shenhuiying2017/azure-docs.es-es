@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/26/2016" 
+	ms.date="06/14/2016" 
 	ms.author="rnagpal"/>
 
 # SDK de DocumentDB
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Notas de la versión
+
+### <a name="1.8.0"/>[1\.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
+  - Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 
 ### <a name="1.7.0"/>[1\.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
 - Se ha agregado compatibilidad con la característica de período de vida (TTL) para los documentos.
@@ -80,6 +83,7 @@ Todas las versiones del SDK de Azure DocumentDB para Python anteriores a la vers
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
 | [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
 | [1\.6.1](#1.6.1) | 08 de abril, 2016 |--- 
 | [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- 
@@ -103,4 +107,4 @@ Todas las versiones del SDK de Azure DocumentDB para Python anteriores a la vers
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

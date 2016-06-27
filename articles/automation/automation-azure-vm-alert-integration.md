@@ -3,8 +3,8 @@
     description="En este artículo se muestra cómo integrar las alertas de la máquina virtual de Azure con runbooks de Automatización de Azure y problemas de corrección automática"
     services="automation"
     documentationCenter=""
-    authors="csand-msft"
-    manager="stevenka"
+    authors="mgoedtel"
+    manager="jwhit"
     editor="tysonn" />    
 <tags
     ms.service="automation"
@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="04/24/2016"
+    ms.date="06/14/2016"
     ms.author="csand;magoedte" />
 
-# Solución de Automatización de Azure: corrección de las alertas de la máquina virtual de Azure
+# Escenario de Automatización de Azure: corrección de las alertas de la máquina virtual de Azure
 
 Automatización de Azure y Máquinas virtuales de Azure han publicado una nueva característica que permite configurar las alertas de la máquina virtual (VM) para ejecutar runbooks de automatización. Esta nueva funcionalidad le permite realizar automáticamente la corrección estándar de alertas de la máquina virtual, como reiniciar o detener la máquina virtual.
 
@@ -172,4 +172,4 @@ Cuando configura una alerta en una máquina virtual de Azure, tiene la capacidad
 - Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 - Para más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

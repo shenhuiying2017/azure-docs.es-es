@@ -13,29 +13,27 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure
 
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-geo-replication-overview.md)
 - [Portal de Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
+En este artículo se muestra cómo configurar la replicación geográfica activa para Base de datos SQL con el [Portal de Azure](http://portal.azure.com).
 
-En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL con el [Portal de Azure](http://portal.azure.com).
-
-Para iniciar la conmutación por error, vea [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-portal.md).
+Para iniciar la conmutación por error, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-portal.md).
 
 >[AZURE.NOTE] La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
 
-Puede configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos o en otras (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
+Para configurar la replicación geográfica mediante el Portal de Azure, necesita lo siguiente:
 
-Para configurar la replicación geográfica, necesita lo siguiente:
-
-- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva para finalizar este artículo.
+- Una suscripción de Azure. 
 - Una base de datos de Base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 
@@ -63,7 +61,7 @@ La base de datos secundaria tendrá el mismo nombre que la base de datos princip
     ![Adición de una secundaria][1]
 
 
-4. Configure el **Tipo secundario** (**Legible**, o **No legible**).
+4. Configure el **tipo secundario** (**Legible** o **No legible**).
 5. Seleccione o configure el servidor de la base de datos secundaria.
 
     ![Creación de una secundaria][3]
@@ -90,7 +88,7 @@ La operación termina de forma permanente la replicación en la base de datos se
 
 1. En el [Portal de Azure](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja Base de datos SQL, seleccione **Toda la configuración** > **Replicación geográfica**.
-3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere quitar de la asociación de replicación geográfica.
+3. En la lista **SECUNDARIAS**, seleccione la base de datos que desee quitar de la asociación de replicación geográfica.
 4. Haga clic en **Detener replicación**.
 
     ![quitar secundaria][7]
@@ -115,7 +113,7 @@ La operación termina de forma permanente la replicación en la base de datos se
 ## Recursos adicionales
 
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
+- [Spotlight on new Geo-Replication capabilities (Lo más destacado de las nuevas funcionalidades de replicación geográfica)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
@@ -135,4 +133,4 @@ La operación termina de forma permanente la replicación en la base de datos se
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

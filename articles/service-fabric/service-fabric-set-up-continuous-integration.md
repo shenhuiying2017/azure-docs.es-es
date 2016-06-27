@@ -261,6 +261,8 @@ Para instalar Azure PowerShell, siga los pasos en que aparecen en la sección an
 
 3. Agregue los nuevos archivos al control de origen y realice la inserción en VSTS.
 
+>[AZURE.NOTE] Si utiliza un certificado diferente para administrar el clúster de Service Fabric, repita los pasos descritos en Importación del certificado de automatización, con dicho certificado.
+
 ### Creación de la definición de compilación.
 
 1.	Cree una definición de compilación vacía. Para ello, siga estos pasos:
@@ -292,7 +294,7 @@ Para instalar Azure PowerShell, siga los pasos en que aparecen en la sección an
 
 1. En la pestaña **Compilar**, elija el comando **Agregar paso de compilación...**.
 
-2. Elija **Paquete** > **Instalador de NuGet**.
+2. Elija **Paquete** > **Instalador de NuGet**
 
 3. Elija el icono de lápiz junto al nombre del paso de compilación y luego cambie su nombre por **Restaurar paquetes NuGet**.
 
@@ -341,7 +343,9 @@ Para instalar Azure PowerShell, siga los pasos en que aparecen en la sección an
 
 Si una compilación anterior no se limpió después (por ejemplo, si se canceló antes de que se pudiera limpiar), puede haber un grupo de recursos existente que causa conflicto con el nuevo. Para evitar conflictos, limpie cualquier grupo de recursos sobrante (y sus recursos asociados) antes de crear uno nuevo.
 
-1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**
+>[AZURE.NOTE] Omita este paso si desea crear y reutilizar el mismo clúster para cada compilación.
+
+1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**.
 
 2.	Seleccione **Implementar** > **Implementación de un grupo de recursos de Azure**.
 
@@ -361,7 +365,7 @@ Si una compilación anterior no se limpió después (por ejemplo, si se canceló
 
 ### Adición de un paso "Aprovisionamiento de un clúster seguro"
 
-1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**
+1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**.
 
 2.	Seleccione **Implementar** > **Implementación de un grupo de recursos de Azure**.
 
@@ -377,25 +381,29 @@ Si una compilación anterior no se limpió después (por ejemplo, si se canceló
     |El grupos de recursos|Debe coincidir con el nombre que usó en el paso anterior.|
     |Ubicación|Debe coincidir con la ubicación del almacén de claves.|
     |Plantilla|Haga clic en el botón **…** y seleccione `azuredeploy.json`.|
-    |Parámetros de plantilla|Haga clic en el botón **…** y seleccione `azuredeploy.parameters.json`.|
+    |Parámetros de plantilla|Haga clic en el botón **…** y seleccione `azuredeploy.parameters.json`|
 
 5.	Guarde la definición de compilación.
 
 ### Agregue un paso de "Implementación"
 
-1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**
+1.	En la pestaña **Compilar**, seleccione el comando **Agregar paso de compilación…**.
 
 2.	Seleccione **Utilidad** > **PowerShell**.
 
 3.	Seleccione el icono de lápiz junto al nombre del paso de compilación y luego cambie su nombre por **Implementar**.
 
-4. Seleccione estos valores:
+4. Seleccione estos valores (reemplace los valores de PublishProfile y ApplicationPackagePath por las rutas de acceso reales):
 
     |Nombre de configuración|Valor|
     |---|---|
     |Tipo|**Ruta de acceso de archivo**|
-    |Nombre de archivo de script|Haga clic en el botón **...** botón y vaya hasta el directorio **Scripts** dentro del proyecto de aplicación. Seleccione `Deploy-FabricApplication.ps1`.|
+    |Nombre de archivo de script|Haga clic en el botón **...** y vaya hasta el directorio **Scripts** dentro del proyecto de aplicación. Seleccione `Deploy-FabricApplication.ps1`.|
     |Argumentos|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
+
+>[AZURE.NOTE] Una manera fácil de crear un archivo xml de perfil de publicación de trabajo es crearlo en Visual Studio, como se muestra aquí: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+
+>[AZURE.NOTE] Si desea admitir la implementación de la aplicación en un clúster sobrescribiendo la aplicación existente en lugar de actualizarla, agregue este argumento de Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Además, asegúrese de que el perfil de publicación seleccionado no está configurado para permitir una actualización. Esto quitará primero cualquier ApplicationType existente antes de instalar la versión más reciente.
 
 5.	Guarde la definición de compilación.
 
@@ -429,4 +437,4 @@ Para obtener más información sobre la integración continua con las aplicacion
  - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

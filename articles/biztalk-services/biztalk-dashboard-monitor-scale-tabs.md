@@ -32,16 +32,13 @@ En función de la edición de Servicios de BizTalk, puede que no estén disponib
 <table border="1">
     <tr>
         <td><strong>Obtener las herramientas</strong></td>
-
         <td>Descargue el SDK de los servicios de BizTalk para instalar las plantillas del proyecto de Visual Studio en su equipo de desarrollo local. Estas plantillas crean los <strong>Servicios de BizTalk</strong> (puente) y los proyecto de Visual Studio de <strong>BizTalk Service Artifacts</strong> (transformación) que se han implementado en su servicio de BizTalk.
         <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Introducción al uso del SDK de los servicios de BizTalk de Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalación del SDK de los servicios de BizTalk de Azure</a> incluyen los pasos para empezar.
         </td>
     </tr>
-
     <tr>
         <td><strong>Crear acuerdos de socios comerciales</strong></td>
-
         <td>Abre el Portal de los servicios de BizTalk de Azure hospedados en Azure, donde se agregan socios y se crean los acuerdos X12, AS2 y EDIFACT EDI.
         <br/><br/>
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuración de los componentes para la mensajería EDI en el portal de los servicios de BizTalk</a> incluye los pasos para empezar.
@@ -236,14 +233,14 @@ También puede elegir los valores **Relativo** o **Absoluto** y el intervalo de 
 
 ##### Para eliminar o mostrar métricas en el gráfico:
 1. Seleccione la pestaña **Monitor**.
-2. Haga clic en **Agregar métricas** en la barra de tareas: 
+2. Haga clic en **Agregar métricas** en la barra de tareas:
 ![Seleccione Agregar métricas][AddMetrics]
 3. Compruebe las métricas de rendimiento que quiera mostrar.
 4. Seleccione la marca de verificación para volver a la pestaña **Monitor**.
 5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.  
 
 	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico:  
-![La métrica Uso de CPU está atenuada][GrayedMetric]
+![La métrica Uso de CPU está atenuada][GrayedMetric]  
 
 	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico:  
 ![La métrica Uso de CPU está habilitada][EnabledMetric]
@@ -365,4 +362,4 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

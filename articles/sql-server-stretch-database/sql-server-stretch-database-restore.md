@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Restauración de bases de datos habilitadas para Stretch
@@ -96,4 +96,4 @@ Después de restaurar la base de datos de Azure en una región distinta, tendrá
 
 [Copia de seguridad y restauración de bases de datos de SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

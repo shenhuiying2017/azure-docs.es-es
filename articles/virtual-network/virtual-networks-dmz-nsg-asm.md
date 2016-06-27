@@ -20,7 +20,7 @@
 
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
-En este ejemplo se creará una red perimetral simple con cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección Escenario de tráfico para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
+En este ejemplo se creará una red perimetral simple con cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
 
 ![Red perimetral de entrada con grupo de seguridad de red][1]
 
@@ -66,7 +66,7 @@ Con estas reglas enlazadas a cada subred, si una solicitud HTTP era entrante des
 
 Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario; esto se verá en el "Ejemplo 3" que aparece a continuación.
 
-Cada regla se describe con más detalle a continuación. (Nota: cualquier elemento de la lista siguiente que comienza con un signo de dólar (p. ej.: $NSGName) es una variable definida por el usuario del script en la sección de referencias de este documento):
+Cada regla se describe con más detalle a continuación. (**Nota**: Cualquier elemento de la lista siguiente que comienza con un signo de dólar (p. ej.: $NSGName) es una variable definida por el usuario del script en la sección de referencias de este documento):
 
 1. En primer lugar, debe compilarse un grupo de seguridad de red para contener las reglas:
 
@@ -550,4 +550,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

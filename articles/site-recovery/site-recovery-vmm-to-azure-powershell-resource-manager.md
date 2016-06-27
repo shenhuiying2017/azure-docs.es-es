@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/13/2016"
 	ms.author="rajanaki"/>
 
 # Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell y Azure Resource Manager
@@ -186,7 +186,7 @@ Tenga en cuenta que la cuenta de almacenamiento debe estar en la misma región q
 
 ## Paso 6: Instalación del agente de los Servicios de recuperación de Azure
 
-1. Descargue el agente de Servicios de recuperación de Azure en [http:/aka.ms/latestmarsagent](http:/aka.ms/latestmarsagent "http:/aka.ms/latestmarsagent") e instálelo en cada servidor host de Hyper-V situado en las nubes VMM que desea proteger.
+1. Descargue el agente de Servicios de recuperación de Azure en [http:/aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) e instálelo en cada servidor host de Hyper-V situado en las nubes de VMM que desea proteger.
 
 2. Ejecute el siguiente comando en todos los hosts de VMM:
 
@@ -238,7 +238,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
 Antes de comenzar la asignación de red, compruebe que las máquinas virtuales en el servidor de VMM de origen están conectadas a una red de VM. Además, cree una o varias redes virtuales de Azure.
 
-Más información sobre cómo crear una red virtual con Azure Resource Manager y PowerShell en [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Resource Manager y PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell/)
+Aprenda más sobre cómo crear una red virtual con Azure Resource Manager y PowerShell en [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Resource Manager y PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Tenga en cuenta que se pueden asignar varias redes de máquinas virtuales a una sola red de Azure. Si la red de destino tiene varias subredes y una de estas subredes tiene el mismo nombre que la subred en la que se encuentra la máquina virtual de origen, la máquina virtual de réplica se conectará a esa subred de destino después de la conmutación por error. Si no hay ninguna subred de destino con un nombre coincidente, la máquina virtual se conectará a la primera subred de la red.
 
@@ -266,7 +266,7 @@ Una vez configurados correctamente los servidores, las nubes y las redes, puede 
 
  Tenga en cuenta lo siguiente:
 
- - Las máquinas virtuales de deben cumplir los requisitos de Azure. Consúltelos en [Requisitos previos y compatibilidad](../site-recovery-best-practices) en la Guía de planeación.
+ - Las máquinas virtuales de deben cumplir los requisitos de Azure. Consúltelos en [Requisitos previos y compatibilidad](site-recovery-best-practices.md) en la Guía de planeación.
 
  - Para habilitar la protección, deben establecerse las propiedades del sistema operativo y el disco del sistema operativo para la máquina virtual. Al crear una máquina virtual en VMM con una plantilla de máquina virtual puede establecer la propiedad. También puede establecer estas propiedades para máquinas virtuales existentes en las pestañas **General** y **Configuración del hardware** de las propiedades de la máquina virtual. Si no ve estas propiedades en VMM, podrá configurarlas en el portal de Azure Site Recovery.
 
@@ -343,6 +343,6 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 ## Pasos siguientes
 
-[Más información](https://msdn.microsoft.com/library/dn850420.aspx) sobre cmdlets de PowerShell de Azure Site Recovery</a>.
+[Más información](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre los cmdlets de PowerShell de Azure Site Recovery con Azure Resource Manager.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

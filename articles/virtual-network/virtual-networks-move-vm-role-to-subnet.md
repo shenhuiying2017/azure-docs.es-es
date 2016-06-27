@@ -31,7 +31,7 @@ Para mover una máquina virtual, ejecute el cmdlet de PowerShell Set-AzureSubnet
 	| Set-AzureSubnet –SubnetNames Subnet-2 `
 	| Update-AzureVM
 
-Si especificó una DIP estática para la máquina virtual, tendrá que borrar esa configuración para poder mover la máquina virtual a una nueva subred. En ese caso, utilice lo siguiente:
+Si especificó una dirección IP privada interna estática para la máquina virtual, tendrá que borrar esa configuración para poder mover la máquina virtual a una nueva subred. En ese caso, utilice lo siguiente:
 
 	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
 	| Remove-AzureStaticVNetIP `
@@ -53,4 +53,4 @@ Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemo
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -3,7 +3,7 @@
    description="En esta sección se proporcionan instrucciones para evitar el tiempo de inactividad durante una actualización de aplicaciones." 
    services="sql-database"
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/27/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 #Actualización de una aplicación sin tiempo de inactividad
 
@@ -32,4 +32,4 @@ Si la aplicación puede funcionar temporalmente en modo de solo lectura, el fluj
  
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

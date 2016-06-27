@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Portal de Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
 En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
@@ -98,4 +98,4 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

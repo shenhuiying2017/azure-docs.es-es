@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de la Búsqueda de diagnóstico" 
+	pageTitle="Uso de Búsqueda de diagnóstico | Microsoft Azure" 
 	description="Busque y filtre eventos individuales, solicitudes y seguimientos de registros." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="06/09/2016" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
@@ -63,9 +63,22 @@ Si la aplicación genera muchos datos de telemetría (y está usando la versión
 
 Seleccione cualquier elemento de telemetría para ver los campos clave y los elementos relacionados. Si desea ver el conjunto completo de campos, haga clic en "...".
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
+
+![Haga clic en Nuevo elemento de trabajo, modifique los campos y, a continuación, haga clic en Aceptar.](./media/app-insights-diagnostic-search/10-detail.png)
 
 Para encontrar el conjunto completo de campos, utilice cadenas sin formato (sin caracteres comodín). Los campos disponibles dependen del tipo de telemetría.
+
+## Creación de elemento de trabajo
+
+Puede crear un error en Visual Studio Team Services con los detalles de cualquier elemento de telemetría.
+
+![Haga clic en Nuevo elemento de trabajo, modifique los campos y, a continuación, haga clic en Aceptar.](./media/app-insights-diagnostic-search/42.png)
+
+La primera vez que lo haga, deberá configurar un vínculo a la cuenta y el proyecto de Team Services.
+
+![Introduzca la dirección URL del servidor de Team Services y el nombre del proyecto y haga clic en Autorizar.](./media/app-insights-diagnostic-search/41.png)
+
+(También puede tener acceso a la hoja de configuración en Configuración > Elementos de trabajo).
 
 ## Filtro de los tipos de evento
 
@@ -221,4 +234,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

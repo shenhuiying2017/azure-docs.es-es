@@ -23,7 +23,7 @@ Microsoft ofrece soporte para una amplia variedad de productos y servicios. Es i
 
 - Si es publicador en Azure Marketplace y todavía está desarrollando la máquina virtual, debe comunicarse con los equipos de incorporación o de proceso de Microsoft.
 
-- Si es publicador en Marketplace y tiene una pregunta de un cliente, indíquele a su cliente que solicite asistencia a través de los vínculos de soporte técnico en https://ms.portal.azure.com/.
+- Si es publicador en Marketplace y tiene una pregunta de un cliente, indíquele a su cliente que solicite asistencia a través de los vínculos de soporte técnico en https://portal.azure.com/.
 
 - Si es publicador en Marketplace y tiene alguna pregunta relacionada con la aplicación o el servicio, siga leyendo a continuación.
 
@@ -79,7 +79,9 @@ Describa el problema tan detalladamente como pueda e incluya archivos (capturas 
 
 Una vez enviado el problema, acusaremos recibo en menos de 24 horas y asignaremos prioridad y gravedad al problema. Nuestro equipo especializado de ingenieros de soporte técnico le ayudará a su resolución según los tiempos de respuesta de nuestro contrato de nivel de servicio.
 
-![Confirmación][6] + Si necesita hablar con nosotros sobre su problema, use el número de confirmación de toda la correspondencia. + Puede ver el progreso del problema en cualquier momento.
+![Confirmación][6]
++ Si necesita hablar con nosotros sobre su problema, use el número de confirmación que aparece en la correspondencia.
++ Puede ver la evolución del problema en cualquier momento.
 
 ## Pasos siguientes
 
@@ -92,4 +94,4 @@ Para obtener información sobre cómo resolver problemas de soporte técnico con
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -20,7 +20,7 @@
 
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
-En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección Escenario de tráfico para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
+En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
 
 ![Red perimetral de entrada con dispositivo virtual de red y grupo de seguridad de red][1]
 
@@ -28,7 +28,7 @@ En este ejemplo se creará una red perimetral con un firewall, cuatro servidores
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 - Dos servicios en la nube: "FrontEnd001" y "BackEnd001"
-- Una red virtual, “CorpNetwork”, con dos subredes, “FrontEnd” y “BackEnd”
+- Una red virtual, CorpNetwork, con dos subredes: FrontEnd y BackEnd
 - Un único grupo de seguridad de red que se aplica a ambas subredes
 - Un dispositivo virtual de red, en este ejemplo un firewall Barracuda NextGen, conectado a la subred front-end
 - Un servidor Windows que representa un servidor de aplicaciones web ("IIS01")
@@ -39,7 +39,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 
 En la sección de referencias siguiente hay un script de PowerShell que compilará la mayor parte del entorno descrito anteriormente. Aunque la creación de las máquinas virtuales y las redes virtuales la realiza el script de ejemplo, no se describe en detalle en este documento.
  
-Para crear el entorno:
+Para crear el entorno, siga estos pasos:
 
   1.	Guarde el archivo xml de configuración de red incluido en la sección de referencias (actualizado con nombres, ubicación y direcciones IP para que coincidan con el escenario dado).
   2.	Actualice las variables de usuario en el script para que coincida con el entorno en el que se va a ejecutar el script (suscripciones, nombres de servicio, etc.).
@@ -566,4 +566,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -48,7 +48,7 @@ Es necesario eliminar los siguientes módulos:
 
 - [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]
 - Los módulos [Entrenar modelo][train-model] y [Puntuar modelo][score-model] conectados a ella.
-- [Normalizar datos][normalize-data] \(ambos)
+- [Normalizar datos][normalize-data] (ambos)
 - [Evaluar modelo][evaluate-model]
 
 Simplemente seleccione el módulo y presione la tecla Supr o haga clic con el botón derecho en el módulo y seleccione **Eliminar**.
@@ -104,13 +104,17 @@ Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN**. Aq
 ![Configurar el servicio web][5]
 
 ## Prueba del servicio web
-En la página **PANEL**, haga clic en el botón **Probar** en **Punto de conexión predeterminado**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán.
+En la página **PANEL**, haga clic en el botón **Probar** en **Punto de conexión predeterminado**.
+
+![Prueba del servicio web][7]
+
+Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán.
 
 Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.
 
-En el servicio web, los datos se escriben a través del módulo **Entrada de servicio web**, mediante el módulo [Editar metadatos][edit-metadata], y en el módulo [Puntuar modelo][score-model] en el que se puntúa. Después, los resultados salen del servicio web a través de **Salida de servicio web**.
+En el servicio web, los datos se escriben a través del módulo de **entrada al servicio web**, mediante el módulo [Editar metadatos][edit-metadata] y en el módulo [Puntuar modelo][score-model] en el que se puntúa. Después, los resultados salen del servicio web a través de los **resultados de servicio web**.
 
-> [AZURE.TIP] La forma en que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Puntuar modelo][score-model]. Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente, por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Seleccionar columnas de conjunto de datos][select-columns] entre [Puntuar modelo][score-model] y **Salida de servicio web** para eliminar las columnas que el servicio web no debe devolver.
+> [AZURE.TIP] La forma en la que hemos configurado el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Puntuar modelo][score-model]. Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Si quiere que se devuelva algo diferente, por ejemplo, solo el valor de riesgo de crédito, podría insertar un módulo [Select Columns in Dataset][select-columns] (Seleccionar columnas de conjunto de datos) entre [Puntuar modelo][score-model] y los **resultados de servicio web** para eliminar las columnas que el servicio web no debe devolver.
 
 ## Administración del servicio web
 Cuando se haya implementado el servicio web, puede administrarlo desde el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -140,6 +144,7 @@ Para obtener información, consulte:
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
 [5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
 [6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
+[7]: ./media/machine-learning-walkthrough-5-publish-web-service/publish7.png
 
 
 <!-- Module References -->
@@ -154,4 +159,4 @@ Para obtener información, consulte:
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [select-columns]: https://msdn.microsoft.com/es-ES/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

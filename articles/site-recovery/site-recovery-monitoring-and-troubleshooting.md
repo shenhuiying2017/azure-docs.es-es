@@ -163,7 +163,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 -   [No se puede establecer una conexión con el almacén del Administrador de recuperación de Hyper-V. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuración
--   [No se puede crear el grupo de protección: hubo un error al recuperar la lista de servidores](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx).
+-   [No se puede crear el grupo de protección: hubo un error al recuperar la lista de servidores.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 -   [El clúster de hosts de Hyper-V contiene al menos un adaptador de red estático o no hay adaptadores conectados configurados para usar DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 -   [VMM no dispone de permisos para completar una acción](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 -   [Imposible seleccionar la cuenta de almacenamiento dentro de la suscripción durante la configuración de protección](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
@@ -181,7 +181,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 ### Recuperación
 - VMM no puede completar la operación de host:
     -   [Conmutación por error en el punto de recuperación seleccionado para la máquina virtual: error de acceso general denegado.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
-    -   [No se pudo conmutar por error Hyper-V al punto de recuperación seleccionado para la máquina virtual: operación anulada, pruebe un punto de recuperación más reciente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [No se pudo conmutar por error Hyper-V a un punto de recuperación seleccionado para la máquina virtual: operación anulada, pruebe un punto de recuperación más reciente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
     -   No se pudo establecer una conexión con el servidor (0x00002EFD)
         -   [Error de Hyper-V al habilitar la replicación inversa para la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/25505.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-reverse-replication-for-virtual-machine.aspx)
         -   [Error de Hyper-V al habilitar la replicación para la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/25506.a-connection-with-the-server-could-not-be-established-0x00002efd-hyper-v-failed-to-enable-replication-for-virtual-machine-virtual-machine.aspx)
@@ -189,14 +189,17 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 -   [El plan de recuperación contiene máquinas virtuales que no están listas para la conmutación por error planeada](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
 -   [La máquina virtual no está lista para la conmutación por error planeada](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   [La máquina virtual no se está ejecutando y no está apagada](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
--   [Se produjo una operación fuera de banda en una máquina virtual y no se realizó la conmutación por error](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx).
+-   [Se produjo una operación fuera de banda en una máquina virtual y no se realizó la conmutación por error.](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Test Failover
     -   [No se pudo iniciar la conmutación por error ya que la conmutación por error de prueba está en curso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+-   <span style="color:green;">NUEVO</span> La conmutación por error agota el tiempo con 'PreFailoverWorkflow task WaitForScriptExecutionTask timed out' debido a la configuración en el grupo de seguridad de red asociado a la máquina virtual o la subred a la que pertenece el equipo. Consulte ['PreFailoverWorkflow task WaitForScriptExecutionTask timed out'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) para más información.
+
 
 ### Servidor de configuración, Servidor de proceso y Destino principal
-Servidor de configuración (CS), Servidor de procesos (PS) y Destino maestro (MT): [el host ESXi en el que se hospeda el PS/CS como máquina virtual produce un error con una pantalla morada.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
+Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (MT)
+-   [El host ESXi en el que se hospeda PS/CS, ya que se produce un error en VM con una pantalla morada de la muerte.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 -   Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. [Uso del documento de solución de problemas para RDP en la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0615_2016-->

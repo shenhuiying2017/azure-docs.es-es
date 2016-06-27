@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake
@@ -112,7 +112,7 @@ Use **SELECT** para transformar conjuntos de filas:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-La cláusula WHERE usa una [expresión booleana de C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Puede usar el lenguaje de expresiones de C# para crear sus propias expresiones y funciones. Incluso puede realizar un filtrado más complejo si las combina con conjunciones lógicas (and) y disyunciones (or).
+La cláusula WHERE usa una [expresión booleana de C#](https://msdn.microsoft.com/library/6a71f45d.aspx). Puede usar el lenguaje de expresiones de C# para crear sus propias expresiones y funciones. Incluso puede realizar un filtrado más complejo si las combina con conjunciones (AND) y disyunciones (OR) lógicas.
 
 El siguiente script usa el método DateTime.Parse() y una conjunción.
 
@@ -247,7 +247,7 @@ U-SQL solamente admite la sintaxis de combinación compatible con ANSI: conjunto
 
 U-SQL permite usar datos en el contexto de una base de datos y un esquema, por lo que no siempre tiene que leer archivos o escribir en ellos.
 
-Cada script U-SQL se ejecuta con una base de datos predeterminada (maestra) y el esquema predeterminado (dbo) como su contexto predeterminado. Puede crear una base de datos o un esquema propios. Para cambiar de contexto, use la instrucción **USE** para cambiarlo.
+Cada script U-SQL se ejecuta con una base de datos predeterminada (maestra) y un esquema predeterminado (DBO) como contexto predeterminado. Puede crear una base de datos o un esquema propios. Para cambiar de contexto, use la instrucción **USE** para cambiarlo.
 
 
 ### Creación de una función con valores de tabla (TVF)
@@ -408,7 +408,7 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 ## Consulte también 
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
@@ -419,4 +419,4 @@ Lo que se trata en el tutorial es solo una pequeña parte de U-SQL. Debido al al
 - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 - [Proporcione comentarios sobre U-SQL](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

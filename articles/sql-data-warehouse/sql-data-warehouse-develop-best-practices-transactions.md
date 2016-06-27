@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/13/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimización de transacciones para Almacenamiento de datos SQL
@@ -420,7 +420,7 @@ Para más sugerencias sobre el desarrollo y contenido relacionado con los ejempl
 - [Partición de tabla][]
 - [Simultaneidad][]
 - [CTAS][]
-- [RENAME OBJECT][]
+- [RENAME (Transact-SQL)][] \(Cambio del nombre [Transact-SQL])
 
 <!--Image references-->
 
@@ -431,9 +431,10 @@ Para más sugerencias sobre el desarrollo y contenido relacionado con los ejempl
 [table partition]: sql-data-warehouse-develop-table-partitions.md
 [simultaneidad]: sql-data-warehouse-develop-concurrency.md
 [CTAS]: sql-data-warehouse-develop-ctas.md
-[RENAME OBJECT]: sql-data-warehouse-develop-rename.md
+
 
 <!--MSDN references-->
-[alter index]: https://msdn.microsoft.com/es-ES/library/ms188388.aspx
+[alter index]: https://msdn.microsoft.com/library/ms188388.aspx
+[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->
