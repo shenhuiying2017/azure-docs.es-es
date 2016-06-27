@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/05/2016"
+   ms.date="06/13/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Administración de base datos en Almacenamiento de datos SQL de Azure
@@ -42,7 +42,7 @@ El [Portal de Azure][] es un portal basado en web donde se pueden crear, actuali
 Para empezar a usar el Portal de Azure, consulte [Creación de Almacenamiento de datos SQL (Portal de Azure)][].
 
 ### SQL Server Data Tools en Visual Studio
-[SQL Server Data Tools][] \(SSDT) de Visual Studio le permite conectar, administrar y desarrollar las bases de datos. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
+[SQL Server Data Tools][] (SSDT) de Visual Studio le permite conectar, administrar y desarrollar las bases de datos. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
 
 SSDT incluye el Explorador de objetos de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en el Portal de Azure clásico.
 
@@ -61,13 +61,13 @@ Para comenzar, consulte [Conexión y consultas con SQLCMD][] y [Creación de una
 
 En Almacenamiento de datos SQL, puede escalar horizontalmente o de nuevo de forma rápida el rendimiento mediante el aumento o disminución de los recursos de proceso de la CPU, la memoria y el ancho de banda de E/S. Para escalar el rendimiento, todo lo que necesita hacer es ajustar el número de unidades de almacenamiento de datos (DWU) que asigna Almacenamiento de datos SQL. Almacenamiento de datos SQL realiza el cambio y controla todos los cambios subyacentes al hardware o software rápidamente.
 
-Para más información sobre el escalado de DWU, consulte [Scale performance][] \(Escalado del rendimiento).
+Para más información sobre el escalado de DWU, consulte [Scale performance][] (Escalado del rendimiento).
 
 ##  Pausa y reanudación
 
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por DWU mientras la base de datos se encuentre en pausa.
 
-Para más información, consulte [Pause compute][] \(Pausa del proceso) y [Resume compute][] \(Reanudación del proceso).
+Para más información, consulte [Pause compute][] (Pausa del proceso) y [Resume compute][] (Reanudación del proceso).
 
 ## Prácticas recomendadas de rendimiento
 
@@ -85,14 +85,14 @@ Para buscar las consultas de larga ejecución, consulte [Supervisión de la carg
 
 Para mantener un sistema seguro, debe estar en la alerta y protegerse contra cualquier tipo de acceso no autorizado. Un sistema de seguridad debe asegurarse de que las reglas de firewall están en su lugar para que solo puedan conectarse las direcciones IP autorizadas. Necesita la autenticación correcta de las credenciales de usuario. Después de que un usuario se conecte a la base de datos, el usuario solo debe tener permisos para realizar un número mínimo de acciones. Para proteger los datos, puede usar el cifrado. También es importante realizar una auditoría y un seguimiento para poder volver a realizar un seguimiento de los eventos si existe una actividad sospechosa.
 
-Para obtener más información sobre cómo administrar la seguridad, diríjase a [Introducción a la seguridad][].
+Para obtener más información sobre cómo administrar la seguridad, consulte [Introducción a la seguridad][].
 
 ## Copia de seguridad y restauración
 
-Una parte esencial de cualquier base de datos de producción es contar con copias de seguridad confiables de los datos. Almacenamiento de datos SQL mantiene los datos seguros al realizar automáticamente una copia de seguridad de las bases de datos activas a intervalos regulares. Estas copias de seguridad le permiten recuperarse de situaciones en las que los datos han quedado dañados o los datos o la base de datos se han eliminado por accidente. Para más información sobre la programación de copias de seguridad y las directivas de retención, consulte [Alta confiabilidad][]. Para más información sobre cómo restaurar una base de datos, consulte [Restore a database in Azure SQL Data Warehouse (Overview)][] \(Restauración de una base de datos en Almacenamiento de datos SQL (Información general)).
+Una parte esencial de cualquier base de datos de producción es contar con copias de seguridad confiables de los datos. Almacenamiento de datos SQL mantiene los datos seguros al realizar automáticamente una copia de seguridad de las bases de datos activas a intervalos regulares. Estas copias de seguridad le permiten recuperarse de situaciones en las que los datos han quedado dañados o los datos o la base de datos se han eliminado por accidente. Para obtener información sobre la programación de copias de seguridad de datos, la directiva de retención y la restauración de bases de datos, consulte [Restauración desde una instantánea][].
 
 ## Pasos siguientes
-Unos buenos principios de diseño de base de datos le facilitarán la administración de las bases de datos en Almacenamiento de datos SQL. Para más información, diríjase a [Información general sobre desarrollo][].
+Unos buenos principios de diseño de base de datos le facilitarán la administración de las bases de datos en Almacenamiento de datos SQL. Para obtener más información, consulte [Información general sobre desarrollo][].
 
 <!--Image references-->
 
@@ -103,13 +103,12 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 [Conexión a Almacenamiento de datos SQL con Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Conexión y consultas con SQLCMD]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Información general sobre desarrollo]: sql-data-warehouse-overview-development.md
-[Alta confiabilidad]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Supervisión de la carga de trabajo con DMV]: sql-data-warehouse-manage-monitor.md
 [Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Restore a database in Azure SQL Data Warehouse (Overview)]: sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Restauración desde una instantánea]: sql-data-warehouse-restore-database-overview.md
 [Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-performance-bk
 [Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Introducción a la seguridad]: sql-data-warehouse-overview-security.md
+[Introducción a la seguridad]: sql-data-warehouse-overview-manage-security.md
 [Prácticas recomendadas de Almacenamiento de datos SQL]: sql-data-warehouse-best-practices.md
 [Vistas del sistema de Almacenamiento de datos SQL]: sql-data-warehouse-reference-tsql-system-views.md
 
@@ -119,4 +118,4 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 <!--Other web references-->
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

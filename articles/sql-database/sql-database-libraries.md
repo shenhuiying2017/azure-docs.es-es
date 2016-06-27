@@ -21,7 +21,7 @@
 En este tema se muestra cada biblioteca o controlador que los programas cliente pueden usar para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server.
 
 
-| Idioma | Plataforma | Más información | Descargar |
+| Idioma | Plataforma | Recursos adicionales | Descargar |
 | :-- | :-- | :-- | :-- |
 | ADO.NET | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-develop-dotnet-simple.md) | [Descargar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
 | Java | Windows | [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-develop-java-simple-windows.md) | [Descargar](http://go.microsoft.com/fwlink/?LinkId=245496) |
@@ -30,4 +30,4 @@ En este tema se muestra cada biblioteca o controlador que los programas cliente 
 | Python | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Python](sql-database-develop-python-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt694094.aspx) |
 | Ruby | Windows, Linux, Mac | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

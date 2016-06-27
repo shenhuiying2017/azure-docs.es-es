@@ -24,7 +24,7 @@ En el ejemplo siguiente se muestra cómo crear una instancia de WebLogic Server 
 
 ##Para configurar su máquina virtual Oracle WebLogic Server 12c en Azure
 
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2.	Haga clic en **Máquinas virtuales**.
 
@@ -101,7 +101,7 @@ En el ejemplo siguiente se muestra cómo crear una instancia de WebLogic Server 
 
 10.	Cree un extremo para la máquina virtual:
 
-	1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+	1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 	2.	Haga clic en **Examinar**.
 
@@ -145,7 +145,7 @@ En el ejemplo siguiente se muestra cómo crear una instancia de WebLogic Server 
 
 	8.	Especifique un nombre para la regla y, opcionalmente, una descripción y, a continuación, haga clic en **Finalizar**.
 
-12.	Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de <<*unique\_domain\_name*>> dentro del [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Máquinas virtuales** y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
+12.	Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de <<*unique\_domain\_name*>> dentro del [Portal de Azure](https://portal.azure.com/), haga clic en **Máquinas virtuales** y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
 
 
 ##Recursos adicionales
@@ -159,4 +159,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

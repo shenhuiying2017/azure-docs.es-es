@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/13/2016" 
 	ms.author="sdanie"/>
 
 # Supervisión de Caché en Redis de Azure
@@ -54,7 +54,7 @@ Haga clic en la flecha situada a la derecha de **Cuenta de almacenamiento** para
 
 Después de establecer la configuración de diagnóstico, haga clic en **Guardar** para guardar la configuración. Tenga en cuenta que los cambios pueden tardar unos minutos en surtir efecto.
 
->[AZURE.IMPORTANT] Las memorias caché de la misma región y suscripción comparten la misma cuenta de almacenamiento de información de diagnóstico y, al cambiar de configuración, esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
+>[AZURE.IMPORTANT] Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (diagnóstico habilitado o deshabilitado o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
 
 Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 
@@ -259,4 +259,4 @@ Para obtener más información acerca de las alertas en Azure, consulte [Recibir
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

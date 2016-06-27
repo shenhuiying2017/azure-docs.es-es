@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="03/16/2016" 
+    ms.date="06/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Gigya
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Gigya**, escriba su dirección URL con el siguiente patrón "*http://company.gigya.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Gigya**, escriba su dirección URL con el siguiente patrón "**http://company.gigya.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurar dirección URL de la aplicación")
 
@@ -139,7 +139,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Gigya**, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Gigya **, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-gigya-tutorial/IC789537.png "Asignar usuarios")
 
@@ -149,4 +149,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

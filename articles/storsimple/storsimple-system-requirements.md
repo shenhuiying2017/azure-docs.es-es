@@ -86,7 +86,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Microsoft Azure| Interfaces de red habilitadas para la nube |
 |`https://*.backup.windowsazure.com`|Registro de dispositivos| Solo DATA 0|
-|`http://crl.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` | Supervisión y cuentas de Almacenamiento de Azure | Interfaces de red habilitadas para la nube |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> | Solo direcciones IP fijas del controlador |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
@@ -127,12 +127,7 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 | 
-	| Data 2 | 3 | 30 | 
-	| Data 3 | 4 | 40 | 
-	| Data 4 | 5 | 50 | 
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
@@ -280,4 +275,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

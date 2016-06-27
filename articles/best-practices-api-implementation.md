@@ -640,7 +640,7 @@ En un entorno distribuido, como los que implican un servidor web y aplicaciones 
 
 	```HTTP
 	PUT http://adventure-works.com/orders/1 HTTP/1.1
-	If-None-Match: "2282343857"
+	If-Match: "2282343857"
 	Content-Type: application/x-www-form-urlencoded
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
@@ -958,7 +958,7 @@ La misma API web pueden usarla muchas aplicaciones cliente que se ejecuten en cu
 
 	Si prefiere implementar notificaciones, entre las opciones disponibles figuran:
 
-	- El uso de un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente. La página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) del sitio web de Microsoft ofrece más detalles.
+	- El uso de un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente. La página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) del sitio web de Microsoft ofrece más detalles.
 
 	- El uso del modelo Comet para conservar una conexión de red persistente entre el cliente y el servidor que hospeda la API web y el uso de esta conexión para insertar mensajes desde el servidor de nuevo en el cliente. El artículo de MSDN magazine [Creación de una aplicación Comet sencilla en Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describe una solución de ejemplo.
 
@@ -1143,7 +1143,7 @@ Puede usar esta información para determinar si una operación o API web determi
 - Para obtener información detallada sobre el control de excepciones de HTTP con la API Web de ASP.NET, visite la página [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) del sitio web de Microsoft.
 - En el artículo [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) del sitio web de Microsoft se describe cómo implementar una estrategia global de registro y control de errores para una API web.
 - En la página [Ejecutar tareas en segundo plano con WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md) en el sitio web de Microsoft se ofrece información y ejemplos sobre el uso de WebJobs para realizar operaciones en segundo plano en un sitio web de Azure.
-- En la página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) del sitio web de Microsoft se muestra cómo se puede usar un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente.
+- En la página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md) del sitio web de Microsoft se muestra cómo se puede usar un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente.
 - En la página [Administración de API](https://azure.microsoft.com/services/api-management/) del sitio web de Microsoft se describe cómo publicar un producto que ofrezca un acceso seguro y controlado a una API web.
 - En la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft se describe cómo usar la API de REST de administración de API para crear aplicaciones de administración personalizadas.
 - En la página [Acerca de los métodos de enrutamiento del Administrador de tráfico](../articles/traffic-manager/traffic-manager-routing-methods.md) del sitio web de Microsoft se resume cómo se puede usar el Administrador de tráfico de Azure para realizar un equilibrio de carga de las solicitudes entre varias instancias de un sitio web que hospeda una API web.
@@ -1151,4 +1151,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

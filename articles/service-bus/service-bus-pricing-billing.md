@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="sethm" />
 
 # Precios y facturación de Bus de servicio
 
 Bus de servicio está disponible en los niveles Básico, Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Bus de servicio que cree y esta selección de nivel se aplica a todas las colas, temas/suscripciones, retransmisiones y Centros de eventos creados dentro de ese espacio de nombres.
 
->[AZURE.NOTE] Para obtener más información sobre los precios actuales del bus de servicio, consulte la [página de precios](https://azure.microsoft.com/pricing/details/service-bus/) y las [P+F de precios del bus de servicio](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Para más información sobre los precios actuales del Bus de servicio, consulte la [página de precios del Bus de Servicio](https://azure.microsoft.com/pricing/details/service-bus/) y las [Preguntas más frecuentes sobre el Bus de servicio](service-bus-faq.md#service-bus-pricing).
 
 Bus de servicio usa los siguientes dos medidores para colas y temas/suscripciones:
 
@@ -67,15 +67,15 @@ Los siguientes precios están vigentes desde el 1 de noviembre de 2014:
 
 |Básica|Coste|
 |---|---|
-|Operaciones|0,05 $ por cada millón de operaciones|
+|Operaciones|0,05 $ por cada millón de operaciones|
 
 |Estándar|Coste|
 |---|---|
 |Cargo base|10 $/mes|
 |Los 12,5 millones de operaciones primeras al mes|Se incluye|
-|De 12,5 a 100 millones de operaciones en un mes|0,80 $ por cada millón de operaciones|
-|De 100 a 2.500 millones de operaciones en un mes|0,50 $ por cada millón de operaciones|
-|Por encima de 2.500 millones de operaciones en un mes|0,20 $ por cada millón de operaciones|
+|De 12,5 a 100 millones de operaciones en un mes|0,80 $ por cada millón de operaciones|
+|De 100 a 2.500 millones de operaciones en un mes|0,50 $ por cada millón de operaciones|
+|Por encima de 2.500 millones de operaciones en un mes|0,20 $ por cada millón de operaciones|
 
 >[AZURE.NOTE] El nivel Premium se encuentra actualmente en vista previa y el precio siguiente refleja un descuento del 50 % en la versión de vista previa.
 
@@ -106,7 +106,7 @@ El nivel Básico incluye 100 conexiones asíncronas (y está estrictamente limit
 |---|
 |No se cobran las conexiones asíncronas en el nivel Premium.|
 
-Para obtener más información sobre las conexiones asincrónicas, consulte la sección [Preguntas más frecuentes](#FAQ) más adelante en este tema.
+Para obtener más información sobre las conexiones asincrónicas, consulte la sección [Preguntas más frecuentes](#faq) más adelante en este tema.
 
 ## Retransmisión
 
@@ -121,7 +121,7 @@ Las retransmisiones solo están disponibles en los espacios de nombres de nivel 
 
 ### ¿Cómo se calcula el contador de horas de retransmisión?
 
-Consulte [este tema](service-bus-pricing-faq.md#How-is-the-Relay-Hours-meter-calculated?).
+Consulte [este tema](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
 
 ### ¿Qué son las conexiones asíncronas y cómo se cobran?
 
@@ -147,8 +147,8 @@ Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, i
 
 - Para obtener más información sobre los precios del bus de servicio, consulte la [página de precios del bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-- Consulte las [P+F de precios del bus de servicio](service-bus-pricing-faq.md) para ver algunas preguntas frecuentes comunes relacionadas con los precios y la facturación del bus de servicio.
+- Consulte las [Preguntas más frecuentes sobre el Bus de servicio](service-bus-faq.md#service-bus-pricing) para ver algunas preguntas comunes relacionadas con los precios y la facturación del Bus de servicio.
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

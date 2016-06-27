@@ -53,7 +53,7 @@ En este tutorial se asume que dispone de:
 * Acceso a una **base de datos SQL de Azure**. Si debe configurar una base de datos de SQL de Azure, [Introducción a Base de datos de SQL de Microsoft Azure](../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de una base de datos de SQL de Azure.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
-> [AZURE.NOTE] En este procedimiento se usa el [Portal de Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] En este procedimiento se usa el [Portal de Azure](https://portal.azure.com/).
 
 
 ##<a name="upload-data"></a> Cargar los datos al servidor SQL Server local
@@ -66,7 +66,7 @@ Puede adaptar el procedimiento que se proporciona aquí para un conjunto de dato
 
 ##<a name="create-adf"></a> Crear una factoría de datos de Azure
 
-Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en el [Portal de Azure](https://ms.portal.azure.com/) se proporcionan en [Crear una factoría de datos de Azure](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
+Las instrucciones para crear una nueva factoría de datos de Azure y un grupo de recursos en el [Portal de Azure](https://portal.azure.com/) se proporcionan en [Crear una factoría de datos de Azure](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Ponga el nombre *adfdsp* a la nueva instancia de ADF y el nombre *adfdsprg* al grupo de recursos creado.
 
 
 ## Instalar y configurar Data Management Gateway
@@ -94,7 +94,7 @@ Para crear el servicio vinculado para el servidor SQL Server local, haga clic en
 Para crear el servicio vinculado para la cuenta de almacenamiento de blobs de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *Cuenta de almacenamiento de Azure* y escriba la clave y el nombre de contenedor de la cuenta de almacenamiento de blobs de Azure. Nombre del servicio vinculado *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
-Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser *user@servername*.
+Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser **user@servername*.
 
 
 ##<a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos
@@ -310,4 +310,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

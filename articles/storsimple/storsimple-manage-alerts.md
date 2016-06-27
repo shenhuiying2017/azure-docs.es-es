@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="06/09/2016"
+   ms.author="anbacker" />
 
 # Usar el servicio de Administrador de StorSimple para ver y administrar alertas de StorSimple
 
@@ -254,4 +254,4 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 Aprenda más sobre [ los errores de StorSimple y la solución de problemas de un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

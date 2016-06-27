@@ -23,7 +23,8 @@
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones y crear alertas para recibir notificaciones sobre los errores mediante la **aplicación de supervisión y administración**. También puede ver el siguiente vídeo para aprender a usar la aplicación de supervisión y administración.
    
-> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
+
+> [AZURE.VIDEO azure-data-factory-monitoring-and-managing-big-data-piplines]
       
 ## Inicio de la aplicación de supervisión y administración
 Para iniciar la aplicación de supervisión y administración, haga clic en el icono **Monitoring & Manage** (Supervisión y administración), situado en la hoja **DATA FACTORY** de su factoría de datos.
@@ -313,4 +314,4 @@ Clúster de HDI a petición eliminado | Succeeded | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

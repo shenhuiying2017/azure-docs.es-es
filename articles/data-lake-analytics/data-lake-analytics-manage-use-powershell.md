@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Administración de Análisis de Azure Data Lake mediante Azure PowerShell
@@ -335,7 +335,7 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-##Apéndice A - Plantilla ARM de Análisis de Data Lake
+##Apéndice A: Plantilla ARM de Análisis de Data Lake
 
 La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente. Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte [Implementación de una aplicación con la plantilla de Administrador de recursos de Azure](../resource-group-authoring-templates.md) y [Creación de plantillas de Administrador de recursos de Azure](../resource-group-template-deploy.md#deploy-with-powershell).
 
@@ -392,4 +392,4 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
 	  }
 	}
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

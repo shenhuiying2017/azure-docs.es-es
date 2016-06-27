@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/14/2016"
 	ms.author="curtand"/>
 
 
@@ -172,7 +172,7 @@ Los atributos personalizados se sincronizan desde Windows Server AD local o desd
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
 
 ## Regla de informes directos
 Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
@@ -203,10 +203,10 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+* [Cmdlets de Azure Active Directory para configurar las opciones de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [¿Qué es Azure Active Directory?](active-directory-whatis.md)
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

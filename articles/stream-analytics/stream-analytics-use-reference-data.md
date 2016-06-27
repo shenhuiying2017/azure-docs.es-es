@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 # Uso de datos de referencia o tablas de consulta en una transmisión de entrada de Análisis de transmisiones
@@ -72,9 +72,16 @@ Para configurar los datos de referencia, tiene que crear primero una entrada que
 
 ## Generación de datos de referencia en una programación
 
-Si los datos de referencia es un conjunto de datos que cambia con poca frecuencia, es posible actualizar los datos de referencia especificando un patrón de ruta de acceso en la configuración de entrada que usa los tokens de {date} y {time}. Análisis de transmisiones seleccionará las definiciones de datos de referencia según este patrón de ruta de acceso. Por ejemplo, un patrón de ````"/sample/{date}/{time}/products.csv"```` con un formato de fecha de "AAAA-MM-DD" y un formato de hora de "HH:mm" indica a Análisis de transmisiones que seleccione el blob actualizado ````"/sample/2015-04-16/17:30/products.csv"```` a las 5:30 p.m. del 16 de abril de 2015, zona horaria UTC.
+Si los datos de referencia son un conjunto de datos que cambia con poca frecuencia, se pueden actualizar los datos de referencia especificando un patrón de ruta de acceso en la configuración de entrada con los tokens de sustitución de {date} y {time}. Análisis de transmisiones seleccionará las definiciones de datos de referencia según este patrón de ruta de acceso. Por ejemplo, un patrón de `sample/{date}/{time}/products.csv` con un formato de fecha de **AAAA-MM-DD** y un formato de hora de **HH:mm indica** a Análisis de transmisiones que seleccione el blob actualizado `sample/2015-04-16/17:30/products.csv` a las 17:30 del 16 de abril de 2015 (zona horaria UTC).
 
-> [AZURE.NOTE] Actualmente los trabajos de Análisis de transmisiones buscan la actualización de blobs solo cuando la hora del equipo coincide con la hora codificada en el nombre del blob. Por ejemplo el trabajo buscará /sample/2015-04-16/17:30/products.csv entre las 5:30 p.m. y las 5:30:59.9 p.m. el 16 de abril de 2015, zona horaria UTC. Cuando el reloj de la máquina marca las 5:31 p.m., para de buscar /sample/2015-04-16/17:30/products.csv y comienza a buscar /sample/2015-04-16/17:31/products.csv. Una excepción se produce cuando el trabajo debe volver a procesar datos anteriores en el tiempo o cuando se inicia por primera vez. En momento de iniciarse, el trabajo busca el blob más reciente generado antes de la hora de inicio del trabajo especificada. Esto se hace para garantizar que haya un conjunto de datos de referencia no vacío al iniciarse el trabajo. Si no se encuentra ninguno, se producirá un error en el trabajo y se mostrará un aviso de diagnóstico al usuario.
+> [AZURE.NOTE] En estos momentos, los trabajos de Análisis de transmisiones buscan la actualización de blobs solo cuando la hora de la máquina coincide con la hora codificada en el nombre del blob. Por ejemplo, el trabajo buscará `sample/2015-04-16/17:30/products.csv` en cuanto sea posible, pero no antes de las 17:30 del 16 de abril de 2015 (zona horaria UTC). *Nunca* buscará un archivo con una hora codificada anterior a la última detectada.
+> 
+> Por ejemplo, cuando el trabajo busca el blob `sample/2015-04-16/17:30/products.csv`, omitirá los archivos con una fecha codificada anterior a las 17:30 del 16 de abril de 2015. Por tanto, si un blob `sample/2015-04-16/17:25/products.csv` se crea en el mismo contenedor posteriormente, no se utilizará dicho trabajo.
+> 
+> Del mismo modo, si `sample/2015-04-16/17:30/products.csv` solo se crea a las 22:03 del 16 de abril de 2015, pero en el contenedor no hay ningún blob con una fecha anterior, el trabajo usará este archivo a partir de las 22:03 del 16 de abril de 2015, además de los datos de referencia anteriores hasta ese momento.
+> 
+> Una excepción se produce cuando el trabajo debe volver a procesar datos anteriores en el tiempo o cuando se inicia por primera vez. En momento de iniciarse, el trabajo busca el blob más reciente generado antes de la hora de inicio del trabajo especificada. Esto se hace para garantizar que haya un conjunto de datos de referencia **no vacío** al iniciarse el trabajo. Si no se encuentra uno, el trabajo mostrará el diagnóstico siguiente: `Initializing input without a valid reference data blob for UTC time <start time>`.
+
 
 [Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/) puede usarse para orquestar la tarea de crear los blobs actualizados requeridos por Análisis de transmisiones para actualizar las definiciones de datos de referencia. Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Factoría de datos admite la [conexión a un gran número de almacenes de datos locales y en la nube](../data-factory/data-factory-data-movement-activities.md) y el desplazamiento sencillo de los datos con la regularidad que se especifique. Para obtener más información e instrucciones paso a paso sobre cómo configurar una canalización de Factoría de datos para generar datos de referencia para Análisis de transmisiones que se actualiza según una programación predefinida, consulte este [ejemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
@@ -103,4 +110,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

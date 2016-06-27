@@ -58,7 +58,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 - [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Uso de la extensión de la máquina virtual de Docker con el Portal de Azure](virtual-machines-linux-classic-portal-use-docker.md)
 - [Introducción rápida a Docker en Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
-- [Cómo usar una máquina Docker en Azure](virtual-machines-linux-classic-docker-machine.md)
+- [Cómo usar una máquina Docker en Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
 - [Clústeres de MySQL](virtual-machines-linux-classic-mysql-cluster.md)
@@ -192,4 +192,4 @@ Dado que el mundo de DevOps, administración y optimización es bastante extenso
 
 - [Complemento de compresor para Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -19,12 +19,12 @@
 # Restauración geográfica de una Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica mediante PowerShell
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-geo-restore.md)
 - [Portal de Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-En este artículo se muestra cómo restaurar la base de datos en un nuevo servidor mediante la restauración geográfica con PowerShell.
 
-La [restauración geográfica](sql-database-geo-restore.md) ofrece la capacidad de restaurar una base de datos a partir de una copia de seguridad con redundancia geográfica para crear una base de datos nueva. La base de datos se puede crear en cualquier servidor y en cualquier región de Azure. Dado que usa una copia de seguridad con redundancia geográfica como su fuente, se puede usar para recuperar una base de datos aunque esta sea inaccesible debido a una interrupción. La restauración geográfica se habilita automáticamente para todos los niveles de servicio sin ningún costo adicional.
+En este artículo se muestra cómo restaurar la base de datos en un nuevo servidor mediante la restauración geográfica con PowerShell.
 
 [AZURE.INCLUDE [Inicio de una sesión de PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -60,4 +60,4 @@ La [restauración geográfica](sql-database-geo-restore.md) ofrece la capacidad 
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

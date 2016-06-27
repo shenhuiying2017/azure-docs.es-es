@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurar un firewall de base de datos SQL | Microsoft Azure"
+   pageTitle="Configuración del firewall en servidores SQL (información general) | Microsoft Azure"
    description="Obtenga información acerca de cómo configurar un firewall de base de datos SQL mediante las reglas de firewall de nivel de servidor y de nivel de base de datos, para administrar el acceso."
    keywords="firewall de base de datos"
    services="sql-database"
@@ -15,28 +15,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/10/2016"
    ms.author="rickbyh"/>
 
-# Cómo configurar un firewall de base de datos SQL de Azure
-
-Base de datos SQL de Microsoft Azure ofrece un servicio de base de datos relacional para Azure y otras aplicaciones basadas en Internet. Para mantener sus datos protegidos, el firewall de la Base de datos SQL impide todo acceso al servidor de Base de datos SQL, excepto a aquellos equipos a los cuales haya concedido permiso. El firewall otorga acceso a la base de datos según la dirección IP de origen de cada solicitud.
-
-Para configurar el firewall de la base de datos, debe crear reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall en los niveles de servidor y base de datos.
-
-- **Reglas de firewall de nivel de servidor:** estas reglas permiten a los clientes tener acceso a todo el servidor de la Base de datos SQL de Azure; es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Estas reglas se almacenan en la base de datos **maestra**.
-- **Reglas de firewall de nivel de base de datos:** estas reglas permiten a los clientes tener acceso a las bases de datos individuales que se encuentran dentro del servidor de la Base de datos SQL de Azure. Estas reglas se crean por cada base de datos y se almacenan en las bases de datos individuales (incluidas las **maestras**). Estas reglas pueden resultar de utilidad al restringir el acceso a determinadas bases de datos (seguras) dentro del mismo servidor lógico.
-
-**Recomendación:** Microsoft le recomienda que use reglas de firewall de nivel de base de datos siempre que le sea posible, para así hacer que la base de datos sea más portátil. Use reglas de firewall de nivel de servidor cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada base de datos.
+# Procedimiento de configuración del firewall en servidores SQL de Azure (información general)
 
 
-## Introducción al firewall de la Base de datos SQL
+> [AZURE.SELECTOR]
+- [Información general](sql-database-firewall-configure.md)
+- [Portal de Azure](sql-database-configure-firewall-settings.md)
+- [TSQL](sql-database-configure-firewall-settings-tsql.md)
+- [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [API DE REST](sql-database-configure-firewall-settings-rest.md)
 
-Inicialmente, todo el acceso a su servidor de Base de datos SQL de Azure está bloqueado por el firewall. Para comenzar a usar el servidor de Base de datos SQL de Azure, debe ir al Portal de Azure y especificar una o más reglas de firewall de nivel de servidor que permitan el acceso al servidor de Base de datos SQL de Azure. Use las reglas de firewall para especificar qué intervalos de direcciones IP de Internet se permiten y si las aplicaciones de Azure pueden intentar conectarse o no al servidor de Base de datos SQL de Azure.
 
-Sin embargo, si desea conceder acceso de manera selectiva solo a una de las bases de datos en su servidor de Base de datos SQL de Azure, debe crear una regla de nivel de base de datos para la base de datos necesaria con un intervalo de direcciones IP que está más allá del intervalo de direcciones IP especificado en la regla de firewall de nivel de servidor y asegurarse de que la dirección IP del cliente se encuentra en el intervalo especificado en la regla de nivel de base de datos.
+Base de datos SQL de Microsoft Azure ofrece un servicio de base de datos relacional para Azure y otras aplicaciones basadas en Internet. Para ayudar a proteger los datos, los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud.
 
-Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de poder alcanzar su base de datos o servidor de Base de datos SQL de Azure, como se muestra en el siguiente diagrama.
+Para configurar su firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall en los niveles de servidor y base de datos.
+
+- **Reglas de firewall de nivel de servidor:** estas reglas permiten a los clientes acceder a todo el servidor SQL de Azure; es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Estas reglas se almacenan en la base de datos **maestra**. Las reglas de firewall de nivel de servidor pueden configurarse a través del Portal o mediante instrucciones Transact-SQL.
+- **Reglas de firewall de nivel de base de datos:** estas reglas permiten a los clientes tener acceso a las bases de datos individuales que se encuentran dentro del servidor de la Base de datos SQL de Azure. Estas reglas se crean por cada base de datos y se almacenan en las bases de datos individuales (incluidas las **maestras**). Estas reglas pueden resultar de utilidad al restringir el acceso a determinadas bases de datos (seguras) dentro del mismo servidor lógico. Las reglas de firewall de nivel de base de datos solo pueden configurarse mediante instrucciones Transact-SQL.
+
+**Recomendación**: Microsoft recomienda usar reglas de firewall de nivel de base de datos siempre que sea posible con el fin de mejorar la seguridad y hacer que la base de datos sea más portátil. Utilice reglas de firewall de nivel de servidor para administradores y cuando tenga muchas bases de datos con los mismos requisitos de acceso y no quiera dedicar tiempo a configurar individualmente cada una de ellas.
+
+
+## Información general de firewalls
+
+Inicialmente, todo el acceso mediante instrucciones Transact-SQL al servidor SQL de Azure está bloqueado por el firewall. Para comenzar a usar el servidor SQL de Azure, debe ir al Portal de Azure y especificar una o varias reglas de firewall de nivel de servidor que permitan el acceso al servidor SQL de Azure. Use las reglas de firewall para especificar qué intervalos de direcciones IP de Internet se permiten y si las aplicaciones de Azure pueden tratar de conectarse o no al servidor SQL de Azure.
+
+Sin embargo, si desea conceder acceso de manera selectiva solo a una de las bases de datos de su servidor SQL de Azure, debe crear una regla de nivel de base de datos para la base de datos necesaria con un intervalo de direcciones IP que sea superior al de direcciones IP especificado en la regla de firewall de nivel de servidor. Asimismo, tiene que asegurarse de que la dirección IP del cliente se encuentra en el intervalo especificado en la regla de nivel de base de datos.
+
+Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de poder alcanzar Base de datos SQL y el servidor SQL de Azure, tal y como se muestra en el siguiente diagrama.
 
    ![Diagrama donde se describe la configuración del firewall.][1]
 
@@ -65,11 +74,11 @@ Puede habilitar conexiones desde Azure de dos maneras:
 
 ## Crear de la primera regla de firewall de nivel de servidor
 
-La primera configuración del firewall de nivel de servidor puede crearse mediante el [Portal de Azure](https://portal.azure.com/), mediante programación con la API de REST o con Azure PowerShell. Las reglas de firewall de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, así como a través de Transact-SQL. Para obtener más información sobre reglas de firewall de nivel de servidor, vea [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md).
+La primera configuración del firewall de nivel de servidor puede crearse mediante el [Portal de Azure](https://portal.azure.com/), mediante programación con la API de REST o con Azure PowerShell. Las reglas de firewall de nivel de servidor posteriores se pueden crear y administrar mediante estos métodos, así como a través de Transact-SQL. Para obtener más información sobre reglas de firewall de nivel de servidor, consulte [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md).
 
 ## Reglas de firewall de nivel de base de datos
 
-Después de haber configurado el primer firewall de nivel de servidor, puede que desee restringir el acceso a determinadas bases de datos. Si especifica un intervalo de direcciones IP en la regla de firewall de nivel de base de datos que se encuentra fuera del intervalo especificado en la regla de firewall de nivel de servidor, solo los clientes que tengan direcciones IP en el intervalo de nivel de base de datos pueden tener acceso a la base de datos. Puede tener un máximo de 128 reglas de firewall de nivel de base de datos para una base de datos. Se pueden crear reglas de firewall de nivel de base de datos para las bases de datos de usuario y maestras y administrarse a través de Transact-SQL. Para más información sobre cómo configurar las reglas de firewall de nivel de base de datos, consulte [sp\_set\_database\_firewall\_rule (bases de datos de SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+Después de haber configurado el primer firewall de nivel de servidor, puede que desee restringir el acceso a determinadas bases de datos. Si especifica un intervalo de direcciones IP en la regla de firewall de nivel de base de datos que se encuentra fuera del intervalo especificado en la regla de firewall de nivel de servidor, solo los clientes que tengan direcciones IP en el intervalo de nivel de base de datos pueden tener acceso a la base de datos. Puede tener un máximo de 128 reglas de firewall de nivel de base de datos para una base de datos. Se pueden crear reglas de firewall de nivel de base de datos para las bases de datos de usuario y maestras y administrarse a través de Transact-SQL. Para obtener más información sobre cómo configurar las reglas de firewall de nivel de base de datos, consulte [sp\_set\_database\_firewall\_rule (bases de datos de SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## Administración mediante programación de reglas de firewall
 
@@ -128,11 +137,11 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de da
 
 ## Consulte también
 
-[Configuración del firewall de la base de datos (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md)
+[Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

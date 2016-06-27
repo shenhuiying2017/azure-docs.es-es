@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="06/08/2016"
 	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -53,6 +53,7 @@ Como resultado, puede que le resulte útil considerar decidir cuáles deben ser 
 - [Análisis de Data Lake](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Centros de eventos](#event-hubs-limits)
 - [Centro de IoT](#iot-hub-limits)
 - [Almacén de claves](#key-vault-limits)
 - [Servicios multimedia](#media-services-limits)
@@ -177,6 +178,7 @@ La tabla siguiente muestra los límites de los servicios de Biztalk de Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](./documentdb/documentdb-increase-limits.md).
 
 ### Límites de Mobile Engagement
 
@@ -217,6 +219,9 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Límites de los Centros de eventos
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Límites de Bus de servicio
 
@@ -300,4 +305,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de servicios en la nube](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

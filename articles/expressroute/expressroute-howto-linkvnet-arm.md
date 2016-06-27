@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="06/09/2016"
    ms.author="ganesr" />
 
 # Vinculación de una red virtual a un circuito ExpressRoute
@@ -75,8 +75,8 @@ El propietario del circuito crea una autorización. Esto da lugar a la creación
 El fragmento de código del cmdlet siguiente muestra cómo crear una autorización:
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
@@ -105,8 +105,8 @@ El propietario del circuito puede revisar todas las autorizaciones emitidas en u
 El propietario del circuito puede agregar las autorizaciones mediante el siguiente cmdlet:
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
@@ -117,7 +117,7 @@ El propietario del circuito puede agregar las autorizaciones mediante el siguien
 El propietario del circuito puede revocar o eliminar las autorizaciones al usuario ejecutando el siguiente cmdlet:
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
+	Set-AzureRmExpressRouteCircuit -Circuit $circuit	
 
 ### Operaciones del usuario del circuito
 
@@ -138,4 +138,4 @@ Puede liberar una autorización eliminando la conexión que vincula el circuito 
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

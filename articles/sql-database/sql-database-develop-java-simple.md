@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="LuisBosquez"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 
@@ -48,4 +48,8 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0504_2016-->
+## Recursos adicionales
+
+Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

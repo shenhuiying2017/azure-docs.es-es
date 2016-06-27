@@ -18,7 +18,9 @@
 
 # Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila 
 
-Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)](https://msdn.microsoft.com/library/dn765131) ofrecen un conjunto eficaz de capacidades para el escalado de manera flexible y eficaz del nivel de datos de una aplicación de múltiples inquilinos con Base de datos de SQL Azure. Este artículo muestra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admite particiones de múltiples inquilinos, con **ADO.NET SqlClient** o **Entity Framework**.
+Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)](https://msdn.microsoft.com/library/dn765131) ofrecen un conjunto eficaz de capacidades para el escalado de manera flexible y eficaz del nivel de datos de una aplicación de múltiples inquilinos con Base de datos de SQL Azure. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para obtener más información.
+
+Este artículo muestra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admite particiones de múltiples inquilinos, con **ADO.NET SqlClient** o **Entity Framework**.
 
 * Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos de una aplicación a través de las prácticas de particionamiento estándar del sector, mediante un conjunto de bibliotecas de .NET y plantillas de servicio de Azure. La administración de particiones con el uso de la biblioteca cliente de la base de datos elástica le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento. 
 
@@ -302,9 +304,20 @@ GO
 
 ## Resumen 
 
-Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones de varios inquilinos pueden utilizarse para almacenar datos de manera más eficaz (especialmente en casos donde un gran número de inquilinos solo tienen unas pocas filas de datos), mientras que las particiones de un único inquilino pueden usarse para admitir los inquilinos premium con requisitos más estrictos de aislamiento y rendimiento. Para obtener más información, vea la [referencia sobre la seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131).
+Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones de varios inquilinos pueden utilizarse para almacenar datos de manera más eficaz (especialmente en casos donde un gran número de inquilinos solo tienen unas pocas filas de datos), mientras que las particiones de un único inquilino pueden usarse para admitir los inquilinos premium con requisitos más estrictos de aislamiento y rendimiento. Para obtener más información, consulte la [referencia sobre la seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Recursos adicionales
+
+- [¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md)
+- [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
+- [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect)
+- [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+## Preguntas y solicitudes de características
+
+Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
@@ -312,4 +325,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

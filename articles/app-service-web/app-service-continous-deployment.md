@@ -3,7 +3,7 @@
 	description="Aprenda a habilitar la implementación continua en el Servicio de aplicaciones de Azure."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Implementación continua en el Servicio de aplicaciones de Azure
 
-La integración del [Servicio de aplicaciones de Azure] con BitBucket, GitHub y Visual Studio Team Services (VSTS) hace posible un flujo de trabajo de implementación continua en el que Azure extrae las actualizaciones más recientes de su proyecto publicado en uno de estos servicios. La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes.
+En este tutorial se muestra cómo configurar un flujo de trabajo de implementación continua para su aplicación del [Servicio de aplicaciones de Azure]. La integración del Servicio de aplicaciones con BitBucket, GitHub y Visual Studio Team Services (VSTS) hace posible un flujo de trabajo de implementación continua en el que Azure extrae las actualizaciones más recientes de su proyecto publicado en uno de estos servicios. La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes.
 
 ## <a name="overview"></a>Habilitación de la implementación continua
 
@@ -30,6 +30,8 @@ Para habilitar la implementación continua
 
 	![](./media/app-service-continous-deployment/cd_options.png)
 	
+    > [AZURE.NOTE] Para configurar una cuenta de VSTS para la implementación del Servicio de aplicaciones, consulte este [tutorial](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+    
 3. Complete el flujo de trabajo de autorización.
 
 4. En la hoja **Origen de implementación**, elija el proyecto y la rama desde donde se implementará. Cuando haya terminado, haga clic en **Aceptar**.
@@ -81,7 +83,7 @@ Para deshabilitar la implementación continua
 [Portal de Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/es-ES/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Uso de PowerShell para Azure]: ../articles/install-configure-powershell.md
+[Uso de PowerShell para Azure]: ../articles/powershell-install-configure.md
 [Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../articles/xplat-cli-install.md
 [Documentación de Git]: http://git-scm.com/documentation
 
@@ -90,4 +92,4 @@ Para deshabilitar la implementación continua
 [Introducción a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

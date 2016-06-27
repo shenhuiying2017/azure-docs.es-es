@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="06/06/2016"
  ms.author="elioda"/>
 
 # Comparación del Centro de IoT y los Centros de eventos
@@ -53,4 +53,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/15/2016"
 	ms.author="femila"/>
 
 # Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS
 
-El Acceso condicional de Azure para aplicaciones SaaS está disponible en versión de vista previa pública. La vista previa permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza.
+El Acceso condicional de Azure para aplicaciones SaaS está disponible en versión de vista previa pública. La versión preliminar permite la configuración de reglas de acceso de autenticación multifactor (MFA) por aplicación y la posibilidad de bloquear el acceso de los usuarios en una red que no es de confianza.
 
 La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización. Estas funcionalidades estarán disponibles para los clientes que hayan adquirido una licencia de Azure Active Directory Premium.
 
 ## Requisitos previos de escenario
-* Suscripción a Azure Active Directory Premium
+* Licencia de Azure Active Directory Premium
 
 * Inquilino de Azure Active Directory federado o administrado
 
-* Los inquilinos federados requieren que Multi-Factor Authentication (MFA) esté habilitada
+* Para los inquilinos federados, es necesario que la autenticación multifactor esté habilitada.
 
 ## Problemas conocidos de esta versión de vista previa
-Esta vista previa solo se aplica a las aplicaciones SaaS federadas previamente integradas, a las aplicaciones que utilizan inicio de sesión único con contraseña, las aplicaciones de línea de negocio y registradas y desarrolladas y el proxy de la aplicación de Azure AD. Se siguen habilitando algunas aplicaciones adicionales.
+Esta versión preliminar se aplica a las aplicaciones SaaS federadas previamente integradas, las aplicaciones que utilizan inicio de sesión único con contraseña, las aplicaciones desarrolladas registradas y de línea de negocio y al proxy de la aplicación de Azure AD. Siguen estando habilitadas algunas aplicaciones adicionales.
 
-##Configuración de las reglas de acceso por aplicación
+## Configuración de las reglas de acceso por aplicación
 
 En esta sección se describe cómo configurar las reglas de acceso por aplicación.
 
-1. Inicie sesión en el Portal de Microsoft Azure como administrador.
+1. Inicie sesión en el Portal de Azure clásico con una cuenta que sea administrador global en Azure AD.
 2. En el panel izquierdo, seleccione **Active Directory**.
 3. En la pestaña Directorio, seleccione su directorio.
 4. Seleccione la pestaña **Aplicaciones**.
@@ -58,20 +58,20 @@ Los grupos de seguridad también se pueden excluir explícitamente de la directi
 
 ![Configuración de reglas de acceso condicional con MFA](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
-##Reglas de acceso condicional con MFA
-Si un usuario se ha configurado con la característica de autenticación multifactor por usuario, esta opción en el usuario tendrá prioridad sobre las reglas de autenticación multifactor de aplicación. Esto significa que un usuario que se ha configurado para la autenticación multifactor por usuario deberá realizarla aunque se haya excluido de las reglas de autenticación multifactor de aplicación. Obtenga más información sobre Multi-Factor Authentication y la configuración por usuario.
+## Reglas de acceso condicional con MFA
+Si un usuario se ha configurado con la característica de autenticación multifactor por usuario, esta opción en el usuario se combinará con las reglas de autenticación multifactor de aplicación. Esto significa que un usuario que se ha configurado para la autenticación multifactor por usuario deberá realizarla aunque se haya excluido de las reglas de autenticación multifactor de aplicación. Obtenga más información sobre Multi-Factor Authentication y la configuración por usuario.
 
-###Opciones de reglas de acceso
+### Opciones de reglas de acceso
 En la vista previa actual, se admiten las opciones siguientes:
 
-* **Requerir autenticación multifactor**: con esta opción, los usuarios a los que se aplican las reglas de acceso deberán llevar a cabo la autenticación multifactor antes de tener acceso a la aplicación a la que se aplica la directiva.
+* **Requerir autenticación multifactor**: con esta opción, los usuarios a los que se aplican las reglas de acceso deberán llevar a cabo la autenticación multifactor antes de acceder a la aplicación a la que se aplica la directiva.
 
-* **Requerir autenticación multifactor fuera del trabajo**: con esta opción, a los usuarios que proceden de una dirección IP de confianza no se les pedirá que realicen la autenticación multifactor. Los intervalos IP de confianza se pueden configurar en la página de configuración de la autenticación multifactor.
+* **Requerir autenticación multifactor fuera del trabajo**: con esta opción, a los usuarios que proceden de una dirección IP de confianza no se les pedirá que realicen la autenticación multifactor. Los intervalos de direcciones IP de confianza se pueden configurar en la página de configuración de la autenticación multifactor o mediante la configuración de intervalos de direcciones IP públicos en la pestaña Configurar del directorio.
 
-* **Bloquear acceso fuera del trabajo**: con esta opción, se bloqueará a los usuarios que no proceden de una dirección IP de confianza. Los intervalos IP de confianza se pueden configurar en la página de configuración de la autenticación multifactor.
+* **Bloquear acceso fuera del trabajo**: con esta opción, se bloqueará a los usuarios que no procedan de una dirección IP de confianza. Los intervalos de direcciones IP de confianza pueden configurarse en la página de configuración de Multi-Factor Authentication.
 
-###Configuración del estado de la regla
-El estado de la regla de acceso permite la activación o desactivación de las reglas. Cuando las reglas de acceso están desactivadas, el requisito de autenticación multifactor no se aplicará.
+### Configuración del estado de la regla
+El estado de la regla de acceso permite la activación o desactivación de las reglas. Cuando las reglas de acceso están desactivadas, el requisito de autenticación multifactor no se aplica.
 
 ### Evaluación de la regla de acceso
 
@@ -87,9 +87,9 @@ En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet 
 
 Además de establecer esta marca, la instancia de AD FS de inquilinos federados debe configurarse para llevar a cabo Multi-Factor Authentication. Siga las instrucciones para implementar Azure Multi-Factor Authentication en modo local.
 
-##Artículos relacionados
+## Artículos relacionados
 
 - [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->

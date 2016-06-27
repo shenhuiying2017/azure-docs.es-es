@@ -34,7 +34,7 @@ Proteja sus datos con el servicio Copia de seguridad tomando instantáneas de su
 
 ## Restauración de un punto de recuperación
 
-1. Inicie sesión en el [Portal de Azure](http://ms.portal.azure.com/)
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
 
 2. En el menú de Azure, haga clic en **Examinar** y, en la lista de servicios, escriba **Servicios de recuperación**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
 
@@ -157,7 +157,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
 2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell y úsela para crear la máquina virtual de la configuración que quiera.
 	- Creación de una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
+	- Creación de una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/es-ES/documentation/articles/load-balancer-internet-getstarted/)
 	- Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -167,4 +167,4 @@ Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de 
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

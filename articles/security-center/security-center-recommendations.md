@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="terrylan"/>
 
 # Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
@@ -38,10 +38,10 @@ En [Establecimiento de directivas de seguridad en el Centro de seguridad de Azur
 - Activar la recopilación de datos.
 - Elegir las recomendaciones que verá como parte de la directiva de seguridad.
 
-Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, las [ACL para puntos de conexión](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) en subredes y las interfaces de red, la auditoría de bases de datos SQL, el cifrado de datos transparente de bases de datos SQL y los firewalls de aplicaciones web. [Establecimiento de directivas de seguridad](security-center-policies.md) proporciona una descripción de cada opción de recomendación.
+Las recomendaciones de directiva actuales se centran en las actualizaciones del sistema, las reglas de línea de base, los programas antimalware, los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) en subredes y las interfaces de red, la auditoría de bases de datos SQL, el cifrado de datos transparente de bases de datos SQL y los firewalls de aplicaciones web. [Establecimiento de directivas de seguridad](security-center-policies.md) proporciona una descripción de cada opción de recomendación.
 
 ### Supervisión de recomendaciones
-Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de la hoja **Centro de seguridad** permite conocer el número total de recomendaciones que identifica el Centro de seguridad.
+Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de la hoja **Security Center** permite conocer el número total de recomendaciones que identifica Security Center.
 
 ![][2]
 
@@ -55,27 +55,26 @@ Las recomendaciones aparecen en un formato de tabla, donde cada línea represent
 - **RECURSO**: enumera los recursos a los que se aplica la recomendación.
 - **ESTADO**: describe el estado actual de la recomendación:
     - **Abierta**: la recomendación aún no se ha abordado.
-    - **En curso**: la recomendación se aplica actualmente a los recursos y no se requiere ninguna acción por su parte.
-    - **Resuelta**: se ha completado la recomendación (la línea aparecerá atenuada).
+    - **En curso**: la recomendación se está aplicando actualmente a los recursos y no se requiere ninguna acción por su parte.
+    - **Resuelta**: se ha completado la recomendación (en este caso la línea aparecerá atenuada).
 - **GRAVEDAD**: describe la gravedad de una recomendación concreta:
-    - **Alta**: existe una vulnerabilidad en un recurso importante (como una aplicación, una VM o un grupo de seguridad de red) y requiere atención.
+    - **Alta**: existe una vulnerabilidad en un recurso importante (como una aplicación, una máquina virtual o un grupo de seguridad de red) y requiere atención.
     - **Media**: existe una vulnerabilidad y se requieren pasos adicionales o no críticos para eliminarla o completar un proceso.
     - **Baja**: existe una vulnerabilidad que se debe abordar, pero no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
 
 Use la tabla siguiente como referencia para ayudarle a entender las recomendaciones disponibles y lo que hará cada uno si se aplica.
 
-> [AZURE.NOTE] Querrá entender los [modelos de implementación clásico y del Administrador de recursos](../azure-classic-rm.md) para los recursos de Azure.
+> [AZURE.NOTE] Deberá comprender los [modelos de implementación clásico y de Resource Manager](../azure-classic-rm.md) para los recursos de Azure.
 
 |Recomendación|Descripción|
 |-----|-----|
-|Habilitar la colección de datos para suscripciones/máquinas virtuales|Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones o para las máquinas virtuales seleccionadas.|
+|[Habilitar la colección de datos de las suscripciones](security-center-enable-data-collection.md)|Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones y para todas las máquinas virtuales de la suscripción.|
 |Resolver el error de coincidencia de reglas de línea base|Recomienda alinear las configuraciones del SO con las líneas base recomendadas; por ejemplo, no permitir guardar las contraseñas.|
-|Aplicar actualizaciones del sistema|Recomienda implementar las actualizaciones críticas y de seguridad del sistema que falten en las máquinas virtuales (solo máquinas virtuales de Windows).|
-|Configurar ACL para puntos de conexión|Recomienda configurar listas de control de acceso para restringir el acceso de entrada a las máquinas virtuales (solo clásicas).|
+|Aplicar actualizaciones del sistema|Recomienda implementar las actualizaciones críticas y de seguridad del sistema en las máquinas virtuales.|
 |[Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)|Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. Los dispositivos WAF (creados mediante el modelo de implementación de Resource Manager) deben implementarse en una red virtual independiente. Los dispositivos WAF (creados mediante el modelo de implementación clásica) están limitados a usar un grupo de seguridad de red. Esta compatibilidad se extenderá a una implementación completamente personalizada de dispositivos WAF (clásica) en el futuro.|
 |Finalizar la configuración del firewall de aplicaciones web|Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración.|
 |[Habilitar antimalware](security-center-enable-antimalware.md)|Recomienda aprovisionar programas antimalware a las máquinas virtuales (solo máquinas virtuales de Windows).|
-|Habilitar grupos de seguridad de red en interfaces de red/subredes|Recomienda habilitar grupos de seguridad de red (NSG) en subredes e interfaces de red (solo máquinas virtuales del Administrador de recursos).|
+|Habilitar grupos de seguridad de red en interfaces de red/subredes|Recomienda habilitar grupos de seguridad de red (NSG) en subredes e interfaces de red.|
 |Restringir el acceso a través de puntos de conexión externos públicos|Recomienda configurar reglas de tráfico de entrada para los NSG.|
 |Habilitar Auditoría SQL de servidor|Recomienda activar la auditoría de servidores SQL Server de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales).|
 |Habilitar Auditoría SQL de base de datos|Recomienda activar la auditoría de bases de datos SQL de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales).|
@@ -110,12 +109,12 @@ Después de revisar todas las recomendaciones, decida cuáles son las primeras q
 ## Pasos siguientes
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
+- [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+- [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 - [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+- [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): busque entradas de blog sobre el cumplimiento de normas y la seguridad de Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -124,4 +123,4 @@ En este documento, se han presentando las recomendaciones de seguridad del Centr
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

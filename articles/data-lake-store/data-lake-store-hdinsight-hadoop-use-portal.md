@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/03/2016"
+   ms.date="06/10/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -213,7 +213,7 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 3. En la hoja del clúster, haga clic en **Escritorio remoto** y después, en la hoja **Escritorio remoto**, haga clic en **Conectar**.
 
-	![Conexión remota con un clúster de HDI](./media/data-lake-store-hdinsight-hadoop-use-portal/ADL.HDI.PS.Remote.Desktop.png "Creación de un grupo de recursos de Azure")
+	![Conexión remota con un clúster de HDI](./media/data-lake-store-hdinsight-hadoop-use-portal/ADL.HDI.PS.Remote.Desktop.png "Crear un grupo de recursos de Azure")
 
 	Cuando se le solicite, escriba las credenciales que proporcionó para el usuario de Escritorio remoto.
 
@@ -229,6 +229,91 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en el almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
+## Uso del Almacén de Data Lake con un clúster de Spark
+
+En esta sección, se usa el cuaderno de Jupyter Notebook disponible con los clústeres de HDInsight Spark para ejecutar un trabajo que lee datos de una cuenta del Almacén de Data Lake que asoció con un clúster de HDInsight Spark, en lugar de la cuenta de blob de Almacenamiento de Azure predeterminada.
+
+1. Copie datos de ejemplo de la cuenta de almacenamiento predeterminada (WASB) asociada con el clúster de Spark a la cuenta del Almacén de Azure Data Lake asociada con el clúster. Puede usar la [herramienta AdlCopy](http://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
+
+2. Abra un símbolo del sistema y vaya al directorio donde está instalada la herramienta AdlCopy, normalmente `%HOMEPATH%\Documents\adlcopy`.
+
+3. Ejecute el siguiente comando para copiar un blob específico desde el contenedor de origen a un Almacén de Data Lake:
+
+		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+
+	Para este tutorial, copie el archivo de datos de ejemplo **HVAC.csv** en **/HdiSamples/HdiSamples/SensorSampleData/hvac/** a la cuenta del Almacén de Azure Data Lake. El fragmento de código debería tener este aspecto:
+
+		AdlCopy /Source https://mydatastore.blob.core.windows.net/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv /dest swebhdfs://mydatalakestore.azuredatalakestore.net/hvac/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+
+	>[AZURE.WARNING] Asegúrese de que coincida el uso de mayúsculas y minúsculas en los nombres de archivo y ruta de acceso.
+
+4. Se le pedirá que escriba las credenciales de la suscripción a Azure en la que tiene la cuenta del Almacén de Data Lake. Verá un resultado similar al siguiente:
+
+		Initializing Copy.
+		Copy Started.
+		100% data copied.
+		Copy Completed. 1 file copied.
+
+	El archivo de datos (**HVAC.csv**) se copiará en una carpeta **/hvac** en la cuenta del Almacén de Data Lake.
+
+4. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.
+
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel de clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE] También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster:
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y en **PySpark**.
+
+	![Crear un nuevo cuaderno de Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
+
+3. Se crea y se abre un nuevo cuaderno con el nombre **Untitled.pynb**.
+
+4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, pegue el siguiente fragmento de código en una celda y presione **MAYÚS + ENTRAR**.
+
+		from pyspark.sql.types import *
+		
+	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
+
+	 ![Estado de un trabajo de cuaderno de Jupyter](./media/data-lake-store-hdinsight-hadoop-use-portal/hdispark.jupyter.job.status.png "Estado de un trabajo de cuaderno de Jupyter")
+
+4. Cargue datos de ejemplo en una tabla temporal mediante el archivo **HVAC.csv** que copió a la cuenta del Almacén de Data Lake. Ahora puede acceder a los datos de la cuenta del Almacén de Data Lake con el siguiente patrón de dirección URL.
+
+		adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+
+	En una celda vacía, pegue el siguiente ejemplo de código, reemplace **MYDATALAKESTORE** por el nombre de su cuenta del Almacén de Data Lake y presione **MAYÚS + ENTRAR**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
+
+		# Load the data
+		hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/hvac/HVAC.csv")
+		
+		# Create the schema
+		hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+		
+		# Parse the data in hvacText
+		hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+		
+		# Create a data frame
+		hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+		
+		# Register the data fram as a table to run queries against
+		hvacdf.registerTempTable("hvac")
+
+5. Como está usando un kernel de PySpark, ahora puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+		
+		%%sql
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
+
+5. Una vez que el trabajo se completa correctamente, se muestra de forma predeterminada el resultado tabular siguiente.
+
+ 	![Salida de tabla del resultado de la consulta](./media/data-lake-store-hdinsight-hadoop-use-portal/tabular.output.png "Salida de tabla del resultado de la consulta")
+
+	También puede ver la salida en otras visualizaciones. Por ejemplo, un gráfico de área con la misma salida tendría el siguiente aspecto.
+
+	![Gráfico de área del resultado de la consulta](./media/data-lake-store-hdinsight-hadoop-use-portal/area.output.png "Gráfico de área del resultado de la consulta")
+
+
+6. Cuando haya terminado de ejecutar la aplicación, debe apagar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
 ## Uso del Almacén de Data Lake en una topología de Storm
 
@@ -246,7 +331,7 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 
 ### Consideraciones al usar el Almacén de Data Lake como almacenamiento predeterminado para clústeres de HBase
 
-* Puede usar la misma cuenta de Almacén de Data Lake para más de un clúster de HBase. Sin embargo, la **carpeta raíz de HBase** que proporcione para el clúster (paso 4 en la captura de pantalla anterior) debe ser única. **No debe** usar la misma carpeta raíz en dos clústeres de HBase diferentes.
+* Puede usar la misma cuenta de Almacén de Data Lake para más de un clúster de HBase. Sin embargo, el valor de **Carpeta raíz de HBase** que proporcione para el clúster (paso 4 en la captura de pantalla anterior) debe ser único. **No debe** usar la misma carpeta raíz en dos clústeres de HBase diferentes.
 * Aunque use la cuenta de Almacén de Data Lake como almacenamiento predeterminado, los archivos de registro del clúster de HBase se siguen almacenando en los blobs de almacenamiento de Azure (WASB) asociados al clúster. Esto se resalta en el cuadro azul de la captura de pantalla anterior.
 
 
@@ -258,4 +343,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

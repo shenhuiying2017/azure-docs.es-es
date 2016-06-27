@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -60,7 +60,7 @@ Esta parte del experimento tiene ahora un aspecto similar al siguiente:
 
 A continuación, vamos a configurar el modelo SVM.
 
-En primer lugar, una breve explicación sobre SVM. Los árboles de decisión ampliados funcionan bien con características de todo tipo. Sin embargo, dado que el módulo SVM genera un clasificador lineal, el modelo que genera tiene el mejor error de prueba cuando todas las características numéricas tienen la misma escala. Por tanto, para convertir todas las características numéricas a la misma escala, vamos a usar una transformación "Tanh" (con el módulo [Normalizar datos][normalize-data]) que transforma los números en el intervalo [0,1] \(las características de cadena las convierte el módulo SVM a características de categorías y luego a características 0/1 binarias, por lo que no es necesario transformar manualmente las características de cadena). Además, no queremos transformar la columna Riesgo de crédito (columna 21): es numérica, pero es el valor sobre cuya predicción estamos entrenando al modelo; por tanto, es necesario dejarla tal cual.
+En primer lugar, una breve explicación sobre SVM. Los árboles de decisión ampliados funcionan bien con características de todo tipo. Sin embargo, dado que el módulo SVM genera un clasificador lineal, el modelo que genera tiene el mejor error de prueba cuando todas las características numéricas tienen la misma escala. Por tanto, para convertir todas las características numéricas a la misma escala, vamos a usar una transformación "Tanh" (con el módulo [Normalizar datos][normalize-data]) que transforma los números en el intervalo [0,1] (las características de cadena las convierte el módulo SVM a características de categorías y luego a características 0/1 binarias, por lo que no es necesario transformar manualmente las características de cadena). Además, no queremos transformar la columna Riesgo de crédito (columna 21): es numérica, pero es el valor sobre cuya predicción estamos entrenando al modelo; por tanto, es necesario dejarla tal cual.
 
 Para configurar el modelo SVM, realice lo siguiente:
 
@@ -143,4 +143,4 @@ Al examinar estos valores, puede decidir qué modelo se acerca más a los result
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -57,7 +57,7 @@ Cuando crea un clúster, crea recursos de proceso de Azure que contienen aplicac
 
 **Para crear un clúster de Hadoop**
 
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **NUEVO**, en **Análisis de datos** y luego en **HDInsight**. El portal abrirá una hoja **Nuevo clúster de HDInsight**.
 
     ![Creación de un clúster en el Portal de Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Creación de un clúster en el Portal de Azure")
@@ -97,7 +97,7 @@ Ahora que ha creado un clúster de HDInsight, el paso siguiente es ejecutar un t
 
 **Para ejecutar un trabajo de Hive desde el panel del clúster**
 
-1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR TODO** y luego en **Clústeres de HDInsight** para ver una lista de los clústeres, incluido el que acaba de crear en la sección anterior.
 3. Haga clic en el nombre del clúster que quiere usar para ejecutar el trabajo de Hive y luego en **Panel** en la parte superior de la hoja.
 4. Se abre una página web en una pestaña de explorador diferente. Escriba la cuenta de usuario y la contraseña de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que escribió durante el proceso de creación del clúster.
@@ -222,7 +222,7 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
@@ -255,4 +255,4 @@ En este tutorial de Hadoop, ha aprendido a crear un clúster de Hadoop en Window
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

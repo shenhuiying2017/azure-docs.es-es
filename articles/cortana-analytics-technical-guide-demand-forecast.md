@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Guía técnica de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
@@ -198,11 +198,11 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 
 1.  Agregue una salida de Power BI en el Análisis de transmisiones de Azure (ASA).
 
-    -  Debe seguir las instrucciones descritas en [Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos](stream-analytics\stream-analytics-power-bi-dashboard.md) para configurar la salida del trabajo de Análisis de transmisiones de Azure como panel de Power BI.
+    -  Debe seguir las instrucciones descritas en [Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos](stream-analytics-power-bi-dashboard.md) para configurar la salida del trabajo de Análisis de transmisiones de Azure como panel de Power BI.
 
 	- Busque el trabajo de análisis de transmisiones en el [Portal de administración de Azure](https://manage.windowsazure.com). El nombre del trabajo debe ser: SuNombreDeSolución + "streamingjob" + número aleatorio + "asapbi" (es decir, demostreamingjob123456asapbi).
 
-	- Configure la salida de la consulta ASA que es **PBIoutput**. Asegúrese de que el valor de **Alias de salida** sea igual que el de la consulta. Puede asignar a los campos **Nombre de conjunto de datos** y **Nombre de tabla** el nombre **"EnergyStreamData"**. Cuando haya agregado la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Análisis de transmisiones. Recibirá un mensaje de confirmación (*por ejemplo*, "Se ha iniciado correctamente el trabajo de análisis de transmisiones myteststreamingjob12345asablob").
+	- Agregue una salida de Power BI para el trabajo ASA. Establezca el **Alias de salida** como **'PBIoutput'**. Configure **Nombre de conjunto de datos** y **Nombre de tabla** como **"EnergyStreamData"**. Cuando haya agregado la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Análisis de transmisiones. Recibirá un mensaje de confirmación (*por ejemplo*, "Se ha iniciado correctamente el trabajo de análisis de transmisiones myteststreamingjob12345asablob").
 
 2. Inicie sesión en [Power BI en línea](http://www.powerbi.com).
 
@@ -225,14 +225,13 @@ Los siguientes pasos le guiarán por los pasos para visualizar la salida de dato
 
 	-	Mantenga el mouse sobre este icono en el panel y haga clic en el icono "Editar" en la esquina superior derecha para cambiar el título a "Demanda por marca de hora".
 
-4.	Cree otros iconos de panel basados en conjuntos de datos adecuados. La vista final del panel se muestra a continuación.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Cree otros iconos de panel basados en conjuntos de datos adecuados. La vista final del panel se muestra a continuación. ![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### Configuración del panel de análisis en frío
 En la canalización de datos de análisis en frío, el objetivo principal es obtener la previsión de la demanda de cada región. Power BI se conecta a una Base de datos SQL de Azure como su origen de datos, donde se almacenan los resultados de predicción.
 
-> [AZURE.NOTE] \(1) Tarda unas horas en recopilar los resultados de previsión suficientes para el panel. Recomendamos iniciar este proceso entre dos y tres horas después de iniciar el generador de datos. 2) En este paso, el requisito previo es descargar e instalar el software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> [AZURE.NOTE] (1) Tarda unas horas en recopilar los resultados de previsión suficientes para el panel. Recomendamos iniciar este proceso entre dos y tres horas después de iniciar el generador de datos. 2) En este paso, el requisito previo es descargar e instalar el software gratuito [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 
 
@@ -253,8 +252,7 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 	-	En la carpeta **"DemandForecastingDataGeneratorv1.0"** que ha descargado, haga doble clic en el archivo **‘Power BI Template\\DemandForecastPowerBI.pbix’**. Las visualizaciones iniciales se basan en datos ficticios. **Nota:** Si ve un mensaje de error, asegúrese de que ha instalado la versión más reciente de Power BI Desktop.
 
-		Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por los nombres de su servidor y su base de datos y después haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
 
@@ -282,6 +280,9 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 	-   Programe la actualización según sus necesidades. Para obtener más información, consulte [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
+## **Eliminación de la solución**
+Asegúrese de detener el generador de datos cuando no se use activamente la solución, ya que de lo contrario incurrirá en costos elevados. Elimine la solución si no lo está usando. Al eliminar la solución se eliminarán todos los componentes aprovisionados en su suscripción al implementar la solución. Para eliminar la solución, haga clic en el nombre de la solución en el panel izquierdo de la plantilla de soluciones y haga clic en Eliminar.
+
 ## **Herramientas de estimación de costos**
 
 Las dos herramientas siguientes están disponibles para ayudarle a comprender mejor los costos totales implicados en la ejecución de la plantilla de solución Previsión de demanda de energía en su suscripción:
@@ -290,4 +291,7 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 -   [Herramienta de estimación de costos de Microsoft Azure (escritorio)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0413_2016-->
+## **Agradecimientos**
+Este artículo fue creado por el científico de datos Yijing Chen y el ingeniero de software Qiu Min de Microsoft.
+
+<!---HONumber=AcomDC_0615_2016-->

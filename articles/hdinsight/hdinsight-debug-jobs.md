@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/10/2016"
 	ms.author="jgao"/>
 
 # Analizar los registros de HDInsight
@@ -73,7 +73,7 @@ Puede instalar Power Query desde [www.microsoft.com/es-es/download/details.aspx?
 **Cómo usar Power Query para abrir y analizar el registro de servicio**
 
 1. Abra **Microsoft Excel**.
-2. En el menú de **Power Query**, haga clic en **De Azure** y, luego, en **Desde un almacenamiento de tablas de Microsoft Azure**.
+2. En el menú de **Power Query**, haga clic en **De Azure** y, luego, en **Desde un almacenamiento de tablas de Microsoft Azure **.
  
 	![Power Query de Excel de Hadoop de HDInsight: abrir el almacenamiento de tablas de Azure](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
 3. Escriba el nombre de la cuenta de almacenamiento. Puede ser el nombre corto o el FQDN.
@@ -99,7 +99,7 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Obviamente, 
 2. En el menú **Ver**, haga clic en **Cloud Explorer**. También puede hacer clic simplemente en **CTRL+\\, CTRL+X**.
 3. En **Cloud Explorer**, seleccione **Tipos de recursos**. La otra opción disponible es **Grupos de recursos**.
 4. Expanda **Cuentas de almacenamiento**, la cuenta de almacenamiento predeterminada de su clúster y **Tablas**.
-5. Haga doble clic en hadoopservicelog.
+5. Haga doble clic en **hadoopservicelog**.
 6. Agregue un filtro. Por ejemplo:
 	
 		TraceLevel eq 'ERROR'
@@ -313,11 +313,11 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descripción**: no se puede resolver el DNS *URLdelDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
-- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por *http://* y terminar en *.com*.
+- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por **http://* y terminar en *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descripción**: no se puede comprobar la ubicación del recurso *URLdeDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
-- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por *http://* y terminar en *.com*.
+- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por **http://* y terminar en *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descripción**: la funcionalidad de versión no está disponible para la versión *versiónespecificada* y el identificador de suscripción *identificadordelasuscripción*.  
@@ -341,4 +341,4 @@ Algunos de estos mensajes de error también podrían aparecer en el Portal de Az
 - [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/13/2016"
 	ms.author="guybo"/>
 
 # Implementación de un conjunto de escalado de máquinas virtuales mediante Visual Studio
@@ -75,7 +75,7 @@ Ahora puede editar la plantilla para personalizarla en función de las necesidad
 
 	![Nuevo grupo de recursos][new_resource]
 
-9. A continuación, seleccione el botón **Editar parámetros** para escribir parámetros que se pasarán a la plantilla, ciertos valores como el nombre de usuario y la contraseña para el sistema operativo son necesarios para crear la implementación.
+9. A continuación, seleccione el botón **Editar parámetros** para escribir parámetros que se pasarán a la plantilla, ciertos valores como el nombre de usuario y la contraseña para el sistema operativo son necesarios para crear la implementación. Si no tiene instaladas las herramientas de PowerShell para Visual Studio, se recomienda marcar la casilla Save passwords (Guardar contraseñas) con el fin de evitar que no se muestre una línea de comandos de PowerShell oculto, o bien utilizar la compatibilidad con [Almacén de claves](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
 	![Editar parámetros][edit_parameters]
 
@@ -85,7 +85,7 @@ Ahora puede editar la plantilla para personalizarla en función de las necesidad
 
 ## Exploración del conjunto de escalado de máquinas virtuales
 
-Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado de máquinas virtuales en Visual Studio **Cloud Explorer** (actualización de la lista). Cloud Explorer le permite administrar recursos de Azure en Visual Studio mientras se desarrollan aplicaciones. También puede ver el conjunto de escalado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com) y en el [Explorador de recursos de Azure](https://resources.azure.com/).
+Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado de máquinas virtuales en Visual Studio **Cloud Explorer** (actualización de la lista). Cloud Explorer le permite administrar recursos de Azure en Visual Studio mientras se desarrollan aplicaciones. También puede ver el conjunto de escalas de máquina virtual en el [Portal de Azure](https://portal.azure.com) y en el [Explorador de recursos de Azure](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
@@ -107,4 +107,4 @@ Después de implementar satisfactoriamente los conjuntos de escalado de máquina
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Referencia de Analytics de Application Insights" 
+	pageTitle="Referencia de Analytics de Application Insights | Microsoft Azure" 
 	description="Referencia de instrucciones de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -20,33 +20,22 @@
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
 ## Índice
 
-|Consultas y operadores|Agregaciones|Escalares|Números|Fecha y hora|Cadena|Matrices, objetos y dinámica
-|---|---|---|---|---|---|---
-|[count](#count-operator)|[cualquiera](#any)|[Literales booleanos](#boolean-literals)|[Operadores aritméticos](#arithmetic-operators)|[Expresiones de fecha y hora](#date-and-time-expressions)|[GUID](#guids)|[Literales de matriz y objeto](#array-and-object-literals)
-|[extend](#extend-operator)|[argmax](#argmax)|[Operadores booleanos](#boolean-operators)|[Literales numéricos](#numeric-literals)|[Literales de fecha y hora](#date-and-time-literals)|[Literales de cadena ofuscados](#obfuscated-string-literals)|[Funciones del objeto dinámico](#dynamic-object-functions)
-|[join](#join-operator)|[argmin](#argmin)|[Conversiones de tipos](#casts)|[abs](#abs)|[ago](#ago)|[Literales de cadena](#string-literals)|[Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses)
-|[Cláusula let](#let-clause)|[avg](#avg)|[Comparaciones escalares](#scalar-comparisons)|[bin](#bin)|[datepart](#datepart)|[Comparaciones de cadenas](#string-comparisons)|[Expresiones de ruta de JSON](#json-path-expressions)
-|[limit](#limit-operator)|[buildschema](#buildschema)|[gettype](#gettype)|[exp](#exp)|[dayofmonth](#dayofmonth)|[countof](#countof)|[Nombres](#names)
-|[mvexpand](#mvexpand-operator)|[count](#count)|[hash](#hash)|[floor](#floor)|[dayofweek](#dayofweek)|[extract](#extract)|[arraylength](#arraylength)
-|[parse](#parse-operator)|[countif](#countif)|[iff](#iff)|[log](#log)|[dayofyear](#dayofyear)|[isempty](#isempty)|[extractjson](#extractjson)
-|[project](#project-operator)|[dcount](#dcount)|[isnotnull](#isnotnull)|[rand](#rand)|[endofday](#endofday)|[isnotempty](#isnotempty)|[parsejson](#parsejson)
-|[project-away](#project-away-operator)|[dcountif](#dcountif)|[isnull](#isnull)|[sqrt](#sqrt)|[endofmonth](#endofmonth)|[notempty](#notempty)|[range](#range)
-|[range](#range-operator)|[makelist](#makelist)|[notnull](#notnull)|[todouble](#todouble)|[endofweek](#endofweek)|[replace](#replace)|[todynamic](#todynamic)
-|[reduce](#reduce-operator)|[makeset](#makeset)|[toscalar](#toscalar)|[toint](#toint)|[endofyear](#endofyear)|[split](#split)|[treepath](#treepath)
-|[Directiva render](#render-directive)|[max](#max)||[tolong](#tolong)|[getmonth](#getmonth)|[strcat](#strcat)|
-|[Cláusula restrict](#restrict-clause)|[min](#min)|||[getyear](#getyear)|[strlen](#strlen)|
-|[sort](#sort-operator)|[percentile](#percentile)|||[now](#now)|[substring](#substring)|
-|[summarize](#summarize-operator)|[percentiles](#percentiles)|||[startofday](#startofday)|[tolower](#tolower)|
-|[take](#take-operator)|[stdev](#stdev)|||[startofmonth](#startofmonth)|[toupper](#toupper)|
-|[top](#top-operator)|[sum](#sum)|||[startofweek](#startofweek)||
-|[top-nested](#top-nested-operator)|[variance](#variance)|||[startofyear](#startofyear)||
-|[union](#union-operator)||||[todatetime](#todatetime)||
-|[donde](#where-operator)||||[totimespan](#totimespan)||
-|||||[WeekOfYear](#weekofyear)||
+**Consultas y operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [let clause](#let-clause) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Escalares** [Literales booleanos](#boolean-literals) | [Operadores booleanos](#boolean-operators) | [Conversiones](#casts) | [Comparaciones escalares](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Números** [Operadores aritméticos](#arithmetic-operators) | [Literales numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Fecha y hora** [Expresiones de fecha y hora](#date-and-time-expressions) | [Literales de fecha y hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**Cadena** [GUIDs](#guids) | [Literales de cadena confusos](#obfuscated-string-literals) | [Literales de cadena](#string-literals) | [Comparaciones de cadenas](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Matrices, objetos y dinámica** [Literales de matriz y objeto](#array-and-object-literals) | [Funciones de objetos dinámicos](#dynamic-object-functions) | [Objetos dinámicos en cláusulas let](#dynamic-objects-in-let-clauses) | [Expresiones de ruta de acceso JSON](#json-path-expressions) | [Nombres](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
 
 
 
@@ -130,7 +119,7 @@ Una copia de la tabla de entrada con las columnas adicionales especificadas.
 **Sugerencias**
 
 * Use como alternativa [`project`](#project-operator) si también desea quitar o cambiar el nombre de algunas columnas.
-* No use `extend` simplemente para obtener un nombre más corto que usar en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
+* No use `extend` simplemente para obtener un nombre más corto para usar en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...` 
 
     Las columnas originales de la tabla se han indexado; el nuevo nombre define una columna adicional que no está indexada, por lo que posiblemente la consulta se ejecute con lentitud
 
@@ -152,7 +141,7 @@ Combina las filas de dos tablas haciendo coincidir los valores de la columna esp
 
 **Sintaxis**
 
-    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
 
 **Argumentos**
 
@@ -351,7 +340,7 @@ Divide un registro de excepciones en filas para cada elemento en el campo de det
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -372,7 +361,7 @@ Extrae los valores de una cadena. Puede usar la coincidencia de expresión regul
  * `simple` (valor predeterminado): las cadenas `Match` son cadenas sin formato.
  * `relaxed`: si el texto no se analiza como el tipo de una columna, la columna se establece en null y el análisis continúa. 
  * `regex`: las cadenas `Match` son expresiones regulares.
-* `Text`: una columna u otra expresión que se evalúa como cadena o se puede convertir en una.
+* `Text`: una columna u otra expresión que se evalúa como cadena o que se puede convertir en una.
 * *Match:* compara la siguiente parte de la cadena y la descarta.
 * *Column:* asigna la siguiente parte de la cadena a esta columna. Si no existe, se crea la columna.
 * *Type:* analiza la siguiente parte de la cadena como el tipo especificado, como int, date, double. 
@@ -496,7 +485,7 @@ Una tabla que tiene las columnas con nombres de argumentos y tantas filas como l
 
 **Ejemplo**
 
-El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer con el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
+En el ejemplo siguiente se muestran variantes de manipulaciones que se pueden hacer con el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
 
 ```AIQL
 T
@@ -761,8 +750,8 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 **Argumentos**
 
 * *Table1*, *Table2*...
- *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o bien
- *  Una expresión de consulta, como `(requests | where success=="True")`.
+ *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o bien,
+ *  una expresión de consulta, como `(requests | where success=="True")`.
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comienza por "e", junto con la tabla "excepciones".
 * `kind`: 
  * `inner`: el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
@@ -1101,16 +1090,24 @@ Calcula el mínimo de *Expr*.
 **Sugerencia**: Esto ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. Sin embargo, si desea tener otras columnas de la fila (por ejemplo, el nombre del proveedor con el precio más bajo), use [argmin o argmax](#argmin-argmax).
 
 
-<a name="percentile"></a> <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Devuelve una estimación para *Expression* de los percentiles especificados en el grupo. La precisión depende de la densidad de población en la región del percentil.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Es igual que `percentile()`, pero calcula un número de valores de percentil (más rápido que calcular cada percentil de forma individual).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Percentil ponderado. Use esta función para los datos previamente agregados. `WeightExpression` es un entero que indica cuántas filas originales se representan por cada fila agregada.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Es igual que `percentilew()`, pero se calcula un número de valores de percentil.
 
 **Ejemplos**
 
@@ -1135,7 +1132,6 @@ Calcular simultáneamente varios percentiles para diferentes nombres de solicitu
 
 Los resultados muestran que para la solicitud /Events/Index, el 5 % de las solicitudes se han respondido en menos de 2,44 s, la mitad en 3,52 s, y el 5 % en más de 6,85 s.
 
-
 Calcular varias estadísticas:
 
     requests 
@@ -1145,7 +1141,43 @@ Calcular varias estadísticas:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Error de estimación en percentiles
+#### Percentiles ponderados
+
+Utilice las funciones de percentil ponderado en aquellos casos en que los datos se hayan agregado previamente.
+
+Por ejemplo, suponga que la aplicación realiza muchas miles de operaciones por segundo y quiere conocer la latencia. La solución más sencilla sería generar una solicitud de Application Insights o un evento personalizado para cada operación. Esto crearía mucho tráfico, aunque se aplicaría el muestreo adaptativo para reducirlo. Sin embargo, decide implementar una solución aún mejor: escribirá código en la aplicación para agregar los datos antes de enviarlos a Application Insights. El resumen agregado se enviará a intervalos regulares, lo que reduce la velocidad de datos quizás a unos puntos por minuto.
+
+El código toma una secuencia de medidas de latencia en milisegundos. Por ejemplo:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+Cuenta las mediciones en las ubicaciones siguientes: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periódicamente, realiza una serie de llamadas a TrackEvent, una para cada depósito, con medidas personalizadas en cada llamada:
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+En Analytics, verá un grupo de eventos así parecido al siguiente:
+
+`opCount` | `latency`| significado
+---|---|---
+8 | 10 | = 8 operaciones en la ubicación 10 ms
+6 | 20 | = 6 operaciones en la ubicación 20 ms.
+3 | 30 | = 3 operaciones en la ubicación 30 ms
+1 | 40 | = 1 operación en la ubicación 40 ms
+
+Para obtener una imagen precisa de la distribución original de latencias de eventos, utilizamos `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+Los resultados son los mismos, como si hubiéramos utilizado `percentiles` normales en el conjunto original de medidas.
+
+> [AZURE.NOTE] Los percentiles ponderados no son aplicables a [datos muestreados](app-insights-sampling.md), donde cada fila muestreada representa una muestra aleatoria de filas originales, en lugar de una ubicación. Las funciones de percentil normales son adecuadas para datos muestreados.
+
+#### Error de estimación en percentiles
 
 El agregado de percentiles proporciona un valor aproximado mediante [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
@@ -1283,7 +1315,7 @@ La función `iff()` evalúa el primer argumento (el predicado) y devuelve el val
 
 **Argumentos**
 
-* *predicate*: una expresión que se corresponde con un valor `boolean`.
+* *predicate*: una expresión que se evalúa como un valor `boolean`.
 * *ifTrue*: una expresión que se evalúa y cuyo valor se devuelve desde la función si *predicate* se evalúa como `true`.
 * *ifFalse*: una expresión que se evalúa y cuyo valor se devuelve desde la función si *predicate* se evalúa como `false`.
 
@@ -1394,16 +1426,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar | | * | Multiplicar | 
-| / | Dividir | 
-| % | Aplicar módulo | 
-|| 
-|`<` |Menor que 
-|`<=`|Menor que o Igual a 
-|`>` |Mayor que 
-|`>=`|Mayor que o Igual a 
-|`<>`|No igual a 
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -1435,7 +1458,7 @@ Alias `floor`.
 **Argumentos**
 
 * *value*: un número, una fecha o un intervalo de tiempo. 
-* *roundTo*: el tamaño del intervalo. Un número, una fecha o un intervalo de tiempo que divide *value*. 
+* *roundTo*: el tamaño máximo. Un número, una fecha o un intervalo de tiempo que divide *value*. 
 
 **Devoluciones**
 
@@ -1904,7 +1927,7 @@ Obtenga una coincidencia para una [expresión regular](#regular-expressions) des
 
 **Devoluciones**
 
-Si *regex* encuentra una coincidencia en *text*, la subcadena que coincide con el *captureGroup* del grupo de capturas indicado, opcionalmente convertido a *typeLiteral*.
+Si *regex* encuentra una coincidencia en *text*, la subcadena que coincide con el grupo de captura indicado *captureGroup*, opcionalmente convertido a *typeLiteral*.
 
 Si no hay ninguna coincidencia, o se produce un error en la conversión del tipo: `null`.
 
@@ -1918,7 +1941,7 @@ En la cadena de ejemplo `Trace` se busca una definición para `Duration`. La coi
 | extend Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s) 
 ```
 
-En este ejemplo es equivalente a `substring(Text, 2, 4)`:
+En este ejemplo, es equivalente a `substring(Text, 2, 4)`:
 
 ```AIQL
 extract("^.{2,2}(.{4,4})", 1, Text)
@@ -1974,12 +1997,12 @@ Reemplace todas las coincidencias de expresiones regulares por otra cadena.
 **Argumentos**
 
 * *regex*: la [expresión regular](https://github.com/google/re2/wiki/Syntax) para buscar *text*. Puede contener grupos de captura entre "("paréntesis")". 
-* *rewrite*: la expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de capturas, `\2` y valores sucesivos para los grupos de capturas posteriores.
+* *rewrite*: la expresión regular de reemplazo para cualquier coincidencia que encuentre *matchingRegex*. Use `\0` para hacer referencia a toda la coincidencia, `\1` para el primer grupo de capturas, `\2` y así sucesivamente para los grupos de capturas posteriores.
 * *text*: una cadena.
 
 **Devoluciones**
 
-*text* después de reemplazar todas las coincidencias de *regex* con evaluaciones de *rewrite*. Las coincidencias no se superponen.
+*text* después de reemplazar todas las coincidencias de *regex* por evaluaciones de *rewrite*. Las coincidencias no se superponen.
 
 **Ejemplo**
 
@@ -2105,7 +2128,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 
 ![](./media/app-insights-analytics-reference/310.png)
 
-**Indexing**: matrices y objetos de índice, al igual que en JavaScript:
+**Indexing**: matrices y objetos de índice, igual que en JavaScript:
 
     exceptions | take 1
     | extend 
@@ -2138,7 +2161,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
 ![](./media/app-insights-analytics-reference/410.png)
 
 
-**treepath**: para buscar todas las rutas en un objeto complejo:
+**treepath**: para buscar todas las rutas de acceso en un objeto complejo:
 
     exceptions | take 1 | project timestamp, details 
     | extend path = treepath(details) 
@@ -2425,4 +2448,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

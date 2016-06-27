@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solución de problemas de Almacenamiento de datos SQL de Azure
@@ -26,7 +26,7 @@ Estos son los problemas de conectividad más comunes:
 - Uso de herramientas o protocolos no admitidos.
 
 ### Reglas de firewall
-Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección [Configure server firewall access for your client IP][] \(Configurar el acceso del firewall del servidor para su IP de cliente) en las [instrucciones de aprovisionamiento][].
+Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección [Configure server firewall access for your client IP][] (Configurar el acceso del firewall del servidor para su IP de cliente) en las [instrucciones de aprovisionamiento][].
 
 ### Uso de herramientas o protocolos no admitidos.
 Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] para consultar los datos. Para la conectividad de cliente, se recomiendan [SQL Server Native Client 10/11 (ODBC)][]. Aún no se admite SQL Server Management Studio (SSMS) y, aunque funciona parcialmente, el árbol del explorador de objetos no funciona con Almacenamiento de datos SQL y es posible que funcione la consulta después de ignorar algunos mensajes de error.
@@ -116,7 +116,7 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 [Supervisión de la carga de trabajo mediante DMV]: ./sql-data-warehouse-manage-monitor.md
 [Administración de estadísticas en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-statistics.md
 [instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
 [Procedimientos recomendados para el Almacenamiento de datos SQL]: ./sql-data-warehouse-best-practices.md
 [estadísticas]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -2,16 +2,16 @@
 	pageTitle="Ejemplo de IoT de Azure MyDriving: compilación | Microsoft Azure"
 	description="Compile una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos."
 	services=""
-    documentationCenter=""
-    suite="iot-suite"
+    documentationCenter=".net"
+    suite=""
 	authors="alancameronwills"
 	manager="douge"/>
 
 <tags
-	ms.service="iot-suite"
+	ms.service="multiple"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
 	ms.author="awills"/>
@@ -149,7 +149,7 @@ Si tiene problemas al compilar, pruebe las soluciones para las diferentes peculi
 
 -   *La aplicación Android no se compila*:
 
-    -   Abra **Herramientas** > **Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
+    -   Abra **Herramientas** > ** Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
 
     -   Elimine este directorio y luego recompile:<br/> `%LocalAppData%\Xamarin\zips`
 
@@ -438,7 +438,7 @@ Condiciones:
 
 Para más información, consulte:
 
--   Resumen de [cuotas y límites del servicio de Azure](../azure-subscription-service-limits/#iot-hub-limits)
+-   Resumen de [cuotas y límites del servicio de Azure](../azure-subscription-service-limits.md#iot-hub-limits)
 
 -   [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/) de Azure
 
@@ -462,4 +462,4 @@ Esperamos sus noticias.
 
 Se recomienda la lectura de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), donde se describe de manera detallada el diseño del sistema y sus componentes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	manager="jhubbard" 
 	authors="ddove" 
-	editor="sidneyh"/>
+	editor="carlrabeler"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -101,4 +101,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

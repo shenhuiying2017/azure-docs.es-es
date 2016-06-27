@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="06/08/2016"
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -80,13 +80,11 @@ Se recomienda usar HTTPS con SAS. Para obtener más información sobre las firma
 
 Este es un ejemplo de una cadena de conexión que incluye un SAS de servicio para el almacenamiento de blobs:
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
-Aquí se muestra un ejemplo de la misma cadena de conexión con codificación de dirección URL:
+Aquí se muestra un ejemplo de la misma cadena de conexión con codificación de caracteres especiales:
 
-	BlobEndpoint=https://storagesample.blob.core.windows.net;
-	SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
+	BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 
 ### Ejemplo de SAS de cuenta
 
@@ -165,4 +163,4 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 - [Uso del emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md)
 - [Exploradores de almacenamiento de Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/28/2016"
+   ms.date="06/14/2016"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux
@@ -98,7 +98,7 @@ Debido a que es el almacén predeterminado para HDInsight, normalmente no tiene 
 
 	hadoop fs -ls /example/data
 
-Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo **WASB://** en el comando.
+Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo ****WASB://** en el comando.
 
 HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **WASB://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
 
@@ -257,4 +257,4 @@ Si el clúster le proporciona una versión de un componente como un archivo jar 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

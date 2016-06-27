@@ -150,7 +150,9 @@ El daemon de Docker en el host está configurado para que realice escuchas y aut
 
 ## Pasos siguientes
 
-Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. Para crear una máquina virtual con la funcionalidad Docker en el nuevo portal, consulte [Uso de la extensión de VM Docker con el portal].
+* Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. Para crear una máquina virtual con la funcionalidad Docker en el nuevo portal, consulte [Uso de la extensión de VM Docker con el portal].
+
+* La extensión de máquina virtual de Docker para Azure también admite Docker Compose, que utiliza un archivo YAML declarativo con el fin de tomar una aplicación modelada por el desarrollador en cualquier entorno y generar una implementación coherente. Consulte [Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure].
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
@@ -172,5 +174,6 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
  
+[Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en una máquina virtual de Azure]: virtual-machines-linux-docker-compose-quickstart.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

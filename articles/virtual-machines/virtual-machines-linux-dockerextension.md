@@ -22,7 +22,8 @@ Docker es una conocida plataforma de creación de imágenes y administración de
 
 - Para crear rápidamente un prototipo de una aplicación o si ya conoce y usa Docker Machine, puede usar [el controlador de Azure de Docker Machine](./virtual-machines-linux-docker-machine.md) para implementar los hosts del docker en Azure.
 - Para una implementación basada en una plantilla, puede utilizarse la extensión de máquina virtual de Docker para máquinas virtuales de Azure. Este enfoque puede integrarse con las implementaciones de plantilla de Azure Resource Manager e incluye todas las ventajas relacionadas como el acceso basado en rol, el diagnóstico y la configuración posterior a la implementación.
-- También puede [implementar un clúster de Docker Swarm completo en los servicios de contenedor de Azure](../container-service/container-service-deployment.md) para implementaciones escalables y preparadas para la producción que aprovechen las herramientas de administración y programación adicionales que proporciona Swarm.
+- La extensión de máquina virtual de Docker también admite Docker Compose, que utiliza un archivo YAML declarativo con el fin de tomar una aplicación modelada por el desarrollador en cualquier entorno y generar una implementación coherente.  
+- También puede [implementar un clúster de Docker Swarm completo en los servicios de contenedor de Azure](../container-service/container-service-deployment.md) para realizar implementaciones escalables y preparadas para la producción que aprovechen las herramientas de administración y programación adicionales que proporciona Swarm.
 
 Este artículo se centra en el uso de plantillas de Resource Manager para administrar la extensión de VM de Docker en un entorno personalizado preparado para la producción que defina.
 
@@ -30,11 +31,11 @@ Este artículo se centra en el uso de plantillas de Resource Manager para admini
 
 La extensión de máquina virtual de Docker para Azure permite instalar y configurar el demonio de Docker, el cliente de Docker y Docker Compose en la máquina virtual de Linux. También se puede utilizar la extensión para definir e implementar aplicaciones contenedoras, mediante Docker Compose. Mediante el uso de plantillas de Resource Manager, el entorno se puede volver a implementar de forma coherente. Se recomienda el uso de la extensión de máquina virtual de Docker para Azure para un desarrollador o entornos de producción más resistentes, ya que presenta algunos controles adicionales en comparación con el uso simplemente de Docker Machine o la creación del host del docker usted mismo.
 
-Mediante Azure Resource Manager, puede crear e implementar plantillas que definan la estructura completa de su entorno, como los hosts de Docker, el almacenamiento, los controles de acceso basados en roles (RBAC), los diagnósticos, etc. También puede [obtener más información sobre Resource Manager](../resource-group-overview.md) y plantillas para entender mejor algunas de las ventajas. La ventaja de usar plantillas de Resource Manager en comparación con el simple uso de Docker Machine es que puede definir hosts de Docker adicionales, almacenamiento, controles de acceso, etc. y ser capaz de reproducir las implementaciones según sea necesario en el futuro.
+Mediante Azure Resource Manager, puede crear e implementar plantillas que definan la estructura completa de su entorno, como los hosts de Docker, el almacenamiento, los controles de acceso basados en roles (RBAC), los diagnósticos, etc. También puede [obtener más información sobre Azure Resource Manager](../resource-group-overview.md) y las plantillas para entender mejor algunas de las ventajas. La ventaja de usar plantillas de Resource Manager en comparación con el simple uso de Docker Machine es que puede definir hosts de Docker adicionales, almacenamiento, controles de acceso, etc. y ser capaz de reproducir las implementaciones según sea necesario en el futuro.
 
 ## Implementación de una plantilla con la extensión de VM de Docker:
 
-Vamos a usar una plantilla existente de inicio rápido para mostrar cómo implementar una VM de Ubuntu que tenga una extensión de VM de Docker instalada. Puede ver la plantilla aquí: [Implementación simple de una VM de Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+Vamos a usar una plantilla existente de inicio rápido para mostrar cómo implementar una VM de Ubuntu que tenga una extensión de VM de Docker instalada. Puede ver la plantilla aquí: [Implementación simple de una VM de Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu).
 
 Implemente la plantilla con la CLI de Azure. Para ello, especifique un nombre para el nuevo grupo de recursos (aquí `myDockerResourceGroup`) junto con el identificador URI de la plantilla:
 
@@ -101,7 +102,7 @@ Abra un explorador web y escriba el nombre DNS especificado durante la implement
 
 ![Ejecución del contenedor ngnix](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-Para más información adicional sobre la extensión de máquina virtual de Docker como configurar el puerto TCP del demonio de Docker, configurar la seguridad e implementar contenedores mediante Docker Compose, consulte la [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/) (Extensión de máquina virtual de Azure para el proyecto Docker de GitHub).
+Para obtener más información sobre la extensión de máquina virtual de Docker, como configurar el puerto TCP del demonio de Docker, configurar la seguridad e implementar contenedores mediante Docker Compose, consulte [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/) (Extensión de máquina virtual de Azure para el proyecto Docker de GitHub).
 
 ## Referencia de plantilla de JSON de la extensión de VM de Docker
 
@@ -127,7 +128,7 @@ En este ejemplo se utiliza una plantilla de inicio rápido. Puede utilizar sus p
 }
 ```
 
-Puede encontrar un tutorial más detallado sobre el uso de plantillas de Resource Manager mediante la lectura de [Información general de Azure Resource Manager](../resource-group-overview.md).
+Puede encontrar un tutorial más detallado sobre el uso de plantillas de Azure Resource Manager consultando [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 ## Pasos siguientes
 
@@ -135,6 +136,7 @@ Puede obtener más pasos detallados para las distintas opciones de implementaci�
 
 1. [Uso de una máquina de Docker con el controlador de Azure](./virtual-machines-linux-docker-machine.md)  
 2. [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de varios contenedores en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md)
 3. [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

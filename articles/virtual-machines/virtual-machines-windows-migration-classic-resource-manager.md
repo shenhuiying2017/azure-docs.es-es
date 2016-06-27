@@ -81,14 +81,12 @@ Las siguientes características no se admiten en la versión preliminar pública
 
 Proveedor de recursos | Característica
 ---------- | ------------
-Proceso | Diagnósticos de arranque.
 Proceso | Discos de máquinas virtuales no asociados.
 Proceso | Imágenes de máquina virtual.
 Red | Direcciones IP reservadas no asociadas (si no están adjuntadas a una máquina virtual). Se admiten direcciones IP reservadas que estén adjuntadas a máquinas virtuales.
 Red | Grupos de seguridad de red no asociados (si no están adjuntados a una red virtual o una interfaz de red). Los grupos de seguridad de red a los que hacen referencia las redes virtuales están admitidos.
 Red | ACL de puntos de conexión.
 Red | Puertas de enlace de red virtual (de sitio a sitio, Azure ExpressRoute, de punto a sitio).
-Almacenamiento | Cuentas de almacenamiento.
 
 ### Configuraciones no admitidas
 
@@ -103,7 +101,6 @@ Proceso | Máquinas virtuales que tienen alertas, directivas de escalado automá
 Proceso | Extensiones de VM de XML (depurador de Visual Studio, Web Deploy y depuración remota) | ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para proceder con la migración.
 Proceso | Servicios en la nube que contienen roles web y de trabajo | Actualmente no se admite.
 Red | Redes virtuales que contienen máquinas virtuales y roles web y de trabajo | Actualmente no se admite.
-Red | Subredes que contienen espacios en el nombre | Actualmente no se admite.
 Servicio de aplicaciones de Azure | Redes virtuales que contienen entornos del Servicio de aplicaciones | Actualmente no se admite.
 HDInsight de Azure | Redes virtuales que contienen servicios de HDInsight | Actualmente no se admite.
 Dynamics Lifecycle Services | Redes virtuales que contienen máquinas virtuales administradas por Dynamics Lifecycle Services | Actualmente no se admite.
@@ -171,7 +168,7 @@ No. Las máquinas virtuales (clásicas) son servicios totalmente compatibles en 
 
 **¿Qué ocurre con mis máquinas virtuales si por ahora no tengo planeado migrar?**
 
-Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](virtual-machines-windows-compare-deployment-models.md) como parte de IaaS en Resource Manager.
+Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](virtual-machines-windows-compare-deployment-models.md) como parte de IaaS en Azure Resource Manager.
 
 **¿Qué supone este plan de migración para las herramientas existentes?**
 
@@ -191,7 +188,7 @@ No se puede anular la migración si se produce un error en la operación de conf
 
 **¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager?**
 
-No. Hace poco se ha habilitado la [coexistencia de un circuito de ExpressRoute en el modelo clásico y el de Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
+No. Hace poco se ha habilitado la [coexistencia de un circuito de ExpressRoute en el modelo clásico y el de Azure Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
 
 **¿Qué ocurre si había configurado las directivas de control de acceso basado en rol para mis recursos IaaS clásicos?**
 
@@ -226,4 +223,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

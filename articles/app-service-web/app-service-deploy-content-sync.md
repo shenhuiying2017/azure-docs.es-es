@@ -3,7 +3,7 @@
 	description="Descubra cómo implementar su aplicación en el Servicio de aplicaciones de Azure mediante una sincronización de contenido desde una carpeta de la nube."
 	services="app-service"
 	documentationCenter=""
-	authors="dariac"
+	authors="dariagrigoriu"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
-	ms.author="dariac"/>
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
 # Sincronización de contenido de una carpeta de nube al Servicio de aplicaciones de Azure
 
-Una de las opciones de implementación en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) consiste en sincronizar su contenido desde servicios de almacenamiento en nube populares, como Dropbox y OneDrive.
+En este tutorial se muestra cómo implementar en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante la sincronización de su contenido desde servicios de almacenamiento en nube populares, como Dropbox y OneDrive.
 
 ## <a name="overview"></a>Información general sobre la implementación de la sincronización de contenido
 
@@ -39,6 +39,6 @@ Para habilitar la sincronización de contenido en el [Portal de Azure](https://p
 
     ![Historial de implementaciones](./media/app-service-deploy-content-sync/onedrive_sync.png)
  
-Puede obtener más información sobre la implementación de Dropbox en [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx) (Implementación desde Dropbox).
+Puede obtener más información sobre la implementación de Dropbox en [Deploy from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

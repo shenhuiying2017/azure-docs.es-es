@@ -173,7 +173,13 @@ Las herramientas también se encuentran en GitHub: [Azure/elastic-db-tools](http
 
 Use la herramienta de división y combinación para mover datos a un modelo de varios inquilinos o desde este a un modelo de inquilino único. Consulte el artículo sobre la [herramienta de división y combinación](sql-database-elastic-scale-get-started.md).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## Recursos adicionales
+
+Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+## Preguntas y solicitudes de características
+
+Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
@@ -181,4 +187,4 @@ Use la herramienta de división y combinación para mover datos a un modelo de v
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

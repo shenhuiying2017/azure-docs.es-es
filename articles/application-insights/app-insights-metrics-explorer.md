@@ -176,15 +176,16 @@ Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga 
 
 ![En los botones situados en la parte superior del Explorador de métricas](./media/app-insights-metrics-explorer/17-reset.png)
 
-## Stream en vivo: métricas instantáneas para una estrecha supervisión
+<a name="live-metrics-stream"></a>
+## Secuencia de métricas en directo: métricas instantáneas para una estrecha supervisión
 
-Stream en vivo muestra las métricas de la aplicación de este mismo momento, con una latencia casi de tiempo real de 1 segundo. Esto resulta muy útil si está publicando una compilación nueva y desea asegurarse de que todo esté funcionando como se esperaba o si quiere investigar un incidente en tiempo real.
+Stream de métricas en vivo muestra las métricas de la aplicación de este mismo momento, con una latencia casi de tiempo real de 1 segundo. Esto resulta muy útil si está publicando una compilación nueva y desea asegurarse de que todo esté funcionando como se esperaba o si quiere investigar un incidente en tiempo real.
 
 ![En la hoja de información general, haga clic en Stream en vivo.](./media/app-insights-metrics-explorer/live-stream.png)
 
-A diferencia del Explorador de métricas, Stream en vivo muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
+A diferencia del Explorador de métricas, la Secuencia de métricas en directo muestra un conjunto fijo de métricas. Los datos se conservan solo mientras se encuentran en el gráfico, y luego se descartan.
 
-Stream en vivo está disponible con el SDK de Application Insights para ASP.NET, versión 2.1.0 o posterior.
+Secuencia de métricas en directo está disponible con el SDK de Application Insights para ASP.NET, versión 2.1.0 o posterior.
 
 ## Establecer alertas
 
@@ -246,4 +247,4 @@ El [análisis](app-insights-analytics.md) es una forma más versátil de analiza
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

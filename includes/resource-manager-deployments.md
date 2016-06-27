@@ -1,17 +1,19 @@
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
-## Incremental and complete deployments
+## Implementaciones de incrementales y completadas
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+De forma predeterminada, el Administrador de recursos controla las implementaciones como las actualizaciones incrementales al grupo de recursos. Con la implementación incremental, el Administrador de recursos:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **deja sin modificar** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos 
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
 
-With complete deployment, Resource Manager:
+Con la implementación completa, el Administrador de recursos:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+- **elimina** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
+- **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos 
+- **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
  
-You specify the type of deployment through the **Mode** property.
+El tipo de implementación se especifica a través de la propiedad **Mode**.
+
+<!---HONumber=AcomDC_0615_2016-->

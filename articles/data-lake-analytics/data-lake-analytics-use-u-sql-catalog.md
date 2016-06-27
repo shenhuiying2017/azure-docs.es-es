@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Uso del catálogo de U-SQL
@@ -73,7 +73,7 @@ Puede usar Data Lake Tools for Visual Studio para administrar el catálogo. Para
 - U-SQL y desarrollo
     - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
     - [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
-    - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - Administración
     - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
@@ -84,4 +84,4 @@ Puede usar Data Lake Tools for Visual Studio para administrar el catálogo. Para
     - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
     - [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

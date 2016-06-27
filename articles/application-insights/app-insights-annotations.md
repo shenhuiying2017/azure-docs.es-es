@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/09/2016"
     ms.author="awills"/>
 
 # Anotaciones de la versión de Application Insights
@@ -96,4 +96,4 @@ Haga clic en cualquier marcador de anotación para abrir los detalles de la vers
 
 ![Haga clic en cualquier marcador de anotación de la versión.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

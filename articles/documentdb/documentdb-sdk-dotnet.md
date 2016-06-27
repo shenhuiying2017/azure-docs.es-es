@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/06/2016" 
+	ms.date="06/14/2016" 
 	ms.author="rnagpal"/>
 
 # SDK de DocumentDB
@@ -36,6 +36,14 @@
 
 ## Notas de la versión
 
+### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
+  - Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
+  - Se ha agregado compatibilidad con el reintento en solicitudes limitadas. El usuario puede personalizar el número de reintentos y el tiempo de espera máximo mediante la configuración de la propiedad ConnectionPolicy.RetryOptions.
+  - Se ha agregado una nueva interfaz IDocumentClient que define las firmas de todas las propiedades y métodos de DocumenClient. Como parte de este cambio, también se han cambiado los métodos de extensión que crean IQueryable y IOrderedQueryable por los métodos de la propia clase DocumentClient.
+  - Se ha agregado la opción de configuración para definir el valor de ServicePoint.ConnectionLimit para un identificador URI de punto de conexión dado de DocumentDB. Use ConnectionPolicy.MaxConnectionLimit para cambiar el valor predeterminado, que está establecido en 50.
+  - Se ha dejado de utilizar IPartitionResolver y su implementación. La compatibilidad con IPartitionResolver está ahora obsoleta. Se recomienda usar colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
+
+
 ### <a name="1.7.1"/>[1\.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
   - Se ha agregado una sobrecarga al identificador URI según el método ExecuteStoredProcedureAsync que toma RequestOptions como un parámetro.
   
@@ -46,10 +54,10 @@
   - Se corrige un error en el paquete de Nuget del SDK de .NET para empaquetarlo como parte de una solución de servicio en la nube de Azure.
   
 ### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
-  - [Colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md) implementados. 
+  - Se han implementado [colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-  - **[Corregido]** La consulta del punto de conexión de DocumentDB genera: 'System.Net.Http.HttpRequestException: Error al copiar el contenido en una transmisión.
+  - **[Corregido]** La consulta del punto de conexión de DocumentDB genera: 'System.Net.Http.HttpRequestException: Error al copiar el contenido a una secuencia.
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Compatibilidad de LINQ ampliada, incluidos nuevos operadores de paginación, expresiones condicionales y comparación de intervalos.
@@ -99,9 +107,9 @@
   - Compatibilidad del proveedor LINQ para OrderBy() u OrderByDescending()
   - IndexingPolicy para admitir Order By 
   
-		**NB: Posible cambio brusco** 
+		**NB: Possible breaking change** 
   
-    	Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
@@ -133,24 +141,7 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
  
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.7.1](#1.7.1) | 06 de mayo, 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
-| [1\.6.3](#1.6.3) | 08 de abril, 2016 |--- 
-| [1\.6.2](#1.6.2) | 29 de marzo, 2016 |--- 
-| [1\.5.3](#1.5.3) | 19 de febrero, 2016 |--- 
-| [1\.5.2](#1.5.2) | 14 de diciembre, 2015 |--- 
-| [1\.5.1](#1.5.1) | 23 de noviembre, 2015 |--- 
-| [1\.5.0](#1.5.0) | 05 de octubre, 2015 |--- 
-| [1\.4.1](#1.4.1) | 25 de agosto, 2015 |--- 
-| [1\.4.0](#1.4.0) | 13 de agosto, 2015 |--- 
-| [1\.3.0](#1.3.0) | 05 de agosto, 2015 |--- 
-| [1\.2.0](#1.2.0) | 06 de julio, 2015 |--- 
-| [1\.1.0](#1.1.0) | 30 de abril, 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
-| [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo, 2015 | 29 de febrero, 2016 
-| [0\.9.2-versión preliminar](#0.9.x-preview) | Enero , 2015 | 29 de febrero, 2016 
-| [0\.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre, 2014 | 29 de febrero, 2016 
-| [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto, 2014 | 29 de febrero, 2016
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- | [1\.7.1](#1.7.1) | 06 de mayo, 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- | [1\.6.3](#1.6.3) | 08 de abril, 2016 |--- | [1\.6.2](#1.6.2) | 29 de marzo, 2016 |--- | [1\.5.3](#1.5.3) | 19 de febrero, 2016 |--- | [1\.5.2](#1.5.2) | 14 de diciembre, 2015 |--- | [1\.5.1](#1.5.1) | 23 de noviembre, 2015 |--- | [1\.5.0](#1.5.0) | 05 de octubre, 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto, 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto, 2015 |--- | [1\.3.0](#1.3.0) | 05 de agosto, 2015 |--- | [1\.2.0](#1.2.0) | 06 de julio, 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril, 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- | [0\.9.3-versión preliminar](#0.9.x-preview) | 12 de marzo, 2015 | 29 de febrero, 2016 | [0\.9.2-versión preliminar](#0.9.x-preview) | Enero, 2015 | 29 de febrero, 2016 | [.9.1-versión preliminar](#0.9.x-preview) | 13 de octubre, 2014 | 29 de febrero, 2016 | [0\.9.0-versión preliminar](#0.9.x-preview) | 21 de agosto, 2014 | 29 de febrero, 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -159,4 +150,4 @@ Todas las versiones del SDK de Azure DocumentDB para .NET anteriores a la versi�
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

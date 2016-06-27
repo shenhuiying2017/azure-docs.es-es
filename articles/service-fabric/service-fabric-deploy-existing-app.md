@@ -1,6 +1,6 @@
 <properties
    pageTitle="Implementación de un ejecutable invitado en Azure Service Fabric | Microsoft Azure"
-   description="Tutorial sobre cómo empaquetar una aplicación existente para implementarla en un clúster de Azure Service Fabric"
+   description="Tutorial sobre cómo empaquetar una aplicación existente como ejecutable invitado para implementarla en un clúster de Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -12,13 +12,13 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.workload="na"
+   ms.date="06/06/2016"
+   ms.author="bscholl;mikhegn"/>
 
 # Implementación de un ejecutable invitado en Service Fabric
 
-Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. La terminología de Service Fabric hace referencia a esos tipos de aplicaciones como aplicaciones ejecutables invitadas. Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocarán en los nodos de un clúster, en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric.
+Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. La terminología de Service Fabric hace referencia a esos tipos de aplicaciones como aplicaciones ejecutables invitadas. Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocarán en los nodos de un clúster, en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric con Visual Studio o una utilidad de línea de comandos
 
 ## Ventajas de ejecutar un ejecutable invitado en Service Fabric
 
@@ -31,11 +31,9 @@ Hay unas cuantas ventajas inherentes a la ejecución de un ejecutable invitado e
 
 En este artículo, se describen los pasos básicos para empaquetar un ejecutable invitado e implementarlo en Service Fabric.
 
-
 ## Introducción rápida de los archivos de manifiesto de servicio y aplicación
 
-Antes de entrar en los detalles de la implementación de un ejecutable invitado, resulta útil comprender el modelo de implementación y empaquetado de Service Fabric. El modelo de implementación de paquetes de Service Fabric se basa principalmente en dos archivos XML: los manifiestos de aplicación y de servicio. La definición de esquema para los archivos ApplicationManifest.xml y ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
-
+Como parte de la implementación de un ejecutable invitado, resulta útil comprender el modelo de implementación y empaquetado de Service Fabric. El modelo de implementación de paquetes de Service Fabric se basa principalmente en dos archivos XML: los manifiestos de aplicación y de servicio. La definición de esquema para los archivos ApplicationManifest.xml y ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 * **Manifiesto de aplicación**
 
@@ -43,13 +41,11 @@ Antes de entrar en los detalles de la implementación de un ejecutable invitado,
 
   En el mundo de Service Fabric, las aplicaciones son “unidades que se pueden actualizar”. Una aplicación se puede actualizar como una sola unidad donde la plataforma administra los posibles errores (y posibles reversiones). La plataforma garantiza que el proceso de actualización es completamente satisfactorio, o bien, si se produce un error, no deja a la aplicación en un estado desconocido o inestable.
 
-
 * **Manifiesto de servicio**
 
   El manifiesto de servicio describe los componentes de un servicio. Incluye datos, como el nombre y tipo de servicio (que es información que Service Fabric usa para administrar el servicio) y sus componentes de código, configuración y datos. El manifiesto de servicio también incluye algunos parámetros adicionales que pueden usarse para configurar el servicio una vez que se implementa.
 
   No vamos a entrar en detalles sobre todos los parámetros que están disponibles en el manifiesto de servicio. Revisaremos el subconjunto que se requiere para que un ejecutable invitado se ejecute en Service Fabric.
-
 
 ## Estructura de archivo del paquete de aplicación
 Para implementar una aplicación en Service Fabric, la aplicación debe seguir una estructura de directorios predefinida. A continuación, se muestra un ejemplo de esta estructura:
@@ -59,9 +55,9 @@ Para implementar una aplicación en Service Fabric, la aplicación debe seguir u
 	|-- code
 		|-- existingapp.exe
 	|-- config
-		|--Settings.xml
-    |--data    
-    |-- ServiceManifest.xml
+		|-- Settings.xml
+  |-- data    
+  |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -75,7 +71,9 @@ Nota: No tiene que crear los directorios `config` y `data` si no los necesita.
 
 ## Proceso de empaquetado de una aplicación existente
 
-El proceso de empaquetado de un ejecutable invitado se basa en los siguientes pasos:
+Al empaquetar un ejecutable invitado, puede usar una plantilla de proyecto de Visual Studio o crear el paquete de aplicación manualmente. Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante el Asistente para nuevos proyectos. Consulte la siguiente información para obtener una guía paso a paso sobre cómo empaquetar un ejecutable invitado mediante Visual Studio.
+
+El proceso de empaquetado manual de un ejecutable invitado se basa en los siguientes pasos:
 
 1. Crear la estructura de directorios del paquete.
 2. Agregar archivos de código y configuración de la aplicación
@@ -163,7 +161,7 @@ El elemento `Name` se usa para especificar el nombre del directorio en el paquet
 ```
 El elemento SetupEntrypoint se usa para especificar cualquier archivo ejecutable o por lotes que se deba ejecutar antes de iniciar el código del servicio. Se trata de un elemento opcional, por lo que no necesita incluirse si no hay ninguna inicialización/instalación obligatoria. SetupEntrypoint se ejecuta cada vez que se reinicia el servicio.
 
-Hay un solo elemento SetupEntrypoint, por lo que los scripts de configuración/instalación deben incluirse en un solo archivo de lote si la instalación/configuración de la aplicación requiere varios scripts. Al igual que el elemento Entrypoint, SetupEntrypoint puede ejecutar cualquier tipo de archivo: archivos ejecutables, archivos por lotes o cmdlets de Powershell. En el ejemplo anterior, SetupEntrypoint se basa en un archivo de lotes LaunchConfig.cmd que se encuentra en el subdirectorio `scripts` del directorio Code (suponiendo que el elemento WorkingDirectory esté establecido en Code).
+Hay un solo elemento SetupEntrypoint, por lo que los scripts de configuración/instalación deben incluirse en un solo archivo de lote si la instalación/configuración de la aplicación requiere varios scripts. Al igual que el elemento SetupEntryPoint, SetupEntrypoint puede ejecutar cualquier tipo de archivo: archivos ejecutables, archivos por lotes o cmdlets de Powershell. En el ejemplo anterior, SetupEntrypoint se basa en un archivo de lotes LaunchConfig.cmd que se encuentra en el subdirectorio `scripts` del directorio Code (suponiendo que el elemento WorkingFolder esté establecido en Code).
 
 ### Punto de entrada
 
@@ -184,7 +182,7 @@ El elemento `Entrypoint` del archivo de manifiesto de servicio se usa para espec
 - `WorkingFolder` especifica el directorio de trabajo para el proceso que se va a iniciar. Puede especificar dos valores:
 	- `CodeBase` especifica el directorio de trabajo que se va a establecer en el directorio Code del paquete de aplicación (directorio `Code` en la estructura que se muestra a continuación).
 	- `CodePackage` especifica el directorio de trabajo que se establecerá en la raíz del paquete de aplicación (`MyServicePkg`).
-- `WorkingDirectory` es útil para establecer el directorio de trabajo correcto de modo que tanto los scripts de aplicación como los de inicialización puedan usar rutas de acceso relativas.
+- `WorkingFolder` es útil para establecer el directorio de trabajo correcto de modo que tanto los scripts de aplicación como los de inicialización puedan usar rutas de acceso relativas.
 
 ### Extremos
 
@@ -282,12 +280,30 @@ Si examina el directorio mediante el Explorador de servidores, puede encontrar e
 
 ![Ubicación del registro](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## Uso de Visual Studio para empaquetar una aplicación existente
+
+Visual Studio proporciona una plantilla de servicio de Service Fabric para ayudarle a implementar un ejecutable invitado en un clúster de Service Fabric. Debe realizar los siguientes pasos para completar la publicación:
+
+1. Seleccione Archivo -> Nuevo proyecto y cree una nueva aplicación de Service Fabric
+2. Elija Ejecutable invitado como plantilla de servicio
+3. Haga clic en Examinar para seleccionar la carpeta que contiene el ejecutable y rellene el resto de los parámetros para crear el nuevo servicio
+  - Se puede establecer *Code Package Behavior* (Comportamiento del paquete de código) para que copie todo el contenido de la carpeta en el proyecto de Visual Studio, lo cual es útil si el ejecutable no va a cambiar. En cambio, si prevee que el ejecutable cambie y desea tener la capacidad de recopilar las nuevas versiones de forma dinámica, puede vincular directamente a la carpeta.
+  - *Programa* permite especificar el nombre del ejecutable que se debe ejecutar para iniciar el servicio.
+  - *Argumentos* permite especificar los argumentos que se deben pasar al ejecutable. Puede ser una lista de parámetros con argumentos.
+  - *WorkingFolder* especifica el directorio de trabajo para el proceso que se va a iniciar. Puede especificar dos valores:
+  	- *CodeBase* especifica el directorio de trabajo que se va a establecer en el directorio Code del paquete de aplicación (directorio `Code` en la estructura que se muestra a continuación).
+    - *CodePackage* especifica el directorio de trabajo que se establecerá en la raíz del paquete de aplicación (`MyServicePkg`).
+4. Asigne un nombre a su servicio y haga clic en Aceptar
+5. Si el servicio necesita un punto de conexión para la comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml (por ejemplo): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+6. Ahora puede probar el paquete y publicar la acción en el clúster local mediante la depuración de la solución en Visual Studio. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente.
+
+>[AZURE.NOTE] Puede usar carpetas vinculadas al crear el proyecto de aplicación en Visual Studio. Esto vinculará a la ubicación de origen desde dentro del proyecto, lo que permitirá actualizar el ejecutable invitado en su destino de origen, lo cual hará que esas actualizaciones formen parte del paquete de aplicación en la compilación.
 
 ## Pasos siguientes
 En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implementarlo en Service Fabric. Como siguiente paso, puede consultar contenido adicional sobre este tema.
 
-- [Ejemplo para empaquetar e implementar un ejecutable invitado en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), que incluye un vínculo a la versión preliminar de la herramienta de empaquetado.
+- [Ejemplo para empaquetar e implementar un ejecutable invitado en GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), que incluye un vínculo a la versión preliminar de la herramienta de empaquetado
 - [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 - [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

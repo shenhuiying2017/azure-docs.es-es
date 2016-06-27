@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Uso de Azure PowerShell para crear una aplicación de Active Directory con el fin de acceder a recursos
@@ -115,7 +115,7 @@ Ha creado una aplicación de Active Directory y una entidad de servicio para esa
 
 En esta sección, llevará a cabo los pasos necesarios para crear una aplicación de AD con un certificado.
 
-1. Creación de un certificado autofirmado.
+1. Creación de un certificado autofirmado. Si tiene Windows 10 o Windows Server 2016 Technical Preview, ejecute el siguiente comando: 
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
@@ -126,6 +126,12 @@ En esta sección, llevará a cabo los pasos necesarios para crear una aplicació
         Thumbprint                                Subject
         ----------                                -------
         724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+
+     Si no tiene Windows 10 o Windows Server 2016 Technical Preview,, descargue el script de PowerShell del [generador de certificado autofirmado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6). Ejecute los siguientes comandos para generar un certificado.
+     
+        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
 
 2. Recupere el valor de clave del certificado.
 
@@ -209,4 +215,4 @@ Ahora está autenticado como la entidad de servicio para la aplicación de Activ
 - Para obtener ejemplos de autenticación REST, consulte [API de REST de Resource Manager](resource-manager-rest-api.md).
 - Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía para desarrolladores para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->
