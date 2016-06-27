@@ -42,7 +42,7 @@ El [Portal de Azure][] es un portal basado en web donde se pueden crear, actuali
 Para empezar a usar el Portal de Azure, consulte [Creación de Almacenamiento de datos SQL (Portal de Azure)][].
 
 ### SQL Server Data Tools en Visual Studio
-[SQL Server Data Tools][] (SSDT) de Visual Studio le permite conectar, administrar y desarrollar las bases de datos. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
+[SQL Server Data Tools][] \(SSDT) de Visual Studio le permite conectar, administrar y desarrollar las bases de datos. Si es un programador familiarizado con Visual Studio o con otros entornos de desarrollo integrado (IDE), pruebe a usar SSDT en Visual Studio.
 
 SSDT incluye el Explorador de objetos de SQL Server, que permite visualizar, conectar y ejecutar scripts en bases de datos de Almacenamiento de datos SQL. Para conectarse rápidamente a Almacenamiento de datos SQL, simplemente haga clic en el botón **Abrir en Visual Studio** de la barra de comandos al visualizar los detalles de la base de datos en el Portal de Azure clásico.
 
@@ -61,13 +61,13 @@ Para comenzar, consulte [Conexión y consultas con SQLCMD][] y [Creación de una
 
 En Almacenamiento de datos SQL, puede escalar horizontalmente o de nuevo de forma rápida el rendimiento mediante el aumento o disminución de los recursos de proceso de la CPU, la memoria y el ancho de banda de E/S. Para escalar el rendimiento, todo lo que necesita hacer es ajustar el número de unidades de almacenamiento de datos (DWU) que asigna Almacenamiento de datos SQL. Almacenamiento de datos SQL realiza el cambio y controla todos los cambios subyacentes al hardware o software rápidamente.
 
-Para más información sobre el escalado de DWU, consulte [Scale performance][] (Escalado del rendimiento).
+Para más información sobre el escalado de DWU, consulte [Scale performance][] \(Escalado del rendimiento).
 
 ##  Pausa y reanudación
 
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por DWU mientras la base de datos se encuentre en pausa.
 
-Para más información, consulte [Pause compute][] (Pausa del proceso) y [Resume compute][] (Reanudación del proceso).
+Para más información, consulte [Pause compute][] \(Pausa del proceso) y [Resume compute][] \(Reanudación del proceso).
 
 ## Prácticas recomendadas de rendimiento
 

@@ -142,7 +142,7 @@ Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de
 
 <a name="upload-data-to-adls"></a> **Para cargar archivos a la cuenta de Almacén de Data Lake**
 
-1. En el Portal, haga clic en **Examinar ** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
+1. En el Portal, haga clic en **Examinar** en el menú de la izquierda y después haga clic en **Almacén de Data Lake**.
 2. Haga clic en la cuenta de Almacén de Data Lake a la que desea cargar datos. Para buscar la cuenta predeterminada de Almacén de Data Lake, consulte [aquí](#default-adl-account).
 3. Haga clic en **Explorador de datos** en el menú superior.
 4. Haga clic en **Nuevo directorio** para crear una carpeta o haga clic en el nombre de una carpeta para cambiar de carpeta.

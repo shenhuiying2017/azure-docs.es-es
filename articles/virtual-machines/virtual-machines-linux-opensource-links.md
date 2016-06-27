@@ -23,7 +23,7 @@
 
 Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Linux en el modelo de implementación clásica.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
 
 ## Introducción
 - [Introducción a Linux en Azure](virtual-machines-linux-intro-on-azure.md)

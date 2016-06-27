@@ -87,8 +87,12 @@ También incluye las claves de solo lectura para proporcionar a los usuarios acc
 ### Visualización y copia de una clave de acceso en el Portal de Azure
 
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+
 2. En la barra **Essentials** (Información básica) de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
-3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar. ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
+
+3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
+
+  ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar las claves de acceso
 
@@ -99,10 +103,15 @@ Cambie las claves de acceso de la cuenta de DocumentDB de forma periódica para 
 Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de DocumentDB y regenera las claves, perderá las conexiones. Para evitarlo, sustituya las claves. Los siguientes pasos describen el proceso de distribución de las claves.
 
 1. Actualice la clave de acceso en el código de aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de DocumentDB.
+
 2. Vuelva a generar la clave de acceso primaria para su cuenta de DocumentDB. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
+
 3. En la barra **Essentials** (Información básica) de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
+
 4. En la hoja** Claves**, haga clic en el comando **Regenerar principal** y haga clic en **Aceptar** para confirmar que quiere generar una clave nueva.
+
 5. Tras comprobar que la clave nueva está disponible para su uso (aproximadamente 5 minutos después de la regeneración), actualice la clave de acceso en el código de aplicación para hacer referencia a la nueva clave de acceso principal.
+
 6. Vuelva a generar la clave de acceso secundaria.
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.
@@ -114,8 +123,11 @@ Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute 
 
 
 1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de DocumentDB que quiere eliminar.
+
 2. En la hoja **Cuenta de DocumentDB**, haga clic en el comando **Eliminar cuenta**.
+
 3. En la hoja de confirmación que aparece, escriba el nombre de la cuenta de DocumentDB para confirmar que quiere eliminarla.
+
 4. En la hoja de confirmación, haga clic en el botón **Eliminar**.
 
 ## <a id="next"></a>Pasos siguientes
@@ -136,7 +148,7 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/es-ES/regions/#services
-[offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0615_2016-->

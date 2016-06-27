@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kintone**, escriba su dirección URL con el siguiente patrón "**https://company.kintone.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kintone**, escriba su dirección URL con el siguiente patrón "*https://company.kintone.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurar dirección URL de la aplicación")
 
@@ -155,7 +155,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Kintone **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Kintone**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-kintone-tutorial/IC785891.png "Asignar usuarios")
 

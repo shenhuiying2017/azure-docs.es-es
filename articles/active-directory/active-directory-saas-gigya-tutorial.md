@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gigya-tutorial/IC789529.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Gigya**, escriba su dirección URL con el siguiente patrón "**http://company.gigya.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Gigya**, escriba su dirección URL con el siguiente patrón "*http://company.gigya.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-gigya-tutorial/IC789530.png "Configurar dirección URL de la aplicación")
 
@@ -139,7 +139,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Gigya **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Gigya**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-gigya-tutorial/IC789537.png "Asignar usuarios")
 

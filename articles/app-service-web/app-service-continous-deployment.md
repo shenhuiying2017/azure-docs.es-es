@@ -79,7 +79,7 @@ Para deshabilitar la implementación continua
 
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/app-service-changes-existing-services/
+[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Portal de Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/es-ES/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

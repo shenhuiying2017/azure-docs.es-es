@@ -137,7 +137,31 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- | [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- | [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- | [1\.5.6](#1.5.6) | 08 de marzo, 2016 |--- | [1\.5.5](#1.5.5) | 02 de febrero, 2016 |--- | [1\.5.4](#1.5.4) | 01 de febrero, 2016 |--- | [1\.5.2](#1.5.2) | 26 de enero, 2016 |--- | [1\.5.2](#1.5.2) | 22 de enero, 2016 |--- | [1\.5.1](#1.5.1) |04 de enero, 2016 |--- | [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |--- | [1\.4.0](#1.4.0) | 06 de octubre, 2015 |--- | [1\.3.0](#1.3.0) | 06 de octubre, 2015 |--- | [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto, 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- | [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- | [1\.0.3](#1.0.3) | 04 de junio, 2015 |--- | [1\.0.2](#1.0.2) | 23 de mayo, 2015 |--- | [1\.0.1](#1.0.1) | 15 de mayo, 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- | 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016 | 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016 | 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016 | 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016 | 0.9.0-versión preliminar | 21 de agosto, 2014 | 29 de febrero, 2016
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- 
+| [1\.5.6](#1.5.6) | 08 de marzo, 2016 |--- 
+| [1\.5.5](#1.5.5) | 02 de febrero, 2016 |--- 
+| [1\.5.4](#1.5.4) | 01 de febrero, 2016 |--- 
+| [1\.5.2](#1.5.2) | 26 de enero, 2016 |--- 
+| [1\.5.2](#1.5.2) | 22 de enero, 2016 |--- 
+| [1\.5.1](#1.5.1) |04 de enero, 2016 |--- 
+| [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |--- 
+| [1\.4.0](#1.4.0) | 06 de octubre, 2015 |--- 
+| [1\.3.0](#1.3.0) | 06 de octubre, 2015 |--- 
+| [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |--- 
+| [1\.2.1](#1.2.1) | 15 de agosto, 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- 
+| [1\.0.3](#1.0.3) | 04 de junio, 2015 |--- 
+| [1\.0.2](#1.0.2) | 23 de mayo, 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 de mayo, 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
+| 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016 
+| 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016 
+| 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016 
+| 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016 
+| 0.9.0-versión preliminar | 21 de agosto, 2014 | 29 de febrero, 2016
 
 
 ## P+F

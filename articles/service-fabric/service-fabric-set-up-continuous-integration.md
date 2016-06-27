@@ -194,7 +194,7 @@ Para instalar Azure PowerShell, siga los pasos en que aparecen en la sección an
 
 1.	Descargue agent.zip. Para ello, siga estos pasos:
 
-    a. Inicie sesión en el proyecto del equipo, por ejemplo, ****https://[your-VSTS-account-name].visualstudio.com**.
+    a. Inicie sesión en el proyecto del equipo, por ejemplo, **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Seleccione el icono de engranaje que se encuentra en la esquina superior derecha de la pantalla.
 
@@ -401,7 +401,7 @@ Si una compilación anterior no se limpió después (por ejemplo, si se canceló
     |Nombre de archivo de script|Haga clic en el botón **...** y vaya hasta el directorio **Scripts** dentro del proyecto de aplicación. Seleccione `Deploy-FabricApplication.ps1`.|
     |Argumentos|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Una manera fácil de crear un archivo xml de perfil de publicación de trabajo es crearlo en Visual Studio, como se muestra aquí: https://azure.microsoft.com/es-ES/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Una manera fácil de crear un archivo xml de perfil de publicación de trabajo es crearlo en Visual Studio, como se muestra aquí: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Si desea admitir la implementación de la aplicación en un clúster sobrescribiendo la aplicación existente en lugar de actualizarla, agregue este argumento de Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Además, asegúrese de que el perfil de publicación seleccionado no está configurado para permitir una actualización. Esto quitará primero cualquier ApplicationType existente antes de instalar la versión más reciente.
 

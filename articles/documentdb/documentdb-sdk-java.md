@@ -88,7 +88,24 @@ Todas las versiones del SDK de Azure DocumentDB para Java anteriores a la versi�
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- | [1\.7.1](#1.7.1) | 30 de abril, 2016 |--- | [1\.7.0](#1.7.0) | 27 de abril, 2016 |--- | [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- | [1\.5.1](#1.5.1) | 31 de diciembre, 2015 |--- | [1\.5.0](#1.5.0) | 04 de diciembre, 2015 |--- | [1\.4.0](#1.4.0) | 05 de octubre, 2015 |--- | [1\.3.0](#1.3.0) | 05 de octubre, 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- | [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- | [1\.0.1](#1.0.1) | 12 de mayo, 2015 |--- | [1\.0.0](#1.0.0) | 07 de abril, 2015 |--- | 0.9.5-versión preliminar | 09 de marzo, 2015 | 29 de febrero, 2016 | 0.9.4-versión preliminar | 17 de febrero, 2015 | 29 de febrero, 2016 | 0.9.3-versión preliminar | 13 de enero, 2015 | 29 de febrero, 2016 | 0.9.2-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 | 0.9.1-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 | 0.9.0-versión preliminar | 10 de diciembre, 2014 | 29 de febrero, 2016
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
+| [1\.7.1](#1.7.1) | 30 de abril, 2016 |--- 
+| [1\.7.0](#1.7.0) | 27 de abril, 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- 
+| [1\.5.1](#1.5.1) | 31 de diciembre, 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de diciembre, 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de octubre, 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de octubre, 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de mayo, 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril, 2015 |--- 
+| 0.9.5-versión preliminar | 09 de marzo, 2015 | 29 de febrero, 2016 
+| 0.9.4-versión preliminar | 17 de febrero, 2015 | 29 de febrero, 2016 
+| 0.9.3-versión preliminar | 13 de enero, 2015 | 29 de febrero, 2016 
+| 0.9.2-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 
+| 0.9.1-versión preliminar | 19 de diciembre, 2014 | 29 de febrero, 2016 
+| 0.9.0-versión preliminar | 10 de diciembre, 2014 | 29 de febrero, 2016
 
 ## P+F
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

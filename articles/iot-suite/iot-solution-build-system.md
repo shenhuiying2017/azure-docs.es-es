@@ -109,7 +109,7 @@ Descomprima el archivo en una carpeta con una ruta de acceso corta, como C:\\cod
 
 Como alternativa, si desea mantenerse al día de nuestro código o contribuir a él, clone el repositorio del modo siguiente:
 
-****git clone https://github.com/Azure-Samples/MyDriving.git**
+**git clone https://github.com/Azure-Samples/MyDriving.git**
 
 ## Obtención de la clave de API de mapas de Bing
 
@@ -149,7 +149,7 @@ Si tiene problemas al compilar, pruebe las soluciones para las diferentes peculi
 
 -   *La aplicación Android no se compila*:
 
-    -   Abra **Herramientas** > ** Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
+    -   Abra **Herramientas** > **Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
 
     -   Elimine este directorio y luego recompile:<br/> `%LocalAppData%\Xamarin\zips`
 

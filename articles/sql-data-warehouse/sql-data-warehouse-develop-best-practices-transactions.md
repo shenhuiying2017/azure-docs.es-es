@@ -420,7 +420,7 @@ Para más sugerencias sobre el desarrollo y contenido relacionado con los ejempl
 - [Partición de tabla][]
 - [Simultaneidad][]
 - [CTAS][]
-- [RENAME (Transact-SQL)][] (Cambio del nombre [Transact-SQL])
+- [RENAME (Transact-SQL)][] \(Cambio del nombre [Transact-SQL])
 
 <!--Image references-->
 

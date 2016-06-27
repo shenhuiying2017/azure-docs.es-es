@@ -233,14 +233,17 @@ También puede elegir los valores **Relativo** o **Absoluto** y el intervalo de 
 
 ##### Para eliminar o mostrar métricas en el gráfico:
 1. Seleccione la pestaña **Monitor**.
-2. Haga clic en **Agregar métricas** en la barra de tareas: ![Seleccione Agregar métricas][AddMetrics]
+2. Haga clic en **Agregar métricas** en la barra de tareas:
+![Seleccione Agregar métricas][AddMetrics]
 3. Compruebe las métricas de rendimiento que quiera mostrar.
 4. Seleccione la marca de verificación para volver a la pestaña **Monitor**.
 5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.  
 
-	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico: ![La métrica Uso de CPU está atenuada][GrayedMetric]
+	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico:  
+![La métrica Uso de CPU está atenuada][GrayedMetric]  
 
-	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico: ![La métrica Uso de CPU está habilitada][EnabledMetric]
+	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico:  
+![La métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Para agregar la métrica a lista otra vez, seleccione **Agregar métricas** en la barra de tareas, compruebe la métrica y seleccione la marca de verificación para volver a la pestaña **Monitor**. Seleccione el círculo gris para habilitar la métrica.
 

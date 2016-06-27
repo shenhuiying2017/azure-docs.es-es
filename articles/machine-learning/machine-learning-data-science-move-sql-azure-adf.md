@@ -94,7 +94,7 @@ Para crear el servicio vinculado para el servidor SQL Server local, haga clic en
 Para crear el servicio vinculado para la cuenta de almacenamiento de blobs de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *Cuenta de almacenamiento de Azure* y escriba la clave y el nombre de contenedor de la cuenta de almacenamiento de blobs de Azure. Nombre del servicio vinculado *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
-Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser **user@servername*.
+Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser *user@servername*.
 
 
 ##<a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos

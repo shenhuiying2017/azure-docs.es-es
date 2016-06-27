@@ -144,6 +144,6 @@ Si tiene problemas con el almacén de datos, [cree una incidencia de soporte té
 
 
 <!--Other Web references-->
-[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
 <!---HONumber=AcomDC_0615_2016-->
