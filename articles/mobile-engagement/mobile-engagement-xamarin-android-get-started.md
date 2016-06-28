@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="06/16/2016"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android
@@ -108,6 +108,20 @@ Xamarin Studio crea la aplicación en la que se integrará Mobile Engagement.
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla al back-end de Mobile Engagement. Para ello, asegúrese de que `MainActivity` hereda de `EngagementActivity` en lugar de `Activity`.
 
 	public class MainActivity : EngagementActivity
+	
+Como alternativa, si no puede heredar de `EngagementActivity` deberá agregar los métodos `.StartActivity` y `.EndActivity` en `OnResume` y `OnPause` respectivamente.
+
+		protected override void OnResume()
+	        {
+	            EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+	            base.OnResume();             
+	        }
+	
+	        protected override void OnPause()
+	        {
+	            EngagementAgent.EndActivity();
+	            base.OnPause();            
+	        }
 
 ##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
@@ -131,4 +145,4 @@ Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

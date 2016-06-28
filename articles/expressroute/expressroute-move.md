@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
@@ -110,4 +110,4 @@ Revise las instrucciones que se ofrecen en [Transición de los circuitos Express
 	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

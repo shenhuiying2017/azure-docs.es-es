@@ -24,27 +24,19 @@ Funciones de Azure es una experiencia de procesos a petición orientada a evento
 
 En este tema se muestra cómo crear una nueva función en C# que se ejecuta según un temporizador de eventos para agregar mensajes a una cola de almacenamiento.
 
-También puede ver un vídeo de corta duración en el que podrá seguir la realización de estos pasos en el portal.
-
-## Visualización del vídeo
-
-El siguiente vídeo muestra cómo realizar los pasos básicos de este tutorial.
-
-[AZURE.VIDEO create-an-event-processing-azure-function]
-
 ## Requisitos previos 
 
-Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición la creación de una cuenta gratis](https://azure.microsoft.com/free/).
+Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [puede crear una gratuita](https://azure.microsoft.com/free/).
 
 ## Creación de una función desencadenada por un temporizador a partir de la plantilla
 
-Una aplicación de función hospeda la ejecución de sus funciones en Azure. Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición cuentas gratuitas](https://azure.microsoft.com/free/).
+Una aplicación de función hospeda la ejecución de sus funciones en Azure. Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición gratuitas](https://azure.microsoft.com/free/).
 
 1. Vaya al [portal de Funciones de Azure](https://functions.azure.com/signin) e inicie sesión con su cuenta de Azure.
 
-2. Si tiene una aplicación de función existente, selecciónela en **Your function apps** (Sus aplicaciones de función) y haga clic en **Open** (Abrir). Para crear una aplicación de función, escriba un **nombre** único para ella o acepte el que se genera, seleccione su **región** preferida y haga clic en **Create + get started** (Crear y comenzar).
+2. Si tiene una aplicación de función existente, selecciónela en **Your function apps** (Sus aplicaciones de función) y haga clic en **Abrir**. Para crear una aplicación de función, escriba un **nombre** único para ella o acepte el que se genera, seleccione su **región** preferida y haga clic en **Create + get started** (Crear y comenzar).
 
-3. En la aplicación de función, haga clic en **+ New Function** (+ Nueva función) > **TimerTrigger - C#** > **Create** (Crear). Esto crea una función con un nombre predeterminado que se ejecuta en la programación predeterminada de una vez cada minuto.
+3. En Function App, haga clic en **+ New Function** (+ Nueva función) > **TimerTrigger - C#** > **Create** (Crear). Esto crea una función con un nombre predeterminado que se ejecuta en la programación predeterminada de una vez cada minuto.
 
 	![Creación de una nueva función desencadenada por temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
@@ -83,10 +75,10 @@ Esto es un ejemplo muy simplificado de un desencadenador de temporizador y de un
 
 Consulte estos temas para más información sobre Funciones de Azure.
 
-+ [Referencia para desarrolladores de Funciones de Azure](functions-reference.md) contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
-+ [Prueba de Funciones de Azure](functions-test-a-function.md) En este artículo se describen las diversas herramientas y técnicas para probar las funciones.
-+ [Escalado de Funciones de Azure](functions-scale.md) Aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
++ [Referencia para desarrolladores de Funciones de Azure](functions-reference.md) contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
++ En [Prueba de las funciones de Azure](functions-test-a-function.md) se describen las diversas herramientas y técnicas para probar las funciones.
++ En [Escalado de Funciones de Azure](functions-scale.md) se abordan los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
 
 [AZURE.INCLUDE [Nota de introducción](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
