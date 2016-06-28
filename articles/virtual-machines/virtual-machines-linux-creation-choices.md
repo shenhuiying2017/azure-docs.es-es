@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Diferentes formas de crear una máquina virtual Linux | Microsoft Azure"
-	description="Enumera las distintas formas de crear una máquina virtual Linux en Azure y proporciona vínculos a instrucciones adicionales."
+	description="Muestra las distintas formas de crear una máquina virtual con Linux en Azure y vínculos a herramientas y tutoriales para cada método"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,18 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/12/2016"
+	ms.date="06/14/2016"
 	ms.author="iainfou"/>
 
 # Diferentes formas de crear una máquina virtual de Linux con Resource Manager
 
 Azure ofrece varias formas de crear una máquina virtual mediante el modelo de implementación de Resource Manager, que se adapte a distintos usuarios y objetivos. En este artículo se resumen estas diferencias y las opciones que tiene para crear las máquinas virtuales (VM) de Linux.
 
-## Opciones de herramienta
+## Azure CLI 
 
-### Shell de comandos: CLI de Azure 
-
-Desde la CLI, utilice la interfaz de la línea de comandos de Azure. Puede aprender más sobre [cómo instalar la CLI de Azure](../xplat-cli-install.md) mediante npm, un contenedor de Docker o un script de instalación. Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure:
+Puede aprender más sobre [cómo instalar la CLI de Azure](../xplat-cli-install.md) mediante npm, un contenedor de Docker o un script de instalación. Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure:
 
 * [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md) 
 
@@ -33,7 +31,7 @@ Desde la CLI, utilice la interfaz de la línea de comandos de Azure. Puede apren
 
 * [Creación de una máquina virtual con Linux desde cero con la CLI de Azure](virtual-machines-linux-create-cli-complete.md)
 
-### GUI: Portal de Azure
+## Portal de Azure
 
 La interfaz gráfica de usuario del [Portal de Azure](https://portal.azure.com) es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure, ya que no necesita instalar nada en el sistema. Use el Portal de Azure para crear la máquina virtual:
 
@@ -65,4 +63,4 @@ Si necesita realizar cambios personalizados específicos, use una imagen basada 
 
 * Pasos rápidos para [restablecer una contraseña o las claves SSH y administrar usuarios](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

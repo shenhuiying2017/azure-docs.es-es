@@ -61,8 +61,9 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 
 
-## <a name="video"></a>Vídeos
+## <a name="video"></a>Vídeo
 
+[![Introducción animada](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -76,4 +77,4 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

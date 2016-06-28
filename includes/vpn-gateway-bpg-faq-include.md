@@ -10,11 +10,18 @@ No, BGP solo es compatible con puertas de enlace de VPN basadas en enrutamiento.
 
 Sí, puede usar sus propios ASN públicos o privados para sus redes locales y redes virtuales de Azure.
 
+#### ¿Hay ASN reservados por Azure?
+
+Sí, los siguientes ASN están reservados por Azure para emparejamientos internos y externos:
+
+- ASN públicos: 8075, 8076, 12076
+- ASN privados: 65515, 65517, 65518, 65519, 65520
+
+Estos ASN no se pueden especificar para sus dispositivos VPN locales al conectar con puertas de enlace de VPN.
+
 ### ¿Puedo usar el mismo ASN para redes VPN locales y redes virtuales de Azure?
 
 No, debe asignar ASN diferentes entre las redes locales y sus redes virtuales de Azure si las está conectando con BGP. Las puertas de enlace de VPN de Azure tienen un ASN 65515 predeterminado asignado, independientemente de si BGP está habilitado o no para la conectividad entre locales. Para invalidar este valor predeterminado, asigne otro ASN al crear la puerta de enlace de VPN o cambie el ASN después de crearla. Debe asignar los ASN locales a las puertas de enlace de red local de Azure correspondientes.
-
-
 
 ### ¿Qué prefijos de direcciones de puertas de enlace de VPN de Azure se me anunciarán?
 
@@ -23,6 +30,14 @@ La puerta de enlace de VPN de Azure anunciará las siguientes rutas a sus dispos
 - Sus prefijos de dirección de red virtual
 - Los prefijos de dirección de todas las puertas de enlace de red local conectadas a la puerta de enlace de VPN de Azure
 - Las rutas aprendidas en otras sesión de intercambio de tráfico (peering) de BGP conectadas a la puerta de enlace de VPN de Azure, **excepto la ruta predeterminada o las rutas superpuestas con cualquier prefijo de red virtual**.
+
+#### ¿Puedo anunciar la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure?
+
+De momento, no.
+
+#### ¿Puedo anunciar los mismos prefijos que los de mis prefijos de red virtual?
+
+No, la plataforma de Azure bloqueará o filtrará el anuncio de los mismos prefijos que los de cualquiera de sus otros prefijos de dirección de red virtual.
 
 ### ¿Puedo usar BGP con mis conexiones de red virtual a red virtual?
 
@@ -63,3 +78,5 @@ La puerta de enlace de red local de Azure especifica los prefijos de dirección 
 ### ¿Qué debo agregar a mi dispositivo VPN local para la sesión de emparejamiento BGP?
 
 Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dispositivo VPN que apunta al túnel VPN S2S de IPsec. Por ejemplo, si la dirección IP del par VPN de Azure es "10.12.255.30", debe agregar una ruta de host para "10.12.255.30" con una interfaz de próximo salto de la interfaz de túnel IPsec coincidente en el dispositivo VPN.
+
+<!---HONumber=AcomDC_0622_2016-->

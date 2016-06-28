@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="06/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -22,6 +22,10 @@
 La autenticación multifactor está disponible de forma predeterminada para los administradores globales que tienen usuarios de Azure Active Directory y Office 365. Sin embargo, si desea aprovechar las [características avanzadas](multi-factor-authentication-whats-next.md), debe adquirir la versión completa de Azure MFA.
 
 > [AZURE.NOTE]  Se utiliza un Proveedor de Azure Multi-Factor Authentication para aprovechar las características proporcionadas por la versión completa de Azure MFA. Es para aquellos usuarios que **no tienen licencias a través de Azure MFA, Azure AD Premium o EMS**. De forma predeterminada Azure MFA, Azure AD Premium y EMS incluyen la versión completa de Azure MFA. Si cuenta con licencias, no necesita un Proveedor de Azure Multi-Factor Authentication.
+
+Se necesita un proveedor de Azure Multi-Factor Authentication si desea descargar el SDK.
+
+> [AZURE.IMPORTANT]  Si desea descargar el SDK, debe crear un proveedor de Azure Multi-Factor Authentication, incluso si tiene licencias de Azure MFA, AAD Premium o EMS. Si crea un proveedor de Azure Multi-Factor Authentication para este propósito y ya tiene licencias, es necesario crear el proveedor según el modelo **Por usuario habilitado** y vincular el proveedor al directorio que contiene las licencias de Azure MFA, AAD Premium o EMS. Así se asegura de que no se le cobrará a menos que tenga más usuarios únicos mediante el SDK que el número de licencias que posee.
  
 Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentication.
 
@@ -30,9 +34,9 @@ Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentic
 
 1. Inicie sesión como administrador en el **Portal de Azure clásico**.
 2. En la parte izquierda, seleccione **Active Directory**.
-3. En la página Active Directory, en la parte superior, seleccione **Proveedores de autenticación multifactor**. ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
+3. En la página Active Directory, en la parte superior, seleccione **Proveedores de Multi-Factor Authentication**. ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
 4. Haga clic en **Nuevo** en la parte inferior. ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
-5. En **Servicios de aplicaciones**, seleccione **Proveedor de autenticación multifactor**.![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
+5. En **Servicios de aplicaciones**, seleccione **Proveedor de Multi-Factor Authentication**.![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
 6. Seleccione **Creación rápida**. ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 5. Rellene los campos siguientes y seleccione **Crear**.
 	1. **Nombre**: nombre del Proveedor de Multi-Factor Authentication.
@@ -45,4 +49,4 @@ Use los pasos siguientes para crear un Proveedor de Azure Multi-Factor Authentic
 		- Azure AD Connect, AAD Sync o DirSync solo son un requisito si va a sincronizar su entorno de Active Directory local con un directorio de Azure AD. Si solo utiliza un directorio de Azure AD que no está sincronizado, ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png).	
 5. Al hacer clic en Crear, se crea el Proveedor de Multi-Factor Authentication y debe ver un mensaje que indica: **El proveedor de Multi-Factor Authentication se creó correctamente**. Haga clic en **Aceptar**. ![Creación de un proveedor de MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)	
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

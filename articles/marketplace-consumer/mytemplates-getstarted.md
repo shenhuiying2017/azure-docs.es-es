@@ -41,7 +41,7 @@ Las sugerencias siguientes le ayudarán a sacar el máximo provecho de las **pla
 
 Existen dos formas de crear un recurso de **plantilla** en el Portal de Azure.
 
-### Método 1: Creación de un nuevo recurso de plantilla a partir de un grupo de recursos de ejecución
+### Método 1: Creación de un nuevo recurso de plantilla a partir de un grupo de recursos en funcionamiento
 
 1. Acceda a un grupo de recursos existente del Portal de Azure. En **Configuración**, seleccione **Exportar plantilla**.
 2. Cuando la plantilla de Resource Manager se haya exportado, utilice el botón **Guardar plantilla** para guardarla en el repositorio **Plantillas**. Para más detalles sobre la exportación de plantillas, haga clic [aquí](https://azure.microsoft.com/blog/export-template/). <br /><br /> ![Exportación de grupos de recursos](media/rg-export-portal1.PNG) <br />
@@ -50,7 +50,7 @@ Existen dos formas de crear un recurso de **plantilla** en el Portal de Azure.
 
 4. Escriba la siguiente información:
 
-    - Nombre: nombre del objeto de plantilla (NOTA: el nombre debe ajustarse a las especificaciones de Azure Resource Manager, por lo que se aplicarán todas las restricciones de nomenclatura, y no se puede cambiar una vez creado).
+    - Nombre: nombre del objeto de plantilla (NOTA: El nombre debe ajustarse a las especificaciones de Azure Resource Manager, por lo que se aplicarán todas las restricciones de nomenclatura, y no se puede cambiar una vez creado).
     - Descripción: resumen rápido de la plantilla.
 
     ![Guardar plantilla](media/save-template-portal1.PNG) <br />
@@ -113,7 +113,7 @@ Seleccione **Compartir** haciendo clic con el botón derecho en el elemento de l
 
 ![Compartir plantilla](media/share-template-portal1a.png) <br />
 
- Ahora, puede elegir un rol y un usuario o grupo para concederles acceso a una determinada **plantilla**. Los roles disponibles son Propietario, Lector y Colaborador. Para más detalles, consulte la sección [Control de acceso](#access-control-for-a-tenant-resource-provider).
+ Ahora, puede elegir un rol y un usuario o grupo para concederles acceso a una determinada **plantilla**. Los roles disponibles son Propietario, Lector y Colaborador. Para más detalles, consulte la sección [Control de acceso](#access-control-for-a-tenant-resource-provider) que apareció anteriormente.
 
 ![Compartir plantilla](media/share-template-portal2b.png) <br />
 
@@ -131,4 +131,4 @@ Haga clic en **Seleccionar** y en **Aceptar**. Ahora, puede ver los usuarios o g
 - Para conocer las funciones que puede usar en la plantilla de Resource Manager, consulte [Funciones de plantilla de Azure Resource Manager](../resource-group-template-functions.md).
 - Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](../best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->
