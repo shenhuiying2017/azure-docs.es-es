@@ -192,7 +192,7 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-6. En **MyBroadcastReceiver.cs**, cambie la clase ** MyBroadcastReceiver** para que coincida con lo siguiente:
+6. En **MyBroadcastReceiver.cs**, cambie la clase **MyBroadcastReceiver** para que coincida con lo siguiente:
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },

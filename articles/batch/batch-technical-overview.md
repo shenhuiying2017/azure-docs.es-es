@@ -71,7 +71,8 @@ Las aplicaciones y los servicios pueden emitir llamadas de API de REST directas,
 | **REST de Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
 | **.NET de Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | | **Batch Java** (versión preliminar) | [github.io][api_java] | [Repositorio de instantáneas Maven][api_java_jar] |-|
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - | 
+| **Batch Java** (versión preliminar) | [github.io][api_java] | [Repositorio de instantáneas Maven][api_java_jar] |-|
 
 ### Administración de recursos de Lote
 
