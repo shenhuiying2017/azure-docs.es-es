@@ -44,9 +44,9 @@ Durante el inicio de sesión primero, se proporciona una contraseña de aplicaci
 
 Cómo usa la autenticación multifactor|Descripción
 :------------- | :------------- | 
-[La uso con Office 365](#creating-and-deleting-app-passwords-with-office-365)| Esto significa que tendrá que crear las contraseñas de aplicación a través del portal de Office 365.
+[La uso con Office 365](#Creación y eliminación de contraseñas de aplicación con Office 365)| Esto significa que tendrá que crear las contraseñas de aplicación a través del portal de Office 365.
 [No lo sé](#creating-and-deleting-app-passwords-with-myapps-portal)|Esto significa que tendrá que crear las contraseñas de aplicación a través de [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[La uso con Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Esto significa que tendrá que crear las contraseñas de aplicación a través del Portal de Azure.
+[La uso con Microsoft Azure](#Creación de contraseñas de aplicación en el Portal de Azure)| Esto significa que tendrá que crear las contraseñas de aplicación a través del Portal de Azure.
 
 ## Creación y eliminación de contraseñas de aplicación con Office 365 
 
