@@ -24,7 +24,8 @@ En este artículo configuraremos un front-end web que se puede escalar verticalm
 
 ## Requisitos previos
 
-[Implemente una instancia del Servicio de contenedor de Azure](container-service-deployment.md) con el tipo de orquestador DC/OS y [asegúrese de que el cliente se puede conectar a su clúster](container-service-connect.md). Además, siga estos pasos.[AZURE.INCLUDE [Install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md)]
+[Implemente una instancia del Servicio de contenedor de Azure](container-service-deployment.md) con el tipo de orquestador DC/OS y [asegúrese de que el cliente se puede conectar a su clúster](container-service-connect.md). Además, siga estos pasos.
+[AZURE.INCLUDE [Install the DC/OS command-line interface (CLI)](../../includes/container-service-install-dcos-cli-include.md) (Insde la interfaz de la línea de comandos de DC/OS [CLI])
 
 
 ## Equilibrio de carga

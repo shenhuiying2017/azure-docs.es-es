@@ -116,7 +116,7 @@ Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Document
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.
 
-## </a><a id="delete">Eliminación de una cuenta de DocumentDB
+## <a id="delete"></a>Eliminación de una cuenta de DocumentDB
 Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar** de la hoja **Cuenta de DocumentDB**.
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
