@@ -109,7 +109,7 @@ Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad
 
 ### Para desinstalar la extensión
 
-1. Vaya al [Portal de Azure](https://ms.portal.azure.com/).
+1. Vaya al [Portal de Azure](https://portal.azure.com/).
 2. Busque la máquina virtual concreta que tiene problemas de copia de seguridad.
 3. Haga clic en **Configuración**.
 4. Haga clic en **Extensiones**.
@@ -132,4 +132,4 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90%) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 |La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP.|DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Obtenga más información acerca del [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

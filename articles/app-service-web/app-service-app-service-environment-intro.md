@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/14/2016"
 	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
@@ -29,6 +29,8 @@ Los entornos del Servicio de aplicaciones son ideales para cargas de trabajo de 
 Los clientes pueden crear varios entornos del Servicio de aplicaciones en una o varias regiones de Azure. Esto hace que sean perfectos para los niveles de aplicación sin estado de escalado horizontal en el respaldo de cargas de trabajo RPS elevadas.
 
 Los entornos del Servicios de aplicaciones están aislados para ejecutar únicamente las aplicaciones de un solo cliente, y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de las aplicaciones, y las aplicaciones pueden establecer conexiones seguras de alta velocidad a los recursos corporativos locales a través de redes virtuales.
+
+Todos los artículos y procedimientos acerca de los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Para obtener información general del modo en que los Entornos del Servicio de aplicaciones permiten el acceso de red a alta escala y seguro, consulte el [vídeo Deep Dive de AzureCon][AzureConDeepDive] sobre Entornos del Servicio de aplicaciones.
 
@@ -106,4 +108,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="06/16/2016"
    ms.author="yushwang"/>
 
 # Información general de BGP con puertas de enlace de VPN de Azure
@@ -35,7 +35,9 @@ Hay varias ventajas y nuevas funcionalidades con BGP:
 
 Con BGP, solo necesita declarar un prefijo mínimo para un par BGP específico a través del túnel VPN S2S de IPsec. Puede ser tan pequeño como un prefijo de host (/32) de la dirección IP del par BGP del dispositivo VPN local. Puede controlar que prefijos de red local desea anunciar a Azure para permitir el acceso de la red virtual de Azure.
 	
-También puede anunciar prefijos mayores que pueden incluir algunos de los prefijos de dirección de red virtual, como la ruta predeterminada (0.0.0.0/0) o un espacio de direcciones IP privado grande (por ejemplo, 10.0.0.0/8). Sin embargo, tenga en cuenta que los prefijos no pueden ser idénticos a uno de sus prefijos de red virtual. Se rechazarán dichas rutas idénticas a sus prefijos de red virtual.
+También puede anunciar prefijos mayores que pueden incluir algunos de los prefijos de dirección de red virtual, como un espacio de direcciones IP privado grande (por ejemplo, 10.0.0.0/8). Sin embargo, tenga en cuenta que los prefijos no pueden ser idénticos a uno de sus prefijos de red virtual. Se rechazarán dichas rutas idénticas a sus prefijos de red virtual.
+
+>[AZURE.IMPORTANT] Actualmente, el anuncio de la ruta predeterminada (0.0.0.0/0) para puertas de enlace de VPN de Azure estará bloqueado. Cuando esté habilitada esta funcionalidad, se proporcionarán más actualizaciones.
 
 #### Uso de varios túneles entre una red virtual y un sitio local con la conmutación por error automática basada en BGP
 
@@ -63,6 +65,6 @@ El siguiente diagrama muestra un ejemplo de una topología de múltiples saltos 
 
 ## Pasos siguientes
 
-Consulte [Introducción a BGP en puertas de enlace de VPN de Azure](./vpn-gateway-bgp-resource-manager-ps.md) para conocer los pasos necesarios para configurar BGP en las conexiones entre sistemas locales y de red virtual a red virtual.
+Consulte [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell](./vpn-gateway-bgp-resource-manager-ps.md) para conocer los pasos necesarios para configurar BGP en las conexiones entre sistemas locales y de red virtual a red virtual.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

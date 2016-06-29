@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/21/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # Circuitos ExpressRoute y dominios de enrutamiento
@@ -61,6 +61,8 @@ Revise la [página de P+F](expressroute-faqs.md) para obtener más información 
  
 ### Emparejamiento de Microsoft
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 La conectividad con los demás servicios en línea de Microsoft (por ejemplo, servicios de Office 365) se llevará a cabo a través del emparejamiento de Microsoft. Permitimos la conectividad bidireccional entre la WAN y los servicios en la nube de Microsoft mediante el dominio de enrutamiento de emparejamiento de Microsoft. Solo debe conectarse a los servicios en la nube de Microsoft mediante direcciones IP públicas que pertenezcan a usted o a su proveedor de conectividad, y debe cumplir todas las reglas definidas. Para obtener más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 
 Para obtener más información sobre los servicios admitidos, los costos y los datos de configuración, consulte la [página de P+F](expressroute-faqs.md). Para obtener información sobre la lista de proveedores de conectividad que ofrecen soporte técnico de emparejamiento de Microsoft, consulte la página [Ubicaciones de ExpressRoute](expressroute-locations.md) .
@@ -90,4 +92,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 	- [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

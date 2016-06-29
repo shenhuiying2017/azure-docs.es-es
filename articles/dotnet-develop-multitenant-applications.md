@@ -38,7 +38,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de las consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hospedaje de una aplicación multiempresa en Azure][].
+Para obtener más información acerca de las consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hospedaje de una aplicación multiempresa en Azure][]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -95,4 +95,4 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 [Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0615_2016-->

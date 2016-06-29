@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="06/05/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
@@ -115,4 +115,4 @@ La plataforma de competición actual solo admite el envío de entradas que se re
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

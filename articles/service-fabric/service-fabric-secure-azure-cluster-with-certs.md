@@ -28,9 +28,10 @@ Hay tres pasos diferentes:
 2. Cargar el certificado en el Almacén de claves de Azure.
 3. Proporcionar la ubicación y los detalles del certificado para el proceso de creación del clúster de Service Fabric.
 
+<a id="acquirecerts"></a>
 ## Paso 1: Adquisición del(los) certificado(s) X.509
 
-Para los clústeres que ejecutan cargas de trabajo de producción, debe usar un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para obtener más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado (WCF)](http://msdn.microsoft.com/library/aa702761.aspx).
+Para los clústeres que ejecutan cargas de trabajo de producción, debe usar un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado (WCF)](http://msdn.microsoft.com/library/aa702761.aspx).
 
 En los clústeres que se usan solo con fines de prueba, puede usar un certificado autofirmado. En el paso 2.5 a continuación se explica cómo hacerlo.
 
@@ -42,7 +43,7 @@ Se trata de un proceso complejo, por lo que hemos cargado un módulo de PowerShe
 Asegúrese de que la versión 1.0 o posterior de Azure PowerShell esté instalada en la máquina. Si no lo ha hecho antes, siga los pasos que se describen en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 ### Paso 2.2
-Copia la carpeta *ServiceFabricRPHelpers* de este [repositorio Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) en el equipo.
+Copie la carpeta *ServiceFabricRPHelpers* de este [repositorio Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers) en el equipo.
 
 ### Paso 2.3
 Abra una ventana de PowerShell y vaya al directorio donde descargó el módulo. Después, impórtelo mediante el siguiente comando.
@@ -97,13 +98,13 @@ Login-AzureRmAccount
 Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForDeployment
 ```
 
-El siguiente script siguiente creará un nuevo grupo de recursos o almacén de claves si aún no existen, creará un certificado autofirmado, lo cargará en el almacén de claves y generará el nuevo certificado en *OutputPath*.
+El siguiente script creará un nuevo grupo de recursos o almacén de claves si aún no existen, creará un certificado autofirmado, lo cargará en el almacén de claves y generará el nuevo certificado en *OutputPath*.
 
 ```powershell
 Login-AzureRmAccount
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file>
 ```
-La cadena *DnsName* especifica uno o varios nombres DNS para colocar en la extensión de nombre alternativo del sujeto del certificado cuando no se especifica un certificado para copiar mediante el parámetro CloneCert. El primer nombre DNS también se guarda como nombre del sujeto. Si no se especifica ningún certificado de firma, el primer nombre DNS también se guarda como nombre del emisor. El cmdlet *Invoke-AddCertToKeyVault* usa [cmdlet New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633.aspx) para crear el certificado autofirmado.
+La cadena *DnsName* especifica uno o varios nombres DNS para colocar en la extensión de nombre alternativo del sujeto del certificado cuando no se especifica un certificado para copiar mediante el parámetro CloneCert. El primer nombre DNS también se guarda como nombre del sujeto. Si no se especifica ningún certificado de firma, el primer nombre DNS también se guarda como nombre del emisor. El cmdlet *Invoke-AddCertToKeyVault* usa el [cmdlet New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633.aspx) para crear el certificado autofirmado.
 
 Este es un script relleno como ejemplo.
 
@@ -178,4 +179,4 @@ Cuando el clúster se haya creado con seguridad basada en certificados, más ade
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_01.png
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-azure-secure-with-certs/SecurityConfigurations_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

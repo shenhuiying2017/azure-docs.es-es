@@ -1,4 +1,3 @@
-
 <properties
    pageTitle="Introducción al uso de docker con enjambre en Azure"
    description="Describe cómo crear un grupo de máquinas virtuales con la extensión de máquina virtual de Docker y usar enjambre para crear un clúster de Docker."
@@ -20,12 +19,12 @@
 
 # Cómo usar docker con enjambre
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
 
 
 Este tema le mostrará una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm).
 
-> [AZURE.NOTE] En este tema, usaremos docker con swarm y la CLI de Azure *sin* usar **docker-machine** para mostrar cómo funcionan en conjunto las distintas herramientas, aunque sigan siendo independientes. **docker-machine** tiene conmutadores **--swarm** que le permiten usar **docker-machine** para agregar nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine). Si no sabe cómo ejecutar **docker-machine** con las máquinas virtuales de Azure, consulte [Cómo usar una máquina docker con Azure](virtual-machines-linux-classic-docker-machine.md).
+> [AZURE.NOTE] En este tema, usaremos docker con swarm y la CLI de Azure *sin* usar **docker-machine** para mostrar cómo funcionan en conjunto las distintas herramientas, aunque sigan siendo independientes. **docker-machine** tiene conmutadores **--swarm** que le permiten usar **docker-machine** para agregar nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine). Si no sabe cómo ejecutar **docker-machine** con las máquinas virtuales de Azure, consulte [Cómo usar una máquina docker con Azure](virtual-machines-linux-docker-machine.md).
 
 ## Crear hosts docker con máquinas virtuales de Azure
 
@@ -135,7 +134,7 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 
 <!-- links -->
 
-[docker-machine-azure]: virtual-machines-linux-classic-docker-machine.md
+[docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

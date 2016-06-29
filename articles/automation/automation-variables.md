@@ -1,18 +1,11 @@
-<properties 
-   pageTitle="Recursos de variables en Automatización de Azure | Microsoft Azure"
-   description="Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Automatización de Azure. En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
-   services="automation"
-   documentationCenter=""
-   authors="mgoedtel"
-   manager="stevenka"
-   editor="tysonn" />
-<tags 
+<properties pageTitle="Recursos de variables en Automatización de Azure | Microsoft Azure" description="Los recursos de variables son valores que están disponibles para todos los runbooks y las configuraciones de DSC en Automatización de Azure. En este artículo, se explican los detalles de las variables y cómo trabajar con ellas en la creación gráfica y textual." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
+<tags  
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren" />
 
 # Recursos de variables en Automatización de Azure
@@ -183,9 +176,9 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 ![Obtención de una variable compleja filtrada](media/automation-variables/get-complex-variable-filter.png)
 
 
-## Artículos relacionados
+## Pasos siguientes
 
-- [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
- 
+- Para más información sobre cómo conectar actividades en la creación gráfica, consulte [Vínculos y flujo de trabajo en Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md#links-and-workflow)
+- Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md) 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0615_2016-->

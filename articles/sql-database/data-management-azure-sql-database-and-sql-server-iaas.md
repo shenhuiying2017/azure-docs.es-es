@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="carlrab"/>
 
 # Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
@@ -154,5 +154,6 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 - Consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md) para una introducción a Base de datos SQL.
 - Consulte [Precio de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 - Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para una introducción a SQL Server en máquinas virtuales de Azure.
+- Consulte [SQL Server en una máquina virtual de Azure: ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

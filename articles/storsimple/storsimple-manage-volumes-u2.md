@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="06/10/2016"
    ms.author="alkohli" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
@@ -23,13 +23,13 @@
 
 En este tutorial se explica cómo usar el servicio StorSimple Manager para crear y administrar volúmenes en el dispositivo StorSimple y en el dispositivo virtual StorSimple con una instancia de Update 2 instalada.
 
-El servicio de Administrador de StorSimple es una extensión del Portal de Azure clásico que le permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
+El servicio StorSimple Manager es una extensión del Portal de Azure clásico que permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 
 ## Tipos de volúmenes
 
 Los volúmenes de StorSimple pueden ser:
 
-- **Volúmenes anclados localmente**: los datos de estos volúmenes se mantiene en el dispositivo StorSimple local en todo momento.
+- **Volúmenes anclados localmente**: los datos de estos volúmenes se mantienen en el dispositivo StorSimple local en todo momento.
 - **Volúmenes en capas**: los datos de estos volúmenes pueden escribirse en la nube.
 
 Un volumen de archivo es un tipo de volumen en capas. El tamaño del fragmento de desduplicación más grande utilizado para los volúmenes de archivo permite que el dispositivo transfiera a la nube segmentos más grandes de datos.
@@ -42,13 +42,13 @@ Los volúmenes anclados localmente son volúmenes totalmente aprovisionados, sin
 
 Los volúmenes anclados localmente están totalmente aprovisionados, por lo que debe haber espacio suficiente en el dispositivo cuando los crea. Puede aprovisionar volúmenes anclados localmente hasta un tamaño máximo de 8 TB en el dispositivo StorSimple 8100 y de 20 TB en el dispositivo 8600. StorSimple reserva el resto del espacio local en el dispositivo para las instantáneas, los metadatos y el procesamiento de los datos. Puede aumentar el tamaño de un volumen anclado localmente hasta el espacio máximo disponible, pero no puede reducir el tamaño de un volumen una vez creado.
 
-Cuando se crea un volumen anclado localmente, el espacio disponible para la creación de los volúmenes en capas se reduce. Y al contrario, si tiene volúmenes en capas existentes, el espacio disponible para crear volúmenes anclados localmente será inferior a los límites máximos indicados anteriormente.
+Cuando se crea un volumen anclado localmente, el espacio disponible para la creación de los volúmenes en capas se reduce. Y al contrario, si tiene volúmenes en capas existentes, el espacio disponible para crear volúmenes anclados localmente será inferior a los límites máximos indicados anteriormente. Para obtener más información sobre los volúmenes locales, consulte las [preguntas más frecuentes sobre los volúmenes anclados localmente](storsimple-local-volume-faq.md).
 
 ### Volúmenes en capas
 
 Los volúmenes en capas son volúmenes con aprovisionamiento reducido en los que los datos a los que se accede con frecuencia permanecen locales en el dispositivo y los datos de uso menos frecuente se apilan automáticamente en la nube. El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
-Si usa el volumen en capas para los datos de archivo, seleccione la casilla de verificación **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** cambia el tamaño del fragmento de desduplicación del volumen a 512 KB. Si no selecciona esta opción, el volumen correspondiente en capas usará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube.
+Si usa el volumen en capas para los datos de archivo, al seleccionar la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** , se cambiará el tamaño del fragmento de desduplicación del volumen a 512 kB. Si no selecciona esta opción, el volumen correspondiente en capas usará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube.
 
 >[AZURE.NOTE] Los volúmenes de archivo creados con una versión anterior a Update 2 de StorSimple se importarán como volúmenes en capas con la casilla de archivo seleccionada.
 
@@ -113,15 +113,15 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u2.md#step-6-create-a-vo
 4. En el Asistente para agregar volúmenes, en **Configuración básica**, haga lo siguiente:
 
   1. Proporcione un **Nombre** para el volumen.
-  2. Seleccione un **Tipo de uso** en la lista desplegable. Para cargas de trabajo que requieren que los datos estén disponibles localmente en el dispositivo en todo momento, seleccione **Anclado localmente**. Para todos los demás tipos de datos, seleccione **En capas**. (**En capas** es el valor predeterminado).
+  2. Seleccione un **tipo de uso** en la lista desplegable. Para cargas de trabajo que requieren que los datos estén disponibles localmente en el dispositivo en todo momento, seleccione **Anclado localmente**. Para todos los demás tipos de datos, seleccione **En capas**. (**En capas** es el valor predeterminado).
   3. Si seleccionó **En capas** en el paso 2, puede activar la casilla **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** para configurar un volumen de archivo.
   4. Especifique un valor para **Capacidad aprovisionada** para el volumen en GB o TB. Para conocer los tamaños máximos de cada dispositivo y tipo de volumen, consulte [Capacidad aprovisionada](#provisioned-capacity). Para determinar cuánto almacenamiento hay realmente disponible en el dispositivo, consulte **Capacidad disponible**.
 
-5. Haga clic en el icono de flecha![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Si va a configurar un volumen anclado localmente, verá el mensaje siguiente.
+5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). Si va a configurar un volumen anclado localmente, verá el mensaje siguiente.
 
     ![Cambiar el mensaje de tipo de volumen](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
    
-5. Vuelva a hacer clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)para ir a la página **Configuración adicional**.
+5. Vuelva a hacer clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
     ![Agregar configuración adicional del asistente de volumen](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
 
@@ -271,7 +271,7 @@ Siga estos pasos para eliminar un volumen.
 
 5. Cuando se le pida confirmación, haga clic en **Sí**. El volumen se eliminará y la página **Volúmenes** mostrará la lista actualizada de volúmenes dentro del contenedor.
 
-    >[AZURE.NOTE] Si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutan de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
+    >[AZURE.NOTE] Si elimina un volumen anclado localmente, puede que el espacio disponible para los volúmenes nuevos no se actualice inmediatamente. El servicio StorSimple Manager actualiza el espacio local disponible de forma periódica. Le recomendamos esperar unos minutos antes de tratar de crear el nuevo volumen.<br> Además, si elimina un volumen anclado localmente e inmediatamente después elimina otro, los trabajos de eliminación de volúmenes se ejecutarán de manera secuencial. El primer trabajo de eliminación de volumen debe finalizar para que el siguiente pueda comenzar.
  
 ## Supervisar un volumen
 
@@ -299,4 +299,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -86,8 +86,6 @@ En la sección de parámetros de la plantilla, especifique los valores que el us
 
 Puede usar estos valores de parámetros a lo largo de la plantilla para establecer valores para los recursos implementados. Solo los parámetros declarados en la sección de parámetros se pueden usar en otras secciones de la plantilla.
 
-En la sección de parámetros, no puede usar un valor de parámetro para construir otro valor de parámetro. Cree nuevos valores en la sección de variables.
-
 Defina recursos con la estructura siguiente:
 
     "parameters": {
@@ -125,46 +123,46 @@ Los valores y tipos permitidos son los siguientes:
 - object o secureObject: cualquier objeto JSON válido
 - array: cualquier matriz JSON válida
 
-Para especificar un parámetro como opcional, establezca su defaultValue en una cadena vacía.
+Para especificar un parámetro como opcional, proporcione un defaultValue (puede ser una cadena vacía).
 
-Si especifica un parámetro con un nombre que coincide con el de uno de los del comando usado para implementar la plantilla (por ejemplo, incluye un parámetro denominado "**ResourceGroupName**" en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
+Si especifica un parámetro con un nombre que coincide con el de uno de los del comando usado para implementar la plantilla (por ejemplo, incluye un parámetro denominado **ResourceGroupName** en la plantilla y este parámetro es el mismo que el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), se le pedirá que proporcione un valor para un parámetro con el sufijo **FromTemplate** (como **ResourceGroupNameFromTemplate**). Por lo general, debe evitar esta confusión no nombrando los parámetros con el mismo nombre que los parámetros utilizados para operaciones de implementación.
 
 >[AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
 En el ejemplo siguiente se muestra cómo definir los parámetros.
 
     "parameters": {
-       "siteName": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 60
-       },
-       "siteLocation": {
-          "type": "string",
-          "minLength": 2
-       },
-       "hostingPlanName": {
-          "type": "string"
-       },  
-       "hostingPlanSku": {
-          "type": "string",
-          "allowedValues": [
-            "Free",
-            "Shared",
-            "Basic",
-            "Standard",
-            "Premium"
-          ],
-          "defaultValue": "Free"
-       },
-       "instancesCount": {
-          "type": "int",
-          "maxValue": 10
-       },
-       "numberOfWorkers": {
-          "type": "int",
-          "minValue": 1
-       }
+      "siteName": {
+        "type": "string",
+        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
+      },
+      "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
+      },
+      "skuName": {
+        "type": "string",
+        "defaultValue": "F1",
+        "allowedValues": [
+          "F1",
+          "D1",
+          "B1",
+          "B2",
+          "B3",
+          "S1",
+          "S2",
+          "S3",
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ]
+      },
+      "skuCapacity": {
+        "type": "int",
+        "defaultValue": 1,
+        "minValue": 1
+      }
     }
 
 Para más información acerca de cómo especificar los valores de los parámetros durante la implementación, consulte [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md#parameter-file) (Implementación de aplicaciones con la plantilla de Azure Resource Manager).
@@ -217,7 +215,7 @@ En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y l
 
 ## Recursos
 
-En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para conocer gran parte de lo que necesita saber sobre proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+En la sección de recursos, se define que los recursos se implementan o se actualizan. Aquí es donde la plantilla puede ser más complicada porque es preciso entender los tipos que se implementan para proporcionar los valores correctos. Para conocer gran parte de lo que necesita saber sobre proveedores de recursos, consulte [Proveedores, regiones, versiones de API y esquemas de Resource Manager](resource-manager-supported-services.md).
 
 Defina recursos con la siguiente estructura:
 
@@ -248,7 +246,7 @@ Defina recursos con la siguiente estructura:
 | etiquetas | No | Etiquetas asociadas al recurso.
 | comentarios | No | Notas para documentar los recursos de la plantilla
 | dependsOn | No | Recursos de los que depende el recurso que se está definiendo. Las dependencias entre los recursos se evalúan y los recursos se implementan en su orden dependiente. Cuando no hay recursos dependientes entre sí, se intenta implementarlos en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos.
-| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a la documentación del esquema de recursos o a la API de REST, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
 | resources | No | Recursos secundarios que dependen del recurso que se está definiendo. Solo puede proporcionar los tipos de recursos que permite el esquema del recurso principal. El nombre completo del tipo de recurso secundario incluye el tipo de recurso principal, como **Microsoft.Web/sites/extensions**. La dependencia del recurso primario no está implícita; debe definir explícitamente esa dependencia. 
 
 
@@ -283,7 +281,7 @@ La sección de recursos contiene una matriz de los recursos para implementar. En
 
 
 
-En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/sites** con un recurso secundario **Extensions**. Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
+En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/sites** con un recurso secundario **Extensions**: Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
 
     "resources": [
       {
@@ -372,9 +370,9 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
 
 ## Pasos siguientes
 - Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
-- Para información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
-- Para combinar varias plantillas en la implementación, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+- Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
+- Para combinar varias plantillas en la implementación, consulte [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -151,11 +151,11 @@ Las siguientes limitaciones se aplican actualmente a transacciones de base de da
 * Solo se admiten las bases de datos V12 de Base de datos SQL de Azure.
 * No se admiten las transacciones por los servicios de WCF. Por ejemplo, tiene un método de servicio de WCF que se ejecuta una transacción. Si se encierra la llamada dentro de un ámbito de transacción, se producirá un error como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## Más información
+## Recursos adicionales
 
 ¿Aún no usa las funcionalidades de base de datos elástica en sus aplicaciones de Azure? Consulte nuestro [mapa de documentación](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

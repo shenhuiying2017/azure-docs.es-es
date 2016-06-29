@@ -150,13 +150,17 @@ Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, cons
 
 Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Para crear un nuevo grupo con el [tutorial](sql-database-elastic-pool-create-portal.md).
+Para crear un nuevo grupo, consulte el tutorial [Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-portal.md).
 
-## Más información
+Para supervisar y administrar un grupo de bases de datos elásticas, consulte [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md).
 
-[¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md)
+## Recursos adicionales
 
-[Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
+- [¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md)
+- [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
+- [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect)
+- [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## Preguntas y solicitudes de características
 
@@ -172,4 +176,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base 
 
 	
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

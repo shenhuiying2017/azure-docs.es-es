@@ -17,9 +17,9 @@ ms.author="cristyg"/>
 
 # Configuración de recursos de almacenamiento local
 
-Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol. Puede almacenar información en la instancia de máquina virtual para que el código que se ejecuta en la instancia pueda acceder al recurso de almacenamiento local cuando necesite escribir en un archivo o leer de este. Por ejemplo, un recurso de almacenamiento local se puede utilizar para almacenar datos en memoria caché por si fuera necesario volver a tener acceso a los mismos mientras el servicio se está ejecutando en Azure. También puede configurar el recursos de almacenamiento local para almacenar archivos durante el inicio. Para obtener más información sobre cómo configurar recursos de almacenamiento local para el inicio, consulte [Uso del almacenamiento local para almacenar archivos durante el inicio](https://msdn.microsoft.com/library/azure/hh974419.aspx).
+Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol. Puede almacenar información en la instancia de máquina virtual para que el código que se ejecuta en la instancia pueda acceder al recurso de almacenamiento local cuando necesite escribir en un archivo o leer de este. Por ejemplo, un recurso de almacenamiento local se puede utilizar para almacenar datos en memoria caché por si fuera necesario volver a tener acceso a los mismos mientras el servicio se está ejecutando en Azure. También puede configurar el recursos de almacenamiento local para almacenar archivos durante el inicio. Para obtener más información sobre cómo configurar recursos de almacenamiento local para el inicio, consulte [Uso del almacenamiento local para almacenar archivos durante el inicio](cloud-services-startup-tasks-common.md#create-files-in-local-storage-from-a-startup-task).
 
-Los recursos de almacenamiento local se declaran en el archivo de definición de servicio. Puede declarar cualquier número de recursos de almacenamiento local para un rol. Cada recurso de almacenamiento local se reserva para cada instancia de ese rol. La cantidad mínima de espacio en disco que puede asignar a un recurso de almacenamiento local es 1 MB. La cantidad máxima que puede asignar a cualquier recurso determinado local depende del tamaño de la máquina virtual que se especifique para el rol. El tamaño de la máquina virtual dispone de una asignación total para almacenamiento y el espacio total asignado para todos los recursos de almacenamiento local declarados para un rol no puede superar el tamaño máximo asignado a dicho tamaño de la máquina virtual. Para obtener más información sobre la cantidad máxima de espacio en disco local que se asigna a cada tamaño de la máquina virtual, vea [Configuración de los tamaños de los Servicios en la nube](https://msdn.microsoft.com/library/azure/ee814754.aspx).
+Los recursos de almacenamiento local se declaran en el archivo de definición de servicio. Puede declarar cualquier número de recursos de almacenamiento local para un rol. Cada recurso de almacenamiento local se reserva para cada instancia de ese rol. La cantidad mínima de espacio en disco que puede asignar a un recurso de almacenamiento local es 1 MB. La cantidad máxima que puede asignar a cualquier recurso determinado local depende del tamaño de la máquina virtual que se especifique para el rol. El tamaño de la máquina virtual dispone de una asignación total para almacenamiento y el espacio total asignado para todos los recursos de almacenamiento local declarados para un rol no puede superar el tamaño máximo asignado a dicho tamaño de la máquina virtual. Para más información sobre la cantidad máxima de espacio en disco local que se asigna a cada tamaño de la máquina virtual, consulte [Tamaños de los servicios en la nube](cloud-services-sizes-specs.md).
 
 > [AZURE.NOTE]
 >
@@ -56,7 +56,7 @@ El siguiente archivo de definición de servicio muestra dos recursos de almacena
 
 Para obtener más información sobre el archivo de definición de servicio, vea [Esquema de definición del servicio de Azure (archivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE] Si utiliza Azure Tools para Microsoft Visual Studio, puede definir un recurso de almacenamiento local en las páginas **Propiedades** del rol. Para obtener más información, consulte [Configuración de la aplicación de Azure con Visual Studio](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Si utiliza Azure Tools para Microsoft Visual Studio, puede definir un recurso de almacenamiento local en las páginas **Propiedades** del rol.
 
 ## Acceso mediante programación a un recurso de almacenamiento local
 
@@ -102,6 +102,6 @@ El código que se ejecuta en una instancia de rol puede acceder a un recurso de 
 
 ## Pasos siguientes
 
-- [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
+- [Configurar un servicio en la nube para Azure](cloud-services-model-and-package.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

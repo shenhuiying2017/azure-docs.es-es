@@ -37,4 +37,8 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 * [Proof of concept connecting to SQL using ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx) (Prueba de concepto que se conecta a SQL con ADO.NET)
 * [Connect resiliently to SQL with ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx) (Conexión firme a SQL con ADO.NET)
 
-<!---HONumber=AcomDC_0504_2016-->
+## Recursos adicionales
+
+Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+<!---HONumber=AcomDC_0615_2016-->

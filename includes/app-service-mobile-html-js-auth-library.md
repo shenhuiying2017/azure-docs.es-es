@@ -58,11 +58,13 @@ En este ejemplo simplificado se obtiene un token de Live Connect, que se suminis
 
 ###<a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
 
-Se puede recuperar la información de autenticación del usuario actual desde el punto de conexión `/.auth/me` mediante cualquier método de AJAX. Por ejemplo, para usar la API de captura:
+Se puede recuperar la información de autenticación del usuario actual desde el punto de conexión `/.auth/me` mediante cualquier método de AJAX. Asegúrese de establecer el encabezado `X-ZUMO-AUTH` en el token de autenticación. El token de autenticación se almacena en `client.currentUser.mobileServiceAuthenticationToken`. Por ejemplo, para usar la API de captura:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
-fetch(url)
+var headers = new Headers();
+headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
+fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
@@ -70,6 +72,6 @@ fetch(url)
     });
 ```
 
-También podría utilizar jQuery u otra API de AJAX para capturar la información. Los datos se reciben como un objeto JSON.
+La captura está disponible como un paquete npm o para descarga del explorador desde CDNJS. También podría utilizar jQuery u otra API de AJAX para capturar la información. Los datos se reciben como un objeto JSON.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

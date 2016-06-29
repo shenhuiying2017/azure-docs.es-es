@@ -20,9 +20,13 @@
 
 # Referencia para desarrolladores de C# de Funciones de Azure
 
+> [AZURE.SELECTOR]
+- [Script de C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.js](../articles/azure-functions/functions-reference-node.md)
+ 
 La experiencia en C# para las Funciones de Azure se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json` y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
 
-En este artículo se supone que ya ha leído la [referencia para desarrolladores de Funciones de Azure](functions-reference.md).
+En este artículo se supone que ya leyó la [referencia para desarrolladores de Funciones de Azure](functions-reference.md).
 
 ## Funcionamiento de .csx
 
@@ -30,7 +34,7 @@ El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en esc
 
 ## Enlace a argumentos
 
-Los distintos enlaces se enlazan a una función de C# mediante la propiedad `name` de la configuración de *function.json*. Cada enlace tiene sus propios tipos admitidos que se documentan por enlace. Por ejemplo, un desencadenador de blob puede admitir una cadena, un objeto POCO o algunos otros tipos. Puede utilizar el tipo que mejor se adapte a sus necesidades.
+Los distintos enlaces se vinculan a una función de C# mediante la propiedad `name` de la configuración de *function.json*. Cada enlace tiene sus propios tipos admitidos que se documentan por enlace. Por ejemplo, un desencadenador de blob puede admitir una cadena, un objeto POCO o algunos otros tipos. Puede utilizar el tipo que mejor se adapte a sus necesidades.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -52,7 +56,7 @@ Para registrar la salida en sus registros de streaming en C#, puede incluir un a
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -134,7 +138,7 @@ El entorno de hospedaje de las Funciones de Azure agrega automáticamente los si
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Además, los siguientes ensamblados hacen un uso especial de las mayúsculas y minúsculas y simplename puede hacer referencia a ellos (por ejemplo, `#r "AssemblyName"`):
+Además, en los siguientes ensamblados se hace un uso especial de las mayúsculas y minúsculas y se puede hacer referencia a ellos con SimpleName (por ejemplo, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -146,7 +150,7 @@ Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de
 
 ## Administración de paquetes
 
-Para utilizar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de la función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
+Para utilizar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
 
 ```json
 {
@@ -254,4 +258,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

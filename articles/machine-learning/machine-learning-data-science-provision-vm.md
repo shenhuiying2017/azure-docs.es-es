@@ -49,7 +49,7 @@ Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo s
 
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
-1.	Navegue a la lista de máquinas virtuales en el [Portal de Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navegue a la lista de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Haga clic en el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Las secciones siguientes proporcionan las **entradas** para cada uno de los **5 pasos** (enumerados a la derecha de la ilustración anterior) en el asistente que se usó para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
 
@@ -147,4 +147,4 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com) para ver muestras de aprendizaje automático y de análisis de datos mediante Cortana Intelligence Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

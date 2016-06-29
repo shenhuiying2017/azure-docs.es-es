@@ -20,7 +20,7 @@
 
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
-En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows, enrutamiento definido por el usuario y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección Escenario de tráfico para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
+En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows, enrutamiento definido por el usuario y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios.
 
 ![Red perimetral bidireccional con un dispositivo de red virtual, grupos de seguridad de red y enrutamiento definido por el usuario][1]
 
@@ -28,7 +28,7 @@ En este ejemplo se creará una red perimetral con un firewall, cuatro servidores
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 - Tres servicios en la nube: “SecSvc001”, “FrontEnd001” y “BackEnd001”
-- Una red virtual, “CorpNetwork”, con tres subredes, “SecNet”, “FrontEnd” y “BackEnd”
+- Una red virtual, CorpNetwork, con tres subredes: SecNet, FrontEnd y BackEnd
 - Un dispositivo virtual de red, en este ejemplo, un firewall, conectado a la subred SecNet
 - Un servidor Windows que representa un servidor de aplicaciones web ("IIS01")
 - Dos servidores Windows que representan servidores back-end de aplicaciones (“AppVM01”, “AppVM02”)
@@ -36,7 +36,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 
 En la sección de referencias siguiente hay un script de PowerShell que compilará la mayor parte del entorno descrito anteriormente. Aunque la creación de las máquinas virtuales y las redes virtuales la realiza el script de ejemplo, no se describe en detalle en este documento.
 
-Para crear el entorno:
+Para crear el entorno, siga estos pasos:
 
   1.	Guarde el archivo xml de configuración de red incluido en la sección de referencias (actualizado con nombres, ubicación y direcciones IP para que coincidan con el escenario dado).
   2.	Actualice las variables de usuario en el script para que coincida con el entorno en el que se va a ejecutar el script (suscripciones, nombres de servicio, etc.).
@@ -110,22 +110,22 @@ En este ejemplo, se usan los comandos siguientes para crear la tabla de enrutami
 
 2.	Una vez creada la tabla de enrutamiento, se pueden agregar rutas específicas definidas por el usuario. En este fragmento, todo el tráfico (0.0.0.0/0) se enrutarán a través del dispositivo virtual (se usa una variable, $VMIP [0], para pasar la dirección IP asignada cuando se creó el dispositivo virtual anteriormente en el script). En el script, también se crea la tabla correspondiente en la tabla front-end.
 
-		Get-AzureRouteTable $BERouteTableName |`
+		Get-AzureRouteTable $BERouteTableName | `
 		    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
 		    -NextHopType VirtualAppliance `
 		    -NextHopIpAddress $VMIP[0]
 
 3. La entrada de la ruta anterior invalidará la ruta predeterminada "0.0.0.0/0", pero la regla predeterminada 10.0.0.0/16 aún existe y permitiría que el tráfico dentro de la red virtual se enrute directamente al destino y no al dispositivo virtual de red. Para corregir este comportamiento, se debe agregar la siguiente regla.
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
 	        -NextHopType VirtualAppliance `
 	        -NextHopIpAddress $VMIP[0]
 
 4. En este momento hay que elegir una opción. Con las dos rutas anteriores, todo el tráfico se enrutará al firewall para su evaluación, incluso el tráfico dentro de una sola subred. Esto puede ser deseable. Sin embargo, para permitir que el tráfico dentro de una subred se enrute localmente sin la participación del firewall, se puede agregar una tercera regla muy específica. Esta ruta establece que las direcciones con destino a la subred local se pueden enrutar a ella directamente (NextHopType = VNETLocal).
 
-	    Get-AzureRouteTable $BERouteTableName `
-	        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+	    Get-AzureRouteTable $BERouteTableName | `
+	        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
 	        -NextHopType VNETLocal
 
 5.	Por último, una vez creada la tabla de enrutamiento y rellenada con las rutas definidas por el usuario, la tabla se debe enlazar una subred. En el script, la tabla de enrutamiento front-end también se enlaza a la subred front-end. Este es el script de enlace para la subred back-end.
@@ -145,8 +145,8 @@ Para configurar el reenvío IP se usa un solo comando y puede realizarse durante
 
 1.	Llame a la instancia de máquina virtual que es el dispositivo virtual, el firewall en este caso, y habilite el reenvío IP. (Nota: todos los elementos en rojo que comienzan con un signo de dólar (p. ej.: $VMName[0]) son variables definidas por el usuario del script en la sección de referencias de este documento. El cero entre corchetes, [0], representa la primera máquina virtual de la matriz de máquinas virtuales. Para que el script funcione sin modificaciones, la primera máquina virtual (VM 0) debe ser el firewall):
 
-		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-		   |Set-AzureIPForwarding -Enable
+		Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+		   Set-AzureIPForwarding -Enable
 
 ## Grupos de seguridad de red (NSG)
 En este ejemplo, se crea un grupo de seguridad de red y se carga después una única regla. Este grupo se enlaza solo a las subredes front-end y back-end (no el SecNet). Mediante declaración se genera la siguiente regla:
@@ -941,4 +941,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0615_2016-->

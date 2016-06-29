@@ -3,7 +3,7 @@
    description="Obtenga información acerca de cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Base de datos SQL de Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/10/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria
 
@@ -72,7 +72,7 @@ Si se usa la conmutación por error con replicación geográfica de las opciones
 
 Dado que la base de datos recuperada residirá en otro servidor, es preciso que actualice la cadena de conexión de la aplicación para que apunte a dicho servidor.
 
-Para más información acerca de cómo cambiar las cadenas de conexión, consulte [Connections to Azure SQL Database: Central Recommendations](sql-database-connect-central-recommendations.md) (Conexión a Base de datos SQL de Azure: prácticas recomendadas y directrices de diseño).
+Para obtener más información sobre cómo cambiar las cadenas de conexión, consulte el lenguaje de desarrollo adecuado para su [biblioteca de conexiones](sql-database-libraries.md).
 
 ### Configuración de las reglas del firewall
 
@@ -110,4 +110,4 @@ Si se requiere una auditoría para tener acceso a una base de datos, será preci
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

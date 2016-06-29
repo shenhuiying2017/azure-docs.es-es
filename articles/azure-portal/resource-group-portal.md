@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso del Portal de Azure para administrar los recursos de Azure | Microsoft Azure" 
-	description="Utilice el Portal de Azure y Azure Resource Manager para implementar y administrar los recursos. Muestra cómo etiquetar los recursos y ver los registros de auditoría." 
+	description="Uso del Portal de Azure y de Azure Resource Manager para implementar los recursos. Muestra cómo trabajar con paneles y mosaicos para supervisar los recursos." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,148 +13,77 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/10/2016" 
 	ms.author="tomfitz"/>
 
 
-# Uso del Portal de Azure para implementar y administrar los recursos de Azure
+# Administración de los recursos de Azure a través del Portal
 
-## Introducción
-
-En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para implementar y administrar los recursos de Azure.
+En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Si desea más información acerca de cómo implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
 Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-También puede administrar los recursos mediante la CLI de Azure y Azure PowerShell. Para más información acerca del uso de estas interfaces, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md) y [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md). Para más información sobre la implementación de soluciones con Visual Studio, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+<a id="access-control-for-azure-dashboards" />
+## Personalización del panel para supervisar los recursos
 
-## Creación de un grupo de recursos
+El Portal proporciona un panel que puede utilizar para supervisar y administrar los recursos. El panel se puede personalizar en su totalidad y puede crear varios paneles para proporcionar fácilmente diferentes vistas de una suscripción.
 
-Para crear un grupo de recursos vacío, seleccione **Nuevo**, **Administración** y **Grupo de recursos**.
+![dashboard](./media/resource-group-portal/dashboard.png)
 
-![crear un grupo de recursos vacío](./media/resource-group-portal/create-empty-group.png)
+> [AZURE.TIP] Es la mejor manera de aprender a trabajar con los paneles ver el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Compilación de paneles personalizados en el Portal de Microsof Azure).
 
-Asígnele un nombre y una ubicación y, si es necesario, seleccione una suscripción.
+### Uso compartido de los paneles y el control de acceso de Azure
+Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. El [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) de Azure rige el acceso a la información que se muestra en los iconos del Portal. Todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
 
-![establecer valores de grupo](./media/resource-group-portal/set-group-properties.png)
+Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos. Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tienen la opción de publicar esos cambios de vuelta en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
 
-## Implementación de recursos
+Los iconos individuales del panel tendrán sus propios requisitos de control de acceso en función de los recursos que muestran. Esto significa que puede diseñar un panel que se comparta ampliamente mientras sigue protegiendo los datos de iconos individuales.
 
-Una vez creado el grupo de recursos, puede implementar recursos en él. Para iniciar la implementación, simplemente seleccione **Nuevo** y el tipo de recurso que le gustaría implementar.
+## Administración de grupos de recursos
 
-![implementar recursos](./media/resource-group-portal/deploy-resource.png)
+1. Para ver todos los grupos de recursos en su suscripción, seleccione **Grupos de recursos**.
 
-Si no ve el tipo de recurso que le gustaría implementar, búsquelo en Marketplace.
+    ![buscar grupos de recursos](./media/resource-group-portal/browse-groups.png)
 
-![buscar en Marketplace](./media/resource-group-portal/search-resource.png)
+2. Seleccione el grupo de recursos específico que desea administrar. Verá una hoja del grupo de recursos que ofrece información sobre el mismo, incluida una lista de todos los recursos del grupo.
 
-Según el tipo de recurso que haya seleccionado, tendrá una colección de propiedades pertinentes que hay que establecer antes de la implementación. Estas opciones no se muestran aquí, dado que varía según el tipo de recurso. Para todos los tipos, debe seleccionar un grupo de recursos de destino. La imagen siguiente muestra cómo crear una nueva aplicación web e implementarla en el grupo de recursos que acaba de crear.
+    ![resumen del grupo de recursos](./media/resource-group-portal/group-summary.png)
 
-![crear grupo de recursos](./media/resource-group-portal/select-existing-group.png)
+    Al seleccionar cualquiera de los recursos, se muestra información sobre ese recurso.
 
-De forma alternativa, puede decidir crear un nuevo grupo de recursos al implementar sus recursos. En lugar de seleccionar uno de los grupos de recursos existente en su suscripción, seleccione **Nuevo** y asígnele un nombre al grupo de recursos.
+3. Dentro de la hoja del grupo de recursos, puede agregar más gráficos y tablas seleccionando **Agregar una sección** debajo del resumen.
 
-![crear nuevo grupo de recursos.](./media/resource-group-portal/select-new-group.png)
+    ![agregar sección](./media/resource-group-portal/add-section.png)
 
-Se iniciará la implementación. Esto puede tardar unos minutos. Cuando haya terminado la implementación, verá una notificación.
+4. Se le presentará una galería de iconos para seleccionar la información que desea incluir en la hoja. Los tipos de iconos que se muestran se filtran por el tipo de recurso. Si se selecciona un recurso diferente, se cambiarán los iconos disponibles.
 
-![ver notificación](./media/resource-group-portal/view-notification.png)
+    ![agregar sección](./media/resource-group-portal/tile-gallery.png)
 
-Después de implementar los recursos, puede que necesite agregar más recursos al grupo. Puede agregar recursos a un grupo de recursos con el comando **Add** en la hoja del grupo de recursos.
+5. Arrastre el icono que se necesita en los espacios disponibles.
 
-![agregar recurso](./media/resource-group-portal/add-resource.png)
+    ![arrastrar icono](./media/resource-group-portal/drag-tile.png)
 
-## Exportación de la plantilla
+6. Después de seleccionar **Listo** en la parte superior del Portal, la nueva vista forma parte de la hoja.
 
-Después de configurar el grupo de recursos, quizás quiera ver la plantilla de Resource Manager para el grupo de recursos. Exportar la plantilla ofrece dos ventajas:
+    ![mostrar icono](./media/resource-group-portal/show-lens.png)
 
-1. Puede automatizar fácilmente las futuras implementaciones de la solución porque toda la infraestructura está definida en la plantilla.
+7. Para obtener un acceso rápido al grupo de recursos, puede anclar la hoja en el panel.
 
-2. Para familiarizarse con la sintaxis de la plantilla, consulte la notación de objetos JavaScript (JSON) que representa la solución.
+    ![anclar un grupo de recursos](./media/resource-group-portal/pin-group.png)
 
-> [AZURE.NOTE] La característica de exportación de la plantilla es una versión preliminar y no todos los tipos de recursos admiten actualmente la exportación de una plantilla. Al intentar exportar una plantilla, verá un error que indica que algunos recursos no se han exportado. Si es necesario, puede definir manualmente estos recursos en la plantilla después de descargarla.
+    O bien, puede anclar una sección de la hoja en el panel seleccionando el botón de puntos suspensivos (...) que se encuentra sobre la sección. Asimismo puede personalizar el tamaño de la sección en la hoja o quitarlo. La siguiente imagen muestra cómo anclar, personalizar o quitar la sección CPU y memoria.
 
-Para instrucciones detalladas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../resource-manager-export-template/)
+    ![anclar sección](./media/resource-group-portal/pin-cpu-section.png)
 
-## Administración de un grupo de recursos
+8. Después de anclar la sección en el panel, verá el resumen en el panel.
 
-Para examinar todos los grupos de recursos, haga clic en **Grupos de recursos**.
-
-![buscar grupos de recursos](./media/resource-group-portal/browse-groups.png)
-
-Al seleccionar un grupo de recursos determinado, verá una hoja del grupo de recursos que ofrece información acerca de dicho grupo de recursos, incluida una lista de todos los recursos del grupo.
-
-![resumen del grupo de recursos](./media/resource-group-portal/group-summary.png)
-
-Para agregar más gráficos y tablas a la hoja del grupo de recursos, seleccione **Agregar una sección** debajo del resumen.
-
-![agregar sección](./media/resource-group-portal/add-section.png)
-
-Se le presentará una galería de iconos para seleccionar la información que desea incluir en la hoja. Los tipos de iconos que se muestran se filtran por el tipo de recurso. Si se selecciona un recurso diferente, se cambiarán los iconos disponibles.
-
-![agregar sección](./media/resource-group-portal/tile-gallery.png)
-
-Arrastre el icono que se necesita en los espacios disponibles.
-
-![arrastrar icono](./media/resource-group-portal/drag-tile.png)
-
-Después de seleccionar **Hecho** en la parte superior del portal, la nueva vista forma parte de la hoja.
-
-![mostrar icono](./media/resource-group-portal/show-lens.png)
-
-Para obtener un acceso rápido al grupo de recursos, puede anclar la hoja en el panel.
-
-![anclar un grupo de recursos](./media/resource-group-portal/pin-group.png)
-
-O bien, puede anclar una sección de la hoja en el panel seleccionando el botón de puntos suspensivos (...) que se encuentra sobre la sección. Asimismo puede personalizar el tamaño de la sección en la hoja o quitarlo. La siguiente imagen muestra cómo anclar, personalizar o quitar la sección CPU y memoria.
-
-![anclar sección](./media/resource-group-portal/pin-cpu-section.png)
-
-Después de anclar la sección en el panel, verá el resumen en el panel.
-
-![ver panel](./media/resource-group-portal/view-startboard.png)
+    ![ver panel](./media/resource-group-portal/view-startboard.png)
 
 Y, si lo selecciona inmediatamente, obtendrá más detalles de los datos.
-
-Puesto que los grupos de recursos le permiten administrar el ciclo de vida de todos los recursos contenidos, la eliminación de un grupo de recursos provocará que se eliminen todos los recursos que alberga. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos porque podría haber otros recursos en otros grupos de recursos vinculados a él. No se eliminarán los recursos vinculados aunque no funcionen según lo esperado.
-
-![eliminar grupo](./media/resource-group-portal/delete-group.png)
 
 ## Etiquetado de recursos
 
 Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información sobre cómo trabajar con etiquetas a través del portal, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
-
-## Implementación de una plantilla guardada
-
-Si guardó una plantilla en su cuenta y desea verla posteriormente, seleccione **Examinar** y **Plantillas**.
-
-![examinar plantillas](./media/resource-group-portal/browse-templates.png)
-
-Verá su propia colección de plantillas.
-
-![mostrar colección de plantillas](./media/resource-group-portal/show-template-collection.png)
-
-
-## Implementación de una plantilla personalizada
-
-Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para obtener más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
-
-Para implementar una plantilla personalizada a través del portal, seleccione **Nuevo** y busque **Implementación de plantillas** hasta que pueda seleccionarla entre las opciones.
-
-![buscar implementación de plantilla](./media/resource-group-portal/search-template.png)
-
-Seleccione **Implementación de plantillas** en los recursos disponibles.
-
-![seleccionar implementación de plantillas](./media/resource-group-portal/select-template.png)
-
-Después de iniciar la implementación de la plantilla, puede crear la plantilla personalizada y establecer los valores para la implementación.
-
-![crear plantilla](./media/resource-group-portal/show-custom-template.png)
-
-O bien puede seleccionar una plantilla existente en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Estas plantillas son aportaciones de la comunidad. Abarcan muchos escenarios comunes y puede que alguien haya agregado una plantilla que sea similar a lo que desea implementar. Puede buscar las plantillas para encontrar alguna que coincida con su escenario.
-
-![seleccionar plantilla de inicio rápido](./media/resource-group-portal/select-quickstart-template.png)
-
-Después de seleccionar una plantilla, se carga en el editor.
 
 ## Consulta de sus datos de suscripción y costos
 
@@ -170,17 +99,27 @@ Y un desglose de costos por tipo de recurso.
 
 ![costo de recursos](./media/resource-group-portal/cost-by-resource.png)
 
-## Control de acceso para los paneles de Azure
+## Exportación de la plantilla
 
-El acceso a la información que muestra la mayoría de los iconos del portal se rige mediante el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure. Con el fin de integrar perfectamente los paneles en el ecosistema, todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
+Después de configurar el grupo de recursos, quizás quiera ver la plantilla de Resource Manager para el grupo de recursos. Exportar la plantilla ofrece dos ventajas:
 
-Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores podrán enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores podrán enumerar y ver los paneles, pero no podrán modificarlos ni eliminarlos. Los usuarios con acceso de lectura podrán realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tendrán la opción de volver a publicar esos cambios en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
+1. Puede automatizar fácilmente las futuras implementaciones de la solución porque toda la infraestructura está definida en la plantilla.
 
-Tenga en cuenta que los iconos individuales del panel tendrán sus propios requisitos de control de acceso en función de los recursos para los que están mostrando los datos. Esto significa que puede diseñar un panel que se puede compartir más ampliamente mientras sigue protegiendo los datos de iconos individuales.
+2. Para familiarizarse con la sintaxis de la plantilla, consulte la notación de objetos JavaScript (JSON) que representa la solución.
+
+Para instrucciones detalladas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../resource-manager-export-template.md).
+
+## Eliminación de los recursos o grupos de recursos
+
+Al eliminar un grupo de recursos se eliminan todos los recursos contenidos en el mismo. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos porque podría haber otros recursos en otros grupos de recursos vinculados a él. No se eliminarán los recursos vinculados aunque no funcionen según lo esperado.
+
+![eliminar grupo](./media/resource-group-portal/delete-group.png)
+
 
 ## Pasos siguientes
 
 - Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](../resource-group-audit.md).
-- Para solucionar problemas de implementación, consulte [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Para solucionar problemas de implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Para implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

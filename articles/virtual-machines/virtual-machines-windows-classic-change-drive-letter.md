@@ -111,4 +111,4 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 ## Pasos siguientes
 - Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](virtual-machines-windows-attach-disk-portal.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

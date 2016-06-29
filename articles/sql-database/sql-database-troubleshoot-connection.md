@@ -31,7 +31,7 @@ Este error se produce cuando la base de datos de Azure se está moviendo (o reco
 
 ## Pasos para resolver los problemas de conectividad transitorios
 1.	Compruebe el [panel de estado de Microsoft Azure](https://azure.microsoft.com/status) durante las interrupciones conocidas que se produzcan durante el tiempo en el que la aplicación haya informado de los errores.
-2. Para las aplicaciones que se conectan a un servicio en la nube, como la base de datos SQL de Azure, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación. Revise la sección sobre [errores transitorios](sql-database-connectivity-issues.md) y las [prácticas recomendadas e instrucciones de diseño](sql-database-connect-central-recommendations.md) para obtener más información y conocer las estrategias de reintentos generales. Después, consulte ejemplos de código en [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md) para información específica.
+2. Para las aplicaciones que se conectan a un servicio en la nube, como la base de datos SQL de Azure, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación. Consulte la sección sobre [errores transitorios](sql-database-connectivity-issues.md), y las prácticas recomendadas e instrucciones de diseño de [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) para obtener más información y conocer las estrategias de reintentos generales. Después, consulte ejemplos de código en [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md) para información específica.
 3.	Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Vea [Solucionar problemas de rendimiento](sql-database-troubleshoot-performance.md).
 4.	Si los problemas de conectividad continúan, si el tiempo de detección del error por parte de la aplicación supera los 60 segundos o si hay varias repeticiones del error en un día determinado, realice una solicitud de soporte técnico a Azure; para ello, seleccione **Obtener soporte** del sitio [Opciones de soporte técnico de Azure](https://azure.microsoft.com/support/options).
 
@@ -39,4 +39,4 @@ Este error se produce cuando la base de datos de Azure se está moviendo (o reco
 - Si el error que se muestra es diferente, evalúe si en el [mensaje de error](sql-database-develop-error-messages.md) se proporciona alguna indicación sobre la causa.
 - Si el problema persiste, visite la página de ayuda de [Solución de problemas de conexión comunes relacionados con la base de datos SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute en Azure: Recursos técnicos para informática de alto rendimiento (HPC) y computación por lotes
@@ -34,11 +34,11 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 * [Documentación](https://azure.microsoft.com/documentation/services/batch/)
 
-* Referencia de [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) y de API de [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
+* Referencia de [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/) y de API de [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx)
 
 * Referencia de la [biblioteca .NET de administración de Lote](https://msdn.microsoft.com/library/mt463120.aspx)
 
-* [Tutorial: Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md)
+* Tutoriales: Introducción a la [biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) y el [cliente Python de Lote](batch-python-tutorial.md)
 
 * [Foro de Lote](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurebatch)
 
@@ -89,7 +89,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 
 ## Instancias intensivas de proceso
 
-Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-windows-sizes.md), que incluye instancias de proceso intensivo [A8 y A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) con capacidad para conectarse con una red RDMA de back-ends, para ejecutar cargas de trabajo HPC de Linux y Windows.
+Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-windows-sizes.md), que incluye instancias de proceso intensivo [A8 y A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) con capacidad para conectarse con una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows.
 
 
 * [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -122,7 +122,7 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 
 ## Proyectos de arquitectura
 
-* [Orquestación de HPC y datos mediante Lote de Azure y Data Factory de Azure ](http://go.microsoft.com/fwlink/?linkid=717686) (archivo PDF) y el [artículo](../data-factory/data-factory-data-processing-using-batch.md)
+* Archivo PDF [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (Orquestación de HPC y datos mediante Lote de Azure y Data Factory de Azure) y este [artículo](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Soluciones del sector
 
@@ -157,4 +157,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-win
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](https://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/13/2016"
 	ms.author="jeffstok"/>
 
 
@@ -432,28 +432,32 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Salida**:
 
-| StartFault | EndFault | FaultDurationSeconds |
-| --- | --- | --- |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
-| 2015-01-01T00:00:01.0000000Z | 2015-01-01T00:00:08.0000000Z | 7 |
+| StartFault | EndFault |
+| --- | --- |
+| 2015-01-01T00:00:02.000Z | 2015-01-01T00:00:07.000Z |
 
 **Solución**:
 
 ````
-SELECT 
-    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
-    [time] [EndFault]
-FROM input
-WHERE
-    [weight] < 20000
-    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+	WITH SelectPreviousEvent AS
+	(
+	SELECT
+	*,
+		LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+		LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+	FROM input TIMESTAMP BY [time]
+	)
+
+	SELECT 
+    	LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+    	previousTime [EndFault]
+	FROM SelectPreviousEvent
+	WHERE
+    	[weight] < 20000
+	    AND previousWeight > 20000
 ````
 
-**Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
+**Explicación**: use LAG para ver el flujo de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de 20 000.
 
 ## Ejemplo de consulta: rellenar los valores que faltan
 **Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares. Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos visto más recientemente.
@@ -510,4 +514,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

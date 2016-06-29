@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Limitaciones de Stretch Database
@@ -96,4 +96,4 @@ Los siguientes elementos actualmente evitan que habilite Stretch en una tabla.
 
 [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

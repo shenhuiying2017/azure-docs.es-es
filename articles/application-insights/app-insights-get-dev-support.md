@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cómo obtener soporte técnico del equipo de desarrollo de Application Insights" 
+	pageTitle="Cómo obtener soporte técnico del equipo de desarrollo de Application Insights | Microsoft Azure" 
 	description="Cuando tenga un caso que requiera un soporte técnico especial por parte del equipo de desarrollo de Application Insights, este es el modo de enviar los detalles para obtenerlo." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@ Si no tiene ningún plan de soporte técnico, nuestro equipo de desarrollo está
 
 1. En el [portal de Application Insights](https://portal.azure.com), haga clic en la cara sonriente en la esquina superior derecha:  
 
-    ![imagen](./media/app-insights-get-dev-support/01.png)
+    ![Botón de comentarios](./media/app-insights-get-dev-support/01.png)
 
 2. En el cuadro de comentarios, asegúrese de especificar **AppInsights** en la primera línea y, después, incluya la siguiente información:
 
@@ -51,17 +51,16 @@ Si no tiene ningún plan de soporte técnico, nuestro equipo de desarrollo está
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![imagen](./media/app-insights-get-dev-support/02.png)
+    ![Cuadro de diálogo de comentarios](./media/app-insights-get-dev-support/02.png)
 
 3. Seleccione "Sí, estoy de acuerdo con que me envíen mensajes de correo electrónico sobre mis comentarios.".
 
-    ![imagen](./media/app-insights-get-dev-support/03.png)
+    ![Sección de envío](./media/app-insights-get-dev-support/03.png)
 
 Un ingeniero del equipo de Application Insights se pondrá en contacto con usted pronto. Hacemos el máximo esfuerzo para proporcionar este servicio, pero no se puede proporcionar ningún acuerdo de nivel de servicio formal en este momento.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Contactar al soporte técnico de Microsoft | Microsoft Azure"
+   pageTitle="Ponerse en contacto con el soporte técnico de Microsoft | Microsoft Azure"
    description="Aprenda a crear una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="02/18/2016"
    ms.author="alkohli" />
 
-# Contactar al soporte técnico de Microsoft
+# Ponerse en contacto con el soporte técnico de Microsoft
 
 Si tiene algún problema con la solución de Microsoft Azure StorSimple, puede crear una solicitud de servicio de soporte técnico. En una sesión en línea con su ingeniero de soporte técnico, también deberá iniciar una sesión de soporte técnico en su dispositivo StorSimple. Este artículo le enseñará a:
 
@@ -32,11 +32,11 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en el extremo superior derecho, en el nombre de cuenta y, a continuación, haga clic en **Póngase en contacto con el Soporte técnico de Microsoft**.
 
-	![Contactar al soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/Ibiza1.png)
+	![Ponerse en contacto con el soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/Ibiza1.png)
 
-2. Se le redirigirá al nuevo portal de Azure (ms.portal.azure.com). Haga clic en el icono **Nueva solicitud de soporte técnico**.
+2. Se le redirigirá al nuevo Portal de Azure (portal.azure.com). Haga clic en el icono **Nueva solicitud de soporte técnico**.
 
-	![Contactar al soporte técnico de MS a través del nuevo portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
+	![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
 
     En el lado derecho de la pantalla, aparecerá el panel **Nueva solicitud de soporte técnico**.
 
@@ -102,4 +102,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 > [AZURE.IMPORTANT] Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

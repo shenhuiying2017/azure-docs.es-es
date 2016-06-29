@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/20/2016"
 	ms.author="sethm"/>
 
 
 # Mensajería de Bus de servicio: entrega flexible de datos en la nube
 
-La mensajería de Bus de servicio de Azure es un servicio confiable de entrega de información. El propósito de este servicio es facilitar la comunicación. Cuando dos o más partes quieren intercambiar información, necesitan un mecanismo de comunicación. La mensajería de Service Bus es un mecanismo de comunicación asíncrona o de terceros. Esto es similar a un servicio postal en el mundo físico. Los servicios postales facilitan el envío distintos tipos de cartas y paquetes, con una variedad de garantías de entrega, a cualquier lugar del mundo.
+La mensajería de Microsoft Azure Service Bus es un servicio de entrega de información confiable. El propósito de este servicio es facilitar la comunicación. Cuando dos o más partes quieren intercambiar información, necesitan un mecanismo de comunicación. La mensajería de Service Bus es un mecanismo de comunicación asíncrona o de terceros. Esto es similar a un servicio postal en el mundo físico. Los servicios postales facilitan el envío distintos tipos de cartas y paquetes, con una variedad de garantías de entrega, a cualquier lugar del mundo.
 
 La mensajería del Bus de servicio es similar al servicio postal de entrega de cartas, ya que trata de la entrega flexible de información entre el remitente y el destinatario. El servicio de mensajería garantiza que la información se entrega, incluso si las dos partes no están nunca conectados al mismo tiempo o si no están disponibles en el mismo momento exacto. De esta manera, la mensajería es similar al envío de una carta, mientras que la comunicación asíncrona es similar a la realización de una llamada telefónica (o como era la realización de llamadas, antes de la creación de servicios de identificación de llamada o llamada en espera, que son mucho más similares a la mensajería asíncrona).
 
@@ -39,7 +39,7 @@ La mensajería retransmitida ofrece muchas ventajas, pero requiere que tanto el 
 
 ## Mensajería asíncrona
 
-A diferencia del esquema de mensajería retransmitida, la [mensajería asincrónica](service-bus-fundamentals-hybrid-solutions.md) puede considerarse asincrónica o "temporalmente desacoplada". Los productores (remitentes) y consumidores (receptores) no tienen que estar en línea al mismo tiempo. La infraestructura de mensajería almacena de forma fiable los mensajes en un "agente" (como una cola) hasta que la parte consumidora esté preparada para recibirlos. De esta forma los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte a todo el sistema. Además, es posible que la aplicación receptora solo tenga que estar en línea durante determinadas horas del día, por ejemplo, como un sistema de administración de inventario que solo es necesario ejecutarse al final del día laborable.
+A diferencia del esquema de mensajería retransmitida, la [mensajería asincrónica](service-bus-queues-topics-subscriptions.md) puede considerarse asincrónica o "temporalmente desacoplada". Los productores (remitentes) y consumidores (receptores) no tienen que estar en línea al mismo tiempo. La infraestructura de mensajería almacena de forma fiable los mensajes en un "agente" (como una cola) hasta que la parte consumidora esté preparada para recibirlos. De esta forma los componentes de la aplicación distribuida se pueden desconectar, ya sea voluntariamente, por ejemplo, para mantenimiento, o debido a un bloqueo del componente, sin que afecte a todo el sistema. Además, es posible que la aplicación receptora solo tenga que estar en línea durante determinadas horas del día, por ejemplo, como un sistema de administración de inventario que solo es necesario ejecutarse al final del día laborable.
 
 Los componentes principales de la infraestructura de mensajería asíncrona del Bus de servicio son colas, temas y suscripciones. La principal diferencia es que los temas admiten capacidades de publicación o suscripción que se pueden usar el sofisticado enrutamiento basado en contenido y entrega lógica, incluido el envío a varios destinatarios. Estos componentes permiten nuevos escenarios de mensajería asincrónicos, como desacoplamiento temporal, publicación/suscripción y equilibrio de carga. Para más información sobre estas entidades de mensajería, vea [Colas, temas y suscripciones del Bus de servicio](service-bus-queues-topics-subscriptions.md).
 
@@ -49,11 +49,11 @@ Al igual que con la infraestructura de mensajería retransmitida, se ofrece la c
 
 Para obtener más información sobre la mensajería de Bus de servicio, consulte los siguientes temas:
 
-- [Colas, temas y suscripciones del bus de servicio](service-bus-queues-topics-subscriptions.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+- [Colas, temas y suscripciones del bus de servicio](service-bus-queues-topics-subscriptions.md)
 - [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
-- [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Uso de temas/suscripciones del Bus de servicio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

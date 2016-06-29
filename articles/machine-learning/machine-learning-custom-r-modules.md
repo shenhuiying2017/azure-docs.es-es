@@ -26,7 +26,7 @@ En este tema se describe cómo crear e implementar un módulo R personalizado en
 ## ¿Qué es un módulo R personalizado?
 Un **módulo personalizado** es un módulo definido por el usuario que se puede cargar en el área de trabajo de un usuario y ejecutarlo como parte de un experimento de Aprendizaje automático de Azure. Un **módulo de R personalizado** es un módulo personalizado que ejecuta una función de R definida por el usuario. R es un lenguaje de programación de computación estadística y gráficos utilizado ampliamente por científicos estadísticos y de datos para implementar algoritmos. Actualmente, R es el único lenguaje que se admite en los módulos personalizados, pero en las próximas versiones se agregará compatibilidad con idiomas adicionales.
 
-Los módulos personalizados tienen un **estado de primera clase** en Aprendizaje automático de Azure, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Los usuarios tienen control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. Un módulo personalizado solo está disponible en el área de trabajo en que se creó y no se puede publicar en experimentos de comunidad.
+Los módulos personalizados tienen un **estado de primera clase** en Aprendizaje automático de Azure, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Los usuarios tienen control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la galería de Cortana Intelligence también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.
 
 ## Archivos de un módulo R personalizado
 Un módulo R personalizado se define mediante un archivo .zip que contiene, como mínimo, dos archivos:
@@ -362,4 +362,4 @@ Entre las **limitaciones del entorno de ejecución** se incluyen:
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

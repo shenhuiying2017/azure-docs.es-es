@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/25/2016"
+ms.date="06/14/2016"
 ms.author="garye;krishnan"/>
 
 # Análisis avanzados con Aprendizaje automático de Azure con datos de una base de datos de SQL Server local
@@ -57,24 +57,24 @@ Debe considerar lo siguiente cuando configure y use una instancia de Data Manage
 
 - Debe usar la instancia de Data Management Gateway para Aprendizaje automático de Azure incluso si utiliza Azure ExpressRoute para otros datos. Debe tratar el origen de datos como si fuera local (que está tras un firewall) incluso si usa ExpressRoute, y utilizar Data Management Gateway para establecer la conectividad entre Aprendizaje automático y el origen de datos.
 
-Puede encontrar información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway), empezando por la sección [Consideraciones para utilizar Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Entrada de datos de la base de datos de SQL Server local en Aprendizaje automático de Azure
 
 
 En este tutorial, instalará una instancia de Data Management Gateway en un área de trabajo de Aprendizaje automático de Azure, la configurará y después leerá datos de una base de datos de SQL Server local.
 
-> [AZURE.TIP] Antes de comenzar, deshabilite el bloqueador de elementos emergentes del explorador para `studio.azureml.net`. Si usa el explorador Google Chrome, descargue e instale uno de los varios complementos disponibles en Google Chrome WebStore entre las [extensiones de aplicación ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
+> [AZURE.TIP] Antes de comenzar, deshabilite el bloqueador de elementos emergentes del explorador para `studio.azureml.net`. Si usa el explorador Google Chrome, descargue e instale uno de los complementos disponibles en Google Chrome WebStore de entre las [extensiones de la aplicación ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 
 ### Paso 1: Creación de una puerta de enlace
 
 El primer paso consiste en crear y configurar la puerta de enlace para acceder a la base de datos SQL local.
 
-1.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/Home/) y seleccione el área de trabajo donde desea trabajar.
+1.  Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/Home/) y seleccione el área de trabajo que desee.
 
-2.  Haga clic en la hoja **SETTINGS** (Configuración) a la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) en la parte superior.
+2.  Haga clic en la hoja **SETTINGS** (Configuración) de la izquierda y en la pestaña **DATA GATEWAYS** (Puertas de enlace de datos) de la parte superior.
 
-3.  Haga clic en **NEW DATA GATEWAY** (Nueva puerta de enlace de datos) en la parte inferior de la pantalla.
+3.  Haga clic en **NEW DATA GATEWAY** (Nueva puerta de enlace de datos) de la parte inferior de la pantalla.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
@@ -86,13 +86,13 @@ El primer paso consiste en crear y configurar la puerta de enlace para acceder a
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway** (Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Puede encontrar información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+6.  <span id="note-1" class="anchor"></span>Si aún no ha descargado ni instalado Microsoft Data Management Gateway, haga clic en **Download data management gateway** (Descargar Data Management Gateway). Esto lo lleva al Centro de descarga de Microsoft, donde puede seleccionar la versión de puerta de enlace que necesita, descargarla e instalarla. Encontrará información detallada sobre los requisitos previos de instalación, los pasos de instalación y sugerencias para solucionar problemas en las secciones del principio del artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-7.  Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace**. Pegue la **clave de registro de puerta de enlace** que copió en el Portapapeles y haga clic en **Registrar**.
+7.  Una vez instalada la puerta de enlace, se abre el Administrador de configuración de Data Management Gateway y se muestra el cuadro de diálogo **Registrar puerta de enlace**. Pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Registrar**.
 
-8.  Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway, haga clic en **Cambiar la clave**, pegue la **clave de registro de puerta de enlace** que copió en el Portapapeles y haga clic en **Aceptar**.
+8.  Si ya tiene una puerta de enlace instalada, ejecute el Administrador de configuración de Data Management Gateway, haga clic en **Cambiar la clave**, pegue la **clave de registro de puerta de enlace** que copió en el portapapeles y haga clic en **Aceptar**.
 
-9.  Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la clave de registro de puerta de enlace que copió en el Portapapeles y haga clic en **Registrar**.
+9.  Cuando la instalación haya finalizado, se muestra el cuadro de diálogo **Registrar puerta de enlace** para el Administrador de configuración de Data Management Gateway. Pegue la clave de registro de puerta de enlace que copió en el portapapeles y haga clic en **Registrar**.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
@@ -132,7 +132,7 @@ Puede crear y configurar varias puertas de enlace en Estudio para cada área de 
 
 Después de configurar la puerta de enlace, puede agregar un módulo **Importar datos** a un experimento que introduce los datos de la base de datos de SQL Server local.
 
-1.  En Estudio de aprendizaje automático, seleccione la pestaña **EXPERIMENTS** (Experimentos), haga clic en la pestaña **+NEW** (+Nuevo) en la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
+1.  En Estudio de aprendizaje automático, seleccione la pestaña **EXPERIMENTS** (Experimentos), haga clic en la pestaña **+NEW** (+Nuevo) de la esquina inferior izquierda y seleccione **Blank Experiment** (Experimento en blanco). También puede seleccionar uno de los varios experimentos de ejemplo disponibles.
 
 2.  Busque y arrastre el módulo **Importar datos** al lienzo del experimento.
 
@@ -140,15 +140,15 @@ Después de configurar la puerta de enlace, puede agregar un módulo **Importar 
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\experiment-save-as.png)
 
-4.  Haga clic en el módulo **Importar datos** para seleccionarlo y, en el panel **Properties** (Propiedades) a la derecha del lienzo, seleccione "Base de datos SQL local" en la lista desplegable **Data source** (Origen de datos).
+4.  Haga clic en el módulo **Importar datos** para seleccionarlo y, en el panel **Properties** (Propiedades) de la derecha del lienzo, seleccione "Base de datos SQL local" en la lista desplegable **Data source** (Origen de datos).
 
 5.  Seleccione en **Data gateway** (Puerta de enlace de datos) la puerta de enlace que instaló y registró. Puede configurar otra si selecciona "(add new Data Gateway…)" (Agregar nueva puerta de enlace de datos).
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\import-data-select-on-premises-data-source.png)
 
-6.  Escriba el servidor SQL en **Database server name** (Nombre del servidor de base de datos) y un valor para **Database name** (Nombre de base de datos), junto con el texto para **Database query** (Consulta de base de datos) para la consulta de base de datos SQL que desea ejecutar.
+6.  Escriba el servidor SQL en **Database server name** (Nombre del servidor de base de datos) y un valor para **Database name** (Nombre de base de datos), junto con el texto para **Database query** (Consulta de base de datos) para la consulta de base de datos SQL que quiera ejecutar.
 
-7.  Haga clic en **Enter values** (Escribir valores) en **User name and password** (Nombre de usuario y contraseña) y escriba sus credenciales de base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server local.
+7.  Haga clic en **Enter values** (Escribir valores) de **User name and password** (Nombre de usuario y contraseña) y escriba sus credenciales de la base de datos. Puede usar la autenticación integrada de Windows o la autenticación de SQL Server según la configuración de SQL Server local.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\database-credentials.png)
     
@@ -162,4 +162,4 @@ Una vez finalizado el experimento, puede visualizar los datos importados desde l
 
 Una vez que haya terminado de desarrollar el experimento, puede implementar el modelo y ponerlo en operación. Mediante el servicio de ejecución por lotes, se leerán los datos de la base de datos de SQL Server local configurada en el módulo **Importar datos** y se usarán para la puntuación. Aunque puede usar el servicio de solicitud-respuesta para puntuar datos locales, Microsoft recomienda usar el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md) en su lugar. Actualmente, no se admite la escritura en una base de datos de SQL Server local mediante **Exportar datos**, ni en experimentos ni en servicios web publicados.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

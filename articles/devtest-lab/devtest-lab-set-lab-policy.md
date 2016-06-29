@@ -36,7 +36,7 @@ Para ver (y cambiar) las directivas para un laboratorio, siga estos pasos:
 
 	![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
 
-1. En la hoja **Configuración**, hay un grupo de configuraciones llamado **Directivas de VM**.
+1. En la hoja **Configuración**, hay un grupo de configuraciones llamado **VM Policies** (Directivas de máquina virtual).
 
 	![Settings](./media/devtest-lab-set-lab-policy/policies.png)
 
@@ -135,4 +135,4 @@ Una vez que defina y aplique las distintas configuraciones de las directivas de 
 - [Configurar imágenes de Marketplace](./devtest-lab-configure-marketplace-images.md): Laboratorios de desarrollo y pruebas admite la creación de máquinas virtuales nuevas basadas en imágenes de Azure Marketplace. Este artículo muestra cómo especificar las imágenes de Azure Marketplace, si corresponde, que se pueden usar en el momento de crear máquinas virtuales nuevas en un laboratorio.
 - [Incorporación de una máquina virtual con artefactos a un Laboratorio de desarrollo y pruebas](./devtest-lab-add-vm-with-artifacts.md): este artículo muestra cómo crear una máquina virtual desde una imagen base (ya sea personalizada o de Marketplace) y cómo trabajar con artefactos en la máquina virtual.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

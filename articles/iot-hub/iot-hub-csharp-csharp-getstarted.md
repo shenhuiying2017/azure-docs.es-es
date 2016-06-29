@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # Introducción al Centro de IoT de Azure para .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Introducción
-
-El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos de Internet de las cosas (IoT) y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
-
-- Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
-- Habilita las comunicaciones seguras con las credenciales de seguridad de cada dispositivo y el control de acceso.
-- Incluye bibliotecas de dispositivos para las plataformas y los lenguajes más populares.
-
-En este tutorial se muestra cómo realizar las siguientes acciones:
-
-- Usar el Portal de Azure para crear un Centro de IoT.
-- Crear una identidad de dispositivo en el Centro de IoT.
-- Crear un dispositivo simulado que envía la telemetría a su back-end en la nube y recibe los comandos del back-end en la nube.
 
 Al final de este tutorial tendrá tres aplicaciones de consola de Windows:
 
@@ -54,7 +40,7 @@ Ya se creó el Centro de IoT y ya tiene el nombre de host y la cadena de conexi�
 
 ## Creación de una identidad de dispositivo
 
-En esta sección, creará una aplicación de consola de Windows que crea una nueva identidad de dispositivo en el registro de identidades de su Centro de IoT. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Para más información, consulte la sección "Registro de identidad de dispositivos" de la [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity]. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
+En esta sección, creará una aplicación de consola de Windows que crea una nueva identidad de dispositivo en el registro de identidades de su Centro de IoT. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Para más información, consulte la sección "Registro de identidad del dispositivo" de la [Guía para desarrolladores del Centro de IoT][lnk-devguide-identity]. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
 
 1. En Visual Studio, agregue un nuevo proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola**. Asegúrese de que la versión de .NET Framework sea 4.5.1 o una posterior. Denomine el proyecto **CreateDeviceIdentity**.
 
@@ -234,7 +220,7 @@ En esta sección, creará una aplicación de consola de Windows que simula un di
 
   De forma predeterminada, el método **Create** crea una instancia **DeviceClient** que usa el protocolo AMQP para comunicarse con el Centro de IoT. Para usar el protocolo HTTPS, use la invalidación del método **Create** que permite especificar el protocolo. Si usa el protocolo HTTPS, debe agregar también el paquete NuGet **Microsoft.AspNet.WebApi.Client** al proyecto para incluir el espacio de nombres **System.Net.Http.Formatting**.
 
-Este tutorial le guiará por los pasos para crear un cliente de dispositivo de Centro de IoT. También puede utilizar la extensión de Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service] para agregar el código necesario a la aplicación de cliente del dispositivo.
+Este tutorial le guiará por los pasos para crear un cliente de dispositivo de Centro de IoT. También puede utilizar la extensión de Visual Studio [Connected Service for Azure IoT Hub][lnk-connected-service] (Servicio conectado para Centro de IoT de Azure) para agregar el código necesario a la aplicación de cliente del dispositivo.
 
 
 > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios][lnk-transient-faults].
@@ -243,7 +229,7 @@ Este tutorial le guiará por los pasos para crear un cliente de dispositivo de C
 
 Ahora está preparado para ejecutar las aplicaciones.
 
-1.	En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el la solución y, después, haga clic en **Set StartUp projects** (Establecer proyectos de inicio). Seleccione **Proyectos de inicio múltiples** y seleccione **Iniciar** como la acción para los proyectos **ProcessDeviceToCloudMessages** y **SimulatedDevice**.
+1.	En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** y seleccione **Iniciar** como la acción para los proyectos **ProcessDeviceToCloudMessages** y **SimulatedDevice**.
 
    	![Propiedades del proyecto de inicio][41]
 
@@ -262,7 +248,7 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 
 - [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d-tutorial] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
 - [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- [Cómo cargar archivos desde dispositivos a la nube ][lnk-upload-tutorial] describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+- El [Tutorial: cómo cargar archivos desde dispositivos a la nube con un centro de IoT][lnk-upload-tutorial] muestra cómo cargar archivos desde los dispositivos.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -291,4 +277,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

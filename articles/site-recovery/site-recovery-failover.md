@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/14/2016" 
+	ms.date="06/10/2016" 
 	ms.author="raynew"/>
 
 # Conmutación por error en Site Recovery
@@ -49,8 +49,8 @@ Sitio de VMM a Azure | Compatible | Compatible | Compatible
 Azure a sitio de VMM | No compatible | Compatible | No compatible 
 Sitio de Hyper-V a Azure | Compatible | Compatible | Compatible
 Azure a sitio de Hyper-V | No compatible | Compatible | No compatible
-Sitio de VMware a Azure | Compatible (escenario mejorado)<br/><br/>No compatible (escenario heredado) |En este escenario se utiliza la replicación continua, por lo que no hay ninguna distinción entre la conmutación por error planeada y no planeada. Selecciona **Conmutación por error**. | N/A
-Servidor físico a Azure | No compatible | En este escenario se utiliza la replicación continua, por lo que no hay ninguna distinción entre la conmutación por error planeada y no planeada. Selecciona **Conmutación por error**. | N/A
+Sitio de VMware a Azure | Compatible (escenario mejorado)<br/><br/>No compatible (escenario heredado) |No compatible | Compatible
+Servidor físico a Azure | Compatible (escenario mejorado)<br/><br/>No compatible (escenario heredado) | No compatible | Compatible
 
 ## Conmutación por error y conmutación por recuperación
 
@@ -256,4 +256,4 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 	>[AZURE.NOTE] Si cancela el trabajo de conmutación por recuperación mientras se está en el paso de sincronización de datos, la VM local tendrá un estado dañado. Esto se debe a que la sincronización de datos copia los datos más recientes de los discos de VM de Azure a los discos de datos locales y hasta que la sincronización se complete, es posible que los datos de discos no tengan un estado coherente. Si se desea arrancar la VM local una vez que se cancela la sincronización de datos, es posible que no arranque. Vuelva a desencadenar la conmutación por error para completar la sincronización de datos.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

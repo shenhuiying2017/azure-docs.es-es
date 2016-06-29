@@ -25,7 +25,7 @@ Para el desarrollo local, debe descargar el disco duro virtual del sistema opera
 ### Búsqueda de la dirección URL de blob
 Para descargar el disco duro virtual, busque primero la dirección URL de blob del disco del sistema operativo.
 
-Busque la dirección URL de blob en el nuevo [Portal de Microsoft Azure](https://ms.portal.azure.com):
+Busque la dirección URL de blob en el nuevo [Portal de Microsoft Azure](https://portal.azure.com):
 
 1.	Vaya a **Examinar** > **Máquinas virtuales**, y seleccione la máquina virtual implementada.
 2.	En **Configurar**, seleccione el icono **Discos**, lo cual abre la hoja Discos.
@@ -138,4 +138,4 @@ Con la [Herramienta de línea de comandos de Linux](../virtual-machines/command-
 - [Creación de una imagen de máquina virtual para Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

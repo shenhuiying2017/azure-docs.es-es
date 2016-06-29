@@ -48,7 +48,6 @@ La API de recomendaciones de Aprendizaje automático de Azure se puede dividir e
 - El número máximo de elementos que puede contener un catálogo es 100 000.
 - El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 - El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
-- El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 - El número máximo de elementos que se pueden solicitar al obtener recomendaciones es 150.
 
 ##3\. API: información general
@@ -798,17 +797,17 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 ##7\. Reglas de negocio de modelo
 
 Estos son los tipos de reglas admitidas:
-- <strong>BlockList</strong>: BlockList le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación. 
+- <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no quiera que se devuelvan en los resultados de la recomendación. 
 
-- <strong>FeatureBlockList</strong>: Feature BlockList le permite bloquear los elementos en función de los valores de sus características.
+- <strong>FeatureBlockList</strong>: le permite bloquear los elementos en función de los valores de sus características.
 
 *No envíe más de 1000 elementos en una sola regla de lista de bloqueo. Si lo hace, es posible que se agote el tiempo de espera de la llamada. Si necesita bloquear más de 1000 elementos, puede hacer varias llamadas de listas de bloqueo.*
 
 - <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación.
 
-- <strong>WhiteList</strong>: White List le permite sugerir recomendaciones solo a partir de una lista de elementos.
+- <strong>WhiteList</strong>: le permite solo sugerir recomendaciones a partir de una lista de elementos.
 
-- <strong>FeatureWhiteList</strong>: Feature White List le permite recomendar solo los elementos que tienen valores de característica específicos.
+- <strong>FeatureWhiteList</strong>: le permite recomendar solo los elementos que tienen valores de característica específicos.
 
 - <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
@@ -1812,12 +1811,12 @@ El objetivo de la compilación de recomendación es generar un modelo de recomen
 
 Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado para un modelo de recomendación que implique características, debe seguir estos pasos:
 - Desencadenar una compilación de rango (a menos que la puntuación de sus características sea estable) y esperar hasta que se obtenga la puntuación de la característica.
-- Recuperar el rango de las funciones mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
+- Recupere el rango de las funciones mediante una llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build).
 - Configurar una compilación de recomendación con los parámetros siguientes:
 	- `useFeatureInModel` - Establecer en True.
-	- `ModelingFeatureList` - Establecer en una lista separada por comas de características con una puntuación de 2.0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
+	- `ModelingFeatureList` - Establecer en una lista de características separada por comas con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
 	- `AllowColdItemPlacement` - Establecer en True.
-	- Opcionalmente, puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea utilizar para obtener una explicación (normalmente la misma lista de características que se utiliza en el modelado o en una sublista).
+	- Opcionalmente, puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea utilizar para obtener una explicación (normalmente la misma lista de características del modelado o de una sublista).
 - Desencadene la compilación de recomendación con los parámetros configurados.
 
 Nota: si no configura ningún parámetro (por ejemplo, invoca la compilación de recomendación sin parámetros) o no deshabilita explícitamente el uso de características (por ejemplo, `UseFeatureInModel` se establece en False), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
@@ -1896,7 +1895,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo, como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -1972,7 +1971,7 @@ XML de OData
 | buildType | Tipo de la compilación que se invocará: <br/> - 'Recomendación' para compilación de recomendación <br> - 'Rango' para compilación de rango <br/> - 'Fbt' para compilación FBT
 | apiVersion | 1\.0 |
 |||
-| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros y una lista completa de los mismos).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+| Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación y una lista completa de los mismos).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -2257,8 +2256,8 @@ Recupera parámetros de compilación.
 código de estado HTTP: 200
 
 Esta API devuelve una colección de elementos de clave y valor. Cada elemento representa un parámetro y su valor:
-- `feed/entry/content/properties/Key`: nombre del parámetro de la compilación
-- `feed/entry/content/properties/Value`: valor del parámetro de la compilación.
+- `feed/entry/content/properties/Key`: nombre del parámetro de compilación.
+- `feed/entry/content/properties/Value`: valor del parámetro de compilación.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
@@ -2459,7 +2458,7 @@ Obtenga recomendaciones de la compilación activa de tipo "Recommendation" o "Fb
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | itemIds | Lista de elementos para recomendar separados por coma. <br>Si la compilación activa es de tipo FBT, entonces solo puede enviar un elemento. <br>Longitud máxima: 1024 |
-| numberOfResults | Número de resultados requeridos <br> Máx: 150 |
+| numberOfResults | Número de resultados obligatorios <br> Máx.: 150 |
 | includeMetatadata | Uso futuro, siempre es false |
 | apiVersion | 1\.0 |
 
@@ -2471,8 +2470,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados.
 
@@ -2639,7 +2638,7 @@ Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o 
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | itemIds | Lista de elementos para recomendar separados por coma. <br>Si la compilación activa es de tipo FBT, entonces solo puede enviar un elemento. <br>Longitud máxima: 1024 |
-| numberOfResults | Número de resultados requeridos <br> Máx: 150 |
+| numberOfResults | Número de resultados obligatorios <br> Máx.: 150 |
 | includeMetatadata | Uso futuro, siempre es false
 | buildId | el id. de compilación que se utilizará en esta solicitud de recomendación |
 | apiVersion | 1\.0 |
@@ -2652,8 +2651,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2669,7 +2668,7 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | itemId | Elemento para el que se recomienda. <br>Longitud máxima: 1024 |
-| numberOfResults | Número de resultados requeridos <br> Máx: 150 |
+| numberOfResults | Número de resultados obligatorios <br> Máx.: 150 |
 | minimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. |
 | includeMetatadata | Uso futuro, siempre es false |
 | apiVersion | 1\.0 |
@@ -2684,8 +2683,8 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
 - `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2760,7 +2759,7 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | itemId | Elemento para el que se recomienda. <br>Longitud máxima: 1024 |
-| numberOfResults | Número de resultados requeridos <br> Máx: 150 |
+| numberOfResults | Número de resultados obligatorios <br> Máx.: 150 |
 | minimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. |
 | includeMetatadata | Uso futuro, siempre es false |
 | buildId | el id. de compilación que se utilizará en esta solicitud de recomendación |
@@ -2776,8 +2775,8 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 - `Feed\entry\content\properties\Name1`: nombre del elemento.
 - `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado: (opcional).
 - `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2811,8 +2810,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2848,8 +2847,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2883,8 +2882,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -2921,8 +2920,8 @@ código de estado HTTP: 200
 La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los siguientes datos:
 - `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 - `Feed\entry\content\properties\Name`: nombre del elemento.
-- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+- `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número más alto significa mayor confianza.
+- `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones).
 
 Vea un ejemplo de respuesta en 12.1
 
@@ -3087,4 +3086,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

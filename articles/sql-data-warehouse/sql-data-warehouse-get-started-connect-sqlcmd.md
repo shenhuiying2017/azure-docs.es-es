@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Consulta con SQLCMD | Microsoft Azure"
-   description="Consulta del Almacenamiento de datos con SQLCMD."
+   pageTitle="Consulta de Almacenamiento de datos SQL de Azure | Microsoft Azure"
+   description="Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,23 +13,26 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/09/2016"
+   ms.date="06/16/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# Consulta con SQLCMD
+# Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Power BI][]
-- [Aprendizaje automático de Azure][]
-- [SQLCMD][]
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Este tutorial muestra cómo se consulta el Almacenamiento de datos SQL de Azure con la utilidad sqlcmd.exe.
+Este tutorial usa la utilidad de línea de comandos sqlcmd para consultar un Almacenamiento de datos SQL de Azure.
 
 ## Requisitos previos
 
-+ Para descargar el archivo [sqlcmd.exe][], consulte la página de [Utilidades de la línea de comandos 11 de Microsoft para SQL Server][].
+Para seguir paso a paso este tutorial, necesita:
 
-## Conectar
+-  [sqlcmd.exe][]. Para descargar este archivo, consulte la página de [Utilidades de la línea de comandos 11 de Microsoft para SQL Server][].
+
+## 1\. Conectar
 
 Para empezar a trabajar con sqlcmd, abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión deberá tener los siguientes parámetros obligatorios:
 
@@ -47,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] El parámetro opcional -I, que habilita identificadores entre comillas, es actualmente obligatorio para conectarse al Almacenamiento de datos SQL.
 
-## Consultar
+## 2\. Consultar
 
 Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia. En este ejemplo, las consultas se envían en modo interactivo.
 
@@ -73,17 +76,14 @@ C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d A
 Para más información acerca de todas las opciones de sqlcmd, consulte la [documentación de sqlcmd][sqlcmd.exe].
 
 <!--Articles-->
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
-[Aprendizaje automático de Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
+
 
 <!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/es-ES/library/ms162773.aspx
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
 [Utilidades de la línea de comandos 11 de Microsoft para SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

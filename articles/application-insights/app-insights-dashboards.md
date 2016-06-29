@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="06/03/2016"
+	ms.date="06/14/2016"
 	ms.author="awills"/>
 
 # Navegación y paneles en el portal de Application Insights
@@ -79,7 +79,7 @@ Una vez que un icono se encuentra en el panel, es posible ajustarlo.
 
 1. Agregue un gráfico al icono. 
 2. Configure la métrica, la dimensión de agrupación y el estilo (tabla, gráfico) de un gráfico.
-3. Configure las propiedades de intervalo de tiempo y filtrado de los gráficos en el icono.
+3. Configure las propiedades de intervalo de tiempo y filtrado de los gráficos en el icono. Puede establecer su propio intervalo de tiempo del gráfico o heredar el intervalo de tiempo del panel.
 4. Establezca el título del icono.
 
 Los iconos anclados desde hojas del explorador de métricas tienen más opciones de edición que los iconos anclados desde una hoja de información general.
@@ -110,4 +110,40 @@ Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
 Obtenga información acerca de [Recursos, roles y control de acceso en Application Insights](app-insights-resources-roles-access-control.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## Settings
+
+El botón Settings (Configuración) de la hoja de información general no sirve solo para la configuración, sino que también ofrece una puerta a varios tipos de gráficos.
+
+* **Registros de auditoría**: revise las alertas y acciones que se han realizado en el recurso de aplicación.
+* [Nueva solicitud de soporte técnico](app-insights-get-dev-support.md): opciones para obtener ayuda sobre cualquier aspecto de Azure. En Application Insights, otra forma de obtener ayuda es usar el botón de emoticono de la parte superior derecha de la ventana.
+* [Mapa de la aplicación](app-insights-dependencies.md#application-map): mapa activo que muestra los componentes de la aplicación, obtenidos de la información de dependencia.
+* [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream): métricas clave con una latencia de 1 segundo aproximadamente, para la supervisión de una nueva versión.
+* **Errores**: errores de solicitudes, errores de llamadas de dependencias y excepciones. [Hoja de métricas editable](app-insights-metrics-explorer.md).
+* **Rendimiento**: tiempo de respuesta, tiempos de respuesta de dependencia. [Hoja de métricas editable](app-insights-metrics-explorer.md).
+* [Servidores](app-insights-web-monitor-performance.md): contadores de rendimiento. Está disponible si se [instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md).
+* **Explorador**: vista de página y rendimiento de AJAX. Está disponible si se [instrumentan las páginas web](app-insights-javascript.md).
+* **Uso**: vista de página, recuentos de usuarios y sesiones. Está disponible si se [instrumentan las páginas web](app-insights-javascript.md).
+* **Introducción**: tutorial en línea.
+* **Propiedades**: clave de instrumentación, suscripción e identificador de recursos.
+* [Disponibilidad](app-insights-monitor-web-app-availability.md): configuración y resultados de pruebas web.
+* [Alertas](app-insights-alerts.md): configuración de alertas de métricas.
+* [Exportación continua](app-insights-export-telemetry.md): configuración de la exportación de los datos de telemetría al Almacenamiento de Azure.
+* [Pruebas de rendimiento](app-insights-monitor-web-app-availability.md#performance-tests): configuración de una carga simétrica en el sitio web.
+* [Cuotas y precios](app-insights-pricing.md) y [muestreo de ingesta](app-insights-sampling.md).
+* **Acceso a API**: se utiliza actualmente para crear [anotaciones de versión](app-insights-annotations.md) y para la API de acceso a datos.
+* [**Elementos de trabajo**](app-insights-diagnostic-search.md#create-work-item): conéctese a un sistema de seguimiento de trabajos de modo que pueda crear errores mientras se inspeccionan los datos de telemetría.
+* [**Usuarios**](app-insights-resources-roles-access-control.md): administre quién tiene acceso al recurso de la aplicación.
+* [**Roles**](app-insights-resources-roles-access-control.md): administre qué pueden hacer los usuarios.
+* [**Etiquetas**](..\resource-group-using-tags.md): organice los recursos de Azure.
+* [**Bloqueos**](..\resource-group-lock-resources.md): bloquee recursos de Azure.
+* [**Exportar plantilla**](app-insights-powershell.md): exporte una definición del recurso de Azure de forma que pueda usarla como plantilla para crear nuevos recursos.
+
+## Pasos siguientes
+
+||
+|---|---
+|[Explorador de métricas](app-insights-metrics-explorer.md)<br/>Filtre y segmente las métricas|![Ejemplo de búsqueda](./media/app-insights-dashboards/64.png)
+|[Búsqueda de diagnóstico](app-insights-diagnostic-search.md)<br/>Busque y examine eventos y eventos relacionados, y cree errores. |![Ejemplo de búsqueda](./media/app-insights-dashboards/61.png)
+|[Analytics](app-insights-analytics.md)<br/>Lenguaje de consulta eficaz| ![Ejemplo de búsqueda](./media/app-insights-dashboards/63.png)
+
+<!---HONumber=AcomDC_0615_2016-->

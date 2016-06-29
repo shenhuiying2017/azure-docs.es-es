@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-firewall-configure.md)
 - [Portal de Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -70,4 +71,4 @@ Para obtener un tutorial sobre la creación de una base de datos, consulte [Crea
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

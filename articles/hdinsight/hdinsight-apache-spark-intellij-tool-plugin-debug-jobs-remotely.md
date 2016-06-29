@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -130,7 +130,11 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 	También puede crear su propio artefacto haciendo clic en el icono **+** (resaltado en la imagen anterior).
 
-4. Agregue bibliotecas al proyecto. Para agregar una biblioteca, haga clic con el botón derecho en el nombre del proyecto en el árbol del proyecto y haga clic en **Open Module Settings** (Abrir configuración de módulo). En el cuadro de diálogo **Project Structure** (Estructura del proyecto), en el panel izquierdo, haga clic en **Libraries** (Bibliotecas), en el símbolo (+) y en **From Maven** (Desde Maven).
+4. En el cuadro de diálogo **Project Structure** (Estructura de proyecto), haga clic en **Project** (Proyecto). Si **Project SDK** (SDK de proyecto) está configurado en 1.8, asegúrese de que **Project language level** (Nivel de lenguaje del proyecto) está configurado en **7 - Diamonds, ARM, multi-catch, etc**.
+
+	![Establecer el nivel de lenguaje del proyecto](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/set-project-language-level.png)
+
+4. Agregue bibliotecas al proyecto. Para agregar una biblioteca, haga clic con el botón derecho en el nombre del proyecto en el árbol y después haga clic en **Open Module Settings** (Abrir configuración de módulo). En el cuadro de diálogo **Project Structure** (Estructura del proyecto) del panel izquierdo, haga clic en **Libraries** (Bibliotecas), en el símbolo (+) y en **From Maven** (Desde Maven).
 
 	![Agregar biblioteca](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -139,16 +143,16 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 	* `org.scalatest:scalatest_2.10:2.2.1`
 	* `org.apache.hadoop:hadoop-azure:2.7.1`
 
-5. Copie `yarn-site.xml` y `core-site.xml` del nodo principal del clúster y agréguelos al proyecto. Use los comandos siguientes para copiar los archivos. Puede usar [Cygwin](https://cygwin.com/install.html) para ejecutar los siguientes comandos `scp` para copiar los archivos desde los nodos principales del clúster.
+5. Copie `yarn-site.xml` y `core-site.xml` del nodo principal del clúster y agréguelos al proyecto. Use los comandos siguientes para copiar los archivos. Puede usar [Cygwin](https://cygwin.com/install.html) para ejecutar los siguientes comandos `scp` y copiar los archivos desde los nodos principales del clúster.
 
 		scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
 
-	Como ya se han agregado la dirección IP y los nombres de hosts del nodo principal del clúster al archivo de hosts en el escritorio, se pueden usar los comandos **scp** de la siguiente manera.
+	Como ya se han agregado la dirección IP y los nombres de host del nodo principal del clúster al archivo de hosts del escritorio, se pueden usar los comandos **scp** de la siguiente manera.
 
 		scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
 		scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
 
-	Para agregar estos archivos a su proyecto, cópielos en la carpeta **/src** del árbol del proyecto, por ejemplo, `<your project directory>\src`.
+	Para agregar estos archivos a su proyecto, cópielos en la carpeta **/src** del árbol, por ejemplo, `<your project directory>\src`.
 
 6. Actualice `core-site.xml` con los siguientes cambios.
 
@@ -203,7 +207,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 		  }
 		}
 
-10. Repita los pasos 7 y 8 anteriores para agregar un nuevo objeto de Scala llamado `SparkSample`. Agregue el siguiente código a esta clase. Este código lee los datos de HVAC.csv (disponible en todos los clústeres de HDInsight Spark), recupera las filas que solo tienen un dígito en la séptima columna del CSV y escribe el resultado en **/HVACOut** bajo el contenedor de almacenamiento predeterminado para el clúster.
+10. Repita los pasos 8 y 9 anteriores para agregar un nuevo objeto de Scala llamado `SparkSample`. Agregue el siguiente código a esta clase. Este código lee los datos de HVAC.csv (disponible en todos los clústeres de Spark de HDInsight), recupera las filas que solo tienen un dígito en la séptima columna del CSV y escribe el resultado en **/HVACOut** bajo el contenedor de almacenamiento predeterminado para el clúster.
 
 		import org.apache.spark.SparkContext
 	
@@ -223,7 +227,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 		
 		}
 
-11. Repita los pasos 7 y 8 anteriores para agregar una nueva clase llamada `RemoteClusterDebugging`. Esta clase implementa el marco de pruebas de Spark que se usa para depurar aplicaciones. Agregue el siguiente código a la clase `RemoteClusterDebugging`.
+11. Repita los pasos 8 y 9 anteriores para agregar una nueva clase llamada `RemoteClusterDebugging`. Esta clase implementa el marco de pruebas de Spark que se usa para depurar aplicaciones. Agregue el siguiente código a la clase `RemoteClusterDebugging`.
 
 		import org.apache.spark.{SparkConf, SparkContext}
 		import org.scalatest.FunSuite
@@ -247,7 +251,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 	Hay un par de cosas importantes que se deben tener en cuenta aquí:
 	
-	* Para `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, asegúrese de que el archivo JAR del ensamblado Spark está disponible en el almacenamiento de clúster en la ruta especificada.
+	* Para `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, asegúrese de que el archivo JAR del ensamblado Spark está disponible en el almacenamiento de clúster de la ruta especificada.
 	* Para `setJars`, especifique la ubicación donde se creará el archivo JAR de artefacto. Normalmente es `<Your IntelliJ project directory>\out<project name>_DefaultArtifact\default_artifact.jar`. 
 
 
@@ -267,11 +271,11 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 ## Paso 5: Ejecución de la aplicación en modo de depuración
 
-1. En el proyecto de IntelliJ IDEA, abra `SparkSample.scala` y cree un punto de interrupción junto a 'val rdd1'. En el menú emergente para crear un punto de interrupción, seleccione **line in function executeJob** (línea en función executeJob).
+1. En el proyecto de IntelliJ IDEA, abra `SparkSample.scala` y cree un punto de interrupción junto a "val rdd1". En el menú emergente para crear un punto de interrupción, seleccione **line in function executeJob** (línea en función executeJob).
 
 	![Agregar un punto de interrupción](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
 
-2. Haga clic en el botón **Debug Run** (Depurar ejecución) junto al menú desplegable de configuración **Remote Run** (Ejecución remota) para iniciar la ejecución de la aplicación.
+2. Haga clic en el botón **Debug Run** (Depurar ejecución) junto al menú desplegable de configuración **Remote Run** (Ejecución remota) para ejecutar de la aplicación.
 
 	![Ejecutar el programa en modo de depuración](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode.png)
 
@@ -283,7 +287,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 	![Ejecutar el programa en modo de depuración](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
-	Aquí, como la aplicación se interrumpió antes de que se creara la variable `rdd1`, con esta inspección se ve cuáles son las cinco primeras filas en la variable `rdd`. Presione **ENTRAR**.
+	Aquí, como la aplicación se interrumpió antes de que se creara la variable `rdd1`, con esta inspección se ve cuáles son las cinco primeras filas de la variable `rdd`. Presione **ENTRAR**.
 
 	![Ejecutar el programa en modo de depuración](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
@@ -328,16 +332,16 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Administración de recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

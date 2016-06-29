@@ -65,15 +65,6 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 
 A continuación, se muestran algunos problemas conocidos relacionados con los cuadernos de Jupyter Notebook.
 
-### No se pueden descargar cuadernos de Jupyter en formato .ipynb
-
-Si utiliza la versión más reciente de los cuadernos de Jupyter para Spark en HDInsight e intenta descargar una copia del cuaderno como un archivo **.ipynb** desde la interfaz de usuario del cuaderno de Jupyter, podría aparecer un error de servidor interno.
-
-**Mitigación:**
-
-1.	La descarga del cuaderno en otro formato además de .ipynb (p. ej. .txt) dará un buen resultado.  
-2.	Si necesita el archivo .ipynb, puede descargarlo desde el contenedor de clúster de su cuenta de almacenamiento en **/HdiNotebooks**. Esto solo se aplica a la versión más reciente de los cuadernos de Jupyter para HDInsight, que es compatible con las copias de seguridad de cuaderno en la cuenta de almacenamiento. Es decir, las versiones anteriores de los cuadernos de Jupyter para Spark en HDInsight no tienen este problema.
-
 
 ### Cuadernos que tienen caracteres no ASCII en los nombres de archivo
 
@@ -81,7 +72,7 @@ Los cuadernos de Jupyter Notebook que pueden utilizarse en clústeres Spark de H
 
 ### Error al cargar cuadernos con tamaños mayores
 
-Es posible que aparezca un error **`Error loading notebook`** al cargar cuadernos que tengan un tamaño mayor.
+Es posible que aparezca un error **`Error loading notebook`** al cargar cuadernos de mayor tamaño.
 
 **Mitigación:**
 
@@ -89,7 +80,7 @@ El hecho de recibir este error no implica que los datos estén dañados o perdid
 
 Para evitar que este error ocurra en el futuro, debe seguir algunos procedimientos recomendados:
 
-* Es importante mantener reducido el tamaño del bloc de notas. Las salidas de los trabajos de Spark que se envían a Jupyter de vuelta se conservan en el bloc de notas. En general, con Jupyter se recomienda evitar ejecutar `.collect()` en RDD o tramas de datos de gran tamaño; en su lugar, si desea inspeccionar el contenido de un RDD, considere la posibilidad de ejecutar `.take()` o `.sample()` para que el tamaño del archivo de resultado no sea demasiado grande.
+* Es importante mantener reducido el tamaño del bloc de notas. Las salidas de los trabajos de Spark que se envían a Jupyter de vuelta se conservan en el bloc de notas. En general, con Jupyter se recomienda evitar ejecutar `.collect()` en RDD o tramas de datos de gran tamaño; en su lugar, si desea inspeccionar el contenido de un RDD, considere la posibilidad de ejecutar `.take()` o `.sample()` para que la salida no sea demasiado grande.
 * Además, cuando guarde un bloc de notas, desactive todas las celdas de la salida para reducir el tamaño.
 
 ### El primer inicio del cuaderno tarda más de lo esperado 
@@ -112,10 +103,6 @@ Cuando el clúster Spark se está quedando sin recursos, el tiempo de espera de 
     - Detenga otras aplicaciones de Spark desde YARN.
 
 2. Reinicie el cuaderno que trataba de iniciar. Debe haber suficientes recursos para crear una sesión ahora.
-
-### Podría producirse un error al revertir a un punto de control
-
-Puede crear puntos de control en los cuadernos de Jupyter Notebook en caso de que necesite revertir uno de ellos a una versión anterior. Sin embargo, si el estado actual de los cuadernos tiene una consulta SQL con visualización automática, se podría producir un error al revertir a un punto de control almacenado previamente.
 
 ##Consulte también
 
@@ -143,11 +130,11 @@ Puede crear puntos de control en los cuadernos de Jupyter Notebook en caso de qu
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
@@ -157,6 +144,6 @@ Puede crear puntos de control en los cuadernos de Jupyter Notebook en caso de qu
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md) (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

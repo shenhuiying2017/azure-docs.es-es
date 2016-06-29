@@ -37,12 +37,11 @@ Aunque esto mejora las tasas de éxito de aprovisionamiento, puede provocar un c
 Si desactiva el aprovisionamiento en exceso, puede hacerlo con una mayor proporción de VM por cuenta de almacenamiento, pero no se recomienda superar la cifra de 40.
 
 
-## Límites de (plataforma frente a personalizada)
-Un conjunto de escalado basado en una imagen de plataforma se limita a 100 VM; se recomiendan 5 cuentas de almacenamiento para esta escala. Sin embargo, un conjunto de escalado basado en una imagen personalizada (una compilada por usted) debe crear todos los VHD de disco de SO dentro de una cuenta de almacenamiento. Por lo tanto, el número máximo de VM en un conjunto de escalado basado en una imagen personalizada es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
+## Límites
+Un conjunto de escalas basado en una imagen personalizada (una compilada por usted) debe crear todos los discos duros virtuales del disco del sistema operativo dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de máquinas virtuales de un conjunto de escalas basado en una imagen personalizada es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
 
+Un conjunto de escalas basado en una imagen de plataforma se limita a 100 máquinas virtuales; se recomiendan 5 cuentas de almacenamiento para esta escala.
 
-## Gran escala
+Para que se permitan un número de máquinas virtuales superior a estos límites, debe implementar varios conjuntos de escalas. [Para ver un ejemplo de cómo hacerlo, consulte esta plantilla.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-Un conjunto de escalado se limita a 100 VM para imágenes de la plataforma y 20 para imágenes personalizadas (40 sin en aprovisionamiento en exceso). Para más, debe implementar varios conjuntos de escalado. Para obtener un ejemplo de cómo hacerlo, consulte esta plantilla: https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale.
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

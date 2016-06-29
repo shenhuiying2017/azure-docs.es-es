@@ -49,15 +49,15 @@ Vamos a examinar las distintas consideraciones y opciones que deberá tener en c
 - Proporcione acceso total a la red local + red virtual de Azure.
 - Incluye el acceso conjunto de dominio para las aplicaciones y los datos. Las aplicaciones remotas se pueden autenticar con Active Directory local. A continuación, podrán tener acceso a los recursos del dominio.
 - Habilitar la supervisión y administración avanzadas con las soluciones de System Center existentes y las directivas de grupo de Windows (mediante una imagen personalizada basada en Windows Server 2012 R2)
-- Compatibilidad con [Express Route](https://azure.microsoft.com/services/expressroute/) para conectar la red virtual de Azure a la red virtual local.
+- Compatibilidad con [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para conectar la red virtual de Azure a la red virtual local.
 
 Créela mediante la opción **Crear con red virtual** y seleccione la opción de unirse a un dominio.
 
 ## Opciones de autenticación
 RemoteApp de Azure admite tanto cuentas de Microsoft como cuentas de Azure Active Directory; aunque no todas las colecciones admiten todos los métodos.
 
-| Tipo de cuenta | | Nube | Nube + red virtual | Híbrida |
-|-----------------------------------|-------------------------------------------------------------|-------|--------------|-------|
+| Tipo de cuenta | | Nube | Nube + red virtual | Híbrido |
+|-----------------------------------|-------------------------------------------------------------|-------|--------------|--------|
 | Cuenta Microsoft | | Sí | Sí | No |
 | Azure Active Directory (Azure AD) | | | | |
 | | Solo Azure AD | Sí | Sí | No |
@@ -91,4 +91,4 @@ Bueno, creo que ya lo tenemos claro. Solo queda una cosa por hacer: crear la pri
 
 [Crear una colección de nube](remoteapp-create-cloud-deployment.md) o [crear una colección híbrida](remoteapp-create-hybrid-deployment.md): ya está preparado para crear su colección.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

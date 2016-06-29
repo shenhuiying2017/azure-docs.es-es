@@ -46,9 +46,7 @@ Cuando visita un servicio con direcciones URL no específicas de inquilinos (p. 
 
 > [AZURE.NOTE]
 >
-
 - El nombre de dominio debe aparecer como "Active" en la sección **Active Directory** > **Directorio** > **Dominios** del Portal de Azure clásico donde se ha configurado la marca.
-
 - La personalización de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Si inicia sesión con una cuenta de Microsoft personal, puede ver una lista de iconos de usuario con la personalización de marca presentada por Azure AD, pero la personalización de marca de su organización no se aplicará a la página de inicio de sesión de la cuenta de Microsoft.
 
 
@@ -221,4 +219,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

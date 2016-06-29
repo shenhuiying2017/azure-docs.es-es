@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 
@@ -23,7 +23,7 @@ Las funciones de ventana se introdujeron en el estándar SQL de ISO/ANSI en 2003
 
 Las funciones de ventana se usan para realizar cálculos dentro de conjuntos de filas denominados *ventanas*. Las ventanas se definen mediante la cláusula OVER. Las funciones de ventana resuelven algunos escenarios clave de manera muy eficaz.
 
-En esta guía de aprendizaje o tutorial, se usan dos conjuntos de datos de ejemplo para guiarlo por escenarios de ejemplo donde puede aplicar funciones de ventana. Para obtener más información, consulte [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+En esta guía de aprendizaje, se usan dos conjuntos de datos de ejemplo para guiarlo por escenarios de ejemplo donde puede aplicar funciones de ventana. Para obtener más información, consulte [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 Las funciones de ventana se dividen en las siguientes categorías:
 
@@ -672,7 +672,7 @@ Estas dos funciones calculan un percentil basándose en una distribución contin
 
 **Sintaxis**
 
-    [PERCENTILE_CONT | PERCENTILE_DISC] \( numeric_literal ) 
+    [PERCENTILE_CONT | PERCENTILE_DISC] ( numeric_literal ) 
         WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ] )
         OVER ( [ PARTITION BY <identifier,>…[n] ] ) AS <alias>
 
@@ -743,4 +743,4 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 - [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

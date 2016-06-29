@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/15/2016"
+   ms.date="06/13/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solución de problemas de Almacenamiento de datos SQL de Azure
@@ -116,7 +116,7 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 [Supervisión de la carga de trabajo mediante DMV]: ./sql-data-warehouse-manage-monitor.md
 [Administración de estadísticas en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-statistics.md
 [instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
 [Procedimientos recomendados para el Almacenamiento de datos SQL]: ./sql-data-warehouse-best-practices.md
 [estadísticas]: ./sql-data-warehouse-develop-statistics.md
@@ -126,4 +126,4 @@ Consulte [Procedimientos recomendados para el Almacenamiento de datos SQL][] par
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

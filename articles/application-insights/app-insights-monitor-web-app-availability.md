@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="06/21/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -69,7 +69,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
 - De forma predeterminada, se le envían **alertas** cuando hay errores en tres ubicaciones durante cinco minutos. Es probable que un error en una ubicación sea un problema de red y no un problema con su sitio. No obstante, puede cambiar el umbral a más o menos sensible, y también puede cambiar las personas a quienes se deben enviar los correos electrónicos.
 
-    Puede configurar un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
+    Puede configurar un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades).
 
 #### Prueba de más URL
 
@@ -430,4 +430,4 @@ Abra los puertos 80 (http) y 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

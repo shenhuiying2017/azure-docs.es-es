@@ -37,7 +37,7 @@ La plataforma Service Fabric de Azure es ideal para las siguientes categorías d
 ## Diseño de aplicaciones compuestas por microservicios sin y con estado
 La creación de aplicaciones con roles de trabajo del servicio en la nube de Azure es un ejemplo de servicios sin estado. Por el contrario, los microservicios con estado mantienen el estado autorizado más allá de la solicitud y su respuesta. Esto proporciona alta disponibilidad y coherencia del estado a través de API sencillas que proporcionan garantías transaccionales respaldadas por la replicación. Los servicios con estado de Service Fabric democratizan la alta disponibilidad, llevándola a todos los tipos de aplicaciones, no solo a las bases de datos y otros almacenes de datos. Se trata de una progresión natural. Las aplicaciones ya han pasado de usar bases de datos puramente relacionales de alta disponibilidad a bases de datos NoSQL. Ahora las mismas aplicaciones pueden tener su estado "activo" y sus datos administrados en ellas para mejoras adicionales del rendimiento sin sacrificar la confiabilidad, la coherencia o la disponibilidad.
 
-Al crear aplicaciones que constan de microservicios, suele tener una combinación de aplicaciones web sin estado (ASP.NET, node.js, etc.) que llaman a servicios de nivel intermedio de negocio sin y con estado, todos ellos implementados en el mismo clúster de Service Fabric mediante los comandos de implementación de Service Fabric. Cada uno de estos servicios es independiente en lo relacionado con la escala, la confiabilidad y el uso de recursos, mejorando significativamente la agilidad en el desarrollo y la administración del ciclo de vida.
+Al crear aplicaciones que constan de microservicios, se suele tener una combinación de aplicaciones web sin estado (ASP.NET, node.js, etc.) que llaman a servicios de nivel intermedio de negocio sin y con estado, todos ellos implementados en el mismo clúster de Service Fabric mediante los comandos de implementación de Service Fabric. Cada uno de estos servicios es independiente en lo relacionado con la escala, la confiabilidad y el uso de recursos, mejorando significativamente la agilidad en el desarrollo y la administración del ciclo de vida.
 
 Los microservicios con estado simplifican los diseños de la aplicación porque acaban con la necesidad de colas y memorias caché adicionales tradicionalmente necesarias para cumplir los requisitos de disponibilidad y latencia de una aplicación puramente sin estado. Como los servicios con estado son de alta disponibilidad y de baja latencia de forma natural, hay menos partes en movimiento que administrar en su aplicación en su conjunto. En los siguientes diagramas se muestran las diferencias entre diseñar una aplicación sin estado y otra con estado. Al aprovecharse los modelos de programación de [Reliable Services](service-fabric-reliable-services-introduction.md) y [Reliable Actors](service-fabric-reliable-actors-introduction.md), los servicios con estado reducen la complejidad de la aplicación, al mismo tiempo que se obtienen un alto rendimiento y una baja latencia.
 
@@ -50,22 +50,15 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-
-Empiece a crear servicios sin y con estado con los modelos de programación de [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
-
-Vea también los siguientes temas:
-
-[Quiero información acerca de los microservicios](service-fabric-overview-microservices.md)
-
-[Estado de servicio](service-fabric-concepts-state.md)
-
-[Disponibilidad de los servicios de Service Fabric](service-fabric-availability-services.md)
-
-[Escalación de aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
-
-[Cómo crear particiones de los servicios confiables de Service Fabric](service-fabric-concepts-partitioning.md)
+* Empiece a crear servicios sin y con estado con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
+* Vea también los siguientes temas:
+    * [Quiero información acerca de los microservicios](service-fabric-overview-microservices.md)
+    * [Estado de servicio](service-fabric-concepts-state.md)
+    * [Disponibilidad de los servicios de Service Fabric](service-fabric-availability-services.md)
+    * [Escalación de aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
+    * [Cómo crear particiones de los servicios confiables de Service Fabric](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0615_2016-->

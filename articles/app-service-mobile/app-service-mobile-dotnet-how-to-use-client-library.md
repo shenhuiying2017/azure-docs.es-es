@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
@@ -47,13 +47,25 @@ El tipo del cliente con tipo correspondiente en C# es el siguiente:
 
 Tenga en cuenta que [JsonPropertyAttribute] se usa para definir la asignación *PropertyName* entre el tipo de cliente y la tabla.
 
-Para obtener información sobre cómo crear tablas nuevas en el back-end de Aplicaciones móviles, consulte la información de los [Procedimientos del SDK de servidor .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) o los [Procedimientos del SDK de servidor Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Si creó el back-end de la Aplicación móvil en el Portal de Azure mediante la guía de inicio rápido, también puede usar la opción **Tablas fáciles** en el [Portal de Azure].
+Para obtener información sobre cómo crear tablas nuevas en el back-end de Aplicaciones móviles, consulte la información del [tema del SDK de servidor .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) o el [tema del SDK de servidor Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). Si creó el back-end de la Aplicación móvil en el Portal de Azure mediante la guía de inicio rápido, también puede usar la opción **Tablas fáciles** en el [Portal de Azure].
+
+###Instalación del paquete del SDK de cliente administrado
+
+Utilice uno de los métodos siguientes para instalar el paquete del SDK de cliente administrado para Aplicaciones móviles desde [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/):
+
++ **Visual Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Administrar paquetes NuGet**, busque el paquete `Microsoft.Azure.Mobile.Client` y, por último, haga clic en **Instalar**.
+
++ **Xamarin Studio** Haga clic con el botón derecho en el proyecto, haga clic en **Add** (Agregar) > **Add NuGet Packages** (Agregar paquetes de NuGet), busque el paquete `Microsoft.Azure.Mobile.Client ` y, a continuación, haga clic en **Add Package** (Agregar paquete).
+
+En el archivo de la actividad principal, no olvide agregar la siguiente instrucción **using**:
+
+	using Microsoft.WindowsAzure.MobileServices;
 
 ###<a name="symbolsource"></a>Trabajo con símbolos de depuración en Visual Studio
 
-Los símbolos del espacio de nombres Microsoft.Azure.Mobile están disponibles en [SymbolSource]. Consulte las [Instrucciones de SymbolSource] para integrar SymbolSource con Visual Studio.
+Los símbolos del espacio de nombres Microsoft.Azure.Mobile están disponibles en [SymbolSource]. Consulte las [instrucciones de SymbolSource] para integrar SymbolSource con Visual Studio.
 
-##<a name="create-client"></a>Creación del cliente de Aplicación móvil
+##<a name="create-client"></a>Creación del cliente de Aplicaciones móviles
 
 El código siguiente crea el objeto [MobileServiceClient] que se usa para obtener acceso al back-end de la Aplicación móvil.
 
@@ -86,7 +98,7 @@ Todo el código que obtiene acceso a datos o los modifica en una tabla de back-e
 
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
-Este es el modelo de serialización con tipo. También se admite un modelo de serialización sin tipo. El siguiente código [crea una referencia a una tabla sin tipo]\:
+Este es el modelo de serialización con tipo. También se admite un modelo de serialización sin tipo. Lo siguiente [crea una referencia a una tabla sin tipo]\:
 
 	// Get an untyped table reference
 	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
@@ -149,7 +161,7 @@ Esta consulta también se puede dividir en varias cláusulas:
 
 Los dos métodos son equivalentes y pueden usarse indistintamente. La opción anterior (de concatenación de varios predicados en una consulta) es más compacta y es la que se recomienda.
 
-La cláusula `Where` admite las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores. Al tener en cuenta lo que admite el SDK de servidor, puede consultar la [documentación de OData v3].
+La cláusula `Where` admite las operaciones que pueden traducirse en el subconjunto OData. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores. Al considerar lo que admite el SDK de servidor, puede consultar la [documentación de OData v3].
 
 ###<a name="sorting"></a>Clasificación de datos devueltos
 
@@ -231,7 +243,7 @@ Al ejecutar una consulta mediante un objeto de tabla sin tipo, debe especificar 
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Newtonsoft Json.NET, consulte el sitio de [Json.NET].
+Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para más información sobre JToken y Newtonsoft Json.NET, consulte el sitio de [Json.NET].
 
 ### <a name="inserting"></a>Inserción de datos en el back-end de una aplicación móvil
 
@@ -307,7 +319,7 @@ Dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiem
 
 El servicio Aplicaciones móviles es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Aplicaciones móviles establece la propiedad `version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `\version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `version` correcto del back-end para confirmar los cambios.
 
-Define una columna en la clase de tabla para la propiedad del sistema `version` para habilitar la simultaneidad optimista. Por ejemplo:
+Defina una columna en la clase de tabla para la propiedad del sistema `version` para habilitar la simultaneidad optimista. Por ejemplo:
 
     public class TodoItem
     {
@@ -330,7 +342,7 @@ Las aplicaciones con tablas sin tipo permiten la simultaneidad optimista mediant
 	//Enable optimistic concurrency by retrieving version
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
-Además de habilitar la simultaneidad optimista, se debe detectar la excepción `MobileServicePreconditionFailedException<T>` en el código al llamar a [UpdateAsync]. Resuelva el conflicto aplicando la `version` correcta al registro actualizado y llame a [UpdateAsync] con el registro resuelto. El siguiente código muestra cómo resolver un conflicto de escritura detectado:
+Además de habilitar la simultaneidad optimista, se debe detectar la excepción `MobileServicePreconditionFailedException<T>` en el código al llamar a [UpdateAsync]. Resuelva el conflicto aplicando el valor `version` correcto al registro actualizado y llame a [UpdateAsync] con el registro resuelto. El siguiente código muestra cómo resolver un conflicto de escritura detectado:
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -386,11 +398,11 @@ Además de habilitar la simultaneidad optimista, se debe detectar la excepción 
 	    await msgDialog.ShowAsync();
 	}
 
-Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+Para más información, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ###<a name="binding"></a>Enlace de datos de Aplicaciones móviles a una interfaz de usuario de Windows
 
-En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows. Puede ejecutar el siguiente código de muestra para enlazar el origen de la lista con una consulta de elementos incompletos en `todoTable` y visualizarlos en una lista muy sencilla. [MobileServiceCollection] crea una colección de enlaces para Aplicaciones móviles.
+En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows. Puede ejecutar el siguiente código de muestra para enlazar el origen de la lista con una consulta de elementos incompletos en `todoTable` y visualizarlos en una lista muy sencilla. [MobileServiceCollection] crea una colección de enlaces compatible con Aplicaciones móviles.
 
 	// This query filters out completed TodoItems.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
@@ -473,7 +485,7 @@ Se proporcionan ejemplos de los siguientes patrones de autenticación de flujo d
 
 La biblioteca de autenticación de Active Directory (ADAL) se puede usar para iniciar la autenticación de usuarios desde el cliente con la autenticación de Azure Active Directory.
 
-1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD, para lo que debe seguir el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
+1. Configure el back-end de su aplicación móvil para el inicio de sesión en AAD, para lo que debe seguir el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory]. Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 
 2. En Visual Studio o Xamarin Studio, abra el proyecto y agregue una referencia al paquete NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Al buscar, incluya las versiones preliminares.
 
@@ -481,9 +493,9 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
 
 	* Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 	
-	* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** de **Configuración de Azure Active Directory** en el portal.
+	* Reemplace **INSERT-RESOURCE-ID-HERE** por el identificador de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** de **Configuración de Azure Active Directory** en el portal.
 	
-	* Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
+	* Reemplace **INSERT-CLIENT-ID-HERE** por el identificador de cliente que copió de la aplicación cliente nativa.
 	
 	* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
 	
@@ -732,7 +744,7 @@ Cuando se cierre la sesión de un usuario, también es preciso quitar la credenc
 	client.Logout();
 	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
-Las aplicaciones de Xamarin utilizan las API de [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) API para almacenar de forma segura las credenciales en un objeto **Cuenta**. Para ver un ejemplo del uso de estas API, consulte el archivo de código [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) en el [ejemplo de uso compartido de fotografías ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
+Las aplicaciones de Xamarin utilizan las API de [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) para almacenar de forma segura las credenciales en un objeto **Cuenta**. Para ver un ejemplo del uso de estas API, consulte el archivo de código [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) en el [ejemplo de uso compartido de fotografías ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
 
 Si utiliza la autenticación administrada por el cliente, también puede almacenar en caché el token de acceso obtenido del proveedor, como Facebook o Twitter. Este token se puede especificar al solicitar un nuevo token de autenticación del back-end, tal como se muestra a continuación:
 
@@ -744,7 +756,7 @@ Si utiliza la autenticación administrada por el cliente, también puede almacen
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">Notificaciones push
+##<a name="pushnotifications"></a>Notificaciones push
 
 Los siguientes temas tratan sobre las notificaciones push:
 
@@ -953,6 +965,6 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [SymbolSource]: http://www.symbolsource.org/
-[Instrucciones de SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
+[instrucciones de SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

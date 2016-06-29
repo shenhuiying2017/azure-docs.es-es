@@ -13,31 +13,29 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/27/2016"
+    ms.date="06/14/2016"
     ms.author="sstein"/>
 
 # Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell
 
-
-
 > [AZURE.SELECTOR]
+- [Información general](sql-database-geo-replication-overview.md)
 - [Portal de Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+- [T-SQL](sql-database-geo-replication-transact-sql.md)
 
+En este artículo se muestra cómo configurar la replicación geográfica activa para Base de datos SQL de Azure con PowerShell.
 
-En este artículo se muestra cómo configurar la replicación geográfica para Base de datos SQL de Azure con PowerShell.
-
-Para iniciar la conmutación por error, vea [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-powershell.md).
+Para iniciar la conmutación por error, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-powershell.md).
 
 >[AZURE.NOTE] La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
 
-Puede configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos o en otras (regiones). Las bases de datos secundarias están disponibles en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
 
-Para configurar la replicación geográfica, necesita lo siguiente:
 
-- Una suscripción de Azure. Si necesita una suscripción a Azure, haga clic en la opción **CUENTA GRATUITA** de la parte superior de la página y, después, vuelva para finalizar este artículo.
-- Una base de datos SQL de Azure: la base de datos principal que quiere replicar en una región geográfica diferente.
+Para configurar la replicación geográfica activa mediante PowerShell, necesitará lo siguiente:
+
+- Una suscripción de Azure. 
+- Una base de datos SQL de Azure: la base de datos principal que quiere replicar.
 - Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -158,11 +156,11 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 ## Recursos adicionales
 
 - [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
+- [Spotlight on new Geo-Replication capabilities (Lo más destacado de las nuevas funcionalidades de replicación geográfica)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->
