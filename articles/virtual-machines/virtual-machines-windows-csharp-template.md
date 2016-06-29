@@ -454,8 +454,8 @@ En este paso, use las clases [ResourceGroup](https://msdn.microsoft.com/library/
           credential,
           groupName",
           storageName,
-          deploymentName}",
-          subscriptionId}");
+          deploymentName,
+          subscriptionId);
         Console.ReadLine();
 
 ##Paso 7: Incorporación del código para eliminar los recursos
@@ -497,4 +497,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 - Si hubo problemas durante la implementación, el paso siguiente sería mirar en [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Aprenda a administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0615_2016-->

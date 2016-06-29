@@ -22,8 +22,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Introducción a la seguridad](sql-database-get-started-security.md)
-- [Concesión de acceso](sql-database-manage-logins.md)
+- [Tutorial introductorio](sql-database-get-started-security.md)
+- [Conceder acceso](sql-database-manage-logins.md)
 
 
 Comience aquí si desea información general sobre los conceptos de acceso a Base de datos SQL para administradores, no administradores y roles.
@@ -137,12 +137,6 @@ Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\
 En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar individualmente. Muchos de estos permisos están anidados. Por ejemplo, el permiso `UPDATE` de un esquema incluye el permiso `UPDATE` en cada tabla dentro de dicho esquema. Al igual que en la mayoría de los sistemas de permisos, la denegación de un permiso anula su concesión. Dada la naturaleza anidada y el número de permisos, es preciso realizar un estudio meticuloso para diseñar un sistema de permisos apropiado para proteger adecuadamente la base de datos. Comience con la lista de permisos de [Permisos (motor de base de datos)](https://msdn.microsoft.com/library/ms191291.aspx) y revise la [imagen a tamaño de póster](http://go.microsoft.com/fwlink/?LinkId=229142) de los permisos.
 
 
-### Más información
-
-[Protección de bases de datos SQL](sql-database-security.md)
-
-[Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
-
 ## Pasos siguientes
 
 [Protección de bases de datos SQL](sql-database-security.md)
@@ -157,4 +151,11 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 
 [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+## Recursos adicionales
+
+[Protección de bases de datos SQL](sql-database-security.md)
+
+[Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
+
+<!---HONumber=AcomDC_0615_2016-->

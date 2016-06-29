@@ -89,7 +89,7 @@ Si quiere permanecer con su configuración personalizada, utilice [ALTER DATABAS
 
 [SQL Database Performance Insight (Información de rendimiento de Base de datos SQL)](sql-database-performance.md)
 
-## Más información
+## Recursos adicionales
 
 Para más información, consulte los siguientes artículos:
 
@@ -101,4 +101,4 @@ Para más información, consulte los siguientes artículos:
 
 - [Supervisar el rendimiento mediante el Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

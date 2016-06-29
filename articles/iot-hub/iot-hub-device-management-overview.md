@@ -3,7 +3,7 @@
  description="Información general de la administración de dispositivos de Centro de IoT de Azure: dispositivos gemelos, consultas de dispositivo, trabajos de dispositivo"
  services="iot-hub"
  documentationCenter=""
- authors="ellenfosborne"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Introducción a la administración de dispositivos desde Centro de IoT de Azure (versión preliminar)
 
@@ -24,7 +24,7 @@ Hay tres conceptos principales para la administración de dispositivos de IoT de
 
 1.  **Dispositivo gemelo:** la representación del dispositivo físico en Centro de IoT.
 
-2.  **Consultas de dispositivo**: permiten buscar dispositivos gemelos y conocerlos globalmente. Por ejemplo, puede buscar todos los dispositivos gemelos cuya versión del firmware sea la 1.0.
+2.  **Consultas de dispositivo**: permiten buscar dispositivos gemelos y conocerlos globalmente. Por ejemplo, puede buscar todos los dispositivos gemelos con versión de firmware 1.0.
 
 3.  **Trabajos del dispositivo**: acción que se realiza en uno o varios dispositivos físicos, como la actualización del firmware, el reinicio y el restablecimiento de fábrica.
 
@@ -86,7 +86,7 @@ La administración de dispositivos de Centro de IoT de Azure proporciona en la a
 
 Para más información sobre cómo usar cada uno de estos trabajos, consulte la [documentación de la API para C# y node.js][lnk-apidocs].
 
-Un trabajo puede operar en varios dispositivos. Al iniciar un trabajo, se crea un trabajo secundario asociado para cada uno de los dispositivos. Los trabajos secundarios operan en dispositivos individuales. Cada trabajo secundario tiene un puntero a su trabajo primario. El trabajo primario es solo un contenedor para los trabajos secundarios, no implementa ninguna lógica que distinga los distintos tipos de dispositivos (como la actualización de Edison Intel frente a la actualización de un Raspberry Pi). El diagrama siguiente ilustra la relación entre un trabajo primario, sus elementos secundarios y los dispositivos físicos asociados.
+Un trabajo puede operar en varios dispositivos. Al iniciar un trabajo, se crea un trabajo secundario asociado para cada uno de los dispositivos. Los trabajos secundarios operan en dispositivos individuales. Cada trabajo secundario tiene un puntero a su trabajo primario. El trabajo primario es solo un contenedor para los trabajos secundarios, no implementa ninguna lógica que distinga los tipos de dispositivos (como la actualización de Intel Edison frente a la actualización de un Raspberry Pi). El diagrama siguiente ilustra la relación entre un trabajo primario, sus elementos secundarios y los dispositivos físicos asociados.
 
 ![][img-jobs]
 
@@ -103,17 +103,9 @@ La biblioteca de cliente de administración de dispositivos tiene dos responsabi
 
 Para obtener más información sobre estas responsabilidades y sobre la implementación en el dispositivo físico, consulte [Introducing the Azure IoT Hub device management library for C][lnk-library-c] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure para C).
 
-## Pasos siguientes
+## Paso siguiente
 
-Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
-
-- [Get started with Azure IoT Hub device management using C# (Introducción a la administración de dispositivos desde Centro de IoT de Azure mediante C#).][lnk-get-started]
-
-- [How to use the device twin (Uso del dispositivo gemelo)][lnk-tutorial-twin]
-
-- [How to find device twins using queries (Búsqueda de dispositivos gemelos mediante consultas)][lnk-tutorial-queries]
-
-- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-tutorial-jobs]
+Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Introducción a la administración de dispositivos de Centro de IoT de Azure con C# (versión preliminar)][lnk-get-started].
 
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
@@ -124,9 +116,7 @@ Para más información acerca de las características de administración de disp
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

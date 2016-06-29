@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # Configuración del método de enrutamiento de conmutación por error
@@ -52,4 +52,4 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

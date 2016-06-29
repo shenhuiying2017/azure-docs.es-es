@@ -24,7 +24,7 @@ Service Fabric permite compilar y administrar aplicaciones escalables y confiabl
 
 ¿Por qué son importantes los microservicios? Las dos razones principales son:
 
-1. Le permiten escalar diferentes partes de la aplicación, según sus necesidades
+1. Le permiten escalar diferentes partes de la aplicación, según sus necesidades.
 
 2. Los equipos de desarrollo pueden ser más ágiles en la implementación de los cambios y, por tanto, dar servicio a los clientes con mayor rapidez y con más frecuencia.
 
@@ -62,7 +62,7 @@ Service Fabric ofrece compatibilidad de primera clase para toda la administraci�
 
 Las capacidades de ALM de Service Fabric permiten a los administradores de aplicación/operadores de TI usar flujos de trabajo simples y de baja interacción para aprovisionar, implementar, aplicar revisiones y supervisar aplicaciones. Estos flujos de trabajo integrados reducen en gran medida la carga de los operadores de TI para mantener las aplicaciones continuamente disponibles.
 
-La mayoría de las aplicaciones constan de una combinación de microservicios con estado y sin estado y otros tiempos de ejecución/ejecutables que se implementan juntos. Al tener tipos seguros en las aplicaciones y los microservicios empaquetados, Service Fabric permite la implementación de varias instancias de aplicación, en las que cada una de ellas se puede administrar y actualizar de forma independiente. Lo importante es que Service Fabric puede implementar *cualquier* ejecutable o tiempo de ejecución y hacer que sean confiables. Por ejemplo, se puede usar para implementar ASP.NET Core 1, node.js, máquinas virtuales de Java, scripts o cualquier cosa que conforme la aplicación.
+La mayoría de las aplicaciones constan de una combinación de microservicios con estado y sin estado y otros tiempos de ejecución/ejecutables que se implementan juntos. Al tener tipos seguros en las aplicaciones y los microservicios empaquetados, Service Fabric permite la implementación de varias instancias de aplicación, en las que cada una de ellas se puede administrar y actualizar de forma independiente. Lo importante es que Service Fabric puede implementar *cualquier* ejecutable o tiempo de ejecución y hacer que sean confiables. Por ejemplo, se puede usar para implementar ASP.NET Core 1, Node.js, máquinas virtuales de Java, scripts o cualquier cosa que conforme la aplicación.
 
 Para obtener más información sobre la administración del ciclo de vida de las aplicaciones, lea [Ciclo de vida de la aplicación](service-fabric-application-lifecycle.md). Si quiere informarse sobre la implementación de cualquier código, vea [Implementación de un ejecutable invitado](service-fabric-deploy-existing-app.md).
 
@@ -71,7 +71,7 @@ Usando Service Fabric, puede:
 
 - Desarrollar aplicaciones escalables de forma masiva, de recuperación automática.
 
-- Desarrollar aplicaciones compuestas por microservicios con el modelo de programación de Service Fabric u hospedar archivos ejecutables y otros marcos de aplicación que elija, como ASP.NET Core 1, node.js, etc.
+- Desarrollar aplicaciones compuestas por microservicios con el modelo de programación de Service Fabric u hospedar archivos ejecutables y otros marcos de aplicación que elija, como ASP.NET Core 1, Node.js, etc.
 
 - Desarrollar microservicios con estado y sin estado y hacer que sean de alta confianza.
 
@@ -103,11 +103,11 @@ Usando Service Fabric, puede:
 ## Pasos siguientes
 
 * Para obtener más información:
-	* [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
-	* [Información general sobre la terminología](service-fabric-technical-overview.md)
+    * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
+    * [Información general sobre la terminología](service-fabric-technical-overview.md)
 * Configuración del [entorno de desarrollo](service-fabric-get-started.md) de Service Fabric  
 * Selección de un [marco de modelo de programación](service-fabric-choose-framework.md) para el servicio
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

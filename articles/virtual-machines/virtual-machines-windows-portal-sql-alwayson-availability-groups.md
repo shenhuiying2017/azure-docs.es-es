@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración de Azure Resource Manager para grupos de disponibilidad AlwaysOn | Microsoft Azure"
+	pageTitle="Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure Resource Manager"
 	description="Cree un grupo de disponibilidad AlwaysOn con Máquinas virtuales de Azure en el modo Azure Resource Manager. Este tutorial usa principalmente la interfaz de usuario para crear automáticamente toda la solución."
 	services="virtual-machines-windows"
 	documentationCenter="na"
@@ -13,20 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="mikeray" />
 
-# Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure Resource Manager (GUI).
+# Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Plantilla](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Azure Resource Manager: configuración automática](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Azure Resource Manager: configuración manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+- [Portal de Azure clásico: interfaz de usuario](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Portal de Azure clásico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
 Este tutorial completo muestra cómo crear un grupo de disponibilidad de SQL Server con máquinas virtuales del Administrador de recursos de Azure. El tutorial utiliza hojas de Azure para configurar una plantilla. Revisará la configuración predeterminada, escribirá la configuración requerida y actualizará las hojas en el portal a medida que recorra este tutorial.
 
->[AZURE.NOTE] El Portal de administración de Azure incluye una nueva configuración de la galería para grupos de disponibilidad AlwaysOn con un agente de escucha. Así se configura automáticamente todo lo necesario para los grupos de disponibilidad. Para más información, consulte [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) (Oferta de AlwaysOn de SQL Server en la galería del Portal de Microsoft Azure clásico).
 
 Al final del tutorial, la solución de grupos de disponibilidad de SQL Server en Azure constará de los siguientes elementos:
 
@@ -50,11 +51,11 @@ En este tutorial se da por hecho lo siguiente:
 
 - Ya tiene una cuenta de Azure. Si no tiene ninguna, [suscríbase para obtener una cuenta de prueba](http://azure.microsoft.com/pricing/free-trial/).
 
-- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para más información, consulte [Aprovisionamiento de una máquina virtual con SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
+- Ya sabe cómo aprovisionar una máquina virtual de SQL Server desde la galería de máquina virtual mediante la interfaz gráfica de usuario (GUI). Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-- Ya tiene un conocimiento sólido de los grupos de disponibilidad. Para más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- Ya tiene un conocimiento sólido de los grupos de disponibilidad. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] Si tiene interés en el uso de los grupos de disponibilidad con SharePoint, consulte también [Configuración de grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] Si le interesa utilizar los grupos de disponibilidad con SharePoint, consulte también [Configuración de grupos de disponibilidad AlwaysOn de SQL Server 2012 para SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
 En este tutorial se usará el Portal de Azure para:
 
@@ -66,7 +67,7 @@ En este tutorial se usará el Portal de Azure para:
 
 - Conectarse a uno de los controladores de dominio y después a uno de los servidores SQL Server.
 
-## Aprovisionamiento de un grupo de disponibilidad desde la galería con el modelo de implementación de Resource Manager
+## Aprovisionar el clúster desde la Galería
 
 Azure ofrece una galería de imágenes para toda la solución. Para encontrar la plantilla:
 
@@ -84,7 +85,7 @@ Haga clic en **Aspectos básicos** y configure las opciones siguientes:
 
 - **Contraseña** es la contraseña de la cuenta de administrador del dominio. Utilice una contraseña compleja. Confirme la contraseña.
 
-- **Suscripción** es la suscripción que Azure facturará para ejecutar todos los recursos implementados para el grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
+- **Suscripción** es la suscripción que Azure facturará para ejecutar todos los recursos implementados del grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
 
 - **Grupo de recursos** es el nombre del grupo al que pertenecerán todos los recursos de Azure que se creen en este tutorial. Use **SQL-HA-RG** en este tutorial. Para obtener más información, consulte (información general del Administrador de recursos de Azure)[resource-group-overview.md/#resource-groups].
 
@@ -110,7 +111,7 @@ En la hoja **Domain and network settings** (Configuración de dominio y red), re
 
 - **SQL Server subnet name** (Nombre de subred de SQL Server) es el nombre de la parte de la red virtual que hospeda los servidores SQL Server y el testigo del recurso compartido de archivos. Use **subnet-2** en este tutorial. Esta subred usará el prefijo de dirección **10.0.1.0/26**.
 
-Para más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
+Para obtener más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
 La hoja **Domain and network settings** (Configuración de red y dominio) debería ser similar a esta:
 
@@ -140,9 +141,9 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 En **VM size, storage settings** (Configuración de tamaño y almacenamiento de máquina virtual), elija un tamaño de máquina virtual con SQL Server y revise el resto de las opciones.
 
-- **SQL Server virtual machine size** (Tamaño de máquina virtual de SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4**, o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de las máquinas virtuales en Azure](virtual-machines-linux-sizes.md).
+- **SQL Server virtual machine size** (Tamaño de máquina virtual de SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para obtener más información, consulte [Tamaños de las máquinas virtuales en Azure](virtual-machines-linux-sizes.md).
 
->[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para más información acerca de los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para obtener más información sobre los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Domain controller virtual machine size** (Tamaño de la máquina virtual del controlador de dominio) es el tamaño de la máquina virtual de los controladores de dominio. Use **D2** en este tutorial.
 
@@ -186,7 +187,7 @@ Para obtener información adicional sobre el espacio de almacenamiento y los blo
 
 - [Copias de seguridad de Windows Server y bloques de almacenamiento](http://technet.microsoft.com/library/dn390929.aspx)
 
-Para más información acerca de los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
+Para obtener más información sobre los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
 
 
 ###Configuración de SQL Server
@@ -256,4 +257,4 @@ Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Ser
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad está configurado.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

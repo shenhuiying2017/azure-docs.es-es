@@ -3,7 +3,7 @@
    description="Preguntas comunes y respuestas de clientes acerca de las características integradas y opcionales de continuidad de negocio y recuperación ante desastres de base de datos SQL de Azure." 
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="04/25/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Preguntas frecuentes sobre la continuidad del negocio
 
@@ -54,4 +54,4 @@ No existe ninguna funcionalidad integrada para restaurar de forma masiva. El scr
 
 Use la vista de administración dinámica (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obtener la última hora de la replicación, el retraso de la replicación y otro tipo de información acerca del vínculo de la replicación.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

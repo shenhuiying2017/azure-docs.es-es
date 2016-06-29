@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2016"
+   ms.date="06/14/2016"
    ms.author="ryanwi"/>
 
 # Implementar una aplicación
@@ -30,7 +30,9 @@ Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la 
 
 Cargar el paquete de aplicación lo pone en una ubicación a la que pueden tener acceso los componentes internos de Service Fabric. Puede usar PowerShell para realizar la carga. Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando **Connect-ServiceFabricCluster** para conectarse al clúster de Service Fabric.
 
-Supongamos que tiene una carpeta denominada *MyApplicationType* que contiene el manifiesto de aplicación necesario, los manifiestos de servicio y paquetes de código/configuración/datos. El comando **Copy-ServiceFabricApplicationPackage** cargará el paquete. Por ejemplo:
+Supongamos que tiene una carpeta denominada *MyApplicationType* que contiene el manifiesto de aplicación necesario, los manifiestos de servicio y paquetes de código/configuración/datos. El comando **Copy-ServiceFabricApplicationPackage** cargará el paquete al almacén de imágenes del clúster. El cmdlet **ImageStoreConnectionStringFromClusterManifest Get**, que forma parte del módulo de PowerShell del SDK de Service Fabric, se utiliza para obtener la cadena de conexión del almacén de imágenes. Para importar el módulo de SDK, ejecute *Import-Module "$ENV:ProgramFiles\\Microsoft SDKs\\Service Fabric\\Tools\\PSModule\\ServiceFabricSDK\\ServiceFabricSDK.psm1"*.
+
+El siguiente ejemplo carga el paquete:
 
 ~~~
 PS D:\temp> dir
@@ -175,12 +177,6 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-<!--
-## Next steps
-
-TODO [Upgrade applications][11]
--->
-
 ## Solución de problemas
 
 ### Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
@@ -225,4 +221,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

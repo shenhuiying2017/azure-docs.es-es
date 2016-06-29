@@ -30,7 +30,7 @@ Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatab
 
 ## Requisitos previos
 
-1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya al [Portal de Azure](https://ms.portal.azure.com). Cree una nueva **Base de datos SQL**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya al [Portal de Azure](https://portal.azure.com). Cree una nueva **Base de datos SQL**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
 2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el portal, en la **Configuración de firewall**, asegúrese de que la opción **Permitir acceso a Servicios de Azure** está establecida en **Activado**. Haga clic en el icono de "guardar".
 
@@ -339,4 +339,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -22,6 +22,7 @@
 
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-firewall-configure.md)
 - [Portal de Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
@@ -52,7 +53,7 @@ Para crear una regla de firewall de nivel de servidor mediante Transact-SQL, deb
  
 		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
- Para más información sobre estos procedimientos almacenados, consulte [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) y [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx).
+ Para obtener más información sobre estos procedimientos almacenados, consulte [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) y [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx).
 
 ## Reglas de firewall de nivel de base de datos
 
@@ -70,10 +71,10 @@ Solo un usuario de base de datos con el permiso **CONTROL** en la base de datos 
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
-Para más información sobre estos procedimientos almacenados, consulte [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) y [sp\_delete\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx).
+Para obtener más información sobre estos procedimientos almacenados, consulte [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) y [sp\_delete\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
 ## Pasos siguientes
 
-Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Para obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para comprender cómo se llega a las bases de datos, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para comprender cómo se llega a las bases de datos, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

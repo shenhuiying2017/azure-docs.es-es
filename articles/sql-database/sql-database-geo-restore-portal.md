@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-geo-restore.md)
 - [Portal de Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
 En este artículo se muestra cómo restaurar la base de datos en un nuevo servidor mediante la restauración geográfica con el Portal de Azure.
-
-La [restauración geográfica](sql-database-geo-restore.md) ofrece la capacidad de restaurar una base de datos a partir de una copia de seguridad con redundancia geográfica para crear una base de datos nueva. La base de datos se puede crear en cualquier servidor y en cualquier región de Azure. Dado que usa una copia de seguridad con redundancia geográfica como su fuente, se puede usar para recuperar una base de datos aunque esta sea inaccesible debido a una interrupción. La restauración geográfica se habilita automáticamente para todos los niveles de servicio sin ningún costo adicional.
 
 ## Selección de la base de datos que se va a restaurar
 
@@ -34,7 +33,7 @@ Para restaurar una base de datos en el Portal de Azure, haga lo siguiente:
 
 1.	Abra el [Portal de Azure](https://portal.azure.com).
 2.  En el lado izquierdo de la pantalla, seleccione **Nuevo** > **Datos y almacenamiento** > **Base de datos SQL**.
-3.  Seleccione **Copia de seguridad** como origen y luego la copia de seguridad con redundancia geográfica desde la que desea recuperar.
+3.  Seleccione **Copia de seguridad** como origen y, después, la copia de seguridad con redundancia geográfica que desea recuperar.
 
     ![Restauración de una base de datos SQL de Azure](./media/sql-database-geo-restore-portal/geo-restore.png)
 
@@ -52,4 +51,4 @@ Para restaurar una base de datos en el Portal de Azure, haga lo siguiente:
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

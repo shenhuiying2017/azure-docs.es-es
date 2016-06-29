@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
@@ -24,7 +24,7 @@
 
 *Por [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-En este tutorial aprenderá a tomar un sitio web de WordPress existente creado a través de la galería en Azure y convertirlo en una instalación multisitio de WordPress. Adicionalmente, aprenderá a asignar un dominio personalizado a cada uno de los subsitios dentro de su instalación.
+En este tutorial aprenderá a tomar una aplicación web de WordPress existente creada a través de la galería en Azure y convertirla en una instalación WordPress Multisite. Adicionalmente, aprenderá a asignar un dominio personalizado a cada uno de los subsitios dentro de su instalación.
 
 Se supone que tiene una instalación existente de WordPress. De lo contrario, siga las instrucciones que se proporcionan en [Creación de un sitio web de WordPress desde la galería de Azure][website-from-gallery].
 
@@ -83,7 +83,7 @@ El modo de plan **Gratis** del [Servicio de aplicaciones](http://go.microsoft.co
 * En **General**, seleccione *COMPARTIDO* o *ESTÁNDAR*
 * Haga clic en **Guardar**
 
-Es posible que reciba un mensaje pidiéndole que verifique el cambio y que confirme que su aplicación web puede incurrir en costes, según el uso y el resto de la configuración que realice.
+Es posible que reciba un mensaje pidiéndole que verifique el cambio y que confirme que su aplicación web puede incurrir en costos, según el uso y el resto de la configuración que realice.
 
 El procesamiento de la nueva configuración tarda unos pocos segundos, de modo que ahora es un buen momento para empezar a configurar su dominio.
 
@@ -120,7 +120,7 @@ Con la ayuda de la dirección IP del paso anterior, vuelva a su administrador de
 
 ## Instalación y configuración del complemento
 
-Multisitio de WordPress no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] que agrega la funcionalidad. Inicie sesión en la sección Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping**.
+WordPress Multisite no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] que agrega la funcionalidad. Inicie sesión en la sección Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping**.
 
 Después de instalar y activar el complemento, visite **Configuración** > **Asignación de dominios** para configurarlo. En el primer cuadro de texto, *Dirección IP del servidor*, indique la dirección IP que usó para configurar el registro A para el dominio. Establezca las *Opciones de dominio* que desee (los valores predeterminados suelen ser válidos) y haga clic en **Guardar**.
 
@@ -153,4 +153,4 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0615_2016-->

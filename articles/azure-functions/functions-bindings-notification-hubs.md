@@ -131,7 +131,7 @@ En este ejemplo se muestra cómo utilizar el tipo `Notification` definido en la 
 	  }
 	}
 
-Para obtener más información acerca de cómo cargar el archivo project.json, consulte el artículo sobre la [carga de un archivo project.json](http://stackoverflow.com/questions/36411536/how-can-i-use-nuget-packages-in-my-azure-functions).
+Para más información sobre cómo cargar el archivo project.json, consulte el artículo sobre la [carga de un archivo project.json](functions-reference.md#fileupdate).
 
 Ejemplo de código:
 
@@ -155,4 +155,4 @@ Ejemplo de código:
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

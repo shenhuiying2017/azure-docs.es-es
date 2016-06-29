@@ -3,7 +3,7 @@
    description="Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL."
    services="sql-database" 
    documentationCenter="" 
-   authors="elfisher" 
+   authors="carlrabeler" 
    manager="jhubbard" 
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
    ms.date="05/27/2016"
-   ms.author="elfish"/>
+   ms.author="carlrab"/>
 
 # Diseño para la continuidad del negocio
 
@@ -27,15 +27,13 @@ Para más información sobre las estrategias de recuperación cuando se utiliza 
 
 ## Cuándo se debe usar la restauración geográfica
 
-La [restauración geográfica](sql-database-geo-restore.md) proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda. Base de datos SQL ofrece de forma predeterminada la protección integrada básica de todas las bases de datos. Dicha protección se obtiene al almacenar las copias de seguridad de la base de datos en el almacenamiento de Azure con redundancia geográfica (GRS). Si elige este método, no es necesaria ninguna configuración especial o asignación de recursos adicionales. Con estas copias de seguridad, podrá recuperar la base de datos en cualquier región mediante el comando de restauración geográfica. Vea la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener información sobre los detalles del uso de la restauración geográfica para recuperar la aplicación.
+La [restauración geográfica](sql-database-geo-restore.md) proporciona la opción de recuperación predeterminada cuando una base de datos no está disponible debido a una incidencia en la región en la que se hospeda. Base de datos SQL ofrece de forma predeterminada la protección integrada básica de todas las bases de datos. Dicha protección se obtiene al realizar y almacenar [copias de seguridad de la base de datos](sql-database-automated-backups.md) en el Almacenamiento de Azure con redundancia geográfica (GRS). Si elige este método, no es necesaria ninguna configuración especial o asignación de recursos adicionales. Con estas copias de seguridad, podrá recuperar la base de datos en cualquier región mediante el comando de restauración geográfica. Vea la sección [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para obtener información sobre los detalles del uso de la restauración geográfica para recuperar la aplicación.
 
 Deberá usar la protección integrada si su aplicación cumple los criterios siguientes:
 
 1. No se considera crítica. No tiene un SLA vinculante, por lo que no incurrirá en responsabilidades financieras en caso de tiempo de inactividad de 24 horas o más.
 2. La tasa de cambio de los datos es baja (por ejemplo de transacciones por cada hora). El RPO de 1 hora no dará como resultado pérdidas de datos masivas.
 3. La aplicación es sensible a los costes, por lo que el coste adicional de la replicación geográfica no está justificado. 
-
-Para habilitar la recuperación geográfica, consulte [Restauración geográfica de una base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica mediante el Portal de Azure](sql-database-geo-restore-portal.md).
 
 > [AZURE.NOTE] La restauración geográfica no asigna previamente la capacidad informática a ninguna región en particular para restaurar bases de datos activas de la copia de seguridad durante la interrupción. El servicio administrará la carga de carga de trabajo asociada a las solicitudes de restauración geográfica de forma que se minimice el impacto en las bases de datos existentes en dicha región, por lo que sus demandas de capacidad tendrán prioridad. Por lo tanto, el tiempo de recuperación de la base de datos dependerá del número de bases de datos que se recuperarán en la misma región de manera simultánea.
 
@@ -53,11 +51,16 @@ Para habilitar la replicación geográfica activa, consulte [Configuración de r
 
 > [AZURE.NOTE] La replicación geográfica activa también admite el acceso de solo lectura a la base de datos secundaria, lo que proporciona capacidad adicional para las cargas de trabajo de solo lectura.
 
-
-
-
 ##Cómo elegir la configuración de conmutación por error 
 
 Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Consulte [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md), para obtener más instrucciones.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Pasos siguientes
+
+- [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+
+## Recursos adicionales
+
+- [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) 
+
+<!---HONumber=AcomDC_0615_2016-->

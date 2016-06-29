@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016" 
+	ms.date="06/10/2016" 
 	ms.author="garye"/>
 
 
@@ -52,7 +52,7 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El módulo [Editar metadatos][edit-metadata] aparecerá en la lista de módulos.
 2.	Haga clic en el módulo [Editar metadatos][edit-metadata], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
-3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] \(el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 
     El experimento debería tener ahora un aspecto similar al siguiente:
 
@@ -131,4 +131,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

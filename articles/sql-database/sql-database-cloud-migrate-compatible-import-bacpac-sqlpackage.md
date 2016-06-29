@@ -54,10 +54,10 @@ Use los pasos siguientes para que la utilidad de línea de comandos [SqlPackage.
 - [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Más información
+## Recursos adicionales
 
 - [Base de datos SQL V12](sql-database-v12-whats-new.md)
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

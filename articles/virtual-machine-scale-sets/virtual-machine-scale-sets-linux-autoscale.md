@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
 # Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales
@@ -37,23 +37,21 @@ En este tutorial, implemente los recursos y las extensiones siguientes:
 
 Para más información sobre los recursos del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
 
-La plantilla que cree en este tutorial será similar a cualquier plantilla que pueda encontrarse en la galería de plantillas. Para obtener más información, consulte [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/) (Implementación de un conjunto simple de escalado de VM con VM de Linux y un Jumpbox).
-
 Antes de empezar con los pasos de este tutorial, [instale la CLI de Azure](../xplat-cli-install.md).
 
 ## Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
 
-1. **Iniciar sesión en Microsoft Azure**: en la interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema), asegúrese de que esté en modo Resource Manager escribiendo `azure config mode arm` y luego [inicie sesión con su identificador profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siguiendo las indicaciones para una experiencia de inicio de sesión interactiva en su cuenta de Azure.
+1. **Iniciar sesión en Microsoft Azure**: en la interfaz de la línea de comandos (Bash, Terminal o símbolo del sistema), asegúrese de que esté en modo Resource Manager escribiendo `azure config mode arm` y, luego, [inicie sesión con su identificador profesional o educativo](../xplat-cli-connect.md#use-the-log-in-method) escribiendo `azure login` y siguiendo las indicaciones para disfrutar de una experiencia de inicio de sesión interactiva en su cuenta de Azure.
 
 	> [AZURE.NOTE] Si tiene un identificador profesional o educativo y sabe que no tiene habilitada la autenticación en dos fases, puede usar `azure login -u` junto con el identificador profesional o educativo para iniciar una sesión sin una sesión interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../virtual-machines/resource-group-create-work-id-from-personal.md).
 
 2. **Cree un grupo de recursos**: todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmsstest1** al grupo de recursos.
 
-        azure group create vmsstestrg1 westus
+        azure group create vmsstestrg1 centralus
 
-3. **Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Cree una cuenta de almacenamiento denominada **vmsstestsa**. Mantenga abierta la ventana de la interfaz de comandos para los pasos posteriores de este tutorial:
+3. **Implemente una cuenta de almacenamiento en el nuevo grupo de recursos**: este tutorial usa varias cuentas de almacenamiento para facilitar el conjunto de escala de máquinas virtuales. Cree una cuenta de almacenamiento denominada "**vmsstestsa**". Mantenga abierta la ventana de la interfaz de comandos para los pasos posteriores de este tutorial:
 
-        azure storage account create --type LRS -g vmsstestrg1 -l westus vmsstestsa
+        azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
 ## Paso 2: Creación de la plantilla
 Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
@@ -100,9 +98,8 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 
 3. Pueden usarse variables en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro. Agregue estas variables en el elemento primario de las variables que agregó a la plantilla.
 
-        "apiVersion": "2016-03-30"
-        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
-        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+        "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
+        "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
         "vmSize": "Standard_A0",
         "imagePublisher": "Canonical",
         "imageOffer": "UbuntuServer",
@@ -124,10 +121,10 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
         "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
-        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+        "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
         "wadlogs": "<WadCfg><DiagnosticMonitorConfiguration>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="es-ES"/></PerformanceCounterConfiguration>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor\\PercentProcessorTime" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU percentage guest OS" locale="es-ES"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -144,7 +141,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "name": "[concat(parameters('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
+          "name": "[concat(parameters('resourcePrefix'), variables('storageAccountSuffix')[copyIndex()])]",
           "apiVersion": "2015-06-15",
           "copy": {
             "name": "storageLoop",
@@ -159,7 +156,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 5. Agregue el recurso de red virtual. Consulte [Proveedor de recursos de red](../virtual-network/resource-groups-networking.md) para más información.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
@@ -183,7 +180,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 6. Agregue los recursos de dirección IP públicos que usan la interfaz de red y el equilibrador de carga.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP1')]",
           "location": "[resourceGroup().location]",
@@ -195,7 +192,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           }
         },
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "[variables('publicIP2')]",
           "location": "[resourceGroup().location]",
@@ -210,7 +207,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 7. Agregue el recurso de equilibrador de carga que usa el conjunto de escala. Para más información, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](../load-balancer/load-balancer-arm.md)
         
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2015-06-15",
           "name": "[variables('loadBalancerName')]",
           "type": "Microsoft.Network/loadBalancers",
           "location": "[resourceGroup().location]",
@@ -253,7 +250,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 8. Agregue el recurso de interfaz de red que utiliza la máquina virtual independiente. Dado que las máquinas de un conjunto de escalado de máquinas virtuales no son accesibles directamente mediante una dirección IP pública, se crea una máquina virtual independiente en la misma red virtual como conjunto de escalado y se usa para tener acceso remoto a las máquinas del conjunto.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "[variables('nicName1')]",
           "location": "[resourceGroup().location]",
@@ -282,7 +279,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 9. Agregue la máquina virtual en la misma red que el conjunto de escalado.
 
         {
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-03-30",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
@@ -309,7 +306,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
               "osDisk": {
                 "name": "osdisk1",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"
@@ -329,7 +326,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "[variables('apiVersion')]",
+              "apiVersion": "2016-03-30",
               "name": "[parameters('vmSSName')]",
               "location": "[resourceGroup().location]",
               "dependsOn": [
@@ -350,11 +347,11 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'saa.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sag.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sam.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'sas.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'say.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
+                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
@@ -417,7 +414,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
                           },
                           "protectedSettings": {
                             "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey":"[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+                            "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
                             "storageAccountEndPoint":"https://core.windows.net"
                           }
                         }
@@ -546,7 +543,7 @@ Puede obtener información acerca de los conjuntos de escala de máquinas virtua
 
  - Conéctese a la máquina virtual de jumpbox igual que lo haría con cualquier otra máquina y, a continuación, podrá obtener acceso remoto a las máquinas virtuales del conjunto de escala para supervisar los procesos individuales.
 
->[AZURE.NOTE]En [Conjuntos de escalado de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx) puede encontrar una API de REST completa para obtener más información sobre de los conjuntos de escalado.
+>[AZURE.NOTE]Puede encontrar una API de REST completa para obtener más información sobre los conjuntos de escala en [Conjuntos de escala de máquinas virtuales](https://msdn.microsoft.com/library/mt589023.aspx).
 
 ## Paso 6: Eliminación de recursos
 
@@ -556,6 +553,8 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 ## Pasos siguientes
 
-Consulte la plantilla [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app (Escalado automático de un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) en la que se define una pila LAMP para ejercer la funcionalidad de escalado automático de los conjuntos de escalado de máquinas virtuales.
+- Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights](../azure-portal/insights-cli-samples.md).
+- Obtenga información sobre las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) y [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Consulte la plantilla [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app (Escalado automático de un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale), en la que se define una pila LAMP para ejercer la funcionalidad de escalado automático de los conjuntos de escalas de máquina virtual.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0615_2016-->

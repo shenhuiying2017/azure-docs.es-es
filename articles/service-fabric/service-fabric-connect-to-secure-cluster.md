@@ -37,6 +37,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+<a id="connectsecurecluster"></a>
 ## Conexión a un clúster seguro con PowerShell
 
 Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
@@ -108,4 +109,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md)
 - [Seguridad de aplicaciones y RunAs](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

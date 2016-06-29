@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # Conexión a Almacenamiento de datos SQL
-Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta. También puede revisar el artículo [Protección de una base de datos en Almacenamiento de datos SQL][] para obtener más información sobre la seguridad y cómo habilitar las conexiones a su Almacén de datos de SQL.
+Para conectarse a Almacenamiento de datos SQL, deberá pasar las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, también encontrará que determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta. También puede revisar el artículo [Proteger una base de datos en Almacenamiento de datos SQL][] para más información sobre la seguridad y cómo habilitar las conexiones a su Almacenamiento de datos SQL.
 
 En este artículo se describen los aspectos siguientes en relación con la conexión a Almacenamiento de datos SQL:
 
@@ -155,10 +155,10 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 <!--Azure.com references-->
 [conexiones y consultas]: ./sql-data-warehouse-get-started-connect.md
 [diseño de tablas]: ./sql-data-warehouse-develop-table-design.md
-[Protección de una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-security.md
+[Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

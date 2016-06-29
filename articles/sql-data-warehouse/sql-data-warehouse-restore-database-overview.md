@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restauración de una base de datos en Almacenamiento de datos SQL de Azure (información general) | Microsoft Azure"
+   pageTitle="Restauración de instancias de Almacenamiento de datos SQL de Azure (información general) | Microsoft Azure"
    description="Información general de las opciones de restauración de bases de datos para recuperar una base de datos en Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,58 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="06/14/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Restauración de una base de datos en Almacenamiento de datos SQL de Azure (información general)
+# Restauración de instancias de Almacenamiento de datos SQL de Azure (información general)
 
 > [AZURE.SELECTOR]
-- [Información general](sql-data-warehouse-restore-database-overview.md)
-- [Portal](sql-data-warehouse-restore-database-portal.md)
-- [PowerShell](sql-data-warehouse-restore-database-powershell.md)
-- [REST](sql-data-warehouse-manage-restore-database-rest-api.md)
+- [Información general][]
+- [Portal][]
+- [PowerShell][]
+- [REST][]
 
-Describe las opciones para restaurar una base de datos en Almacenamiento de datos SQL de Azure. Entre estas se incluyen la restauración de un almacenamiento de datos activo y de un almacenamiento de datos eliminado. Los almacenamientos de datos activos y eliminados se restauran de las instantáneas automáticas creadas partir de todos los almacenamientos de datos.
+Almacenamiento de datos SQL Azure protege los datos con copias de seguridad automatizadas y almacenamiento con redundancia local. Las copias de seguridad automatizadas proporcionan una manera de proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. En el caso de que un usuario modificara o eliminara datos de manera fortuita o involuntaria, puede garantizar la continuidad empresarial mediante la restauración de la base de datos a un momento dado anterior. Almacenamiento de datos SQL utiliza instantáneas de almacenamiento de Azure para realizar perfectamente y sin tiempos de inactividad una copia de seguridad de la base de datos.
 
-## Escenarios de recuperación
+## Copias de seguridad automatizadas
 
-**Recuperación de errores de infraestructura:** este escenario se refiere a la recuperación de problemas de infraestructura tales como, errores de disco, etc. Un cliente quiere garantizar la continuidad del negocio mediante una infraestructura de alta disponibilidad con tolerancia a errores.
+Se realizará automáticamente una copia de seguridad de las bases de datos **activas**, como mínimo, cada 8 horas y se conservarán durante 7 días. De este modo, podrá restaurar la base de datos activa a uno de los distintos puntos de restauración realizados en los últimos 7 días.
 
-**Recuperación de errores de usuario:** este escenario se refiere a la recuperación de datos dañados o eliminados de manera fortuita o involuntaria. Por si un usuario modificara o eliminara datos de manera fortuita o involuntaria, un cliente desea tener la opción de garantizar la continuidad del negocio mediante la restauración de la base de datos a un momento anterior en el tiempo.
+Cuando una base de datos está en pausa, se dejarán de realizar nuevas instantáneas y las anteriores se eliminarán cuando tengan una antigüedad de 7 días. Si una base de datos está en pausa durante más de 7 días, se guardará la última instantánea, de esta forma, se garantiza que siempre habrá, como mínimo, una copia de seguridad.
 
-## Directivas de instantánea
+Cuando se elimina una base de datos, se guarda la última instantánea durante 7 días.
 
-[AZURE.INCLUDE [Directiva de retención de copia de seguridad de Almacenamiento de datos SQL](../../includes/sql-data-warehouse-backup-retention-policy.md)]
+Ejecute esta consulta para ver cuándo se realizó la última copia de seguridad en la instancia:
 
+```sql
+select top 1 *
+from sys.pdw_loader_backup_runs 
+order by run_id desc;
+```
 
-## Capacidades de restauración de bases de datos
+Si necesita conservar una copia de seguridad durante más de 7 días, bastará simplemente con restaurar uno de los puntos de restauración a una nueva base de datos y, después, si lo desea, pausarla para solo pagar por el espacio de almacenamiento de dicha copia de seguridad.
 
-Veamos cómo Almacenamiento de datos SQL mejora la confiabilidad de la base de datos y permite la recuperación y la operación continua en los escenarios anteriormente mencionados.
+## Redundancia de datos
 
+Además de las copias de seguridad, Almacenamiento de datos SQL también protege los datos mediante el servicio Almacenamiento premium de Azure con [redundancia local (LRS)][]. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados. Gracias a la redundancia de datos, se garantiza que puedan sobrevivir a problemas de infraestructura, por ejemplo, errores de disco. Asimismo, asegura la continuidad empresarial mediante una infraestructura de alta disponibilidad con tolerancia a errores.
 
-### Redundancia de datos
+## Restauración de una base de datos
 
-Todos los datos de Almacenamiento de datos SQL se almacenan en Almacenamiento premium de Azure [con redundancia local (LRS)](../storage/storage-redundancy.md), y se mantienen 3 copias de los datos.
+El proceso de restauración de una instancia de Almacenamiento de datos SQL es una operación sencilla que puede realizarse en el Portal de Azure o automatizarse mediante PowerShell o las API de REST.
 
-### Restauración de base de datos
-
-La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Las características de instantánea y restauración automáticas permiten proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. Para más información sobre la restauración de bases de datos, consulte [Restore a database in Azure SQL Data Warehouse (Portal)][] \(Restauración de una base de datos en Almacenamiento de datos SQL de Azure (Portal)).
 
 ## Pasos siguientes
-Para otras tareas de administración importantes, consulte [Información general de administración][].
+Para obtener más información sobre las características de continuidad empresarial de las ediciones de Base de datos SQL de Azure, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
-[Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
-[Información general de administración]: sql-data-warehouse-overview-management.md
-[Restore a database in Azure SQL Data Warehouse (Portal)]: sql-data-warehouse-manage-database-restore-portal.md
+[Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: ./sql-database-business-continuity.md
+[redundancia local (LRS)]: ../storage/storage-redundancy.md
+[Información general]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

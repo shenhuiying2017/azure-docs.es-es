@@ -14,19 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/09/2016"
 	ms.author="jgao"/>
 
 # Personalización de los clústeres de HDInsight con Bootstrap
 
 Es probable que en ocasiones desee establecer los valores de archivos de configuración, que incluyen lo siguiente:
 
+- clusterIdentity.xml
 - core-site.xml
+- gateway.xml
+- hbase-env.xml
+- hbase-site.xml
 - hdfs-site.xml
-- mapred-site.xml
-- yarn-site.xml
+- hive-env.xml
 - hive-site.xml
+- mapred-site
 - oozie-site.xml
+- oozie-env.xml
+- storm-site.xml
+- tez-site.xml
+- webhcat-site.xml
+- yarn-site.xml
 
 Los clústeres no pueden conservar los cambios debido a la recreación de imágenes. Para más información sobre la recreación de imágenes, consulte [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (La instancia de rol se reinicia debido a actualizaciones del sistema operativo). Para mantener los cambios durante la vida útil de los clústeres, puede usar la personalización de clústeres de HDInsight durante el proceso de creación. Este es el método recomendado para cambiar las configuraciones de un clúster y persistir entre estos eventos de reinicio para el restablecimiento de imagen inicial de Azure. Estos cambios de configuración se aplican antes del inicio del servicio, por lo que no es necesario reiniciar los servicios.
 
@@ -69,20 +78,20 @@ El siguiente código de PowerShell personaliza una configuración de Hive:
 		-HttpCredential $httpCredential `
 		-Config $config 
 
-En el [Anexo A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) se puede encontrar un script de PowerShell completamente en uso.
+En el [Anexo A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample) aparece un script de PowerShell completamente en uso.
 
 **Para comprobar el cambio:**
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En el panel izquierdo, haga clic en **Examinar** y luego haga clic en **Clústeres de HDInsight**.
+2. En el panel izquierdo, haga clic en **Examinar** y en **Clústeres de HDInsight**.
 3. Haga clic en el clúster que acaba de crear mediante el script de PowerShell.
 4. Haga clic en el **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
 5. Haga clic en **Hive** en el menú izquierdo.
 6. Haga clic en **HiveServer2** en **Summary** (Resumen).
 7. Seleccione la pestaña **Configs** (Configuraciones).
 8. Haga clic en **Hive** en el menú izquierdo.
-9. Seleccione la pestaña **Advanced** (Opciones avanzadas).
-10. Desplácese hacia abajo y luego expanda **Advanced hive-site** (Sitio de Hive avanzado).
+9. Haga clic en la pestaña **Advanced** (Opciones avanzadas).
+10. Desplácese hacia abajo y expanda **Advanced hive-site** (Sitio de Hive avanzado).
 11. Busque **hive.metastore.client.socket.timeout** en la sección.
 
 Otros ejemplos de cómo personalizar otros archivos de configuración:
@@ -103,7 +112,7 @@ Para más información, vea el blog de Azim Uddin titulado [Personalización de 
 
 ## Uso del SDK de .NET
 
-Consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
+Consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## Uso de una plantilla de ARM de Azure
 
@@ -252,4 +261,4 @@ Este script de PowerShell crea un clúster de HDInsight y personaliza una config
 
     #endregion
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

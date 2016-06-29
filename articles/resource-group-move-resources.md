@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/08/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -65,20 +65,18 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Servidor de base de datos SQL: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
 - Máquinas virtuales
 - Máquinas virtuales (clásico), consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations).
-
-## Servicios parcialmente compatibles con el traslado
-
-Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una nueva suscripción son:
-
 - Redes virtuales
 
 ## Servicios no compatibles con el traslado
 
 Los servicios que actualmente no permiten trasladar un recurso son:
 
+- Puerta de enlace de aplicaciones
 - Application Insights
 - ExpressRoute
+- Conjuntos de escalado de máquinas virtuales
 - Redes virtuales (clásico) (consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations))
+- Puerta de enlace de VPN
 
 ## Limitaciones del Servicio de aplicaciones
 
@@ -105,14 +103,14 @@ Todas las demás combinaciones implican el traslado de un tipo de recurso que no
 
 Si la aplicación web se encuentra en un grupo de recursos distinto al de su plan del Servicio de aplicaciones, pero desea mover ambos a un nuevo grupo de recursos, debe realizar el traslado en dos pasos. Por ejemplo:
 
-- **web-a** reside en **grupo-web**.
-- **plan-a** reside en **grupo-plan**.
-- Desea que **web-a** y **plan-a** residan en **grupo-combinado**.
+- **web-a** reside en **web-group**.
+- **plan-a** reside en **plan-group**.
+- Desea que **web-a** y **plan-a** residan en **combined-group**.
 
 Para realizar este movimiento, debe llevar a cabo dos operaciones de traslado distintas en el siguiente orden:
 
-1. Mover **web-a** a **grupo-plan**
-2. Mover **web-a** y **plan-a** a **grupo-combinado**
+1. Mover **web-a** a **plan-group**
+2. Mover **web-a** y **plan-a** a **combined-group**
 
 ## Limitaciones de la implementación clásica
 
@@ -274,4 +272,4 @@ Con el cuerpo de solicitud:
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

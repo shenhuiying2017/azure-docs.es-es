@@ -42,7 +42,7 @@ En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes ta
 
 - Necesitará una suscripción de Azure. [Aquí](https://azure.microsoft.com/free/) puede registrarse para obtener una evaluación gratuita.
 
-- Las instrucciones para el aprovisionamiento de Data Science Virtual Machine en el Portal de Azure están disponibles en [Creación de una máquina virtual de Windows en el Portal de Azure](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+- Las instrucciones para el aprovisionamiento de Data Science Virtual Machine en el Portal de Azure están disponibles en [Creación de máquinas virtuales](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1\. Explorar datos y desarrollar modelos con el Servidor R de Microsoft o Python
 
@@ -910,4 +910,4 @@ Para mejorar su entorno de análisis, puede sacar provecho de otros servicios ta
 ## Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/02/2016"
+	ms.date="06/16/2016"
 	ms.author="marsma"/>
 
 # Datos básicos de Lote de Batch
@@ -46,15 +46,17 @@ Para obtener una comparación entre Lote y otras opciones de solución HPC en Az
 
 ## Desarrollo con Lote
 
-Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo de la carga de trabajo, lo hace mediante programación utilizando las API de Lote. Con las API de Lote, puede crear y administrar grupos de nodos de proceso (máquinas virtuales) y programar trabajos y tareas para que se ejecuten en esos nodos. Un servicio o una aplicación cliente que usted cree, usa las API de Lote para comunicarse con el servicio Lote. Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o proporcionar un servicio front-end a los clientes para que estos pueden ejecutar trabajos y tareas (a petición o dentro de una programación) en uno, cientos o miles de nodos. También puede usar Lote como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Data Factory de Azure][data_factory].
+Cuando compila soluciones que usan Lote de Azure para el procesamiento paralelo de la carga de trabajo, lo hace mediante programación con las [API de Lote](#batch-development-apis). Con las API de Lote, puede crear y administrar grupos de nodos de proceso (máquinas virtuales) y programar trabajos y tareas para que se ejecuten en esos nodos. Un servicio o una aplicación cliente que usted cree, usa las API de Lote para comunicarse con el servicio Lote.
 
-> [AZURE.TIP] Cuando esté listo para adentrarse en la API de Lote para una comprensión más a fondo de las características que proporciona, consulte [Información general de las características de Lote de Azure](batch-api-basics.md).
+Puede procesar de forma eficiente cargas de trabajo a gran escala para su organización, o bien proporcionar un servicio front-end a los clientes para que estos puedan ejecutar trabajos y tareas (a petición o dentro de una programación) en uno, cientos, o incluso, miles de nodos. También puede usar Lote como parte de un flujo de trabajo mayor, administrado mediante herramientas como [Data Factory de Azure](../data-factory/data-factory-data-processing-using-batch.md).
+
+> [AZURE.TIP] Cuando esté listo para adentrarse en la API de Lote para una mayor comprensión de las características que proporciona, consulte [Información general de las características de Lote de Azure](batch-api-basics.md).
 
 ### Cuentas de Azure que necesita
 
 Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuentas en Microsoft Azure.
 
-- **Suscripción y cuenta de Azure**: si aún no tiene una suscripción de Azure, puede activar su [Crédito mensual de Azure para suscriptores de Visual Studio][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
+- **Cuenta de Azure y suscripción**: si aún no tiene una suscripción de Azure, puede activar su [crédito de Azure para suscriptores de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se creará una suscripción predeterminada para usted.
 
 - **Cuenta de Lote**: cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear y administrar una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 
@@ -76,19 +78,11 @@ Las aplicaciones y los servicios pueden emitir llamadas de API de REST directas,
 
 Además de las API de cliente, también puede utilizar lo siguiente para administrar los recursos en su cuenta de Lote.
 
-- [Cmdlets de PowerShell de Lote][batch_ps]\: los cmdlets de Lote de Azure en el módulo [Azure PowerShell](../powershell-install-configure.md) permiten administrar recursos de Lote con PowerShell.
+- [Cmdlets de PowerShell de Lote][batch_ps]\: los cmdlets de Lote de Azure en el módulo [Azure PowerShell](../powershell-install-configure.md) permiten administrar los recursos de Lote con PowerShell.
 
 - [CLI de Azure](../xplat-cli-install.md): la interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluido Lote.
 
-- Biblioteca de cliente [Batch Management .NET](batch-management-dotnet.md): también disponible a través de [NuGet][api_net_mgmt_nuget]; puede usar la biblioteca de cliente Batch Management .NET para administrar mediante programación las cuentas de Lote, las cuotas y los paquetes de aplicación. La referencia sobre la biblioteca de administración se encuentra en [MSDN][api_net_mgmt].
-
-### Herramientas de Lote
-
-Aunque no son necesarias para compilar soluciones con Lote, estas herramientas se pueden considerar esenciales cuando se compilan y depuran los servicios y las aplicaciones de Lote.
-
-- [Explorador de Lote de Azure][batch_explorer]\: el Explorador de Lote es una de las aplicaciones de ejemplo de Batch .NET que está disponible en [GitHub][github_samples]. Compile esta aplicación de Windows Presentation Foundation (WPF) con Visual Studio 2013 o 2015 y úsela para examinar y administrar los recursos de la cuenta de Lote durante el desarrollo y depuración de las soluciones de Lote. Vea los detalles de trabajos, grupos y tareas, descargue archivos desde los nodos de proceso, o incluso conecte con nodos de forma remota mediante el uso de archivos de Escritorio remoto (RDP) que puede obtener con unos cuantos clics en la interfaz del Explorador de Lote.
-
-- [Explorador de Almacenamiento de Microsoft Azure][storage_explorer]\: aunque no es estrictamente una herramienta de Lote de Azure, el Explorador de Almacenamiento es otra herramienta valiosa con la que contar para el desarrollo y la depuración de las soluciones de Lote.
+- Biblioteca de cliente [Batch Management .NET](batch-management-dotnet.md): también disponible a través de [NuGet][api_net_mgmt_nuget]; puede usar la biblioteca de cliente Batch Management .NET para administrar mediante programación las cuentas, las cuotas y los paquetes de aplicación de Lote. La referencia sobre la biblioteca de administración se encuentra en [MSDN][api_net_mgmt].
 
 ## Escenario: Escalar horizontalmente una carga de trabajo paralela
 
@@ -102,7 +96,7 @@ En este escenario común, la aplicación o servicio procesa una carga de trabajo
 
 1. Cargue los **archivos de entrada** y la **aplicación** que procesará esos archivos en su cuenta de Almacenamiento de Azure. Los archivos de entrada pueden ser cualquier dato que vaya a procesar la aplicación, como diseños de modelos financieros, o archivos de vídeo que se van a transcodificar. Los archivos de aplicación pueden ser cualquier aplicación que se use para procesar los datos, como una aplicación de representación de 3D o un transcodificador de medios.
 
-2. Cree un **grupo** de nodos de proceso de Lote en su cuenta de Lote; se trata de las máquinas virtuales que ejecutarán las tareas. Especifique propiedades como el [tamaño de nodo](./../cloud-services/cloud-services-sizes-specs.md), su sistema operativo y la ubicación en Almacenamiento de Azure de la aplicación que se va a instalar cuando los nodos se unan al grupo (la aplicación que ha cargado en el paso 1). También puede configurar el grupo para [escalar automáticamente](batch-automatic-scaling.md) (ajustar de forma dinámica el número de nodos de proceso en el grupo), en respuesta a la carga de trabajo que generan las tareas.
+2. Cree un **grupo** de nodos de proceso de Lote en su cuenta de Lote; son las máquinas virtuales que ejecutarán las tareas. Especifique propiedades como el [tamaño del nodo](./../cloud-services/cloud-services-sizes-specs.md), su sistema operativo y la ubicación en Almacenamiento de Azure de la aplicación que se instalará cuando los nodos se unan al grupo (la aplicación que ha cargado en el paso 1). También puede configurar el grupo para que se [escale automáticamente](batch-automatic-scaling.md) (ajuste de forma dinámica el número de nodos de proceso en el grupo), en respuesta a la carga de trabajo que generan las tareas.
 
 3. Cree un **trabajo** de Lote para ejecutar la carga de trabajo en el grupo de nodos de proceso. Cuando crea un trabajo, lo asocia a un grupo de Lote.
 
@@ -110,7 +104,7 @@ En este escenario común, la aplicación o servicio procesa una carga de trabajo
 
     - 4a. Antes de que la tarea se ejecute, puede descargar los datos (los archivos de entrada) que va a procesar al nodo de proceso al que está asignada. Si la aplicación no se ha instalado aún en el nodo (consulte el paso 2), se puede descargar aquí. Cuando haya completado las descargas, las tareas se ejecutan en sus nodos asignados.
 
-5. Mientras se ejecutan las tareas, puede solicitar a Lote que supervise el progreso del trabajo y sus tareas. El servicio o la aplicación de cliente se comunica con el servicio Lote a través de HTTPS; además, como es posible que esté supervisando miles de tareas que se están ejecutando en miles de nodos de proceso, asegúrese de que realiza una [consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md).
+5. Mientras se ejecutan las tareas, puede solicitar a Lote que supervise el progreso del trabajo y sus tareas. El servicio o la aplicación cliente se comunica con el servicio Lote a través de HTTPS; además, como es posible que esté supervisando miles de tareas que se ejecutan en miles de nodos de proceso, asegúrese de realizar una [consulta eficaz del servicio Lote](batch-efficient-list-queries.md).
 
 6. Cuando se completan las tareas, estas cargan los datos de sus resultados en Almacenamiento de Azure. También puede recuperar archivos directamente desde los nodos de proceso.
 
@@ -120,13 +114,13 @@ No olvide que esto es simplemente una forma de usar Lote, y que este escenario d
 
 ## Pasos siguientes
 
-Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el momento de profundizar en el servicio para obtener información sobre cómo puede utilizarlo para procesar las cargas de trabajo paralelas de proceso intensivo.
+Ahora que ha visto información general de alto nivel del servicio Lote, es hora de profundizar en el servicio para aprender cómo puede utilizarlo para procesar las cargas de trabajo paralelas de proceso intensivo.
 
-- Consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) para más información sobre cómo usar C# y la biblioteca de Batch .NET para realizar las técnicas descritas antes. Esta debería ser una de sus primeras lecturas mientras está aprendiendo a utilizar el servicio Lote.
+- Lea [Información general de las características de Lote de Azure](batch-api-basics.md) para ver información más detallada sobre las características de API proporcionadas por Lote para procesar las cargas de trabajo. Esta lectura es esencial para cualquier persona que se prepara para utilizar Lote.
 
-- Eche un vistazo a [Información general de las características de Lote de Azure](batch-api-basics.md) para ver información más detallada sobre las características de API que proporciona Lote para procesar las cargas de trabajo que consumen muchos procesos.
+- Consulte [Introducción a la biblioteca de Lote de Azure para .NET](batch-dotnet-get-started.md) para más información sobre cómo usar C# y la biblioteca de .NET de Lote para ejecutar una carga de trabajo sencilla con un flujo de trabajo de Lote común. Esta debería ser una de sus primeras lecturas mientras está aprendiendo a utilizar el servicio Lote. También hay un [versión para Python](batch-python-tutorial.md) del tutorial.
 
-- Además del Explorador de Lote, los otros [ejemplos de código en GitHub][github_samples] muestran cómo utilizar muchas de las características de Lote mediante la biblioteca de Batch .NET.
+- Descargue los [códigos de ejemplo en GitHub][github_samples] para ver cómo C# y Python pueden comunicarse con Lote para programar y procesar cargas de trabajo de ejemplo.
 
 - Consulte la [ruta de aprendizaje de Lote][learning_path] para hacerse una idea de los recursos que tiene a su disposición a medida que va aprendiendo a trabajar con Lote.
 
@@ -143,17 +137,14 @@ Ahora que ha visto un escenario de proceso por lotes de ejemplo, ha llegado el m
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

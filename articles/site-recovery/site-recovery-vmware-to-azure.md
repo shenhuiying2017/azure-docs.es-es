@@ -724,18 +724,20 @@ Si desea acceder a una máquina virtual de Azure con Linux después de la conmut
 - Debe crearse un punto de conexión público para permitir las conexiones entrantes en el puerto SSH (de forma predeterminada es el puerto TCP 22).
 - Si se accede a la máquina virtual a través de una conexión VPN (Express Route o VPN de sitio a sitio), el cliente puede utilizarse para conectarse directamente a la máquina virtual a través de SSH.
 
+**En la máquina virtual Windows/Linux de Azure después de la conmutación por error**:
 
+Si tiene un grupo de seguridad de red asociado a la máquina virtual o la subred a la que pertenece el equipo, asegúrese de que el grupo de seguridad de red tiene una regla de salida para permitir HTTP/HTTPS. Además, asegúrese de que el DNS de la red para el que la máquina virtual se ha conmutado por error está configurado correctamente. Además, la conmutación por error podría agotar el tiempo de espera con el error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. Para ver información detallada, consulte la sección sobre la recuperación en la [guía de supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Ejecución de una conmutación por error de prueba
 
-1. Para conmutar por error una sola máquina, en **Configuración** > **Elementos replicados**, haga clic en el icono Máquina virtual > **+Conmutación por error**.
+1. Para conmutar por error una sola máquina, en **Configuración** > **Elementos replicados**, haga clic en el icono Máquina virtual > **+Probar conmutación por error**.
 
 	![Conmutación por error de prueba](./media/site-recovery-vmware-to-azure/test-failover1.png)
 
-2. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Conmutación por error de prueba**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
+2. Para conmutar por error un plan de recuperación, en **Configuración** > **Planes de recuperación**, haga clic con el botón derecho en el plan > **Probar conmutación por error**. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md).
 
-3. En **Conmutación por error de prueba**, seleccione la red de Azure a la que se conectarán las máquinas virtuales después de la conmutación por error.
-4. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Conmutación por error de prueba** en Nombre de almacén > **Configuración** > **Trabajos** > **Site Recovery jobs** (Trabajos de Site Recovery).
+3. En **Probar conmutación por error**, seleccione la red de Azure a la que se conectarán las máquinas virtuales después de la conmutación por error.
+4. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Probar conmutación por error** en Nombre de almacén > **Configuración** > **Trabajos** > **Site Recovery jobs** (Trabajos de Site Recovery).
 5. Cuando la conmutación por error alcance el estado **Completar prueba**, haga lo siguiente:
 
 	1. Vea la máquina virtual de réplica en el portal de Azure. Compruebe que la máquina virtual se inicia correctamente.
@@ -753,7 +755,7 @@ Si desea acceder a una máquina virtual de Azure con Linux después de la conmut
 
 
 6. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en el Portal de Azure > **Máquinas virtuales**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
-7. Si se [preparó para las conexiones después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
+7. Si se [preparó para la conexión después de la conmutación por error](#prepare-to-connect-to-azure-vms-after-failover), debe ser capaz de conectarse a la máquina virtual de Azure.
 
 ## Supervisión de la implementación
 
@@ -763,15 +765,15 @@ Le mostramos cómo puede supervisar la configuración y el estado de la implemen
 
 ![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
 
-2. En el icono de **Estado** puede supervisar los servidores del sitio (servidores VMM o de configuración) que están experimentando el problema y los eventos provocados por Site Recovery en las últimas 24 horas.
-3. Puede administrar y supervisar la replicación en los iconos de **Elementos replicados**, **Planes de recuperación** y **Site Recovery Jobs** (Trabajos de Site Recovery). Puede ver más detalles de los trabajos en **Configuración** -> **Trabajos** -> **Site Recovery Jobs** (Trabajos de Site Recovery).
+2. En el icono **Estado** puede supervisar los servidores del sitio (servidores VMM o de configuración) que están experimentando el problema y los eventos provocados por Site Recovery en las últimas 24 horas.
+3. Puede administrar y supervisar la replicación en los iconos **Elementos replicados**, **Planes de recuperación** y **Site Recovery Jobs** (Trabajos de Site Recovery). Puede ver más detalles de los trabajos en **Configuración** -> **Trabajos** -> **Site Recovery Jobs** (Trabajos de Site Recovery).
 
 
 ## Implementar servidores de procesos adicionales
 
 Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, necesitará servidores de procesos adicionales para controlar el volumen del tráfico.
 
-Consulte las [recomendaciones de tamaño de los servidores de procesos](#size-recommendations-for-the-process-server) y luego siga estas instrucciones para configurar el servidor de procesos. Después de configurar el servidor, debe migrar las máquinas de origen para que lo utilicen.
+Consulte las [Recomendaciones de tamaño para el servidor de procesos](#size-recommendations-for-the-process-server) y siga estas instrucciones para configurar el servidor de procesos. Después de configurar el servidor, debe migrar las máquinas de origen para que lo utilicen.
 
 ### Instalación de un servidor de procesos adicional
 
@@ -784,7 +786,7 @@ Consulte las [recomendaciones de tamaño de los servidores de procesos](#size-re
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
 3. Descargue el archivo de instalación unificada de Site Recovery y ejecútelo para instalar el servidor de procesos y registrarlo en el almacén.
-4. En **Antes de comenzar**, seleccione **Agregar servidores de procesos adicionales para el escalado horizontal de la implementación**.
+4. En **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
 5. Complete el asistente tal y como hizo cuando [instaló](#step-2-set-up-the-source-environment) el servidor de configuración.
 
 	![Agregar servidores de procesos](./media/site-recovery-vmware-to-azure/add-ps1.png)
@@ -795,19 +797,19 @@ Consulte las [recomendaciones de tamaño de los servidores de procesos](#size-re
 
 ### Migrar máquinas para utilizar el nuevo servidor de procesos
 
-1. En **Configuración** > **Site Recovery servers** (Servidores de Site Recovery), haga clic en el servidor de configuración y luego expanda **Servidores de procesos**.
+1. En **Configuración** > **Site Recovery servers** (Servidores de Site Recovery), haga clic en el servidor de configuración y expanda **Servidores de procesos**.
 
 	![Actualizar servidor de procesos](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 
-2. Haga clic con el botón derecho en el servidor de procesos que se utiliza actualmente y luego haga clic en **Cambiar**.
+2. Haga clic con el botón derecho en el servidor de procesos que se utiliza actualmente y haga clic en **Cambiar**.
 
 	![Actualizar servidor de procesos](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 
-3. En **Seleccionar servidor de procesos de destino**, seleccione el nuevo servidor de procesos que desea usar y luego seleccione las máquinas virtuales que controlarán el nuevo servidor de procesos. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
+3. En **Seleccionar servidor de procesos de destino**, seleccione el nuevo servidor de procesos que desea usar y elija las máquinas virtuales que el nuevo servidor de procesos controlará. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
 
 ## Permisos de cuenta de VMware
 
-El servidor de procesos puede detectar automáticamente las máquinas virtuales en un servidor vCenter. Para ejecutar la detección automática, deberá [definir un rol (Azure\_Site\_Recovery)](#prepare-an-account-for-automatic-discovery) para permitir que Site Recovery acceda al servidor VMware. Tenga en cuenta que si solo debe migrar máquinas de VMware a Azure y no necesita realizar la conmutación por recuperación desde Azure, basta con que defina un rol de solo lectura. En la tabla siguiente se resumen los permisos de rol necesarios.
+El servidor de procesos puede detectar automáticamente las máquinas virtuales en un servidor vCenter. Para ejecutar la detección automática, deberá [definir un rol (Azure\_Site\_Recovery)](#prepare-an-account-for-automatic-discovery) para que Site Recovery pueda acceder al servidor VMware. Tenga en cuenta que si solo debe migrar máquinas de VMware a Azure y no necesita realizar la conmutación por recuperación desde Azure, basta con que defina un rol de solo lectura. En la tabla siguiente se resumen los permisos de rol necesarios.
 
 **Rol** | **Detalles** | **Permisos**
 --- | --- | ---
@@ -831,4 +833,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

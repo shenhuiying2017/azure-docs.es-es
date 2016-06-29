@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Administración del Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
@@ -173,7 +173,7 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-Entre los tipos se incluyen la base de datos, esquema, ensamblado, externaldatasource, tabla, tablevaluedfunction o tablestatistics.
+Entre los tipos, se incluyen base de datos, esquema, ensamblado, origen de datos externo, tabla, función con valores de tabla o estadísticas de tabla.
 
 ###Creación del secreto del catálogo
 
@@ -193,7 +193,7 @@ Entre los tipos se incluyen la base de datos, esquema, ensamblado, externaldatas
 
 Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Un servicio de Análisis de Data Lake puede incluir los siguientes componentes:
+Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
 
 - Cuenta de Análisis de Azure Data Lake
 - Cuenta predeterminada y necesaria de Almacén de Azure Data Lake
@@ -214,4 +214,4 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 - [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0615_2016-->

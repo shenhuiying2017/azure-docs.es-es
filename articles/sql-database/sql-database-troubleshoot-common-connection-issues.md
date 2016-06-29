@@ -20,13 +20,14 @@
 
 Cuando la conexión a Base de datos SQL de Azure no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Base de datos SQL de Azure. Se presentan [las causas habituales](#cause) de problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que le ayuda a identificar el problema y se proporciona pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-the-persistent-errors). Por último, se enumeran [todos los artículos relacionados con la conectividad de Base de datos SQL de Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
 Los problemas de conexión pueden tener alguna de las siguientes causas:
 
-- Error al aplicar los [procedimientos recomendados y las directrices de diseño](sql-database-connect-central-recommendations.md) durante el proceso de diseño de aplicaciones.
+- Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones. Para comenzar, consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
 - Reconfiguración de la base de datos SQL Azure
 - Configuración de firewall
 - Tiempo de espera de conexión agotado
@@ -79,7 +80,7 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 | 5 | [Solución del error "Database <x> on server <y> is not currently available. Please retry the connection later" (La base de datos <x> del servidor <y> no está disponible. Vuelva a intentar la conexión más tarde.). Please retry the connection later" (La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible. Vuelva a intentar la conexión más tarde)](sql-database-troubleshoot-connection.md) | Se describe cómo identificar y resolver un error 40613: "La base de datos &lt;x&gt; en el servidor &lt;y&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde.) |
 | 6 | [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.](sql-database-develop-error-messages.md) | Proporciona información sobre los códigos de error de SQL de las aplicaciones cliente de Base de datos SQL, como errores de conexión de base de datos más comunes, problemas de copia de la base de datos y errores generales. |
 | 7 | [Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) | Se proporcionan instrucciones para ayudarle a determinar qué nivel de servicio es adecuado para su aplicación. También se incluyen recomendaciones para optimizar la aplicación y así sacar el máximo provecho de su instancia de Base de datos SQL de Azure. |
-| 8 | [Información general de desarrollo de Base de datos SQL](sql-database-connect-central-recommendations.md) | Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse a Base de datos SQL de Azure e interactuar con este servicio. |
+| 8 | [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) | Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse a Base de datos SQL de Azure e interactuar con este servicio. |
 | 9 | Actualización a la página de Base de datos SQL de Azure v12 ([Portal de Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | Se proporcionan instrucciones para actualizar los servidores y bases de datos de Base de datos SQL de Azure V11 existentes a Base de datos SQL de Azure V12 mediante el Portal de Azure o PowerShell. |
 
 
@@ -92,12 +93,12 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 - [Ver las últimas actualizaciones del servicio Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database)
 
 
-## Más información
+## Recursos adicionales
 
-- [Información general de desarrollo de Base de datos SQL](sql-database-connect-central-recommendations.md)
+- [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
 - [Orientación general sobre reintentos](../best-practices-retry-general.md)
 - [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 - [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

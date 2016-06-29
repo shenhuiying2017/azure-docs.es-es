@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2016"
+   ms.date="06/17/2016"
    ms.author="cherylmc" />
 
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -31,7 +31,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 |---|---|---|
 |**Norteamérica**|Este de EE. UU., Oeste de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro y Sur de EE. UU., Centro y norte de EE. UU., Centro de Canadá y Este de Canadá.|Atlanta, Chicago, Dallas, Las Vegas+, Los Ángeles, Nueva York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Sudamérica**|Sur de Brasil|São Paulo|
-|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres, Newport(Wales)+, París+|
+|**Europa**|Norte de Europa y Oeste de Europa|Ámsterdam, Dublín, Londres, Newport(Wales)+, París|
 |**Asia**|Este de Asia y Sudeste de Asia|Hong Kong y Singapur|
 |**Japón**|Oeste de Japón y Este de Japón|Osaka, Tokyo|
 |**Australia**|Este de Australia y Sudeste de Australia|Melbourne, Sidney|
@@ -62,16 +62,18 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Compatible | Compatible | Ámsterdam, Hong Kong, Londres, Silicon Valley, Singapur, Sidney, Tokio, Washington DC |
 |**CenturyLink** | Próximamente | Próximamente| Silicon Valley |
 |**China Telecom Global** | Compatible | No compatible | Hong Kong |
-|**Cologix** | Compatible | Próximamente | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Compatible | Próximamente | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Compatible | Compatible | Ámsterdam, Dublín, Londres, Tokio |
 | **Comcast** | Compatible | Compatible | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Compatible | Compatible | Los Ángeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Ámsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Ángeles, Melbourne, Nueva York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapur, Sidney, Tokio, Toronto, Washington DC |
 | **euNetworks** | Compatible | Compatible | Ámsterdam |
+| **GÉANT** | Próximamente | Próximamente | Ámsterdam+ |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Compatible | Compatible | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Compatible | Compatible | Ámsterdam, Londres, Singapur, Washington DC |
 | **Internet Solutions - Cloud Connect** | Compatible | Compatible | Ámsterdam y Londres |
-| **Interxion** | Compatible | Compatible | Ámsterdam y Londres |
+| **Interxion** | Compatible | Compatible | Ámsterdam, Londres, París |
+| **Jisc** | Próximamente | Próximamente | Londres+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Compatible | Compatible | Dallas, Las Vegas+, Los Ángeles, Melbourne, Nueva York, Seattle, Singapur, Sidney, Washington DC |
 | **MTN** | Compatible | Compatible | Londres |
@@ -99,9 +101,9 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Proveedor de servicios** |**Microsoft Azure** | **Office 365** | **Ubicaciones** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Compatible | Compatible | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Nueva York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
 | **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Próximamente | Chicago, Nueva York +, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Nueva York, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Compatible | Chicago, Dallas+, Nueva York, Washington DC |
 
 #### China
 
@@ -130,6 +132,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 	- [InterXion](http://www.interxion.com/)
 	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
+	- [Cologix](http://www.cologix.com/)
 - Haga que el proveedor de conectividad amplíe su red a la ubicación de emparejamiento que elija.
 	- Asegúrese de que su proveedor de conectividad amplíe la conectividad con una alta disponibilidad para que no haya ningún punto único de error.
 - Solicitar un circuito ExpressRoute con el intercambio como proveedor de conectividad para conectarse a Microsoft.
@@ -148,7 +151,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asia, Europa, Estados Unidos |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Europa |
-|**[Nimbo](http://www.nimbo.com/)**|US||
+|**[Servicios profesionales de Equinix](http://www.equinix.com/services/consulting/)**|US||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | US |
@@ -161,4 +164,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

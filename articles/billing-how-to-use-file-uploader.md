@@ -19,9 +19,9 @@
 
 # Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
 
-Cuando se [crea una nueva solicitud de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle fácilmente a cargar los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.
+Cuando se [crea una nueva solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.
 
->[AZURE.NOTE]Para proteger su privacidad, no incluya ninguna información personal en su carga.
+>[AZURE.NOTE] Para proteger su privacidad, no incluya ninguna información personal en su carga.
 
 Siga estas directrices cuando use la utilidad Carga de archivos:
 
@@ -63,4 +63,4 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0615_2016-->

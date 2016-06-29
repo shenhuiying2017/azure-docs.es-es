@@ -62,7 +62,6 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 [etiquetas]: sql-data-warehouse-develop-label.md
 [bucle]: sql-data-warehouse-develop-loops.md
 [datos de tablas dinámicas]: sql-data-warehouse-develop-pivot-unpivot.md
-[cambio de nombre de objetos]: sql-data-warehouse-develop-rename.md
 [estadísticas]: sql-data-warehouse-develop-statistics.md
 [procedimientos almacenados]: sql-data-warehouse-develop-stored-procedures.md
 [diseño de tablas]: sql-data-warehouse-develop-table-design.md
@@ -76,7 +75,8 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 [Referencia de Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
+[cambio de nombre de objetos]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0615_2016-->

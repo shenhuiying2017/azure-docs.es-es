@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/12/2016"
+   ms.date="06/13/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferencias de Transact-SQL de Base de datos SQL de Azure
@@ -36,7 +36,7 @@ En este tema se describen las características que están disponibles con Base d
 
 ## Características parcialmente admitidas en la Base de datos SQL V12
 
-Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que existen en las instrucciones de SQL Server 2016 Transact-SQL correspondientes. Por ejemplo, la instrucción CREATE PROCEDURE está disponible aunque lo está la opción WITH ENCRYPTION de CREATE PROCEDURE. Consulte los temas de sintaxis vinculados para obtener más información sobre las áreas compatibles de cada instrucción.
+Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que existen en las instrucciones de SQL Server 2016 Transact-SQL correspondientes. Por ejemplo, la instrucción CREATE PROCEDURE está disponible, aunque no lo estén las opciones de CREATE PROCEDURE. Consulte los temas de sintaxis vinculados para obtener más información sobre las áreas compatibles de cada instrucción.
 
 - Bases de datos: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - Generalmente hay vistas de administración dinámica disponibles para las características que están disponibles
@@ -64,7 +64,7 @@ Base de datos SQL V12 es compatible con algunos pero no todos los argumentos que
 - Eventos: eventos, las notificaciones de eventos, notificaciones de consulta
 - Características relacionadas con la ubicación del archivo de base de datos, el tamaño y los archivos de base de datos que Microsoft Azure administra automáticamente.
 - Características relacionadas con la alta disponibilidad que se administra a través de la cuenta de Microsoft Azure: copia de seguridad, restauración, AlwaysOn, creación de reflejo de la base de datos, trasvase de registros, modos de recuperación. Para obtener más información, vea Copia de seguridad y restauración de Base de datos SQL de Azure.
-- Características que se basan en el registro del LOG: replicación, captura de datos modificados.
+- Características que se basan en el registro del LOG que se ejecuta en Base de datos SQL: Replicación de inserción y Captura de datos modificados.
 - Características que se basan en el Agente SQL Server o la base de datos MSDB: trabajos, alertas, operadores, administración basada en directivas, correo electrónico de base de datos, servidores de administración central.
 - FILESTREAM
 - Funciones: fn\_get\_sql, fn\_virtualfilestats, fn\_virtualservernodes
@@ -108,4 +108,4 @@ La referencia de Transact-SQL incluye temas relacionados con las versiones de SQ
 
 En algunos casos, la línea general de un tema se puede utilizar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del tema según corresponda.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

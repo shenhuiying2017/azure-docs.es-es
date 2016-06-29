@@ -44,8 +44,7 @@ Para registrarse para obtener una suscripción de evaluación gratuita de Azure,
 
 1. Abra la [página de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) y luego seleccione **Probar ahora**.
 2. Inicie sesión con su cuenta Microsoft o en su cuenta profesional o educativa.
-3. En la sección **Sobre usted**, escriba su información personal.
-![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. En la sección **Sobre usted**, escriba su información personal. ![La captura de pantalla de información personal](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Nota** La dirección de correo electrónico y la información del país que proporcione al suscribirse a Azure siempre estarán asociados a la suscripción y no se pueden cambiar posteriormente.</br>
 4. En la sección **Comprobación por teléfono**, debe proporcionar un número de teléfono para recibir un código de comprobación que deberá proporcionar para completar el proceso.
@@ -62,11 +61,11 @@ Para registrarse para obtener una suscripción de evaluación gratuita de Azure,
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. En la sección **Contrato**, active la casilla si está de acuerdo con el contrato de suscripción, los detalles de la oferta y la declaración de privacidad. Después, seleccione **Suscribirse**. La captura de pantalla de ejemplo es para la versión en inglés del contrato. El formulario del contrato puede variar según el país.
 
- ![Registro](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> Puede que la suscripción tarde en configurarse unos minutos. Si la configuración de la suscripción no finaliza en 15 minutos, póngase en contacto con el [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda. </br> Si recibe un mensaje de error, siga los pasos que se indican en el mismo para resolver el problema. Un mensaje de error típico es:
+ ![Registro](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> Puede que la suscripción tarde en configurarse unos minutos. Si la configuración de la suscripción no finaliza en 15 minutos, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda. </br> Si recibe un mensaje de error, siga los pasos que se indican en el mismo para resolver el problema. Un mensaje de error típico es:
 
  **Lo sentimos, no se pudo completar la operación. Inténtelo de nuevo más tarde o vuelva a cargar la página web.** </br>
 
- En este caso, pruebe a usar otro explorador para realizar el proceso de registro. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda.</br>
+ En este caso, pruebe a usar otro explorador para realizar el proceso de registro. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obtener ayuda.</br>
 7. Cuando la suscripción esté preparada, seleccione **Empezar a administrar mi servicio** para comenzar. </br>![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
 <a name="UpgradeFreeToPYG"></a>
@@ -89,4 +88,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor y obtuvo una cl
 
 3. Escriba la clave de producto y active la opción de contrato.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0615_2016-->

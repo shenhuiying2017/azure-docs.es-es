@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="05/19/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
 # Visualización de operaciones de implementación con la API de REST de Azure Resource Manager
@@ -28,6 +28,8 @@
 Si recibe un error al implementar recursos en Azure, quizás desee conocer más detalles acerca de las operaciones de implementación ejecutadas. La API de REST proporciona operaciones que permiten buscar los errores y determinar las posibles correcciones.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+
+Puede evitar algunos errores si valida la plantilla y la infraestructura antes de la implementación. También puede registrar información adicional sobre solicitudes y respuestas durante la implementación que podría resultarle de ayuda más adelante para solucionar los problemas. Para obtener más información sobre la validación, así como del registro de la información de solicitudes y respuestas, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-rest.md) (Implementación de un grupo de recursos con la plantilla de Azure Resource Manager).
 
 ## Solución de problemas de la API de REST
 
@@ -54,7 +56,7 @@ Si recibe un error al implementar recursos en Azure, quizás desee conocer más 
 
     De forma predeterminada, el valor **debugSetting** está establecido en **none**. Al especificar el valor **debugSetting**, considere cuidadosamente el tipo de información que se pasa durante la implementación. Al registrar información sobre la solicitud o la respuesta, se podrían exponer datos confidenciales que se recuperan en las operaciones de implementación.
 
-2. Obtenga información sobre la implementación con la operación [Obtener información acerca de una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790565.aspx).
+2. Obtenga información sobre la implementación con la operación [Obtener información sobre una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
@@ -73,7 +75,7 @@ Si recibe un error al implementar recursos en Azure, quizás desee conocer más 
           }
         }
 
-3. Obtenga información sobre las operaciones de implementación con la operación [Lista de todas las operaciones de implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790518.aspx).
+3. Obtenga información sobre las operaciones de implementación con la operación [Enumerar todas las operaciones de implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790518.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 
@@ -102,15 +104,15 @@ Si recibe un error al implementar recursos en Azure, quizás desee conocer más 
           }
         }
 
-4. Obtenga eventos de los registros de auditoría para la implementación con la operación [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+4. Obtenga eventos de los registros de auditoría para la implementación con la operación [Enumerar los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
 
 ## Pasos siguientes
 
-- Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para obtener más información sobre el uso de los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-- Para validar la implementación antes de ejecutarla, consulte [Implementación de un grupo de recursos con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+- Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Para obtener más información acerca de cómo usar los registros de auditoría para supervisar otros tipos de acciones, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
+- Para validar la implementación antes de ejecutarla, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md) (Implementación de un grupo de recursos con la plantilla de Azure Resource Manager).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

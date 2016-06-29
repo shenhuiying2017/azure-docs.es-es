@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Analytics: la eficaz herramienta de búsqueda de Application Insights" 
+	pageTitle="Uso de Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Azure" 
 	description="Uso de Analytics, la eficaz herramienta de búsqueda de Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -23,7 +23,6 @@
 
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ## Apertura de Analytics
 
@@ -45,7 +44,7 @@ Escriba una consulta que comience por los nombres de cualesquiera de las tablas 
 * No ponga líneas en blanco en la consulta.
 * Puede utilizar saltos de línea sencillos en las consultas.
 * Puede mantener varias consultas en la ventana separadas por líneas en blanco.
-* Para ejecutar una consulta, **coloque el cursor dentro o al final** y haga clic en Go (Ir).
+* Para ejecutar una consulta, **coloque el cursor dentro o al final de ella** y haga clic en Go (Ir).
 
 
 ![](./media/app-insights-analytics-using/130.png)
@@ -79,7 +78,7 @@ De manera predeterminada, los resultados se muestran en un principio en forma de
 
 ## Exportación a Excel
 
-Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga clic en **Export (Exportar), Excel**.
+Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga clic en **Export, to Excel** (Exportar a Excel).
 
 ## Exportación a Power BI
 
@@ -91,7 +90,7 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 3. Copie el script del lenguaje M en el editor de consultas avanzadas de Power BI Desktop.
  * Abra el archivo exportado.
- * En Power BI Desktop, seleccione: **Get Data, Blank Query, Advanced Editor** (Obtener datos, Consulta en blanco y Editor avanzado) y pegue el script del lenguaje M.
+ * En Power BI Desktop, seleccione: **Obtener datos, Consulta en blanco, Editor avanzado** y pegue el script del lenguaje M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -104,4 +103,4 @@ Una vez que haya ejecutado una consulta, puede descargar un archivo .csv. Haga c
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -34,7 +34,7 @@ Proteja sus datos con el servicio Copia de seguridad tomando instantáneas de su
 
 ## Restauración de un punto de recuperación
 
-1. Inicie sesión en el [Portal de Azure](http://ms.portal.azure.com/)
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
 
 2. En el menú de Azure, haga clic en **Examinar** y, en la lista de servicios, escriba **Servicios de recuperación**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
 
@@ -167,4 +167,4 @@ Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de 
 - [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0615_2016-->

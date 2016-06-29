@@ -103,7 +103,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 44 | [Conexión a Base de datos SQL mediante Node.js](sql-database-develop-nodejs-simple.md) | Este tema muestra un ejemplo de código Node.js que puede usar para conectarse a la base de datos SQL de Azure. |
 | 45 | [Conexión a Base de datos SQL mediante Python](sql-database-develop-python-simple.md) | Este tema muestra un ejemplo de código Pyton que puede usar para conectarse a la base de datos SQL de Azure. |
 | 46 | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) | Muestra de código Ruby que puede ejecutar en Windows para conectarse a Base de datos SQL de Azure. |
-| 47 | [Conexión a Base de datos SQL: prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md) | Tema de punto de partida que reúne vínculos y recomendaciones de prácticas recomendadas para programas cliente que se conectan a Base de datos SQL de Azure a partir de tecnologías como ADO.NET y PHP. |
+| 47 | [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) | Tema de punto de partida que reúne vínculos y recomendaciones de prácticas recomendadas para programas cliente que se conectan a Base de datos SQL de Azure a partir de tecnologías como ADO.NET y PHP. |
 | 48 | [Cree e implemente una aplicación de formularios web ASP.NET con membresía, OAuth y Base de datos SQL a Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database.md) | Este tutorial muestra cómo compilar una aplicación de ASP.NET Web Forms 4.5 segura que incorpora una base de datos SQL e implementar la aplicación en Azure. |
 | 49 | [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md) | Obtenga el identificador de cliente y la clave para acceder a Base de datos SQL desde el código. |
 | 50 | [Introducción a las tablas temporales de Base de datos SQL de Azure](sql-database-temporal-tables.md) | Obtenga información sobre cómo empezar a usar las tablas temporales de Base de datos SQL de Azure |
@@ -378,4 +378,4 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 - Gráfico de ruta de aprendizaje: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0615_2016-->

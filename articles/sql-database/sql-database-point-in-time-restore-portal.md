@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/10/2016"
+	ms.date="06/09/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,12 +21,11 @@
 
 
 > [AZURE.SELECTOR]
+- [Información general](sql-database-point-in-time-restore.md)
 - [Portal de Azure](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
-En este artículo se muestra cómo restaurar la base de datos a un momento anterior a través del Portal de Azure.
-
-[**Restauración a un momento dado**](sql-database-point-in-time-restore.md) es una funcionalidad autoservicio que le permite restaurar una base de datos a partir de las copias de seguridad automáticas que realizamos de todas ellas a cualquier momento de su período de retención. Más información sobre las copias de seguridad automáticas y los períodos de retención de las bases de datos, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md).
+En este artículo se muestra cómo restaurar la base de datos a un momento dado anterior mediante PowerShell a partir de las [copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md) mediante el Portal de Azure.
 
 ## Selección de una base de datos para restaurarla a un momento dado anterior
 
@@ -47,13 +46,16 @@ Para restaurar una base de datos en el Portal de Azure, haga lo siguiente:
 ## Pasos siguientes
 
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
-
-
+- [Restauración a un momento dado](sql-database-point-in-time-restore.md)
+- [Restauración a un momento dado mediante la API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx)
+- [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
 ## Recursos adicionales
 
+- [Restauración de una base de datos eliminada](sql-database-restore-deleted-database.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Restauración geográfica](sql-database-geo-restore.md)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

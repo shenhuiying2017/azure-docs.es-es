@@ -26,14 +26,13 @@ Este artículo explica cómo configurar desencadenadores de temporizador en func
 
 ## function.json con desencadenador de temporizador
 
-El archivo *function.json* proporciona una expresión de programación y un modificador que indica si la función se debe desencadenar inmediatamente.
+El archivo *function.json* proporciona una expresión de programación.
 
 ```json
 {
   "bindings": [
     {
       "schedule": "0 * * * * *",
-      "runOnStartup": true,
       "name": "myTimer",
       "type": "timerTrigger",
       "direction": "in"
@@ -54,15 +53,13 @@ Estos son algunos ejemplos de expresiones de programación.
 Para desencadenar una vez cada cinco minutos:
 
 ```json
-"schedule": "0 */5 * * * *",
-"runOnStartup": false,
+"schedule": "0 */5 * * * *"
 ```
 
-Para desencadenar inmediatamente y, luego, cada dos horas a partir de entonces:
+Para desencadenar una vez cada dos horas:
 
 ```json
 "schedule": "0 0 */2 * * *",
-"runOnStartup": true,
 ```
 
 ## Ejemplo de código de C# de desencadenador de temporizador
@@ -80,4 +77,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

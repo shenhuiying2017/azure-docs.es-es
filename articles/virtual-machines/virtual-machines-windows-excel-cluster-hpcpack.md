@@ -46,7 +46,7 @@ Le mostraremos dos formas de configurar el clúster: en primer lugar, mediante u
 ### Uso de una plantilla de inicio rápido
 Use una plantilla de inicio rápido de Azure para implementar rápida y fácilmente un clúster de HPC Pack en el Portal de Azure. Al abrir la plantilla en el portal de vista previa, obtendrá una interfaz de usuario simple donde debe especificar la configuración del clúster. A continuación se muestran los pasos que se deben seguir.
 
->[AZURE.TIP]Si lo desea, use una [plantilla de Azure Markeplace](https://ms.portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) que crea un clúster similar específicamente para cargas de trabajo de Excel. Los pasos son ligeramente distintos a los siguientes.
+>[AZURE.TIP]Si lo desea, use una [plantilla de Azure Markeplace](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) que crea un clúster similar específicamente para cargas de trabajo de Excel. Los pasos son ligeramente distintos a los siguientes.
 
 1.  Visite la página [Creación de plantilla de clúster HPC en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si lo desea, revise la información sobre la plantilla y el código de origen.
 
@@ -382,4 +382,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0615_2016-->

@@ -53,7 +53,11 @@ Con características:
 
 | Nombre | Obligatorio | Tipo | Descripción |
 |:---|:---|:---|:---|
-| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un artículo. | | Nombre del artículo | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del artículo. | | Categoría de artículo | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | Categoría a la que pertenece este artículo (por ejemplo, Libros de cocina, Arte dramático...); puede estar vacía. | | Descripción | No, a menos que las características estén presentes (pero pueden estar vacías) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este artículo. | | Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista separada por comas de nombre de característica=valor de característica que puede usarse para mejorar la recomendación del modelo.|
+| Id. de elemento |Sí | [A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 | Identificador único de un artículo. | 
+| Nombre del artículo | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del artículo. | 
+| Categoría de artículo | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | Categoría a la que pertenece este artículo (por ejemplo, Libros de cocina, Arte dramático...); puede estar vacía. | 
+| Descripción | No, a menos que las características estén presentes (pero pueden estar vacías) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este artículo. | 
+| Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 | Lista separada por comas de nombre de característica=valor de característica que puede usarse para mejorar la recomendación del modelo.|
 
 #### Carga de un archivo de catálogo
 
@@ -93,7 +97,10 @@ Un archivo de uso es un archivo CSV (valores separados por comas) donde cada fil
 
 | Nombre | Obligatorio | Tipo | Descripción
 |-------|------------|------|---------------
-|Id. de usuario| Sí|[A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 255 |Identificador único de un usuario. |Identificador del artículo|Sí|[A-z], [a-z], [0-9], [&#95;] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50|Identificador único de un artículo. |Hora|Sí|Fecha en el formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)|Hora de los datos |Evento|No | Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| El tipo de transacción. |
+|Id. de usuario| Sí|[A-z], [a-z], [0-9], [\_] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 255 |Identificador único de un usuario. 
+|Identificador del artículo|Sí|[A-z], [a-z], [0-9], [&#95;] &#40;Guion bajo&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50|Identificador único de un artículo. 
+|Hora|Sí|Fecha en el formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)|Hora de los datos 
+|Evento|No | Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase| El tipo de transacción. |
 
 #### Filas de ejemplo de un archivo de uso
 

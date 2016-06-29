@@ -22,7 +22,7 @@ Resumen de las opciones de escenario y recomendaciones para cargar datos en Alma
 
 La parte más difícil de carga de datos suele ser la preparación de los datos para la carga. Azure simplifica la carga mediante el almacenamiento de blobs de Azure como almacén de datos común para muchos de los servicios y usando Data Factory de Azure para organizar la comunicación y el movimiento de datos entre los servicios de Azure. Estos procesos se integran con la tecnología PolyBase, que usa el procesamiento paralelo masivo (MPP) para cargar datos en paralelo desde el almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
 
-Para ver tutoriales que cargan bases de datos de ejemplo, vea [Load sample data into SQL Data Warehouse][] (Carga de datos de ejemplo).
+Para ver tutoriales que cargan bases de datos de ejemplo, vea [Load sample data into SQL Data Warehouse][] \(Carga de datos de ejemplo).
 
 ## Carga desde el almacenamiento de blobs de Azure
 La manera más rápida de importar datos en Almacenamiento de datos SQL es usar PolyBase para cargar datos desde el almacenamiento de blobs de Azure. PolyBase usa el procesamiento paralelo masivo (MPP) de Almacenamiento de datos SQL para cargar datos en paralelo desde el almacenamiento de blobs de Azure. Para usar PolyBase, puede usar comandos T-SQL o una canalización de Data Factory de Azure.
@@ -35,6 +35,7 @@ Resumen del proceso de carga:
 2. Mueva los datos al almacenamiento de blobs de Azure y almacénelos en archivos de texto.
 3. Configure objetos externos en Almacenamiento de datos SQL para definir la ubicación y el formato de los datos.
 4. Ejecute un comando T-SQL para cargar los datos en paralelo en una nueva tabla de base de datos.
+
 <!-- 5. Schedule and run a loading job. --> 
 
 Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)][].
@@ -116,10 +117,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Load data from SQL Server to Azure SQL Data Warehouse (SSIS) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Load data from SQL Server to Azure SQL Data Warehouse (bcp) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]]: sql-data-warehouse-load-from-sql-server-with-bcp.md
 [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
@@ -133,4 +134,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Importación y exportación]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

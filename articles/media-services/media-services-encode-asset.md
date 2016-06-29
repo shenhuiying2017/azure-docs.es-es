@@ -220,7 +220,7 @@ ErrorCancelingTask|Categoría de errores en la que se incluyen errores al intent
 TransientError|Categoría de errores en la que se incluyen problemas transitorios (p. ej., problemas de red temporales con Almacenamiento de Azure).
 
 
-Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 
@@ -242,4 +242,4 @@ Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0615_2016-->

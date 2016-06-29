@@ -23,7 +23,7 @@ Service Fabric es una plataforma de sistemas distribuidos que facilita el empaqu
 ## Conceptos de infraestructura
 **Clúster**: conjunto de máquinas físicas o virtuales conectadas a la red en las que se implementan y administran los microservicios. Los clústeres pueden escalar a miles de equipos.
 
-**Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan "nodo". A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe` que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, se pueden hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
+**Nodo**: cada una de las máquinas físicas o virtuales que forman parte de un clúster se denominan "nodo". A cada nodo se le asigna un nombre de nodo (una cadena). Los nodos tienen características como las propiedades de colocación. Cada máquina física o virtual tiene un servicio de Windows de inicio automático, `FabricHost.exe`, que empieza a ejecutarse en el arranque y luego inicia dos ejecutables: `Fabric.exe` y `FabricGateway.exe`. Estos dos ejecutables conforman el nodo. En los escenarios de prueba, se pueden hospedar varios nodos en un solo equipo y máquina virtual mediante la ejecución de varias instancias de `Fabric.exe` y `FabricGateway.exe`.
 
 ## Conceptos de las aplicaciones
 **Tipo de aplicación**: el nombre o versión asignados a una colección de tipos de servicios. Esta información se define en un archivo `ApplicationManifest.xml`, insertado en un directorio del paquete de aplicación que luego se copia en el almacén de imágenes del clúster de Service Fabric. Después puede crear una aplicación con nombre de este tipo de aplicación en el clúster.
@@ -84,10 +84,10 @@ Para obtener más información, consulte el artículo [Elección de un marco par
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
-Para más información acerca de Service Fabric
+Para más información acerca de Service Fabric:
 
 - [Información general de Service Fabric](service-fabric-overview.md)
 - [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0615_2016-->

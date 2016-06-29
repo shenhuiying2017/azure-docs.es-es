@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/08/2016"
    ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
@@ -51,6 +51,29 @@ El Administrador de recursos debe poder tener acceso a la plantilla vinculada, l
         "contentVersion": "1.0.0.0",
     }
 
+Aunque la plantilla vinculada debe estar disponible externamente, no es necesario que esté generalmente disponible para el público. Puede agregar la plantilla a una cuenta de almacenamiento privada, que solo es accesible para el propietario de la cuenta de almacenamiento, y agregar a continuación un token de firma de acceso compartido (SAS) para permitir el acceso durante la implementación. Ese token SAS se agrega al identificador URI para la plantilla vinculada. Para obtener información acerca de cómo configurar una plantilla en una cuenta de almacenamiento y generar un token de SAS, consulte [Implementación de recursos con plantillas de Azure Resource Manager](resource-group-template-deploy.md) o [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md) (Implementación de recursos con plantillas de Azure Manager y la CLI de Azure).
+
+En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra plantilla. El acceso a la plantilla anidada se obtiene con un token de SAS que se pasa como un parámetro.
+
+    "parameters": {
+        "sasToken": { "type": "securestring" }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "incremental",
+              "templateLink": {
+                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+                "contentVersion": "1.0.0.0"
+              }
+            }
+        }
+    ],
+
+Aunque el token se pasa como una cadena segura, el URI de la plantilla vinculada, incluido el token de SAS, se registra en las operaciones de implementación para ese grupo de recursos. Para limitar la exposición, establezca una caducidad para el token.
 
 ## Vinculación con un archivo de parámetros
 
@@ -75,7 +98,7 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
       } 
     ] 
 
-El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**.
+El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**. Por supuesto, también se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
 
 ## Uso de variables para vincular plantillas
 
@@ -102,18 +125,78 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
         }
     }
 
-También puede usar la función [deployment()](../resource-group-template-functions/#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
+También puede usar la función [deployment()](resource-group-template-functions.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Esto resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## Paso de valores de nuevo desde una plantilla vinculada
+## Ejemplo completo
 
-Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, puede crear un valor en la sección de **resultados** de la plantilla vinculada. Para obtener un ejemplo, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
+Las plantillas de ejemplo siguientes muestran una organización simplificada de plantillas vinculadas para ilustrar algunos de los conceptos de este artículo. Se supone que las plantillas se agregaron en el mismo contenedor en una cuenta de almacenamiento con el acceso público desactivado. La plantilla vinculada pasa un valor de vuelta a la plantilla principal en la sección **salidas**.
+
+El archivo **parent.json** consta de lo siguiente:
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "containerSasToken": { "type": "string" }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+              "contentVersion": "1.0.0.0"
+            }
+          }
+        }
+      ],
+      "outputs": {
+        "result": {
+          "type": "object",
+          "value": "[reference('nestedTemplate').outputs.result]"
+        }
+      }
+    }
+
+El archivo **helloworld.json** consta de lo siguiente:
+
+    {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
+    }
+    
+En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con lo siguiente:
+
+    Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+
+En la CLI de Azure, se obtiene un token para el contenedor y se implementan las plantillas con el código siguiente. Actualmente, debe proporcionar un nombre para la implementación cuando se utiliza un identificador URI para la plantilla que incluye un token de SAS.
+
+    expiretime=$(date -I'minutes' --date "+30 minutes")  
+    azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r
+    azure group deployment create -g ExampleGroup --template-uri "https://storagecontosotemplates.blob.core.windows.net/templates/parent.json?{token}" -n tokendeploy  
+
+Se le pedirá que proporcione el token de SAS como un parámetro. Tiene que anteponer **?** al token.
 
 ## Pasos siguientes
 - Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md).
 - Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0615_2016-->
