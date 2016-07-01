@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configured the WebHost to listen to incoming URL traffic. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) will configure the environment variable in the dockerfile.debug/release mode as follows:
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```
 # Configure the listening port to 80
