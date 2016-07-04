@@ -44,7 +44,7 @@ De forma predeterminada, su conexión se realizará a la base de datos principal
 1. Especificar la base de datos predeterminada al registrar el servidor con el Explorador de objetos de SQL Server en SSDT o en la cadena de conexión de la aplicación. Por ejemplo, incluyendo el parámetro InitialCatalog para una conexión ODBC.
 2. En primer lugar, resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
-> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+> [AZURE.NOTE] Para obtener instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, vuelva al artículo [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
 De nuevo, es importante tener en cuenta que la instrucción de Transact-SQL **USE <your DB>** no se admite para cambiar la base de datos en una conexión
 
@@ -86,7 +86,7 @@ Las principales diferencias entre el uso de la autenticación de Azure Active Di
 
 ## Pasos siguientes
 
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] (Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
 <!-- Article references -->
 [Proteger una base de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage-security.md

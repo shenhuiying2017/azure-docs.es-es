@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Work.com
   
-El objetivo de este tutorial es mostrar la integración de Azure y Work.com. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Work.com.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Work.com
@@ -66,7 +67,8 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Work.com con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario cargar un certificado en Work.com.com.
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Work.com con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+Como parte de este procedimiento, es necesario cargar un certificado en Work.com.com.
 
 >[AZURE.NOTE] Para configurar el inicio de sesión único, deberá configurar todavía un nombre de dominio personalizado de Work.com. Deberá definir al menos un nombre de dominio, probar su nombre de dominio e implementarlo en toda la organización.
 
@@ -96,7 +98,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurar inicio de sesión único")
 
-8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Work.com**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Work.com (por ejemplo: "**http://company.my.salesforce.com*”)) y luego haga clic en **Siguiente**.
+8.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Work.com**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Work.com (por ejemplo: "*http://company.my.salesforce.com*") y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurar dirección URL de la aplicación")
 
@@ -131,8 +133,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
     3.  Para cargar el certificado descargado, haga clic en **Examinar** .
-    4.  En el cuadro de texto **Id. de entidad**, escriba ****https://salesforce-work.com**.
-5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
+    4.  En el cuadro de texto **Id. de entidad**, escriba **https://salesforce-work.com**.
+    5.  Como **Tipo de identidad SAML**, seleccione **La aserción contiene el identificador de la federación del objeto de usuario**.
     6.  Como **Ubicación de identidad de SAML**, seleccione **La identidad está en el elemento NameIdentifier de la instrucción de sujeto**.
     7.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Login URL** (Dirección URL de inicio de sesión de proveedor de identidades).
     8.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Work.com**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Identity Provider Logout URL** (Dirección URL de cierre de sesión de proveedor de identidades).
@@ -157,7 +159,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben aprovisionarse a Work.com. En el caso de Work.com, el aprovisionamiento es una tarea manual.
+Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben aprovisionarse a Work.com.  
+En el caso de Work.com, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 

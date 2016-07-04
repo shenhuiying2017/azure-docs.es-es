@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Thoughtworks Mingle **, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Thoughtworks Mingle**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurar inicio de sesión único")
 

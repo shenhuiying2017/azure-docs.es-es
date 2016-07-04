@@ -79,7 +79,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación **Cherwell** (p. ej.: **https://pictdev.cherwellondemand.com/cherwellclient*)
-2.  Haga clic en **Siguiente**.
+    2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en Cherwell**, siga estos pasos:
 

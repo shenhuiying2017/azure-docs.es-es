@@ -27,7 +27,7 @@ Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un
 
 ## Pasos siguientes
 -  [Capturar una máquina virtual Windows](virtual-machines-windows-capture-image.md) para poder escalar horizontalmente la implementación de máquinas virtuales
--  [Cargar una imagen de máquina virtual de Windows Azure](virtual-machines-windows-upload-image.md) para usarla al crear una nueva máquina virtual
+-  [Cargar una imagen de máquina virtual de Microsoft Azure](virtual-machines-windows-upload-image.md) para usarla al crear una nueva máquina virtual
 -  [Cambiar la letra de unidad de disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md) con el fin de que la aplicación pueda usar la unidad D: para los datos
 
 <!---HONumber=AcomDC_0622_2016-->

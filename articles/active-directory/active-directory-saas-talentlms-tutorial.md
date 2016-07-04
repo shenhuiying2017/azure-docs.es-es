@@ -106,10 +106,10 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TalentLMS**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Remote sign-in URL** (Dirección URL de inicio de sesión remoto).
     5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TalentLMS**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Remote sign-out URL** (Dirección URL de cierre de sesión remoto).
-    6.  En el cuadro de texto **TargetedID**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-7.  En el cuadro de texto **Nombre**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  En el cuadro de texto **Last Name** (Apellido), escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  En el cuadro de texto **Correo electrónico**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  En el cuadro de texto **TargetedID**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+7.  En el cuadro de texto **Nombre**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  En el cuadro de texto **Last Name** (Apellido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Haga clic en **Guardar**.
 
 9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.

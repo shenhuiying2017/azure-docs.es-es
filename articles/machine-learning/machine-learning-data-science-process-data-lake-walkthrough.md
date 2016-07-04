@@ -158,7 +158,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo--> Nuevo--> Proy
 
 ### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 
-A la ubicación de los datos en el blob de Azure se hace referencia como ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_ {*} .csv** para leer los doce archivos de carreras.
+A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_ {*} .csv** para leer los doce archivos de carreras.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ A la ubicación de los datos en el blob de Azure se hace referencia como ****was
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Almacenamiento de Azure Data Lake mediante ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de Almacenamiento de blobs de Azure mediante ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Almacenamiento de Azure Data Lake mediante ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de Almacenamiento de blobs de Azure mediante **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =

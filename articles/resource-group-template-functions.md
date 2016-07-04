@@ -432,7 +432,7 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 | baseUri | Sí | La cadena de uri base.
 | relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
 
-El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar ****http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de ****http://contoso.com/resources/**.
+El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar **http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de **http://contoso.com/resources/**.
 
 En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
 

@@ -176,7 +176,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	a. Habilite el **par de claves privadas x509**.
 
-	b. En el cuadro de texto **Id. de proveedor de servicios**, escriba ****http://www.workday.com**.
+	b. En el cuadro de texto **Id. de proveedor de servicios**, escriba **http://www.workday.com**.
 
 	c. Seleccione **Habilitar autenticación SAML iniciada por el proveedor de servicios**.
 

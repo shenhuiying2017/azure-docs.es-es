@@ -2,7 +2,7 @@ En este artículo se describe un conjunto de procedimientos probados para ejecut
 
 > [AZURE.NOTE] Azure cuenta con dos modelos de implementación diferentes: [Resource Manager][resource-manager-overview] y clásico. En este artículo se utiliza el Administrador de recursos, que Microsoft recomienda para las implementaciones nuevas.
 
-Se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún SLA de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
+Se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún SLA de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 ## Diagrama de la arquitectura
 
@@ -87,7 +87,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Puede escalar y reducir verticalmente una máquina virtual [cambiando su tamaño][vm-resize]. 
 
-- Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
+- Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 ## Consideraciones sobre disponibilidad
 
@@ -101,7 +101,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 ## Consideraciones sobre la manejabilidad
 
-- **Grupos de recursos.** Coloque los recursos estrechamente acoplados que comparten el mismo ciclo de vida en un mismo [grupo de recursos][resource-manager-overview]. Los grupos de recursos le permiten implementar y supervisar los recursos como un grupo, y acumular los costos de facturación por grupo de recursos. También se pueden eliminar recursos en conjunto, lo que resulta muy útil para implementaciones de prueba. Asigne a los recursos nombres descriptivos. De esta forma será más fácil encontrarlos y comprender su función. Consulte [Recommended naming conventions for Azure resources][naming conventions] (Convenciones de nomenclatura recomendadas para los recursos de Azure).
+- **Grupos de recursos.** Coloque los recursos estrechamente acoplados que comparten el mismo ciclo de vida en un mismo [grupo de recursos][resource-manager-overview]. Los grupos de recursos le permiten implementar y supervisar los recursos como un grupo, y acumular los costos de facturación por grupo de recursos. También se pueden eliminar recursos en conjunto, lo que resulta muy útil para implementaciones de prueba. Asigne a los recursos nombres descriptivos. De esta forma será más fácil encontrarlos y comprender su función. Consulte [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
 - **ssh**. Antes de crear una máquina virtual Linux, genere un par de clave pública y privada RSA de 2048 bits. Utilice el archivo de clave pública al crear la máquina virtual. Para más información, consulte [Uso de SSH con Linux y Mac en Azure][ssh-linux].
 
@@ -133,7 +133,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Automatice las actualizaciones del sistema operativo mediante la extensión de máquina virtual [OSPatching]. Instale esta extensión cuando aprovisione la máquina virtual. Puede especificar la frecuencia de instalación de revisiones y si después de la aplicación de revisiones será necesario reiniciar el sistema.
 
-- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia incluyen [Usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y [Colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
+- Utilice el [control de acceso basado en rol][rbac] \(RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia incluyen [Usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y [Colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
     > [AZURE.NOTE] RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.
 
@@ -145,7 +145,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 El siguiente script por lotes ejecuta los comandos de la [CLI de Azure][azure-cli] para implementar una única instancia de máquina virtual, así como los recursos de red y almacenamiento relacionados, tal como se muestra en el diagrama anterior.
 
-El script usa las convenciones de nomenclatura que se describen en [Recommended naming conventions for Azure resources][naming conventions] (Convenciones de nomenclatura recomendadas para recursos de Azure).
+El script usa las convenciones de nomenclatura que se describen en [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para recursos de Azure).
 
 Para ejecutar el script:
 
@@ -312,7 +312,7 @@ azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTC
 
 ## Pasos siguientes
 
-Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
+Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 <!-- links -->
 

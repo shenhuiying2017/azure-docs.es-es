@@ -57,7 +57,7 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos del Centro de IoT para simplificar la carga de archivos desde los dispositivos. Puede explorar las características del centro de IoT y distintos escenarios con el tutorial siguiente:
 
-- [Process Device-to-Cloud messages] (Procesamiento de mensajes de dispositivo a nube) muestra cómo procesar de forma fiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
+- [Process Device-to-Cloud messages] \(Procesamiento de mensajes de dispositivo a nube) muestra cómo procesar de forma fiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
 
 Información adicional sobre el centro de IoT:
 

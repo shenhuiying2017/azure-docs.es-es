@@ -68,7 +68,7 @@ Los detalles sobre cómo crear y configurar las rutas definidas por el usuario e
 
 **Requisitos previos**
 
-1. Instale la última versión de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
+1. Instale la última versión de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] \(fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
 
 2. Se recomienda crear una única subred para que el entorno del Servicio de aplicaciones lo utilice de manera exclusiva. Esto garantiza que las rutas definidas por el usuario aplicadas a la subred solo abrirán el tráfico saliente para el entorno del Servicio de aplicaciones.
 3. **Importante**: no implemente el entorno del Servicio de aplicaciones hasta **después** de haber completado los siguientes pasos de configuración. Esto garantiza que la conectividad de red saliente esté disponible antes de intentar implementar un entorno del Servicio de aplicaciones.

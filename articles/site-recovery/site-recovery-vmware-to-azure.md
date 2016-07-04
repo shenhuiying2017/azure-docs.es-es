@@ -145,7 +145,7 @@ El servidor de procesos de Site Recovery puede detectar automáticamente las má
 1.	Asegúrese de que la máquina que se utiliza para el servidor de configuración cumple con los [requisitos previos](#configuration-server-prerequisites). En concreto, asegúrese de que la máquina está conectada a Internet con estas opciones:
 
 	- Permitir el acceso a estas direcciones URL: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net
-- Permitir el acceso a [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) para descargar MySQL.
+	- Permitir el acceso a [http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi](http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi) para descargar MySQL.
 	- Permitir la comunicación del firewall en Azure con los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el protocolo HTTPS (443).
 
 2.	Descargue e instale [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) en el servidor de configuración. En estos momentos, no son compatibles otras versiones de PowerCLI, incluidas las versiones de R 6.0.
@@ -533,7 +533,8 @@ Los instaladores están disponibles en **C:\\Archivos de programa (x86)\\Microso
 Sistema operativo de origen | Archivo de instalación del servicio de movilidad
 --- | ---
 Windows Server 64 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 

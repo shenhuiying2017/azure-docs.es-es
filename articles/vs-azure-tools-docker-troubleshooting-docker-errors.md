@@ -62,7 +62,7 @@ Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente com
 **En Windows**
 
 ```
-a
+
 / # ls
 ```
 

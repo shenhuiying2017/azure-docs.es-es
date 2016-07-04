@@ -38,7 +38,7 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 1. Inicie sesión como administrador en el Portal de Azure clásico.
 2. Vaya a Active Directory y seleccione el directorio en el que desea habilitar el proxy de la aplicación.
 3. Haga clic en **Aplicaciones** y desplácese hacia abajo hasta la sección **Reglas de acceso**. La sección Reglas de acceso solo aparece para aplicaciones publicadas con el proxy de la aplicación que usa autenticación federada.
-4. Habilite la regla seleccionando **Habilitar reglas de acceso ** como **Activada**.
+4. Habilite la regla seleccionando **Habilitar reglas de acceso** como **Activada**.
 5. Especifique los usuarios y grupos a los que se aplican las reglas. Use el botón **Agregar grupo** botón para seleccionar uno o más grupos a los que se aplicará la regla de acceso. Este cuadro de diálogo también sirve para quitar grupos seleccionados. Cuando las reglas se seleccionan para que se apliquen a grupos, las reglas de acceso solo se aplicarán a los usuarios que pertenezcan a uno de los grupos de seguridad especificados.  
 
   - Para excluir explícitamente grupos de seguridad de la regla, active **Excepto** y especifique uno o más grupos. No se requerirá a los usuarios que sean miembros de un grupo de la lista Excepto que realicen autenticación multifactor.  
