@@ -20,9 +20,9 @@
 
 Para configurar una tabla para Stretch Database, seleccione **Stretch | Habilitar** en una tabla en SQL Server Management Studio para abrir el asistente para **habilitar una tabla para Stretch**. También puede utilizar Transact-SQL para habilitar Stretch Database en una tabla existente o para crear una nueva tabla con Stretch Database habilitado.
 
--   Si almacena los datos históricos en una tabla independiente, puede migrar toda la tabla.
+-   Si almacena los datos inactivos en una tabla independiente, puede migrar toda la tabla.
 
--   Si la tabla contiene datos históricos y actuales, puede especificar un predicado de filtro para seleccionar las filas que migrar.
+-   Si la tabla contiene datos activos e inactivos, puede especificar un predicado de filtro para seleccionar las filas que se migrarán.
 
 **Requisitos previos**. Si selecciona **Stretch | Habilitar** para una tabla y no ha habilitado todavía Stretch Database para la base de datos, el asistente configura primero la base de datos para Stretch Database. Siga los pasos que se describen en [Ejecución del asistente para habilitar la base de datos para Stretch](sql-server-stretch-database-wizard.md) en lugar de los pasos de este tema.
 
@@ -65,7 +65,7 @@ Puede habilitar Stretch Database para una tabla existente o crear una nueva tabl
 ### Opciones
 Utilice las siguientes opciones al ejecutar CREATE TABLE o ALTER TABLE para habilitar Stretch Database en una tabla.
 
--   Opcionalmente, use la cláusula `FILTER_PREDICATE = <predicate>` para especificar un predicado y seleccionar las filas que se migrarán si la tabla contiene tanto datos históricos como actuales. El predicado debe llamar a una función con valores de tabla insertada. Para más información, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Si no especifica un predicado de filtro, se migra toda la tabla.
+-   Opcionalmente, use la cláusula `FILTER_PREDICATE = <predicate>` para especificar un predicado y seleccionar las filas que se migrarán si la tabla contiene tanto datos activos como inactivos. El predicado debe llamar a una función con valores de tabla insertada. Para más información, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Si no especifica un predicado de filtro, se migra toda la tabla.
 
     >   [AZURE.NOTE] Si proporciona un predicado de filtro que tiene un rendimiento insuficiente, la migración de datos también lo tendrá. Stretch Database aplica el predicado de filtro a la tabla con el operador CROSS APPLY.
 
@@ -77,16 +77,22 @@ Para configurar una tabla existente para Stretch Database, ejecute el comando AL
 Este es un ejemplo en el que se migra toda la tabla y en el que la migración de datos se inicia de inmediato.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
 En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y se pospone la migración de datos. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <table name>  
+    SET ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+ GO
 ```
 
 Para más información, consulte [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
@@ -97,16 +103,25 @@ Para crear una nueva tabla con Stretch Database habilitado, ejecute el comando C
 Este es un ejemplo en el que se migra toda la tabla y en el que la migración de datos se inicia de inmediato.
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON ( MIGRATION_STATE = OUTBOUND ) ) ;  
+GO
 ```
+
 En el ejemplo siguiente se migran solo las filas identificadas mediante la función con valores de tabla insertada `dbo.fn_stretchpredicate` y se pospone la migración de datos. Para más información sobre el predicado de filtro, consulte [Uso de un predicado de filtro para seleccionar filas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md).
 
 ```tsql
-CREATE TABLE <table name> ...
-    WITH ( REMOTE_DATA_ARCHIVE = ON (
-        FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
-        MIGRATION_STATE = PAUSED ) );
+USE <Stretch-enabled database name>;
+GO
+CREATE TABLE <table name>
+    ( ... )  
+    WITH ( REMOTE_DATA_ARCHIVE = ON (  
+        FILTER_PREDICATE = dbo.fn_stretchpredicate(),  
+        MIGRATION_STATE = PAUSED ) ) ;  
+GO  
 ```
 
 Para más información, consulte [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx).
@@ -118,4 +133,4 @@ Para más información, consulte [CREATE TABLE (Transact-SQL)](https://msdn.micr
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -15,8 +15,8 @@ Si tiene problemas para conectarse a una aplicación, intente los siguientes pas
 
 - Reiniciar la máquina virtual
 - Volver a crear el punto de conexión / reglas de firewall / reglas de grupo de seguridad de red (NSG)
-	- [Administrar puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Administrar grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modelo clásico: administración de puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Conectarse desde otra ubicación, como una red virtual de Azure diferente
 - Volver a implementar la máquina virtual
 	- [Nueva implementación de la máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
@@ -74,8 +74,8 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 - El firewall del host de la VM de destino permite el tráfico de la solicitud entrante y el tráfico de la respuesta saliente.
 - El software de detección de intrusiones o de supervisión de red que se ejecuta en la VM de destino permite el tráfico.
 - Los puntos de conexión de los servicios en la nube o los grupos de seguridad de red permiten el tráfico.
-	- [Administrar puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-	- [Administrar grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+	- [Modelo clásico: administración de puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Un componente independiente que se ejecuta en la VM en la ruta de acceso entre la VM de prueba y su VM (como un equilibrador de carga o un firewall) permite el tráfico.
 
 En una máquina virtual basada en Windows, use el Firewall de Windows con seguridad avanzada para determinar si las reglas de firewall excluyen el tráfico entrante y saliente de la aplicación.
@@ -90,19 +90,21 @@ Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la pá
 
 Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 
-- En las VM creadas con el modelo de implementación clásica, que la configuración del punto de conexión de la VM permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
+- Para las máquinas virtuales creadas con el modelo de implementación clásica:
+	- Que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
+	- Que las listas de control de acceso (ACL) en el punto de conexión no impidan el tráfico entrante desde Internet.
 	- Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- En las VM creadas con el modelo de implementación clásica, que las listas de control de acceso (ACL) del punto de conexión no impidan el tráfico entrante desde Internet.
-	- Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-- En las VM creadas con el modelo de implementación de Resource Manager, que la configuración de la regla NAT entrante de la VM permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
-- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
+	
+- Para las máquinas virtuales creadas con el modelo de implementación de Resource Manager:
+	- Que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
+	- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
 	- Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 
 - Compruebe que el protocolo de sondeo (TCP o UDP) y el número de puerto son correctos.
 - Si el protocolo de sondeo y el puerto es diferente del protocolo y puerto del conjunto con equilibrio de carga:
-	- Compruebe que la aplicación está escuchando el protocolo de sondeo (TCP o UDP) y el número de puerto (use **netstat –a** en la VM de destino).
+	- Compruebe que la aplicación está escuchando el protocolo de sondeo (TCP o UDP) y el número de puerto (use **netstat –a** en la máquina virtual de destino).
 	- Compruebe que el firewall del host de la VM de destino permite la solicitud de sondeo entrante y el tráfico de respuesta de sondeo saliente.
 
 Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimetral de Internet permita:
@@ -115,3 +117,5 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -14,19 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/17/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # Importación de datos al Estudio de aprendizaje automático de Azure desde varios orígenes de datos en línea con el módulo Importar datos
 
-En este documento se describe la compatibilidad para la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Aprendizaje automático de Azure.
+En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Aprendizaje automático de Azure.
+
+> [AZURE.NOTE] En este artículo se proporciona información general sobre el módulo [Importar datos][import-data]. Para obtener más información sobre los tipos de datos a los que puede acceder, los formatos, los parámetros y las respuestas a las preguntas más comunes, consulte el tema de referencia del módulo [Importar datos][import-data].
+
+<!-- -->
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## Introducción
 
-Puede acceder a los datos desde el Estudio de aprendizaje automático de Azure desde cualquiera de los orígenes de datos en línea mientras su experimento se ejecuta con el módulo [Importar datos][import-data]\:
+Puede acceder a los datos del Estudio de aprendizaje automático de Azure desde cualquiera de los orígenes de datos en línea mientras su experimento se ejecuta con el módulo [Importar datos][import-data]\:
 
 - Una dirección URL web con HTTP
 - Hadoop con HiveQL
@@ -35,12 +39,16 @@ Puede acceder a los datos desde el Estudio de aprendizaje automático de Azure d
 - Base de datos SQL de Azure o SQL Server en máquina virtual de Azure
 - Un proveedor de fuentes de datos, actualmente OData
  
+El flujo de trabajo para llevar a cabo experimentos en el Estudio de aprendizaje automático de Azure consta de componentes para arrastrar y colocar en el lienzo. Para acceder a orígenes de datos en línea, agregue el módulo [Importar datos][import-data] al experimento, seleccione **Origen de datos** y, después, especifique los parámetros necesarios para acceder a los datos. Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Esta tabla también resume los formatos de archivo admitidos y los parámetros usados para tener acceso a los datos.
 
-El flujo de trabajo para llevar a cabo experimentos en el Estudio de aprendizaje automático de Azure consta de componentes para arrastrar y colocar en el lienzo. Para obtener acceso a orígenes de datos en línea, agregue el módulo [Importar datos][import-data] al experimento, seleccione **Origen de datos** y, a continuación, especifique los parámetros necesarios para acceder a los datos. Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Esta tabla también resume los formatos de archivo admitidos y los parámetros usados para tener acceso a los datos.
+Tenga en cuenta que, como a estos datos de entrenamiento se tiene acceso mientras se está ejecutando el experimento, solo están disponibles en ese experimento. En comparación, los datos que estén almacenados en módulos de conjunto de datos se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo.
 
-> [AZURE.NOTE] En este artículo se proporciona información general sobre el módulo [Importar datos][import-data]. Para más información sobre los tipos de datos a los que puede tener acceso, los formatos, los parámetros y las respuestas a las preguntas más comunes, consulte el tema de referencia del módulo [Importar datos][import-data].
+> [AZURE.IMPORTANT] En estos momentos, los módulos [Importar datos][import-data] y [Exportar datos][export-data] solo pueden leer y escribir datos del almacenamiento de Azure que se creó utilizando el modelo de implementación clásico. Es decir, todavía no se admite el nuevo tipo de cuenta de Almacenamiento de blobs de Azure que ofrece un nivel de acceso frecuente o esporádico al almacenamiento.
 
-> [AZURE.NOTE] Como a estos datos de entrenamiento se tiene acceso mientras se está ejecutando el experimento, solo están disponibles en ese experimento. En comparación, los datos que estén almacenados en módulos de conjunto de datos se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo.
+> Por lo general, las cuentas de almacenamiento de Azure que podría haber creado antes de que esta opción de servicio estuviera disponible no deberían verse afectadas. Si tiene que crear una cuenta nueva, seleccione **Clásico** en Modelo de implementación, o bien utilice Azure Resource Manager. En **Tipo de cuenta**, seleccione **Uso general** en lugar de **Almacenamiento de blobs**.
+
+> Para obtener más información, consulte [Capas de almacenamiento de acceso frecuente y acceso esporádico](../storage/storage-blob-storage-tiers.md).
+
 
 
 ## Orígenes de datos en línea admitidos
@@ -58,5 +66,6 @@ Proveedor de fuente de distribución de datos | Lee datos de un proveedor de fue
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

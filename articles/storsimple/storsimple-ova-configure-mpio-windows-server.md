@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Configuración de E/S de múltiples rutas en el host de Windows Server para la matriz Virtual de StorSimple
@@ -148,7 +148,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
 
 11. Debe repetir estos pasos para cada volumen (superficies como destino).
 
-	![mpio15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
+	![mpio 15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
 
 12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en la matriz virtual de StorSimple que son visibles para este host aparecerán en **Administración de discos** como discos nuevos.
 
@@ -178,4 +178,4 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su matriz virtual de StorSimple](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

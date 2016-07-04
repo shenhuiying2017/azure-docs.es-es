@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 # Inicio de sesión único con el proxy de aplicación
-
-> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 El inicio de sesión único es un elemento clave del proxy de aplicación de Azure AD. Proporciona la mejor experiencia de usuario con los siguientes pasos:
 1. Un usuario inicia sesión en la nube.
@@ -66,7 +64,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 1. En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**.
 2. Seleccione el servidor que ejecuta el conector.
 3. Haga clic con el botón derecho y seleccione **Propiedades** > **Delegación**.
-4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificadoss** y, en **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones.
+4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados** y, en **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones.
 5. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
 ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
@@ -155,11 +153,11 @@ Si se produce un error en el proceso SSO, aparecerá en el registro de eventos d
 - [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
 - [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
 
-Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
+Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog de Proxy de aplicación).
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

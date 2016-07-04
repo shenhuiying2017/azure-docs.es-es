@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -82,7 +82,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución
 
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -113,8 +113,7 @@ Para configurar la nueva máquina virtual de SQL Server para que actúe como un 
 	+ Para la conectividad remota del servidor de Bloc de notas de IPython
 	+ La obtención de Blocs de notas de IPython y scripts de SQL de ejemplo
 	+ La descarga e instalación de paquetes de Python de ciencia de datos útiles
-	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure  
-<br>
+	+ La descarga e instalación de las herramientas de Azure como AzCopy y Explorador de almacenamiento de Azure <br>
 - Es posible tener acceso y ejecutar Bloc de notas de IPython desde cualquier explorador local o remoto mediante una dirección URL de la forma `https://<virtual_machine_DNS_name>:<port>`, donde port es el puerto público de IPython que seleccionó al aprovisionar la máquina virtual.
 - El servidor de Bloc de notas de IPython se ejecuta como un servicio en segundo plano y se reiniciará automáticamente cuando se reinicie la máquina virtual.
 
@@ -234,13 +233,13 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En el Portal de Azure clásico (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **INSTANCIAS DE MÁQUINA VIRTUAL**, en la columna **NOMBRE DNS**, encuentre y copie el nombre DNS de la máquina virtual que aparece precedido por ****http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
 ##<a name="cde"></a>Conexión al motor de base de datos desde otro equipo
 
 1.  En un equipo conectado a Internet, abra SQL Server Management Studio.
 
-2.  En el cuadro de diálogo **Conectar al servidor** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
+2.  En el cuadro de diálogo **Conectar al servidor ** o **Conectarse al motor de base de datos**, en el cuadro **Nombre del servidor**, escriba el nombre DNS de la máquina virtual (determinado en la tarea anterior) y un número de puerto de extremo público con formato **NombreDNS,nombrepuerto**, como por ejemplo *tutorialtestVM.cloudapp.net,57500*.
 
 3.  En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
@@ -252,7 +251,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 ##<a name="amlconnect"></a>Conexión al motor de base de datos desde Aprendizaje automático de Azure
 
-En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de datos de las bases de datos de máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo [Importar datos](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata con mayor profundidad en los vínculos de ayuda del proceso de Cortana Analytics. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
+En las fases posteriores del proceso de ciencia de datos en equipos, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para crear e implementar modelos de aprendizaje automático. Para la ingesta de datos de las bases de datos de máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo [Importar datos](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata más en detalle en los vínculos de la guía del proceso de ciencia de datos en equipos. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
 
 2.	En el panel **Propiedades** del [módulo Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx), seleccione **Base de datos SQL de Azure** en la lista desplegable **Origen de datos**.
 
@@ -286,9 +285,9 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure SQL Server ya está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Notebook de IPython para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de análisis de Cortana (CAP).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de IPython Notebook para explorar y procesar datos, además de otras tareas junto con el Aprendizaje automático de Azure y el proceso de ciencia de datos en equipos (TDSP).
 
-Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
+Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en [dicho proceso](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para aprender de los datos con Aprendizaje automático de Azure.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -307,4 +306,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

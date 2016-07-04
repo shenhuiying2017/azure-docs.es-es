@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Exploración de los datos de una máquina virtual de SQL Server en Azure
@@ -71,8 +71,8 @@ Ya puede trabajar con la trama de datos de Pandas como se explica en los temas [
 
 ## Ejemplo de proceso de análisis de Cortana en acción
 
-Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana usando un conjunto de datos público, consulte [El proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Para ver un tutorial de ejemplo completo del proceso de Cortana Analytics usando un conjunto de datos público, consulte [Proceso de ciencia de datos en equipos en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

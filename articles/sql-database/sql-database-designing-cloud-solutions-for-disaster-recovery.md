@@ -36,7 +36,7 @@ Esta opción es mejor para las aplicaciones con las siguientes características:
 
 En este caso la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando se ven afectados todos los componentes de aplicación y es necesario conmutar por error como una unidad. Para la redundancia geográfica tanto la lógica de aplicación como la base de datos se replican en otra región, pero no se usan para la carga de trabajo de aplicación en las condiciones normales. La aplicación en la región secundaria debe configurarse para usar una cadena de conexión SQL a la base de datos secundaria. El Administrador de tráfico se configura para usar [el método de enrutamiento de conmutación por error](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
-> [AZURE.NOTE] En este artículo [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) se utiliza únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de conmutación por error.    
+> [AZURE.NOTE] [Azure traffic manager]En este artículo (../traffic-manager/traffic-manager-overview.md) se utiliza únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de conmutación por error.
 
 Además de las instancias de la aplicación principal, debe considerar la implementación de una pequeña [aplicación de rol de trabajo](cloud-services-choose-me.md#tellmecs) que supervise la base de datos principal mediante la emisión de comandos periódicos T-SQL de solo lectura (RO). Puede usarla para activar automáticamente la conmutación por error, para generar una alerta en la consola de administración de la aplicación o para ambas acciones. Para asegurarse de que la supervisión no está afectada por las interrupciones que afecten a toda la región, debe implementar las instancias de la aplicación de supervisión en cada región y conectarlas a la base de datos en otra región, pero solo la instancia en la región secundaria tiene que estar activa.
 
@@ -153,14 +153,20 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 | Implementación activa-activa para el equilibrio de carga de aplicación | Acceso de lectura y escritura < 5 s | Tiempo de detección de errores + llamada de API de conmutación por error + cadena de conexión SQL + cambio de prueba de verificación de aplicación
 | Implementación activa-pasiva para la conservación de datos | Acceso de solo lectura < 5 s acceso de lectura y escritura = cero | Acceso de solo lectura = tiempo de detección de errores de conectividad + prueba de comprobación de la aplicación <br>Acceso de lectura y escritura = tiempo para mitigar la interrupción
 
+## Pasos siguientes
+
+- Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
 
 ## Recursos adicionales
 
-
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
+- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
+- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
+- [Restauración geográfica](sql-database-geo-restore.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

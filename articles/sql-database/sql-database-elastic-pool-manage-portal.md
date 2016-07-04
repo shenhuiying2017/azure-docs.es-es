@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -105,15 +105,17 @@ En la lista de bases de datos en la hoja **Database Resource Utilization** (Uso 
 
 Puede agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca.
 
+> [AZURE.IMPORTANT]La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
+
 **Para agregar una alerta para cualquier recurso, siga estos pasos:**
 
 1. Haga clic en el gráfico **Uso de recursos** para abrir la hoja **Métrica**, haga clic en **Agregar alerta** y rellene la información de la hoja **Agregar una regla de alerta** (el campo **Recurso** se establece automáticamente en el grupo con el que está trabajando).
-2. Escriba un **Nombre** y una **Descripción** que identifique la alerta de cara a usted y a los destinatarios.
+2. Escriba un **nombre** y una **descripción** que identifique la alerta de cara a usted y a los destinatarios.
 3. Elija en la lista la **Métrica** para la que quiera que se generen alertas.
 
     El gráfico muestra dinámicamente el uso de recursos relativos a esa métrica a fin de ayudarle a elegir un umbral.
 
-4. Elija una **Condición** (mayor que, menor que, etc.) y un **Umbral**.
+4. Elija una **condición** (mayor que, menor que, etc.) y un **umbral**.
 5. Haga clic en **Aceptar**.
 
 
@@ -126,7 +128,7 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
     ![Haga clic en Configurar grupo.][1]
 
-2. En la hoja **Configurar grupo**, haga clic en **Add to pool** (Agregar al grupo).
+2. En la hoja **Configurar grupo**, haga clic en **Agregar al grupo**.
 
 	![Haga clic en Agregar al grupo.](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
@@ -145,7 +147,7 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 ## Movimiento de una base de datos fuera de un grupo elástico
 
-1. En la hoja **Configurar grupo**, seleccione las base de datos que quitará.
+1. En la hoja **Configurar grupo**, seleccione las bases de datos que quitará.
 
     ![lista de bases de datos](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
@@ -163,7 +165,7 @@ Puede agregar o quitar las bases de datos de un grupo existente. Las bases de da
 
 ## Cambio de la configuración de rendimiento de un grupo
 
-Cuando supervise el uso de recursos de un grupo, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para más información.
+Cuando supervise el uso de recursos de un grupo, es posible que descubra que son necesarios algunos ajustes. Quizás el grupo necesita un cambio en los límites de almacenamiento o rendimiento. Posiblemente desee cambiar la configuración de la base de datos en el grupo. Puede cambiar la configuración del grupo en cualquier momento para obtener el mejor equilibrio entre rendimiento y costo. Consulte [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md) para obtener más información.
 
 **Para cambiar los límites de almacenamiento o eDTU por grupo y las eDTU por base de datos:**
 
@@ -187,7 +189,7 @@ Los trabajos elásticos le permiten ejecutar scripts de Transact-SQL con cualqui
 
 Antes de usar los trabajos, instale los componentes de trabajos elásticos y especifique sus credenciales. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
 
-Consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
+Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
 
 
@@ -211,4 +213,4 @@ Consulte [Información general de las características de bases de datos elásti
 [8]: ./media/sql-database-elastic-pool-manage-portal/db-utilization.png
 [9]: ./media/sql-database-elastic-pool-manage-portal/metric.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

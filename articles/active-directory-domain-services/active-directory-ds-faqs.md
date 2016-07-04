@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="06/20/2016"
 	ms.author="maheshu"/>
 
 # Vista previa de Servicios de dominio de Active Directory: preguntas más frecuentes
@@ -78,4 +78,4 @@ Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obte
 #### ¿Cuándo está disponible Servicios de dominio de Azure AD con carácter general?
 Actualmente no podemos compartir escalas de tiempo sobre cuándo estará disponible el servicio con carácter general.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

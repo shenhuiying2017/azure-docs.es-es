@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Exploración de los datos del proceso de análisis de Cortana | Microsoft Azure" 
-	description="Exploración de datos de diversos entornos de almacenamiento" 
+	pageTitle="Exploración de datos en el proceso de ciencia de datos en equipos | Microsoft Azure" 
+	description="Procedimiento para explorar datos de diversos entornos de almacenamiento" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
-#Exploración de los datos del proceso de análisis de Cortana
+#Exploración de datos en el proceso de ciencia de datos en equipos
 
-Este documento describe cómo explorar datos en cuatro entornos diferentes usados normalmente en el proceso de análisis de Cortana:
+Este documento describe cómo explorar datos en cuatro entornos diferentes usados normalmente en el proceso de ciencia de datos en equipos:
 
 - Los datos del **contenedor de blobs de Azure** se exploran mediante el paquete [Pandas](http://pandas.pydata.org/) de Python.
 - Los **datos de SQL Server** se exploran mediante SQL y un lenguaje de programación como Python.
@@ -29,4 +29,4 @@ Este **menú** vincula a los temas que describen cómo usar estas herramientas p
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

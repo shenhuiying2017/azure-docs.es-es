@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2016"
+   ms.date="06/17/2016"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
@@ -46,23 +46,23 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 3. Para el nuevo proyecto, escriba o seleccione los valores siguientes.
 
 	<table>
-<tr>
-<th>Propiedad</th>
-<th>Valor</th>
-</tr>
-<tr>
-<th>Categoría</th>
-<th>Plantillas/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>Plantilla</th>
-<th>Aplicación de consola</th>
-</tr>
-<tr>
-<th>Nombre</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>Propiedad</th>
+	<th>Valor</th>
+	</tr>
+	<tr>
+	<th>Categoría</th>
+	<th>Plantillas/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>Plantilla</th>
+	<th>Aplicación de consola</th>
+	</tr>
+	<tr>
+	<th>Nombre</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. Haga clic en **Aceptar** para crear el proyecto.
 5. En el menú **Herramientas**, seleccione **Administrador de paquetes de biblioteca** o **Administrador de paquetes de Nuget** y, a continuación, seleccione **Consola del administrador de paquetes**.
 6. Ejecute el siguiente comando en la consola para instalar los paquetes de SDK de .NET.
@@ -128,7 +128,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 ## Resumen
 
-Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .NET que envíen trabajos de Pig a un clúster de HDInsight, supervisar el estado del trabajo y recuperar el resultado.
+Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .NET que envíen trabajos de Pig a un clúster de HDInsight y supervisar el estado del trabajo.
 
 ## Pasos siguientes
 
@@ -143,4 +143,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

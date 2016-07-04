@@ -163,4 +163,4 @@ Del mismo modo, los extremos comunes del protocolo SAML 2.0 se publican en los m
   </IDPSSODescriptor>
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

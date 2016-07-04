@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticación con firma de acceso compartido en el Bus de servicio | Microsoft Azure"
-   description="Detalles acerca de la autenticación SAS con el Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Autenticación con firma de acceso compartido en el Bus de servicio | Microsoft Azure"
+    description="Detalles acerca de la autenticación SAS con el Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticación con firma de acceso compartido en Service Bus
 
@@ -25,7 +25,7 @@ La compatibilidad con la autenticación SAS se incluye en el SDK de Azure 2.0 y 
 
 La autenticación SAS en el Bus de servicio implica la configuración de una clave criptográfica con derechos asociados en un recurso del Bus de servicio. Los clientes reclaman acceso a los recursos del Bus de servicio mediante la presentación de un token SAS. Este token consta del URI del recurso al que se accede y una caducidad firmada con la clave configurada.
 
-Puede configurar las reglas de autorización de firma de acceso compartido en las [retransmisiones](service-bus-fundamentals-hybrid-solutions.md#relays), las [colas](service-bus-fundamentals-hybrid-solutions.md#queues), los [temas](service-bus-fundamentals-hybrid-solutions.md#topics) y los [Centros de eventos](https://azure.microsoft.com/documentation/services/event-hubs/) del Bus de servicio.
+Puede configurar las reglas de autorización de firma de acceso compartido en las [retransmisiones](service-bus-fundamentals-hybrid-solutions.md#relays), las [colas](service-bus-fundamentals-hybrid-solutions.md#queues), los [temas](service-bus-fundamentals-hybrid-solutions.md#topics) y los [Centros de eventos](service-bus-fundamentals-hybrid-solutions.md#event-hubs) del Bus de servicio.
 
 La autenticación SAS usa los siguientes elementos:
 
@@ -35,7 +35,7 @@ La autenticación SAS usa los siguientes elementos:
 
 ## Configuración de la autenticación de firma de acceso compartido
 
-Puede configurar la regla [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en los espacios de nombres, las colas o los temas del Bus de servicio. La configuración de una regla [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en una suscripción del Bus de servicio no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones del Bus de servicio](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
+Puede configurar la regla [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en los espacios de nombres, las colas o los temas del Bus de servicio. La configuración de una regla [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) en una suscripción del Bus de servicio no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones del Bus de servicio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 Puede configurarse un máximo de 12 reglas en un espacio de nombres, una cola o un tema del Bus de servicio. Las reglas que se configuran en un espacio de nombres del Bus de servicio se aplican a todas las entidades en ese espacio de nombres.
 
@@ -52,7 +52,7 @@ Los parámetros clave de un objeto [SharedAccessAuthorizationRule](https://msdn.
 |*SecondaryKey*|Una clave secundaria de 256 bits con codificación base64 para firmar y validar el token SAS.|
 |*AccessRights*|Una lista de derechos de acceso concedidos por la regla de autorización. Estos derechos pueden ser cualquier colección de derechos de escucha, envío y administración.|
 
-Cuando se aprovisiona un espacio de nombres del Bus de servicio, de forma predeterminada se crea una [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), con [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) establecido en **RootManageSharedAccessKey**. También se configuran los objetos [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) predeterminados para los centros de notificaciones: uno con derechos de escucha, envío y administración y otro solo con derechos de escucha.
+Cuando se aprovisiona un espacio de nombres del Bus de servicio, de forma predeterminada se crea una [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx), con [KeyName](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.keyname.aspx) establecido en **RootManageSharedAccessKey**.
 
 ## Vuelva a generar y revocar las claves para las reglas de autorización de acceso compartido
 
@@ -94,7 +94,7 @@ Para un ejemplo funcional completo de una aplicación del Bus de servicio que il
 
 ## Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
 
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][]. Para más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][]. Para obtener más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
 
@@ -252,10 +252,10 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 
 ## Pasos siguientes
 
-Para obtener información general de alto nivel de SAS en el Bus de servicio, consulte [Firmas de acceso compartido](service-bus-sas-overview.md).
+Para obtener una descripción general de SAS en el Bus de servicio, consulte [Firmas de acceso compartido](service-bus-sas-overview.md).
 
 Para obtener más información sobre la autenticación del Bus de servicio, consulte [Autenticación y autorización del Bus de servicio](service-bus-authentication-and-authorization.md).
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

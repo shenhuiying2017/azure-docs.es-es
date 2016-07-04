@@ -36,8 +36,8 @@ Base de datos SQL de Azure proporciona recursos para limitar el acceso, proteger
 * Más información: [Protección de bases de datos SQL](sql-database-security.md)
 
 ## Autenticación
-* La autenticación de Windows no está disponible en Base de datos SQL de Azure, así que deberá usar en su lugar la autenticación de Base de datos SQL.
-* Deberá especificar una base de datos concreta, en lugar de las base de datos *maestra* predeterminada.
+* Base de datos SQL de Azure admite inicios de sesión y usuarios de autenticación de SQL Server, así como de [autenticación de Azure Active Directory](sql-database-aad-authentication.md).
+* Deberá especificar una base de datos concreta, en lugar de las bases de datos *maestra* predeterminada.
 * No puede usar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL para cambiar a otra base de datos.
 * Más información: [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md)
 
@@ -64,4 +64,8 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 * [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+## Pasos siguientes
+
+Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+
+<!---HONumber=AcomDC_0622_2016-->

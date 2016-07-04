@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Tinfoil Security | Microsoft Azure"
     description="Aprenda cómo usar Tinfoil Security con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Tinfoil Security
   
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Tinfoil Security:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Tinfoil Security**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Tinfoil Security**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Configurar inicio de sesión único")
 
@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 3.  En la página **Configurar URL de aplicación**, en el cuadro de texto **Dirección URL de respuesta de Tinfoil Security**, escriba la dirección URL del servicio del consumidor de aserción (ACS) de Tinfoil Security (por ejemplo, "**https://www.tinfoilsecurity.com/saml/consume*" y luego haga clic en **Siguiente**.
 
-    >[AZURE.NOTE]Debería poder obtener la dirección URL de ACS de los metadatos de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
+    >[AZURE.NOTE] Debería poder obtener la dirección URL de ACS de los metadatos de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Configurar dirección URL de la aplicación")
 
@@ -104,15 +104,15 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  Seleccione **Habilitar SAML**.
     2.  Haga clic en **Configuración manual**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Tinfoil Security**, copie el valor de **URL de SSO de SAML** y péguelo en el cuadro de texto **URL del mensaje de SAML**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Tinfoil Security**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **SAML Post URL** (Dirección URL de publicación de SAML).
     4.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado de SAML**.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
     5.  Copie **Su id. de cuenta**.
     6.  Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Configurar inicio de sesión único")
 
@@ -141,7 +141,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Tinfoil Security, 
 
 2.  Si el usuario es usuario habitual de SaaS de Tinfoil Security, puede agregar un colaborador a cualquiera de sus sitios. Esto desencadena un proceso para enviar una invitación al correo electrónico especificado para crear una nueva cuenta de usuario de Tinfoil Security.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Tinfoil Security ofrecida por Tinfoil Security para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Tinfoil Security ofrecida por Tinfoil Security para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -149,7 +149,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Tinfoil Security, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Tinfoil Security**, haga clic en **Asignar usuarios**.
 
@@ -161,4 +161,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

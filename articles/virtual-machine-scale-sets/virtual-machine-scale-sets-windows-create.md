@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Conjunto de escalas de máquina virtual| Microsoft Azure"
-	description="Creación de un conjunto de escalado de máquinas virtuales mediante Powershell"
+	description="Creación de un conjunto de escalado de máquinas virtuales mediante PowerShell"
 	services="virtual-machine-scale-sets"
     documentationCenter=""
 	authors="davidmu1"
@@ -248,7 +248,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
 
 1. Reemplace el valor de **$storageProfile** por el nombre que desee utilizar para el perfil de almacenamiento y, después, cree la variable:  
 
-        $storeProfile = "storage profile name"
+        $storageProfile = "storage profile name"
         
 2. Creación de las variables que definen la imagen que usar:
       
@@ -264,7 +264,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
         
 4. Creación de un perfil de almacenamiento:
 
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### Conjunto de escalado de máquina virtual
 
@@ -298,7 +298,7 @@ Use estos recursos para explorar el conjunto de escalado de máquinas virtuales 
 
 - Portal de Azure: Hay disponible una cantidad limitada de información mediante el portal.
 - [Explorador de recursos de Azure](https://resources.azure.com/): se trata de es la mejor herramienta para explorar el estado actual del conjunto de escalas.
-- Azure PowerShell: Use este comando para obtener información:
+- Azure PowerShell: use este comando para obtener información:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -313,4 +313,4 @@ Use estos recursos para explorar el conjunto de escalado de máquinas virtuales 
 - Plantéese configurar el escalado automático del conjunto de escalas mediante la información de [Escalado automático y conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-autoscale-overview.md).
 - Puede obtener más información sobre el escalado si consulta [Autoescala vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 
@@ -38,12 +38,12 @@ Se usan los recursos de proceso para los cuatro grupos de recursos. Cada entorno
 - Un ASE comienza con (2) P2, lo cual es suficiente para cargas de trabajo de desarrollo y pruebas y cargas de trabajo de producción de bajo nivel. Los P3 están muy recomendados para cargas de trabajo de producción intensas.
 - Para las cargas de trabajo de moderadas a intensas, se recomienda contar con al menos 4 x P3 para garantizar que haya suficientes front-end en ejecución cuando se produzca el mantenimiento programado. Las actividades de mantenimiento programado desactivan (1) front-end cada vez, reduciendo de este modo la capacidad global de los front-ends disponibles durante las actividades de mantenimiento.
 - No puede agregar una nueva instancia de front-end de manera instantánea. Puede tardar entre 2 y 3 horas en aprovisionarse.
-- Para afinar más en el escalado, los clientes deben supervisar el porcentaje de CPU, el porcentaje de memoria y las métricas de solicitudes activas para el grupo de servidores front-end. Si el porcentaje de CPU o memoria está por encima del 70% cuando se ejecutan los P3, agregue más servidores front-end. Si las solicitudes activas están en promedio entre 15.000 y 20.000 solicitudes por front-end, agregue también más servidores front-end. El objetivo general es mantener los porcentajes de CPU y memoria por debajo del 70% y el promedio de solicitudes activas por debajo de 15.000 solicitudes por front-end al ejecutar P3.  
+- Para afinar más en el escalado, los clientes deben supervisar el porcentaje de CPU, el porcentaje de memoria y las métricas de solicitudes activas para el grupo de servidores front-end. Si el porcentaje de CPU o memoria está por encima del 70 % cuando se ejecutan los P3, agregue más servidores front-end. Si las solicitudes activas están en promedio entre 15 000 y 20 000 solicitudes por front-end, agregue también más servidores front-end. El objetivo general es mantener los porcentajes de CPU y memoria por debajo del 70 % y el promedio de solicitudes activas por debajo de 15 000 solicitudes por front-end al ejecutar P3.  
 
 **Trabajo** El trabajo se encuentra donde se ejecutan realmente sus aplicaciones. Al escalar verticalmente sus planes del Servicio de aplicaciones se utiliza el trabajo del grupo de trabajo asociado.
 
 - No es posible agregar trabajo de manera instantánea. Este proceso puede tardar de 2 a 3 horas en aprovisionarse, independientemente de la cantidad que se esté agregando.
-- Escalar el tamaño de un recurso de proceso para cualquier grupo tardará de 2 a 3 horas por dominio de actualización. Hay 20 dominios de actualización en un ASE. La escala del tamaño de proceso de un grupo de trabajo con 10 instancias puede tardar entre 20 y 30 horas en completarse. 
+- Escalar el tamaño de un recurso de proceso para cualquier grupo tardará de 2 a 3 horas por dominio de actualización. Hay 20 dominios de actualización en un ASE. El escalado del tamaño de proceso de un grupo de trabajo con 10 instancias puede tardar entre 20 y 30 horas en completarse. 
 - Si cambia el tamaño de los recursos de proceso usados en un grupo de trabajo, provocará arranques en frío de las aplicaciones que se ejecutan en ese grupo de trabajo.
 
 La forma más rápida de cambiar el tamaño de recursos de proceso de un grupo de trabajo que no está ejecutando aplicaciones es el siguiente:
@@ -51,13 +51,13 @@ La forma más rápida de cambiar el tamaño de recursos de proceso de un grupo d
 - Reducir el número de instancias a 0. El proceso de desasignación de instancias tardará unos 30 minutos.
 - Seleccionar el nuevo tamaño de proceso y el número de instancias. Desde este punto, el proceso tardará entre 2 y 3 horas en completarse.
 
-Si las aplicaciones requieren un tamaño mayor de recursos de proceso, no podrá guiarse por las orientaciones anteriores. En lugar de cambiar el tamaño del grupo de trabajo que hospeda esas aplicaciones, puede rellenar otro grupo de trabajo con instancias del tamaño deseado y trasladar sus aplicaciones a ese grupo.
+Si las aplicaciones requieren un mayor tamaño de recursos de proceso, no le servirán las indicaciones anteriores. En lugar de cambiar el tamaño del grupo de trabajo que hospeda esas aplicaciones, puede rellenar otro grupo de trabajo con instancias del tamaño deseado y trasladar sus aplicaciones a ese grupo.
 
 - Crear las instancias adicionales del tamaño de proceso necesario en otro grupo de trabajo. Esto tardará de 2 a 3 horas en completarse.
 - Volver a asignar sus planes del Servicio de aplicaciones que hospedan las aplicaciones y que necesitan un tamaño mayor al grupo de trabajo recién configurado. Se trata de una operación rápida que debería tardar menos de un minuto en completarse.  
 - Reducir el primer grupo de trabajo si ya no necesita esas instancias no utilizadas. Esta operación tarda unos 30 minutos en completarse.
 
-**Escalado automático** Una de las herramientas que pueden ayudar a administrar el consumo de recursos de proceso es el escalado automático, que se puede aplicar a grupos de trabajo o servidores front-end. Puede, por ejemplo, aumentar las instancias de cualquier tipo de grupo de la mañana y reducirlo por la noche, o incluso agregar instancias cuando la cantidad de trabajo disponible en un grupo caiga por debajo de un umbral determinado. Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para obtener más detalles sobre el escalado automático de los entornos del Servicio de aplicaciones, vea [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
+**Escalado automático** Una de las herramientas que pueden ayudar a administrar el consumo de recursos de proceso es el escalado automático, que se puede aplicar a grupos de trabajo o servidores front-end. Puede, por ejemplo, aumentar las instancias de cualquier tipo de grupo por la mañana y reducirlo por la noche, o incluso agregar instancias cuando la cantidad de trabajo disponible en un grupo caiga por debajo de un umbral determinado. Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para obtener más detalles sobre el escalado automático de los entornos del Servicio de aplicaciones, vea [Escalado automático y entorno del Servicio de aplicaciones][ASEAutoscale].
 
 ### Almacenamiento
 
@@ -74,10 +74,11 @@ La red virtual que se usa con el ASE puede ser una de las que hizo al crear el A
 Existen algunas restricciones en la red virtual que se aplican a un ASE:
 
 - Actualmente solo se admiten las redes virtuales "clásicas" V1.
-- la red virtual debe ser una red virtual regional
-- Las redes virtuales que se utilizan para hospedar un ASE deben utilizar direcciones RFC1918 (es decir, direcciones privadas).
+- La red virtual debe ser una red virtual regional.
+- Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen *o* intervalos de direcciones públicas *o* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la subred por adelantado y, a continuación, seleccionar la subred en la UX de creación de ASE.
 - Es necesario que haya una subred con 8 o más direcciones donde se implementa el ASE.
 - Una vez que una subred se utilice para hospedar un ASE, no se puede cambiar el intervalo de direcciones de la subred. Por este motivo, se recomienda que la subred contenga al menos 64 direcciones para tener en cuenta el crecimiento futuro del ASE. 
+- **La subred utilizada para hospedar el ASE no debe contener otros recursos de procesos.**
 
 A diferencia del servicio hospedado que contiene el ASE, la [red virtual][virtualnetwork] y la subred están todas bajo el control del usuario. La administración de la red virtual se realiza a través de la interfaz de usuario de la red virtual o Powershell.
 
@@ -101,7 +102,7 @@ La primera hoja muestra algunas de las propiedades del ASE junto con un gráfico
 
 ### Supervisión
 
-Los gráficos ofrecen la capacidad de ver una variedad de estadísticas de rendimiento de cada grupo de recursos. Para el grupo de servidores front-end, supervise la CPU y la memoria promedio. Para los grupos de trabajo, supervise la cantidad utilizada y la cantidad disponible. Varios planes del Servicio de aplicaciones pueden usar los trabajos en un grupo de trabajo. La carga de trabajo no se distribuye de la misma manera que en los servidores front-end; por tanto, el uso de CPU y memoria no proporcionan una gran cantidad de información útil. Es más importante realizar el seguimiento de cuántos trabajos usó y están disponibles, sobre todo si va a administrar este sistema para que otros lo usen.
+Los gráficos ofrecen la capacidad de ver una variedad de estadísticas de rendimiento de cada grupo de recursos. Para el grupo de servidores front-end, supervise la CPU y la memoria promedio. Para los grupos de trabajo, supervise la cantidad utilizada y la cantidad disponible. Varios planes del Servicio de aplicaciones pueden usar los trabajos en un grupo de trabajo. La carga de trabajo no se distribuye de la misma manera que en los servidores front-end; por tanto, el uso de CPU y memoria no proporciona una gran cantidad de información útil. Es más importante realizar el seguimiento de cuántos trabajos usó y están disponibles, sobre todo si va a administrar este sistema para que otros lo usen.
 
 Todas las métricas que se pueden seguir en los gráficos también pueden usarse para configurar alertas. La configuración de alertas funciona de la misma forma que en cualquier otro lugar del Servicio de aplicaciones. Puede establecer una alerta de la parte de la interfaz de usuario de alertas o a partir de la exploración en profundidad de la interfaz de usuario de métricas y de hacer clic en Agregar alerta.
  
@@ -113,19 +114,19 @@ Las métricas que acabamos de analizar son las métricas el entorno del Servicio
 
 En la hoja de ASE hay una sección de configuración que contiene varias funciones importantes.
 
-**Configuración > Propiedades** La hoja Configuración se abrirá automáticamente cuando active la hoja ASE. En la parte superior se encuentra Propiedades. Hay una serie de elementos aquí que son redundantes con lo que ve en Essentials, aunque lo que es muy útil es la dirección VIP, así como la dirección IP saliente.
+**Configuración > Propiedades** La hoja Configuración se abrirá automáticamente cuando acceda a la hoja ASE. En la parte superior se encuentra Propiedades. Hay una serie de elementos aquí que son redundantes con lo que ve en Essentials, aunque lo que es muy útil es la dirección VIP, así como la dirección IP saliente.
 
 ![][4]
 
-**Configuración > Direcciones IP** Al crear una aplicación SSL de IP en su ASE, necesita una dirección SSL de IP. Para hacerlo, el ASE debe tener algunas direcciones SSL de IP que se puedan asignar. Cuando se crea un ASE, este tiene 1 dirección SSL de IP para este propósito, pero puede agregar más. Las direcciones de SSL de IP adicionales conllevan un cargo, como se muestra en los [Precios de Servicio de aplicaciones][AppServicePricing], en la sección sobre las conexiones SSL. El precio adicional es el precio de SSL de IP.
+**Configuración > Direcciones IP** Al crear una aplicación SSL de IP en su ASE, necesita una dirección SSL de IP. Para hacerlo, el ASE debe tener algunas direcciones SSL de IP que se puedan asignar. Cuando se crea un ASE, este tiene 1 dirección SSL de IP para este propósito, pero puede agregar más. Las direcciones de SSL de IP adicionales conllevan un cargo, como se muestra en los [precios del Servicio de aplicaciones][AppServicePricing], en la sección sobre las conexiones SSL. El precio adicional es el precio de SSL de IP.
 
-**Configuración > Grupo de servidores front-end / Grupos de trabajo** Cada una de estas hojas del grupo de recursos ofrece la posibilidad de ver información únicamente acerca de ese grupo de recursos, además de proporcionar controles para escalar completamente ese grupo de recursos.
+**Configuración > Grupo de servidores front-end/Grupos de trabajo** Cada una de estas hojas del grupo de recursos ofrece la posibilidad de ver información únicamente acerca de ese grupo de recursos, además de proporcionar controles para escalar completamente ese grupo de recursos.
 
 La hoja base de cada grupo de recursos proporciona un gráfico con métricas de dicho grupo de recursos. Al igual que con los gráficos de la hoja de ASE, puede acceder al gráfico y configurar las alertas como desee. Configurar una alerta desde la hoja del ASE para un grupo de recursos específico es igual que hacerlo desde el grupo de recursos. Desde la hoja de configuración del grupo de trabajo tendrá acceso a la lista de todas las aplicaciones o planes del Servicio de aplicaciones que se ejecutan en este grupo de trabajo.
 
 ![][5]
 
-### Capacidades de escalado del portal  
+### Funcionalidad de escalado del portal  
 
 Hay tres operaciones de escala:
 
@@ -139,11 +140,11 @@ En el portal existen tres formas de controlar el número de servidores de los gr
 - Realizando una operación de escalado manual desde la hoja Escala de grupos de recursos individuales (debajo de Configuración)
 - Realizando una operación de escalado automático (se configura desde la hoja Escala de grupos de recursos individuales)
 
-Para usar la operación de escala en la hoja del ASE, arrastre el control deslizante a la cantidad deseada y guarde. Esta interfaz de usuario también admite el cambio del tamaño.
+Para usar la operación de escalado en la hoja de ASE, arrastre el control deslizante a la cantidad deseada y guarde. Esta interfaz de usuario también admite el cambio del tamaño.
 
 ![][6]
 
-Para usar las funciones de escalado manual o automático en un grupo de recursos específico, vaya a *Configuración > Grupo de servidores front-end / Grupos de trabajo* según corresponda y abra el grupo que desea cambiar. Vaya a *Configuración > Escalar horizontalmente o Configuración > Escalar verticalmente*. La hoja *Escalar horizontalmente* le permite controlar la cantidad de la instancia. *Escalar verticalmente* le permite controlar el tamaño del recurso.
+Para usar las funcionalidades de escalado manual o automático en un grupo de recursos específico, vaya a *Configuración > Grupo de servidores front-end/Grupos de trabajo* según corresponda y abra el grupo que desea cambiar. Vaya a *Configuración > Escalar horizontalmente o Configuración > Escalar verticalmente*. La hoja *Escalar horizontalmente* le permite controlar la cantidad de la instancia. *Escalar verticalmente* le permite controlar el tamaño del recurso.
 
 ![][7]
 
@@ -176,6 +177,7 @@ Si desea eliminar un entorno del Servicio de aplicaciones, simplemente utilice l
 ![][9]
 
 ## Introducción
+Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -208,4 +210,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

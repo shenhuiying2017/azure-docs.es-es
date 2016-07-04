@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Uso de acceso condicional
-> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Ahora puede configurar reglas de acceso para conceder acceso condicional a las aplicaciones publicadas con el proxy de aplicación. Esto le permite:
 
@@ -39,12 +38,12 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 1. Inicie sesión como administrador en el Portal de Azure clásico.
 2. Vaya a Active Directory y seleccione el directorio en el que desea habilitar el proxy de la aplicación.
 3. Haga clic en **Aplicaciones** y desplácese hacia abajo hasta la sección **Reglas de acceso**. La sección Reglas de acceso solo aparece para aplicaciones publicadas con el proxy de la aplicación que usa autenticación federada.
-4. Habilite la regla seleccionando **Habilitar reglas de acceso** como **Activada**.
+4. Habilite la regla seleccionando **Habilitar reglas de acceso ** como **Activada**.
 5. Especifique los usuarios y grupos a los que se aplican las reglas. Use el botón **Agregar grupo** botón para seleccionar uno o más grupos a los que se aplicará la regla de acceso. Este cuadro de diálogo también sirve para quitar grupos seleccionados. Cuando las reglas se seleccionan para que se apliquen a grupos, las reglas de acceso solo se aplicarán a los usuarios que pertenezcan a uno de los grupos de seguridad especificados.  
 
   - Para excluir explícitamente grupos de seguridad de la regla, active **Excepto** y especifique uno o más grupos. No se requerirá a los usuarios que sean miembros de un grupo de la lista Excepto que realicen autenticación multifactor.  
 
-  - Si un usuario se configuró con la característica de autenticación multifactor por usuario, esta configuración tendrá prioridad sobre las reglas de autenticación multifactor de la aplicación. Esto significa que un usuario configurado con Multi-Factor Authentication por usuario tendrá que realizar autenticación multifactor aunque esté exento de las reglas de autenticación multifactor de la aplicación. Obtenga más información sobre la [Multi-Factor Authentication y la configuración por usuario](../multi-factor-authentication/multi-factor-authentication.md).
+  - Si un usuario se configuró con la característica de autenticación multifactor por usuario, esta configuración tendrá prioridad sobre las reglas de autenticación multifactor de la aplicación. Esto significa que un usuario configurado con Multi-Factor Authentication por usuario tendrá que realizar autenticación multifactor aunque esté exento de las reglas de autenticación multifactor de la aplicación. Obtenga más información sobre [Multi-Factor Authentication y la configuración por usuario](../multi-factor-authentication/multi-factor-authentication.md).
 
 6. Seleccione la regla de acceso que quiere establecer:
 	- **Requerir autenticación multifactor**: los usuarios a los que se apliquen reglas de acceso tendrán que llevar a cabo autenticación multifactor para tener acceso a la aplicación a la que se aplica la regla.
@@ -55,7 +54,7 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 ## Configuración de MFA para servicios de federación
 En el caso de los inquilinos federados, puede que Azure Active Directory o el servidor local de AD FS ejecute Multi-Factor Authentication (MFA). De forma predeterminada, MFA se producirá en cualquier página hospedada por Azure Active Directory. Para configurar MFA local, ejecute Windows PowerShell y use la propiedad –SupportsMFA para definir el módulo de Azure AD.
 
-En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el [cmdlet Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) en el inquilino contoso.com: `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
+En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet [Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) en el inquilino contoso.com:`Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
 Además de establecer esta marca, la instancia de AD FS de inquilinos federados debe configurarse para llevar a cabo Multi-Factor Authentication. Siga las instrucciones para la [implementación local de Microsoft Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
@@ -67,6 +66,6 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
 - [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
 
-Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
+Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog de Proxy de aplicación).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev" />
 
 # Mover datos a una base de datos de SQL de Azure para Aprendizaje automático de Azure
 
-En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a una base de datos SQL de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
+En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a una base de datos SQL de Azure. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
 
 Para ver un tema que describa las opciones para mover datos a un servidor de SQL Server local para Aprendizaje automático, vea [Mover datos a un servidor SQL Server en una máquina virtual de Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
-El **menú** siguiente vincula a temas que describen cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
+El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -85,4 +85,4 @@ El procedimiento para mover datos a una base de datos SQL de Azure con la Factor
 
 Considere el uso de la ADF cuando los datos deban migrarse continuamente en un escenario híbrido en el que se tenga acceso a recursos locales y de nube, y cuando los datos se transfieran o deban modificarse o tener lógica de negocios agregada mientras se migran. La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

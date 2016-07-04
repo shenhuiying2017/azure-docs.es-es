@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/11/2016"
+   ms.date="06/17/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Restauración de instancias de Almacenamiento de datos SQL de Azure (PowerShell)
@@ -80,7 +80,8 @@ $RestoredDatabase.status
 
 ```
 
-Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
+>[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
+
 
 ## Restauración de una base de datos eliminada
 
@@ -116,7 +117,8 @@ $RestoredDatabase.status
 
 ```
 
-Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo las instrucciones de la guía de [finalización de una base de datos recuperada][].
+>[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
+
 
 ## Restauración dese una región geográfica de Azure
 
@@ -146,32 +148,26 @@ $GeoRestoredDatabase.status
 
 ```
 
-### Configuración de la base de datos después de realizar una restauración geográfica
+>[AZURE.NOTE] Una vez finalizada la restauración, puede configurar la base de datos recuperada siguiendo la guía [Finalización de una base de datos SQL de Azure recuperada][].
 
-Esta es una lista de comprobación que le ayudará a tener preparada la producción de la base de datos recuperada.
-
-1. **Actualización de cadenas de conexión**: compruebe que las cadenas de conexión de las herramientas del cliente apuntan a la base de datos recién recuperada.
-2. **Modificación de las reglas de firewall**: compruebe las reglas de firewall en el servidor de destino y asegúrese de que están habilitadas las conexiones desde los equipos cliente, o bien Azure al servidor y a la base de datos recién recuperada.
-3. **Comprobación de los inicios de sesión del servidor y los usuarios de la base de datos**: compruebe si todos los inicios de sesión que usa la aplicación existen en el servidor que hospeda la base de datos recuperada. Vuelva a crear los inicios de sesión que falten y concédales los permisos adecuados en la base de datos recuperada. 
-4. **Habilitar auditoría**: si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos.
 
 La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
 
 
 ## Pasos siguientes
-Para más información sobre las características de continuidad del negocio de las ediciones de Base de datos SQL de Azure, lea [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][].
+Para obtener más información sobre las características de continuidad empresarial de las ediciones de Base de datos SQL de Azure, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL]: sql-database-business-continuity.md
-[Finalización de una base de datos SQL de Azure recuperada]: sql-database-recovered-finalize.md
-[finalización de una base de datos recuperada]: sql-database-recovered-finalize.md
+[Finalize a recovered database]: sql-database-recovered-finalize.md
 [Cómo instalar y configurar Azure PowerShell]: powershell-install-configure.md
 [Información general]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Finalización de una base de datos SQL de Azure recuperada]: ./sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -183,4 +179,4 @@ Para más información sobre las características de continuidad del negocio de 
 [Azure Portal]: https://portal.azure.com/
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

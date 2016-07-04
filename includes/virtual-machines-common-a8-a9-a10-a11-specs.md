@@ -55,9 +55,6 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 * **Cambio de tamaño**: no puede cambiar el tamaño de una instancia con un tamaño distinto de A8-A11 a alguno de los tamaños de instancias de proceso intensivo (A8-11) ni tampoco puede cambiar el tamaño de una instancia de proceso intensivo a un tamaño no de proceso intensivo. Esto se debe al hardware especializado y a las optimizaciones de rendimiento que son específicos para las instancias de proceso intensivo.
 
-* **Espacio de direcciones de la red RDMA**: la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/12. Si planea ejecutar aplicaciones MPI en instancias A8 y A9 en una red virtual de Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
+* **Espacio de direcciones de red RDMA**: la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Si planea ejecutar aplicaciones MPI en instancias A8 y A9 en una red virtual de Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
-
-
-
-
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/21/2016"
    ms.author="alkohli" />
 
 # Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -492,4 +492,4 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 - [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

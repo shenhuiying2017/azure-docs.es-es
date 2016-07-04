@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="anhoh"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
@@ -21,6 +21,9 @@
 Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
 
 Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search/search-create-service-portal.md) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
+
+En las solicitudes de envío de pedidos para interactuar con las API de REST, puede usar [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler) o cualquier otra herramienta que le guste.
+
 
 ##<a id="Concepts"></a>Conceptos del indizador de Búsqueda de Azure
 
@@ -42,11 +45,11 @@ Emita una solicitud HTTP POST para crear un nuevo origen de datos en el servicio
     Content-Type: application/json
     api-key: [Search service admin key]
 
-`api-version` es obligatorio Entre los valores válidos se incluye `2015-02-28` o una versión posterior.
+`api-version` es obligatorio Entre los valores válidos se incluye `2015-02-28` o una versión posterior. Visite [Versiones de API en Búsqueda de Azure](../search/search-api-versions.md) para ver todas las versiones de API de Búsqueda admitidas.
 
 El cuerpo de la solicitud contiene la definición del origen de datos, que debe incluir los siguientes campos:
 
-- **nombre**: el nombre del origen de datos.
+- **nombre**: elija un nombre para representar la base de datos de DocumentDB.
 
 - **tipo**: use `documentdb`.
 
@@ -56,13 +59,15 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 
 - **contenedor**:
 
-    - **nombre**: obligatorio. Especifique la colección de DocumentDB que se va a indizar.
+    - **nombre**: obligatorio. Especifique el identificador de la colección de DocumentDB que se va a indexar.
 
     - **consulta**: opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Búsqueda de Azure pueda indizar.
 
 - **dataChangeDetectionPolicy**: opcional. Consulte la [directiva de detección de cambios de datos](#DataChangeDetectionPolicy) más adelante.
 
 - **dataDeletionDetectionPolicy**: opcional. Consulte la [directiva de detección de eliminación de datos](#DataDeletionDetectionPolicy) más adelante.
+
+A continuación puede consultar un [cuerpo de solicitud de ejemplo](#CreateDataSourceExample).
 
 ###<a id="DataChangeDetectionPolicy"></a>Captura de documentos modificados
 
@@ -75,7 +80,7 @@ El fin de una directiva de detección de cambios de datos es identificar de form
 
 También tendrá que agregar `_ts` a la proyección y la cláusula `WHERE` para la consulta. Por ejemplo:
 
-    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark
+    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
 
 ###<a id="DataDeletionDetectionPolicy"></a>Captura de documentos eliminados
@@ -88,7 +93,7 @@ Cuando se eliminan filas de la tabla de origen, también debe eliminar dichas fi
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-> [AZURE.NOTE] Si usa una proyección personalizada, deberá incluir la propiedad en la cláusula SELECT.
+> [AZURE.NOTE] Si usa una proyección personalizada, deberá incluir la propiedad softDeleteColumnName en la cláusula SELECT.
 
 ###<a id="CreateDataSourceExample"></a>Ejemplo de cuerpo de solicitud
 
@@ -121,7 +126,7 @@ Si el origen de datos se crea correctamente, recibirá una respuesta HTTP 201 qu
 
 ##<a id="CreateIndex"></a>Paso 2: Creación de un índice
 
-Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure](../search/search-get-started.md#test-service-operations) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crearlo desde la [interfaz de usuario del Portal de Azure](../search/search-create-index-portal.md) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -267,6 +272,6 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
  - Para más información sobre Azure DocumentDB, consulte la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Para obtener más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
+ - Para más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

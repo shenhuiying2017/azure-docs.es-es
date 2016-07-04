@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev;weig;gopitk"/>
 
 
@@ -158,7 +158,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo--> Nuevo--> Proy
 
 ### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 
-A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_ {*} .csv** para leer los doce archivos de carreras.
+A la ubicación de los datos en el blob de Azure se hace referencia como ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()**. Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container_name@blob_storage_account_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_ {*} .csv** para leer los doce archivos de carreras.
 
 	///Read in Trip data
 	@trip0 =
@@ -181,7 +181,7 @@ A la ubicación de los datos en el blob de Azure se hace referencia como **wasb:
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Almacenamiento de Azure Data Lake mediante **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de Almacenamiento de blobs de Azure mediante **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Dado que hay encabezados en la primera fila, es preciso quitar los encabezados y cambiar los tipos de columna por los apropiados. Puede guardar los datos procesados en Almacenamiento de Azure Data Lake mediante ****swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o en una cuenta de Almacenamiento de blobs de Azure mediante ****wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
 	// change data types
 	@trip =
@@ -658,7 +658,7 @@ Luego, haga clic en **Panel**, junto al botón **Configuración**, y aparecerá 
  ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
-Para crear una tabla, pegue los siguientes scripts de Hive. La ubicación del origen de datos está en la referencia del Almacén de Azure Data Lake de esta manera: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+Para crear una tabla, pegue los siguientes scripts de Hive. La ubicación del origen de datos está en la referencia del Almacén de Azure Data Lake de esta manera: ****adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
 
 	CREATE EXTERNAL TABLE nyc_stratified_sample
 	(
@@ -734,11 +734,11 @@ Al completar este tutorial, ha creado un entorno de ciencia de datos para genera
 
 ## Pasos siguientes
 
-La ruta de aprendizaje para el [Proceso de Cortana Analytics (CAP)](http://aka.ms/datascienceprocess) proporciona vínculos a temas que describen cada paso del proceso de análisis avanzado. Hay una serie de tutoriales vinculados al nodo **Proceso de ciencia de los datos completo en acción** que muestran cómo usar los recursos y servicios en diversos escenarios de análisis predictivo en el conjunto de aplicaciones Cortana:
+La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](http://aka.ms/datascienceprocess) proporciona vínculos a temas que describen cada paso del proceso de análisis avanzado. Hay una serie de tutoriales en la página [Tutoriales del proceso de ciencia de datos en equipos](data-science-process-walkthroughs.md) que muestran cómo usar los recursos y servicios en diversos escenarios de análisis predictivo:
 
-- [Proceso de Cortana Analytics en acción: uso de Almacenamiento de datos SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
-- [Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
-- [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [Información general sobre la ciencia de los datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
+- [Proceso de ciencia de datos en equipos en acción: uso de Almacenamiento de datos SQL](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
+- [Proceso de ciencia de datos en equipos: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Información general sobre el proceso de ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

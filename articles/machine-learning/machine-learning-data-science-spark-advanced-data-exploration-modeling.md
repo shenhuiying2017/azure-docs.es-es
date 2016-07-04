@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="deguhath;bradsev" />
 
 # Exploración y modelado avanzados de datos con Spark 
@@ -1464,7 +1464,7 @@ Use `unpersist()` para eliminar objetos almacenados en la memoria caché.
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Imprima la ruta de acceso a archivos de modelo que se usará en el Notebook de consumo.** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el "Notebook de consumo".
+****Imprima la ruta de acceso a archivos de modelo que se usará en el Notebook de consumo. ** Para el consumo y la puntuación de un conjunto de datos independiente, debe copiar y pegar estos nombres de archivo en el "Notebook de consumo".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ Ahora que ha creado los modelos de clasificación y regresión con Spark MlLib, 
 
 **Consumo de modelos:** Para saber cómo puntuar y evaluar los modelos de clasificación y regresión creados en este tema, consulte [Puntuación de modelos de aprendizaje automático creados con Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

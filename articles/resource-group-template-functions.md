@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="06/16/2016"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -93,30 +93,6 @@ En el siguiente ejemplo se convierte el valor del parámetro proporcionado por e
     }
 
 
-<a id="length" />
-### length
-
-**longitud (matriz o cadena)**
-
-Devuelve el número de elementos de una matriz o el número de caracteres de una cadena. Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-
-O bien, puede usarla con una cadena:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -163,6 +139,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#length)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [split](#split)
@@ -455,7 +432,7 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 | baseUri | Sí | La cadena de uri base.
 | relativeUri | Sí | La cadena de uri relativo que se agregará a la cadena de uri base.
 
-El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar **http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de **http://contoso.com/resources/**.
+El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar ****http://contoso.com/resources/azuredeploy.json** como parámetro baseUri dará como resultado un identificador URI base de ****http://contoso.com/resources/**.
 
 En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla anidada en función del valor de la plantilla principal.
 
@@ -465,11 +442,96 @@ En el ejemplo siguiente se muestra cómo construir un vínculo a una plantilla a
 
 El Administrador de recursos ofrece varias funciones para trabajar con valores de matriz:
 
-Para combinar varias matrices en una sola, use [concat](#concat).
+- [concat](#concat)
+- [length](#length)
+- [take](#take)
+- [skip](#skip)
+- [split](#split)
 
-Para obtener el número de elementos de una matriz, use [length](#length).
+<a id="length" />
+### length
 
-Para dividir un valor de cadena en una matriz de valores de cadena, use [split](#split).
+**longitud (matriz o cadena)**
+
+Devuelve el número de elementos de una matriz o el número de caracteres de una cadena. Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+
+O bien, puede usarla con una cadena:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Devuelve una matriz o una cadena con el número especificado de elementos o de caracteres desde el principio de la matriz o cadena.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| originalValue | Sí | La matriz o cadena de la que tomar los elementos o caracteres.
+| numberToTake | Sí | El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor a la longitud de la matriz o cadena especificada, se devolverán todos los elementos de la matriz o cadena.
+
+En el ejemplo siguiente se toma el número especificado de elementos de la matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="skip" />
+### skip
+**skip(originalValue, numberToSkip)**
+
+Devuelve una matriz o cadena con todos los elementos o caracteres que aparecen después del número especificado en la matriz o cadena.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| originalValue | Sí | La matriz o cadena a utilizar para omitir los elementos o caracteres.
+| numberToSkip | Sí | El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devolverán todos los elementos de la matriz o cadena. Si es mayor a la longitud de la matriz o cadena especificada, se devolverá una matriz o cadena vacía. 
+
+En el ejemplo siguiente se omite el número especificado de elementos de la matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Funciones con valores de implementación
 
@@ -815,4 +877,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

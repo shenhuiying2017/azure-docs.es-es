@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Azure"
    description="Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -30,7 +30,7 @@ Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine 
 El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o el [Portal de Azure](https://portal.azure.com).
 
 **Uso del portal de Azure**
-- Seleccione Suscripciones en la página de navegación izquierda y copie el identificador de suscripción.
+- Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
 
 **Uso de la CLI de Azure**
 - Escriba ```azure account list``` y copie el identificador de suscripción.
@@ -109,4 +109,4 @@ Con docker-machine se pueden aprovisionar fácilmente hosts de Docker en Azure p
 
 Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker Tools para Visual Studio](http://aka.ms/DockerToolsForVS)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

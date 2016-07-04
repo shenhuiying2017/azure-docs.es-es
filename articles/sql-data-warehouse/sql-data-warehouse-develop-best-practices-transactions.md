@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/13/2016"
+   ms.date="06/21/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimización de transacciones para Almacenamiento de datos SQL
 
-Este artículo explica cómo asegurarse de que el código transaccional está escrito para maximizar la eficiencia de los cambios.
+En este artículo se explica cómo optimizar el rendimiento del código transaccional minimizando al mismo tiempo el riesgo de que se produzcan reversiones extensas.
 
-## Comprensión conceptual de las transacciones y el registro
+## Transacciones y registro
 
 Las transacciones son un componente importante de un motor de base de datos relacional. Almacenamiento de datos SQL usa transacciones durante la modificación de los datos. Estas transacciones pueden ser explícitas o implícitas. Las instrucciones `INSERT`, `UPDATE` y `DELETE` son ejemplos de transacciones implícitas. Un desarrollador escribe explícitamente las transacciones explícitas con `BEGIN TRAN`, `COMMIT TRAN` o `ROLLBACK TRAN`; normalmente, estas transacciones se utilizan cuando es necesario vincular varias instrucciones de modificación entre sí en una unidad atómica única.
 
@@ -31,6 +31,7 @@ Almacenamiento de datos SQL de Azure confirma los cambios en la base de datos co
 - Adopte un modelo de conmutación de particiones para realizar grandes modificaciones en una partición determinada.
 
 ## Registro mínimo frente a registro completo
+
 A diferencia de las operaciones con registro completo, que usan el registro de transacciones para realizar un seguimiento de cada cambio en las filas, las operaciones con registro mínimo solo realizan un seguimiento de las asignaciones de extensión y los cambios en los metadatos. Por lo tanto, el registro mínimo implica registrar solo la información necesaria para revertir la transacción si se produce un error o una solicitud explícita (`ROLLBACK TRAN`). Puesto que se realiza un seguimiento de mucha menos información en el registro de transacciones, una operación con registro mínimo funciona mejor que una operación con registro completo de tamaño similar. Además, dado que menos escrituras van al registro de transacciones, se genera una cantidad mucho menor de datos de registro y sus operaciones de E/S son más eficientes.
 
 >[AZURE.NOTE] Las operaciones con registro mínimo pueden participar en transacciones explícitas. Puesto que se realiza el seguimiento de todos los cambios en las estructuras de asignación, es posible revertir las operaciones con registro mínimo. Es importante comprender que el cambio se registra "mínimamente", no se elimina el registro.
@@ -39,7 +40,7 @@ A diferencia de las operaciones con registro completo, que usan el registro de t
 
 Las siguientes operaciones admiten el registro mínimo:
 
-- CREATE TABLE AS SELECT (CTAS)
+- CREATE TABLE AS SELECT ([CTAS][])
 - INSERT..SELECT
 - CREATE INDEX
 - ALTER INDEX REBUILD
@@ -54,7 +55,7 @@ Las siguientes operaciones admiten el registro mínimo:
 - SELECT..INTO
 -->
 
-## Condiciones de registro mínimo de operaciones de carga masiva
+## Registro mínimo con carga masiva
 
 `CTAS` y `INSERT...SELECT` son operaciones de carga masiva. Sin embargo, ambas se ven afectadas por la definición de la tabla de destino y dependen del escenario de carga. A continuación se muestra una tabla que explica si la operación masiva tendrá un registro completo o mínimo:
 
@@ -69,25 +70,13 @@ Las siguientes operaciones admiten el registro mínimo:
 
 Conviene tener en cuenta que cualquier escritura para actualizar índices secundarios o no agrupados será siempre una operación con registro completo.
 
-> [AZURE.IMPORTANT] Almacenamiento de datos SQL tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6.144.000 filas por límite de partición, suponiendo una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
+> [AZURE.IMPORTANT] Almacenamiento de datos SQL tiene 60 distribuciones. Por lo tanto, suponiendo que todas las filas tengan una distribución uniforme y una sola partición como destino, el lote deberá contener 6.144.000 filas o más para un registro mínimo cuando se escribe en un índice de almacén de columnas agrupado. Si la tabla tiene particiones y las filas que se insertan traspasan los límites de las particiones, serán necesarias 6 144 000 filas por límite de partición, lo que supone una distribución de datos uniforme. Cada partición de cada distribución debe superar de forma independiente el umbral de 102.400 filas para que la inserción se registre mínimamente en la distribución.
 
 A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede contener una mezcla de filas con registro completo y filas con registro mínimo. Un índice agrupado es un árbol equilibrado (árbol B) de las páginas. Si la página que se escribe ya contiene filas de otra transacción, estas escrituras se registrarán completamente. Sin embargo, si la página está vacía, la escritura en esa página se registrará mínimamente.
 
-## Operaciones con registro completo
-Hay otras instrucciones, además de las actualizaciones de índices secundarios, que son operaciones con registro completo.
- 
-Las instrucciones `UPDATE` y `DELETE` son **siempre** operaciones con registro completo.
+## Optimización de eliminaciones
 
-Sin embargo, estas instrucciones se pueden optimizar para que se puedan ejecutar de forma más eficiente.
-
-A continuación, hay cuatro ejemplos en los que se explica cómo optimizar el código para las operaciones con registro completo:
-
-- `CTAS`
-- Partición de tabla
-- Operaciones por lotes
-
-### Optimización de las operaciones de eliminación grandes con CTAS
-Si necesita eliminar una gran cantidad de datos de una tabla o una partición, a menudo tiene más sentido seleccionar (con `SELECT`) los datos que desea conservar y crear una nueva tabla con [CTAS][]. Una vez creada, utilice un par de comandos [RENAME OBJECT][] para cambiar los nombres de las tablas.
+`DELETE` es una operación con registro completo. Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo. Para ello, cree una nueva tabla con [CTAS][]. Cuando lo haga, utilice [RENAME][] para intercambiar la tabla por la que se acaba de crear.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,8 +106,9 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-### Optimización de las actualizaciones grandes con CTAS
-Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficaz utilizar una operación con registro mínimo, como [CTAS][], para hacerlo.
+## Optimización de actualizaciones
+
+`UPDATE` es una operación con registro completo. Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficaz utilizar una operación con registro mínimo, como [CTAS][], para hacerlo.
 
 En el ejemplo siguiente, se ha convertido la actualización de una tabla completa en una operación `CTAS` para que sea posible el registro mínimo.
 
@@ -178,10 +168,11 @@ RENAME OBJECT [dbo].[FactInternetSales_u] TO [FactInternetSales];
 DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
-> [AZURE.NOTE] Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de Almacenamiento de datos SQL. Para más detalles, consulte la sección de administración de cargas de trabajo en el artículo sobre [simultaneidad][].
+> [AZURE.NOTE] Volver a crear tablas de gran tamaño puede beneficiarse del uso de las características de administración de cargas de trabajo de Almacenamiento de datos SQL. Para obtener más información, consulte la sección de administración de cargas de trabajo en el artículo sobre [simultaneidad][].
 
-### Conmutación de particiones para actualizar datos
-Cuando se enfrenta a modificaciones a gran escala dentro de una partición, un patrón de conmutación de particiones tiene mucho sentido. Si la modificación de datos es importante y abarca varias particiones, simplemente iterar en las particiones consigue el mismo resultado.
+## Optimización con modificación de particiones
+
+Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla][], un patrón de modificación de particiones tiene mucho sentido. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
 
 Los pasos para realizar una conmutación de particiones son los siguientes:
 1. Crear una partición vacía de salida
@@ -236,7 +227,7 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Este procedimiento maximiza la reutilización del código y mantiene el ejemplo de conmutación de particiones más compacto.
+Este procedimiento maximiza la reutilización del código y mantiene el ejemplo de modificación de particiones más compacto.
 
 El código siguiente muestra los cinco pasos mencionados anteriormente para conseguir una rutina de conmutación de particiones completa.
 
@@ -341,7 +332,8 @@ DROP TABLE dbo.FactInternetSales_in
 DROP TABLE #ptn_data
 ```
 
-### Operaciones de modificación de datos por lotes en fragmentos más manejables
+## Minimización del registro con lotes pequeños
+
 Para operaciones de modificación de datos de gran tamaño, puede tener sentido dividir la operación en fragmentos o lotes para definir el ámbito de la unidad de trabajo.
 
 A continuación, se proporciona un ejemplo de trabajo. El tamaño del lote se estableció en un número trivial para resaltar la técnica. En realidad, el tamaño del lote sería mucho mayor.
@@ -402,39 +394,34 @@ BEGIN
 END
 ```
 
-## Orientación adicional para las operaciones "Pausa" y "Escala"
-Almacenamiento de datos SQL de Azure permite pausar, reanudar y escalar su almacenamiento de datos a petición. Al pausar o escalar Almacenamiento de datos SQL es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escala, será necesario deshacer este trabajo. Esto puede afectar al tiempo que tarda en pausar completamente la base de datos de Almacenamiento de datos SQL de Azure.
+## Instrucciones de operaciones de pausa y escalado
+
+Almacenamiento de datos SQL de Azure permite pausar, reanudar y escalar su almacenamiento de datos a petición. Al pausar o escalar Almacenamiento de datos SQL es importante entender que las transacciones en curso se terminan inmediatamente, lo que hace que las transacciones abiertas se reviertan. Si la carga de trabajo había emitido una modificación de datos incompleta y de larga ejecución antes de la operación de pausa o escalado, será necesario deshacer este trabajo. Esto puede afectar al tiempo que tarda en pausar completamente la base de datos de Almacenamiento de datos SQL de Azure.
 
 > [AZURE.IMPORTANT] `UPDATE` y `DELETE` son operaciones con registro completo y, por tanto, estas operaciones de deshacer y rehacer pueden tardar bastante más que las operaciones con registro mínimo equivalentes.
 
-Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar Almacenamiento de datos SQL. Sin embargo, esto no siempre es posible. Para mitigar el riesgo de una larga reversión, considere una de las siguientes opciones:
+Lo mejor es dejar que las transacciones de modificación de datos en curso se completen antes de pausar o escalar Almacenamiento de datos SQL. Sin embargo, esto no siempre es posible. Para mitigar el riesgo de que se produzca una reversión extensa, considere una de las siguientes opciones:
 
-- Vuelva a escribir las operaciones de ejecución prolongada con [CTAS][]
+- Vuelva a escribir las operaciones de ejecución prolongada con [CTAS][].
 - Divida la operación en fragmentos, lo que opera en un subconjunto de las filas
 
 ## Pasos siguientes
-Para más sugerencias sobre el desarrollo y contenido relacionado con los ejemplos, consulte los artículos siguientes:
 
-- [Desarrollo][]
-- [Transacciones][]
-- [Partición de tabla][]
-- [Simultaneidad][]
-- [CTAS][]
-- [RENAME (Transact-SQL)][] \(Cambio del nombre [Transact-SQL])
+Consulte [Transacciones en el Almacenamiento de datos SQL][] para obtener más información sobre los niveles de aislamiento y los límites transaccionales. Paras obtener información general de otros procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
-<!--ACOM references-->
-[Desarrollo]: sql-data-warehouse-overview-develop.md
-[Transacciones]: sql-data-warehouse-develop-transactions.md
-[Partición de tabla]: sql-data-warehouse-develop-table-partitions.md
-[table partition]: sql-data-warehouse-develop-table-partitions.md
-[simultaneidad]: sql-data-warehouse-develop-concurrency.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-
+<!--Article references-->
+[Transacciones en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-transactions.md
+[partición de tabla]: ./sql-data-warehouse-develop-table-partitions.md
+[simultaneidad]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME (Transact-SQL)]: https://msdn.microsoft.com/library/mt631611.aspx
+[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!-- Other web references -->
+
+<!---HONumber=AcomDC_0622_2016-->

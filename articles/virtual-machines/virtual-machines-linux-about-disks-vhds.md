@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="06/16/2016"
 	ms.author="cynthn"/>
 
 # Acerca de los discos y los discos duros virtuales para máquinas virtuales de Azure
@@ -31,4 +31,4 @@ Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un
 -  [Configuración del software RAID](virtual-machines-linux-configure-raid.md) para la redundancia.
 -  [Captura de una máquina virtual en Linux](virtual-machines-linux-classic-capture-image.md) para poder implementar rápidamente máquinas virtuales adicionales.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

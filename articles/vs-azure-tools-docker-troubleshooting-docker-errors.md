@@ -1,7 +1,7 @@
 <properties
    pageTitle="Solución de problemas de errores del cliente Docker en Windows con Visual Studio | Microsoft Azure"
    description="Solucione los problemas que encuentre al usar Visual Studio para crear e implementar aplicaciones web en Docker en Windows mediante Visual Studio."
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -21,7 +21,7 @@ Cuando se trabaja con la versión preliminar de Visual Studio Tools para Docker,
 
 ##No se pudo configurar la compatibilidad de Program.cs con Docker
 
-Si se agrega compatibilidad con Docker, es preciso agregar `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` a WebHostBuilder(). Si no se han encontrado la función Main() de Program.cs o una nueva clase de WebHostBuilder, se mostrará una advertencia. UseUrls() es necesario para habilitar Kestrel para que escuche el tráfico entrante, más allá de localhost, cuando se ejecuta en un contenedor de Docker. Al finalizar, el código típico tendrá un aspecto similar al siguiente:
+Si se agrega compatibilidad con Docker, es preciso agregar `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` a WebHostBuilder(). Si no se han encontrado la función `Main()` de Program.cs o una nueva clase de WebHostBuilder, se mostrará una advertencia. `.UseUrls()` es necesario para habilitar Kestrel para que escuche el tráfico entrante, más allá de localhost, cuando se ejecuta en un contenedor de Docker. Al finalizar, el código típico tendrá un aspecto similar al siguiente:
 
 ```
 public class Program
@@ -29,7 +29,7 @@ public class Program
     public static void Main(string[] args)
     {
         var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? String.Empty)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
             .UseIISIntegration()
@@ -41,7 +41,8 @@ public class Program
 }
 ```
 
-UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante. [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.  
+[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```
 # Configure the listening port to 80
@@ -49,11 +50,11 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
 
 ## La asignación de volúmenes no funciona
-Para habilitar las funcionalidades de edición y actualización, la asignación de volúmenes está configurada para compartir el código fuente del proyecto con la carpeta .app dentro del contenedor. Como los archivos se cambian en el equipo host, el directorio de la aplicación o contenedores usa el mismo directorio. En docker-compose.debug.yml, la siguiente configuración habilita la asignación de volúmenes:
+Para habilitar las funcionalidades de edición y actualización, la asignación de volúmenes está configurada para compartir el código fuente del proyecto con la carpeta .app dentro del contenedor. Como los archivos se cambian en el equipo host, el directorio de la aplicación o contenedores usa el mismo directorio. En docker-compose.debug.yml, la siguiente configuración habilita la asignación de volúmenes
 
 ```
-    volumes:
-      - ..:/app
+volumes:
+    - ..:/app
 ```
 
 Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente comando:
@@ -61,8 +62,7 @@ Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente com
 **En Windows**
 
 ```
-docker run -it -v /c/Users/Public:/wormhole busybox
-cd wormhole
+a
 / # ls
 ```
 
@@ -84,7 +84,7 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Nota:** *Al trabajar con máquinas virtuales de Linux, el sistema de archivos del contenedor distingue mayúsculas de minúsculas.*
+**Nota:** *Al trabajar con máquinas virtuales Linux, el sistema de archivos del contenedor distingue mayúsculas de minúsculas.*
 
 Si no puede ver el contenido, pruebe lo siguiente:
 
@@ -103,14 +103,17 @@ De manera predeterminada, VirtualBox comparte `C:\Users` como `c:/Users`. Si es 
 ##Uso de Microsoft Edge como explorador predeterminado
 
 Si utiliza el Explorador de Microsoft Edge, puede que el sitio no se abra ya que Edge considera que la dirección IP no es segura. Para solucionarlo, realice los siguientes pasos:
-1. En el cuadro Ejecutar de Windows, escriba `Internet Options`.
-2. Seleccione **Opciones de Internet** cuando aparezca. 
-2. Seleccione la pestaña **Seguridad**.
-3. Seleccione la zona **Intranet local**.
-4. Seleccione **Sitios**. 
-5. Agregue la dirección IP de la máquina virtual (en este caso, el host de Docker) en la lista. 
-6. Actualice la página en Edge; debería ver que el sitio está en funcionamiento. 
-7. Para más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox). 
+
+1. Vaya a **Opciones de Internet**.
+    - En Windows 10, puede escribir `Internet Options` en el cuadro de ejecución de Windows.
+    - En Internet Explorer, puede ir al menú **Herramientas** y seleccionar **Opciones de Internet**. 
+1. Seleccione **Opciones de Internet** cuando aparezca. 
+1. Seleccione la pestaña **Seguridad**.
+1. Seleccione la zona **Intranet local**.
+1. Seleccione **Sitios**. 
+1. Agregue la dirección IP de la máquina virtual (en este caso, el host de Docker) en la lista. 
+1. Actualice la página en Edge; debería ver que el sitio está en funcionamiento. 
+1. Para más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox). 
 
 ##Solución de problemas de la versión 0.15, o de las versiones anteriores
 
@@ -123,10 +126,14 @@ Podría tratarse de un error durante `docker-compose-up`. Para ver el error, rea
 1. Busque la entrada Docker.
 1. Busque la línea que comienza de la manera siguiente:
 
+    ```
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
+    ```
 	
 1. Agregue el parámetro `-noexit` para que la línea sea como la siguiente. De esta forma PowerShell se mantendrá abierto y podrá ver el error.
 
+    ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
+    ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

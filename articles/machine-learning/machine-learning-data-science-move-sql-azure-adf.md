@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev" />
 
 
@@ -21,7 +21,7 @@
 
 En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una base de datos de SQL Azure a través del almacenamiento de blobs de Azure mediante la Factoría de datos de Azure (ADF).
 
-El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de Cortana Analytics (CAP).
+El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -94,7 +94,7 @@ Para crear el servicio vinculado para el servidor SQL Server local, haga clic en
 Para crear el servicio vinculado para la cuenta de almacenamiento de blobs de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *Cuenta de almacenamiento de Azure* y escriba la clave y el nombre de contenedor de la cuenta de almacenamiento de blobs de Azure. Nombre del servicio vinculado *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
-Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser *user@servername*.
+Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic en el **Almacén de datos** en la página de aterrizaje de ADF del Portal de Azure clásico, seleccione *SQL* y especifique las credenciales para el *nombre de usuario* y la *contraseña* de la base de datos SQL de Azure. El *nombre de usuario* debe ser **user@servername*.
 
 
 ##<a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos
@@ -310,4 +310,4 @@ Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen e
 
 Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

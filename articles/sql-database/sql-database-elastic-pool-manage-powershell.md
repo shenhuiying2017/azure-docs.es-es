@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell 
@@ -107,6 +107,8 @@ Para recuperar las métricas, siga estos pasos:
 
 Puede agregar reglas de alerta a recursos para enviar notificaciones por correo electrónico o cadenas de alertas a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido. Use el cmdlet Add-AzureRmMetricAlertRule.
 
+> [AZURE.IMPORTANT]La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
+
 En este ejemplo se agrega una alerta para recibir una notificación cuando el consumo de eDTU de un grupo supere un umbral determinado.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@ En este ejemplo se agrega una alerta para recibir una notificación cuando el co
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## Adición de alertas a todas las bases de datos de un grupo
 
 Puede agregar reglas de alerta a todas las bases de datos de un grupo elástico para enviar notificaciones por correo electrónico o cadenas de alerta a [puntos de conexión de URL](https://msdn.microsoft.com/library/mt718036.aspx) cuando un recurso alcanza el umbral de utilización establecido por la alerta.
+
+> [AZURE.IMPORTANT] La supervisión del uso de recursos de grupos elásticos tiene un retraso de, al menos, 20 minutos. En estos momentos, no se pueden establecer alertas de menos de 30 minutos para grupos elásticos. Es posible que no se desencadenen las alertas establecidas para grupos elásticos con un periodo inferior a 30 minutos (parámetro denominado "WindowSize" en la API de PowerShell). Asegúrese de que las alertas que defina para grupos elásticos utilicen un periodo (WindowSize) de 30 minutos o más.
 
 En este ejemplo se agrega una alerta a cada una de las bases de datos de un grupo para recibir una notificación cuando el consumo de DTU de esas bases de datos supere un umbral determinado.
 
@@ -156,7 +160,7 @@ En este ejemplo se agrega una alerta a cada una de las bases de datos de un grup
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
@@ -270,6 +274,6 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 ## Pasos siguientes
 
 - [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
-- Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, consultar o crear transacciones.
+- Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

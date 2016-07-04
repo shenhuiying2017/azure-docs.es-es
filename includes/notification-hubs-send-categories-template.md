@@ -3,7 +3,7 @@ En esta sección se muestra cómo enviar noticias de última hora como notificac
 
 Si usa aplicaciones Móviles, consulte el tutorial [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 
-Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md). Puede enviar notificaciones desde cualquier back-end mediante la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
 Omita los pasos 1-3 si creó la aplicación de consola para enviar notificaciones cuando completó [Introducción a los Centros de notificaciones][get-started].
 
@@ -70,7 +70,7 @@ Omita los pasos 1-3 si creó la aplicación de consola para enviar notificacione
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to send notifications to users]: ../articles/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
@@ -78,4 +78,4 @@ Omita los pasos 1-3 si creó la aplicación de consola para enviar notificacione
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

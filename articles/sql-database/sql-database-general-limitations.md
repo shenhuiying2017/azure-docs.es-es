@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="06/21/2016"
    ms.author="carlrab" />
 
 # Instrucciones y limitaciones generales de Base de datos SQL de Azure
@@ -35,7 +35,7 @@ Base de datos SQL de Microsoft Azure no admite trabajos o Agente SQL Server. Sin
 
 ## Compatibilidad con la intercalación de SQL Server
 
-La intercalación de bases de datos predeterminada que utiliza Base de datos SQL de Microsoft Azure es **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, donde **LATIN1\_GENERAL** es inglés (Estados Unidos), **CP1** es la página de códigos 1252, **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se distinguen los acentos. Es posible modificar la intercalación de bases de datos de V12 mediante Transact-SQL. Para obtener más información acerca de cómo establecer la intercalación, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+La intercalación de bases de datos predeterminada que utiliza Base de datos SQL de Microsoft Azure es **SQL\_LATIN1\_GENERAL\_CP1\_CI\_AS**, donde **LATIN1\_GENERAL** es inglés (Estados Unidos), **CP1** es la página de códigos 1252, **CI** indica que no se distingue mayúsculas de minúsculas y **AS** especifica que se distinguen los acentos. No se puede modificar la intercalación de bases de datos de V12. Para obtener más información acerca de cómo establecer la intercalación, consulte [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Requisitos de nomenclatura
 
@@ -63,4 +63,4 @@ Además, los nombres de inicio de sesión y el usuario no pueden contener el car
 
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

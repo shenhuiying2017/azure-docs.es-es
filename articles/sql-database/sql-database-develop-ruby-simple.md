@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="andrela"/>
 
 
@@ -40,8 +40,14 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 [Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx) (Prueba de concepto que se conecta a SQL con Ruby)
 
-## Recursos adicionales
+## Pasos siguientes
 
-Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
+* Puede encontrar más información en [Microsoft Ruby Driver para SQL Server](https://msdn.microsoft.com/library/mt691981.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+## Recursos adicionales 
+
+* [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,14 +1,13 @@
-1. From the Visual Studio menu, select **File > New > Project**. 
+1. En el menú de Visual Studio, seleccione **Archivo > Nuevo > Proyecto**. 
 
-1. Under the **Templates** section of the **New Project** dialog box, select **Visual C# > .NET Core**.
+1. En la sección **Plantillas** del cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C# > .NET Core**.
 
-1. Select **ASP.NET Core Web Application (.NET Core)**.
-	![New Project dialog](./media/vs-docker-create-aspnetcore-app/create-new-project.png)
+1. Seleccione **ASP.NET Core Web Application (.NET Core)** (Aplicación web de ASP.NET Core [.NET Core]). ![Cuadro de diálogo Nuevo proyecto](./media/vs-docker-create-aspnetcore-app/create-new-project.png)
 
-1. Give your new application a name (or take the default) and Tap **OK**.  
+1. Asigne un nombre a la nueva aplicación (o utilice el predeterminado) y pulse **Aceptar**.
 
-1. Under **ASP.NET Core Templates**, select **.NET Core**.
-	![New ASP.NET Project dialog](./media/vs-docker-create-aspnetcore-app/aspnet-core-template.png)
+1. En **ASP.NET Core Templates** (Plantillas de ASP.NET Core), seleccione **.NET Core**. ![Cuadro de diálogo Nuevo proyecto ASP.NET](./media/vs-docker-create-aspnetcore-app/aspnet-core-template.png)
 
-1. Deselect **Host in the cloud** as you'll be using Docker as your deployment solution.
+1. Anule la selección de **Host en la nube**, ya que va a usar Docker como solución de implementación.
 
+<!---HONumber=AcomDC_0622_2016-->

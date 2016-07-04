@@ -24,7 +24,7 @@ Este artículo explica cómo configurar y codificar enlaces de centros de notifi
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Las funciones pueden enviar notificaciones push mediante un Centro de notificaciones de Azure configurado mediante unas líneas de código tan solo. Sin embargo, el centro de notificaciones debe configurarse para los servicios de notificaciones de plataforma (PNS) que desea utilizar. Para más información sobre cómo configurar centros de notificaciones de Azure y desarrollar aplicaciones cliente que se registren para recibir notificaciones, consulte [Introducción a Centros de notificaciones](../notification-hubs/notification-hubs-windows-store-dotnet-get-started.md) y haga clic en la plataforma de cliente de destino de la parte superior.
+Las funciones pueden enviar notificaciones push mediante un Centro de notificaciones de Azure configurado mediante unas líneas de código tan solo. Sin embargo, el centro de notificaciones debe configurarse para los servicios de notificaciones de plataforma (PNS) que desea utilizar. Para más información sobre cómo configurar centros de notificaciones de Azure y desarrollar aplicaciones cliente que se registren para recibir notificaciones, consulte [Introducción a Centros de notificaciones](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) y haga clic en la plataforma de cliente de destino de la parte superior.
 
 ## function.json para enlace de salida de centros de notificaciones de Azure
 
@@ -32,7 +32,7 @@ El archivo function.json ofrece las siguientes propiedades:
 
 - `name`: nombre de variable utilizado en el código de función para el mensaje del centro de notificaciones.
 - `type`: se debe establecer en *"notificationHub"*.
-- `tagExpression`: las expresiones de etiqueta le permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones. Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-routing-tag-expressions.md).
+- `tagExpression`: las expresiones de etiqueta le permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones. Para más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
 - `hubName`: nombre del recurso del centro de notificaciones en el Portal de Azure.
 - `connection`: esta cadena de conexión debe ser una cadena de conexión de la **configuración de la aplicación** establecida en el valor *DefaultFullSharedAccessSignature* para el centro de notificaciones.
 - `direction`: debe establecerse en *out*. 
@@ -68,7 +68,7 @@ También puede agregar manualmente una cadena de conexión para un centro existe
 
 ## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de temporizador de Node.js 
 
-En este ejemplo se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates.md) que contiene `location` y `message`.
+En este ejemplo se envía una notificación a un [registro de plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `location` y `message`.
 
 	module.exports = function (context, myTimer) {
 	    var timeStamp = new Date().toISOString();
@@ -87,7 +87,7 @@ En este ejemplo se envía una notificación a un [registro de plantillas](../not
 
 ## Ejemplo de código de centro de notificaciones de Azure para un desencadenador de cola de C#
 
-En este ejemplo se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates.md) que contiene `message`.
+En este ejemplo se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `message`.
 
 
 	using System;
@@ -107,7 +107,7 @@ En este ejemplo se envía una notificación a un [registro de plantilla](../noti
 	    return templateProperties;
 	}
 
-En este ejemplo se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates.md) que contiene `message` mediante una cadena JSON válida.
+En este ejemplo se envía una notificación a un [registro de plantilla](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contiene `message` mediante una cadena JSON válida.
 
 	using System;
 	 
@@ -155,4 +155,4 @@ Ejemplo de código:
 
 [AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

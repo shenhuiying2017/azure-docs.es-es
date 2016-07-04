@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Veracode | Microsoft Azure" 
     description="Aprenda cómo usar Veracode con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/21/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Veracode
   
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Veracode:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-veracode-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Veracode**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Veracode**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configurar inicio de sesión único")
 
@@ -100,7 +100,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Administración](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administración")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Veracode**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Veracode**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor**.
     2.  Para cargar el certificado descargado, haga clic en **Elegir archivo**.
     3.  Seleccione **Habilitar registro automático**.
 
@@ -122,7 +122,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
         -   **Pertenencias a equipos**
         -   **Equipo predeterminado**
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configurar inicio de sesión único")
 
@@ -156,7 +156,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Veracode, deben ap
   
 Los usuarios se crean automáticamente si es necesario durante el primer intento de inicio de sesión único.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Veracode ofrecida por Veracode para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Veracode ofrecida por Veracode para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -164,7 +164,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Veracode, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **Veracode**, haga clic en **Asignar usuarios**.
 
@@ -176,4 +176,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->
