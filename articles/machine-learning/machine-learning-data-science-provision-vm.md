@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
@@ -147,4 +147,4 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com) para ver muestras de aprendizaje automático y de análisis de datos mediante Cortana Intelligence Suite. También hemos proporcionado un icono en el menú Inicio y en el escritorio de la máquina virtual para facilitar el acceso 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

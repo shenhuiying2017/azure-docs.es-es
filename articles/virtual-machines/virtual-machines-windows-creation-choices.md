@@ -27,21 +27,24 @@ El portal de Azure es una manera fácil de probar una máquina virtual, especial
 
 [Creación de una máquina virtual que ejecuta Windows en el portal](virtual-machines-windows-hero-tutorial.md)
 
-## Azure PowerShell
-
-Si prefiere trabajar en un shell de comandos, puede usar PowerShell de Azure.
-
-- [Creación de una máquina virtual Windows con PowerShell](virtual-machines-windows-ps-create.md)
-- [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos](virtual-machines-windows-ps-template.md)
-
 ## Plantilla
 
 Las máquinas virtuales requieren una combinación de recursos (por ejemplo, conjuntos de disponibilidad y cuentas de almacenamiento). En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla de Azure Resource Manager que implementa y aprovisiona todos los recursos en una operación única y coordinada.
 
 - [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos](virtual-machines-windows-ps-template.md)
 
+
+## Azure PowerShell
+
+Si prefiere trabajar en un shell de comandos, puede usar PowerShell de Azure.
+
+- [Creación de una máquina virtual Windows con PowerShell](virtual-machines-windows-ps-create.md)
+
+
 ## Visual Studio
 
-[Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento](virtual-machines-windows-csharp.md)
+Utilice Visual Studio para crear, administrar e implementar máquinas virtuales con Azure Tools para Visual Studio y el SDK de Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+[Herramientas de Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
+
+<!---HONumber=AcomDC_0622_2016-->

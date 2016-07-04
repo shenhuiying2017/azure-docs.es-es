@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="mcoskun"/>
 
 # Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric
@@ -102,6 +102,8 @@ Tenga en cuenta que la situación de interbloqueo anterior es un buen ejemplo de
 - No modifique un objeto de tipo personalizado que hayan devuelto las operaciones de lectura (por ejemplo, `TryPeekAsync` o `TryGetValueAsync`). Las colecciones fiables, igual que las colecciones simultáneas, devuelven una referencia a los objetos y no una copia.
 - No haga una copia en profundidad del objeto devuelto de tipo personalizado antes de modificarlo. Por ello, los struct y los tipos integrados son una transmisión por valor, no es necesario hacer una copia en profundidad en ellos.
 - No use `TimeSpan.MaxValue` para tiempos de espera. Los tiempos de espera se deben utilizar para detectar interbloqueos.
+- No utilice una transacción una vez que se haya confirmado, anulado o eliminado.
+- Los enumeradores creados dentro de un ámbito de transacción no deben utilizarse fuera de dicho ámbito.
 - No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
 - Asegúrese de que la implementación de `IComparable<TKey>` es correcta. El sistema asume la dependencia de este elemento para combinar los puntos de control.
 - Considere la posibilidad de utilizar la funcionalidad de copia de seguridad y restauración para la recuperación ante desastres.
@@ -123,4 +125,4 @@ Algunos aspectos que debe tener en cuenta:
 - [Uso avanzado del modelo de programación de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

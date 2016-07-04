@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Información de migración al Almacenamiento premium
@@ -37,24 +37,27 @@ A continuación, encontrará los pasos que Microsoft realizará para completar l
 > [AZURE.NOTE] Esta configuración no se transmitirá como parte de la migración:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ### Programa de migración automática
 La migración automática se llevará a cabo desde las 18:00 a las 6:00 (la hora local de dicha región) en algún momento durante el programa de interrupción siguiente.
 
-| Region | Fecha de inicio estimada | Fecha de finalización estimada |
+| **Región** | **Fecha de inicio estimada** | **Fecha de finalización estimada** |
 | :------------------ | :--------------------------- | :--------------------------- |
 | Australia Oriental | Sin determinar | Sin determinar |
 | Sudeste de Australia | Sin determinar | Sin determinar |
+| Sur de Brasil | Sin determinar | Sin determinar |
 | Centro de Canadá | 23 de junio de 2016 | 1 de julio de 2016 |
 | Este de Canadá | 23 de junio de 2016 | 1 de julio de 2016 |
 | Central EE. UU.: | 23 de junio de 2016 | 1 de julio de 2016 |
 | Este de China | Sin determinar | Sin determinar |
+| Norte de China | Sin determinar | Sin determinar |
 | Asia oriental | 23 de junio de 2016 | 1 de julio de 2016 |
 | Este de EE. UU. | 23 de junio de 2016 | 1 de julio de 2016 |
 | Este de EE. UU. 2 | 23 de junio de 2016 | 1 de julio de 2016 |
 | India central | 23 de junio de 2016 | 1 de julio de 2016 |
 | Sur de India | 23 de junio de 2016 | 1 de julio de 2016 |
+| India occidental | Sin determinar | Sin determinar |
 | Este de Japón | Sin determinar | Sin determinar |
 | Oeste de Japón | Sin determinar | Sin determinar |
 | Centro-Norte de EE. UU | Sin determinar | Sin determinar |
@@ -72,19 +75,22 @@ Si desea tener el control en los tiempos de inactividad, puede realizar los paso
 ### Determinación del tipo de almacenamiento
 Si creó un almacenamiento de datos antes de las fechas siguientes, significa que está utilizando el Almacenamiento estándar.
 
-| Region | Almacenamiento de datos creado antes de esta fecha |
+| **Región** | **Almacenamiento de datos creado antes de esta fecha** |
 | :------------------ | :-------------------------------- |
 | Australia Oriental | Almacenamiento premium no disponible todavía |
 | Sudeste de Australia | Almacenamiento premium no disponible todavía |
+| Sur de Brasil | Almacenamiento premium no disponible todavía |
 | Centro de Canadá | 25 de mayo de 2016 |
 | Este de Canadá | 26 de mayo de 2016 |
 | Central EE. UU.: | 26 de mayo de 2016 |
 | Este de China | Almacenamiento premium no disponible todavía |
+| Norte de China | Almacenamiento premium no disponible todavía |
 | Asia oriental | 25 de mayo de 2016 |
 | Este de EE. UU. | 26 de mayo de 2016 |
 | Este de EE. UU. 2 | 27 de mayo de 2016 |
 | India central | 27 de mayo de 2016 |
 | Sur de India | 26 de mayo de 2016 |
+| India occidental | Almacenamiento premium no disponible todavía |
 | Este de Japón | Almacenamiento premium no disponible todavía |
 | Oeste de Japón | Almacenamiento premium no disponible todavía |
 | Centro-Norte de EE. UU | Almacenamiento premium no disponible todavía |
@@ -100,12 +106,12 @@ Si desea tener el control en los tiempos de inactividad, puede migrar manualment
 
 1.	[Pause][] el almacenamiento de datos que realizará una copia de seguridad automática.
 2.	Lleve a cabo la [restauración][] a partir de la instantánea más reciente.
-3.	Elimine el almacenamiento de datos existente del Almacenamiento estándar. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos**.
+3.	Elimine el almacenamiento de datos existente del Almacenamiento estándar. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 > [AZURE.NOTE] Esta configuración no se transmitirá como parte de la migración:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 #### Opcional: solución alternativa de cambio de nombre 
 Dos bases de datos que se encuentren en el mismo servidor lógico no pueden tener el mismo nombre. En estos momentos, Almacenamiento de datos SQL no permite cambiar nombres de almacenamientos de datos. Gracias a las instrucciones siguientes, no necesitará esta característica aún no implementada durante el proceso de migración manual. Nota: Las migraciones automáticas no cuentan con esta limitación.
@@ -114,16 +120,16 @@ Para este ejemplo, imagine que su almacenamiento de datos del Almacenamiento est
 
 1.	[Pause][] miAD, que realizará una copia de seguridad automática.
 2.	Realice una [restauración][] a partir de la instantánea más reciente de una nueva base de datos con otro nombre, como miADTemp.
-3.	Elimine miAD. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos**.
+3.	Elimine miAD. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 4.	Como miADTemp es un almacenamiento de datos que se ha creado recientemente, la copia de seguridad no estará disponible para restaurarse a partir de un periodo concreto. Se recomienda proseguir con las operaciones de miADTemp durante un par de horas y, después, continuar con los pasos 5 y 6.
 5.	[Pause][] miADTemp, que realizará una copia de seguridad automática.
 6.	Realice una [restauración][] a partir de la instantánea miADTemp más reciente de una nueva base de datos con el nombre miAD.
-7.	Elimine miADTemp. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos**.
+7.	Elimine miADTemp. **Si no puede realizar este paso, se le cobrará por los dos almacenamientos de datos.**
 
 > [AZURE.NOTE] Esta configuración no se transmitirá como parte de la migración:
 > 
 >	-  Auditing at the Database level will need to be re-enabled
->	-  Firewall rules at the Database level will need to be re-added
+>	-  Firewall rules at the **Database** level will need to be re-added.  Firewall rules at the **Server** level will not be impacted.
 
 ## Pasos siguientes
 Si tiene problemas con el almacén de datos, [cree una incidencia de soporte técnico][] e indique que la posible causa es la migración al Almacenamiento premium.
@@ -144,6 +150,6 @@ Si tiene problemas con el almacén de datos, [cree una incidencia de soporte té
 
 
 <!--Other Web references-->
-[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Almacenamiento premium para poder predecir el rendimiento de manera más eficaz]: https://azure.microsoft.com/es-ES/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

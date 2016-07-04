@@ -33,7 +33,7 @@ Si necesita la versión clásica de este tema, consulte [Aprovisionamiento de un
 Para este tutorial, necesitará:
 
 - una cuenta de Azure y una suscripción antes de empezar. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [Azure PowerShell](../powershell-install-configure.md), versión 1.0.0 (mínima) o posterior (en este tutorial se usa la versión 1.0.4).
+- [Azure PowerShell](../powershell-install-configure.md), versión 1.4.0 (mínima) o posterior (en este tutorial se usa la versión 1.5.0).
     - Para recuperar la versión, escriba **Get-Module Azure -ListAvailable**.
 
 ## Configuración de su suscripción
@@ -69,7 +69,7 @@ Utilice las siguientes variables para definir la cuenta de almacenamiento y el t
 Modifíquelas como desee y luego ejecute el siguiente cmdlet para inicializarlas. Tenga en cuenta que en este ejemplo se usa [Almacenamiento premium](../storage/storage-premium-storage.md), que es el recomendado para cargas de trabajo de producción. Para más información sobre esta guía y para otras recomendaciones, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
 ### Propiedades de red
 
@@ -125,11 +125,11 @@ Ejecute el siguiente cmdlet para crear un nuevo grupo de recursos.
 
 ## Crear una cuenta de almacenamiento
 
-La máquina virtual requiere recursos de almacenamiento tanto para el disco del sistema operativo como para los archivos de registro y de datos de SQL Server. Por motivos de simplicidad, crearemos un único disco para ambos. Posteriormente se pueden adjuntar discos adicionales mediante el cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) con el fin de colocar los archivos de registro y de datos de SQL Server en discos dedicados. Usaremos el cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear la cuenta de almacenamiento en el nuevo grupo de recursos y con el nombre de la cuenta de almacenamiento, el nombre de almacenamiento y la ubicación definidos mediante las variables que inicializó anteriormente.
+La máquina virtual requiere recursos de almacenamiento tanto para el disco del sistema operativo como para los archivos de registro y de datos de SQL Server. Por motivos de simplicidad, crearemos un único disco para ambos. Posteriormente se pueden adjuntar discos adicionales mediante el cmdlet [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) con el fin de colocar los archivos de registro y de datos de SQL Server en discos dedicados. Usaremos el cmdlet [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para crear una cuenta de almacenamiento estándar en el nuevo grupo de recursos y con el nombre de la cuenta de almacenamiento, el nombre de almacenamiento y la ubicación definidos mediante las variables que inicializó anteriormente.
 
 Ejecute el siguiente cmdlet para crear una nueva cuenta de almacenamiento.
 
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
 ## Crear recursos de red
 
@@ -258,7 +258,7 @@ El siguiente script contiene el script de PowerShell completo de este tutorial. 
     $ResourceGroupName = "sqlvm1"
     ## Storage
     $StorageName = $ResourceGroupName + "storage"
-    $StorageType = "Premium_LRS"
+    $StorageSku = "Premium_LRS"
 
     ## Network
     $InterfaceName = $ResourceGroupName + "ServerInterface"
@@ -285,7 +285,7 @@ El siguiente script contiene el script de PowerShell completo de este tutorial. 
     New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
     # Storage
-    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
     # Network
     $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
@@ -310,4 +310,4 @@ El siguiente script contiene el script de PowerShell completo de este tutorial. 
 ## Pasos siguientes
 Después de crear la máquina virtual, está listo para conectarse a ella mediante RDP y para configurar la conectividad. Para más información, consulte [Conexión a una máquina virtual de SQL Server en Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

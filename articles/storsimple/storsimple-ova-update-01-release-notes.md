@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de la versión de la actualización 0.1 de la matriz virtual de StorSimple | Microsoft Azure"
-   description="Describe los problemas críticos por resolver y las soluciones de la matriz virtual de StorSimple que ejecuta la actualización 0.1."
+   pageTitle="Notas de la versión de actualizaciones de la matriz virtual de StorSimple | Microsoft Azure"
+   description="Se describen problemas críticos pendientes y soluciones para la matriz virtual de StorSimple que ejecuta Update 0.2 y Update 0.1."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,32 +12,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/27/2016"
+   ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# Notas de la versión de la actualización 0.1 de la matriz virtual de StorSimple
+# Notas de la versión de la matriz virtual de StorSimple Update 0.2 y 0.1
 
 ## Información general
 
-En las notas de la versión siguientes se identifican los problemas críticos por resolver y los problemas resueltos de la versión correspondiente a la actualización 0.1 de la matriz virtual de Microsoft Azure StorSimple. (La matriz virtual de Microsoft Azure StorSimple también se conoce como dispositivo virtual StorSimple local o dispositivo virtual StorSimple). Esta versión se corresponde con la versión de software **10.0.10279.0**.
+En las notas de la versión siguientes se identifican los problemas críticos pendientes y los problemas resueltos de las actualizaciones de la matriz virtual de Microsoft Azure StorSimple. (La matriz virtual de Microsoft Azure StorSimple también se conoce como dispositivo virtual StorSimple local o dispositivo virtual StorSimple).
 
 Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar el dispositivo virtual de StorSimple, le recomendamos que lea detenidamente la información que encontrará en las notas de la versión.
 
-> [AZURE.NOTE] La actualización 0.1 es una actualización que interrumpe el trabajo del dispositivo y lo reiniciará. Así pues, si hay procesos de E/S en curso, el dispositivo incurrirá en tiempo de inactividad.
+Update 0.2 corresponde a la versión de software **10.0.10280.0** y Update 0.1 es la versión **10.0.10279.0**. Las secciones siguientes muestran los cambios en cada actualización.
+
+> [AZURE.NOTE] Las actualizaciones causan interrupciones y reiniciarán el dispositivo. Si hay procesos de E/S en curso, el dispositivo incurrirá en tiempo de inactividad.
+
+## Problemas corregidos en Update 0.2
+Update 0.2 incluye todos los cambios de Update 0.1 y, además, la revisión que se describe en la tabla siguiente:
+
+Característica | Problema |
+--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Actualizaciones | En la última versión, las actualizaciones se detectaban automáticamente en el Portal de Azure clásico, así que tenía que usar la interfaz de usuario web local para instalarlas. Este problema está corregido en esta versión. Después de instalar Update 0.2, puede instalar las actualizaciones futuras mediante el Portal de Azure clásico.                       
 
 ## Novedades de la actualización 0.1
 
 La actualización 0.1 contiene las siguientes correcciones de errores y mejoras.
 
-- **Resistencia mejorada para las interrupciones de la nube**: esta versión contiene varias correcciones de errores acerca de la recuperación ante desastres, la copia de seguridad, la restauración y la organización en niveles en caso de que se produzca una interrupción de la conectividad de la nube. 
+- **Resistencia mejorada a las interrupciones de la nube**: esta versión contiene varias correcciones de errores en torno a la recuperación ante desastres, la copia de seguridad, la restauración y la organización en niveles en caso de que se produzca una interrupción de la conectividad de la nube. 
 
 - **Mejor rendimiento de la restauración**: esta versión contiene correcciones de errores que han reducido considerablemente el tiempo de finalización de los trabajos de restauración.
 
 - **Optimización de la recuperación de espacio automatizada:** cuando se eliminan datos en volúmenes con aprovisionamiento fino, se deben recuperar los bloques de almacenamiento no utilizados. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
 
-- **Nuevas imágenes de disco virtual**: ahora hay nuevos VHD, VHDX y VMDK disponibles mediante el Portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
+- **Nuevas imágenes de disco virtual**: nuevos VHD, VHDX y VMDK disponibles mediante el Portal de Azure clásico. Puede descargar estas imágenes para aprovisionar nuevos dispositivos con la actualización 0.1.
 
-- **Mejora la precisión del estado de los trabajos en el portal**: en la versión anterior del software, el estado del trabajo que se notificada en el portal no estaba muy detallado. Este problema se ha corregido en esta versión.
+- **Mejora de la precisión del estado de los trabajos en el portal**: en la versión anterior del software, el estado del trabajo que se notificada en el portal no estaba muy detallado. Este problema se ha corregido en esta versión.
 
 - **Experiencias de unión a dominios**: correcciones de errores relacionados con la unión a un dominio y el cambio de nombre del dispositivo.
 
@@ -81,6 +90,6 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 
 ## Paso siguiente
 
-[Instale la actualización 0.1](storsimple-ova-install-update-01.md) en la matriz virtual de StorSimple.
+[Instale actualizaciones](storsimple-ova-install-update-01.md) en la matriz virtual de StorSimple.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

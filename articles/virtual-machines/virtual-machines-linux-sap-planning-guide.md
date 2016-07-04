@@ -1300,7 +1300,7 @@ New-AzureRmResourceGroup -Name $rgName -Location "North Europe"
 
 ```powershell
 $suffix = Get-Random -Minimum 100000 -Maximum 999999
-$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -Type Standard_LRS -Location "North Europe"
+$account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
 * Cree una nueva red virtual para cada entorno de aprendizaje o demostración a fin de habilitar el uso del mismo nombre de host y las mismas direcciones IP. La red virtual está protegida por un grupo de seguridad de red que solo permite el tráfico dirigido al puerto 3389 para habilitar el acceso de escritorio remoto y al puerto 22 para SSH. 
@@ -1499,7 +1499,7 @@ En la tabla siguiente, se enumeran los puertos de comunicación de SAP típicos.
 | Servicio | Nombre del puerto | Ejemplo `<nn`> = 01 | Intervalo predeterminado (mín.-máx.) | Comentario |
 |---------|-----------|-------------------|-------------------------|---------|
 | Distribuidor | sapdp`<nn>` consulte * | 3201 | 3200-3299 | Distribuidor de SAP, utilizado por la GUI de SAP para Windows y Java |
-| Servidor de mensajes | sapms`<sid`> consulte ** | 3600 | libre sapms`<anySID`> | sid = identificador del sistema SAP |
+| Servidor de mensajes | sapms`<sid`> consulte * | 3600 | libre sapms`<anySID`> | sid = identificador del sistema SAP |
 | Puerta de enlace | sapgw`<nn`> consulte * | 3301 | libre | Puerta de enlace de SAP, utilizada para la comunicación de CPIC y RFC |
 | Enrutador de SAP | sapdp99 | 3299 | libre | Solo los nombres de servicio de CI (instancia central) se pueden reasignar a /etc/services con un valor arbitrario después de la instalación. |
 
@@ -1930,4 +1930,4 @@ Los aspectos más destacados de la alta disponibilidad en los sistemas SAP en Az
 * No tiene mucho sentido efectuar una copia de seguridad de las instancias de diálogo de SAP, ya que volver a implementar instancias de diálogo sencillas suele ser un método más rápido.
 * Por el contrario, sí que tiene sentido realizar una copia de seguridad de la máquina virtual que contiene el directorio global del sistema SAP y, con él, todos los perfiles de las distintas instancias, lo cual debe hacerse mediante las copias de seguridad de Windows o p. ej., mediante tar en Linux. Dado que existen diferencias entre Windows Server 2008 (R2) y Windows Server 2012 (R2), pues las versiones más recientes de Windows Server facilitan la realización de copias de seguridad, se recomienda ejecutar Windows Server 2012 (R2) como sistema operativo invitado Windows. 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

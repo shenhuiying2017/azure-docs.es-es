@@ -18,7 +18,7 @@
 
 # Selección de las filas que se van a migrar mediante un predicado de filtro (Stretch Database)
 
-Si almacena los datos históricos en una tabla independiente, puede configurar Stretch Database para migrar toda la tabla. Por otra parte, si la tabla contiene datos históricos y actuales, puede especificar un predicado de filtro para seleccionar las filas que quiere migrar. El predicado de filtro es una función con valores de tabla insertada. Este tema describe cómo escribir una función con valores de tabla insertada para seleccionar filas que migrar.
+Si almacena los datos inactivos en una tabla independiente, puede configurar Stretch Database para migrar toda la tabla. Por otro lado, si la tabla contiene datos activos e inactivos, puede especificar un predicado de filtro para seleccionar las filas que se migrarán. El predicado de filtro es una función con valores de tabla insertada. Este tema describe cómo escribir una función con valores de tabla insertada para seleccionar filas que migrar.
 
 >   [AZURE.NOTE] Si proporciona un predicado de filtro que tiene un rendimiento insuficiente, la migración de datos también lo tendrá. Stretch Database aplica el predicado de filtro a la tabla con el operador CROSS APPLY.
 
@@ -567,4 +567,4 @@ Una cuenta comprometida con privilegios db\_owner puede realizar las siguientes 
 
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

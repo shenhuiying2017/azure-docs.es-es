@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="06/21/2016"
 	ms.author="fboylu" />
 
 # Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras
@@ -346,4 +346,4 @@ Figura 8. Ejemplo de arquitectura de solución para mantenimiento predictivo
 
 Para obtener más información acerca de cada uno de los componentes de la arquitectura, consulte la documentación de [Azure](https://azure.microsoft.com/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

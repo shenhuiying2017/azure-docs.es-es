@@ -3,7 +3,7 @@
 	description="Tutorial de Centro de IoT de Azure para la administración de dispositivos que describen cómo utilizar dispositivos gemelos."
 	services="iot-hub"
 	documentationCenter=".net"
-	authors="ellenfosborne"
+	authors="juanjperez"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Tutorial: Uso del dispositivo gemelo con Node.js (versión preliminar)
 
@@ -92,7 +92,7 @@ Las propiedades del servicio, que solo se almacenan en el dispositivo gemelo, se
 
 ### Lectura profunda
 
-Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos de dispositivos se presentaron en [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-dm-overview] y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] (Tutorial: Uso de trabajos de dispositivos para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
+Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos de dispositivos se presentaron en [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-dm-overview] y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] \(Tutorial: Uso de trabajos de dispositivos para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
 
 ```
 scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
@@ -102,7 +102,7 @@ No puede hacer una lectura profunda de las propiedades del servicio o etiquetas,
 
 ### Escritura profunda
 
-Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para ver una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
+Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para ver una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] \(Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
 
 El trabajo envía un mensaje al dispositivo físico para actualizar la propiedad especificada. El dispositivo gemelo no se actualiza inmediatamente al finalizar el trabajo. Debe esperar a l siguiente intervalo de notificación. Una vez que se produzca la sincronización, podrá ver el cambio en el dispositivo gemelo con una lectura superficial.
 
@@ -121,7 +121,7 @@ int level = get_batterylevel();  // call to platform specific code
 set_device_batterylevel(0, level);
 ```
 
-En lugar de utilizar el método set, puede implementar una devolución de llamada. Para obtener más información sobre esta opción, consulte [Introducing the Azure IoT Hub device management library][lnk-dm-library] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
+En lugar de utilizar el método set, puede implementar una devolución de llamada. Para obtener más información sobre esta opción, consulte [Introducing the Azure IoT Hub device management library][lnk-dm-library] \(Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
 
 ## Pasos siguientes
 
@@ -145,4 +145,4 @@ Para más información acerca de las características de administración de disp
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

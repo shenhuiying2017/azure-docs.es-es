@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Zendesk | Microsoft Azure" 
     description="Aprenda cómo usar Zendesk con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/20/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Zendesk
   
@@ -78,11 +78,17 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zendesk**, escriba su dirección URL con el siguiente patrón "*https://\<nombre-inquilino>.zendesk.com*"y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes:
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configurar dirección URL de la aplicación")
+  
+	a. En el cuadro de texto **URL de inicio de sesión de Zendesk**, escriba la dirección URL con el siguiente patrón: `https://<tenant-name>.zendesk.com`
 
-4.  En la página **Configuración de inicio de sesión único en ZScaler**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente como **c:\\zendesk.cer**.
+	b. Haga clic en **Siguiente**.
+
+
+
+4.  En la página **Configurar inicio de sesión único en Zendesk**, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configurar inicio de sesión único")
 
@@ -94,7 +100,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Seguridad](./media/active-directory-saas-zendesk-tutorial/IC773089.png "Seguridad")
 
-8.  En la página **Seguridad**, seleccione la pestaña **Administrador y agentes**.
+8.  En la página **Seguridad**, haga clic en la pestaña **Admin & Agents** (Administrador y agentes).
 
 9.  Seleccione **Inicio de sesión único (SSO) y SAML** y luego seleccione **SAML**.
 
@@ -106,7 +112,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 12. Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado**.
 
-	>[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+	>[AZURE.TIP] Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 13. Haga clic en **Guardar**.
 
@@ -124,7 +130,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en **Zendesk**, deben
 
 2.  Seleccione la pestaña **Lista de clientes**.
 
-3.  Seleccione la pestaña **Usuario**ficha y luego haga clic en**Agregar**.
+3.  Seleccione la pestaña **Usuario** y luego haga clic en**Agregar**.
 
     ![Agregar usuario](./media/active-directory-saas-zendesk-tutorial/IC773632.png "Agregar usuario")
 
@@ -132,7 +138,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en **Zendesk**, deben
 
     ![Nuevo usuario](./media/active-directory-saas-zendesk-tutorial/IC773633.png "Nuevo usuario")
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zendesk ofrecida por Zendesk para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zendesk ofrecida por Zendesk para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -152,4 +158,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

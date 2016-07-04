@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>
 
 # Escala distribuida geográficamente con entornos de Servicio de aplicaciones
@@ -107,6 +107,8 @@ En la imagen de consola siguiente, se muestra una búsqueda DNS para el dominio 
 ![Búsqueda DNS][DNSLookup]
 
 ## Información y vínculos adicionales ##
+Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+
 Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM) con la vista previa del Administrador de tráfico de Azure][ARMTrafficManager].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -116,7 +118,7 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
 [ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
+[RegisterCustomDomain]: https://azure.microsoft.com/es-ES/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->
@@ -125,4 +127,4 @@ Documentación sobre [compatibilidad del Administrador de recursos de Azure (ARM
 [DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

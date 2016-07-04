@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/15/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 
@@ -23,19 +23,17 @@
 - [Información general][]
 - [Portal][]
 - [PowerShell][]
-- [REST][]
-
-Almacenamiento de datos SQL Azure protege los datos con copias de seguridad automatizadas y almacenamiento con redundancia local. Las copias de seguridad automatizadas proporcionan una manera de proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. En el caso de que un usuario modificara o eliminara datos de manera fortuita o involuntaria, puede garantizar la continuidad empresarial mediante la restauración de la base de datos a un momento dado anterior. Almacenamiento de datos SQL utiliza instantáneas de almacenamiento de Azure para realizar perfectamente y sin tiempos de inactividad una copia de seguridad de la base de datos.
+- [REST][] Almacenamiento de datos SQL de Azure protege los datos con copias de seguridad automatizadas y almacenamiento con redundancia local. Las copias de seguridad automatizadas proporcionan una manera de proteger las bases de datos de daños o eliminaciones accidentales sin esfuerzos de administración. En el caso de que un usuario modificara o eliminara datos de manera fortuita o involuntaria, puede garantizar la continuidad empresarial mediante la restauración de la base de datos a un momento dado anterior. Almacenamiento de datos SQL utiliza instantáneas de almacenamiento de Azure para realizar perfectamente y sin tiempos de inactividad una copia de seguridad de la base de datos.
 
 ## Copias de seguridad automatizadas
 
-Se realizará automáticamente una copia de seguridad de las bases de datos **activas**, como mínimo, cada 8 horas y se conservarán durante 7 días. De este modo, podrá restaurar la base de datos activa a uno de los distintos puntos de restauración realizados en los últimos 7 días.
+Se realizará automáticamente una copia de seguridad de las bases de datos **activas**, como mínimo, cada 8 horas, y se conservarán durante 7 días. De este modo, podrá restaurar la base de datos activa a uno de los distintos puntos de restauración realizados en los últimos 7 días.
 
-Cuando una base de datos está en pausa, se dejarán de realizar nuevas instantáneas y las anteriores se eliminarán cuando tengan una antigüedad de 7 días. Si una base de datos está en pausa durante más de 7 días, se guardará la última instantánea, de esta forma, se garantiza que siempre habrá, como mínimo, una copia de seguridad.
+Cuando una base de datos está en pausa, se dejarán de realizar nuevas copias de seguridad y las anteriores se eliminarán cuando tengan una antigüedad de 7 días. Si una base de datos está en pausa durante más de 7 días, se guardará la última copia de seguridad, de esta forma, se garantiza que siempre habrá, como mínimo, una copia de seguridad.
 
-Cuando se elimina una base de datos, se guarda la última instantánea durante 7 días.
+Cuando se elimina una base de datos, se guarda la última copia de seguridad durante 7 días.
 
-Ejecute esta consulta para ver cuándo se realizó la última copia de seguridad en la instancia:
+Ejecute esta consulta para ver cuándo Almacenamiento de datos SQL realizó la última copia de seguridad:
 
 ```sql
 select top 1 *
@@ -72,4 +70,4 @@ Para obtener más información sobre las características de continuidad empresa
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

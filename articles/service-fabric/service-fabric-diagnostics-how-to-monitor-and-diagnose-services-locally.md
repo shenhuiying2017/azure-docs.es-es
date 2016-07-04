@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="06/20/2016"
    ms.author="toddabel"/>
 
 
@@ -60,4 +60,4 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Uso de ElasticSearch como almacén de seguimientos de aplicaciones de Service Fabric](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

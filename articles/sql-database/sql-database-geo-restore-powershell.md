@@ -12,19 +12,19 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="05/10/2016"
+    ms.workload="sqldb-bcdr" 
+    ms.date="06/17/2016"
     ms.author="sstein"/>
 
 # Restauración geográfica de una Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica mediante PowerShell
+
 
 > [AZURE.SELECTOR]
 - [Información general](sql-database-geo-restore.md)
 - [Portal de Azure](sql-database-geo-restore-portal.md)
 - [PowerShell](sql-database-geo-restore-powershell.md)
 
-
-En este artículo se muestra cómo restaurar la base de datos en un nuevo servidor mediante la restauración geográfica con PowerShell.
+En este artículo se muestra cómo restaurar la base de datos en un nuevo servidor mediante la funcionalidad de restauración geográfica con PowerShell.
 
 [AZURE.INCLUDE [Inicio de una sesión de PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -51,13 +51,13 @@ En este artículo se muestra cómo restaurar la base de datos en un nuevo servid
 
 ## Pasos siguientes
 
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Conexión a la Base de datos SQL con SQL Server Management Studio y realización de una consulta de T-SQL de ejemplo](sql-database-connect-query-ssms.md)
+- Para obtener información detallada sobre cómo restaurar una instancia de Base de datos SQL de Azure mediante el Portal de Azure a partir de una copia de seguridad con redundancia geográfica, consulte [Restauración geográfica de una base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica mediante el Portal de Azure](sql-database-geo-restore-portal.md).
+- Para obtener información detallada sobre cómo restaurar una instancia de Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica, consulte [Información general: restauración geográfica de Base de datos SQL](sql-database-geo-restore.md).
+- Para ver una explicación completa sobre cómo recuperarse ante una interrupción, consulte [Restauración geográfica de una base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica mediante el Portal de Azure](sql-database-disaster-recovery.md).
 
 
 ## Recursos adicionales
 
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Documentación de Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Escenarios de continuidad empresarial](sql-database-business-continuity-scenarios.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

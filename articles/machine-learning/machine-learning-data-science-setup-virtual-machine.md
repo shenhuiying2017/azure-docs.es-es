@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -122,9 +122,9 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para usarse como un servidor de IPython Notebook con el objetivo de explorar y procesar datos, además de otras tareas con Aprendizaje automático de Azure y el proceso de Cortana Analytics (CAP).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de IPython Notebook para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de ciencia de datos en la nube.
 
-Los pasos siguientes del proceso de Cortana Analytics se asignan en la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y puede incluir otros que muevan datos a HDInsight, los procese y muestree en esa plataforma con el fin de prepararlos para el aprendizaje a partir de los datos mediante Aprendizaje automático de Azure.
+Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y puede incluir otros que muevan datos a HDInsight, los procese y muestree en esa plataforma con el fin de prepararlos para el aprendizaje a partir de los datos mediante Aprendizaje automático de Azure.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -142,4 +142,4 @@ Los pasos siguientes del proceso de Cortana Analytics se asignan en la [ruta de 
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

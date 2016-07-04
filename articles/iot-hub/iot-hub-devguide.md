@@ -70,7 +70,7 @@ Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, 
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** **iothub-ns-myiothub-1234**.
 
 Luego, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -491,7 +491,7 @@ El Centro de IoT tiene dos puntos de conexión de REST que permiten la carga de 
 
 #### Notificación al Centro de IoT de una carga de archivos completada
 
-El dispositivo es responsable de cargar el archivo en el almacenamiento mediante los SDK de Almacenamiento de Azure. Cuando finaliza la carga, el dispositivo envía una operación POST al Centro de IoT en `{iot hub}.azure-devices.net/devices/{deviceId}/messages/files/notifications/{correlationId}` con el identificador de correlación recibido de la operación GET inicial.
+El dispositivo es responsable de cargar el archivo en el almacenamiento mediante los SDK de Almacenamiento de Azure. Cuando finaliza la carga, el dispositivo envía una operación POST al Centro de IoT en `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications/{correlationId}` con el identificador de correlación recibido de la operación GET inicial.
 
 #### Notificaciones de carga de archivos
 
@@ -624,4 +624,4 @@ Ahora que ha visto la información general sobre desarrollo para Centro de IoT, 
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="06/21/2016"
    ms.author="chackdan"/>
 
 
@@ -36,11 +36,19 @@ En el paquete de descarga, encontrará los siguientes archivos:
 |**Nombre de archivo**|**Descripción breve**|
 |-----------------------|--------------------------|
 |MicrosoftAzureServiceFabric.cab|Archivo CAB que contiene los archivos binarios que se implementarán en cada equipo del clúster.|
-|ClusterConfig.JSON|Archivo de configuración del clúster que contiene toda la configuración de clúster, incluidos los datos de cada máquina que forme parte del clúster.|
+|ClusterConfig.Unsecure.DevCluster.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo de una sola máquina o VM no seguro y de tres de nodos, incluidos los datos de cada nodo que forme parte del clúster. |
+|ClusterConfig.Unsecure.MultiMachine.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración del clúster, incluidos los datos de cada máquina que forme parte de un clúster de varias máquinas o VM no seguro.|
+|ClusterConfig.Windows.DevCluster.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo de una sola máquina o VM seguro y de tres de nodos, incluidos los datos de cada nodo que forme parte del clúster. El clúster se protege mediante [identidades de Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.Windows.MultiMachine.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración del clúster seguro, incluidos los datos de cada máquina que forme parte de un clúster de varias máquinas o VM seguro. El clúster se protege mediante [identidades de Windows](https://msdn.microsoft.com/library/ff649396.aspx).|
+|ClusterConfig.x509.DevCluster.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración de un clúster de desarrollo de una sola máquina o VM seguro y de tres de nodos, incluidos los datos de cada nodo que forme parte del clúster. El clúster se protege mediante certificados X509 de Windows.|
+|ClusterConfig.x509.MultiMachine.JSON|Ejemplo de archivo de configuración de clúster que contiene toda la configuración del clúster seguro, incluidos los datos de cada máquina que forme parte de un clúster de varias máquinas o VM seguro. El clúster se protege mediante certificados X509.|
 |EULA.txt|Términos de licencia del uso del paquete independiente de Microsoft Azure Service Fabric. [Haga clic aquí](http://go.microsoft.com/fwlink/?LinkID=733084) si desea descargar ahora una copia del CLUF.|
 |Readme.txt|Vínculo a las notas de la versión e instrucciones de instalación básica. Se trata de un pequeño subconjunto de las instrucciones que encontrará en esta página.|
 |CreateServiceFabricCluster.ps1|Script de PowerShell que crea el clúster mediante la configuración en el archivo ClusterConfig.JSON.|
 |RemoveServiceFabricCluster.ps1|Script de PowerShell para quitar los clústeres con la configuración de ClusterConfig.JSON.|
+|AddNode.ps1|Script de PowerShell del clúster que agrega un nodo a un clúster existente.|
+|RemoveNode.ps1|Script de PowerShell del clúster que quita un nodo de un clúster.|
+
 
 ## Planeación y preparación para la implementación de clústeres
 Deben realizarse los siguientes pasos antes de crear el clúster.
@@ -76,7 +84,7 @@ Un **dominio de actualización (UD)** es una unidad lógica de nodos. Durante un
 
 La manera más sencilla de pensar en estos conceptos es considerar los FD como la unidad de error no planeada, y los UD, como la unidad de mantenimiento planeado.
 
-Al especificar dominios de actualización en *ClusterConfig.JSON*, elija el nombre del UD. Por ejemplo, se permiten todos los siguientes:
+Al especificar dominios de actualización en *ClusterConfig*..JSON*, elija el nombre del UD. Por ejemplo, se permiten todos los siguientes:
 
 - "upgradeDomain": "UD0"
 - "upgradeDomain": "UD1A"
@@ -84,7 +92,7 @@ Al especificar dominios de actualización en *ClusterConfig.JSON*, elija el nomb
 - "upgradeDomain": "Blue"
 
 ### Paso 5: Descargar el paquete independiente de Service Fabric para Windows Server
-[Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en un equipo de implementación que no forme parte del clúster o en una de las máquinas que formará parte del clúster.
+[Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en una máquina de implementación que no forme parte del clúster, o bien en una de las máquinas que formará parte del clúster.
 
 <a id="createcluster"></a>
 ## Creación del clúster
@@ -96,7 +104,7 @@ Abra *ClusterConfig.JSON* desde el paquete descargado. Puede usar cualquier edit
 
 |**Opciones de configuración.**|**Descripción**|
 |-----------------------|--------------------------|
-|NodeTypes|Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes. <br> *Name*: se trata del nombre del tipo de nodo. <br>*EndPoints*: se trata de diversos puntos de conexión con nombre (puertos) asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entre en conflicto con cualquier elemento de este manifiesto y que no lo esté utilizando otro programa de la máquina o la VM. <br> *PlacementProperties*: describen propiedades para este tipo de nodo, que se utilizará como restricciones de posición en los servicios del sistema o los suyos. Estas propiedades son pares de clave/valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Entre los ejemplos de propiedades de nodos estarían si el nodo tiene una unidad de disco duro o una tarjeta de vídeo, el número de ejes de su unidad de disco duro, núcleos y otras propiedades físicas. <br> *Capacities*: las capacidades de nodo definen el nombre y la cantidad de un recurso concreto que un nodo específico tiene disponible para utilizar. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas capacidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se colocan en nodos con esos recursos sigan estando disponibles.|
+|NodeTypes|Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes. <br> *Name*: se trata del nombre del tipo de nodo. <br>*EndPoints*: se trata de diversos puntos de conexión con nombre (puertos) asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entre en conflicto con cualquier elemento de este manifiesto y que no lo esté utilizando otro programa de la máquina o la VM. <br> *PlacementProperties*: describen propiedades para este tipo de nodo, que se utilizará como restricciones de posición en los servicios del sistema o los suyos. Estas propiedades son pares de clave/valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Entre los ejemplos de propiedades de nodos estarían si el nodo tiene una unidad de disco duro o una tarjeta de vídeo, el número de ejes de su unidad de disco duro, núcleos y otras propiedades físicas. <br> *Capacities*: las funcionalidades de nodo definen el nombre y la cantidad de un recurso concreto que un nodo específico tiene disponible para utilizar. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas capacidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se colocan en nodos con esos recursos sigan estando disponibles.|
 |Nodos|Se trata de los detalles de cada uno de los nodos que formarán parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas que desee que cree el clúster en función de las necesidades se mostrarán aquí con su dirección IP. <br> Si utiliza las mismas direcciones IP para todos los nodos, se creará un clúster one-box, que puede usar con fines de prueba. Los clústeres one-box no deben usarse para implementar cargas de trabajo de producción.|
 
 ### Paso 2: Ejecutar el script de creación de clúster
@@ -105,19 +113,47 @@ Una vez que se haya modificado la configuración del clúster en el documento JS
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script puede o no formar parte del clúster.
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.JSON -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
 
+>[AZURE.NOTE] Los registros de implementación están disponibles de forma local en la máquina o VM que ejecutó el comando de PowerShell CreateServiceFabricCluster. Los encontrará en una subcarpeta denominada "DeploymentTraces" dentro de la carpeta desde la que ejecutó el comando de PowerShell.
+
+## Adición de nodos al clúster de Service Fabric 
+
+1. Prepare la máquina virtual o VM que desee agregar al clúster (consulte el paso 2 de la sección anterior Planeación y preparación para la implementación de clústeres). 
+2. Planee a qué dominio de error y de actualización va a agregar esta máquina o VM.
+3. [Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en la máquina o VM que planea agregar al clúster. 
+4. Abra un símbolo del sistema de administración de PowerShell y acceda a la ubicación del paquete sin comprimir.
+5. Ejecute AddNode.PS1.
+
+```
+.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.52:19000 -UpgradeDomain UD1 -FaultDomain FD1
+```
+
+## Elimine los nodos en el clúster de Service Fabric. 
+
+1. Abra una conexión de TS en la máquina o VM que desea quitar del clúster.
+2. Abra un símbolo del sistema de administración de PowerShell y acceda a la ubicación del paquete sin comprimir.
+5. Ejecute RemoveNode.PS1.
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+## Elimine el clúster de Service Fabric. 
+1. Abra una conexión de TS en una de las máquinas o VM que forme parte del clúster.
+2. Abra un símbolo del sistema de administración de PowerShell y acceda a la ubicación del paquete sin comprimir.
+5. Ejecute RemoveNode.PS1.
+
+```
+.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.52:19000
+```
+
+
 ## Pasos siguientes
-
-Después de crear un clúster, asegúrese también de protegerlo:
-- [Seguridad de clúster](service-fabric-cluster-security.md)
-
-Lea la información siguiente para empezar a trabajar en el desarrollo o la implementación de aplicaciones:
+- [Conceptos de seguridad de clúster](service-fabric-cluster-security.md)
 - [SDK de Service Fabric e introducción](service-fabric-get-started.md)
 - [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-
-Obtenga más información sobre los clústeres independientes y los de Azure:
 - [Información general de la función de creación de clúster independiente y una comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

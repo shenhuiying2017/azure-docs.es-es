@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
+    ms.date="06/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,4 +29,4 @@ Consulte la siguiente información para asegurarse de que la red virtual está c
 - [Migración de una red virtual personal a una red virtual de Azure](remoteapp-migratevnet.md)
 - [Validación de la red virtual de Azure para su uso con Azure RemoteApp](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

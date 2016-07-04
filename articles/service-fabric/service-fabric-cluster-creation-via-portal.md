@@ -77,7 +77,7 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
 
 	c. El número mínimo de máquinas virtuales del tipo de nodo principal se controla mediante el nivel de confiabilidad que elija. El valor predeterminado del nivel de confiabilidad es Silver. Más información en el documento sobre cómo [elegir la confiabilidad y durabilidad del clúster de Service Fabric](service-fabric-cluster-capacity.md).
 
-	c. Elija el número de máquinas virtuales del tipo de nodo. Puede escalar verticalmente o reducir verticalmente el número de máquinas virtuales en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo se controla mediante el nivel de confiabilidad que ha elegido. Otros tipos de nodo pueden tener un mínimo de 1 máquina virtual.
+	c. Elija el número de máquinas virtuales del tipo de nodo. Puede escalar o reducir verticalmente el número de máquinas virtuales en un tipo de nodo más adelante, pero en el tipo de nodo principal, el número mínimo se controla mediante el nivel de confiabilidad que ha elegido. Otros tipos de nodo pueden tener un mínimo de 1 máquina virtual.
 
 
   	![Captura de pantalla de creación de un tipo de nodo.][CreateNodeType]
@@ -225,4 +225,4 @@ Después de crear un clúster, obtenga más información sobre cómo protegerlo 
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

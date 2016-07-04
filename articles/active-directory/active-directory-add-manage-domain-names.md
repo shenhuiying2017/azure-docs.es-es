@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Administración de los nombres de dominio personalizados en Azure Active Directory
@@ -38,7 +38,7 @@ Para cambiar el nombre de dominio principal para el directorio:
 
 6.  Seleccione el dominio que desea convertir en el nuevo dominio principal para el directorio.
 
-Puede cambiar el nombre de dominio principal para el directorio para que sea cualquier dominio personalizado comprobado que no esté federado. El hecho de cambiar el dominio principal para el directorio no cambiará los nombres de usuario existentes.
+Puede cambiar el nombre de dominio principal para el directorio de modo que sea cualquier dominio personalizado comprobado que no esté federado. El hecho de cambiar el dominio principal para el directorio no cambiará los nombres de usuario existentes.
 
 ## Adición de dominios personalizados a Azure AD
 
@@ -46,7 +46,7 @@ Puede agregar hasta 900 nombres de dominio personalizado a cada directorio de Az
 
 ## Adición de subdominios de un dominio personalizado
 
-Si desea agregar un nombre de dominio de tercer nivel, como "europe.contoso.com", a su directorio, primero debe agregar y comprobar el dominio de segundo nivel, como contoso.com. Azure AD comprobará automáticamente el subdominio. Para ver que se ha comprobado el subdominio que acaba de agregar, actualice la página en el explorador que muestra los dominios en el directorio.
+Si desea agregar un nombre de dominio de tercer nivel, como "europe.contoso.com", a su directorio, primero debe agregar y comprobar el dominio de segundo nivel, como contoso.com. Azure AD comprobará automáticamente el subdominio. Para ver que se ha comprobado el subdominio que acaba de agregar, actualice la página del explorador que muestra los dominios en el directorio.
 
 ## Qué hacer si se cambia el registrador DNS del nombre de dominio personalizado
 
@@ -80,4 +80,4 @@ También se pueden completar la mayoría de las tareas de administración para l
 
 -   [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0622_2016-->

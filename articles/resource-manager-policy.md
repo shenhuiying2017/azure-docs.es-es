@@ -131,7 +131,7 @@ Actualmente, los alias admitidos son:
 
 | Nombre de alias | Descripción |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -140,9 +140,15 @@ Actualmente, los alias admitidos son:
 | Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-
-Para obtener más información acerca de las acciones, vea [RBAC - Roles integrados](active-directory/role-based-access-built-in-roles.md). Actualmente, la directiva solo funciona en las solicitudes PUT.
+Actualmente, la directiva solo funciona en las solicitudes PUT.
 
 ## Efecto
 La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
@@ -385,7 +391,7 @@ Con un cuerpo de solicitud similar al siguiente:
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. En el caso de api-version, use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La definición de la directiva puede definirse como uno de los ejemplos anteriores. Como versión de la API, use *2016-04-01*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Crear una definición de directiva con PowerShell
 
@@ -418,7 +424,7 @@ Para crear una nueva asignación de directiva, ejecute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. En el caso de api-version, use *2016-04-01*.
+{policy-assignment} es el nombre de la asignación de directiva. Como versión de la API, use *2016-04-01*.
 
 Con un cuerpo de solicitud similar al siguiente:
 
@@ -462,4 +468,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

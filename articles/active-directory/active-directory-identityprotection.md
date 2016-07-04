@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="06/17/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -409,5 +409,6 @@ Para obtener información general de la experiencia de usuario relacionada, cons
  - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md) (Flujos de Azure Active Directory Identity Protection)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md) (Guía de Azure Active Directory Identity Protection)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md) (Glosario de Azure Active Directory Identity Protection)
+ - [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

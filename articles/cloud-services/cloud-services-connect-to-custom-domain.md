@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/25/2016"
+    ms.date="06/22/2016"
     ms.author="adegeo"/>
 
 # Conexión de los roles de Servicios en la nube de Azure a un controlador de dominio de AD personalizado que se hospeda en Azure
 
-En primer lugar, vamos a configurar una red virtual (VNET) en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y, a continuación, los conectaremos al controlador de dominio.
+En primer lugar, vamos a configurar una red virtual en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y los conectaremos al controlador de dominio.
 
 Antes de empezar, debemos tener en cuenta un par de cosas:
 
@@ -110,7 +110,7 @@ A continuación, deberá agregar la implementación del servicio en la nube a la
     </Dns>
     <!--optional-->
 
-    <!--VNET settings-->
+    <!--VNet settings-->
     <VirtualNetworkSite name="[virtual-network-name]" />
     <AddressAssignments>
         <InstanceAddress roleName="[role-name]">
@@ -119,7 +119,7 @@ A continuación, deberá agregar la implementación del servicio en la nube a la
         </Subnets>
         </InstanceAddress>
     </AddressAssignments>
-    <!--VNET settings-->
+    <!--VNet settings-->
 
     </NetworkConfiguration>
 </ServiceConfiguration>
@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 También nos gustaría que nos enviara comentarios donde indique si le resultaría útil tener una extensión que promueva una máquina virtual a un controlador de dominio. En caso de ser así, infórmenos al respecto en la sección de comentarios.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

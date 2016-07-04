@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="06/16/2016"
 	ms.author="meetb"/>
 
 
@@ -45,10 +45,13 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 
 ## Pasos siguientes
 
-Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
+* Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
+* Puede encontrar más información en [Microsoft Python Driver para SQL Server](https://msdn.microsoft.com/library/mt652092.aspx).
+* Visite el [Centro para desarrolladores de Python](/develop/python/).
 
-## Recursos adicionales
+## Recursos adicionales 
 
-Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

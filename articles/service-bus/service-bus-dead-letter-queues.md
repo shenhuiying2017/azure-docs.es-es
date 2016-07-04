@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na" 
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="clemensv;sethm"/>
 
 # Información general de colas de mensajes fallidos del Bus de servicio
@@ -45,7 +45,7 @@ Las aplicaciones pueden definir sus propios códigos para la propiedad `DeadLett
 
 ## Superación de MaxDeliveryCount
 
-Las colas y las suscripciones tienen una propiedad [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) y [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx); el valor predeterminado es 10. Siempre que un mensaje se ha entregado bajo un bloqueo ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), pero se ha abandonado explícitamente o el bloqueo ha expirado, la propiedad [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) del mensaje se incrementa. Cuando [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) supera a [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), el mensaje se mueve a la cola de mensajes fallidos, y se especifica el código de motivo `MaxDeliveryCountExceeded`.
+Las colas y las suscripciones tienen una propiedad [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) y [SubscriptionDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount.aspx) respectivamente; el valor predeterminado es 10. Siempre que un mensaje se ha entregado bajo un bloqueo ([ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)), pero se ha abandonado explícitamente o el bloqueo ha expirado, la propiedad [BrokeredMessage.DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) del mensaje se incrementa. Cuando [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) supera a [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx), el mensaje se mueve a la cola de mensajes fallidos, y se especifica el código de motivo `MaxDeliveryCountExceeded`.
 
 Este comportamiento no se puede deshabilitar, pero puede establecer [MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) en un número muy grande.
 
@@ -88,7 +88,7 @@ while(true)
 
 Consulte los siguientes artículos para más información sobre las colas de Bus de servicio:
 
+- [Introducción a las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 - [Comparación de colas de Azure y colas del Bus de servicio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- Utilización de las [colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

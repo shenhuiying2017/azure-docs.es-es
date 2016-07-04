@@ -140,14 +140,14 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 En este tutorial hemos presentado las nociones para habilitar una aplicación de la Tienda Windows para que envíe notificaciones de inserción con Servicios móviles y Centros de notificaciones. A continuación, considere completar uno de los siguientes tutoriales:
 
-+ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
++ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
-+ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
++ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
 
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
-* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs/notification-hubs-diagnosing.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
+* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
@@ -176,4 +176,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

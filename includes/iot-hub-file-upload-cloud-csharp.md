@@ -1,73 +1,65 @@
-## Aprovisionamiento de una cuenta de Almacenamiento de Azure
-Puesto que el dispositivo simulado cargará un archivo en un blob de almacenamiento de Azure, debe tener una cuenta de Almacenamiento de Azure. Puede usar una existente o seguir las instrucciones de [Acerca del Almacenamiento de Azure] para crear una. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
+## Recepción de una notificación de carga de archivos
 
-## Envío de un URI de blob de Azure al dispositivo simulado
+En esta sección, se escribe una aplicación de consola de Windows que recibe mensajes de notificación de carga de archivos del Centro de IoT.
 
-En esta sección, modificará la aplicación de consola **SendCloudtoDevice** que creó en [Envío de mensajes de nube a dispositivo con el Centro de IoT] para incluir un URI del blob de Azure con una firma de acceso compartido. Esto permite que el back-end de nube solo conceda acceso de escritura en el blob al destinatario del mensaje de nube a dispositivo.
+1. En la solución actual de Visual Studio, cree un nuevo proyecto de aplicación de Visual C# para Windows con la plantilla de proyecto **Aplicación de consola**. Denomine al proyecto **ReadFileUploadNotification**.
 
-1. En Visual Studio, haga clic con el botón derecho el proyecto **SendCloudtoDevice** y luego en **Administrar paquetes de NuGet...**. 
+    ![Nuevo proyecto en Visual Studio][2]
+
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ReadFileUploadNotification** y luego haga clic en **Administrar paquetes de NuGet**.
 
     De este modo aparece la ventana Administrar paquetes de NuGet.
 
-2. Busque `WindowsAzure.Storage`, haga clic en **Instalar** y acepte las condiciones de uso.
+2. Busque `Microsoft.Azure.Devices`, haga clic en **Instalar** y acepte las condiciones de uso.
 
-    De esta forma, se descarga, instala y agrega una referencia al [SDK de Almacenamiento de Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage/).
+	Se descarga, instala y agrega una referencia al [paquete NuGet del SDK de servicio de IoT de Azure] en el proyecto **ReadFileUploadNotification**.
 
 3. En el archivo **Program.cs**, agregue las siguientes instrucciones al principio del archivo:
 
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Blob;
+        using Microsoft.Azure.Devices;
 
-4. En la clase **Program**, agregue los siguientes campos de clase, sustituyendo la cadena de conexión de la cuenta de almacenamiento.
+4. Agregue los campos siguientes a la clase **Program**. Sustituya el valor de marcador de posición por la cadena de conexión del Centro de IoT de [Introducción al Centro de IoT]\:
 
-        static string storageConnectionString = "{storage connection string}";
-
-    Luego agregue el siguiente método (puede sustituir cualquier nombre de contenedor de blobs, en este tutorial se usa **iothubfileuploadtutorial**):
+		static ServiceClient serviceClient;
+        static string connectionString = "{iot hub connection string}";
+        
+5. Agregue el método siguiente a la clase **Program**:
    
-        private static async Task<string> GenerateBlobUriAsync()
+        private async static Task ReceiveFileUploadNotificationAsync()
         {
-            var storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-            var blobClient = storageAccount.CreateCloudBlobClient();
-            var blobContainer = blobClient.GetContainerReference("iothubfileuploadtutorial");
-            await blobContainer.CreateIfNotExistsAsync();
+            var notificationReceiver = serviceClient.GetFileNotificationReceiver();
 
-            var blobName = String.Format("deviceUpload_{0}", Guid.NewGuid().ToString());
-            CloudBlockBlob blob = blobContainer.GetBlockBlobReference(blobName);
+            Console.WriteLine("\nReceiving file upload notification from service");
+            while (true)
+            {
+                var fileUploadNotification = await notificationReceiver.ReceiveAsync();
+                if (fileUploadNotification == null) continue;
 
-            SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-            sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
-            sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
-            sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
-            string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Received file upload noticiation: {0}", string.Join(", ", fileUploadNotification.BlobName));
+                Console.ResetColor();
 
-            return blob.Uri + sasBlobToken;
+                await notificationReceiver.CompleteAsync(fileUploadNotification);
+            }
         }
 
-    Este método crea una nueva referencia de blob y genera un URI de firma de acceso compartido, tal como se describe en [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md). Tenga en cuenta que el método anterior genera un URI de firma que es válido durante 24 horas. Si el dispositivo de destino necesita más tiempo para cargar el archivo (por ejemplo, se conecta con poca frecuencia, tiene una conectividad poco confiable para cargar un archivo grande), podría plantearse prolongar los tiempos de expiración de las firmas.
+    Tenga en cuenta que el patrón de recepción es el mismo que se usa para recibir mensajes de nube a dispositivo desde la aplicación de dispositivo.
 
-5. Modifique el método **SendCloudToDeviceMessageAsync** de la siguiente manera:
+6. Por último, agregue las líneas siguientes al método **Main**:
 
-        private async static Task SendCloudToDeviceMessageAsync()
-        {
-            var commandMessage = new Message();
-            commandMessage.Properties["command"] = "FileUpload";
-            commandMessage.Properties["fileUri"] = await GenerateBlobUriAsync();
-            commandMessage.Ack = DeliveryAcknowledgement.Full;
-
-            await serviceClient.SendAsync("myFirstDevice", commandMessage);
-        }
-
-    Este método envía un mensaje de nube a dispositivo que contiene dos propiedades de aplicación: una que identifica el mensaje como un comando para cargar un archivo y otra que contiene el URI del blob. También solicita confirmaciones de entrega completa. Tenga en cuenta que la información de las dos propiedades de aplicación se puede serializar en el cuerpo de un mensaje, pero esto conllevaría un procesamiento adicional para serializar y deserializar la información.
+        Console.WriteLine("Receive file upload notifications\n");
+        serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+        ReceiveFileUploadNotificationAsync().Wait();
+        Console.ReadLine();
 
 <!-- Links -->
 
-[Acerca del Almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
-
 [IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[paquete NuGet del SDK de servicio de IoT de Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
+[Introducción al Centro de IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
+[2]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Ponerse en contacto con el soporte técnico de Microsoft
@@ -102,4 +102,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 > [AZURE.IMPORTANT] Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

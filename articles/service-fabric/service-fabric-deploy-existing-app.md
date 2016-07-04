@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 # Implementación de un ejecutable invitado en Service Fabric
 
-Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. La terminología de Service Fabric hace referencia a esos tipos de aplicaciones como aplicaciones ejecutables invitadas. Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocarán en los nodos de un clúster, en función de la disponibilidad y otras métricas. Este artículo describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric con Visual Studio o una utilidad de línea de comandos
+Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. La terminología de Service Fabric hace referencia a esos tipos de aplicaciones como aplicaciones ejecutables invitadas. Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocarán en los nodos de un clúster, en función de la disponibilidad y otras métricas. En este artículo se describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric con Visual Studio o una utilidad de línea de comandos.
 
 ## Ventajas de ejecutar un ejecutable invitado en Service Fabric
 
@@ -284,17 +284,19 @@ Si examina el directorio mediante el Explorador de servidores, puede encontrar e
 
 Visual Studio proporciona una plantilla de servicio de Service Fabric para ayudarle a implementar un ejecutable invitado en un clúster de Service Fabric. Debe realizar los siguientes pasos para completar la publicación:
 
-1. Seleccione Archivo -> Nuevo proyecto y cree una nueva aplicación de Service Fabric
-2. Elija Ejecutable invitado como plantilla de servicio
-3. Haga clic en Examinar para seleccionar la carpeta que contiene el ejecutable y rellene el resto de los parámetros para crear el nuevo servicio
+>[AZURE.NOTE] Esta característica requiere la [versión 2.1.150 del SDK](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/13/release-of-service-fabric-sdk-2-1-150-and-runtime-5-1-150/).
+
+1. Seleccione Archivo -> Nuevo proyecto y cree una nueva aplicación de Service Fabric.
+2. Elija Ejecutable invitado como plantilla de servicio.
+3. Haga clic en Examinar para seleccionar la carpeta que contiene el ejecutable y rellene el resto de los parámetros para crear el nuevo servicio.
   - Se puede establecer *Code Package Behavior* (Comportamiento del paquete de código) para que copie todo el contenido de la carpeta en el proyecto de Visual Studio, lo cual es útil si el ejecutable no va a cambiar. En cambio, si prevee que el ejecutable cambie y desea tener la capacidad de recopilar las nuevas versiones de forma dinámica, puede vincular directamente a la carpeta.
   - *Programa* permite especificar el nombre del ejecutable que se debe ejecutar para iniciar el servicio.
   - *Argumentos* permite especificar los argumentos que se deben pasar al ejecutable. Puede ser una lista de parámetros con argumentos.
   - *WorkingFolder* especifica el directorio de trabajo para el proceso que se va a iniciar. Puede especificar dos valores:
   	- *CodeBase* especifica el directorio de trabajo que se va a establecer en el directorio Code del paquete de aplicación (directorio `Code` en la estructura que se muestra a continuación).
     - *CodePackage* especifica el directorio de trabajo que se establecerá en la raíz del paquete de aplicación (`MyServicePkg`).
-4. Asigne un nombre a su servicio y haga clic en Aceptar
-5. Si el servicio necesita un punto de conexión para la comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml (por ejemplo): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
+4. Asigne un nombre a su servicio y haga clic en Aceptar.
+5. Si el servicio necesita un punto de conexión para establecer comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml (por ejemplo): ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```.
 6. Ahora puede probar el paquete y publicar la acción en el clúster local mediante la depuración de la solución en Visual Studio. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente.
 
 >[AZURE.NOTE] Puede usar carpetas vinculadas al crear el proyecto de aplicación en Visual Studio. Esto vinculará a la ubicación de origen desde dentro del proyecto, lo que permitirá actualizar el ejecutable invitado en su destino de origen, lo cual hará que esas actualizaciones formen parte del paquete de aplicación en la compilación.
@@ -306,4 +308,4 @@ En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implemen
 - [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 - [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

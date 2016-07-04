@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/10/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de Base de datos SQL
@@ -120,8 +120,9 @@ La principal **ventaja** de esta opción es que puede actualizar tanto la aplica
 
 Los dos métodos de actualización que se describen en el artículo difieren en complejidad y en costo, pero ambos se centran en minimizar el tiempo en que el usuario final está limitado a las operaciones de solo lectura. La duración del script de actualización define directamente ese tiempo. No depende del tamaño de la base de datos, del nivel de servicio que haya seleccionado, de la configuración del sitio web y de otros factores que no se pueden controlar fácilmente. Esto es porque todos los pasos preparatorios se desacoplan de los pasos de actualización y pueden realizarse sin que afecten a la aplicación de producción. La eficacia del script de actualización es el factor clave que determina la experiencia del usuario final durante las actualizaciones. Por tanto, la mejor manera de que pueda mejorarlo es centrar sus esfuerzos en hacer que el script de actualización sea lo más eficiente posible.
 
-## Recursos adicionales
- Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar el flujo de trabajo de actualización:
+
+## Pasos siguientes
+Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar el flujo de trabajo de actualización:
 
 - [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -131,4 +132,15 @@ Los dos métodos de actualización que se describen en el artículo difieren en 
 - [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Establecer la base de datos en modo de solo lectura o de lectura y escritura](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+## Recursos adicionales
+
+- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
+- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
+- [Restauración geográfica](sql-database-geo-restore.md)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
+- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

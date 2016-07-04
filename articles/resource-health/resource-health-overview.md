@@ -3,7 +3,7 @@
    description="Estado de los recursos de Azure. Información general"
    services="Resource health"
    documentationCenter="dev-center-name"
-   authors="bernardm"
+   authors="BernardoAMunoz"
    manager=""
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
-   ms.author="bernardm"/>
+   ms.author="BernardoAMunoz"/>
 
 # Información general sobre Estado de los recursos de Azure
 
@@ -59,22 +59,28 @@ Al hacer clic en el icono se abrirá la hoja de la suscripción de Estado de los
 ![Icono Estado de los recursos](./media/resource-health-overview/resourceHealthTile.png)
 
 ### API de Estado de los recursos
-Junto con la experiencia del Portal de Azure, también hay una API que puede se usar para consultar el estado de los recursos. La API admite las llamadas para obtener el estado de todos los recursos de una suscripción, todos los recursos de un grupo de recursos o el estado de un recurso específico.
+Junto con la experiencia del Portal de Azure, también hay una serie de API que puede usar para consultar el estado de los recursos. Gracias a las API disponibles, los usuarios pueden solicitar el estado de todos los recursos de una suscripción, todos los de un grupo de recursos o el estado de uno solo.
 
-Para poder para consultar el estado de los recursos usando la API, la suscripción tiene primero que estar registrada con el servicio mediante el envío de una solicitud POST a la dirección URL siguiente:
+Otra API permite a los usuarios solicitar el estado histórico de un único específico. La respuesta es una colección de estados de mantenimiento de recursos de los últimos 14 días. En caso de que el recurso se haya podido ver afectado por una interrupción planeada, el estado incluirá una anotación llamada "serviceImpactingEvents" con más detalles sobre la interrupción.
 
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
+Antes de utilizar la API para consultar el estado de los recursos, la suscripción debe registrarse en el servicio enviando una solicitud POST a la dirección URL siguiente:
+ 
+        //Register the subscription with the Resource health resource provider
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/register?api-version=2015-01-01
         
 A continuación se muestran ejemplos de cómo llamar a la API de Estado de los recursos
 
         // GET health of all resources in a subscription:
-        https://management.azure.com/subscriptions/<SubID>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET health of all resources in a resource group:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
         
         //GET the health of a single resource:
-        https://management.azure.com/subscriptions/<SubID>/resourceGroups/<ResourceGroupName>/providers/<ResourceProvider>/<ResourceType>/<ResourceName>/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/current?api-version=2015-01-01
+        
+        //GET the historical health of a single resource:
+        https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/providers/Microsoft.ResourceHealth/availabilityStatuses?api-version=2015-01-01
 
 
 ## ¿Qué significa el estado de mantenimiento de los recursos que veo en la pantalla?
@@ -111,7 +117,7 @@ Es importante tener en cuenta que esto no es una indicación definitiva de que h
 ![Estado del recurso es desconocido](./media/resource-health-overview/unknown.png)
 
 ## Eventos que afectan al servicio
-Si está en curso un evento que afecte al servicio que pueda tener repercusiones en el recurso, se mostrará un mensaje emergente en la parte superior de la hoja de Estado de los recursos. Al hacer clic en el mensaje se abrirá la hoja Eventos de auditoría, que contiene más información acerca de la interrupción.
+Si está en curso un evento que afecte al servicio que pueda tener repercusiones en el recurso, se mostrará un mensaje emergente en la parte superior de la hoja de Estado de los recursos. Al hacer clic en el mensaje se abrirá la hoja Eventos de auditoría, que mostrará más información de la interrupción.
 
 ![Estado del recursos puede verse afectado por un evento que afecta al servicio](./media/resource-health-overview/serviceImpactingEvent.png)
 
@@ -126,4 +132,4 @@ Estado de los recursos informa sobre el estado de la base de datos SQL, no de SQ
 ## Comentarios
 Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros a través de [Twitter](https://twitter.com/azuresupport) o los [foros de MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->
