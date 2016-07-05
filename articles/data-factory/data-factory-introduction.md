@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Introducción a la Factoría de datos de Azure" 
-	description="Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza." 
+	pageTitle="¿Qué es Data Factory? Servicio de integración de datos | Microsoft Azure" 
+	description="Sepa lo que es Data Factory de Azure: un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos." 
+	keywords="integración de datos, integración de datos de nube, qué es data factory de azure"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +17,14 @@
 	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
-# Introducción al servicio Factoría de datos de Azure
+# Introducción al servicio Data Factory de Azure, un servicio de integración de datos en la nube
 
-## Información general
+## ¿Qué es la factoría de datos de Azure? 
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Del mismo modo que una fábrica que pone equipo en funcionamiento para tomar materias primas y transformarlas en productos terminados, la Factoría de datos organiza los servicios existentes que recopilan datos sin procesar y los transforman en información lista para usar.
 
 La Factoría de datos funciona transversalmente en orígenes de datos locales y en la nube y SaaS para introducir, preparar, transformar, analizar y publicar los datos. Use Factoría de datos para componer servicios en canalizaciones de flujo de datos administrados para transformar los datos con servicios como [HDInsight de Azure (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) y [Lote de Azure](https://azure.microsoft.com/documentation/services/batch/) a fin de satisfacer sus necesidades de informática de Big Data, y con [Aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/) con objeto de poner operativas sus soluciones de análisis. No se conforme solo con una vista tabular de supervisión y use las visualizaciones ricas en contenido de la Factoría de datos para ver rápidamente el linaje y las dependencias entre las canalizaciones de datos. Supervise todas las canalizaciones de flujo de datos desde una única vista unificada para identificar fácilmente los problemas y configurar alertas de supervisión.
 
-![Información general](./media/data-factory-introduction/data-factory-overview.png)
+![Diagrama: Información general de Data Factory, un servicio de integración de datos](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Ilustración 1.** Recopile datos de distintos orígenes de datos locales, introdúzcalos y prepárelos, organícelos y analícelos con una serie de transformaciones, y publique datos listos para usar para su consumo.
 
@@ -35,7 +36,7 @@ Puede usar la Factoría de datos cada vez que tenga que recopilar datos de difer
 
 Factoría de datos de Azure tiene algunas entidades clave que funcionan conjuntamente para definir la entrada y salida de datos, los eventos de procesamiento, así como la programación y los recursos necesarios para ejecutar el flujo de datos que quiera.
 
-![Conceptos clave](./media/data-factory-introduction/key-concepts.png)
+![Diagrama: Data Factory, un servicio de integración de datos en la nube, conceptos clave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Ilustración 2.** Relaciones entre conjuntos de datos, actividades, canalizaciones y servicios vinculados
 
@@ -60,7 +61,7 @@ Con los cuatro conceptos sencillos de conjuntos de datos, actividades, canalizac
 ## Regiones admitidas
 Actualmente, se pueden crear factorías de datos en las regiones de **oeste de EE. UU.**, **este de EE.UU.** y **Europa del Norte**. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
 
-Data Factory de Azure no almacena ningún dato. Permite crear flujos controlados por datos para organizar el movimiento de los datos entre los [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores) y el procesamiento de datos mediante [servicios de proceso](data-factory-compute-linked-services.md) en otras regiones o en un entorno local. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante mecanismos de programación y de la interfaz de usuario.
+Data Factory de Azure no almacena ningún dato. Permite crear flujos controlados por datos para organizar el movimiento de los datos entre los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores) y el procesamiento de datos mediante [servicios de proceso](data-factory-compute-linked-services.md) en otras regiones o en un entorno local. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante mecanismos de programación y la interfaz de usuario.
 
 Tenga en cuenta que aunque Data Factory de Azure solo está disponible en las regiones de **oeste de EE. UU.**. **este de EE.UU.** y [Europa del Norte](data-factory-data-movement-activities.md#global), el servicio que atiende el movimiento de datos en Data Factory está disponible **globalmente** en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, los datos los moverá [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md), siempre que esté instalado en su entorno de local.
 
@@ -69,4 +70,4 @@ Por ejemplo, supongamos que sus entornos de proceso, tales como clúster de Azur
 En el futuro, pretendemos tener Data Factory de Azure en todas las ubicaciones geográficas admitidas por Azure.
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

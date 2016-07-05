@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# Primer análisis: Copia de seguridad de archivos y carpetas desde Windows Server o el cliente de Windows a Azure con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager
+# Primer análisis: Copia de seguridad de archivos y carpetas con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager
 
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Copia de seguridad de Azure usando Resource Manager. Es un tutorial diseñado para guiarle por los aspectos básicos. Si desea empezar a usar Copia de seguridad de Azure, está en el lugar correcto.
 
@@ -203,4 +203,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

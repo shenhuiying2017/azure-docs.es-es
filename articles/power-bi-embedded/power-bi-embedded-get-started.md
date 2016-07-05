@@ -3,7 +3,7 @@
    description="Power BI Embedded, agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Introducción a la versión preliminar de Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded** es un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones. **Power BI Embedded** funciona con las aplicaciones existentes sin necesidad de volver a diseñar esas aplicaciones o cambiar la manera en que sus usuarios inician sesión.
+**Power BI Embedded** es un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones. **Power BI Embedded** funciona con las aplicaciones existentes sin necesidad de volver a diseñar esas aplicaciones o cambiar la manera en que sus usuarios inician sesión.
 
 Para más información sobre Power BI Embedded, consulte [What is Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md) (¿Qué es Power BI Embedded?).
 
@@ -107,4 +107,4 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Precios Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

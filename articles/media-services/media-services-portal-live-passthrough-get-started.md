@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="06/05/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Los Servicios multimedia de Azure del Portal de Azure se encuentran actualmente 
 
 Estos son los requisitos previos para completar el tutorial.
 
-- Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
 - Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -48,10 +48,10 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 	Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal de paso a través.
-1. Recupere la URL de ingesta de canales. 
+1. Recupere la URL de ingesta de canales.
 
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal.
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
@@ -63,7 +63,7 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 1. Inicie el evento o programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el evento o programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el evento o programa (y, opcionalmente, elimine el recurso).     
+1. Elimine el evento o programa (y, opcionalmente, elimine el recurso).
 
 >[AZURE.IMPORTANT] Revise [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.
 
@@ -81,7 +81,7 @@ Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una u
 
 Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
-1. En la ventana **Configuración**, haga clic en **Extremos de streaming**. 
+1. En la ventana **Configuración**, haga clic en **Extremos de streaming**.
 
 2. Haga clic en el punto de conexión de streaming predeterminado.
 
@@ -121,7 +121,7 @@ Esta sección le muestra cómo utilizar la opción **Creación rápida** para cr
 
 Para más información sobre los canales de este tipo, consulte [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
-1. En la ventana **Configuración**, haga clic en **Streaming en vivo**. 
+1. En la ventana **Configuración**, haga clic en **Streaming en vivo**.
 
 	![Introducción](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
 	
@@ -130,7 +130,7 @@ Para más información sobre los canales de este tipo, consulte [Streaming en di
 3. Haga clic en **Creación rápida** para crear un canal de paso a través con el protocolo de introducción RTMP.
 
 	Aparecerá la ventana **CREAR UN NUEVO CANAL**.
-4. Asigne al nuevo canal un nombre y haga clic en **Crear**. 
+4. Asigne al nuevo canal un nombre y haga clic en **Crear**.
 
 	Con ello, se creará un canal de paso a través con el protocolo de introducción RTMP.
 
@@ -175,4 +175,4 @@ Para administrar los recursos seleccione **Configuración** y haga clic en **Act
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

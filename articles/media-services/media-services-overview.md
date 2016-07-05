@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako;anilmur"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -29,13 +29,13 @@ Puede elegir entre transmisión del contenido en directo o entrega a petición. 
 Para compilar soluciones de Servicios multimedia, puede usar:
 
 - [API de REST de Servicios multimedia](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- Uno de los SDK de cliente disponibles: 
-	- [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services) 
-	- [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java) 
-	- [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php) 
-	- [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS). 
-- Herramientas existentes: 
-	- [Portal de Azure clásico](http://manage.windowsazure.com/) 
+- Uno de los SDK de cliente disponibles:
+	- [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
+	- [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
+	- [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
+	- [Servicios multimedia de Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
+- Herramientas existentes:
+	- [Portal de Azure clásico](http://manage.windowsazure.com/)
 	- [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -49,9 +49,9 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
  
-3. Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
+3. Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com).
 2. Una cuenta de Servicios multimedia de Azure. Use el Portal de Azure clásico, .NET o API de REST para crear la cuenta de Servicios multimedia de Azure. Para obtener más información, consulte [Creación de una cuenta](media-services-create-account.md).
-3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md). 
+3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md).
 
 	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect-programmatically.md).
 4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-manage-origins.md).
@@ -99,7 +99,7 @@ Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad r
 2. Configure la directiva de autorización de claves de contenido.
 1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 1. Publique el recurso mediante la creación de un localizador a petición.
-1. Trasmita el contenido publicado. 
+1. Trasmita el contenido publicado.
 
 ###Use Análisis multimedia para obtener conocimientos útiles de los vídeos 
 
@@ -113,7 +113,7 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
 	- **Detección de movimiento**: [detección de movimiento con Análisis multimedia de Azure](media-services-motion-detection.md).
 	- **Detección de cara y emociones**: [detección de caras y emociones con Análisis multimedia de Azure](media-services-face-and-emotion-detection.md).
 	- **Resumen de vídeo**: [uso de miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo](media-services-video-summarization.md).
-3. Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure. 
+3. Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure.
 
 
 ###Entregar la descarga progresiva 
@@ -220,4 +220,4 @@ Para obtener más información, consulte el [Contrato de nivel de servicio (SLA)
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
