@@ -87,9 +87,9 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 1. Inicie sesión en el [Portal de publicación de Azure](https://publish.windowsazure.com/).
 2. Haga clic en **Solution templates** (Plantillas de solución) para crear una nueva plantilla de solución.
 3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)
-4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías.
+4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
 5. Adición de una nueva versión
-6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).
+6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).  
 7. Haga clic en **Request Certification** (Solicitar certificado). El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
 ## Pasos siguientes

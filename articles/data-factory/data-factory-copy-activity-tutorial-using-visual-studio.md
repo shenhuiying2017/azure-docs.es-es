@@ -72,7 +72,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService1** y
 
 ### Cree el servicio vinculado SQL de Azure.
 
-5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados ** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**.
+5. Haga doble clic con el botón derecho en el nodo **Servicios vinculados** en el **Explorador de soluciones** de nuevo, apunte a **Agregar** y haga clic en **Nuevo elemento**.
 6. Esta vez, seleccione **Servicios vinculados de SQL Azure** y haga clic en **Agregar**.
 7. En el archivo **AzureSqlLinkedService1.json** reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres de servidor, base de datos, cuenta de usuario y contraseña de SQL Azure.
 8.  Guarde el archivo **AzureSqlLinkedService1.json**.
