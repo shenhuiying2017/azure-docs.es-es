@@ -221,12 +221,12 @@ En todos los casos, debe crear una cuenta solo con fines de prueba. Si es posibl
 
 * Nombre de usuario y contraseña simples: solo debe registrar una prueba web de la forma habitual. Elimine las cookies en primer lugar.
 * Autenticación SAML. Para ello, puede utilizar el complemento SAML que está disponible para las pruebas web.
-* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory la proporciona. 
+* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory la proporciona.
 * Autenticación abierta: por ejemplo, al iniciar sesión con su cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa de secreto de cliente, por lo que es la primera táctica que hay que investigar. Si la prueba tiene que iniciar sesión con OAuth, el enfoque general es el siguiente:
- * Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación. 
+ * Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación.
  * Realice dos o más inicios de sesión mediante distintas máquinas o exploradores o en intervalos largos de tiempo (para permitir que los tokens expiren).
- * Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión. 
- * Grabe una prueba web con Visual Studio. 
+ * Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión.
+ * Grabe una prueba web con Visual Studio.
  * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intentará parametrizar la prueba, pero no parametrizará correctamente los tokens).
 
 
@@ -249,7 +249,7 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 
 ## Automatización
 
-* [Use scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente. 
+* [Use scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente.
 * Configure un [webhook](../azure-portal/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
@@ -268,7 +268,7 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 
 * *Me gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
 
-    Configure el firewall para que permita las solicitudes de las direcciones IP de la lista que aparece al final de este artículo.
+    Configure el firewall para que permita las solicitudes de las [direcciones IP de los agentes de prueba web](app-insights-ip-addresses.md#availability).
 
 * *Al cargar una prueba web de varios pasos, se produce un error*
 
@@ -302,125 +302,7 @@ Una vez finalizada la prueba, se mostrarán los tiempos de respuesta y las tasas
 
 [Solución de problemas][qna]
 
-
-## Direcciones IP de pruebas web
-
-Si necesita abrir un firewall para que se puedan realizar las pruebas web, esta es la lista actual de direcciones IP. Dicha lista puede cambiar de vez en cuando.
-
-Abra los puertos 80 (http) y 443 (https).
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[Direcciones IP de agentes de pruebas web](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
@@ -430,4 +312,4 @@ Abra los puertos 80 (http) y 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

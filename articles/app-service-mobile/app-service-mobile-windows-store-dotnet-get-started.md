@@ -78,11 +78,11 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 
 ##Pasos siguientes
 
-* [Incorporación de la autenticación a la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Agregar autenticación a la aplicación](app-service-mobile-windows-store-dotnet-get-started-users.md): aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 * [Incorporación de notificaciones push a la aplicación universal Windows en tiempo de ejecución 8.1](app-service-mobile-windows-store-dotnet-get-started-push.md) Aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
 
-* [Habilitar la sincronización sin conexión para su aplicación Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Obtenga información sobre cómo agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
+* [Habilitar la sincronización sin conexión para la aplicación](app-service-mobile-windows-store-dotnet-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -91,4 +91,4 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

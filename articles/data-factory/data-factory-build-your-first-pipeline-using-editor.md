@@ -29,13 +29,13 @@ En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.c
 ## Requisitos previos
 
 1. **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
-2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).  
+2. Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para más información del servicio, le recomendamos que consulte el artículo [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
 
 ## Creación de Data Factory
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Comencemos con la creación de la factoría de datos en este paso.
 
 1.	Después de iniciar sesión en el [Portal de Azure](https://portal.azure.com/), siga estos pasos:
-	1.	Haga clic en **NUEVO** en el menú de la izquierda. 
+	1.	Haga clic en **NUEVO** en el menú de la izquierda.
 	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
 
@@ -53,12 +53,12 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 
 
 3.	Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
-4.	Seleccione un **grupo de recursos** existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos denominado: **ADFGetStartedRG**.    
+4.	Seleccione un **grupo de recursos** existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos denominado: **ADFGetStartedRG**.
 5.	Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:   
+6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:
 
 	![Creación de estado de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma. 	
+7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma.
 
 	![Hoja de la Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -70,21 +70,20 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de H
 ### Creación de un servicio vinculado de Almacenamiento de Azure
 En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría de datos. Para este tutorial, usará la misma cuenta de Almacenamiento de Azure para almacenar los datos de entrada y salida y el archivo de script de HQL.
 
-1.	Haga clic en **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **GetStartedDF**. Esto inicia el Editor de la Factoría de datos. 
+1.	Haga clic en **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **GetStartedDF**. Esto inicia el Editor de la Factoría de datos.
 	 
 	![Icono Crear e implementar](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Haga clic en **Nuevo almacén de datos** y elija **Almacenamiento de Azure**.
 	
 	![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor. 
+	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor.
 4. Reemplace **accountname** por el nombre de la cuenta de almacenamiento de Azure y **accountkey** por la clave de acceso de la cuenta de almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 	![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **AzureStorageLinkedService** en la vista de árbol de la izquierda.  
-   ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   Después de que el servicio vinculado se implemente correctamente, la ventana **Borrador 1** desaparecerá y verá **AzureStorageLinkedService** en la vista de árbol de la izquierda. ![Servicio vinculado de Almacenamiento en el menú](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Creación de un servicio vinculado de HDInsight de Azure
@@ -93,7 +92,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo proceso** en la barra de comandos y seleccione **Clúster de HDInsight a petición**.
 
 	![Nuevo proceso](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
-2. Copie y pegue el fragmento de código siguiente en la ventana **Borrador 1**. El fragmento de código JSON describe las propiedades que se usarán para crear el clúster de HDInsight a petición. 
+2. Copie y pegue el fragmento de código siguiente en la ventana **Borrador 1**. El fragmento de código JSON describe las propiedades que se usarán para crear el clúster de HDInsight a petición.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -119,14 +118,14 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 	Tenga en cuenta lo siguiente:
 	
-	- Data Factory crea automáticamente un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que creara un clúster de HDInsight **basado en Linux**. Consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más detalles. 
+	- Data Factory crea automáticamente un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que creara un clúster de HDInsight **basado en Linux**. Consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más detalles.
 	- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para más información.
 	- El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando finaliza el procesamiento.
 	
-		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores sigue un patrón: "adf**nombreDeSuFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
+		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
-	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información.
-3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado. 
+	Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 4. Confirme que **AzureStorageLinkedService** y **HDInsightOnDemandLinkedService** aparecen en la vista de árbol de la izquierda.
 
 	![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
@@ -182,7 +181,7 @@ En este paso, creará conjuntos de datos que representen los datos de entrada y 
 ### Creación del conjunto de datos de salida
 Ahora, va a crear el conjunto de datos de salida que representa los datos de salida almacenados en Almacenamiento de blobs de Azure.
 
-1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.  
+1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Almacenamiento de blobs de Azure**.
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** y especifique la estructura de los datos que generará el script de Hive. Además, especifique que los resultados se almacenen en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 	
 		{
@@ -273,13 +272,13 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
-	> [AZURE.NOTE] Consulte en la sección [Canalizaciones y actividades en Data Factory de Azure](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo anterior.
+	> [AZURE.NOTE] Consulte en la sección [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) las propiedades JSON que se usan en el ejemplo anterior.
 
 3. Confirme lo siguiente:
-	1. El archivo **input.log** existe en la carpeta **inputdata** del contenedor **adfgetstarted** en el almacenamiento de blobs de Azure.
-	2. El archivo **partitionweblogs.hql** existe en la carpeta **script** del contenedor **adfgetstarted** en el almacenamiento de blobs de Azure. Realice los pasos de los requisitos previos en la [información general del tutorial](data-factory-build-your-first-pipeline.md) si no ve estos archivos. 
-	3. Confirme que ha reemplazado **storageaccountname** por el nombre de la cuenta de almacenamiento en la canalización JSON. 
-2. Haga clic en **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar. 
+	1. El archivo **input.log** existe en la carpeta **inputdata** del contenedor **adfgetstarted** en Almacenamiento de blobs de Azure.
+	2. El archivo **partitionweblogs.hql** existe en la carpeta **script** del contenedor **adfgetstarted** en Almacenamiento de blobs de Azure. Realice los pasos de los requisitos previos en la [información general del tutorial](data-factory-build-your-first-pipeline.md) si no ve estos archivos.
+	3. Confirme que ha reemplazado **storageaccountname** por el nombre de la cuenta de almacenamiento en la canalización JSON.
+2. Haga clic en **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar.
 4. Confirme que la canalización aparece en la vista de árbol.
 
 	![Vista de árbol con canalización](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
@@ -292,24 +291,24 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 	![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial.
 	
-	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
-8. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización. 
+	![Vista de diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
+8. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y haga clic en Abrir canalización.
 
 	![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
-9. Confirme que la actividad de HDInsightHive está en la canalización. 
+9. Confirme que la actividad de HDInsightHive está en la canalización.
   
 	![Vista Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
-	Para volver a la vista anterior, haga clic en **Factoría de datos** en el menú de la barra de ruta de navegación en la parte superior. 
+	Para volver a la vista anterior, haga clic en **Factoría de datos** en el menú de la barra de ruta de navegación en la parte superior.
 10. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Puede que el segmento tarde un par de minutos en aparecer con ese estado. Si esto no sucede después de esperar un tiempo, compruebe si el archivo de entrada (input.log) está en el contenedor (adfgetstarted) y en la carpeta (inputdata) correctos.
 
 	![Segmento de entrada con estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
-11. Haga clic en **X** para cerrar la hoja **AzureBlobInput**. 
+11. Haga clic en **X** para cerrar la hoja **AzureBlobInput**.
 12. En la **Vista de diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Verá que el segmento se está procesando.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Cuando finalice el procesamiento, el segmento aparecerá con el estado **Listo**.
-	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).  
+	>[AZURE.IMPORTANT] La creación de un clúster de HDInsight a petición normalmente tarda algún tiempo (20 minutos aproximadamente).
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
@@ -327,12 +326,12 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 1.	Ha creado una **factoría de datos** de Azure.
 2.	Ha creado dos **servicios vinculados**:
 	1.	El servicio vinculado **Almacenamiento de Azure** para vincular el almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
-	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida. 
-3.	Ha creado dos **conjuntos de datos** que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización. 
-4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**. 
+	2.	El servicio vinculado a petición de **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
+3.	Ha creado dos **conjuntos de datos** que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización.
+4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Otras referencias
 | Tema. | Descripción |
@@ -345,4 +344,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

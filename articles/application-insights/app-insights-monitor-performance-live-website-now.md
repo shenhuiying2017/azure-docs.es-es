@@ -143,24 +143,7 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 
 ### Errores de conexión
 
-Deberá abrir algunos puertos de salida en el firewall del servidor para permitir que el Monitor de estado funcione:
-
-+ Telemetría; estos puertos son necesarios todo el tiempo:
- +	`dc.services.visualstudio.com:80`
- +	`dc.services.visualstudio.com:443`
- +	`dc.applicationinsights.microsoft.com`
-+ Configuración; solo son necesarios cuando se realizan cambios:
- -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
- -	`login.live.com:443`
-+ Instalación:
- +	`packages.nuget.org:443`
-
-Esta lista puede cambiar de forma esporádica.
+Deberá abrir [algunos puertos de salida](app-insights-ip-addresses.md#outgoing-ports) en el firewall del servidor para permitir que el Monitor de estado funcione.
 
 ### ¿No hay telemetría?
 
@@ -244,7 +227,7 @@ Puede iniciar y detener la supervisión mediante PowerShell.
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: el nombre de una aplicación web en IIS.
-* `-InstrumentationKey` (Opcional.) Utilice esto para cambiar el recurso al que se envía la telemetría de la aplicación.
+* `-InstrumentationKey` (Opcional). Utilice esto para cambiar el recurso al que se envía la telemetría de la aplicación.
 * Este cmdlet:
  * Permite actualizar la aplicación con nombre a la versión del SDK descargada más recientemente en este equipo. (Solo funciona si `SdkState==EnabledAfterDeployment`)
  * Si proporciona una clave de instrumentación, se vuelve a configurar la aplicación con nombre para enviar los datos de telemetría al recurso con esa clave. (Funciona si `SdkState != Disabled`)
@@ -301,4 +284,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

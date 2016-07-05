@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/16/2016"
+     ms.date="06/23/2016"
      ms.author="dobett"/>
 
 # Introducción al Centro de IoT de Azure para Java
@@ -38,11 +38,11 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Como paso final, haga clic en **Configuración** en la hoja Centro de IoT y luego en **Mensajes** en la hoja **Configuración**. En la hoja **Mensajes**, anote los valores de **Nombre compatible con Centro de eventos** y **Punto de conexión compatible de Centro de eventos**. Necesitará estos valores al crear la aplicación **read-d2c-messages**.
+Como paso final, anote el valor de **Clave principal**, luego haga clic sucesivamente en **Configuración** en la hoja Centro de IoT y en **Mensajes** en la hoja **Configuración**. En la hoja **Mensajes**, anote los valores de **Nombre compatible con el Centro de eventos** y **Punto de conexión compatible con Centro de eventos**. Necesitará estos tres valores al crear la aplicación **read-d2c-messages**.
 
 ![][6]
 
-Ahora que ha creado un Centro de IoT y que tiene el nombre de host del Centro de IoT, la cadena de conexión del Centro de IoT, el nombre compatible con Centros de eventos y el punto de conexión compatible con Centros de eventos, es preciso que complete el resto del tutorial.
+Ahora que ha creado un Centro de IoT y que tiene el nombre de host del Centro de IoT, la cadena de conexión del Centro de IoT, la clave principal del Centro de IoT, el nombre compatible con Centros de eventos y el punto de conexión compatible con Centros de eventos, es necesario que complete el resto del tutorial.
 
 ## Creación de una identidad de dispositivo
 
@@ -62,7 +62,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.7</version>
     </dependency>
     ```
     
@@ -81,10 +81,10 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
     import java.net.URISyntaxException;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**, pero reemplace **{yourhostname}** y **{yourhubkey}** por los valores anotados anteriormente:
+7. Agregue las siguientes variables de nivel de clase a la clase **App** y sustituya **{yourhubconnectionstring}** por el valor anotado anteriormente:
 
     ```
-    private static final String connectionString = "HostName={yourhostname};SharedAccessKeyName=iothubowner;SharedAccessKey={yourhubkey}";
+    private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "javadevice";
     
     ```
@@ -295,7 +295,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -317,12 +317,12 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     import com.microsoft.azure.iothub.IotHubStatusCode;
     import com.microsoft.azure.iothub.IotHubEventCallback;
     import com.microsoft.azure.iothub.IotHubMessageResult;
+    import com.google.gson.Gson;
     import java.io.IOException;
     import java.net.URISyntaxException;
-    import java.security.InvalidKeyException;
     import java.util.Random;
-    import javax.naming.SizeLimitExceededException;
-    import com.google.gson.Gson;
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.ExecutorService;
     ```
 
 7. Agregue las siguientes variables de nivel de clase a la clase **App**, y reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdeviceid}** y **{yourdevicekey}** por los valores del dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
@@ -330,7 +330,8 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static boolean stopThread = false;
+    private static String deviceId = "{yourdeviceid}";
+    private static DeviceClient client;
     ```
 
     Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. Puede usar el protocolo HTTPS o AMQPS para comunicarse con el Centro de IoT.
@@ -355,7 +356,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     private static class EventCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to message with status " + status.name());
+        System.out.println("IoT Hub responded to message with status: " + status.name());
       
         if (context != null) {
           synchronized (context) {
@@ -371,37 +372,33 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     ```
     private static class MessageSender implements Runnable {
       public volatile boolean stopThread = false;
-
+      
       public void run()  {
         try {
           double avgWindSpeed = 10; // m/s
           Random rand = new Random();
-          DeviceClient client;
-          client = new DeviceClient(connString, protocol);
-          client.open();
-        
+          
           while (!stopThread) {
             double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-            telemetryDataPoint.deviceId = "myFirstDevice";
+            telemetryDataPoint.deviceId = deviceId;
             telemetryDataPoint.windSpeed = currentWindSpeed;
-      
+            
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
-            System.out.println(msgStr);
-        
+            System.out.println("Sending: " + msgStr);
+            
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-    
+            
             synchronized (lockobj) {
               lockobj.wait();
             }
             Thread.sleep(1000);
           }
-          client.close();
-        } catch (Exception e) {
-          e.printStackTrace();
+        } catch (InterruptedException e) {
+          System.out.println("Finished.");
         }
       }
     }
@@ -413,14 +410,18 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
-    
-      MessageSender ms0 = new MessageSender();
-      Thread t0 = new Thread(ms0);
-      t0.start(); 
-    
+      client = new DeviceClient(connString, protocol);
+      client.open();
+
+      MessageSender sender = new MessageSender();
+
+      ExecutorService executor = Executors.newFixedThreadPool(1);
+      executor.execute(sender);
+
       System.out.println("Press ENTER to exit.");
       System.in.read();
-      ms0.stopThread = true;
+      executor.shutdownNow();
+      client.close();
     }
     ```
 
@@ -441,15 +442,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 1. En un símbolo del sistema, en la carpeta read-d2c, ejecute el siguiente comando para empezar la supervisión de la primera partición del Centro de IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
-    ```
-
-    ![][7]
-
-1. En un símbolo del sistema, en la carpeta read-d2c, ejecute el siguiente comando para empezar la supervisión de la segunda partición del Centro de IoT:
-
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![][7]
@@ -472,13 +465,13 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 
 - [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d-tutorial] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
 - [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- El [Tutorial: cómo cargar archivos desde dispositivos a la nube con un centro de IoT][lnk-upload-tutorial] muestra cómo cargar archivos desde los dispositivos.
+- En [Carga de archivos desde dispositivos][lnk-upload-tutorial] se muestra cómo cargar archivos desde los dispositivos.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
-[43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
+[43]: ./media/iot-hub-java-java-getstarted/usage.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
@@ -488,7 +481,7 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-c2d-tutorial]: iot-hub-java-java-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
@@ -496,4 +489,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

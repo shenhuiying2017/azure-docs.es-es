@@ -34,7 +34,7 @@ Además de los requisitos previos que se enumeran en el tema de información gen
 
 - **Debe** leer la sección [Tutorial Overview](data-factory-build-your-first-pipeline.md) del artículo y completar los pasos de los requisitos previos antes de continuar.
 - **Azure PowerShell**. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar la última versión de Azure PowerShell en su equipo.
-- (opcional) Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/library/dn820234.aspx) para obtener la documentación completa sobre los cmdlets de la factoría de datos. 
+- (opcional) Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/library/dn820234.aspx) para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
 Si usa Azure PowerShell de una **versión inferior a 1.0**, deberá usar los cmdlets que se documentan [aquí](https://msdn.microsoft.com/library/azure/dn820234.aspx). También debe ejecutar los comandos siguientes antes de usar los cmdlets de Factoría de datos:
  
@@ -52,15 +52,15 @@ Consulte [Deprecation of Switch AzureMode in Azure PowerShell](https://github.co
 En este paso, utilice Azure PowerShell para crear una Factoría de datos de Azure llamada **FirstDataFactoryPSH**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada para generar datos de salida. Comencemos con la creación de la factoría de datos en este paso.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.  
+	- Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.
 	- Ejecute **Get-AzureRmSubscription** para ver todas las suscripciones de esta cuenta.
-	- Ejecute **Select-AzureRmSubscription <Name of the subscription>** para seleccionar la suscripción con la que desea trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
+	- Ejecute **Select-AzureRmSubscription <nombre de la suscripción>** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
 3. Cree un grupo de recursos de Azure con el nombre: **ADFTutorialResourceGroup** ejecutando el siguiente comando.
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	En algunos de los pasos de este tutorial se supone que se usa el grupo de recursos denominado ADFTutorialResourceGroup. Si usa un grupo de recursos diferentes, deberá usarlo en lugar de ADFTutorialResourceGroup en este tutorial.
-4. Ejecute el cmdlet **New-AzureRmDataFactory** para crear una factoría de datos con el nombre: **FirstDataFactoryPSH**.  
+4. Ejecute el cmdlet **New-AzureRmDataFactory** para crear una factoría de datos con el nombre: **FirstDataFactoryPSH**.
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
@@ -70,9 +70,9 @@ Tenga en cuenta lo siguiente:
 - El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error: **El nombre de la factoría de datos "FirstDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, suNombreFirstDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 - Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 - El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
-- Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
+- Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo:
 
-	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
+	- En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
@@ -148,13 +148,13 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
 	Tenga en cuenta lo siguiente:
 	
-	- Data Factory crea automáticamente un clúster de HDInsight **basado en Windows** con el anterior código JSON. También podría hacer que creara un clúster de HDInsight **basado en Linux**. Consulte la sección [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obtener más información. 
-	- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para más información.
-	- El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando finaliza el procesamiento.
+	- Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON anterior. También podría hacer que cree un clúster de HDInsight **basado en Linux**. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+	- Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
+	- El clúster de HDInsight crea un **contenedor predeterminado** en el Almacenamiento de blobs especificado en el código JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Esto es así por diseño. Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (**timeToLive**), y se elimina cuando finaliza el procesamiento.
 	
-		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores sigue un patrón: "adf**nombreDeSuFactoríaDeDatos**-**linkedservicename**-datetimestamp". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
+		A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. El nombre de estos contenedores siguen un patrón: "adf**nombreDeDataFactory**-**nombreDeServicioVinculado**-marcaDeFechaYHora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores del almacenamiento de blobs de Azure.
 
-	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información. 
+	Consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información.
 2. Ejecute el cmdlet **New-AzureRmDataFactoryLinkedService** para crear el servicio vinculado llamado HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -297,8 +297,8 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
 
 	En el código JSON de la actividad, se especifica que el script de Hive se ejecuta en el proceso que especifica el servicio vinculado **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
-	> [ACOM.NOTE] Consulte [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para más información sobre las propiedades JSON que se usan en el ejemplo anterior. 
-2.  Confirme que el archivo **input.log** aparece en la carpeta **adfgetstarted/inputdata** en el Almacenamiento de blobs de Azure y ejecute el siguiente comando para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar. 
+	> [ACOM.NOTE] Consulte [Anatomía de una canalización](data-factory-create-pipelines.md#anatomy-of-a-pipeline) para más información sobre las propiedades JSON que se usan en el ejemplo anterior.
+2.  Confirme que el archivo **input.log** aparece en la carpeta **adfgetstarted/inputdata** en el Almacenamiento de blobs de Azure y ejecute el siguiente comando para implementar la canalización. Dado que las horas de **inicio** y **fin** están establecidas en el pasado y **isPaused** está establecido en false, la canalización (actividad en la canalización) se ejecutará inmediatamente después de implementar.
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Enhorabuena, ya creó correctamente su primera canalización con Azure PowerShell.
@@ -365,12 +365,12 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 1.	Ha creado una **factoría de datos** de Azure.
 2.	Ha creado dos **servicios vinculados**:
 	1.	El servicio vinculado **Almacenamiento de Azure** para vincular el almacenamiento de blobs de Azure que contiene los archivos de entrada y salida a la factoría de datos.
-	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida. 
-3.	Ha creado dos **conjuntos de datos** que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización. 
-4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**. 
+	2.	El servicio vinculado a petición **HDInsight de Azure** para vincular un clúster de Hadoop en HDInsight a petición a la factoría de datos. Data Factory de Azure crea un clúster de Hadoop en HDInsight justo a tiempo para procesar los datos de entrada y generar los datos de salida.
+3.	Ha creado dos **conjuntos de datos** que describen los datos de entrada y salida para la actividad de Hive de HDInsight en la canalización.
+4.	Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Otras referencias
 | Tema. | Descripción |
@@ -383,4 +383,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Supervisión y administración de canalizaciones de Data Factory de Azure](data-factory-monitor-manage-pipelines.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante las hojas del Portal de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) | En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->
