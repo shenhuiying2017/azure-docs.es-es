@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="06/16/2016"
 	ms.author="billmath"/>
 
 # ¿Qué es Azure Multi-Factor Authentication?
@@ -118,7 +118,7 @@ Personalización del identificador de llamada para llamadas telefónicas| | | *
 Confirmación de evento| | | *
 IP de confianza| | | *
 Recordar MFA para dispositivos de confianza |* | * | *
-SDK de MFA| | | *
+SDK de MFA | | | * Requiere el proveedor de autenticación multifactor y la suscripción de Azure completa.
 MFA para aplicaciones locales mediante servidor MFA| | | *
 
 
@@ -209,4 +209,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

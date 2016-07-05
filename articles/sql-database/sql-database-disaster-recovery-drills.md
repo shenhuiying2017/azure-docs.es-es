@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Obtención de detalles de la recuperación de una base de datos SQL tras un desastre" 
+   pageTitle="Maniobras de recuperación ante desastres de Base de datos SQL | Microsoft Azure" 
    description="Obtenga instrucciones e información sobre prácticas recomendadas acerca del uso de la base de datos SQL de Azure para la realización de tareas de obtención de detalles de la recuperación ante desastres. Dichas tareas le ayudarán a mantener la capacidad de recuperación ante errores y fallos de las aplicaciones de negocio críticas." 
    services="sql-database" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/18/2016"
+   ms.date="06/16/2016"
    ms.author="mihaelab"/>
 
 #Obtención de detalles de la recuperación ante desastres
@@ -63,4 +63,21 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 - Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## Pasos siguientes
+
+- Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
+
+## Recursos adicionales
+
+- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
+- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
+- [Restauración geográfica](sql-database-geo-restore.md)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
+- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

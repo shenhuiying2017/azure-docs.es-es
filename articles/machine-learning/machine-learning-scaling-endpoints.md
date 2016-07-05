@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/25/2016"
+	ms.date="05/25/2016"
 	ms.author="himad"/>
 
 
@@ -47,4 +47,4 @@ La interfaz de usuario de administración permite ofrecer un número de simultan
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -33,7 +33,7 @@ La selección del nivel de coherencia adecuado depende de la semántica de su ap
 3. En la hoja **Toda la configuración**, haga clic en la entrada **Coherencia predeterminada** en **Característica**. ![Sesión de coherencia predeterminada][6]
 
 4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
-5. Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de Azure.
+
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de DocumentDB.
 
@@ -116,7 +116,7 @@ Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Document
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.
 
-## </a><a id="delete">Eliminación de una cuenta de DocumentDB
+## <a id="delete"></a>Eliminación de una cuenta de DocumentDB
 Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar** de la hoja **Cuenta de DocumentDB**.
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)

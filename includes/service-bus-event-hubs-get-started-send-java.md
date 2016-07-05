@@ -6,7 +6,7 @@ La biblioteca de cliente de Java para Centros de eventos está disponible para s
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.6.9</version>
+	<version>0.7.2</version>
 </dependency>
 ```
  
@@ -33,7 +33,7 @@ public class Send
 	{
 ```
 
-Reemplace el nombre del espacio de nombres y del Centro de eventos por los valores que usó al crear el Centro de eventos. `sasKeyName` y `sasKey` se corresponden con el nombre y la clave de la regla Send que creó anteriormente. Con esa información, cree una cadena de conexión.
+Reemplace el nombre del espacio de nombres y del Centro de eventos por los valores que usó al crear el Centro de eventos.
 
 ``` Java
 	final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -56,3 +56,5 @@ A continuación, cree un evento singular convirtiendo una cadena en su codificac
 }
 
 ``` 
+
+<!---HONumber=AcomDC_0622_2016-->

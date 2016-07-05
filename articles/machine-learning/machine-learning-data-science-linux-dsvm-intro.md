@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;bradsev" />
 
 # Aprovisionamiento de Linux Data Science Virtual Machine 
@@ -177,7 +177,7 @@ Puede elegir varios editores de código. Esto incluye vi/VIM, Emacs, gEdit y Ecl
 
 **VIM** y **Emacs** son editores basados en texto. En Emacs, hemos instalado un paquete de complementos denominado Emacs Speaks Statistics (ESS) que facilita el trabajo con R en el editor de Emacs. Puede obtener más información en: [ESS](http://ess.r-project.org/).
 
-**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno de Eclipse. También tenemos un complemento instalado en Eclipse, denominado **Kit de herramientas de Azure para Eclipse**, que le permite crear, desarrollar, probar e implementar fácilmente aplicaciones de Azure con el entorno de desarrollo de Eclipse, que admite lenguajes como Java. También hay **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del Kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse/).
+**Eclipse** es un IDE extensible de código abierto que admite varios lenguajes. La edición de desarrolladores de Java es la instancia instalada en la VM. Hay complementos disponibles para algunos de los lenguajes más conocidos que pueden instalarse para ampliar el entorno de Eclipse. También tenemos un complemento instalado en Eclipse, denominado **Kit de herramientas de Azure para Eclipse**, que le permite crear, desarrollar, probar e implementar fácilmente aplicaciones de Azure con el entorno de desarrollo de Eclipse, que admite lenguajes como Java. También hay **Azure SDK para Java** que permite el acceso a diferentes servicios de Azure desde el interior de un entorno de Java. Puede obtener más información acerca del kit de herramientas de Azure para Eclipse en [Kit de herramientas de Azure para Eclipse](../azure-toolkit-for-eclipse.md).
 
 **LaTex** se instala mediante el paquete de texlive junto con un paquete [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) del complemento de Emacs, lo que simplifica la creación de los documentos LaTex con Emacs.
 
@@ -228,7 +228,7 @@ Para acceder a **Postgres**:
 ### Herramientas de Azure 
 En la VM se instalan las siguientes herramientas de Azure:
 
-- **Interfaz de la línea de comandos de Azure**: Con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para obtener más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools/).
+- **Interfaz de la línea de comandos de Azure**: Con la interfaz de la línea de comandos de Azure (CLI) puede crear y administrar recursos de Azure a través de comandos de shell. Para invocar las herramientas de Azure, escriba ***azure help***. Para obtener más información, consulte la [página de documentación de la CLI de Azure](../virtual-machines-command-line-tools.md).
 - **Explorador de almacenamiento de Microsoft Azure**: El Explorador de almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de almacenamiento de Azure y para cargar o descargar datos hacia y desde los blobs de Azure. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo ***StorageExplorer***. Necesita tener la sesión iniciada desde un cliente X2Go o tener la configuración de reenvío de X11. 
 - **Bibliotecas de Azure**: A continuación se indican algunas de las bibliotecas que se han instalado y que, por lo tanto, están disponibles:
 
@@ -357,4 +357,4 @@ Estos son algunos pasos para proseguir con el aprendizaje y la exploración.
 * Aprenda a crear soluciones analíticas de un extremo a otro mediante el uso sistemático del [proceso de ciencia de datos](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

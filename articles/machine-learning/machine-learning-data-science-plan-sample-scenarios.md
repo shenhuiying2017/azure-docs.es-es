@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Escenarios para la Tecnología y procesos de análisis avanzado (ADAPT) en aprendizaje automático de Azure | Microsoft Azure"
-	description="Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado en Aprendizaje automático de Azure."
+	description="Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 
 # Escenarios para análisis avanzado en Aprendizaje automático de Azure
 
-En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el proceso de Cortana Analytics. Muestra las opciones disponibles en las secuencias de procesamiento en función de las características de datos, la ubicación de origen y los repositorios de destino de Azure.
+En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el proceso de ciencia de datos en equipos (TDSP). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
 
 En la última sección se presenta el **árbol de decisión** para seleccionar los escenarios de ejemplo adecuados para los datos y el objetivo.
 
@@ -296,8 +296,8 @@ El diagrama siguiente resume los escenarios descritos anteriormente y las opcion
 Para los tutoriales de Aprendizaje automático de Azure completos que emplean la Tecnología y procesos de análisis avanzado mediante conjuntos de datos públicos, consulte:
 
 
-* [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-* [Proceso de análisis de Cortana en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+* [Proceso de ciencia de datos en equipos en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+* [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md)
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -16,7 +16,18 @@
 
 # Notas de la versión: herramientas de Developer Analytics
 ##### Análisis de Application Insights y HockeyApp en Visual Studio
-## Versión 7.0.1
+## Versión 7.0
+###Tendencias de Application Insights
+Tendencias de Application Insights es una nueva herramienta de Visual Studio para el análisis del comportamiento de la aplicación con el tiempo. Para comenzar, elija "Explorar tendencias de telemetría" en el botón de la barra de herramientas de Application Insights o en la ventana de búsqueda de Application Insights, o elija "Tendencias de Application Insights" en Ver - Otras ventanas. Elija una de las cinco consultas comunes para comenzar. Puede analizar diferentes conjuntos de datos en función de los tipos de telemetría, los intervalos de tiempo y otras propiedades. Para detectar anomalías en los datos, elija una de las opciones de anomalías en la lista desplegable "Tipo de vista". Con las opciones de filtrado de la parte inferior de la ventana, resulta más sencillo centrarse en subconjuntos específicos de la telemetría.
+
+![Tendencias de Application Insights](./media/app-insights-release-notes-vsix/Trends.PNG)
+
+###Excepciones en CodeLens
+La telemetría de excepciones se muestra ahora en CodeLens. Si ha conectado el proyecto al servicio de Application Insights, verá el número de excepciones que se han producido en cada método en producción en las últimas 24 horas. Desde CodeLens, puede ir a Búsqueda o Tendencias para investigar las excepciones con más detalle.
+
+![Excepciones en CodeLens](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
+
+###Compatibilidad con ASP.NET Core
 Application Insights ahora admite proyectos ASP.NET Core RC2 en Visual Studio. Puede agregar Application Insights a los nuevos proyectos de ASP.NET Core RC2 desde el cuadro de diálogo Nuevo proyecto, o a un proyecto existente haciendo clic con el botón derecho en el proyecto en el Explorador de soluciones y eligiendo "Agregar telemetría de Application Insights...".
 
 ![Compatibilidad de .NET Core](./media/app-insights-release-notes-vsix/NetCoreSupport.PNG)
@@ -25,11 +36,15 @@ Los proyectos de ASP.NET 5 RC1 y ASP.NET Core RC2 ahora también se admiten en l
 
 ![Compatibilidad de Herramientas de diagnóstico](./media/app-insights-release-notes-vsix/DiagnosticTools.PNG)
 
+###HockeyApp para aplicaciones universales de Windows
+Además de distribución beta y comentarios de los usuarios, HockeyApp proporciona informes de bloqueo simbólicos para las aplicaciones universales de Windows. Hemos logrado que el SDK de HockeyApp sea incluso más fácil de agregar: haga clic con el botón derecho en el proyecto de Windows universal y elija HockeyApp - Enable Crash Analytics (Habilitar análisis de bloqueos). De esta forma se instala el SDK, se configuran colecciones de bloqueos y se aprovisionan los recursos de HockeyApp en la nube, sin necesidad de cargar la aplicación en el servicio HockeyApp.
+
 Otras características nuevas:
 
 * Hemos aumentado la velocidad de la experiencia de búsqueda de Application Insights y la hemos hecho más intuitiva aplicando intervalos de tiempo y filtros de detalle a medida que los selecciona.
 * En Búsqueda de Application Insights, ahora hay una opción para ir al código desde la telemetría de la solicitud.
 * Hemos realizado mejoras en la experiencia de inicio de sesión de HockeyApp.
+* En Herramientas de diagnóstico, ahora se muestra información de telemetría de producción para las excepciones.
 
 ## Versión 5.2
 Nos complace anunciar la presentación de los escenarios de HockeyApp en Visual Studio. La primera integración que hemos habilitado es la distribución beta de las aplicaciones universales de Windows y Windows Forms dentro de VS.
@@ -60,7 +75,7 @@ El portal de HockeyApp le permite administrar la aplicación de varias maneras (
 
 ![Portal de HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Si desea más información sobre la administración de la aplicación, esta se encuentra disponible en la [Knowledge Base de HockeyApp](http://support.hockeyapp.net/kb/app-management-2).
+Puede encontrar más información sobre la administración de la aplicación en la [Knowledge Base de HockeyApp](http://support.hockeyapp.net/kb/app-management-2).
 
 ### Aplicaciones de Windows Forms
 El menú contextual de un nodo de proyecto de Windows Forms incluye una opción para cargar la compilación en HockeyApp.
@@ -108,9 +123,9 @@ Con la nueva versión, el usuario puede hacer clic en cualquier valor en el deta
 ###- Nueva pantalla para el usuario que no ha iniciado sesión en la ventana de búsqueda
 Hemos mejorado la apariencia de la ventana de búsqueda para guiar a los usuarios en su búsqueda de los datos de producción. ![Ventana de búsqueda](./media/app-insights-release-notes-vsix/SearchWindow.png)
 ###- El usuario puede ver todos los eventos de telemetría asociados al evento
-Se agregó una nueva pestaña situada junto a los detalles del evento que contiene consultas predefinidas para ver todos los datos relacionados con el evento de telemetría que está buscando el usuario. Por ejemplo: una solicitud tiene un campo denominado identificador de operación y todos los eventos asociados a esta solicitud tendrán el mismo identificador de operación; por tanto, si se produjera una excepción al procesar la solicitud, se obtendría el mismo identificador de operación de la solicitud para facilitar su búsqueda, y así sucesivamente. De esta forma, el usuario que vea una solicitud ahora, podrá hacer clic en "Toda la telemetría para esta operación" para abrir una nueva pestaña con los nuevos resultados de búsqueda. ![Elementos relacionados](./media/app-insights-release-notes-vsix/RelatedItems.png)
+Se agregó una nueva pestaña situada junto a los detalles del evento que contiene consultas predefinidas para ver todos los datos relacionados con el evento de telemetría que está buscando el usuario. Por ejemplo: una solicitud tiene un campo denominado identificador de operación y todos los eventos asociados a esta solicitud tendrán el mismo identificador de operación; por tanto, si se produjera una excepción al procesar la solicitud, se obtendría el mismo identificador de operación de la solicitud para facilitar su búsqueda, y así sucesivamente. De esta forma, ahora el usuario que vea una solicitud podrá hacer clic en "Toda la telemetría para esta operación" para abrir una nueva pestaña con los nuevos resultados de búsqueda. ![Elementos relacionados](./media/app-insights-release-notes-vsix/RelatedItems.png)
 ### - Agregar historial hacia delante y hacia atrás en Búsqueda
-El usuario ahora puede ir hacia delante y hacia atrás entre los resultados de la búsqueda. ![Volver](./media/app-insights-release-notes-vsix/GoBAck.png)
+El usuario ahora puede ir hacia delante y hacia atrás entre los resultados de búsqueda. ![Volver](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##Versión 4.1
 Esta versión incluye una serie de nuevas características y mejoras de las existentes. Para obtener esta versión, debe haber instalado Actualización 1 en el equipo.
@@ -160,8 +175,8 @@ Ya no tendrá que iniciar sesión en Azure para agregar paquetes de Application 
 
 ###Compatibilidad con dispositivos
 
-En *Connect();* 2015 [anunciamos](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que nuestra experiencia de DevOps para móviles con dispositivos es HockeyApp. HockeyApp ayuda a distribuir compilaciones beta a los evaluadores, recopilar y analizar todos los bloqueos de la aplicación y recopilar comentarios directamente de los clientes. HockeyApp es compatible con cualquier plataforma en la que compile la aplicación móvil, ya sea iOS, Android, Windows o una solución multiplataforma como Xamarin, Cordova o Unity.
+En *Connect();* 2015 [anunciábamos](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que nuestra experiencia de DevOps para móviles con dispositivos es HockeyApp. HockeyApp ayuda a distribuir compilaciones beta a los evaluadores, recopilar y analizar todos los bloqueos de la aplicación y recopilar comentarios directamente de los clientes. HockeyApp es compatible con cualquier plataforma en la que compile la aplicación móvil, ya sea iOS, Android, Windows o una solución multiplataforma como Xamarin, Cordova o Unity.
 
-En versiones futuras de la extensión Application Insights, agregaremos nuevas funcionalidades para hacer posible una experiencia más integrada entre HockeyApp y Visual Studio. Por ahora, para empezar a trabajar con HockeyApp, basta con agregar la referencia de NuGet: consulte la [documentación](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para obtener más información.
+En versiones futuras de la extensión Application Insights, agregaremos nuevas funcionalidades para hacer posible una experiencia más integrada entre HockeyApp y Visual Studio. Por ahora, para empezar a trabajar con HockeyApp, basta con agregar la referencia de NuGet: consulte la [documentación](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para más información.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

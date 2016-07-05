@@ -5,14 +5,14 @@
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/21/2016"
     ms.author="sethm" />
 
 # Creación de aplicaciones que usan colas del Bus de servicio
@@ -53,13 +53,13 @@ El uso de colas de mensajes para intermediar entre los consumidores y productore
 
 En la sección siguiente se muestra cómo usar el Bus de servicio para compilar esta aplicación.
 
-### Registro en una cuenta del Bus de servicio y suscripción
+### Registro para obtener una cuenta de Azure
 
 Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una cuenta gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Creación de un espacio de nombres de servicio
 
-Una vez que tenga una suscripción, puede crear un nuevo espacio de nombres. Asigne un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio. Cada espacio de nombres actúa como contenedor con un ámbito para un conjunto de entidades de Bus de servicio.
+Una vez que tenga una suscripción, puede [crear un nuevo espacio de nombres](service-bus-create-namespace-portal.md). Cada espacio de nombres actúa como contenedor con un ámbito para un conjunto de entidades de Bus de servicio. Asigne un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio.
 
 ### Instalación del paquete NuGet.
 
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### Recepción de mensajes desde la cola
 
-La forma más sencilla de recibir mensajes desde la cola es usar un objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que se puede crear directamente desde [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) con [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Los receptores de mensajes pueden funcionar en dos modos distintos: **ReceiveAndDelete** y **PeekLock**. [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) se establece cuando se crea el receptor del mensaje como un parámetro de la llamada a [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
+La forma más sencilla de recibir mensajes desde la cola es usar un objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que se puede crear directamente en [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) con [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Los receptores de mensajes pueden funcionar en dos modos distintos: **ReceiveAndDelete** y **PeekLock**. [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) se establece cuando se crea el receptor del mensaje como un parámetro de la llamada a [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
 
 
 Si se usa el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el Bus de servicio recibe la solicitud, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor en aquellos escenarios en que la aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Dado que el Bus de servicio marcó el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 En el modo **PeekLock**, la recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no pueden tolerar mensajes perdidos. Cuando el Bus de servicio recibe la solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para evitar que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. Cuando el Bus de servicio ve la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca el mensaje como consumido.
 
-Hay otros dos resultados posibles. En primer lugar, si por cualquier motivo la aplicación no puede procesar el mensaje, puede llamar a [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) en el mensaje recibido (en lugar de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto hará que el Bus de servicio desbloquee el mensaje y esté disponible para recibirse de nuevo, ya sea por el mismo consumidor o por otro consumidor que lo esté completando. En segundo lugar, hay un tiempo de espera asociado con el bloqueo y, si la aplicación no puede procesar el mensaje antes de que expire el tiempo de espera de bloqueo (por ejemplo, si la aplicación se bloquea), el Bus de servicio desbloqueará el mensaje y hará que esté disponible para recibirse de nuevo.
+Hay otros dos resultados posibles. En primer lugar, si por cualquier motivo la aplicación no puede procesar el mensaje, puede llamar a [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) en el mensaje recibido (en lugar de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto hará que el Bus de servicio desbloquee el mensaje y esté disponible para recibirse de nuevo, ya sea por el mismo consumidor o por otro consumidor que lo esté completando. En segundo lugar, hay un tiempo de espera asociado con el bloqueo y, si la aplicación no puede procesar el mensaje antes de que expire el tiempo de espera de bloqueo (por ejemplo, si la aplicación se bloquea), el Bus de servicio desbloqueará el mensaje y hará que esté disponible para recibirse de nuevo (básicamente, realizando una operación [Abandonar](https://msdn.microsoft.com/library/azure/hh181837.aspx) de manera predeterminada).
 
 Tenga en cuenta si la aplicación se bloquea tras procesar el mensaje, pero antes la emisión de la solicitud de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto se suele denominar procesamiento *Al menos una vez*. Esto significa que cada mensaje se procesará al menos una vez, aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no tolera el procesamiento duplicado, hará falta lógica adicional en la aplicación para detectar duplicados, lo que puede con la propiedad [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) propiedad del mensaje. El valor de esta propiedad permanece constante en todos los intentos de entrega. Esto se conoce como procesamiento *Una sola vez*.
 
@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones de Bus de servicio](service-bus-create-topics-subscriptions.md) para continuar este tema sobre el uso de las funcionalidades de publicación y suscripción de los temas y las suscripciones de Bus de servicio.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

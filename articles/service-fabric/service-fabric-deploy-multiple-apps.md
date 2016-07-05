@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/06/2016"
+   ms.date="06/20/2016"
    ms.author="bscholl;mikhegn"/>
 
 
@@ -67,7 +67,7 @@ A continuación se muestra una descripción de los parámetros usados:
 - **/ma** define el argumento que se usa para iniciar el archivo ejecutable. Como no está instalado Node.js, Service Fabric debe iniciar el servidor web de Node.js mediante la ejecución de `node.exe bin/www`. `/ma:'bin/www'` indica a la herramienta de empaquetado que use `bin/ma` como argumento para node.exe.
 - **/AppType** define el nombre del tipo de aplicación de Service Fabric.
 
->[AZURE.NOTE] También puede utilizar Visual Studio para generar el paquete de aplicación como parte de un proyecto de aplicación. Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen.
+>[AZURE.NOTE] También puede utilizar Visual Studio para generar el paquete de aplicación como parte de un proyecto de aplicación. Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. [Uso de Visual Studio para empaquetar una aplicación existente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Si examina el directorio especificado en el parámetro /target, podrá ver que la herramienta ha creado un paquete de Service Fabric totalmente operativo, como se muestra a continuación:
 
@@ -137,7 +137,7 @@ En PowerShell o el shell de comandos se ejecuta la herramienta de empaquetado co
 
 Para agregar MongoDB al paquete de aplicación de Service Fabric, deberá asegurarse de que el parámetro /target apunta al mismo directorio que ya contiene el manifiesto de la aplicación junto con la aplicación de Node.js. También debe asegurarse de que está utilizando el mismo nombre de ApplicationType.
 
->[AZURE.NOTE] También puede utilizar Visual Studio para generar el paquete de aplicación como parte de un proyecto de aplicación. Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen.
+>[AZURE.NOTE] También puede utilizar Visual Studio para generar el paquete de aplicación como parte de un proyecto de aplicación. Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. [Uso de Visual Studio para empaquetar una aplicación existente](service-fabric-deploy-existing-app.md#using-visual-studio-to-package-an-existing-application)
 
 Examinemos el directorio y la herramienta que se ha creado.
 
@@ -204,4 +204,4 @@ En este tutorial, ha visto cómo empaquetar fácilmente dos aplicaciones existen
 
 - Obtenga información acerca de cómo [empaquetar una aplicación invitada manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

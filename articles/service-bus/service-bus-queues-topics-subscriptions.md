@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Colas, temas y suscripciones del Bus de servicio | Microsoft Azure"
-   description="Información general de las entidades de mensajería del Bus de servicio."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Colas, temas y suscripciones del Bus de servicio | Microsoft Azure"
+    description="Información general de las entidades de mensajería del Bus de servicio."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/20/2016"
+    ms.author="sethm" />
 
 # Colas, temas y suscripciones del Bus de servicio
 
@@ -25,7 +25,7 @@ Las entidades de mensajería que forman el núcleo de las capacidades de mensaje
 
 Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un "desacoplamiento temporal" de los componentes de la aplicación. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes.
 
-Una ventaja relacionada es la "nivelación de la carga", lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina “patrón de consumo de competidor”.
+Una ventaja relacionada es la "nivelación de la carga", lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina "patrón de consumo de competidor".
 
 El uso de colas para intermediar entre los consumidores y productores de mensajes proporciona un acoplamiento no estricto inherente entre los componentes. Dado que los productores y consumidores no están relacionados entre sí, un consumidor puede actualizarse sin tener ningún efecto en el productor.
 
@@ -75,15 +75,15 @@ Al usar el modo [ReceiveAndDelete](https://msdn.microsoft.com/library/azure/micr
 
 En el modo [PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx), la operación de recepción se convierte en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. Cuando el Bus de servicio ve la llamada [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca el mensaje como consumido.
 
-Si por cualquier motivo la aplicación no puede procesar el mensaje, realice la llamada al método [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) del mensaje recibido (en lugar de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto permite que el Bus de servicio desbloquee el mensaje y esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay otro tiempo de espera asociado al bloqueo y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), el Bus de servicio desbloquea el mensaje y hace que esté disponible para que pueda volver a recibirse.
+Si por cualquier motivo la aplicación no puede procesar el mensaje, realice la llamada al método [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) del mensaje recibido (en lugar de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto permite que el Bus de servicio desbloquee el mensaje y esté disponible para que el mismo consumidor u otro vuelvan a recibirlo. En segundo lugar, hay otro tiempo de espera asociado al bloqueo y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), el Bus de servicio desbloquea el mensaje y hace que esté disponible para que pueda volver a recibirse (básicamente, realizando una operación [Abandonar](https://msdn.microsoft.com/library/azure/hh181837.aspx) de manera predeterminada).
 
 Tenga en cuenta que en caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto se suele denominar procesamiento * Al menos una vez *; es decir, cada mensaje se procesa al menos una vez. Sin embargo, en determinadas situaciones, es posible que se vuelva a entregar el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, se requiere una lógica adicional en la aplicación para detectar duplicados que se puedan conseguir de acuerdo con la propiedad **MessageId** del mensaje, que permanece constante en los intentos de entrega. Esto se conoce como procesamiento *Exactamente una vez*.
 
-Para obtener más información y un ejemplo de cómo crear y enviar mensajes a y desde las colas, consulte el [Tutorial de .NET de mensajería asíncrona del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367512.aspx).
+Para obtener más información, así como un ejemplo de cómo crear y enviar mensajes a colas como origen y destino, consulte [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md).
 
 ## Temas y suscripciones
 
-A diferencia de las colas, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación de uno a varios mediante un patrón de *publicación/suscripción*. Es útil para escalar a un gran número de destinatarios, cada mensaje publicado se pone a disposición para cada suscripción registrada con el tema. Los mensajes se envían a un tema y se entregan a uno o más suscripciones asociadas, según las reglas de filtro que se pueden establecer por suscripción. Las suscripciones pueden usar filtros adicionales para restringir los mensajes que desean recibir. Los mensajes se envían a un tema de la misma manera que se envían a una cola, pero no se reciben mensajes del tema directamente. En su lugar, se reciben de suscripciones. Una suscripción al tema funciona de forma similar a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Los mensajes se reciben de una suscripción exactamente de la misma forma en que se reciben de una cola.
+A diferencia de las colas, en las que un solo destinatario procesa cada mensaje, los *temas* y las *suscripciones* proporcionan una forma de comunicación de uno a varios mediante un patrón de *publicación o suscripción*. Es útil para escalar a un gran número de destinatarios, cada mensaje publicado se pone a disposición para cada suscripción registrada con el tema. Los mensajes se envían a un tema y se entregan a uno o más suscripciones asociadas, según las reglas de filtro que se pueden establecer por suscripción. Las suscripciones pueden usar filtros adicionales para restringir los mensajes que desean recibir. Los mensajes se envían a un tema de la misma manera que se envían a una cola, pero no se reciben mensajes del tema directamente. En su lugar, se reciben de suscripciones. Una suscripción al tema funciona de forma similar a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Los mensajes se reciben de una suscripción exactamente de la misma forma en que se reciben de una cola.
 
 Con fines de comparación, la funcionalidad de envío de mensajes de una cola se asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esto significa que las suscripciones admiten los mismos patrones descritos anteriormente en esta sección con respecto a las colas: consumo de competidor, desacoplamiento temporal, nivelación de la carga y equilibrio de la carga.
 
@@ -154,11 +154,11 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Con este filtro de suscripción, los mensajes que tienen la propiedad `StoreName` establecida en `Store1` se copian en la cola virtual para la suscripción `Dashboard`.
 
-Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vea además el ejemplo [Mensajería asincrónica: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749).
+Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vea, además, los ejemplos de [mensajería asincrónica (filtros avanzados)](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) y [filtros de temas](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
 
 ## Centros de eventos
 
-[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
+[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Este servicio, cuando se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de [Internet de las cosas (IoT)](https://azure.microsoft.com/services/iot-hub/), procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones.
 
 Los Centros de eventos son una construcción de streaming de mensajes, y aunque parezca similar a las colas y los temas, tienen características muy distintas. Por ejemplo, los Centros de eventos no proporcionan TTL de mensajes, mensajes fallidos, transacciones o confirmaciones, ya que son características de mensajería asíncrona tradicionales, no características de streaming. Los Centros de eventos proporcionan otras características relacionadas con el flujo, como las particiones, la conservación del orden y la reproducción de la secuencia.
 
@@ -169,8 +169,9 @@ Consulte los siguientes temas avanzados para obtener más información y ejemplo
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Tutorial de .NET de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-dotnet.md)
 - [Tutorial de REST de mensajería asíncrona del Bus de servicio](service-bus-brokered-tutorial-rest.md)
-- [Event Hubs documentation](https://azure.microsoft.com/documentation/services/event-hubs/) (Documentación de los Centros de datos)
+- [Event Hubs documentation (Documentación de los Centros de datos)](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Guía de desarrolladores de Centros de eventos](../event-hubs/event-hubs-programming-guide.md)
-- [Mensajería asíncrona: filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+- [Ejemplo de filtros de tema](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+- [Mensajería asíncrona: ejemplo de filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

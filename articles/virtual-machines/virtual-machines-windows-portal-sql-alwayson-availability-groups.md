@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="06/12/2016"
 	ms.author="mikeray" />
 
 # Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure Resource Manager
@@ -27,7 +27,6 @@
 <br/>
 
 Este tutorial completo muestra cómo crear un grupo de disponibilidad de SQL Server con máquinas virtuales del Administrador de recursos de Azure. El tutorial utiliza hojas de Azure para configurar una plantilla. Revisará la configuración predeterminada, escribirá la configuración requerida y actualizará las hojas en el portal a medida que recorra este tutorial.
-
 
 Al final del tutorial, la solución de grupos de disponibilidad de SQL Server en Azure constará de los siguientes elementos:
 
@@ -67,6 +66,9 @@ En este tutorial se usará el Portal de Azure para:
 
 - Conectarse a uno de los controladores de dominio y después a uno de los servidores SQL Server.
 
+[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
+
+
 ## Aprovisionar el clúster desde la Galería
 
 Azure ofrece una galería de imágenes para toda la solución. Para encontrar la plantilla:
@@ -79,19 +81,19 @@ Azure ofrece una galería de imágenes para toda la solución. Para encontrar la
 
 ### Aspectos básicos
 
-Haga clic en **Aspectos básicos** y configure las opciones siguientes:
+Haga clic en **Basics** (Aspectos básicos) y configure las opciones siguientes:
 
-- **Nombre de usuario del administrador** es una cuenta de usuario con permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. Use **DomainAdmin** en este tutorial.
+- **Administrator user name** (Nombre de usuario del administrador) es una cuenta de usuario con permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. Use **DomainAdmin** en este tutorial.
 
 - **Contraseña** es la contraseña de la cuenta de administrador del dominio. Utilice una contraseña compleja. Confirme la contraseña.
 
-- **Suscripción** es la suscripción que Azure facturará para ejecutar todos los recursos implementados del grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
+- **Suscripción** es la suscripción que Azure facturará por ejecutar todos los recursos implementados del grupo de disponibilidad. Puede especificar otra suscripción si la cuenta tiene varias suscripciones.
 
 - **Grupo de recursos** es el nombre del grupo al que pertenecerán todos los recursos de Azure que se creen en este tutorial. Use **SQL-HA-RG** en este tutorial. Para obtener más información, consulte (información general del Administrador de recursos de Azure)[resource-group-overview.md/#resource-groups].
 
 - **Ubicación** es la región de Azure en la que se crearán los recursos de este tutorial. Seleccione una región de Azure para hospedar la infraestructura.
 
-A continuación, se muestra la hoja **Aspectos básicos**:
+A continuación, se muestra la hoja **Basics** (Aspectos básicos):
 
 ![Aspectos básicos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
@@ -111,9 +113,9 @@ En la hoja **Domain and network settings** (Configuración de dominio y red), re
 
 - **SQL Server subnet name** (Nombre de subred de SQL Server) es el nombre de la parte de la red virtual que hospeda los servidores SQL Server y el testigo del recurso compartido de archivos. Use **subnet-2** en este tutorial. Esta subred usará el prefijo de dirección **10.0.1.0/26**.
 
-Para obtener más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
+Para más información sobre las redes virtuales en Azure, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-La hoja **Domain and network settings** (Configuración de red y dominio) debería ser similar a esta:
+La hoja **Domain and network settings** (Configuración de dominio y red) debería ser similar a esta:
 
 ![Configuración de red y dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
@@ -141,9 +143,9 @@ Si es necesario, puede cambiar estos valores. En este tutorial use los valores p
 
 En **VM size, storage settings** (Configuración de tamaño y almacenamiento de máquina virtual), elija un tamaño de máquina virtual con SQL Server y revise el resto de las opciones.
 
-- **SQL Server virtual machine size** (Tamaño de máquina virtual de SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para obtener más información, consulte [Tamaños de las máquinas virtuales en Azure](virtual-machines-linux-sizes.md).
+- **SQL Server virtual machine size** (Tamaño de máquina virtual de SQL Server) es el tamaño de la máquina virtual de Azure para ambos servidores de SQL Server. Elija un tamaño de máquina virtual adecuado para la carga de trabajo. Si va a crear este entorno en el tutorial, use **DS2**. Para cargas de trabajo de producción elija un tamaño de máquina virtual que pueda admitir la carga de trabajo. Muchas cargas de trabajo de producción requerirán **DS4** o superior. La plantilla creará dos máquinas virtuales de este tamaño e instalará SQL Server en cada uno de ellas. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md).
 
->[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para obtener más información sobre los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure instalará Enterprise Edition de SQL Server. El costo depende de la edición y el tamaño de la máquina virtual. Para más información sobre los costos actuales, consulte [Precios de Máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Domain controller virtual machine size** (Tamaño de la máquina virtual del controlador de dominio) es el tamaño de la máquina virtual de los controladores de dominio. Use **D2** en este tutorial.
 
@@ -187,7 +189,7 @@ Para obtener información adicional sobre el espacio de almacenamiento y los blo
 
 - [Copias de seguridad de Windows Server y bloques de almacenamiento](http://technet.microsoft.com/library/dn390929.aspx)
 
-Para obtener más información sobre los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
+Para más información sobre los procedimientos recomendados para configurar SQL Server, consulte [Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-performance.md).
 
 
 ###Configuración de SQL Server
@@ -241,7 +243,7 @@ Para la RDP al controlador de dominio principal, siga estos pasos:
 1.	En la hoja **Recursos**, haga clic en **ad-primary-dc**, que es el nombre del equipo de la máquina virtual del controlador de dominio principal.
 
 1.	En la hoja de **ad-primary-dc**, haga clic en **Conectar**. El explorador le preguntará si desea abrir o guardar el objeto de conexión remota. Haga clic en **Abrir**. ![Conectarse al controlador de dominio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
-1.	**Conexión a Escritorio remoto** puede advertirle de que no se puede identificar al publicador de esta conexión remota. Haga clic en **Conectar**.
+1.	**Conexión a Escritorio remoto** puede advertirle de que no se puede identificar el publicador de esta conexión remota. Haga clic en **Conectar**.
 
 1.	Seguridad de Windows le pide que escriba sus credenciales para conectarse a la dirección IP del controlador de dominio principal. Haga clic en **Usar otra cuenta**. En **Nombre de usuario**, escriba **contoso\\DomainAdmin**. Esta es la cuenta que eligió para el nombre de usuario del administrador. Utilice la contraseña compleja que eligió al configurar la plantilla.
 
@@ -257,4 +259,4 @@ Ahora está conectado al controlador de dominio principal. Para la RDP a SQL Ser
 
 Ahora está conectado con RDP a SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad está configurado.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

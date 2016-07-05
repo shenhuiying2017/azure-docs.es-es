@@ -47,7 +47,7 @@ Las redes virtuales que están asociadas actualmente a grupos de afinidad pueden
 
 1. Guarde los cambios e [importe](virtual-networks-using-network-configuration-file.md) la configuración de red en Azure.
 
->[AZURE.INFO] Esta migración NO causa ningún tiempo de inactividad en sus servicios.
+>[AZURE.NOTE] Esta migración NO causa ningún tiempo de inactividad en sus servicios.
 
 ## Grupos de afinidad y máquinas virtuales
 
@@ -66,4 +66,4 @@ No es necesario quitar las máquinas virtuales que están en un grupo de afinida
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/08/2016"
+	ms.date="06/21/2016"
 	ms.author="pratshar"/>
 
 #  Diseño de una infraestructura de red para la recuperación ante desastres
@@ -179,4 +179,4 @@ La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Dis
 
 [Obtenga información](site-recovery-network-mapping.md) sobre cómo Site Recovery asigna las redes de origen y de destino cuando se usa un servidor VMM para administrar el sitio principal.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

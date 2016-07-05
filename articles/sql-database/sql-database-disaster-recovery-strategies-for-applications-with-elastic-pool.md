@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/29/2016"
+   ms.date="06/16/2016"
    ms.author="sashan"/>
 
 # Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL 
 
-A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos pueden ocurrir y lo harán. Base de datos SQL proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los grupos elásticos y las bases de datos independientes admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de Base de datos SQL.
+A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos pueden ocurrir y lo harán. Base de datos SQL proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos independientes admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de Base de datos SQL.
 
 Para los fines de este artículo, usaremos el patrón de aplicaciones de ISV de SaaS canónico:
 
-<i>Una aplicación web moderna, basada en la nube, aprovisiona una base de datos SQL para cada usuario final. El ISV tiene un gran número de clientes y, por tanto, utiliza muchas bases de datos, conocidas como bases de datos de inquilino. Dado que las bases de datos de inquilino normalmente tienen patrones de actividad impredecibles, el ISV usa un grupo elástico para que el costo de la base de datos sea muy predecible durante prolongados períodos. El grupo elástico también simplifica la administración del rendimiento cuando aumenta la actividad del usuario. Además de las bases de datos de inquilino, la aplicación también utiliza varias bases de datos para administrar los perfiles de usuario, la seguridad o la recopilación de los patrones de uso, entre otros. La disponibilidad de los inquilinos individuales no afecta a la disponibilidad de la aplicación como conjunto. Sin embargo, la disponibilidad y el rendimiento de las bases de datos de administración son fundamentales para la función de la aplicación y, si las bases de datos de administración están sin conexión, toda la aplicación estará sin conexión.</i>
+<i>Una aplicación web moderna basada en la nube aprovisiona una base de datos SQL para cada usuario final. El ISV tiene un gran número de clientes y, por tanto, utiliza muchas bases de datos, conocidas como bases de datos de inquilino. Dado que las bases de datos de inquilino normalmente tienen patrones de actividad impredecibles, el ISV usa un grupo elástico para que el costo de la base de datos sea muy predecible durante prolongados períodos. El grupo elástico también simplifica la administración del rendimiento cuando aumenta la actividad del usuario. Además de las bases de datos de inquilino, la aplicación también utiliza varias bases de datos para administrar los perfiles de usuario, la seguridad o la recopilación de los patrones de uso, entre otros. La disponibilidad de los inquilinos individuales no afecta a la disponibilidad de la aplicación como conjunto. Sin embargo, la disponibilidad y el rendimiento de las bases de datos de administración son fundamentales para el funcionamiento de la aplicación y, si las bases de datos de administración están sin conexión, pasará lo mismo con toda la aplicación.</i>
 
 En el resto del artículo, trataremos las estrategias de recuperación ante desastres que abarcan una variedad de escenarios que va desde las aplicaciones de inicio sensibles al costo a aquellas con requisitos estrictos de disponibilidad.
 
 ## Escenario 1. Inicio sensible al costo
 
-<i>Acabo de crear una empresa y me preocupan sobremanera los costos. Quiero simplificar la implementación y administración de la aplicación y estoy dispuesto a tener un contrato de nivel de servicio limitado para clientes individuales. Pero quiero garantizar que la aplicación como un todo nunca estará sin conexión.</i>
+<i>Acabo de crear una empresa y me preocupan sobremanera los costos. Quiero simplificar la implementación y administración de la aplicación y estoy dispuesto a tener un contrato de nivel de servicio limitado para clientes individuales. Sin embargo, quiero garantizar que nunca se quede sin conexión toda la aplicación.</i>
 
 Para satisfacer el requisito de simplicidad, debe implementar todas las bases de datos de inquilino en un grupo elástico de la región de Azure de su elección e implementar las bases de datos de administración como bases de datos de replicación geográfica independiente. Para la recuperación ante desastres de los inquilinos, use la restauración geográfica, que se incluye sin costo adicional. Para garantizar la disponibilidad de las bases de datos de administración, deben ser replicadas geográficamente en otra región (paso 1). El costo en curso de la configuración de recuperación ante desastres en este escenario es igual al costo total de las bases de datos secundarias. En el siguiente diagrama se ilustra esta configuración.
 
@@ -63,7 +63,7 @@ La principal **ventaja** de esta estrategia es el bajo costo continuo para la re
 
 ## Escenario 2. Aplicación madura con servicio en capas 
 
-<i>Tengo una aplicación de SaaS madura con ofertas de servicio en capas y distintos contratos de nivel de servicio para clientes de versiones de prueba y clientes de versiones de pago. Para los clientes de versiones de prueba, tengo que reducir el costo tanto como sea posible. Los clientes de versiones de prueba pueden asumir el tiempo de inactividad, pero quiero reducir su probabilidad. Para los clientes de versiones de pago, los tiempos de inactividad es un riesgo de vuelo. Por tanto, quiero asegurarme de que los clientes con versiones de pago siempre tienen acceso a sus datos.</i>
+<i>Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas y distintos Acuerdos de Nivel de Servicio para clientes de versiones de prueba y de pago. Para los clientes de versiones de prueba, tengo que reducir el costo tanto como sea posible. Los clientes de versiones de prueba pueden asumir el tiempo de inactividad, pero quiero reducir su probabilidad. Para los clientes de versiones de pago, los tiempos de inactividad es un riesgo de vuelo. Por tanto, quiero asegurarme de que los clientes con versiones de pago siempre tengan acceso a sus datos.</i>
 
 Para admitir este escenario, debe separar los inquilinos de versiones de prueba de los inquilinos de versiones de pago, colocándolos en grupos elásticos independientes. Los clientes de versiones de prueba tendrán un eDTU menor por inquilino y un contrato de nivel de servicio menor con un tiempo de recuperación mayor. Los clientes de versiones de pago se encontrarán en un grupo con mayor eDTU por inquilino y un contrato de nivel de servicio superior. Para garantizar el menor tiempo de recuperación, las bases de datos de inquilino de los clientes de versiones de pago deben replicarse geográficamente. En el siguiente diagrama se ilustra esta configuración.
 
@@ -86,7 +86,7 @@ En el caso de una interrupción en la región principal, en el diagrama siguient
 
 En este momento la aplicación vuelve a estar en línea en la región de recuperación ante desastres. Todos los clientes de versiones de pago tienen acceso a los datos, mientras que los clientes de versiones de prueba experimentarán una demora al acceder a los suyos.
 
-Cuando Azure recupera la región primera *después* de haber restaurado la aplicación en la región de recuperación ante desastres, puede continuar ejecutando la aplicación en dicha región o puede decidir realizar una conmutación por recuperación en la región principal. Si se recupera la región principal *antes* de que se complete el proceso de conmutación por error, debe considerar la conmutación por recuperación inmediatamente. La conmutación por recuperación realizará los pasos que se muestran en el diagrama siguiente.
+Cuando Azure recupera la región primaria *después* de haber restaurado la aplicación en la región de recuperación ante desastres, puede continuar ejecutando la aplicación en dicha región, o bien decidir realizar una conmutación por recuperación en la región principal. Si se recupera la región primaria *antes* de que se complete el proceso de conmutación por error, debe plantearse utilizar la conmutación por recuperación inmediatamente. La conmutación por recuperación realizará los pasos que se muestran en el diagrama siguiente.
  
 ![Ilustración 6.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
@@ -100,11 +100,11 @@ Cuando Azure recupera la región primera *después* de haber restaurado la aplic
 
 > [AZURE.NOTE] La operación de conmutación por error es asincrónica. Para minimizar el tiempo de recuperación, es importante ejecutar comando de conmutación por error de las bases de datos de inquilino en lotes de al menos 20 bases de datos.
 
-La principal **ventaja** de esta estrategia es que proporciona el contrato de nivel de servicio superior para los clientes de versiones de pago. También garantiza que las nuevas versiones de prueba se desbloquean en cuanto se crea el grupo de recuperación ante desastres de versiones de prueba. La **contrapartida** es que esta configuración aumentará el costo total de las bases de datos de inquilino por el costo del grupo de recuperación ante desastres secundario para los clientes de versiones de pago. Además, si el grupo secundario tiene un tamaño diferente, los clientes de versiones de pago experimentarán un rendimiento menor después de la conmutación por error hasta que se complete la actualización del grupo en la región de recuperación ante desastres.
+La principal **ventaja** de esta estrategia es que proporciona el Acuerdo de Nivel de Servicio superior para los clientes de versiones de pago. También garantiza que las nuevas versiones de prueba se desbloquean en cuanto se crea el grupo de recuperación ante desastres de versiones de prueba. La **contrapartida** es que esta configuración aumentará el costo total de las bases de datos de inquilino debido al costo del grupo de recuperación ante desastres secundario para los clientes de versiones de pago. Además, si el grupo secundario tiene un tamaño diferente, los clientes de versiones de pago experimentarán un rendimiento menor después de la conmutación por error hasta que se complete la actualización del grupo en la región de recuperación ante desastres.
 
 ## Escenario 3. Aplicación distribuida geográficamente con servicio en capas
 
-<i>Tengo una aplicación de SaaS madura con ofertas de servicio en capas. Deseo ofrecer un contrato de nivel de servicio muy agresivo a mis clientes de versiones de pago y minimizar el riesgo de impacto cuando se produzcan interrupciones, porque incluso una breve interrupción puede causar la insatisfacción del cliente. Es fundamental que los clientes de versiones de pago siempre puedan acceder a sus datos. Las versiones de prueba son gratuitas y no se ofrece ningún contrato de nivel de servicio durante el período de prueba. </i>
+<i>Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas. Deseo ofrecer un contrato de nivel de servicio muy agresivo a mis clientes de versiones de pago y minimizar el riesgo de impacto cuando se produzcan interrupciones, porque incluso una breve interrupción puede causar la insatisfacción del cliente. Es fundamental que los clientes de versiones de pago siempre puedan acceder a sus datos. Las versiones de prueba son gratuitas y no se ofrece ningún Acuerdo de Nivel de Servicio durante el periodo de prueba. </i>
 
 Para este escenario, debe disponer de tres grupos elásticos independientes. Deben aprovisionarse dos grupos de igual tamaño con elevados eDTU por base de datos en dos regiones diferentes para contener las bases de datos de inquilino de clientes de versiones de pago. El tercer grupo que contiene a los inquilinos de versiones de prueba tendría menores eDTU por base de datos y se puede aprovisionar en una de las dos regiones.
 
@@ -159,9 +159,12 @@ Las **contrapartidas** principales son las siguientes:
 
 ## Resumen
 
-Este artículo se centra en las estrategias de recuperación ante desastres para el nivel de base de datos utilizado por una aplicación multiinquilino ISV de SaaS. La estrategia que seleccione debe basarse en las necesidades de la aplicación, como el modelo de negocio, el contrato de nivel de servicio que desea ofrecer a sus clientes, la restricción del presupuesto, entre otras. Cada estrategia descrita describe las ventajas y los inconvenientes para que pueda tomar una decisión informada. Además, la aplicación específica probablemente incluya otros componentes de Azure. Debe revisar las instrucciones de continuidad de negocio de los mismos y coordinar la recuperación de la capa de base de datos con ellos. Para más información acerca de la administración de la recuperación de aplicaciones de base de datos en Azure, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica en la Base de datos SQL](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Este artículo se centra en las estrategias de recuperación ante desastres para el nivel de base de datos utilizado por una aplicación multiinquilino ISV de SaaS. La estrategia que seleccione debe basarse en las necesidades de la aplicación, como el modelo de negocio, el contrato de nivel de servicio que desea ofrecer a sus clientes, la restricción del presupuesto, entre otras. Cada estrategia descrita describe las ventajas y los inconvenientes para que pueda tomar una decisión informada. Además, la aplicación específica probablemente incluya otros componentes de Azure. Debe revisar las instrucciones de continuidad de negocio de los mismos y coordinar la recuperación de la capa de base de datos con ellos. Para obtener más información sobre la administración de la recuperación de aplicaciones de base de datos en Azure, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica en la Base de datos SQL](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-Los pasos individuales necesarios para cada escenario implican operaciones en un gran número de bases de datos. Considere el uso de trabajos elásticos de Base de datos SQL para administrar estas operaciones a escala. Para más información acuda a [Información general de Trabajos de base de datos elástica](./sql-database-elastic-jobs-overview.md). Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar cada uno de los escenarios de este artículo:
+
+## Pasos siguientes
+
+Los pasos individuales necesarios para cada escenario implican operaciones en un gran número de bases de datos. Considere el uso de trabajos elásticos de Base de datos SQL para administrar estas operaciones a escala. Para obtener más información, consulte [Administración de bases de datos escaladas horizontalmente en la nube](./sql-database-elastic-jobs-overview.md). Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar cada uno de los escenarios de este artículo:
 
 - [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -169,4 +172,15 @@ Los pasos individuales necesarios para cada escenario implican operaciones en un
 - [Quitar la base de datos](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Recursos adicionales
+
+- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
+- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
+- [Restauración geográfica](sql-database-geo-restore.md)
+- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
+- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0622_2016-->

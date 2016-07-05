@@ -39,9 +39,9 @@ Todos los recursos se deben implementar en un grupo de recursos. Para más infor
 
 1. Obtenga una lista de las ubicaciones donde se pueden crear los recursos.
 
-	    Get-AzureLocation | sort Name | Select Name
-
-2. Reemplace el valor de **$locName** por una ubicación de la lista, por ejemplo **Centro de EE. UU**. Cree la variable.
+	    Get-AzureRmLocation | sort Location | Select Location
+        
+2. Reemplace el valor de **$locName** por una ubicación de la lista, por ejemplo **centralus**. Cree la variable.
 
         $locName = "location name"
         
@@ -65,13 +65,13 @@ Se necesita una cuenta de almacenamiento para almacenar la plantilla que va a cr
 1. Reemplace el valor de $stName por el nombre de la cuenta de almacenamiento (solo letras minúsculas y números). Compruebe que el nombre sea único.
 
         $stName = "storage account name"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Si este comando devuelve **False**, el nombre propuesto es único.
+    Si este comando devuelve **True**, el nombre propuesto es único.
     
 2. Ahora, ejecute este comando para crear la cuenta de almacenamiento.
     
-        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 3. Reemplace {blob-storage-endpoint} por el punto de conexión del almacenamiento de blobs en su cuenta. Reemplace {storage-account-name} por el nombre de la cuenta de almacenamiento. Reemplace {primary-storage-key} por la clave de acceso principal. Ejecute estos comandos para crear el contenedor donde se almacenan los archivos. Puede obtener los valores del punto de conexión y de la clave en el Portal de Azure.
 
@@ -497,4 +497,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 - Si hubo problemas durante la implementación, el paso siguiente sería mirar en [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Aprenda a administrar la máquina virtual que acaba de crear. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

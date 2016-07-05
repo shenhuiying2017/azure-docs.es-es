@@ -13,42 +13,92 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/21/2016"
    ms.author="navale;tomfitz;"/>
 
 # SDK de Azure Resource Manager para .NET  
-Los SDK de la versión preliminar de Azure Resource Manager (ARM) están disponibles para múltiples lenguajes y plataformas. Cada una de estas implementaciones de lenguajes están disponibles a través de sus administradores de paquetes del ecosistema y GitHub.
+Los SDK de Azure Resource Manager (ARM) están disponibles para múltiples lenguajes y plataformas. Cada una de estas implementaciones de lenguajes están disponibles a través de sus administradores de paquetes del ecosistema y GitHub.
 
 El código de cada uno de estos SDK se genera en [Azure RESTful API specifications](https://github.com/azure/azure-rest-api-specs) (Especificaciones de la API de RESTful de Azure). Estas especificaciones son de código abierto y están basadas en la especificación de Swagger v2. El código del SDK se genera mediante un proyecto de código abierto denominado [AutoRest](https://github.com/azure/autorest). AutoRest transforma estas especificaciones de la API de RESTful en bibliotecas de clientes en múltiples lenguajes. Si hay algún aspecto del código generado en los SDK que quiera mejorar, todo el conjunto de herramientas para crear los SDK está abierto, disponible libremente y se basa en el formato de especificación de la API, ampliamente adoptado.
 
-Azure SDK para .NET se proporciona como un conjunto de paquetes de NuGet que le ayuda a llamar a la mayoría de las API expuestas por Azure Resource Manager. Si el SDK no expone la funcionalidad necesaria, puede combinar fácilmente el SDK con llamadas regulares a la API de REST de ARM en segundo plano.
+[Azure SDK para .NET](https://azure.microsoft.com/downloads/) se proporciona como un conjunto de paquetes NuGet que le ayuda a llamar a la mayoría de las API expuestas por Azure Resource Manager. Si el SDK no expone la funcionalidad necesaria, puede combinar fácilmente el SDK con llamadas regulares a la API de REST de ARM en segundo plano.
 
 Esta documentación no está diseñada para describir todos los aspectos del SDK de Azure para. NET, las API de Azure ARM o Visual Studio, sino que se proporciona como una forma rápida de empezar.
 
 [Aquí](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net) encontrará un proyecto de ejemplo completo descargable de dónde se han tomado todos los fragmentos de código siguientes.
 
+## Instalación de paquetes NuGet
+
+Los ejemplos de este tema requieren dos paquetes NuGet (además del SDK de Azure para. NET). En Visual Studio, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
+
+1. Busque **Microsoft.IdentityModel.Clients.ActiveDirectory** e instale la última versión estable del paquete.
+2. Busque **Microsoft.Azure.Management.ResourceManager** y seleccione **Incluir versión preliminar**. Instale la última versión preliminar (por ejemplo, 1.1.2-preview).
+
 ## Autenticación
-La autenticación para ARM se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Para obtener este token, primero debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Siga las instrucciones paso a paso que encontrará en [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](resource-group-create-service-principal-portal.md).
+La autenticación para Resource Manager se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Para obtener este token, primero debe crear lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usará para iniciar la sesión. Para obtener instrucciones detalladas, consulte alguno de estos artículos: [Uso de Azure PowerShell para crear una aplicación de Active Directory con el fin de acceder a recursos](resource-group-authenticate-service-principal.md), [Uso de la CLI de Azure para crear una aplicación de Active Directory con el fin de acceder a recursos](resource-group-authenticate-service-principal-cli.md) o [Uso del portal para crear una aplicación de Active Directory con acceso a los recursos](resource-group-create-service-principal-portal.md).
 
 Después de crear la entidad de servicio, debe tener:
-* Identificador de cliente (GUID)
-* Secreto del cliente (cadena)
-* Identificador de inquilino (GUID) o nombre de dominio (cadena)
+
+- Identificador de cliente o de aplicación (GUID)
+- Secreto del cliente o contraseña (cadena)
+- Identificador de inquilino (GUID) o nombre de dominio (cadena)
 
 ### Recepción de AccessToken desde el código
 El token de autenticación puede obtenerse fácilmente con las siguientes líneas de código; para ello, solo es necesario pasar su identificador de inquilino de Azure AD, su identificador de cliente de la aplicación de Azure AD y el secreto de cliente de la aplicación de Azure AD. Guarde el token para varias solicitudes, ya que, de forma predeterminada, es válido durante 1 hora.
 
 ```csharp
-private static AuthenticationResult GetAccessToken(string tenantId, string clientId, string clientSecret)
+private static async Task<AuthenticationResult> GetAccessTokenAsync(string tenantId, string clientId, string clientSecret)
 {
     Console.WriteLine("Aquiring Access Token from Azure AD");
     AuthenticationContext authContext = new AuthenticationContext
         ("https://login.windows.net/" /* AAD URI */
-            + $"{tenantId}.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            + $"{tenantId}" /* Tenant ID */);
 
     var credential = new ClientCredential(clientId, clientSecret);
 
-    AuthenticationResult token = authContext.AcquireToken("https://management.azure.com/", credential);
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", credential);
+
+    Console.WriteLine($"Token: {token.AccessToken}");
+    return token;
+}
+```
+
+En lugar de utilizar el identificador de inquilino para iniciar sesión, puede utilizar el dominio de Active Directory tal y como se muestra a continuación. Este enfoque requiere que cambie la firma del método para que incluya el nombre de dominio en lugar del identificador de inquilino.
+
+```csharp
+AuthenticationContext authContext = new AuthenticationContext
+    ("https://login.windows.net/" /* AAD URI */
+    + $"{domain}.onmicrosoft.com");
+```
+
+Puede obtener el token de acceso a una aplicación de Active Directory que usa un certificado para la autenticación con:
+
+```csharp
+private static async Task<AuthenticationResult> GetAccessTokenFromCertAsync(string tenantId, string clientId, string certName)
+{
+    Console.WriteLine("Aquiring Access Token from Azure AD");
+    AuthenticationContext authContext = new AuthenticationContext
+        ("https://login.windows.net/" /* AAD URI */
+        + $"{tenantId}" /* Tenant ID or AAD domain */);
+
+    X509Certificate2 cert = null;
+    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+
+    try
+    {
+        store.Open(OpenFlags.ReadOnly);
+        var certCollection = store.Certificates;
+        var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false);
+        cert = certs[0];
+    }
+    finally
+    {
+        store.Close();
+    }
+
+    var certCredential = new ClientAssertionCertificate(clientId, cert);
+
+    var token = await authContext.AcquireTokenAsync("https://management.azure.com/", certCredential);
 
     Console.WriteLine($"Token: {token.AccessToken}");
     return token;
@@ -88,7 +138,7 @@ async private static Task<List<string>> GetSubscriptionsAsync(string token)
 }
 ```
 
-Tenga en cuenta que obtenemos una respuesta JSON de Azure de la que, a continuación, extraemos los identificadores de suscripción con el fin de devolver una lista de identificadores. Todas las siguientes llamadas a las API de Azure ARM en esta documentación utilizan un único identificador de suscripción de Azure, por lo que si la aplicación está asociada a varias suscripciones, simplemente seleccione el adecuado y páselo como parámetro.
+Tenga en cuenta que obtenemos una respuesta JSON de Azure de la que, a continuación, extraemos los identificadores de suscripción con el fin de devolver una lista de identificadores. Todas las llamadas subsiguientes a las API de Azure Resource Manager en esta documentación utilizan un único identificador de suscripción de Azure, por lo que si la aplicación está asociada a varias suscripciones, simplemente seleccione el adecuado y páselo como parámetro.
 
 A partir de ahora, cada llamada que hagamos a las API de Azure usará el SDK de Azure para .NET, por lo que el código tendrá un aspecto un poco diferente.
 
@@ -97,6 +147,12 @@ Todas las llamadas a las API siguientes necesitarán el token que recibió de Az
 
 ```csharp
 var credentials = new TokenCredentials(token);
+```
+
+Si tiene una versión anterior del paquete NuGet de Resource Manager (denominado **Microsoft.Azure.Management.Resources**), debe usar el código siguiente:
+
+```csharp
+var credentials = new TokenCloudCredentials(subscriptionId, token.AccessToken);
 ```
 
 ## Creación de un grupo de recursos
@@ -298,4 +354,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

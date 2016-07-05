@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/17/2016"
+   ms.date="06/15/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
@@ -28,6 +28,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## Actualizaciones de noticias
+
+###### **15 de junio de 2016**
+La implementación del SO invitado de junio comienza el 15 de junio de 2016, y está previsto que se lance el 14 de julio de 2016.
 
 ###### **17 de mayo de 2016**
 La implementación del SO invitado de mayo comienza el 17 de mayo de 2016 y está previsto que se publique el 10 de junio de 2016.
@@ -58,9 +61,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | --------------- | ------------- | ---- |
+| WA-GUEST-OS-4.33\_201606-01 | 14 de julio de 2016* | Después de la versión 4.35 | TBD |
 | WA-GUEST-OS-4.32\_201605-01 | 10 de junio de 2016 | Post 4.34 | TBD |
 | WA-GUEST-OS-4.31\_201604-01 | 2 de mayo de 2016 | Post 4.33 | TBD |
-| WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | Post 4.32 | TBD |
+| WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-4.29\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD | 
 | WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
@@ -78,15 +82,16 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 **Windows Server 2012**
 
-Admite .NET 4.0, 4.5
+Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 >[AZURE.NOTE] Las fechas con un asterisco (*) están sujetas a cambios.
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | -------------- | ------------- | --- |
+| WA-GUEST-OS-3.40\_201606-01 | 14 de julio de 2016* | Después de la versión 3.42 | TBD |
 | WA-GUEST-OS-3.39\_201605-01 | 10 de junio de 2016 | Post 3.41 | TBD |
 | WA-GUEST-OS-3.38\_201604-01 | 2 de mayo de 2016 | Post 3.40 | TBD |
-| WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | Post 3.39 | TBD |
+| WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-3.36\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
 | WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
@@ -105,15 +110,16 @@ Admite .NET 4.0, 4.5
 
 **Windows Server 2008 R2 SP1**
 
-Admite .NET 3.5, 4.0
+Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Las fechas con un asterisco (*) están sujetas a cambios.
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | ------------- | ------------  | --- |
+| WA-GUEST-OS-2.52\_201606-01 | 14 de julio de 2016* | Después de la versión 2.54 | TBD |
 | WA-GUEST-OS-2.51\_201605-01 | 10 de junio de 2016 | Post 2.53 | TBD |
 | WA-GUEST-OS-2.50\_201604-01 | 2 de mayo de 2016 | Post 2.52 | TBD |
-| WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | Post 2.51 | TBD |
+| WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-2.48\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
 | WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | 12 de abril de 2016 | TBD |
@@ -132,7 +138,7 @@ La lista de revisiones que se incluyen con cada lanzamiento del SO invitado mens
 
 ## Compatibilidad con SDK
 
-Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica que solo se admiten las versiones posteriores a la 2.2, determinadas familias de SO invitado le permiten usar versiones anteriores. Siempre debe usar el SDK compatible más reciente.
+Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica que solo se admiten las versiones posteriores a la 2.2, determinadas familias de SO invitado permiten usar versiones anteriores. Siempre debe usar el SDK compatible más reciente.
 
 | Familia del SO invitado | Versiones del SDK compatibles |
 | --------------- | ----------------------- |
@@ -144,9 +150,9 @@ Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica
 ## Información de los lanzamientos del SO invitado
 Hay tres fechas importantes para los lanzamientos de SO invitado: la de **lanzamiento**, la de **deshabilitación** y la de **expiración**. Se considera que un SO invitado se encuentra disponible cuando figura en el Portal y se puede seleccionar como el SO invitado de destino. Cuando un SO invitado llega a su fecha de **deshabilitación**, se quita de Azure. Sin embargo, cualquier servicio en la nube que utilice dicho SO invitado seguirá funcionando con normalidad.
 
-El período entre las fechas de **deshabilitación** y de **expiración** le permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si utiliza la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
+El período entre las fechas de **deshabilitación** y de **expiración** permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si utiliza la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
 
-Una vez que transcurra la fecha de **expiración**, cualquier servicio en la nube que siga usando ese SO invitado se detendrá, eliminará o actualizará de forma obligada. Puede obtener más información sobre la directiva de retirada [aquí][retirepolicy].
+Una vez que transcurra la fecha de **expiración**, cualquier servicio en la nube que siga usando ese SO invitado se detendrá, eliminará o actualizará de forma obligada. Puede leer más sobre la directiva de retirada [aquí][retirepolicy].
 
 ## Diferencias entre la versión y la familia de los SO invitados
 Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows Server. El SO invitado es el sistema operativo subyacente en el que se ejecutan Servicios en la nube de Azure. Cada SO invitado tiene un número de familia, versión y lanzamiento.
@@ -182,7 +188,7 @@ Si actualiza manualmente el SO invitado, lea la [Directiva de retirada del SO in
 ## Directiva de compatibilidad y retirada del SO invitado
 La directiva de compatibilidad y retirada del SO invitado se explica [aquí][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/es-ES/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [configuración de actualización del SO invitado de Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -203,4 +209,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -72,13 +72,13 @@ En este tutorial hemos presentado las nociones para habilitar una aplicación de
 
 + [Enviar notificaciones de inserción a los usuarios autenticados](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde su servicio móvil solo a un usuario autenticado.
 
-+ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
++ [Enviar notificaciones de difusión a los suscriptores](../notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
-+ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
++ [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs/notification-hubs-aspnet-cross-platform-notification.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
-* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs/notification-hubs-diagnosing.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
+* [Centros de notificaciones de Azure - Directrices de diagnóstico](../notification-hubs/notification-hubs-push-notification-fixer.md) <br/>Obtenga información acerca de cómo solucionar los problemas de notificaciones de inserción.
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
@@ -105,4 +105,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

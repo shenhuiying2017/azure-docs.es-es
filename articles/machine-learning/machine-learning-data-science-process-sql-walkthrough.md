@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Proceso de análisis de Cortana en acción: uso de SQL Server | Microsoft Azure"
+	pageTitle="Proceso de ciencia de datos en equipos en acción: uso de SQL Server | Microsoft Azure"
 	description="Tecnología y procesos de análisis avanzado en acción"  
 	services="machine-learning"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="fashah;bradsev"/>
 
 
-# Proceso de análisis de Cortana en acción: uso de SQL Server
+# Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 
-En este tutorial, se describe la creación e implementación de un modelo de aprendizaje automático con un conjunto de datos disponible públicamente, el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
+En este tutorial, se describe la creación e implementación de un modelo de aprendizaje automático con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
 
 
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trip
@@ -716,4 +716,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

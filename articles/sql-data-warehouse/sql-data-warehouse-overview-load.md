@@ -117,10 +117,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[Load data from Azure blob storage to SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Load data from SQL Server to Azure SQL Data Warehouse (SSIS) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Load data from SQL Server to Azure SQL Data Warehouse (bcp) [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]]: sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
 [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md

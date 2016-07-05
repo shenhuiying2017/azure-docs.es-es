@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/17/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -25,7 +25,7 @@
 
 Habrá ocasiones en las que querrá tomar un resultado intermedio de un experimento y usarlo como parte de otro experimento. Para ello, guarde el módulo como un conjunto de datos:
 
-1. Haga clic con el botón secundario en la salida del módulo que desea guardar como conjunto de datos.
+1. Haga clic en la salida del módulo que desea guardar como conjunto de datos.
 
 2. Haga clic en **Guardar como conjunto de datos**.
 
@@ -35,4 +35,4 @@ Habrá ocasiones en las que querrá tomar un resultado intermedio de un experime
 
 Cuando termine de guardar, el conjunto de datos estará disponible para usarlo dentro de cualquier experimento de su área de trabajo. Puede encontrarlo en la lista **Conjuntos de datos guardados** de la paleta de módulos.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

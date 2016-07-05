@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="03/25/2016" 
+ms.date="06/22/2016" 
 ms.author="adegeo"/>
 
 # Habilitar la comunicación para instancias de rol en Azure
@@ -359,4 +359,4 @@ Puede encontrar una referencia del esquema XML de los elementos usados anteriorm
 ## Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md) del servicio en la nube.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

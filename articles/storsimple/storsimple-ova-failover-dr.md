@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/14/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple
@@ -82,9 +82,9 @@ Una vez que haya completado correctamente la recuperación ante desastres, la pr
 > 
 > Aunque el dispositivo ya no está disponible, la máquina virtual que se ha aprovisionado en el sistema host sigue consumiendo recursos. Una vez que la recuperación ante desastres se haya completado correctamente, podrá eliminar esta máquina virtual del sistema host.
 
-## Conmutar por error a un dispositivo virtual
+## Conmutación por error a una matriz virtual
 
-Se recomienda que tenga un dispositivo virtual StorSimple aprovisionado, configurado a través de la interfaz de usuario web local y registrado en el servicio StorSimple Manager antes de ejecutar este procedimiento.
+Se recomienda que tenga otra matriz virtual de StorSimple aprovisionada, configurada a través de la interfaz de usuario web local y registrada en el servicio StorSimple Manager antes de ejecutar este procedimiento.
 
 
 > [AZURE.IMPORTANT]
@@ -175,4 +175,4 @@ Si no se cumple una de las comprobaciones previas, verá errores de las comproba
 
 Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

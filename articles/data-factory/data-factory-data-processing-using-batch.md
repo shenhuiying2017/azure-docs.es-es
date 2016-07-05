@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
+    ms.date="06/17/2016"
     ms.author="spelluru"/>
 # Orquestación de HPC y de datos mediante Lote y Factoría de datos de Azure
 
@@ -539,11 +539,11 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName** **. ** Para esta propiedad, puede especificar el nombre o el identificador de grupo.
+    3.  Escriba el identificador del grupo para la propiedad **poolName**. **Para esta propiedad, puede especificar el nombre o el identificador de grupo**.
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
     
-		> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: \<nombreDeCuenta\>.\<región\>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
+		> [AZURE.IMPORTANT] La **dirección URL** de la **hoja de la cuenta de Lote de Azure** tiene el formato siguiente: <nombreDeCuenta>.<región>.batch.azure.com. Para la propiedad **batchUri** en el script JSON, necesitará **quitar "nombreDeCuenta."** de la dirección URL. Por ejemplo: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
@@ -797,11 +797,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Use el [Explorador de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para ver las **tareas** asociadas con los **segmentos** y en qué máquina virtual se ejecutó cada segmento. Verá que se crea un trabajo con el nombre **adf-<nombreDeGrupo>**. Este trabajo tendrá una tarea para cada segmento. En este ejemplo, habrá 5 segmentos y, por tanto, 5 tareas en Lote de Azure. Con el valor **concurrency** establecido en **5** en el código JSON de la canalización en Factoría de datos de Azure y **Máximo de tareas por máquina virtual** establecido en **2** en el grupo de Lote de Azure con **2** máquinas virtuales, las tareas se ejecutaban muy rápido (consulte la información en **Creada**).
-
-    ![](./media/data-factory-data-processing-using-batch/image14.png)
-
-	> [AZURE.NOTE] Descargue el código fuente de la [herramienta Explorador de lote de Azure][batch-explorer], compílelo y úselo para crear y supervisar los grupos de Lote. Consulte el [tutorial de ejemplo del Explorador de Lote de Azure][batch-explorer-walkthrough] para obtener instrucciones paso a paso para usar el Explorador de Lote de Azure.
+6.  Use el Portal de Azure para ver las **tareas** asociadas con los **segmentos** y comprobar la máquina virtual en la que se ejecuta cada segmento. Consulte la sección [Integración de Data Factory y Lote](#data-factory-and-batch-integration) para más información.
 
 7.  Debería ver los archivos de salida en la carpeta **outputfolder** de **mycontainer** en su Almacenamiento de blobs de Azure.
 
@@ -833,6 +829,19 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
 
     **Nota:** Si no ha eliminado el archivo de salida 2015-11-16-01.txt antes de probar con 5 archivos de entrada, verá una línea de la anterior ejecución de segmento y cinco líneas para la actual. De forma predeterminada, se anexa el contenido al archivo de salida si ya existe.
+
+### Integración de Data Factory y Lote
+El servicio Data Factory crea un trabajo en el servicio Lote de Azure con el nombre: **adf-poolname:job-xxx**.
+
+![Data Factory de Azure: trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+
+Se crea una tarea en el trabajo para cada ejecución de actividad de un segmento. Si hay 10 segmentos listos para ser procesados, se crean 10 tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. También puede haber más de un segmento en ejecución en el mismo proceso si el número máximo de tareas se establece un valor mayor que 1.
+
+En este ejemplo, habrá 5 segmentos y, por tanto, 5 tareas en Lote de Azure. Con el valor **simultaneidad** establecido en **5** en la canalización JSON en Data Factory de Azure y **Maximum tasks per VM** (Máximo de tareas por máquina virtual) establecido en **2** en el grupo de Lote de Azure con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y de finalización de las tareas).
+
+Use el portal para ver el trabajo por lotes y sus tareas asociadas con los **segmentos** y comprobar la máquina virtual en la que se ejecuta cada segmento.
+
+![Data Factory de Azure: tareas de trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
 ## Depuración de la canalización
 
@@ -877,7 +886,7 @@ La depuración se compone de varias técnicas básicas:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Nota:** Verá un **contenedor** en el Almacenamiento de blobs de Azure denominado **adfjobs**. Este contenedor no se elimina automáticamente, pero puede eliminarlo de forma segura cuando termine de probar la solución. Del mismo modo, la solución de Factoría de datos crea un **trabajo** de Lote de Azure denominado **adf-<identificadorONombreDeGrupo>:job-0000000001**. Puede eliminarlo después de probar la solución, si lo desea.
-7. La actividad personalizada no utiliza el archivo **app.config** del paquete, por lo que si el código lee las cadenas de conexión del archivo de configuración, no funcionará en tiempo de ejecución. El procedimiento recomendado al usar Lote de Azure consiste en conservar los secretos en un **almacén de claves de Azure**, utilizar una entidad de servicio basada en certificados para proteger el almacén de claves y distribuir el certificado al grupo de Lote de Azure. Tras ello, la actividad personalizada de .NET podrá acceder a los secretos desde el almacén de claves en tiempo de ejecución. Esta es una solución genérica y se puede extrapolar a cualquier tipo de secreto, no solo a cadenas de conexión.
+7. La actividad personalizada no utiliza el archivo **app.config** del paquete, por lo que si el código lee las cadenas de conexión del archivo de configuración, no funcionará en tiempo de ejecución. El procedimiento recomendado al usar Lote de Azure consiste en conservar los secretos en un **Almacén de claves de Azure**, utilizar una entidad de servicio basada en certificados para proteger el almacén de claves y distribuir el certificado al grupo de Lote de Azure. Tras ello, la actividad personalizada de .NET podrá acceder a los secretos desde el almacén de claves en tiempo de ejecución. Esta es una solución genérica y se puede extrapolar a cualquier tipo de secreto, no solo a cadenas de conexión.
 
 	Existe una solución más sencilla, pero no representa un procedimiento recomendado: puede crear un nuevo **servicio vinculado de SQL Azure** con configuración de cadena de conexión, crear un conjunto de datos que utilice el servicio vinculado y vincular el conjunto de datos (configurado con carácter de entrada ficticio) con la actividad de .NET personalizada. Tras ello, podrá acceder a la cadena de conexión del servicio vinculado del código de la actividad personalizada, que no debería tener problemas para funcionar bien en tiempo de ejecución.
 
@@ -895,7 +904,7 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
  
 		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-	Para obtener más detalles, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+	Para más información, consulte [Escalación automática de los nodos de proceso en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
 
 	Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 	 
@@ -940,4 +949,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

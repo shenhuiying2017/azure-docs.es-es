@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/22/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Configuración de E/S de múltiples rutas en el host de Windows Server para la matriz Virtual de StorSimple
@@ -140,7 +140,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
 	- Después de agregar las sesiones (rutas de acceso) que quiera, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades**, fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla situada junto a un identificador de sesión y, luego, haga clic en **Desconectar**.
  
 	- Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos**. Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo
-	-  Los ** detalles**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
+	-  Los **detalles**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
 
 10. Repita los pasos del 8 al 11 para agregar más sesiones (rutas de acceso) al destino. Con dos interfaces en el host y dos en la matriz virtual, puede agregar un total de cuatro sesiones para cada destino.
 
@@ -148,7 +148,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
 
 11. Debe repetir estos pasos para cada volumen (superficies como destino).
 
-	![mpio15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
+	![mpio 15](./media/storsimple-ova-configure-mpio-windows-server/mpio15.png)
 
 12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en la matriz virtual de StorSimple que son visibles para este host aparecerán en **Administración de discos** como discos nuevos.
 
@@ -178,4 +178,4 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en la matr
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su matriz virtual de StorSimple](storsimple-ova-manager-service-administration.md).
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

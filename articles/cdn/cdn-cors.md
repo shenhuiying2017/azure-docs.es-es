@@ -65,7 +65,7 @@ En este caso, creará una expresión regular en la que incluirá todos los oríg
  
 > [AZURE.TIP] La **red CDN de Azure de Verizon** utiliza las [expresiones regulares compatibles con Perl](http://pcre.org/) como su motor de expresiones regulares. Puede usar una herramienta como [Regular Expressions 101](https://regex101.com/) para validar la expresión regular. Tenga en cuenta que el carácter "/" es válido en expresiones regulares y no hace falta darle formato de escape; sin embargo, darle dicho formato se considera el procedimiento recomendado y algunos validadores de expresiones regulares lo esperan.
 
-Si la expresión regular coincide con el perímetro de la red CDN, la regla reemplazará el encabezado **Access-Control-Allow-Origin** (en caso de haber alguno) del origen con el origen que envió la solicitud. También puede añadir encabezados de CORS adicionales, como **Access-Control-Allow-Methods**.
+Si la expresión regular coincide, la regla reemplazará el encabezado **Access-Control-Allow-Origin** (en caso de haber alguno) del origen por el origen que envió la solicitud. También puede añadir encabezados de CORS adicionales, como **Access-Control-Allow-Methods**.
 
 ![Ejemplo de reglas con expresiones regulares](./media/cdn-cors/cdn-cors-regex.png)
  
@@ -81,4 +81,4 @@ En lugar de usar expresiones regulares, puede crear una regla aparte para cada o
 
 En los perfiles estándar de la red CDN de Azure, el único mecanismo para permitir varios orígenes sin usar el carácter comodín consiste en utilizar el [almacenamiento en caché de la cadena de consulta](cdn-query-string.md). Debe habilitar la configuración de la cadena de consulta para el punto de conexión de la red CDN y, después, utilizar una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN copiará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

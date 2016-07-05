@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="06/20/2016"
    ms.author="hanuk;jroth;aglick"/>
 
 #Recuperación ante desastres y alta disponibilidad para aplicaciones creadas en Microsoft Azure
@@ -54,9 +54,9 @@ Tenga en cuenta los siguientes SLA para un servicio de Azure que utiliza estos s
 
 |Servicio de Azure|Contrato de nivel de servicio |Inactividad posible en minutos al mes (30 días)|
 |:------------|:-----|:----------------------------------------:|
-|Proceso |99,95 %|21,6 |
-|Base de datos SQL |99,90 %|43,2 |
-|Almacenamiento |99,90 %|43,2 |
+|Proceso |99,95 %|21,6 minutos |
+|Base de datos SQL |99,99%|4,3 minutos |
+|Almacenamiento |99,90 %|43,2 minutos |
 
 Debe planear para la posibilidad de que todos los servicios dejen de funcionar en momentos diferentes. En este ejemplo simplificado, el número total de minutos al mes que la aplicación puede estar inactiva es 108 minutos. En un mes de 30 días hay un total de 43 200 minutos. 108 minutos corresponde al 0,25 % del número total de minutos en un mes de 30 días (43 200 minutos). Esto proporciona una disponibilidad efectiva del 99,75 % para el servicio en la nube.
 
@@ -131,4 +131,4 @@ Al crear el plan de recuperación ante desastres y disponibilidad de la aplicaci
 
 Este artículo forma parte de una serie enfocada a la recuperación ante desastres y la alta disponibilidad para las aplicaciones de Azure. El siguiente artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

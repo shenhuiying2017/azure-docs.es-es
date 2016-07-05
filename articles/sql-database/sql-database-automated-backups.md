@@ -3,7 +3,7 @@
    description="Obtenga más información sobre las copias de seguridad integradas de Base de datos SQL que permiten revertir una Base de datos SQL de Azure a un momento dado previo o copiarla en una nueva base de datos en una región geográfica (hasta 35 días)."
    services="sql-database"
    documentationCenter=""
-   authors="stevestein"
+   authors="carlrabeler"
    manager="jhubbard"
    editor="monicar"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-features"
-   ms.date="06/09/2016"
-   ms.author="sstein"/>
+   ms.date="06/16/2016"
+   ms.author="carlrab"/>
 
 # Información general: copias de seguridad automatizadas de Base de datos SQL
 
@@ -30,11 +30,20 @@ La Base de datos SQL de Microsoft Azure le proporciona hasta un 200 % de almacen
 
 Las bases de datos de niveles Básico, Estándar y Premium están protegidas por copias de seguridad automáticas. Las copias de seguridad completas se realizan cada semana, las copias de seguridad diferenciales, cada día y las copias de seguridad de registro, cada 5 minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente tarda 30 minutos en completarse, pero puede tardar más. Si una base de datos ya es grande, por ejemplo, si se crea como resultado de una copia de base de datos o de restauración de una base de datos grande, la primera copia de seguridad completa puede tardar más tiempo en completarse. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El tiempo exacto de las copias de seguridad completas y diferenciales viene determinado por el sistema para equilibrar la carga general. Los archivos de copia de seguridad se almacenan en una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar la disponibilidad con fines de recuperación ante desastres.
 
-## Recursos adicionales
+## Pasos siguientes
 
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
+- [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
+- [Restauración de una base de datos eliminada](sql-database-restore-deleted-database.md)
+- [Restauración a un momento dado](sql-database-point-in-time-restore.md)
 - [Restauración geográfica](sql-database-geo-restore.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+- [Copia de bases de datos](sql-database-copy.md)
+
+## Recursos adicionales
+
+- [Recuperación tras una interrupción](sql-database-disaster-recovery.md)
+- [Recuperación ante un error de usuario](sql-database-user-error-recovery.md)
+- [Exploración en profundidad de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -105,13 +105,13 @@ En la siguiente tabla se comparan los atributos más importantes de STLF y LTLF:
 
 |Atributo|Previsión de carga a corto plazo|Previsión de carga a largo plazo|
 |---|---|---|
-|Horizonte de pronóstico|De 1 a 48 horas|De 1 semana a 6 meses, o más|
+|Horizonte de pronóstico|De 1 a 48 horas|De 1 a 6 meses o más|
 |Granularidad de datos|Cada hora|Cada hora o a diario|
 |Casos de uso típicos|<ul><li>Equilibrio entre demanda y suministro</li><li>Pronóstico de las horas pico</li><li>Respuesta a la demanda</li></ul>|<ul><li>Planeamiento a largo plazo</li><li>Planeamiento de recursos de redes de distribución eléctrica</li><li>Planeamiento de recursos</li></ul>|
 |Indicadores típicos|<ul><li>Día o semana</li><li>Hora del día</li><li>Temperatura por hora</li></ul>|<ul><li>Mes del año</li><li>Día del mes</li><li>Temperatura y clima a largo plazo</li></ul>|
 |Intervalo de datos históricos|Datos correspondientes a entre dos y tres años|Datos correspondientes entre cinco y diez años|
-|Precisión típica|MAPE* del 95%, o superior|MAPE* del 75%, o superior|
-|Frecuencia de pronóstico|Se realiza cada hora o cada 24 horas|Se realiza semanalmente, mensualmente o trimestralmente|
+|Precisión típica|MAPE* del 5 % o inferior|MAPE* del 25 % o inferior|
+|Frecuencia de pronóstico|Se realiza cada hora o cada 24 horas|Generado una vez al mes, trimestre o año|
 *[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) (error absoluto porcentual de la media)
 
 Como se puede ver en esta tabla, es muy importante distinguir entre escenarios de pronóstico a corto y largo plazo, ya que representan diferentes necesidades empresariales y pueden tener patrones de implementación y consumo diferentes.
@@ -167,8 +167,7 @@ En muchos casos, el cliente puede estar interesado en realizar una justificació
 
 Por otra parte, es preciso conocer bien el valor empresarial de la realización de una previsión de la demanda energética (a corto o largo plazo). De hecho, es importante tener en cuenta el valor empresarial de cada operación de previsión. Por ejemplo, un pronóstico preciso de la carga de energía durante las 24 horas siguientes puede evitar un exceso de producción o puede ayudar a evitar sobrecargas en la red de distribución de electricidad, lo que se puede cuantificar en términos de ahorro diario.
 
-Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería:
-![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería: ![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Puesto que el conjunto de aplicaciones Cortana Intelligence proporciona un modelo de precios de pago por uso, no es preciso incluir un componente de costo fijo en esta fórmula. Esta fórmula se puede calcular diaria, mensual o anualmente.
 
@@ -283,7 +282,7 @@ Una vez que se han introducido los datos sin procesar (consulte **Ingesta de dat
 En esta sección enumeramos algunas de las características de datos comunes que se incluyen en los modelos de previsión de la demanda de energía.
 
 **Características controladas por el tiempo:**
-Estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
+estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
 -   Hora del día: es la hora del día y toma los valores 0 a 23
 -   Día de la semana: representa el día de la semana y toma los valores 1 (domingo) a 7 (sábado)
 -   Día del mes: representa la fecha real y puede tomar los valores 1 a 31
@@ -293,18 +292,18 @@ Estas características se derivan de los datos de fecha y marca de fecha. Dichos
 -   Términos de Fourier: los términos de Fourier son ponderaciones que se derivan de la marca de tiempo y que se utilizan para capturar la estacionalidad (ciclos) de los datos. Dado que podemos tener varias estaciones en los datos, es posible que necesitemos varios términos de Fourier. Por ejemplo, los valores de la demanda pueden tener ciclos o estaciones anuales, semanales y diarios, lo que generará tres términos de Fourier.
 
 **Características de medida independientes:**
-Las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
+las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
 -   Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc.*. La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
 -   Tendencias a largo plazo: esta característica representa el crecimiento lineal de la demanda entre años.
 
 **Característica dependiente:**
-La característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
+la característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
 
 **Tratamiento de los valores que faltan:**
-Durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_(statistics)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
+durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_(statistics)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
 
 **Normalización de datos:**
-La normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
+ la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
 
 ## Modelado
 El modelado es la fase en que se realiza la conversión de los datos en un modelo. En el núcleo de este proceso hay algoritmos avanzados que examinan los datos históricos (datos de aprendizaje), extraen patrones y generación un modelo. Posteriormente, dicho modelo se puede utilizar para predecir datos nuevos que no se ha utilizado para generar el modelo.
@@ -333,8 +332,8 @@ El modelo autorregresivo integrado de media móvil (ARIMA) es otra familia de m�
 
 En la actualidad, ETS y ARIMA se utilizan profusamente para la previsión de la demanda de energía y para muchos otros problemas de predicción. En muchos casos, se combinan para ofrecer resultados muy precisos.
 
-**Regresión múltiple general**. 
-Los modelos de regresión pueden ser el enfoque de modelado más importante del dominio del aprendizaje automático y las estadísticas. En el contexto de la serie temporal usamos regresión para predecir los valores futuros (*por ejemplo*, de la demanda). En la regresión, tomamos una combinación lineal de los indicadores y obtenemos información acerca de las ponderaciones (también denominadas coeficientes) de dichos indicadores durante el proceso de aprendizaje. El objetivo es producir una línea de regresión que pronosticará nuestro valor predicho. Los métodos de regresión son adecuadas cuando la variable de destino es numérica y, por tanto, también se ajusta a la previsión de la serie temporal. Hay un gran número de métodos de regresión, entre los que se incluyen modelos de regresión muy sencillos, como la [regresión lineal](https://en.wikipedia.org/wiki/Linear_regression), y otros más avanzados, como los árboles de decisión, las [selvas aleatorias](https://en.wikipedia.org/wiki/Random_forest), las [redes neuronales](https://en.wikipedia.org/wiki/Artificial_neural_network) y los árboles de decisión incrementados.
+**Regresión múltiple general**.
+ Los modelos de regresión pueden ser el enfoque de modelado más importante del dominio del aprendizaje automático y las estadísticas. En el contexto de la serie temporal usamos regresión para predecir los valores futuros (*por ejemplo*, de la demanda). En la regresión, tomamos una combinación lineal de los indicadores y obtenemos información acerca de las ponderaciones (también denominadas coeficientes) de dichos indicadores durante el proceso de aprendizaje. El objetivo es producir una línea de regresión que pronosticará nuestro valor predicho. Los métodos de regresión son adecuadas cuando la variable de destino es numérica y, por tanto, también se ajusta a la previsión de la serie temporal. Hay un gran número de métodos de regresión, entre los que se incluyen modelos de regresión muy sencillos, como la [regresión lineal](https://en.wikipedia.org/wiki/Linear_regression), y otros más avanzados, como los árboles de decisión, las [selvas aleatorias](https://en.wikipedia.org/wiki/Random_forest), las [redes neuronales](https://en.wikipedia.org/wiki/Artificial_neural_network) y los árboles de decisión incrementados.
 
 La creación de una de previsión de la demanda de energía como un problema de regresión nos da mucha flexibilidad al seleccionar las características de datos que se pueden combinar entre los datos de serie temporal de la demanda real y factores externos, como la temperatura. En la sección Ingeniería de características (consulte **Preparación de datos e ingeniería de características**) de este cuaderno de estrategias se puede encontrar más información sobre las características seleccionadas.
 
@@ -351,7 +350,7 @@ Hay varias formas de medir y cuantificar los errores de predicción. Esta secci�
 #### [**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
 MAPE son las siglas de Mean Absolute Percentage Error (error absoluto porcentual de la media). Con MAPE se calculan las diferencias entre cada punto pronosticado y el valor real del mismo. Después se cuantifica el error por punto, para lo que se calcula la proporción de diferencia con respecto al valor real. En el último paso, se obtiene la media de estos valores. Esta es la fórmula matemática que se usa para MAPE:
 
-![Fórmula de MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png) 
+![Fórmula de MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
 *Donde un<sub>t</sub> es el valor real, F<sub>t</sub> es el valor pronosticado y n es el horizonte de previsión.*
 
 ## Implementación
@@ -392,4 +391,4 @@ El siguiente diagrama muestra una arquitectura típica basada en Cortana Intelli
 
 Para más información tanto acerca de cada uno de los componentes como de la arquitectura completa, consulte la plantilla de soluciones energéticas.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0622_2016-->

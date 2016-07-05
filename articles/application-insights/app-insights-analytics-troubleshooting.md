@@ -72,9 +72,7 @@ Se ha producido un error relacionado con la autenticación (durante la autentica
 
     En la lista de sitios web, si se incluye alguna de las siguientes direcciones URL, asegúrese de que las otras se incluyan también:
 
-    * https://login.microsoftonline.com
-    * https://login.windows.net
-    * https://analytics.applicationinsights.io 
+    https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
 ## 404 ... Recurso no encontrado
@@ -91,7 +89,7 @@ Los recursos de la aplicación se eliminaron de Application Insights y ya no est
 No tiene permiso para abrir esta aplicación en Analytics.
 
 * ¿Recibió el vínculo de otra persona? Pregúnteles para asegurarse de que se encuentra en los roles de [lector o colaborador en este grupo de recursos](app-insights-resources-roles-access-control.md).
-* ¿Guardó el vínculo mediante credenciales diferentes? Abra el [Portal de Azure](https://portal.azure.com), cierre sesión y pruebe este vínculo de nuevo, con las credenciales correctas.
+* ¿Guardó el vínculo mediante credenciales diferentes? Abra el [Portal de Azure](https://portal.azure.com), cierre sesión y vuelva a probar este vínculo con las credenciales correctas.
 
 ## 403 ... Almacenamiento de HTML5
 
@@ -126,4 +124,4 @@ Abra una [incidencia de soporte técnico](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

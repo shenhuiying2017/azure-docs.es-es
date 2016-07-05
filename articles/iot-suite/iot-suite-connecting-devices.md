@@ -311,6 +311,7 @@ Ahora tiene que agregar código que implemente el comportamiento definido en el 
     ```
     
     Como referencia, este es un mensaje de **información del dispositivo** de ejemplo enviado al Centro de IoT durante el inicio:
+
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -329,11 +330,13 @@ Ahora tiene que agregar código que implemente el comportamiento definido en el 
     ```
     
     Como referencia, este es un mensaje de **telemetría** de ejemplo enviado al Centro de IoT:
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
     
     Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
+    
     ```
     {
       "Name":"SetHumidity",
@@ -361,4 +364,4 @@ Ahora tiene que agregar código que implemente el comportamiento definido en el 
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

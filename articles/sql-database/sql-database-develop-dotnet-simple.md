@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="06/16/2016"
 	ms.author="tobiast"/>
 
 # Conexión a Base de datos SQL mediante .NET (C#)
@@ -37,8 +37,16 @@ Vea la [página de introducción](sql-database-get-started.md) para aprender a c
 * [Proof of concept connecting to SQL using ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx) (Prueba de concepto que se conecta a SQL con ADO.NET)
 * [Connect resiliently to SQL with ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx) (Conexión firme a SQL con ADO.NET)
 
-## Recursos adicionales
+## Pasos siguientes
 
-Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+* [Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
+* [Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
+* Consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
+* Puede encontrar más información en [Microsoft ADO.NET para SQL Server](https://msdn.microsoft.com/library/mt657768.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+## Recursos adicionales 
+
+* [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+
+<!---HONumber=AcomDC_0622_2016-->
