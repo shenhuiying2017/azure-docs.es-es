@@ -2,16 +2,16 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Zoho Mail | Microsoft Azure" 
     description="Aprenda cómo usar Zoho Mail con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
+    ms.date="06/20/2016" 
     ms.author="markvi" />
 
 #Tutorial: Integración de Azure Active Directory con Zoho Mail
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Zoho Mail:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zoho-mail-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **Zoho Mail**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Zoho Mail**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configurar inicio de sesión único")
 
@@ -78,9 +78,14 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zoho Mail**, escriba su dirección URL con el siguiente patrón "**http://company.ZohoMail.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes:
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configurar dirección URL de la aplicación")
+
+	a. En el cuadro de texto **URL de inicio de sesión de Zoho Mail**, escriba la dirección URL con el siguiente patrón: `http://<company name>.ZohoMail.com`
+
+	b. Haga clic en **Siguiente**.
+
 
 4.  En la página **Configuración de inicio de sesión único en Zoho Mail**, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -100,18 +105,18 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Detalles de autenticación SAML](./media/active-directory-saas-zoho-mail-tutorial/IC789609.png "Detalles de autenticación SAML")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    2.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
-    3.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Zoho Mail**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar dirección URL de contraseña**.
     4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **PublicKey**
     6.  Como **Algoritmo** seleccione **RSA**.
     7.  Haga clic en **Aceptar**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configurar inicio de sesión único")
 
@@ -136,9 +141,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoho Mail, deben a
     1.  Escriba el **Nombre**, **Apellido**, **Id. de correo electrónico**, **Contraseña** de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Aceptar**.  
 
-        >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+        >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zoho Mail ofrecida por Zoho Mail para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zoho Mail ofrecida por Zoho Mail para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -146,7 +151,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Zoho Mail, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **Zoho Mail **, haga clic en **Asignar usuarios**.
 
@@ -158,4 +163,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0622_2016-->

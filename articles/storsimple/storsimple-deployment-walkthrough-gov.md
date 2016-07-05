@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="06/17/2016"
    ms.author="v-sharos" />
 
 # Implemente el dispositivo StorSimple local en el Portal de Government
@@ -258,7 +258,7 @@ Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de W
 
 [AZURE.INCLUDE [Crear una copia de seguridad manual](../../includes/storsimple-get-iqn.md)]
 
-## Creación de una copia de seguridad manual
+## Crear una copia de seguridad manual
 
 Siga estos pasos en el Portal de Government para crear una copia de seguridad a petición para un único volumen de su dispositivo StorSimple.
 
@@ -279,4 +279,4 @@ Para instrucciones de instalación de MPIO para un dispositivo StorSimple conect
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

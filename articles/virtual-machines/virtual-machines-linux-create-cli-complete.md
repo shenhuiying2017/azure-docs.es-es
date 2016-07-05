@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Creación de una máquina virtual con Linux desde cero con la CLI de Azure | Microsoft Azure"
-   description="Creación de una máquina virtual con Linux, almacenamiento, red virtual y subred, NIC, IP pública, grupo de seguridad de red desde cero con la CLI de Azure."
+   pageTitle="Creación de un entorno de Linux completo mediante la CLI de Azure | Microsoft Azure"
+   description="Cree una máquina virtual Linux, almacenamiento, una red virtual y subred, un equilibrador de carga, una NIC, una IP pública, un grupo de seguridad de red, todo desde el principio mediante la CLI de Azure."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
-   manager="squillace"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,14 +14,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/29/2016"
+   ms.date="06/10/2016"
    ms.author="iainfou"/>
 
-# Creación de una máquina virtual con Linux desde cero con la CLI de Azure
+# Creación de un entorno de Linux completo mediante la CLI de Azure
 
-Para crear una máquina virtual de Linux necesitará [la CLI de Azure](../xplat-cli-install.md) en modo administrador de recursos (`azure config mode arm`) y una herramienta de análisis de JSON. Para este documento se está usando [jq](https://stedolan.github.io/jq/).
+Vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para simplificar el desarrollo y los procesos. Le guiaremos por todo el entorno, comando a comando, hasta que tenga máquinas virtuales Linux seguras funcionando a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes e implementaciones más complejas.
+
+Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación del Resource Manager y la potencia que proporciona. Cuando vea cómo se compila el sistema, puede recompilarlo mucho más rápido mediante [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). Cuando vea cómo encajan las distintas partes de la implementación, la creación de plantillas para automatizarlas se volverá más fácil.
+
+El entorno contendrá:
+
+- Dos máquinas virtuales dentro de un conjunto de disponibilidad
+- Un equilibrador de carga con la regla de equilibrio de carga en el puerto 80
+- Reglas de grupo de seguridad de red para proteger la máquina virtual del tráfico no deseado
+
+![Información general del entorno básico](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
+
+Para crear este entorno personalizado, deberá tener instalada la versión más reciente de la [CLI de Azure](../xplat-cli-install.md) y en modo de Resource Manager (`azure config mode arm`). También necesitará una herramienta de análisis JSON; en este ejemplo, se usa [jq](https://stedolan.github.io/jq/).
 
 ## Comandos rápidos
+Los siguientes comandos rápidos se utilizan para crear su entorno personalizado. Para entender mejor lo que hace cada comando mientras crea el entorno y obtener información general al respecto, examine los [pasos detallados del tutorial a continuación](#detailed-walkthrough).
 
 Crear el grupo de recursos
 
@@ -118,16 +131,16 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
 Crear la primera NIC
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
 Crear la segunda NIC
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
@@ -175,7 +188,7 @@ azure availset create -g TestRG -n TestAvailSet -l westeurope
 Crear la primera máquina virtual Linux
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM1 \
     --location westeurope \
@@ -193,7 +206,7 @@ azure vm create \
 Crear la segunda máquina virtual Linux
 
 ```bash
-azure vm create \            
+azure vm create \
     --resource-group TestRG \
     --name TestVM2 \
     --location westeurope \
@@ -215,15 +228,14 @@ azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
+Exportar el entorno que ha compilado a una plantilla para volver a crear rápidamente nuevas instancias:
+
+```bash
+azure resource export TestRG
+```
+
 ## Tutorial detallado
-
-### Introducción
-
-En este artículo se crea una implementación con dos máquinas virtuales Linux detrás de un equilibrador de carga. Aquí se le guiará a través de toda la implementación básica, comando a comando, hasta que tenga una máquina virtual con Linux segura en funcionamiento a la que pueda conectarse desde cualquier lugar de Internet.
-
-Tras su lectura, conocerá la jerarquía de dependencias que ofrece el modelo de implementación del Resource Manager y la potencia que proporciona. Cuando vea cómo se crea el sistema, podrá volver a generarlo más rápidamente con comandos más directos de la CLI de Azure (consulte [este artículo](virtual-machines-linux-quick-create-cli.md) para ver más o menos la misma implementación con el comando `azure vm quick-create`) o bien podrá pasar a aprender a diseñar y automatizar todas las implementaciones de aplicaciones y redes, así como a actualizarlas mediante [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). Una vez que vea cómo encajan las distintas partes de la implementación, la creación de plantillas para automatizarlas resulta más fácil.
-
-Vamos a crear un equilibrador de carga y una red sencillos con una máquina virtual útil para el desarrollo y el proceso simple, y explicaremos el proceso sobre la marcha. Luego, podrá pasar a redes y implementaciones más complejas.
+Estos pasos más detallados explican lo que hace cada comando mientras crea su entorno, y le ayudan a adoptar estos conceptos mientras continúa para crear sus propios entornos personalizados para las cargas de trabajo de desarrollo o producción.
 
 ## Creación de un grupo de recursos y elección de las ubicaciones para la implementación
 
@@ -293,7 +305,7 @@ data:
 info:    group show command OK
 ```
 
-Vamos a usar la herramienta [jq](https://stedolan.github.io/jq/) (para analizar el JSON se puede usar **jsawk** o cualquier biblioteca de idioma que prefiera) junto con la opción `--json` de la CLI de Azure para examinar nuestro grupo de recursos mediante el comando `azure group show`.
+Vamos a usar la herramienta [jq](https://stedolan.github.io/jq/) (para analizar el código JSON se puede usar **jsawk** o cualquier biblioteca de idioma que prefiera) junto con la opción `--json` de la CLI de Azure para examinar nuestro grupo de recursos mediante el comando `azure group show`.
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
@@ -771,7 +783,7 @@ info:    network lb rule create command OK
 
 ## Creación del sondeo de estado del equilibrador de carga
 
-Una acción de sondeo de estado comprobará periódicamente las máquinas virtuales que están detrás de nuestro equilibrador de carga para asegurarse de que están operativas y responde a las solicitudes, tal y como se define. De lo contrario, se quitarán de la operación para asegurarse de no que se redirijan los usuarios a dichas máquinas virtuales. Puede definir comprobaciones personalizadas para el sondeo de estado, junto con intervalos y valores de tiempo de espera. Para obtener más información sobre los sondeos de estado, puede leer el artículo [Sondeos del Equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
+Una acción de sondeo de estado comprobará periódicamente las máquinas virtuales que están detrás de nuestro equilibrador de carga para asegurarse de que están operativas y responde a las solicitudes, tal y como se define. De lo contrario, se quitarán de la operación para asegurarse de no que se redirijan los usuarios a dichas máquinas virtuales. Puede definir comprobaciones personalizadas para el sondeo de estado, junto con intervalos y valores de tiempo de espera. Para más información sobre los sondeos de estado, puede leer el artículo [Sondeos del Equilibrador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
@@ -926,13 +938,14 @@ Salida
 Hasta las NIC están disponibles mediante programación, ya que es posible aplicar reglas a su uso y tener más de una. Tenga en cuenta que en el siguiente comando `azure network nic create` se enlaza la NIC al grupo IP de back-end de carga y se asocia a la regla NAT para permitir el tráfico SSH. Para ello, debe especificar el id. de la suscripción de Azure en lugar de `<GUID>`:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
+azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+     -d /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
 Salida
 
 ```bash 
-/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1008,13 +1021,9 @@ Salida
 Continuemos y creemos la segunda NIC, que, de nuevo, se enlaza a nuestro grupo IP de back-end y, esta vez, a la segunda de nuestras reglas NAT para permitir el tráfico SSH:
 
 ```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
-```
-
-Salida
-
-```bash
- /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
+azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
+    -d  /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
+    -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
 ## Creación de un grupo de seguridad de red y las reglas
@@ -1062,7 +1071,7 @@ Los dominios de error definen un grupo de máquinas virtuales que comparten una 
 
 Los dominios de actualización indican grupos de máquinas virtuales y hardware físico subyacente que se pueden reiniciar al mismo tiempo. El orden en que los dominios de error se reiniciarán tal vez no siga una secuencia durante un mantenimiento planeado, pero solo se reiniciarán uno por uno. De nuevo, Azure distribuirá automáticamente las máquinas virtuales a los dominios de actualización cuando se colocan en un sitio de disponibilidad.
 
-Puede obtener más información sobre cómo [administrar la disponibilidad de las máquinas virtuales](./virtual-machines-linux-manage-availability.md).
+Más información sobre cómo [administrar la disponibilidad de las máquinas virtuales](./virtual-machines-linux-manage-availability.md).
 
 ## Creación de máquinas virtuales Linux
 
@@ -1230,8 +1239,26 @@ data:      Diagnostics Instance View:
 info:    vm show command OK
 ```
 
+
+## Exportación del entorno como una plantilla
+Ahora que ha creado este entorno, ¿y si quiere crear un entorno de desarrollo adicional con los mismos parámetros, o si ahora quiere crear un entorno de producción correspondiente? Resource Manager usa plantillas JSON que definen todos los parámetros de su entorno, lo que le permite crear entornos enteros mediante una referencia a esta plantilla JSON. También puede [compilar plantillas JSON manualmente](../resource-group-authoring-templates.md), o simplemente exportar un entorno existente para crear la plantilla JSON automáticamente:
+
+```bash
+azure group export TestRG
+```
+
+De esta manera, se crea el archivo `TestRG.json` en el directorio de trabajo actual. Cuando luego cree un nuevo entorno a partir de esta plantilla, se le pedirán todos los nombres de recursos, como los del equilibrador de carga, las interfaces de red, las maquinas virtuales, etc. Para rellenar estos datos en el archivo de plantilla, agregue `-p` o `--includeParameterDefaultValue` al comando `azure group export` mostrado anteriormente, edite la plantilla JSON para especificar los nombres de recursos o [cree un archivo parameters.json](../resource-group-authoring-templates.md#parameters) que simplemente especifique los nombres de recursos.
+
+Para crear un nuevo entorno a partir de la plantilla:
+
+```bash
+azure group deployment create -f TestRG.json -g NewRGFromTemplate
+```
+
+Quizás le interese leer [más detalles sobre la implementación con plantillas](../resource-group-template-deploy-cli.md), por ejemplo, cómo actualizar los entornos de manera incremental, utilizar el archivo de parámetros y acceder a las plantillas desde una única ubicación de almacenamiento.
+
 ## Pasos siguientes
 
-Ya está listo para comenzar con varios componentes de red y máquinas virtuales.
+Ya está listo para comenzar con varios componentes de red y máquinas virtuales. Puede usar este entorno de ejemplo para crear la aplicación con los componentes principales aquí presentados.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/21/2016"
 	ms.author="curtand"/>
 
 
@@ -96,7 +96,7 @@ Con estos pasos se actualiza la configuración en el nivel de directorio, la cua
 
 2. Obtenga el valor que quiere actualizar:
 
-	`$value = Setting.GetSettingsValue()`
+	`$value = $Setting.GetSettingsValue()`
 
 3. Actualice el valor:
 
@@ -143,4 +143,4 @@ Se pueden encontrar instrucciones adicionales en [Rob's Groups Blog](http://robs
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

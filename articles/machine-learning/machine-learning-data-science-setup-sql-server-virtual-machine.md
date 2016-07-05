@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados
@@ -252,7 +252,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 ##<a name="amlconnect"></a>Conexión al motor de base de datos desde Aprendizaje automático de Azure
 
-En las fases posteriores del proceso de Cortana Analytics, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para compilar e implementar modelos de aprendizaje automático. Para la ingesta de datos de las bases de datos de máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo [Importar datos](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata con mayor profundidad en los vínculos de ayuda del proceso de Cortana Analytics. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
+En las fases posteriores del proceso de ciencia de datos en equipos, se usará [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para crear e implementar modelos de aprendizaje automático. Para la ingesta de datos de las bases de datos de máquina virtual de SQL Server directamente en Aprendizaje automático de Azure para su entrenamiento o puntuación, use el módulo [Importar datos](https://studio.azureml.net) en un nuevo experimento de **Estudio de aprendizaje automático de Azure**. Este tema se trata más en detalle en los vínculos de la guía del proceso de ciencia de datos en equipos. Para obtener una introducción, consulte [¿Qué es Estudio de aprendizaje automático de Azure?](machine-learning-what-is-ml-studio.md)
 
 2.	En el panel **Propiedades** del [módulo Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx), seleccione **Base de datos SQL de Azure** en la lista desplegable **Origen de datos**.
 
@@ -286,9 +286,9 @@ Se desasignará la máquina virtual, pero no se eliminará. Puede reiniciar la m
 
 ## La máquina virtual de Azure SQL Server ya está lista para su uso: ¿qué es lo siguiente?
 
-La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de Notebook de IPython para la exploración y el procesamiento de datos, y otras tareas junto con el Aprendizaje automático de Azure y el proceso de análisis de Cortana (CAP).
+La máquina virtual ya está lista para su uso en los ejercicios de ciencia de datos. La máquina virtual también está preparada para su uso como un servidor de IPython Notebook para explorar y procesar datos, además de otras tareas junto con el Aprendizaje automático de Azure y el proceso de ciencia de datos en equipos (TDSP).
 
-Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de aprendizaje: procesamiento avanzado de datos en Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para el aprendizaje a partir de los datos con Aprendizaje automático de Azure.
+Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en [dicho proceso](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir pasos que muevan datos a HDInsight, los procese y muestree allí como preparación para aprender de los datos con Aprendizaje automático de Azure.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -307,4 +307,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

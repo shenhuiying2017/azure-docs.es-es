@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
 # Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager
 
-En este tema se describe cómo resolver algunos de los errores comunes que puede encontrarse al implementar recursos en Azure. Ya debería haber visto un mensaje de error útil. En caso contrario, o si necesita más información sobre el motivo del error de implementación, consulte primero [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md) y, luego, vuelva a este artículo con el fin de obtener ayuda para solucionar el error.
+En este tema se describe cómo resolver algunos errores comunes que puede encontrarse al implementar recursos en Azure. Si necesita más información sobre el motivo del error de implementación, consulte primero [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md) y, luego, vuelva a este artículo con el fin de obtener ayuda para solucionar el error.
 
 ## Plantilla o recurso no válidos
 
@@ -31,7 +31,7 @@ Si no proporciona toda la sintaxis de coincidencia, la plantilla generará un va
 
 En función de si el carácter que falta está ubicado en la plantilla, recibirá un error que indica que la plantilla o un recurso no son válidos. El error puede indicar también que el proceso de implementación no pudo procesar la expresión del lenguaje de plantilla. Si recibe este tipo de error, revise cuidadosamente la sintaxis de las expresiones.
 
-## El nombre de recurso ya existe
+## El nombre del recurso ya existe o ya lo utiliza otro recurso
 
 Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring).
  
@@ -52,60 +52,73 @@ Cuando es posible, Resource Manager optimiza la implementación mediante la crea
       ...
     }
 
-## Ubicación no disponible para el recurso
+## No se pudo encontrar el miembro 'copy' en el objeto
 
-Al especificar la ubicación para un recurso, debe usar una de las ubicaciones que admiten el recurso. Antes de especificar una ubicación para un recurso, use uno de los comandos siguientes para comprobar si la ubicación admite el tipo de recurso.
+Este error se produce cuando se ha aplicado el elemento **copy** a una parte de la plantilla que no lo admite. Solo se puede aplicar el elemento copy a un tipo de recurso. No se puede aplicar el elemento copy a una propiedad de un tipo de recurso. Por ejemplo, puede aplicar el elemento copy a una máquina virtual, pero no puede aplicarlo a los discos del sistema operativo de una máquina virtual. En algunos casos, puede convertir un recurso secundario en un recurso primario para crear un bucle del elemento copy. Para más información sobre cómo usar este elemento, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
+
+## SKU no disponible
+
+Al implementar un recurso (normalmente una máquina virtual), puede recibir el siguiente código y mensaje de error:
+
+    Code: SkuNotAvailable
+    Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+
+Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada. Tiene dos opciones para resolver este problema:
+
+1.	Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz de usuario. A medida que establezca los valores, verá las SKU disponibles para ese recurso. 
+
+    ![sku disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+2.	Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga sus necesidades empresariales, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+
+## No se encontró el proveedor registrado
+
+Al implementar recursos, puede recibir el siguiente código y mensaje de error:
+
+    Dode: NoRegisteredProviderFound
+    Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
+
+Recibirá este error por uno de estos tres motivos:
+
+1. No se permite esta ubicación para el tipo de recurso
+2. No se permite esta versión de API para el tipo de recurso
+3. El proveedor de recursos no se ha registrado para la suscripción
+
+El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos. Si no ha utilizado un proveedor de recursos determinado antes, debe registrar dicho proveedor. Encontrará más información acerca de los proveedores de recursos con los siguientes comandos.
 
 ### PowerShell
 
-Utilice **Get-AzureRmResourceProvider** si desea obtener ubicaciones y tipos admitidos para un proveedor de recursos determinado.
+Para ver su estado de registro, use **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+    Get-AzureRmResourceProvider -ListAvailable
 
-Obtendrá una lista de los tipos de recursos para ese proveedor de recursos.
+Para registrar un proveedor, use **Register-AzureRmResourceProvider** y proporcione el nombre del proveedor de recursos que desea registrar.
 
-    ProviderNamespace RegistrationState ResourceTypes               Locations
-    ----------------- ----------------- -------------               ---------
-    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
-    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
-    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
-    ...
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
-Puede centrarse en las ubicaciones para un tipo determinado de recurso con:
+Para conocer las ubicaciones admitidas para un tipo determinado de recurso, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-Que devuelve las ubicaciones admitidas:
+Para conocer las versiones de API admitidas para un tipo determinado de recurso, use:
 
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
 ### Azure CLI
 
-Para CLI de Azure, puede usar **azure location list**. Dado que la lista de ubicaciones puede ser larga y hay muchos proveedores, puede utilizar herramientas para examinar los proveedores y las ubicaciones antes de utilizar una ubicación que aún no esté disponible. El siguiente script usa **jq** para detectar las ubicaciones donde está disponible el proveedor de recursos para Máquinas virtuales de Azure.
+Para ver si el proveedor está registrado, utilice el comando `azure provider list`.
 
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    azure provider list
+        
+Para registrar un proveedor de recursos, use el comando `azure provider register` y especifique el *espacio de nombres* que desea registrar.
+
+    azure provider register Microsoft.Cdn
+
+Para ver las ubicaciones y las versiones de API admitidas por un proveedor de recursos, use:
+
+    azure provider show -n Microsoft.Compute --json > compute.json
     
-Que devuelve las ubicaciones admitidas:
-    
-    {
-      "name": "Microsoft.Compute/virtualMachines",
-      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
-    }
-
-### API de REST
-
-Para la API de REST, consulte [Obtención de información sobre un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
 ## Cuota superada
 
 Podría tener problemas cuando una implementación supera una cuota, lo que podría suceder por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si intenta implementar una máquina virtual con más núcleos que la cantidad permitida, recibirá un error que indica que se ha superado la cuota. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
@@ -154,78 +167,39 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 
 Puede recibir un error durante la implementación porque la cuenta o la entidad de servicio que intenta implementar los recursos no tiene acceso para realizar esas acciones. Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden acceder a qué recursos con un alto grado de precisión. Por ejemplo, si su cuenta se asigna al rol Lector, no podrá crear nuevos recursos. En ese caso, debería ver un mensaje de error que indica que hubo un error de autorización.
 
-Para obtener más información sobre el control de acceso basado en roles, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+Para más información sobre el control de acceso basado en roles, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
 
-Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para obtener más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-## Comprobación del registro del proveedor de recursos
+## Solución de problemas con máquinas virtuales 
 
-Los proveedores de recursos administran recursos y se debe registrar una cuenta o suscripción para utilizar un proveedor determinado. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos.
+| Error | Artículos |
+| -------- | ----------- |
+| Errores de extensión de script personalizado | [Errores de extensión de máquina virtual Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />o<br />[Errores de extensión de máquina virtual Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
+| Errores de aprovisionamiento de imágenes de sistema operativo | [Errores de la nueva máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />o<br />[Errores de la nueva máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) | 
+| Errores de asignación | [Errores de asignación de máquina virtual Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />o<br />[Errores de asignación de máquina virtual Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
+| Errores de Secure Shell (SSH) al intentar conectarse | [Conexiones de Secure Shell a máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
+| Errores de conexión a una aplicación que se ejecuta en una máquina virtual | [Aplicación que se ejecuta en una máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />o<br />[Aplicación que se ejecuta en una máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | 
+| Errores de conexión del Escritorio remoto | [Conexiones del Escritorio remoto a máquinas virtuales Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
+| Errores de conexión resueltos mediante la repetición de la implementación | [Nueva implementación de la máquina virtual en un nuevo nodo de Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
+| Errores de servicio en la nube | [Problemas de implementación de servicio en la nube](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
 
-### PowerShell
+## Solución de problemas con otros servicios 
 
-Para ver su estado de registro, use **Get-AzureRmResourceProvider**.
+La tabla siguiente no es una lista completa de temas de solución de problemas de Azure. En su lugar, se centra en los problemas relacionados con la implementación o la configuración de recursos. Si necesita ayuda para solucionar problemas de tiempo de ejecución con un recurso, consulte la documentación de ese servicio de Azure.
 
-    Get-AzureRmResourceProvider -ListAvailable
-
-Que devuelve todos los proveedores de recursos disponibles y su estado de registro:
-
-    ProviderNamespace               RegistrationState ResourceTypes
-    -----------------               ----------------- -------------
-    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
-    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
-    Microsoft.Batch                 Registered        {batchAccounts}
-
-Para registrar un proveedor, use **Register-AzureRmResourceProvider** y proporcione el nombre del proveedor de recursos que desea registrar.
-
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
-
-Se le pedirá que confirme el registro y después se devolverá un estado.
-
-    Confirm
-    Are you sure you want to register the provider 'Microsoft.Cdn'
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-
-    ProviderNamespace RegistrationState ResourceTypes
-    ----------------- ----------------- -------------
-    Microsoft.Cdn     Registering       {profiles, profiles/endpoints,...
-
-### Azure CLI
-
-Para ver si el proveedor está registrado para su uso con la CLI de Azure, use el comando `azure provider list` (lo siguiente es un ejemplo truncado del resultado).
-
-    azure provider list
-        
-Que devuelve todos los proveedores de recursos disponibles y su estado de registro:
-        
-    info:    Executing command provider list
-    + Getting ARM registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.Compute                Registered
-    data:    Microsoft.Network                Registered  
-    data:    Microsoft.Storage                Registered
-    data:    microsoft.visualstudio           Registered
-    ...
-    info:    provider list command OK
-
-Para registrar un proveedor de recursos, use el comando `azure provider register` y especifique el *espacio de nombres* que desea registrar.
-
-    azure provider register Microsoft.Cdn
-
-### API de REST
-
-Para obtener el estado de registro, consulte [Obtención de información sobre un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790534.aspx).
-
-Para registrar un proveedor, consulte [Registro de una suscripción con un proveedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
-
-## Errores de extensión de script personalizado
-
-Si se produce un error con una extensión de script personalizado al implementar una máquina virtual, consulte [Solución de problemas de la extensión de máquina virtual de Microsoft Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) o [Solución de problemas de la extensión de máquina virtual de Linux Azure](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
-
-## Errores de aprovisionamiento y asignación de máquinas virtuales
-
-Si intenta implementar una máquina virtual y se ha producido un error de aprovisionamiento de la imagen del sistema operativo o de asignación, consulte [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) y [Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de las VM de Windows en Azure](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+| Servicio | Artículo |
+| -------- | -------- |
+| Automatización | [Sugerencias para la solución de problemas para errores comunes de Automatización de Azure](./automation/automation-troubleshooting-automation-errors.md) | 
+| Azure Stack | [Solución de problemas de Microsoft Azure Stack](./azure-stack/azure-stack-troubleshooting.md) | 
+| Azure Stack | [Aplicaciones Web y Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) | 
+| Factoría de datos | [Solución de problemas de la factoría de datos](./data-factory/data-factory-troubleshoot.md) | 
+| Service Fabric | [Solución de problemas comunes al implementar servicios en Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Recuperación de sitios | [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Almacenamiento | [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Solución de problemas de implementación de dispositivos de StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) | 
+| Base de datos SQL | [Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
+| Almacenamiento de datos SQL | [Solución de problemas de Almacenamiento de datos SQL de Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
 
 ## Comprensión de cuándo una implementación está lista 
 
@@ -235,9 +209,7 @@ Sin embargo, puede evitar que Azure informe de que la implementación se produjo
 
 ## Pasos siguientes
 
-- Para obtener más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
+- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
 - Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-troubleshoot-deployments-portal.md).
-- Para solucionar errores de Protocolo de escritorio remoto en su máquina virtual de Windows, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Si desea solucionar errores de Secure Shell en su máquina virtual de Linux, consulte [conexiones de escritorio remoto solucionar](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0622_2016-->

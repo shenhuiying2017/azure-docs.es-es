@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/20/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure
@@ -98,7 +98,7 @@ Los servicios se pueden beneficiar de la replicación solo con usar el Almacenam
 
 ###Administración de recursos
 
-Las cuentas de almacenamiento creadas después del 7 de junio de 2012 pueden tener hasta 200 TB (el máximo anterior era de 100 TB). Si se requiere espacio adicional, las aplicaciones se deberán diseñar para que usen varias cuentas de almacenamiento.
+Las cuentas de almacenamiento creadas después de mayo de 2014 pueden tener hasta 500 TB (el máximo anterior era de 200 TB). Si se requiere espacio adicional, las aplicaciones se deberán diseñar para que usen varias cuentas de almacenamiento.
 
 ###Discos de máquinas virtuales
 
@@ -223,4 +223,4 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región de Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

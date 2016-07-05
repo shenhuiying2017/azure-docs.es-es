@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="04/29/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) de Windows en Azure con Microsoft HPC Pack
@@ -32,9 +32,9 @@ Este artículo se centra en las opciones para usar HPC Pack para ejecutar cargas
 
 * (Marketplace) [HPC Pack cluster for Excel workloads (Clúster de HPC par cargas de trabajo de Excel)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 
-* (Quickstart) [Create an HPC cluster (Creación de clúster de HPC)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+* (Inicio rápido) [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster) (Creación de clúster de HPC)
 
-* (Quickstart) [Create an HPC cluster with custom compute node image (Creación de clúster de HPC con nodos de proceso personalizados)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+* (Inicio rápido) [Create an HPC cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image) (Creación de clúster de HPC con nodos de proceso personalizados)
 
 ### Imágenes de VM de Azure
 
@@ -89,4 +89,4 @@ Este artículo se centra en las opciones para usar HPC Pack para ejecutar cargas
 
 * [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

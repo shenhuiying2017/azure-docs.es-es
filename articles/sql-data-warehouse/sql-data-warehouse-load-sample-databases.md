@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
 
-Una vez que [creó una instancia de base de datos de Almacenamiento de datos SQL][create a SQL Data Warehouse database instance], el paso siguiente es crear y cargar algunas tablas. Puede usar los scripts de ejemplo de Adventure Works que creamos para Almacenamiento de datos SQL a fin de crear y cargar tablas para una empresa ficticia llamada Adventure Works. Estos scripts usa sqlcmd para ejecutar SQL y bcp para cargar datos. Si todavía no tiene instaladas estas herramientas, siga estos vínculos para [instalar bcp][] e [instalar sqlcmd][].
+Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure Works en Almacenamiento de datos SQL. Estos scripts utilizan primero sqlcmd para ejecutar instrucciones SQL que crearán tablas y vistas. Cuando se hayan creado las tablas, los scripts usarán bcp para cargar los datos. Si todavía no tiene instaladas estas herramientas, siga estos vínculos para [instalar bcp][] e [instalar sqlcmd][].
 
-Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure Works en Almacenamiento de datos SQL:
+##Carga de datos de ejemplo
 
-1. Descargue los [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL][].
+1. Descargue el archivo ZIP de [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL][].
 
 2. Extraiga los archivos del zip que descargó en un directorio de la máquina local.
 
@@ -43,7 +43,7 @@ Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure 
 	* Recopilar estadísticas en cada columna de cada tabla de Adventure Works.
 
 
-##Consultar los datos de ejemplo
+##Datos de ejemplo de consultas
 
 Una vez que carga algunos datos de ejemplo en Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas. Para ejecutar una consulta, conéctese a la base de datos de Adventure Works que acaba de crear en Almacenamiento de datos SQL de Azure con Visual Studio y SSDT, tal como se describe en el documento de [conexión][].
 
@@ -85,11 +85,10 @@ Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, 
 [cargar]: ./sql-data-warehouse-overview-load.md
 [conexión]: ./sql-data-warehouse-get-started-connect.md
 [migración del código]: ./sql-data-warehouse-migrate-code.md
-[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [instalar bcp]: ./sql-data-warehouse-load-with-bcp.md
 [instalar sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [scripts de ejemplo de Adventure Works para Almacenamiento de datos SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0622_2016-->

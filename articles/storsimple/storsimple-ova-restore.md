@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli"/>
 
 # Restaurar desde una copia de seguridad de la matriz virtual de StorSimple
 
 ## Información general 
 
-Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016. Asimismo, en este artículo se describe paso a paso cómo realizar una restauración a partir de un conjunto de copias de seguridad de los recursos compartidos o de los volúmenes de la matriz virtual de StorSimple. El artículo también describe cómo funciona la recuperación a nivel de elemento en la matriz virtual de StorSimple que se haya configurado como un servidor de archivos.
+Este artículo se aplica a la matiz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016 o versiones posteriores. Asimismo, en este artículo se describe paso a paso cómo realizar una restauración a partir de un conjunto de copias de seguridad de los recursos compartidos o de los volúmenes de la matriz virtual de StorSimple. El artículo también describe cómo funciona la recuperación a nivel de elemento en la matriz virtual de StorSimple que se haya configurado como un servidor de archivos.
 
 
 ## Restaurar recursos compartidos a partir de un conjunto de copias de seguridad
 
 
-Antes de intentar restaurar los recursos compartidos, asegúrese de que tiene suficiente espacio en el dispositivo para completar esta operación. Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) para realizar una restauración a partir de una copia de seguridad.
+**Antes de intentar restaurar los recursos compartidos, asegúrese de que tiene suficiente espacio en el dispositivo para completar esta operación.** Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) para realizar una restauración a partir de una copia de seguridad.
 
 #### Restaurar un recurso compartido
 
@@ -37,7 +37,7 @@ Antes de intentar restaurar los recursos compartidos, asegúrese de que tiene su
 
 2.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**.
 
-3.  Con esto, iniciará el asistente para **restaurar como un recurso compartido nuevo**. En la página **Especificar nombre y ubicación**:
+3.  Se iniciará el asistente **Restaurar para recurso compartido nuevo**. En la página **Especificar nombre y ubicación**:
 
 
 	1.  Compruebe el nombre del dispositivo de origen. Este debe ser el dispositivo que contiene el recurso compartido que quiera restaurar. La selección del dispositivo está atenuada. Para seleccionar un dispositivo de origen diferente, debe salir del asistente y volver a seleccionar la copia de seguridad de nuevo.
@@ -72,7 +72,7 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 3.  Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un conjunto de copias de seguridad.
 
-5.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**. Se iniciará el asistente para **restaurar como nuevo volumen**.
+5.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**. Se iniciará el asistente **Restaurar como volumen nuevo**.
 
 1.  En la página **Especificar nombre y ubicación**:
 
@@ -107,7 +107,7 @@ Cada recurso compartido tiene una carpeta con formato *.backups* que contiene la
 
 1.  Al realizar la ILR, puede ver las copias de seguridad a través del Explorador de Windows. Haga clic en el recurso compartido específico que quiera ver en la copia de seguridad. Verá una carpeta con formato *.backups* creada en el recurso compartido que almacena todas las copias de seguridad. Expanda la carpeta con formato *.backups* para ver las copias de seguridad. A continuación, verá en la carpeta la vista seccionada de toda la jerarquía de copias de seguridad. Normalmente, esta vista se crea a petición y en tan solo un par de segundos.
 
-	De esta manera, se muestran las últimas 5 copias de seguridad. Esto incluye tanto las copias de seguridad programadas de forma predeterminada y las manuales.
+	Las últimas 5 copias de seguridad se muestran en este modo y pueden utilizarse para realizar una recuperación de nivel de elemento. Las cinco copias de seguridad recientes incluyen las copias de seguridad programadas predeterminadas y las copias de seguridad manuales.
 
 	
 	-   **Copias de seguridad programadas** denominadas &lt;nombreDe Dispositivo&gt; DailySchedule-AAAAMMDD-HHMMSS-UTC.
@@ -130,6 +130,6 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 ## Pasos siguientes
 
-Obtenga más información acerca de cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
+Más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

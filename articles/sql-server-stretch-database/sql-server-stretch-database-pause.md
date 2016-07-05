@@ -34,9 +34,11 @@ Pause la migración de datos en tablas individuales cuando desee solucionar prob
 Ejecute el siguiente comando.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;
-GO;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <Stretch-enabled table name>  
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;  
+GO
 ```
 
 ## Reanudación de la migración de datos
@@ -51,12 +53,23 @@ GO;
 Ejecute el siguiente comando.
 
 ```tsql
-ALTER TABLE <table name>
-    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+USE <Stretch-enabled database name>;
+GO
+ALTER TABLE <Stretch-enabled table name>   
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;  
+ GO
 ```
+
+## Comprobación de si la migración está activa o en pausa
+
+### Uso de SQL Server Management Studio para comprobar si la migración está activa o en pausa
+En SQL Server Management Studio, abra **Stretch Database Monitor** y compruebe el valor de la columna **Migration State** (Estado de migración). Para más información, consulte [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md).
+
+### Uso de Transact-SQL para comprobar si la migración está activa o en pausa
+Abra la vista de catálogo **sys.remote\_data\_archive\_tables** y compruebe el valor de la columna **is\_migration\_paused**. Para más información, consulte [sys.remote\_data\_archive\_tables](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Consulte también
 
-[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx) [Supervisión y solución de problemas de migración de datos (Stretch Database)](sql-server-stretch-database-monitor.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

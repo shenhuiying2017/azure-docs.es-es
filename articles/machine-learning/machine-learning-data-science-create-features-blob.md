@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
-	ms.author="fashah;garye;bradsev" />
+	ms.date="06/14/2016" 
+	ms.author="bradsev;garye" />
 
 #Creación de características para los datos de almacenamiento de blobs de Azure mediante Panda
 
 Este documento muestra cómo crear características para datos que se almacenan en el contenedor de blobs de Azure mediante el paquete de Python [Pandas](http://pandas.pydata.org/). Después de esquematizar cómo cargar los datos en una trama de datos de Panda, se muestra cómo generar características de categorías mediante scripts de Python con valores de indicador y características de discretización, mediante scripts de Python.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea es un paso del [proceso de Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Este **menú** vincula a temas en los que se describe cómo crear características para datos en diversos entornos. Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Requisitos previos
-En este artículo se supone que ha creado una cuenta de almacenamiento de blobs de Azure y que ha almacenado los datos ahí. Si necesita instrucciones para configurar una cuenta, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage).
+En este artículo se supone que ha:
+* creado una cuenta de almacenamiento de blobs de Azure y que ha almacenado los datos ahí. Si necesita instrucciones para configurar una cuenta, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage).
 
 
 ## Carga de los datos en una trama de datos Pandas
@@ -137,4 +138,4 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

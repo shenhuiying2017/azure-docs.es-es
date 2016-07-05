@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/20/2016" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
@@ -38,7 +38,7 @@ Existen algunos detalles importantes para cada uno de esos elementos.
 - Las redes virtuales que se utilizan para hospedar un ASE deben ser redes virtuales clásicas y regionales del tipo "v1". 
 - **La subred utilizada para hospedar el ASE no debe contener otros recursos informáticos.**
 - En una subred solo puede haber un ASE.
-- En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
+- Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen *o* intervalos de direcciones públicas *o* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la subred por adelantado y, a continuación, seleccionar la subred en la UX de creación de ASE.
 
 Cada implementación de ASE es un servicio hospedado que Azure administra y mantiene. Los recursos de proceso que hospedan los roles del sistema ASE no son accesibles para el cliente aunque este administre la cantidad de instancias y sus tamaños.
 
@@ -49,7 +49,7 @@ Si desea que la red virtual tenga un grupo de recursos independiente del ASE, pr
 ### Creación rápida ###
 La experiencia de creación de un ASE tiene un conjunto de valores predeterminados para permitir una experiencia de creación rápida. Puede crear rápidamente un ASE con solo introducir el nombre de la implementación. Esto a su vez crea un ASE en la región más cercana a la suya con una:
 
-- Red virtual con 512 direcciones 
+- Red virtual con 512 direcciones con un espacio de direcciones privadas RFC1918
 - Subnet con 256 direcciones
 - Grupo de servidores front-end con recursos de proceso 2 P2
 - Grupo de trabajo con recursos de proceso 2 P1
@@ -64,7 +64,9 @@ El nombre especificado para el ASE se usará en las aplicaciones creadas en él.
 Contar con los valores predeterminados resulta muy útil en varias situaciones, pero con frecuencia necesitará algunos ajustes. En las siguientes secciones se examina cada una de las configuraciones relativas al ASE.
 
 ### Red virtual ###
-Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente (por el momento solo se admiten redes virtuales "v1") si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 8 direcciones o más. En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
+Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente (por el momento solo se admiten redes virtuales "v1") si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 8 direcciones o más.
+
+Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen *o* intervalos de direcciones públicas *o* espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para usar una red virtual con un intervalo de direcciones públicas, es necesario crear la subred por adelantado y, a continuación, seleccionar la subred en la UX de creación de ASE.
 
 Si selecciona una red virtual que ya existía también tendrá que especificar una subred para usar o crear una nuevo. La subred debe tener 8 direcciones o más y no puede contener ningún otro recurso. La creación de ASE producirá un error si intenta usar una subred que ya tiene asignadas máquinas virtuales.
 
@@ -143,6 +145,7 @@ Existen dependencias adicionales que no están disponibles para personalización
 
 
 ## Introducción
+Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Para empezar a trabajar con entornos del Servicio de aplicaciones, vea [Introducción a los entornos del Servicio de aplicaciones][WhatisASE].
 
@@ -165,4 +168,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

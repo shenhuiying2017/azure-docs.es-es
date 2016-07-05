@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 
 
 # Trabajar con las aplicaciones para notificaciones en Proxy de aplicación
-
-> [AZURE.IMPORTANT] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Las aplicaciones para notificaciones realizan una redirección al servicio de token de seguridad (STS), que a su vez solicita las credenciales del usuario a cambio de un token antes de redirigir al usuario a la aplicación. Para permitir que el proxy de aplicación funcione con estas redirecciones, deben realizarse los siguientes pasos.
 
@@ -38,9 +36,9 @@ Antes de realizar este procedimiento, asegúrese de que el STS al que redirige l
 ## Configuración de AD FS
 
 1. Abra Administración de AD FS.
-2. Vaya a **Relaciones de confianza para usuario autenticado**, haga clic con el botón derecho en la aplicación que va a publicar con el proxy de aplicación y seleccione **Propiedades**. ![Relaciones de confianza para usuario autenticado: haga clic con el botón derecho en el nombre de la aplicación - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+2. Vaya a **Relying Party Trusts** (Relaciones de confianza para usuario autenticado), haga clic con el botón derecho en la aplicación que va a publicar con el proxy de aplicación y seleccione **Propiedades**. ![Relaciones de confianza para usuario autenticado: haga clic con el botón derecho en el nombre de la aplicación - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
 3. En la pestaña **Extremos**, en **Tipo de extremo**, seleccione **WS-Federation**.
-4. En **Dirección URL de confianza**, escriba la dirección URL que indicó en Proxy de aplicación en **Dirección URL externa** y haga clic en **Aceptar**. ![Agregar un extremo: establezca el valor de Dirección URL de confianza - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
+4. En **Trusted URL** (Dirección URL de confianza), escriba la dirección URL que indicó en Proxy de aplicación en **Dirección URL externa** y haga clic en **Aceptar**. ![Agregar un extremo: establezca el valor de Dirección URL de confianza - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## Consulte también
 
@@ -49,6 +47,6 @@ Antes de realizar este procedimiento, asegúrese de que el STS al que redirige l
 - [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 - [Habilitación de las aplicaciones de cliente nativo para interactuar con el proxy de aplicación](active-directory-application-proxy-native-client.md)
 
-Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/) (Proxy de aplicación).
+Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/) (Blog de Proxy de aplicación).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

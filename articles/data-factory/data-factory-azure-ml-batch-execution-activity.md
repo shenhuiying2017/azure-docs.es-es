@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="06/20/2016" 
 	ms.author="spelluru"/>
 
 # Creación de canalizaciones predictivas con las actividades de Aprendizaje automático de Azure   
@@ -773,4 +773,4 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,147 +1,147 @@
-This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. 
+En este artículo se describe un conjunto de procedimientos probados para ejecutar una máquina virtual (VM) Windows en Azure, teniendo en cuenta la escalabilidad, disponibilidad, manejabilidad y seguridad.
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure cuenta con dos modelos de implementación diferentes: [Resource Manager][resource-manager-overview] y clásico. En este artículo se utiliza el Administrador de recursos, que Microsoft recomienda para las implementaciones nuevas.
 
-We don't recommend using a single VM for production workloads, because there is no up-time SLA for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an availability set. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
+Se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún SLA de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
-## Architecture diagram
+## Diagrama de la arquitectura
 
-Provisioning VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.  
+El aprovisionamiento de una máquina virtual en Azure implica más piezas en movimiento que la propia máquina virtual. Existen elementos de proceso, red y almacenamiento.
 
-![IaaS: single VM](./media/guidance-blueprints/compute-single-vm.png)
+![IaaS: una única VM](./media/guidance-blueprints/compute-single-vm.png)
 
-- **Resource group.** A [_resource group_][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
+- **Grupo de recursos.** Un [_grupo de recursos_][resource-manager-overview] es un contenedor que incluye recursos relacionados. Cree un grupo de recursos para contener los recursos de esta máquina virtual.
 
-- **VM**. You can provision a VM from a list of published images or from a VHD file that you upload to Azure blob storage.
+- **Máquina virtual**. Puede aprovisionar una VM desde una lista de imágenes publicadas o desde un archivo de disco duro virtual cargado en Almacenamiento de blobs de Azure.
 
-- **OS disk.** The OS disk is a VHD stored in [Azure storage][azure-storage]. That means it persists even if the host machine goes down.
+- **Disco del sistema operativo.** El disco del sistema operativo es un disco duro virtual almacenado en [Almacenamiento de Azure][azure-storage]. Esto significa que persiste incluso si el equipo host deja de funcionar.
 
-- **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is _not_ saved in Azure storage, and might go away during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+- **Disco temporal.** La máquina virtual se crea con un disco temporal (la unidad `D:` de Windows). Este disco se almacena en una unidad física del equipo host. _No_ se guarda en Almacenamiento de Azure y podría desaparecer durante los reinicios y otros eventos del ciclo de vida de la máquina virtual. Use este disco solo para datos temporales, como archivos de paginación o de intercambio.
 
-- **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure storage, like the OS disk.
+- **Discos de datos.** Un [disco de datos][data-disk] es un disco duro virtual persistente para los datos de la aplicación. Los discos de datos se almacenan en Almacenamiento de Azure, como el disco del sistema operativo.
 
-- **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a virtual network (VNet), which is further divided into subnets.
+- **Red virtual y subred.** Cada VM en Azure se implementa en una red virtual, que se divide en subredes.
 
-- **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over remote desktop (RDP).
+- **Dirección IP pública.** Es necesaria una dirección IP pública para comunicarse con la VM, por ejemplo, a través de Escritorio remoto (RDP).
 
-- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
+- **La interfaz de red (NIC)**. La NIC permite que la VM se comunique con la red virtual.
 
-- **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
+- **Grupo de seguridad de red (NSG)**. El [NSG][nsg] se utiliza para permitir o denegar el tráfico de red a la subred. Puede asociar un NSG a una NIC individual o a una subred. Si se asocia con una subred, las reglas NSG se aplican a todas las máquinas virtuales de esa subred.
  
-- **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
+- **Diagnóstico.** El registro de diagnóstico es fundamental para administrar y solucionar problemas de la VM.
 
-## Recommendations
+## Recomendaciones
 
-### VM recommendations
+### Recomendaciones de VM
 
-- We recommend the DS- and GS-series, unless you have a specialized workload such as high-performance computing. For details, see [Virtual machine sizes][virtual-machine-sizes]. When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. Also, if you need multiple NICs, be aware of the NIC limit for each size.  
+- Se recomienda la serie GS, a menos que tenga una carga de trabajo especializada, como puede ser el caso de la informática de alto rendimiento. Para más información, consulte los [tamaños de máquina virtual][virtual-machine-sizes]. Al mover una carga de trabajo existente a Azure, comience con el tamaño de máquina virtual que más se acerque a los servidores locales. Luego, mida el rendimiento de la carga de trabajo real con respecto a la CPU, la memoria y la IOPS de disco, y ajuste el tamaño, si es necesario. Además, si tiene varias tarjetas NIC, tenga en cuenta el límite de NIC para cada tamaño.  
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
+- Cuando aprovisiona la VM y otros recursos, debe especificar una ubicación. Por lo general, se recomienda elegir una ubicación más cercana a los usuarios internos o clientes. Sin embargo, no todos los tamaños de máquina virtual están disponibles en todas las ubicaciones. Para más información, consulte [Servicios por región][services-by-region]. Para enumerar los tamaños de máquina virtual disponibles en una ubicación dada, ejecute el siguiente comando de la CLI de Azure:
 
     ```
     azure vm sizes --location <location>
     ```
 
-- For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
+- Para más información sobre cómo elegir una imagen de máquina virtual publicada, consulte [Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o CLI][select-vm-image].
 
-### Disk and storage recommendations
+### Recomendaciones de discos y almacenamiento
 
-- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+- Para un mejor rendimiento de E/S de disco, se recomienda [almacenamiento Premium][premium-storage], que almacena los datos en unidades de estado sólido (SSD). El costo se basa en el tamaño del disco aprovisionado. Las E/S por segundo y el rendimiento (es decir, la velocidad de transferencia de datos) también dependen del tamaño del disco, por lo que al aprovisionar un disco, debería tener en cuenta los tres factores (capacidad, E/S por segundo y rendimiento). 
 
-- Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
+- Agregue uno o más discos de datos. Cuando se crea un nuevo disco duro virtual, no tiene formato. Inicie sesión en la VM para dar formato al disco.
 
-- If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
+- Si tiene un gran número de discos de datos, tenga en cuenta los límites de E/S totales de la cuenta de almacenamiento. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure][vm-disk-limits].
 
-- For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
+- Para obtener el mejor rendimiento, cree una cuenta de almacenamiento independiente para contener los registros de diagnóstico. Una cuenta de almacenamiento con redundancia local (LRS) estándar es suficiente para este tipo de registros.
 
-- When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+- Cuando sea posible, instale las aplicaciones en un disco de datos, no en el disco del sistema operativo. Sin embargo, en el caso de algunas aplicaciones heredadas, podría ser necesario instalar componentes en la unidad C:. En ese caso, puede [cambiar el tamaño del disco del sistema operativo][resize-os-disk] con PowerShell.
 
-### Network recommendations
+### Recomendaciones de red
 
-- The public IP address can be dynamic or static. The default is dynamic.
+- La dirección IP pública puede ser dinámica o estática. El valor predeterminado es dinámica.
 
-    - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
+    - Reserve una [dirección IP estática][static-ip] si necesita una dirección IP fija que no cambie, por ejemplo, si tiene que crear un registro D en DNS o necesita que se permita la dirección IP.
 
-    - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
+    - También puede crear un nombre de dominio completo (FQDN) para la dirección IP. Luego, puede registrar un [registro CNAME][cname-record] en DNS que apunte al FQDN. Para más información, consulte [Crear un nombre de dominio completo en el Portal de Azure][fqdn].
 
-- All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
+- Todos los NSG contienen un conjunto de [reglas predeterminadas][nsg-default-rules], incluida una que bloquea todo el tráfico entrante de Internet. No se puede eliminar las reglas predeterminadas, pero otras reglas pueden reemplazarlas. Para permitir el tráfico de Internet, cree reglas que permitan el tráfico entrante a puertos específicos &mdash; por ejemplo, el puerto 80 para HTTP.
 
-- To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
+- Para habilitar RDP, agregue una regla de NSG que permita el tráfico entrante al puerto TCP 3389.
 
-## Scalability considerations
+## Consideraciones sobre escalabilidad
 
-- You can scale a VM up or down by [changing the VM size][vm-resize]. 
+- Puede escalar y reducir verticalmente una máquina virtual [cambiando su tamaño][vm-resize]. 
 
-- To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple Windows VMs on Azure][multi-vm].
+- Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
-## Availability considerations
+## Consideraciones sobre disponibilidad
 
-- As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+- Como se mencionó anteriormente, no hay ningún SLA para una sola máquina virtual. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad.
 
-- Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
+- La máquina virtual puede verse afectada por un [mantenimiento planeado][planned-maintenance] o un [mantenimiento no planeado][manage-vm-availability]. Puede usar [registros de reinicio de máquina virtual][reboot-logs] para determinar si se produjo un reinicio de la máquina virtual por mantenimiento planeado.
 
-- VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
+- Los discos duros virtuales están respaldados por [Almacenamiento de Azure][azure-storage], que se replica para su disponibilidad y durabilidad.
 
-- To protect against accidental data loss during normal operations (e.g., because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
+- Para protegerse de la pérdida accidental de datos durante las operaciones normales (por ejemplo, debido a errores de usuario), debe implementar igualmente copias de seguridad a un momento dado mediante [instantáneas de blobs][blob-snapshot] u otra herramienta.
 
-## Manageability considerations
+## Consideraciones sobre la manejabilidad
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **Grupos de recursos.** Coloque los recursos estrechamente acoplados que comparten el mismo ciclo de vida en un mismo [grupo de recursos][resource-manager-overview]. Los grupos de recursos le permiten implementar y supervisar los recursos como un grupo, y acumular los costos de facturación por grupo de recursos. También se pueden eliminar recursos en conjunto, lo que resulta muy útil para implementaciones de prueba. Asigne a los recursos nombres descriptivos. De esta forma será más fácil encontrarlos y comprender su función. Consulte [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
-- **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
+- **Diagnósticos de máquina virtual.** Habilite la supervisión y el diagnóstico, como las métricas básicas de estado, los registros de infraestructura de diagnóstico y los [diagnósticos de arranque][boot-diagnostics]. Los diagnósticos de arranque pueden ayudarle a diagnosticar errores de arranque si la máquina virtual entra en un estado de imposibilidad de arranque. Para más información, consulte [Habilitación de supervisión y diagnóstico][enable-monitoring]. Utilice la extensión [Colección de registros de Azure][log-collector] para recopilar registros de la plataforma Azure y cargarlos en Almacenamiento de Azure.
 
-    The following CLI command enables diagnostics:
+    El siguiente comando CLI habilita los diagnósticos:
 
     ```text
     azure vm enable-diag <resource-group> <vm-name>
      ```
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
+- **Detención de una máquina virtual.** Azure hace una distinción entre estados "Detenidos" y "Asignación anulada". Se le cobrará cuando el estado de la VM sea "Detenido". No se le cobrará cuando la asignación de la VM esté anulada.
 
-    Use the following CLI command to de-allocate a VM:
+    Utilice el siguiente comando de la CLI para anular la asignación de una VM:
 
     ```text
     azure vm deallocate <resource-group> <vm-name>
     ```
 
-    The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but _not_ de-allocated, so you will still be charged.
+    El botón **Detener** en el Portal de Azure también desasigna la máquina virtual. Sin embargo, si apaga desde dentro del sistema operativo mientras tiene la sesión iniciada, la máquina virtual se detiene pero _no_ se anula su asignación, por lo que se le seguirá cobrando.
 
-- **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [blob storage][blob-storage].
+- **Eliminación de una máquina virtual.** Si elimina una VM, no se eliminarán los discos duros virtuales. Esto significa que puede eliminar de forma segura la VM sin perder datos. Sin embargo, se le seguirá cobrando por el almacenamiento. Para eliminar el disco duro virtual, elimine el archivo desde [Almacenamiento de blobs][blob-storage].
 
-  To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+  Para evitar eliminaciones accidentales, use un [bloqueo de recurso][resource-lock] para bloquear el grupo de recursos completo o recursos individuales, como la máquina virtual.
 
 
 
-## Security considerations
+## Consideraciones sobre la seguridad
 
-- Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues such as system updates, antimalware, and provides a comprehensive picture of the security health of your deployment. 
+- Use el [Centro de seguridad de Azure][security-center] para obtener una visión central del estado de la seguridad de sus recursos en Azure. El Centro de seguridad supervisa los posibles problemas de seguridad, como actualizaciones del sistema o antimalware, y proporciona una imagen completa del estado de seguridad de su implementación. 
 
-    - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
-    - Once data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+    - El Centro de seguridad se configura por cada suscripción de Azure. Habilite la recopilación de datos de seguridad tal como se describe en [Uso del Centro de seguridad].
+    - Después de habilitar la colección, el Centro de seguridad busca automáticamente las máquinas virtuales creadas en esa suscripción.
 
-- **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+- **Administración de revisiones.** Si está habilitada esta opción, el Centro de seguridad comprueba si faltan actualizaciones críticas y de seguridad. Utilice la [configuración de directiva de grupo][group-policy] en la máquina virtual para habilitar las actualizaciones automáticas del sistema.
 
-- **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure Portal.
+- **Antimalware.** Si está habilitada esta opción, el Centro de seguridad comprueba si está instalado software antimalware. También puede utilizar el Centro de seguridad para instalar software antimalware desde el Portal de Azure.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contrubutor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+- Utilice el [control de acceso basado en rol][rbac] \(RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia incluyen [Usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y [Colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
-    > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
+    > [AZURE.NOTE] RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.
 
-- To reset the local administrator password, run the `vm reset-access` Azure CLI command.
+- Para restablecer la contraseña de administrador local, ejecute el comando `vm reset-access` de la CLI de Azure.
 
     ```text
     azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
     ```
 
-- Use [audit logs][audit-logs] to see provisioning actions and other VM events.
+- Utilice los [registros de auditoría][audit-logs] para ver las acciones de aprovisionamiento y otros eventos de máquina virtual.
 
-- Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+- Considere la posibilidad de usar el [Cifrado de discos de Azure][disk-encryption] si necesita cifrar los discos de datos y del sistema operativo.
 
-## Example deployment script
+## Ejemplo de script de implementación
 
-The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
+El siguiente script por lotes de Windows ejecuta los comandos de la [CLI de Azure][azure-cli] para implementar una única instancia de máquina virtual, así como los recursos de red y almacenamiento relacionados, tal como se muestra en el diagrama anterior.
 
-The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
+El script usa las convenciones de nomenclatura que se describen en [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para recursos de Azure).
 
 ```bat
 ECHO OFF
@@ -253,26 +253,26 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
   --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
-## Next steps
+## Pasos siguientes
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple Windows VMs on Azure][multi-vm].
+Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/es-ES/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
-[group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[group-policy]: https://technet.microsoft.com/es-ES/library/dn595129.aspx
+[log-collector]: https://azure.microsoft.com/es-ES/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -284,19 +284,21 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/es-ES/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
-[Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
+[Resize-VHD]: https://technet.microsoft.com/es-ES/library/hh848535.aspx
+[Resize virtual machines]: https://azure.microsoft.com/es-ES/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/en-us/services/security-center/
+[security-center]: https://azure.microsoft.com/es-ES/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/en-us/regions/#services
+[services-by-region]: https://azure.microsoft.com/es-ES/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
-[Use Security Center]: ../articles/security-center/security-center-get-started.md#use-security-center
+[Uso del Centro de seguridad]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/es-ES/support/legal/sla/virtual-machines/v1_0/
+
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Configuración de un host de Docker con VirtualBox | Microsoft Azure"
    description="Instrucciones paso a paso para configurar una instancia de Docker predeterminada con la máquina de Docker y VirtualBox"
-   services="visual-studio-online"
+   services="azure-container-service"
    documentationCenter="na"
    authors="allclark"
    manager="douge"
@@ -37,23 +37,29 @@ Para configurar a un cliente de Docker, simplemente abra Windows PowerShell y re
  
 1. Compruebe que la instancia predeterminada está configurada y en ejecución. (Verá que se ejecuta una instancia denominada 'predeterminada'.
 
-		docker-machine ls 
+    ```PowerShell
+	docker-machine ls 
+    ```
 		
-	![][0]
+	![salida de docker-machine ls][0]
  
 1. Establezca el host actual como predeterminado y configure el shell.
 
-        docker-machine env default | Invoke-Expression
+    ```PowerShell
+    docker-machine env default | Invoke-Expression
+    ```
 
 1. Vea los contenedores de Docker activos. La lista debe estar vacía.
 
-		docker ps
+    ```PowerShell
+	docker ps
+    ```
 
-	![][1]
+	![salida de docker ps][1]
  
 > [AZURE.NOTE] Cada vez que reinicie el equipo de desarrollo, deberá reiniciar el host de Docker local. Para ello, emita el siguiente comando en un símbolo del sistema: `docker-machine start default`.
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

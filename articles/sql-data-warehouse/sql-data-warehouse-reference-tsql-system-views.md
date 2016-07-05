@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="06/17/2016"
    ms.author="barbkess;sonyama"/>
 
 # Vistas de sistema
@@ -128,7 +128,7 @@
 
 ## DMV del servidor SQL disponibles en Almacenamiento de datos SQL
 
-El almacenamiento de datos SQL expone gran parte de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en el almacenamiento de datos SQL, están informando del estado de la base de datos SQL que se ejecuta en las distribuciones.
+El almacenamiento de datos SQL expone gran parte de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en Almacenamiento de datos SQL, están informando del estado de las bases de datos SQL que se ejecuta en las distribuciones.
 
 Puesto que el almacenamiento de datos SQL se basa en tecnología MPP de Microsoft, tanto el almacenamiento de datos SQL, como el almacenamiento de datos paralelos (PDW) del sistema de la plataforma de análisis, utilizan las mismas vistas de sistema.
 
@@ -236,4 +236,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS
@@ -87,4 +87,4 @@ Aquí podemos observar que el Feature Pack de SSIS permite administrar flujos m�
 - Para ejecutar un script de Hive en un clúster de HDInsight de Azure con SSIS, use [Tarea de Hive para HDInsight de Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 - Para ejecutar un script de Pig en un clúster de HDInsight de Azure con SSIS, use [Tarea de Pig para HDInsight de Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

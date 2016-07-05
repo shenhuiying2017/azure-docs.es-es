@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/14/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # Diez cosas que puede hacer en Data Science Virtual Machine
@@ -910,4 +910,4 @@ Para mejorar su entorno de análisis, puede sacar provecho de otros servicios ta
 ## Resumen
 Estas son solo algunas de las cosas que puede hacer en Microsoft Data Science Virtual Machine. Hay muchas más cosas que puede hacer para que sea un entorno de análisis efectivo.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0622_2016-->

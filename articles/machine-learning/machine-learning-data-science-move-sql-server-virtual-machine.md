@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;bradsev" />
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
-En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte del proceso de análisis de Cortana proporcionado por Azure.
+En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
 
 Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
 
-El **menú** siguiente vincula a temas que describen cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de Cortana Analytics (CAPS).
+El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -224,4 +224,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

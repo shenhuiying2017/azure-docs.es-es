@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/03/2016"
+	ms.date="06/16/2016"
 	ms.author="larryfr"/>
 
 # Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra
@@ -76,6 +76,7 @@ Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado
 
 Las siguientes instrucciones de HiveQL proyectarán columnas en datos delimitados que se almacenan en el directorio **wasb:///example/data**:
 
+    set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -83,6 +84,10 @@ Las siguientes instrucciones de HiveQL proyectarán columnas en datos delimitado
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguientes:
+
+* __set hive.execution.engine=tez;__: establece el motor de ejecución para usar Tez. Si se utiliza Tez en lugar de MapReduce, se puede mejorar el rendimiento de las consultas. Para obtener más información sobre Tez, consulte la sección [Use Apache Tez para un mejor rendimiento](#usetez).
+
+    > [AZURE.NOTE] Esta instrucción solo es necesaria si se utiliza un clúster de HDInsight basado en Windows; Tez es el motor de ejecución predeterminado para HDInsight basado en Linux.
 
 * **DROP TABLE**: elimina la tabla y el archivo de datos si la tabla ya existe.
 * **CREATE EXTERNAL TABLE**: crea una tabla **externa** nueva en Hive. Las tablas externas solo almacenan la definición de tabla en Hive; los datos quedan en la ubicación original y en el formato original.
@@ -97,10 +102,11 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 
 Después de crear la tabla externa, las siguientes instrucciones sirven para crear una tabla **interna**.
 
+    set hive.execution.engine=tez;
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
 	INSERT OVERWRITE TABLE errorLogs
-	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 Estas instrucciones realizan las acciones siguientes:
 
@@ -124,9 +130,9 @@ Los [documentos de diseño de Hive en Tez](https://cwiki.apache.org/confluence/d
 
 Para ayudar a depurar los trabajos que se ejecutaron mediante Tez, HDInsight proporciona las siguientes interfaces de usuario web que le permiten ver los detalles de los trabajos de Tez:
 
-* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md) (Uso de la IU de Tez en HDInsight basado en Windows)
+* [Use the Tez UI on Windows-based HDInsight (Uso de la IU de Tez en HDInsight basado en Windows)](hdinsight-debug-tez-ui.md)
 
-* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md) (Uso de la vista Tez de Ambari en HDInsight basado en Linux)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
 
 ##<a id="run"></a>Elija cómo desea ejecutar el trabajo de HiveQL
 
@@ -206,4 +212,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0622_2016-->

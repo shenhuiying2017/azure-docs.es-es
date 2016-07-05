@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/22/2016"
     ms.author="darosa;sethm"/>
 
 # Las firmas de acceso compartido
@@ -192,7 +192,7 @@ Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP me
 
 ```
 /// <summary>
-/// Send Claim Based Security (CBS) token
+/// Send claim-based security (CBS) token
 /// </summary>
 /// <param name="shareAccessSignature">Shared access signature (token) to send</param>
 private bool PutCbsToken(Connection connection, string sasToken)
@@ -253,10 +253,10 @@ Después de enviar el token de SAS en el vínculo del remitente, el publicador d
 
 Vea la [referencia de la API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) para obtener más información sobre lo que puede hacer con estos tokens de SAS.
 
-Para obtener más información sobre la autenticación de Bus de servicio, vea [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md).
+Para obtener más información sobre la autenticación de Bus de servicio, consulte [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md).
 
 Puede encontrar más ejemplos de SAS en C# y Java Script en [esta entrada de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0622_2016-->

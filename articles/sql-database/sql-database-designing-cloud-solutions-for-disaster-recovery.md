@@ -86,7 +86,7 @@ Como en el patrón nº 1, debe considerar la posibilidad de implementar una apli
 
 > [AZURE.NOTE] Mientras que este patrón usa más de una base de datos secundaria, solo uno de las secundarias se usará para la conmutación por error por los motivos que se indicaron anteriormente. Puesto que este patrón requiere acceso de solo lectura a la base de datos secundaria, necesitará la replicación geográfica activa.
 
-El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Si se detecta una interrupción de la base de datos en la región principal se inicia la conmutación por error de la base de datos principal a una de las regiones secundarias, lo que cambiará la ubicación de la base de datos principal. El Administrador de tráfico excluirá automáticamente el extremo sin conexión de la tabla de enrutamiento, pero continuará el enrutamiento del tráfico de usuario final a las instancias restantes en línea. Dado que la base de datos principal está ahora en una región distinta, todas las instancias en línea tienen que cambiar su cadena de conexión de SQL de lectura y escritura para conectarse con el nuevo elemento principal. Es importante que realice este cambio antes de iniciar la conmutación por error de la base de datos. Las cadenas de conexión de SQL de solo lectura deben permanecer sin cambios ya que siempre señalan a la base de datos en la misma región. Los pasos de conmutación por error son:
 
@@ -153,14 +153,20 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 | Implementación activa-activa para el equilibrio de carga de aplicación | Acceso de lectura y escritura < 5 s | Tiempo de detección de errores + llamada de API de conmutación por error + cadena de conexión SQL + cambio de prueba de verificación de aplicación
 | Implementación activa-pasiva para la conservación de datos | Acceso de solo lectura < 5 s acceso de lectura y escritura = cero | Acceso de solo lectura = tiempo de detección de errores de conectividad + prueba de comprobación de la aplicación <br>Acceso de lectura y escritura = tiempo para mitigar la interrupción
 
+## Pasos siguientes
+
+- Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
 
 ## Recursos adicionales
 
-
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
+- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
+- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
+- [Restauración geográfica](sql-database-geo-restore.md)
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 - [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
+- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
 - [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0622_2016-->

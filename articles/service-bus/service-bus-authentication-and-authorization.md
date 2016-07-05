@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Autenticación y autorización de Bus de servicio | Microsoft Azure"
-   description="Información general de la autenticación de Firma de acceso compartido (SAS)."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Autenticación y autorización de Bus de servicio | Microsoft Azure"
+    description="Información general de la autenticación de Firma de acceso compartido (SAS)."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Autenticación y autorización de Bus de servicio
 
@@ -73,4 +73,4 @@ Para obtener una descripción general de SAS en el Bus de servicio, consulte [Fi
 
 Puede encontrar más información acerca de los tokens ACS en [Procedimiento: Solicitar un token de ACS mediante el protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0622_2016-->

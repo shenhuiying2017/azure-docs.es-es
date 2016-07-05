@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="06/20/2016" 
 	ms.author="anhoh"/>
 
 # Modelo jerárquico de recursos y conceptos de DocumentDB
@@ -412,7 +412,7 @@ Considere una aplicación de lectura social que utilice la Base de datos de docu
 -	Una aplicación puede almacenar los metadatos de cada usuario como un documento distinto; por ejemplo, los metadatos de Joe para book1 se almacenan en un documento con la referencia /colls/joe/docs/book1. 
 -	Los datos adjuntos que señalan páginas de contenido de un libro de un usuario se almacenan en el documento correspondiente; por ejemplo, /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 etc. 
 
-Tenga en cuenta que los ejemplos usan identificadores sencillos para transmitir la jerarquía de recursos. Se obtiene acceso a los recursos mediante las API REST a través de los identificadores de recurso únicos.
+Tenga en cuenta que los ejemplos anteriores usan identificadores sencillos para transmitir la jerarquía de recursos. Se obtiene acceso a los recursos mediante las API REST a través de los identificadores de recurso únicos.
 
 Para los archivos multimedia gestionados por la Base de datos de documentos, la propiedad \_media del dato adjunto hará referencia al archivo multimedia por su URI. La Base de datos de documentos garantizará la recolección de archivos multimedia no utilizados cuando se anulen todas las referencias pendientes. La Base de datos de documentos genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y completa \_media para señalar al nuevo archivo multimedia agregado. Si selecciona almacenar el archivo multimedia en un almacén blob remoto que lo gestiona usted (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad \_media.
 
@@ -451,4 +451,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0622_2016-->

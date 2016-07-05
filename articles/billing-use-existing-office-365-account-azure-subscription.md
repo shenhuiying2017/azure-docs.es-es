@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="06/20/2016"
 	ms.author="cjiang"/>
 
 # Uso de una cuenta de Office 365 con una suscripción de Azure y viceversa
@@ -144,4 +144,7 @@ Para más información, consulte [Asociación de las suscripciones de Azure con 
 - Las suscripciones de Azure son propiedad de usuarios individuales del directorio.
 - Las suscripciones de Office 365 pertenecen al propio directorio. Los usuarios del directorio pueden trabajar con estas suscripciones si disponen de los permisos necesarios.
 
-<!---HONumber=AcomDC_0518_2016-->
+##Pasos siguientes
+Hay un escenario relacionado donde adquirió las suscripciones de Azure y Office 365 por separado en el pasado y desea poder acceder al inquilino de Office 365 desde la suscripción de Azure. Para aprender cómo realizar esta tarea, consulte [Asociación del inquilino de Office 365 con una suscripción de Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+
+<!---HONumber=AcomDC_0622_2016-->

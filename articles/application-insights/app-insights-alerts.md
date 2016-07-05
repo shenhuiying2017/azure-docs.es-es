@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="06/20/2016" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -41,14 +41,14 @@ Para recibir un correo electrónico cuando una métrica cruce un umbral, inicie 
 * Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
 * Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
 * El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
-* Si activa la casilla "Propietarios de correo electrónico...", se enviarán alertas por correo electrónico a todos los usuarios con acceso a este recurso.
-* Si especifica "Correos electrónicos adicionales", se enviarán alertas a esos usuarios o grupos (independientemente de que haya activado la casilla "Propietarios de correo electrónico"). 
-* Establezca una [dirección de Webhook](../azure-portal/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando se active la alerta (es decir, cuando se desencadene) y cuando se haya resuelto.
+* Si activa la casilla "Email owners..." (Propietarios de correo electrónico), las alertas se enviarán por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](app-insights-resources-roles-access-control.md) (no al recurso).
+* Si especifica "Correos electrónicos adicionales", las alertas se enviarán a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
+* Establezca una [dirección de webhook](../azure-portal/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando se active la alerta (es decir, cuando se desencadene) y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
 * Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior de la hoja.
 
 *No veo el botón Agregar alerta.* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a Configuración -> Usuarios. [Más información sobre el control de acceso][roles].
 
-> [AZURE.NOTE] En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo de NRT](app-insights-nrt-proactive-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. Por lo que a menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes.
+> [AZURE.NOTE] En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo en tiempo casi real](app-insights-nrt-proactive-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. Por lo que a menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes.
 
 ## Visualización de alertas
 
@@ -126,4 +126,4 @@ Las alertas más populares son:
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0622_2016-->

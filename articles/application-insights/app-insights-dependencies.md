@@ -68,7 +68,11 @@ En los cuadros, puede ir a la dependencia pertinente y a otros gráficos.
 
 Haga clic en la pequeña [x] para contraer un subárbol.
 
-## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia en el servidor web
+Ancle el mapa al [panel](app-insights-dashboards.md), donde será completamente funcional.
+
+[Más información](app-insights-app-map.md).
+
+## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento relacionados con dependencias en el servidor web
 
 Para evaluar el rendimiento de las solicitudes en el servidor:
 
@@ -150,4 +154,4 @@ Consulte [Application Insights para páginas web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

@@ -13,40 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/16/2016"
 	ms.author="robinsh"/>
 
 #Guía de seguridad de Almacenamiento de Azure
 
 ##Información general
 
-Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [Cifrado de cliente](storage-client-side-encryption.md), HTTPS o SMB 3.0. Se puede establecer una configuración para que los datos se cifren automáticamente cuando se escriben en Almacenamiento de Azure mediante el [Cifrado del servicio de almacenamiento](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Cifrado de discos de Azure](../azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Almacenamiento de Azure mediante las [Firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
+Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](storage-client-side-encryption.md), HTTPS o SMB 3.0. Los datos se pueden configurar para que se cifren automáticamente cuando se escriben en Almacenamiento de Azure mediante el [cifrado del servicio de almacenamiento (SSE)](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Cifrado de discos de Azure](../azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Almacenamiento de Azure mediante las [Firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 Este artículo ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Almacenamiento de Azure. Se incluyen vínculos a artículos en los que se detalla cada una de ellas, así que puede examinar un tema determinado con mayor detalle si así lo desea.
 
 Estos son los temas que se tratarán en este artículo:
 
--   Seguridad en el plano de la administración: protección de la cuenta de almacenamiento
+-   [Seguridad en el plano de la administración](#management-plane-security): protección de la cuenta de almacenamiento
 
-    El plano de la administración está compuesto por los recursos que se usan para administrar la cuenta de almacenamiento. En esta sección, hablaremos sobre el modelo de implementación de Azure Resource Manager (ARM) y cómo usar el control de acceso basado en rol para controlar el acceso a sus cuentas de almacenamiento. También hablaremos acerca de cómo administrar las claves de la cuenta de almacenamiento y cómo volver a generarlas.
+    El plano de la administración está compuesto por los recursos que se usan para administrar la cuenta de almacenamiento. En esta sección, hablaremos sobre el modelo de implementación de Azure Resource Manager y cómo usar el control de acceso basado en rol (RBAC) para controlar el acceso a sus cuentas de almacenamiento. También hablaremos acerca de cómo administrar las claves de la cuenta de almacenamiento y cómo volver a generarlas.
 
--   Seguridad en el plano de los datos: protección del acceso a los datos
+-   [Seguridad en el plano de los datos](#data-plane-security): protección del acceso a los datos
 
     En esta sección, analizaremos el modo de permitir el acceso a los objetos de datos reales de la cuenta de almacenamiento, como blobs, archivos, colas y tablas, y el uso de Firmas de acceso compartido y Directivas de acceso almacenadas. Nos fijaremos en las Firmas de acceso compartido tanto a nivel de servicio como a nivel de cuenta. También veremos cómo limitar el acceso a una dirección IP específica (o un intervalo de direcciones IP), cómo limitar el protocolo utilizado para HTTPS y cómo revocar una Firma de acceso compartido sin esperar a que expire.
 
--   Cifrado en tránsito
+-   [Cifrado en tránsito](#encryption-in-transit)
 
     En esta sección se describe cómo proteger los datos cuando se transfieren a o desde Almacenamiento de Azure. Hablaremos sobre el uso recomendado de HTTPS y el cifrado usado por SMB 3.0 para recursos compartidos de archivos de Azure. También echaremos un vistazo al Cifrado de cliente, que permite cifrar los datos antes de transferirlos al Almacenamiento en una aplicación cliente y descifrarlos una vez transferidos desde este servicio.
 
--   Cifrado en reposo
+-   [Cifrado en reposo](#encryption-at-rest)
 
-    Hablaremos acerca del Cifrado del servicio de almacenamiento y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques y los blobs en páginas se cifren automáticamente al escribir en Almacenamiento de Azure. También veremos cómo puede usar Cifrado de discos de Azure y exploraremos los casos y las diferencias básicas entre Cifrado de discos, Cifrado del servicio de almacenamiento y Cifrado en el cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
+    Hablaremos acerca del cifrado del servicio de almacenamiento (SSE) y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques, los blobs en páginas y los blobs en anexos se cifren automáticamente al escribir en Almacenamiento de Azure. También veremos cómo puede usar Cifrado de discos de Azure y exploraremos los casos y las diferencias básicas entre Cifrado de discos, Cifrado del servicio de almacenamiento y Cifrado en el cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
 
--   Uso de Análisis de almacenamiento para auditar el acceso de Almacenamiento de Azure
+-   Uso de [Análisis de almacenamiento](#storage-analytics) para auditar el acceso de Almacenamiento de Azure
 
     En esta sección se describe cómo buscar información en los registros de análisis de almacenamiento para una solicitud. Echaremos un vistazo a los datos de registro del análisis de almacenamiento real y aprenderemos a discernir si una solicitud se realiza con una clave de cuenta de Almacenamiento, una Firma de acceso compartido o de manera anónima, y si se pudo completar o no.
 
--   Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes
+-   [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#Cross-Origin-Resource-Sharing-CORS)
 
     En esta sección se analiza cómo permitir el uso compartido de recursos entre orígenes. Abordaremos el acceso entre dominios y cómo administrarlo con las funcionalidades del uso compartido de recursos entre orígenes integradas en Almacenamiento de Azure.
 
@@ -56,11 +56,11 @@ El plano de la administración consta de las operaciones que afectan a la propia
 
 Cuando se crea una nueva cuenta de almacenamiento, se selecciona un modelo de implementación clásico o de Resource Manager. El modelo clásico de creación de recursos de Azure únicamente permite acceder a toda la suscripción en su conjunto o bien a nada de ella, y lo mismo ocurre con la cuenta de almacenamiento.
 
-Esta guía se centra en el modelo de Resource Manager, que es el medio recomendado para crear cuentas de almacenamiento. Con las cuentas de almacenamiento de Azure Resource Manager (ARM), en lugar de proporcionar acceso a toda la suscripción, puede controlar el acceso en un nivel más detallado en el plano de administración mediante el control de acceso basado en rol (RBAC).
+Esta guía se centra en el modelo de Resource Manager, que es el medio recomendado para crear cuentas de almacenamiento. Con las cuentas de almacenamiento de Resource Manager, en lugar de proporcionar acceso a toda la suscripción, puede controlar el acceso en un nivel más detallado en el plano de administración mediante el control de acceso basado en rol (RBAC).
 
 ###Protección de su cuenta de almacenamiento con el control de acceso basado en rol (RBAC)
 
-Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar el [Portal de Azure](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), o [las API de REST del proveedor de recursos de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar el [Portal de Azure](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o [las API de REST del proveedor de recursos de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con el modelo de Resource Manager, se coloca la cuenta de almacenamiento en un grupo de recursos y se controla el acceso al plano de la administración de dicha cuenta de almacenamiento específica mediante Azure Active Directory. Por ejemplo, puede proporcionar a usuarios específicos la posibilidad de tener acceso a las claves de la cuenta de almacenamiento, mientras que otros usuarios pueden ver información sobre la cuenta de almacenamiento pero no pueden tener acceso a sus claves.
 
@@ -86,7 +86,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 
     -	Lector: puede ver información sobre la cuenta de almacenamiento, excepto los secretos. Por ejemplo, si asigna un rol con permisos de lectura sobre la cuenta de almacenamiento a otro usuario, este puede ver las propiedades de la cuenta de almacenamiento, pero no puede realizar cambios en las propiedades ni ver las claves de la cuenta de almacenamiento.
 
-    -	Colaborador de la cuenta de almacenamiento: puede administrar la cuenta de almacenamiento. Puede leer los grupos de recursos y los recursos de la suscripción, así como crear y administrar implementaciones de los grupos de recursos de la suscripción. No puede acceder a las claves de la cuenta de almacenamiento, lo que a su vez implica que no puede tener acceso al plano de los datos.
+    -	Colaborador de la cuenta de almacenamiento: puede administrar la cuenta de almacenamiento. Puede leer los grupos de recursos y los recursos de la suscripción, así como crear y administrar implementaciones de los grupos de recursos de la suscripción. También puede acceder a las claves de la cuenta de almacenamiento, lo que a su vez implica que puede acceder al plano de los datos.
 
     -	Administrador de acceso de usuarios: puede administrar el acceso de los usuarios a la cuenta de almacenamiento. Por ejemplo, puede conceder acceso de lectura a un usuario específico.
 
@@ -116,7 +116,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 
 -   [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-    En este artículo se explica cómo funcionan el proceso, la red y los proveedores de almacenamiento de Azure en el modelo de Azure Resource Manager.
+    En este artículo se explica cómo funcionan el proceso, la red y los proveedores de almacenamiento de Azure en el modelo de Resource Manager.
 
 -   [Administración del control de acceso basado en rol con la API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
 
@@ -126,11 +126,11 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 
 	Esta es la referencia para las API que puede usar para administrar la cuenta de almacenamiento mediante programación.
 
--   [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/) (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)
+-   [Developer’s guide to auth with Azure Resource Manager API (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
-	En este artículo se muestra cómo realizar la autenticación mediante las API de Azure Resource Manager.
+	En este artículo se muestra cómo realizar la autenticación mediante las API de Resource Manager.
 
--   [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707) (Control de acceso basado en rol para Microsoft Azure de Ignite)
+-   [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
     Este es un vínculo a un vídeo de Channel 9 de la conferencia de MS Ignite de 2015. En esta sesión, se abordan las funciones de notificación y administración de acceso en Azure y se exploran los procedimientos recomendados en torno a la protección del acceso a suscripciones de Azure con Azure Active Directory.
 
@@ -184,13 +184,13 @@ Nota: Se recomienda usar solo una de las claves en todas las aplicaciones al mis
 
 -   [Referencia de API de REST de proveedor de recursos de almacenamiento de Azure](https://msdn.microsoft.com/library/mt163683.aspx)
 
-	Este artículo contiene vínculos a artículos específicos sobre la recuperación de las claves de la cuenta de almacenamiento y su regeneración para una cuenta de Azure que usa la API de REST. Nota: Esto se dirige a las cuentas de almacenamiento de Azure Resource Manager.
+	Este artículo contiene vínculos a artículos específicos sobre la recuperación de las claves de la cuenta de almacenamiento y su regeneración para una cuenta de Azure que usa la API de REST. Nota: Se trata de cuentas de almacenamiento de Resource Manager.
 
 -   [Operaciones en cuentas de almacenamiento](https://msdn.microsoft.com/library/ee460790.aspx)
 
     Este artículo de la referencia de API de REST del administrador de servicios de almacenamiento contiene vínculos a artículos específicos sobre la recuperación y la regeneración de las claves de la cuenta de almacenamiento mediante la API de REST. Nota: Esto se dirige a las cuentas de almacenamiento estándar.
 
--   [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/) (Adiós a administración de claves: administre el acceso a los datos de Almacenamiento de Azure con Azure AD)
+-   [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Adiós a administración de claves: administre el acceso a los datos de Almacenamiento de Azure con Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
 	Este artículo muestra cómo utilizar Active Directory para controlar el acceso a las claves de Almacenamiento de Azure en el Almacén de claves de Azure. También muestra cómo utilizar un trabajo de Automatización de Azure para regenerar las claves cada hora.
 
@@ -212,7 +212,7 @@ Como se describe en la sección sobre la [Seguridad en el plano de la administra
 
 ###Delegación del acceso a objetos en la cuenta mediante Firmas de acceso compartido y Directivas de acceso almacenadas
 
-Una Firma de acceso compartido es una cadena que contiene un token de seguridad que puede asociarse a un URI que le permite delegar el acceso a objetos de almacenamiento y especificar restricciones como permisos o un intervalo de fecha y hora para el acceso.
+Una Firma de acceso compartido es una cadena que contiene un token de seguridad que puede asociarse a un URI que le permite delegar el acceso a objetos de almacenamiento y especificar restricciones, como permisos o un intervalo de fecha y hora para el acceso.
 
 Puede conceder acceso a blobs, contenedores, mensajes de colas, archivos y tablas. En el caso de las tablas, realmente puede conceder permiso para tener acceso a un intervalo de entidades en la tabla especificando los intervalos de clave de fila y partición a los que desea que el usuario tenga acceso. Por ejemplo, si tiene datos almacenados con una clave de partición por estados geográficos, podría dar a una persona acceso a los datos de California.
 
@@ -316,7 +316,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
 
 -   Tutorial de introducción a las Firmas de acceso compartido
 
-	-	[Getting Started with Shared Access Signatures (SAS)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started) (Introducción a las Firmas de acceso compartido)
+	-	[Getting Started with Shared Access Signatures (SAS) (Introducción a las Firmas de acceso compartido)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ##Cifrado en tránsito
 
@@ -324,7 +324,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
 
 Otro paso que debe seguir para garantizar la seguridad de los datos de Almacenamiento de Azure es cifrar los datos entre el cliente y Almacenamiento de Azure. La primera recomendación es utilizar siempre el protocolo [HTTPS](https://en.wikipedia.org/wiki/HTTPS), que garantiza una comunicación segura a través de la red pública de Internet.
 
-Siempre debe usar HTTPS al llamar a las API de REST u obtener acceso a objetos de almacenamiento. Además, las **Firmas de acceso compartido**, que pueden utilizarse para delegar el acceso a objetos de Almacenamiento de Azure, incluyen una opción para especificar que se utilice solo el protocolo HTTPS con las Firmas de acceso compartido, garantizando así que cualquiera que envíe vínculos con tokens de SAS utilice el protocolo adecuado.
+Siempre debe usar HTTPS al llamar a las API de REST u obtener acceso a objetos de almacenamiento. Además, las **Firmas de acceso compartido**, que pueden utilizarse para delegar el acceso a objetos de Almacenamiento de Azure, incluyen una opción para especificar que se utilice solo el protocolo HTTPS con las Firmas de acceso compartido, lo que garantiza que cualquiera que envíe vínculos con tokens de SAS utilice el protocolo adecuado.
 
 ####Recursos
 
@@ -360,21 +360,21 @@ El Cifrado de cliente es también un método para cifrar los datos en reposo, ya
 
 ##Cifrado en reposo
 
-Hay tres características de Azure que proporcionan cifrado en reposo. El Cifrado de discos de Azure se utiliza para cifrar los discos de datos y del sistema operativo en máquinas virtuales de IaaS. Las otras dos —Cifrado de cliente y Cifrado del servicio de almacenamiento— se utilizan para cifrar los datos en el Almacenamiento de Azure. Vamos a analizarlas por separado y luego las vamos a comparar para determinar cuándo se puede utilizar cada una de ellas.
+Hay tres características de Azure que proporcionan cifrado en reposo. El Cifrado de discos de Azure se utiliza para cifrar los discos de datos y del sistema operativo en máquinas virtuales de IaaS. Los otros dos modos de cifrado, Cifrado en el cliente y Cifrado del servicio de almacenamiento, se utilizan para cifrar los datos en Almacenamiento de Azure. Vamos a analizarlas por separado y luego las vamos a comparar para determinar cuándo se puede utilizar cada una de ellas.
 
-Aunque puede usar el Cifrado de cliente para cifrar los datos en tránsito (que también se almacenan en su forma cifrada en Almacenamiento), es preferible simplemente usar HTTPS durante la transferencia y disponer de algún método para que los datos se cifren automáticamente al almacenarse. Hay dos maneras de hacerlo: Cifrado de discos de Azure y Cifrado del servicio de almacenamiento. Uno se utiliza para cifrar directamente los datos en los discos de datos y del sistema operativo usados por las máquinas virtuales, y el otro para cifrar los datos escritos en Almacenamiento de blobs de Azure.
+Aunque puede usar el Cifrado de cliente para cifrar los datos en tránsito (que también se almacenan en su forma cifrada en Almacenamiento), es preferible simplemente usar HTTPS durante la transferencia y disponer de algún método para que los datos se cifren automáticamente al almacenarse. Hay dos maneras de hacerlo: Cifrado de discos de Azure y SSE. Uno se utiliza para cifrar directamente los datos en los discos de datos y del sistema operativo usados por las máquinas virtuales, y el otro para cifrar los datos escritos en Almacenamiento de blobs de Azure.
 
-###Cifrado del servicio de almacenamiento
+###Cifrado del servicio de almacenamiento (SSE)
 
-El Cifrado del servicio de almacenamiento es una nueva característica de Almacenamiento de Azure que se encuentra en su versión preliminar pública. Esta característica le permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure. Cuando se lean los datos desde el Almacenamiento de Azure, el servicio de almacenamiento los descifrará antes de devolverlos. De este modo, protege los datos sin tener que modificar el código o agregar código a las aplicaciones.
+SSE es una nueva característica de Almacenamiento de Azure en versión preliminar pública. Esta característica le permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure. Cuando se lean los datos desde el Almacenamiento de Azure, el servicio de almacenamiento los descifrará antes de devolverlos. De este modo, protege los datos sin tener que modificar el código o agregar código a las aplicaciones.
 
-Se trata de una configuración que se aplica a toda la cuenta de almacenamiento. Puede habilitar y deshabilitar esta característica cambiando el valor de la configuración. Para ello, puede usar el Portal de Azure, PowerShell, la CLI de Azure, la API de REST del proveedor de recursos de almacenamiento o la biblioteca de cliente de almacenamiento de .NET. De forma predeterminada, el Cifrado del servicio de almacenamiento está desactivado.
+Se trata de una configuración que se aplica a toda la cuenta de almacenamiento. Puede habilitar y deshabilitar esta característica cambiando el valor de la configuración. Para ello, puede usar el Portal de Azure, PowerShell, la CLI de Azure, la API de REST del proveedor de recursos de almacenamiento o la biblioteca de cliente de almacenamiento de .NET. De forma predeterminada, SSE está desactivado.
 
-En este momento, Microsoft administra las claves utilizadas para el cifrado. Generamos las claves originalmente y administramos el almacenamiento seguro de las claves, así como la rotación periódica de acuerdo con la política interna de Microsoft. En el futuro, se agregará la posibilidad de que sea el usuario quien administre sus propias claves de cifrado, y proporcionaremos una ruta de migración desde las claves administradas por Microsoft a las claves administradas por el cliente.
+En este momento, Microsoft administra las claves utilizadas para el cifrado. Generamos las claves originalmente y administramos el almacenamiento seguro de las claves, así como la rotación periódica de acuerdo con la política interna de Microsoft. En el futuro, tendrá la posibilidad de administrar sus propias claves de cifrado, y proporcionaremos una ruta de migración desde las claves administradas por Microsoft a las claves administradas por el cliente.
 
-Esta característica está disponible para cuentas de Almacenamiento de tipo Estándar y Premium creadas mediante el modelo de implementación de Azure Resource Manager después del 30/3/2016 a las 12:00 a.m. (hora estándar del Pacífico). El Cifrado del servidor de Almacenamiento se aplica solo a blobs en bloques y blobs en páginas. Los otros tipos de datos, como tablas, colas y archivos, no se cifrarán.
+Esta característica está disponible para cuentas de Almacenamiento de tipo Estándar y Premium creadas mediante el modelo de implementación de Resource Manager después del 30/3/2016 a las 12:00 a.m. (hora estándar del Pacífico). SSE se aplica solo a blobs en bloques, blobs en páginas y blobs en anexos. Los otros tipos de datos, como tablas, colas y archivos, no se cifrarán.
 
-Solo se cifran los datos cuando está habilitado el Cifrado del servicio de almacenamiento y los datos se escriben en el Almacenamiento de blobs. El hecho de habilitar o deshabilitar el Cifrado del servicio de almacenamiento no afecta a los datos existentes. En otras palabras, al habilitar este cifrado, no se cifrarán los datos que ya existan; y tampoco se descifrarán los datos que ya existan al deshabilitar dicho servicio.
+Solo se cifran los datos cuando está habilitado SSE y los datos se escriben en Almacenamiento de blobs. El hecho de habilitar o deshabilitar el SSE no afecta a los datos existentes. En otras palabras, al habilitar este cifrado, no se cifrarán los datos que ya existan; y tampoco se descifrarán los datos que ya existan al deshabilitarlo.
 
 Si desea probar esta función con una cuenta de almacenamiento creada con anterioridad a la fecha mencionada previamente, o una cuenta de almacenamiento clásica, puede crear una nueva cuenta de almacenamiento y usar AzCopy para copiar los datos a la nueva cuenta. Esto no debería ser necesario en versiones posteriores a la preliminar.
 
@@ -410,9 +410,11 @@ La solución Cifrado de discos de Azure admite los tres siguientes escenarios de
 
 -   Habilitar el cifrado en nuevas máquinas virtuales de IaaS creadas a partir de archivos VHD cifrados por el cliente y claves de cifrado proporcionadas por el cliente, que se almacenan en el Almacén de claves de Azure.
 
--   Habilitar el cifrado en nuevas máquinas virtuales de IaaS creadas a partir de la Galería de Azure.
+-   Habilitar el cifrado en nuevas máquinas virtuales de IaaS creadas en Azure Marketplace.
 
 -   Habilitar el cifrado en máquinas virtuales de IaaS existentes que ya se ejecutan en Azure.
+
+>[AZURE.NOTE] Para máquinas virtuales Linux que ya se ejecuten en Azure, o nuevas máquinas virtuales Linux creadas a partir de imágenes en Azure Marketplace, actualmente no se admite el cifrado del disco del sistema operativo. El cifrado del volumen del sistema operativo en máquinas virtuales Linux solo se admite para máquinas virtuales que se cifraron localmente y se cargaron en Azure. Esta restricción se aplica solo al disco del sistema operativo; se admite el cifrado de volúmenes de datos en una máquina virtual Linux.
 
 La solución admite lo siguiente para las máquinas virtuales IaaS para la versión de la vista previa pública cuando se habilita en Microsoft Azure:
 
@@ -428,43 +430,43 @@ Esta característica garantiza que todos los datos de los discos de máquinas vi
 
 ####Recursos
 
--   [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) (Cifrado de discos de Azure para máquinas virtuales IaaS de Linux y Windows)
+-   [Azure Disk Encryption for Windows and Linux Azure Virtual Machines (Cifrado de discos de Azure para máquinas virtuales IaaS de Linux y Windows)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
     En este artículo se describe la versión preliminar del Cifrado de discos de Azure y se proporciona un vínculo para descargar las notas del producto.
 
-###Comparación del Cifrado de discos de Azure, el Cifrado del servicio de almacenamiento y el Cifrado de cliente
+###Comparación entre Cifrado de discos de Azure, SSE y Cifrado en el cliente
 
 ####Máquinas virtuales de IaaS y sus archivos VHD
 
-Para los discos usados por las máquinas virtuales de IaaS, se recomienda utilizar Cifrado de discos de Azure. Puede activar el Cifrado del servicio de almacenamiento para cifrar los archivos VHD que se usan para respaldar los discos en el Almacenamiento de Azure, pero este solo cifra datos recién escritos. Esto significa que si crea una máquina virtual y, a continuación, habilita el Cifrado del servicio de almacenamiento en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
+Para los discos usados por las máquinas virtuales de IaaS, se recomienda utilizar Cifrado de discos de Azure. Puede activar SSE para cifrar los archivos VHD que se usan para respaldar esos discos en Almacenamiento de Azure, pero solos se cifran los datos recién escritos. Esto significa que si crea una máquina virtual y luego habilita SSE en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
 
-Si crea una máquina virtual fuera de Azure Marketplace, esta realiza una copia superficial de la cuenta de almacenamiento en Almacenamiento de Azure y no se cifra aunque esté habilitado el Cifrado del servicio de almacenamiento. Solo se cifrarán los nuevos datos escritos después de ese punto. Por este motivo, es mejor utilizar el Cifrado de discos de Azure en máquinas virtuales creadas a partir de imágenes en Azure Marketplace si quiere que estén totalmente cifradas.
+Si crea una máquina virtual mediante una imagen de Azure Marketplace, Azure realiza una [copia superficial](https://en.wikipedia.org/wiki/Object_copying) de ella en la cuenta de almacenamiento en Almacenamiento de Azure y no se cifra aunque tenga habilitado SSE. Cuando se cree la máquina virtual y comience a actualizarse la imagen, SSE iniciará el cifrado de los datos. Por este motivo, es mejor utilizar el Cifrado de discos de Azure en máquinas virtuales creadas a partir de imágenes en Azure Marketplace si quiere que estén totalmente cifradas.
 
 Si trae una máquina virtual previamente cifrada a Azure desde el entorno local, podrá cargar las claves de cifrado en el Almacén de claves de Azure y mantener el cifrado para esa máquina virtual que se utilizaba de forma local. La configuración del Cifrado de discos de Azure le permite controlar este escenario.
 
-Si dispone de un VHD no cifrado desde el entorno local, puede cargarlo en la galería como una imagen personalizada y aprovisionar una máquina virtual a partir del mismo. Si lo hace con las plantillas de Azure Resource Manager, puede solicitar la activación del Cifrado de discos de Azure al arrancar la máquina virtual.
+Si dispone de un VHD no cifrado desde el entorno local, puede cargarlo en la galería como una imagen personalizada y aprovisionar una máquina virtual a partir del mismo. Si lo hace con las plantillas de Resource Manager, puede solicitar la activación del Cifrado de discos de Azure al arrancar la máquina virtual.
 
 Al agregar un disco de datos y montarlo en la máquina virtual, puede activar el Cifrado de discos de Azure en ese disco de datos. Cifrará primero ese disco de datos localmente y, a continuación, la capa de administración del servicio hará una escritura diferida en el almacenamiento para que se cifre el contenido del mismo.
 
 ####Cifrado de cliente####
 
-El Cifrado de cliente es el método más seguro para cifrar los datos, porque estos se cifran antes del tránsito y en reposo. Sin embargo, requiere que agregue código a sus aplicaciones mediante el almacenamiento, y quizá no desee hacerlo. En esos casos, puede utilizar HTTPS para los datos en tránsito y el Cifrado del servicio de almacenamiento para cifrar los datos en reposo.
+El Cifrado de cliente es el método más seguro para cifrar los datos, porque estos se cifran antes del tránsito y en reposo. Sin embargo, requiere que agregue código a sus aplicaciones mediante el almacenamiento, y quizá no desee hacerlo. En esos casos, puede utilizar HTTPS para los datos en tránsito y SSE para cifrar los datos en reposo.
 
-Con el cifrado de cliente, puede cifrar las entidades de tabla, los mensajes de colas y los blobs. Con el Cifrado del servicio de almacenamiento, solo se pueden cifrar los blobs. Si necesita cifrar los datos de tabla y cola, debe utilizar el Cifrado de cliente.
+Con el cifrado de cliente, puede cifrar las entidades de tabla, los mensajes de colas y los blobs. Con SSE, solo se pueden cifrar los blobs. Si necesita cifrar los datos de tabla y cola, debe utilizar el Cifrado de cliente.
 
 El Cifrado de cliente es administrado completamente por la aplicación. Es el método más seguro, pero es necesario realizar cambios mediante programación en la aplicación e implementar procesos de administración de claves. Es recomendable usarlo si desea una seguridad adicional durante el tránsito y desea que los datos almacenados se cifren.
 
 El Cifrado de cliente supone más carga en el cliente; así pues, debe tener en cuenta este factor en los planes de escalabilidad, especialmente si está cifrando y transfiriendo una gran cantidad de datos.
 
-####Cifrado del servicio de almacenamiento
+####Cifrado del servicio de almacenamiento (SSE)
 
-El Cifrado del servicio de almacenamiento se administra por el Almacenamiento de Azure y es un proceso que no reviste complejidad. El uso del Cifrado del servicio de almacenamiento no proporciona seguridad para los datos en tránsito, pero cifra los datos tal como se escriben en Almacenamiento de Azure. El uso de esta característica no repercute sobre el rendimiento en modo alguno.
+SSE es administrado mediante Almacenamiento de Azure y es fácil de administrar. El uso de SSE no proporciona seguridad para los datos en tránsito, pero cifra los datos a medida que se escriben en Almacenamiento de Azure. El uso de esta característica no repercute sobre el rendimiento en modo alguno.
 
-Solo puede cifrar blobs en bloques, blobs en anexos y blobs en páginas mediante el Cifrado del servicio de almacenamiento. Si necesita cifrar datos en tabla o en cola, considere el uso del Cifrado de cliente.
+Solo puede cifrar blobs en bloques, blobs en anexos y blobs en páginas mediante SSE. Si necesita cifrar datos en tabla o en cola, considere el uso del Cifrado de cliente.
 
-Si tiene una carpeta o una biblioteca de archivos VHD que utiliza como base para la creación de nuevas máquinas virtuales, puede crear una nueva cuenta de almacenamiento, habilitar el Cifrado del servicio de almacenamiento y luego cargar los archivos VHD en esa cuenta. Esos archivos VHD se cifrarán con el Almacenamiento de Azure.
+Si tiene un archivo o una biblioteca de archivos VHD que utiliza como base para la creación de nuevas máquinas virtuales, puede crear una nueva cuenta de almacenamiento, habilitar SSE y luego cargar los archivos VHD en esa cuenta. Esos archivos VHD se cifrarán con el Almacenamiento de Azure.
 
-Si tiene habilitado el Cifrado de discos de Azure para los discos de una máquina virtual y el Cifrado del servicio de almacenamiento en la cuenta de almacenamiento que contiene los archivos VHD, el proceso funcionará correctamente y dará como resultado que todo los datos recién escritos se cifren dos veces.
+Si tiene habilitados el Cifrado de discos de Azure para los discos de una máquina virtual y SSE en la cuenta de almacenamiento que contiene los archivos VHD, el proceso funcionará correctamente y dará como resultado que todos los datos recién escritos se cifren dos veces.
 
 ##Análisis de almacenamiento
 
@@ -576,15 +578,15 @@ De forma predeterminada, el uso compartido de recursos entre orígenes está des
 
 Esto es lo que significa cada fila:
 
--   **AllowedOrigins** : señala qué dominios no coincidentes pueden solicitar y recibir datos del servicio de almacenamiento. En este caso, indica que contoso.com y fabrikam.com pueden solicitar datos desde Almacenamiento de blobs para una cuenta de almacenamiento específica. También puede configurar este valor en un carácter comodín (*) para permitir que todos los dominios accedan a las solicitudes.
+-   **AllowedOrigins**: señala qué dominios no coincidentes pueden solicitar y recibir datos del servicio de almacenamiento. En este caso, indica que contoso.com y fabrikam.com pueden solicitar datos desde Almacenamiento de blobs para una cuenta de almacenamiento específica. También puede configurar este valor en un carácter comodín (*) para permitir que todos los dominios accedan a las solicitudes.
 
 -   **AllowedMethods**: se trata de la lista de métodos (verbos de solicitud HTTP) que se puede utilizar al realizar la solicitud. En este ejemplo, se permiten solo GET y PUT. Puede configurar este valor en un carácter comodín (*) para permitir que se usen todos los métodos.
 
 -   **AllowedHeaders**: se trata de los encabezados de solicitud que puede especificar el dominio de origen al realizar la solicitud. En el ejemplo anterior, se permiten todos los encabezados de metadatos que comienzan por x-ms-meta-data, x-ms-meta-target y x-ms-meta-abc. Tenga en cuenta que el carácter comodín (*) indica que se permite cualquier encabezado que empiece con el prefijo especificado.
 
--   **ExposedHeaders**: esto indica que los encabezados de respuesta deben exponerse por el explorador al emisor de la solicitud. En este ejemplo, se expondrán los encabezados que empiecen por "x-ms-meta-".
+-   **ExposedHeaders**: indica que el explorador debe exponer los encabezados de respuesta al emisor de la solicitud. En este ejemplo, se expondrán los encabezados que empiecen por "x-ms-meta-".
 
--   **MaxAgeInSeconds**: el tiempo máximo que un explorador almacenará en la memoria caché la solicitud preparatoria OPTIONS (para más información acerca de la solicitud preparatoria, consulte el primer artículo de los que se presentan a continuación).
+-   **MaxAgeInSeconds**: el tiempo máximo que un explorador almacenará en la caché la solicitud preparatoria OPTIONS. (para más información acerca de la solicitud preparatoria, consulte el primer artículo de los que se presentan a continuación).
 
 ####Recursos
 
@@ -598,7 +600,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los Servicios de almacenamiento de Azure. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
 
--   [Microsoft Azure Storage: Introducing CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx) (Almacenamiento de Microsoft Azure: Introducción a uso compartido de recursos entre orígenes)
+-   [Microsoft Azure Storage: Introducing CORS (Almacenamiento de Microsoft Azure: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
 	Se trata de un vínculo al artículo inicial del blog en el que se anuncia el uso compartido de recursos entre orígenes y se muestra cómo utilizarlo.
 
@@ -606,13 +608,11 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 1.  **¿Cómo se puede comprobar la integridad de los blobs que estoy transfiriendo hacia o desde Almacenamiento de Azure si no puedo usar el protocolo HTTPS?**
 
-	Es posible utilizar la comprobación MD5 en las operaciones PUT y GET al trabajar con Almacenamiento de blobs de Azure mediante las API de REST. Si por cualquier motivo utiliza HTTP en lugar de HTTPS, considere la posibilidad de utilizar la comprobación MD5. El almacenamiento del valor MD5 garantiza que estará disponible en caso de que desee descargar el blob mediante HTTP en un momento posterior. Si está seguro de que solo va a utilizar HTTPS, el uso de la comprobación MD5 es redundante porque HTTPS proporciona seguridad de nivel de transporte.
+	Si por algún motivo debe utilizar HTTP en lugar de HTTPS y está trabajando con blobs en bloques, puede usar la comprobación de MD5 para ayudar a comprobar la integridad de los blobs que se transfieren. Esto le ayudará con la protección frente a errores de red o de la capa de transporte, pero no necesariamente con ataques de intermediarios.
 
-	El procedimiento para un blob en bloques es el siguiente: se calcula el valor hash de MD5 de los bits del blob antes de enviarlos. A continuación, al llamar al servicio BLOB de Azure para colocar el blob, se incluye el valor hash de MD5. Si el servicio BLOB recibe un valor hash MD5, este calculará el hash MD5 de los datos que ha recibido y lo compara con el que haya especificado. Si no coinciden, el blob se ha dañado durante el transporte y devolverá un código de error 400 (solicitud incorrecta).
-
-	Cuando se recupera el blob, si hay un valor de MD5 almacenado, este lo devolverá en los encabezados de la solicitud. A continuación, puede calcular el valor hash de MD5 de los datos recibidos y compararlo con el valor MD5 almacenado. Si no coinciden, el blob se dañó durante el transporte.
-
-	Para más información, consulte [Microsoft Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
+	Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.
+	
+	Para más información, consulte [Microsoft Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx) (Información general de MD5 del servicio BLOB de Azure).
 
 2.  **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
 
@@ -622,11 +622,11 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	**Recursos**
 
--	[Why We’re Not Recommending “FIPS Mode” Anymore](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx) (Por qué ya no recomendamos el "modo FIPS")
+-	[Why We’re Not Recommending “FIPS Mode” Anymore (Por qué ya no recomendamos el "modo FIPS")](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
 
 	En este artículo de blog se proporciona una visión global de FIPS y se explica por qué no se habilita el modo FIPS de forma predeterminada.
 
--   [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx) (Validación FIPS 140)
+-   [FIPS 140 Validation (Validación FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
 
 	Este artículo proporciona información sobre el cumplimiento de los productos y los módulos criptográficos de Microsoft con la norma FIPS para el Gobierno Federal de EE. UU.
 
@@ -634,4 +634,4 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
 	Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0622_2016-->

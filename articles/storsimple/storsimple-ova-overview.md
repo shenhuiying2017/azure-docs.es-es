@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/20/2016"
    ms.author="alkohli" />
 
 # Introducción a la matriz virtual de StorSimple
@@ -57,10 +57,10 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 
 | Característica | Ventaja |
 |---------|---------|
-| Integración transparente | La matriz virtual es compatible con el protocolo SMB o el protocolo iSCSI. Esto garantizar que los datos almacenados en la nube, en el centro de datos o en servidores remotos parezcan estar almacenados en una ubicación única.|
-| Costos de almacenamiento reducidos | Gracias a StorSimple, puede aprovisionar el almacenamiento local necesario para satisfacer las demandas actuales. A medida que aumenten sus necesidades de almacenamiento, StorSimple puede organizar en niveles los datos en un almacenamiento en la nube que le resulte rentable. En la nube, esta solución usa la desduplicación y la compresión de datos para reducir aún más los requisitos de almacenamiento y los costes.|
-| Administración simplificada del almacenamiento | StorSimple le proporciona una administración centralizada en la nube. Puede usar las herramientas basadas en la web para configurar y administrar los datos almacenados en la matriz virtual, en un servidor remoto y en la nube.| 
-| Mejor recuperación ante desastres y cumplimiento normativo | StorSimple no necesita extensos tiempos de recuperación. En su lugar, restaura inmediatamente los metadatos y los datos almacenados según sea necesario. Esto significa que las operaciones normales pueden seguir con un mínimo de interrupción.|
+| Integración transparente | La matriz virtual es compatible con el protocolo SMB o el protocolo iSCSI. El movimiento de datos entre el nivel local y el nivel de nube se realiza sin problemas y de forma transparente para el usuario.|
+| Costos de almacenamiento reducidos | Gracias a StorSimple, puede aprovisionar el almacenamiento local necesario para satisfacer las demandas actuales de la mayoría de los datos activos más usados. A medida que aumenten sus necesidades de almacenamiento, StorSimple puede organizar en niveles los datos inactivos en un almacenamiento en la nube que le resulte rentable. Los datos se desduplican y comprimen antes de enviarse a la nube para reducir aún más los gastos y los requisitos de almacenamiento.|
+| Administración simplificada del almacenamiento | StorSimple proporciona administración centralizada en la nube con StorSimple Manager para administrar varios dispositivos.| 
+| Mejor recuperación ante desastres y cumplimiento normativo | StorSimple facilita una recuperación ante desastres más rápida al restaurar los metadatos inmediatamente y restaurar los datos según sea necesario. Esto significa que las operaciones normales pueden seguir con un mínimo de interrupción.|
 | Movilidad de datos | Se puede tener acceso a los datos organizados en niveles en la nube desde otros sitios, para que así pueda recuperar y migrar los datos que desee. Tenga en cuenta que solo puede restaurar datos en la matriz virtual original. Sin embargo, debe usar características de recuperación ante desastres para restaurar toda la matriz virtual en otra matriz virtual.|
 
 ## Flujos de trabajo
@@ -184,4 +184,4 @@ Las características de protección de datos de StorSimple le permiten crear cop
 
 Obtenga información acerca de cómo [preparar el portal de la matriz virtual](storsimple-ova-deploy1-portal-prep.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

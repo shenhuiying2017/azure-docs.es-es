@@ -13,12 +13,41 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/18/2016"
+   ms.date="06/21/2016"
    ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## SO invitado de junio 
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-035 | [3141780] | Actualización de seguridad de .NET Framework tratar la omisión de la característica de seguridad | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| Advisory | [3155527] | Actualización de conjuntos de cifrado para FalseStart | 4\.33, 3.40 | 14 de junio de 2016 |
+| MS16-063 | [3163649] | Actualización de seguridad acumulativa para Internet Explorer | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-069 | [3163640] | Actualización de seguridad acumulativa para JScript y VBScript | 2\.52 | 14 de junio de 2016 |
+| MS16-071 | [3164065] | Actualización de seguridad para el servidor DNS de Microsoft Windows | 4\.33, 3.40 | 14 de junio de 2016 |
+| MS16-072 | [3163622] | Actualización de seguridad para la directiva de grupo | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-073 | [3164028] | Actualización de seguridad para controladores de modo kernel | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-074 | [3164036] | Actualización de seguridad para el componente de gráficos de Microsoft | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-075 | [3164038] | Actualización de seguridad para el servidor SMB de Windows | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-076 | [3167691] | Actualización de seguridad para Netlogon | 4\.33 | 14 de junio de 2016 |
+| MS16-077 | [3165191] | Actualización de seguridad para WPAD | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| MS16-080 | [3164302] | Actualización de seguridad para PDF de Microsoft Windows | 4\.33, 3.40 | 14 de junio de 2016 |
+| MS16-081 | [3160352] | Actualización de seguridad para Active Directory | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+| | [2922223] | No se puede cambiar la hora del sistema si está habilitada la entrada de registro RealTimeIsUniversal en Windows | 2\.52 | 14 de junio de 2016 |
+| | [3121255] | Error de detención "0x00000024" en FsRtlNotifyFilterReportChange y la copia del archivo puede generar un error en Windows | 2\.52 | 14 de junio de 2016 |
+| | [3125424] | Los interbloqueos LSASS hacen que Windows Server 2012 R2 o Windows Server 2012 no respondan | 4\.33, 3.40 | 14 de junio de 2016 |
+| | [3125574] | Cómodo paquete acumulativo de actualizaciones para Windows 7 SP1 y Windows Server 2008 R2 SP1 | 2\.52 | 14 de junio de 2016 |
+| | [3140245] | Actualización para habilitar TLS 1.1 y TLS 1.2 como un protocolo seguro predeterminado de WinHTTP en Windows | 3\.40, 2.52 | 14 de junio de 2016 |
+| | [3146604] | El servicio WMI se bloquea de forma aleatoria en Windows Server 2012 R2 o Windows Server 2012 | 4\.33, 3.40 | 14 de junio de 2016 |
+| | [3149157] | Mejoras de confiabilidad y escalabilidad en TCP/IP para Windows 8.1 y Windows Server 2012 R2 | 4\.33 | 14 de junio de 2016 |
+| | [3156416] | Paquete acumulativo de actualizaciones de mayo de 2016 de Windows Server 2012 | 3\.40 | 14 de junio de 2016 |
+| | [3156418] | Paquete acumulativo de actualizaciones de mayo de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 | 4\.33 | 14 de junio de 2016 |
+| | [3153731] | Actualización de mayo de 2016 de horario de verano para Azerbaiyán, Chile, Haití y Marruecos en Windows | 4\.33, 3.40, 2.52 | 14 de junio de 2016 |
+
 
 ## SO invitado de mayo 
 
@@ -288,6 +317,32 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+
+[3141780]: http://support.microsoft.com/kb/3141780
+[3155527]: http://support.microsoft.com/kb/3155527
+[3163649]: http://support.microsoft.com/kb/3163649
+[3163640]: http://support.microsoft.com/kb/3163640
+[3164065]: http://support.microsoft.com/kb/3164065
+[3163622]: http://support.microsoft.com/kb/3163622
+[3164028]: http://support.microsoft.com/kb/3164028
+[3164036]: http://support.microsoft.com/kb/3164036
+[3164038]: http://support.microsoft.com/kb/3164038
+[3167691]: http://support.microsoft.com/kb/3167691
+[3165191]: http://support.microsoft.com/kb/3165191
+[3164302]: http://support.microsoft.com/kb/3164302
+[3160352]: http://support.microsoft.com/kb/3160352
+[2922223]: http://support.microsoft.com/kb/2922223
+[3121255]: http://support.microsoft.com/kb/3121255
+[3125424]: http://support.microsoft.com/kb/3125424
+[3125574]: http://support.microsoft.com/kb/3125574
+[3140245]: http://support.microsoft.com/kb/3140245
+[3146604]: http://support.microsoft.com/kb/3146604
+[3149157]: http://support.microsoft.com/kb/3149157
+[3156416]: http://support.microsoft.com/kb/3156416
+[3156418]: http://support.microsoft.com/kb/3156418
+[3153731]: http://support.microsoft.com/kb/3153731
+
+
 [3155533]: http://support.microsoft.com/kb/3155533
 [3156764]: http://support.microsoft.com/kb/3156764
 [3156754]: http://support.microsoft.com/kb/3156754
@@ -489,4 +544,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->

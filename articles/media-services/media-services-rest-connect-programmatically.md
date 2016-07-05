@@ -43,6 +43,10 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 
 	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
+##Dirección de control de acceso
+
+La dirección de control de acceso de Servicios multimedia es https://wamsprodglobal001acs.accesscontrol.windows.net, excepto para la región Norte de China, donde es https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
+
 ##Obtención de un token de acceso
 
 Para obtener acceso a Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. Este token es similar a otros tokens proporcionados por ACS basados en notificaciones de acceso proporcionadas en el encabezado de una solicitud HTTP y que usan el protocolo OAuth v2. No es necesario ningún otro requisito previo antes de conectarse directamente a Servicios multimedia.
@@ -173,4 +177,4 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0622_2016-->

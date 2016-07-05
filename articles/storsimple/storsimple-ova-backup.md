@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="06/07/2016"
    ms.author="alkohli" />
 
 # Crear una copia de seguridad de la matriz virtual de StorSimple
 
 ## Información general 
 
-Este tutorial se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016.
+Este tutorial se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016 o versiones posteriores.
 
 La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. Puede crear copias de seguridad, restaurar copias de seguridad y realizar la conmutación por error de dispositivos si se necesita recuperación ante desastres. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. En este tutorial se describe cómo usar el portal clásico de Azure o la interfaz de usuario web de StorSimple para crear copias de seguridad programadas y manuales de la matriz virtual de StorSimple.
 
@@ -64,7 +64,7 @@ Además de las copias de seguridad programadas, puede crear una copia de segurid
 
     ![trabajo de copia de seguridad creado](./media/storsimple-ova-backup/image7.png)
 
-3. Para realizar un seguimiento del progreso del trabajo, haga clic en el icono **Ver trabajo**.
+3. Para realizar un seguimiento del progreso del trabajo, haga clic en **Ver trabajo**.
 
 4. Una vez finalizado el trabajo de copia de seguridad, vaya a la pestaña **Catálogo de copia de seguridad**. Debería ver la copia de seguridad completada.
 
@@ -104,4 +104,4 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 Más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0622_2016-->

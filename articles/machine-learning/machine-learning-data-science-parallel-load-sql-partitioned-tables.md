@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" />
 
 # Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
@@ -187,4 +187,4 @@ o bien,
 Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0622_2016-->
