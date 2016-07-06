@@ -3,7 +3,7 @@
    description="Versión preliminar de Microsoft Power BI Embedded: código esencial para integrar un informe en la aplicación, cómo debe autenticarse con el token de aplicación de Power BI Embedded, cómo obtener informes"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Inserción de un informe de Power BI con un iframe
 En este artículo se muestra código esencial para usar la API de REST de **Power BI Embedded**, los tokens de aplicación, un IFrame y algo de código JavaScript para integrar o insertar un informe en la aplicación.
@@ -228,4 +228,4 @@ En este artículo, se le ha presentado el código para integrar un informe de **
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

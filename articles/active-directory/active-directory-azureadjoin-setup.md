@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configuración de Azure AD Join en su organización
@@ -32,9 +32,9 @@ Para crear y administrar usuarios en Azure AD manualmente, consulte [Administrac
 3. En la pestaña **Directorio**, seleccione su directorio.
 4. Seleccione la pestaña **Configurar**.
 5. Vaya a la sección **Dispositivos**.
-6. En la pestaña **Dispositivos**, configure lo siguiente:  
+6. En la pestaña **Dispositivos**, configure lo siguiente:
    * **NÚMERO MÁXIMO DE DISPOSITIVOS POR USUARIO**: seleccione el número máximo de dispositivos que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no podrá agregar dispositivos adicionales hasta que se quiten uno o varios de sus dispositivos existentes.
-   * **REQUERIR MULTI-FACTOR AUTH PARA CONECTAR DISPOSITIVOS**: determine si los usuarios deben proporcionar un segundo factor de autenticación para unir su dispositivo a Azure AD. Para obtener más información sobre Multi-Factor Authentication, consulte [Introducción a Multi-Factor Authentication de Azure en la nube](multi-factor-authentication-get-started-cloud/).
+   * **REQUERIR MULTI-FACTOR AUTH PARA CONECTAR DISPOSITIVOS**: determine si los usuarios deben proporcionar un segundo factor de autenticación para unir su dispositivo a Azure AD. Para más información sobre Azure Multi-Factor Authentication, consulte [Introducción a Azure Multi-Factor Authentication en la nube](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
    * **LOS USUARIOS PUEDEN UNIR DISPOSITIVOS A AZURE AD**: seleccione los usuarios y grupos que tienen permiso para unir dispositivos a Azure AD.
    * **ADMINISTRADORES ADICIONALES EN DISPOSITIVOS UNIDOS A AZURE AD**: con Azure AD Premium o Enterprise Mobility Suite (EMS), puede elegir a qué usuarios se les conceden derechos de administrador local al dispositivo. De forma predeterminada, a los administradores globales y a los propietarios de dispositivos se les conceden derechos de administrador local.
 
@@ -55,4 +55,4 @@ A continuación se describen tres escenarios que puede usar para permitir que lo
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

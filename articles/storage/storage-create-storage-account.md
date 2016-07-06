@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="06/23/2016"
 	ms.author="robinsh"/>
 
 
@@ -51,7 +51,7 @@ Por ejemplo, si la cuenta de almacenamiento se llama *mystorageaccount*, los ext
 
 La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
-También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. Para las cuentas de almacenamiento clásicas, consulte [Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs](storage-custom-domain-name.md) para conocer más detalles. Para las cuentas de almacenamiento de ARM, esta funcionalidad no se ha agregado aún al [Portal de Azure](https://portal.azure.com), pero se puede configurar con PowerShell. Para más información, consulte el cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
+También puede configurar un nombre de dominio personalizado para usarlo con la cuenta de almacenamiento. En el caso de las cuentas de almacenamiento clásicas, consulte [Configurar un nombre de dominio personalizado para el punto de conexión de Almacenamiento de blobs](storage-custom-domain-name.md) para conocer más detalles. En el caso de las cuentas de almacenamiento de Resource Manager, esta funcionalidad aún no se ha agregado al [Portal de Azure](https://portal.azure.com), pero se puede configurar con PowerShell. Para más información, consulte el cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).
 
 ## Crear una cuenta de almacenamiento
 
@@ -63,7 +63,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 	> [AZURE.NOTE] Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 	>  
-	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure le indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
+	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure indicará si el nombre de la cuenta de almacenamiento que seleccione ya está en uso.
 
 4. Especifique el modelo de implementación que se va a usar: **Resource Manager** o **Clásica**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
@@ -79,7 +79,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 7. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-portal/resource-group-portal.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento. Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para más información acerca de qué servicios están disponibles en cada región.
 
@@ -89,7 +89,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 ### Cambio de la configuración de cuenta
 
-Después de crear la cuenta de almacenamiento, puede modificar su configuración, por ejemplo, cambiar la opción de replicación usada para la cuenta o cambiar el nivel de acceso de una cuenta de Almacenamiento de blobs. En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y después en **Configuración** para ver o cambiar la configuración de la cuenta.
+Después de crear la cuenta de almacenamiento, puede modificar su configuración, por ejemplo, cambiar la opción de replicación usada para la cuenta o cambiar el nivel de acceso de una cuenta de Almacenamiento de blobs. En el [Portal de Azure](https://portal.azure.com), navegue a su cuenta de almacenamiento, haga clic en **Todas las opciones** y después en **Configuración** para ver o cambiar la configuración de la cuenta.
 
 > [AZURE.NOTE] Según el nivel de rendimiento que eligió al crear la cuenta de almacenamiento, es posible que algunas opciones de replicación no estén disponibles.
 
@@ -105,7 +105,7 @@ Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de alma
 
 #### Visualización y copia de las claves de acceso de almacenamiento
 
-En el [Portal de Azure](https://portal.azure.com), diríjase a su cuenta de almacenamiento, haga clic en **Todas las configuraciones** y en **Claves de acceso** para ver, copiar y regenerar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
+En el [Portal de Azure](https://portal.azure.com), navegue a su cuenta de almacenamiento, haga clic en **Todas las opciones** y luego en **Claves de acceso** para ver, copiar y volver a generar las claves de acceso de la cuenta. La hoja de **claves de acceso** también incluye cadenas de conexión configuradas previamente que usan claves principales y secundarias que puede copiar para usarlas en las aplicaciones.
 
 #### Nueva generación de las claves de acceso de almacenamiento
 
@@ -131,7 +131,7 @@ Este es el proceso de rotación de las claves de acceso de almacenamiento:
 
 ## Eliminar una cuenta de almacenamiento
 
-Para quitar una cuenta de almacenamiento que ya no se está usando, vaya a la cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com) y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
+Para quitar una cuenta de almacenamiento que ha dejado de usarse, navegue a la cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com) y haga clic en **Eliminar**. Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos todos los datos de la cuenta.
 
 > [AZURE.WARNING] No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
 
@@ -139,9 +139,9 @@ Para eliminar una cuenta de almacenamiento que está asociada a una máquina vir
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Si la cuenta de almacenamiento utiliza el modelo de implementación clásico, puede quitar el disco de máquina virtual siguiendo estos pasos en el [Portal de Azure](https://manage.windowsazure.com):
+Si la cuenta de almacenamiento utiliza el modelo de implementación clásico, puede quitar el disco de máquina virtual, para lo que debe seguir estos pasos en el [Portal de Azure](https://manage.windowsazure.com):
 
-1. Vaya al [Portal clásico](https://manage.windowsazure.com).
+1. Navegue al [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Vaya a la pestaña de máquinas virtuales.
 3. Haga clic en la pestaña Discos.
 4. Seleccione el disco de datos y luego haga clic en Eliminar disco.
@@ -157,4 +157,4 @@ Para más información, consulte la [documentación sobre máquinas virtuales de
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

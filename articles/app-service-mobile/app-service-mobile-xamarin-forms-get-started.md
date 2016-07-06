@@ -159,9 +159,13 @@ Encontrará el código con el que se accede al back-end de la aplicación móvil
 
 ##Pasos siguientes
 
-* [Agregar autenticación a la aplicación de Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
-* [Incorporación de notificaciones push a la aplicación de Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-push.md) Aprenda a agregar notificaciones push a la aplicación.
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin. 
+* [Agregar autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md): aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+
+* [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md): aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar Centros de notificaciones de Azure para enviar notificaciones push.
+
+* [Habilitar la sincronización sin conexión para la aplicación](app-service-mobile-xamarin-forms-get-started-offline-data.md): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
+
+* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md): aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin.
 
 
 <!-- Anchors. -->
@@ -184,4 +188,4 @@ Encontrará el código con el que se accede al back-end de la aplicación móvil
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

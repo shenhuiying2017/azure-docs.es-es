@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/05/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -43,18 +43,18 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 1. Recupere la URL de ingesta de canales.
 
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal.
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
 3. Cree un programa (que también creará un recurso).
-1. Publique el programa (que creará un localizador a petición para el recurso asociado).  
+1. Publique el programa (que creará un localizador a petición para el recurso asociado).
 
 	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).   
+1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 ##Apartados de este tutorial
 
@@ -64,8 +64,8 @@ En este tutorial, se utiliza el Portal de Azure clásico para realizar las tarea
 3.  Cree un canal que está habilitado para realizar la codificación en directo.
 1.  Obtenga la URL de introducción para proporcionarla al codificador en directo. El codificador en directo utilizará esta dirección URL para introducir la secuencia en el canal.
 1.  Crear un programa (y un recurso)
-1.  Publicar el recurso y obtener las direcciones URL de streaming  
-1.  Reproducir el contenido 
+1.  Publicar el recurso y obtener las direcciones URL de streaming
+1.  Reproducir el contenido
 2.  Limpiar
 
 ##Requisitos previos
@@ -276,4 +276,4 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

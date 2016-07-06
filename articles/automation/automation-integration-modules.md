@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="06/24/2016"
    ms.author="magoedte" />
 
 # Módulos de integración de Automatización de Azure
@@ -28,9 +28,11 @@ Un módulo de PowerShell es un grupo de cmdlets de PowerShell, como **Get-Date**
 
 Los módulos de integración se parecen mucho a los módulos de PowerShell. Sencillamente, se trata de módulos de PowerShell que, de manera opcional, pueden contener un archivo adicional: un archivo de metadatos que especifica un tipo de conexión de Automatización de Azure que se va a utilizar con los cmdlets del módulo en los Runbooks. Tanto si incluyen como si no el archivo opcional, estos módulos de PowerShell pueden importarse en Automatización de Azure para que sus cmdlets estén disponibles y puedan usarse en Runbooks y para que sus recursos de DSC estén disponibles y puedan usarse en las configuraciones de DSC. Automatización de Azure almacena estos módulos en segundo plano y, en tiempo de ejecución del trabajo de compilación de DSC y del trabajo de Runbook, los carga en espacios aislados, donde se ejecutan los Runbooks y se compilan las configuraciones de DSC. Todos los recursos de DSC de los módulos se sitúan automáticamente en el servidor de extracción de DSC de Automatización para que las máquinas que intentan aplicar las configuraciones de DSC puedan extraerlos. Automatización de Azure contiene una serie de módulos de Azure PowerShell listos para usar con los que podrá automatizar directamente la administración de Azure. No obstante, también puede importar fácilmente módulos de PowerShell para cualquier sistema, servicio o herramienta con los que quiera integrarlos.
 
+>[AZURE.NOTE] Algunos módulos se suministran como "módulos globales" en el servicio de Automatización. Estos módulos globales están disponibles de fábrica cuando se crea una cuenta de Automatización, y los actualizamos a veces, lo que los expulsa automáticamente de su cuenta de Automatización. Si no desea que se actualicen automáticamente, siempre puede importar el mismo módulo, y que tendrá prioridad sobre la versión del módulo global de dicho módulo que se incluye en el servicio.
+
 El formato para importar un paquete de módulo de integración es un archivo comprimido que tiene el mismo nombre del módulo y una extensión .zip. El paquete contiene el módulo de Windows PowerShell y todos los archivos auxiliares, como el archivo de manifiesto (.psd1), si es que el módulo tiene uno.
 
-Si el módulo necesita un tipo de conexión de Automatización de Azure, también debería incluir un archivo con el nombre *<ModuleName>*-Automation.json que especifique las propiedades del tipo de conexión. Este archivo json se encuentra dentro de la carpeta del módulo del archivo .zip y contiene los campos de una “conexión” que es necesaria para poder conectarse al sistema o servicio que el módulo representa. De este modo, se creará un tipo de conexión en Automatización de Azure. Con este archivo, puede configurar los nombres y los tipos de campo del tipo de conexión del módulo, además de especificar si los campos deben cifrarse o el cifrado es opcional. A continuación, se incluye una plantilla con el formato del archivo json:
+Si el módulo necesita un tipo de conexión de Automatización de Azure, también debería incluir un archivo con el nombre *<nombreDeMódulo>*-Automation.json que especifique las propiedades del tipo de conexión. Este archivo json se encuentra dentro de la carpeta del módulo del archivo .zip y contiene los campos de una “conexión” que es necesaria para poder conectarse al sistema o servicio que el módulo representa. De este modo, se creará un tipo de conexión en Automatización de Azure. Con este archivo, puede configurar los nombres y los tipos de campo del tipo de conexión del módulo, además de especificar si los campos deben cifrarse o el cifrado es opcional. A continuación, se incluye una plantilla con el formato del archivo json:
 
 ```
 { 
@@ -65,7 +67,7 @@ Si ha implementado Service Management Automation y ha creado paquetes de módulo
 
 El hecho de que los módulos de integración sean básicamente módulos de PowerShell no significa que no existan unos procedimientos específicos para crearlos. Hay una serie de recomendaciones que debe tener en cuenta al crear módulos de PowerShell para facilitar su uso en Automatización de Azure. Algunas de estas recomendaciones son específicas de Automatización de Azure, mientras que otras resultan útiles para que los módulos funcionen bien en el flujo de trabajo de PowerShell, con independencia de si se usa o no Automatización de Azure.
 
-1. Incluya una sinopsis, una descripción y un identificador URI de ayuda para todos los cmdlets del módulo. En PowerShell, puede definir cierta información de ayuda para los cmdlets de forma que al usuario le resulte más fácil usarlos con el cmdlet **Get-Help**. Por ejemplo, a continuación le mostramos cómo puede definir una sinopsis y un identificador URI de ayuda para un módulo de PowerShell escrito en un archivo .psm1.<br>  
+1. Incluya una sinopsis, una descripción y un identificador URI de ayuda para todos los cmdlets del módulo. En PowerShell, puede definir cierta información de ayuda para los cmdlets de forma que al usuario le resulte más fácil usarlos con el cmdlet **Get-Help**. Por ejemplo, a continuación le mostramos cómo puede definir una sinopsis y un identificador URI de ayuda para un módulo de PowerShell escrito en un archivo .psm1.<br>
 
     ```
     <#
@@ -192,11 +194,11 @@ El hecho de que los módulos de integración sean básicamente módulos de Power
     }
     ```
 <br>
-6. El módulo debe estar incluido en su totalidad en un paquete compatible con Xcopy. Como los módulos de Automatización de Azure se distribuyen en espacios aislados de Automatización cuando es necesario ejecutar los Runbooks, no pueden depender del host en el que se ejecutan. Esto significa que debería poder comprimir el paquete del módulo en un zip, trasladarlo a otro host que tenga la misma versión de PowerShell, u otra posterior, y conseguir que funcione normalmente cuando se importe en el entorno de PowerShell de dicho host. Para que esto ocurra, el módulo no debe depender de ningún archivo que esté fuera de la carpeta del módulo (la carpeta que se comprime al importar en Automatización de Azure) ni de ninguna configuración única del Registro de un host, como las que se establecen al instalar un producto. Si no se sigue este procedimiento recomendado, el módulo no podrá utilizarse en Automatización de Azure.  
+6. El módulo debe estar incluido en su totalidad en un paquete compatible con Xcopy. Como los módulos de Automatización de Azure se distribuyen en espacios aislados de Automatización cuando es necesario ejecutar los Runbooks, no pueden depender del host en el que se ejecutan. Esto significa que debería poder comprimir el paquete del módulo en un zip, trasladarlo a otro host que tenga la misma versión de PowerShell, u otra posterior, y conseguir que funcione normalmente cuando se importe en el entorno de PowerShell de dicho host. Para que esto ocurra, el módulo no debe depender de ningún archivo que esté fuera de la carpeta del módulo (la carpeta que se comprime al importar en Automatización de Azure) ni de ninguna configuración única del Registro de un host, como las que se establecen al instalar un producto. Si no se sigue este procedimiento recomendado, el módulo no podrá utilizarse en Automatización de Azure.
 
 ## Pasos siguientes
 
-- Para empezar a trabajar con los Runbooks del flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
+- Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 - Para más información sobre la creación de módulos de PowerShell, consulte [Creación de un módulo de Windows PowerShell](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

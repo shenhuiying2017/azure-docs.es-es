@@ -30,7 +30,7 @@ Los siguientes requisitos previos son necesarios para poder habilitar Azure Mult
 
 
 - [Registrarse para obtener una suscripción a Azure](https://azure.microsoft.com/pricing/free-trial/): si todavía no dispone de una suscripción de Azure, es necesario que se registre para obtener una. Si simplemente está comenzando a utilizar Azure MFA, puede usar una suscripción de prueba.
-2. [Crear un Proveedor de Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) y asignarlo a su directorio o [asignar licencias a sus usuarios](multi-factor-authentication-get-started-assign-licenses.md). 
+2. [Crear un Proveedor de Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) y asignarlo a su directorio o [asignar licencias a sus usuarios](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Las licencias están disponibles para los usuarios con Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS). MFA se incluye en Azure AD Premium y en EMS. Si dispone de suficientes licencias, no necesitará crear un proveedor de autenticación.
 		
@@ -57,12 +57,12 @@ Utilice el procedimiento siguiente para habilitar MFA para los usuarios.
 
 ## Automatización de la activación de la autenticación multifactor con PowerShell
 
-Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure AD PowerShell](powershell-install-configuremd), puede utilizar lo siguiente. Puede cambiar `$st.State` para que sea igual a uno de los estados siguientes:
+Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure AD PowerShell](../powershell-install-configure.md), puede utilizar lo siguiente. Puede cambiar `$st.State` para que sea igual a uno de los estados siguientes:
 
 
 - Enabled
 - Aplicado
-- Disabled  
+- Disabled
 
 > [AZURE.IMPORTANT]  Tenga en cuenta que si pasa directamente del estado deshabilitado al estado forzado, los clientes de autenticación no moderna dejarán de funcionar porque el usuario no ha pasado por el registro de MFA ni ha obtenido una [contraseña de aplicación](multi-factor-authentication-whats-next.md#app-passwords). Si tiene clientes de autenticación no moderna y requiere contraseñas de aplicación, se recomienda que pase del estado Deshabilitado al Habilitado. Esto permitirá a los usuarios registrar y obtener sus contraseñas de aplicación.
 		
@@ -90,4 +90,4 @@ Para más información sobre los estados de usuario, consulte [User States in Az
 ## Pasos siguientes
 Ahora que ha configurado la autenticación multifactor en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication].
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

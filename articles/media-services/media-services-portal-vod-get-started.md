@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la entrega de contenido a petición mediante el Portal de Azure | Microsoft Azure"
+	pageTitle=" Introducción a la entrega de contenido a petición mediante el Portal de Azure | Microsoft Azure"
 	description="Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Servicios multimedia de Azure (AMS) mediante el Portal de Azure."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Este tutorial incluye las siguientes tareas:
 2.  Configuración de extremos de streaming.
 1.  Carga de un archivo de vídeo.
 1.  Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
-1.  Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.  
+1.  Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.
 1.  Reproduzca el contenido.
 
 
@@ -52,7 +52,7 @@ Los pasos de esta sección muestran cómo crear una nueva cuenta de AMS.
 	2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
 	
 	2. En **Grupo de recursos** seleccione el recurso nuevo o uno ya existente. Un grupo de recursos es una colección de recursos que comparten los mismos ciclos de vida, permisos y directivas. Obtenga más información [aquí](resource-group-overview.md#resource-groups).
-	3. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Servicios multimedia. Esta región se utilizará para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable. 
+	3. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Servicios multimedia. Esta región se utilizará para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable.
 	
 	3. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente en la misma región geográfica que la cuenta de Servicios multimedia o crear una nueva cuenta de almacenamiento. Se crea una nueva cuenta de almacenamiento en la misma región. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
 
@@ -72,13 +72,13 @@ Los pasos de esta sección muestran cómo crear una nueva cuenta de AMS.
 
 Necesita el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
 
-1. En el Portal de Azure, seleccione la cuenta. 
+1. En el Portal de Azure, seleccione la cuenta.
 
 	Aparecerá la ventana **Configuración** a la derecha.
 
 2. En la ventana **Configuración**, seleccione **Claves**.
 
-	Aparece la ventana **Administrar claves** que muestra el nombre de la cuenta y la clave principal y la secundaria. 
+	Aparece la ventana **Administrar claves** que muestra el nombre de la cuenta y la clave principal y la secundaria.
 3. Pulse el botón Copiar para copiar los valores.
 	
 	![Claves de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-keys.png)
@@ -91,7 +91,7 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).  
+- Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
 - Cree al menos una unidad de streaming para el *punto de conexión de streaming* para el que planea entregar el contenido. Para cambiar el número de unidades de streaming, realice los siguientes pasos.
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
@@ -99,7 +99,7 @@ Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en
 Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 
-1. En la ventana **Configuración**, haga clic en **Extremos de streaming**. 
+1. En la ventana **Configuración**, haga clic en **Extremos de streaming**.
 
 2. Haga clic en el punto de conexión de streaming predeterminado.
 
@@ -143,13 +143,13 @@ Servicios multimedia también proporciona empaquetado dinámico que permite entr
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - Codifique su archivo de origen en un conjunto de archivos MP4 de varias velocidades de bits (los pasos de codificación se muestran más adelante en esta sección).
-- Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para más información, consulte [Configuración de puntos de conexión de streaming](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+- Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para más información, consulte [Configuración de puntos de conexión de streaming](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
 
 ### Uso del portal para codificar
 
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia.
 
-1.  En la ventana **Configuración**, seleccione **Activos**.  
+1.  En la ventana **Configuración**, seleccione **Activos**.
 2.  En la ventana **Activos**, seleccione el recurso que desea codificar.
 3.  Presione el botón **Codificar**.
 4.  En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Estándar de codificador multimedia" y un valor predeterminado. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Para más información acerca de los valores predeterminados, consulte [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artículo: es importante seleccionar el valor predeterminado que resulta más adecuado para el vídeo de entrada. Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor predeterminado "H264 Multiple Bitrate 1080p".
@@ -169,7 +169,7 @@ Para supervisar el progreso del trabajo de codificación, haga clic en **Configu
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará "publicar" su recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores:
 
-- Los localizadores de streaming (OnDemandOrigin), que se usan en el streaming adaptable (por ejemplo, para transmitir MPEG DASH, HLS o Smooth Streaming). Para crear un localizador de streaming el recurso debe contener un archivo .ism. 
+- Los localizadores de streaming (OnDemandOrigin), que se usan en el streaming adaptable (por ejemplo, para transmitir MPEG DASH, HLS o Smooth Streaming). Para crear un localizador de streaming el recurso debe contener un archivo .ism.
 - Localizadores (SAS) progresivos, utilizados para la entrega de vídeo mediante descarga progresiva.
 
 
@@ -229,4 +229,4 @@ Se aplican algunas consideraciones:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

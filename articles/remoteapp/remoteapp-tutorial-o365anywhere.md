@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp | Microsoft Azure"
-   description="Aprenda a compartir cualquier aplicación de Office 365 con sus usuarios mediante Azure RemoteApp."
+   pageTitle="Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp | Microsoft Azure"
+   description="Aprenda a compartir cualquier aplicación de Office 365 con sus usuarios mediante Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/27/2016"
    ms.author="guscatal;elizapo"/>
 
 
-# Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp
+# Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp
 
 Este artículo tratará cómo implementar Office 365 en cualquier dispositivo de su empresa. Los usuarios pueden obtener las mismas capacidades y experiencia de interfaz de usuario en Android, Apple y Windows.
 
-Para conseguirlo, usaremos Azure RemoteApp hospedando Office 365 en máquinas virtuales escalables de Azure a las que pueden conectarse los usuarios. A este conjunto de máquinas virtuales lo denominamos "colección en la nube".
+Para conseguirlo, usaremos Azure RemoteApp hospedando Office 365 en máquinas virtuales escalables de Azure a las que pueden conectarse los usuarios. A este conjunto de máquinas virtuales lo denominamos "colección en la nube".
 
 ## Crear una colección en la nube
 
@@ -41,9 +41,9 @@ En este momento puede agregar también otros usuarios que tengan acceso a esta c
 
 Ahora vamos a intentar la conexión a Office 365.
 
-## Conectarse a Office 365
+## Conectarse a Office 365
 
-Iremos a [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), nos desplazaremos hacia abajo y haremos clic en **Descargar clientes** para instalar el cliente de Azure RemoteApp en el dispositivo en que se encuentre. Las capturas de pantalla siguientes corresponden a Windows.
+Iremos a [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/), nos desplazaremos hacia abajo y haremos clic en **Descargar clientes** para instalar el cliente de Azure RemoteApp en el dispositivo en que se encuentre. Las capturas de pantalla siguientes corresponden a Windows.
 
 Cuando se inicie la aplicación, se le pedirá que inicie sesión con su cuenta Microsoft (antes llamada "Live ID"); por ahora, use la misma cuenta de Azure. Tras iniciar sesión, debe ver una notificación sobre nuevas invitaciones, haga clic en ella y verá una lista como la siguiente. Acepte la invitación dirigida al correo electrónico del propietario de su cuenta de Azure.
 
@@ -53,7 +53,7 @@ Este es lo que aparece cuando hay invitaciones nuevas.
 
 ![Aceptar una aplicación](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
-Después de aceptar la invitación, debe ver todas las aplicaciones de Office en el cliente de Azure RemoteApp.
+Después de aceptar la invitación, debe ver todas las aplicaciones de Office en el cliente de Azure RemoteApp.
 
 ![Lista de aplicaciones](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
@@ -63,4 +63,4 @@ Al hacer clic en cualquiera de las aplicaciones, esta debe iniciarse en la máqu
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

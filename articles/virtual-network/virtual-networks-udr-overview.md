@@ -43,9 +43,16 @@ Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento
 
 |Propiedad|Descripción|Restricciones|Consideraciones|
 |---|---|---|---|
-| Prefijo de dirección | El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16.|Debe ser un intervalo de CIDR válidos que representan direcciones en la red Internet pública, la red virtual o el centro de datos local.|Asegúrese de que el **prefijo de dirección** no contenga la dirección del **valor del próximo salto**; de lo contrario, los paquetes entrarán en un bucle que va desde el origen al próximo salto sin llegar nunca al destino. |
-| Tipo de próximo salto | El tipo de salto de Azure al que debe enviarse el paquete. | Debe ser uno de los siguientes valores: <br/> **Local**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16 en la misma red virtual, la ruta de cada subred de la tabla de enrutamiento tendrá un valor de próximo salto de *Local*. <br/> **Puerta de enlace de VPN** Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **NULL**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.| Considere la posibilidad de usar un tipo **NULL** para evitar que los paquetes vayan a un destino determinado. | 
-| Valor del próximo salto | El valor del próximo salto contiene los paquetes de la dirección IP a la que se deben reenviar. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*.| Debe ser una dirección IP accesible. | Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. |
+| Prefijo de dirección | El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16.|Debe ser un intervalo de CIDR válidos que representan direcciones en la red Internet pública, la red virtual o el centro de datos local.|Asegúrese de que **Prefijo de dirección** no contiene la dirección de **Siguiente dirección de salto**; de lo contrario, los paquetes entrarán en un bucle que va desde el origen al próximo salto sin llegar nunca al destino. |
+| Tipo de próximo salto | El tipo de salto de Azure al que debe enviarse el paquete. | Debe ser uno de los siguientes valores: <br/> **Red virtual**. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16, en la misma red virtual, la ruta de cada una de ellas en la tabla de rutas tendrá un valor de próximo salto de *Red virtual*. <br/> **Puerta de enlace de red virtual**. Representa una puerta de enlace de VPN S2S de Azure. <br/> **Internet**. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. <br/> **Dispositivo virtual**. Representa un dispositivo virtual agregado a la red virtual de Azure. <br/> **No**. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.| Considere la posibilidad de usar el tipo **No** para evitar que los paquetes vayan a un destino dado. | 
+| Siguiente dirección de salto | La siguiente dirección de salto contiene la dirección IP a la que se deben reenviar los paquetes. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*.| Debe ser una dirección IP accesible. | Si la dirección IP representa una máquina virtual, asegúrese de habilitar el [reenvío de IP](#IP-forwarding) en Azure para la máquina virtual. |
+
+En Azure PowerShell, algunos de los valores de "NextHopType" tienen otros nombres:
+- Red virtual es VnetLocal
+- Puerta de enlace de red virtual es VirtualNetworkGateway
+- Aplicación virtual es VirtualAppliance
+- Internet es Internet
+- No es None
 
 ### Rutas del sistema
 Cada subred que se creó en una red virtual se asocia automáticamente a una tabla de enrutamiento que contiene las siguientes reglas de ruta de sistema:
@@ -68,7 +75,7 @@ Las subredes dependen de las rutas del sistema hasta que una tabla de enrutamien
 1. Ruta BGP (cuando se utiliza ExpressRoute)
 1. Ruta del sistema
 
-Para obtener información sobre cómo crear rutas definidas por el usuario, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](virtual-networks-udr-how-to.md#How-to-manage-routes).
+Para obtener información sobre cómo crear rutas definidas por el usuario, consulte [Cómo crear rutas y habilitar el reenvío IP en Azure](virtual-network-create-udr-arm-template.md).
 
 >[AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si desea agregar un dispositivo virtual de firewall entre la red local y Azure, debe crear una ruta definida por el usuario para las tablas de enrutamiento de Azure que reenvían todo el tráfico del espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
 
@@ -84,7 +91,7 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 
 ## Pasos siguientes
 
-- Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes. 
+- Obtenga información sobre cómo [crear rutas en el modelo de implementación del Administrador de recursos](virtual-network-create-udr-arm-template.md) y asociarlos a subredes.
 - Obtenga información sobre cómo [crear rutas en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md) y asociarlos a subredes.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->
