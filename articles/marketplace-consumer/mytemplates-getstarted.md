@@ -33,7 +33,7 @@ Las sugerencias siguientes le ayudarán a sacar el máximo provecho de las **pla
 - Una **plantilla** en un recurso de encapsulamiento que contiene una plantilla de Resource Manager y otros metadatos. Su comportamiento es muy similar al de los elementos de Marketplace. La principal diferencia es que se trata de un elemento privado, mientras que los elementos de Marketplace son públicos.
 - La biblioteca **Plantillas** resulta muy útil para los usuarios que necesitan personalizar sus implementaciones.
 - Las **plantillas** son apropiadas para los usuarios que necesitan disponer de un repositorio sencillo dentro de Azure.
-- Para empezar, utilice una plantilla de Resource Manager existente. Para buscar plantillas, utilice [github](https://github.com/Azure/azure-quickstart-templates) o [Exportar plantilla](https://azure.microsoft.com/blog/export-template/) desde un grupo de recursos existente.
+- Para empezar, utilice una plantilla de Resource Manager existente. Para buscar plantillas, utilice [github](https://github.com/Azure/azure-quickstart-templates) o [Exportar plantilla](../resource-manager-export-template.md) desde un grupo de recursos existente.
 - Las **plantillas** están vinculadas al usuario que las publica. Cualquier persona que tenga acceso podrá ver el nombre del publicador.
 - Las **plantillas** son recursos de Resource Manager y, una vez publicadas, su nombre no se puede modificar.
 
@@ -44,7 +44,7 @@ Existen dos formas de crear un recurso de **plantilla** en el Portal de Azure.
 ### Método 1: Creación de un nuevo recurso de plantilla a partir de un grupo de recursos en funcionamiento
 
 1. Acceda a un grupo de recursos existente del Portal de Azure. En **Configuración**, seleccione **Exportar plantilla**.
-2. Cuando la plantilla de Resource Manager se haya exportado, utilice el botón **Guardar plantilla** para guardarla en el repositorio **Plantillas**. Para más detalles sobre la exportación de plantillas, haga clic [aquí](https://azure.microsoft.com/blog/export-template/). <br /><br /> ![Exportación de grupos de recursos](media/rg-export-portal1.PNG) <br />
+2. Cuando la plantilla de Resource Manager se haya exportado, utilice el botón **Guardar plantilla** para guardarla en el repositorio **Plantillas**. Para más detalles sobre la exportación de plantillas, haga clic [aquí](../resource-manager-export-template.md). <br /><br /> ![Exportación de grupos de recursos](media/rg-export-portal1.PNG) <br />
 
 3. Seleccione el botón de comando **Guardar plantilla**. <br /><br />
 
@@ -131,4 +131,4 @@ Haga clic en **Seleccionar** y en **Aceptar**. Ahora, puede ver los usuarios o g
 - Para conocer las funciones que puede usar en la plantilla de Resource Manager, consulte [Funciones de plantilla de Azure Resource Manager](../resource-group-template-functions.md).
 - Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](../best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

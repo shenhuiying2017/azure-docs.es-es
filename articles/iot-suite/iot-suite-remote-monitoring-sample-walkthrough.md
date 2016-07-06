@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="06/23/2016"
  ms.author="stevehob"/>
 
 # Tutorial de la solución preconfigurada de supervisión remota
@@ -233,4 +233,4 @@ Las siguientes entradas de blog de TechNet proporcionan detalles adicionales ace
 - [IoT Suite - Under The Hood - Remote Monitoring:](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx) (Conjunto de aplicaciones de IoT: Supervisión remota interna)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx) (Conjunto de aplicaciones de IoT, Supervisión remota: Incorporación de dispositivos activos y simulados)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

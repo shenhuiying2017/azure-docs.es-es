@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/17/2016"
+	ms.date="06/29/2016"
 	ms.author="marsma"/>
 
 # Información general de las características de Lote para desarrolladores
@@ -133,7 +133,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 	En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí, pero puede haber algunas aplicaciones en las que las tareas deban comunicarse (como en [escenarios de MPI](batch-mpi.md)).
 
-	Puede configurar un grupo que permita la comunicación entre los nodos que contiene. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Servicios en la nube pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
+	Puede configurar un grupo que permita la comunicación entre los nodos que contiene: **comunicación entre nodos**. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Servicios en la nube pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
 
 	Tenga en cuenta que habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y, a raíz de las restricciones de implementación, puede limitar el número máximo de nodos en un grupo. Si la aplicación no requiere comunicación entre los nodos, el servicio Lote puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
 
@@ -141,7 +141,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 	La *tarea de inicio* opcional se ejecutará en cada nodo cuando dicho nodo se una al grupo, así como cada vez que se reinicie un nodo o se restablezca su imagen inicial. La tarea de inicio resulta especialmente útil para preparar los nodos de proceso para la ejecución de tareas, como por ejemplo instalar las aplicaciones que las tareas ejecutarán.
 
-> [AZURE.IMPORTANT] Todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Lote. Encontrará las cuotas predeterminadas y las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) en [Cuotas y límites del servicio Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
+> [AZURE.IMPORTANT] Todas las cuentas de Lote tienen una **cuota** predeterminada que limita el número de **núcleos** (y por tanto, de nodos de proceso) en una cuenta de Lote. Encontrará las cuotas predeterminadas y las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Lote) en [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
 
 ## Trabajo
 
@@ -159,7 +159,7 @@ Un trabajo es una colección de tareas que administra cómo sus tareas realizan 
 
 ### Prioridad del trabajo
 
-Puede asignar una prioridad a los trabajos que cree en Lote. El servicio Lote usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] (REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] (.NET de Lote).
+Puede asignar una prioridad a los trabajos que cree en Lote. El servicio Lote usa el valor de prioridad del trabajo para determinar el orden de programación de trabajos dentro de una cuenta (esto no se debe confundir con un [trabajo programado](#scheduled-jobs)). Los valores de prioridad pueden oscilar entre -1000 y 1000, siendo -1000 la prioridad más baja y 1000 la más alta. Puede actualizar la prioridad de un trabajo mediante la operación [Actualizar las propiedades de un trabajo][rest_update_job] \(REST de Lote) o modificando la propiedad [CloudJob.Priority][net_cloudjob_priority] \(.NET de Lote).
 
 Dentro de la misma cuenta, los trabajos de mayor prioridad tienen primacía de programación sobre los trabajos con menor prioridad. Un trabajo con un valor de prioridad determinado en una cuenta no tiene primacía de programación sobre otro trabajo con un valor de prioridad inferior de una cuenta diferente.
 
@@ -201,13 +201,13 @@ Además de las tareas que se pueden definir para realizar cálculos en un nodo, 
 
 #### Tarea de inicio
 
-Mediante la asociación de una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos, realizando acciones como instalar las aplicaciones que las tareas ejecutarán e o iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
+Mediante la asociación de una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos, realizando acciones como instalar las aplicaciones que las tareas ejecutarán e iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
 
 Una de las principales ventajas de la tarea de inicio es que contiene toda la información necesaria para configurar un nodo de proceso e instalar las aplicaciones necesarias para ejecutar tareas. Por lo tanto, aumentar el número de nodos en un grupo es tan sencillo como especificar el nuevo número objetivo de nodos; Lote ya dispone de toda la información necesaria para configurar los nuevos nodos y tenerlos preparados para aceptar tareas.
 
 Como con cualquier tarea de Lote de Azure, se puede especificar una lista de **archivos de recursos** en [Almacenamiento de Azure][azure_storage], además de una **línea de comandos** para ejecutar. Lote copia primero los archivos de recursos de Almacenamiento de Azure al nodo y después ejecuta la línea de comandos. En una tarea de inicio de grupo, la lista de archivos suele contener la aplicación de la tarea y sus dependencias, pero también podría incluir datos de referencia que usarán todas las tareas que se ejecuten en el nodo de proceso. Por ejemplo, la línea de comandos de una tarea de inicio podría realizar una operación `robocopy` para copiar los archivos de la aplicación (que se especificaron como archivos de recursos y se descargaron en el nodo) del [directorio de trabajo](#files-and-directories) de la tarea de inicio a la [carpeta compartida](#files-and-directories) y después ejecutar un archivo MSI o `setup.exe`.
 
-> [AZURE.IMPORTANT] Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Almacenamiento de Azure](../storage/storage-create-storage-account.md). Las tareas de Lote (incluidas las estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan *solamente* en cuentas de almacenamiento **de uso general**.
+> [AZURE.IMPORTANT] Actualmente, Lote *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Las tareas de Lote (incluidas las estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan *solamente* en cuentas de almacenamiento **de uso general**.
 
 Habitualmente, es conveniente que el servicio Lote espere a que la tarea de inicio finalice antes de considerar que el nodo está listo para asignarle tareas, pero este procedimiento es configurable.
 
@@ -250,23 +250,23 @@ Para ver una explicación detallada sobre la ejecución de trabajos de MPI en el
 
 #### Dependencias de las tareas
 
-Las dependencias de tareas, como el propio nombre implica, permiten especificar que una tarea depende de que se completen otras tareas antes de su ejecución. Esta característica proporciona compatibilidad con aquellas situaciones en las que una tarea "de bajada" consume el resultado de una tarea "del canal de subida", o cuando una tarea del canal de subida realiza alguna inicialización requerida por una tarea de bajada. Para utilizar esta característica, primero debe habilitar las dependencias de tareas en su trabajo de Lote. Luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende dicha tarea.
+Las [dependencias de tareas](batch-task-dependencies.md), como el propio nombre implica, permiten especificar que una tarea depende de que se completen otras tareas antes de su ejecución. Esta característica proporciona compatibilidad con aquellas situaciones en las que una tarea "de bajada" consume el resultado de una tarea "del canal de subida", o cuando una tarea del canal de subida realiza alguna inicialización requerida por una tarea de bajada. Para utilizar esta característica, primero debe habilitar las dependencias de tareas en su trabajo de Lote. Luego, en cada tarea que dependa de otra (o de muchas otras), especifique las tareas de las que depende dicha tarea.
 
 Con las dependencias de tareas, se pueden configurar escenarios como los siguientes:
 
-* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se haya completado).
-* *taskC* depende de ambas, *taskA* y *taskB*.
-* *taskD* depende de un intervalo de tareas, como las tareas de *1* a *10*, antes de ejecutarse.
+* *taskB* depende de *taskA* (la ejecución de *taskB* no se iniciará hasta que *taskA* se haya completado)
+* *taskC* depende de ambas, *taskA* y *taskB*
+* *taskD* depende de un intervalo de tareas, como las tareas de *1* a *10*, antes de ejecutarse
 
-Consulte el código de ejemplo de [TaskDependencies][github_sample_taskdeps] en el repositorio de GitHub [azure-batch-samples][github_samples]. En él verá cómo configurar tareas que dependen de otras tareas mediante la biblioteca [.NET de Lote][batch_net_api].
+Consulte [Task dependencies in Azure Batch](batch-task-dependencies.md) (Dependencias de tareas en Lote de Azure) y el código de ejemplo de [TaskDependencies][github_sample_taskdeps] en el repositorio de ejemplos de GitHub [azure-batch-samples][github_samples] para información más detallada acerca de esta característica.
 
 ## Configuración del entorno para las tareas
 
 Cada tarea que se ejecuta dentro de un trabajo de Lote tiene acceso a variables de entorno establecidas por el servicio Lote (definidas por el servicio; consulte la tabla a continuación), así como a variables de entorno personalizadas que puede establecer para sus tareas. Las aplicaciones y los scripts ejecutados por las tareas en los nodos tienen acceso a estas variables de entorno durante la ejecución.
 
-Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *Configuración del entorno* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] (API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de lote.
+Puede establecer variables de entorno personalizadas en el nivel de tarea o de trabajo rellenando la propiedad *environment settings* de estas entidades. Por ejemplo, consulte la operación [Agregar una tarea a un trabajo][rest_add_task] \(API de REST de Lote) o las propiedades [CloudTask.EnvironmentSettings][net_cloudtask_env] y [CloudJob.CommonEnvironmentSettings][net_job_env] en .NET de Lote.
 
-La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] (REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
+La aplicación cliente o el servicio pueden obtener las variables de entorno de una tarea, tanto las definidas por el servicio como las personalizadas, mediante la operación [Obtener información acerca de una tarea][rest_get_task_info] \(REST de Lote) o accediendo a la propiedad [CloudTask.EnvironmentSettings][net_cloudtask_env] \(.NET de Lote). Los procesos que se ejecutan en un nodo de proceso pueden acceder a estas y a otras variables de entorno en el nodo, por ejemplo mediante la conocida sintaxis de `%VARIABLE_NAME%` (Windows) o `$VARIABLE_NAME` (Linux).
 
 Las siguientes variables de entorno son establecidas por el servicio Lote y están disponibles para que las tareas accedan a ellas:
 
@@ -285,11 +285,11 @@ Las siguientes variables de entorno son establecidas por el servicio Lote y est�
 | `AZ_BATCH_TASK_ID` | El id. de la tarea actual. |
 | `AZ_BATCH_TASK_WORKING_DIR` | Ruta de acceso completa del directorio de trabajo en el nodo. |
 
->[AZURE.IMPORTANT] Estas variables de entorno solo están disponibles en el contexto de la **tarea de usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. **No** las verá si [se conecta de forma remota](#connecting-to-compute-nodes) a un nodo de proceso a través de RDP o SSH y muestra la lista de variables de entorno.
+>[AZURE.IMPORTANT] Estas variables de entorno solo están disponibles en el contexto de la **tarea de usuario**, es decir, la cuenta de usuario en el nodo donde se ejecuta una tarea. **No** las verá si se [conecta de forma remota](#connecting-to-compute-nodes) a un nodo de proceso a través de RDP o SSH y enumera las variables de entorno porque la cuenta de usuario utilizada para la conexión remota no es la misma que la cuenta utilizada por la tarea.
 
 ## Archivos y directorios
 
-Cada tarea tiene un directorio de trabajo en el que se crean cero o más archivos y directorios para almacenar el programa que ejecuta la tarea, los datos que procesa y el resultado del procesamiento realizado por la tarea. Estos archivos y directorios están luego disponibles para su uso por parte de otras tareas durante la ejecución de un trabajo. Todas las tareas, archivos y directorios de un nodo pertenecen a una cuenta de usuario único.
+Cada tarea tiene un *directorio de trabajo* en el que se crean ninguno o más archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
 
 El servicio Lote expone parte del sistema de archivos en un nodo como "directorio raíz". El directorio raíz está disponible para una tarea mediante el acceso a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR`. Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](#environment-settings-for-tasks).
 
@@ -301,7 +301,7 @@ El directorio raíz contiene la siguiente estructura de directorio:
 
 - **startup**: una tarea de inicio usa este directorio como directorio de trabajo. Aquí se almacenan todos los archivos que la tarea de inicio descarga en el nodo. La tarea de inicio puede crear, leer, actualizar y eliminar archivos en este directorio. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_NODE_STARTUP_DIR`.
 
-- **Tareas**: se crea un directorio para cada tarea que se ejecuta en el nodo; se accede a él haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR`.
+- **Task**: se crea un directorio para cada tarea que se ejecuta en el nodo; se accede a él haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR`.
 
 	Dentro de cada directorio de la tarea, el servicio Lote crea un directorio de trabajo (`wd`) cuya ruta de acceso único se especifica con la variable de entorno `AZ_BATCH_TASK_WORKING_DIR`. Este directorio proporciona acceso de lectura y escritura a la tarea. La tarea puede crear, leer, actualizar y eliminar archivos de este directorio, y este directorio se conserva en función de la restricción *RetentionTime* especificada para la tarea.
 
@@ -353,7 +353,7 @@ Para obtener más información sobre cómo escalar automáticamente una aplicaci
 
 Normalmente necesitará usar certificados al cifrar o descifrar información confidencial para las tareas, como la clave de una [cuenta de almacenamiento de Azure][azure_storage]. Para ayudar en esta situación, se pueden instalar certificados en los nodos. Los secretos cifrados se pasan a las tareas mediante parámetros de línea de comandos o se insertan en uno de los recursos de tarea, y los certificados instalados se pueden usar para descifrarlos.
 
-Use la operación [Agregar un certificado a la cuenta][rest_add_cert] (REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] (.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
+Use la operación [Agregar un certificado a la cuenta][rest_add_cert] \(REST de Lote) o el método [CertificateOperations.CreateCertificate][net_create_cert] \(.NET de Lote) para agregar un certificado a una cuenta de Lote. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Lote instala el certificado en cada nodo del grupo. El servicio Lote instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del Administrador de trabajos).
 
 ## Control de errores
 
@@ -483,4 +483,4 @@ Si algunas de las tareas producen errores, el servicio o la aplicación de clien
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

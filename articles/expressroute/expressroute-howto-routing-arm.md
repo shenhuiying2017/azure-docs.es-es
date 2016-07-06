@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="06/29/2016"
    ms.author="ganesr"/>
 
 # Creación y modificación del enrutamiento de un circuito ExpressRoute
@@ -35,7 +35,7 @@ Este artículo le guiará por los pasos necesarios para crear y administrar la c
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. 
+- Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior.
 - Antes de comenzar la configuración, asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la página de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md).
 - Tiene que tener un circuito ExpressRoute activo. Antes de continuar, siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y para que el proveedor de conectividad habilite el circuito. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
@@ -403,4 +403,4 @@ Siguiente paso, [Vinculación de redes virtuales a circuitos ExpressRoute](expre
 
 -  Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->
