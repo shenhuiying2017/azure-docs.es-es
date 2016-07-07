@@ -31,7 +31,7 @@ Puede elegir si desea recibir una notificación por correo electrónico de las c
 
 >[AZURE.NOTE] Puede escribir un máximo de 20 direcciones de correo electrónico por dispositivo virtual.
 
-Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde **storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
+Después de habilitar la notificación por correo electrónico para un dispositivo virtual, los miembros de la lista de notificación recibirán un mensaje de correo electrónico cada vez que se produzca una alerta crítica. Los mensajes se enviarán desde *storsimple-alerts-noreply@mail.windowsazure.com* y describirán la condición de alerta. Los destinatarios pueden hacer clic en **Eliminar suscripción** para quitarse de la lista de notificación por correo electrónico.
 
 #### Para habilitar la notificación de alertas por correo electrónico de un dispositivo virtual
 
