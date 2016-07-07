@@ -214,7 +214,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **Workday **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **Workday**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-workday-tutorial/IC782935.png "Asignar usuarios")
 
