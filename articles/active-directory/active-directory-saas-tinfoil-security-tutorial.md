@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar URL de aplicación**, en el cuadro de texto **Dirección URL de respuesta de Tinfoil Security**, escriba la dirección URL del servicio del consumidor de aserción (ACS) de Tinfoil Security (por ejemplo, "**https://www.tinfoilsecurity.com/saml/consume*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar URL de aplicación**, en el cuadro de texto **Dirección URL de respuesta de Tinfoil Security**, escriba la dirección URL del servicio del consumidor de aserción (ACS) de Tinfoil Security (por ejemplo, "*https://www.tinfoilsecurity.com/saml/consume*" y luego haga clic en **Siguiente**.
 
     >[AZURE.NOTE] Debería poder obtener la dirección URL de ACS de los metadatos de Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 

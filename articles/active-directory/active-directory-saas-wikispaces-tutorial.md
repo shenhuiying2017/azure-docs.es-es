@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Wikispaces**, escriba su dirección URL con el siguiente patrón "**http://company.wikispaces.net*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Wikispaces**, escriba su dirección URL con el siguiente patrón "*http://company.wikispaces.net*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configurar dirección URL de la aplicación")
 

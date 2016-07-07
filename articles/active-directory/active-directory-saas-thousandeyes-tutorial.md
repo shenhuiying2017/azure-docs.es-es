@@ -78,7 +78,7 @@ En esta sección se describe cómo se habilita la autenticación de los usuarios
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ThousandEyes**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación ThousandEyes (por ejemplo: "**https://app.thousandeyes.com/login/sso*")) y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ThousandEyes**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación ThousandEyes (por ejemplo: "*https://app.thousandeyes.com/login/sso*")) y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurar dirección URL de la aplicación")
 

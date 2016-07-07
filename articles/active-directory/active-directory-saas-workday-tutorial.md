@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 	b. En el cuadro de texto **Dirección URL de respuesta de Workday**, escriba la dirección URL de respuesta de Workday con el siguiente patrón: `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usando algo como "**http://www.myworkday.com*" funciona pero no "**http://myworkday.com*".
+	>[AZURE.NOTE] Su URL de respuesta debe tener un subdominio (por ejemplo, www, wd2, wd3, wd3-impl, wd5, wd5-impl). Usando algo como "*http://www.myworkday.com*" funciona pero no "*http://myworkday.com*".
  
 4.  En la página **Configuración de inicio de sesión único en Workday**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
