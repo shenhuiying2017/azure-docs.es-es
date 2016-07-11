@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Active Directory con Sprinklr
   
-El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Sprinklr
@@ -66,7 +67,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -127,7 +130,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
+Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity.  
+En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
 
 ###Para aprovisionar cuentas de usuario a Sprinklr, realice los siguientes pasos:
 

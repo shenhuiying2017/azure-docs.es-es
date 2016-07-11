@@ -39,7 +39,7 @@ mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL.
 *.verisign.com | HTTP/80 | Se usa para descargar listas CRL.
 *.entrust.com | HTTP/80 | Se utiliza para descargar listas CRL de MFA.
 *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD.
-secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.
+*.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.
 *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos.
 
 ## Errores en el asistente

@@ -122,7 +122,8 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
   
   > [AZURE.NOTE] 
-  Configurar la federación con AD FS como se describe en el documento vinculado arriba. No es preciso configurar las características de vista previa.
+  Configurar la federación con AD FS como se describe en el documento vinculado arriba. 
+  No es preciso configurar las características de vista previa.
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory

@@ -24,7 +24,7 @@ Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los 
 
 ## Requisitos previos
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un [clúster de Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 

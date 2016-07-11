@@ -334,7 +334,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 ### Creación de la tabla de entrada
 
-1. En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Tabla de SQL Server**.
+1.	 En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Tabla de SQL Server**.
 2.	Reemplace el script JSON del panel derecho por el texto siguiente:
 
 		{

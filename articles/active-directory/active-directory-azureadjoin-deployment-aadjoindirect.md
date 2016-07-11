@@ -42,7 +42,7 @@ Las empresas pueden proporcionar cuentas exclusivamente en la nube a organizacio
 ### Requisitos previos
 **En el nivel de empresa (administrador)**
 
-*	Suscripción de Azure con Azure Active Directory
+*	Suscripción de Azure con Azure Active Directory  
 
 **En el nivel de usuario**
 
