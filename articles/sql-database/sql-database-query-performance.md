@@ -21,8 +21,8 @@
 
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Query Performance Insight permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:
 
-- Información más detallada sobre el consumo de recursos (DTU) de las bases de datos. 
-- Las consultas que más CPU consumen, que potencialmente pueden ajustarse para mejorar el rendimiento. 
+- Información más detallada sobre el consumo de recursos (DTU) de las bases de datos.
+- Las consultas que más CPU consumen, que potencialmente pueden ajustarse para mejorar el rendimiento.
 - La capacidad de profundizar en los detalles de una consulta.
 
 ## Requisitos previos
@@ -35,7 +35,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 
 Los siguientes permisos de [control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) se requieren para usar Query Performance Insight:
 
-- Los permisos de **lector**, **propietario**, **colaborador**, **colaborador de base de datos de SQL** o **colaborador de SQL Server** se requieren para ver las consultas y gráficos que más recursos consumen. 
+- Los permisos de **lector**, **propietario**, **colaborador**, **colaborador de base de datos de SQL** o **colaborador de SQL Server** se requieren para ver las consultas y gráficos que más recursos consumen.
 - Los permisos de **propietario**, **colaborador**, **colaborador de base de datos de SQL** o **colaborador de SQL Server** se requieren para ver el texto de la consulta.
 
 
@@ -44,9 +44,9 @@ Los siguientes permisos de [control de acceso basado en roles](../active-directo
 
 Query Performance Insight es fácil de usar:
 
-- Revisar la lista de consultas que más recursos consumen. 
+- Revisar la lista de consultas que más recursos consumen.
 - Seleccione una consulta individual para ver sus detalles.
-- Abra [Asesor de índices de Base de datos SQL](sql-database-index-advisor.md) y compruebe si existen recomendaciones disponibles.
+- Abra [Asesor de índices de Base de datos SQL](sql-database-advisor.md) y compruebe si existen recomendaciones disponibles.
 - Amplíe para obtener información más detallada.
 
     ![panel de rendimiento](./media/sql-database-query-performance/performance.png)
@@ -59,7 +59,7 @@ Query Performance Insight es fácil de usar:
 
 En el [portal](http://portal.azure.com), realice estas acciones:
 
-1. Vaya a una base de datos SQL y haga clic en **Toda la configuración** > **Rendimiento** > **Consultas**. 
+1. Vaya a una base de datos SQL y haga clic en **Toda la configuración** > **Rendimiento** > **Consultas**.
 
     ![Query Performance Insight][1]
 
@@ -71,7 +71,7 @@ En el [portal](http://portal.azure.com), realice estas acciones:
 
     La cuadrícula inferior representa información agregada para las consultas visibles.
 
-    -	Id. de consulta: identificador único de la consulta en la base de datos. 
+    -	Id. de consulta: identificador único de la consulta en la base de datos.
     -	CPU por consulta durante el intervalo observable (depende de la función de agregación).
     -	Duración por consulta (depende de la función de agregación).
     -	Número total de ejecuciones para una consulta determinada.
@@ -113,7 +113,7 @@ Durante el uso de información de rendimiento de consultas, puede que encuentre 
 Estos mensajes suelen aparecer cuando el almacén de consultas no puede recopilar datos nuevos. Para solucionar este problema tiene dos opciones:
 
 -	Cambiar la directiva de retención y captura del almacén de consultas
--	Aumentar el tamaño del almacén de consultas 
+-	Aumentar el tamaño del almacén de consultas
 -	Borrar el almacén de consultas
 
 ### Directiva de retención y captura recomendada
@@ -121,7 +121,7 @@ Estos mensajes suelen aparecer cuando el almacén de consultas no puede recopila
 Hay dos tipos de directivas de retención:
 
 - Basada en tamaño: si se establece en AUTO, los datos se borrarán automáticamente cuando el tamaño casi haya alcanzado el tamaño máximo.
-- Basada en tiempo: de forma predeterminada, estableceremos esta opción en 30 días, lo que significa que, si el almacén de consultas se queda sin espacio, eliminará la información de consulta anterior a los 30 días. 
+- Basada en tiempo: de forma predeterminada, estableceremos esta opción en 30 días, lo que significa que, si el almacén de consultas se queda sin espacio, eliminará la información de consulta anterior a los 30 días.
 
 La directiva de capturas se podría establecer como:
 
@@ -159,7 +159,7 @@ Query Performance Insight le ayuda a comprender el impacto de la carga de trabaj
 
 ## Pasos siguientes
 
-Para recomendaciones adicionales para mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de índices de Base de datos SQL](sql-database-index-advisor.md) en la hoja **Información de rendimiento de consultas**.
+Para recomendaciones adicionales para mejorar el rendimiento de la base de datos SQL, haga clic en [Asesor de índices de Base de datos SQL](sql-database-advisor.md) en la hoja **Información de rendimiento de consultas**.
 
 ![Asesor de rendimiento](./media/sql-database-query-performance/ia.png)
 
@@ -169,4 +169,4 @@ Para recomendaciones adicionales para mejorar el rendimiento de la base de datos
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

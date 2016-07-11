@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configuración de un dispositivo nuevo con Azure AD durante la configuración
@@ -34,7 +34,7 @@ En Windows 10, los usuarios pueden unir sus dispositivos a Azure Active Director
 5.	Escriba las credenciales que le ha proporcionado la organización.
 <center>
 ![Pantalla de inicio de sesión](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
-6.	Después de que escriba su nombre de usuario, se coloca un inquilino coincidente en Azure AD. Si se encuentra en un dominio federado, se le redirigirá al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
+6.	Después de que escriba su nombre de usuario, se coloca un inquilino coincidente en Azure AD. Si se encuentra en un dominio federado, se le redirigirá al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
 7. Si es un usuario en un dominio no federado, deberá escribir las credenciales directamente en la página hospedada en Azure AD. Si se ha configurado la personalización de la marca, también verá el logotipo de la organización y texto complementario.
 8.	A continuación, encontrará un desafío de Multi-factor Authentication. Este desafío puede configurarlo un administrador de TI.
 9.	Azure AD comprobará si este usuario/dispositivo requiere la inscripción en la administración de dispositivos móviles.
@@ -52,4 +52,4 @@ En Windows 10, los usuarios pueden unir sus dispositivos a Azure Active Director
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

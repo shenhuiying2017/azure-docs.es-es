@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde almacenes de datos ODBC mediante Factoría de datos de Azure
@@ -225,14 +225,14 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | -------- | ----------- | -------- | 
 | type | La propiedad type debe establecerse en: **OnPremisesOdbc** | Sí |
 | connectionString | La parte de la credencial de no acceso de la cadena de conexión, así como una credencial cifrada opcional. Vea los ejemplos siguientes. | Sí
-| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador, por ejemplo "Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;". | No
+| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador, por ejemplo “Uid=<id. de usuario>;Pwd=<contraseña>;RefreshToken=<token de actualización secreto>;”. | No
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anonymous y Basic. | Sí | 
 | nombre de usuario | Especifique el nombre de usuario si usa la autenticación básica. | No | 
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No | 
 | gatewayName | Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. | Sí |
 
 
-Para más información sobre cómo configurar las credenciales de un almacén de datos ODBC local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
+Para obtener más información sobre cómo configurar las credenciales de un almacén de datos ODBC local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security).
 
 ### Uso de la autenticación básica
 
@@ -305,7 +305,7 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de actividad de copia si el origen es del tipo **RelationalSource** (que incluye ODBC), están disponibles las propiedades siguientes en la sección typeProperties:
+En el caso de la actividad de copia, si el origen es del tipo **RelationalSource** (que incluye ODBC), están disponibles las propiedades siguientes en la sección typeProperties:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -320,7 +320,7 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, como se mencionó en el tema [Asignar tipos de datos ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
+Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, tal y como se mencionó en el tema [Asignar tipos de datos ODBC](https://msdn.microsoft.com/library/cc668763.aspx).
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
@@ -328,7 +328,7 @@ Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## Almacén GE Historian
-Usted crea un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy Historian (ahora GE Historian)](http://www.geautomation.com/products/proficy-historian) a Data Factory de Azure como se muestra en el ejemplo siguiente:
+Crea un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy Historian (ahora GE Historian)](http://www.geautomation.com/products/proficy-historian) a Data Factory de Azure, tal y como se muestra en el ejemplo siguiente:
 
 	{
 	    "name": "HistorianLinkedService",
@@ -346,7 +346,7 @@ Usted crea un servicio vinculado ODBC para vincular un almacén de datos [GE Pro
 	    }
 	}
 
-Debe instalar Data Management Gateway en un equipo local y registrar la puerta de enlace con el portal. La puerta de enlace instalada en su equipo local utiliza el controlador ODBC para que GE Historian se conecte al almacén de datos GE Historian, de modo que instale el controlador si aún no está instalado en el equipo de la puerta de enlace. Consulte la sección [Habilitación de la conectividad](#enabling-connectivity) para obtener información detallada.
+Debe instalar Data Management Gateway en un equipo local y registrar la puerta de enlace con el portal. La puerta de enlace instalada en su equipo local utiliza el controlador ODBC para que GE Historian se conecte al almacén de datos GE Historian, de modo que instale el controlador si aún no está instalado en el equipo de la puerta de enlace. Consulte la sección [Habilitación de la conectividad](#enabling-connectivity) para obtener más información.
 
 Antes de usar el almacén GE Historian en una solución de Data Factory, compruebe si la puerta de enlace puede conectarse al almacén de datos mediante instrucciones en la sección siguiente.
 
@@ -355,17 +355,17 @@ Lea el artículo desde el principio para obtener información general detallada 
 ## Solución de problemas de conectividad
 Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
 
-1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar "C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal como se muestra en la imagen siguiente. 
+1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
 
 	![Buscar puerta de enlace](./media/data-factory-odbc-connector/search-gateway.png)
 2. Cambie a la pestaña **Diagnósticos**.
 
-	![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png) 
-3. Seleccione el **tipo** de almacén de datos (el servicio vinculado). 
-4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** para conectarse al almacén de datos. 
-5. Haga clic en **Prueba de conexión** para probar la conexión con el almacén de datos. 
+	![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+3. Seleccione el **tipo** de almacén de datos (el servicio vinculado).
+4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** para conectarse al almacén de datos.
+5. Haga clic en **Prueba de conexión** para probar la conexión con el almacén de datos.
 
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Crear una aplicación web de PHP-SQL e implementarla en el Servicio de aplicaciones de Azure mediante Git
@@ -52,7 +52,7 @@ Siga estos pasos para crear una aplicación web de Azure y una base de datos SQL
 
 6. Haga clic en cada parte (**Grupo de recursos**, **Aplicación web**, **Base de datos** y **Suscripción**) y escriba o seleccione los valores para los campos obligatorios:
 	
-	- Escriba un nombre de URL de su elección.	
+	- Escriba un nombre de URL de su elección.
 	- Configuración de credenciales de servidor de bases de datos
 	- Seleccione la región más cercana a la suya.
 
@@ -137,7 +137,7 @@ Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en 
 
 		php -S localhost:8000
 
-4. Abra un explorador web y diríjase a ****http://localhost:8000/createtable.php**. Esto creará la tabla `registration_tbl` en la base de datos.
+4. Abra un explorador web y diríjase a **http://localhost:8000/createtable.php**. Esto creará la tabla `registration_tbl` en la base de datos.
 
 5. Abra el archivo **index.php** en un editor de texto o IDE y agregue el código HTML y CSS básico para la página (el código de PHP se agregará en pasos posteriores).
 
@@ -233,7 +233,7 @@ Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en 
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Ahora puede dirigirse a ****http://localhost:8000/index.php** para probar la aplicación.
+Ahora puede dirigirse a **http://localhost:8000/index.php** para probar la aplicación.
 
 ##Publicación de la aplicación
 
@@ -298,4 +298,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

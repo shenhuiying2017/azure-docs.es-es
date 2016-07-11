@@ -3,7 +3,7 @@
    description="Tareas del Portal de Azure para restaurar una instancia de Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="elfisher"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
-   ms.author="elfish;barbkess;sonyama;nicw"/>
+   ms.date="06/28/2016"
+   ms.author="sonyama;barbkess;nicw"/>
 
 # Restauración de instancias de Almacenamiento de datos SQL de Azure (Portal)
 
@@ -116,4 +116,4 @@ Para obtener más información sobre las características de continuidad empresa
 <!--Other Web references-->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

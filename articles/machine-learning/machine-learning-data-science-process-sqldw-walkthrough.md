@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="06/24/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -84,14 +84,14 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
 
 **Aprovisione la instancia de Almacenamiento de datos SQL de Azure.** Siga la documentación de [Creación de Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de Almacenamiento de datos SQL. Asegúrese de que hacer anotaciones en las credenciales de Almacenamiento de datos SQL siguientes que se usarán en los pasos posteriores.
 
-  - **Nombre del servidor**: <server Name>.database.windows.net
+  - **Nombre del servidor**: <nombre del servidor>.database.windows.net
   - **Nombre de SQLDW (base de datos)**
   - **Nombre de usuario**
   - **Password**
 
-**Instale Visual Studio 2015 y SQL Server Data Tools.** Para obtener instrucciones, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Instale Visual Studio 2015 y SQL Server Data Tools.** Para ver instrucciones, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Conexión a Almacenamiento de datos SQL con Visual Studio](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Realización de consultas en Almacenamiento de datos SQL de Azure (Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 >[AZURE.NOTE] Ejecute la siguiente consulta SQL en la base de datos que creó en el Almacenamiento de datos SQL (en lugar de la consulta proporcionada en el paso 3 del tema sobre la conexión) para **crear una clave maestra**.
 
@@ -121,7 +121,7 @@ Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a
 
 ![][19]
 
-En *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
+En su *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
 
 	./SQLDW_Data_Import.ps1
 
@@ -314,13 +314,18 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
 			)
 			;
 
+La ubicación geográfica de las cuentas de almacenamiento afecta a los tiempos de carga.
+
 >[AZURE.NOTE] Según la ubicación geográfica de la cuenta de almacenamiento de blobs privada, el proceso de copiar datos de un blob público a su cuenta de almacenamiento privada puede tardar unos 15 minutos o incluso más tiempo, y el proceso de carga de datos desde la cuenta de almacenamiento al Almacenamiento de datos SQL de Azure podría tardar 20 minutos o más tiempo.
+
+Tendrá que decidir qué hacer si tiene archivos de origen y de destino duplicados.
 
 >[AZURE.NOTE] Si los archivos .csv que se van a copiar desde el almacenamiento de blobs público a la cuenta de almacenamiento de blobs privada ya existen en la cuenta de almacenamiento de blobs privada, AzCopy le preguntará si desea sobrescribirlos. Si no desea sobrescribirlos, escriba **n** cuando se le solicite. Si desea sobrescribir **todos** ellos, escriba **a** cuando se le solicite. También puede escribir **y** para sobrescribir los archivos .csv individualmente.
 
 ![Diagrama 21][21]
 
->[AZURE.TIP] **Use sus propios datos:** si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales al Almacenamiento de blobs de Azure privado. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
+Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales al Almacenamiento de blobs de Azure privado. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
+
 
 >[AZURE.TIP] Si los datos ya están en el Almacenamiento de blobs de Azure privado en la aplicación de la vida real, puede omitir el paso de AzCopy en el script de PowerShell y cargar directamente los datos en Almacenamiento de datos SQL de Azure. Esto requerirá modificaciones adicionales del script para adaptarlo al formato de los datos.
 
@@ -452,7 +457,7 @@ En este ejemplo se convierte la longitud y latitud de los puntos de recogida y d
 	GO
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -499,7 +504,7 @@ Este es el script SQL que define la función de distancia.
 	GO
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
-	CREATE FUNCTION [dbo].[fnCalculateDistance] \(@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
+	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
 
 	RETURNS float
 	AS
@@ -626,7 +631,7 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### Notificación del número de filas y columnas de la tabla <nyctaxi_trip>
+### Informe con el número de filas y columnas de la tabla <nyctaxi\_trip>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -642,10 +647,10 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de filas = 173179759  
+- Número total de filas = 173179759
 - Número total de columnas = 14
 
-### Notificación del número de filas y columnas de la tabla <nyctaxi_fare>
+### Informe con el número de filas y columnas de la tabla <nyctaxi\_fare>
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions
@@ -661,7 +666,7 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
 
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Número total de filas = 173179759  
+- Número total de filas = 173179759
 - Número total de columnas = 11
 
 ### Lectura de una muestra de datos pequeña de la base de datos de Almacenamiento de datos SQL
@@ -838,7 +843,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 
 Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Aprendizaje automático de Azure](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
-1. **Clasificación binaria**: para predecir si se dio propina en una carrera, o no.
+1. **Clasificación binaria**: para predecir si se dio propina en una carrera o no.
 
 2. **Clasificación multiclase**: para predecir el intervalo de la propina dada, según las clases definidas anteriormente.
 
@@ -852,7 +857,7 @@ Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de 
 
 2. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
 
-3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para más información sobre Aprendizaje automático de Azure, vea el [Centro de documentación de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información sobre Aprendizaje automático de Azure, visite el [Centro de documentación de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un experimento de entrenamiento típico consta de los pasos siguientes:
 
@@ -869,7 +874,7 @@ Un experimento de entrenamiento típico consta de los pasos siguientes:
 
 En este ejercicio, ya se han explorado y diseñado los datos en Almacenamiento de datos SQL, y también se ha decidido el tamaño de la muestra para la ingesta en Aprendizaje automático de Azure. Este es el procedimiento para crear uno o varios de los modelos de predicción:
 
-1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo [Importar datos][import-data], que se encuentra disponible en la sección **Data Input and Output** (Entrada y salida de datos). Para más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
+1. Obtenga los datos e introdúzcalos en Aprendizaje automático de Azure mediante el módulo [Importar datos][import-data], que se encuentra disponible en la sección **Entrada y salida de datos**. Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
 
 	![Datos de importación de Aprendizaje automático de Azure][17]
 
@@ -891,7 +896,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 > [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de modelado de las secciones anteriores, **las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (requerido) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los otros dos problemas y cualquier otra **fuga de destino**. Por ejemplo, cuando use clasificación binaria, utilice la etiqueta **tipped** y excluya los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
-> Para excluir cualquier columna innecesaria o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o el módulo [Editar metadatos][edit-metadata]. Para más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
+> Para excluir cualquier columna innecesaria o fugas de destino, puede usar el módulo [Seleccionar columnas de conjunto de datos][select-columns] o [Editar metadatos][edit-metadata]. Para obtener más información, consulte las páginas de referencia de [Seleccionar columnas de conjunto de datos][select-columns] y [Editar metadatos][edit-metadata].
 
 ## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
 
@@ -964,4 +969,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

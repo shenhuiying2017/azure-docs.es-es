@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Asociados de la solución de Almacenamiento de datos SQL
@@ -32,7 +32,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | ![Dundas][7] |**Dundas Software**<br>Dundas Data Visualization es un proveedor global líder del software de inteligencia empresarial y visualización de datos. Los paneles, los informes y el análisis de datos visuales de Dundas proporcionan una integración sin problemas con las aplicaciones empresariales, para permitir una mejor toma de decisiones e informaciones más rápidas. | [Más][dundas_software_more] |
 | ![Inbrein][8] |**Inbrein**<br>Inbrein MicroERD proporciona las herramientas necesarias para crear un modelo de datos preciso, reducir la redundancia de datos, mejorar la productividad y cumplir con los estándares. Mediante el uso de su interfaz de usuario que se desarrolló a partir de numerosas experiencias de usuario, un modelador puede trabajar de manera fácil y cómoda en modelos de bases de datos. Puede disfrutar continuamente funciones nuevas y mejoradas de MicroERD a través de mejoras y actualizaciones funcionales y oportunas. | [Más][inbrein_more] |
 | ![Infolibrarian][9] |**Infolibrarian**<br>InfoLibrarian cataloga, almacena y administra metadatos que le ayudan a resolver los puntos de dificultad clave de la administración de datos. Además, InfoLibrarian proporciona soluciones de software de administración de activos, gobernanza de datos y administración de metadatos para administrar y publicar metadatos desde un conjunto variado de herramientas y tecnologías. | [Más][infolibrarian_more] |
-| ![Informatica][10] |**Informatica**<br>Informatica es uno de los proveedores independientes de software de integración de datos más reconocible del mundo. Informatica Vibe, una de las primeras máquinas de datos virtuales integrables del sector, potencia las funcionalidades "Asignar una vez, implementar en cualquier lugar" de la plataforma de Informatica. Más de 5 500 empresas de todo el mundo dependen de Informatica para aprovechar completamente sus recursos de información.| [Más][informatica_more] |
+| ![Informatica][10] |**Informatica**<br>Informatica es uno de los proveedores independientes de software de integración de datos más reconocible del mundo. Informatica Vibe, una de las primeras máquinas de datos virtuales integrables del sector, potencia las funcionalidades "Asignar una vez, implementar en cualquier lugar" de la plataforma de Informatica. Más de 5 500 empresas de todo el mundo dependen de Informatica para aprovechar completamente sus recursos de información.| [Más][informatica_more] |
 | ![Jinfonet][11] |**Jinfonet**<br>JReport es una solución de BI integrable para la empresa. La solución permite que los usuarios creen informes, paneles y análisis de datos en la nube, Big Data y orígenes de datos transaccionales. A través de la visualización de datos, los usuarios pueden realizar sus propios informes y su detección de datos para un proceso de toma de decisiones ágil y sobre la marcha.| [Más][jinfonet_more] |
 | ![LogiAnalytics][12] |**LogiAnalytics**<br>Logi Analytics, en conjunto con Almacenamiento de datos SQL de Microsoft Azure, ahora pueden permitir a su organización coleccionar y analizar los conjuntos de datos más diversos y de mayor tamaño del mundo, además de actuar en consecuencia, para generar una organización de alto rendimiento. | [Más][logianalytics_more] |
 | ![Looker][13] |**Looker**<br>Looker ofrece a todos los miembros de su empresa la capacidad de explorar y comprender los datos que impulsan su negocio mientras que, al mismo tiempo, ofrece al analista de datos un nivel de modelado flexible y reutilizable para controlar y ajustar esos datos. Con Looker como catalizador, las empresas han transformado profundamente su cultura. | [Más][looker_more] |
@@ -101,4 +101,4 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

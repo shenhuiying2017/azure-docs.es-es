@@ -68,24 +68,22 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 1.  Vaya al **catálogo de copias de seguridad**. Filtre las opciones para encontrar el dispositivo y el intervalo de tiempo adecuados para buscar las copias de seguridad. Haga clic en el icono de marca de verificación ![](./media/storsimple-ova-restore/image1.png) para ejecutar esta consulta.
 
-2.  En la lista de conjuntos de copias de seguridad que se muestre, haga clic y seleccione una copia de seguridad específica. Expanda la copia de seguridad para ver los distintos volúmenes que posee. Debe desconectar estos volúmenes del host y del dispositivo para que pueda restaurarlos. Acceda a los volúmenes de la página **Volúmenes** y desconéctelos.
+2.  En la lista de conjuntos de copias de seguridad que se muestre, haga clic y seleccione una copia de seguridad específica. Expanda la copia de seguridad para ver los distintos volúmenes que posee. Seleccione el volumen que desee restaurar.
 
-3.  Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un conjunto de copias de seguridad.
-
-5.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**. Se iniciará el asistente **Restaurar como volumen nuevo**.
+5.  En la parte inferior de la página, haga clic en **Restaurar como nuevo**. Se iniciará el Asistente **Restaurar como volumen nuevo**.
 
 1.  En la página **Especificar nombre y ubicación**:
 
 
 	1.  Compruebe el nombre del dispositivo de origen. Este debe ser el dispositivo que contiene el volumen que quiera restaurar. La selección del dispositivo no está disponible. Para seleccionar un dispositivo de origen diferente, debe salir del asistente y volver a seleccionar la copia de seguridad de nuevo.
 
-	2.  Proporcione un nombre de volumen. El nombre del volumen debe contener de 3 a 127 caracteres.
+	2.  Proporcione un nombre de volumen para el volumen que se va a restaurar como nuevo. El nombre del volumen debe contener de 3 a 127 caracteres.
 
 	3.  Haga clic en el icono con forma de flecha.
 
 		![](./media/storsimple-ova-restore/image12.png)
 
-1.  En la página **Especificar hosts que pueden usar este volumen**, seleccione los ACR adecuados en la lista desplegable.
+1.  En la página **Especificar hosts que pueden usar este volumen**, seleccione los ACR que correspondan en la lista desplegable.
 
 	![](./media/storsimple-ova-restore/image13.png)
 
@@ -93,9 +91,15 @@ Siga estos pasos en el Portal de Azure clásico para realizar una restauración 
 
 2.  Una vez completado el trabajo de restauración, la restauración se iniciará y aparecerá otra notificación. Para supervisar el progreso de la restauración, haga clic en **Ver trabajo**. Esto le llevará a la página **Trabajos**.
 
-3.  Puede supervisar el progreso del trabajo de restauración. Cuando la restauración se haya completado al 100 %, vuelva a la página **Volúmenes** del dispositivo.
+3.  Puede supervisar el progreso del trabajo de restauración. Vaya a la página **Volúmenes** del dispositivo.
 
 4.  En la lista de volúmenes del dispositivo podrá ver el volumen recién restaurado. Asimismo, verá que, al realizar la restauración, el tipo de volumen sigue siendo el mismo. Esto es, un volumen en niveles se restaurará “en niveles” y un volumen anclado localmente se restaurará como “anclado localmente”.
+
+5.  Cuando el volumen se muestre online en la lista de volúmenes, estará disponible para el uso. En el host de iniciador iSCSI, actualice la lista de destinos en la ventana de propiedades del iniciador iSCSI. Un nuevo destino que contiene el nombre del volumen restaurado debe aparecer como "inactivo" en la columna de estado.
+
+6.  Seleccione el destino y haga clic en **Conectar**. Cuando el iniciador se conecta al destino, el estado debe cambiar a **Conectado**.
+
+7.  En la ventana **Administración de discos**, aparecerán los volúmenes montados, tal como se muestra en la siguiente ilustración. Haga clic con el botón derecho en el volumen detectado (haga clic en el nombre del disco) y, a continuación, haga clic en **Conectado**.
 
 > [AZURE.IMPORTANT] Si se produce un error en el trabajo de restauración al intentar restaurar un volumen o un recurso compartido desde un conjunto de copia de seguridad, todavía se puede crear en el portal un recurso compartido o un volumen de destino. Es importante eliminar este recurso compartido o este volumen de destino del portal para minimizar los problemas que deriven de este elemento en el futuro.
 
@@ -110,7 +114,7 @@ Cada recurso compartido tiene una carpeta con formato *.backups* que contiene la
 	Las últimas 5 copias de seguridad se muestran en este modo y pueden utilizarse para realizar una recuperación de nivel de elemento. Las cinco copias de seguridad recientes incluyen las copias de seguridad programadas predeterminadas y las copias de seguridad manuales.
 
 	
-	-   **Copias de seguridad programadas** denominadas &lt;nombreDe Dispositivo&gt; DailySchedule-AAAAMMDD-HHMMSS-UTC.
+	-   **Copias de seguridad programadas** denominadas &lt;nombreDeDispositivo&gt; DailySchedule-AAAAMMDD-HHMMSS-UTC.
 
 	-   **Copias de seguridad manuales** denominadas Ad-hoc-AAAAMMDD-HHMMSS-UTC.
 	
@@ -130,6 +134,6 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 
 ## Pasos siguientes
 
-Más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
+Obtenga más información sobre cómo [administrar la matriz virtual de StorSimple mediante la interfaz de usuario web local](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

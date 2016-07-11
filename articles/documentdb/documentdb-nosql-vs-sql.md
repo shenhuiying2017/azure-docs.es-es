@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Cuándo usar SQL frente a NoSQL | Microsoft Azure"
-	description="Compare las ventajas de usar las soluciones NoSQL no relacionales frente a soluciones de SQL. Obtenga información acerca de los servicios de Microsoft Azure NoSQL o las soluciones de SQL Server que mejor se adapten a su escenario."
+	description="Compare las ventajas de usar las soluciones NoSQL no relacionales frente a soluciones de SQL. Obtenga información sobre los servicios de Microsoft Azure NoSQL o las soluciones de SQL Server que mejor se adapten a su escenario."
 	keywords="nosql vs sql, cuándo usar NoSQL, sql frente a nosql"
 	services="documentdb"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="03/28/2016"
+	ms.date="06/24/2016"
 	ms.author="mimig"/>
 
 # NoSQL frente a SQL
@@ -130,4 +130,4 @@ Le invitamos a obtener más información acerca de nuestros productos SQL y NoSQ
     - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
     - [SQL Server en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="06/27/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -31,7 +31,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 ## Investigación de la ejecución de la consulta
 Para supervisar la ejecución de la consulta, comience por [sys.dm\_pdw\_exec\_requests][]. Esta vista contiene las consultas en curso, así como un historial de las consultas que se han completado recientemente. El campo request\_id identifica cada consulta de forma única y es la clave principal de esta vista. El campo request\_id se asigna de forma secuencial para cada nueva consulta. Al consultar en esta tabla sobre un campo session\_id determinado, se mostrarán todas las consultas de un inicio de sesión concreto.
 
-En caso de que quiera investigar la ejecución de una consulta determinada, estos son algunos de los pasos comunes que deberá realizar.
+Estos son los pasos que deben seguirse para investigar los planes de ejecución de consultas y las horas de una consulta determinada.
 
 ### PASO 1: Buscar la consulta que quiera investigar
 
@@ -162,4 +162,4 @@ Para obtener más información sobre las vistas de administración dinámica (DM
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

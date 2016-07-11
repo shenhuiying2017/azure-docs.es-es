@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS | Microsoft Azure"
-	description="El acceso condicional en Azure AD permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza."
+	description="El acceso condicional en Azure AD permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
-# Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS
+# Introducción al acceso condicional a Azure AD  
 
-El Acceso condicional de Azure para aplicaciones SaaS está disponible en versión de vista previa pública. La versión preliminar permite la configuración de reglas de acceso de autenticación multifactor (MFA) por aplicación y la posibilidad de bloquear el acceso de los usuarios en una red que no es de confianza.
+El acceso condicional a Azure Active Directory está disponible como versión preliminar pública en las aplicaciones SaaS y las conectadas de Azure AD. Gracias a esto, podrá configurar el acceso condicional en función del grupo, la ubicación y la confidencialidad de la aplicación.
 
-La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización. Estas funcionalidades estarán disponibles para los clientes que hayan adquirido una licencia de Azure Active Directory Premium.
+Puede aplicar reglas de autenticación multifactor a todos los usuarios que están asignados a la aplicación, o bien solo a los que pertenecen a grupos de seguridad especificados. Con el acceso condicional en función de la confidencialidad de la aplicación, puede establecer las reglas de acceso de autenticación multifactor (MFA) por aplicación, de modo que puede bloquear el acceso a los usuarios que no se encuentren en una red de confianza. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
+
+Estas funcionalidades estarán disponibles para los clientes que hayan adquirido una licencia de Azure Active Directory Premium.
 
 ## Requisitos previos de escenario
 * Licencia de Azure Active Directory Premium
@@ -79,7 +81,7 @@ Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, Ope
 
 En el caso de los inquilinos federados, puede que Azure Active Directory o el servidor local de AD FS ejecute Multi-Factor Authentication (MFA).
 
-De forma predeterminada, MFA se producirá en una página hospedada por Azure Active Directory. Para configurar la MFA local, el valor de la propiedad –SupportsMFA debe definirse como **True** en Azure Active Directory usando el módulo de Azure AD para Windows PowerShell.
+De forma predeterminada, MFA se producirá en una página hospedada por Azure Active Directory. Para configurar la MFA local, el valor de la propiedad –SupportsMFA debe establecerse en **True** en Azure Active Directory usando el módulo de Azure AD para Windows PowerShell.
 
 En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) en el inquilino contoso.com:
 
@@ -92,4 +94,4 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 - [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

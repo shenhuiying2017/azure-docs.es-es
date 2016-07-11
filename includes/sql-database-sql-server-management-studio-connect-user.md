@@ -33,8 +33,8 @@ Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS como usua
       ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Solución de problemas de errores de conexión
+## Solución de problemas de errores de conexión
 
 La razón más común de los errores de conexión son errores en el nombre del servidor (recuerde, <*servername>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o la contraseña, así como el servidor que no permite conexiones por motivos de seguridad.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

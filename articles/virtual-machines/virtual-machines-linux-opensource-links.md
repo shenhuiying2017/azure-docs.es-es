@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="06/27/2016"
 	ms.author="rasquill"/>
 
 
@@ -23,7 +23,7 @@
 
 Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Linux en el modelo de implementación clásica.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Introducción
 - [Introducción a Linux en Azure](virtual-machines-linux-intro-on-azure.md)
@@ -57,7 +57,6 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 ### Docker
 - [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-linux-classic-cli-use-docker.md)
 - [Uso de la extensión de la máquina virtual de Docker con el Portal de Azure](virtual-machines-linux-classic-portal-use-docker.md)
-- [Introducción rápida a Docker en Azure Marketplace](virtual-machines-linux-classic-docker-quickstart.md)
 - [Cómo usar una máquina Docker en Azure](virtual-machines-linux-docker-machine.md)
 
 ### Ubuntu
@@ -113,8 +112,8 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 ## Solución de problemas
 - [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
-- [Solución de problemas de la implementación clásica con la creación de una máquina virtual de Linux en Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
-- [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual con Linux existente en Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
+- [Solución de problemas de la implementación clásica con la creación de una máquina virtual de Linux en Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
+- [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual con Linux existente en Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
 
 
 ## Referencia
@@ -126,7 +125,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 
 ## Vínculos generales
-Los vínculos siguientes son de blogs de Microsoft, páginas de Technet y sitios externos en lugar formar parte de la documentación de Azure.com anterior. Dado que Azure y el mundo de la informática de código abierto cambian con frecuencia, es prácticamente seguro que los siguientes vínculos no estarán actualizados, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los desactualizados. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
+Los vínculos siguientes son de blogs de Microsoft, páginas de Technet y sitios externos en lugar formar parte de la documentación de Azure.com anterior. Dado que Azure y el mundo de la informática de código abierto cambian con frecuencia, los siguientes vínculos seguramente estarán actualizados, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los obsoletos. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
 
 - [ejecución de ASP.NET 5 en Linux mediante contenedores Docker](http://blogs.msdn.com/b/webdev/archive/2015/01/14/running-asp-net-5-applications-in-linux-containers-with-docker.aspx)
 - [Cómo implementar una imagen de máquina virtual CentOS desde OpenLogic](https://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
@@ -188,8 +187,6 @@ Dado que el mundo de DevOps, administración y optimización es bastante extenso
 - [Blog: Cómo hacer DSC de Powershell para Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
 - [GitHub: DSC de cliente Docker](https://github.com/anweiss/DockerClientDSC)
 
-- [Ubuntu Juju](https://juju.ubuntu.com/docs/config-azure.html)
-
 - [Complemento de compresor para Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

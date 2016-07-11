@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="06/22/2016" 
 	ms.author="awills"/>
 
 # Administración de precios y cuotas para Application Insights
@@ -48,7 +48,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 
 ## Cuota mensual
 
-* En cada mes natural, la aplicación puede enviar hasta una cantidad especificada de telemetría a Application Insights. Actualmente la cuota para el plan de tarifa gratuito es de 5 millones de puntos de datos al mes y mucho más para los demás esquemas; puede comprar más si alcanza la cuota. Consulte el [esquema de precios][pricing] para ver los números reales. 
+* En cada mes natural, la aplicación puede enviar hasta una cantidad especificada de telemetría a Application Insights. Actualmente la cuota para el plan de tarifa gratuito es de 5 millones de puntos de datos al mes y mucho más para los demás esquemas; puede comprar más si alcanza la cuota. Consulte el [esquema de precios][pricing] para ver los números reales.
 * La cuota depende del nivel de precios que haya elegido.
 * La cuota se cuenta a partir de la medianoche UTC del primer día de cada mes.
 * El gráfico de puntos de datos muestra el uso que se ha hecho de la cuota en este mes.
@@ -64,7 +64,7 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
  * Cada medida sin procesar de una [métrica](app-insights-metrics-explorer.md), como un contador de rendimiento. (Los puntos que se ven en los gráficos normalmente son agregados de varios puntos de datos sin procesar).
  * Cada punto de un gráfico de disponibilidad web es también un agregado de varios puntos de datos.
 * También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
- * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida. 
+ * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida.
  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
 * La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling.md). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
 
@@ -119,7 +119,7 @@ Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 * Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
 * [Limite el número de llamadas AJAX que se pueden notificar](app-insights-javascript.md#detailed-configuration) en cada vista de página o desactive los informes de AJAX.
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
-* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
 
 ## Muestreo
@@ -145,10 +145,11 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
 ## Límites de los nombres
 
-1.	Un máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación, no limitados al tipo de datos.
-2.	Las [propiedades][apiproperties] se pueden usar para filtrar y agrupar por estas solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen los 100, la propiedad todavía se puede usar para búsqueda y filtrado, pero no para filtros.
-3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
+1.	Un máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
+2.	Las [propiedades][apiproperties] se pueden usar en los filtros y agruparse solo cuando tengan menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
+3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
 
+Si se percata de que aplicación supera estos límites, plantéese la posibilidad de dividir los datos entre diferentes claves de instrumentación: es decir, [cree nuevos recursos de Application Insights](app-insights-create-new-resource.md) y envíe parte de los datos a las nuevas claves de instrumentación. Es posible que descubra que el resultado está mejor estructurado. Puede usar los [paneles](app-insights-dashboards.md#dashboards) para colocar las métricas diferentes en la misma pantalla, por lo que este enfoque no limita su capacidad de comparar distintas métricas.
 
 ## Resumen de límites
 
@@ -164,4 +165,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

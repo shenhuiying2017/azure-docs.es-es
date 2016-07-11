@@ -21,7 +21,7 @@
 
 Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa los servlets de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Asimismo, proporciona un entorno de servidor web de Java HTTP en el que se ejecuta código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 En esta guía, se proporciona información acerca de la instalación de tomcat7 en una imagen de Linux así como sobre la implementación en Microsoft Azure.
@@ -75,8 +75,8 @@ El puerto TCP 8080 es el número de puerto predeterminado al que escucha tomcat.
 
 1.	En el Portal de Azure, haga clic en **Examinar** -> **Máquina virtual** y, luego, haga clic en la máquina virtual que creó. ![][5]
 2.	Para agregar un extremo a la máquina virtual, haga clic en el cuadro **Extremos**. ![][6]
-3.	Haga clic en **Agregar**.  
-	1.	Para el **extremo**, escriba un nombre para el extremo en Extremo y, a continuación, escriba 80 en **Puerto público**.  
+3.	Haga clic en **Agregar**.
+	1.	Para el **extremo**, escriba un nombre para el extremo en Extremo y, a continuación, escriba 80 en **Puerto público**.
 
 		Si se establece con el valor 80, no necesitará incluir el número de puerto en la dirección URL que permite obtener acceso a tomcat. Por ejemplo: http://tomcatdemo.cloudapp.net.
 
@@ -128,7 +128,7 @@ open-jdk
 
 oracle-jdk
 
--	Para descargar el JDK desde el sitio web de Oracle:  
+-	Para descargar el JDK desde el sitio web de Oracle:
 
 		wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 
@@ -206,7 +206,7 @@ Después de editar este archivo, deberá reiniciar los servicios de tomcat7 con 
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Abra el explorador y escriba la dirección URL **http://<your tomcat server DNS name>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.
+Abra el explorador y escriba la dirección URL **http://<nombre DNS de su servidor tomcat>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.
 
 Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 
@@ -215,8 +215,8 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 ###No se puede tener acceso a la máquina virtual con Tomcat y Moodle desde Internet
 
 -	**Síntoma** Tomcat se está ejecutando, pero no puede ver la página predeterminada de Tomcat con el explorador.
--	**Caso de raíz posible**   
-	1.	El puerto de escucha de tomcat no es el mismo que el puerto privado del extremo de su máquina virtual para el tráfico de tomcat.  
+-	**Caso de raíz posible**
+	1.	El puerto de escucha de tomcat no es el mismo que el puerto privado del extremo de su máquina virtual para el tráfico de tomcat.
 
 		Compruebe la configuración del extremo del puerto público y del puerto privado. Asegúrese de que el puerto privado es el mismo que el puerto de escucha de Apache. Consulte Fase 1: Crear una imagen para obtener instrucciones acerca de cómo configurar extremos para la máquina virtual.
 
@@ -240,7 +240,7 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 			w3m http://localhost:8080  
 
 -	**Solución**
-	1. Si el puerto de escucha de tomcat no es el mismo que el Puerto privado del extremo para el tráfico a la máquina virtual, es necesario cambiar el puerto privado para que sea el mismo que el puerto de escucha de tomcat.   
+	1. Si el puerto de escucha de tomcat no es el mismo que el Puerto privado del extremo para el tráfico a la máquina virtual, es necesario cambiar el puerto privado para que sea el mismo que el puerto de escucha de tomcat.
 
 	2.	Si el problema se debe a los firewall o iptables, agregue las siguientes líneas a /etc/sysconfig/iptables:
 
@@ -261,7 +261,7 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 
 ###Permiso denegado al cargar archivos de proyecto a /var/lib/tomcat7/webapps/  
 
--	**Síntoma** Al usar cualquier cliente SFTP (por ejemplo, FileZilla) para conectarse a la máquina virtual y navegar a /var/lib/tomcat7/webapps/ para publicar el sitio, se obtiene un mensaje de error similar al siguiente:  
+-	**Síntoma** Al usar cualquier cliente SFTP (por ejemplo, FileZilla) para conectarse a la máquina virtual y navegar a /var/lib/tomcat7/webapps/ para publicar el sitio, se obtiene un mensaje de error similar al siguiente:
 
 		status:	Listing directory /var/lib/tomcat7/webapps
 		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
@@ -269,7 +269,7 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 		Error:	File transfer failed
 
 -	**Caso de raíz posible** No tiene permiso para tener acceso a la carpeta /var/lib/tomcat7/webapps.
--	**Solución** Necesita obtener permiso de la cuenta raíz. Puede cambiar la propiedad de esa carpeta de raíz al nombre de usuario que se usó al aprovisionar la máquina. Este es un ejemplo con el nombre de cuenta de azureuser:  
+-	**Solución** Necesita obtener permiso de la cuenta raíz. Puede cambiar la propiedad de esa carpeta de raíz al nombre de usuario que se usó al aprovisionar la máquina. Este es un ejemplo con el nombre de cuenta de azureuser:
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
@@ -306,4 +306,4 @@ Después de conectarse, debería ver algo parecido a lo siguiente: ![][18]
 [17]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

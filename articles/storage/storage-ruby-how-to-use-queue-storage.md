@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -57,20 +57,20 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 	Azure.config.storage_access_key = "<your Azure storage access key>"
 
  
-Para obtener estos valores desde una cuenta de almacenamiento de ARM o clásica en el Portal de Azure:
+Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource Manager o clásica en el Portal de Azure:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. En la hoja Configuración de la derecha, haga clic en **Claves de acceso**.
-4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
-5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
+4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas.
+5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
-Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal clásico:
+Para obtener estos valores desde una cuenta de almacenamiento clásica en el Portal de Azure clásico:
 
-1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. Vaya a la cuenta de almacenamiento que desea utilizar.
 3. Haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior del panel de navegación.
-4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria. 
+4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles.
 
 ## Creación de una cola
@@ -162,4 +162,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus: comparación y diferencias](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

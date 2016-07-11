@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/05/2016"
    ms.author="elizapo"/>
 
 # Actualización de una colección en Azure RemoteApp
@@ -34,4 +34,4 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
 
 1. Haga clic en la marca de verificación para iniciar la actualización.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

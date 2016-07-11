@@ -14,12 +14,15 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
 # Compatibilidad con el acceso condicional de las aplicaciones
-El acceso condicional funciona con aplicaciones móviles y de escritorio que usan autenticación moderna. Las aplicaciones con autenticación moderna pueden mostrar páginas de inicio de sesión de Azure AD. Esto permite que se solicite a los usuarios en línea autenticación multifactor o que se muestre un mensaje accesible para el usuario final cuando se bloquea el acceso. Es importante comprender cuáles con las aplicaciones que se admiten, así como los pasos que pueden ser necesarios para proteger otros puntos de entrada.
+
+Las reglas de acceso condicional pueden utilizarse en las aplicaciones conectadas de Azure AD, las aplicaciones SaaS federadas previamente integradas, las aplicaciones que utilizan inicio de sesión único con contraseña, y las aplicaciones de línea de negocio y el Proxy de la aplicación de Azure AD. Para ver una lista detallada de las aplicaciones en las que puede habilitar el acceso condicional, consulte [Servicios habilitados con acceso condicional](active-directory-conditional-access-technical-reference.md#Services-enabled-with-conditional-access). El acceso condicional funciona con aplicaciones móviles y de escritorio que usan autenticación moderna. En este tema se explican las compatibilidades con respecto a las versiones de escritorio y móvil de estas aplicaciones.
+
+ Las aplicaciones con autenticación moderna pueden mostrar páginas de inicio de sesión de Azure AD. Esto permite que se solicite a los usuarios en línea autenticación multifactor o que se muestre un mensaje accesible para el usuario final cuando se bloquea el acceso. Es importante comprender cuáles con las aplicaciones que se admiten, así como los pasos que pueden ser necesarios para proteger otros puntos de entrada.
 
 ## Aplicaciones que usan autenticación moderna
 Las siguientes aplicaciones se han probado con la autenticación multifactor (MFA) y la directiva de ubicación establecida en el servicio de destino.
@@ -102,4 +105,4 @@ Regla 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

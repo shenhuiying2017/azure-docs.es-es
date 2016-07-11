@@ -85,12 +85,8 @@ Las cuotas de las máquinas virtuales, redes virtuales y cuentas de almacenamien
 
 Toda la automatización y los scripts que ha creado continuarán funcionando para las máquinas virtuales existentes, las redes virtuales se crean en el modo de administración de servicios de Azure. Sin embargo, los scripts deben actualizarse para utilizar el nuevo esquema para crear los mismos recursos a través del nuevo modo Administrador de recursos de Azure.
 
-**¿Las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure se pueden conectar a mi circuito de Express Route?**
-
-Esto no se admite en este momento. No se pueden conectar las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure con un circuito Route Express. Se admitirán en el futuro.
-
 **¿Dónde puedo encontrar ejemplos de plantillas del Administrador de recursos de Azure?**
 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

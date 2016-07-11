@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/10/2016"
+	ms.date="06/22/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple
@@ -55,10 +55,10 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 	Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal.
-1. Recupere la URL de ingesta de canales. 
+1. Recupere la URL de ingesta de canales.
 
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal.
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
@@ -66,14 +66,14 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 
 	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
 
-	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
-1. Publique el recurso asociado al programa.   
+	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa.
+1. Publique el recurso asociado al programa.
 
 	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).     
+1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 ##<a id="channel"></a>Descripción de un canal y sus componentes relacionados
 
@@ -112,12 +112,12 @@ Para obtener información sobre los codificadores en directo de RTMP, consulte [
 
 Se aplican las siguientes consideraciones:
 
-- Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta. 
-- El uso de la dirección URL de ingesta secundaria requiere más ancho de banda. 
+- Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta.
+- El uso de la dirección URL de ingesta secundaria requiere más ancho de banda.
 - La secuencia entrante de velocidad de bits múltiple puede tener un máximo de 10 niveles de calidad de vídeo (también conocido conocidas como capas) y un máximo de 5 pistas de audio.
 - La mayor velocidad de bits promedio para cualquiera de los niveles o las capas de calidad de vídeo debe ser inferior a 10 Mbps.
 - La suma de las velocidades de bits promedio para todas las secuencias de audio y vídeo debe ser inferior a 25 Mbps.
-- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
+- No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 - Puede introducir una velocidad de bits única en su canal, pero como el canal no procesa la secuencia, las aplicaciones cliente también recibirán una secuencia de una sola velocidad de bits (no se recomienda esta opción).
 
 ####Direcciones URL de ingesta (extremos) 
@@ -277,4 +277,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

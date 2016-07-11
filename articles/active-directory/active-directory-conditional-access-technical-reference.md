@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Referencia técnica: acceso condicional a aplicaciones de Azure AD
@@ -55,13 +55,14 @@ Las reglas de acceso condicional que utilizan una red "en el trabajo" dependen d
 
 Opciones para especificar redes "en el trabajo"
 
-1. Configurar intervalos de direcciones IP de confianza en la [página de configuración de la autenticación multifactor](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La directiva de acceso condicional usará los intervalos configurados en cada solicitud de autenticación y emisión de tokens para evaluar las reglas. 
+1. Configurar intervalos de direcciones IP de confianza en la [página de configuración de la autenticación multifactor](../multi-factor-authentication/multi-factor-authentication-whats-next.md). La directiva de acceso condicional usará los intervalos configurados en cada solicitud de autenticación y emisión de tokens para evaluar las reglas.
 2. Configurar el uso de la notificación "dentro de la red corporativa"; esta opción se puede usar con directorios federados mediante AD FS. [Aprenda más sobre las notificaciones "dentro de la red corporativa"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. Configurar intervalos de direcciones IP públicas. En la pestaña Configurar de su directorio, puede configurar direcciones IP públicas. Estas direcciones se usarán en el acceso condicional como direcciones IP "en el trabajo", lo que permite la configuración de intervalos adicionales por encima del límite de 50 direcciones IP que se aplica en la página de configuración de MFA.
 
 
 
-## Reglas por aplicación
+## Reglas basadas en la confidencialidad de las aplicaciones
+
 Las reglas se configuran por aplicación, lo que permite a los servicios de alto valor estar protegidos sin que se vea afectado el acceso a otros servicios. Se pueden configurar reglas de acceso condicional en la pestaña **Configurar** de la aplicación.
 
 Reglas que se ofrecen actualmente:
@@ -81,4 +82,4 @@ Reglas que se ofrecen actualmente:
 - [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

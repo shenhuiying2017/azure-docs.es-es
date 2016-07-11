@@ -24,7 +24,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de i
 
 ## Documentación de referencia
 
-La documentación de referencia para el SDK de cliente de iOS se encuentra aquí: [Referencia de cliente de iOS para aplicaciones móviles de Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
+La documentación de referencia para el SDK de cliente de iOS se encuentra aquí: [Referencia de cliente de iOS para aplicaciones móviles de Azure](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Configuración y requisitos previos
 
@@ -525,7 +525,7 @@ y el POD:
 
 * Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
 
-* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \_https://contoso.azurewebsites.net/.auth/login/done_.
 
 **Objective-C**:
 
@@ -792,4 +792,4 @@ Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicaci�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -62,16 +62,16 @@ La solución cuenta el número de apariciones de un término de búsqueda ("Micr
     La solución de ejemplo usa Lote de Azure (de forma indirecta mediante una canalización de Factoría de datos de Azure) para procesar datos en paralelo en un grupo de nodos de proceso, que es una colección administrada de máquinas virtuales.
 
 4.  Cree un **grupo de Lote de Azure** con al menos 2 nodos de proceso.
-	1.  En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** en el menú de la izquierda y después en **Cuentas de Lote**. 
-	2. Seleccione la cuenta de Lote de Azure para abrir la hoja **Cuenta de Lote**. 
+	1.  En el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar** en el menú de la izquierda y después en **Cuentas de Lote**.
+	2. Seleccione la cuenta de Lote de Azure para abrir la hoja **Cuenta de Lote**.
 	3. Haga clic en el icono **Grupos**.
 	4. En la hoja **Grupos**, haga clic en el botón Agregar en la barra de herramientas para agregar un grupo.
-		1. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos. 
+		1. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Factoría de datos.
 		2. Especifique **Windows Server 2012 R2** en Familia del sistema operativo.
-		3. Seleccione un **plan de tarifa de nodos**. 
+		3. Seleccione un **plan de tarifa de nodos**.
 		3. Escriba **2** como valor en la configuración **Dedicada a destino**.
 		4. Escriba **2** como valor en la configuración **Máximo de tareas por nodo**.
-	5. Haga clic en **Aceptar** para crear el grupo. 
+	5. Haga clic en **Aceptar** para crear el grupo.
  	 
 5.  [Explorador de almacenamiento de Azure 6 (herramienta)](https://azurestorageexplorer.codeplex.com/) o [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software). Estas herramientas de GUI sirven para inspeccionar y modificar los datos en sus proyectos de Almacenamiento de Azure, incluidos los registros de las aplicaciones hospedadas en la nube.
 
@@ -380,7 +380,7 @@ El método tiene algunos componentes clave que debe conocer.
 
 	![](./media/data-factory-data-processing-using-batch/image5.png)
 
-13.  Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el Almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory**. Cree el contenedor de blobs **customactivitycontainer** si no existe.
+13.  Cargue **MyDotNetActivity.zip** como blob al contenedor de blobs **customactivitycontainer** en el Almacenamiento de blobs de Azure que el servicio vinculado **StorageLinkedService** usa en **ADFTutorialDataFactory**. Cree el contenedor de blobs **customactivitycontainer** si no existe.
 
 ### Método Execute
 
@@ -539,7 +539,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Lote de Azure** 
 
     2.  Reemplace **access key** por la clave de acceso de la cuenta de Lote de Azure.
 
-    3.  Escriba el identificador del grupo para la propiedad **poolName**. **Para esta propiedad, puede especificar el nombre o el identificador de grupo**.
+    3.  Escriba el identificador del grupo para la propiedad **poolName****.** Para esta propiedad, puede especificar cualquier nombre de grupo o id. de bloque.
 
     4.  Escriba el identificador URI de lote para la propiedad **batchUri** de JSON.
     
@@ -797,7 +797,7 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 
     ![](./media/data-factory-data-processing-using-batch/image13.png)
 
-6.  Use el Portal de Azure para ver las **tareas** asociadas con los **segmentos** y comprobar la máquina virtual en la que se ejecuta cada segmento. Consulte la sección [Integración de Data Factory y Lote](#data-factory-and-batch-integration) para más información.
+6.  Use el Portal de Azure para ver las **tareas** asociadas con los **segmentos** y comprobar la máquina virtual en la que se ejecuta cada segmento. Consulte la sección [Integración de Data Factory y Lote](#data-factory-and-batch-integration) para obtener más información.
 
 7.  Debería ver los archivos de salida en la carpeta **outputfolder** de **mycontainer** en su Almacenamiento de blobs de Azure.
 
@@ -831,13 +831,13 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
     **Nota:** Si no ha eliminado el archivo de salida 2015-11-16-01.txt antes de probar con 5 archivos de entrada, verá una línea de la anterior ejecución de segmento y cinco líneas para la actual. De forma predeterminada, se anexa el contenido al archivo de salida si ya existe.
 
 ### Integración de Data Factory y Lote
-El servicio Data Factory crea un trabajo en el servicio Lote de Azure con el nombre: **adf-poolname:job-xxx**.
+El servicio Data Factory crea un trabajo en el servicio Lote de Azure con el nombre **adf-nombreDelGrupo:job-xxx**.
 
 ![Data Factory de Azure: trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
 Se crea una tarea en el trabajo para cada ejecución de actividad de un segmento. Si hay 10 segmentos listos para ser procesados, se crean 10 tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. También puede haber más de un segmento en ejecución en el mismo proceso si el número máximo de tareas se establece un valor mayor que 1.
 
-En este ejemplo, habrá 5 segmentos y, por tanto, 5 tareas en Lote de Azure. Con el valor **simultaneidad** establecido en **5** en la canalización JSON en Data Factory de Azure y **Maximum tasks per VM** (Máximo de tareas por máquina virtual) establecido en **2** en el grupo de Lote de Azure con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y de finalización de las tareas).
+En este ejemplo, habrá 5 segmentos y, por tanto, 5 tareas en Lote de Azure. Con el valor **simultaneidad** establecido en **5** en el JSON de la canalización de Data Factory de Azure y **Maximum tasks per VM** (Máximo de tareas por máquina virtual) establecido en **2** en el grupo de Lote de Azure con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y de finalización de las tareas).
 
 Use el portal para ver el trabajo por lotes y sus tareas asociadas con los **segmentos** y comprobar la máquina virtual en la que se ejecuta cada segmento.
 
@@ -886,9 +886,9 @@ La depuración se compone de varias técnicas básicas:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Nota:** Verá un **contenedor** en el Almacenamiento de blobs de Azure denominado **adfjobs**. Este contenedor no se elimina automáticamente, pero puede eliminarlo de forma segura cuando termine de probar la solución. Del mismo modo, la solución de Factoría de datos crea un **trabajo** de Lote de Azure denominado **adf-<identificadorONombreDeGrupo>:job-0000000001**. Puede eliminarlo después de probar la solución, si lo desea.
-7. La actividad personalizada no utiliza el archivo **app.config** del paquete, por lo que si el código lee las cadenas de conexión del archivo de configuración, no funcionará en tiempo de ejecución. El procedimiento recomendado al usar Lote de Azure consiste en conservar los secretos en un **Almacén de claves de Azure**, utilizar una entidad de servicio basada en certificados para proteger el almacén de claves y distribuir el certificado al grupo de Lote de Azure. Tras ello, la actividad personalizada de .NET podrá acceder a los secretos desde el almacén de claves en tiempo de ejecución. Esta es una solución genérica y se puede extrapolar a cualquier tipo de secreto, no solo a cadenas de conexión.
+7. La actividad personalizada no utiliza el archivo **app.config** del paquete, por lo que si el código lee las cadenas de conexión del archivo de configuración, no funcionará en el tiempo de ejecución. El procedimiento recomendado al usar Lote de Azure consiste en conservar los secretos en un **Almacén de claves de Azure**, utilizar una entidad de servicio basada en certificados para proteger el almacén de claves y distribuir el certificado al grupo de Lote de Azure. Tras ello, la actividad personalizada de .NET podrá acceder a los secretos desde el almacén de claves en tiempo de ejecución. Esta es una solución genérica y se puede extrapolar a cualquier tipo de secreto, no solo a cadenas de conexión.
 
-	Existe una solución más sencilla, pero no representa un procedimiento recomendado: puede crear un nuevo **servicio vinculado de SQL Azure** con configuración de cadena de conexión, crear un conjunto de datos que utilice el servicio vinculado y vincular el conjunto de datos (configurado con carácter de entrada ficticio) con la actividad de .NET personalizada. Tras ello, podrá acceder a la cadena de conexión del servicio vinculado del código de la actividad personalizada, que no debería tener problemas para funcionar bien en tiempo de ejecución.
+	Existe una solución más sencilla, pero no se recomienda: puede crear un nuevo **servicio vinculado de SQL Azure** con configuración de cadena de conexión, crear un conjunto de datos que utilice el servicio vinculado y vincular el conjunto de datos (configurado con carácter de entrada ficticio) con la actividad de .NET personalizada. Tras ello, podrá acceder a la cadena de conexión del servicio vinculado del código de la actividad personalizada, que no debería tener problemas para funcionar bien en tiempo de ejecución.
 
 ### Extensión del ejemplo
 
@@ -902,9 +902,17 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 
 4.  Cree un grupo de Lote de Azure con la característica **Autoescala**. El escalado automático de los nodos de ejecución de un grupo de Lote de Azure es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. Por ejemplo, podría crear un grupo de Lote de Azure con 0 máquinas virtuales dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes:
  
-		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+	Una máquina virtual por tarea pendiente cada vez (por ejemplo: 5 tareas pendientes -> 5 máquinas virtuales):
 
-	Para más información, consulte [Escalación automática de los nodos de proceso en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = max(pendingTaskSampleVector);
+
+	Máximo de una máquina virtual cada vez con independencia del número de tareas pendientes:
+
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);
+		$TargetDedicated = (max(pendingTaskSampleVector)>0)?1:0;
+
+	Para obtener más información, consulte [Escalación automática de los nodos de ejecución en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md).
 
 	Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 	 
@@ -949,4 +957,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

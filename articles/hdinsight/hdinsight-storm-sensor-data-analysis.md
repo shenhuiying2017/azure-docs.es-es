@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="06/28/2016"
    ms.author="larryfr"/>
 
 # Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight (Hadoop)
 
 Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los Centros de eventos de Azure y visualizarlos mediante D3.js. En este documento también se describe cómo usar una red virtual para conectar Storm en HDInsight con HBase en HDInsight y almacenar los datos de la topología en HBase.
 
-> [AZURE.NOTE] La información contenida en este documento es específica de los clústeres Storm en HDInsight basados en Windows. Para obtener información sobre cómo trabajar con el Centro de eventos de Azure en Storm basado en Linux en HDInsight, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+> [AZURE.NOTE] La información contenida en este documento es específica de la versión 3.2 de los clústeres Storm en HDInsight basados en Windows. Para obtener información sobre cómo trabajar con el Centro de eventos de Azure en Storm basado en Linux en HDInsight, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## Requisitos previos
 
@@ -93,7 +93,7 @@ Antes de usar este ejemplo, debe crear un Centro de eventos de Azure, que la top
 
 Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos siguientes para crear un centro de eventos.
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **NUEVO | Bus de servicio | Centro de eventos | Creación personalizada**.
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **NUEVO.| Service Bus | Event Hub | Custom Create**.
 
 2. En el cuadro de diálogo** Agregar un nuevo Centro de eventos**, escriba un **Nombre del centro de eventos**, seleccione la **Región** donde se va a crear el centro y cree un nuevo espacio de nombres o seleccione uno existente. Por último, haga clic en la flecha para continuar.
 
@@ -196,7 +196,7 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
 
 		Server listening at port 3000
 
-2. Abra un explorador web y escriba ****http://localhost:3000/** como dirección. Debería ver una página similar a la siguiente:
+2. Abra un explorador web y escriba **http://localhost:3000/** como dirección. Debería ver una página similar a la siguiente:
 
 	![panel web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -427,4 +427,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

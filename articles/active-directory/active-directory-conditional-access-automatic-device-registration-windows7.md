@@ -1,11 +1,4 @@
-<properties
-	pageTitle="# Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio| Microsoft Azure"
-	description="Pasos para configurar sus dispositivos Windows 7 unidos a un dominio para registrarse automáticamente en Azure AD y pasos para implementar el paquete de software de registro de dispositivos en sus dispositivos Windows 7 unidos a un dominio mediante un sistema de distribución de software como System Center Configuration Manager."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+<properties pageTitle="# Configuración del registro automático de dispositivos Windows 7 unidos a un dominio| Microsoft Azure" description="Pasos para configurar dispositivos Windows 7 unidos a un dominio con el objetivo de registrarse automáticamente en Azure AD y pasos para implementar el paquete de software de registro de dispositivos en dispositivos Windows 7 unidos a un dominio mediante un sistema de distribución de software como System Center Configuration Manager." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio
@@ -60,4 +53,4 @@ El registro de eventos de Windows en el equipo con Windows 7 mostrará mensajes 
 - [Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

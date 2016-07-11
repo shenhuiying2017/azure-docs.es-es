@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Descarga del SDK de Azure para Java
@@ -135,4 +135,4 @@ Para más información sobre el uso de Azure con Java, vea el [Centro de desarro
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Novedades del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

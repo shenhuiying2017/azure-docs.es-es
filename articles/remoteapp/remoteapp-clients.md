@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,7 @@ En este tema, revisaremos los clientes admitidos actualmente y cómo descargarlo
 
 Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está ejecutando uno de estos sistemas operativos:
 
- - Windows 10 
+ - Windows 10
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
@@ -58,7 +58,7 @@ Una vez haya instalado el cliente en el dispositivo y lo haya iniciado, salte a 
 
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Google Play, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón Agregar **"" +""** y **Azure RemoteApp**.	
+1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón Agregar **"" +""** y **Azure RemoteApp**.
 
 	 ![Centro de conexiones vacío](./media/remoteapp-clients/Android1.png)
 
@@ -207,4 +207,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

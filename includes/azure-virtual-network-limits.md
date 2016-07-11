@@ -34,7 +34,7 @@ Reglas de NSG por NSG | 200 | 500
 Tablas de rutas definidas por el usuario | 100 | 400
 Rutas definidas por el usuario por tabla de ruta | 100 | 400
 Direcciones IP públicas (dinámicas) | 60 | póngase en contacto con el soporte técnico
-Direcciones IP públicas reservadas | 20 | póngase en contacto con el soporte técnico
+Direcciones IP públicas (estáticas) | 20 | póngase en contacto con el soporte técnico
 Equilibradores de carga (interno y accesibles desde Internet) | 100 | póngase en contacto con el soporte técnico
 Reglas de equilibrador de carga por equilibrador de carga | 150 | 150
 IP de front-end pública por equilibrador de carga | 5 | póngase en contacto con el soporte técnico
@@ -43,4 +43,4 @@ Puertas de enlace de aplicaciones | 50 | 50
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, póngase en contacto con el soporte técnico.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

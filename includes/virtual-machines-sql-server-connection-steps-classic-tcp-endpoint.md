@@ -4,19 +4,22 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 
 >[AZURE.NOTE] Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte: [Escenarios de conexión](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 
-1. En el Portal de administración de Azure, haga clic en **MÁQUINAS VIRTUALES**.
-	
-2. Haga clic en la máquina virtual recién creada. Se muestra información acerca de su máquina virtual.
-	
-3. Cerca de la parte superior de la página, seleccione la página **EXTREMOS** y, a continuación, en la parte inferior de la página haga clic en **AGREGAR**.
-	
-4. En la página **Agregar extremo a máquina virtual**, haga clic en **Agregar extremo independiente** y, a continuación, en la flecha de avance para continuar.
-	
-5. En la página **Especifique los detalles del extremo**, proporcione la siguiente información.
+1. En el Portal de Azure, seleccione **Máquinas virtuales (clásico)**.
 
-	- En el cuadro **NOMBRE**, escriba un nombre para el extremo.
-	- En el cuadro **PROTOCOLO**, seleccione **TCP**. De manera similar, puede escribir **57500** en el cuadro **PUERTO PÚBLICO**. Del mismo modo, puede escribir el puerto de escucha predeterminado de SQL Server **1433** en el cuadro **Puerto privado**. Observe que muchas organizaciones seleccionan números de puerto distintos para evitar ataques malintencionados a la seguridad. 
+2. Luego seleccione la máquina virtual de SQL Server.
 
-6. Haga clic en la marca de verificación para continuar. Se crea el extremo.
+3. Seleccione **Puntos de conexión** y, a continuación, haga clic en el botón **Agregar** de la parte superior de la hoja Puntos de conexión.
 
-<!---HONumber=AcomDC_0323_2016-->
+	![Pasos que se deben seguir en el portal para la creación del punto de conexión](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
+
+4. En la hoja **Agregar extremo**, proporcione un **nombre** como SQLEndpoint.
+
+5. Seleccione **TCP** para el **protocolo**.
+
+6. En **Puerto público**, especifique un número de puerto como **57500**.
+
+7. En **Puerto privado**, especifique el puerto de escucha de SQL Server, cuyo valor predeterminado es **1433**.
+
+6. Haga clic en **Aceptar** para crear el punto de conexión.
+
+<!---HONumber=AcomDC_0629_2016-->

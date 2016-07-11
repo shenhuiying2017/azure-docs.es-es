@@ -25,26 +25,28 @@ La factoría de datos admite la conexión a orígenes de DB2 locales mediante Da
 
 Factoría de datos solo admite actualmente el movimiento de datos desde DB2 a otros almacenes de datos, pero no desde otros almacenes de datos a DB2.
 
+> [AZURE.NOTE] Actualmente, este conector DB2 admite DB2 para LUW (Linux, UNIX y Windows). Para copiar datos de DB2 para z/OS o DB2 para AS/400, plantéese la posibilidad de utilizar el conector ODBC genérico y de instalar el controlador ODBC correspondiente en la máquina de puerta de enlace. Por ejemplo, para introducir datos de DB2 para AS/400, puede usar iSeries Access ODBC Driver y hacer referencia a los [orígenes de datos ODBC local o de IaaS de Azure](data-factory-odbc-connector.md) con el objetivo de configurar la actividad de copia.
+
 ## Instalación 
 
 Para que Data Management Gateway se conecte a la base de datos DB2, es preciso instalar [IBM DB2 Data Server Drive](http://go.microsoft.com/fwlink/p/?LinkID=274911) en el mismo sistema que Data Management Gateway.
 
 Se conocen varios problemas notificados por IBM acerca de la instalación de IBM DB2 Data Server Driver en Windows 8, donde se necesitan pasos de instalación adicionales. Para obtener más información sobre IBM DB2 Data Server Driver en Windows 8, consulte [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
-> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
+> [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias de solución de problemas de conexión o puerta de enlace.
 
 
 ## Ejemplo: Copiar datos de DB2 a un blob de Azure
 
-En este ejemplo, se muestra cómo copiar datos de una base de datos DB2 local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+En este ejemplo, se muestra cómo copiar datos de una base de datos DB2 local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia de Data Factory de Azure.
  
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
-2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
-4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos DB2 en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -322,6 +324,6 @@ Char | String
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

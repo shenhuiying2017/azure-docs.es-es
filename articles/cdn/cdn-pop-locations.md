@@ -21,14 +21,14 @@
 
 En este tema se indican las ubicaciones POP actuales de la **red CDN de Azure de Verizon** y la **red CDN de Azure de Akamai**.
 
->[AZURE.IMPORTANT] *Las ubicaciones POP de la red **CDN de Azure de Akamai** no se revelan individualmente.
+>[AZURE.IMPORTANT] ***Las ubicaciones POP de la red CDN de Azure de Akamai** no se revelan individualmente.
 >
 >Ambos proveedores crean sus infraestructuras de red CDN de manera distinta. No se recomienda tener en cuenta las ubicaciones POP para decidir qué producto de red CDN de Azure usar. En su lugar, decida en función de sus características y su rendimiento para el usuario final. Compruebe el rendimiento con ambos proveedores para elegir el producto de red CDN más adecuado para sus usuarios.
  
 | Region | Verizon | Akamai |
 |--------|---------|--------|
 | Norteamérica | Atlanta, GA<br />Filadelfia, PA<br />Nueva York, NY<br />Miami, Florida<br />Washington DC<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Los Ángeles, CA<br />San José, California<br />Seattle, WA | **&#x2713;*** |
-| Sudamérica | São Paulo, Brasil<br />Río de Janeiro, Brasil<br />Quito, Ecuador<br />Medellín, Colombia<br/>Buenos Aires, Argentina| **&#x2713;*** | 
+| Sudamérica | São Paulo, Brasil<br />Río de Janeiro, Brasil<br />Quito, Ecuador<br />Barranquilla, Colombia,<br />Medellín, Colombia<br/>Buenos Aires, Argentina| **&#x2713;*** | 
 | Norte y este de Europa| Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Londres, Reino Unido<br />Estocolmo, Suecia<br />Varsovia, Polonia | **&#x2713;*** |
 | Europa occidental | Ámsterdam, Países Bajos<br />Fráncfort, Alemania<br />París, Francia<br />Viena, Austria | **&#x2713;*** |
 | Sur de Europa | Madrid, España<br />Milán, Italia | **&#x2713;*** |
@@ -38,4 +38,4 @@ En este tema se indican las ubicaciones POP actuales de la **red CDN de Azure de
 | África | | **&#x2713;*** |
 | Australia y Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia | **&#x2713;*** |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

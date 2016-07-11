@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/12/2016"
+   ms.date="06/28/2016"
    ms.author="v-sharos" />
 
 # Actualización del dispositivo de la serie StorSimple 8000
@@ -42,7 +42,7 @@ Se trata de actualizaciones no perturbadoras que se pueden instalar cuando el di
 
 ### Actualizaciones en modo de mantenimiento
 
-Se trata de actualizaciones perturbadoras, como las actualizaciones de firmware de disco o de firmware de USM. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para obtener más información, consulte [Paso 2: Acceso al modo de mantenimiento](#step2). No puede usar el Portal de Azure clásico para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple.
+Se trata de actualizaciones con interrupciones, como las actualizaciones de firmware de disco. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para obtener más información, consulte [Paso 2: Acceso al modo de mantenimiento](#step2). No puede usar el Portal de Azure clásico para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple.
 
 Para obtener más información sobre cómo instalar las actualizaciones en modo de mantenimiento, consulte [Instalación de actualizaciones en modo de mantenimiento a través de Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -70,7 +70,7 @@ Si debe aplicar actualizaciones en modo de mantenimiento, recibirá una alerta a
 
 > [AZURE.IMPORTANT] 
 > 
-> - Antes de entrar en modo de mantenimiento, compruebe que ambos controladores del dispositivo funcionen correctamente. Para ello, vaya a **Estado del hardware** en la página **Mantenimiento** del Portal de Azure clásico. Si el controlador no es correcto, póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes. Para obtener más información, póngase en contacto con el servicio de soporte técnico de Microsoft. 
+> - Antes de entrar en modo de mantenimiento, compruebe que ambos controladores del dispositivo funcionen correctamente. Para ello, vaya a **Estado del hardware** en la página **Mantenimiento** del Portal de Azure clásico. Si el controlador no es correcto, póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes. Para obtener más información, póngase en contacto con el servicio de soporte técnico de Microsoft.
 > - Si está en modo de mantenimiento, debe aplicar primero la actualización en un controlador y, a continuación, en el otro.
 
 ### Paso 1: Conexión a la consola serie <a name="step1">
@@ -101,8 +101,8 @@ Por último, salga del modo de mantenimiento.
 
 A diferencia de las actualizaciones para Microsoft Azure StorSimple, las revisiones se instalan desde una carpeta compartida. Al igual que en el caso de las actualizaciones, hay dos tipos de revisiones:
 
-- Revisiones normales 
-- Revisiones en modo de mantenimiento  
+- Revisiones normales
+- Revisiones en modo de mantenimiento
 
 Los siguientes procedimientos explican cómo usar Windows PowerShell para StorSimple con el fin de instalar revisiones normales y en modo de mantenimiento.
 
@@ -119,4 +119,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 - Obtenga más información sobre el [uso de Windows PowerShell para StorSimple para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 - Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

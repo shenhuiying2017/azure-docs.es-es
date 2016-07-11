@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ Al final del proceso de configuración de cuenta de Servicios multimedia, obtuvo
 
 - Clave de la cuenta de Servicios multimedia.
 
-Para buscar estos valores, vaya al Portal de administración de Azure, seleccione la cuenta de Servicios multimedia y haga clic en el icono "**ADMINISTRAR CLAVES**" en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
+Para buscar estos valores, vaya al Portal de administración de Azure, seleccione la cuenta de Servicios multimedia y haga clic en el icono de **ADMINISTRAR CLAVES** de la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
 
 
 ## Creación de una instancia de CloudMediaContext
@@ -196,4 +196,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

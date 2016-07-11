@@ -14,6 +14,8 @@ Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el po
 
 3. Escriba un nombre para la etiqueta DNS. Este nombre es un registro A que se puede usar para conectarse a la máquina virtual de SQL Server utilizando el nombre en lugar de usar directamente la dirección IP.
 
+4. Haga clic en el botón **Save** (Guardar).
+
 	![etiqueta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Conexión al motor de base de datos desde otro equipo
@@ -24,10 +26,12 @@ Para crear una etiqueta DNS, seleccione primero **Máquinas virtuales** en el po
 
 3. En el cuadro **Autenticación**, seleccione **Autenticación de SQL Server**.
 
-5. En el cuadro **Inicio de sesión**, escriba el nombre de un inicio de sesión SQL que sea válido.
+5. En el cuadro **Inicio de sesión**, escriba un nombre de inicio de sesión de SQL válido.
 
 6. En el cuadro **Contraseña**, escriba la contraseña de inicio de sesión.
 
 7. Haga clic en **Conectar**.
 
 	![conexión ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+<!---HONumber=AcomDC_0629_2016-->

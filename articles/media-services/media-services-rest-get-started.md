@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Introducción a la entrega de contenido a petición mediante la API de REST
@@ -33,7 +33,7 @@ Presenta el flujo de trabajo básico de Servicios multimedia y la mayoría de lo
 Los siguientes requisitos previos son necesarios para empezar a desarrollar con las API de REST de Servicios multimedia.
 
 - Información sobre cómo desarrollar con las API de REST de Servicios multimedia. Para obtener más información, consulte [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
-- Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](http://www.telerik.com/download/fiddler). 
+- Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](http://www.telerik.com/download/fiddler).
 
 En este tutorial rápido se muestran las siguientes tareas.
 
@@ -42,8 +42,8 @@ En este tutorial rápido se muestran las siguientes tareas.
 1.  Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
 1.  Configuración de unidades de streaming con API de REST
 2.  Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptable con API de REST
-1.  Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST 
-1.  Reproduzca el contenido. 
+1.  Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
+1.  Reproduzca el contenido.
 
 
 ## <a id="create_ams"></a>Creación de una cuenta de Servicios multimedia (con el Portal)
@@ -80,16 +80,16 @@ Hay dos elementos necesarios al obtener acceso a Servicios multimedia de Azure: 
 
 En los pasos siguientes se describe el flujo de trabajo más común al usar la API de REST de Servicios multimedia para conectarse a Servicios multimedia:
 
-1. Obtención de un token de acceso 
-2. Conexión al URI de Servicios multimedia  
+1. Obtención de un token de acceso
+2. Conexión al URI de Servicios multimedia
 
 	Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 en la que se especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI. Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
-3. Registre las llamadas de API posteriores en la nueva dirección URL. 
+3. Registre las llamadas de API posteriores en la nueva dirección URL.
 	
 	Por ejemplo, si después de intentar conectarse, obtiene lo siguiente:
 		
-			HTTP/1.1 301 Moved Permanently
-			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Moved Permanently
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
 	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
@@ -156,7 +156,7 @@ El URI raíz de Servicios multimedia es https://media.windows.net/. Inicialmente
 
 Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/, donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
 
-En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/)). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/)).
+En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
 
 **Solicitud HTTP**:
 	
@@ -221,7 +221,7 @@ En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad
 Uno de los valores que se deben proporcionar al crear un recurso son las opciones de creación de activos. La propiedad **Options** es un valor de enumeración que describe las opciones de cifrado con las que se puede crear un recurso. Un valor válido es uno de los valores de la lista siguiente, no una combinación de valores de esta lista:
 
  
-- **None** = **0**: no se usa cifrado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
+- **None** = **0**: no se usa cifrado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
 - **StorageEncrypted** = **1**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure, donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 - **CommonEncryptionProtected** = **2**: use esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncryptionProtected** = **4**: use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
@@ -405,7 +405,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 Se aplican algunas consideraciones:
 
 - No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. Para obtener más información, consulte Localizador.
-- Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Servicios multimedia. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").	
+- Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Servicios multimedia. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").
 - Puede haber un retraso de 30 a 40 segundos desde el momento en que se crea un localizador hasta que este está disponible para su uso. Este problema afecta a la dirección URL de SAS y a localizadores de origen.
 
 En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL de SAS, tal como se define en la propiedad Type del cuerpo de solicitud ("1" para un localizador de SAS y "2" para un localizador de origen bajo demanda). La propiedad **Path** devuelta contiene la dirección URL que debe usar para cargar el archivo.
@@ -548,8 +548,8 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- obtener al menos una unidad de streaming a petición para el **extremo de streaming** desde el que planea entregar el contenido (como se describe en esta sección).
-- codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
+- obtener al menos una unidad de streaming a petición para el **punto de conexión de streaming ** desde el que planea entregar el contenido (como se describe en esta sección).
+- codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
@@ -667,8 +667,8 @@ Como se ha indicado antes, cuando se trabaja con Servicios multimedia de Azure, 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,  
-- obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. 
+- codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,
+- obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
 
 En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podrá crear localizadores necesarios para obtener acceso a los recursos.
 
@@ -826,12 +826,12 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 - Una tarea puede tener varios recursos de salida. Un elemento JobOutputAsset(x) solo se puede usar una vez como salida de una tarea en un trabajo.
 - Puede especificar JobInputAsset o JobOutputAsset como un recurso de entrada de una tarea.
 - Las tareas no pueden formar un ciclo.
-- El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job. 
+- El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job.
 
 >[AZURE.NOTE] Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
 
 - InputMediaAssets se asigna a uno o más recursos que ha creado en Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
-- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
+- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso de que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
 
 	En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
 	
@@ -984,9 +984,9 @@ Una dirección URL de SAS utilizada para descargar archivos tiene el formato sig
 
 En estas secciones se muestra cómo realizar las siguientes tareas necesarias para "publicar" los recursos.
 
-- Creación de AccessPolicy con permiso de lectura 
-- Creación de una URL de SAS para descargar contenido 
-- Creación de una URL de origen para transmitir contenido 
+- Creación de AccessPolicy con permiso de lectura
+- Creación de una URL de SAS para descargar contenido
+- Creación de una URL de origen para transmitir contenido
 
 ###Creación de AccessPolicy con permiso de lectura
 
@@ -1203,4 +1203,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 <!-- URLs. -->
   [Portal de Azure clásico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

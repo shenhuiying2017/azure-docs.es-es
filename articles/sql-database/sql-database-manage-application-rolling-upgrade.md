@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
    ms.date="06/16/2016"
    ms.author="sashan"/>
 
@@ -29,14 +29,14 @@ Al evaluar las opciones de actualización, se deben considerar los factores sigu
 + El impacto sobre la disponibilidad de las aplicaciones durante las actualizaciones. Durante cuánto tiempo la función de aplicación debe estar limitada o degradada.
 + La capacidad para deshacer el proceso en caso de errores durante la actualización.
 + La vulnerabilidad de la aplicación si se produce un error grave no relacionado durante la actualización.
-+ El costo total en dólares. Esto incluye una redundancia adicional y costos incrementales de los componentes temporales utilizados por el proceso de actualización. 
++ El costo total en dólares. Esto incluye una redundancia adicional y costos incrementales de los componentes temporales utilizados por el proceso de actualización.
 
 ## La actualización de las aplicaciones que dependen de las copias de seguridad de base de datos para recuperación ante desastres. 
 
 Si la aplicación se basa en copias de seguridad automáticas y utiliza la restauración geográfica para la recuperación ante desastres, normalmente se implementa en una única región de Azure. En este caso el proceso de actualización implica la creación de una implementación de copia de seguridad de todos los componentes de la aplicación implicados en la actualización. Para minimizar la interrupción para el usuario final, se aprovechará del Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error. En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. El punto de conexión <i>contoso-1.azurewebsites.net</i> representa una ranura de producción de la aplicación que debe actualizarse. Para habilitar la capacidad de revertir la actualización, necesita crear una ranura de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
 
 1.  Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente un sitio web idéntico en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
-3.  Cree un perfil de conmutación por error de WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado. 
+3.  Cree un perfil de conmutación por error de WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado.
 
 > [AZURE.NOTE] Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
 
@@ -44,23 +44,23 @@ Si la aplicación se basa en copias de seguridad automáticas y utiliza la resta
 
 Una vez completados los pasos preparatorios, la aplicación está preparada para la actualización real. En el siguiente diagrama se ilustran los pasos implicados en el proceso de actualización.
 
-1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (3). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.  
+1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (3). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.
 2. Desconecte la base de datos secundaria con el modo de finalización planeada (4). Se creará una copia independiente totalmente sincronizada de la base de datos principal. Esta base de datos se actualizará.
-3. Cambie la base de datos principal al modo de lectura y escritura, y ejecute el script de actualización en la ranura de almacenamiento provisional (5).     
+3. Cambie la base de datos principal al modo de lectura y escritura, y ejecute el script de actualización en la ranura de almacenamiento provisional (5).
 
 ![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
 Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la copia almacenada provisionalmente. Ahora se convertirá en la ranura de producción de la aplicación. Esto implica unos pocos pasos más, tal como se muestra en el diagrama siguiente.
 
-1. Cambie el punto de conexión en línea en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que señala a la versión V2 del sitio web (6). Ahora se convierte en la ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a él.  
-2. Si ya no necesita los componentes de la aplicación V1, puede quitarlos (7).   
+1. Cambie el punto de conexión en línea en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que señala a la versión V2 del sitio web (6). Ahora se convierte en la ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a él.
+2. Si ya no necesita los componentes de la aplicación V1, puede quitarlos (7).
 
 ![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 Si el proceso de actualización es incorrecto, por ejemplo debido a un error en el script de actualización, la ranura de almacenamiento provisional debe considerarse en peligro. Para revertir la aplicación al estado previo a la actualización, simplemente revierta la aplicación en la ranura de producción al acceso completo. En el diagrama siguiente se muestran los pasos implicados.
 
 1. Establezca la copia de la base de datos en modo de lectura y escritura (8). Esto restaurará la funcionalidad de V1 completa en la ranura de producción.
-2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (9). 
+2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (9).
 
 En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
 
@@ -81,8 +81,8 @@ Para lograr estos objetivos, aprovechará el Administrador de tráfico de Azure 
 
 1.  Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente una copia idéntica del sitio web en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
 2.  Cree una base de datos secundaria con redundancia geográfica en la ranura de almacenamiento provisional mediante la replicación geográfica de la base de datos secundaria a la región de copia de seguridad (esto se denomina "replicación geográfica encadenada"). Supervise la copia de seguridad secundaria para ver si se completa el proceso de propagación (3).
-3.  Cree una copia en espera del sitio web de la región de copia de seguridad y vincúlela a la base de datos secundaria con redundancia geográfica (4).  
-4.  Agregue los puntos de conexión adicionales <i>contoso-2.azurewebsites.net</i> y <i>contoso-3.azurewebsites.net</i> al perfil de conmutación por error de WATM como puntos de conexión desconectado (5). 
+3.  Cree una copia en espera del sitio web de la región de copia de seguridad y vincúlela a la base de datos secundaria con redundancia geográfica (4).
+4.  Agregue los puntos de conexión adicionales <i>contoso-2.azurewebsites.net</i> y <i>contoso-3.azurewebsites.net</i> al perfil de conmutación por error de WATM como puntos de conexión desconectado (5).
 
 > [AZURE.NOTE] Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
 
@@ -90,23 +90,23 @@ Para lograr estos objetivos, aprovechará el Administrador de tráfico de Azure 
 
 Una vez completados los pasos preparatorios, la ranura de almacenamiento provisional estará preparada para la actualización. En el siguiente diagrama se ilustran los pasos de actualización:
 
-1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (6). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.  
+1. Establezca la base de datos principal en la ranura de producción en modo de solo lectura (6). Esto garantizará que la instancia de producción de la aplicación (V1) seguirá siendo de solo lectura durante la actualización, con lo que se impide la divergencia de datos entre las instancias de base de datos de V1 y V2.
 2. Desconecte la base de datos secundaria de la misma región con el modo de finalización planeada (7). Se creará una copia independiente totalmente sincronizada de la base de datos principal, que se convertirá automáticamente en principal después de la finalización. Esta base de datos se actualizará.
-3. Cambie la base de datos principal de la ranura de almacenamiento provisional en modo de lectura y escritura, y ejecute el script de actualización (8).    
+3. Cambie la base de datos principal de la ranura de almacenamiento provisional en modo de lectura y escritura, y ejecute el script de actualización (8).
 
 ![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
 Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la versión V2 de la aplicación. En el siguiente diagrama se ilustran los pasos implicados.
 
-1. Cambie el punto de conexión activo en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que ahora señala a la versión V2 del sitio web (9). Ahora se convierte en una ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a ella. 
-2. Si ya no necesita la aplicación V1, puede quitarla con seguridad (10 y 11).  
+1. Cambie el punto de conexión activo en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que ahora señala a la versión V2 del sitio web (9). Ahora se convierte en una ranura de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a ella.
+2. Si ya no necesita la aplicación V1, puede quitarla con seguridad (10 y 11).
 
 ![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 Si el proceso de actualización es incorrecto, por ejemplo debido a un error en el script de actualización, la ranura de almacenamiento provisional debe considerarse en peligro. Para revertir la aplicación al estado previo a la actualización, simplemente reviértala para usar la aplicación en la ranura de producción con acceso completo. En el diagrama siguiente se muestran los pasos implicados.
 
 1. Establezca la base de datos principal en la ranura de producción en modo de lectura y escritura (12). Esto restaurará la funcionalidad de V1 completa en la ranura de producción.
-2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (13 y 14). 
+2. Realice el análisis de causa raíz y quite los componentes en peligro de la ranura de almacenamiento provisional (13 y 14).
 
 En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
 
@@ -122,25 +122,23 @@ Los dos métodos de actualización que se describen en el artículo difieren en 
 
 
 ## Pasos siguientes
+
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
+
+## Recursos adicionales
+
 Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar el flujo de trabajo de actualización:
 
-- [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
+- [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx)
 - [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
 - [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
-- [Restaurar geográficamente la base de datos](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
+- [Restaurar geográficamente la base de datos](https://msdn.microsoft.com/library/azure/mt693390.aspx)
 - [Quitar la base de datos](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 - [Establecer la base de datos en modo de solo lectura o de lectura y escritura](https://msdn.microsoft.com/library/bb522682.aspx)
 
-## Recursos adicionales
-
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Uso de dispositivos de Windows 10 en el área de trabajo
+
+Ámbito de aplicación: equipos con Windows 10
 
 Windows 10 ofrece tres modelos a las organizaciones para que los usuarios puedan acceder a los recursos profesionales de una manera segura y cómoda.
 
@@ -64,19 +66,19 @@ Algunas organizaciones usarán Azure AD Join como medio principal para implement
 
 Por ejemplo, los distritos escolares y las universidades pueden administrar al personal en Active Directory y a los estudiantes en Azure AD. Algunas compañías pueden desear administrar las oficinas o los departamentos de ventas remotos en Azure AD. Ambos métodos, Azure AD Join y la unión a un dominio, pueden usarse dentro de una organización híbrida. Azure AD Join puede ser un excelente complemento a la unión a un dominio para implementar dispositivos en un entorno de trabajo.
 
-**Si el acceso más habitual a los recursos de la empresa se realiza a través de la nube, la organización puede disfrutar de ventajas adicionales**:
+**Si el acceso más habitual a los recursos de la empresa se realiza a través de la nube, la organización puede disfrutar de más ventajas**:
 
 - Puede quitar las dependencias de infraestructura de identidad local.
 - Puede simplificar el modelo de implementación de dispositivos dejando las soluciones de creación de imágenes y permitiendo la configuración de autoservicio.
 - Puede usar la administración de dispositivos móviles para administrar todos los dispositivos en diferentes plataformas.
 
-Para más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
+Para obtener más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
 ## ¿Cuándo usar la unión a un dominio (o seguir usándola)?
 
 Durante los últimos 15 años, muchas organizaciones han usado la unión a un dominio para conectar dispositivos de trabajo. Permite a los usuarios iniciar sesión en sus dispositivos con sus cuentas profesionales o educativas de Active Directory. La unión a un dominio también permite a los responsables de TI administrar dichos dispositivos de forma central y total. Normalmente, las organizaciones confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar System Center Configuration Manager (SCCM) o la directiva de grupo para administrarlos.
 
-**Su empresa debería usar la unión a un dominio (o seguir usándola) por cualquiera de los siguientes motivos**:
+**Su empresa debería usar la unión a un dominio (o continuar usándola) por cualquiera de los siguientes motivos**:
 
 - Tiene las aplicaciones Win32 implementadas en estos dispositivos que usan NTLM o Kerberos.
 - Requiere GP o SCCM/DCM para administrar dispositivos.
@@ -89,7 +91,7 @@ Durante los últimos 15 años, muchas organizaciones han usado la unión a un do
 - Movilidad de las configuraciones de usuario conforme a la empresa entre dispositivos que usan cuentas profesionales o educativas (sin necesidad de una cuenta de Microsoft).
 - Capacidad para restringir el acceso a las aplicaciones de la organización solo a los dispositivos que cumplen sus directivas.
 
-Para más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
+Para obtener más información sobre Azure AD Join, consulte [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
 ## Habilitación de la unión de dispositivos personales para el trabajo o la escuela
 
@@ -109,7 +111,7 @@ Para implementar Azure AD Join para cualquier conjunto de usuarios necesita lo s
 
 - Una suscripción de Azure AD.
 - Una suscripción de Azure AD Premium, como la inscripción automática en administración de dispositivos móviles, si requiere más funcionalidades.
-- Administración de dispositivos móviles: por ejemplo una suscripción a Microsoft Intune, administración de dispositivos móviles para Office 365 o cualquiera de los proveedores de administración de dispositivos móviles asociados integrados en Azure AD. (Para más información, consulte la sección [Preguntas más frecuentes](#frequently-asked-questions) al final de este artículo).
+- Administración de dispositivos móviles: por ejemplo una suscripción a Microsoft Intune, administración de dispositivos móviles para Office 365 o cualquiera de los proveedores de administración de dispositivos móviles asociados integrados en Azure AD. Para obtener más información, consulte la sección [Preguntas más frecuentes](#frequently-asked-questions) al final de este artículo.
 
 Si sus instalaciones son híbridas, se recomienda encarecidamente implementar Azure AD Connect para ampliar el directorio local a Azure AD.
 
@@ -123,7 +125,7 @@ La unión a un dominio continúa funcionando como siempre. Sin embargo, para ten
 - Una directiva que permite acceder a dispositivos unidos a un dominio si se desea poder restringir el acceso para algunos dispositivos.
 - System Center Configuration Manager version 1509 for Technical Preview para habilitar las reglas para requerir dispositivos compatibles. (Consulte la documentación de TechNet y publicaciones en blogs).
 
-Para más información acerca de la unión a un dominio en Windows 10, consulte <link-to-DJ-in-Win10-deployment-guide>.
+Para obtener más información sobre la unión a un dominio en Windows 10, consulte <link-to-DJ-in-Win10-deployment-guide>.
 
 ## Requisitos para usar BYOD y "Agregar una cuenta profesional o educativa"
 
@@ -146,7 +148,7 @@ Como alternativa a usar una PKI, puede habilitar Microsoft Passport basado en cl
 - Implemente controladores de dominio de 'Versión preliminar de producción 1' en Windows Server 2016 (no es necesario el nivel funcional del bosque o del dominio y bastarán varios controladores de dominio para la redundancia que da servicio a cada sitio de Active Directory).
 - Establezca una directiva para habilitar Microsoft Passport en la organización.
 
-Para más información acerca de Microsoft Passport y Windows Hello en Windows 10, consulte <link-to-MS-Passport-and-Windows-Hello-document>.
+Para obtener más información sobre Microsoft Passport y Windows Hello en Windows 10, consulte <link-to-MS-Passport-and-Windows-Hello-document>.
 
 ## Preguntas más frecuentes
 ### ¿Qué productos de administración de dispositivos móviles de asociados se integran con Azure AD?
@@ -175,4 +177,4 @@ Los usuarios que actualizan desde dispositivos unidos a un dominio de Windows 8.
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de una aplicación de Active Directory en el portal | Microsoft Azure"
+   pageTitle="Creación de entidad de servicio en el portal | Microsoft Azure"
    description="Describe cómo crear una nueva aplicación de Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en roles en el Administrador de recursos de Azure para administrar el acceso a los recursos."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -16,7 +16,13 @@
    ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Uso del portal para crear una aplicación de Active Directory con acceso a los recursos
+# Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [CLI de Azure](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
+
 
 Si tiene una aplicación o un proceso automatizados que necesitan tener acceso a ciertos recursos o modificarlos, puede configurar una aplicación de Active Directory y asignarle los permisos requeridos. En este tema se muestra cómo realizar tales pasos a través del portal. Actualmente, debe usar el portal clásico para crear una nueva aplicación de Active Directory y, después, cambiar al Portal de Azure para asignar un rol a dicha aplicación.
 
@@ -25,7 +31,7 @@ Dispone de dos opciones de autenticación para la aplicación de Active Director
 1. Crear un identificador y una clave de autenticación para la aplicación, y proporcionar estas credenciales cuando se ejecute la aplicación. Utilice esta opción para procesos automatizados que se ejecuten sin interacción por parte del usuario.
 2. Habilitar un usuario para el inicio de sesión en Azure a través de la aplicación y, después, utilizar las credenciales correspondientes para tener acceso a los recursos en nombre del usuario. Utilice esta opción para las aplicaciones que ejecute un usuario.
 
-Para obtener una explicación de los conceptos de Active Directory, consulte [Objetos Application y objetos ServicePrincipal](./active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+Para ver una explicación de los conceptos de Active Directory, consulte [Objetos Application y objetos ServicePrincipal](./active-directory/active-directory-application-objects.md). Para obtener más información acerca de la autenticación de Active Directory, vea [Escenarios de autenticación en Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
 Si desea conocer los pasos detallados de la integración de una aplicación en Azure para administrar recursos, consulte [Guía para desarrolladores para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
 
@@ -41,7 +47,7 @@ Si desea conocer los pasos detallados de la integración de una aplicación en A
 
      ![elegir directorio](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-    Si necesita encontrar el directorio de su suscripción, seleccione **Configuración** y busque el nombre de aquel.
+    Si necesita encontrar el directorio de su suscripción, seleccione **Configuración** y busque el nombre.
    
      ![buscar directorio predeterminado](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
@@ -57,7 +63,7 @@ Si desea conocer los pasos detallados de la integración de una aplicación en A
 
      ![agregar](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. Seleccione el tipo de aplicación que desea crear. Para llevar a cabo este tutorial, seleccione **Agregar una aplicación que mi organización está desarrollando**.
+5. Seleccione el tipo de aplicación que desea crear. Para este tutorial, seleccione **Agregar una aplicación que mi organización está desarrollando**.
 
      ![nueva aplicación](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
@@ -65,7 +71,7 @@ Si desea conocer los pasos detallados de la integración de una aplicación en A
 
      ![aplicación de nombre](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Rellene las propiedades de la aplicación. En **URL de inicio de sesión**, proporcione el URI de un sitio web que describa la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación.
+7. Rellene las propiedades de la aplicación. Para **DIRECCIÓN URL DE INICIO DE SESIÓN**, proporcione el identificador URI para un sitio web que describe la aplicación. No se valida la existencia del sitio web. Para **URI DE ID. DE APLICACIÓN**, proporcione el URI que identifica la aplicación.
 
      ![propiedades de la aplicación](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -97,7 +103,7 @@ Al iniciar sesión mediante programación, necesitará el identificador de la ap
 
 ## Obtención del identificador de inquilino
 
-Al iniciar sesión mediante programación, tiene que transferir el identificador de inquilino con la solicitud de autenticación. En el caso de las aplicaciones web y las de API web, para recuperar el identificador de inquilino, seleccione **Ver extremos** en la parte inferior de la pantalla y recupere el identificador como se muestra a continuación.
+Al iniciar sesión mediante programación, tiene que transferir el identificador de inquilino con la solicitud de autenticación. En el caso de las aplicaciones web y las de API web, para recuperar el identificador de inquilino, seleccione **Ver extremos** en la parte inferior de la pantalla y recupere el identificador, tal y como se muestra a continuación.
 
    ![id. de inquilino](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
@@ -115,7 +121,7 @@ Si la aplicación tiene acceso a recursos en nombre del usuario que ha iniciado 
 
 1. Seleccione **Agregar aplicación**.
 
-2. En la lista, seleccione la **API de administración de servicios de Azure**. Seguidamente, seleccione el icono de proceso terminado.
+2. En la lista, seleccione **Azure Service Management API**. Seguidamente, seleccione el icono de proceso terminado.
 
       ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -163,7 +169,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
      ![mostrar](./media/resource-group-create-service-principal-portal/show-app.png)
 
-Para obtener más información acerca de cómo asignar usuarios y aplicaciones a los roles a través del portal, consulte [Administración del acceso con el Portal de administración de Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Para obtener más información acerca de cómo asignar usuarios y aplicaciones a los roles a través del portal, consulte [Administración del acceso con el Portal de administración de Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
 ## Obtención de token de acceso en el código
 
@@ -180,7 +186,7 @@ Si desea conocer los pasos detallados de la integración de una aplicación en A
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).  
+- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](./active-directory/role-based-access-control-configure.md).
 - Para ver una demostración en vídeo de estos pasos, consulte [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -98,7 +98,7 @@ Una cola del lado cliente duradera conserva el orden de los mensajes y protege l
 Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
 - [Continuidad de negocio de Base de datos SQL de Azure][]
-- [Orientación técnica de la continuidad del negocio de Azure][]
+- [Guía técnica sobre resistencia en Azure][]
 
   [Autenticación y autorización de Bus de servicio]: service-bus-authentication-and-authorization.md
   [Entidades de mensajería con particiones]: service-bus-partitioning.md
@@ -109,6 +109,6 @@ Para obtener más información acerca de la recuperación ante desastres, consul
   [replicación geográfica con mensajes asincrónicos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [remitente de mensaje duradero]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
-  [Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+  [Guía técnica sobre resistencia en Azure]: ../resiliency/resiliency-technical-guidance.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

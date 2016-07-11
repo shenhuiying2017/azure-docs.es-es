@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"     
 	ms.author="cenkdin;juliako"/>
 
 #Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure
@@ -52,7 +52,7 @@ A continuación se muestra una lista de definiciones de formato especial que se 
 5. En la sección 3.3.6 en [1] se define el cuadro denominado MovieFragmentRandomAccessBox ('mfra') que se PUEDE enviar al final de la introducción en directo para indicar EOS (final de secuencia) al canal. Debido a la lógica de introducción de Servicios multimedia de Azure, el uso de EOS (final de la secuencia) están en desuso y el cuadro 'mfra' de la introducción en directo NO DEBERÍA enviarse. Si se envía, Servicios multimedia de Azure la omite en el modo silencioso. Se recomienda usar [Restablecer canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para restablecer el estado del punto de introducción y también se recomienda usar [Detener el programa](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para finalizar una presentación y una secuencia.
 6. La duración del fragmento MP4 DEBERÍA ser constante, con el fin de reducir el tamaño de los manifiestos de cliente y de mejorar la heurística de descarga del cliente mediante el uso de etiquetas de repetición. La duración PUEDE fluctuar para compensar las velocidades de fotogramas de no enteros.
 7. La duración de fragmentos MP4 DEBERÍA estar comprendida aproximadamente entre 2 y 6 segundos.
-8. Las marcas de tiempo de fragmentos MP4 e índices (TrackFragmentExtendedHeaderBox fragment\_absolute\_time y fragment\_index) DEBERÍAN llegar en orden ascendente. Aunque Servicios multimedia de Azure es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
+8. Las marcas de tiempo de fragmentos MP4 e índices (TrackFragmentExtendedHeaderBox fragment_absolute_time y fragment\_index) DEBERÍAN llegar en orden ascendente. Aunque Servicios multimedia de Azure es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
 
 ##4\. Formato de protocolo: HTTP
 
@@ -66,9 +66,9 @@ Estos son los requisitos detallados:
 
 1. El codificador DEBERÍA empezar la difusión enviando una solicitud HTTP POST con un "cuerpo" vacío (longitud de contenido cero) con la misma URL de introducción. Esto puede ayudar a detectar con rapidez si el extremo de introducción activo es válido y si hay alguna autenticación u otras condiciones necesarias. Por protocolo HTTP, el servidor no podrá devolver la respuesta HTTP hasta que se reciba la solicitud completa incluido el POST del cuerpo. Dada la naturaleza de larga duración del evento en directo, sin este paso,es posible que el codificador no sea capaz de detectar ningún error hasta que finalice el envío de todos los datos.
 2. El codificador debe controlar los errores o los desafíos de autenticación como resultado de (1). Si (1) se realiza correctamente con una respuesta 200, continúe.
-3. El codificador DEBE iniciar una nueva solicitud HTTP POST con la secuencia MP4 fragmentada. La carga DEBE empezar con los cuadros de encabezado seguidos de fragmentos. Tenga en cuenta que el cuadro 'ftyp', "Live Server Manifest Box" y 'moov' (en este orden) DEBE enviarse con cada solicitud, aunque el codificador deba volver a conectarse porque se canceló la solicitud anterior antes del final de la secuencia. 
+3. El codificador DEBE iniciar una nueva solicitud HTTP POST con la secuencia MP4 fragmentada. La carga DEBE empezar con los cuadros de encabezado seguidos de fragmentos. Tenga en cuenta que el cuadro 'ftyp', "Live Server Manifest Box" y 'moov' (en este orden) DEBE enviarse con cada solicitud, aunque el codificador deba volver a conectarse porque se canceló la solicitud anterior antes del final de la secuencia.
 4. El codificador DEBE usar una codificación de transferencia fragmentada para cargar, ya que es imposible predecir la longitud del contenido completa del evento en directo.
-5. Cuando se termina el evento, después de enviar el último fragmento, el codificador DEBE finalizar correctamente la secuencia de mensajes de la codificación de transferencia fragmentada (la mayoría de las pilas de cliente HTTP la controlan automáticamente). El codificador debe esperar que el servicio devuelva el código de respuesta final y luego finalizar la conexión. 
+5. Cuando se termina el evento, después de enviar el último fragmento, el codificador DEBE finalizar correctamente la secuencia de mensajes de la codificación de transferencia fragmentada (la mayoría de las pilas de cliente HTTP la controlan automáticamente). El codificador debe esperar que el servicio devuelva el código de respuesta final y luego finalizar la conexión.
 6. El codificador NO DEBE usar el nombre Events() como se describe en 9.2 en [1] para la ingesta activa en Servicios multimedia de Microsoft Azure.
 7. Si la solicitud HTTP POST finaliza o se agota el tiempo antes del final de la secuencia con un error TCP, el codificador DEBE emitir una nueva solicitud POST con una nueva conexión y seguir los requisitos anteriores con el requisito adicional de que el codificador debe reenviar los dos fragmentos de MP4 anterior de cada pista en la secuencia anteriores y reanudar sin introducir discontinuidades en la escala de tiempo multimedia. El reenvío de los dos últimos fragmentos de MP4 para cada pista garantiza que no hay ninguna pérdida de datos. En otras palabras, si una secuencia contiene tanto una pista de audio como una de vídeo, y se produce un error en la solicitud POST actual, el codificador debe volver a conectarse y reenviar los últimos dos fragmentos de la pista de audio, que se enviaron correctamente anteriormente, y los dos últimos fragmentos para la pista de vídeo, que se enviaron correctamente anteriormente, para asegurarse de que no hay ninguna pérdida de datos. El codificador DEBE mantener un búfer de “reenvío” de fragmentos de medios, que vuelve a enviar al volver a conectarse.
 
@@ -119,8 +119,8 @@ Dada la naturaleza del streaming en vivo, resulta fundamental una buena compatib
 En esta sección, trataremos los escenarios de conmutación por error de servicio. En este caso, el error se produce en algún lugar dentro del servicio y se manifiesta como un error de red. Estas son algunas recomendaciones para la implementación del codificador para controlar la conmutación por error del servicio:
 
 
-1. Use un tiempo de espera de 10 segundos para establecer la conexión TCP. Si un intento de establecer la conexión tarda más de 10 segundos, anule la operación e inténtelo de nuevo. 
-2. Use un tiempo de espera breve para enviar la solicitud HTTP de fragmentos de mensajes. Si la duración del fragmento de destino MP4 es N segundos, use un tiempo de espera de envío entre N y 2N segundos; por ejemplo, use un tiempo de espera de 6 a 12 segundos si la duración del fragmento MP4 es de 6 segundos. Si se produce un tiempo de espera, restablezca la conexión, abra una nueva conexión y reanude la introducción de secuencias en la nueva conexión. 
+1. Use un tiempo de espera de 10 segundos para establecer la conexión TCP. Si un intento de establecer la conexión tarda más de 10 segundos, anule la operación e inténtelo de nuevo.
+2. Use un tiempo de espera breve para enviar la solicitud HTTP de fragmentos de mensajes. Si la duración del fragmento de destino MP4 es N segundos, use un tiempo de espera de envío entre N y 2N segundos; por ejemplo, use un tiempo de espera de 6 a 12 segundos si la duración del fragmento MP4 es de 6 segundos. Si se produce un tiempo de espera, restablezca la conexión, abra una nueva conexión y reanude la introducción de secuencias en la nueva conexión.
 3. Mantenga un búfer gradual con los dos últimos fragmentos, para cada pista, que se enviaron correctamente y por completo al servicio. Si la solicitud HTTP POST de una secuencia finaliza o se agota el tiempo de espera antes del final de la secuencia, abra una nueva conexión y comience otra solicitud HTTP POST, reenvíe los encabezados de secuencia, reenvíe los últimos dos fragmentos para cada pista y reanude la secuencia sin introducir una discontinuidad en la escala de tiempo multimedia. Esto reducirá la posibilidad de pérdida de datos.
 4. Se recomienda que el codificador NO limite el número de reintentos para establecer una conexión ni reanude el streaming cuando se produce un error TCP.
 5. Después de un error TCP:
@@ -144,7 +144,7 @@ A continuación, se muestran las expectativas del extremo de introducción en di
 3. La solicitud POST del nuevo codificador DEBE incluir los mismos cuadros de encabezado MP4 fragmentados que la instancia con errores.
 4. El codificador nuevo DEBE estar sincronizado correctamente con todos los demás codificadores en ejecución para la misma presentación en directo para generar los ejemplos de audio y vídeo sincronizados con los límites de fragmentos alineados.
 5. La nueva secuencia DEBE ser semánticamente equivalente a la secuencia anterior e intercambiable en el nivel de encabezado y fragmento.
-6. El nuevo codificador DEBERÍA intentar minimizar la pérdida de datos. fragment\_absolute\_time y fragment\_index de los fragmentos multimedia DEBERÍAN aumentar desde el punto en que se detuvo el codificador. fragment\_absolute\_time and fragment\_index DEBERÍAN aumentar de forma continua, pero se puede introducir una discontinuidad en caso necesario. Servicios multimedia de Azure omitirá fragmentos que ya ha recibido y procesado, por lo que es mejor equivocarse en el lado del envío de los fragmentos en lugar de introducir discontinuidades en la escala de tiempo mutimedia. 
+6. El nuevo codificador DEBERÍA intentar minimizar la pérdida de datos. fragment\_absolute\_time y fragment\_index de los fragmentos multimedia DEBERÍAN aumentar desde el punto en que se detuvo el codificador. fragment\_absolute\_time and fragment\_index DEBERÍAN aumentar de forma continua, pero se puede introducir una discontinuidad en caso necesario. Servicios multimedia de Azure omitirá fragmentos que ya ha recibido y procesado, por lo que es mejor equivocarse en el lado del envío de los fragmentos en lugar de introducir discontinuidades en la escala de tiempo mutimedia.
 
 ##9\. Redundancia del codificador 
 
@@ -177,12 +177,12 @@ A continuación se muestra una implementación recomendada para introducir pista
 3. En el "Live Server Manifest Box", manifestOutput se DEBE establecer en "true".
 4. Dada la naturaleza dispersa del evento de señalización, se recomienda que:
 	1. Al principio del evento en directo, el codificador envía los cuadros de encabezados iniciales al servicio que permitirían que el servicio registre la pista dispersa en el manifiesto del cliente.
-	2. El codificador DEBERÍA finalizar la solicitud HTTP POST cuando no se están enviando datos. Un HTTP POST de larga ejecución que no envía datos puede evitar que Servicios multimedia de Azure se desconecte rápidamente del codificador en el caso de un reinicio del servidor o actualización del servicio, ya que el servidor multimedia se bloqueará temporalmente en una operación de recepción en el socket. 
-	3. Durante el tiempo en el que no estén disponibles los datos de señalización, el codificador DEBERÍA cerrar la solicitud HTTP POST. Mientras la solicitud POST está activa, el codificador DEBERÍA enviar datos 
+	2. El codificador DEBERÍA finalizar la solicitud HTTP POST cuando no se están enviando datos. Un HTTP POST de larga ejecución que no envía datos puede evitar que Servicios multimedia de Azure se desconecte rápidamente del codificador en el caso de un reinicio del servidor o actualización del servicio, ya que el servidor multimedia se bloqueará temporalmente en una operación de recepción en el socket.
+	3. Durante el tiempo en el que no estén disponibles los datos de señalización, el codificador DEBERÍA cerrar la solicitud HTTP POST. Mientras la solicitud POST está activa, el codificador DEBERÍA enviar datos
 	4. Al enviar fragmentos dispersos, el codificador puede establecer el encabezado Content-Length explícito si está disponible.
 	5. Al enviar un fragmento disperso con una nueva conexión, el codificador DEBERÍA empezar a enviar desde los cuadros iniciales seguidos de los fragmentos nuevos. Se trata de controlar el caso donde se produjo la conmutación por error y se está estableciendo la nueva conexión dispersa a un nuevo servidor que no ha visto antes la pista dispersa.
 	6. El fragmento de pista dispersa estará disponible para el cliente cuando el fragmento de pista principal correspondiente que tenga un valor de marca de tiempo igual o superior se ponga a disposición del cliente. Por ejemplo, si el fragmento disperso tiene una marca de tiempo de t=1000, se espera después de que el cliente vea la marca de tiempo de fragmentos de vídeo 1000 o superior (suponiendo que el nombre de la pista principal es vídeo), puede descargar el fragmento disperso t=1000. Tenga en cuenta que la señal real podría usarse perfectamente para una posición diferente en la escala de tiempo de presentación para su propósito designado. En el ejemplo anterior, es posible que el fragmento disperso de t=1000 tenga una carga XML para insertar un anuncio en una posición que es unos segundos posterior.
-	7. La carga del fragmento de pista dispersa puede encontrarse en varios formatos diferentes (por ejemplo, XML o texto o binario, etc.) según los diferentes escenarios. 
+	7. La carga del fragmento de pista dispersa puede encontrarse en varios formatos diferentes (por ejemplo, XML o texto o binario, etc.) según los diferentes escenarios.
 
 
 ###Pista de audio redundante
@@ -198,7 +198,7 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
 1. Envíe cada pista de audio única en una secuencia de manera individual. Envíe además una secuencia redundante para cada una de estas secuencias de pista de audio, donde la segunda secuencia sea diferente de la primera únicamente por el identificador de la URL de HTTP POST: {protocolo}://{dirección de servidor}/{ruta de acceso a punto de publicación}/Streams({identificador}).
 2. Use secuencias independientes para enviar las dos velocidades de bits de vídeos más bajas. Cada una de estas secuencias también DEBERÍA contener una copia de cada pista de audio única. Por ejemplo, cuando se admiten varios idiomas, estas secuencias DEBERÍAN contener pistas de audio para cada idioma.
-3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2). 
+3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2).
 
 
 
@@ -221,4 +221,4 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

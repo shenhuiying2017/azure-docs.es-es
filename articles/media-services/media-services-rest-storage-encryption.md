@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/02/2016"   
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -26,8 +26,8 @@ Este artículo proporciona información general del cifrado de almacenamiento de
 - Cree una clave de contenido.
 - Cree un recurso. Establezca AssetCreationOption en StorageEncryption cuando cree el recurso.
 
-	Los recursos cifrados tienen que estar asociados con claves de contenido.
-- Vincule la clave de contenido con el recurso.  
+	 Los recursos cifrados tienen que estar asociados con claves de contenido.
+- Vincule la clave de contenido con el recurso.
 - Establezca los parámetros relacionados con el cifrado en las entidades AssetFile.
  
 >[AZURE.NOTE]Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
@@ -53,11 +53,11 @@ Los recursos cifrados tienen que estar asociados con la clave de cifrado de alma
 
 A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar.
 
-1. Para el cifrado de almacenamiento, genere de forma aleatoria una clave AES de 32 bytes. 
+1. Para el cifrado de almacenamiento, genere de forma aleatoria una clave AES de 32 bytes.
 
-	Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
+	Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado.
 2.	Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
-3.	Cifre la clave de contenido con la clave pública del certificado X.509. 
+3.	Cifre la clave de contenido con la clave pública del certificado X.509.
 
 	El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado. Puede ver un ejemplo de .NET en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Cree un valor de suma de comprobación calculado con el identificador de clave y la clave de contenido. El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
@@ -97,7 +97,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 	 
 	Propiedad del cuerpo de la solicitud | Descripción
 	---|---
-	Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato “nb:kid:UUID:<NEW GUID>”.
+	Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato nb:kid:UUID:<NUEVO GUID>.
 	ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
 	EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 	ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.
@@ -375,4 +375,4 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 	   "ContentChecksum":null
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 
 ## Artículos y referencia de protocolos de autenticación
 
-- [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx): obtenga información sobre la cadencia de sustitución de clave de firma de Azure AD, los cambios que puede realizar para actualizar la clave automáticamente y una explicación sobre cómo actualizar los escenarios de aplicación más comunes.
+- [Información importante acerca de la cadencia de sustitución de clave en Azure AD](active-directory-signing-key-rollover.md): obtenga información sobre la cadencia de sustitución de clave de firma de Azure AD, los cambios que puede realizar para actualizar la clave automáticamente y una explicación sobre cómo actualizar los escenarios de aplicación más comunes.
 
 
 - [Tipos de token y notificación compatibles](active-directory-token-and-claims.md): obtenga información sobre las notificaciones en los tokens que emite Azure AD.
@@ -55,4 +55,4 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

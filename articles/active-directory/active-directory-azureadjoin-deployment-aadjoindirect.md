@@ -4,11 +4,11 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/26/2016"
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="06/23/2016"
 
 	ms.author="femila"/>
 
@@ -42,7 +42,7 @@ Las empresas pueden proporcionar cuentas exclusivamente en la nube a organizacio
 ### Requisitos previos
 **En el nivel de empresa (administrador)**
 
-*	Suscripción de Azure con Azure Active Directory  
+*	Suscripción de Azure con Azure Active Directory
 
 **En el nivel de usuario**
 
@@ -87,4 +87,4 @@ Puede configurar unos valores que permitan a los usuarios y empleados usar sus d
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

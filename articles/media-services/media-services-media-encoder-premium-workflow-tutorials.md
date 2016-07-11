@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
@@ -27,7 +27,7 @@ Este documento contiene tutoriales que muestran cómo personalizar los flujos de
 Se tratan los siguientes temas:
 
 - [Codificación de MXF en un MP4 de velocidad de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
-	- [Inicio de un nuevo flujo de trabajo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+	- [Inicio de un nuevo flujo de trabajo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
 	- [Utilización de la entrada de archivo multimedia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
 	- [Inspección de transmisiones multimedia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
 	- [Incorporación de un codificador de vídeo para la generación de archivos .MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
@@ -77,7 +77,7 @@ El nuevo flujo de trabajo muestra 3 elementos:
 
 - Primary Source File (Archivo de origen principal)
 - Clip List XML (XML de la lista de clips)
-- Output File/Asset (Recurso/Archivo de salida)  
+- Output File/Asset (Recurso/Archivo de salida)
 
 ![Nuevo flujo de trabajo de codificación](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
@@ -791,7 +791,7 @@ Esto se realizó mediante operaciones de manipulación de cadenas normales. El x
 
 *Registro de la lista resultante de clips*
 
-Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo la primera vez que se han configurado los puntos de inicio y de finalización se transformará el xml; el resto de veces, nuestra cláusula de restricción (if(clipListXML.indexOf("<trim>") == -1)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya hay uno presente.
+Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo la primera vez que se han establecido los puntos de inicio y de finalización se transformará el xml; el resto de las veces, nuestra cláusula de restricción (if(clipListXML.indexOf("<trim>") == -1)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya hay uno presente.
 
 Para facilitar que el flujo de trabajo realice la prueba localmente, es conveniente agregar algún código de mantenimiento interno que inspeccione si ya existe un elemento de recorte. Si es así, podemos quitarlo antes de continuar, modificando el xml con los nuevos valores. En lugar de usar manipulaciones de cadenas simples, probablemente es más seguro hacerlo mediante la redistribución de modelos de objeto xml reales.
 
@@ -986,4 +986,4 @@ Con la siguiente cláusula de restricción simple, podemos comprobar si es neces
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

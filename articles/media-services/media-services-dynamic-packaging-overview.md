@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
- 	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -57,7 +57,7 @@ Si desea preparar el recurso para el streaming dinámico, tiene dos opciones:
 
 O
  
-1. Cargue archivos MP4 precodificados. 
+1. Cargue archivos MP4 precodificados.
 
 	>[AZURE.NOTE] Esta opción no se recomienda.
 	
@@ -80,4 +80,4 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

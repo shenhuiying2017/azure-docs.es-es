@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/18/2016"
+    ms.date="06/18/2016"
     ms.author="elizapo" />
 
 # Agregar usuarios a la aplicación de Azure RemoteApp
@@ -52,4 +52,4 @@ Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Dire
 ## Información de la cuenta de usuario de Office 365 ProPlus
 Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

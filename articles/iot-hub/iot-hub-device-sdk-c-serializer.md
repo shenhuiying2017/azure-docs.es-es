@@ -26,6 +26,8 @@ Terminaremos examinando de nuevo algunos de los temas tratados en artículos ant
 
 Todo lo que se describe en este artículo se basa en los ejemplos del SDK del **serializador**. Si desea continuar, consulte las aplicaciones **simplesample\_amqp** y **simplesample\_http** que se incluyen en el SDK de dispositivo IoT de Azure para C.
 
+Puede encontrar el **SDK de dispositivo IoT de Azure para C** en el repositorio de [SDK de IoT de Microsoft Azure](https://github.com/Azure/azure-iot-sdks) en GitHub y ver los detalles de la API en la [referencia de la API de C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+
 ## El lenguaje de modelado
 
 En el [artículo de introducción](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el lenguaje de modelado del **SDK de dispositivos IoT de Azure para C** mediante el ejemplo proporcionado en la aplicación **simplesample\_amqp**:
@@ -408,7 +410,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Considere este modelo en términos de orientación a objetos. En este caso estamos modelando un dispositivo físico (un termostato) y ese dispositivo incluye atributos como **Temperature** y **Humidity**.
+Considere este modelo en términos de orientación a objetos. En este caso, estamos modelando un dispositivo físico (un termostato) y ese dispositivo incluye atributos como **Temperature** y **Humidity**.
 
 Podemos enviar todo el estado de nuestro modelo con código como el siguiente:
 
@@ -425,7 +427,7 @@ Suponiendo que los valores de Temperature, Humidity y Time estén establecidos, 
 {"Temperature":75, "Humidity":45, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-A veces quizás solo quiera enviar *algunas* propiedades del modelo a la nube (esto es especialmente cierto si el modelo contiene un gran número de eventos de datos). Resulta útil enviar solo un subconjunto de eventos de datos, como en el ejemplo anterior:
+A veces, quizás solo quiera enviar *algunas* propiedades del modelo a la nube (esto es especialmente cierto si el modelo contiene un gran número de eventos de datos). Resulta útil enviar solo un subconjunto de eventos de datos, como en el ejemplo anterior:
 
 ```
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
@@ -638,11 +640,11 @@ sprintf_s(propText, sizeof(propText), "%d", i);
 Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 ```
 
-Da igual que el evento se generara con la biblioteca de **serializador** o se creara de forma manual con la biblioteca de **IoTHubClient**.
+Da igual que el evento se generara con la biblioteca de **serializador** o se creara de forma manual con la biblioteca **IoTHubClient**.
 
 En cuanto a las credenciales de dispositivo alternativas, el uso de **IoTHubClient\_LL\_Create** funciona igual de bien que **IoTHubClient\_CreateFromConnectionString** para asignar **IOTHUB\_CLIENT\_HANDLE**.
 
-Por último, si usa la biblioteca de **serializador**, puede establecer opciones de configuración con **IoTHubClient\_LL\_SetOption** lo mismo que hizo al usar la biblioteca de **IoTHubClient**.
+Por último, si usa la biblioteca de **serializador**, puede establecer opciones de configuración con **IoTHubClient\_LL\_SetOption** lo mismo que hizo al usar la biblioteca **IoTHubClient**.
 
 Una característica que es exclusiva de la biblioteca de **serializador** son las API de inicialización. Antes de empezar a trabajar con la biblioteca, debe llamar a **serializer\_init**:
 
@@ -658,12 +660,12 @@ Del mismo modo, cuando termine de trabajar con la biblioteca, la última llamada
 serializer_deinit();
 ```
 
-Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca de **IoTHubClient**. Para más información sobre cualquiera de estos temas, consulte el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
+Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca **IoTHubClient**. Para más información sobre cualquiera de estos temas, consulte el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
 
 ## Pasos siguientes
 
-En este artículo se describe en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
+En este artículo se describen en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
 
 Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdks) es un buen recurso para conseguir información adicional.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

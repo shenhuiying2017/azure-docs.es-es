@@ -32,7 +32,7 @@ Característica| Descripción| ¿Qué se va a tratar?
 [Alerta de fraude](#fraud-alert)|Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de obtener acceso a sus recursos.|Cómo realizar la instalación y configuración y cómo informar sobre fraudes
 [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor.|Cómo instalar y configurar una omisión por única vez
 [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. |Cómo instalar y configurar los mensajes y saludos personalizados
-[Almacenamiento en caché](#caching)|El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. |Cómo instalar y configurar el almacenamiento en caché de la autenticación.
+[Almacenamiento en caché](#caching-in-azure-multi-factor-authentication)|El almacenamiento en caché permite establecer un período de tiempo específico para que los intentos de autenticación siguientes se realicen correctamente de forma automática. |Cómo instalar y configurar el almacenamiento en caché de la autenticación.
 [Direcciones IP de confianza](#trusted-ips)|IP de confianza es una característica de la autenticación multifactor que permite a los administradores de un inquilino administrado o federado la capacidad de omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet local de la empresa.|Configurar e instalar las direcciones IP que están exentas para la autenticación multifactor	
 [Contraseñas de aplicación](#app-passwords)|Las contraseñas de aplicación permiten omitir la autenticación multifactor a una aplicación que no sea compatible con la misma y poder seguir trabajando.|Información acerca de las contraseñas de aplicación.
 [Recordar Multi-Factor Authentication para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA.|Información sobre cómo habilitar esta característica y configurar el número de días.
@@ -50,7 +50,7 @@ Se puede instalar y configurar la alerta de fraude para que los usuarios puedan 
 3.	En el Portal de administración de Azure Multi-Factor Authentication, haga clic en Configuración en la sección Configurar.
 4.	En la sección Alerta de fraude de la página Configuración, active la casilla Permitir a los usuarios enviar alertas de fraude.
 5.	Si desea que los usuarios se bloquean cuando se informe de un fraude, coloque una comprobación en la casilla correspondiente a Bloquear usuario al notificarse fraudes.
-6.	En el cuadro de texto **Código para notificar fraudes durante el saludo inicial**, escriba un código de números que se pueda usar durante la comprobación de llamadas. Si un usuario introduce este código más # en lugar de solo el signo #, se notificará una alerta de fraude. 
+6.	En el cuadro de texto **Código para notificar fraudes durante el saludo inicial**, escriba un código de números que se pueda usar durante la comprobación de llamadas. Si un usuario introduce este código más # en lugar de solo el signo #, se notificará una alerta de fraude.
 7.	Haga clic en Guardar en la parte inferior.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ Una alerta de fraude se puede notificar de dos maneras. Ya sea a través de la a
 
 
 1. Cuando se envía una comprobación a su teléfono, haga clic en ella y se iniciará la aplicación Azure Authenticator.
-2. Para informar sobre un fraude, haga clic en Cancelar y notificar fraude. Aparecerá un cuadro que dice que se enviará una notificación al personal de soporte técnico de TI. 
+2. Para informar sobre un fraude, haga clic en Cancelar y notificar fraude. Aparecerá un cuadro que dice que se enviará una notificación al personal de soporte técnico de TI.
 3. Haga clic en Notificar fraude.
 4. En la aplicación, haga clic en Cerrar.
 
@@ -194,7 +194,7 @@ Fuera de la red corporativa|Para los flujos de explorador es necesaria la autent
 5. En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.
 6. En la página Configuración del servicio, en IP de confianza, seleccione:
 
-	- Para solicitudes de usuarios federados cuyo origen esté en mi intranet: todos los usuarios federados que inician sesión desde la red corporativa omitirán la autenticación multifactor a través del uso de una notificación emitida por AD FS. 
+	- Para solicitudes de usuarios federados cuyo origen esté en mi intranet: todos los usuarios federados que inician sesión desde la red corporativa omitirán la autenticación multifactor a través del uso de una notificación emitida por AD FS.
 	- Para solicitudes de un intervalo de IP públicas específico: escriba las direcciones IP en los cuadros proporcionados usando la notación CIDR. Por ejemplo: xxx.xxx.xxx.0/24 para direcciones IP en el intervalo de xxx.xxx.xxx.1 – xxx.xxx.xxx.254, o xxx.xxx.xxx.xxx/32 para una única dirección IP. Puede especificar hasta 50 intervalos de direcciones IP.
 
 7. Haga clic en Guardar.
@@ -321,7 +321,7 @@ Además los usuarios también pueden crear contraseñas de aplicación más adel
 
 ### Para crear contraseñas de aplicación si no tiene una suscripción a Office 365 o Azure
 --------------------------------------------------------------------------------
-1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. En la parte superior, seleccione el perfil.
 3. Haga clic en su nombre de usuario y seleccione Comprobación de seguridad adicional.
 5. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
@@ -376,4 +376,4 @@ Método|Descripción
 9. Haga clic en Guardar.
 10. Haga clic en Cerrar.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

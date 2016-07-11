@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/08/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Los flujos de trabajo pueden incluir bifurcación y lógica de decisión de clie
 Entre los flujos de trabajo de ejemplo que puede crear se incluyen:
 
 - Los flujos de trabajo basados en decisiones que inspeccionan el contenido de origen para resolución y solo codifican las pistas de salida deseadas. Esto resulta de utilidad al eliminar las pistas desaprovechadas que se generarían al escalar el contenido de origen de manera involuntaria.
-- Se pueden usar varios archivos de entrada para admitir títulos, superposiciones y contenido agrupado. 
+- Se pueden usar varios archivos de entrada para admitir títulos, superposiciones y contenido agrupado.
 
 Esta herramienta también se puede usar para modificar cualquiera de nuestros [flujos de trabajo publicados](media-services-workflow-designer.md#existing_workflows).
 
@@ -90,4 +90,4 @@ Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo 
 
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

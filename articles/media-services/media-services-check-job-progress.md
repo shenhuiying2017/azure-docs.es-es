@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"   
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
@@ -119,7 +119,7 @@ Un escenario común para escuchar notificaciones de Servicios multimedia es si v
 Tenga en cuenta lo siguiente al desarrollar aplicaciones de Servicios multimedia que usen la cola de almacenamiento de Azure.
 
 - El servicio de colas no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-- Colas de almacenamiento de Azure no es un servicio push; tiene que sondear la cola. 
+- Colas de almacenamiento de Azure no es un servicio push; tiene que sondear la cola.
 - Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://msdn.microsoft.com/library/azure/dd179363.aspx).
 - Colas de almacenamiento de Azure tiene algunas limitaciones y particularidades que se describen en el siguiente artículo: [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 
@@ -132,10 +132,10 @@ El ejemplo de código de esta sección realiza lo siguiente:
 1. Crea la cola que va a recibir los mensajes de notificación sobre el trabajo de codificación.
 1. Crea el extremo de notificación que se asigna a la cola.
 1. Adjunta el extremo de notificación al trabajo y envía el trabajo de codificación. Puede tener varios extremos de notificación adjuntos a un trabajo.
-1. En este ejemplo, solo estamos interesados en los estados finales del procesamiento de trabajos, por lo que pasamos **NotificationJobState.FinalStatesOnly** al método **AddNew**. 
+1. En este ejemplo, solo estamos interesados en los estados finales del procesamiento de trabajos, por lo que pasamos **NotificationJobState.FinalStatesOnly** al método **AddNew**.
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. Si se pasa NotificationJobState.All es de esperar que se obtengan todas las notificaciones de cambio de estado: En cola -> Programado -> Procesando -> Finalizado. Sin embargo, como se indicó anteriormente, el servicio de Colas de almacenamiento de Azure no garantiza la entrega ordenada. Puede utilizar la propiedad de marca de tiempo (definida en el tipo EncodingJobMessage en el ejemplo siguiente) para ordenar los mensajes. Es posible que reciba mensajes de notificación duplicados. Utilice la propiedad ETag (definida en el tipo de EncodingJobMessage) para comprobar si existen duplicados. Tenga en cuenta que también es posible que se omitan algunas notificaciones de cambio de estado. 
+1. Si se pasa NotificationJobState.All es de esperar que se obtengan todas las notificaciones de cambio de estado: En cola -> Programado -> Procesando -> Finalizado. Sin embargo, como se indicó anteriormente, el servicio de Colas de almacenamiento de Azure no garantiza la entrega ordenada. Puede utilizar la propiedad de marca de tiempo (definida en el tipo EncodingJobMessage en el ejemplo siguiente) para ordenar los mensajes. Es posible que reciba mensajes de notificación duplicados. Utilice la propiedad ETag (definida en el tipo de EncodingJobMessage) para comprobar si existen duplicados. Tenga en cuenta que también es posible que se omitan algunas notificaciones de cambio de estado.
 1. Espera a que el trabajo llegue al estado Finalizado comprobando la cola cada 10 segundos. Elimina los mensajes una vez que se hayan procesado.
 1. Elimina la cola y el extremo de notificación.
 
@@ -436,4 +436,4 @@ El ejemplo anterior genera el siguiente resultado. Los valores variarán.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

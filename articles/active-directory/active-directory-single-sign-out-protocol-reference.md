@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Protocolo SAML de cierre de sesión único
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) es compatible con el perfil de cierre de sesión único del explorador web de SAML 2.0. Para que el cierre de sesión único funcione correctamente, Azure AD debe registrar su dirección URL de metadatos durante el registro de la aplicación. Azure AD obtiene la dirección URL de cierre de sesión y la clave de firma del servicio en la nube desde los metadatos. Azure AD usa la clave de firma para comprobar la firma del mensaje LogoutRequest entrante y utiliza la dirección LogoutURL para redirigir a los usuarios después de que cierren la sesión.
 
@@ -54,11 +52,11 @@ El elemento `LogoutRequest` enviado a Azure AD requiere los atributos siguientes
 
 ### Emisor
 
-El elemento `Issuer` en un mensaje `LogoutRequest` debe coincidir exactamente con uno de los valores de **ServicePrincipalNames** en el servicio en la nube de Azure AD. Normalmente, se establece en el identificador **URI de id. de aplicación**, que se especifica durante el registro de la aplicación.
+El elemento `Issuer` de un mensaje `LogoutRequest` debe coincidir exactamente con uno de los valores de **ServicePrincipalNames** del servicio en la nube de Azure AD. Normalmente, se establece en el identificador **URI de id. de aplicación**, que se especifica durante el registro de la aplicación.
 
 ### NameID
 
-El valor del elemento `NameID` debe coincidir exactamente con el valor de `NameID` del usuario que se está cerrando.
+El valor del elemento `NameID` debe coincidir exactamente con el valor de `NameID` del usuario que está cerrando sesión.
 ## LogoutResponse
 
 Azure AD envía un elemento `LogoutResponse` en respuesta a un elemento `LogoutRequest`. El extracto siguiente muestra un ejemplo de `LogoutResponse`.
@@ -84,6 +82,6 @@ Para evaluar el valor del elemento `Issuer`, utilice el valor del identificador 
 
 ### Estado
 
-Azure AD usa el elemento `StatusCode` en el elemento `Status` para indicar el éxito o error del cierre de sesión. Cuando se produce un error en el intento de cierre de sesión, el elemento `StatusCode` también puede contener mensajes de error personalizados.
+Azure AD usa el elemento `StatusCode` en `Status` para indicar el éxito o error del cierre de sesión. Cuando se produce un error en el intento de cierre de sesión, el elemento `StatusCode` también puede contener mensajes de error personalizados.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

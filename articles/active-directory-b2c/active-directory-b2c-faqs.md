@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Preguntas más frecuentes
@@ -34,7 +34,7 @@ Azure AD B2C no se puede usar con Microsoft Office 365. En general, no se puede 
 
 En un inquilino de Azure AD, todos los usuarios del inquilino (excepto los usuarios con cuentas Microsoft existentes) inician sesión con una dirección de correo electrónico de formato `<xyz>@<tenant domain>`, donde `<tenant domain>` es uno de los dominios comprobados del inquilino o el dominio `<...>.onmicrosoft.com` inicial. Este tipo de cuenta es una cuenta profesional o educativa.
 
-En un inquilino de Azure AD B2C, la mayoría de las aplicaciones solicita al usuario que inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com)). Este tipo de cuenta es una cuenta local. Actualmente, también se admiten nombres de usuario arbitrarios (cadenas simples) como cuentas locales (por ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos tipos de cuentas locales en el servicio de Azure AD B2C.
+En un inquilino de Azure AD B2C, la mayoría de las aplicaciones solicita al usuario que inicie sesión con cualquier dirección de correo electrónico arbitraria (por ejemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com). Este tipo de cuenta es una cuenta local. Actualmente, también se admiten nombres de usuario arbitrarios (cadenas simples) como cuentas locales (por ejemplo, joe, bob, sarah o jim). Puede elegir uno de estos dos tipos de cuentas locales en el servicio de Azure AD B2C.
 
 ### ¿Qué proveedores de identidades sociales se admiten ahora? ¿Cuáles se prevén que se van a admitir en el futuro?
 
@@ -102,15 +102,17 @@ Actualmente, no. Esta característica está en nuestro mapa de ruta. Tenga en cu
 
 Siga estos pasos para eliminar al inquilino de Azure AD B2C:
 
-- Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. (esto es, con la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
+- Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) del Portal de Azure.
+- Acceda a las hojas **Aplicaciones**, **Proveedores de identidades** y **Todas las directivas** y elimine todas las entradas de cada una de ellas.
+- Ahora, inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de suscripciones. (esto es, con la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure).
 - Vaya a la extensión de Active Directory de la izquierda y haga clic en el inquilino B2C.
+- Haga clic en la pestaña **Usuarios**.
+- Seleccione cada usuario de uno en uno (excluya al usuario que ya tiene la sesión iniciada, es decir, el administrador de suscripciones). Haga clic en el botón **Eliminar** de la parte inferior de la página y, después, haga clic en **Sí** cuando se pida confirmación.
 - Haga clic en la pestaña **Aplicaciones**.
-- Seleccione **Aplicaciones tiene mi compañía** en el campo de la lista desplegable **Mostrar** y haga clic en la marca de verificación.
-- Verá una aplicación denominada **2c-extensions-app**. Haga clic en **Eliminar** en la parte inferior de la página y, a continuación, haga clic en **Sí** cuando se pida confirmación.
+- Seleccione **Aplicaciones que tiene mi compañía** en el campo de la lista desplegable **Mostrar** y haga clic en la marca de verificación.
+- Verá una aplicación denominada "**b2c-extensions-app**". Haga clic en el botón **Eliminar** de la parte inferior de la página y, después, haga clic en **Sí** cuando se pida confirmación.
 - Vuelva a la extensión de Active Directory y seleccione el inquilino B2C.
 - En la parte inferior de la página, haga clic en **Eliminar**. Siga las instrucciones en pantalla para completar el proceso.
-
-Si ya ha creado **usuarios**, **aplicaciones** u otros objetos en el inquilino B2C, tendrá que eliminarlos antes de realizar los pasos anteriores.
 
 ### ¿Puedo obtener Azure AD B2C como parte de Enterprise Mobility Suite?
 
@@ -118,7 +120,7 @@ No, Azure AD B2C es un servicio de Azure de pago por uso y no forma parte de Ent
 
 ### ¿Cómo puedo informar sobre problemas con Azure AD B2C?
 
-Consulte [Versión preliminar de Azure Active Directory B2C: presentación de solicitudes de soporte técnico.](active-directory-b2c-support.md).
+Consulte [Versión preliminar de Azure Active Directory B2C: presentación de solicitudes de soporte técnico](active-directory-b2c-support.md).
 
 ### ¿Cuándo estará disponible con carácter general Azure AD B2C?
 
@@ -126,6 +128,6 @@ No podemos proporcionar información sobre la fecha en la que estará disponible
 
 ## Más información
 
-Le recomendamos consultar las [limitaciones y restricciones de la vista previa](active-directory-b2c-limitations.md) actual.
+Le recomendamos consultar las [limitaciones y restricciones de la versión preliminar](active-directory-b2c-limitations.md) actual.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

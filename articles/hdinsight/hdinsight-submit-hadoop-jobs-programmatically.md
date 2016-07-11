@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 # Envío de trabajos de Hadoop en HDInsight
@@ -26,4 +26,4 @@ Consulte:
 - [Uso de Sqoop con Hadoop en HDInsight (Windows)](hdinsight-use-sqoop.md)
 - [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->
