@@ -223,9 +223,9 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 
 [3] [CRISP-DM 1.0: Guía de minería de datos paso a paso](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value] \(Marketing de Big Data: atraer más eficazmente a los clientes e impulsar el valor)(http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de Big Data: atraer más eficazmente a los clientes e impulsar el valor)
 
-[5] [Telco churn model template] \(Plantilla del modelo de pérdida de clientes en empresas de telecomunicaciones) (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/)
+[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Plantilla del modelo de pérdida de clientes en empresas de telecomunicaciones) en la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/)
 ##Anexo
 
 ![][10]
