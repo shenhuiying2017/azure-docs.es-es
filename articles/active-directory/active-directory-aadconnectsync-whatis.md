@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -51,6 +51,8 @@ Tema. | ¿Qué aspectos cubre y cuándo debe leerlo?
 **Operaciones e interfaz de usuario** |
 [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Describe la interfaz de usuario de Synchronization Service Manager, incluidas las pestañas [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md), [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) y [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 [Tareas y consideraciones operativas](active-directory-aadconnectsync-operations.md) | Describe las preocupaciones operativas, como la recuperación ante desastres.
+**Procedimiento para:** |
+[Restablecer la cuenta de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) | Procedimiento para restablecer las credenciales de la cuenta de servicio usada para conectarse desde el servicio de sincronización de Azure AD Connect a Azure AD.
 **Más información y referencias** |
 [Puertos](active-directory-aadconnect-ports.md) | Enumera los puertos que necesita abrir entre el motor de sincronización y los directorios locales y Azure AD.
 [Atributos sincronizados con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Enumera todos los atributos que se sincronizan entre los AD locales y Azure AD.
@@ -60,4 +62,4 @@ Tema. | ¿Qué aspectos cubre y cuándo debe leerlo?
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

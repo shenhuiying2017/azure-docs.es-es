@@ -19,7 +19,7 @@
 
 # Clúster MariaDB (MySQL): tutorial de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 > [AZURE.NOTE]  El clúster de MariaDB Enterprise está ahora disponible en Azure Marketplace. La nueva oferta implementará automáticamente un clúster MariaDB Galera en ARM. Debe usar la nueva oferta de https://azure.microsoft.com/es-ES/marketplace/partners/mariadb/cluster-maxscale/
 
@@ -52,7 +52,7 @@ En este tema se realizan los pasos siguientes:
 
 		azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
 
-3. Cree una cuenta de almacenamiento para alojar todos nuestros discos. Tenga en cuenta que no debería colocar más de 40 discos de uso intensivo en la misma cuenta de almacenamiento para evitar llegar al límite de la cuenta de almacenamiento IOPS de 20 000. En este caso, estamos lejos de este número, así que almacenaremos todo en la misma cuenta para simplificar.
+3. Cree una cuenta de almacenamiento para alojar todos nuestros discos. Tenga en cuenta que no debería colocar más de 40 discos de uso intensivo en la misma cuenta de almacenamiento para evitar llegar al límite de la cuenta de almacenamiento IOPS de 20 000. En este caso, estamos lejos de este número, así que almacenaremos todo en la misma cuenta para simplificar.
 
 		azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 
@@ -65,7 +65,7 @@ El resultado será algo como `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS
 
 		azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
 
-5. Conecte 4 discos de datos 500 GB a la máquina virtual para su uso en la configuración de RAID
+5. Conecte 4 discos de datos 500 GB a la máquina virtual para su uso en la configuración de RAID
 
 		FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
 
@@ -211,7 +211,7 @@ El resultado será algo como `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS
 
 	- Edite la sección **[mariadb]** y anexe lo siguiente
 
-	> [AZURE.NOTE] Se recomienda que **innodb\_buffer\_pool\_size** sea el 70 % de la memoria de su máquina virtual. Aquí se ha establecido a 2,45 GB aquí para la máquina virtual media de Azure, con 3,5 GB de RAM.
+	> [AZURE.NOTE] Se recomienda que **innodb\_buffer\_pool\_size** sea el 70 % de la memoria de su máquina virtual. Aquí se ha establecido a 2,45 GB aquí para la máquina virtual media de Azure, con 3,5 GB de RAM.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -374,4 +374,4 @@ Puede que desee echar un vistazo a [otro modo para el clúster MySQL en Linux] y
 [problema #1268 en las herramientas de la CLI de Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [otro modo para el clúster MySQL en Linux]: virtual-machines-linux-mysql-cluster.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

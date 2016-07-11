@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 #Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico
@@ -55,6 +55,8 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 
 5. Aunque los detalles varían en función del registrador que se esté utilizando, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**,) *hasta* el nombre de dominio del Administrador de tráfico (**contoso.trafficmanager.net**) usado para la aplicación web.
 
+> [AZURE.NOTE] Si ya hay un registro en uso y necesita enlazar las aplicaciones de forma preventiva, asigne **awverify.contoso.com** a **contoso.trafficmanager.net**.
+
 6. Una vez que haya terminado de agregar o modificar registros DNS en su registrador, guarde los cambios.
 
 <a name="enabledomain"></a>
@@ -66,4 +68,4 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -3,7 +3,7 @@
    description="Power BI Embedded, usar el SDK para agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/16/2016"
-   ms.author="derrickv"/>
+   ms.date="06/28/2016"
+   ms.author="owend"/>
 
 # Introducción al ejemplo de Microsoft Power BI Embedded
 
-**Microsoft Power BI Embedded Preview** (Versión preliminar de Microsoft Power BI Embedded) le permite integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para visualizar datos de los usuarios. Los siguientes recursos pueden ayudarle a empezar a integrar informes de Power BI en la aplicación.
+Con la **versión preliminar de Microsoft Power BI Embedded**, puede integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para visualizar datos de los usuarios. Los siguientes recursos pueden ayudarle a empezar a integrar informes de Power BI en la aplicación.
 
  -	[Aplicación web de panel de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Referencia de API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
@@ -194,7 +194,7 @@ ActionResult Reports()
     }
 
 
-Tarea<ActionResult> Report(string reportId)
+Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
@@ -242,4 +242,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
 - [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

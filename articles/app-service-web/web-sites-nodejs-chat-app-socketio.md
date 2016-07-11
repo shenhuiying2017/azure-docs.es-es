@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación de chat Node.js con Socket.IO en el Servicio de aplicaciones de Azure
@@ -24,7 +24,7 @@ Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y l
 
 ## Descarga del ejemplo de chat
 
-Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO GitHub] \(en inglés). Realice los siguientes pasos para descargar el ejemplo y agréguelo al proyecto que creó anteriormente.
+Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO GitHub] (en inglés). Realice los siguientes pasos para descargar el ejemplo y agréguelo al proyecto que creó anteriormente.
 
 1.  Descargue una [versión archivada ZIP o GZ] del proyecto Socket.IO (la versión 1.3.5 se ha utilizado para este documento).
 
@@ -291,4 +291,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

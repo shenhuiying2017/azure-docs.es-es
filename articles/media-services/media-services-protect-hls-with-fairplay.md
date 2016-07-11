@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/11/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay 
@@ -42,19 +42,33 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 	- Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
 	- Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
-	- En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay. 
+	- En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay.
 
 	- Versión **3.6.0** del SDK .NET de Servicios multimedia de Azure.
 
 - En la entrega de claves de AMS se debe establecer lo siguiente:
-	- **Certificación de aplicaciones (AC)**: archivo .pfx que contiene la clave privada. Este archivo lo crea el cliente y lo cifra el mismo cliente mediante una contraseña+. 
+	- **Certificación de aplicaciones (AC)**: archivo .pfx que contiene la clave privada. Este archivo lo crea el cliente y lo cifra el mismo cliente mediante una contraseña+.
 		
 	 	Cuando el cliente configura la directiva de entrega de claves, debe proporcionar esa contraseña y el archivo .pfx en formato base64.
 
+		En los pasos siguientes se describe cómo generar un certificado pfx para FairPlay.
+		
+		1. Instale OpenSSL desde https://slproweb.com/products/Win32OpenSSL.html.
+		
+			Vaya a la carpeta donde están los certificados FairPlay y otros archivos cuyo emisor sea Apple.
+		
+		2. Línea de comandos para convertir archivos CER en PEM:
+		
+			"C:\\OpenSSL-Win32\\bin\\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+		
+		3. Línea de comandos para convertir archivos PEM en PFX con la clave privada (OpenSSL solicita la contraseña del archivo pfx).
+		
+			"C:\\OpenSSL-Win32\\bin\\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+		
 	- **Contraseña de certificación de aplicaciones**: contraseña del cliente para crear el archivo .pfx.
 	- **Identificador de contraseña de certificación de aplicaciones**: el cliente debe cargar la contraseña de forma similar a como carga otras claves de AMS y mediante el valor de enumeración **ContentKeyType.FairPlayPfxPassword**. En el resultado se obtendrá el identificador de AMS que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
-	- **iv**: valor aleatorio de 16 bytes que debe coincidir con el iv de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves. 
-	- **ASK**: la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante. 
+	- **iv**: valor aleatorio de 16 bytes que debe coincidir con el IV de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
+	- **ASK**: la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante.
 	-  **Identificador de ASK**: se obtiene cuando el cliente carga ASK en AMS. El cliente debe cargar la ASk mediante el valor de enumeración **ContentKeyType.FairPlayASk**. Como resultado, obtendrá el identificador de AMS y este es el que debe utilizarse al establecer la opción de directiva de entrega de claves.
 
 - En el lado cliente FPS se debe establecer lo siguiente:
@@ -62,8 +76,8 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 
 - Para reproducir una transmisión cifrada FairPlay, necesita obtener primero la ASK real y luego generar un certificado real. Ese proceso creará las 3 partes:
 
-	-  .der, 
-	-  .pfx y 
+	-  .der,
+	-  .pfx y
 	-  la contraseña para el archivo .pfx.
  
 - Clientes compatibles con HLS con cifrado **AES-128 CBC**: Safari en OS X, TV Apple e iOS.
@@ -72,27 +86,27 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 
 Estos son los pasos generales que deberá realizar cuando proteja los recursos con FairPlay, mediante el servicio de entrega de licencias de Servicios multimedia y también mediante cifrado dinámico.
 
-1. Creación de un recurso y carga de los archivos en el recurso. 
+1. Creación de un recurso y carga de los archivos en el recurso.
 1. Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
-1. Creación de una clave de contenido y su asociación con el recurso codificado.  
-1. Configuración de la directiva de autorización de la clave de contenido. Al crear la directiva de autorización de claves de contenido, necesita especificar lo siguiente: 
+1. Creación de una clave de contenido y su asociación con el recurso codificado.
+1. Configuración de la directiva de autorización de la clave de contenido. Al crear la directiva de autorización de claves de contenido, necesita especificar lo siguiente:
 	
-	- Método de entrega (en este caso, FairPlay) 
+	- Método de entrega (en este caso, FairPlay)
 	- Configuración de opciones de directiva de FairPlay. Para más detalles sobre cómo configurar FairPlay, consulte el método ConfigureFairPlayPolicyOptions() en el siguiente ejemplo.
 	
 		>[AZURE.NOTE] En la mayoría de los casos, lo más seguro es que desee configurar las opciones de directiva de FairPlay solo una vez, ya que solo tendrá un conjunto de certificados y una ASK.
-	- Restricciones (abiertas o token), 
-	- Y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente. 
+	- Restricciones (abiertas o token),
+	- Y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente.
 	
 2. Configure la directiva de entrega de recursos. La configuración de directiva de entrega incluye:
 
-	- Protocolo de entrega (HLS), 
-	- El tipo de cifrado dinámico (cifrado CBC común), 
-	- Direcciones URL de adquisición de licencias. 
+	- Protocolo de entrega (HLS),
+	- El tipo de cifrado dinámico (cifrado CBC común),
+	- Direcciones URL de adquisición de licencias.
 	
 	>[AZURE.NOTE]Si desea entregar una transmisión que se cifra con FairPlay + otro DRM, tiene que configurar directivas de entrega independientes:
 	>
-	>- Una IAssetDeliveryPolicy para configurar DASH con CENC (PlayReady + WideVine) y Smooth con PlayReady. 
+	>- Una IAssetDeliveryPolicy para configurar DASH con CENC (PlayReady + WideVine) y Smooth con PlayReady.
 	>- Otra IAssetDeliveryPolicy para configurar FairPlay para HLS
 
 1. Creación de un localizador a petición para obtener una URL de streaming.
@@ -540,4 +554,4 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

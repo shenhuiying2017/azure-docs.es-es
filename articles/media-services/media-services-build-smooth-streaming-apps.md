@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -38,9 +38,9 @@ Este tutorial contiene cuatro lecciones:
 
 La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés):
 
-- [Lección 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 
-- [Lección 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 con un control de barra deslizante 
-- [Lección 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44): Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de secuencias  
+- [Lección 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8
+- [Lección 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a): Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 con un control de barra deslizante
+- [Lección 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44): Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de secuencias
 - [Lección 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907): Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de pistas
 
 ##Lección 1: Creación de una aplicación básica de Tienda de Smooth Streaming
@@ -83,7 +83,7 @@ Nombre|Valor
 Grupo de referencia|Windows/Extensiones
 Referencia|Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++
 	
-3.	Haga clic en **Aceptar**. 
+3.	Haga clic en **Aceptar**.
 
 Después de agregar las referencias, debe seleccionar la plataforma de destino (x64 o x86), ya que en ninguna configuración de la plataforma de la CPU funciona la incorporación de las referencias. En el Explorador de soluciones, verá una marca de advertencia amarilla en estas referencias agregadas.
 
@@ -212,10 +212,10 @@ El archivo de código subyacente finalizado tendrá un aspecto similar al siguie
 
 1.	En el menú **COMPILAR**, haga clic en **Administrador de configuración**.
 2.	Cambie **Plataforma de soluciones activa** para que coincida con la plataforma de desarrollo.
-3.	Presione **F6** para compilar el proyecto. 
+3.	Presione **F6** para compilar el proyecto.
 4.	Presione **F5** para ejecutar la aplicación.
-5.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente. 
-6.	Haga clic en **Establecer origen**. Como la opción **Reproducción automática** está habilitada de forma predeterminada, el contenido multimedia se reproducirá automáticamente. Puede controlar el contenido multimedia usando los botones **Reproducir**, **Pausa** y **Detener**. Puede controlar el volumen multimedia usando el control deslizante vertical. No obstante, el control deslizante horizontal que controla el progreso multimedia no está completamente implementado todavía. 
+5.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente.
+6.	Haga clic en **Establecer origen**. Como la opción **Reproducción automática** está habilitada de forma predeterminada, el contenido multimedia se reproducirá automáticamente. Puede controlar el contenido multimedia usando los botones **Reproducir**, **Pausa** y **Detener**. Puede controlar el volumen multimedia usando el control deslizante vertical. No obstante, el control deslizante horizontal que controla el progreso multimedia no está completamente implementado todavía.
 
 Ha terminado la lección 1. En esta lección se usa el control MediaElement para reproducir contenido de Smooth Streaming. En la lección siguiente, agregará un control deslizante para el progreso del contenido de Smooth Streaming.
 
@@ -229,7 +229,7 @@ Los orígenes multimedia son objetos que generan datos multimedia. La resolució
 
 Esta lección contiene los procedimientos siguientes:
 
-1.	Registro del controlador de Smooth Streaming 
+1.	Registro del controlador de Smooth Streaming
 2.	Incorporación de los controladores de eventos de nivel de administrador de origen adaptativo
 3.	Incorporación de los controladores de eventos de nivel de origen adaptativo
 4.	Incorporación de controladores de eventos MediaElement
@@ -484,10 +484,10 @@ También están disponibles los mismos eventos en el nivel de administrador de o
 
 **Para compilar y probar la aplicación**
 
-1. Presione **F6** para compilar el proyecto. 
+1. Presione **F6** para compilar el proyecto.
 2.	Presione **F5** para ejecutar la aplicación.
-3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente. 
-4.	Haga clic en **Establecer origen**. 
+3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente.
+4.	Haga clic en **Establecer origen**.
 5.	Pruebe la barra deslizante.
 
 Ha completado la lección 2. En esta lección ha agregado un control deslizante a la aplicación.
@@ -757,10 +757,10 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 
 **Para compilar y probar la aplicación**
 
-1. Presione **F6** para compilar el proyecto. 
+1. Presione **F6** para compilar el proyecto.
 2.	Presione **F5** para ejecutar la aplicación.
-3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente. 
-4.	Haga clic en **Establecer origen**. 
+3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente.
+4.	Haga clic en **Establecer origen**.
 5.	El idioma predeterminado es audio\_eng. Intente cambiar entre audio\_eng y audio\_es. Cada vez que seleccione una nueva secuencia, debe hacer clic en el botón Enviar.
 
 Ha completado la lección 3. En esta lección ha agregado la funcionalidad para elegir secuencias.
@@ -960,10 +960,10 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
 
 **Para compilar y probar la aplicación**
 
-1. Presione **F6** para compilar el proyecto. 
+1. Presione **F6** para compilar el proyecto.
 2.	Presione **F5** para ejecutar la aplicación.
-3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente. 
-4.	Haga clic en **Establecer origen**. 
+3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente.
+4.	Haga clic en **Establecer origen**.
 5.	De forma predeterminada, todas las pistas de la secuencia de vídeo están seleccionadas. Para ver el cambio de velocidad de bits, puede seleccionar la menor velocidad de bits disponible y, a continuación, la mayor. Debe hacer clic en Submit después de realizar cada uno de los cambios. Puede ver los cambios de calidad del vídeo.
 
 Ha completado la lección 4. En esta lección ha agregado la funcionalidad para elegir pistas.
@@ -986,4 +986,4 @@ Ha completado la lección 4. En esta lección ha agregado la funcionalidad para 
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

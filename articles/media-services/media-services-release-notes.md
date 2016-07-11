@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -47,8 +47,8 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 - [Versión de agosto de 2014](#august_changes_14)
 - [Versión de julio de 2014](#july_changes_14)
 - [Versión de mayo de 2014](#may_changes_14)
-- [Versión de abril de 2014](#april_changes_14) 
-- [Versiones de enero/febrero de 2014](#jan_feb_changes_14) 
+- [Versión de abril de 2014](#april_changes_14)
+- [Versiones de enero/febrero de 2014](#jan_feb_changes_14)
 - [Versión de diciembre de 2013](#december_changes_13)
 - [Versión de noviembre de 2013](#november_changes_13)
 - [Versión de agosto de 2013](#august_changes_13)
@@ -189,7 +189,7 @@ Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0
 Ahora la versión del SDK .NET de Servicios multimedia de Azure es la 3.3.0.0. En esta versión se ha agregado la siguiente funcionalidad:
 
 - Compatibilidad con la especificación de detección de OpenId Connect.
-- Compatibilidad con el control de sustitución de claves en el lado del proveedor de identidades. 
+- Compatibilidad con el control de sustitución de claves en el lado del proveedor de identidades.
 
 Si está usando un proveedor de identidades que expone el documento de detección de OpenID Connect (igual que los siguientes proveedores: Azure Active Directory, Google y Salesforce), puede indicar a Servicios multimedia de Azure que obtenga las claves de firma para la validación del token JWT de la especificación de detección de OpenID Connect.
 
@@ -343,7 +343,7 @@ Actualmente, cuenta con las dos opciones siguientes para resolver el problema.
 	
 	* Debe tener la propiedad del nombre de dominio personalizado.
 	
-	* Y esta propiedad se debe validar mediante Servicios multimedia de Azure. Para validar el dominio, cree un CName que asigne <MediaServicesAccountId>.<parent domain> a verifydns.<mediaservices-dns-zone>.
+	* Y esta propiedad se debe validar mediante Servicios multimedia de Azure. Para validar el dominio, cree un registro CName que asigne <idCuentaServiciosMultimedia>.<dominio primario> a verifydns.<zona-dns-serviciosmultimedia>.
 	
 	* Debe crear otro CName que asigne el nombre de host personalizado (por ejemplo, sports.contoso.com) al nombre de host de su StreamingEndpoint de Servicios multimedia (por ejemplo, amstest.streaming.mediaservices.windows.net).
 
@@ -395,7 +395,7 @@ Las siguientes mejoras se incluyen en la versión 3.0.0.5 del SDK .NET de Servic
 
 * Mejoras en la gestión de excepciones transitorias y la lógica de reintento:
 
-	* La detección de errores transitorios y la lógica de reintento se han mejorado en las excepciones ocasionadas al consultar, guardar cambios y cargar y descargar archivos. 
+	* La detección de errores transitorios y la lógica de reintento se han mejorado en las excepciones ocasionadas al consultar, guardar cambios y cargar y descargar archivos.
 	
 	* Al recibir excepciones web (por ejemplo, durante una solicitud de token de ACS), observará que ahora se producen con mayor rapidez errores graves.
 
@@ -430,7 +430,7 @@ Para obtener más detalles acerca de los cambios, consulte [SDK .NET de Servicio
 
 Se han realizado los siguientes cambios en la versión 3.0.0.3:
 
-* Se han actualizado las dependencias de almacenamiento de Azure para usar la versión 3.0.3.0. 
+* Se han actualizado las dependencias de almacenamiento de Azure para usar la versión 3.0.3.0.
 
 * Se ha corregido el problema de compatibilidad con versiones posteriores en las versiones 3.0.*.*.
 
@@ -461,7 +461,7 @@ A partir de esta versión, el SDK de Servicios multimedia para .NET gestiona los
 
 Los siguientes cmdlets de PowerShell de Servicios multimedia se incluyen ahora en [azure-sdk-tools].
 
-* Get-AzureMediaServices 
+* Get-AzureMediaServices
 
 	Por ejemplo: `Get-AzureMediaServicesAccount`.
 
@@ -483,7 +483,7 @@ Los siguientes cmdlets de PowerShell de Servicios multimedia se incluyen ahora e
 
 Los cambios mencionados en esta sección son actualizaciones incluidas en las versiones de Servicios multimedia de 2013.
 
-* Posibilidad de vincular varias cuentas de almacenamiento a una cuenta de Servicios multimedia. 
+* Posibilidad de vincular varias cuentas de almacenamiento a una cuenta de Servicios multimedia.
 
 	StorageAccount
 	
@@ -665,4 +665,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

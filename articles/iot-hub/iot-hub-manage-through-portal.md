@@ -44,7 +44,7 @@ Para crear un Centro de IoT, debe asignar un nombre al centro. Tenga en cuenta q
 
 ### Elección del plan de tarifa
 
-Puede elegir entre tres planes: **Gratis**, **Estándar 1** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
+Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
 
 **S1 (baja frecuencia)**: la edición S1 (baja frecuencia) de Centros de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 (baja frecuencia) permite transmitir hasta 400 000 mensajes al día a través de todos los dispositivos conectados.
 
@@ -124,17 +124,17 @@ Haga clic en las directivas de **Mensajería** a fin de mostrar una lista de pro
 
 Para utilizar la funcionalidad de carga de archivos en el Centro de IoT, primero debe asociar una cuenta de almacenamiento de Azure con su centro. Seleccione la configuración de **Carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
 
-**Cuenta de almacenamiento:** use el portal para seleccionar una cuenta de almacenamiento de su suscripción actual para asociar a su Centro de IoT. El Centro de IoT genera identificadores URI de SAS a partir de esta cuenta de almacenamiento para que los usen los dispositivos cuando carguen archivos.
+**Cuenta de almacenamiento:** use el portal para seleccionar un contenedor de blobs en una cuenta de almacenamiento de su suscripción actual con el fin de asociarlo a su Centro de IoT. Si es necesario, puede crear una nueva cuenta de almacenamiento en la hoja **Cuentas de almacenamiento**, y el nuevo contenedor de blobs en la hoja **Contenedores**. El Centro de IoT genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
 ![][14]
 
 **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos mediante el botón de alternancia.
 
-**SAS TTL** (TTL SAS): este valor es el período de vida de los URI de SAS que el Centro de IoT devuelve al dispositivo. Se establece en una hora de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
+**SAS TTL** (TTL SAS): este valor es el periodo de vida de los URI de SAS que el Centro de IoT devuelve al dispositivo. Se establece en una hora de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
-**TTL predeterminado de configuración de notificación de archivos**: el período de vida de una notificación de carga de archivos antes de que caduque. Se establece en 1 día de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
+**TTL predeterminado de configuración de notificación de archivos**: el periodo de vida de una notificación de carga de archivos antes de que caduque. Se establece en 1 día de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
-**File notification maximum delivery count** (Número máximo de entregas de notificaciones de archivo): el número de veces que el Centro de IoT intentará entregar una notificación de carga de archivos. Se establece en 10 días de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
+**File notification maximum delivery count** (Número máximo de entregas de notificaciones de archivo): el número de veces que el Centro de IoT tratará de entregar una notificación de carga de archivos. Se establece en 10 días de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
 ![][13]
 
@@ -173,4 +173,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

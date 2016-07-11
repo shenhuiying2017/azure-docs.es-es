@@ -1,6 +1,6 @@
 <properties
     pageTitle="Uso de la CLI de Azure con Almacenamiento de Azure | Microsoft Azure"
-    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure es una herramienta multiplataforma"
+    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure es una herramienta multiplataforma "
     services="storage"
     documentationCenter="na"
     authors="tamram"
@@ -25,7 +25,7 @@ En esta guía, exploraremos cómo usar la [Interfaz de línea de comandos de Azu
 
 En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Almacenamiento de Azure. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
-> [AZURE.NOTE] La guía proporciona ejemplos de comandos y scripts de la CLI de Azure que se ejecutan en el modo Administración de servicios de Azure (ASM). Para ver los comandos de la CLI de Azure para el almacenamiento en el modo administración de recursos de Azure (ARM), consulte [Uso de la CLI de Azure para Mac, Linux y Windows con la administración de recursos de Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects).
+> [AZURE.NOTE] La guía proporciona ejemplos de comandos y scripts de CLI de Azure de cuentas de almacenamiento clásico. Consulte [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) (Uso de la CLI de Azure para Mac, Linux y Windows mediante la administración de recursos de Azure) para ver los comandos de la CLI de Azure de las cuentas de almacenamiento de Resource Manager.
 
 ## Introducción de 5 minutos a Almacenamiento de Azure y a la CLI de Azure
 
@@ -74,15 +74,15 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 
 6. Ahora deberá actualizar las variables del script basadas en la configuración.
 
-    - **<storage_account_name>**Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
+    - **<storage\_account\_name>** Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
 
-    - **<storage_account_key>** La clave de acceso de su cuenta de almacenamiento.
+    - **<storage\_account\_key>** La clave de acceso de su cuenta de almacenamiento.
 
-    - **<container_name>**Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
+    - **<container\_name>** Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
 
-    - **<image_to_upload>** Escriba una ruta de acceso a una imagen del equipo local, como: "~/images/HelloWorld.png".
+    - **<image\_to\_upload>** Escriba una ruta de acceso a una imagen en el equipo local, por ejemplo: "~/images/HolaMundo.png".
 
-    - **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados de Almacenamiento de Azure, como por ejemplo: “~/downloadImages”.
+    - **<destination\_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Almacenamiento de Azure, por ejemplo: "~/imagenesDescargadas".
 
 7. Después de haber actualizado las variables necesarias en vim, presione las combinaciones de teclas "Esc,:, wq!" para guardar el script.
 
@@ -94,7 +94,7 @@ Una vez ejecutado el script, debería tener una carpeta de destino local que inc
 
 ### Conexión a su suscripción de Azure
 
-Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure para que funcione con su suscripción, siga los pasos en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
+Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure de modo que funcione con su suscripción, siga los pasos en [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md) (Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure [CLI de Azure]).
 
 ### Creación de una cuenta de almacenamiento nueva
 
@@ -169,7 +169,7 @@ Para eliminar un blob, use el siguiente comando:
 
 ## Creación y administración de recursos compartidos de archivos
 
-El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure, así como las aplicaciones locales, pueden compartir datos de archivos a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md) o [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
+El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure, así como las aplicaciones locales, pueden compartir datos de archivos a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md) o [Uso del almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creación de un recurso compartido de archivos
 
@@ -221,4 +221,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

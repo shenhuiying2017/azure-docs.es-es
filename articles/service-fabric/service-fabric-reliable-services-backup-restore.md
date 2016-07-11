@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Copia de seguridad y restauración de Reliable Services y Reliable Actors
@@ -64,9 +64,9 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Se puede producir un error para realizar una copia de seguridad incremental on **FabricFullBackupMissingException**, que indica que la réplica no ha realizado nunca una copia de seguridad completa o que se han truncado algunos de los registros desde esa última copia. Los usuarios pueden modificar la velocidad de truncamiento modificando el valor **CheckpointThresholdInMB**.
+Se puede producir un error al solicitar la realización de una copia de seguridad incremental con **FabricMissingFullBackupException**, que indica que la réplica no ha realizado nunca una copia de seguridad completa o que se han truncado algunos de los registros desde esa última copia. Los usuarios pueden modificar la velocidad de truncamiento modificando el valor **CheckpointThresholdInMB**.
 
-**BackupInfo** proporciona información sobre la copia de seguridad, incluida la ubicación de la carpeta donde el runtime la guardó (**BackupInfo.Directory**). La función de devolución de llamada puede mover **BackupInfo.Directory** a un almacén externo u otra ubicación. Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
+**BackupInfo** proporciona información sobre la copia de seguridad, incluida la ubicación de la carpeta donde el tiempo de ejecución la guardó (**BackupInfo.Directory**). La función de devolución de llamada puede mover **BackupInfo.Directory** a un almacén externo u otra ubicación. Además, esta función devuelve un valor booleano que indica si se pudo mover correctamente la carpeta de copia de seguridad a su ubicación de destino.
 
 El código siguiente muestra cómo se puede usar el método **BackupCallbackAsync** para cargar la copia de seguridad a Almacenamiento de Azure:
 
@@ -133,7 +133,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-El método **RestoreDescription** pasado a la llamada **RestoreContext.RestoreAsync** contiene un miembro denominado "**BackupFolderPath**". Al restaurar una copia de seguridad completa única, este miembro **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que contiene la copia de seguridad completa. Al restaurar una copia de seguridad completa y un número de copias de seguridad incrementales, **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que no solo contiene no la copia de seguridad completa, sino también todas las incrementales. La llamada **RestoreAsync** puede iniciar **FabricFullBackupMissingException** si el miembro **BackupFolderPath** proporcionado no contiene una copia de seguridad completa. También puede iniciar **ArgumentException** si **BackupFolderPath** tiene una cadena de copias de seguridad incrementales rota. Por ejemplo, si contiene la copia de seguridad completa, la primera y la tercera copia de seguridad incremental, pero no la segunda.
+El método **RestoreDescription** pasado a la llamada **RestoreContext.RestoreAsync** contiene un miembro denominado **BackupFolderPath**. Al restaurar una copia de seguridad completa única, este miembro **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que contiene la copia de seguridad completa. Al restaurar una copia de seguridad completa y un número de copias de seguridad incrementales, **BackupFolderPath** debe establecerse en la ruta de acceso local de la carpeta que no solo contiene no la copia de seguridad completa, sino también todas las incrementales. La llamada **RestoreAsync** puede iniciar **FabricMissingFullBackupException** si el miembro **BackupFolderPath** proporcionado no contiene una copia de seguridad completa. También puede iniciar **ArgumentException** si **BackupFolderPath** tiene una cadena de copias de seguridad incrementales rota. Por ejemplo, si contiene la copia de seguridad completa, la primera y la tercera copia de seguridad incremental, pero no la segunda.
 
 >[AZURE.NOTE] RestorePolicy se establece en Seguro de forma predeterminada. Esto significa que la API **RestoreAsync** generará una excepción ArgumentException si detecta que la carpeta de copia de seguridad contiene un estado igual o más antiguo que el estado contenido en esta réplica. Se puede usar **RestorePolicy.Force** para omitir esta comprobación de seguridad. Esto se especifica como parte de **RestoreDescription**.
 
@@ -183,7 +183,7 @@ Es importante asegurarse de que se hace una copia de seguridad de los datos y qu
 A continuación se proporcionan más detalles sobre la copia de seguridad y la restauración.
 
 ### Copia de seguridad
-El Administrador de estado fiable proporciona la capacidad de crear copias de seguridad coherentes sin bloquear ninguna operación de lectura ni escritura. Para ello, usa un mecanismo de persistencia de registro y punto de control. El Administrador de estado fiable instaura puntos de control aproximados (ligeros) en determinados puntos para aliviar la presión sobre el registro transaccional y mejorar los tiempos de recuperación. Cuando se llama a **BackupAsync**, el Administrador de estado confiable indica a todos los objetos confiables que copien los archivos de punto de control más recientes en una carpeta local de copia de seguridad. Después, el Administrador de estado confiable copia todas las entradas del registro desde el "puntero de inicio" hasta la entrada del registro más reciente en la carpeta de copia de seguridad. Puesto que todas las entradas del registro, de la primera a la última, se incluyen en la copia de seguridad y el Administrador de estado confiable conserva el registro de escritura previa, dicho administrador garantiza que todas las transacciones que se confirmen (aquellas en las que se devuelva **CommitAsync** correctamente) se incluyan en la copia de seguridad.
+El Administrador de estado fiable proporciona la capacidad de crear copias de seguridad coherentes sin bloquear ninguna operación de lectura ni escritura. Para ello, usa un mecanismo de persistencia de registro y punto de control. El Administrador de estado fiable instaura puntos de control aproximados (ligeros) en determinados puntos para aliviar la presión sobre el registro transaccional y mejorar los tiempos de recuperación. Cuando se llama a **BackupAsync**, el Administrador de estado confiable indica a todos los objetos fiables que copien los archivos de punto de control más recientes en una carpeta local de copia de seguridad. Después, el Administrador de estado confiable copia todas las entradas del registro desde el "puntero de inicio" hasta la entrada del registro más reciente en la carpeta de copia de seguridad. Puesto que todas las entradas del registro, de la primera a la última, se incluyen en la copia de seguridad y el dministrador de estado confiable conserva el registro de escritura previa, dicho administrador garantiza que todas las transacciones que se confirmen (aquellas en las que se devuelva **CommitAsync** correctamente) se incluyen en la copia de seguridad.
 
 Cualquier transacción que se confirme después de la llamada a **BackupAsync** puede estar o no incluida en la copia de seguridad. Una vez que la plataforma rellene la carpeta de copia de seguridad (es decir, el tiempo de ejecución completó la copia de seguridad local), se invoca la devolución de llamada de la copia de seguridad del servicio. Esta devolución de llamada se encarga de mover la carpeta de copia de seguridad a una ubicación externa, como Almacenamiento de Azure.
 
@@ -193,4 +193,10 @@ El Administrador de estado confiable ofrece la posibilidad de restaurar desde un
 
 En primer lugar, **RestoreAsync** quita todo estado existente en la réplica principal en la que se llamó. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
-<!---HONumber=AcomDC_0518_2016-->
+## Pasos siguientes
+
+- [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
+- [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
+- [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!---HONumber=AcomDC_0629_2016-->

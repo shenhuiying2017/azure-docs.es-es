@@ -580,7 +580,7 @@ En el ejemplo siguiente, se quita la memoria caché denominada `myCache`.
 <a name="classic"></a>
 ## Administración de instancias de caché en Redis de Azure con el modelo de implementación clásica de PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](cache-howto-manage-redis-cache-powershell.md) descrito al principio de este artículo.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](cache-howto-manage-redis-cache-powershell.md) descrito al principio de este artículo.
 
 El siguiente script muestra la creación, actualización y eliminación de una caché en Redis de Azure mediante el modelo de implementación clásica.
 		
@@ -636,4 +636,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

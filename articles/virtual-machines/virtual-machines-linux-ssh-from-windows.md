@@ -56,10 +56,10 @@ Estos son los escenarios de implementación y los tipos de archivos que se usan 
 
 [Esta sección](#What-SSH-and-key-creation-programs-do-you-need) anterior enumera algunas utilidades que incluyen `ssh-keygen` y `openssl` para Windows. A continuación, se enumeran algunos ejemplos:
 
-###Uso de GitHub para Windows###
+###Uso de Git para Windows###
 
-1.	Descargue e instale GitHub para Windows desde la siguiente ubicación: [https://git-for-windows.github.io/](https://git-for-windows.github.io/)
-2.	Ejecute Git Bash desde el menú Inicio > Todas las aplicaciones > GitHub
+1.	Descargue e instale Git para Windows desde la siguiente ubicación: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+2.	Ejecute Git Bash desde el menú Inicio > Todas las aplicaciones > Git Shell.
 
 > [AZURE.NOTE] Puede encontrar el siguiente error al ejecutar los comandos `openssl` anteriores:
 
@@ -166,4 +166,4 @@ La manera más fácil de resolver este problema consiste en establecer la variab
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

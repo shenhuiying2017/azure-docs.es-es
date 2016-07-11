@@ -74,7 +74,7 @@ En los tutoriales siguientes, aprenderá a optimizar el [rendimiento de bases de
 |---|---|---|
 | [Cambio del nivel de servicio y del nivel de rendimiento de su base de datos](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) | En este tutorial, aprenderá a escalar verticalmente o a reducir verticalmente el rendimiento de una Base de datos SQL de Azure con niveles de servicio. |
 | [SQL Database Performance Insight (Información de rendimiento de Base de datos SQL)](sql-database-performance.md#performance-overview) | En este tutorial, aprenderá a abrir y usar la información de rendimiento de consultas del asesor de Base de datos SQL.|
-| [Asesor de Base de datos SQL](sql-database-index-advisor.md#viewing-recommendations) | En este tutorial, aprenderá a ver y aplicar las recomendaciones de rendimiento del asesor de Base de datos SQL. |
+| [Asesor de Base de datos SQL](sql-database-advisor.md#viewing-recommendations) | En este tutorial, aprenderá a ver y aplicar las recomendaciones de rendimiento del asesor de Base de datos SQL. |
 | [Revisión de las consultas que más CPU consumen](sql-database-query-performance.md#review-top-cpu-consuming-queries)| En este tutorial, aprenderá a usar la información de rendimiento de consultas del asesor de Base de datos SQL para revisar las consultas que más CPU consumen.|
 | [Visualización de los detalles de las consultas individuales](sql-database-query-performance.md#viewing-individual-query-details)| En este tutorial, aprenderá a usar la información de rendimiento de consultas del asesor de Base de datos SQL para ver los detalles de rendimiento de consultas individuales.|
 ||||
@@ -180,4 +180,4 @@ En este tutorial, aprenderá sobre la [sincronización de datos](http://download
 
 [Exploración de tutoriales de soluciones de Base de datos SQL de Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -1,4 +1,6 @@
-Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
+En esta sección, se actualiza el código del proyecto de back-end de Aplicaciones móviles existente con el objetivo de enviar una notificación de inserción cada vez que se agrega un nuevo elemento. Dado que los clientes se registran para recibir notificaciones de inserción mediante un registro de plantilla, puede enviar un único mensaje de notificación de inserción a todas las plataformas cliente. Cada registro de plantilla de cliente contiene un parámetro *messageParam*. Cuando se envía la notificación, *messageParam* contendrá una cadena, que es el texto del elemento que se va a insertar. Para obtener más información sobre cómo utilizar plantillas con Centros de notificaciones, consulte [Plantillas](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Elija el procedimiento de abajo que se corresponda con el tipo de proyecto de back-end: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Proyecto de back-end de .NET
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque `Microsoft.Azure.NotificationHubs` y, por último, haga clic en **Instalar**. Esto instala la biblioteca de los Centros de notificaciones para enviar notificaciones desde el back-end.
@@ -46,15 +48,13 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Este código indica el centro de notificaciones para enviar una notificación de plantilla a todos los registros de plantilla que contengan "messageParam". La cadena se insertará en lugar de messageParam a través de cada PNS que tenga un registro con "messageParam". Esto le permite enviar la notificación a APNS, GCM, WNS o cualquier otro PNS.
-
-	Para obtener más información sobre las plantillas con centros de notificaciones, consulte [Plantillas](notification-hubs-templates.md).
+	Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
 
 4. Vuelva a publicar el proyecto de servidor.
 
 ### <a name="nodejs"></a>Proyecto de back-end de Node.js
 
-1. Si no lo ha hecho todavía, [descargue el proyecto de inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Si no lo ha hecho todavía, [descargue el proyecto de back-end inicio rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
 
@@ -70,7 +70,7 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam":' + context.item.text + '}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -97,6 +97,8 @@ Use el procedimiento que corresponda al tipo de proyecto de back-end: [back-end 
 
 		module.exports = table;  
 
-	Esta acción envía una notificación de plantilla que contiene el item.text cuando se inserta un nuevo elemento todo.
+	Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
 
 2. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
+
+<!---HONumber=AcomDC_0629_2016-->

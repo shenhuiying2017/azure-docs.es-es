@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Administración de entidades de Servicios multimedia con la API de REST
@@ -25,11 +25,11 @@
 
 Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Por este motivo, puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo como haría con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
-- Incorporación de entidades 
-- Consulta de entidades 
+- Incorporación de entidades
+- Consulta de entidades
 - Enumeración de grandes colecciones de entidades
-- Actualización de entidades 
-- Eliminación de entidades 
+- Actualización de entidades
+- Eliminación de entidades
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
@@ -175,4 +175,4 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

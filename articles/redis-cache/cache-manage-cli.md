@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="06/28/2016" 
 	ms.author="sdanie"/>
 
 # Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)
@@ -253,7 +253,7 @@ Para enumerar las claves Principal y Secundaria de una caché en Redis existente
 
 	azure rediscache list-keys [--name <name> --resource-group <resource-group>]
 
-Para obtener más información sobre este comando, ejecute el comando `azure rediscache list-keys -h`.
+Para más información sobre este comando, ejecute el comando `azure rediscache list-keys -h`.
 
 	C:\>azure rediscache list-keys -h
 	help:    Lists Primary and Secondary key of an existing Redis Cache
@@ -271,4 +271,4 @@ Para obtener más información sobre este comando, ejecute el comando `azure red
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

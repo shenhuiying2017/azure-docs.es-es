@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/20/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: conceptos de diseño
@@ -37,7 +37,7 @@ El valor de atributo debe seguir las reglas siguientes:
 
 - Debe tener una longitud de menos de 60 caracteres.
     - Los caracteres que no estén entre a-z, A-Z o 0-9 se codificarán y contarán como 3 caracteres.
-- No debe contener caracteres especiales: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
+- No debe contener caracteres especiales: &#92; ! # $ % & * + / = ? ^ &#96; { }| ~ < > ( ) ' ; : , [ ] " @ _
 - Debe ser único globalmente.
 - Debe ser una cadena, un entero o un número binario.
 - No se debe basar en el nombre del usuario, */*estos cambios
@@ -81,16 +81,16 @@ En la configuración rápida, la opción que se presupone para el atributo es us
 ### Estado de dominio personalizado y UPN
 Es importante asegurarse de que hay un dominio comprobado para el sufijo UPN.
 
-John es un usuario de "contoso.com". Desea que John use el UPN local john@contoso.com para iniciar sesión en Azure después haber sincronizado a los usuarios con el directorio de Azure AD "azurecontoso.onmicrosoft.com". Para ello, tendrá que agregar y comprobar "contoso.com" como un dominio personalizado en Azure AD antes de sincronizar a los usuarios. Si el sufijo UPN de John, "contoso.com", no coincide con un dominio comprobado en Azure AD, Azure AD reemplazará el sufijo UPN con "azurecontoso.onmicrosoft.com" y John tendrá que usar john@azurecontoso.onmicrosoft.com para iniciar sesión en Azure.
+John es un usuario de "contoso.com". Desea que John use el UPN local john@contoso.com para iniciar sesión en Azure después haber sincronizado a los usuarios con el directorio de Azure AD azurecontoso.onmicrosoft.com. Para ello, tendrá que agregar y comprobar "contoso.com" como un dominio personalizado en Azure AD antes de sincronizar a los usuarios. Si el sufijo UPN de John, contoso.com, no coincide con un dominio comprobado en Azure AD, Azure AD reemplazará el sufijo UPN con azurecontoso.onmicrosoft.com y John tendrá que usar john@azurecontoso.onmicrosoft.com para iniciar sesión en Azure.
 
 ### Dominios locales no enrutables y UPN para Azure AD
 Algunas organizaciones tienen dominios no enrutables, como "contoso.local" o dominios de etiqueta única simple como "contoso". En Azure AD no podrá comprobar un dominio no enrutable. Azure AD Connect puede sincronizarse solo con un dominio comprobado en Azure AD. Cuando se crea un directorio de Azure AD, se crea un dominio enrutable que se convierte en el dominio predeterminado para Azure SD, por ejemplo, "contoso.onmicrosoft.com". Por lo tanto, es necesario comprobar cualquier otro dominio enrutable en este escenario, en caso de que no desee sincronizar con el valor predeterminado ".onmicrosoft.com".
 
-Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para más información sobre cómo agregar y comprobar dominios.
+Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para obtener más información sobre cómo agregar y comprobar dominios.
 
-Azure AD Connect detecta si está ejecutando en un entorno de dominio no enrutable y le advertirá adecuadamente antes de que prosiga con la configuración rápida. Si está trabajando en un dominio no enrutable, es probable que el UPN de los usuarios tenga también un sufijo no enrutable. Por ejemplo, si se ejecuta bajo "contoso.local", Azure AD Connect le sugerirá que utilice la configuración personalizada en lugar de la configuración rápida. Al usar una configuración personalizada, podrá especificar el atributo que debe usarse como UPN para iniciar sesión en Azure después de que los usuarios se sincronicen con Azure AD. Consulte **Seleccione el atributo de nombre principal de usuario en Azure AD** para más información.
+Azure AD Connect detecta si está ejecutando en un entorno de dominio no enrutable y le advertirá adecuadamente antes de que prosiga con la configuración rápida. Si está trabajando en un dominio no enrutable, es probable que el UPN de los usuarios tenga también un sufijo no enrutable. Por ejemplo, si se ejecuta bajo "contoso.local", Azure AD Connect le sugerirá que utilice la configuración personalizada en lugar de la configuración rápida. Al usar una configuración personalizada, podrá especificar el atributo que debe usarse como UPN para iniciar sesión en Azure después de que los usuarios se sincronicen con Azure AD. Consulte **Seleccione el atributo de nombre principal de usuario en Azure AD** para obtener más información.
 
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

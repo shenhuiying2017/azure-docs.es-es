@@ -23,7 +23,7 @@
 
 ## Información general sobre los requisitos de autenticación para la recuperación ante desastres
 
-En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la georrestauración. Para más información sobre las opciones de recuperación, consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
+En este tema se describen los requisitos de autenticación para configurar y controlar la [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la [georrestauración](sql-database-recovery-using-backups.md#geo-restore). Para obtener más información sobre las opciones de recuperación, consulte [Recuperación de una base de datos SQL de Azure tras una interrupción](sql-database-disaster-recovery.md).
 
 ## Recuperación ante desastres con usuarios contenidos
 
@@ -82,7 +82,7 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 
 >[AZURE.NOTE] Si desea conceder acceso de usuario a la base de datos secundaria, pero no a la principal, puede hacerlo modificando el inicio de sesión de usuario en el servidor principal con la sintaxis siguiente.
 >
->ALTER LOGIN <login name> DISABLE
+>ALTER LOGIN <nombre de inicio de sesión> DISABLE
 >
 >DISABLE no cambia la contraseña, por lo que siempre puede habilitarlo si es necesario.
 
@@ -91,17 +91,8 @@ El último paso consiste en ir al servidor o los servidores de destino y generar
 - Para obtener más información sobre cómo administrar el acceso a la base de datos y los inicios de sesión, consulte [Seguridad de la Base de datos SQL: administrar la seguridad del inicio de sesión y el acceso a la base de datos](sql-database-manage-logins.md).
 - Para obtener más información sobre los usuarios de base de datos independiente, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 - Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Para obtener información sobre cómo utilizar la funcionalidad de restauración geográfica, consulte [Restauración geográfica](sql-database-geo-restore.md)
+- Para obtener información sobre cómo utilizar la funcionalidad de restauración geográfica, consulte [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore)
 
 ## Recursos adicionales
 
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

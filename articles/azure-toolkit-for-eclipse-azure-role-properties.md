@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -279,8 +279,8 @@ Nota: En sistemas operativos distintos de Windows, la configuración de **Implem
 
 Independientemente del sistema operativo en el que se encuentre, tiene las dos opciones de **Implementación de la nube** siguientes para el origen y el tipo de su paquete de JDK:
 
-* **Implementar un paquete JDK de terceros disponible en Azure** 
-* **Implementar desde una descarga personalizada** 
+* **Implementar un paquete JDK de terceros disponible en Azure**
+* **Implementar desde una descarga personalizada**
 
 Si usa la opción **Implementar un paquete JDK de terceros disponible en Azure**:
 
@@ -323,7 +323,7 @@ Si usa la opción **Implementar un servidor de terceros disponible en Azure**:
 Si usa la opción **Implementar desde una descarga personalizada**:
 
 1. Asegúrese de que ha seleccionado el tipo de servidor según los pasos anteriores. Esto indica al complemento cómo implementar el servidor desde una descarga personalizada, ya que debe pertenecer a la misma familia que el tipo de servidor seleccionado.
-1. Active la casilla **Implementar desde una descarga personalizada**. Si desea realizar la descarga desde su cuenta de almacenamiento de Azure, seleccione dicha cuenta en la lista desplegable **Cuenta de almacenamiento** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL del archivo ZIP de descarga del servidor (si se usan Almacenamiento de Azure o nombres de blob en la URL, esta debe escribirse en minúsculas). Si no desea usar el almacenamiento de Azure, seleccione **(none)** en la lista desplegable **Cuenta de almacenamiento** y escriba la dirección URL del archivo ZIP de descarga del servidor en el campo **URL**. El archivo ZIP contendría una carpeta secundaria que representa el directorio de instalación del servidor de aplicaciones. Por ejemplo, si usa un archivo zip para Apache Tomcat 7.0.35, dicho archivo contendría la carpeta secundaria que representa el directorio de instalación, como **tomcat-apache-7.0.35**. 
+1. Active la casilla **Implementar desde una descarga personalizada**. Si desea realizar la descarga desde su cuenta de almacenamiento de Azure, seleccione dicha cuenta en la lista desplegable **Cuenta de almacenamiento** (puede hacer clic en el vínculo **Cuentas** para modificar lo que hay en la lista), con lo que se rellenará parcialmente el campo **URL** y, a continuación, rellene el resto de la dirección URL del archivo ZIP de descarga del servidor (si se usan Almacenamiento de Azure o nombres de blob en la URL, esta debe escribirse en minúsculas). Si no desea usar el almacenamiento de Azure, seleccione **(none)** en la lista desplegable **Cuenta de almacenamiento** y escriba la dirección URL del archivo ZIP de descarga del servidor en el campo **URL**. El archivo ZIP contendría una carpeta secundaria que representa el directorio de instalación del servidor de aplicaciones. Por ejemplo, si usa un archivo zip para Apache Tomcat 7.0.35, dicho archivo contendría la carpeta secundaria que representa el directorio de instalación, como **tomcat-apache-7.0.35**.
 1. Especifique el valor de la variable de entorno del directorio de inicio. De manera predeterminada, será el valor que se usa para el servidor de aplicaciones local, en caso de haber alguno, pero si el servidor de aplicaciones en la nube es distinto del local, se puede especificar otro valor. Sin embargo, es preciso asegurarse de que el servidor de aplicaciones en la nube es de la misma familia que el tipo de servidor seleccionado anteriormente. Si actualiza el archivo zip del servidor de aplicaciones de nube en el futuro, puede cambiar manualmente la configuración del directorio particular, o bien, hacer que vuelva a coincidir con la configuración local (si también cambió el servidor de aplicaciones local).
 1. Haga clic en **Aceptar** para guardar los cambios.
 
@@ -440,4 +440,4 @@ Para obtener más información sobre el uso de Azure con Java, consulte el [Cent
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

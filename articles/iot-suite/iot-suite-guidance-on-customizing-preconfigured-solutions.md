@@ -14,7 +14,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/02/2016"
+     ms.date="06/27/2016"
      ms.author="stevehob"/>
 
 # Personalizar una solución preconfigurada
@@ -39,9 +39,9 @@ Los tres trabajos de análisis de transmisiones y su sintaxis se describen detal
 Puede editar directamente estos trabajos y modificar la lógica, o agregar lógica específica a su escenario. Para encontrar los trabajos de Análisis de transmisiones, siga estos pasos:
  
 1. Vaya al [Portal de Azure](https://portal.azure.com).
-2. Vaya al grupo de recursos con el mismo nombre que la solución de IoT. 
-3. Seleccione el trabajo de Análisis de transmisiones de Azure que desea modificar. 
-4. Detenga el trabajo seleccionando **Detener** en el conjunto de comandos. 
+2. Vaya al grupo de recursos con el mismo nombre que la solución de IoT.
+3. Seleccione el trabajo de Análisis de transmisiones de Azure que desea modificar.
+4. Detenga el trabajo seleccionando **Detener** en el conjunto de comandos.
 5. Edite las entradas, la consulta y las salidas.
 
     Una modificación sencilla consiste en cambiar la consulta para que el trabajo **Reglas** use **"<"** en lugar de **">"**. El portal de la solución seguirá mostrando **">"** al editar una regla, pero observará que el comportamiento varía debido al cambio en el trabajo subyacente.
@@ -66,9 +66,28 @@ El código fuente de la solución de supervisión remota (mencionado anteriormen
 
 El simulador preconfigurado en la solución preconfigurada de supervisión remota es un dispositivo de refrigeración que emite la telemetría de temperatura y humedad. Puede modificar el simulador en el proyecto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) después de bifurcar el repositorio de GitHub.
 
+### Ubicaciones disponibles para dispositivos simulados
+
+El conjunto predeterminado de ubicaciones es Seattle/Redmond, Washington (Estados Unidos de América). Puede cambiar estas ubicaciones en [SampleDeviceFactory.cs][lnk-sample-device-factory].
+
+
 ### Creación y uso de dispositivos propios (físicos)
 
 Los [SDK de IoT de Azure](https://github.com/Azure/azure-iot-sdks) proporcionan bibliotecas que permiten conectar distintos tipos de dispositivos (lenguajes y sistemas operativos) a soluciones IoT.
+
+## Modificación de los límites de panel
+
+### Número de dispositivos que se muestran en la lista desplegable del panel
+
+El valor predeterminado es 200. Puede cambiar este número en [DashboardController.cs][lnk-dashboard-controller].
+
+### Número de chinchetas que se muestran en el control de Bing Maps
+
+El valor predeterminado es 200. Puede cambiar este número en [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+
+### Periodo del gráfico de telemetría
+
+El valor predeterminado es 10 minutos. Puede cambiarlo en [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## Configuración manual de los roles de aplicación
 
@@ -86,7 +105,7 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
 
 5. Haga clic en el nombre de la aplicación que coincida con el nombre de la solución preconfigurada. Si no ve la aplicación en la lista, seleccione **Aplicaciones que tiene mi compañía** en la lista desplegable **Mostrar** y haga clic en la marca de verificación.
 
-6.  En la parte inferior de la página, haga clic en **Administrar manifiesto** y luego en **Descargar manifiesto**.
+6.  En la parte inferior de la página, haga clic en **Administrar manifiesto** y, luego, en **Descargar manifiesto**.
 
 7. Se descargará un archivo .json en la máquina local. Abra este archivo para editarlo en el editor de texto que quiera.
 
@@ -123,7 +142,7 @@ Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos
 
 9. Guarde el archivo .json actualizado (puede sobrescribir el archivo existente).
 
-10.  En el Portal de administración de Azure, en la parte inferior de la página, seleccione **Administrar manifiesto** y después **Cargar manifiesto** para cargar el archivo .json que guardó en el paso anterior.
+10.  En el Portal de administración de Azure, en la parte inferior de la página, seleccione **Administrar manifiesto** y, después, **Cargar manifiesto** para cargar el archivo .json que guardó en el paso anterior.
 
 11. Ahora, los roles **Admin** y **ReadOnly** ya están agregados a la aplicación.
 
@@ -139,6 +158,10 @@ Para obtener más información sobre los dispositivos de IoT, consulte el [sitio
 
 [SDK de dispositivo de IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
+[lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
+[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25
+[lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

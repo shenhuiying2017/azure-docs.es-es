@@ -259,7 +259,7 @@ En el ejemplo siguiente, se muestran las diferentes formas a través de las cual
 
 3. Con la información anterior sobre los valores promedio y máximo de cada métrica de recursos, puede evaluar si la carga de trabajo encaja bien en el nivel de rendimiento que eligió. En la mayoría de los casos, los valores promedio de sys.resource\_stats son una buena base de referencia para el tamaño de destino. Debería ser su vara de medida principal. Por ejemplo, si usa el nivel de servicio Estándar con el nivel de rendimiento S2, los porcentajes de uso promedio de CPU, lecturas y escrituras están por debajo de 40 %, el promedio de trabajos es inferior a 50 y el número promedio de sesión es inferior a 200, la carga de trabajo podría encajar bien en el nivel de rendimiento S1. Es fácil ver si la base de datos se ajusta a los límites de trabajos y sesiones. Para ver si una base de datos encaja en un nivel de rendimiento inferior con respecto a la CPU, lecturas y escrituras, divida el número de DTU del nivel de rendimiento inferior por el número de DTU de su nivel de rendimiento actual y multiplique el resultado por 100:
 
-	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+	**S1 DTU/S2 DTU * 100 = 20/50 * 100 = 40**
 
 	El resultado es la diferencia porcentual de rendimiento relativa entre los dos niveles de rendimiento. Si su uso no supera este porcentaje, la carga de trabajo podría encajar en el nivel de rendimiento inferior. Sin embargo, debe examinar todos los intervalos de valores de uso de recursos y determinar, según el porcentaje, con qué frecuencia encajaría la carga de trabajo de la base de datos en el nivel de rendimiento inferior. La siguiente consulta proporciona el porcentaje de ajuste por dimensión de recursos según el umbral del 40 % calculado anteriormente.
 
@@ -311,7 +311,7 @@ En esta sección se explican algunas técnicas que puede usar para optimizar Bas
 Base de datos SQL ofrece dos herramientas en el Portal de Azure para analizar y corregir problemas de rendimiento de la base de datos:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Asesor de Base de datos SQL](sql-database-index-advisor.md)
+- [Asesor de Base de datos SQL](sql-database-advisor.md)
 
 Consulte los vínculos anteriores para obtener más información sobre cada una de las herramientas y sobre cómo usarlas. Las dos secciones siguientes sobre índices que faltan y la optimización de consultas, proporcionan otras formas de buscar manualmente y corregir los problemas de rendimiento similares. Se recomienda probar las herramientas en el portal para diagnosticar y corregir problemas de manera más eficiente. Use la optimización manual para casos especiales.
 
@@ -368,7 +368,7 @@ La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
 En este ejemplo, se recomienda el siguiente índice.
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] \([col2])  
+	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 Una vez creado, esa misma instrucción SELECT elige un plan diferente que usa una búsqueda en lugar de un recorrido y se ejecuta más eficazmente, como se muestra en el siguiente plan de consulta.
 
@@ -507,4 +507,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

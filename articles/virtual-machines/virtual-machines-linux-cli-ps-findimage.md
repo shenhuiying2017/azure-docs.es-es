@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Navegación y selección de imágenes de máquina virtual Linux | Microsoft Azure"
+   pageTitle="Selección de las imágenes de máquinas virtuales de Linux con la CLI de Azure | Microsoft Azure"
    description="Infórmese sobre cómo determinar el publicador, la oferta y la SKU de las imágenes al crear una máquina virtual Linux con el modelo de implementación de Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
@@ -18,7 +18,7 @@
    ms.date="06/06/2016"
    ms.author="rasquill"/>
 
-# Navegación y selección de las imágenes de máquina virtual Linux en Azure con CLI o Powershell
+# Selección de imágenes de máquinas virtuales con la CLI de Azure
 
 Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada ubicación en la que puede implementar. Para dar un ejemplo, algunas imágenes de máquina virtual Linux más utilizadas son:
 
@@ -38,4 +38,4 @@ Este tema describe cómo buscar publicadores, ofertas, SKU y versiones de cada u
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

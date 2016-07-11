@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configure el registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio| Microsoft Azure"
-	description="Pasos para configurar la Directiva de grupo a fin de registrar automáticamente dispositivos Windows 8.1 unidos a un dominio en Azure AD."
+	description=" Pasos para configurar la Directiva de grupo a fin de registrar automáticamente dispositivos Windows 8.1 unidos a un dominio en Azure AD. "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Configuración del registro automático de dispositivos para dispositivos Windows 8.1 unidos a un dominio
@@ -61,4 +61,4 @@ La Directiva de grupo habilita una tarea programada en el sistema que se ejecuta
 - [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows 10 unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)
 - [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

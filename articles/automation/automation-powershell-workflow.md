@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/24/2016"
    ms.author="bwren" />
 
 # Aprendizaje del flujo de trabajo de Windows PowerShell
@@ -239,12 +239,41 @@ El siguiente ejemplo copia varios archivos en una ubicación de red y establece 
 		Write-Output "All files copied."
 	}
 
+Como las credenciales de nombre de usuario no se conservan después de llamar a la actividad [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o del último punto de control, debe establecer las credenciales en NULL y, después, recuperarlas de nuevo desde el almacén de recursos tras llamar a **Suspend-Workflow** o después del punto de control. De lo contrario, puede que reciba el siguiente mensaje de error: *No puede reanudarse el trabajo de flujo de trabajo dado que no se pudieron guardar los datos de persistencia completamente o dichos datos estaban dañados. Debe reiniciar el flujo de trabajo.*
+
+El mismo código de abajo muestra cómo controlar esta operación en los Runbooks del flujo de trabajo de PowerShell.
+
+       
+    workflow CreateTestVms
+    {
+       $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+       $null = Add-AzureRmAccount -Credential $Cred
+
+       $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+
+       foreach ($VmName in $VmsToCreate)
+         {
+          # Do work first to create the VM (code not shown)
+        
+          # Now add the VM
+          New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+
+          # Checkpoint so that VM creation is not repeated if workflow suspends
+          $Cred = $null
+          Checkpoint-Workflow
+          $Cred = Get-AzureAutomationCredential -Name "MyCredential"
+          $null = Add-AzureRmAccount -Credential $Cred
+         }
+     } 
+
+
+Este paso no es necesario si se autentica utilizando una cuenta de ejecución configurada con una entidad de servicio.
 
 Para obtener más información acerca de los puntos de control, consulte [Adición de puntos de control a un flujo de trabajo de scripts](http://technet.microsoft.com/library/jj574114.aspx).
 
 
 ## Pasos siguientes
 
-- Para empezar a trabajar con los Runbooks del flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md). 
+- Para empezar a trabajar con los runbooks del flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

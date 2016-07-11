@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
@@ -58,4 +58,4 @@ Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si 
 
 Como se ha descrito anteriormente en relación con las directivas de registro e inicio de sesión, también es posible habilitar Multi-Factor Authentication en las directivas de registro o inicio de sesión y en las directivas de restablecimiento de contraseña. Muy pronto estará disponible en las directivas de edición de perfiles.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

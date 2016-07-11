@@ -29,7 +29,7 @@ En este artículo se describen los pasos necesarios para realizar dos tipos de o
 
 En ambos casos, los datos se recuperan del almacén de Copia de seguridad de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo de implementación del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Recuperar los datos en la misma máquina
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
@@ -123,4 +123,4 @@ La terminología usada en estos pasos incluye:
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 - [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

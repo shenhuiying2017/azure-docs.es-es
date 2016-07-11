@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Implementación de un escenario de streaming de conmutación por error
@@ -22,10 +22,10 @@ Este tutorial muestra cómo copiar contenido (blobs) de un recurso a otro con el
 
 1. Configure una cuenta de Servicios multimedia en "Centro de datos A".
 1. Cargue un archivo secundario en un recurso de origen.
-1. Codifique el recurso en archivos MP4 de velocidad de bits múltiple. 
+1. Codifique el recurso en archivos MP4 de velocidad de bits múltiple.
 1. Cree un localizador SAS de solo lectura para que el recurso de origen tenga acceso de lectura al contenedor en la cuenta de almacenamiento asociada al recurso de origen.
 1. Obtenga el nombre del contenedor del recurso de origen del localizador SAS de solo lectura creado en el paso anterior. Esta información es necesaria para copiar blobs entre cuentas de almacenamiento (se explica más adelante en este mismo tema).
-1. Cree un localizador de origen para el archivo que creó la tarea de codificación. 
+1. Cree un localizador de origen para el archivo que creó la tarea de codificación.
 
 A continuación, para controlar la conmutación por error:
 
@@ -33,17 +33,17 @@ A continuación, para controlar la conmutación por error:
 1. Cree un recurso de destino vacío en la cuenta de Servicios multimedia de destino.
 1. Cree un localizador SAS de escritura para que el recurso de origen tenga acceso de lectura al contenedor en la cuenta de almacenamiento asociada al recurso de origen.
 1. Use el SDK de Almacenamiento de Azure para copiar blobs (archivos de recursos) entre la cuenta de almacenamiento de origen en "Centro de datos A" y la cuenta de almacenamiento de destino en "Centro de datos B" (estas cuentas de almacenamiento están asociadas a los recursos de interés).
-1. Asocie los blobs (archivos de recursos) que se copiaron en el contenedor de blobs de destino con el recurso de destino. 
-1. Cree un localizador de origen para el recurso en "Centro de datos B" y especifique el identificador del localizador que se generó para el recurso en "Centro de datos A". 
-1. Esto proporciona las direcciones URL de streaming en las que las rutas de acceso relativas de las direcciones URL sean las mismas (solo las URL base son diferentes). 
+1. Asocie los blobs (archivos de recursos) que se copiaron en el contenedor de blobs de destino con el recurso de destino.
+1. Cree un localizador de origen para el recurso en "Centro de datos B" y especifique el identificador del localizador que se generó para el recurso en "Centro de datos A".
+1. Esto proporciona las direcciones URL de streaming en las que las rutas de acceso relativas de las direcciones URL sean las mismas (solo las URL base son diferentes).
  
 A continuación, para controlar las posibles interrupciones, puede crear una red CDN por encima de estos localizadores de origen.
 
 Se aplican las siguientes consideraciones:
 
 - La versión actual del SDK de Servicios multimedia no admite la creación de un localizador con un identificador de localizador especificado. Para llevar a cabo esta tarea, usaremos la API de REST de Servicios multimedia.
-- La versión actual del SDK de Servicios multimedia no admite la generación mediante programación de información de IAssetFile que asociaría un recurso con archivos de recursos. Para llevar a cabo esta tarea, usaremos la API de REST de Servicios multimedia CreateFileInfos. 
-- Los recursos cifrados de almacenamiento (AssetCreationOptions.StorageEncrypted) no se admiten para la replicación (ya que la clave de cifrado será diferente en ambas cuentas de Servicios multimedia). 
+- La versión actual del SDK de Servicios multimedia no admite la generación mediante programación de información de IAssetFile que asociaría un recurso con archivos de recursos. Para llevar a cabo esta tarea, usaremos la API de REST de Servicios multimedia CreateFileInfos.
+- Los recursos cifrados de almacenamiento (AssetCreationOptions.StorageEncrypted) no se admiten para la replicación (ya que la clave de cifrado será diferente en ambas cuentas de Servicios multimedia).
 - Si desea sacar partido del empaquetado dinámico, primero debe obtener al menos una de las unidades reservadas de streaming a petición. Para obtener más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
  
 
@@ -61,7 +61,7 @@ Se aplican las siguientes consideraciones:
 En esta sección creará y configurará un proyecto de aplicación de consola de C#.
 
 1. Use Visual Studio para crear una nueva solución que contenga el proyecto de aplicación de consola de C#. Escriba HandleRedundancyForOnDemandStreaming en el campo Nombre y, a continuación, haga clic en Aceptar.
-1. Cree la carpeta SupportFiles en el mismo nivel que el archivo de proyecto HandleRedundancyForOnDemandStreaming.csproj. En la carpeta SupportFiles, cree las carpetas OutputFiles y MP4Files. Copie un archivo. mp4 en la carpeta MP4Files (en este ejemplo que se usa el archivo BigBuckBunny.mp4). 
+1. Cree la carpeta SupportFiles en el mismo nivel que el archivo de proyecto HandleRedundancyForOnDemandStreaming.csproj. En la carpeta SupportFiles, cree las carpetas OutputFiles y MP4Files. Copie un archivo. mp4 en la carpeta MP4Files (en este ejemplo que se usa el archivo BigBuckBunny.mp4).
 1. Use **Nuget** para agregar referencias a los archivos DLL relacionados con los Servicios multimedia. En el menú principal de Visual Studio, seleccione HERRAMIENTAS -> Administrador de paquetes de la biblioteca -> Consola del administrador de paquetes. En la ventana de la consola escriba Install-Package windowsazure.mediaservices y presione Entrar.
 1. Agregue otras referencias que son necesarias para este proyecto: System.Configuration, System.Runtime.Serialization y System.Web.
 1. Reemplace instrucciones using que se agregaron al archivo Programs.cs de forma predeterminada por las siguientes:
@@ -972,4 +972,4 @@ Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

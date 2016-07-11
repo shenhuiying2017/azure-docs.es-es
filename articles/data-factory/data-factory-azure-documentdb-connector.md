@@ -22,14 +22,15 @@ En este artículo se describe cómo puede usar la actividad de copia en Data Fac
 
 En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
 
+[AZURE.NOTE] En estos momentos, no se pueden copiar datos entre los almacenes de datos de IaaS de Azure o local y Azure DocumentDB. En breve, habilitaremos la matriz completa de Azure DocumentDB.
 
 ## Ejemplo: copia de datos de DocumentDB a un blob de Azure
 
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
-2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -170,7 +171,7 @@ El ejemplo siguiente muestra:
 1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
 2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
 4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) y [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
 
 
@@ -382,10 +383,10 @@ Ejemplo:
 ### Esquema de Data Factory
 En los almacenes de datos sin esquemas como DocumentDB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
 
-1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
-2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila de los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
 
-Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
+Por lo tanto, para los orígenes de datos sin esquemas, se recomienda especificar la estructura de los datos mediante la propiedad **structure**.
 
 ## Propiedades de tipo de actividad de copia de DocumentDB de Azure
 
@@ -399,16 +400,16 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <br/>Ejemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"<br/> | No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: select <columns defined in structure> from mycollection 
+| query | Especifique la consulta para leer los datos. | Cadena de consulta compatible con DocumentDB. <br/><br/>Ejemplo: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta es: select <columnas definidas en la estructura> from mycollection 
 | nestingSeparator | Carácter especial para indicar que el documento está anidado | Cualquier carácter. <br/><br/>DocumentDB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Factoría de datos de Azure permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. | No
 
 **DocumentDbCollectionSink** admite las siguientes propiedades:
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/>Ejemplo de lo anterior: Name.First en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>},<br/> | Carácter que se usa para separar los niveles de anidamiento.<br/>El valor predeterminado es . (punto).<br/> | Carácter que se usa para separar los niveles de anidamiento. <br/>El valor predeterminado es . (punto).<br/> | No | 
-| writeBatchSize | Número de solicitudes paralelas al servicio DocumentDB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos a y desde DocumentDB mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a DocumentDB. Sin embargo, deberá evitar una limitación de peticiones que puede generar el mensaje de error: "Request rate is large" (La tasa de solicitud es grande).<br/><br/>La limitación de peticiones se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo). | Valor entero | No |
-| writeBatchTimeout | Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. | (Unidad = intervalo de tiempo) Ejemplo: "00:30:00" (30 minutos). | No |
+| nestingSeparator | Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>Ejemplo de lo anterior: Name.First en la tabla de salida produce la siguiente estructura JSON en el documento de DocumentDB:<br/><br/>"Name": {<br/> "First": "John"<br/>}, | Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es . (punto). | Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es . (punto). | No | 
+| writeBatchSize | Número de solicitudes paralelas al servicio DocumentDB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos en DocumentDB como origen y destino mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a DocumentDB. Sin embargo, deberá evitar una limitación de peticiones que puede generar el mensaje de error: "Request rate is large" (La tasa de solicitud es grande).<br/><br/>La limitación de peticiones se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2.500 unidades de solicitudes por segundo). | Entero | No (valor predeterminado = 10000) |
+| writeBatchTimeout | Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). | No |
  
 ## Anexo
 1. **Pregunta:** ¿Admite la actividad de copia la actualización de los registros existentes?
@@ -421,12 +422,12 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
  
 3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
-	**Respuesta:** No. 
+	**Respuesta:** No.
 4. **Pregunta:** ¿Puedo especificar más de una colección de DocumentDB para una tabla?
 	
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

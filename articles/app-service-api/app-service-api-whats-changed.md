@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="06/29/2016"
 	ms.author="mohisri"/>
 
 # Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado
@@ -32,7 +32,7 @@ Las características de autenticación Aplicaciones de API, Servicios móviles o
 
 En escenarios de API, hay varias funcionalidades nuevas relacionadas:
 
-- **Compatibilidad para usar Azure Active Directory directamente**, sin que el código cliente tenga que intercambiar el token de AAD por un token de sesión: el cliente solo puede incluir los tokens de AAD en el encabezado de autorización, según la especificación de los tokens de portador. Esto significa también que no se necesita ningún SDK específicos del Servicio de aplicaciones en el lado cliente o servidor. 
+- **Compatibilidad para usar Azure Active Directory directamente**, sin que el código cliente tenga que intercambiar el token de AAD por un token de sesión: el cliente solo puede incluir los tokens de AAD en el encabezado de autorización, según la especificación de los tokens de portador. Esto significa también que no se necesita ningún SDK específicos del Servicio de aplicaciones en el lado cliente o servidor.
 - **Acceso “interno” o servicio a servicio**: si tiene un proceso de demonio o algún otro cliente que necesitan acceso a las API sin una interfaz, puede solicitar un token mediante una entidad de servicio de AAD y pasarlo al Servicio de aplicaciones para la autenticación con su aplicación.
 - **Autorización diferida**: muchas aplicaciones tienen restricciones de acceso diferentes para las distintas partes de la aplicación. Quizás quiera que algunas API esté disponibles públicamente, mientras que otras requieren inicio de sesión. La característica de autenticación y autorización original era todo o nada, y todo el sitio requería inicio de sesión. Esta opción sigue existiendo, pero también puede permitir que el código de aplicación represente las decisiones de acceso después de que el Servicio de aplicaciones autentique al usuario.
  
@@ -85,13 +85,13 @@ Si la API personalizada se implementa en la versión preliminar anterior de Apli
 Los pasos para la reimplementación son los mismos que para la implementación de cualquier API Web existente en el servicio de aplicaciones. Pasos:
 
 1. Crear una aplicación de API vacía. Esto puede hacerse en el portal con Nuevo > Aplicación de API, en Visual Studio desde publicación o desde las herramientas del Administrador de recursos. Si usa las herramientas o plantillas del Administrador de recursos, establezca el valor de **kind** en **api** en el tipo de recurso **Microsoft.Web/Sites** para que las guías de inicio rápido y la configuración del portal de administración estén orientados a los escenarios de API.
-2. Conéctese e implemente el proyecto en la aplicación de API vacía mediante cualquiera de los mecanismos de implementación admitidos por el Servicio de aplicaciones. Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md). 
+2. Conéctese e implemente el proyecto en la aplicación de API vacía mediante cualquiera de los mecanismos de implementación admitidos por el Servicio de aplicaciones. Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
   
 ### Autenticación
 Los servicios de autenticación del Servicio de aplicaciones admiten las mismas funcionalidades que estaban disponibles con el modelo de aplicaciones de API anterior. Si usa tokens de sesión y necesita SDK, use los siguientes SDK de cliente y servidor:
 
 - Cliente: [SDK de cliente móvil de Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Servidor: [Extensión de autenticación de .NET para Aplicaciones móviles de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
+- Servidor: [Extensión de autenticación de .NET para Aplicaciones móviles de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Si usaba los SDK alfa del Servicio de aplicaciones, estos están en desuso:
 
@@ -122,4 +122,4 @@ Para más información, consulte los artículos de la [sección Documentación d
 - [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
 - [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

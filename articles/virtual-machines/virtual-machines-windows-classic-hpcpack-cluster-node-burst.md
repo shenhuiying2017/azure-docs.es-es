@@ -22,7 +22,7 @@ ms.service="virtual-machines-windows"
 
 En este artículo se muestra cómo agregar nodos de "ráfaga" Azure (instancias de rol de trabajo que se ejecutan un servicio en la nube) a petición como recursos de proceso a un nodo principal de HPC Pack existente en Azure. De este modo, podrá escalar verticalmente la capacidad de proceso del clúster de HPC en Azure a petición, sin mantener un conjunto de máquinas virtuales de nodos de ejecución preconfiguradas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Nodos de ráfaga][burst]
 
@@ -89,4 +89,4 @@ Si tiene problemas al implementar nodos de Azure, consulte [Solución de problem
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

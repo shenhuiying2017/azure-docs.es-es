@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Metadatos de federación
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) publica un documento de metadatos de federación para los servicios que están configurados para aceptar los tokens de seguridad que emite Azure AD. El formato del documento de metadatos de federación se describe en la [versión 1.2 del lenguaje de federación de servicios web (WS-Federation)](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que amplía los [metadatos del lenguaje de marcado de aserción de seguridad (SAML) de la versión 2.0 de OASIS](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
@@ -40,7 +38,7 @@ En el caso de los **extremos específicos del inquilino**, el `TenantDomainName`
 - Un nombre de dominio registrado de un inquilino de Azure AD, como `contoso.onmicrosoft.com`.
 - El id. de dominio inmutable, como `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-En el caso de los **puntos de conexión independientes del inquilino **, el `TenantDomainName` es `common`. En este documento se indica que los elementos de metadatos de federación que son comunes a todos los inquilinos de Azure AD son los únicos que se hospedan en login.microsoftonline.com.
+En el caso de los **puntos de conexión independientes del inquilino **, `TenantDomainName` es `common`. En este documento se indica que los elementos de metadatos de federación que son comunes a todos los inquilinos de Azure AD son los únicos que se hospedan en login.microsoftonline.com.
 
 Por ejemplo, un punto de conexión específico del inquilino podría ser `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. El punto de conexión independiente del inquilino es [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Puede ver el documento de metadatos de federación al escribir esta dirección URL en un explorador.
 
@@ -163,4 +161,4 @@ Del mismo modo, los extremos comunes del protocolo SAML 2.0 se publican en los m
   </IDPSSODescriptor>
 ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

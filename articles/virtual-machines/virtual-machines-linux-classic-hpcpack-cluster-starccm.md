@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="04/13/2016"
+ ms.date="06/28/2016"
  ms.author="xpillons"/>
 
 # Ejecución de STAR-CCM+ con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
@@ -286,7 +286,7 @@ Reemplace **runner.java** por el iniciador de modelo Java de STAR-CCM+ y el cód
     exit ${RTNSTS}
 ```
 
-En nuestra prueba, se ha utilizado un token de licencia Power-On-Demand. Para ese token tendrá que establecer la variable de entorno **$CDLMD\_LICENSE\_FILE** en **1999@flex.cd-adapco.com** y la clave en la opción **-podkey** de la línea de comandos.
+En nuestra prueba, se ha utilizado un token de licencia Power-On-Demand. Con ese token deberá establecer la variable de entorno **$CDLMD\_LICENSE\_FILE** en **1999@flex.cd-adapco.com** y la clave en la opción **-podkey** de la línea de comandos.
 
 Después de la inicialización, el script extrae de las variables de entorno **$CCP\_NODES\_CORES** establecidas por HPC Pack la lista de nodos para crear un archivo de host utilizado por el iniciador de MPI. Este archivo de host contendrá la lista de nombres de nodos de proceso usados para el trabajo, con un nombre por línea.
 
@@ -312,11 +312,11 @@ Para las opciones de MPI, las usadas con Intel MPI en Azure son:
 
 *   `-fabric UDAPL` para usar los verbos de InfiniBand de Azure.
 
-*   `-cpubind bandwidth,v` para optimizar el ancho de banda para MPI con STAR-CCM+.
+*   `-cpubind bandwidth,v` para optimizar el ancho de banda de MPI con STAR-CCM+.
 
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` para que Intel MPI funcione con Azure InfiniBand y para establecer el número necesario de núcleos por nodo.
+*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` para que Intel MPI funcione con InfiniBand de Azure y para establecer el número necesario de núcleos por nodo.
 
-*   `-batch` para iniciar STAR-CCM+ en el modo por lotes sin IU.
+*   `-batch` para iniciar STAR-CCM+ en el modo por lotes sin interfaz de usuario.
 
 
 Por último, para iniciar un trabajo, asegúrese de que los nodos estén en funcionamiento y en línea en el Administrador de clústeres. Después, desde un símbolo del sistema de PowerShell, ejecute esto:
@@ -345,4 +345,4 @@ Pruebe a ejecutar otras cargas de trabajo Linux. Por ejemplo, consulte:
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

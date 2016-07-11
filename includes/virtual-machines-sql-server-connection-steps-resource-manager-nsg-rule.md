@@ -4,9 +4,7 @@ Si desea conectarse a SQL Server a través de Internet, debe configurar una regl
 
 1. En el portal, seleccione **Máquinas virtuales** y, luego, seleccione su máquina virtual de SQL Server.
 
-2. Haga clic en el vínculo **Toda la configuración**.
-
-3. Expanda **Interfaces de red**.
+3. A continuación, seleccione **Interfaces de red**.
 
 	![interfaz de red](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
@@ -26,10 +24,10 @@ Si desea conectarse a SQL Server a través de Internet, debe configurar una regl
 
 8. Especifique un **Intervalo de puertos de destino** de 1433 (o el puerto en el que escucha su instancia de SQL Server).
 
-9. Compruebe que la opción **Acción** está definida en **Permitir**. El cuadro de diálogo de la regla de seguridad debe verse como la siguiente captura de pantalla.
+9. Compruebe que la opción **Acción** está establecida en **Permitir**. El cuadro de diálogo de la regla de seguridad debe verse como la siguiente captura de pantalla.
 
 	![regla de seguridad de red](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
 
 9. Haga clic en **Aceptar** para guardar la regla correspondiente a su máquina virtual.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0629_2016-->

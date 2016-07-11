@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="06/16/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
@@ -39,11 +39,11 @@ Este tema será útil para los desarrolladores que trabajan en aplicaciones que 
 
 Éstos son los pasos generales que deberá realizar al cifrar los recursos con AES, mediante el servicio de entrega claves de Servicios multimedia y también mediante cifrado dinámico.
 
-1. [Creación de un recurso y carga de los archivos en el recurso](media-services-protect-with-aes128.md#create_asset). 
+1. [Creación de un recurso y carga de los archivos en el recurso](media-services-protect-with-aes128.md#create_asset).
 1. [Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set](media-services-protect-with-aes128.md#encode_asset).
 1. [Creación de una clave de contenido y su asociación con el recurso codificado](media-services-protect-with-aes128.md#create_contentkey). En Servicios multimedia, la clave de contenido contiene la clave de cifrado del recurso.
-1. [Configuración de la directiva de autorización de la clave de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy). El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave de contenido. 
-1. [Configuración de la directiva de entrega para un recurso](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuración de la directiva de entrega incluye: la URL de adquisición de claves y vector de inicialización (IV) (AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado), el protocolo de entrega (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos) y el tipo de cifrado dinámico (por ejemplo Envelope o sin cifrado dinámico). 
+1. [Configuración de la directiva de autorización de la clave de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy). El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave de contenido.
+1. [Configuración de la directiva de entrega para un recurso](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuración de la directiva de entrega incluye: la URL de adquisición de claves y vector de inicialización (IV) (AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado), el protocolo de entrega (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos) y el tipo de cifrado dinámico (por ejemplo Envelope o sin cifrado dinámico).
 
 	Puede aplicar diferentes directivas a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Se bloqueará la transmisión para todos los protocolos que no estén definidos en una directiva de entrega (por ejemplo, si agrega una sola directiva que solo especifica HLS como el protocolo). La excepción a esta regla se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos estarán habilitados sin cifrar.
 
@@ -91,10 +91,10 @@ Para obtener información detallada, consulte [Configuración de la directiva de
 
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
-- La URL de adquisición de clave. 
-- El vector de inicialización (IV) que se usará para el cifrado Envelope. AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado. 
+- La URL de adquisición de clave.
+- El vector de inicialización (IV) que se usará para el cifrado Envelope. AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado.
 - El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos).
-- El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico. 
+- El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico.
 
 Para obtener más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -630,4 +630,4 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

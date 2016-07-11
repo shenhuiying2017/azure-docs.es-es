@@ -51,8 +51,8 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 - [Introducción a los Centros de IoT (Tutorial)][lnk-get-started]
 - [¿Qué es el Centro de IoT de Azure?][]
 
-[Orientación técnica de la continuidad del negocio de Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
-[Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
 [Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Administrador de tráfico de Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [Guía para desarrolladores del Centro de IoT: Registro de identidades]: iot-hub-devguide.md#identityregistry
@@ -60,4 +60,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

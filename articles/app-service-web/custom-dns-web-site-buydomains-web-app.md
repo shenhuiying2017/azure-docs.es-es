@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Comprar y configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure
 
 > [AZURE.SELECTOR]
-- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
-- [Web Apps with External Domains](web-sites-custom-domain-name.md)
-- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [Compra de un dominio para Aplicaciones web](custom-dns-web-site-buydomains-web-app.md)
+- [Aplicaciones web con dominios externos](web-sites-custom-domain-name.md)
+- [Aplicaciones web con el Administrador de tráfico](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
@@ -81,13 +81,13 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 >Puede asignar siempre los dominios o subdominios adquiridos a través de una aplicación web a otra aplicación web y viceversa. Vea el paso 8 para obtener más detalles.
 
 	
-7. Haga clic en la hoja **Seleccionar** en **Comprar dominios** y verá la información de compra en la hoja **Confirmación de compra**. Si acepta los términos legales y hace clic en **Comprar**, se enviará su pedido y podrá supervisar el proceso de compra en **Notificación**. La compra de dominio puede tardar algunos minutos en completarse. 
+7. Haga clic en la hoja **Seleccionar** en **Comprar dominios** y verá la información de compra en la hoja **Confirmación de compra**. Si acepta los términos legales y hace clic en **Comprar**, se enviará su pedido y podrá supervisar el proceso de compra en **Notificación**. La compra de dominio puede tardar algunos minutos en completarse.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-4.png)
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-5.png)
 
-8. Si ha solicitado correctamente un dominio, puede administrar el dominio y asignarlo a la aplicación web. Haga clic en **"..."** en el lado derecho de su dominio. Puede **Cancelar compra** o **Administrar dominio**. Haga clic en **Administrar dominio** para que podamos enlazar el **subdominio** a nuestra aplicación web en la hoja **Administrar dominio**. Si quiere enlazar un **subdominio** a otra aplicación web, realice este paso desde dentro del contexto de la aplicación web correspondiente. Aquí puede elegir esta opción para asignar el dominio al extremo del Administrador de tráfico (si la aplicación web está detrás del Administrador de tráfico) con tan solo seleccionar el nombre del Administrador de tráfico en el menú desplegable. Al hacerlo, el dominio o subdominio se asignará automáticamente a todas las aplicaciones web que se encuentran detrás de ese extremo del Administrador de tráfico. 
+8. Si ha solicitado correctamente un dominio, puede administrar el dominio y asignarlo a la aplicación web. Haga clic en **"..."** en el lado derecho de su dominio. Puede **Cancelar compra** o **Administrar dominio**. Haga clic en **Administrar dominio** para que podamos enlazar el **subdominio** a nuestra aplicación web en la hoja **Administrar dominio**. Si quiere enlazar un **subdominio** a otra aplicación web, realice este paso desde dentro del contexto de la aplicación web correspondiente. Aquí puede elegir esta opción para asignar el dominio al extremo del Administrador de tráfico (si la aplicación web está detrás del Administrador de tráfico) con tan solo seleccionar el nombre del Administrador de tráfico en el menú desplegable. Al hacerlo, el dominio o subdominio se asignará automáticamente a todas las aplicaciones web que se encuentran detrás de ese extremo del Administrador de tráfico.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
@@ -101,7 +101,7 @@ En este punto, debería poder escribir el nombre de dominio personalizado en el 
 
 El dominio personalizado que compró en la hoja **Dominios personalizados y SSL** está vinculado a la suscripción de Azure. Como recurso de Azure, este dominio personalizado es diferente e independiente de la aplicación del Servicio de aplicaciones para la que compró por primera vez el dominio. Esto significa que:
 
-- En el Portal de Azure, puede usar el dominio personalizado que compró en más de una aplicación del Servicio de aplicaciones y no solo en la aplicación para la que compró por primera vez el dominio personalizado. 
+- En el Portal de Azure, puede usar el dominio personalizado que compró en más de una aplicación del Servicio de aplicaciones y no solo en la aplicación para la que compró por primera vez el dominio personalizado.
 - Puede administrar todos los dominios personalizados que haya comprado en la suscripción de Azure; para ello, vaya a la hoja **Dominios personalizados y SSL** de *cualquier* aplicación del Servicio de aplicaciones de dicha suscripción.
 - Puede asignar cualquier aplicación del Servicio de aplicaciones de la misma suscripción de Azure a un subdominio dentro de ese dominio personalizado.
 - Si decide eliminar una aplicación del Servicio de aplicaciones, puede optar por no eliminar el dominio personalizado al que está enlazado si desea seguir utilizándolo para otras aplicaciones.
@@ -112,8 +112,8 @@ Si ha comprado el dominio personalizado desde la hoja **Dominios personalizados 
 
 - Puede que el dominio personalizado no haya terminado de crearse. Compruebe la campana de notificación en la parte superior del Portal de Azure para ver el progreso.
 - Puede que, por algún motivo, el dominio personalizado no se haya creado. Compruebe la campana de notificación en la parte superior del Portal de Azure para ver el progreso.
-- Puede que el dominio personalizado se haya creado, pero que la hoja no se haya actualizado todavía. Intente volver a abrir la hoja **Dominios personalizados y SSL**.
-- Puede que haya eliminado el dominio personalizado en algún momento. Compruebe los registros de auditoría haciendo clic en **Configuración** > **Registros de auditoría** desde la hoja principal de la aplicación. 
-- Puede que la hoja **Dominios personalizados y SSL** en la que busca pertenezca a una aplicación creada en una suscripción de Azure diferente. Cambie a otra aplicación en una suscripción diferente y compruebe su hoja **Dominios personalizados y SSL**. En el portal, no podrá ver ni administrar dominios personalizados creados en una suscripción de Azure diferente de la aplicación. Sin embargo, si hace clic en **Administración avanzada** la hoja **Administrar dominio** del dominio, se le redirigirá al sitio web del proveedor de dominio, donde podrá [configurar manualmente el dominio personalizado como cualquier dominio externo personalizado](web-sites-custom-domain-name.md) para aplicaciones creadas en una suscripción de Azure diferente. 
+- Puede que el dominio personalizado se haya creado, pero que la hoja no se haya actualizado todavía. Trate de volver a abrir la hoja **Dominios personalizados y SSL**.
+- Puede que haya eliminado el dominio personalizado en algún momento. Compruebe los registros de auditoría haciendo clic en **Configuración** > **Registros de auditoría** desde la hoja principal de la aplicación.
+- Puede que la hoja **Dominios personalizados y SSL** en la que busca pertenezca a una aplicación creada en una suscripción de Azure diferente. Cambie a otra aplicación en una suscripción diferente y compruebe su hoja **Dominios personalizados y SSL**. En el portal, no podrá ver ni administrar dominios personalizados creados en una suscripción de Azure diferente de la aplicación. Sin embargo, si hace clic en **Administración avanzada**, la hoja **Administrar dominio** del dominio, se le redirigirá al sitio web del proveedor de dominio, donde podrá [configurar manualmente el dominio personalizado como cualquier dominio externo personalizado](web-sites-custom-domain-name.md) para aplicaciones creadas en una suscripción de Azure diferente.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0629_2016-->

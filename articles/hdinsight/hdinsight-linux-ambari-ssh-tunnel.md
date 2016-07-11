@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/12/2016"
+ms.date="06/28/2016"
 ms.author="larryfr"/>
 
 #Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web
@@ -181,7 +181,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 
 	![Imagen de la interfaz de usuario de ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.NOTE] Observe la dirección URL de esta página; debe ser similar a \_\___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
+	> [AZURE.NOTE] Observe la dirección URL de esta página; debe ser similar a \_\_http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
 
 ##Pasos siguientes
 
@@ -195,4 +195,4 @@ Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguien
 
 * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -49,10 +49,10 @@ En el ejemplo siguiente se muestra cómo codificar con el **flujo de trabajo del
 
 Hay que seguir estos pasos:
  
-1. Crear un recurso y cargar un archivo de flujo de trabajo. 
+1. Crear un recurso y cargar un archivo de flujo de trabajo.
 2. Crear un recurso y cargar un archivo multimedia de origen.
 3. Obtenga el procesador multimedia "Flujo de trabajo de Codificador multimedia Premium".
-4. Crear un trabajo y una tarea. 
+4. Crear un trabajo y una tarea.
 
 	En la mayoría de los casos, la cadena de configuración de la tarea está vacía (como en el ejemplo siguiente). Hay algunos escenarios avanzados (que requieren que establezca propiedades de tiempo de ejecución dinámicamente) en los que debería proporcionar una cadena XML para la tarea de codificación. Ejemplos de estos escenarios son la creación de una superposición, la unión paralela o secuencial multimedia y el subtitulado.
 5. Agregar dos recursos de entrada a la tarea.
@@ -278,4 +278,4 @@ Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Micr
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

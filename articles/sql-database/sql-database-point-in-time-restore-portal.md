@@ -21,9 +21,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Información general](sql-database-point-in-time-restore.md)
-- [Portal de Azure](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-powershell.md)
+- [Información general](sql-database-recovery-using-backups.md)
+- [Restauración a un momento: PowerShell](sql-database-point-in-time-restore-powershell.md)
 
 En este artículo se muestra cómo restaurar la base de datos a un momento dado anterior mediante PowerShell a partir de las [copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md) mediante el Portal de Azure.
 
@@ -43,15 +42,14 @@ Para restaurar una base de datos en el Portal de Azure, haga lo siguiente:
     ![Restauración de una base de datos SQL de Azure](./media/sql-database-point-in-time-restore-portal/restore-details.png)
 
 
+
 ## Pasos siguientes
 
-- Para obtener más información sobre la restauración a un momento dado mediante PowerShell, consulte [Restauración de una Base de datos SQL de Azure a un momento dado anterior con PowerShell](sql-database-point-in-time-restore-powershell.md).
-- Para obtener más información sobre la restauración a un momento dado mediante la API de REST, consulte [Crear o actualizar la base de datos](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-- Para ver información general de la función de restauración a un momento dado, consulte [Restauración a un momento dado](sql-database-point-in-time-restore.md).
-- Para ver un análisis completo de cómo recuperarse de un error de aplicación o de usuario, consulte [Recuperar una base de datos SQL de Azure de un error de usuario](sql-database-user-error-recovery.md).
+- Para ver una introducción a la continuidad empresarial, consulte [Información general de continuidad empresarial](sql-database-business-continuity.md).
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-## Recursos adicionales
-
-- [Escenarios de continuidad del negocio](sql-database-business-continuity-scenarios.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

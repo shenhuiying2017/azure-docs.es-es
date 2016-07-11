@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="06/12/2016"
     ms.author="ericor" />
 
 
@@ -49,6 +49,6 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 
 - Asegúrese de que usa Windows PowerShell y no Azure PowerShell. Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga.
 - Nunca modifique el script: las validaciones existen para su comodidad.
-- Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
+- Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

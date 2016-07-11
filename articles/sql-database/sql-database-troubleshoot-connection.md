@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="06/27/2016"
 	ms.author="daleche"/>
 
 # Solución del error "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" (La base de datos &lt;x&gt; del servidor &lt;y&gt; no está disponible. Vuelva a intentar la conexión más tarde.)
@@ -39,4 +39,4 @@ Este error se produce cuando la base de datos de Azure se está moviendo (o reco
 - Si el error que se muestra es diferente, evalúe si en el [mensaje de error](sql-database-develop-error-messages.md) se proporciona alguna indicación sobre la causa.
 - Si el problema persiste, visite la página de ayuda de [Solución de problemas de conexión comunes relacionados con la base de datos SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

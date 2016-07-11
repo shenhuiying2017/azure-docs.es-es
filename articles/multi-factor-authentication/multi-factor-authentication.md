@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication es una solución fácil de usar, escalable y c
 - **Fácil de usar**: Azure Multi-Factor Authenticaton es fácil de configurar y utilizar. La protección adicional que se incluye con Azure Multi-Factor Authenticaton permite a los usuarios utilizar y administrar sus propios dispositivos y, en muchos casos, puede instalarse con unos pocos clics.
 - **Escalable**: Azure Multi-Factor Authenticaton utiliza la eficacia de la nube y se integra con Active Directory local y aplicaciones personalizadas. Esta protección se extiende incluso a los escenarios críticos de gran volumen.
 - **Siempre protegido** Azure Multi-Factor Authenticaton ofrece autenticación segura mediante los más elevados estándares del sector.
-- **Confiable**: se garantiza la disponibilidad del 99,9% de Azure Multi-Factor Authenticaton. Se considera que el servicio no está disponible cuando no puede recibir ni procesar las solicitudes de autenticación para la autenticación multifactor.  
+- **Confiable**: se garantiza la disponibilidad del 99,9% de Azure Multi-Factor Authenticaton. Se considera que el servicio no está disponible cuando no puede recibir ni procesar las solicitudes de autenticación para la autenticación multifactor.
 
 Para obtener más información sobre por qué usar Azure Multi-Factor Authenticaton, vea el vídeo siguiente.
 
@@ -137,7 +137,7 @@ Al usar un proveedor de Azure Multi-Factor Authentication, existen dos modelos d
 - **Por usuario**. Generalmente para empresas que quieren habilitar la autenticación multifactor para un número fijo de empleados que con frecuencia necesitan autenticación.
 - **Por autenticación**. Generalmente para empresas que quieren habilitar la autenticación multifactor para un número mayor de usuarios externos que no suelen necesitar frecuentemente autenticación.
 
-Azure Multi-Factor Authentication proporciona métodos de comprobación seleccionables tanto para la nube y como para servidor. Esto significa que puede elegir qué métodos hay disponibles para que los usuarios los utilicen con Multi-Factor Authentication. Esta característica es actualmente una versión preliminar pública para la versión en la nube de Multi-Factor Authentication. Para más información, consulte [Métodos de verificación seleccionables](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+Azure Multi-Factor Authentication proporciona métodos de comprobación seleccionables tanto para la nube y como para servidor. Esto significa que puede elegir qué métodos hay disponibles para que los usuarios los utilicen con Multi-Factor Authentication. Esta característica es actualmente una versión preliminar pública para la versión en la nube de Multi-Factor Authentication. Para obtener más información, consulte [Métodos de verificación seleccionables](multi-factor-authentication-whats-next.md#selectable-verification-methods).
 
 Para obtener información detallada sobre los precios, consulte [Precios de Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
@@ -209,4 +209,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

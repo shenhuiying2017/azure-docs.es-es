@@ -20,7 +20,7 @@
 
 #Uso de Escritorio remoto para conectarse a una máquina virtual Linux de Microsoft Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 ##Información general
@@ -116,4 +116,4 @@ Inicie sesión con `user` y `password` de su VM Linux y disfrute de Escritorio r
 ##Pasos siguientes
 Para obtener más información sobre el uso de xrdp, puede consultar [aquí](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

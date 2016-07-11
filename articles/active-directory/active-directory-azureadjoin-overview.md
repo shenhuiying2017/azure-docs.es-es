@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join
@@ -36,7 +36,7 @@ Aunque la unión a un dominio de la manera tradicional aún proporciona la mejor
 * **Instituciones educativas**: uno de los escenarios que nos suelen comentar es que las instituciones educativas tienen dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, por lo que es deseable crear cuentas locales para ellos. Sin embargo, los estudiantes son miembros de la organización a más corto plazo y, por tanto, se pueden administrar en Azure AD. Esto significa que la escala de directorio se puede trasladar a la nube, en lugar de almacenarse localmente. También significa que los alumnos podrán iniciar sesión en Windows con sus cuentas de Azure AD y obtener acceso a los recursos de Office 365, en sus exploradores o en aplicaciones de Office.
 
 * **Negocios minoristas**: otro escenario que nos suelen comentar es su deseo de simplificar la administración de los trabajadores estacionales. De nuevo, las cuentas para los empleados a jornada completa y a más largo plazo se suelen crear como cuentas locales en equipos unidos a un dominio. Sin embargo, los trabajadores estacionales son miembros a más corto plazo de la organización, por lo que es deseable administrar sus cuentas allí donde las licencias de usuario se puedan mover más fácilmente. La creación de estas cuentas de usuario en la nube con licencias de Office 365 permite a estos usuarios obtener los beneficios de iniciar sesión en aplicaciones de Windows y Office con una cuenta de Azure AD. Además, se mantiene más flexibilidad con sus licencias una vez que abandonan su puesto de trabajo.
-* **Otras empresas**: aunque mantenga a los usuarios en un entorno de Active Directory local, se puede beneficiar de tener a los usuarios unidos con Azure AD. Eso es porque Azure AD ofrece una experiencia de unión simplificada, la administración eficaz de dispositivos, la inscripción automática en la administración de dispositivos móviles y el inicio de sesión único a Azure AD y los recursos locales.  
+* **Otras empresas**: aunque mantenga a los usuarios en un entorno de Active Directory local, se puede beneficiar de tener a los usuarios unidos con Azure AD. Eso es porque Azure AD ofrece una experiencia de unión simplificada, la administración eficaz de dispositivos, la inscripción automática en la administración de dispositivos móviles y el inicio de sesión único a Azure AD y los recursos locales.
 
 ## ¿Qué funcionalidades ofrece Azure AD Join?
 Con Azure AD Join, obtendrá lo siguiente:
@@ -79,4 +79,4 @@ Con Azure AD Join, obtendrá lo siguiente:
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0629_2016-->

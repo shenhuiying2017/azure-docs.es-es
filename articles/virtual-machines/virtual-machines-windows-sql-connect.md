@@ -1,19 +1,18 @@
-<properties 
+<properties
 	pageTitle="Conexión a una máquina virtual de SQL Server en Azure | Microsoft Azure"
-	description="En este tema se usan recursos creados con el modelo de implementación clásica y se describe cómo conectarse a SQL Server en una máquina virtual en Azure. Los escenarios varían según la configuración de red y la ubicación del cliente."
+	description="Obtenga más información acerca de cómo conectarse a SQL Server en ejecución en una máquina virtual en Azure. En este tema se usa el modelo de implementación clásica. Los escenarios varían según la configuración de red y la ubicación del cliente."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"    
-	tags="azure-service-management"/>
-<tags 
+	manager="jhubbard"    
+	tags="azure-resource-manager"/>
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/21/2016"
+	ms.date="06/23/2016"
 	ms.author="jroth" />
 
 # Conexión a una máquina virtual de SQL Server en Azure (Administrador de recursos)
@@ -24,11 +23,11 @@
 
 ## Información general
 
-Configurar la conectividad con SQL que se ejecuta en una máquina virtual de Azure en el Administrador de recursos no es muy distinto de los pasos necesarios para una instancia local de SQL Server. Tendrá que trabajar con los pasos de configuración relacionados con el firewall, la autenticación y los inicios de sesión de base de datos.
+En este tema se muestra cómo conectarse a su instancia de SQL Server que se ejecuta en una máquina virtual de Azure. En él se describen algunos [escenarios de conectividad generales](#connection-scenarios) y se proporcionan los [pasos detallados para configurar la conectividad de SQL Server en una máquina virtual de Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-Sin embargo, hay algunos aspectos de la conectividad de SQL Server que son específicos de las máquinas virtuales de Azure. En este artículo se describen algunos [escenarios de conectividad generales](#connection-scenarios) y, después, se proporcionan los [pasos detallados para configurar la conectividad de SQL Server en una máquina virtual de Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Connect to a SQL Server Virtual Machine on Azure Classic](virtual-machines-windows-classic-sql-connect.md) (Conexión a una máquina virtual de SQL Server en Azure clásico).
 
-Este artículo se centra en cómo conectarse a una máquina virtual de SQL Server mediante el modelo de Resource Manager. Para obtener un tutorial completo sobre aprovisionamiento y conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Para prefiere consultar un tutorial completo sobre aprovisionamiento y conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Escenarios de conexión
 
@@ -43,9 +42,9 @@ Si desea conectarse a su motor de base de datos de SQL Server desde Internet, de
 
 Si utiliza el portal para aprovisionar una imagen de máquina virtual de SQL Server con Resource Manager, estos pasos se realizan de forma automática cuando selecciona **Pública** como la opción de conectividad de SQL:
 
-![](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
+![Opción de conectividad SQL pública durante el aprovisionamiento](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
-Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar de forma manual la conectividad](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
+Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar la conectividad de forma manual](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
 Una vez hecho esto, cualquier cliente con acceso a Internet podrá conectarse a la instancia de SQL Server si especifica la dirección IP pública de la máquina virtual o la etiqueta DNS asignada a esa dirección IP. Si el puerto de SQL Server es 1433, no es necesario que lo especifique en la cadena de conexión.
 
@@ -55,7 +54,7 @@ Aunque esto permite a los clientes conectarse a través de Internet, esto no imp
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
->[AZURE.NOTE] Es importante tener en cuenta que, cuando se usa esta técnica para comunicarse con SQL Server, todos los datos devueltos se consideran tráfico saliente desde el centro de datos. Está sujeto a los [precios normales de transferencias de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/). Esto ocurre aunque use esta técnica desde otra máquina o servicio en la nube en el mismo centro de datos de Azure, ya que el tráfico sigue pasando por el equilibrador de carga pública de Azure.
+>[AZURE.NOTE] Es importante tener en cuenta que cuando se recurre a esta técnica para comunicarse con SQL Server, todos los datos salientes desde el centro de datos de Azure están sujetos a [precios de transferencia de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/) normales.
 
 ### Conexión a SQL Server en la misma red virtual
 
@@ -63,11 +62,11 @@ Aunque esto permite a los clientes conectarse a través de Internet, esto no imp
 
 Las redes virtuales también permiten unir las máquinas virtuales de Azure a un dominio. Esta es la única forma de usar la autenticación de Windows para SQL Server. Los demás escenarios de conexión requieren la autenticación de SQL con nombres de usuario y contraseñas.
 
-Si utiliza el portal para aprovisionar una imagen de máquina virtual con Resource Manager, las reglas adecuadas de firewall para la comunicación en la red virtual se configuran cuando selecciona **Privada** como la opción de conectividad de SQL. Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar de forma manual la conectividad](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Sin embargo, si planea configurar un entorno de dominio y la autenticación de Windows, no es necesario seguir los pasos de este artículo para configurar los inicios de sesión y la autenticación de SQL. Además, tampoco es necesario configurar reglas de grupo de seguridad de red para el acceso a través de Internet.
+Si utiliza el portal para aprovisionar una imagen de máquina virtual con Resource Manager, las reglas adecuadas de firewall para la comunicación en la red virtual se configuran cuando selecciona **Privada** como la opción de conectividad de SQL. Si esto no ocurrió durante el aprovisionamiento, puede configurar manualmente SQL Server y las máquinas virtuales; para ello, siga los [pasos que aparecen en este artículo para configurar la conectividad de forma manual](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Sin embargo, si planea configurar un entorno de dominio y la autenticación de Windows, no es necesario seguir los pasos de este artículo para configurar los inicios de sesión y la autenticación de SQL. Además, tampoco es necesario configurar reglas de grupo de seguridad de red para el acceso a través de Internet.
 
 Si configuró DNS en la red virtual, puede conectarse a la instancia de SQL Server si especifica el nombre de equipo de la máquina virtual de SQL Server en la cadena de conexión. En el siguiente ejemplo, se presume que también se configuró la autenticación de Windows y que se concedió al usuario acceso a la instancia de SQL Server.
 
-	"Server=mysqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true"
 
 Tenga en cuenta que, en este escenario, también puede especificar la dirección IP de la máquina virtual.
 
@@ -94,10 +93,8 @@ Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina v
 
 Para ver las instrucciones de aprovisionamiento además de estos pasos de conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Es importante revisar todos los procedimientos recomendados de seguridad para SQL Server que se ejecuta en una máquina virtual de Azure. Para obtener más información, consulte [Consideraciones de seguridad para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-security.md).
-
-[Explore la ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) para SQL Server en máquinas virtuales de Azure.
+[Explore la ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) de SQL Server en máquinas virtuales de Azure.
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

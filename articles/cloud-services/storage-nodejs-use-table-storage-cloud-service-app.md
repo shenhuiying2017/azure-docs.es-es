@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Aplicación web Node.js con almacenamiento
@@ -241,7 +241,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 ### Modificar app.js
 
-1. En el directorio **WebRole1**, abra el archivo **app.js** en el editor de texto. 
+1. En el directorio **WebRole1**, abra el archivo **app.js** en el editor de texto.
 
 2. Al principio del archivo, agregue lo siguiente para cargar el módulo de Azure y establecer el nombre de tabla y la clave de partición:
 
@@ -403,4 +403,4 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

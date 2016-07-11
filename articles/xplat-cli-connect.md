@@ -5,7 +5,7 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
-	services=""
+	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -153,4 +153,4 @@ Si las suscripciones asociadas a la cuenta solo se autenticaron con Active Direc
 
 * Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -164,7 +164,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     Discovery stopped
     ```
 
-6. Escriba **connect <MAC address>** para conectarse al dispositivo SensorTag con la dirección MAC. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
+6. Escriba **connect <dirección MAC >** para conectarse al dispositivo SensorTag con la dirección MAC. Tenga en cuenta que la salida de ejemplo siguiente está abreviada:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +185,7 @@ Lo siguiente que debe comprobar es que el dispositivo Edison se pueda conectar a
     
     Nota: Con el comando **list-attributes** puede volver a enumerar las características GATT del dispositivo.
 
-7. Ahora puede desconectarse del dispositivo con el comando **disconnect** y salir del shell de bluetooth con el comando **quit**:
+7. Ahora puede desconectarse del dispositivo con el comando **disconnect** y salir del shell de Bluetooth con el comando **quit**:
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
@@ -207,15 +207,15 @@ En el momento de la escritura, el SDK solo es compatible con puertas de enlace q
 
 ### Configuración de dos dispositivos de ejemplo en su Centro de IoT
 
-- [Cree un Centro de IoT][lnk-create-hub] en su suscripción de Azure, para este tutorial necesitará el nombre de su centro. Si aún no tiene una suscripción de Azure, puede obtener una [cuenta gratuita][lnk-free-trial].
-- Agregue un dispositivo denominado **SensorTag\_01** a su Centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar el [explorador de dispositivos o del Centro de IoT][lnk-explorer-tools] para agregar el dispositivo al Centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
+- [Cree un Centro de IoT][lnk-create-hub] en su suscripción de Azure; necesitará el nombre de su centro para realizar este tutorial. Si aún no tiene una suscripción de Azure, puede obtener una [cuenta gratuita][lnk-free-trial].
+- Agregue un dispositivo denominado "**SensorTag\_01**" a su Centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al Centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
 
 ### Creación del SDK de puerta de enlace en el dispositivo Edison
 
 La versión de **git** del dispositivo Edison no admite submódulos. Para descargar el código fuente completo del SDK de puerta de enlace para el dispositivo Edison tiene dos opciones:
 
-- Opción 1: Clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en su dispositivo Edison y clonar manualmente el repositorio para cada submódulo.
-- Opción 2: Clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en un dispositivo de escritorio donde **git** admite submódulos y copiar todo el repositorio, submódulos incluidos, en el dispositivo Edison.
+- Opción 1: clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en su dispositivo Edison y clonar manualmente el repositorio para cada submódulo.
+- Opción 2: clonar el repositorio del [SDK de puerta de enlace IoT de Microsoft Azure][lnk-sdk] en un dispositivo de escritorio donde **git** admite submódulos y copiar todo el repositorio, submódulos incluidos, en el dispositivo Edison.
 
 Si elige la opción 2, use los siguientes comandos **git** para clonar el SDK de puerta de enlace y todos sus submódulos:
 
@@ -238,14 +238,13 @@ Cuando haya una copia de todo el repositorio del SDK de puerta de enlace en el d
 
 ### Configuración y ejecución del ejemplo de BLE en el dispositivo Edison
 
-Para arrancar y ejecutar el ejemplo, debe configurar todos los módulos que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y sirve para los cinco módulos. Se proporciona un archivo JSON de ejemplo en el repositorio, denominado **gateway\_sample.json**, como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble\_gateway\_hl/src** de la copia local del repositorio del SDK de puerta de enlace.
+Para arrancar y ejecutar el ejemplo, debe configurar todos los módulos que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y sirve para los cinco módulos. Se proporciona un archivo JSON de ejemplo en el repositorio, denominado "**gateway\_sample.json**" como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble\_gateway\_hl/src** de la copia local del repositorio del SDK de puerta de enlace.
 
-En las secciones siguientes se describe cómo modificar este archivo de configuración para el ejemplo de BLE y se supone que el repositorio del SDK de puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/** del dispositivo Edison. Si el repositorio se encuentra en otro lugar, ajuste las rutas de acceso según corresponda:
-
+En las secciones siguientes se describe cómo modificar este archivo de configuración para el ejemplo de BLE y se da por hecho que el repositorio del SDK de puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/** del dispositivo Edison. Si el repositorio se encuentra en otro lugar, ajuste las rutas de acceso según corresponda:
 
 #### Configuración del registrador
 
-Suponiendo que el repositorio de la puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/**, configure el módulo del registrador como sigue:
+Suponiendo que el repositorio de la puerta de enlace se encuentra en la carpeta **/home/root/azure-iot-gateway-sdk/**, configure el módulo del registrador de la siguiente forma:
 
 ```json
 {
@@ -357,7 +356,7 @@ Agregue la dirección MAC del dispositivo SensorTag, y el identificador del disp
 }
 ```
 
-Para ejecutar el ejemplo, ejecute el **ble\_gateway\_hl** binario pasando la ruta de acceso al archivo de configuración de JSON. Si ha usado el archivo **gateway\_sample.json**, el comando de ejecución tiene este aspecto:
+Ejecute el archivo binario **ble\_gateway\_hl** pasando la ruta de acceso al archivo de configuración de JSON para ejecutar el ejemplo. Si ha usado el archivo **gateway\_sample.json**, el comando de ejecución tendrá este aspecto:
 
 ```
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
@@ -365,11 +364,11 @@ Para ejecutar el ejemplo, ejecute el **ble\_gateway\_hl** binario pasando la rut
 
 Presione el botoncito del dispositivo SensorTag para que se pueda detectar antes de ejecutar el ejemplo.
 
-Cuando ejecute el ejemplo, puede usar el [explorador de dispositivos o el explorador del Centro de IoT][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
+Cuando ejecute el ejemplo, puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que la puerta de enlace remite desde el dispositivo SensorTag.
 
 ## Envío de mensajes de nube a dispositivo
 
-El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [explorador de dispositivos del Centro de IoT de Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [explorador del Centro de IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmita al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
+El módulo BLE también admite instrucciones envío del Centro de IoT de Azure al dispositivo. Puede usar el [Explorador de dispositivos del Centro de IoT de Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) o el [Explorador del Centro de IoT] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) para enviar mensajes JSON que el módulo de puerta de enlace BLE transmita al dispositivo BLE. Por ejemplo, si usa el dispositivo SensorTag de Texas Instruments, desde el Centro de IoT puede enviar los siguientes mensajes JSON al dispositivo.
 
 - Restablecer todos los LED y el timbre (desactivarlos)
 
@@ -427,7 +426,7 @@ El comportamiento predeterminado de un dispositivo que usa el protocolo HTTP par
 
 ## Pasos siguientes
 
-Para más información, consulte [Azure IoT Gateway SDK][lnk-sdk] (SDK de puerta de enlace de IoT de Azure).
+Para obtener más información, consulte [Azure IoT Gateway SDK][lnk-sdk] (SDK de puerta de enlace de IoT de Azure).
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -442,4 +441,4 @@ Para más información, consulte [Azure IoT Gateway SDK][lnk-sdk] (SDK de puerta
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

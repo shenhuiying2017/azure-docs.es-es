@@ -22,9 +22,9 @@
 
 Si no puede conectarse a una máquina virtual Linux porque olvidó la contraseña, la clave de Shell seguro (SSH) es incorrecta o hay un problema con la configuración de SSH, use la extensión VMAccessForLinux con la CLI de Azure para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de los discos.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-Con la CLI de Azure, puede usar el comando **azure vm extension set** desde su interfaz de la línea de comandos (símbolo del sistema Command, Terminal y Bash) para acceder a los comandos. Ejecute el comando **azure help vm extension set** para más información sobre el uso de la extensión.
+Con la CLI de Azure, puede usar el comando **azure vm extension set** desde su interfaz de línea de comandos (símbolo del sistema Command, Terminal y Bash) para acceder a los comandos. Ejecute el comando **azure help vm extension set** para obtener más información sobre el uso de la extensión.
 
 Con la CLI de Azure, puede realizar las tareas siguientes:
 
@@ -122,7 +122,7 @@ Si la configuración de SSH se encuentra en un estado no deseado, podría perder
 
 Si desea eliminar una cuenta de usuario sin iniciar sesión en la máquina virtual directamente, puede utilizar esta secuencia de comandos.
 
-1. Cree un archivo llamado PrivateConf.json con este contenido y sustituya el nombre de usuario que quiere eliminar en &#60;usernametoremove&#62;. 
+1. Cree un archivo llamado PrivateConf.json con este contenido y sustituya el nombre de usuario que quiere eliminar en &#60;usernametoremove&#62;.
 
         {
         "remove_user":"<usernametoremove>"
@@ -142,7 +142,7 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 
 Para ejecutar fsck en todos los discos de la máquina virtual de Linux, debe hacer lo siguiente:
 
-1. Cree un archivo llamado PrivateConf.json con este contenido. Comprobar disco toma un valor booleano para comprobar los discos conectados a la máquina virtual o no. 
+1. Cree un archivo llamado PrivateConf.json con este contenido. Comprobar disco toma un valor booleano para comprobar los discos conectados a la máquina virtual o no.
 
         {   
         "check_disk": "true"
@@ -156,7 +156,7 @@ Para ejecutar fsck en todos los discos de la máquina virtual de Linux, debe hac
 
 Para reparar discos que no se están montando o que tienen errores de configuración de montaje, use la extensión VMAccess para restablecer la configuración de montaje en la máquina virtual Linux. Sustituya el nombre del disco en &#60;yourdisk&#62;.
 
-1. Cree un archivo llamado PrivateConf.json con este contenido. 
+1. Cree un archivo llamado PrivateConf.json con este contenido.
 
         {
         "repair_disk":"true",
@@ -171,10 +171,10 @@ Para reparar discos que no se están montando o que tienen errores de configurac
 
 ## Pasos siguientes
 
-* Si quiere usar cmdlets de Azure PowerShell o plantillas de Azure Resource Manager para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco, consulte la [documentación sobre la extensión VMAccess en GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Si desea usar cmdlets de Azure PowerShell o plantillas de Azure Resource Manager para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco, consulte la [documentación sobre la extensión VMAccess en GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-* También puede utilizar el [Portal de Azure](https://portal.azure.com) para restablecer la contraseña o la clave SSH de una máquina virtual Linux implementada en el modelo de implementación clásica. Actualmente, no puede usar el portal para realizar esta tarea en una máquina virtual de Linux implementada en el modelo de implementación de Resource Manager.
+* También puede utilizar el [Portal de Azure](https://portal.azure.com) para restablecer la contraseña o la clave SSH de una máquina virtual de Linux implementada en el modelo de implementación clásica. Actualmente, no puede usar el portal para realizar esta tarea en una máquina virtual de Linux implementada en el modelo de implementación de Resource Manager.
 
-* Consulte [Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-linux-extensions-features.md) para más información sobre el uso de extensiones de máquinas virtuales para máquinas virtuales de Azure.
+* Consulte [Acerca de las características y extensiones de las máquinas virtuales](virtual-machines-linux-extensions-features.md) para obtener más información sobre el uso de extensiones de máquinas virtuales para las de Azure.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

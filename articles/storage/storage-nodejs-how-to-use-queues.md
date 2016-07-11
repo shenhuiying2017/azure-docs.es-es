@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="micurd"/>
+	ms.date="06/24/2016"
+	ms.author="robmcm"/>
 
 
 # Uso del almacenamiento de colas de Node.js
@@ -325,4 +325,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

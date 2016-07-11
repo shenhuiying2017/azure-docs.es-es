@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Detección de caras y emociones con Análisis multimedia de Azure
 
 ##Información general
 
-El procesador de multimedia (MP) **Azure Media Face Detector** le permite contar, realizar un seguimiento de los movimientos e incluso evaluar la participación y reacción de la audiencia a través de expresiones faciales. Este servicio contiene dos características:
+El procesador de multimedia (MP) **Azure Media Face Detector** (Detector de caras multimedia de Azure) le permite contar y seguir los movimientos, e incluso evaluar la participación y reacción de la audiencia a través de expresiones faciales. Este servicio contiene dos características:
 
 - **Detección de caras**
 
@@ -32,15 +32,15 @@ El procesador de multimedia (MP) **Azure Media Face Detector** le permite contar
 	
 	Detección de emociones es un componente opcional del procesador de multimedia de detección de caras que devuelve análisis sobre varios atributos emocionales a partir de las caras detectadas, como felicidad, tristeza, temor, enojo, etc.
 
-El procesador de multimedia **Azure Media Face Detector** está actualmente en versión preliminar.
+El procesador de multimedia **Azure Media Face Detector** (Detector de caras multimedia de Azure) está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles sobre el **Azure Media Face Detector** y muestra cómo se usa con el SDK de Servicios multimedia para .NET
+En este tema se proporcionan detalles sobre **Azure Media Face Detector** (Detector de caras multimedia de Azure) y se muestra cómo se usa con el SDK de Servicios multimedia para .NET
 
-##Archivos de entrada de Face Detector
+##Archivos de entrada de Face Detector (Detector de caras)
 
 Archivos de vídeo. Actualmente, se admiten los siguientes formatos: MP4, MOV y WMV.
 
-##Archivos de salida de Face Detector
+##Archivos de salida de Face Detector (Detector de caras)
 
 La API de detección y seguimiento de caras proporciona detección y seguimiento de caras de alta precisión que puede detectar hasta 64 caras humanas en un vídeo. Las caras de frente ofrecen los mejores resultados, mientras que las caras de lado y las caras pequeñas (inferiores o iguales a 24x24 píxeles) podrían no ser tan precisas.
 
@@ -68,7 +68,7 @@ X e Y|Las coordenadas X e Y de la parte superior izquierda del cuadro de límite
 Ancho, alto|El ancho y alto del cuadro de límite de la cara en una escala normalizada de 0,0 a 1,0.
 facesDetected|Este atributo se encuentra al final de los resultados JSON y resume el número de caras que el algoritmo detectó durante el vídeo. Dado que los identificadores pueden restablecerse inadvertidamente si una cara deja de detectarse (por ejemplo, la cara sale de la pantalla o aparta la vista), este número puede no ser siempre el número real de caras en el vídeo.
 
-Detector de caras usa técnicas de fragmentación (donde los metadatos se pueden dividir en fragmentos según el tiempo y puede descargar solo lo que necesita) y segmentación (donde los eventos se dividen en caso de que aumenten demasiado). Algunos cálculos sencillos pueden ayudarle a transformar los datos. Por ejemplo, si un evento se inició en 6300 (tics), con una escala de tiempo de 2997 (tics/segundo) y una velocidad de fotogramas de 29,97 (fotogramas/segundo), entonces:
+Face Detector (Detector de caras) usa técnicas de fragmentación (donde los metadatos se pueden dividir en fragmentos según el tiempo y puede descargar solo lo que necesita) y segmentación (donde los eventos se dividen en caso de que aumenten demasiado). Algunos cálculos sencillos pueden ayudarle a transformar los datos. Por ejemplo, si un evento se inició en 6300 (tics), con una escala de tiempo de 2997 (tics/segundo) y una velocidad de fotogramas de 29,97 (fotogramas/segundo), entonces:
 
 - Inicio/Escala de tiempo = 2,1 segundos
 - Segundos x (Velocidad de fotogramas/Escala de tiempo) = 63 fotogramas
@@ -88,7 +88,7 @@ A continuación se muestra un ejemplo sencillo de extracción de JSON en un form
 
 ###Configuración de tareas (valor preestablecido)
 
-Al crear una tarea con **Azure Media Face Detector**, debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
+Al crear una tarea con **Azure Media Face Detector** (Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
 	{"version":"1.0"}
 
@@ -152,7 +152,7 @@ El siguiente ejemplo de salida de JSON se truncó.
 
 ###Configuración de tareas (valor preestablecido)
 
-Al crear una tarea con **Azure Media Face Detector**, debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración especifica la creación de JSON basándose en la detección de emociones.
+Al crear una tarea con **Azure Media Face Detector** (Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración especifica la creación de JSON basándose en la detección de emociones.
  	
 	{
 	  "version": "1.0",
@@ -351,7 +351,7 @@ Salida de JSON para la emoción agregada (truncada):
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
-1. Crear un trabajo con una tarea de detección de caras basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON. 
+1. Crear un trabajo con una tarea de detección de caras basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON.
 					
 		{
 		    "version": "1.0"
@@ -537,4 +537,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

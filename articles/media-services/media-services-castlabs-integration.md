@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
@@ -37,10 +37,10 @@ En el siguiente diagrama se muestra una arquitectura de integración de castLabs
 
 - El contenido multimedia se almacena en AMS.
 - Los id. de clave de claves de contenido se almacenan en castLabs y AMS.
-- Tanto castLabs como AMS tienen la autenticación de tokens integrada. En las secciones siguientes se analizan los tokens de autenticación. 
+- Tanto castLabs como AMS tienen la autenticación de tokens integrada. En las secciones siguientes se analizan los tokens de autenticación.
 - Cuando un cliente solicita transmitir el vídeo, el contenido se cifra dinámicamente con **cifrado común** (CENC) y se empaqueta dinámicamente por AMS a Smooth Streaming y DASH. También ofrecemos cifrado de streaming elemental de PlayReady M2TS para el protocolo de streaming HLS.
-- La licencia de PlayReady se recupera del servidor de licencias de AMS y la licencia de Widevine se recupera del servidor de licencias de castLabs. 
-- El reproductor multimedia decide automáticamente qué licencia capturar basándose en la capacidad de la plataforma del cliente. 
+- La licencia de PlayReady se recupera del servidor de licencias de AMS y la licencia de Widevine se recupera del servidor de licencias de castLabs.
+- El reproductor multimedia decide automáticamente qué licencia capturar basándose en la capacidad de la plataforma del cliente.
 
 ##Generación de tokens de autenticación para obtener una licencia
 
@@ -107,7 +107,7 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 3.	Pegue la dirección URL de streaming.
 4.	Haga clic en la casilla **Opciones avanzadas**.
 5.	En el menú desplegable **Protección**, seleccione PlayReady o Widevine.
-6.	Pegue el token que obtuvo de su STS en el cuadro de texto Token. 
+6.	Pegue el token que obtuvo de su STS en el cuadro de texto Token.
 	
 	El servidor de licencias de castLab no necesita el prefijo “Bearer=” delante del token. Por tanto, quítelo antes de enviar el token.
 7.	Actualice el reproductor.
@@ -122,4 +122,4 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

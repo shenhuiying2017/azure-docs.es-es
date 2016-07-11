@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Unidades de solicitud en DocumentDB
@@ -64,6 +64,9 @@ Para ayudar a los clientes a optimizar sus estimaciones de rendimiento, existe u
 - Creación (escritura) de documentos
 - Lectura de documentos
 - Eliminación de documentos
+- Actualizaciones de documentos
+
+La herramienta también permite calcular las necesidades de almacenamiento de datos en función de los documentos de ejemplo que proporcione.
 
 El uso de la herramienta es simple:
 
@@ -71,11 +74,13 @@ El uso de la herramienta es simple:
 
 	![Cargar documentos en la calculadora de unidades de solicitud][2]
 
-2. Escriba el número de operaciones de creación, lectura y eliminación de documentos que necesita (por segundo).
+2. Para calcular los requisitos de almacenamiento de datos, escriba el número total de documentos que espera almacenar.
+
+3. Escriba el número de operaciones de creación, lectura, actualización y eliminación de documentos que necesita (por segundo). Para calcular los cargos en materia de unidad de solicitud de las operaciones de actualización de documentos, cargue una copia del documento de ejemplo del paso 1 anterior que incluya actualizaciones de campo típicas. Por ejemplo, si las actualizaciones de documentos suelen modifican dos propiedades denominadas "lastLogin" y "userVisits", bastará con copiar el documento de ejemplo, actualizar los valores de esas dos propiedades y cargar el documento copiado.
 
 	![Especificar los requisitos de rendimiento en la calculadora de unidades de solicitud][3]
 
-3. Haga clic en calcular y examine los resultados.
+4. Haga clic en calcular y examine los resultados.
 
 	![Resultados de la calculadora de unidades de solicitud][4]
 
@@ -92,7 +97,7 @@ Con esto en mente, un método para calcular la cantidad de rendimiento reservado
 
 Por ejemplo:
 
-1. Registre el cargo de la unidad de solicitud de creación (inserción) de un documento típico. 
+1. Registre el cargo de la unidad de solicitud de creación (inserción) de un documento típico.
 2. Registre el cargo de la unidad de solicitud de lectura de un documento típico.
 3. Registre el cargo de la unidad de solicitud de actualización de un documento típico.
 3. Registre el cargo de la unidad de solicitud de consultas de documentos comunes y típicas.
@@ -185,7 +190,7 @@ Selección de los 10 principales|15|150 en total|155|1275
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s. Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
 ##Superación de los límites de rendimiento reservados
-La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para una colección, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
 	HTTP Status 429
 	Status Line: RequestRateTooLarge
@@ -200,13 +205,13 @@ Si tiene más de un cliente de manera acumulativa funcionando por encima de la t
 Para obtener más información sobre el rendimiento con DocumentDB, consulte estos recursos:
  
 - [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-- [Administración de la capacidad de DocumentDB](documentdb-manage.md) 
+- [Administración de la capacidad de DocumentDB](documentdb-manage.md)
 - [Modelado de datos en DocumentDB](documentdb-modeling-data.md)
 - [Niveles de rendimiento en DocumentDB](documentdb-partition-data.md)
 
 Para obtener más información acerca de DocumentDB, consulte la [documentación](https://azure.microsoft.com/documentation/services/documentdb/) de Azure DocumentDB.
 
-Para empezar a trabajar con pruebas de escala y rendimiento con DocumentDB, consulte [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Pruebas de escala y rendimiento con Azure DocumentDB).
+Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
@@ -215,4 +220,4 @@ Para empezar a trabajar con pruebas de escala y rendimiento con DocumentDB, cons
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

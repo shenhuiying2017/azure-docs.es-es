@@ -18,7 +18,7 @@
 
 # Transacciones en el Almacenamiento de datos SQL
 
-Como cabe esperar, el Almacenamiento de datos SQL ofrece soporte para todas las propiedades transaccionales. Sin embargo, para garantizar que se mantiene a escala el rendimiento del Almacenamiento de datos SQL, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás.
+Como cabría esperar, el Almacenamiento de datos SQL admite transacciones como parte de la carga de trabajo de dicho servicio. Sin embargo, para garantizar que se mantiene a escala el rendimiento del Almacenamiento de datos SQL, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás.
 
 ## Niveles de aislamiento de transacciones
 El Almacenamiento de datos SQL implementa las transacciones ACID. Sin embargo, el aislamiento de la compatibilidad transaccional está limitado a `READ UNCOMMITTED` y no puede cambiarse. Puede implementar una serie de métodos para evitar lecturas de datos sucios si esto le plantea alguna preocupación. Los métodos más populares utilizan CTAS y la modificación de particiones de tabla (que suele conocerse como un patrón de ventana deslizante) para evitar que los usuarios consulten datos que aún se encuentran en fase de preparación. Las vistas que filtran los datos previamente también constituyen un enfoque popular.
@@ -28,7 +28,7 @@ Una transacción de modificación de datos única tiene un tamaño limitado. Act
 
 En la tabla siguiente se han considerado estas hipótesis:
 
-* Se ha producido una distribución uniforme de los datos 
+* Se ha producido una distribución uniforme de los datos
 * La longitud media de la fila es de 250 bytes
 
 | DWU | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | Número de filas por distribución | Máximo de filas por transacción |
@@ -127,6 +127,7 @@ Los pasos son los siguientes:
 - Transacciones no distribuidas
 - Transacciones anidadas no permitidas
 - Puntos de almacenamiento no admitidos
+- No existe compatibilidad con DDL como el elemento `CREATE TABLE` de una transacción definida por el usuario.
 
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
@@ -141,4 +142,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

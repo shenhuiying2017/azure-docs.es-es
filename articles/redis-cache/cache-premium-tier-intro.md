@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="06/29/2016" 
 	ms.author="sdanie"/>
 
 # Introducción al nivel Premium de Caché en Redis de Azure
@@ -41,6 +41,7 @@ Si desea crear memorias caché de más de 53 GB o particionar los datos entre v
 Para empezar a usar la agrupación en clústeres, consulte [Configuración de la agrupación en clústeres para Caché en Redis de Azure de nivel Premium](cache-how-to-premium-clustering.md).
 
 ##Aislamiento y seguridad mejorados
+
 Las memorias caché creadas en los niveles Basic o Standard están disponibles en Internet. El acceso a las mismas se restringe mediante la clave de acceso. Con el nivel Premium puede asegurarse de que solo los clientes de una red determinada puedan tener acceso a la memoria caché. Puede implementar la Caché en Redis en una [Red Virtual de Azure (VNet)](https://azure.microsoft.com/services/virtual-network/). Además, puede usar todas las características de la red virtual, como las subredes y las directivas de control de acceso, entre otras, para restringir aún más el acceso a Redis.
 
 Para obtener más información, vea [Configuración de la compatibilidad de Red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
@@ -55,6 +56,29 @@ La exportación permite exportar los datos almacenados en la Caché en Redis de 
 
 Para obtener más información, consulte [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Importación de datos en Caché en Redis de Azure y exportación de datos desde este servicio).
 
+## Reboot
+
+El nivel premium permite reiniciar uno o varios nodos de la memoria caché a petición. De este modo, podrá probar la resiliencia de la aplicación en caso de error. Puede reiniciar los siguientes nodos.
+
+-	Nodo maestro de la memoria caché
+-	Nodo subordinado de la memoria caché
+-	Nodos maestro y subordinado de la memoria caché
+-	Cuando se utiliza una caché premium con agrupación en clústeres, puede reiniciar el nodo maestro o el subordinado (o ambos) para particiones individuales en la memoria caché
+
+Para obtener más información, consulte [Reboot](cache-administration.md#reboot) (Reinicio) y [Reboot FAQ](cache-administration.md#reboot-faq) (P+F de Reinicio).
+
+## Programar actualizaciones
+
+La característica de actualizaciones programadas permite designar una ventana de mantenimiento para la memoria caché. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. Para designar una ventana de mantenimiento, seleccione los días deseados y especifique la hora de inicio de la ventana de mantenimiento para cada día. Tenga en cuenta que la hora de la ventana de mantenimiento está en formato UTC.
+
+Para obtener más información, consulte [Schedule updates](cache-administration.md#schedule-updates) (Programar actualizaciones) y [Schedule updates FAQ](cache-administration.md#schedule-updates-faq) (P+F de la programación de actualizaciones).
+
+>[AZURE.NOTE] Las actualizaciones del servidor Redis solo se actualizan durante la ventana de mantenimiento programada. La ventana de mantenimiento no se aplica a las actualizaciones de Azure o a las actualizaciones del sistema operativo de la máquina virtual.
+
+## Para escalar al nivel premium
+
+Para escalar al nivel premium, basta con elegir uno de los niveles premium en la hoja **Cambiar el plan de tarifa**. También puede escalar la memoria caché al nivel premium con PowerShell y la CLI. Para obtener instrucciones detalladas, consulte [Escalado de Caché en Redis de Azure](cache-how-to-scale.md) y [Automatización de una operación de escalado](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+
 ## Pasos siguientes
 
 Cree una memoria caché y explore las nuevas características del nivel Premium.
@@ -62,7 +86,8 @@ Cree una memoria caché y explore las nuevas características del nivel Premium.
 -	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
 -	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
 -	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
--	[How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md) (Importación de datos en Caché en Redis de Azure y exportación de datos desde este servicio).
+-	[How to import data into and export data from Azure Redis Cache (Importación de datos en Caché en Redis de Azure y exportación de datos desde este servicio).](cache-how-to-import-export-data.md)
+-	[How to administer Azure Redis Cache](cache-administration.md) (Administración de la Caché en Redis de Azure)
   
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
