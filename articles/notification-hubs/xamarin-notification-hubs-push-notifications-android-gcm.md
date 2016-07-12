@@ -2,7 +2,7 @@
 	pageTitle="Introducción a los Centros de notificaciones para las aplicaciones Xamarin.Android | Microsoft Azure"
 	description="En este tutorial, obtenga información acerca de cómo usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación Xamarin Android."
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"
 	documentationCenter="xamarin"/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/16/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones con Xamarin para Android
@@ -192,7 +192,7 @@ El Cliente de mensajería en la nube de Google disponible en el Almacén de comp
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-6. En **MyBroadcastReceiver.cs**, cambie la clase **MyBroadcastReceiver** para que coincida con lo siguiente:
+6. En **MyBroadcastReceiver.cs**, cambie la clase ** MyBroadcastReceiver** para que coincida con lo siguiente:
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
@@ -520,4 +520,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Componente del Cliente de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

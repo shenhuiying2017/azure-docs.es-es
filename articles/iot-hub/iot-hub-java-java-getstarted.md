@@ -30,9 +30,9 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Java:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
 
-+ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -85,7 +85,7 @@ En esta sección, creará una aplicación de consola de Java que crea una nueva 
 
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
-    private static final String deviceId = "javadevice";
+    private static final String deviceId = "myFirstJavaDevice";
     
     ```
     
@@ -325,18 +325,18 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     import java.util.concurrent.ExecutorService;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**, y reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdeviceid}** y **{yourdevicekey}** por los valores del dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
+7. Agregue las siguientes variables de nivel de clase a la clase **App** y reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdevicekey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
 
     ```
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
+    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-    private static String deviceId = "{yourdeviceid}";
+    private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
 
     Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. Puede usar el protocolo HTTPS o AMQPS para comunicarse con el Centro de IoT.
 
-8. Agregue la siguiente clase **TelemetryDataPoint** anidada dentro de la clase **App** para especificar los datos de telemetría que envía el dispositivo al Centro de IoT:
+8. Agregue la siguiente clase **TelemetryDataPoint** anidada dentro de la clase **App** para especificar los datos de telemetría que el dispositivo envía al Centro de IoT:
 
     ```
     private static class TelemetryDataPoint {
@@ -406,7 +406,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
     Este método envía un nuevo mensaje de dispositivo a nube un segundo después de que Centro de IoT reconozca el mensaje anterior. El mensaje contiene un objeto JSON serializado con el valor de deviceId y un número generado aleatoriamente para simular un sensor de velocidad del viento.
 
-11. Reemplace el método **main** por el siguiente código, que crea un subproceso para enviar mensajes de dispositivo a nube a su Centro de IoT:
+11. Reemplace el método **main** por el siguiente código, que crea un subproceso para enviar mensajes del dispositivo a la nube al Centro de IoT:
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException {
@@ -465,7 +465,7 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 
 - [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d-tutorial] muestra cómo enviar mensajes a dispositivos y procesar los comentarios de entrega generados por el Centro de IoT.
 - [Procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- En [Carga de archivos desde dispositivos][lnk-upload-tutorial] se muestra cómo cargar archivos desde los dispositivos.
+- [Carga de archivos desde dispositivo][lnk-upload-tutorial] muestra cómo cargar archivos desde dispositivos.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
@@ -489,4 +489,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

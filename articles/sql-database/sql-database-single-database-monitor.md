@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/15/2016"
+	ms.date="07/06/2016"
 	ms.author="carlrab"/>
 
 # Supervisión de rendimiento de bases de datos con la Base de datos SQL de Azure
@@ -27,7 +27,7 @@ En el [Portal de Azure](https://portal.azure.com/), puede supervisar la utilizac
 - Porcentaje de CPU
 - Porcentaje de DTU
 - Porcentaje de E/S de datos
-- Porcentaje de almacenamiento
+- Porcentaje de tamaño de base de datos
 
 Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión**; si desea ver más detalles, podrá hacerlo en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información sobre las unidades de transmisión estándar (DTU).
 
@@ -47,4 +47,4 @@ Las mismas métricas que se exponen en el Portal están también disponibles a t
 
 En los grupos de bases de datos elásticas, puede supervisar las bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para obtener información, consulte el artículo [Supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

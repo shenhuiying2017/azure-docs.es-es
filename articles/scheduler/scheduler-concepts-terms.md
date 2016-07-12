@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Conceptos, terminología y jerarquía de entidades de Programador
@@ -45,7 +45,7 @@ Hay varios tipos de trabajos: trabajos HTTP (incluidos trabajos HTTPS que admite
 
 En un nivel básico, un trabajo programado cuenta con varias partes:
 
-- La acción que se va a realizar cuando se activa el temporizador de trabajo  
+- La acción que se va a realizar cuando se activa el temporizador de trabajo
 
 - (Opcional) El tiempo para ejecutar el trabajo
 
@@ -109,7 +109,7 @@ El código siguiente proporciona un ejemplo completo de un trabajo programado. E
 
 Como se muestra en el trabajo programado de ejemplo anterior, una definición de trabajo tiene varias partes:
 
-- Hora de inicio ("startTime")  
+- Hora de inicio ("startTime")
 
 - Acción ("action"), que incluye la acción del error ("errorAction")
 
@@ -160,7 +160,7 @@ A continuación se muestra un ejemplo de una acción de cola de bus de servicio.
 
 La periodicidad tiene varias partes:
 
-- Frecuencia: un minuto, hora, día, semana, mes, año  
+- Frecuencia: un minuto, hora, día, semana, mes, año
 
 - Intervalo: el intervalo de frecuencia definido para la periodicidad
 
@@ -214,4 +214,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

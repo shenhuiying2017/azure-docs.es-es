@@ -50,7 +50,7 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 - **Configuración de grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end:** este es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 - **Escucha:** el agente de escucha tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre de certificado SSL (si se configura la descarga de SSL).
-- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico llegue a un agente de escucha concreto. 
+- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico llegue a un agente de escucha concreto.
 
 
 
@@ -87,7 +87,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-### Paso 4
+### Paso 4
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -158,7 +158,7 @@ Configure la opción de la puerta de enlace de aplicaciones "poolsetting01" para
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 
-### Paso 4
+### Paso 4
 
 Configure el puerto IP del front-end denominado "frontendport01" para el punto de conexión de la IP pública.
 
@@ -171,7 +171,7 @@ Cree la configuración de direcciones IP front-end denominada "fipconfig01" y as
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 
-### Paso 6
+### Paso 6
 
 Cree el nombre del agente de escucha "listener01" y asocie el puerto front-end con la configuración de direcciones IP del front-end.
 
@@ -193,17 +193,41 @@ Configure el tamaño de la instancia de la Puerta de enlace de aplicaciones.
 
 ## Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
 
-Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la Puerta de enlace de aplicaciones se denomina "appgwtest".
+Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+
+### Paso 9:
+Recupere los detalles sobre DNS y VIP de la puerta de enlace de aplicaciones del recurso de IP pública vinculado a la puerta de enlace de aplicaciones.
+
+	Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+	Name                     : publicIP01
+	ResourceGroupName        : appgwtest 
+	Location                 : westus
+	Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+	Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+	ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+	ProvisioningState        : Succeeded
+	Tags                     : 
+	PublicIpAllocationMethod : Dynamic
+	IpAddress                : 137.116.26.16
+	IdleTimeoutInMinutes     : 4
+	IpConfiguration          : {
+	                             "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+	                           }
+	DnsSettings              : {
+	                             "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+	                           } 
+
 
 
 ## Eliminación de una puerta de enlace de aplicaciones
 
 Para eliminar una Puerta de enlace de aplicaciones, siga estos pasos:
 
-1. Utilice el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
-2. Utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
+1. Use el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
+2. Use el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
 3. Para comprobar que se ha quitado la puerta de enlace, use el cmdlet **Get-AzureRmApplicationGateway**.
 
 ### Paso 1
@@ -219,17 +243,17 @@ Utilice **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de a
 	Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 
-Cuando la puerta de enlace de aplicaciones se haya detenido, use el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
+Una vez que la puerta de enlace de aplicaciones esté en estado detenido, use el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
 
 
 	Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
 
 
 
->[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación
+>[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
 
 
-Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-AzureRmApplicationGateway**. Este paso no es necesario.
+Para comprobar que el servicio se haya quitado, se puede usar el cmdlet **Get-AzureRmApplicationGateway**. Este paso no es necesario.
 
 
 	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -237,13 +261,13 @@ Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-Azur
 
 ## Pasos siguientes
 
-Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
+Si desea configurar la descarga SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si desea configurar una puerta de enlace de aplicaciones para usarla con un equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

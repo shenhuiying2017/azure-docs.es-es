@@ -23,7 +23,7 @@
 
 El Servicio de aplicaciones incluye las funcionalidades web y móviles que anteriormente se ofrecían por separado como Sitios web de Azure y Servicios móviles de Azure. También incluye nuevas funcionalidades para automatizar procesos empresariales y hospedar las API en la nube. Como un servicio integrado único, Servicio de aplicaciones le permite crear distintos componentes, como sitios web, back-end de aplicación móvil, API de RESTful y procesos empresariales, en una única solución.
 
-El vídeo de 4 minutos siguiente proporciona una breve explicación de cómo se relaciona Servicio de aplicaciones con las ofertas anteriores de Azure y con novedades en él.
+El vídeo de 4 minutos siguiente proporciona una breve explicación de la relación entre el Servicio de aplicaciones y las ofertas anteriores de Azure, así como sus novedades.
 
 \+[AZURE.VIDEO app-service-history-lesson] 
 
@@ -33,21 +33,21 @@ Estas son algunas de las características y funcionalidades principales del Serv
 
 - **Varios lenguajes y plataformas**: Servicio de aplicaciones es compatible con ASP.NET, Node.js, Java, PHP y Python. También puede ejecutar [Windows PowerShell y otros scripts o ejecutables](../app-service-web/web-sites-create-web-jobs.md) en máquinas virtuales del Servicio de aplicaciones.
 
-- **Optimización de DevOps**: configure la [integración y la implementación continuas](../app-service-web/app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](../app-service-web/web-sites-staged-publishing.md). Realice [las pruebas A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Administre las aplicaciones de Servicio de aplicaciones mediante [Azure PowerShell](../powershell-install-configure.md) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
+- **Optimización de DevOps**: configure la [integración y la implementación continuas](../app-service-web/app-service-continous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](../app-service-web/web-sites-staged-publishing.md). Realice [pruebas A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Administre las aplicaciones de Servicio de aplicaciones mediante [Azure PowerShell](../powershell-install-configure.md) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
  
-- **Escala global con alta disponibilidad**: escale [verticalmente](../app-service/app-service-scale.md) o [verticalmente](../azure-portal/insights-how-to-scale.md) de forma manual o automática. Hospede las aplicaciones en cualquier parte de la infraestructura del centro de datos global de Microsoft y el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/app-service/) del Servicio de aplicaciones promete una alta disponibilidad.
+- **Escala global con alta disponibilidad**: escale [vertical](../app-service-web/web-sites-scale.md) u [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual o automática. Hospede las aplicaciones en cualquier parte de la infraestructura del centro de datos global de Microsoft y el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/app-service/) del Servicio de aplicaciones promete una alta disponibilidad.
 
 - **Conexiones a plataformas SaaS y a datos locales**: elija entre más de 50 [conectores](../connectors/apis-list.md) para sistemas empresariales (como SAP, Siebel y Oracle), servicios de SaaS conocidos (como Salesforce y Office 365) y servicios de Internet (como Facebook y Twitter). Acceda a los datos locales mediante [conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) y [redes virtuales de Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Seguridad y cumplimiento**: Servicio de aplicaciones cumple con [ISO, SOC y PCI](https://www.microsoft.com/TrustCenter/).
 
-- **Plantillas de aplicación**: elija entre una amplia lista de plantillas de aplicación en [Azure Marketplace](https://azure.microsoft.com/marketplace/) que le permiten usar un asistente para instalar el software de código abierto popular, como WordPress, Joomla y Drupal.
+- **Plantillas de aplicación**: elija en [Azure Marketplace](https://azure.microsoft.com/marketplace/) entre una amplia lista de plantillas de aplicación que le permiten usar un asistente para instalar software de código abierto popular, como WordPress, Joomla y Drupal.
 
 - **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación, implementación y depuración.
 
 ## Tipos de aplicaciones en el Servicio de aplicaciones
 
-Servicio de aplicaciones ofrece varios *tipos de aplicación*, cada una de ellos está diseñado para hospedar un tipo específico de carga de trabajo:
+Servicio de aplicaciones ofrece varios *tipos de aplicación*, cada uno pensado para hospedar un tipo específico de carga de trabajo:
 
 - [**Aplicaciones web**](../app-service-web/app-service-web-overview.md): para hospedar sitios y aplicaciones web.
 
@@ -61,7 +61,7 @@ La palabra *aplicación* aquí hace referencia a los recursos de hospedaje dedic
 
 ## Planes del Servicio de aplicaciones
 
-Los [planes del Servicio de aplicaciones](azure-web-sites-web-hosting-plans-in-depth-overview.md) especifican el tipo de recurso de proceso con el que se ejecutan sus aplicaciones. Si se esperan cargas de tráfico ligero, puede usar máquinas virtuales compartidas. Para cargas superiores, puede elegir entre varios tamaños de máquinas virtuales dedicadas. Varias aplicaciones de Servicio de aplicaciones pueden compartir el mismo plan y escalarlo o reducirlo verticalmente junto con el plan.
+Los [planes del Servicio de aplicaciones](azure-web-sites-web-hosting-plans-in-depth-overview.md) especifican el tipo de recurso de proceso con el que se ejecutan sus aplicaciones. Si se esperan cargas de tráfico ligero, puede usar máquinas virtuales compartidas. Para cargas superiores, puede elegir entre varios tamaños de máquinas virtuales dedicadas. Varias aplicaciones del Servicio de aplicaciones pueden compartir el mismo plan, y se escalan y reducen verticalmente con el plan.
 
 Si necesita mayor escalabilidad y aislamiento de red, puede ejecutar las aplicaciones en un [entorno del Servicio de aplicaciones](../app-service-web/app-service-app-service-environment-intro.md).
 
@@ -80,4 +80,4 @@ También puede abrir una [cuenta de Azure gratis](https://azure.microsoft.com/pr
 * [Introducción a Aplicaciones de API, ASP.NET y Swagger en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

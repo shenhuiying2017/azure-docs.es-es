@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="07/01/2016"
 	 ms.author="trinadhk; markgal; jimpark;"/>
 
 # Versión de vista previa pública del servicio Copia de seguridad de Azure: preguntas más frecuentes
@@ -43,4 +43,4 @@ La versión de vista previa pública presenta el almacén de Servicios de recupe
 
 **P1. ¿Existen limitaciones en cuanto a la compatibilidad de ARM con las máquinas virtuales de Azure?** <br/> R1. Los cmdlets de PowerShell para ARM no están actualmente disponibles. Debe utilizar la interfaz de usuario del Portal de Azure para agregar recursos a un grupo de recursos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,8 +4,8 @@
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
-	editor="dwrede"/>
+	manager="erikre"
+	editor="erikre"/>
 
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows
@@ -285,4 +285,4 @@ Para más información general sobre los Centros de notificaciones, consulte [Gu
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

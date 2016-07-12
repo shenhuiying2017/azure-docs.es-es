@@ -17,7 +17,7 @@
 	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# Lista de conectores administrados
+# Lista de conectores
 
 >[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. Para la versión de esquema 2014-12-01-preview, haga clic en [Lista de conectores](../app-service-logic/app-service-logic-connectors-list.md).
 
@@ -25,20 +25,28 @@ Para obtener información y una lista de lo que se incluye con cada nivel de ser
 
 > [AZURE.NOTE] Si desea empezar a utilizar Aplicaciones lógicas de Azure antes de registrar una cuenta de Azure, vaya a [Pruebe el Servicios de aplicaciones de Azure](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
+## Conectores estándar
+
 Seleccione un icono para aprender a aprovechar rápidamente estos conectores a fin de crear aplicaciones que llamen a estos servicios. Estos conectores se pueden utilizar para crear aplicaciones lógicas, PowerApps y flujos.
 
 |Conectores||||
 |-----------|-----------|-----------|-----------|
 |[![Icono de API][blobicon]<br/>**Blob de Azure**][azureblobdoc]|[![Icono de API][boxicon]<br/>**Box**][boxDoc]|[![Icono de API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icono de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icono de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icono de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icono de API][githubicon]<br/>**GitHub**][githubdoc]|[![Icono de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
-|[![Icono de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|
+|[![Icono de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icono de API][office365icon]<br/>**Usuarios de**<br/>**Office 365**][office365usersdoc]|
 |[![Icono de API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][onedriveicon]<br/>**OneDrive<br/>para la Empresa**][onedriveforbusinessdoc]|[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Icono de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icono de API][rssicon]<br/>**RSS**][rssdoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icono de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icono de API][trelloicon]<br/>**Trello**][trellodoc]|[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|
 |[![Icono de API][twittericon]<br/>**Twitter**][twitterdoc]|[![Icono de API][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![Icono de API][yammericon]<br/>**Yammer**][yammerdoc] | |
 
-> [AZURE.NOTE] Si ha creado aplicaciones lógicas con el esquema 2014-12-01-preview, observará que los conectores de integración de empresas, como las de BizTalk, no se han enumerado. Sabemos que son importantes y trabajamos mucho para pueda disponer de ellas pronto. Aunque aún no se conoce la fecha en que estarán disponibles, debe saber que una de nuestras principales prioridades es que lleguen a los usuarios. Entretanto, puede acceder a sus [API v1 y a las API de BizTalk desde Aplicaciones lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Gracias por su comprensión. Permanezca atento.
+## Conectores Enterprise Integration Pack (EIP)
+Use los conectores EIP para crear aplicaciones de lógica para escenarios de B2B que incluyan EAI y EDI.
+ 
+|Conectores EIP ||||
+|-----------|-----------|-----------|-----------|
+|[![Icono de API][as2icon]<br/>**Codificar/descodificar</br>AS2**][as2doc]|[![Icono de API][x12icon]<br/>**Codificar/descodificar</br>X12**][x12Doc]|[![Icono de API][xmlvalidateicon]<br/>**Validación <br/>XML**][xmlvalidatedoc]|[![Icono de API][xmltransformicon]<br/>**Transformación<br/> XML**][xmltransformdoc]|
+|[![Icono de API][flatfileicon]<br/>**Codificar</br>archivo plano**][flatfiledoc]|[![Icono de API][flatfiledecodeicon]<br/>**Descodificar</br>archivo plano**][flatfiledecodedoc]|||
 
 
 ### Los conectores pueden ser desencadenadores
@@ -54,10 +62,7 @@ Existen dos tipos de desencadenadores:
 Los conectores también pueden utilizarse como acciones dentro de las aplicaciones. Las acciones resultan útiles para buscar datos que luego se pueden utilizar en la ejecución de la aplicación. Por ejemplo, puede que necesite buscar datos de clientes de una base de datos SQL al procesar un pedido. O bien, puede que necesite escribir, actualizar o eliminar datos en una tabla de destino. Para ello, puede usar las acciones proporcionadas por los conectores. Las acciones se asignan a las operaciones que se definen en los metadatos de Swagger.
 
 
-[Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md)  
-[Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)
+[Nueva versión de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md) [¿Qué es Microsoft PowerApps Enterprise?](../power-apps/powerapps-get-started-azure-portal.md) [Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview](connectors-schema-migration.md)
 
 <!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conéctese a un blob de Azure para administrar archivos en el contenedor de blobs."
@@ -94,6 +99,12 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [twitterdoc]: ./connectors-create-api-twitter.md "Se conecta a Twitter y puede obtener escalas de tiempo, publicar tweets, etc."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Mantiene su vida sincronizada."
 [yammerdoc]: ./connectors-create-api-yammer.md "Se conecta a Yammer para publicar mensajes y obtener nuevos mensajes."
+[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Más información sobre AS2 para integración empresarial."
+[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Más información sobre X12 para integración empresarial."
+[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Más información sobre validación XML para integración empresarial."
+[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Más información sobre transformaciones para integración empresarial."
 
 <!--Icon references-->
 [blobicon]: ./media/apis-list/blobicon.png
@@ -127,5 +138,11 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [twittericon]: ./media/apis-list/twittericon.png
 [wunderlisticon]: ./media/apis-list/wunderlisticon.png
 [yammericon]: ./media/apis-list/yammericon.png
+[as2icon]: ./media/apis-list/as2new.png
+[x12icon]: ./media/apis-list/x12new.png
+[flatfileicon]: ./media/apis-list/flatfileencoding.png
+[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
+[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
+[xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

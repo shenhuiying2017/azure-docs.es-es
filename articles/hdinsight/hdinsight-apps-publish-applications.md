@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/28/2016"
+   	ms.date="06/29/2016"
    	ms.author="jgao"/>
 
 # Publicación de aplicaciones de HDInsight en Azure Marketplace
@@ -25,14 +25,15 @@ Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)*,
 
 Artículo relacionado con otra aplicación de HDInsight:
 
-- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): obtenga información acerca de cómo instalar y probar aplicaciones personalizadas de HDInsight.
+- [Install HDInsight applications](hdinsight-apps-install-applications.md) (Instalación de aplicaciones de HDInsight): aprenda a instalar una aplicación de HDInsight en sus clústeres.
+- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a instalar y probar aplicaciones personalizadas de HDInsight.
 
  
 ## Requisitos previos
 
 Para enviar una aplicación personalizada a Marketplace, es preciso haberla creado y probado. Consulte los artículos siguientes:
 
-- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): obtenga información acerca de cómo instalar y probar aplicaciones personalizadas de HDInsight.
+- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a instalar y probar aplicaciones personalizadas de HDInsight.
 
 También es preciso haber registrado una cuenta de desarrollador. Consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) y [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
@@ -85,17 +86,18 @@ Cree un archivo zip que contenga todos los archivos requeridos para instalar apl
 Para publicar una aplicación de HDInsight, siga estos pasos:
 
 1. Inicie sesión en el [Portal de publicación de Azure](https://publish.windowsazure.com/).
-2. Haga clic en **Solution templates** (Plantillas de solución) para crear una nueva plantilla de solución.
-3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)
-4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
+2. Haga clic en **Plantillas de solución** para crear una nueva plantilla de solución.
+3. Haga clic en **Create Dev Center account and join the Azure program** (Crear cuenta del Centro de desarrollo y unirse al programa de Azure) para registrar una compañía, en caso de que no lo haya hecho. Consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+4. Haga clic en **Define some Topologies to get Started** (Definir topologías para empezar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías.
 5. Adición de una nueva versión
-6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).  
+6. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).
 7. Haga clic en **Request Certification** (Solicitar certificado). El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
 
 ## Pasos siguientes
 
-- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): obtenga información acerca de cómo implementar en HDInsight una aplicación de HDInsight no publicada.
+- [Install HDInsight applications](hdinsight-apps-install-applications.md) (Instalación de aplicaciones de HDInsight): aprenda a instalar una aplicación de HDInsight en sus clústeres.
+- [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.
 - [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a utilizar acciones de script para instalar otras aplicaciones.
-- [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a invocar plantillas de ARM para crear clústeres de HDInsight.
+- [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->
