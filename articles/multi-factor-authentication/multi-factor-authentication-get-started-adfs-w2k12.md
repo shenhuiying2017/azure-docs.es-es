@@ -27,7 +27,7 @@ Esta documentación trata del uso del Servidor Azure Multi-Factor Authentication
 
 Al instalar Servidor Azure Multi-Factor Authentication tiene las dos opciones siguientes:
 
-- Instalar Servidor Azure Multi-Factor Authentication localmente en el mismo servidor que AD FS.
+- Instalar Servidor Azure Multi-Factor Authentication localmente en el mismo servidor que AD FS. 
 - Instalar el adaptador de Azure Multi-Factor Authentication localmente en el servidor AD FS e instalar al servidor MFA en un equipo diferente.
 
 Antes de comenzar, tenga en cuenta lo siguiente:
