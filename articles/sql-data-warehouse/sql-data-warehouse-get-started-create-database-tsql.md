@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
@@ -52,15 +52,13 @@ Como alternativa, puede ejecutar el mismo comando con sqlcmd mediante la ejecuci
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Los parámetros **MAXSIZE** y **SERVICE\_OBJECTIVE** especifican el espacio máximo que puede usar la base de datos en el disco y los recursos de proceso asignados a su instancia de Almacenamiento de datos. El objetivo de servicio es esencialmente una asignación de CPU y memoria que se escala linealmente con el tamaño de DWU.
-
-El valor MAXSIZE puede estar entre 250 GB y 240 TB. El objetivo de servicio puede estar entre DW100 y DW2000. Para ver una lista completa de todos los valores válidos de MAXSIZE y SERVICE\_OBJECTIVE, consulte la documentación de MSDN para [CREATE DATABASE][]. También se pueden cambiar los valores de MAXSIZE y SERVICE\_OBJECTIVE con un comando [ALTER DATABASE][] de T-SQL. Debe tener precaución al cambiar el valor de SERVICE\_OBJECTIVE ya que provocará un reinicio de los servicios que cancelará todas las consultas en marcha. Con el cambio de MAXSIZE no se reinician servicios, ya que es solo una operación de metadatos sencilla.
+El valor de `MAXSIZE` puede estar entre 250 GB y 240 TB. El valor de `SERVICE_OBJECTIVE` puede estar entre [DWU][] DW100 y DW2000. Para obtener una lista de todos los valores válidos, consulte la documentación de MSDN para [CREATE DATABASE][]. También se pueden cambiar los valores de MAXSIZE y SERVICE\_OBJECTIVE con un comando [ALTER DATABASE][] de T-SQL. Debe tener precaución al cambiar el valor de SERVICE\_OBJECTIVE ya que provocará un reinicio de los servicios que cancelará todas las consultas en marcha. Con el cambio de MAXSIZE no se reinician servicios, ya que es solo una operación de metadatos sencilla.
 
 ## Pasos siguientes
 Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, puede [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
 
 <!--Article references-->
-
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
 [Conexión a Almacenamiento de datos SQL con Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [migrar]: ./sql-data-warehouse-overview-migrate.md
@@ -82,4 +80,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

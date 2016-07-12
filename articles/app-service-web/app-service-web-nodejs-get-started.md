@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 # Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
@@ -159,13 +159,13 @@ Para leer los registros de iisnode, siga estos pasos.
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Tenga en cuenta que esta dirección URL difiere de la URL de la aplicación web mediante la adición de "*.scm.*" al nombre DNS. Si se omite esta adición a la dirección URL, obtendrá un error 404.
+    Tenga en cuenta que esta dirección URL difiere de la URL de la aplicación web en la adición de "*.scm.*" al nombre DNS. Si se omite esta adición a la dirección URL, obtendrá un error 404.
 
 5. Vaya a D:\\home\\site\\wwwroot\\iisnode.
 
     ![Desplazamiento a la ubicación de los archivos de registro de iisnode.][iislog-kudu-console-find]
 
-6. Haga clic en el icono **Editar** para el registro que desea leer. También puede hacer clic en **Descargar** o **Eliminar**, si lo desea.
+6. Haga clic en el icono **Editar** para el registro que desee leer. También puede hacer clic en **Descargar** o **Eliminar**, si lo desea.
 
     ![Apertura de un archivo de registro de iisnode.][iislog-kudu-console-open]
 
@@ -179,7 +179,7 @@ Si utiliza Node-Inspector para depurar las aplicaciones de Node.js, puede usarlo
 
 Para habilitar Node-Inspector, siga estos pasos:
 
-1. Abra iisnode.yml en la raíz del repositorio y especifique los siguientes parámetros: 
+1. Abra iisnode.yml en la raíz del repositorio y especifique los siguientes parámetros:
 
         debuggingEnabled: true
         debuggerExtensionDll: iisnode-inspector.dll
@@ -201,12 +201,13 @@ Para habilitar Node-Inspector, siga estos pasos:
 ## Más recursos
 
 - [Especificación de una versión de Node.js en una aplicación Azure](../nodejs-specify-node-version-azure-apps.md)
+- [Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Aplicaciones web de Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md)
 - [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js (Aplicaciones web del Servicio de aplicaciones de Azure: Node.js)](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 - [Centro para desarrolladores de Node.js](/develop/nodejs/)
 - [Introducción a las aplicaciones web en el Servicio de aplicaciones de Azure](app-service-web-get-started.md)
-- [Exploring the Super Secret Kudu Debug Console] (Exploración de la consola de depuración súper secreta de Kudu)
+- [Exploring the Super Secret Kudu Debug Console (Exploración de la consola de depuración súper secreta de Kudu)]
 
 <!-- URL List -->
 
@@ -216,7 +217,7 @@ Para habilitar Node-Inspector, siga estos pasos:
 [BOWER]: http://bower.io/
 [Creación de una aplicación de chat Node.js con Socket.IO en el Servicio de aplicaciones de Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Implementación de una aplicación web Sails.js en el Servicio de aplicaciones de Azure]: ./app-service-web-nodejs-sails.md
-[Exploring the Super Secret Kudu Debug Console]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Exploring the Super Secret Kudu Debug Console (Exploración de la consola de depuración súper secreta de Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [generador Express de Yeoman]: https://github.com/petecoop/generator-express
 [GIT]: http://www.git-scm.com/downloads
 [Uso de io.js con aplicaciones web del Servicio de aplicaciones de Azure]: ./web-sites-nodejs-iojs.md
@@ -235,4 +236,4 @@ Para habilitar Node-Inspector, siga estos pasos:
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

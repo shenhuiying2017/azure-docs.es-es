@@ -76,7 +76,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una nue
 
     ```
     var device = new iothub.Device(null);
-    device.deviceId = 'myFirstDevice';
+    device.deviceId = 'myFirstNodeDevice';
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -201,10 +201,10 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdeviceid}** y **{yourdevicekey}** por los valores del dispositivo generados en la sección *Creación de una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdevicekey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -220,7 +220,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     }
     ```
 
-7. Cree una devolución de llamada y utilice la función **setInterval** para enviar un nuevo mensaje a su Centro de IoT cada segundo:
+7. Cree una devolución de llamada y utilice la función **setInterval** para enviar un nuevo mensaje al Centro de IoT cada segundo:
 
     ```
     var connectCallback = function (err) {
@@ -232,11 +232,11 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
         // Create a message and send it to the IoT Hub every second
         setInterval(function(){
             var windSpeed = 10 + (Math.random() * 4);
-            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', windSpeed: windSpeed });
             var message = new Message(data);
             console.log("Sending message: " + message.getData());
             client.sendEvent(message, printResultFor('send'));
-        }, 2000);
+        }, 1000);
       }
     };
     ```
@@ -256,7 +256,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
 
 Ahora está preparado para ejecutar las aplicaciones.
 
-1. En un símbolo del sistema, en la carpeta **readdevicetocloudmessages**, ejecute el siguiente comando para empezar la supervisión del Centro de IoT:
+1. En un símbolo del sistema, en la carpeta **readdevicetocloudmessages**, ejecute el siguiente comando para comenzar la supervisión del Centro de IoT:
 
     ```
     node ReadDeviceToCloudMessages.js 
@@ -264,7 +264,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![][7]
 
-2. En un símbolo del sistema, en la carpeta **simulateddevice**, ejecute el siguiente comando para empezar el envío de datos de telemetría al Centro de IoT:
+2. En un símbolo del sistema, en la carpeta **simulateddevice**, ejecute el siguiente comando para comenzar el envío de datos de telemetría al Centro de IoT:
 
     ```
     node SimulatedDevice.js
@@ -306,4 +306,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

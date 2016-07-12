@@ -5,7 +5,7 @@
 	documentationCenter="ios"
     keywords="notificación push,notificaciones push,notificaciones push de ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a iOS con los Centros de notificaciones de Azure
@@ -505,4 +505,4 @@ Para más información general sobre los Centros de notificaciones, consulte [In
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

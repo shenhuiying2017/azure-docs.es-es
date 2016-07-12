@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/07/2016"
+   ms.date="07/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de Almacenamiento de datos SQL con Powershell
@@ -55,13 +55,13 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 Los parámetros necesarios para este cmdlet son los siguientes:
 
-- **RequestedServiceObjectiveName**: la cantidad de DWU solicitada, con formato "DWXXX". DWU representa una asignación de CPU y memoria. Cada valor de DWU representa un aumento lineal en estos recursos. Los valores admitidos son: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **RequestedServiceObjectiveName**: la cantidad de [DWU][] solicitada. Los valores admitidos son: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500 y DW2000.
 - **DatabaseName**: el nombre del Almacenamiento de datos SQL que está creando.
 - **ServerName**: el nombre del servidor que se usa para la creación (tiene que ser V12).
 - **ResourceGroupName**: el grupo de recursos que está usando. Para obtener los grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
 - **Edition**: tiene que establecer la edición como "DataWarehouse" para crear un Almacenamiento de datos SQL.
 
-Para más información sobre las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)][] (Creación de base de datos [Almacenamiento de datos SQL de Azure]). Para la referencia de comandos, consulte [New-AzureRmSqlDatabase][].
+Para más información sobre las opciones de parámetros, consulte [Create Database (Azure SQL Data Warehouse)][] [Creación de base de datos (Almacenamiento de datos SQL de Azure)]. Para ver la referencia de comandos, consulte [New-AzureRmSqlDatabase][].
 
 ## Pasos siguientes
 Después de que Almacenamiento de datos SQL finalice el aprovisionamiento, puede intentar [cargar datos de ejemplo][] o averiguar cómo [desarrollar][], [cargar][] o [migrar][].
@@ -71,12 +71,12 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 <!--Image references-->
 
 <!--Article references-->
-
-[migrar]: sql-data-warehouse-overview-migrate.md
-[desarrollar]: sql-data-warehouse-overview-develop.md
-[cargar]: sql-data-warehouse-load-with-bcp.md
-[cargar datos de ejemplo]: sql-data-warehouse-get-started-load-sample-databases.md
-[las API de REST y los cmdlets de PowerShell]: sql-data-warehouse-reference-powershell-cmdlets.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[migrar]: ./sql-data-warehouse-overview-migrate.md
+[desarrollar]: ./sql-data-warehouse-overview-develop.md
+[cargar]: ./sql-data-warehouse-load-with-bcp.md
+[cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[las API de REST y los cmdlets de PowerShell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [Cómo instalar y configurar Azure PowerShell]: ../powershell/powershell-install-configure.md
@@ -96,4 +96,4 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

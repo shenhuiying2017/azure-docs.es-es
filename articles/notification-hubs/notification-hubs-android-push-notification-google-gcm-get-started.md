@@ -5,7 +5,7 @@
 	documentationCenter="android"
 	keywords="notificaciones push,notificación push,notificaciones push android"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 <tags
 	ms.service="notification-hubs"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.date="07/05/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a Android con los Centros de notificaciones de Azure
@@ -22,7 +22,7 @@
 
 ##Información general
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
+> [AZURE.IMPORTANT] En este tema se muestran las notificaciones push con el Servicio de mensajería en la nube de Google (GCM). Si utiliza el Servicio de mensajería en la nube Firebase (FCM) de Google, consulte [Envío de notificaciones push a Android con los Centros de notificaciones de Azure](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 Este tutorial muestra cómo puede usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de Android. Creará una aplicación de Android en blanco que reciba notificaciones push mediante el servicio de mensajería en la nube de Google (GCM).
 
@@ -32,6 +32,8 @@ El código completo de este tutorial se puede descargar de GitHub, [aquí](https
 
 
 ##Requisitos previos
+
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 
 Además de la cuenta de Azure activa mencionada anteriormente, este tutorial solo requiere la versión más reciente de [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
 
@@ -66,7 +68,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
    	![Android Studio: flujo de trabajo de creación de proyecto][14]
 
-3. Elija **Actividad vacía** para la actividad principal, haga clic en **Siguiente** y, luego, haga clic en **Finalizar**.
+3. Elija **Empty Activity** (Actividad vacía) para la actividad principal, haga clic en **Next** (Siguiente) y, luego, en **Finish** (Finalizar).
 
 ###Incorporación de los servicios de Google Play al proyecto
 
@@ -91,9 +93,9 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 ### Actualización de AndroidManifest.xml.
 
 
-1. Para admitir GCM, debemos implementar un servicio de escucha Instance ID en el código, que se usa para [obtener tokens de registro](https://developers.google.com/cloud-messaging/android/client#sample-register) con la [API Instance ID de Google](https://developers.google.com/instance-id/). En este tutorial, asignaremos el nombre `MyInstanceIDService` a la clase. 
+1. Para admitir GCM, debemos implementar un servicio de escucha Instance ID en el código, que se usa para [obtener tokens de registro](https://developers.google.com/cloud-messaging/android/client#sample-register) con la [API Instance ID de Google](https://developers.google.com/instance-id/). En este tutorial, asignaremos el nombre `MyInstanceIDService` a la clase.
  
-	Agregue la siguiente definición de servicio al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, mostrado en la parte superior del archivo `AndroidManifest.xml`.
+	Agregue la siguiente definición de servicio al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, que se muestra en la parte superior del archivo `AndroidManifest.xml`.
 
 		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
 		    <intent-filter>
@@ -104,7 +106,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 2. Cuando recibamos el token de registro GCM de la API Instance ID, se usará para el [registro en el Centro de notificaciones de Azure](notification-hubs-push-notification-registration-management.md). Este registro se admite en segundo plano con un servicio `IntentService` llamado `RegistrationIntentService`. Este servicio también será responsable de [actualizar nuestro token de registro GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
  
-	Agregue la siguiente definición de servicio al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, mostrado en la parte superior del archivo `AndroidManifest.xml`.
+	Agregue la siguiente definición de servicio al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, que se muestra en la parte superior del archivo `AndroidManifest.xml`.
 
         <service
             android:name="<your package>.RegistrationIntentService"
@@ -113,7 +115,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 
 
-3. También definiremos un receptor para recibir las notificaciones. Agregue la siguiente definición de receptor al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, mostrado en la parte superior del archivo `AndroidManifest.xml`.
+3. También definiremos un receptor para recibir las notificaciones. Agregue la siguiente definición de receptor al archivo AndroidManifest.xml, en la etiqueta `<application>`. Reemplace el marcador de posición `<your package>` por el nombre real del paquete, que se muestra en la parte superior del archivo `AndroidManifest.xml`.
 
 		<receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
 		    android:permission="com.google.android.c2dm.permission.SEND">
@@ -141,13 +143,13 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 ### Incorporación de código
 
 
-1. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**. Agregue una clase nueva llamada `NotificationSettings`. 
+1. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**. Agregue una clase nueva llamada `NotificationSettings`.
 
 	![Android Studio: nueva clase Java][6]
 
 	Asegúrese de actualizar estos tres marcadores de posición en el código siguiente para la clase `NotificationSettings`:
 	* **SenderId**: número de proyecto que obtuvo anteriormente en la [consola en la nube de Google](http://cloud.google.com/console).
-	* **HubListenConnectionString**: cadena de conexión de **DefaultListenAccessSignature** para su centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en la hoja **Configuración** de su centro en el [Portal de Azure].
+	* **HubListenConnectionString**: la cadena de conexión **DefaultListenAccessSignature** del centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en la hoja **Configuración** de su centro en el [Portal de Azure].
 	* **HubName**: use el nombre del centro de notificaciones que aparece en la hoja del centro en el [Portal de Azure].
 
 	Código de `NotificationSettings`:
@@ -182,7 +184,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 		};
 
 
-3. Agregue otra clase nueva al proyecto con nombre `RegistrationIntentService`. Se trata de la implementación de nuestro `IntentService` que controlará la [actualización del token de GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) y el [registro en el Centro de notificaciones](notification-hubs-push-notification-registration-management.md).
+3. Agregue otra clase nueva, llamada `RegistrationIntentService`, al proyecto. Se trata de la implementación de nuestro `IntentService` que controlará la [actualización del token de GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) y el [registro en el Centro de notificaciones](notification-hubs-push-notification-registration-management.md).
 
 	Use el siguiente código para esta clase.
 
@@ -229,7 +231,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 		                regID = hub.register(token).getRegistrationId();
 
 		                // If you want to use tags...
-						// Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+						// Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
 		                // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
 		                resultString = "Registered Successfully - RegId : " + regID;
@@ -263,14 +265,14 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 		import android.widget.TextView;
 		import android.widget.Toast;
 
-5. Agregue los siguientes miembros privados en la parte superior de la clase. Los usaremos para [comprobar la disponibilidad de Google Play Services según las recomendaciones de Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+5. Agregue los siguientes miembros privados en la parte superior de la clase. Los usaremos para [comprobar la disponibilidad de Google Play Services, tal como recomienda Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
 	    public static MainActivity mainActivity;
     	public static Boolean isVisible = false;	
 		private GoogleCloudMessaging gcm;
 	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-6. En su clase `MainActivity`, agregue el método siguiente a la disponibilidad de Google Play Services.
+6. En la clase `MainActivity`, agregue el método siguiente a la disponibilidad de Google Play Services.
 
 	    /**
 	     * Check the device to make sure it has the Google Play Services APK. If
@@ -360,11 +362,11 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 	    }
 
 
-10. El método `ToastNotify` usa el control `TextView` *"Hello World"* para informar del estado y las notificaciones de forma persistente en la aplicación. En el archivo activity\_main.xml, agregue el siguiente identificador para ese control.
+10. El método `ToastNotify` usa el control *"Hello World"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el archivo activity\_main.xml, agregue el siguiente identificador para ese control.
 
         android:id="@+id/text_hello"
 
-11. A continuación, agregaremos una subclase para el receptor que definimos en el archivo AndroidManifest.xml. Agregue otra clase nueva al proyecto con nombre `MyHandler`.
+11. A continuación, agregaremos una subclase para el receptor que definimos en el archivo AndroidManifest.xml. Agregue otra clase nueva, llamada `MyHandler`, al proyecto.
 
 12. Agregue las siguientes instrucciones de importación en la parte superior de `MyHandler.java`:
 
@@ -378,7 +380,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 
 13. Agregue el siguiente código para la clase `MyHandler` para convertirla en una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
-	Este código invalida el método `OnReceive`, por lo que el controlador informará de las notificaciones que se reciban. El controlador también envía la notificación push al administrador de notificaciones de Android mediante el método `sendNotification()`. El método `sendNotification()` se debe ejecutar cuando la aplicación no se esté ejecutando y se reciba una notificación.
+	Este código invalida el método `OnReceive`, por lo que el controlador informará de las notificaciones que se reciban. El controlador también envía la notificación push al administrador de notificaciones de Android mediante el método `sendNotification()`. El método `sendNotification()` se debe ejecutar cuando se reciba una notificación y la aplicación no se esté ejecutando.
 
 		public class MyHandler extends NotificationsHandler {
 		    public static final int NOTIFICATION_ID = 1;
@@ -437,7 +439,7 @@ Para probar la recepción de notificaciones push en la aplicación, envíelas a 
 
 Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos casos, puede que quiera enviar notificaciones push directamente desde la aplicación cliente. En esta sección se explica cómo enviar notificaciones desde el cliente mediante la [API de REST del Centro de notificaciones de Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño `activity_main.xml` y haga clic en la pestaña **Texto** para actualizar el contenido de texto del archivo. Actualícelo con el siguiente código, que agrega los nuevos controles `Button` y `EditText` para enviar mensajes de notificación push al Centro de notificaciones. Agregue este código al final, inmediatamente antes de `</RelativeLayout>`.
+1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño `activity_main.xml` y haga clic en la pestaña **Texto** para actualizar el contenido de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación push al Centro de notificaciones. Agregue este código al final, inmediatamente antes de `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -619,7 +621,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 	
 	                        // Include any tags
 	                        // Example below targets 3 specific tags
-	                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+	                        // Refer to : https://azure.microsoft.com/es-ES/documentation/articles/notification-hubs-routing-tag-expressions/
 	                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
 							//		"tag1 || tag2 || tag3");
 	
@@ -677,7 +679,7 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 
    	![Prueba en Android - envío de un mensaje][19]
 
-3. Presione **Enviar notificación**. Los dispositivos en los que la aplicación esté en ejecución mostrarán un instancia de `AlertDialog` con el mensaje de notificación push. Los dispositivos en que la aplicación no esté en ejecución, pero que anteriormente se hayan registrado para recibir notificaciones push, recibirán una notificación en el administrador de notificaciones de Android. Para verlas, deslice el dedo hacia abajo desde la esquina superior izquierda.
+3. Presione **Enviar notificación**. Los dispositivos en los que se ejecute la aplicación mostrarán un instancia de `AlertDialog` con el mensaje de notificación push. Los dispositivos en que la aplicación no esté en ejecución, pero que anteriormente se hayan registrado para recibir notificaciones push, recibirán una notificación en el administrador de notificaciones de Android. Para verlas, deslice el dedo hacia abajo desde la esquina superior izquierda.
 
    	![Prueba en Android - notificaciones][21]
 
@@ -724,4 +726,4 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

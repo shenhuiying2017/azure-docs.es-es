@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -116,7 +116,9 @@ También puede utilizar la CLI de Azure multiplataforma para recuperar los regis
 
 Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos con los que DNS de Azure ha creado.
 
-Al delegar un dominio a DNS de Azure, debe usar los nombres de servidor DNS proporcionados por DNS de Azure. No debe usar 'registros de adherencia' para apuntar a direcciones IP del servidor DNS de Azure, ya que estas direcciones IP pueden cambiar en el futuro. Las delegaciones que usan nombres de servidor en su propia zona (a veces denominados "servidores DNS personalizados") no se admiten de momento en DNS de Azure.
+Al delegar un dominio a DNS de Azure, debe usar los nombres de servidor DNS proporcionados por DNS de Azure. Debe usar siempre los cuatro nombres de servidor DNS, independientemente del nombre de su dominio. La delegación de dominios no requiere el nombre del servidor DNS para usar el mismo dominio de primer nivel que su dominio.
+
+No debe usar 'registros de adherencia' para apuntar a direcciones IP del servidor DNS de Azure, ya que estas direcciones IP pueden cambiar en el futuro. Las delegaciones que usan nombres de servidor en su propia zona (a veces denominados "servidores DNS personalizados") no se admiten de momento en DNS de Azure.
 
 ### Comprobación del funcionamiento de la resolución de nombres
 
@@ -199,4 +201,4 @@ Se puede comprobar que todo está configurado correctamente mirando el registro 
 
 [Administración de registros DNS](dns-operations-recordsets.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

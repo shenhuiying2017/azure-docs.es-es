@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Introducción al Programador de Azure en el Portal de Azure
@@ -21,7 +21,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
 ## Creación de un trabajo
 
-1.  Inicie sesión en el [portal de Azure](https://portal.azure.com/).  
+1.  Inicie sesión en el [portal de Azure](https://portal.azure.com/).
 
 2.  Haga clic en **+Nuevo** > escriba _Programador_ en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
 
@@ -29,7 +29,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
 3.  Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador**, escriba la siguiente información:
 
-    1.  **Nombre:** `getmicrosoft`  
+    1.  **Nombre:** `getmicrosoft`
 
     2.  **Suscripción**: su suscripción a Azure.
 
@@ -37,7 +37,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
 4.  Después, en **Configuración de la acción**, defina los siguientes valores:
 
-    1.  **Tipo de acción:** ` HTTP`  
+    1.  **Tipo de acción:** ` HTTP`
 
     2.  **Método:** `GET`
 
@@ -63,7 +63,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 
 Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga clic en el trabajo y se abrirá una nueva ventana con las pestañas siguientes:
 
-1.  Propiedades  
+1.  Propiedades
 
 2.  Configuración de la acción
 
@@ -111,7 +111,7 @@ Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la f
 
 La pestaña **Historial** muestra las métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
 
-1.  Status  
+1.  Status
 
 2.  Detalles
 
@@ -182,4 +182,4 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

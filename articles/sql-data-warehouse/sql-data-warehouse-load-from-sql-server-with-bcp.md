@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -136,7 +136,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ## 4\. Creación de estadísticas
 
-Almacenamiento de datos SQL de Azure aún no admite la creación o actualización automáticas de estadísticas. Para obtener el mejor rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importante en los datos. Para una explicación detallada de las estadísticas, consulte [Administración de estadísticas en el Almacenamiento de datos SQL][].
+Almacenamiento de datos SQL de Azure aún no admite la creación o actualización automáticas de estadísticas. Para obtener el mejor rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importante en los datos. Para ver una explicación detallada de las estadísticas, consulte [Estadísticas][].
 
 Ejecute el siguiente comando para crear estadísticas en la tabla recién cargada.
 
@@ -182,22 +182,22 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 Puede usar la función **queryout** de bcp para exportar los resultados de una consulta, en lugar de exportar toda la tabla.
 
 ## Pasos siguientes
-Para obtener información general sobre la carga, vea [Carga de datos en Almacenamiento de datos SQL][]. Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][]. Para más información acerca de la creación de tablas en Almacenamiento de datos SQL, consulte [Diseño de tablas en el Almacenamiento de datos SQL][] o la [sintaxis de CREATE TABLE][].
+Para obtener información general sobre la carga, vea [Carga de datos en Almacenamiento de datos SQL][]. Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][]. Consulte la [información general sobre las tablas][] o la [sintaxis CREATE TABLE][] para más información sobre cómo crear una tabla en Almacenamiento de datos SQL.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Carga de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-load.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
-[Diseño de tablas en el Almacenamiento de datos SQL]: sql-data-warehouse-develop-table-design.md
-[Administración de estadísticas en el Almacenamiento de datos SQL]: sql-data-warehouse-develop-statistics.md
+[Carga de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-load.md
+[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
+[información general sobre las tablas]: ./sql-data-warehouse-tables-overview.md
+[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[sintaxis de CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[sintaxis CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

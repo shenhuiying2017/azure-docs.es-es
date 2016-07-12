@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"virtual
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -97,8 +97,21 @@ En el ejemplo anterior, una VM tiene una recomendación crítica acerca de los p
 
 Esta hoja tiene los detalles de seguridad de la máquina virtual. En la parte inferior de la hoja puede ver la acción recomendada y la gravedad de cada problema.
 
-###Supervisión de redes virtuales
-Al hacer clic en **Redes** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja **Redes**, donde encontrará con más detalles, tal como se muestra a continuación:
+#### Sección Servicios en la nube (versión preliminar)
+El estado de mantenimiento de los servicios en la nube se incluye en el icono de estado de seguridad de las máquinas virtuales. Cuando la versión del sistema operativo no está actualizada se crea una recomendación, como se muestra a continuación:
+
+![Servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+
+Tendrá que seguir los pasos de la recomendación para actualizar la versión del sistema operativo. Por ejemplo, si hace clic en la alerta roja en uno de los roles web (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS) o el rol de trabajo (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS), se abrirá una nueva hoja con más detalles sobre esta recomendación, como se muestra a continuación:
+
+![Detalles del servicio en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
+
+Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en **Actualizar Versión del SO** en la columna **DESCRIPCIÓN**. Se abrirá la hoja **Actualizar versión del SO (versión preliminar)** con más detalles.
+
+![Recomendaciones de servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
+
+### Supervisión de redes virtuales
+Al hacer clic en **Redes** en el icono **Estado de seguridad del recurso**, se abrirá la hoja **Redes**, donde encontrará más detalles, tal como se muestra a continuación:
 
 ![Redes](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
@@ -118,7 +131,7 @@ Al hacer clic en una de las recomendaciones, se abrirá una nueva hoja con más 
 
 ![Restricción del punto de conexión](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-En este ejemplo, la hoja **Configure Missing Network Security Groups for Subnets** (Configurar grupos de seguridad de red que faltan para subredes) tiene una lista de subredes y máquinas virtuales que carecen de protección con NSG. Si hace clic en la subred a la que desea aplicar el NSG, se abre otra hoja.
+En este ejemplo, la hoja **Configurar los grupos de seguridad de red que faltan para las subredes** tiene una lista de subredes y máquinas virtuales que carecen de protección con NSG. Si hace clic en la subred a la que desea aplicar el NSG, se abre otra hoja.
 
 En la hoja **Elegir grupo de seguridad de red**, seleccione el grupo de seguridad de red más adecuado para la subred o cree uno.
 
@@ -129,7 +142,7 @@ En la sección **Internet facing endpoints** (Puntos de conexión con conexión 
 ![Punto de conexión con conexión a Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
 
 Esta tabla incluye el nombre del punto de conexión que representa la máquina virtual, la dirección IP con conexión a Internet, el estado de gravedad actual del NSG y el NGFW. La tabla está ordenada por gravedad, tal como se describe a continuación:
-- Rojo (arriba): alta prioridad; se debe solucionar de inmediato. 
+- Rojo (arriba): alta prioridad; se debe solucionar de inmediato.
 - Naranja: prioridad media; se debe solucionar lo antes posible.
 - Verde (al final): estado de mantenimiento.
 
@@ -140,26 +153,26 @@ En la sección **Networking topology** (Topología de red), se ofrece una vista 
 ![Topología de red](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad, como se describe a continuación:
-- Rojo (arriba): alta prioridad; se debe solucionar de inmediato. 
+- Rojo (arriba): alta prioridad; se debe solucionar de inmediato.
 - Naranja: prioridad media; se debe solucionar lo antes posible.
 - Verde (al final): estado de mantenimiento.
 
-En esta jerarquía, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y la [red virtual (clásica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red (NSG) para esos recursos. En el ejemplo siguiente se ve el resultado de seleccionar la máquina virtual VM-CL-W1:
+En esta vista de topología, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y la [red virtual (clásica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red (NSG) para esos recursos. En el ejemplo siguiente se ve el resultado de seleccionar la máquina virtual VM-CL-W1:
 
 ![Árbol de red](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
 En la parte inferior de esta hoja, aparecen las recomendaciones para la máquina virtual, parecidas a lo que se ha descrito antes. Puede hacer clic en una recomendación para ver más información o aplicar la configuración o el control de seguridad necesario.
 
 ###Supervisión de recursos de SQL
-Al hacer clic en **SQL** en el icono **Resources security health** (Estado de seguridad de los recursos), se abrirá la hoja SQL con recomendaciones para problemas como que la auditoría o el cifrado de datos transparente no estén habilitados. También tiene las recomendaciones sobre el estado general de la base de datos.
+Al hacer clic en **SQL** en el icono **Estado de seguridad del recurso**, se abrirá la hoja SQL con recomendaciones para problemas como que la auditoría o el cifrado de datos transparente no estén habilitados. También tiene las recomendaciones sobre el estado general de la base de datos.
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
-Puede hacer clic en cualquiera de estas recomendaciones para obtener más detalles sobre las acciones que deben llevarse a cabo para solucionar el problema. El ejemplo siguiente muestra la expansión de la recomendación **Database Auditing not enabled** (Auditoría de base de datos no habilitada).
+Puede hacer clic en cualquiera de estas recomendaciones para obtener más detalles sobre las acciones que deben llevarse a cabo para solucionar el problema. El ejemplo siguiente muestra la expansión de la recomendación **Auditoría de la base de datos no habilitada**.
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig16-new.png)
 
-La hoja **Habilitar auditoría en bases de datos SQL** contiene la siguiente información:
+La hoja **Habilitar la auditoría en bases de datos SQL** contiene la siguiente información:
 
 - Una lista de bases de datos SQL.
 - El servidor en el que se encuentran.
@@ -171,7 +184,7 @@ Al hacer clic en la base de datos para abordar esta recomendación, se abrirá l
 
 ![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig17-new.png)
 
-Para habilitar la auditoría, seleccione **Activar** en la opción **Auditoría** y haga clic en **Guardar**.
+Para habilitar la auditoría, simplemente seleccione **Activar** en la opción **Auditoría** y haga clic en **Guardar**.
 
 ###Supervisión de aplicaciones
 Si la carga de trabajo de Azure tiene aplicaciones en las [máquinas virtuales de Resource Manager](../resource-manager-deployment-model.md) con puertos web expuestos (puertos TCP 80 y 443), Security Center puede supervisarlos para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Al hacer clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de pasos de prevención. También mostrará el desglose de la aplicación por host o IP virtual, tal como aparece a continuación.
@@ -182,7 +195,7 @@ Al igual que en las restantes recomendaciones, puede hacer clic en ella para ver
 
 ![Aplicaciones](./media/security-center-monitoring/security-center-monitoring-fig19-new.png)
 
-La hoja **Aplicaciones web no seguras** incluirá una lista de todas las máquinas virtuales que contienen aplicaciones que no se consideran seguras. La lista muestra el nombre de la VM, así como el estado actual y la gravedad del problema. Si hace clic en esta aplicación web, se abrirá la hoja **Agregar un Firewall de aplicaciones web** con opciones para instalar un WAF (Firewall de aplicaciones web) de terceros, como se muestra a continuación.
+La hoja **Aplicaciones web no seguras** incluirá una lista de todas las máquinas virtuales que contienen aplicaciones que no se consideran seguras. La lista muestra el nombre de la VM, así como el estado actual y la gravedad del problema. Si hace clic en esta aplicación web, se abrirá la hoja **Agregar un firewall de aplicaciones web** con opciones para instalar un WAF (Firewall de aplicaciones web) de terceros, como se muestra a continuación.
 
 ![Adición de WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
@@ -195,4 +208,4 @@ En este documento, aprendió a usar las funcionalidades de supervisión en el Ce
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

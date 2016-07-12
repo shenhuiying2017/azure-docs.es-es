@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor="none"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="02/27/2016" 
+	ms.date="06/27/2016" 
 	ms.author="riande"/>
 
 
@@ -43,7 +43,7 @@ Además de hacer referencias de ensamblado para la memoria caché, el paquete Nu
 
 1. Abra el archivo *web.config* y busque el elemento **sessionState**.
 
-1. Introduzca los valores de `host`, `accessKey`, `port` (el puerto de SSL debe ser el 6380) y establezca `SSL` en `true`. Estos valores se pueden obtener en el cuadro del portal de vista previa de la hoja [Portal Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para su instancia de caché. Para obtener más información, vea [Conexión con la memoria caché](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Tenga en cuenta que el puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Para obtener más información acerca de cómo habilitar el puerto no SSL, consulte la sección de [puertos de acceso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) en el tema [Configuración de una memoria caché en Caché en Redis de Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). El marcado siguiente muestra los cambios efectuados en el archivo *web.config*, específicamente los cambios a *port*, *host*, accessKey* y *ssl*.
+1. Introduzca los valores de `host`, `accessKey`, `port` (el puerto de SSL debe ser el 6380) y establezca `SSL` en `true`. Estos valores se pueden obtener en el cuadro del portal de vista previa de la hoja [Portal Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para su instancia de caché. Para obtener más información, vea [Conexión con la memoria caché](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Tenga en cuenta que el puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Para obtener más información acerca de cómo habilitar el puerto no SSL, consulte la sección de [puertos de acceso](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) en el tema [Configuración de una memoria caché en Caché en Redis de Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). El marcado siguiente muestra los cambios efectuados en el archivo *web.config*, específicamente los cambios en *port*, *host*, accessKey* y *ssl*.
 
 		  <system.web>;
 		    <customErrors mode="Off" />;
@@ -108,4 +108,4 @@ También puede usar el servicio Caché en Redis para almacenar objetos en la mem
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->
