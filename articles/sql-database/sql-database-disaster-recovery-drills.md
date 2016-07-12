@@ -23,7 +23,7 @@ Se recomienda validar periódicamente el flujo de trabajo de preparación de la 
 Obtener los detalles de una recuperación ante desastres implica lo siguiente:
 
 - Simular la interrupción del nivel de datos.
-- Realizar la recuperación. 
+- Realizar la recuperación.
 - Validar la integridad de la aplicación tras la recuperación.
 
 Dependiendo de cómo [diseñó su aplicación para la continuidad del negocio](sql-database-business-continuity.md), el flujo de trabajo para la ejecución del proceso de obtención de detalles puede variar. A continuación se describen prácticas recomendadas de obtención de detalles de la recuperación ante desastres en el contexto de base de datos SQL de Azure.
@@ -38,7 +38,7 @@ Puede simular la interrupción mediante la eliminación o el cambio de nombre de
 
 ####Recuperación
 
-- Realice la restauración geográfica de la base de datos en un servidor diferente, tal como se describe [aquí](sql-database-disaster-recovery.md). 
+- Realice la restauración geográfica de la base de datos en un servidor diferente, tal como se describe [aquí](sql-database-disaster-recovery.md).
 - Cambie la configuración de la aplicación para conectarse a las bases de datos recuperadas y siga las directrices de la guía [Configuración de una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
 
 ####Validación
@@ -55,7 +55,7 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 ####Recuperación
 
-- Asegúrese de que la configuración de la aplicación en la región de recuperación ante desastres, está conformada según la base de datos secundaria anterior; recuerde que esta se convertirá en una base de datos principal nueva y totalmente accesible. 
+- Asegúrese de que la configuración de la aplicación en la región de recuperación ante desastres, está conformada según la base de datos secundaria anterior; recuerde que esta se convertirá en una base de datos principal nueva y totalmente accesible.
 - Realice la [conmutación por error planeada](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) para hacer que la base de datos secundaria se convierta en una primaria
 - Siga las instrucciones de la guía [Configurar una base de datos recuperada](sql-database-disaster-recovery.md) para completar la recuperación.
 
@@ -66,18 +66,10 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-## Recursos adicionales
-
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,7 +19,7 @@
 
 # Administración de las máquinas virtuales con Azure PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Muchas tareas que se realizan a diario para administrar las máquinas virtuales pueden automatizarse mediante cmdlets de Azure PowerShell. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
@@ -27,12 +27,12 @@ Muchas tareas que se realizan a diario para administrar las máquinas virtuales 
 >[AZURE.NOTE] Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones en el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
 ## Uso de los comandos de ejemplo
-Tendrá que reemplazar parte del texto en los comandos con texto que sea adecuado para su entorno. Los símbolos < and > indican texto que se debe reemplazar. Al reemplazar el texto, quite los símbolos pero deje las comillas en su lugar.
+Tendrá que reemplazar parte del texto en los comandos con texto que sea adecuado para su entorno. Los símbolos < y > indican texto que se debe reemplazar. Al reemplazar el texto, quite los símbolos pero deje las comillas en su lugar.
 
 ## Obtención de una máquina virtual
 Es una tarea básica que utilizará a menudo. Utilícelo para obtener información acerca de una máquina virtual, realizar tareas en una máquina virtual y obtener el resultado para almacenarlo en una variable.
 
-Para obtener información acerca de la máquina virtual, ejecute este comando y reemplace todo el contenido de las comillas, incluidos los caracteres < and >:
+Para obtener información acerca de la máquina virtual, ejecute este comando y reemplace todo el contenido de las comillas, incluidos los caracteres < y >:
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
@@ -46,10 +46,10 @@ Ejecute estos comandos:
 
 >[AZURE.NOTE] Puede obtener el nombre de la máquina virtual y del servicio de nube en la presentación del comando **Get-AzureVM**.
 >
-	$svcName="<cloud service name>"
-	$vmName="<virtual machine name>"
-	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "" + $vmname + ".rdp"
+	$svcName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile = $localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## Detención de una máquina virtual
@@ -73,20 +73,18 @@ También tendrá que decidir si desea adjuntar un disco nuevo o uno que contenga
 
 Para adjuntar un disco nuevo, ejecute este comando:
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
-              | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
 Para adjuntar un disco de datos existente, ejecute este comando:
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
-              | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
 Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamiento de blobs, ejecute este comando:
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
-              -DiskLabel "<main>" -LUN <0> `
-              | Update-AzureVM
+              -DiskLabel "<main>" -LUN <0> |
+              Update-AzureVM
 
 ## Creación de una máquina virtual Windows
 
@@ -97,4 +95,4 @@ Para crear una nueva máquina virtual Windows en Azure, siga las instrucciones d
 - Como miembro de un conjunto de carga equilibrada;
 - Con una dirección IP estática.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

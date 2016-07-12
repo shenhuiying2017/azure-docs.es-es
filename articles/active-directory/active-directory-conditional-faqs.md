@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Preguntas más frecuentes sobre acceso condicional | Microsoft Azure"
-	description="Preguntas más frecuentes sobre el acceso condicional"
+	description="Preguntas más frecuentes sobre el acceso condicional "
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Preguntas más frecuentes sobre acceso condicional
@@ -30,4 +30,4 @@ Sí.
 ## ¿Por qué no puede configurar directivas en aplicaciones cliente, como Word o Outlook?
 La directiva de acceso condicional establece los requisitos de acceso a un servicio y se aplica cuando se realiza la autenticación en ese servicio. En este sentido, la directiva no se establece directamente en una aplicación cliente, sino que se aplica cuando se llama a un servicio. Por ejemplo, la directiva definida en SharePoint se aplicará a los clientes que llaman a SharePoint y la directiva establecida en Exchange se aplicará a Outlook.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

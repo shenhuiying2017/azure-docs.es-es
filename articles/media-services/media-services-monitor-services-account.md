@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #<a id="monitormediaservicesaccount"></a>Supervisión de una cuenta de Servicios multimedia
@@ -26,7 +26,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 ##<a id="configuremonitoring"></a>Supervisión de una cuenta de Servicios multimedia
 
-1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel. 
+1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel.
 
 	![Panel\_ServiciosMultimedia][dashboard]
 
@@ -62,7 +62,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 ##Envío de comentarios
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]flujo de trabajo de streaming a petición](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)] flujo de trabajo de streaming a petición](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 <!-- Images -->
@@ -71,4 +71,4 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

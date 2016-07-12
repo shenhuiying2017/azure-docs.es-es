@@ -34,7 +34,7 @@ Las aplicaciones multiinquilino son un ejemplo visible de un tipo de aplicación
 Encontramos que dichas aplicaciones se extienden por todo el espectro de aplicaciones basadas en la nube, incluidos
 - Aplicaciones de base de datos de ISV en transición a la nube como aplicaciones de SaaS
 - Aplicaciones de SaaS elaboradas para la nube desde cero
-- Aplicaciones directas al consumidor/para el usuario final 
+- Aplicaciones directas al consumidor/para el usuario final
 - Aplicaciones empresariales para los empleados
 
 Tanto las aplicaciones de SaaS surgidas en la nube como las aplicaciones de SaaS basadas en aplicaciones de base de datos de ISV suelen derivar en aplicaciones multiinquilino. Estas aplicaciones de SaaS ofrecen una aplicación de software especializado como servicio a sus inquilinos. Los inquilinos tienen acceso al servicio de la aplicación y la propiedad total de los datos asociados almacenados como parte de la aplicación. Pero para poder aprovechar las ventajas de SaaS, sus inquilinos deben entregar un nivel de control sobre sus propios datos, al confiar en el proveedor de SaaS para que los mantenga seguros y aislados de los datos de otros inquilinos. Ejemplos típicos son MyOB, SnelStart, Salesforce, etc. Todas estas aplicaciones permiten la creación de particiones a lo largo de los límites del inquilino y, por tanto, admiten los patrones de las aplicaciones que se tratan en las siguientes secciones de este artículo.
@@ -49,7 +49,7 @@ Los modelos de diseño multiinquilino que exploramos en las secciones siguientes
 
 Para los desarrolladores que crean aplicaciones multiinquilino en la nube, existen las siguientes dimensiones principales:
 
--	***Aislamiento de inquilinos***: los desarrolladores deben garantizar que ningún inquilino obtiene acceso sin autorización a los datos de otros inquilinos. Este requisito de aislamiento se extiende a otras propiedades como la protección de vecinos ruidosos, la capacidad de restaurar los datos de un inquilino determinado, la personalización específica de inquilinos, etc. 
+-	***Aislamiento de inquilinos***: los desarrolladores deben garantizar que ningún inquilino obtiene acceso sin autorización a los datos de otros inquilinos. Este requisito de aislamiento se extiende a otras propiedades como la protección de vecinos ruidosos, la capacidad de restaurar los datos de un inquilino determinado, la personalización específica de inquilinos, etc.
 -	***Costo de los recursos de nube***: la aplicación de SaaS debe ser rentable. Según esto, los desarrolladores optimizan las aplicaciones de SaaS para reducir el costo del uso de recursos de nube (proceso, almacenamiento, etc.) al diseñar las aplicaciones multiinquilino.
 -	***Facilidad de DevOps***: los proveedores de aplicaciones multiinquilino deben crear una protección de aislamiento, mantener sus aplicaciones o el esquema de la base de datos, supervisar su estado y solucionar los problemas de sus inquilinos. La complejidad del desarrollo y el funcionamiento de las aplicaciones se traduce directamente en el costo añadido y la menor satisfacción del inquilino.
 -	***Escalabilidad***: agregar gradualmente más inquilinos es primordial para el funcionamiento correcto de SaaS, así como también lo es agregar más capacidad para los inquilinos que necesiten más recursos.
@@ -71,7 +71,7 @@ Las prácticas de diseño comunes para colocar los datos del inquilino siguen es
   
 1.	***Base de datos por inquilino***: este enfoque coloca cada inquilino en su propia base de datos. Todos los datos específicos del inquilino se limitan a su base de datos y se asilan de otros inquilinos y sus datos.
 2.	***Bases de datos divididas compartidas***: este enfoque utiliza varias bases de datos con varios inquilinos que las comparten, es decir, a cada base de datos se asigna un conjunto distinto de los inquilinos mediante una estrategia de división como hash, intervalo o particiones de lista. Esta estrategia de distribución de datos a menudo se conoce como particionamiento.
-3.	***Única base de datos compartida***: esta solución utiliza una única base de datos, a veces grande, que contiene datos de todos los inquilinos sin ambigüedad con una columna de identificador del inquilino. 
+3.	***Única base de datos compartida***: esta solución utiliza una única base de datos, a veces grande, que contiene datos de todos los inquilinos sin ambigüedad con una columna de identificador del inquilino.
   
 > [AZURE.NOTE] A veces, varios inquilinos también se colocan en esquemas de base de datos diferentes donde el nombre de este se utiliza para eliminar la ambigüedad entre inquilinos. No es un enfoque recomendado, ya que normalmente requiere el uso de SQL dinámico y no podrá usar eficazmente el almacenamiento en caché de plan. Por lo tanto, el resto de este artículo se centra en el enfoque de tabla compartida en esta categoría.
  
@@ -80,8 +80,8 @@ Las prácticas de diseño comunes para colocar los datos del inquilino siguen es
 Al evaluar el uso de estos modelos de datos multiinquilino es importante enmarcarlos en cuanto a ventajas y desventajas del diseño de la aplicación explicadas en la sección anterior.
 
 -	***Aislamiento***: el grado de aislamiento entre los inquilinos como medida de cuánto aislamiento logra un modelo de datos, y
--	***Costo de los recursos de nube***: la cantidad de recursos compartidos entre inquilinos para optimizar el costo de los recursos de nube. Un recurso puede definirse como el costo de proceso y de almacenamiento. 
--	***Costo de DevOps***: facilidad de desarrollo de aplicaciones, la implementación y la administración reducen el costo operativo global de SaaS.  
+-	***Costo de los recursos de nube***: la cantidad de recursos compartidos entre inquilinos para optimizar el costo de los recursos de nube. Un recurso puede definirse como el costo de proceso y de almacenamiento.
+-	***Costo de DevOps***: facilidad de desarrollo de aplicaciones, la implementación y la administración reducen el costo operativo global de SaaS.
 
 Con estas dimensiones podemos identificar los modelos de datos multiinquilino descritos anteriormente y su uso de la base de datos con el espacio del cuadrante que se muestra en la figura 2. El grado de aislamiento de inquilinos y la cantidad de uso compartido de recursos describen las dimensiones de eje X e Y del espacio. La gran flecha diagonal en el medio indica los costos de DevOps.
 
@@ -148,6 +148,8 @@ Para los proveedores de aplicaciones multiinquilino sin requisitos de aislamient
 
 Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 
+Si quiere ver una aplicación de ejemplo que proporciona una solución para un escenario de Software como solución (SaaS) que aprovecha los grupos elásticos con el fin de ofrecer un back-end de base de datos escalable y rentable de una aplicación SaaS, consulte [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Panel personalizado de grupos elásticos para SaaS).
+
 Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para crear un nuevo grupo, consulte el tutorial [Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-portal.md).
@@ -159,8 +161,9 @@ Para supervisar y administrar un grupo de bases de datos elásticas, consulte [S
 - [¿Qué es un grupo de bases de datos elásticas de Azure?](sql-database-elastic-pool.md)
 - [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
 - [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md) (Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect (Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Inicios rápidos de soluciones](sql-database-solution-quick-starts.md)
 
 ## Preguntas y solicitudes de características
 
@@ -176,4 +179,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base 
 
 	
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

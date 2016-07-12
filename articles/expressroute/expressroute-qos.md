@@ -21,7 +21,7 @@ Skype Empresarial tiene varias cargas de trabajo que requieren tratamiento difer
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
->[AZURE.NOTE] Los requisitos de QoS solo se aplican al emparejamiento de Microsoft.
+>[AZURE.NOTE] Los requisitos de QoS solo se aplican al emparejamiento de Microsoft. Los valores de DSCP en el tráfico de red recibido en el emparejamiento público y privado de Azure se restablecerán a 0.
 
 En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Skype Empresarial. Consulte [Administración de QoS para Skype Empresarial](https://technet.microsoft.com/library/gg405409.aspx) para obtener más información.
 
@@ -50,4 +50,4 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

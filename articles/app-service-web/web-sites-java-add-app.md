@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Incorporación de una aplicación de Java a Aplicaciones web del Servicio de aplicaciones de Azure
@@ -22,8 +22,8 @@ Cuando haya inicializado la aplicación web de Java en [Servicio de aplicaciones
 
 La ruta de acceso de navegación a la carpeta **webapps** varía en función de cómo haya configurado la instancia de Aplicaciones web.
 
-- Si configura su aplicación web con Azure Martketplace, la ruta de acceso a la carpeta **webapps** tiene el formato **d:\\home\\site\\wwwroot\\bin\\application\_server\\webapps**, donde **application\_server** es el nombre del servidor de la aplicación vigente en su instancia de Aplicaciones web. 
-- Si configura su aplicación web con la interfaz de usuario de configuración de Azure, la ruta de acceso a la carpeta **webapps** tiene el formato **d:\\home\\site\\wwwroot\\webapps**. 
+- Si configura su aplicación web con Azure Martketplace, la ruta de acceso a la carpeta **webapps** tiene el formato **d:\\home\\site\\wwwroot\\bin\\application\_server\\webapps**, donde **application\_server** es el nombre del servidor de la aplicación vigente en su instancia de Aplicaciones web.
+- Si configura su aplicación web con la interfaz de usuario de configuración de Azure, la ruta de acceso a la carpeta **webapps** tiene el formato **d:\\home\\site\\wwwroot\\webapps**.
 
 Tenga en cuenta que puede utilizar el control de código fuente para cargar la aplicación o páginas web, incluso en escenarios de integración continua. Las instrucciones para utilizar el control de código fuente con la aplicación web están disponibles en [Implementación continua con GIT en Servicio de aplicaciones de Azure](web-sites-publish-source-control.md). FTP también es una opción para cargar la aplicación o las páginas web.
 
@@ -40,4 +40,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 <!-- External Links -->
 [Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

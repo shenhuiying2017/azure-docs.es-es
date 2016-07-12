@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="06/30/2016"
    ms.author="sumukhs"/>
 
 # Configurar servicios de confianza con estado
@@ -162,4 +162,4 @@ Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obl
  - [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
  - [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

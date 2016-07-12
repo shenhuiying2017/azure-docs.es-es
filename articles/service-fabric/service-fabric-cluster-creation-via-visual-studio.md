@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/04/2016"
+   ms.date="06/27/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Configuración de un clúster de Service Fabric mediante Visual Studio
@@ -39,16 +39,17 @@ Antes de implementar la plantilla para crear el clúster, debe proporcionar los 
 
 |Nombre de parámetro |Descripción|
 |-----------------------  |--------------------------|
+|adminUserName |El nombre de la cuenta de administrador para máquinas de Service Fabric (nodos).|
 |certificateThumbprint |La huella digital del certificado que protegerá al clúster.|
 |sourceVaultResourceId |El *Identificador de recurso* del almacén de claves donde se guarda el certificado que protege al clúster.|
 |certificateUrlValue |La dirección URL del certificado de seguridad del clúster.|
 
-La plantilla del Administrador de recursos de Service Fabric de Visual Studio crea un clúster seguro que está protegido por un certificado. Este certificado se identifica mediante los tres últimos parámetros de plantilla (`certificateThumbprint`, `sourceVaultValue` y `certificateUrlValue`) y tiene que encontrarse en un **Almacén de claves de Azure**. Para obtener más información sobre cómo crear el certificado de seguridad del clúster, consulte el artículo [Protección de un clúster de Service Fabric mediante certificados](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates).
+La plantilla del Administrador de recursos de Service Fabric de Visual Studio crea un clúster seguro que está protegido por un certificado. Este certificado se identifica mediante los tres últimos parámetros de plantilla (`certificateThumbprint`, `sourceVaultValue` y `certificateUrlValue`) y tiene que encontrarse en un **Almacén de claves de Azure**. Para obtener más información sobre cómo crear el certificado de seguridad del clúster, consulte el artículo [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric).
 
 ## Opcional: cambio del nombre del clúster
-Cada clúster de Service Fabric tiene un nombre. Cuando se crea un clúster de Fabric en Azure, el nombre determina (junto con la región de Azure) el nombre del Sistema de nombres de dominio (DNS) para el clúster. Por ejemplo, si el nombre del clúster es `myBigCluster` y el parámetro `clusterLocation` se establece como "este de EE. UU.", el nombre DNS del clúster será `myBigCluster.eastus.cloudapp.azure.com`.
+Cada clúster de Service Fabric tiene un nombre. Cuando se crea un clúster de Fabric en Azure, el nombre determina (junto con la región de Azure) el nombre del Sistema de nombres de dominio (DNS) para el clúster. Por ejemplo, si le da a su clúster el nombre `myBigCluster` y la ubicación (región de Azure) del grupo de recursos que hospedará el nuevo clúster es este de EE. UU., el nombre DNS del clúster será `myBigCluster.eastus.cloudapp.azure.com`.
 
-De forma predeterminada, el nombre del clúster se genera automáticamente y se convierte en único cuando se le adjunta un sufijo aleatorio a un prefijo "clúster". De esta forma, resulta muy fácil usar la plantilla como parte de un sistema de **integración continua** (CI). Si desea utilizar un nombre específico para el clúster, uno que sea significativo para usted, establezca el valor de la variable `clusterName` del archivo de plantilla de Resource Manager (`ServiceFabricCluster.json`) en el nombre elegido. Es la primera variable definida en ese archivo.
+De forma predeterminada, el nombre del clúster se genera automáticamente y se convierte en único cuando se le adjunta un sufijo aleatorio a un prefijo "clúster". De esta forma, resulta muy fácil usar la plantilla como parte de un sistema de **integración continua** (CI). Si quiere utilizar un nombre específico para el clúster, uno que sea significativo para usted, establezca el valor de la variable `clusterName` del archivo de plantilla de Resource Manager (`ServiceFabricCluster.json`) en el nombre elegido. Es la primera variable definida en ese archivo.
 
 ## Opcional: agregar puertos de aplicación pública
 Otro aspecto de la plantilla que quizá quiera cambiar antes de su implementación son los puertos de aplicación pública para el clúster. De forma predeterminada, la plantilla abre sólo dos puertos TCP públicos (80 y 8081); si necesita más para sus aplicaciones, tendrá que modificar la definición del equilibrador de carga de Azure en la plantilla. La definición se almacena en el archivo de plantilla principal (`ServiceFabricCluster.json`). Abra el archivo y busque `loadBalancedAppPort`. Observará que cada puerto está asociado con tres artefactos:
@@ -96,10 +97,10 @@ Otro aspecto de la plantilla que quizá quiera cambiar antes de su implementaci�
 	    }
 	}
     ```
-Si las aplicaciones que va a implementar en el clúster necesitan más puertos, puede agregarlos mediante la creación de definiciones de reglas adicionales de sondeo y equilibrio de carga. Para obtener más información sobre cómo trabajar con el Equilibrador de carga de Azure mediante plantillas de Resource Manager, consulte [Primeros pasos en la creación de un equilibrador de carga interno mediante una plantilla](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
+Si las aplicaciones que va a implementar en el clúster necesitan más puertos, puede agregarlos mediante la creación de definiciones de reglas adicionales de sondeo y equilibrio de carga. Para obtener más información sobre cómo trabajar con Azure Load Balancer mediante plantillas de Resource Manager, consulte [Primeros pasos en la creación de un equilibrador de carga interno mediante una plantilla](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## Implementación de la plantilla con Visual Studio.
-Cuando haya guardado todos los valores de parámetro necesarios en el archivo `ServiceFabricCluster.param.dev.json`, ya puede implementar la plantilla y crear el clúster de Service Fabric. Haga clic con el botón derecho en el proyecto de grupo de recursos del explorador de soluciones de Visual Studio y elija **Implementar**. Visual Studio mostrará el cuadro de diálogo **Implementar en grupo de recursos**, que le pedirá autenticarse en Azure si es necesario:
+Una vez que guarde todos los valores de parámetro necesarios en el archivo `ServiceFabricCluster.param.dev.json`, ya está listo para implementar la plantilla y crear el clúster de Service Fabric. Haga clic con el botón derecho en el proyecto de grupo de recursos del Explorador de soluciones de Visual Studio y elija **Implementar| Nueva implementación**. Visual Studio mostrará el cuadro de diálogo **Implementar en grupo de recursos**, que le pedirá autenticarse en Azure si es necesario:
 
 ![Cuadro de diálogo Implementar en grupo de recursos][3]
 
@@ -115,7 +116,7 @@ Puede supervisar el progreso del proceso de implementación en la ventana Result
 
 Si hay errores, vaya al [Portal de Azure](https://portal.azure.com/) y abra el grupo de recursos en el que ha realizado la implementación. Haga clic en **Todas las opciones** y, luego, en la opción **Implementaciones** de la hoja de configuración. Una implementación de grupo de recursos con errores dejará allí una información de diagnóstico detallada.
 
->[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster, a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
+>[AZURE.NOTE] Los clústeres de Service Fabric requieren que un cierto número de nodos estén activos en todo momento con el fin de mantener la disponibilidad y conservar el estado (esto se conoce como "mantenimiento del cuórum"). Por lo tanto, normalmente no es seguro apagar todas las máquinas del clúster a menos que antes haya realizado una [copia de seguridad completa del estado](service-fabric-reliable-services-backup-restore.md).
 
 ## Pasos siguientes
 - [Obtener información acerca de la configuración de un clúster de Service Fabric en el Portal de Azure](service-fabric-cluster-creation-via-portal.md)
@@ -126,4 +127,4 @@ Si hay errores, vaya al [Portal de Azure](https://portal.azure.com/) y abra el g
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -19,8 +19,8 @@
 
 # Configuración de un conjunto de disponibilidad para máquinas virtuales en el modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. También puede configurar conjuntos de disponibilidad en las implementaciones del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. También puede configurar conjuntos de disponibilidad en las implementaciones del Administrador de recursos.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

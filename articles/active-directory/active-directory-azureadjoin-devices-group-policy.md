@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10
@@ -57,7 +57,7 @@ Para habilitar el acceso condicional, puede crear una configuración de directiv
 
 ### Paso 1: Implementar Azure Active Directory Connect
 
-Azure AD Connect permitirá el aprovisionamiento de los equipos del entorno local como objetos de dispositivo en la nube. Para implementar Azure AD Connect, consulte "Instalación de Azure AD Connect" en el artículo [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect/#install-azure-ad-connect).
+Azure AD Connect permitirá el aprovisionamiento de los equipos del entorno local como objetos de dispositivo en la nube. Para implementar Azure AD Connect, consulte la sección Instalación de Azure AD Connect del artículo [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
  - Si siguió la [instalación personalizada para Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (no la instalación rápida), debe seguir el procedimiento **Creación de un punto de conexión de servicio en Active Directory local** que se describe a continuación.
  - Si tiene una configuración federada con Azure AD antes de instalar Azure AD Connect (por ejemplo, si ha implementado antes los Servicios de federación de Active Directory (AD FS)), siga el procedimiento **Configuración de reglas de notificaciones de AD FS** que se describe más adelante.
@@ -130,8 +130,8 @@ Puede usar una directiva de grupo de Active Directory para configurar sus dispos
 3.	Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**. Asigne un nombre a su objeto de directiva de grupo, por ejemplo, Unión automática a Azure AD. Haga clic en **Aceptar**.
 4.	Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y luego seleccione **Editar**.
 5.	Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Unión al área de trabajo**.
-6.	Haga clic con el botón derecho en **Unir los equipos cliente al lugar de trabajo automáticamente** y luego seleccione **Editar**.
-7.	Seleccione el botón de opción **Habilitado** y luego haga clic en **Aplicar**. Haga clic en **Aceptar**.
+6.	Haga clic con el botón derecho en **Unir automáticamente equipos cliente al área de trabajo** y, después, seleccione **Editar**.
+7.	Seleccione el botón de opción **Habilitado** y, luego, haga clic en **Aplicar**. Haga clic en **Aceptar**.
 8.	Vincule el objeto de la directiva de grupo a una ubicación de su elección. Para habilitar esta directiva para todos los dispositivos de Windows 10 unidos a un dominio en su organización, vincule el objeto de la directiva de grupo al dominio. Por ejemplo:
  - Una unidad organizativa (OU) específica en Active Directory donde se encontrarán los equipos unidos a un dominio de Windows 10.
  - Un grupo de seguridad específico que contiene equipos unidos a un dominio de Windows 10 que se registrarán automáticamente en Azure AD.
@@ -147,4 +147,4 @@ Esta plantilla de directiva de grupo ha cambiado su nombre en Windows 10. Si va 
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0629_2016-->

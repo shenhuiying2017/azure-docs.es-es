@@ -20,7 +20,7 @@
 
 Hay dos tipos de colecciones de Azure RemoteApp:
 
-- Nube: reside completamente en Azure. Puede guardar todos los datos en la nube (colección de solo nube) o conectar la colección a una red virtual y guardar datos en ella.   
+- Nube: reside completamente en Azure. Puede guardar todos los datos en la nube (colección de solo nube) o conectar la colección a una red virtual y guardar datos en ella.
 - Híbrida: incluye una red virtual para el acceso local (esto requiere el uso de Azure AD y de un entorno de Active Directory local).
 
 ¿No sabe qué necesita? Revise [¿Qué tipo de colección necesita para Azure RemoteApp?](remoteapp-collections.md)
@@ -112,7 +112,7 @@ Si vincula una imagen de plantilla existente, simplemente especifique el nombre,
 
 Azure RemoteApp requiere que realice la integración con Azure Active Directory de una de las siguientes maneras: 1) configurar la sincronización de Azure Active Directory con la opción de sincronización de contraseñas; 2) configurar la sincronización de Azure Active Directory sin la opción de sincronización de contraseñas pero usando un dominio que esté federado con AD FS.
 
-Consulte [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx): este artículo le ayuda a configurar la integración de directorios en cuatro pasos.
+Consulte [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/): este artículo le ayuda a configurar la integración de directorios en cuatro pasos.
 
 Consulte [Guía de sincronización de directorios](http://msdn.microsoft.com//library/azure/hh967642.aspx) para obtener información sobre planeación y pasos detallados.
 
@@ -149,4 +149,4 @@ Eso es todo, creó e implementó correctamente su colección híbrida de Azure R
 ### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, a continuación, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

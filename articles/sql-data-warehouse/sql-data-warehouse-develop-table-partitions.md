@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/25/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Particiones de tabla en el Almacenamiento de datos SQL
@@ -31,7 +31,7 @@ El Almacenamiento de datos de SQL ofrece a un DBA varias opciones para tipos de 
 
 Normalmente, las particiones de tabla son útiles de dos maneras principales:
 
-1. Mediante el uso del intercambio de particiones para truncar rápidamente una sección de una tabla. Un diseño de uso común es que una tabla de hechos solo contenga filas durante un período finito predeterminado. Por ejemplo, una tabla de hechos de ventas podría contener datos solo para los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla. Esto se podría lograr mediante la simple eliminación de todas las filas del mes más antiguo, pero la eliminación de una gran cantidad de datos fila a fila puede tardar mucho tiempo. Para optimizar este escenario, el Almacenamiento de datos de SQL admite el intercambio de particiones, que permite quitar todo el conjunto de filas de una partición en una sola operación rápida.   
+1. Mediante el uso del intercambio de particiones para truncar rápidamente una sección de una tabla. Un diseño de uso común es que una tabla de hechos solo contenga filas durante un período finito predeterminado. Por ejemplo, una tabla de hechos de ventas podría contener datos solo para los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla. Esto se podría lograr mediante la simple eliminación de todas las filas del mes más antiguo, pero la eliminación de una gran cantidad de datos fila a fila puede tardar mucho tiempo. Para optimizar este escenario, el Almacenamiento de datos de SQL admite el intercambio de particiones, que permite quitar todo el conjunto de filas de una partición en una sola operación rápida.
 
 2. La creación de particiones permite a las consultas excluir con facilidad el procesamiento de un conjunto grande de filas (es decir, una partición) si las consultas colocan un predicado en la columna de partición. Por ejemplo, si la tabla de hechos de ventas se particiona en 36 meses con el campo de fecha de ventas, las consultas que se filtran por esa fecha de ventas pueden omitir particiones de procesamiento que no coinciden con el filtro. En efecto, la creación de particiones usada de esta manera es un índice general.
 
@@ -236,7 +236,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ### Control de código fuente de particiones de tabla
 Para evitar que la definición de tabla se **oxide** en el sistema de control de código fuente, es conveniente tener en cuenta lo siguiente:
 
-1. Crear la tabla como una tabla con particiones, pero sin valores de partición
+Cree la tabla como una tabla con particiones, pero sin valores de partición:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -260,7 +260,7 @@ WITH
 ;
 ```
 
-2. `SPLIT` la tabla como parte del proceso de implementación:
+`SPLIT` la tabla como parte del proceso de implementación:
 
 ```sql
 -- Create a table containing the partition boundaries
@@ -336,4 +336,4 @@ Una vez migrado correctamente el esquema de base de datos al Almacenamiento de d
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

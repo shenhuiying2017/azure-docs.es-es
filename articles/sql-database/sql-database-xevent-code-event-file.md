@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="genemi"/>
 
 
@@ -292,7 +292,7 @@ El script de PowerShell imprimió algunos valores con nombre cuando finalizó. D
 &nbsp;
 
 
-> [AZURE.WARNING] El valor de clave SAS generado con el script de PowerShell anterior podría comenzar con un carácter "?" (signo de interrogación). Al utilizar la clave SAS en el siguiente script de T-SQL, debe quitar el carácter "?" inicial.
+> [AZURE.WARNING] El valor de clave SAS generado con el script de PowerShell anterior podría comenzar con un carácter "?" (signo de interrogación). Al utilizar la clave SAS en el siguiente script de T-SQL, debe *quitar el carácter "?" inicial*. De lo contrario, podrían bloquearse su trabajo por motivos de seguridad.
 
 
 &nbsp;
@@ -559,9 +559,17 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
+&nbsp;
 
 
+El script Transact-SQL anterior utiliza la siguiente función de sistema para leer el archivo event\_file:
 
+- [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+
+
+En la siguiente página encontrará una explicación de las opciones avanzadas de la visualización de datos de eventos extendidos:
+
+- [Advanced Viewing of Target Data from Extended Events](http://msdn.microsoft.com/library/mt752502.aspx) (Visualización avanzada de datos de destino de eventos extendidos)
 
 &nbsp;
 
@@ -585,20 +593,15 @@ Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL 
 ## Más información
 
 
-El tema principal de los eventos extendidos en Base de datos SQL de Azure es:
-
-- [Eventos extendidos en Base de datos SQL](sql-database-xevent-db-diff-from-svr.md) es el tema principal para los eventos extendidos en Base de datos SQL de Azure.
- - Compara los aspectos de los eventos extendidos que son distintos entre Base de datos SQL de Azure y Microsoft SQL Server.
-
-
-- [Código de destino de búfer en anillo para eventos extendidos en Base de datos SQL](sql-database-xevent-code-ring-buffer.md), que proporciona un ejemplo de código similar, rápido y simple, pero que se utiliza más en pruebas breves y es menos eficaz para una actividad de mayor tamaño.
-
-
 Si desea obtener más información sobre las cuentas y los contenedores del servicio de Almacenamiento de Azure, consulte:
 
 - [Uso del almacenamiento de blobs de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Asignar nombres y hacer referencia a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Trabajar con el contenedor raíz](http://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [Lección 1: Crear una directiva de acceso almacenada y una firma de acceso compartido en un contenedor de Azure](http://msdn.microsoft.com/library/dn466430.aspx)
+    - [Lección 2: Crear una credencial de SQL Server con una firma de acceso compartido](http://msdn.microsoft.com/library/dn466435.aspx)
+
+
 
 
 <!--
@@ -607,4 +610,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

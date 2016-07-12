@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/15/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -32,13 +32,13 @@ La protección del acceso a los recursos de la empresa es importante para todas 
 
 ## Acceso basado en usuario a los recursos
   
-- **Atributos de usuario**: en el nivel de atributos de usuario, puede aplicar directivas para asegurarse de que solo los usuarios autorizados pueden acceder a los recursos de la empresa.   
-- **Pertenencia a grupos de un usuario**: también puede controlar el nivel de acceso proporcionado a un usuario basándose en su pertenencia a un grupo o grupos.   
-- **Autenticación multifactor (MFA)**: también puede aplicar directivas cuando un usuario tenga que autenticar su identidad mediante un sistema de autenticación multifactor. Por ejemplo, puede obligar a un usuario a confirmar un PIN en un teléfono móvil personal para garantizar un nivel de seguridad adicional. La autenticación de MFA protege los recursos impidiendo que acceda a ellos un usuario no autorizado que haya obtenido acceso al nombre de usuario y a la contraseña de un usuario válido. 
-- **Riesgo de inicio de sesión y usuario**: Azure AD Identity Protection dispone de directivas de riesgo de acceso condicional que proporcionan protección avanzada basada en eventos de riesgo y actividades de inicio de sesión inusuales. 
+- **Atributos de usuario**: en el nivel de atributos de usuario, puede aplicar directivas para asegurarse de que solo los usuarios autorizados pueden acceder a los recursos de la empresa.
+- **Pertenencia a grupos de un usuario**: también puede controlar el nivel de acceso proporcionado a un usuario basándose en su pertenencia a un grupo o grupos.
+- **Autenticación multifactor (MFA)**: también puede aplicar directivas cuando un usuario tenga que autenticar su identidad mediante un sistema de autenticación multifactor. Por ejemplo, puede obligar a un usuario a confirmar un PIN en un teléfono móvil personal para garantizar un nivel de seguridad adicional. La autenticación de MFA protege los recursos impidiendo que acceda a ellos un usuario no autorizado que haya obtenido acceso al nombre de usuario y a la contraseña de un usuario válido.
+- **Riesgo de inicio de sesión y usuario**: Azure AD Identity Protection dispone de directivas de riesgo de acceso condicional que proporcionan protección avanzada basada en eventos de riesgo y actividades de inicio de sesión inusuales.
  
 
-## Acceso condicional basado en dispositivo 
+## Acceso condicional basado en dispositivos 
 
 **Dispositivos inscritos**: en el nivel de dispositivo, puede configurar directivas que exijan que solo se permita el acceso a los dispositivos inscritos en Mobile Device Management (MDM). Microsoft Intune se utiliza para validar que el dispositivo está inscrito y es compatible. El acceso condicional de nivel de dispositivo garantiza que solo se permite el acceso a los dispositivos que sean compatibles con sus directivas, como exigir el cifrado de archivos en un dispositivo. Además, mediante soluciones MDM, puede asegurarse de que los datos corporativos de un dispositivo perdido o robado se puedan borrar de forma remota.
   
@@ -51,9 +51,9 @@ El mapa de contenido siguiente enumera los documentos que debe consultar para ob
 
 | Escenario | Artículos |
 |------------------------------------------------------|----------|
-| Protección de los recursos basada en el usuario o la seguridad de la autenticación |[Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[Conditional access support for applications](active-directory-conditional-access-supported-apps.md) (Compatibilidad con acceso condicional para las aplicaciones)|
+| Protección de los recursos basada en el usuario o la seguridad de la autenticación |[Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br><br>[Compatibilidad con el acceso condicional de las aplicaciones](active-directory-conditional-access-supported-apps.md)|
 | Proteger los datos corporativos en dispositivos perdidos o robados |[Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune) (Ayuda para proteger los datos con borrado completo o selectivo mediante Microsoft Intune)|
 |Protección de recursos basada en el riesgo de inicio de sesión |[Azure AD Identity Protection](active-directory-identityprotection.md) |
-| Información adicional |[Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)|
+| Información adicional |[Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)<br><br>[Referencia técnica](active-directory-conditional-access-technical-reference.md) |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

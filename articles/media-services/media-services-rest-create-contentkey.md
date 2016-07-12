@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -35,11 +35,11 @@ Los recursos cifrados tienen que estar asociados con **ContentKey**. En este art
 
 A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar.
 
-1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento). 
+1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento).
 
-	Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
+	Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado.
 2.	Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
-3.	Cifre la clave de contenido con la clave pública del certificado X.509. 
+3.	Cifre la clave de contenido con la clave pública del certificado X.509.
 
 	El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado. Puede ver un ejemplo en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Cree un valor de suma de comprobación (según el algoritmo de suma de comprobación de claves AES de PlayReady) calculado con el identificador de clave y la clave de contenido. Para obtener más información, vea la sección "Algoritmo de sumas de comprobación de claves AES de PlayReady" del documento Objeto de encabezado de PlayReady que se encuentra [aquí](http://www.microsoft.com/playready/documents/).
@@ -262,4 +262,4 @@ Respuesta:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

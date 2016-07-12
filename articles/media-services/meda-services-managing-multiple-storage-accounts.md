@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 A partir de Servicios multimedia de Microsoft Azure 2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia ofrece las siguientes ventajas:
 
 - Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
-- Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
+- Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB).
 
 En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia mediante la API de REST de administración de servicios de Azure. También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia.
 
@@ -32,7 +32,7 @@ Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia,
 
 - Todas las cuentas de almacenamiento asociadas a una cuenta de Servicios multimedia deben estar en el mismo centro de datos que la cuenta de Servicios multimedia.
 - Actualmente, cuando se asocia una cuenta de almacenamiento a la cuenta especificada de Servicios multimedia, no se puede desasociar.
-- La cuenta de almacenamiento principal es la indicada durante el tiempo de creación de cuenta de Servicios multimedia. Actualmente, no puede cambiar la cuenta de almacenamiento predeterminada. 
+- La cuenta de almacenamiento principal es la indicada durante el tiempo de creación de cuenta de Servicios multimedia. Actualmente, no puede cambiar la cuenta de almacenamiento predeterminada.
 
 Otras consideraciones:
 
@@ -259,4 +259,4 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Solución de problemas de conectividad con Azure AD Connect
@@ -33,14 +33,14 @@ El servidor proxy también debe tener abiertas las direcciones URL necesarias. L
 
 De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azure AD. Esta lista no incluye características opcionales, como la escritura diferida de contraseñas ni Azure AD Connect Health. Se documentan aquí para ayudar a solucionar problemas de la configuración inicial.
 
-|URL | Port | Descripción|
-|---- | ---- | ----|
-| mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL.|
-| *.verisign.com | HTTP/80 | Se usa para descargar listas CRL.|
-| *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL de MFA.|
-| *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD.|
-| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.|
-| *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos.|
+URL | Port | Descripción
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL.
+*.verisign.com | HTTP/80 | Se usa para descargar listas CRL.
+*.entrust.com | HTTP/80 | Se utiliza para descargar listas CRL de MFA.
+*.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD.
+*.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA.
+*.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos.
 
 ## Errores en el asistente
 El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectar con Azure AD**, se utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar**, se cambia a la [cuenta que está ejecutando el servicio del motor de sincronización](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Las configuraciones de proxy que realizamos son globales para el equipo, por lo que si hay un problema, probablemente ya aparecerá en la página **Conectar con Azure AD** del asistente.
@@ -74,10 +74,10 @@ Si recibe **No es posible conectar con el servidor remoto**, PowerShell está in
 
 Si el proxy no está configurado correctamente, se producirá un error: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-|Error | Texto del error | Comentario
-|---- | ---- | ---- |
-|403 | Prohibido | No se abrió el servidor proxy para la dirección URL solicitada. Revise la configuración del servidor proxy y asegúrese de que las direcciones [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) estén abiertas. |
-|407 | Se requiere autenticación del proxy | El servidor proxy requiere inicio de sesión y no se ha proporcionado. Si el servidor proxy requiere autenticación, asegúrese de que esto esté configurado en el archivo machine.config. Compruebe también que está usando cuentas de dominio para el usuario que ejecuta el asistente, así como para la cuenta de servicio. |
+Error | Texto del error | Comentario
+---- | ---- | ---- |
+403 | Prohibido | No se abrió el servidor proxy para la dirección URL solicitada. Revise la configuración del servidor proxy y asegúrese de que las direcciones [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) estén abiertas.
+407 | Se requiere autenticación del proxy | El servidor proxy requiere inicio de sesión y no se ha proporcionado. Si el servidor proxy requiere autenticación, asegúrese de que esto esté configurado en el archivo machine.config. Compruebe también que está usando cuentas de dominio para el usuario que ejecuta el asistente, así como para la cuenta de servicio.
 
 ## Patrón de comunicación entre Azure AD Connect y Azure AD
 Si siguió todos los pasos anteriores y aún no se puede conectar, en este momento puede comenzar a examinar los registros de red. En esta sección se documenta un patrón de conectividad normal y correcta. También muestra una lista de pistas falsas habituales que se pueden omitir si se están leyendo los registros de red.
@@ -175,4 +175,4 @@ Este error aparece cuando el Ayudante para el inicio de sesión no puede conecta
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

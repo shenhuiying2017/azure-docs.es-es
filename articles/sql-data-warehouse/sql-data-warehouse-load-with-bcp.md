@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
+   ms.date="06/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Consulte [Diseño de tablas en el Almacenamiento de datos SQL][] o la [sintaxis de CREATE TABLE][] para más información sobre cómo crear una tabla en Almacenamiento de datos SQL y las opciones disponibles en la cláusula WITH.
+>[AZURE.NOTE] Consulte la [información general sobre las tablas][] o la [sintaxis de CREATE TABLE][] para más información sobre cómo crear una tabla en Almacenamiento de datos SQL y las opciones disponibles en la cláusula WITH.
 
 ### Paso 2: Crear un archivo de datos de origen
 
@@ -178,10 +178,10 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 
 <!--Article references-->
 
-[Carga de datos en Almacenamiento de datos SQL]: sql-data-warehouse-overview-load.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
-[Diseño de tablas en el Almacenamiento de datos SQL]: sql-data-warehouse-develop-table-design.md
-[Estadísticas]: sql-data-warehouse-develop-statistics.md
+[Carga de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-load.md
+[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
+[información general sobre las tablas]: ./sql-data-warehouse-tables-overview.md
+[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -190,4 +190,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="06/29/2016"
 	ms.author="adrianha;ricksal"/>
 
 # Uso de la biblioteca de cliente de JavaScript para Aplicaciones móviles de Azure
@@ -57,60 +57,37 @@ Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de clie
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>Registro de notificaciones push
+###<a name="configure-external-redirect-urls"></a>Configuración del servicio Aplicaciones móviles para direcciones URL de redirección externa
 
-Instale [phonegap-plugin-push] para administrar las notificaciones push. Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos o por medio del instalador de complementos Git dentro de Visual Studio. El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
+Varios tipos de aplicaciones JavaScript usan una funcionalidad de bucle invertido para administrar los flujos de la interfaz de usuario de OAuth, por ejemplo, al ejecutar el servicio localmente, al usar la recarga activa en Ionic Framework o al redirigir la autenticación al Servicio de aplicaciones. Esto puede ocasionar problemas porque, de forma predeterminada, la autenticación del Servicio de aplicaciones solo está configurada para permitir el acceso desde el back-end de aplicaciones móviles.
 
-```
-var pushOptions = {
-    android: {
-        senderId: '<from-gcm-console>'
-    },
-    ios: {
-        alert: true,
-        badge: true,
-        sound: true
-    },
-    windows: {
-    }
-};
-pushHandler = PushNotification.init(pushOptions);
+Utilice los pasos siguientes para cambiar la configuración del Servicio de aplicaciones para permitir la autenticación desde el host local:
 
-pushHandler.on('registration', function (data) {
-    registrationId = data.registrationId;
-    // For cross-platform, you can use the device plugin to determine the device
-    // Best is to use device.platform
-    var name = 'gcm'; // For android - default
-    if (device.platform.toLowerCase() === 'ios')
-        name = 'apns';
-    if (device.platform.toLowerCase().substring(0, 3) === 'win')
-        name = 'wns';
-    client.push.register(name, registrationId);
-});
+1. Inicie sesión en el [Portal de Azure], vaya a su back-end de aplicaciones móviles y haga clic en **Herramientas** > **Explorador de recursos** > **Ir** para abrir una nueva ventana del explorador de recursos para su back-end de aplicaciones móviles (sitio).
 
-pushHandler.on('notification', function (data) {
-    // data is an object and is whatever is sent by the PNS - check the format
-    // for your particular PNS
-});
+2. Expanda el nodo **config** de la aplicación, luego haga clic en **authsettings** > **Editar**, busque el elemento **allowedExternalRedirectUrls**, que debe ser nulo, y cámbielo por lo siguiente:
 
-pushHandler.on('error', function (error) {
-    // Handle errors
-});
-```
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
 
-Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor. Nunca debe enviar notificaciones push directamente desde los clientes ya que esta acción podría usarse para desencadenar un ataque por denegación de servicio contra Centros de notificaciones o el PNS.
+    Reemplace las direcciones URL de la matriz por las de su servicio; en este ejemplo, la dirección URL es `http://localhost:3000` para el servicio de ejemplo de Node.js local. También podría usar `http://localhost:4400` para el servicio Ripple o alguna otra dirección URL, según cómo esté configurada su aplicación.
+    
+3. En la parte superior de la página, haga clic en **Read/Write** (Lectura y escritura) y haga clic en **PUT** para guardar las actualizaciones.
+
+    Aún deberá agregar las mismas direcciones URL de bucle invertido a la configuración de lista blanca de CORS:
+
+4. De nuevo en el [Portal de Azure] en el back-end de aplicaciones móviles, haga clic en **Toda la configuración** > **CORS**, agregue las direcciones URL de bucle invertido y luego haga clic en **Guardar**.
+
+Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle invertido en la aplicación.
 
 <!-- URLs. -->
 [inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
 [Incorporación de autenticación a la aplicación de Servicios móviles]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
-[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentación de objetos de consulta]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
+[SDK de JavaScript para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[Query object documentation]: https://msdn.microsoft.com/es-ES/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

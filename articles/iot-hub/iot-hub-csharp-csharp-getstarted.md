@@ -229,11 +229,11 @@ Este tutorial le guiará por los pasos para crear un cliente de dispositivo de C
 
 Ahora está preparado para ejecutar las aplicaciones.
 
-1.	En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** y seleccione **Iniciar** como la acción para los proyectos **ProcessDeviceToCloudMessages** y **SimulatedDevice**.
+1.	En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** y seleccione **Iniciar** como acción para los proyectos **ReadDeviceToCloudMessages** y **SimulatedDevice**.
 
    	![Propiedades del proyecto de inicio][41]
 
-2.	Presione **F5** para iniciar la ejecución de ambas aplicaciones. La salida de la consola de la aplicación **SimulatedDevice** muestra los mensajes que envía el dispositivo simulado al Centro de IoT. La salida de la consola de la aplicación **ProcessDeviceToCloudMessages** muestra los mensajes que recibe el Centro de IoT.
+2.	Presione **F5** para iniciar la ejecución de ambas aplicaciones. La salida de la consola de la aplicación **SimulatedDevice** muestra los mensajes que envía el dispositivo simulado al Centro de IoT. La salida de la consola de la aplicación **ReadDeviceToCloudMessages** muestra los mensajes que recibe el Centro de IoT.
 
    	![Salida de la consola de aplicaciones][42]
 
@@ -277,4 +277,4 @@ En este tutorial, configuró un nuevo Centro de IoT en el portal y después cre�
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

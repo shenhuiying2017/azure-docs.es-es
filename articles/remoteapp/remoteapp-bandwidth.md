@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 # Calcular el uso del ancho de banda de red de Azure RemoteApp 
@@ -39,4 +39,4 @@ Aunque trataremos el redireccionamiento de dispositivos, no tendremos en cuenta 
 
 Tampoco analizamos cómo un usuario puede afectar a otros usuarios dentro de la misma red. Por ejemplo, un usuario que consume un vídeo de 4K en una red de 100 MB/s puede afectar significativamente a otros usuarios de esa misma red que intenten realizar la misma tarea. Lamentablemente, cada vez es más difícil determinar el impacto del uso simultáneo para proporcionar una recomendación común o integral acerca de cómo funciona el sistema a nivel global. Todo lo que podemos decir es que la tecnología de protocolo subyacente hará el mejor uso del ancho de banda de red disponible, pero tiene sus limitaciones.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

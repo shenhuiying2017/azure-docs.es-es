@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/31/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
     
 # Azure RemoteApp: probar el uso de ancho de banda de red con algunos escenarios comunes
@@ -97,4 +97,4 @@ Para evaluar el ancho de banda de red por usuario, cree una combinación de los 
 
 - [Ancho de banda de red de Azure RemoteApp: directrices generales (si no puede probarlo por sí mismo)](remoteapp-bandwidthguidelines.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

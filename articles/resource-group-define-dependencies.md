@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Definición de dependencias en plantillas del Administrador de recursos de Azure
@@ -101,11 +101,11 @@ La función reference permite que una expresión derive su valor de otros pares 
 
 Puede usar este elemento o el elemento dependsOn para especificar las dependencias, pero no es necesario usar ambos para el mismo recurso dependiente. Lo aconsejable es usar la referencia implícita para evitar el riesgo de tener por accidente un elemento dependsOn innecesario que impida que el motor de implementación realice aspectos de la implementación en paralelo.
 
-Para más información, consulte [función reference](../resource-group-template-functions/#reference).
+Para más información, consulte [función reference](resource-group-template-functions.md#reference).
 
 ## Pasos siguientes
 
-- Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
+- Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

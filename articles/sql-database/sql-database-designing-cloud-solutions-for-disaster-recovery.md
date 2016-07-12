@@ -32,7 +32,7 @@ Esta opción es mejor para las aplicaciones con las siguientes características:
 
 + Instancia activa de una única región de Azure.
 + Fuerte dependencia de acceso de lectura y escritura (RW) a los datos.
-+ La conectividad entre regiones entre la lógica de aplicación y la base de datos no es aceptable debido al costo del tráfico y la latencia.    
++ La conectividad entre regiones entre la lógica de aplicación y la base de datos no es aceptable debido al costo del tráfico y la latencia.
 
 En este caso la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando se ven afectados todos los componentes de aplicación y es necesario conmutar por error como una unidad. Para la redundancia geográfica tanto la lógica de aplicación como la base de datos se replican en otra región, pero no se usan para la carga de trabajo de aplicación en las condiciones normales. La aplicación en la región secundaria debe configurarse para usar una cadena de conexión SQL a la base de datos secundaria. El Administrador de tráfico se configura para usar [el método de enrutamiento de conmutación por error](../traffic-manager/traffic-manager-configure-failover-routing-method.md).
 
@@ -76,9 +76,9 @@ El principal **inconveniente** es que la instancia de aplicación redundante en 
 Esta opción de recuperación ante desastres en la nube es mejor para las aplicaciones con las siguientes características:
 
 + Una proporción alta de lecturas en relación a las escrituras en la base de datos.
-+ La latencia de escritura de la base de datos no afecta a la experiencia del usuario final.  
++ La latencia de escritura de la base de datos no afecta a la experiencia del usuario final.
 + La lógica de solo lectura se puede separar de la lógica de lectura y escritura mediante el uso de una cadena de conexión distinta.
-+ La lógica de solo lectura no depende de que los datos estén totalmente sincronizados con las actualizaciones más recientes.  
++ La lógica de solo lectura no depende de que los datos estén totalmente sincronizados con las actualizaciones más recientes.
 
 Si sus aplicaciones tienen estas características, el equilibrio de carga de las conexiones de usuario final en varias instancias de la aplicación en diferentes regiones puede mejorar el rendimiento y la experiencia del usuario final. Para lograrlo, cada región debe tener una instancia activa de la aplicación con la lógica de lectura y escritura (RW) conectada a la base de datos principal en la región principal. La lógica de solo lectura (RO) debe estar conectada a una base de datos secundaria en la misma región que la instancia de aplicación. El administrador de tráfico debe configurarse para usar [enrutamiento Round Robin](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) o [enrutamiento del rendimiento](../traffic-manager/traffic-manager-configure-performance-routing-method.md) con [la supervisión de extremo](../traffic-manager/traffic-manager-monitoring.md) habilitada para cada instancia de la aplicación.
 
@@ -86,7 +86,7 @@ Como en el patrón nº 1, debe considerar la posibilidad de implementar una apli
 
 > [AZURE.NOTE] Mientras que este patrón usa más de una base de datos secundaria, solo uno de las secundarias se usará para la conmutación por error por los motivos que se indicaron anteriormente. Puesto que este patrón requiere acceso de solo lectura a la base de datos secundaria, necesitará la replicación geográfica activa.
 
-El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El diagrama siguiente muestra esta configuración antes de una interrupción.![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Si se detecta una interrupción de la base de datos en la región principal se inicia la conmutación por error de la base de datos principal a una de las regiones secundarias, lo que cambiará la ubicación de la base de datos principal. El Administrador de tráfico excluirá automáticamente el extremo sin conexión de la tabla de enrutamiento, pero continuará el enrutamiento del tráfico de usuario final a las instancias restantes en línea. Dado que la base de datos principal está ahora en una región distinta, todas las instancias en línea tienen que cambiar su cadena de conexión de SQL de lectura y escritura para conectarse con el nuevo elemento principal. Es importante que realice este cambio antes de iniciar la conmutación por error de la base de datos. Las cadenas de conexión de SQL de solo lectura deben permanecer sin cambios ya que siempre señalan a la base de datos en la misma región. Los pasos de conmutación por error son:
 
@@ -103,7 +103,7 @@ La **ventaja** clave de este patrón de diseño, es que se puede escalar la carg
 
 + las conexiones de lectura y escritura entre las instancias de la aplicación y la base de datos varían en latencia y costo.
 + El rendimiento de la aplicación se ve afectado durante la interrupción.
-+ Las instancias de aplicación son necesarias para cambiar dinámicamente la cadena de conexión de SQL después de la conmutación por error de la base de datos.  
++ Las instancias de aplicación son necesarias para cambiar dinámicamente la cadena de conexión de SQL después de la conmutación por error de la base de datos.
 
 > [AZURE.NOTE] Un enfoque similar puede usarse para descargar las cargas de trabajo especializadas, como trabajos de elaboración de informes, herramientas de inteligencia empresarial o copias de seguridad. Normalmente estas cargas de trabajo consumen una cantidad de recursos importante de la base de datos, por tanto, se recomienda designar una de las bases de datos secundarias para ellas que tenga un nivel de rendimiento que coincide con la carga de trabajo anticipada.
 
@@ -156,17 +156,14 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 ## Pasos siguientes
 
 - Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
+- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore).
 
-## Recursos adicionales
+## Pasos siguientes
 
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

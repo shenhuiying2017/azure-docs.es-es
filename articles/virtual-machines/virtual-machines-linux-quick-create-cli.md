@@ -19,7 +19,7 @@
 
 # Creación de una máquina virtual con Linux en Azure mediante la CLI
 
-En este artículo se muestra cómo implementar rápidamente una máquina virtual de Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual con una infraestructura básica que la rodea y que se puede usar para crear un prototipo o probar un concepto rápidamente (puede considerarse la forma más rápida de llegar a un shell de Bash). Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md), la sesión iniciada en (`azure login`) y en modo de Resource Manager (`azure config mode arm`). Puede implementar rápidamente una máquina virtual de Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
+En este artículo se muestra cómo implementar rápidamente una máquina virtual de Linux en Azure mediante el comando `azure vm quick-create` de la CLI de Azure. El comando `quick-create` implementa una máquina virtual con una infraestructura básica que la rodea y que se puede usar para crear un prototipo o probar un concepto rápidamente (puede considerarse la forma más rápida para acceder a un shell de Bash de Linux). Para los pasos de este artículo se requiere una cuenta de Azure ([obtenga una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)) y [la CLI de Azure](../xplat-cli-install.md), la sesión iniciada en (`azure login`) y en modo de Resource Manager (`azure config mode arm`). Puede implementar rápidamente una máquina virtual de Linux mediante el [Portal de Azure](virtual-machines-linux-quick-create-portal.md).
 
 ## Resumen rápido de comandos
 
@@ -171,4 +171,4 @@ El comando `azure vm quick-create` es la forma más rápida de implementar una m
 
 Estos artículos le introducirán en la creación de una infraestructura de Azure, así como de un número cualquiera de herramientas de orquestación, configuración e implementación de infraestructura de código abierto de su propiedad.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

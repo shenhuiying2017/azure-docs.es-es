@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 
@@ -78,7 +78,7 @@ El complemento [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domai
 
 El modo de plan **Gratis** del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) no admite la adición de dominios personalizados para Aplicaciones web. Necesitará cambiar al modo **Compartido** o **Estándar**. Para ello, siga estos pasos:
 
-* Inicie sesión en el portal de Azure y localice su aplicación web. 
+* Inicie sesión en el portal de Azure y localice su aplicación web.
 * Haga clic en la pestaña **Escalar verticalmente** en **Configuración**.
 * En **General**, seleccione *COMPARTIDO* o *ESTÁNDAR*
 * Haga clic en **Guardar**
@@ -153,4 +153,4 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

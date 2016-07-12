@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Invocar programas Spark desde Data Factory
@@ -102,9 +102,9 @@ Hay una **canalización** en el ejemplo de la carpeta **ADFJsons/Pipeline**. Est
 
 Como puede ver, la actividad MapReduce está configurada para invocar **spark-adf-job-bin.jar** en el contenedor **libs** de su Almacenamiento de Azure (especificado en StorageLinkedService.json). El código fuente para este programa está en la carpeta Spark-ADF/src/main/java/com/adf/spark, llama a spark-submit y ejecuta trabajos Spark.
 
-Este programa MapReduce (spark adf-job-bin.jar) que se ejecuta en su clúster de HDInsight Spark invoca un programa Spark **sparkdemoapp\_2.10-1.0.jar** y pasa los argumentos que recibe a través de la actividad MapReduce (que se muestra en JSON anterior) al programa Spark. **sparkdemoapp\_2.10-1.0.jar** contiene código fuente de Scala que copia datos de un contenedor de blobs de Azure a otro. Puede reemplazar esta aplicación de demostración jar por cualquier otra que contenga cualquier trabajo que intente ejecutar mediante Spark.
+Este programa MapReduce (spark adf-job-bin.jar) que se ejecuta en su clúster de HDInsight Spark invoca un programa Spark **sparkdemoapp_2.10-1.0.jar** y pasa los argumentos que recibe a través de la actividad MapReduce (que se muestra en JSON anterior) al programa Spark. **sparkdemoapp_2.10-1.0.jar** contiene código fuente de Scala que copia datos de un contenedor de blobs de Azure a otro. Puede reemplazar esta aplicación de demostración jar por cualquier otra que contenga cualquier trabajo que intente ejecutar mediante Spark.
 
-Resumiendo, la **actividad MapReduce** invoca el programa MapReduce **spark-adf-job-bin.jar** que invoca el programa Spark **sparkdemoapp\_2.10-1.0.jar**. Para ejecutar su propio programa Spark, reemplace sparkdemoapp\_2.10-1.0.jar por el suyo.
+Resumiendo, la **actividad MapReduce** invoca el programa MapReduce **spark-adf-job-bin.jar** que invoca el programa Spark **sparkdemoapp_2.10-1.0.jar**. Para ejecutar su propio programa Spark, reemplace sparkdemoapp_2.10-1.0.jar por el suyo.
 
 > [AZURE.NOTE] Tiene que usar su propio clúster de HDInsight Spark con este enfoque para invocar programas Spark mediante la actividad MapReduce. No se admite el uso de un clúster de HDInsight a petición.
 
@@ -116,4 +116,4 @@ Resumiendo, la **actividad MapReduce** invoca el programa MapReduce **spark-adf-
 - [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 - [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

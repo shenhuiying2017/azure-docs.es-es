@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Información general de plantillas de licencias de PlayReady de Servicios multimedia
@@ -23,10 +23,10 @@ Servicios multimedia de Azure proporciona un servicio para entregar licencias de
 Servicios multimedia también proporciona API que permiten configurar sus licencias de PlayReady. Las licencias contienen los derechos y restricciones que desea para el tiempo de ejecución de DRM de PlayReady con la finalidad de hacer respetar los requisitos cuando un usuario intenta reproducir contenido protegido. A continuación se muestran algunos ejemplos de restricciones de licencia de PlayReady que puede especificar:
 
 - Fecha y hora desde la que la licencia es válida.
-- Fecha y hora cuando caduca la licencia. 
+- Fecha y hora cuando caduca la licencia.
 - Para que la licencia se guarde en un almacenamiento persistente en el cliente. Las licencias permanentes se usan normalmente para permitir la reproducción sin conexión de contenido.
-- El nivel de seguridad mínimo que debe tener un reproductor para reproducir contenido. 
-- El nivel de protección de salida de los controles de salida para el contenido de audio y video. 
+- El nivel de seguridad mínimo que debe tener un reproductor para reproducir contenido.
+- El nivel de protección de salida de los controles de salida para el contenido de audio y video.
 - Para obtener más información, consulte la sección Controles de salida (3.5) en el documento [Reglas de cumplimiento normativo de PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
 >[AZURE.NOTE]Actualmente, solo puede configurar el derecho de reproducción PlayRight de la licencia de PlayReady (este derecho es necesario). PlayRight da al cliente la capacidad para reproducir el contenido. PlayRight también permite configurar restricciones específicas para la reproducción. Para obtener más información, consulte [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -311,4 +311,4 @@ Para ver un ejemplo de los niveles de protección que admite Silverlight, consul
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

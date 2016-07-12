@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/05/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en Azure RemoteApp.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

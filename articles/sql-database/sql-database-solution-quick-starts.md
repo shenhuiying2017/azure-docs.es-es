@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/01/2016"
+   ms.date="06/22/2016"
    ms.author="carlrab"/>
 
 # Exploración de tutoriales de soluciones de Base de datos SQL de Azure
@@ -30,7 +30,7 @@ Este tutorial de soluciones proporciona una solución para la recopilación y la
 
 Este tutorial de soluciones proporciona una solución para un escenario de Software como solución (SaaS) que aprovecha los grupos elásticos para proporcionar un back-end de base de datos escalable y rentable de una aplicación SaaS. En esta solución, recorrerá los pasos de implementación de una aplicación web que le permite visualizar la carga que se crea en un grupo elástico. Dicha carga se genera mediante un generador de carga usando un panel personalizado que complementa al Portal de Azure.
 
-[Escenario Saas con grupos elásticos](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools). En el repositorio de ejemplos de SQL Server de GitHub se proporciona un generador de carga, así como ejemplos de supervisión de una aplicación web junto con la documentación sobre cómo funcionan y cómo usarlos.
+En el artículo [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Panel personalizado de grupos elásticos para SaaS) del repositorio de ejemplos de SQL Server de GitHub se proporciona un generador de carga, así como ejemplos de supervisión de una aplicación web junto con la documentación sobre cómo funcionan y cómo usarlos.
 
 ## Creación de una base de datos SQL de Azure mediante desarrollo de Entity Framework y Code First
 
@@ -52,4 +52,4 @@ Este ejemplo es una aplicación web multiinquilino, llamada "Surveys", que permi
 
 [Exploración de tutoriales de Base de datos SQL de Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

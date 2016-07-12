@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="06/22/2016"
 	ms.author="marsma" />
 
 # Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
@@ -24,23 +24,23 @@ Antes de la ejecución de ninguna otra tarea de un trabajo, la **tarea de prepar
 
 En las secciones siguientes, encontrará información acerca de cómo usar estos dos tipos especiales de tarea con la clase [JobPreparationTask][net_job_prep] y la clase [JobReleaseTask][net_job_release] en la API de [Lote de .NET][api_net].
 
-> [AZURE.TIP] Las tareas de preparación y liberación de trabajos son especialmente útiles en entornos de "grupo compartido", es decir, entornos en los que un grupo de nodos de ejecución persiste entre ejecuciones del trabajo y se comparte entre varios trabajos diferentes.
+> [AZURE.TIP] Las tareas de preparación y liberación de trabajos son especialmente útiles en entornos de "grupo compartido", es decir, entornos en los que un grupo de nodos de proceso persiste entre ejecuciones de trabajo y se comparte entre varios trabajos diferentes.
 
 ## Uso de las tareas de preparación y liberación de trabajos
 
-Existen diferentes situaciones que se benefician de las tareas de preparación y liberación de trabajos. Estas son algunas:
+Siempre que necesite preparar nodos con una configuración o unos datos específicos del trabajo (y limpiar o conservar los datos de resultados de tareas), es un buen momento para utilizar las tareas de preparación y liberación de trabajos. Ejemplos de estas situaciones son:
 
 **Transferencia de datos de tareas comunes**
 
-A menudo, los trabajos de Lote requieren un conjunto común de datos como entrada para las tareas del trabajo. Por ejemplo, en cálculos de análisis de riesgos diarios, los datos de mercado son específicos del trabajo, pero comunes a todas las tareas incluidas en él. Estos datos de mercado, a menudo con un tamaño de varios gigabytes, deben descargarse en cada nodo de ejecución una sola vez, para que cualquier tarea que se ejecuta en un nodo pueda usarlos. Puede usar una *tarea de preparación del trabajo* para descargar los datos en cada nodo antes de la ejecución de otras tareas del trabajo.
+A menudo, los trabajos de Lote requieren un conjunto común de datos como entrada para las tareas del trabajo. Por ejemplo, en cálculos de análisis de riesgos diarios, los datos de mercado son específicos del trabajo, pero comunes a todas las tareas incluidas en él. Estos datos de mercado, a menudo con un tamaño de varios gigabytes, deben descargarse en cada nodo de ejecución una sola vez, para que cualquier tarea que se ejecuta en un nodo pueda usarlos. Puede usar una **tarea de preparación del trabajo** para descargar los datos en cada nodo antes de la ejecución de otras tareas del trabajo.
 
 **Eliminación de datos del trabajo**
 
-En un entorno de grupo compartido en el que los nodos de ejecución del grupo no se retiran entre trabajos, podría resultar necesario eliminar los datos del trabajo entre ejecuciones, con el fin de conservar espacio en disco en los nodos o de cumplir con las directivas de seguridad de la organización. Puede usar una *tarea de liberación del trabajo* para eliminar los datos descargados por una tarea de preparación del trabajo o generados durante la ejecución de la tarea.
+En un entorno de grupo compartido en el que los nodos de proceso del grupo no se retiran entre trabajos, podría resultar necesario eliminar los datos del trabajo entre ejecuciones, con el fin de conservar espacio en disco en los nodos o quizás de cumplir con las directivas de seguridad de la organización. Puede usar una **tarea de liberación del trabajo** para eliminar los datos descargados por una tarea de preparación del trabajo o generados durante la ejecución de la tarea.
 
 **Retención de registro**
 
-Puede que desee conservar una copia de los archivos de registro generados por las tareas o quizás los archivos de volcado de memoria generados por aplicaciones con errores. Puede usar una *tarea de liberación del trabajo* en estos casos para comprimir y cargar estos datos en una cuenta de [Almacenamiento de Azure][azure_storage].
+Puede que desee conservar una copia de los archivos de registro generados por las tareas o quizás los archivos de volcado de memoria generados por aplicaciones con errores. Puede usar una **tarea de liberación del trabajo** en estos casos para comprimir y cargar estos datos en una cuenta de [Almacenamiento de Azure][azure_storage].
 
 ## Tarea de preparación del trabajo
 
@@ -56,7 +56,7 @@ Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación d
 
 > [AZURE.NOTE] La eliminación de un trabajo también ejecuta la tarea de liberación del trabajo. Sin embargo, si un trabajo ya se ha terminado, la tarea no se ejecuta una segunda vez si se elimina más adelante el trabajo.
 
-## Tareas de preparación y liberación de trabajos en la API de Lote de .NET
+## Tareas de preparación y liberación de trabajos con Lote para .NET
 
 Para usar una tarea de preparación del trabajo, cree y configure el objeto [JobPreparationTask][net_job_prep] y asígnelo a la propiedad [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del trabajo. De forma similar, para establecer la tarea de liberación del trabajo, inicialice [JobReleaseTask][net_job_release] y asígnelo a la propiedad [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del trabajo.
 
@@ -85,9 +85,7 @@ Como se mencionó anteriormente, la tarea de liberación se ejecuta cuando se fi
 		// thus you need not call Terminate if you typically delete your jobs upon task completion.
 		await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
-## Pasos siguientes
-
-### Proyecto de ejemplo en GitHub
+## Código de ejemplo en GitHub
 
 Consulte el proyecto de ejemplo [JobPrepRelease][job_prep_release_sample] en GitHub para ver cómo funcionan las tareas de preparación y liberación del trabajo. Esta aplicación de consola hace lo siguiente:
 
@@ -104,64 +102,74 @@ La salida de la aplicación de ejemplo es similar a la siguiente:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-The pool already existed when we tried to create it
+Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
 All tasks completed.
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_1-20151015t150030z:
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_1-20160623t173951z:
 -------------------------------------------
-tvm-3105992504_1-20151015t150030z tasks:
+tvm-2434664350_1-20160623t173951z tasks:
   task001
-  task002
+  task004
+  task005
   task006
+
+Contents of shared\job_prep_and_release.txt on tvm-2434664350_2-20160623t173951z:
+-------------------------------------------
+tvm-2434664350_2-20160623t173951z tasks:
+  task008
+  task002
+  task003
   task007
 
-Contents of shared\job_prep_and_release.txt on tvm-3105992504_2-20151015t150030z:
--------------------------------------------
-tvm-3105992504_2-20151015t150030z tasks:
-  task003
-  task005
-  task004
-  task008
-
 Waiting for job JobPrepReleaseSampleJob to reach state Completed
-....
+...
 
-tvm-3105992504_1-20151015t150030z:
+tvm-2434664350_1-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
-tvm-3105992504_2-20151015t150030z:
+tvm-2434664350_2-20160623t173951z:
   Prep task exit code:    0
   Release task exit code: 0
 
 Delete job? [yes] no
 yes
 Delete pool? [yes] no
-no
+yes
 
 Sample complete, hit ENTER to exit...
 ```
 
-### Inspección de las tareas de preparación y liberación de trabajos con Explorador de Lote
+>[AZURE.NOTE] Debido a la creación de variables y a la hora de inicio de los nodos en un nuevo grupo (algunos nodos están listos para las tareas antes que otros), puede que la salida sea diferente. En concreto, como las tareas se realizan rápidamente, uno de los nodos del grupo podría ejecutar todas las tareas del trabajo. Si esto sucede, observará que las tareas de preparación y liberación del trabajo no existen para el nodo que no ha ejecutado ninguna tarea.
 
-[Explorador de Lote de Azure][batch_explorer_article], que también se encuentra en el [repositorio de código de ejemplo][batch_explorer_project] de Lote en GitHub, es una excelente herramienta que se usa cuando se desarrollan soluciones con Lote de Azure. Por ejemplo, cuando ejecute la aplicación de ejemplo anterior, puede usar Explorador de Lote para ver las propiedades del trabajo y sus tareas o incluso para descargar el archivo de texto compartido modificado por las tareas del trabajo.
+### Inspección de las tareas de preparación y liberación en el Portal de Azure
 
-En la captura de pantalla siguiente, se resaltan las propiedades de las tareas de preparación y liberación del trabajo que se muestran en el panel **Detalles del trabajo** cuando se selecciona el trabajo *JobPrepReleaseSampleJob* en la pestaña **Trabajos**.
+Cuando ejecute la aplicación de ejemplo anterior, puede usar el [Portal de Azure][portal] para ver las propiedades del trabajo y sus tareas, o incluso descargar el archivo de texto compartido modificado por las tareas del trabajo.
 
-![Explorador de Lote][1]
+La captura de pantalla siguiente muestra la **hoja de tareas de preparación** en el Portal de Azure después de una ejecución de la aplicación de ejemplo. Vaya a las propiedades *JobPrepReleaseSampleJob* después de que sus tareas se hayan completado (pero antes de eliminar el trabajo y el grupo) y haga clic en **Preparation tasks** (Tareas de preparación) o **Release tasks** (Tareas de liberación) para ver sus propiedades.
 
-*Captura de pantalla del Explorador de Lote que muestra las tareas de preparación y liberación del trabajo*
+![Propiedades de preparación del trabajo en el Portal de Azure][1]
+
+## Pasos siguientes
+
+### Paquetes de aplicación
+
+Además de la tarea de preparación, puede usar también la característica de [paquetes de aplicación](batch-application-packages.md) de Lote para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de 100) o aplicaciones que requieren un control estricto de la versión.
+
+### Instalación de aplicaciones y datos provisionales
+
+Consulte el artículo [Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y datos provisionales en nodos de proceso de Lote) en el foro de Lote de Azure para ver información general de los diversos métodos de preparar los nodos para la ejecución de tareas. Este artículo ha sido escrito por uno de los miembros del equipo de Lote de Azure, y constituye una buena toma de contacto con las diferentes maneras de introducir archivos (tanto aplicaciones como datos de entrada de tareas) en los nodos de proceso. Incluye también algunas consideraciones especiales que se deben tener en cuenta para cada método.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[batch_explorer_article]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
+[forum_post]: https://social.msdn.microsoft.com/Forums/es-ES/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
@@ -184,6 +192,6 @@ En la captura de pantalla siguiente, se resaltan las propiedades de las tareas d
 [net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
-[1]: ./media/batch-job-prep-release/batchexplorer-01.png
+[1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

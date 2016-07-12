@@ -23,8 +23,8 @@ En este artículo se describen los factores más importantes que afectan al rend
 Mediante la actividad de copia, puede obtener un elevado rendimiento de movimiento de datos tal como se muestra en los ejemplos siguientes:
 
 - Introducir 1 TB de datos en Almacenamiento de blobs de Azure en el sistema de archivos local y Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps)
-- Introducir 1 TB de datos en el Almacén de Azure Data Lake en el sistema de archivos local y Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps) 
-- Introducir 1 TB de datos en Almacenamiento de datos SQL de Azure desde Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps) 
+- Introducir 1 TB de datos en el Almacén de Azure Data Lake en el sistema de archivos local y Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps)
+- Introducir 1 TB de datos en Almacenamiento de datos SQL de Azure desde Almacenamiento de blobs de Azure en menos de 3 horas (es decir, a 100 MBps)
 
 Consulte las secciones siguientes para obtener más información sobre el rendimiento de la actividad de copia, así como sugerencias de optimización para mejorar aún más.
 
@@ -49,7 +49,7 @@ A continuación se indican los pasos típicos sugeridos para optimizar el rendim
 	- [Data Management Gateway](#considerations-on-data-management-gateway)
 	- [Otras consideraciones](#other-considerations)
 	- [Copia paralela](#parallel-copy)
-	- [Unidades de movimiento de datos de nube](#cloud-data-movement-units)    
+	- [Unidades de movimiento de datos de nube](#cloud-data-movement-units)
 
 3. **Expanda la configuración a todos los datos** Una vez que esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición del conjunto de datos y el período activo de la canalización para incluir todos los datos en la imagen.
 
@@ -171,8 +171,8 @@ Es **importante** recordar que se le cobrará según el tiempo total de la opera
 ## Copias almacenadas provisionalmente
 Al copiar datos de un almacén de datos de origen a uno de tipo receptor, se puede utilizar un almacenamiento de blobs de Azure como almacén provisional. Esta funcionalidad de almacenamiento provisional resulta especialmente útil en los siguientes casos:
 
-1.	**A veces, el movimiento híbrido de datos (es decir, de un almacén de datos local a uno en la nube, o viceversa) dura bastante tiempo cuando se emplea una conexión de red lenta.** Para mejorar el rendimiento de este proceso, puede comprimir los datos de forma local para que se tarde menos en moverlos, a través de Internet, al almacén de datos provisional en la nube. Después, puede descomprimirlos en un almacén provisional antes de cargarlos en el almacén de datos de destino. 
-2.	**No quiere abrir los puertos 80 y 443 en el firewall debido a las directivas de TI.** Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o de Almacenamiento de datos SQL de Azure, hay que habilitar la comunicación TCP saliente del puerto 1433 en el firewall corporativo y en el de Windows. En este caso, puede utilizar Data Management Gateway para, primero, copiar los datos en un almacenamiento de blobs de Azure provisional, lo que se realiza a través de HTTP o HTTPS —es decir, en el puerto 443— y, después, cargarlos en Base de datos SQL o Almacenamiento de datos SQL desde el almacenamiento de blobs provisional. En este tipo de flujo, no hay que habilitar el puerto 1433. 
+1.	**A veces, el movimiento híbrido de datos (es decir, de un almacén de datos local a uno en la nube, o viceversa) dura bastante tiempo cuando se emplea una conexión de red lenta.** Para mejorar el rendimiento de este proceso, puede comprimir los datos de forma local para que se tarde menos en moverlos, a través de Internet, al almacén de datos provisional en la nube. Después, puede descomprimirlos en un almacén provisional antes de cargarlos en el almacén de datos de destino.
+2.	**No quiere abrir los puertos 80 y 443 en el firewall debido a las directivas de TI.** Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o de Almacenamiento de datos SQL de Azure, hay que habilitar la comunicación TCP saliente del puerto 1433 en el firewall corporativo y en el de Windows. En este caso, puede utilizar Data Management Gateway para, primero, copiar los datos en un almacenamiento de blobs de Azure provisional, lo que se realiza a través de HTTP o HTTPS —es decir, en el puerto 443— y, después, cargarlos en Base de datos SQL o Almacenamiento de datos SQL desde el almacenamiento de blobs provisional. En este tipo de flujo, no hay que habilitar el puerto 1433.
 3.	**Introduce datos de varios almacenes de datos en Almacenamiento de datos SQL de Azure a través de PolyBase.** Almacenamiento de datos SQL de Azure ofrece PolyBase como mecanismo de alto rendimiento para cargar grandes cantidades de datos en este servicio de almacenamiento. Sin embargo, se precisa que los datos de origen estén en Almacenamiento de blobs de Azure, así como que se cumplan algunos criterios adicionales. Al cargar datos de un almacén de datos distinto al almacenamiento de blobs de Azure, puede habilitar la copia de datos a través de un almacenamiento de blobs de Azure provisional, en cuyo caso Data Factory de Azure realizará las transformaciones necesarias en los datos para asegurarse de que cumplen los requisitos de PolyBase y, luego, utilizará PolyBase para cargarlos en Almacenamiento de datos SQL. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 
 ### Cómo funcionan las copias almacenadas provisionalmente
@@ -224,6 +224,7 @@ Aquí puede encontrar un ejemplo de definición de una actividad de copia con la
 		}
 	}
 	]
+
 
 ### Impacto en la facturación
 Tenga en cuenta que se le cobrará según las dos fases de duración de la copia y su tipo de copia respectivamente, es decir:
@@ -391,4 +392,4 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

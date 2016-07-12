@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/23/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
-En este artículo se tratan los conceptos clave que hay que tener en cuenta al planear la realización de copias de seguridad de máquinas virtuales en Azure. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
+En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Copia de seguridad; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## ¿Cómo realiza Azure la copia de seguridad de las máquinas virtuales?
 El servicio Copia de seguridad de Azure inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión de copia de seguridad para tomar una instantánea de un momento en el tiempo. Esta instantánea se toma en coordinación con el Servicio de instantáneas de volumen (VSS) para obtener una instantánea coherente de los discos de la máquina virtual sin tener que apagarla.
@@ -52,21 +52,21 @@ En esta tabla se describen los tipos de coherencia y las condiciones en las que 
 
 
 ## Rendimiento y uso de recursos
-Al igual que el software de copia de seguridad que se implementa de forma local, la copia de seguridad de máquinas virtuales en Azure también tiene que planearse según el uso de recursos y la capacidad. Los [límites de Almacenamiento de Azure](azure-subscription-service-limits.md#storage-limits) definirán cómo se estructuran las implementaciones de máquinas virtuales para obtener un rendimiento máximo con un impacto mínimo en las cargas de trabajo en ejecución.
+Al igual que el software de copia de seguridad que se implementa de forma local, debe planear las necesidades de capacidad y utilización de recursos al realizar la copia de seguridad de máquinas virtuales en Azure. Los [límites de Almacenamiento de Azure](azure-subscription-service-limits.md#storage-limits) definirán cómo se estructuran las implementaciones de máquinas virtuales para obtener un rendimiento máximo con un impacto mínimo en las cargas de trabajo en ejecución.
 
-Hay dos límites de Almacenamiento de Azure principales que afectan al rendimiento de la copia de seguridad:
+Preste atención a los siguientes límites de Almacenamiento de Azure al planear el rendimiento de copia de seguridad:
 
 - Salida máxima por cuenta de almacenamiento
 - Tasa de solicitud total por cuenta de almacenamiento
 
 ### Límites de la cuenta de almacenamiento
-Cuando los datos de copia de seguridad se copian de la cuenta de almacenamiento del cliente, se tienen en cuenta las métricas de operaciones de entrada y salida por segundo (IOPS) y de salida (rendimiento de almacenamiento) de la cuenta de almacenamiento. Al mismo tiempo, las máquinas virtuales también ejecutan y consumen IOPS y capacidad de proceso. El objetivo es asegurarse de que el tráfico total (copia de seguridad y máquina virtual) no supera los límites de la cuenta de almacenamiento.
+Cuando los datos de copia de seguridad se copian de una cuenta de almacenamiento, se tienen en cuenta las métricas de salida (o rendimiento) y de las operaciones de entrada y salida por segundo (IOPS) de la cuenta de almacenamiento. Al mismo tiempo, las máquinas virtuales también ejecutan y consumen IOPS y capacidad de proceso. El objetivo es asegurarse de que el tráfico total (copia de seguridad y máquina virtual) no supera los límites de la cuenta de almacenamiento.
 
 ### Número de discos
-El proceso de copia de seguridad es expansivo e intenta consumir tantos recursos como sea posible, con el fin de completar la copia de seguridad lo más rápido posible. Pero todas las operaciones de E/S están limitadas por la *capacidad de proceso de destino de un blob*, que tiene un límite de 60 MB por segundo. Para acelerar el proceso de copia de seguridad, se intenta realizar la copia de seguridad de cada disco de la máquina virtual *en paralelo*. Por lo tanto, si una máquina virtual tiene cuatro discos, el servicio Copia de seguridad de Azure intentará hacer copia de seguridad de los cuatro discos en paralelo. Por ello, el factor más importante que determina el tráfico de copia de seguridad que sale de una cuenta de almacenamiento de cliente es el **número de discos** cuya copia de seguridad se realiza desde la cuenta de almacenamiento.
+El proceso de copia de seguridad intenta realizar el trabajo lo más rápido posible. Con ello, se consume tantos recursos como es posible. Pero todas las operaciones de E/S están limitadas por la *capacidad de proceso de destino de un blob*, que tiene un límite de 60 MB por segundo. En un intento por maximizar la velocidad, el proceso de copia de seguridad trata de hacer copia de seguridad de cada uno de los discos de la máquina virtual *en paralelo*. Por lo tanto, si una máquina virtual tiene cuatro discos, el servicio Copia de seguridad de Azure intentará hacer copia de seguridad de los cuatro discos en paralelo. Por ello, el factor más importante que determina el tráfico de copia de seguridad que sale de una cuenta de almacenamiento de cliente es el **número de discos** cuya copia de seguridad se realiza desde la cuenta de almacenamiento.
 
 ### Programación de copia de seguridad
-Un factor secundario que afecta al rendimiento es la **programación de copia de seguridad**. Si configura todas las máquinas virtuales para realizar la copia de seguridad al mismo tiempo, el número de discos cuya copia de seguridad se realiza *en paralelo* aumentará, ya que el servicio Copia de seguridad de Azure intentará realizar la copia de seguridad de tantos discos como sea posible. Por tanto, una forma de reducir el tráfico de copia de seguridad de una cuenta de almacenamiento es asegurarse de que se realizan copias de seguridad de diferentes máquinas virtuales en distintos momentos del día, sin superponerse.
+Un factor secundario que afecta al rendimiento es la **programación de copia de seguridad**. Si configura las directivas para que se realice la copia de seguridad de todas las máquinas virtuales al mismo tiempo, habrá programado un atasco de tráfico. El proceso de copia de seguridad intentará realizar la copia de todos los discos en paralelo. A la vista de esto, una forma de reducir el tráfico de copia de seguridad de una cuenta de almacenamiento es asegurarse de que se realizan copias de seguridad de diferentes máquinas virtuales en distintos momentos del día, sin superponerse.
 
 ## Planificación de capacidad
 Reunir todos estos factores significa que el uso de cuentas de almacenamiento debe planearse correctamente. Descargue la [hoja cálculo de Excel de planeación de la capacidad de copia de seguridad de máquinas virtuales](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver el impacto de las opciones de programación de las copias de seguridad y los discos.
@@ -84,17 +84,17 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 
 - Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md#offline-vms)
 - Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
-- Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la operación de copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad de Azure podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+- Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Servicios de recuperación podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
 ## Prácticas recomendadas
-Se recomienda seguir los procedimientos recomendados al configurar copias de seguridad para máquinas virtuales.
+Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
 
-- No programe la copia de seguridad de más de cuatro máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. En este caso, sugerimos escalonar las programaciones de copia de seguridad de modo que haya una diferencia de una hora. 
-- No programe la copia de seguridad de más de 40 máquinas virtuales de Resource Manager al mismo tiempo.
-- Programe las copias de seguridad durante las horas de menos actividad en las máquinas virtuales, de forma que el servicio de copia de seguridad obtenga la E/S por segundo por la transferencia de datos desde la cuenta de almacenamiento del cliente hasta el almacén de copia de seguridad. 
-- Asegúrese de que en una directiva las máquinas virtuales se distribuyan desde diferentes cuentas de almacenamiento. Sugerimos que si el número total de discos almacenados en una única cuenta de almacenamiento desde las máquinas virtuales es superior a 20, distribuya las máquinas virtuales entre diferentes programaciones de copia de seguridad a fin de obtener la E/S por segundo necesaria durante la fase de transferencia de la copia de seguridad.
-- No se recomienda restaurar la máquina virtual que se ejecuta en almacenamiento premium en la misma cuenta de almacenamiento; esta operación puede meterse en una operación de copia de seguridad y reducir el número de E/S por segundo disponible para copia de seguridad. 
-- Se recomienda mantener cada VM premium en una cuenta de almacenamiento premium diferente a fin de obtener un buen rendimiento del tiempo de copia de seguridad. 
+- No programe la copia de seguridad de más de cuatro máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias máquinas virtuales desde el mismo servicio en la nube, sugerimos escalonar las horas de inicio de cada una de ellas con una hora de diferencia.
+- No programa la copia de seguridad de más de 40 máquinas virtuales implementadas con Resource Manager al mismo tiempo.
+- Programe copias de seguridad de máquinas virtuales durante las horas de menos actividad, de forma que el servicio Copia de seguridad utilice IOPS para transferir datos de la cuenta de almacenamiento del cliente al almacén de copia de seguridad o de Servicios de recuperación.
+- Asegúrese de que una directiva distribuya las máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que una sola directiva proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
+- No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
+- Se recomienda ejecutar cada máquina virtual Premium en una cuenta de almacenamiento Premium distinta para garantizar el rendimiento óptimo de las copias de seguridad.
 
 ## Cifrado de datos
 
@@ -131,4 +131,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

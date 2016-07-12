@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -160,7 +160,7 @@ Se ha publicado el complemento de Azure para Eclipse, versión preliminar de feb
 * **Actualización 45 del paquete de Zulu de OpenJDK de Azul.** A partir de esta versión, la actualización 45 de Zulu (paquete Open JDK v7) de Azul System ya está disponible; esta actualización viene a sumarse a las actualizaciones 40 y 25 disponibles anteriormente.
 * **Compatibilidad con modo 'auto' para puertos de punto de conexión privado.** Puede establecer un puerto privado en automático para los puntos de conexión de entrada y los puntos de conexión internos para permitir que Azure asigne automáticamente un puerto a ese punto de conexión. Anteriormente solo podía asignar un número de puerto específico.
 * **Compatibilidad para personalizar el nombre de certificado (CN) en la interfaz de usuario de creación de un certificado autofirmado.** Anteriormente, se usó el mismo nombre codificado de forma rígida para todos los certificados nuevos; ahora puede especificar su propio nombre de certificado para ayudar a distinguir entre varios certificados en el portal de Azure usados para distintos fines.
-* **Barra de herramientas de Azure:** la barra de herramientas se ha actualizado con los siguientes cambios: 
+* **Barra de herramientas de Azure:** la barra de herramientas se ha actualizado con los siguientes cambios:
     * ![][ic710876] Este icono se agregó para el **nuevo proyecto de implementación de Azure**.
     * ![][ic710877] Este icono se agregó como un acceso directo al cuadro de diálogo de creación de un certificado autofirmado.
 * **Compatibilidad con el tamaño A5 de máquina virtual de Azure.** Ahora ya puede implementar un servicio en la nube con el tamaño de máquinas virtuales de memoria alta A5. Para más información sobre este tamaño de máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure].
@@ -278,9 +278,9 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de junio de 2012. Las 
 * **Microsoft JDBC Driver 4.0 para SQL Server está disponible durante la instalación del complemento:** durante la instalación del complemento nuevo, se puede instalar la versión más reciente de Microsoft JDBC Driver para SQL Server.
 * **Filtro de servicio de control de acceso de Azure disponible durante la instalación del complemento:** este componente nuevo, incluido como una biblioteca de Eclipse en el kit de herramientas, habilita a la aplicación web de Java para aprovecharse sin problemas de la autenticación de servicio de control de acceso (ACS) de Azure mediante varios proveedores de identidades, como Google, Live.com y Yahoo!. No necesitará escribir la lógica de autenticación personalmente, solo tiene que configurar algunas opciones y dejar que el filtro haga el trabajo pesado de habilitar a los usuarios para iniciar sesión mediante ACS. Así puede centrarse solo en escribir el código que proporciona a los usuarios acceso a los recursos basándose en su identidad, tal como lo devuelve el filtro del objeto de solicitud a la aplicación. Para obtener un tutorial sobre cómo usar el filtro de ACS, consulte [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse].
 * **Detección automática de los requisitos previos de la versión 1.7 del SDK de Azure:** al crear un nuevo proyecto de implementación de Azure, esta versión se descargará automáticamente si no está ya instalada.
-* **Puntos de conexión de instancia:** permite el acceso directo del punto de conexión del puerto para la comunicación con instancias de rol de carga equilibrada. Se pueden agregar los puntos de conexión de instancia a través de la interfaz de usuario de los puntos de conexión, disponible en la página [Propiedades de puntos de conexión]. Esto ayuda a habilitar la depuración remota y el diagnóstico de JMX para instancias de proceso específicas que se ejecutan en la nube en escenarios con implementaciones de varias instancias. 
+* **Puntos de conexión de instancia:** permite el acceso directo del punto de conexión del puerto para la comunicación con instancias de rol de carga equilibrada. Se pueden agregar los puntos de conexión de instancia a través de la interfaz de usuario de los puntos de conexión, disponible en la página [Propiedades de puntos de conexión]. Esto ayuda a habilitar la depuración remota y el diagnóstico de JMX para instancias de proceso específicas que se ejecutan en la nube en escenarios con implementaciones de varias instancias.
 * **Interfaz de usuario para componentes:** facilita a los usuarios avanzados la configuración de las dependencias del proyecto entre los roles individuales de Azure en el proyecto y otros recursos externos como los proyectos de aplicación de Java; también facilita la descripción de su lógica de implementación. Para más información, consulte [Propiedades de componentes].
-* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con ** \_Upgraded** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
+* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con **\_Upgraded ** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
 
 ### 10 de diciembre de 2011
 
@@ -293,7 +293,7 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de diciembre de 2011. 
 * **Interfaz de usuario de configuración de depuración de la aplicación de Java remota:** permite habilitar fácilmente el depurador remoto de Eclipse para obtener acceso a la aplicación de Java que se ejecuta en el emulador o en la nube de Azure, para que pueda recorrer paso a paso y depurar el código de Java en tiempo real. Para más información, consulte [Depuración de aplicaciones de Azure en Eclipse].
 * **Interfaz de usuario de configuración de recurso de almacenamiento local:** gracias a ello ya no tendrá que configurar recursos locales editando el XML directamente. Esta característica también le habilita para acceder a la ruta de acceso al archivo efectiva de su recurso local después de implementarlo a través de una variable de entorno a la que puede hacer referencia directamente desde el script de inicio. Para más información, consulte [Propiedades de almacenamiento local].
 * **Interfaz de usuario de configuración de variable de entorno:** gracias a ello ya no es necesario establecer variables de entorno mediante la edición manual de la configuración del XML. Para más información, consulte [Propiedades de variables de entorno].
-* **JDBC Driver para SQL Azure:** se instala a través del complemento como una biblioteca de Eclipse perfectamente integrada, lo cual permite una programación más fácil en SQL Azure. 
+* **JDBC Driver para SQL Azure:** se instala a través del complemento como una biblioteca de Eclipse perfectamente integrada, lo cual permite una programación más fácil en SQL Azure.
 * **Acceso rápido de menú contextual a la interfaz de usuario de configuración del rol**: simplemente haga clic con el botón derecho en la carpeta de rol y haga clic en **Propiedades**.
 * **Iconos de carpeta de rol y de proyecto de Azure personalizados:** para una mejor visibilidad y navegación más sencilla dentro de su área de trabajo y del proyecto.
 
@@ -352,4 +352,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

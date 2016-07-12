@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/12/2016" 
+	ms.date="06/24/2016" 
 	ms.author="hanuk;robmcm"/>
 
 # Ejecución de Cassandra con Linux en Azure y acceso desde Node.js 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](https://azure.microsoft.com/documentation/templates/datastax-on-ubuntu/).
 
 ## Información general
 Microsoft Azure es una plataforma de nube abierta que ejecuta tanto Microsoft como software ajeno a Microsoft que incluye sistemas operativos, servidores de aplicaciones, middleware de mensajería, así como las bases de datos SQL y NoSQL de ambos modelos comerciales y de código abierto. Crear servicios resistentes en nubes públicas, incluido Azure, requiere una cuidadosa planeación y una arquitectura deliberada para ambos servidores de aplicaciones, así como capas de almacenamiento. La arquitectura de almacenamiento distribuido de Cassandra ayuda naturalmente a crear sistemas de alta disponibilidad que son tolerantes a errores de clúster. Cassandra es una base de datos NoSQL de escala de nube mantenida por Apache Software Foundation en cassandra.apache.org; Cassandra está escrita en Java y, por tanto, se ejecuta tanto en plataformas Windows como Linux.
@@ -33,7 +33,7 @@ Las redes de Microsoft Azure permiten la implementación de clústeres privados 
 
 - Los sistemas externos no tienen acceso a la base de datos Cassandra desde dentro o fuera de Azure
 - El clúster de Cassandra tiene que estar detrás de un equilibrador de carga para el tráfico
-- Implemente nodos de Cassandra en dos grupos en cada centro de datos para una disponibilidad mejorada 
+- Implemente nodos de Cassandra en dos grupos en cada centro de datos para una disponibilidad mejorada
 - Bloquee el clúster para que solo la granja de servidores de aplicación tenga acceso a la base de datos directamente
 - Ningún extremo de red pública distinto a SSH
 - Cada nodo de Cassandra necesita una dirección IP interna fija
@@ -82,7 +82,7 @@ La replicación compatible del centro de datos de Cassandra y el modelo de coher
 
 **Implementación basada en proximidad:** Las aplicaciones de varios inquilinos, con una asignación clara de los usuarios inquilino a la región, se pueden beneficiar de las bajas latencias del clúster de varias regiones Por ejemplo, los sistemas de administración de aprendizaje para instituciones educativas pueden implementar un clúster distribuido en regiones del Este de EE. UU. y del Oeste de EE. UU. para servir a los campus correspondientes de forma transaccional, así como analítica. Los datos pueden ser coherentes localmente en las lecturas y escrituras en el momento, y pueden ser coherentes con el tiempo entre ambas regiones. Hay otros ejemplos como la distribución de medios, el comercio electrónico y todo lo que sirva a una base de usuario concentrada geográficamente es un buen caso de uso para este modelo de implementación.
 
-**Alta disponibilidad:** La redundancia es un factor clave para lograr una alta disponibilidad de software y hardware; consulte Creación de sistemas en nube confiables en Microsoft Azure para obtener más información. En Microsoft Azure, la única manera confiable de lograr una verdadera redundancia es mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo y si una de las regiones está inactiva, el Administrador de tráfico de Azure puede redirigir el tráfico a la región activa. Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0.999) * (1-0,999)) * 100); consulte la nota anterior para obtener más información.
+**Alta disponibilidad:** La redundancia es un factor clave para lograr una alta disponibilidad de software y hardware; consulte Creación de sistemas en nube confiables en Microsoft Azure para obtener más información. En Microsoft Azure, la única manera confiable de lograr una verdadera redundancia es mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo y si una de las regiones está inactiva, el Administrador de tráfico de Azure puede redirigir el tráfico a la región activa. Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0,999) * (1-0,999)) * 100); consulte la nota anterior para obtener más información.
 
 **Recuperación ante desastres:** El clúster de Cassandra de varias regiones, si está correctamente diseñado, puede resistir interrupciones del centro de datos por catástrofes. Si una región está inactiva, la aplicación implementada en otras regiones puede empezar a servir a los usuarios finales. Al igual que cualquier otra implementación de continuidad empresarial, la aplicación tiene que ser tolerante a errores de pérdida de datos resultantes de los datos en la canalización asincrónica. Sin embargo, Cassandra hace que la recuperación sea mucho más rápida que el tiempo empleado por los procesos de recuperación de bases de datos tradicionales. La Ilustración 2 muestra el modelo de implementación típica de varias regiones de ocho nodos en cada región. Ambas regiones son imágenes reflejadas entre sí para la misma de simetría; los diseños reales dependen del tipo de carga de trabajo (por ejemplo, transaccional o analítico), el RPO, RTO, la coherencia de los datos y los requisitos de disponibilidad.
 
@@ -440,7 +440,7 @@ Para probar el clúster, siga estos pasos:
 
 1.    Mediante el cmdlet Get-AzureInternalLoadbalancer de comando de Powershell, obtenga la dirección IP del equilibrador de carga interno (por ejemplo, 10.1.2.101). A continuación se muestra la sintaxis del comando: Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us” [muestra los detalles del equilibrador de carga interno junto con su dirección IP]
 2.	Inicie sesión en la VM de la granja de servidores web (por ejemplo, hk-w1-west-us) mediante Putty o ssh
-3.	Ejecute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	Ejecute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 4.	Utilice los siguientes comandos CQL para comprobar si funciona el clúster:
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -559,12 +559,12 @@ Ya ha implementado Cassandra en 16 nodos, con 8 nodos en cada región de Azure. 
 
 ###Paso 1: Obtención de la dirección IP de equilibrador de carga interno para ambas regiones mediante PowerShell
 - Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"
 
     Tenga en cuenta que aparecerán las direcciones IP (por ejemplo, west - 10.1.2.101, east - 10.2.2.101).
 
 ###Paso 2: Ejecución de lo siguiente en la región Oeste tras iniciar sesión en hk-w1-west-us
-1.    Ejecute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    Ejecute $CASS\_HOME/bin/cqlsh 10.1.2.101 9160
 2.	Ejecute los siguientes comandos CQL:
 
 		CREATE KEYSPACE customers_ks
@@ -584,7 +584,7 @@ Verá una pantalla como la siguiente:
 
 
 ###Paso 3: Ejecución de lo siguiente en la región Este tras iniciar sesión en hk-w1-east-us:
-1.    Ejecute $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    Ejecute $CASS\_HOME/bin/cqlsh 10.2.2.101 9160
 2.	Ejecute los siguientes comandos CQL:
 
 		USE customers_ks;
@@ -611,7 +611,7 @@ Mediante una de las máquinas virtuales de Linux creadas en el nivel "web" previ
 
 1. Instalar Node.js y NPM
 2. Instalar el paquete de nodo "cassandra-client" con NPM
-3. Ejecute el script siguiente en el símbolo del shell que muestra la cadena json de los datos recuperados: 
+3. Ejecute el script siguiente en el símbolo del shell que muestra la cadena json de los datos recuperados:
 
 		var pooledCon = require('cassandra-client').PooledConnection;
 		var ksName = "custsupport_ks";
@@ -702,7 +702,7 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
 ##Referencias##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com) 
-- [http://www.nodejs.org](http://www.nodejs.org) 
+- [http://www.datastax.com](http://www.datastax.com)
+- [http://www.nodejs.org](http://www.nodejs.org)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

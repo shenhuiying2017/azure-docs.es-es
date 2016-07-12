@@ -25,9 +25,9 @@ En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre 
 
 Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Para recuperarse de una interrupción de los servicios de almacenamiento, normalmente hay que realizar procedimientos automatizados e implicar al personal de operaciones con el objetivo de reactivar las aplicaciones para que funcionen con normalidad. Consulte la documentación de Azure para crear su propio plan de recuperación ante desastres:
 
--   [Consideraciones sobre la alta disponibilidad y la recuperación ante desastres para las aplicaciones de Azure](https://msdn.microsoft.com/library/azure/dn251004.aspx)
+-   [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Orientación técnica de la continuidad del negocio de Azure](https://msdn.microsoft.com/library/azure/hh873027.aspx)
+-   [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md)
 
 -   [Servicio Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -61,7 +61,7 @@ Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por 
 
 -   La conmutación por error geográfica de almacenamiento solo la activa el equipo de almacenamiento de Azure. El cliente no tiene que hacer nada.
 
--   Los puntos de conexión de los servicios de almacenamiento que tenga para blobs, tablas, colas y archivos seguirán siendo los mismos después de la conmutación por error; la entrada DNS deberá actualizarse para cambiar de la región primaria a la secundaria.
+-   Los puntos de conexión de los servicios de almacenamiento que disponga para blobs, tablas, colas y archivos seguirán siendo los mismos después de la conmutación por error; la entrada DNS deberá actualizarse para cambiar de la región primaria a la secundaria.
 
 -   Antes de la conmutación por error geográfica y durante este proceso, no tendrá acceso de escritura a la cuenta de almacenamiento debido a las repercusiones del desastre. Sin embargo, sí que podrá seguir realizando operaciones de lectura en la base de datos secundaria si la cuenta de almacenamiento se ha configurado como RA-GRS.
 
@@ -81,4 +81,4 @@ Para hacer una copia de seguridad de los datos de almacenamiento de forma perió
 
 -   Archivos: use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento de otra región.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 # Características del servicio de sincronización de Azure AD Connect
@@ -23,7 +23,7 @@ La característica de sincronización de Azure AD Connect tiene dos componentes:
 - El componente local denominado **sincronización de Azure AD Connect**, también conocido como **motor de sincronización**.
 - El servicio que se encuentra en Azure AD, también conocido como **servicio de sincronización de Azure AD Connect**
 
-Este tema se explica cómo funcionan las siguientes características del **servicio de sincronización de Azure AD Connect** y cómo puede configurarlas mediante Windows PowerShell.
+En este tema se explica cómo funcionan las siguientes características del **servicio de sincronización de Azure AD Connect** y cómo puede configurarlas mediante Windows PowerShell.
 
 Estas opciones se configuran mediante el [módulo de Azure Active Directory para Windows PowerShell](http://aka.ms/aadposh), que debe descargar e instalar por separado desde Azure AD Connect para poder configurar estas opciones. Los cmdlets descritos se introdujeron con la [versión de marzo de 2016 (compilación 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Si no tiene los cmdlets que se documentan en este tema o estos no generan el mismo resultado, asegúrese de que ejecuta la versión más reciente.
 
@@ -55,11 +55,11 @@ UserWriteback | No se admite actualmente.
 En lugar de no aprovisionar objetos con atributos UPN/proxyAddresses duplicados, el atributo duplicado se "pone en cuarentena" y se asigna un valor temporal si es necesario. Cuando se resuelve el conflicto, el UPN temporal se fija en el valor correcto automáticamente. Este comportamiento se puede habilitar para UPN y proxyAddress por separado. Para obtener más información, consulte [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) (Sincronización de identidades y resistencia de atributos duplicados).
 
 ## Coincidencia parcial de UserPrincipalName
-Cuando esta característica está habilitada, se aplicará la coincidencia parcial en UPN, así como la [dirección SMTP principal](https://support.microsoft.com/kb/2641663), que siempre está habilitada. La coincidencia parcial se utiliza para hacer coincidir los usuarios en la nube actuales de Azure AD con los usuarios locales.
+Cuando esta característica está habilitada, se aplicará la coincidencia parcial en UPN, así como la [dirección SMTP principal](https://support.microsoft.com/kb/2641663), que siempre está habilitada. La coincidencia parcial se utiliza para hacer coincidir los usuarios de Azure AD en la nube con los locales.
 
 La habilitación de esta característica es especialmente útil si necesita que coincidan las cuentas de AD locales con las cuentas existentes creadas en la nube y no está utilizando Exchange Online. En este escenario, normalmente no tiene una razón para establecer el atributo de SMTP en la nube.
 
-Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si está habilitado en su caso ejecutando lo siguiente:
+Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si está habilitada en su caso ejecutando lo siguiente:
 ```
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
@@ -79,7 +79,7 @@ Para obtener más información, consulte [Nombres de usuario en Office 365, Azur
 
 Esta característica permite al motor de sincronización actualizar el valor de userPrincipalName cuando se modifica de manera local y se usa la sincronización de contraseñas. Si utiliza la federación, esta característica no funcionará.
 
-Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si está habilitado en su caso ejecutando lo siguiente:
+Esta característica está activa de forma predeterminada para los directorios de Azure AD recién creados. Puede ver si está habilitada en su caso ejecutando lo siguiente:
 ```
 Get-MsolDirSyncFeatures -Feature SynchronizeUpnForManagedUsers
 ```
@@ -100,4 +100,4 @@ Esta configuración se habilitará para todos los directorios de Azure AD en el 
 
 - [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

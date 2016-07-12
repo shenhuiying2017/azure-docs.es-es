@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
@@ -26,7 +26,7 @@
 ##Uso del Portal para comprobar el estado del trabajo
 
 1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de los Servicios multimedia.
-2. Seleccione la página **TRABAJOS**. 
+2. Seleccione la página **TRABAJOS**.
 
 	En la página puede ver el estado de todos los trabajos. También puede filtrar por estado, hora o identificador de trabajo.
 
@@ -50,4 +50,4 @@ Publique el contenido. Para obtener más información, consulte [Codificación d
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

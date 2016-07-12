@@ -24,7 +24,7 @@
 
 El [almacenamiento Premium de Azure](../storage/storage-premium-storage.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) de SQL Server en IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use almacenamiento Premium. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
@@ -96,7 +96,7 @@ El siguiente comando **New-AzureStorageAccountPowerShell** con el **tipo** “Pr
 
 ### Configuración de la caché de los VHD
 
-La diferencia principal al crear discos que forman parte de una cuenta de almacenamiento Premium es la configuración de la caché de disco. Para discos de volumen de datos de SQL Server, se recomienda usar “**Read Caching**”. Para volúmenes de registro de transacciones, la configuración de caché de disco se debe establecer en “**None**”. Esto difiere de las recomendaciones para las cuentas de almacenamiento estándar.
+La diferencia principal al crear discos que forman parte de una cuenta de almacenamiento Premium es la configuración de la caché de disco. En el caso de discos de volumen de datos de SQL Server, se recomienda usar "**Read Caching**". En el caso de volúmenes de registro de transacciones, la configuración de memoria caché de disco se debe establecer en "**None**". Esto difiere de las recomendaciones para las cuentas de almacenamiento estándar.
 
 Una vez conectados los VHD, no se puede modificar la configuración de caché. Deberá desconectar y volver a conectar el VHD con una configuración de caché actualizada.
 
@@ -484,7 +484,7 @@ Una estrategia para el tiempo de inactividad mínimo consiste en tomar un elemen
 - Este escenario usa el commandlet **Start-AzureStorageBlobCopy**, que es asincrónico. No hay ningún contrato de nivel de servicio cuando finaliza la copia. El tiempo de realización de las copias varía; aunque depende de la espera en cola, también depende de la cantidad de datos que se van a transferir. El tiempo de copia aumenta si la transferencia va a otro centro de datos de Azure que admite el almacenamiento Premium en otra región. Si solo tiene dos nodos, considere una posible mitigación en caso de que la copia tarde más que en las pruebas. Esto puede incluir las siguientes ideas.
 	- Agregue un tercer nodo temporal de SQL Server para alta disponibilidad antes de la migración con el tiempo de inactividad acordado.
 	- Ejecute la migración fuera del mantenimiento programado de Azure.
-	- Asegúrese de que ha configurado correctamente el cuórum de clúster.  
+	- Asegúrese de que ha configurado correctamente el cuórum de clúster.
 
 ##### Pasos de alto nivel
 
@@ -1148,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

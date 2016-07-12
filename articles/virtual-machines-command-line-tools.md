@@ -19,17 +19,17 @@
 
 # Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] También puede [leer acerca de los comandos de modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md).
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos CLI de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación clásico. Para acceder a estos comandos, ejecute la CLI en el modo de Administración de servicios de Azure (asm). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes.
 
-Para empezar, en primer lugar, [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md).
+En primer lugar, [instale la CLI de Azure](xplat-cli-install.md) y [conéctese a su suscripción de Azure](xplat-cli-connect.md).
 
-Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo ASM, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
+Para obtener las opciones y la sintaxis de comando actuales de la línea de comandos en el modo ASM, escriba `azure help` o, para ver la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
 Se muestran parámetros opcionales entre corchetes (por ejemplo, `[parameter]`). Los demás parámetros son obligatorios.
 
-Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro `-v` ofrece un resultado detallado y el parámetro `-vv` ofrece un resultado incluso más detallado. La opción `--json` mostrará el resultado en formato JSON sin procesar.
+Además de los parámetros opcionales específicos de los comandos documentados aquí, existen tres parámetros opcionales que pueden usarse para mostrar el resultado detallado como opciones de solicitud y códigos de estado. El parámetro `-v` ofrece un resultado detallado y el parámetro `-vv`, un resultado incluso más detallado. La opción `--json` mostrará el resultado en formato JSON sin procesar.
 
 ## Establecimiento del modo asm
 
@@ -40,7 +40,7 @@ Actualmente, el modo asm está habilitado de forma predeterminada cuando se inst
 >[AZURE.NOTE] Los modos de Azure Resource Manager y asm de la CLI se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 ## Administración de la información de la cuenta y publicación de la configuración
-Una forma en la que la CLI se puede conectar a su cuenta es mediante la información de su suscripción de Azure. (Consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](xplat-cli-connect.md)). Esta información se puede obtener en el Portal de Azure clásico en un archivo de configuración de publicación como se describe aquí. Puede importar el archivo de configuración de publicación como un valor de configuración local permanente que la CLI usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+Una forma en la que la CLI se puede conectar a su cuenta es mediante la información de su suscripción de Azure. (Consulte [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md) [Conexión a una suscripción de Azure desde la CLI de Azure]). Esta información se puede obtener en el Portal de Azure clásico en un archivo de configuración de publicación como se describe aquí. Puede importar el archivo de configuración de publicación como un valor de configuración local permanente que la CLI usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
 
 **account download [options]**
 
@@ -791,7 +791,7 @@ Este comando intercambia entre dos espacios de aplicaciones web.
 
 Este comando es compatible con la siguiente opción adicional:
 
-****-q o **--quiet**: no solicita confirmación. Use esta opción en los scripts automáticos.
+**-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
 
 
 **site start [options] [name]**
@@ -814,7 +814,7 @@ Este comando permite detener una aplicación web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-****site restart [options] [name]
+**site restart [options] [name]
 
 Este comando detiene y después inicia una aplicación web especificada.
 
@@ -1879,7 +1879,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-e** o **--label** &lt;label>: Etiqueta de la cuenta de almacenamiento.
 + **-d** o **--description** &lt;description>: Descripción de la cuenta de almacenamiento.
 + **-l** o **--location** &lt;name>: Región geográfica donde se creará la cuenta de almacenamiento.
-+ **-a** o **--affinity-group** &lt;name>: Grupo de afinidad al que se asociará la cuenta de almacenamiento. 
++ **-a** o **--affinity-group** &lt;name>: Grupo de afinidad al que se asociará la cuenta de almacenamiento.
 + **--type**: indica el tipo de cuenta que se va a crear: almacenamiento Estándar con opción de redundancia (LRS/ZRS/GRS/RAGRS) o almacenamiento Premium (PLRS).
 
 **storage account set [options] <name>**
@@ -2350,4 +2350,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

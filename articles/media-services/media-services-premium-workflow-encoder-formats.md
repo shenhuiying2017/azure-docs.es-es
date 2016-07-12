@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako;anilmur"/>
 
 #Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
@@ -82,7 +82,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 - Windows Media/ASF
 - AVI (sin comprimir de 8 bits/10 bits)
 - Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)
-- MPEG-TS 
+- MPEG-TS
 
 
 ###Códecs de vídeo de salida
@@ -138,4 +138,4 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -65,7 +65,7 @@ De momento, no.
 
 ### ¿Qué dirección utiliza la puerta de enlace de VPN de Azure para la dirección IP del par BGP?
 
-La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si su GatewaySubnet es 10.12.255.0.0/27, que oscila entre 10.42.255.0.0 y 10.42.255.31, la dirección IP del par BGP en la puerta de enlace de VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
+La puerta de enlace de VPN de Azure asignará una sola dirección IP del intervalo de GatewaySubnet definido para la red virtual. De forma predeterminada, es la penúltima dirección del intervalo. Por ejemplo, si su GatewaySubnet es 10.12.255.0/27, que oscila entre 10.12.255.0 y 10.12.255.31, la dirección IP del par BGP en la puerta de enlace de VPN de Azure será 10.12.255.30. Puede encontrar esta información al mostrar la información de la puerta de enlace de VPN de Azure.
 
 ### ¿Cuáles son los requisitos para las direcciones IP del par BGP en mi dispositivo VPN?
 
@@ -79,4 +79,4 @@ La puerta de enlace de red local de Azure especifica los prefijos de dirección 
 
 Debe agregar una ruta de host de la dirección IP del par BGP de Azure en el dispositivo VPN que apunta al túnel VPN S2S de IPsec. Por ejemplo, si la dirección IP del par VPN de Azure es "10.12.255.30", debe agregar una ruta de host para "10.12.255.30" con una interfaz de próximo salto de la interfaz de túnel IPsec coincidente en el dispositivo VPN.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

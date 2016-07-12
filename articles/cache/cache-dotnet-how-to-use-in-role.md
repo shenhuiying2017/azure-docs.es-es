@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/24/2016" 
 	ms.author="sdanie"/>
 
 
@@ -44,15 +44,15 @@ El almacenamiento en caché de instancias de rol presenta las siguientes ventaja
 
 -	No se pagan cuotas premium por el almacenamiento en caché. Se paga únicamente por los recursos informáticos que hospedan la caché.
 -	Se eliminan las cuotas de caché y la limitación de peticiones.
--	Se ofrece mayor control y aislamiento. 
+-	Se ofrece mayor control y aislamiento.
 -	Se mejora el rendimiento.
 -	Las cachés cambian de tamaño automáticamente cuando los roles se escalan vertical u horizontalmente. La memoria disponible para el almacenamiento en caché se aumenta o reduce vertical u horizontalmente de forma eficaz cuando se incorporan o eliminan instancias de rol.
--	Se ofrece una depuración del tiempo de desarrollo con total fidelidad. 
+-	Se ofrece una depuración del tiempo de desarrollo con total fidelidad.
 -	Se admite el protocolo memcache.
 
 Además, el almacenamiento en caché de instancias de rol ofrece estas opciones de configuración:
 
--	Configuración de un rol dedicado para el almacenamiento en caché o almacenamiento en caché colocalizada en los roles existentes. 
+-	Configuración de un rol dedicado para el almacenamiento en caché o almacenamiento en caché colocalizada en los roles existentes.
 -	Disponibilidad de la caché para varios clientes en la misma implementación del servicio en la nube.
 -	Creación de varias cachés con nombre con diferentes propiedades.
 -	Configuración opcional de alta disponibilidad en cachés individuales.
@@ -309,7 +309,7 @@ El proveedor del estado de sesión de la caché en rol es un mecanismo de almace
       </sessionState>
     </system.web>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor del estado de sesión para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -333,7 +333,7 @@ El proveedor de la caché de resultados para la caché en rol es un mecanismo de
       </outputCache>
     </caching>-->
 
->Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation](Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][] (Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor de la caché de resultados para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -353,7 +353,7 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 -   Consulte la referencia de MSDN: [Caché en rol][]
 -   Obtenga información acerca de cómo migrar a la caché en rol: [Migración a Caché en rol][]
 -   Consulte los ejemplos: [Ejemplos de Caché en rol][]
--	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching](Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
+-	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] (Rendimiento máximo: agilización de las aplicaciones de servicios en la nube con el almacenamiento en caché de Azure) de TechEd 2013 sobre la caché en rol
 
 <!-- INTRA-TOPIC LINKS -->
 [Pasos siguientes]: #next-steps
@@ -410,4 +410,4 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

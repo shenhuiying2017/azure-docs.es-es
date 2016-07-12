@@ -20,7 +20,7 @@
 
 # Captura de una máquina virtual clásica con Linux para usarla como imagen
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](virtual-machines-linux-capture-image.md).
 
 En este artículo se muestra cómo puede capturar una máquina virtual clásica de Azure con Linux para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales a partir de la imagen.
 
@@ -28,7 +28,7 @@ Azure almacena la imagen en **Imágenes**. Aquí también están almacenadas tod
 
 ## Antes de empezar
 
-En estos pasos se supone que ya ha creado un máquina virtual de Azure con el modelo de implementación clásica y que ha configurado el sistema operativo, lo que incluye adjuntar cualquier disco de datos. Si no lo ha hecho todavía, lea [Creación de una máquina virtual con Linux][].
+En estos pasos se supone que ya ha creado un máquina virtual de Azure con el modelo de implementación clásica y que ha configurado el sistema operativo, lo que incluye adjuntar cualquier disco de datos. Si no lo ha hecho todavía, lea [How to Create a Linux Virtual Machine][] (Creación de una máquina virtual con Linux).
 
 
 ## Captura de la máquina virtual
@@ -85,7 +85,7 @@ En estos pasos se supone que ya ha creado un máquina virtual de Azure con el mo
 
 
 ## Pasos siguientes
-La imagen está lista para usarse para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la administración de servicios de Azure](../virtual-machines-command-line-tools.md) para obtener más información acerca del comando. También puede usar el [Portal de Azure clásico][] para crear una máquina virtual personalizada mediante el método **De la galería** y seleccionar la imagen que acaba de crear. Vea [Creación de una máquina virtual personalizada][] para obtener más detalles.
+La imagen está lista para usarse para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con administración de servicios de Azure](../virtual-machines-command-line-tools.md) para obtener más información acerca del comando. También puede usar el [Portal de Azure clásico][] para crear una máquina virtual personalizada mediante el método **De la galería** y seleccionar la imagen que acaba de crear. Vea [Creación de una máquina virtual personalizada][] para obtener más detalles.
 
 **Consulte también:**[Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -93,6 +93,6 @@ La imagen está lista para usarse para crear máquinas virtuales. Puede usar el 
 [Acerca de las imágenes de máquina virtual en Azure]: virtual-machines-linux-classic-about-images.md
 [Creación de una máquina virtual personalizada]: virtual-machines-linux-classic-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
-[Creación de una máquina virtual con Linux]: virtual-machines-linux-classic-create-custom.md
+[How to Create a Linux Virtual Machine]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

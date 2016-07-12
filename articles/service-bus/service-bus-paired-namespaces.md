@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/27/2016"
     ms.author="sethm" />
 
-# Detalles de implementación y costes asociados de los espacios de nombres emparejados
+# Detalles de implementación y costos asociados de los espacios de nombres emparejados
 
 El método [PairNamespaceAsync][], que usa una instancia de [SendAvailabilityPairedNamespaceOptions][], realiza tareas visibles en su nombre. Dado que el uso de esta característica tiene ciertos costes asociados, resulta útil conocer dichas tareas para que su comportamiento no le pille desprevenido. La API interactúa con el siguiente comportamiento automático en su nombre:
 
@@ -129,4 +129,4 @@ Para obtener más información sobre la mensajería asincrónica del bus de serv
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

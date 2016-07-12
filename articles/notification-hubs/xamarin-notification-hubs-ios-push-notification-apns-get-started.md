@@ -4,8 +4,8 @@
 	services="notification-hubs"
     keywords="notificaciones push de ios,mensajes de inserción,notificaciones push,mensaje de notificación"
 	documentationCenter="xamarin"
-	authors="ysxu"
-	manager="dwrede"
+	authors="wesmc7777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/15/2016"
-	ms.author="yuaxu"/>
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
 
 # Notificaciones push de iOS con Centros de notificaciones para aplicaciones Xamarin
 
@@ -328,4 +328,4 @@ En este sencillo ejemplo, se difunden notificaciones push a todos los dispositiv
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

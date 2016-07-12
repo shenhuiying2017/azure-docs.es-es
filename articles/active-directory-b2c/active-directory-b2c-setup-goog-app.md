@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión para los usuarios con cuentas de Google+
@@ -66,4 +66,4 @@ Para usar Google+ como proveedor de identidades en Azure Active Directory (Azure
 6. Haga clic en **Configurar este proveedor de identidades** y escriba el identificador de cliente y el secreto de cliente de la aplicación de Google+ que creó anteriormente.
 7. Haga clic en **Aceptar** y, luego, en **Crear** para guardar la configuración de Google+.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

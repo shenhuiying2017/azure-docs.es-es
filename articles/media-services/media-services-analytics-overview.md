@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Información general de análisis de Servicios multimedia de Azure"
-	description="Servicios multimedia de Azure ofrece la versión preliminar pública de Análisis multimedia de Azure, una colección de servicios de voz y visión informática a escala empresarial, cumplimiento, seguridad y alcance global. Los servicios Análisis multimedia de Azure se generan con los componentes principales de la plataforma Servicios multimedia de Azure y, por tanto, están preparados para ocuparse del procesamiento multimedia a escala desde el primer día."
+	pageTitle="Información general sobre análisis de Servicios multimedia de Azure | Microsoft Azure"
+	description="Servicios multimedia de Azure ofrece la versión preliminar pública de Análisis multimedia de Azure, una colección de servicios de voz y visión informática a escala empresarial, cumplimiento, seguridad y alcance global. Los servicios Análisis multimedia de Azure se generan con los componentes principales de la plataforma Servicios multimedia de Azure y, por tanto, están preparados para ocuparse del procesamiento multimedia a escala desde el primer día. "
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"   
+	ms.date="06/27/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
 # Información general de análisis de Servicios multimedia de Azure
@@ -43,15 +43,85 @@ El siguiente diagrama muestra **Análisis multimedia** y otras partes principale
  
 - **Video summarization**: este servicio puede ayudarle a crear resúmenes de vídeos largos al seleccionar automáticamente fragmentos interesantes del vídeo original. Esto es útil si quiere proporcionar una rápida descripción de lo que se va a encontrar en un vídeo largo. Para obtener información detallada y ejemplos, consulte [Use Azure Media Video Thumbnails to Create a Video Summarization (Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo)](media-services-video-summarization.md).
 
+- **Reconocimiento óptico de caracteres**: gracias al OCR (reconocimiento óptico de caracteres) de Análisis multimedia de Azure, podrá convertir el contenido de texto de archivos de vídeo en texto digital modificable y utilizable en búsquedas. De este modo, se puede automatizar la extracción de metadatos significativos de la señal de vídeo de los elementos multimedia.
+ 
+ 
 ## Escenarios comunes
 
 A continuación se muestran un par de escenarios en los que Análisis multimedia de Azure puede ayudar a las organizaciones y empresas de distintos sectores a extraer nuevos detalles a partir del vídeo para conseguir compromisos más personalizados del público y los empleados, así como a administrar más eficazmente grandes volúmenes de contenido de vídeo:
 
 - **Centros de atención al cliente**: incluso con la aparición de las redes sociales, los centros de atención al cliente todavía gestionan un gran porcentaje de transacciones de servicios de clientes. Codificada en estos datos de audio hay una gran cantidad de información sobre los clientes que se puede analizar para mejorar las hojas de ruta de los productos y también para formar a los empleados del centro de atención al cliente a fin de lograr mayor satisfacción de este. Con Azure Media Indexer, los clientes pueden extraer texto y generar un índice de búsqueda y paneles para extraer datos sobre las quejas más comunes, los motivos de queja y otros datos igualmente relevantes.
 
-- **Moderación de contenido generado por el usuario**: desde medios de comunicación a departamentos de policía, muchas organizaciones cuentan con portales orientados al público en los que aceptan medios de contenido generado por el usuario, como imágenes y vídeos. El volumen de contenido puede tener picos debido a sucesos inesperados. En estos casos, es casi imposible llevar a cabo una revisión manual eficaz del contenido para garantizar su idoneidad. Los clientes pueden basarse en el servicio de moderación de contenido para centrarse en el contenido adecuado.
+- **Moderación de contenido generado por el usuario**: desde medios de comunicación a departamentos de policía, muchas organizaciones cuentan con portales orientados al público en los que aceptan elementos multimedia de contenido generado por el usuario, como imágenes y vídeos. El volumen de contenido puede tener picos debido a sucesos inesperados. En estos casos, es casi imposible llevar a cabo una revisión manual eficaz del contenido para garantizar su idoneidad. Los clientes pueden basarse en el servicio de moderación de contenido para centrarse en el contenido adecuado.
 
 - **Vigilancia**: con el desarrollo de las cámaras IP, hay un aumento vertiginoso de vídeos de vigilancia. La revisión manual de vídeos de vigilancia exige mucho tiempo y es propensa a errores humanos. Análisis multimedia de Azure proporciona varios componentes, como la detección de movimiento, la detección de caras e Hyperlapse, para facilitar el proceso de revisión, administración y creación de derivados.
+
+## Procesadores de multimedia de análisis de Servicios multimedia 
+
+En esta sección se enumeran todos los procesadores de multimedia (MP) de análisis de Servicios multimedia y se muestra cómo utilizar .NET o REST para obtener un objeto de MP.
+
+### Nombres de MP
+
+
+- Azure Media Indexer 2 Preview
+- Azure Media Indexer
+- Azure Media Hyperlapse
+- Azure Media Face Detector
+- Azure Media Motion Detector
+- Azure Media Video Thumbnails
+- Azure Media OCR
+
+### .NET
+
+La siguiente función toma uno de los nombres de MP especificados y devuelve un objeto de MP.
+
+    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors
+            .Where(p => p.Name == mediaProcessorName)
+            .ToList()
+            .OrderBy(p => new Version(p.Version))
+            .LastOrDefault();
+
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                                       mediaProcessorName));
+
+        return processor;
+    }
+
+
+## REST
+
+Solicitud:
+
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json
+	Accept-Charset: UTF-8
+	User-Agent: Microsoft ADO.NET Data Services
+	Authorization: Bearer <token>
+	x-ms-version: 2.12
+	Host: media.windows.net
+	
+Respuesta:
+		
+	. . .
+	
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
+	         "Description":"Azure Media OCR",
+	         "Name":"Azure Media OCR",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 ##Demostraciones
 
@@ -74,4 +144,4 @@ A continuación se muestran un par de escenarios en los que Análisis multimedia
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

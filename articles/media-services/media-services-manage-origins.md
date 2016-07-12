@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -125,6 +125,7 @@ Una vez habilitada, se deshabilitan las siguientes configuraciones: **Nombres de
 
 ![Extremo de streaming con la red CDN habilitada][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] La integración de Servicios multimedia de Azure con la red CDN de Azure se implementa en la **red CDN de Azure de Verizon**. Si quiere usar la **red CDN de Azure de Akamai** para Servicios multimedia de Azure, debe [configurar el punto de conexión manualmente](../cdn/cdn-create-new-endpoint.md). Para obtener más información sobre las características de la red CDN de Azure, consulte la [información general de la red CDN](../cdn/cdn-overview.md).
 
 ###Consideraciones adicionales
 
@@ -150,4 +151,4 @@ Para obtener más información, consulte [Anuncio de la integración de Servicio
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

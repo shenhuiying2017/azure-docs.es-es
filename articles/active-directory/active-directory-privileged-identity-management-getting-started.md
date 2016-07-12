@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Introducción a Privileged Identity Management de Azure AD
@@ -29,15 +29,16 @@ Antes de usar Privileged Identity Management de Azure AD, debe agregar la aplica
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global de su directorio.
 2. Si su organización tiene más de un directorio, haga clic en su nombre de usuario en la esquina superior derecha del Portal de Azure y seleccione el directorio donde usará PIM.
-3. Haga clic en el icono **Nuevo** en el panel de navegación de la izquierda.
-4. Seleccione **Seguridad e identidad**.
-5. Seleccione **Azure AD Privileged Identity Management**.
-6. Active la casilla **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá la aplicación Privileged Identity Management.
+3. Seleccione **Nuevo** > **Seguridad e identidad** > **Privileged Identity Management de Azure AD**.
+
+    ![Habilitar PIM en el portal][1]
+
+4. Active **Anclar al panel** y haga clic en **Crear**. Se abrirá la aplicación Privileged Identity Management.
 
 
-Si usted es la primera persona que usa Privileged Identity Management de Azure AD en su directorio, el [Asistente para seguridad](active-directory-privileged-identity-management-security-wizard.md) le guiará en la experiencia de asignación inicial. Después de eso, se convertirá automáticamente en el primer **administrador de seguridad** y **administrador de roles con privilegios** del directorio. Solo un administrador de roles con privilegios puede acceder a esta aplicación para administrar el acceso de otros administradores.
+Si usted es la primera persona que usa Privileged Identity Management de Azure AD en su directorio, el [Asistente para seguridad](active-directory-privileged-identity-management-security-wizard.md) le guiará en la experiencia de asignación inicial. Después de eso, se convertirá automáticamente en el primer **administrador de seguridad** y **administrador de rol con privilegios** del directorio. Solo un administrador de roles con privilegios puede acceder a esta aplicación para administrar el acceso de otros administradores.
 
-Por lo demás, si otro administrador de roles con privilegios lo ha asignado a uno o más roles, tendrá la opción de elegir qué rol activar. Si se encuentra en un rol de administrador de roles con privilegios, también verá la opción **Administrar identidades**.
+Si se le han asignado uno o más roles, dispone de la opción **Activar mis roles**. Si es un administrador de rol con privilegios, también verá una opción **Administrar roles con privilegios**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,4 +48,8 @@ En [Administración de identidades con privilegios de Azure AD](active-directory
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

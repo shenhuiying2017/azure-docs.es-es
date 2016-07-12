@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 
@@ -122,7 +122,8 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
   
   > [AZURE.NOTE] 
-  Configurar la federación con AD FS como se describe en el documento vinculado arriba. No es preciso configurar las características de vista previa.
+  Configurar la federación con AD FS como se describe en el documento vinculado arriba. 
+  No es preciso configurar las características de vista previa.
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory
@@ -190,7 +191,7 @@ Existen varias formas de comunicar la URL a los usuarios. Una forma que se recom
 4. Cuando se lo pidan, inicie sesión con sus credenciales. El dispositivo ahora está unido.
 
 ###Unión de un dispositivo Windows 7 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
-Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama "Workplace Join" para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
@@ -238,7 +239,7 @@ Para poder acceder a esta aplicación, debe registrar el dispositivo.
 Una el dispositivo iOS al área de trabajo.
 
 
-**Si usa un dispositivo Windows 8.1**, puede conectarlo desde **Configuración de PC** > **Red** > **Área de trabajo**.
+**Si usa un dispositivo Windows 8.1**, puede conectarlo desde **Configuración de PC **> **Red** > **Área de trabajo**.
 
 
 Donde "**nombre de confianza de usuario de confianza**" es el nombre del objeto Confianza de usuario de confianza en AD FS. Donde **yourdomain.com** es el nombre de dominio que configuró en Azure Active Directory. Por ejemplo, contoso.com. Asegúrese de quitar los saltos de línea (si existen) del contenido HTML que se pasa al cmdlet **Set-AdfsRelyingPartyWebContent**.
@@ -252,4 +253,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

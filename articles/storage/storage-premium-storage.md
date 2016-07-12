@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="06/23/2016"
 	ms.author="prkhad"/>
 
 
@@ -39,7 +39,7 @@ Para empezar a usar Almacenamiento premium de Azure, visite la página [Empiece 
 
 **Blob en páginas premium**: el Almacenamiento premium admite blobs en páginas de Azure, que se usan para contener discos persistentes para máquinas virtuales de Azure (VM). Actualmente, el Almacenamiento premium no admite blobs en bloques de Azure, blobs en anexos de Azure, archivos de Azure, tablas de Azure ni colas de Azure. Cualquier otro objeto colocado en una cuenta de Almacenamiento premium será un blob en páginas y se ajustará a uno de los tamaños aprovisionados admitidos. Por lo tanto, la cuenta de Almacenamiento premium no está pensada para el almacenamiento de blobs de tamaño muy pequeño.
 
-**Cuenta de Almacenamiento premium**: para empezar a usar el Almacenamiento premium, debe crear una cuenta de Almacenamiento premium. Si prefiere usar el [Portal de Azure](https://portal.azure.com), puede crear una cuenta de Almacenamiento premium si especifica el nivel de rendimiento "Premium" y "almacenamiento con redundancia local (LRS)" como opción de replicación. También puede crear una cuenta de Almacenamiento premium si especifica "Premium\_LRS" como tipo con la versión 2014-02-14 o posterior de la [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx); la versión 2014-10-01 o posterior (implementaciones de la versión clásica) de la [API de REST de administración de servicios](http://msdn.microsoft.com/library/azure/ee460799.aspx); la [Referencia de la API de REST del proveedor de recursos de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implementaciones de ARM); y la versión 0.8.10 o posterior de [Azure PowerShell](../powershell-install-configure.md). Obtenga información acerca de los límites de la cuenta de Almacenamiento premium en la siguiente sección, en [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#premium-storage-scalability-and-performance-targets).
+**Cuenta de Almacenamiento premium**: para empezar a usar el Almacenamiento premium, debe crear una cuenta de Almacenamiento premium. Si prefiere usar el [Portal de Azure](https://portal.azure.com), puede crear una cuenta de Almacenamiento premium si especifica el nivel de rendimiento "Premium" y "almacenamiento con redundancia local (LRS)" como opción de replicación. También puede crear una cuenta de Almacenamiento premium si especifica "Premium\_LRS" como tipo con la versión 2014-02-14 o posterior de la [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx); la versión 2014-10-01 o posterior (implementaciones de la versión clásica) de la [API de REST de administración de servicios](http://msdn.microsoft.com/library/azure/ee460799.aspx); la [Referencia de la API de REST del proveedor de recursos de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implementaciones de Resource Manager); y la versión 0.8.10 o posterior de [Azure PowerShell](../powershell-install-configure.md). Obtenga información acerca de los límites de la cuenta de Almacenamiento premium en la siguiente sección, en [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#premium-storage-scalability-and-performance-targets).
 
 **Almacenamiento con redundancia local premium**: una cuenta de Almacenamiento premium solo admite almacenamiento con redundancia local (LRS) como opción de replicación y mantiene tres copias de los datos en una única región. Para consideraciones relativas a la replicación geográfica cuando se usa el Almacenamiento premium, consulte la sección [Instantáneas y Copy Blob](#snapshots-and-copy-blob) de este artículo.
 
@@ -112,7 +112,7 @@ Las cuentas de Almacenamiento premium tienen estos objetivos de escalabilidad:
 
 Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](storage-scalability-targets.md).
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento, ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
 
 ### Límites de discos del Almacenamiento premium
 
@@ -163,29 +163,29 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Rendimiento máximo por disco P10</strong></td>
-	<td><strong>Lecturas del disco no en memoria caché</strong></td>
-	<td><strong>Escrituras en el disco no memoria caché</strong></td>
+<td><strong>Rendimiento máximo por disco P10</strong></td>
+<td><strong>Lecturas del disco no en memoria caché</strong></td>
+<td><strong>Escrituras en el disco no memoria caché</strong></td>
 </tr>
 <tr>
-	<td>100&#160;MB por segundo</td>
-	<td>100&#160;MB por segundo</td>
-	<td>0</td>
+<td>100&#160;MB por segundo</td>
+<td>100&#160;MB por segundo</td>
+<td>0</td>
 </tr>
 <tr>
-	<td>100&#160;MB por segundo</td>
-	<td>0</td>
-	<td>100&#160;MB por segundo</td>
+<td>100&#160;MB por segundo</td>
+<td>0</td>
+<td>100&#160;MB por segundo</td>
 </tr>
 <tr>
-	<td>100 MB por segundo </td>
-	<td>60&#160;MB por segundo </td>
-	<td>40 MB por segundo </td>
+<td>100 MB por segundo </td>
+<td>60&#160;MB por segundo </td>
+<td>40 MB por segundo </td>
 </tr>
 </tbody>
 </table>
 
-- **Aciertos de caché**: los aciertos de caché no están limitados por las E/S ni el rendimiento asignados del disco. Por ejemplo, cuando se usa un disco de datos con la configuración de caché ReadOnly en una máquina virtual de la serie DS, DSv2 o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco del Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales. Las máquinas virtuales de la serie GS tienen un límite de 5000 IOPS y 50 MB/s por núcleo para las E/S de SSD local y memoria caché.
+- **Aciertos de caché**: los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se usa un disco de datos con la configuración de caché ReadOnly en una máquina virtual de la serie DS, DSv2 o GS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco del Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales. Las máquinas virtuales de la serie GS tienen un límite de 5000 IOPS y 50 MB/s por núcleo para las E/S de SSD local y memoria caché.
 
 ## Limitaciones
 Puede que se produzca una limitación si las IOPS o el rendimiento de la aplicación superan los límites asignados a un disco del Almacenamiento premium o si el tráfico total de disco en todos los discos de la máquina virtual supera el límite de ancho de banda de disco disponible para la máquina virtual. Para evitar la limitación, recomendamos que limite el número de solicitudes de E/S pendientes para discos basándose en los objetivos de rendimiento y escalabilidad que ha aprovisionado y en el ancho de banda de disco disponible para la máquina virtual.
@@ -205,7 +205,7 @@ Tiene una máquina virtual DS4 con dos discos P30 conectados. Cada disco P30 es 
 
 >[AZURE.NOTE] Si el tráfico de disco consta principalmente de tamaños de E/S pequeños, es muy probable que la aplicación alcance el límite de IOPS antes que el límite de rendimiento. Por otro lado, si el tráfico de disco consiste principalmente en tamaños grandes de E/S, es muy probable que la aplicación alcance el límite de rendimiento en lugar del límite de IOPS. Puede aumentar la tasa de IOPS de su aplicación y la capacidad de rendimiento mediante el uso de tamaños de E/S óptimos y también mediante la limitación del número de solicitudes de E/S pendientes de un disco.
 
-Para más información sobre el diseño de alto rendimiento con el Almacenamiento premium, consulte el artículo [Almacenamiento premium de Azure: diseño de alto rendimiento](storage-premium-storage-performance.md).
+Para obtener más información sobre el diseño de alto rendimiento con el Almacenamiento premium, consulte el artículo [Almacenamiento premium de Azure: diseño de alto rendimiento](storage-premium-storage-performance.md).
 
 ## Instantáneas y Copy Blob
 Puede crear una instantánea para el Almacenamiento premium de la misma que crea una instantánea al usar Almacenamiento estándar. Dado que el Almacenamiento premium solo admite almacenamiento con redundancia local (LRS) como opción de replicación, se recomienda crear instantáneas y luego copiarlas en una cuenta de Almacenamiento estándar con redundancia geográfica. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](storage-redundancy.md).
@@ -351,7 +351,7 @@ Al usar Almacenamiento premium, se aplican las siguientes consideraciones de fac
 - Instantáneas del Almacenamiento premium
 - Transferencias de datos de salida
 
-**Tamaño de disco o blob de almacenamiento premium**: la facturación de un disco o blob de almacenamiento premium depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Almacenamiento premium más cercana según se especifica en la tabla que se proporciona en la sección [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage). Todos los objetos almacenados en una cuenta de Almacenamiento premium se asignarán a uno de los tamaños aprovisionados admitidos y se facturarán en consecuencia. Por lo tanto, evite el uso de cuentas de Almacenamiento premium para almacenar blobs de tamaño muy pequeño. La facturación de cualquier disco o blob aprovisionado se prorratea cada hora con el precio mensual de la oferta de Almacenamiento premium. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento/IOPS usado.
+**Tamaño de disco o blob de Almacenamiento premium**: la facturación de un disco o blob de almacenamiento premium depende del tamaño aprovisionado del disco o blob. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Almacenamiento premium más cercana según se especifica en la tabla que se proporciona en la sección [Objetivos de escalabilidad y rendimiento del Almacenamiento premium](#scalability-and-performance-targets-whes-ESing-premium-storage). Todos los objetos almacenados en una cuenta de Almacenamiento premium se asignarán a uno de los tamaños aprovisionados admitidos y se facturarán en consecuencia. Por lo tanto, evite el uso de cuentas de Almacenamiento premium para almacenar blobs de tamaño muy pequeño. La facturación de cualquier disco o blob aprovisionado se prorratea cada hora con el precio mensual de la oferta de Almacenamiento premium. Por ejemplo, si se aprovisiona un disco P10 y se elimina después de 20 horas, se factura la oferta P10 prorrateada a 20 horas. Esto es así independientemente de la cantidad de datos que se escriba en el disco o del rendimiento/IOPS usado.
 
 **Instantáneas del Almacenamiento premium**: las instantáneas en el Almacenamiento premium se facturan según la capacidad adicional que hayan usado. Para obtener información sobre las instantáneas, consulte [Crear una instantánea de un blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
@@ -386,7 +386,7 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 	> [AZURE.NOTE] Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 	>  
-	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure le indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
+	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure indicará si el nombre de la cuenta de almacenamiento que seleccione ya está en uso.
 
 4. Especifique el modelo de implementación que se va a usar: **Resource Manager** o **Clásica**. **Administrador de recursos** es el modelo de implementación recomendado. Para obtener más información, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md).
 
@@ -396,7 +396,7 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 7. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para obtener más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-portal/resource-group-portal.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento. Puede confirmar si el Almacenamiento premium está disponible en la ubicación seleccionada en [Servicios de Azure por región](https://azure.microsoft.com/regions/#services).
 
@@ -404,17 +404,17 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 #### II. Creación de una máquina virtual de Azure mediante el Portal de Azure
 
-Debe crear una máquina virtual de la serie DS, DSv2 o GS para poder usar el Almacenamiento premium. Siga los pasos de [Creación de una máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para crear una nueva máquina virtual DS, DSv2 o GS.
+Debe crear una máquina virtual de la serie DS, DSv2 o GS para poder usar el Almacenamiento premium. Siga los pasos de [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para crear una nueva máquina virtual DS, DSv2 o GS.
 
 #### III. Conexión de un disco de datos del Almacenamiento premium mediante el Portal de Azure
 
 1. Busque la máquina virtual DS, DSv2 o GS nueva o existente en el Portal de Azure.
 2. En la opción **Toda la configuración** de la máquina virtual, vaya a **Discos** y haga clic en **Adjuntar nuevo**.
-3. Escriba el nombre del disco de datos y seleccione **Premium** en **Tipo**. Seleccione los valores que quiera en **Tamaño** y **Almacenamiento en caché de host**.
+3. Escriba el nombre del disco de datos y seleccione **Premium** en el parámetro **Type**. Seleccione los valores que quiera en **Tamaño** y **Almacenamiento en caché de host**.
 
 	![Disco premium][Image1]
 
-Consulte pasos más detallados en [Acoplamiento de un disco de datos en el Portal de Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+Consulte pasos más detallados en [Cómo adjuntar un disco de datos a una máquina virtual Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
 #### IV. Cambio de la directiva de almacenamiento en caché de disco mediante el Portal de Azure
 
@@ -562,4 +562,4 @@ Para más información sobre el Almacenamiento premium de Azure, consulte los si
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

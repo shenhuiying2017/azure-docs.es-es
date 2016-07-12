@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Actividad de procedimiento almacenado de SQL Server
@@ -21,9 +21,9 @@
 Puede usar la actividad de procedimiento almacenado de SQL Server en una [canalización](data-factory-create-pipelines.md) de Factoría de datos para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos.
 
 
-- Base de datos SQL de Azure 
-- Almacenamiento de datos SQL de Azure  
-- Base de datos de SQL Server en la empresa o en una máquina virtual de Azure. Data Management Gateway se debe instalar en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales u orígenes de datos hospedados en máquinas virtuales de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway. 
+- Base de datos SQL de Azure
+- Almacenamiento de datos SQL de Azure
+- Base de datos de SQL Server en la empresa o en una máquina virtual de Azure. Data Management Gateway se debe instalar en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales u orígenes de datos hospedados en máquinas virtuales de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
 
 Este artículo se basa en el artículo [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta una descripción general de la transformación de datos y las actividades de transformación admitidas.
 
@@ -62,7 +62,7 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 ### Procedimiento almacenado y tabla de ejemplo
 > [AZURE.NOTE] En este ejemplo se usa Base de datos SQL de Azure, pero funciona de la misma manera con Almacenamiento de datos SQL de Azure y Base de datos de SQL Server.
 
-1. Cree la siguiente **tabla** en la Base de datos SQL de Azure con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente. 
+1. Cree la siguiente **tabla** en la Base de datos SQL de Azure con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
 
 		CREATE TABLE dbo.sampletable
 		(
@@ -90,10 +90,10 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 	
 ### Crear una factoría de datos  
 4. Tras iniciar sesión en el [Portal de Azure](https://portal.azure.com/), haga lo siguiente:
-	1.	Haga clic en **NUEVO** en el menú de la izquierda. 
+	1.	Haga clic en **NUEVO** en el menú de la izquierda.
 	2.	Haga clic en **Análisis de datos** en la hoja **Creación**.
 	3.	Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
-4.	En la hoja **Nueva factoría de datos**, escriba **SProcDF** para el nombre. Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
+4.	En la hoja **Nueva factoría de datos**, escriba **SProcDF** para el nombre. Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría.
 3.	Si no creó ningún grupo de recursos, tendrá que crearlo. Para ello, siga estos pasos:
 	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
 	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
@@ -106,9 +106,9 @@ storedProcedureParameters | Especifique valores para los parámetros de procedim
 ### Crear un servicio vinculado SQL de Azure.  
 Después de crear la factoría de datos, cree un servicio vinculado SQL de Azure que vincule la Base de datos SQL de Azure a la factoría de datos. Esta es la base de datos que contiene la tabla sampletable y el procedimiento almacenado sp\_sample.
 
-7.	Haga clic en **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **SProcDF**. Esto inicia el Editor de la Factoría de datos. 
-2.	Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **SQL de Azure**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor. 
-4. Reemplace **servername** por el nombre del servidor de la Base de datos SQL de Azure, **databasename** por el nombre de la base de datos donde creó la tabla y el procedimiento almacenado, ****username@servername** por la cuenta de usuario con acceso a la base de datos y **password** por la contraseña de la cuenta de usuario.
+7.	Haga clic en **Crear e implementar** en la hoja **FACTORÍA DE DATOS** para **SProcDF**. Esto inicia el Editor de la Factoría de datos.
+2.	Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **SQL de Azure**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
+4. Reemplace **servername** por el nombre del servidor de la Base de datos SQL de Azure, **databasename** por el nombre de la base de datos donde creó la tabla y el procedimiento almacenado, **username@servername** por la cuenta de usuario con acceso a la base de datos y **password** por la contraseña de la cuenta de usuario.
 5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 ### Crear un conjunto de datos de salida
@@ -129,13 +129,13 @@ Después de crear la factoría de datos, cree un servicio vinculado SQL de Azure
 				}
 			}
 		}
-7. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos. 
+7. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos.
 
 ### Crear una canalización con una actividad SqlServerStoredProcedure
 Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedure.
  
-9. Haga clic en **... (puntos suspensivos)** en la barra de comandos y después en **Nueva canalización**. 
-9. Copie y pegue el siguiente fragmento de código JSON. El valor de **storedProcedureName** se establece en **sp\_sample**. El nombre y el uso de mayúsculas y minúsculas en el parámetro **DateTime** deben coincidir con los del parámetro de la definición del procedimiento almacenado.  
+9. Haga clic en **... (puntos suspensivos)** en la barra de comandos y después en **Nueva canalización**.
+9. Copie y pegue el siguiente fragmento de código JSON. El valor de **storedProcedureName** se establece en **sp\_sample**. El nombre y el uso de mayúsculas y minúsculas en el parámetro **DateTime** deben coincidir con los del parámetro de la definición del procedimiento almacenado.
 
 		{
 		    "name": "SprocActivitySamplePipeline",
@@ -166,13 +166,13 @@ Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedur
 		        "isPaused": false
 		    }
 		}
-9. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización.  
+9. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización.
 
 ### Supervisar la canalización
 
 6. Haga clic en **X** para cerrar las hojas del Editor de la Factoría de datos y volver a la hoja Factoría de datos y, después, haga clic en **Diagrama**.
-7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial. 
-8. En la Vista de diagrama, haga doble clic en el conjunto de datos **sprocsampleout**. Se verán los segmentos con estado Listo. Debe haber 24 segmentos, porque se genera un segmento para cada hora entre el 02/01/2015 y el 03/01/2015. 
+7. En la Vista de diagrama, verá información general de las canalizaciones y conjuntos de datos empleados en este tutorial.
+8. En la Vista de diagrama, haga doble clic en el conjunto de datos **sprocsampleout**. Se verán los segmentos con estado Listo. Debe haber 24 segmentos, porque se genera un segmento para cada hora entre el 02/01/2015 y el 03/01/2015.
 10. Cuando un segmento tiene el estado **Listo**, ejecute una consulta **select * from sampledata** en la base de datos SQL de Azure para comprobar que el procedimiento almacenado ha insertado los datos en la tabla.
 
 	![Datos de salida](./media/data-factory-stored-proc-activity/output.png)
@@ -207,4 +207,4 @@ Para ello, pase el parámetro Escenario y el valor de la actividad de procedimie
 		}
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

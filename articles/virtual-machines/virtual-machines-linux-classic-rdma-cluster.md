@@ -18,7 +18,7 @@ ms.service="virtual-machines-linux"
 
 # Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Aprenda cómo configurar un clúster de Linux RDMA en Azure con [máquinas virtuales de tamaño A8 y A9](virtual-machines-linux-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Al configurar un clúster de máquinas virtuales de tamaño A8 y A9 para ejecutar una distribución Linux HPC compatible y una implementación de MPI compatible, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento en Azure basada en tecnología de acceso directo a memoria remota (RDMA).
@@ -101,7 +101,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
 >[AZURE.IMPORTANT]Microsoft Azure no proporciona acceso a la raíz a máquinas virtuales de Linux. Para obtener acceso administrativo al conectarse como un usuario a la máquina virtual, ejecute los comandos mediante `sudo`.
 
-* **Actualizaciones**: instale las actualizaciones mediante **zypper**. También puede instalar utilidades NFS.  
+* **Actualizaciones**: instale las actualizaciones mediante **zypper**. También puede instalar utilidades NFS.
 
     >[AZURE.IMPORTANT]Si ha implementado un clúster HPC V de SLES 12, en este momento es recomendable no aplicar actualizaciones de kernel, que pueden causar problemas con los controladores de RDMA de Linux.
     >
@@ -167,7 +167,7 @@ Para capturar la imagen, primero ejecute el comando siguiente en la máquina vir
 sudo waagent -deprovision
 ```
 
-A continuación, desde el equipo cliente, ejecute los siguientes comandos de CLI de Azure para capturar la imagen. Para más información, consulte [Captura de una máquina virtual clásica con Linux para usarla como imagen](virtual-machines-linux-classic-capture-image.md).
+A continuación, desde el equipo cliente, ejecute los siguientes comandos de CLI de Azure para capturar la imagen. Para obtener más información, consulte [Captura de una máquina virtual clásica con Linux para usarla como imagen](virtual-machines-linux-classic-capture-image.md).
 
 ```
 azure vm shutdown <vm-name>
@@ -234,9 +234,9 @@ Ahora ejecute el script con tres parámetros: el nombre de usuario común en los
 
 El script hace lo siguiente:
 
-* Crea un directorio en el nodo de host de host denominado .ssh, que es necesario para el inicio de sesión sin contraseña. 
-* Crea un archivo de configuración en el directorio .ssh, que indica el inicio de sesión sin contraseña para permitir el inicio de sesión desde cualquier nodo del clúster. 
-* Crea archivos que contienen los nombres de nodo y las direcciones IP de nodo para todos los nodos del clúster. Estos archivos se mantienen después de ejecutar el script de referencia por el usuario. 
+* Crea un directorio en el nodo de host de host denominado .ssh, que es necesario para el inicio de sesión sin contraseña.
+* Crea un archivo de configuración en el directorio .ssh, que indica el inicio de sesión sin contraseña para permitir el inicio de sesión desde cualquier nodo del clúster.
+* Crea archivos que contienen los nombres de nodo y las direcciones IP de nodo para todos los nodos del clúster. Estos archivos se mantienen después de ejecutar el script de referencia por el usuario.
 * Crea un par de claves público y privado para cada nodo de clúster, incluido el nodo de host y comparte la información sobre el par de claves, y crea una entrada en el archivo authorized\_keys.
 
 >[AZURE.WARNING]La ejecución de este script puede crear un posible riesgo de seguridad. Asegúrese de que no se distribuye la información de clave pública en ~/.ssh.
@@ -398,4 +398,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Pruebe una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para crear un clúster de Intel Lustre mediante una imagen HPC basada en CentOS.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

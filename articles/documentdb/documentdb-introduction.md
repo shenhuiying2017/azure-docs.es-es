@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/30/2016" 
+	ms.date="07/01/2016" 
 	ms.author="mimig"/>
 
 # Introducción a DocumentDB: una base de datos de JSON NoSQL
 
-Azure DocumentDB es un servicio totalmente administrado de base de datos NoSQL compilado para obtener un rendimiento rápido y predecible, alta disponibilidad, escalado automático y facilidad de desarrollo. Su modelo de datos flexible, bajas latencias continuadas y excelentes funcionalidades de consulta hacen que sea una gran elección para web, móvil, juegos e IoT y para muchas otras aplicaciones que necesitan un escalado impecable.
+Azure DocumentDB es un servicio totalmente administrado de base de datos NoSQL compilado para obtener un rendimiento rápido y predecible, alta disponibilidad, escalado automático, distribución global y facilidad de desarrollo. Su modelo de datos flexible, bajas latencias continuadas y excelentes funcionalidades de consulta hacen que sea una gran elección para web, móvil, juegos e IoT y para muchas otras aplicaciones que necesitan un escalado impecable.
 
 Una forma rápida de obtener información sobre esta base de datos de JSON y de verla en acción es seguir estos tres pasos:
 
@@ -32,19 +32,21 @@ A continuación, vuelva a este artículo, donde profudizará y conocerá las res
 -	[¿Qué es DocumentDB y qué valor ofrece a las aplicaciones modernas?](#what-is-azure-documentdb)
 -	[¿Cómo se administran los datos en DocumentDB y cómo se tiene acceso al servicio?](#data-management)
 -	[¿Cómo puedo desarrollar aplicaciones con DocumentDB?](#develop)
--	[¿Cuáles son los pasos que debo seguir para crear una aplicación de DocumentDB?](#next-steps)  
+-	[¿Cuáles son los pasos que debo seguir para crear una aplicación de DocumentDB?](#next-steps)
 
 ## ¿Qué es la Base de datos de documentos de Azure?  
 
 Las aplicaciones modernas producen, consumen y responden rápidamente a volúmenes de datos muy grandes. Estas aplicaciones evolucionan con mucha rapidez y lo mismo ocurre con el esquema de datos subyacente. En respuesta a esto, cada vez más desarrolladores optan por las bases de datos de documentos NoSQL libres de esquemas por ser soluciones sencillas, rápidas y escalables para almacenar y procesar datos, a la vez que permiten conservar la capacidad de iterar rápidamente sobre los modelos de datos de las aplicaciones y las fuentes de datos no estructuradas. Sin embargo, muchas bases de datos libres de esquemas no permiten realizar consultas complejas ni procesar transacciones, lo que dificulta la administración de datos avanzados. Esto es donde entra en juego la DocumentDB. Microsoft desarrolló DocumentDB para que cumpliera estos requisitos al administrar los datos de las aplicaciones actuales.
 
-DocumentDB es un auténtico servicio de base de datos NoSQL sin esquemas diseñado para modernas aplicaciones móviles, web, juegos e IoT. La Base de datos de documentos ofrece de manera consistente capacidades de lectura y escritura rápidas, flexibilidad de esquemas, así como la capacidad de escalar fácilmente una base de datos en función de las necesidades. No asume ni requiere ningún esquema para los documentos de JSON que indexa. De forma predeterminada, indiza automáticamente todos los documentos de la base de datos y no espera ni requiere ningún esquema, ni tampoco la creación de índices secundarios. DocumentDB permite realizar consultas específicas complejas mediante lenguaje SQL. Asimismo, admite niveles de coherencia bien definidos y permite el uso de lenguaje JavaScript, además de procesar transacciones de varios documentos usando el modelo de programación conocido de procedimientos almacenados, desencadenadores y UDF.
+DocumentDB es un auténtico servicio de base de datos NoSQL sin esquemas diseñado para modernas aplicaciones móviles, web, juegos e IoT. DocumentDB garantiza que el 99 % de las lecturas se sirven en menos de 10 milisegundos y el 99 % de las escrituras, en menos de 15 milisegundos. También proporciona flexibilidad de esquema y la capacidad de escalar verticalmente una base de datos y reducir su escala con facilidad y a petición. No asume ni requiere ningún esquema para los documentos de JSON que indexa. De forma predeterminada, indiza automáticamente todos los documentos de la base de datos y no espera ni requiere ningún esquema, ni tampoco la creación de índices secundarios. DocumentDB permite realizar consultas específicas complejas mediante lenguaje SQL. Asimismo, admite niveles de coherencia bien definidos y permite el uso de lenguaje JavaScript, además de procesar transacciones de varios documentos usando el modelo de programación conocido de procedimientos almacenados, desencadenadores y UDF.
 
 Como una base de datos JSON, DocumentDB admite de forma nativa documentos JSON que permiten una iteración fácil del esquema de la aplicación y admite aplicaciones que necesitan modelos de clave de valor, documento o datos tabulares. DocumentDB abarca la ubicuidad de JSON y JavaScript, lo que elimina la discordancia entre el esquema de base de datos y los objetos definidos de aplicación. La integración de JavaScript también permite a los desarrolladores ejecutar lógica de aplicación de manera eficaz y directa desde el motor de base de datos en una transacción de base de datos.
 
 Azure DocumentDB ofrece las siguientes capacidades y ventajas clave:
 
--	**Rendimiento y almacenamiento escalable de manera flexible**: escale o reduzca verticalmente su base de datos de JSON DocumentDB para cubrir sus necesidades de aplicaciones. Los datos se almacenan en discos de estado sólido (SSD) para las bajas latencias predecibles. DocumentDB admite contenedores para almacenar datos JSON denominados colecciones que se pueden escalar a tamaños de almacenamiento prácticamente ilimitados y de rendimiento aprovisionado. Puede escalar de manera flexible DocumentDB con un rendimiento predecible impecable a medida que su aplicación crece. 
+-	**Rendimiento y almacenamiento escalable de manera flexible**: escale o reduzca verticalmente su base de datos de JSON DocumentDB para cubrir sus necesidades de aplicaciones. Los datos se almacenan en discos de estado sólido (SSD) para las bajas latencias predecibles. DocumentDB admite contenedores para almacenar datos JSON denominados colecciones que se pueden escalar a tamaños de almacenamiento prácticamente ilimitados y de rendimiento aprovisionado. Puede escalar de manera flexible DocumentDB con un rendimiento predecible impecable a medida que su aplicación crece.
+
+-	**Replicación en varias regiones:** DocumentDB replica los datos de forma transparente en todas las regiones que tenga asociadas con su cuenta de DocumentDB. Esto permite desarrollar aplicaciones que requieran acceso global a los datos al mismo tiempo que proporciona un equilibrio entre la coherencia, la disponibilidad y el rendimiento, todo ello con las garantías pertinentes. DocumentDB proporciona conmutación por error regional transparente con las API de hospedaje múltiple, así como la capacidad de escalar de forma elástica el rendimiento y el almacenamiento en todo el mundo. Aprenda más en [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md).
 
 -	**Consultas ad hoc con sintaxis SQL familiares:** almacene los diferentes documentos JSON en DocumentDB y consúltelos a través de una sintaxis SQL conocida. DocumentDB utiliza una tecnología de indexación estructurada mediante registros sin bloqueos y sumamente concurrente para indexar automáticamente el contenido de todo documento. Esto permite consultas enriquecidas en tiempo real sin necesidad de especificar consejos de esquemas, índices secundarios o vistas. Obtenga más información en [DocumentDB de consulta](documentdb-sql-query.md).
 
@@ -102,8 +104,8 @@ Si ya tiene una cuenta de Azure, puede empezar a trabajar con DocumentDB en el [
 
 Si no tiene una cuenta de Azure, puede:
 
-- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
-- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
+- Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/free/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure.
+- Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure.
 
 A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
 
@@ -111,4 +113,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

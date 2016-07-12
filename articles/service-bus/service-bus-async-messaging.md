@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Mensajería asincrónica del bus de servicio | Microsoft Azure"
-   description="Descripción de la mensajería asincrónica del bus de servicio"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" /> 
+    pageTitle="Mensajería asincrónica del bus de servicio | Microsoft Azure"
+    description="Descripción de la mensajería asincrónica del bus de servicio"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/16/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/27/2016"
+    ms.author="sethm" />
 
 # Patrones de mensajería asincrónica y alta disponibilidad
 
@@ -43,7 +43,7 @@ Hay varias maneras de tratar los problemas de los mensajes y de las entidades, y
 
 -   Error del bus de servicio en un subsistema individual. En esta situación, un nodo de proceso puede entrar en un estado incoherente y debe reiniciarse, provocando que todas las entidades a las que sirve equilibren su carga con otros nodos. A su vez, esto puede provocar que los mensajes se procesen más lentamente durante un breve periodo.
 
--   Error del bus de servicio en un centro de datos de Azure. Este es el clásico "error catastrófico" y es imposible acceder el sistema durante muchos minutos, o incluso horas.
+-   Error del bus de servicio en un centro de datos de Azure. Se trata de un error grave y es imposible acceder el sistema durante varios minutos, o incluso horas.
 
 > [AZURE.NOTE] El término **almacenamiento** puede significar Almacenamiento de Azure y SQL Azure.
 
@@ -61,9 +61,9 @@ Otros componentes de Azure en ocasiones pueden tener problemas de servicio ocasi
 
 ### Error del bus de servicio en un subsistema individual
 
-Con cualquier aplicación, las circunstancias pueden provocar que algún componente interno del bus de servicio pueda volverse incoherente. Cuando el bus de servicio lo detecta, recopila datos de la aplicación para ayudar a diagnosticar lo que sucedió. Una vez que se hayan recopilado los datos, la aplicación se reinicia para intentar que vuelva a un estado coherente. Este proceso ocurre con bastante rapidez y su resultado es que una entidad parezca que no está disponible durante unos minutos, aunque los tiempos de inactividad son mucho menores.
+Con cualquier aplicación, las circunstancias pueden provocar que algún componente interno del Bus de servicio pueda volverse incoherente. Cuando el bus de servicio lo detecta, recopila datos de la aplicación para ayudar a diagnosticar lo que sucedió. Una vez que se hayan recopilado los datos, la aplicación se reinicia para intentar que vuelva a un estado coherente. Este proceso ocurre con bastante rapidez y su resultado es que una entidad parezca que no está disponible durante unos minutos, aunque los tiempos de inactividad son mucho menores.
 
-En estos casos, la aplicación cliente genera una excepción [System.TimeoutException][] o [MessagingException][]. El SDK de .NET del bus de servicio contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si se agotó el período de reintento y no se entregó el mensaje, puede probar con otras funciones, como los [espacios de nombres emparejados][]. Los espacios de nombres emparejados tienen otras advertencias que se tratan en el artículo [Detalles de implementación y costes asociados de los espacios de nombres emparejados](service-bus-paired-namespaces.md).
+En estos casos, la aplicación cliente genera una excepción [System.TimeoutException][] o [MessagingException][]. El Bus de servicio contiene una mitigación para este problema en forma de lógica de reintento de cliente automatizado. Si se agotó el período de reintento y no se entregó el mensaje, puede probar con otras funciones, como los [espacios de nombres emparejados][]. Estos espacios de nombres tienen otros riesgos que se describen en este artículo.
 
 ### Error del bus de servicio en un centro de datos de Azure
 
@@ -72,11 +72,11 @@ El motivo más probable de error en un centro de datos de Azure es un error en l
 -   Interrupción del suministro eléctrico (desaparecen la fuente de alimentación y la generación de energía).
 -   Conectividad (interrupción de Internet entre los clientes y Azure).
 
-En ambos casos, el problema lo provocó un desastre natural o causado por el hombre. Para solucionar este problema y asegurarse de que se pueden enviar mensajes, puede usar [espacios de nombres emparejados][] para permitir que los mensajes se envíen a una segunda ubicación mientras se repara la ubicación principal. Para obtener más información, consulte [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones del bs de servicio][].
+En ambos casos, el problema lo provocó un desastre natural o causado por el hombre. Para solucionar este problema y asegurarse de que se pueden enviar mensajes, puede usar [espacios de nombres emparejados][] para permitir que los mensajes se envíen a una segunda ubicación mientras se repara la ubicación principal. Para más información, consulte [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio][].
 
 ## Espacios de nombres emparejados
 
-La característica de [espacios de nombres emparejados][] admite escenarios en los que una entidad o implementación del bus de servicio dentro de un centro de datos deja de estar disponible. Aunque este evento se produce con poca frecuencia, los sistemas distribuidos deben estar preparados para controlar los escenarios más desfavorables. Normalmente, este evento se produce porque algún elemento del que depende Bus de servicio sufre un problema temporal. Para mantener la disponibilidad de las aplicaciones en caso una interrupción, los usuarios del bus de servicio pueden usar dos espacios de nombres independientes, preferiblemente de centros de datos independientes, para hospedar sus entidades de mensajería. En el resto de la sección se usa la siguiente terminología:
+La característica de [espacios de nombres emparejados][] admite escenarios en los que una entidad o implementación de Bus de servicio dentro de un centro de datos deja de estar disponible. Aunque este evento se produce con poca frecuencia, los sistemas distribuidos deben estar preparados para controlar los escenarios más desfavorables. Normalmente, este evento se produce porque algún elemento del que depende Bus de servicio sufre un problema temporal. Para mantener la disponibilidad de las aplicaciones en caso una interrupción, los usuarios del bus de servicio pueden usar dos espacios de nombres independientes, preferiblemente de centros de datos independientes, para hospedar sus entidades de mensajería. En el resto de la sección se usa la siguiente terminología:
 
 -   Espacio de nombres principal: el espacio de nombres con el que interactúa la aplicación para enviar y recibir operaciones.
 
@@ -102,7 +102,7 @@ En las secciones siguientes se describen las API y cómo se implementan las API,
 
 ### La API de MessagingFactory.PairNamespaceAsync
 
-La característica de espacios de nombres emparejados introduce el método [PairNamespaceAsync][] en la clase [Microsoft.ServiceBus.Messaging.MessagingFactory][]\:
+La característica de espacios de nombres emparejados incluye el método [PairNamespaceAsync][] en la clase [Microsoft.ServiceBus.Messaging.MessagingFactory][]\:
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
@@ -123,11 +123,11 @@ Estos parámetros tienen los significados siguientes:
 
 -   *secondaryNamespaceManager*: instancia de [NamespaceManager][] inicializada para el espacio de nombres secundario que el método [PairNamespaceAsync][] puede usar para configurar dicho espacio de nombres. El administrador de espacio de nombres se usará para obtener la lista de colas del espacio de nombres y asegurarse de que existen las colas de trabajos pendientes requeridas. Si no existen, se crearán. [NamespaceManager][] requiere la capacidad de crear un token con la notificación de **administración**.
 
--   *messagingFactory*: la instancia de [MessagingFactory][] para el espacio de nombres secundario. El objeto [MessagingFactory][] se usa para enviar y, si el valor de la propiedad [EnableSyphon][] está establecida en **True**, para recibir mensajes de las colas de trabajos pendientes.
+-   *messagingFactory*: la instancia de [MessagingFactory][] para el espacio de nombres secundario. El objeto [MessagingFactory][] se usa para enviar y, si la propiedad [EnableSyphon][] está establecida en **true**, para recibir mensajes de las colas de trabajos pendientes.
 
 -   *backlogQueueCount*: el número de colas de trabajos pendientes que se crean. Este valor debe ser al menos 1. Al enviar mensajes al trabajo pendiente, se elige aleatoriamente una de estas colas. Si establece el valor en 1, solo se puede usar una cola. Cuando esto ocurre y la única cola de trabajos pendientes genera errores, el cliente no puede probar otra cola de trabajos pendientes y se puede producir un error al enviar el mensaje. Se recomienda seleccionar un valor mayor y que el valor predeterminado sea 10. Puede cambiarlo a un valor mayor o menor en función de la cantidad de datos que la aplicación envíe al día. Cada cola de trabajos pendientes puede contener hasta 5 GB de mensajes.
 
--   *failoverInterval*: el período durante el cual se aceptarán errores en el espacio de nombres principal antes de cambiar cualquier entidad única al espacio de nombres secundario. Las conmutaciones por error se producen entidad por entidad. Con frecuencia, las entidades de un espacio de nombres individual residen en nodos diferentes del bus de servicio. Un error en una de las entidades no implica un error en otra. Este valor se puede establecer en [System.TimeSpan.Zero][] para conmutar por error al secundario inmediatamente después del primer error no transitorio. Los errores que desencadenan el temporizador de conmutación por error son cualquier [MessagingException][] en donde la propiedad [IsTransient][] sea false o un [System.TimeoutException][]. Otras excepciones, como [UnauthorizedAccessException][], no provocan la conmutación por error, ya que indican que el cliente no está configurado correctamente. [ServerBusyException][] no causa la conmutación por error porque el patrón correcto es esperar 10 segundos y, a continuación, volver a enviar el mensaje.
+-   *failoverInterval*: el periodo durante el cual se aceptarán errores en el espacio de nombres principal antes de cambiar cualquier entidad única al espacio de nombres secundario. Las conmutaciones por error se producen entidad por entidad. Con frecuencia, las entidades de un espacio de nombres individual residen en nodos diferentes del bus de servicio. Un error en una de las entidades no implica un error en otra. Este valor se puede establecer en [System.TimeSpan.Zero][] para conmutar por error al secundario inmediatamente después del primer error no transitorio. Los errores que desencadenan el temporizador de conmutación por error son cualquier [MessagingException][] en donde la propiedad [IsTransient][] sea false o un [System.TimeoutException][]. Otras excepciones, como [UnauthorizedAccessException][], no provocan la conmutación por error, ya que indican que el cliente no está configurado correctamente. [ServerBusyException][] no causa la conmutación por error porque el patrón correcto es esperar 10 segundos y, a continuación, volver a enviar el mensaje.
 
 -   *enableSyphon*: indica que este emparejamiento concreto también debe extraer con sifón los mensajes del espacio de nombres secundario al espacio de nombres principal. En general, las aplicaciones que envían mensajes deben establecer este valor en **false**, mientras que las que los reciben mensajes deben establecerlo en **true**. Esto se debe a que, con frecuencia, hay menos destinatarios de mensajes que remitentes. En función del número de destinatarios, puede elegir que una instancia individual de la aplicación controle las tareas del sifón. El uso de muchos destinatarios conlleva costos por cada cola de trabajos pendientes.
 
@@ -149,12 +149,12 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## Pasos siguientes
 
-Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en el bus de servicio, obtenga más información sobre los [espacios de nombres emparejados implicaciones y su costo][].
+Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en el Bus de servicio, obtenga más información sobre los [espacios de nombres emparejados][].
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
   [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-  [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones del bs de servicio]: service-bus-outages-disasters.md
+  [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
@@ -170,6 +170,5 @@ Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en 
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [espacios de nombres emparejados]: service-bus-paired-namespaces.md
-  [espacios de nombres emparejados implicaciones y su costo]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0629_2016-->

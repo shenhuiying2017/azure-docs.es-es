@@ -66,7 +66,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 4. Haga clic en **Crear**.
 
->[AZURE.NOTE] Después de eliminar un clúster de HBase, puede crear otro clúster de HBase con el mismo contenedor de blobs predeterminado y la misma cuenta de almacenamiento. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original.
+>[AZURE.NOTE] Después de eliminar un clúster de HBase, puede crear otro clúster de HBase con el mismo contenedor de blobs predeterminado y la misma cuenta de almacenamiento. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original. Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
 ## Creación de tablas e inserción de datos
 
@@ -294,8 +294,7 @@ Para abrir la interfaz de usuario web, debe aplicar RDP en el clúster y, a cont
 En un clúster de alta disponibilidad, encontrará un vínculo al nodo maestro de HBase activo actual que hospeda la interfaz de usuario web.
 
 ##Eliminación del clúster
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster. [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## Pasos siguientes
@@ -335,4 +334,4 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

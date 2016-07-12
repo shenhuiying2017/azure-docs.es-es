@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/29/2016"
+   ms.date="06/28/2016"
    ms.author="mthalman" />
 
 # Configuración de la integración continua de una aplicación de Service Fabric mediante Visual Studio Team Services
@@ -401,7 +401,7 @@ Si una compilación anterior no se limpió después (por ejemplo, si se canceló
     |Nombre de archivo de script|Haga clic en el botón **...** y vaya hasta el directorio **Scripts** dentro del proyecto de aplicación. Seleccione `Deploy-FabricApplication.ps1`.|
     |Argumentos|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
->[AZURE.NOTE] Una manera fácil de crear un archivo xml de perfil de publicación de trabajo es crearlo en Visual Studio, como se muestra aquí: https://azure.microsoft.com/documentation/articles/service-fabric-publish-app-remote-cluster
+>[AZURE.NOTE] Una manera fácil de crear un archivo xml de perfil de publicación de trabajo es crearlo en Visual Studio, como se muestra aquí: https://azure.microsoft.com/es-ES/documentation/articles/service-fabric-publish-app-remote-cluster
 
 >[AZURE.NOTE] Si desea admitir la implementación de la aplicación en un clúster sobrescribiendo la aplicación existente en lugar de actualizarla, agregue este argumento de Powershell: '-OverwriteBehavior SameAppTypeAndVersion'. Además, asegúrese de que el perfil de publicación seleccionado no está configurado para permitir una actualización. Esto quitará primero cualquier ApplicationType existente antes de instalar la versión más reciente.
 
@@ -437,4 +437,4 @@ Para obtener más información sobre la integración continua con las aplicacion
  - [Implementación de un agente de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Creación y configuración de una definición de compilación](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

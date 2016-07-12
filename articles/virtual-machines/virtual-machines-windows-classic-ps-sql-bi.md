@@ -18,8 +18,7 @@
 
 # Business Intelligence de SQL Server en Máquinas virtuales de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 La galería de máquinas virtuales de Microsoft Azure incluye imágenes que contienen instalaciones de SQL Server. Las ediciones de SQL Server que se admiten en las imágenes de la galería son los mismos archivos de instalación que puede instalar en equipos locales y máquinas virtuales. En este tema se resumen las características de Business Intelligence (BI) de SQL Server instaladas en las imágenes y los pasos de configuración necesarios después de aprovisionar una máquina virtual. En este tema también se describen las topologías de implementación admitidas para las características de BI y prácticas recomendadas.
 
@@ -316,7 +315,7 @@ Para instalar servicios de SQL Server adicionales, como Analysis Services en mod
 
 1. Haga clic en el **Centro de instalación de SQL Server**.
 
-O ejecute C:\\SQLServer\_13.0\_full\\setup.exe, C:\\SQLServer\_12.0\_full\\setup.exe o C:\\SQLServer\_11.0\_full\\setup.exe
+O ejecute C:\\SQLServer\_13.0_full\\setup.exe, C:\\SQLServer_12.0_full\\setup.exe o C:\\SQLServer_11.0\_full\\setup.exe.
 
 >[AZURE.NOTE] La primera vez que ejecute el programa de instalación de SQL Server, se podrá descargar más archivos de instalación y requerir un reinicio de la instalación de SQL Server.
 >
@@ -334,7 +333,7 @@ En los pasos de esta sección se **resume** la instalación del modo tabular de 
 
 1. En el asistente para la instalación de SQL Server, haga clic en **Instalación** en el panel izquierdo y en **Nueva instalación independiente de SQL Server o agregar características a una instalación existente**.
 
-	- Si ve **Buscar carpeta**, vaya a c:\\SQLServer\_13.0\_full, c:\\SQLServer\_12.0\_full o c:\\SQLServer\_11.0\_full y haga clic en **Aceptar**.
+	- Si ve **Buscar carpeta**, vaya a c:\\SQLServer\_13.0_full, c:\\SQLServer_12.0_full o c:\\SQLServer_11.0\_full y haga clic en **Aceptar**.
 
 1. Haga clic en **Siguiente** en la página de actualizaciones del producto.
 
@@ -437,4 +436,4 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

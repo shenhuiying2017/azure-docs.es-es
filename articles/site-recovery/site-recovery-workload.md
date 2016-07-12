@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/27/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # ¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
@@ -39,7 +39,7 @@ Site Recovery contribuye a la recuperación y protección de nivel de aplicació
 - Replicación casi sincrónica con los RPO en solo 30 segundos, con el fin de cubrir las necesidades de las aplicaciones empresariales más críticas.
 - Instantáneas coherente con las aplicaciones para aplicaciones de uno o varios niveles.
 - Integración con SQL Server AlwaysOn y asociación con otras tecnologías de replicación de nivel de aplicación, incluida la replicación de AD, SQL AlwaysOn, Grupos de disponibilidad de base de datos (DAG) de Exchange y Oracle Data Guard.
-- Planes de recuperación flexibles que permiten recuperar toda una pila de aplicaciones con un solo clic e incluyen scripts externos y acciones manuales en el plan. 
+- Planes de recuperación flexibles que permiten recuperar toda una pila de aplicaciones con un solo clic e incluyen scripts externos y acciones manuales en el plan.
 - Administración de red avanzada en Site Recovery y Azure para simplificar los requisitos de red de las aplicaciones, incluidas la reserva de direcciones IP, la configuración del equilibrio de carga y la integración con el Administrador de tráfico de Azure, lo que reduce los cambios de red de RTO.
 -  Una biblioteca de automatización enriquecida que proporciona scripts específicos de la aplicación y preparados para la producción que pueden descargarse e integrarse con los planes de recuperación.
 
@@ -77,7 +77,7 @@ Puede usar Site Recovery para crear un plan de recuperación ante desastres auto
 
 SQL Server proporciona una base de servicios de datos para los servicios de datos de muchas aplicaciones empresariales de un centro de datos local. Site Recovery se puede utilizar junto con las tecnologías de HA/DR de SQL Server para proteger las aplicaciones empresariales de niveles que utilizan SQL Server. Site Recovery proporciona:
 
-- Una solución de recuperación ante desastres simple y rentable para SQL Server. Replique varias versiones y ediciones de servidores independientes y clústeres de SQL Server en Azure o en un sitio secundario.  
+- Una solución de recuperación ante desastres simple y rentable para SQL Server. Replique varias versiones y ediciones de servidores independientes y clústeres de SQL Server en Azure o en un sitio secundario.
 - Integración con grupos de disponibilidad AlwaysOn de SQL para administrar la conmutación por error y la conmutación por recuperación con planes de recuperación de Azure Site Recovery.
 - Planes de recuperación de un extremo a otro para todos los niveles de una aplicación, incluidas las bases de datos de SQL Server.
 - Escalado de SQL Server para cargas máximas con Site Recovery "protegiéndolos" en tamaños de máquina virtual de IaaS más grandes en Azure.
@@ -149,4 +149,4 @@ Use Site Recovery para proteger una implementación de SAP como se indica a cont
 
 [Preparación](site-recovery-best-practices.md) para la implementación de Azure Site Recovery
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

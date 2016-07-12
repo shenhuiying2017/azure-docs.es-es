@@ -20,7 +20,7 @@
 
 Ejecute el script de PowerShell de implementación de HPC Pack IaaS en un equipo cliente para implementar un clúster de HPC Pack completo en servicios de infraestructura (IaaS) de Azure. Si desea implementar un clúster de HPC Pack en cargas de trabajo de Azure para Windows, consulte [Creación de un clúster de informática de alto rendimiento (HPC) en máquinas virtuales de Windows con el script de implementación de HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -88,4 +88,4 @@ El archivo de configuración siguiente crea un nuevo bosque de dominio e impleme
 
 * También puede usar una plantilla del Administrador de recursos de Azure para implementar un clúster de HPC Pack. Si desea consultar un ejemplo, consulte [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) (Creación de un clúster de HPC con nodos de proceso de Linux).
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/07/2016"
+    ms.date="06/27/2016"
     ms.author="elizapo" />
 
 
@@ -39,7 +39,7 @@ Los datos de ejemplo que pueden residir en el perfil predeterminado que se copia
 Puntos clave:
 
 - Nunca almacene datos confidenciales que se pueden perder en la imagen cuando cree una imagen personalizada.
-- Los datos confidenciales siempre deben residir en un servidor de archivos independiente, una máquina virtual de Azure independiente, en la nube y siempre deben ser externos a las instancias de máquina virtual que hospedan las aplicaciones en Azure RemoteApp. 
+- Los datos confidenciales siempre deben residir en un servidor de archivos independiente, una máquina virtual de Azure independiente, en la nube y siempre deben ser externos a las instancias de máquina virtual que hospedan las aplicaciones en Azure RemoteApp.
 - Los datos de usuario se guardan y se conserva en el disco de perfil de usuario (UDP)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

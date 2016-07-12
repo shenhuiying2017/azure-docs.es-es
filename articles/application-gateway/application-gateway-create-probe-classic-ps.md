@@ -22,8 +22,7 @@
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](application-gateway-create-probe-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -38,7 +37,7 @@ Para crear una Puerta de enlace de aplicaciones:
 
 ### Crear un recurso de la puerta de enlace de aplicaciones
 
-Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
+Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway** y reemplace los valores por los suyos. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
 En el ejemplo siguiente se crea una Puerta de enlace de aplicaciones nueva mediante una red virtual denominada "testvnet1" y una subred denominada "subnet-1".
 
@@ -163,10 +162,10 @@ Los parámetros de configuración son:
 
 - **Nombre**: nombre de referencia del sondeo personalizado.
 - **Protocolo**: protocolo usado (los valores posibles son HTTP o HTTPS).
-- **Host** y **Ruta**: dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el estado de la instancia. Por ejemplo: tiene el sitio web http://contoso.com/, así que el sondeo personalizado se puede configurar para "http://contoso.com/path/custompath.htm" de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
-- **Intervalo**: configura las comprobaciones de intervalo de sondeo en segundos.
-- **Tiempo de espera**: define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.
-- **UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia de back-end como *incorrecto*.
+- **Host** y **Ruta**: dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para http://contoso.com/path/custompath.htm de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
+- **-Interval**: configura las comprobaciones de intervalo de sondeo en segundos.
+- **-Timeout**: define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.
+- **-UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.
 
 Se hace referencia al nombre del sondeo en la configuración de <BackendHttpSettings> para asignar el grupo de back-end que usará la configuración de sondeo personalizado.
 
@@ -223,4 +222,4 @@ Si quiere configurar la descarga de Capa de sockets seguros (SSL), vea [Configur
 
 Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, vea [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

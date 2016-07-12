@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/18/2016" 
+	ms.date="06/30/2016" 
 	ms.author="sdanie"/>
 
 # Creación de una aplicación web con Caché en Redis
@@ -82,7 +82,7 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 
 ### Agregar el modelo
 
-1. Haga clic con el botón derecho en **Modelos** en el **Explorador de soluciones** y elija **Agregar**, **Clase**. 
+1. Haga clic con el botón derecho en **Modelos** en el **Explorador de soluciones** y elija **Agregar**, **Clase**.
 
     ![Agregar modelo][cache-model-add-class]
 
@@ -190,7 +190,7 @@ En esta sección del tutorial, creará la aplicación básica que lee y muestra 
 
 ### Agregar el controlador
 
-1. Presione **F6** para compilar el proyecto. 
+1. Presione **F6** para compilar el proyecto.
 2. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Controladores** y elija **Agregar**, **Controlador**.
 
     ![Agregar controlador][cache-add-controller]
@@ -268,7 +268,7 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
 
 ### Configurar la aplicación para usar StackExchange.Redis
 
-1. Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet StackExchange.Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. 
+1. Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet StackExchange.Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**.
 
     ![Manage NuGet packages][redis-cache-manage-nuget-menu]
 
@@ -333,7 +333,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 
 
 
-1. Agregue las siguientes instrucciones using en la parte superior del archivo `TeamsController.cs` con las otras instrucciones using.
+1. Agregue las siguientes instrucciones using al principio del archivo `TeamsController.cs` con las otras instrucciones using.
 
 		using System.Diagnostics;
 		using Newtonsoft.Json;
@@ -520,7 +520,7 @@ En este ejemplo, se pueden recuperar estadísticas de equipos de la base de dato
 	    }
 
 
-    El método `GetFromSortedSetTop5` lee los 5 equipos principales del conjunto ordenado almacenado en caché. Para comenzar, comprueba que en la memoria caché existe la clave `teamsSortedSet`. Si esta clave no existe, se llama al método `GetFromSortedSet` para leer las estadísticas de equipos y almacenarlas en la memoria caché. Luego, se consulta en el conjunto ordenado almacenado en caché los 5 equipos principales que se devuelven.
+    El método `GetFromSortedSetTop5` lee los 5 equipos principales del conjunto ordenado almacenado en caché. Para comenzar, comprueba que en la memoria caché exista la clave `teamsSortedSet`. Si esta clave no existe, se llama al método `GetFromSortedSet` para leer las estadísticas de equipos y almacenarlas en la memoria caché. Luego, se consulta en el conjunto ordenado almacenado en caché los 5 equipos principales que se devuelven.
 
 
         List<Team> GetFromSortedSetTop5()
@@ -693,7 +693,7 @@ Cuando hace clic en el botón **Implementar en Azure**, va al Portal de Azure y 
 ![Implementación en Azure][cache-deploy-to-azure-step-1]
 
 1. En la hoja **Implementación personalizada**, seleccione la suscripción de Azure que se usará. Seleccione un grupo de recursos existente o cree uno nuevo y, luego, especifique la ubicación del grupo de recursos.
-2. En la hoja **Parámetros**, especifique un nombre de cuenta de administrador (**ADMINISTRATORLOGIN**; no utilice **admin**), la contraseña de inicio de sesión (**ADMINISTRATORLOGINPASSWORD**) y un nombre de base de datos (**DATABASENAME**). Los demás parámetros están configurados para un plan de hospedaje del Servicio de aplicaciones gratis y opciones de costo reducido para Base de datos SQL y Caché en Redis de Azure, que no incluyen un nivel Gratis.
+2. En la hoja **Parámetros**, especifique un nombre de cuenta de administrador (**ADMINISTRATORLOGIN**; no utilice **admin**), la contraseña de inicio de sesión de administrador (**ADMINISTRATORLOGINPASSWORD**) y un nombre de base de datos (**DATABASENAME**). Los demás parámetros están configurados para un plan de hospedaje del Servicio de aplicaciones gratis y opciones de costo reducido para Base de datos SQL y Caché en Redis de Azure, que no incluyen un nivel Gratis.
 3. Cambie cualquiera de las demás configuraciones, si así lo desea, o mantenga los valores predeterminados y haga clic en **Aceptar**.
 
 
@@ -727,7 +727,7 @@ En este paso del tutorial, publicará la aplicación en Azure y la ejecutará en
 
     ![Publicar][cache-publish-to-app-service]
 
-3. Seleccione la suscripción usada al crear los recursos de Azure, expanda el grupo de recursos que contiene los recursos, seleccione la aplicación web deseada y haga clic en **Aceptar**. Si ha utilizado el botón **Implementar en Azure**, el nombre de la aplicación web comienza con **webSite** seguido de varios caracteres.
+3. Seleccione la suscripción usada al crear los recursos de Azure, expanda el grupo de recursos que contiene los recursos, seleccione la aplicación web deseada y haga clic en **Aceptar**. Si ha utilizado el botón **Implementar en Azure**, el nombre de la aplicación web comienza por **webSite** seguido de varios caracteres.
 
     ![Seleccionar aplicación web][cache-select-web-app]
 
@@ -846,4 +846,4 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

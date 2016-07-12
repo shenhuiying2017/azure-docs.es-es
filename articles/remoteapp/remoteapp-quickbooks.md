@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/05/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 
@@ -29,9 +29,9 @@ Puede compartir QuickBooks 2015 Enterprise con Azure RemoteApp en una colección
 ## Pasos para implementar QuickBooks
 
 1. Cree una máquina virtual de Azure e instale QuickBooks, el servidor de base de datos de QuickBooks y coloque el archivo de empresa en una máquina virtual de Azure. Asegúrese de configurar correctamente las reglas de firewall.
-2. Instale QuickBooks en una [imagen personalizada](remoteapp-imageoptions.md) y cree una [colección de Azure RemoteApp](remoteapp-collections.md), en la nube o híbrida, dentro de la misma red virtual donde reside la máquina virtual que hospeda el servidor de base de datos de QuickBooks con archivos de empresa. 
+2. Instale QuickBooks en una [imagen personalizada](remoteapp-imageoptions.md) y cree una [colección de Azure RemoteApp](remoteapp-collections.md), en la nube o híbrida, dentro de la misma red virtual donde reside la máquina virtual que hospeda el servidor de base de datos de QuickBooks con archivos de empresa.
 3.	[Publique](remoteapp-publish.md) la aplicación QuickBooks para los usuarios
-4.	Inicie el cliente QuickBooks hospedado en Azure RemoteApp, vaya mediante redes estándar Windows a la máquina virtual que hospeda el servidor de base de datos de QuickBooks y abra el archivo de empresa. 
+4.	Inicie el cliente QuickBooks hospedado en Azure RemoteApp, vaya mediante redes estándar Windows a la máquina virtual que hospeda el servidor de base de datos de QuickBooks y abra el archivo de empresa.
 
 ## Referencias de documentación
 
@@ -44,4 +44,4 @@ También puede consultar la presentación de Ignite [Fundamentals of Microsoft A
 
 ![Implementación de QuickBooks y RemoteApp de Azure](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

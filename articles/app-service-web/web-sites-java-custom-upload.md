@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="06/24/2016" 
 	ms.author="robmcm"/>
 
 # Carga de una aplicación web de Java personalizada en Azure
@@ -30,7 +30,7 @@ A continuación se describe la configuración esperada para las aplicaciones web
 - Se deben deshabilitar todos los puertos de escucha aparte del agente de escucha simple HTTP. En Tomcat, ello incluye los puertos de apagado, HTTPS y AJP.
 - El contenedor debe estar configurado solo para el tráfico IPv4.
 - En la configuración se debe establecer el comando **startup** para la aplicación.
-- Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido de la aplicación web de Azure, que es **D:\\home**. La variable de entorno `HOME` hace referencia a D:\\home.  
+- Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido de la aplicación web de Azure, que es **D:\\home**. La variable de entorno `HOME` hace referencia a D:\\home.
 
 Puede establecer las variables de entorno como se requiere en el archivo web.config.
 
@@ -257,4 +257,4 @@ Para obtener más información sobre Java, consulte el [Centro para desarrollado
 <!-- External Links -->
 [Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

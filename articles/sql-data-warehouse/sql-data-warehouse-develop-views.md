@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="06/27/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -22,6 +22,8 @@
 Las vistas son especialmente útiles en el Almacenamiento de datos SQL. Se pueden usar de formas diferentes para mejorar la calidad de la solución.
 
 En este artículo se destacan algunos ejemplos de cómo enriquecer su solución mediante la implementación con vistas. Existen algunas limitaciones que también deben considerarse.
+
+> [AZURE.NOTE] En este artículo no se explica la sintaxis de `CREATE VIEW`. Consulte el artículo [CREATE VIEW][] de MSDN para obtener esta información de referencia.
 
 ## Abstracción de arquitectura
 Se trata de un patrón de aplicación muy común para volver a crear tablas con la característica CREATE TABLE AS SELECT (CTAS) seguida de un patrón de cambio de nombre de objetos mientras se cargan los datos.
@@ -63,7 +65,7 @@ Por lo tanto, no están disponibles las siguientes opciones:
 
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][]. Para la sintaxis de `CREATE VIEW`, consulte [CREATE VIEW][].
 
 <!--Image references-->
 
@@ -71,7 +73,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
+[CREATE VIEW]: https://msdn.microsoft.com/es-ES/library/ms187956.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0629_2016-->

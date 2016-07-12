@@ -60,7 +60,7 @@ Si detecta las siguientes advertencias cuando ejecute el script, puede ignorarla
 Cuando el script se completa, proporciona el número estimado de eDTU necesarias para que un grupo contenga todas las bases de datos candidatas en el servidor de destino. Estas eDTU estimadas se pueden usar para crear y configurar el grupo. Una vez que se crea el grupo y las bases de datos se trasladan al grupo, supervise este estrechamente durante algunos días y realice los ajustes que se requieran en la configuración de eDTU de grupo. Consulte [Monitor, manage, and size an elastic database pool (Supervisión, administración y cambio de tamaño de un grupo de bases de datos elásticas)](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)
+   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
     param (
 	[Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -266,4 +266,4 @@ Cuando el script se completa, proporciona el número estimado de eDTU necesarias
 
         
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

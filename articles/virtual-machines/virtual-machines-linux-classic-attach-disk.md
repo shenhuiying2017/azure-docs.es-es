@@ -19,7 +19,7 @@
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos. También puede [conectar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Consulte cómo [acoplar un disco de datos mediante el modelo de implementación de Resource Manager](virtual-machines-linux-add-disk.md).
 
 Puede acoplar tanto discos vacíos como discos que contengan datos a las máquinas virtuales de Azure. Ambos tipos de discos son archivos .vhd que residen en una cuenta de almacenamiento de Azure. Como sucede al agregar cualquier disco a una máquina Linux, después de acoplarlo, deberá inicializarlo y formatearlo para que esté listo para su uso. En este artículo se detalla cómo acoplar discos vacíos y discos que ya contengan datos a las máquinas virtuales, así como la forma de inicializar y formatear un disco nuevo.
 
@@ -173,4 +173,4 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

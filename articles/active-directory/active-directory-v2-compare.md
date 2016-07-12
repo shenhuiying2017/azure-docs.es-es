@@ -58,7 +58,7 @@ Nuestro objetivo es que esto dará lugar a una experiencia de desarrollo y admin
 En el servicio original de Azure AD, una aplicación puede comportarse como **recurso** o un destinatario de tokens. Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos. Piense en la API de Azure AD Graph como ejemplo de un recurso:
 
 - Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
-- Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
+- Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
 
 Todo esto se cumple para el punto de conexión v2.0. Una aplicación todavía se puede comportar como recurso, definir ámbitos y ser identificada por un URI. Las aplicaciones cliente todavía pueden solicitar acceso a esos ámbitos. Sin embargo, ha cambiado la manera en que un cliente solicita esos permisos. En el pasado, una solicitud de autorización de OAuth 2.0 para Azure AD podría haber tenido un aspecto similar al siguiente:
 
@@ -72,7 +72,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 donde el parámetro **resource** indicaba para qué recurso la aplicación cliente solicitaba autorización. Azure AD calculaba los permisos requeridos por la aplicación en función de la configuración estática en el Portal de Azure y emitía tokens en consecuencia. Ahora, la misma solicitud de autorización de OAuth 2.0 tiene un aspecto similar al siguiente:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -94,7 +94,7 @@ Los permisos que una aplicación requerían se configuraban **estáticamente**. 
 Con el punto de conexión v2.0, puede especificar los permisos que necesita su aplicación **dinámicamente** en tiempo de ejecución durante el uso normal de su aplicación. Para ello, puede especificar los ámbitos que necesita su aplicación en un momento determinado en el tiempo incluyéndolos en el parámetro `scope` de una solicitud de autorización:
 
 ```
-GET https://login.microsoftonline.com/common/v2.0/oauth2/authorize?
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 ...
@@ -132,4 +132,4 @@ Para obtener información sobre las notificaciones específicas emitidas en toke
 ## Limitaciones
 Es necesario tener en cuenta algunas restricciones cuando se usa el punto v2.0. Consulte el [documento de limitaciones de v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

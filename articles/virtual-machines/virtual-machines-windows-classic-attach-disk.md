@@ -19,7 +19,7 @@
 
 # Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-windows-attach-disk-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](virtual-machines-windows-attach-disk-portal.md).
 
 Si necesita un disco de datos adicional, puede conectar un disco vacío o un disco existente con datos a una máquina virtual. En ambos casos, se trata de archivos .vhd que residen en una cuenta de almacenamiento de Azure. En el caso de un disco nuevo, una vez que lo conecta, también deberá inicializarlo para que esté listo para su uso por parte de una máquina virtual de Windows.
 
@@ -60,4 +60,4 @@ A continuación se facilita una [guía detallada en vídeo](https://azure.micros
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

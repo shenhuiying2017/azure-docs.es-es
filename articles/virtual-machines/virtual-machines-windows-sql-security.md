@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/23/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth" />
 
 # Consideraciones de seguridad para SQL Server en Máquinas virtuales de Azure
-
+ 
 Este tema incluye las direcciones de seguridad generales que ayudan a establecer el acceso seguro a instancias de SQL Server en una máquina virtual de Azure. Sin embargo, para garantizar una mejor protección para las instancias de base de datos de SQL Server en Azure, es recomendable que implemente los procedimientos de seguridad locales tradicionales además de los procedimientos recomendados de seguridad de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Para obtener más información sobre los procedimientos de seguridad de SQL Server, consulte [Procedimientos recomendados de seguridad en SQL Server 2008 R2: tareas operativas y administrativas](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
@@ -58,4 +58,4 @@ Si también está interesado en los procedimientos recomendados de rendimiento, 
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->
