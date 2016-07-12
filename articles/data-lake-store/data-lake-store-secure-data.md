@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Protección de los datos almacenados en el Almacén de Azure Data Lake | Azure" 
+   pageTitle="Protección de los datos almacenados en el Almacén de Azure Data Lake | Microsoft Azure" 
    description="Aprenda a proteger los datos del almacén de Azure Data Lake mediante grupos y listas de control de acceso" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Protección de los datos almacenados en el Almacén de Azure Data Lake
@@ -26,7 +26,9 @@ Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque 
 
 3. Asigne los grupos de seguridad de AAD como listas de control de acceso (ACL) en el sistema de archivos del Almacén de Data Lake.
 
-En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Azure para realizar las tareas anteriores.
+4. Además, también puede establecer un intervalo de direcciones IP para los clientes que pueden acceder a los datos en el Almacén de Data Lake.
+
+En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Azure para realizar las tareas anteriores. Para más información sobre cómo el almacén de Data Lake implementa la seguridad en el nivel de cuenta y datos, consulte [Security in Azure Data Lake Store](data-lake-store-security-overview.md) (Seguridad en el Almacén de Azure Data Lake).
 
 ## Requisitos previos
 
@@ -68,7 +70,7 @@ Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data
 
 	 ![Agregar un rol para el usuario](./media/data-lake-store-secure-data/adl.add.user.1.png "Agregar un rol para el usuario")
 
-	Los roles **Propietario** y **Colaborador** proporcionan acceso a diversas funciones de administración en la cuenta de Data Lake. Para aquellos usuarios que interactúan con datos en Data Lake, puede agregarlos al rol **Lector**. El ámbito de estos roles se limita a las operaciones de administración relacionadas con la cuenta de Almacén de Azure Data Lake.
+	Los roles **Propietario** y **Colaborador** proporcionan acceso a diversas funciones de administración en la cuenta de Data Lake. Para aquellos usuarios que interactúan con datos en Data Lake, pueden agregarlos al rol **Lector**. El ámbito de estos roles se limita a las operaciones de administración relacionadas con la cuenta de Almacén de Azure Data Lake.
 
 	Para las operaciones de datos, los permisos individuales del sistema de archivos definen lo que los usuarios pueden hacer. Por lo tanto, un usuario con el rol Lector solamente ve la configuración administrativa asociada a la cuenta pero potencialmente puede leer y escribir datos en función de los permisos del sistema de archivos que tengan asignados. Los permisos del sistema de archivos del Almacén de Data Lake se describen en [Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake](#filepermissions).
 
@@ -88,7 +90,9 @@ Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data
 
 ## <a name="filepermissions"></a>Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake
 
-Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data Lake, establece el control de acceso sobre los datos almacenados en el Almacén de Azure Data Lake. En la versión actual, puede establecer las ACL solo en el nodo raíz del sistema de archivos.
+Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data Lake, establece el control de acceso sobre los datos almacenados en el Almacén de Azure Data Lake.
+
+>[AZURE.NOTE] En la versión actual, solo puede establecer las ACL en el nodo raíz de la cuenta del Almacén de Data Lake. Además, solo los usuarios que tengan asignado el rol de Propietario pueden agregar o modificar las ACL.
 
 1. En la hoja de su cuenta de Almacén de Data Lake, haga clic en **Explorador de datos**.
 
@@ -102,8 +106,8 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 
 	![Mostrar acceso estándar y personalizado](./media/data-lake-store-secure-data/adl.acl.2.png "Mostrar acceso estándar y personalizado")
 
-	* El **acceso estándar** es el acceso de estilo UNIX, donde se especifican lectura, escritura y ejecución (rwx) para tres clases de usuario distintas: propietario, grupo y otros.
-	* El **acceso personalizado** corresponde a las ACL de POSIX y permite establecer permisos para usuarios o grupos designados específicos y no solo para el propietario o el grupo del archivo. 
+	* **Acceso estándar** es el acceso de estilo UNIX, donde se especifican lectura, escritura y ejecución (rwx) para tres clases de usuario distintos: propietario, grupo y otros.
+	* **Acceso personalizado** corresponde a las ACL de POSIX y permite establecer permisos para usuarios o grupos designados específicos y no solo para el propietario o el grupo del archivo.
 	
 	Para obtener más información, consulte la página sobre las [ACL de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -117,11 +121,11 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 
 	Los permisos se pueden describir de la siguiente forma:
 
-	* **Lectura**: si se establece este permiso para un directorio, proporciona la capacidad de leer los nombres de los archivos del directorio.
-	* **Escritura**: si se establece este permiso para un directorio, proporciona la capacidad de modificar las entradas del mismo, lo cual permite, por ejemplo, crear o eliminar un archivo, o cambiarle el nombre.
-	* **Ejecución**: si se establece este permiso para un directorio, proporciona la capacidad para acceder al contenido de los archivos del directorio. También proporciona acceso a los metadatos del archivo, siempre que se conozca el nombre del mismo. Sin embargo, este permiso no le permitirá enumerar los archivos del directorio, a menos que el permiso de **lectura** esté también establecido.
+	* **Lectura**: si se establece este permiso para un directorio, ofrece la posibilidad de leer los nombres de los archivos del directorio.
+	* **Escritura**: si se establece este permiso para un directorio, ofrece la posibilidad de modificar las entradas de dicho directorio, lo cual permite, por ejemplo, crear o eliminar un archivo, o cambiarle el nombre.
+	* **Ejecución**: si se establece este permiso para un directorio, ofrece la posibilidad de acceder al contenido del archivo del directorio. También proporciona acceso a los metadatos del archivo, siempre que se conozca el nombre del mismo. Sin embargo, este permiso no le permitirá mostrar los archivos del directorio, a menos que el permiso de **Lectura** esté también establecido.
 
-	>[AZURE.NOTE] Se necesita el permiso de **lectura y ejecución** para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
+	>[AZURE.NOTE] Se necesita el permiso de **Lectura y ejecución** para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
 
 
 6. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso**.
@@ -131,6 +135,12 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 	> [AZURE.IMPORTANT] En la versión actual, solo puede tener nueve entradas en **Acceso personalizado**. Si desea agregar más de 9 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
 
 7. Si es necesario, también puede modificar los permisos de acceso después de agregar el grupo. Active o desactive la casilla para cada tipo de permiso (lectura, escritura, ejecución) en función de si desea quitarlo o asignarlo al grupo de seguridad. Haga clic en **Guardar** para guardar los cambios o en **Descartar** para deshacerlos.
+
+## Configuración del intervalo de direcciones IP para el acceso a los datos
+
+El Almacén de Azure Data Lake permite bloquear aún más el acceso a su almacén de datos en el nivel de red. Puede habilitar el firewall, especificar una dirección IP o definir un intervalo de direcciones IP para los clientes de confianza. Una vez habilitado, solo los clientes que tienen las direcciones IP dentro del intervalo definido pueden conectarse al almacén.
+
+![Configuración del firewall y el acceso a IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Configuración del firewall y la dirección IP")
 
 ## Quitar grupos de seguridad de una cuenta de Almacén de Azure Data Lake
 
@@ -174,4 +184,4 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

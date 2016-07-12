@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="06/29/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con SuccessFactors
@@ -39,7 +39,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para SuccessFactors:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
 
@@ -73,7 +73,7 @@ Para configurar el inicio de sesión único, debe ponerse en contacto con el equ
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **SuccessFactors**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **SuccessFactors**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configurar inicio de sesión único")
 
@@ -86,12 +86,12 @@ Para configurar el inicio de sesión único, debe ponerse en contacto con el equ
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurar dirección URL de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión de SuccessFactors**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de SuccessFactors (por ejemplo, "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-2.  En el cuadro de texto **Dirección URL de respuesta de SuccessFactors**, escriba **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    2.  En el cuadro de texto **Dirección URL de respuesta de SuccessFactors**, escriba **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Este valor solo es un marcador de posición temporal. 
-	>Obtenga el valor real de su equipo de soporte técnico de SuccessFactors.
-	>Más adelante en este tutorial, encontrará instrucciones para ponerse en contacto con su equipo de soporte de SuccessFactors. 
-	>En el contexto de esta conversación, recibirá su URL de respuesta real de SuccessFactors.
+	Obtenga el valor real de su equipo de soporte técnico de SuccessFactors. 
+	Más adelante en este tutorial, encontrará instrucciones para ponerse en contacto con su equipo de soporte de SuccessFactors.  
+	En el contexto de esta conversación, recibirá su URL de respuesta real de SuccessFactors.
 
 4.  En la página **Configuración de inicio de sesión único en SuccessFactors**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -107,13 +107,14 @@ Para configurar el inicio de sesión único, debe ponerse en contacto con el equ
 
     El equipo de soporte de Successfactors le enviará la **URL de respuesta de Successfactors** correcta que necesita para el cuadro de diálogo **Configurar URL de aplicación**.
 
-6.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Configurar inicio de sesión único")
 
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en SuccessFactors, deben aprovisionarse en SuccessFactors. En el caso de SuccessFactors, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en SuccessFactors, deben aprovisionarse en SuccessFactors.
+ En el caso de SuccessFactors, el aprovisionamiento es una tarea manual.
   
 Para que se creen usuarios creados en SuccessFactors, deberá ponerse en contacto con el equipo de soporte técnico de SuccessFactors.
 
@@ -123,7 +124,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a SuccessFactors, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **SuccessFactors**, haga clic en **Asignar usuarios**.
 
@@ -135,4 +136,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

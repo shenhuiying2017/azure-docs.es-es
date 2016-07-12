@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -33,8 +33,8 @@ En el diagrama siguiente se muestran las partes principales de la plataforma de 
 
 1. Cargue un archivo intermedio de alta calidad en un recurso.
 	
-	Se recomienda aplicar la opción de cifrado de almacenamiento a su recurso con el fin de proteger su contenido durante la carga y mientras se encuentra en reposo en el almacenamiento. 
-1. Codifique en conjunto de archivos MP4 de velocidad de bits adaptable. 
+	Se recomienda aplicar la opción de cifrado de almacenamiento a su recurso con el fin de proteger su contenido durante la carga y mientras se encuentra en reposo en el almacenamiento.
+1. Codifique en conjunto de archivos MP4 de velocidad de bits adaptable.
 
 	Se recomienda aplicar la opción de cifrado de almacenamiento al recurso de salida con el fin de proteger su contenido mientras se encuentra en reposo.
 	
@@ -58,7 +58,7 @@ Para poder usar el cifrado dinámico, primero debe obtener al menos una unidad r
 2. Configure la directiva de autorización de claves de contenido.
 1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 1. Publique el recurso mediante la creación de un localizador a petición.
-1. Trasmita el contenido publicado. 
+1. Trasmita el contenido publicado.
 
 ###de contenido
 
@@ -101,4 +101,4 @@ Para obtener información sobre los conceptos relacionados con la entrega de su 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0629_2016-->

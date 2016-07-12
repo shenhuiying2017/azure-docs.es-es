@@ -5,7 +5,7 @@ Azure ofrece soluciones de nube excelentes, integradas en máquinas virtuales y 
 
 **Pero eso son viejas noticias.** La *nueva* noticia es que Azure ofrece incluso más adecuación Docker:
 
-- [Muchas](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md) [formas](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md) [diferentes](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md) de [crear hosts Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para que los contenedores se adapten a su situación
+- [Muchas](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) formas [diferentes](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) de crear hosts Docker para que los contenedores se adapten a su situación
 - [Administrador de recursos de Azure](../articles/resource-group-overview.md) y las [plantillas de grupo de recursos](../articles/resource-group-authoring-templates.md) para simplificar la implementación y actualización de aplicaciones distribuidas complejas
 - integración con una matriz grande de ambas herramientas de administración de configuración patentadas y de código abierto
 
@@ -116,7 +116,7 @@ Hay varios sistemas conocidos que pueden implementar todos los grupos de máquin
 
 Docker tiene su propio conjunto de herramientas de creación de máquinas virtuales ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) y una herramienta de administración de clúster docker-container de equilibrio de carga ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Además, la [Extensión de máquina virtual de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) incluye compatibilidad predeterminada con [`docker-compose`](https://docs.docker.com/compose/), que puede implementar contenedores de aplicaciones configurados en varios contenedores.
 
-Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedor) y [Chronos](https://mesosphere.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web.
+Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedor) y [Chronos](https://mesos.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web.
 
 Además, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) es un sistema de código abierto para la administración de grupos de máquinas virtuales y contenedores derivado de las lecciones aprendidas en Google. Incluso puede usar [kubernetes con trama para proporcionar compatibilidad con red](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
@@ -164,7 +164,6 @@ Docker en Microsoft Azure:
 - [Guía de usuario de la extensión de máquina virtual de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
 - [Uso de la extensión de la máquina virtual de Docker con el Portal de Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
-- [Introducción rápida a Docker en Azure Marketplace](../articles/virtual-machines/virtual-machines-linux-classic-docker-quickstart.md)
 - [Cómo usar una máquina Docker en Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
 - [Cómo usar Docker con Swarm en Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
 - [Introducción a Docker y Compose en Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
@@ -196,10 +195,6 @@ Configuración, administración del clúster y orquestación de contenedor:
 	- [Terceros: Complemento esclavo de Hudson para Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
 	- [Terceros: Complemento de almacenamiento de Hudson para Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 
--	[Chef](https://docs.chef.io/index.html)
-	- [Chef y máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-install-chef-client.md)
-	- [Vídeo: ¿Qué es Chef y cómo funciona?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
-
 -	[Automatización de Azure](https://azure.microsoft.com/services/automation/)
 	- [Vídeo: Cómo utilizar la automatización de Azure con máquinas virtuales Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 
@@ -216,4 +211,4 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows](https://m
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

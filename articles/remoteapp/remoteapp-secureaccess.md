@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/05/2016" 
+    ms.date="06/27/2016" 
     ms.author="elizapo" />
 
 # Protección del acceso a Azure RemoteApp, y mucho más
@@ -34,7 +34,7 @@ El administrador elige a los usuarios que pueden tener acceso a las aplicaciones
 El uso de las cuentas de Azure AD para controlar el acceso a Azure RemoteApp ofrece dos ventajas:
 
 1.	Siempre sabemos quién tiene acceso a las aplicaciones que hemos publicado y accedemos a cualquier back-end al que estén conectados las aplicaciones.
-2.	Controlamos el Azure AD subyacente para que podamos crear y eliminar cuentas de usuario, establecer directivas de contraseña o utilizar la autenticación multifactor, entre otras posibilidades. 
+2.	Controlamos el Azure AD subyacente para que podamos crear y eliminar cuentas de usuario, establecer directivas de contraseña o utilizar la autenticación multifactor, entre otras posibilidades.
 
 ## ¿Cómo se accede a la colección? ¿Desde dónde?
 Normalmente los administradores quieren definir directivas para el acceso a un entorno de Internet de acceso público, como Azure RemoteApp. Por ejemplo, quieren asegurarse de que los usuarios que acceden al entorno desde fuera de la red corporativa tengan que usar Multi-Factor Authentication (MFA) para obtener acceso; o quizás deben bloquearse por completo.
@@ -110,4 +110,4 @@ Con Azure RemoteApp debe configurar primero su red virtual y, después, utilizar
 ## La solución completa
 El diagrama siguiente muestra la solución completa donde hemos creado un canal de acceso seguro del usuario final, a través de Azure RemoteApp (ARA), al recurso de back-end. ![Azure RemoteApp seguro](./media/remoteapp-secureaccess/ra-secureoverview.png) En la fase 1, hemos seleccionado a los usuarios y hemos creado reglas de acceso que rigen cómo se puede acceder a ARA. En el ejemplo siguiente solo se permite el acceso a los usuarios que trabajan en la red corporativa. Los usuarios no conformes no podrá acceder de ninguna manera al entorno de ARA. En la "fase 2" se ha expuesto el recurso de back-end solo a través de la configuración de red virtual o VPN que se controla. Azure RemoteApp se ha colocado en la misma red virtual. El resultado final es que solo se puede acceder al recurso a través del entorno de ARA.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0629_2016-->

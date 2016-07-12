@@ -26,7 +26,7 @@
 
 <br/>
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Este tutorial integral muestra cómo implementar grupos de disponibilidad mediante SQL Server AlwaysOn ejecutándose en máquinas virtuales de Azure.
@@ -75,7 +75,7 @@ Comience con una nueva cuenta de prueba de Azure. Cuando haya terminado de confi
 
 	|Page|Settings|
 |---|---|
-|Detalles de red virtual|**NOMBRE = ContosoNET**<br/>**REGIÓN = West US**|
+|Detalles de red virtual|**NOMBRE = ContosoNET**<br/>**REGIÓN = Oeste de EE. UU.**|
 |Servidores DNS y conectividad VPN|None|
 |Espacios de direcciones de la red virtual|La configuración se muestra en la captura de pantalla siguiente: ![Cree una red virtual:](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
@@ -88,8 +88,8 @@ Comience con una nueva cuenta de prueba de Azure. Cuando haya terminado de confi
 	|Page|Settings|
 |---|---|
 |Seleccionar el sistema operativo de la máquina virtual|Windows Server 2012 R2 Datacenter|
-|Configuración de la máquina virtual|**FECHA DE LANZAMIENTO DE LA VERSIÓN** = (la más reciente)<br/>**NOMBRE DE MÁQUINA VIRTUAL** = ContosoDC<br/>** NIVEL** = ESTÁNDAR<br/>**TAMAÑO** = A2 (2 núcleos)<br/>**NUEVO NOMBRE DE USUARIO** = AzureAdmin<br/>**NUEVA CONTRASEÑA** = Contoso!000<br/>**CONFIRMAR** = Contoso!000|
-|Configuración de la máquina virtual|**SERVICIO EN LA NUBE** = crear un nuevo servicio de nube<br/>**NOMBRE DNS DE SERVICIO EN LA NUBE** = un nombre único de servicio en la nube<br/>**NOMBRE DNS** = un nombre único (por ej: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back-end(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = (ninguno)|
+|Configuración de la máquina virtual|**FECHA DE LANZAMIENTO DE LA VERSIÓN** = (la más reciente)<br/>**NOMBRE DE MÁQUINA VIRTUAL** = ContosoDC<br/>**NIVEL** = ESTÁNDAR<br/>**TAMAÑO** = A2 (2 núcleos)<br/>**NUEVO NOMBRE DE USUARIO** = AzureAdmin<br/>**NUEVA CONTRASEÑA** = Contoso!000<br/>**CONFIRMAR** = Contoso!000|
+|Configuración de la máquina virtual|**SERVICIO EN LA NUBE** = Crear un nuevo servicio en la nube<br/>**NOMBRE DNS DE SERVICIO EN LA NUBE** = Un nombre único de servicio en la nube<br/>**NOMBRE DNS** = Un nombre único (p. ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = (ninguno)|
 |Opciones de la máquina virtual|Usar predeterminados|
 
 Una vez que termine de configurar la nueva máquina virtual, espere a que esta se aprovisione. Este proceso tarda algún tiempo en completarse y, si hace clic en la pestaña **Máquina Virtual** en el Portal de Azure clásico, puede ver que ContosoDC recorre los estados de **Inicio (aprovisionamiento)** a **Detenido**, **Inicio**, **Ejecución (aprovisionamiento)** y, finalmente, **Ejecución**.
@@ -138,7 +138,7 @@ En los pasos siguientes configurará la máquina ContosoDC como controlador de d
 
 	|Page|Configuración|
 |---|---|
-|Configuración de la implementación|**Agregar un nuevo bosque** = seleccionado<br/>**Nombre del dominio raíz** = corp.contoso.com|
+|Configuración de la implementación|**Agregar un nuevo bosque** = Seleccionado<br/>**Nombre del dominio raíz** = corp.contoso.com|
 |Opciones del controlador de dominio|**Contraseña** = Contoso!000<br/>**Confirmar contraseña** = Contoso!000|
 
 1. Haga clic en **Siguiente** para avanzar por las otras páginas del asistente. En la página **Comprobación de requisitos previos**, compruebe que ve el mensaje siguiente: **Todas las comprobaciones de requisitos previos se realizaron correctamente**. Tenga en cuenta que debe revisar todos los mensajes de advertencia aplicables, pero puede continuar con la instalación.
@@ -198,7 +198,7 @@ A continuación, cree tres máquinas virtuales, incluido un nodo de clúster WSF
 |---|---|---|---|
 |Seleccionar el sistema operativo de la máquina virtual|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 RTM Enterprise**|**SQL Server 2014 RTM Enterprise**|
 |Configuración de la máquina virtual|**FECHA DE LANZAMIENTO DE LA VERSIÓN** = (la más reciente)<br/>**NOMBRE DE MÁQUINA VIRTUAL** = ContosoWSFCNode<br/>**NIVEL** = ESTÁNDAR<br/>**TAMAÑO** = A2 (2 núcleos)<br/>**NUEVO NOMBRE DE USUARIO** = AzureAdmin<br/>**NUEVA CONTRASEÑA** = Contoso!000<br/>**CONFIRMAR** = Contoso!000|**FECHA DE LANZAMIENTO DE LA VERSIÓN** = (la más reciente)<br/>**NOMBRE DE MÁQUINA VIRTUAL** = ContosoSQL1<br/>**NIVEL** = ESTÁNDAR<br/>**TAMAÑO** = A3 (4 núcleos)<br/>**NUEVO NOMBRE DE USUARIO** = AzureAdmin<br/>**NUEVA CONTRASEÑA** = Contoso!000<br/>**CONFIRMAR** = Contoso!000|**FECHA DE LANZAMIENTO DE LA VERSIÓN** = (la más reciente)<br/>**NOMBRE DE MÁQUINA VIRTUAL** = ContosoSQL2<br/>**NIVEL** = ESTÁNDAR<br/>**TAMAÑO** = A3 (4 núcleos)<br/>**NUEVO NOMBRE DE USUARIO** = AzureAdmin<br/>**NUEVA CONTRASEÑA** = Contoso!000<br/>**CONFIRMAR** = Contoso!000|
-|Configuración de la máquina virtual|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (por ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = Crear un conjunto de disponibilidad<br/>**NOMBRE DE CONJUNTO DE DISPONIBILIDAD** = SQLHADR|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (por ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = SQLHADR (También puede configurar el conjunto de disponibilidad una vez creada la máquina. Las tres máquinas deben asignarse al conjunto de disponibilidad SQLHADR).|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (por ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = SQLHADR (También puede configurar el conjunto de disponibilidad una vez creada la máquina. Las tres máquinas deben asignarse al conjunto de disponibilidad SQLHADR).|
+|Configuración de la máquina virtual|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (p. ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = Crear un conjunto de disponibilidad<br/>**NOMBRE DE CONJUNTO DE DISPONIBILIDAD** = SQLHADR|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (p. ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = SQLHADR (También puede configurar el conjunto de disponibilidad una vez creada la máquina. Las tres máquinas deben asignarse al conjunto de disponibilidad SQLHADR).|**SERVICIO EN LA NUBE** = Nombre DNS de servicio en la nube único creado con anterioridad (p. ej.: ContosoDC123)<br/>**REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = Usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD** = SQLHADR (También puede configurar el conjunto de disponibilidad una vez creada la máquina. Las tres máquinas deben asignarse al conjunto de disponibilidad SQLHADR).|
 |Opciones de la máquina virtual|Usar predeterminados|Usar predeterminados|Usar predeterminados|
 
 <br/>
@@ -231,7 +231,7 @@ Una vez que las tres máquinas virtuales estén totalmente aprovisionadas, tendr
 
 	![Uso de NSLOOKUP para buscar la dirección IP para DC](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC664954.jpg)
 
-1. Haga clic en **Aceptar** y, a continuación, en **Cerrar** para confirmar los cambios. Ahora ya puede unir la máquina virtual a **corp.contoso.com**.
+1. Haga clic en **Aceptar** y, después, en **Cerrar** para confirmar los cambios. Ahora ya puede unir la máquina virtual a **corp.contoso.com**.
 
 1. De vuelta en la ventana **Servidor Local**, haga clic en el vínculo **GRUPO\_DE\_TRABAJO**.
 
@@ -417,7 +417,7 @@ Estas acciones pueden realizarse en cualquier orden. No obstante, los pasos sigu
 
 1. En el árbol del explorador, haga clic en **Servicios SQL Server**, luego haga clic con el botón derecho en el servicio **SQL Server (MSSQLSERVER)** y, a continuación, haga clic en **Propiedades**.
 
-1. Haga clic en la pestaña **Alta disponibilidad de AlwaysOn** y seleccione **Habilitar los Grupos de disponibilidad AlwaysOn**, tal como se muestra a continuación, y haga clic en **Aplicar**. Haga clic en **Aceptar** en el cuadro de diálogo emergente y no cierre la ventana de propiedades todavía. Reiniciará el servicio SQL Server tras cambiar la cuenta de servicio.
+1. Haga clic en la pestaña **Alta disponibilidad AlwaysOn** y seleccione **Habilitar los Grupos de disponibilidad AlwaysOn**, tal como se muestra a continuación, y haga clic en **Aplicar**. Haga clic en **Aceptar** en el cuadro de diálogo emergente y no cierre la ventana de propiedades todavía. Reiniciará el servicio SQL Server tras cambiar la cuenta de servicio.
 
 	![Habilitación de grupos de disponibilidad AlwaysOn](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
 
@@ -531,7 +531,7 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 
 	![Mostrar panel de grupo de disponibilidad](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665532.gif)
 
-1. El **panel AlwaysOn** debería ser similar al que se muestra a continuación. Puede ver las réplicas, el modo de conmutación por error de cada réplica y el estado de sincronización.
+1. El **Panel AlwaysOn** debería ser similar al que se muestra a continuación. Puede ver las réplicas, el modo de conmutación por error de cada réplica y el estado de sincronización.
 
 	![Panel de grupo de disponibilidad](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665533.gif)
 
@@ -548,4 +548,4 @@ Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un gr
 
 Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Entrega de un recurso mediante descarga
@@ -87,4 +87,4 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

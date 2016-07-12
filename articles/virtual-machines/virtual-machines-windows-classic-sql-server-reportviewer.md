@@ -18,7 +18,7 @@
 
 # Usar ReportViewer en un sitio web hospedado en Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Puede crear un sitio web de Microsoft Azure con el control ReportViewer de Visual Studio que muestre un informe guardado en una máquina virtual de Microsoft Azure. El control ReportViewer se encuentra en una aplicación web que se crea con la plantilla de aplicación web ASP.NET.
@@ -83,7 +83,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 
 1. Descargue e instale el paquete redistribuible de Microsoft Report Viewer 2012 Runtime siguiendo las instrucciones especificadas anteriormente.
 
-1. Cree la carpeta <language> en el proyecto y copie allí los archivos de ensamblados de recursos asociados. Los archivos de ensamblados de recursos que se va a copiar son: **Microsoft.ReportViewer.Webforms.Resources.dll** y **Microsoft.ReportViewer.Common.Resources.dll**. Seleccione los archivos de ensamblados de recursos y, en el panel Propiedades, establezca **Copiar en el directorio de resultados** en "** Copiar siempre **".
+1. Cree la carpeta <language> en el proyecto y copie allí los archivos de ensamblados de recursos asociados. Los archivos de ensamblados de recursos que se va a copiar son: **Microsoft.ReportViewer.Webforms.Resources.dll** y **Microsoft.ReportViewer.Common.Resources.dll**. Seleccione los archivos de ensamblados de recursos y, en el panel Propiedades, establezca **Copiar en el directorio de resultados** en "**Copiar siempre**".
 
 1. Establezca la referencia cultural y la referencia cultural de la interfaz de usuario para el proyecto web. Para obtener más información sobre cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para una página web ASP.NET, vea [Cómo establecer la referencia cultural y la referencia cultural de la interfaz de usuario para la globalización de páginas web de ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
@@ -109,4 +109,4 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 
 [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

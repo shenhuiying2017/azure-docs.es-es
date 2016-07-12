@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="05/04/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -48,7 +48,7 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
     1. Como **Java project to debug** (Proyecto Java para depurar), seleccione el proyecto **MyHelloWorld**.
     1. En **Configure debugging for** (Configurar depuración para), active **Azure cloud (staging)** (Nube de Azure (ensayo)).
     1. Asegúrese de que **Azure compute emulator** (Emulador de proceso de Azure) está desactivada.
-    1. Para **Host**, escriba el nombre DNS de su implementación de ensayo, pero sin la parte **http://** del principio. Por ejemplo (use su GUID en lugar del GUID que se muestra aquí): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
+    1. Para **Host**, escriba el nombre DNS de su implementación de ensayo, pero sin la parte **http://** del principio. Por ejemplo, use su GUID en lugar del GUID que se muestra aquí: **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
 1. Haga clic en **OK** (Aceptar) para cerrar el cuadro de diálogo **Azure Debug Configuration**.
 1. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for WorkerRole1 Debugging**.
 1. Si no tiene un punto de interrupción ya establecido en index.jsp, establézcalo:
@@ -56,7 +56,7 @@ Como punto de partida de este tema, vamos a usar la aplicación del tutorial [Us
     1. Dentro de index.jsp, haga clic con el botón derecho en la barra azul a la izquierda del código Java y haga clic en **Toggle Breakpoints** (Alternar puntos de interrupción), como se muestra a continuación: ![][ic551537]
 1. En el menú de Eclipse, haga clic en **Run** (Ejecutar) y luego en **Debug Configurations** (Depurar configuraciones).
 1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Cloud (WorkerRole1)** (Nube de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
-1. En el explorador, ejecute la aplicación de ensayo ****http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, sustituyendo el GUID de su nombre DNS por *&lt;guid&gt;*. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes** (Sí). La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
+1. En el explorador, ejecute la aplicación de ensayo **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld** sustituyendo el GUID de su nombre DNS por *&lt;guid&gt;*. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes (Sí)**. La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
 
 >[AZURE.NOTE] Si intenta iniciar una conexión de depuración remota con una implementación que tiene varias instancias de rol en ejecución, actualmente no puede controlar con qué instancia se conectará inicialmente el depurador, ya que el equilibrador de carga de Azure seleccionará una instancia aleatoriamente. Aunque una vez que conectado a esa instancia, seguirá depurando la misma instancia. Tenga en cuenta también que si hay un período de inactividad de más de cuatro minutos (por ejemplo, cuando se detiene en un punto de interrupción durante demasiado tiempo), puede que Azure cierre la conexión.
 
@@ -96,11 +96,11 @@ Cuando sepa qué número de puerto público se ha asignado a esa instancia, pued
     1. En el explorador de proyectos de Eclipse, expanda **MyHelloWorld**, expanda **WebContent**, y haga doble clic en **index.jsp**.
     1. Dentro de index.jsp, haga clic con el botón derecho en la barra azul a la izquierda del código Java y haga clic en **Toggle Breakpoints** (Alternar puntos de interrupción), como se muestra a continuación: ![][ic551537]
 
-    Hay establecido un punto de interrupción si ve un icono de punto de introducción dentro de la barra azul que se encuentra a la izquierda del código Java.
+       Hay establecido un punto de interrupción si ve un icono de punto de introducción dentro de la barra azul que se encuentra a la izquierda del código Java.
 1. Inicie la aplicación en el emulador de proceso haciendo clic en el botón **Run in Azure Emulator** (Ejecutar en el emulador de Azure) en la barra de herramientas de Azure.
 1. En el menú de Eclipse, haga clic en **Run** (Ejecutar) y luego en **Debug Configurations** (Depurar configuraciones).
 1. En el cuadro de diálogo **Debug Configurations** (Depurar configuraciones), expanda **Remote Java Application** (Aplicación de Java remota) en el panel de la izquierda, seleccione **Azure Emulator (WorkerRole1)** (Emulador de Azure (WorkerRole1)) y haga clic en **Debug** (Depurar).
-1. Cuando el emulador de proceso indique que la aplicación se ejecuta en el explorador, ejecute **http://localhost:8080/MyHelloWorld**. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes** (Sí). La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
+1. Cuando el emulador de proceso indique que la aplicación se ejecuta en el explorador, ejecute **http://localhost:8080/MyHelloWorld**. Si un cuadro de diálogo **Confirm Perspective Switch** (Confirmar cambio de perspectiva) se lo pide, haga clic en **Yes (Sí)**. La sesión de depuración debe ejecutarse ahora en la línea de código donde se estableció el punto de interrupción.
 
 Con esto se ha mostrado cómo depurar en el emulador de proceso; la sección siguiente muestra cómo depurar una aplicación implementada en Azure.  
 
@@ -134,4 +134,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

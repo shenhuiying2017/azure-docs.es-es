@@ -22,7 +22,7 @@
 
 [MySQL](http://www.mysql.com)L es una conocida base de datos SQL de código abierto. Este tutorial muestra cómo instalar y ejecutar la versión de comunidad de MySQL 5.6.23 como un servidor MySQL en una máquina virtual con Windows Server 2012 R2. Para obtener instrucciones acerca de cómo instalar MySQL en Linux, consulte: [Instalación de MySQL en Azure](virtual-machines-linux-mysql-install.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Creación de una máquina virtual que ejecuta Windows Server 2012 R2
 
@@ -126,4 +126,4 @@ Para probar la conexión remota con el servicio de MySQL Server que se ejecuta e
 
 Para obtener más información sobre la ejecución de MySQL, consulte la [documentación de MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

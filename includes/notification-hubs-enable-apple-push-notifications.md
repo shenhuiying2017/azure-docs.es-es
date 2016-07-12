@@ -43,13 +43,9 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
 	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-   	De esta forma, se genera el identificador de la aplicación y se solicita que confirme la información. Haga clic en **Submit** (Enviar).
+   	De esta forma, se genera el identificador de la aplicación y se solicita que confirme la información. Haga clic en **Register** (Registrar) para confirmar el nuevo identificador de aplicación.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-   	Una vez que haga clic en **Submit** (Enviar), verá la pantalla **Registration complete** (Registro completado), como se muestra a continuación. Haga clic en **Done** (Listo).
+   	Cuando haga clic en **Register** (Registrar), verá la pantalla **Registration complete** (Registro completado), como se muestra a continuación. Haga clic en **Done** (Listo).
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -69,7 +65,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
    	Se mostrará el asistente "Add iOS Certificate".
 
-    > [AZURE.NOTE]Este tutorial usa un certificado de desarrollo. Se usa el mismo proceso cuando se registra un certificado de producción. Asegúrese de usa el mismo tipo de certificado cuando envíe notificaciones.
+    > [AZURE.NOTE] Este tutorial usa un certificado de desarrollo. Se usa el mismo proceso cuando se registra un certificado de producción. Asegúrese de usa el mismo tipo de certificado cuando envíe notificaciones.
 
 5. Haga clic en **Choose File** (Elegir archivo), diríjase a la ubicación en la que guardó el archivo CSR que creó en la primera tarea y, a continuación, haga clic en **Generate** (Generar).
 
@@ -83,7 +79,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps\_development.cer**.
+    > [AZURE.NOTE] de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps\_development.cer**.
 
 7. Haga doble clic en el certificado de inserción **aps\_development.cer** descargado.
 
@@ -91,7 +87,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE]El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS):**.
+    > [AZURE.NOTE] El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS):**.
 
 8. En Acceso a llaves, haga clic en el nuevo certificado de inserción que creó, en la categoría **Certificados**. Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
 
@@ -99,7 +95,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
 	Anote el nombre de archivo y la ubicación del certificado p12 exportado. Se usará para habilitar la autenticación con APNS.
 
-	>[AZURE.NOTE]Con este tutorial se crea un archivo QuickStart.p12. El nombre del archivo y la ubicación pueden ser diferentes.
+	>[AZURE.NOTE] Con este tutorial se crea un archivo QuickStart.p12. El nombre del archivo y la ubicación pueden ser diferentes.
 
 
 ##Creación de un perfil de aprovisionamiento para la aplicación
@@ -126,7 +122,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. Para terminar, seleccione un nombre para el perfil en **Profile Name** (Nombre de perfil) y haga clic en **Generate** (Generar).
+6. Para terminar, seleccione un nombre para el perfil en **Nombre de perfil** y haga clic en **Generar**.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
@@ -135,4 +131,4 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0706_2016-->

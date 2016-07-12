@@ -23,14 +23,13 @@ Empiece a usar Docker y [Compose](http://github.com/docker/compose) para definir
 
 Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu, pero también puede utilizar Compose para configurar aplicaciones más complejas.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información acerca de cómo [realizar estos pasos con el modelo de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql).
 
-
-Si no tiene experiencia en Docker y contenedores, vea la [pizarra de alto nivel de Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
+Si no tiene experiencia con Docker o con los contenedores, consulte la [pizarra de alto nivel de Docker](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Paso 1: Configuración de una máquina virtual de Linux como host de Docker
 
-Puede emplear una serie de procedimientos de Azure, así como las imágenes y plantillas de Azure Resource Manager disponibles, para crear una máquina virtual Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure](virtual-machines-linux-dockerextension.md) si desea ver un procedimiento rápido para crear una máquina virtual Ubuntu con la extensión de máquina virtual de Docker mediante el uso de una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. En el ejemplo de este artículo se muestra cómo usar la [interfaz de la línea de comandos de Azure para Mac, Linux y Windows](../xplat-cli-install.md) (la CLI de Azure) de Azure Resource Manager en el modo de administración de servicios para crear la máquina virtual.
+Puede emplear una serie de procedimientos de Azure, así como las imágenes y plantillas de Azure Resource Manager disponibles, para crear una máquina virtual Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de VM de Docker para implementar el entorno](virtual-machines-linux-dockerextension.md) si desea ver un procedimiento rápido para crear una máquina virtual de Ubuntu con la extensión de máquina virtual de Azure Docker mediante el uso de una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. En el ejemplo de este artículo se muestra cómo usar la [interfaz de la línea de comandos de Azure para Mac, Linux y Windows](../xplat-cli-install.md) (la CLI de Azure) en el modo de Resource Manager para crear la máquina virtual.
 
 ## Paso 2: Comprobación de que se ha instalado Compose
 
@@ -70,7 +69,7 @@ db:
 
 ## Paso 4: inicio de los contenedores con Compose
 
-En el directorio de trabajo de la máquina virtual, ejecute el comando siguiente. En función del entorno, es posible que tenga que ejecutar `docker-compose` utilizando `sudo`.
+En el directorio de trabajo de la máquina virtual, ejecute el comando siguiente. En función del entorno, es posible que tenga que ejecutar `docker-compose` mediante `sudo`.
 
 ```
 $ docker-compose up -d
@@ -106,12 +105,12 @@ Ahora puede conectarse a WordPress directamente en la máquina virtual a través
 ## Pasos siguientes
 
 * Consulte el [manual del usuario de extensión de máquina virtual de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) para obtener más opciones de configuración de Docker y Compose en su máquina virtual de Docker. Por ejemplo, una de ellas consiste en colocar el archivo YML de Compose (convertido a JSON) directamente en la configuración de la extensión de máquina virtual de Docker.
-* Consulte la [referencia de comandos de Compose](http://docs.docker.com/compose/reference/) y el [manual del usuario](http://docs.docker.com/compose/) para obtener más ejemplos de compilación e implementación de aplicaciones con varios contenedores.
+* Consulte la [referencia de línea de comandos de Compose](http://docs.docker.com/compose/reference/) y el [manual del usuario](http://docs.docker.com/compose/) para obtener más ejemplos de compilación e implementación de aplicaciones con varios contenedores.
 * Use una plantilla del Administrador de recursos de Azure, o bien una propia o una proporcionada por la [comunidad](https://azure.microsoft.com/documentation/templates/), para implementar una VM de Azure con Docker y una aplicación configurada con Compose. Por ejemplo, la plantilla [Implementación de un blog de WordPress con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) usa Docker y Compose para implementar rápidamente WordPress con un back-end de MySQL en una máquina virtual de Ubuntu.
-* Pruebe a integrar Docker Compose con un clúster de [Docker Swarm](virtual-machines-linux-docker-swarm.md). Consulte [Using Swarm with Compose](https://docs.docker.com/compose/swarm/) (Uso de Swarm con Compose) para ver los escenarios.
+* Pruebe a integrar Docker Compose con un clúster de [Docker Swarm](virtual-machines-linux-docker-swarm.md). Consulte [Using Swarm with Compose](https://docs.docker.com/compose/swarm/) (Uso de Swarm con Compose) para conocer distintos escenarios.
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-linux-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

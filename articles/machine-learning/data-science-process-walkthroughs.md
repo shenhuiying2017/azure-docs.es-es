@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="06/23/2016" 
 	ms.author="bradsev" />
 
 
@@ -21,29 +21,32 @@
 
 Los tutoriales completos que figuran aquí demuestran los pasos del proceso de ciencia de datos en equipos para **escenarios concretos**. Además, ilustran cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el objetivo de crear una aplicación inteligente.
 
+## Uso de Almacenamiento de datos SQL
+En el tutorial sobre el [proceso de ciencia de datos en equipo en acción mediante Almacenamiento de datos SQL](machine-learning-data-science-process-sqldw-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático mediante Almacenamiento de datos SQL (SQL DW) para un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York públicamente disponible.
+
 ## Uso de SQL Server
-En el tutorial [Proceso de ciencia de datos en equipos en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md) se muestra cómo crear e implementar un modelo de aprendizaje automático con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/).
+En el tutorial sobre el [proceso de ciencia de datos en equipo en acción mediante SQL Server](machine-learning-data-science-process-sql-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático mediante SQL Server y un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York públicamente disponible.
 
 
-## Uso de clústeres de Hadoop de HDInsight
-En el tutorial [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](machine-learning-data-science-process-hive-walkthrough.md), usamos un [clúster de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos de un conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para diseñar sus características.
+## Uso de clústeres de Hadoop en HDInsight
+En el tutorial sobre el [proceso de ciencia de datos en equipo en acción mediante clústeres de Hadoop en HDInsight](machine-learning-data-science-process-hive-walkthrough.md), usamos un [clúster de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar las características de los datos desde el punto de vista de los ingenieros del conjunto de datos NYC Taxi Trips.
 
 
-## Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
-En el tutorial [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md), presentamos un escenario completo que usa un [clúster de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos de ejemplo de uno de los conjuntos de datos [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponible públicamente, así como para diseñar sus características y reducir su tamaño.
-
-## Ciencia de datos con Spark en HDInsight de Azure
-En el tutorial [Ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md), usamos el proceso de ciencia de datos en equipos en un escenario completo con un [clúster de Spark de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para diseñar sus características.
+## Uso de clústeres de Hadoop en HDInsight de Azure en un conjunto de datos de 1 TB
+En el tutorial sobre el [proceso de ciencia de datos en equipo en acción mediante clústeres de Hadoop en HDInsight de Azure en un conjunto de datos de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md), presentamos un escenario completo que usa un [clúster de Hadoop en HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar las características de los datos desde el punto de vista de los ingenieros y reducir la muestra de datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibles públicamente.
 
 
-## Ciencia de datos escalables en Azure Data Lake
-En el tutorial [Ciencia de datos escalables en Azure Data Lake: tutorial completo](machine-learning-data-science-process-data-lake-walkthrough.md) se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa.
+## Uso de Spark en HDInsight de Azure
+En el tutorial [Ciencia de datos con Spark en HDInsight de Azure](machine-learning-data-science-spark-overview.md), usamos el proceso de ciencia de datos en equipo en un escenario completo con un [clúster de Spark de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos del conjunto de datos de NYC Taxi Trips disponible públicamente, así como para diseñar sus características.
 
-## Tutorial completo de ciencia de datos con SQL Server R Services
-El [tutorial completo de ciencia de datos con SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) utiliza un conjunto de datos público popular: el conjunto de datos de taxis de Nueva York. Empleará una combinación de código R, datos de SQL Server y funciones SQL personalizadas para generar un modelo de clasificación que indique la probabilidad de que el conductor de un taxi reciba propina en una carrera determinada. También implementará el modelo de R en SQL Server y utilizará los datos del servidor para generar puntuaciones basadas en dicho modelo.
 
-## Análisis avanzados en bases de datos para desarrolladores de SQL
+## Uso de almacenamiento y análisis de Azure Data Lake
+En el tutorial [Ciencia de datos escalables en Azure Data Lake: tutorial completo](machine-learning-data-science-process-data-lake-walkthrough.md) se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos NYC Taxi Trips para predecir si se dará una propina por tarifa.
 
-El objetivo del tutorial [Análisis avanzados en bases de datos para desarrolladores de SQL](https://msdn.microsoft.com/library/mt683480.aspx) es proporcionar a los programadores de SQL unos conocimientos prácticos para crear una solución de análisis avanzados con SQL Server R Services. Sepa cómo incorporar R en una aplicación o solución de BI ajustando el código R en procedimientos almacenados.
+## Uso de R con R Services de SQL Server
+En el [tutorial completo de ciencia de datos con R Services de SQL Server](https://msdn.microsoft.com/library/mt612857.aspx) se proporciona a los científicos de datos una combinación de código R, datos de SQL Server y funciones SQL personalizadas para compilar e implementar un modelo R en SQL Server.
 
-<!---HONumber=AcomDC_0622_2016-->
+## Uso de T-SQL con R Services de SQL Server
+En el tutorial de [análisis avanzado en base de datos para desarrolladores de SQL](https://msdn.microsoft.com/library/mt683480.aspx) se proporciona a los programadores de SQL experiencia práctica para la creación de una solución de análisis avanzada con Transact-SQL mediante R Services de SQL Server para operacionalizar una solución de R.
+
+<!---HONumber=AcomDC_0629_2016-->

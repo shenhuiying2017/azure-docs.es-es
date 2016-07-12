@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -40,10 +40,10 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
 
    1. Si se cifra el contenido, defina una directiva de acceso.
    2. Cree un localizador de streaming a petición.
-   3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso. 
+   3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso.
    		
-	Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.  
-   4. Genere direcciones URL para el archivo de manifiesto o archivos MP4. 
+	Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.
+   4. Genere direcciones URL para el archivo de manifiesto o archivos MP4.
    
 
 ###Uso del SDK de .NET de Servicios multimedia 
@@ -171,4 +171,4 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 
 [Descargar activos](media-services-deliver-asset-download.md) [Configuración de directivas de entrega de activos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

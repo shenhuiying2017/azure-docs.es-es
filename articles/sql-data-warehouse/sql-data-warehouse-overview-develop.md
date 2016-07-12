@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="06/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Decisiones de diseño y técnicas de codificación para el Almacenamiento de datos SQL
@@ -42,8 +42,6 @@ En estos artículos se abordan técnicas de codificación, sugerencias y recomen
 - [tablas temporales][]
 - [SQL dinámico][]
 - [bucle][]
-- [cambio de nombre de objetos][]
-- [datos de tablas dinámicas][]
 - [opciones de agrupar por][]
 - [asignación de variables][]
 
@@ -61,7 +59,6 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 [claves de distribución hash]: sql-data-warehouse-develop-hash-distribution-key.md
 [etiquetas]: sql-data-warehouse-develop-label.md
 [bucle]: sql-data-warehouse-develop-loops.md
-[datos de tablas dinámicas]: sql-data-warehouse-develop-pivot-unpivot.md
 [estadísticas]: sql-data-warehouse-develop-statistics.md
 [procedimientos almacenados]: sql-data-warehouse-develop-stored-procedures.md
 [diseño de tablas]: sql-data-warehouse-develop-table-design.md
@@ -75,8 +72,8 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 [Referencia de Transact-SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[cambio de nombre de objetos]: https://msdn.microsoft.com/library/mt631611.aspx
+[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

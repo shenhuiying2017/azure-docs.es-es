@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="06/27/2016"
 	ms.author="swkrish"/>
 
 # Versión preliminar de Azure Active Directory B2C: limitaciones y restricciones
@@ -24,7 +24,7 @@ Hay varias características y funcionalidades de Azure Active Directory (Azure A
 
 ## Problemas durante la creación de inquilinos de Azure AD B2C
 
-Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started), consulte [Creación de un inquilino de Azure AD o de Azure AD B2C: problemas y soluciones](active-directory-b2c-support-create-directory.md) para obtener orientación.
+Si surgen problemas durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started.md), consulte [Creación de un inquilino de Azure AD o de Azure AD B2C: problemas y soluciones](active-directory-b2c-support-create-directory.md) para saber qué hacer.
 
 ## Problemas de personalización de marca en el mensaje de confirmación
 
@@ -70,6 +70,10 @@ La vista previa de Azure AD B2C admite OpenID Connect y OAuth 2.0. Sin embargo, 
 
 Muchos de los tokens emitidos por la vista previa de Azure AD B2C se implementan como tokens web JSON o JWT. Sin embargo, no toda la información incluida en JWT (conocida como "notificaciones") es como debería ser o falta. Entre los ejemplos se incluyen las notificaciones "sub" y "preferred\_username". Debería esperar que las cosas cambien bastante durante la vista previa. Para comprender mejor los tokens emitidos actualmente por el servicio de Azure AD B2C, lea nuestra [referencia de token](active-directory-b2c-reference-tokens.md).
 
+## Restricción en grupos anidados
+
+No se admiten pertenencias a grupos anidados en inquilinos de Azure AD B2C. No está previsto agregar esta funcionalidad.
+
 ## Problemas con Administración de usuarios en el Portal de Azure clásico
 
 Se puede acceder a las características B2C desde el Portal de Azure. Sin embargo, puede usar el Portal de Azure clásico para obtener acceso a otras características de inquilino, como la administración de usuarios. Actualmente hay un par de problemas conocidos con la administración de usuarios (la pestaña **Usuarios**) en el Portal de Azure clásico.
@@ -82,11 +86,11 @@ Se puede acceder a las características B2C desde el Portal de Azure. Sin embarg
 
 ## Problemas con el restablecimiento de contraseña iniciado por el administrador en el Portal de Azure clásico
 
-Si restablece la contraseña para un consumidor basado en una cuenta local en el Portal de Azure clásico (el comando **Restablecer contraseña** de la pestaña **Usuarios**), ese consumidor no podrá cambiar su contraseña en el siguiente inicio de sesión y será bloqueado en sus aplicaciones. Estamos trabajando para corregir este problema. Para solucionar este problema, use la [API de Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para restablecer la contraseña del consumidor.
+Si restablece la contraseña para un consumidor basado en una cuenta local en el Portal de Azure clásico (el comando **Restablecer contraseña** de la pestaña **Usuarios**), ese consumidor no podrá cambiar su contraseña en el siguiente inicio de sesión (si utiliza una directiva de registro o inicio de sesión), y será bloqueado en sus aplicaciones. Estamos trabajando para corregir este problema. Como alternativa, utilice la [API de Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para restablecer la contraseña del consumidor (sin caducidad de contraseña) o use una directiva de inicio de sesión en lugar de una de registro o inicio de sesión.
 
-## Restricción en la eliminación de inquilinos de Azure AD B2C
+## Problemas con la creación de un atributo personalizado
 
-No podrá eliminar un inquilino de Azure AD B2C en el Portal de Azure clásico.
+Un [atributo personalizado agregado en el Portal de Azure](active-directory-b2c-reference-custom-attr.md) no se crea inmediatamente en el inquilino B2C. Tendrá que utilizar el atributo personalizado en al menos una de las directivas antes de crearlo en el inquilino B2C y permitir que esté disponible a través de la API Graph.
 
 ## Problemas con la comprobación de un dominio en el Portal de Azure clásico
 
@@ -97,6 +101,6 @@ Actualmente no se puede comprobar un dominio correctamente en el [Portal de Azur
 Solicitudes de las directivas de inicio de sesión (con MFA activado) errores intermitentes en los exploradores Safari con errores de HTTP 400 (solicitud incorrecta). Esto se debe a los bajos límites de tamaño de cookies de Safari. Hay un par de soluciones para este problema:
 
 - Utilizar la "directiva de registro o de inicio de sesión" en lugar de la "directiva de inicio de sesión".
-- Reducir el número de **notificaciones de la aplicación** que se solicita en la directiva. 
+- Reducir el número de **notificaciones de la aplicación** que se solicita en la directiva.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

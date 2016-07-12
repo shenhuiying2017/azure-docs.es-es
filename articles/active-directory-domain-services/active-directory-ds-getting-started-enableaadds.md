@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(versión preliminar)*: habilitación de los Servicios de dominio de Azure AD
@@ -94,4 +94,4 @@ En esta tarea puede habilitar los Servicios de dominio de Azure AD para su direc
 ## Tarea 4: Actualización de la configuración DNS para la red virtual de Azure
 La siguiente tarea de configuración consiste en [actualizar la configuración de DNS para la red virtual de Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

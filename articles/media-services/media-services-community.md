@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Información general sobre la comunidad de Servicios multimedia de Azure"
-	description="Esta página de la comunidad de Servicios multimedia de Azure (AMS) describe diferentes maneras de obtener actualizaciones de AMS, ver nuevos vídeos y podcasts, hacer preguntas y comentarios."
+	description="Esta página de la comunidad de Servicios multimedia de Azure (AMS) describe diferentes maneras de obtener actualizaciones de AMS, ver nuevos vídeos y podcasts, hacer preguntas y comentarios. "
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/24/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 # Comunidad de Servicios multimedia de Azure  
@@ -63,4 +63,4 @@ Reproductor multimedia de Azure|ampinfo@microsoft.com
 Azure Media Explorer|amse@microsoft.com
 Diseñador de flujo de trabajo|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

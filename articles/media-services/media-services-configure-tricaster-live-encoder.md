@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/03/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Uso del codificador NewTek TriCaster para enviar una transmisión por secuencias en directo de velocidad de bits única
@@ -70,22 +70,22 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 **Vídeo**:
  
-- Codec (Códec): H.264 
-- Profile (Perfil): High (Level 4.0) (Alto [Nivel 4.0]) 
-- Bitrate (Velocidad de bits): 5000 kbps 
-- Keyframe (Fotograma clave): 2 seconds (60 seconds) (2 segundos [60 segundos]) 
+- Codec (Códec): H.264
+- Profile (Perfil): High (Level 4.0) (Alto [Nivel 4.0])
+- Bitrate (Velocidad de bits): 5000 kbps
+- Keyframe (Fotograma clave): 2 seconds (60 seconds) (2 segundos [60 segundos])
 - Frame Rate (Velocidad de fotogramas): 30
  
 **Audio**:
 
-- Codec (Códec): AAC (LC) 
-- Bitrate (Velocidad de bits): 192 kbps 
+- Codec (Códec): AAC (LC)
+- Bitrate (Velocidad de bits): 192 kbps
 - Sample Rate (Frecuencia de muestreo): 44,1 kHz
 
 
 ###Pasos de configuración
 
-1. Cree un nuevo proyecto de **NewTek TriCaster** según el origen de entrada de vídeo que se use. 
+1. Cree un nuevo proyecto de **NewTek TriCaster** según el origen de entrada de vídeo que se use.
 2. Una vez dentro de ese proyecto, busque el botón **Stream** (Transmitir) y haga clic en el icono de engranaje junto a él para acceder al menú de configuración de transmisiones.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
@@ -126,7 +126,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
 ##Reproducción de pruebas
   
-1. Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Reproducir la vista previa** y seleccione **con el Reproductor multimedia de Azure**.  
+1. Vaya a la herramienta AMSE y haga clic con el botón derecho en el canal que se va a probar. En el menú, mantenga el puntero sobre **Reproducir la vista previa** y seleccione **con el Reproductor multimedia de Azure**.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
@@ -136,18 +136,18 @@ Si se recibe un error, se deberá restablecer el canal y ajustar la configuraci�
 
 ##Creación de un programa
 
-1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.  
+1. Una vez confirmada la reproducción de canales, cree un programa. En la pestaña **Directo** de la herramienta AMSE, haga clic con el botón derecho dentro del área de programas y seleccione **Crear programa**.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
 2. Dé nombre al programa y, si es necesario, ajuste el valor de **Duración de la ventana de archivo** (que de forma predeterminada es 4 horas). También puede especificar una ubicación de almacenamiento o dejar el valor predeterminado.
 3. Active la casilla **Iniciar el programa ahora**.
-4. Haga clic en **Crear programa**.  
+4. Haga clic en **Crear programa**.
   
 	Nota: la creación de programas tarda menos que la creación de canales.
  
 5. Cuando el programa esté en ejecución, confirme la reproducción. Para ello, haga clic con el botón derecho en el programa y vaya a **Reproducir los programas**. Luego, seleccione **con el Reproductor multimedia de Azure**.
-6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú). 
+6. Una vez confirmada, haga clic con el botón derecho de nuevo en el programa y seleccione **Copiar la dirección URL de salida en el portapapeles** (o recupere esta información desde la opción **Información y configuración del programa** en el menú).
 
 La transmisión está ahora preparada para insertarse en un reproductor o distribuirse a una audiencia para su visualización en directo.
 
@@ -165,4 +165,4 @@ Consulte el tema [Solución de problemas](media-services-troubleshooting-live-st
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0629_2016-->

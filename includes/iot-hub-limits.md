@@ -23,6 +23,8 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Número máximo de entregas de mensajes de comentarios <br/> en respuesta a un mensaje de nube a dispositivo | 100 |
 | TTL máximo para los mensajes de comentarios en <br/> respuesta a un mensaje de nube a dispositivo | 2 días |
 
+> [AZURE.NOTE] Si necesita más de 10 Centros de IoT en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
+
 El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas siguientes:
 
 | Limitación | Valor por centro |
@@ -33,4 +35,4 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 | Envíos de nube a dispositivo | 100/min/unidad |
 | Recepciones de nube a dispositivo | 1000/min/unidad |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"   
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 
@@ -40,14 +40,14 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 
 
 1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y haga clic en el nombre de cuenta de los Servicios multimedia.
-2. Seleccione la página CONTENT. 
-3. Haga clic en el botón **Cargar** en la página o en la parte inferior del portal. 
+2. Seleccione la página CONTENT.
+3. Haga clic en el botón **Cargar** en la página o en la parte inferior del portal.
 4. En el cuadro de diálogo **Cargar contenido**, diríjase al archivo del recurso deseado. Haga clic en el archivo y, a continuación, haga clic en **Abrir** o presione **Entrar**.
 
 	![Cuadro de diálogo de carga de contenido][uploadcontent]
 
 5. En el cuadro de diálogo de carga de contenido, haga clic en el botón de comprobación para aceptar el archivo y el nombre de contenido.
-6. La carga comenzará y podrá realizar un seguimiento del proceso desde la parte inferior del portal.  
+6. La carga comenzará y podrá realizar un seguimiento del proceso desde la parte inferior del portal.
 
 	![Estado del trabajo][status]
 
@@ -125,7 +125,7 @@ Si desea que Servicios multimedia cifre el recurso de forma dinámica con una cl
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran en la sección [Codificación](#encode)).
 - Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](media-services-manage-origins.md#scale_streaming_endpoints/).
-- Configure "Directiva del servicio de claves sin cifrado de aes predeterminada" o "Directiva del servicio de licencias de Playready predeterminada". Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-portal-configure-content-key-auth-policy.md).  
+- Configure "Directiva del servicio de claves sin cifrado de aes predeterminada" o "Directiva del servicio de licencias de Playready predeterminada". Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-portal-configure-content-key-auth-policy.md).
 
 
 	Cuando esté listo para habilitar el cifrado, presione el botón **CIFRADO** situado en la parte inferior de la página **CONTENIDO**.
@@ -179,8 +179,8 @@ Para actualizar la fecha de caducidad de un localizador, utilice las [API de RES
 
 Para utilizar el Portal para publicar un recurso, haga lo siguiente:
 
-1. Seleccione el recurso. 
-2. A continuación, haga clic en el botón Publicar. 
+1. Seleccione el recurso.
+2. A continuación, haga clic en el botón Publicar.
 	
  ![Contenido publicado][publishedcontent]
 
@@ -222,4 +222,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

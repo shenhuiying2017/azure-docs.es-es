@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo | Microsoft Azure"
-	description="En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure."
+	description="En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
@@ -18,7 +18,7 @@
 
 # Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
 
 En este tema se describe y se le guiará por la implementación y la configuración de un servidor de informes de modo nativo de SQL Server Reporting Services en una máquina virtual de Azure. Los pasos de este documento usan una combinación de pasos manuales para crear la máquina virtual y un script de Windows PowerShell para configurar Reporting Services en la máquina virtual. El script de configuración incluye la apertura de un puerto de firewall para HTTP o HTTPS.
@@ -83,7 +83,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 
 	- **Servicio en la nube**: seleccione **Crear un nuevo servicio en la nube**.
 	
-	- **Nombre DNS de servicio en la nube**: este es el nombre DNS público del servicio en la nube que está asociado a la máquina virtual. El nombre predeterminado es el nombre que escribió para el nombre de la máquina virtual. Si en los pasos posteriores del tema, crea un certificado SSL de confianza y luego el nombre DNS se usa para el valor de "**Emitido a**" del certificado.
+	- **Nombre DNS de servicio en la nube**: este es el nombre DNS público del servicio en la nube que está asociado a la máquina virtual. El nombre predeterminado es el nombre que escribió para el nombre de la máquina virtual. Si se encuentra en pasos posteriores del tema, crea un certificado SSL de confianza y se usa el nombre DNS para el valor de "**Emitido a**" del certificado.
 	
 	- **Región/grupo de afinidad/red virtual**: elija la región más cercana a sus usuarios finales.
 	
@@ -117,7 +117,7 @@ Para usar HTTPS en la máquina virtual, necesitará un certificado SSL de confia
 
 ### Para usar un certificado creado por una entidad de certificación (CA) de confianza
 
-1. **Solicitar un certificado de servidor para el sitio web desde una entidad de certificación**. 
+1. **Solicitar un certificado de servidor para el sitio web desde una entidad de certificación**.
 
 	Puede utilizar el Asistente para certificados de servidor Web para generar un archivo de solicitud de certificado (Certreq.txt) que se envía a una entidad de certificación o para generar una solicitud para una entidad de certificación en línea. Por ejemplo, los Servicios de certificados de Microsoft en Windows Server 2012. Según el nivel de garantía de identificación ofrecido por el certificado del servidor, se tarda entre varios días o varios meses en que la entidad de certificación apruebe su solicitud y le envíe un archivo de certificado.
 
@@ -633,7 +633,7 @@ Para comprobar que la funcionalidad del servidor de informes básica funciona, a
 
 		http://localhost/Reports
 
-- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio]\[nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **s** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
+- Desde el equipo local, vaya al Administrador de informes **remoto** en la máquina virtual. Actualice el nombre DNS en el ejemplo siguiente, según corresponda. Cuando se le pida una contraseña, use las credenciales de administrador que creó cuando se aprovisionó la máquina virtual. El nombre de usuario se encuentra en el formato [Dominio] [nombre de usuario], donde el dominio es el nombre de equipo de la máquina virtual, por ejemplo, ssrsnativecloud\\testuser. Si no está usando HTTP**S**, quite la **S** de la dirección URL. Vea la siguiente sección para obtener información sobre cómo crear usuarios adicionales en la máquina virtual.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!----HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

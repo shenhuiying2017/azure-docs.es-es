@@ -43,7 +43,7 @@ El siguiente procedimiento utiliza una plantilla ARM de Azure para crear un clú
 
 1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure. La plantilla ARM se encuentra en un contenedor de blobs público.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. En la hoja **Parámetros**, escriba lo siguiente:
 
@@ -61,7 +61,7 @@ El siguiente procedimiento utiliza una plantilla ARM de Azure para crear un clú
 6. Haga clic en **Crear**. Tarda aproximadamente 20 minutos en crear un clúster.
 
 
->[AZURE.NOTE] Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original. Se recomienda deshabilitar las tablas de HBase antes de eliminar el clúster con el fin de evitar incoherencias.
+>[AZURE.NOTE] Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster seleccionará las tablas de HBase que creó en el clúster original. Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
 ## Creación de tablas e inserción de datos
 
@@ -181,9 +181,9 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 
 	Debería recibir una respuesta similar a la siguiente:
 
-    {"status":"ok","version":"v1"}
+		{"status":"ok","version":"v1"}
 
-  Los parámetros que se utilizan en este comando son los siguientes:
+	Los parámetros que se utilizan en este comando son los siguientes:
 
 	* **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
 	* **-G**: indica que esta es una solicitud GET.
@@ -285,7 +285,7 @@ En un clúster de alta disponibilidad, encontrará un vínculo al nodo maestro d
 
 ##Eliminación del clúster
 
-Se recomienda deshabilitar las tablas de HBase antes de eliminar el clúster con el fin de evitar incoherencias.
+Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -325,4 +325,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

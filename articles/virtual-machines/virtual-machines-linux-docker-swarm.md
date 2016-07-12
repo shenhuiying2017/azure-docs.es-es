@@ -19,7 +19,7 @@
 
 # Cómo usar docker con enjambre
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo del Administrador de recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
 Este tema le mostrará una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm).
@@ -65,7 +65,7 @@ La última línea es el identificador de clúster, así que cópielo ya que tend
 
 > [AZURE.NOTE] Para que quede claro: usamos la instalación docker local para conectarnos a la máquina virtual de **swarm-master** en Azure e indicamos a**swarm-master** que descargue, instale y ejecute el comando **create**, el cual devolverá el identificador de clúster que usaremos más adelante para detectar otras cosas.
 <!-- -->
-> Para confirmar esta acción, ejecute `docker -H tcp://`*&lt;hostname&gt;* ` images` para enumerar los procesos de contenedor en **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando de enjambre anterior con el conmutador**--rm** el contenedor se quitó una vez terminada su tarea, así que si usa **docker ps -a**, este no devolverá nada).
+> Para confirmar esta acción, ejecute `docker -H tcp://`*&lt;hostname&gt;* ` images` para enumerar los procesos de contenedor en la máquina **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando de enjambre anterior con el conmutador **--rm**, el contenedor se quitó una vez terminada su tarea; si usa **docker ps -a**, este no devolverá nada).:
 
 
         $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
@@ -137,4 +137,4 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

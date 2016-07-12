@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell;markvi"/>
 
 
@@ -160,7 +160,7 @@ Devuelve el índice en el atributo de varios valores donde se ha encontrado la c
 
 **Sintaxis**: `str ConvertFromBase64(str source)` da por hecho que se usará Unicode para la codificación de <br> `str ConvertFromBase64(str source, enum Encoding)`.
 
-- source: cadena codificada en Base64  
+- source: cadena codificada en Base64
 - Codificación: Unicode, ASCII, UTF8
 
 **Ejemplo** `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")` `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
@@ -516,7 +516,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
 
 **Comentarios**: hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
 
-**Ejemplo**: `Join([proxyAddresses],",")` podría devolver: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com".
+**Ejemplo:** `Join([proxyAddresses],",")` podría devolver: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
 ----------
 ### LCase
@@ -525,12 +525,12 @@ Devuelve un valor Null si el índice está fuera de los límites.
 
 **Sintaxis:** `str LCase(str value)`
 
-**Ejemplo**: `LCase("TeSt")` devuelve "test".
+**Ejemplo**: `LCase("TeSt")` devuelve "Test".
 
 ----------
 ### Left
 
-**Descripción**: la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
+**Descripción**: la función Left devuelve un número especificado de caracteres de la izquierda de una cadena.
 
 **Sintaxis:** `str Left(str string, num NumChars)`
 
@@ -550,7 +550,7 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 ----------
 ### Len
 
-**Descripción:** la función Len devuelve el número de caracteres en una cadena.
+**Descripción:** la función Len devuelve un número de caracteres de una cadena.
 
 **Sintaxis:** `num Len(str value)`
 
@@ -568,7 +568,7 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 ----------
 ### Mid
 
-**Descripción**: la función Mid devuelve un número especificado de caracteres desde una posición especificada en una cadena.
+**Descripción**: la función Mid devuelve un número especificado de caracteres desde una posición especificada de una cadena.
 
 **Sintaxis:** `str Mid(str string, num start, num NumChars)`
 
@@ -576,7 +576,7 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 - start: un número que identifica la posición de inicio en una cadena desde la que devolver los caracteres
 - NumChars: un número que identifica el número de caracteres que devolver desde la posición en una cadena
 
-**Comentarios**: devuelve caracteres numChars que comienzan por la posición de inicio en una cadena. Una cadena que contiene caracteres numChars de la posición de inicio en una cadena:
+**Comentarios**: devuelve caracteres numChars que comienzan por la posición de inicio de una cadena. Una cadena que contiene caracteres numChars de la posición de inicio en una cadena:
 
 - Con numChars = 0, se devuelve una cadena vacía.
 - Con numChars < 0, se devuelve una cadena de entrada.
@@ -609,7 +609,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadLeft
 
-**Descripción**: la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción**: la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:** `str PadLeft(str string, num length, str padCharacter)`
 
@@ -631,7 +631,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadRight
 
-**Descripción**: la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción**: la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:** `str PadRight(str string, num length, str padCharacter)`
 
@@ -683,7 +683,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### Sustituya
 
-**Descripción**: la función Replace reemplaza todas las apariciones de una cadena en otra cadena.
+**Descripción**: la función Replace reemplaza todas las apariciones de una cadena por otra cadena.
 
 **Sintaxis:** `str Replace(str string, str OldValue, str NewValue)`
 
@@ -691,13 +691,13 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 - OldValue: la cadena que se va a buscar y reemplazar.
 - NewValue: la cadena que reemplazar.
 
-**Comentarios**: la función reconoce los siguientes monikers especiales.
+**Comentarios**: la función reconoce los siguientes monikers especiales:
 
 - \\n: nueva línea
 - \\r: retorno de carro
 - \\t: tabulación
 
-**Ejemplo**: `Replace([address],"\r\n",", ")`reemplaza CRLF por una coma y un espacio, y podría originar "One Microsoft Way, Redmond, WA, USA".
+**Ejemplo**: `Replace([address],"\r\n",", ")` reemplaza CRLF por una coma y un espacio, y podría originar "One Microsoft Way, Redmond, WA, USA".
 
 ----------
 ### ReplaceChars
@@ -770,7 +770,7 @@ Si la cadena contiene menos caracteres que el número especificado en NumChars, 
 - delimiter: carácter único que usar como delimitador.
 - limit: número máximo de valores que se devolverá.
 
-**Ejemplo**: `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` devuelve una cadena multivalor con 2 elementos útiles para el atributo proxyAddress
+**Ejemplo**: `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")` devuelve una cadena multivalor con dos elementos útiles para el atributo proxyAddress.
 
 ----------
 ### StringFromGuid
@@ -829,12 +829,12 @@ El valor puede ser también la función Error que devolvería una cadena persona
 
 **Sintaxis:** `str UCase(str string)`
 
-**Ejemplo**: `UCase("TeSt")` devuelve "TEST".
+**Ejemplo**: `UCase("TeSt")` devuelve "Test".
 
 ----------
 ### Word
 
-**Descripción**: la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que usar y el número de palabras que se devolverá.
+**Descripción**: la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que se usarán y el número de palabras que se devolverán.
 
 **Sintaxis:** `str Word(str string, num WordNumber, str delimiters)`
 
@@ -842,14 +842,14 @@ El valor puede ser también la función Error que devolvería una cadena persona
 - WordNumber: un número que identifica qué número de palabras debe devolverse.
 - delimiters: una cadena que representa los delimitadores que deben usarse para identificar palabras
 
-**Comentarios**: cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras.
+**Comentarios**: cada cadena de caracteres en la cadena separada por uno de los caracteres en los delimitadores se identifica como palabras:
 
 - Si el número es < 1, se devuelve una cadena vacía.
 - Si la cadena es Null, se devuelve una cadena vacía.
 
 Si la cadena contiene menos palabras o si la cadena no contiene palabras identificadas por los delimitadores, se devuelve una cadena vacía.
 
-**Ejemplo**: `Word("The quick brown fox",3," ")` Devuelve "brown".
+**Ejemplo**: `Word("The quick brown fox",3," ")` devuelve "brown".
 
 `Word("This,string!has&many separators",3,",!&#")` devolvería "has".
 
@@ -859,4 +859,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

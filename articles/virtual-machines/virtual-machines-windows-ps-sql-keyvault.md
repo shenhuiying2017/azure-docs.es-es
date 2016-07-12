@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="06/24/2016"
 	ms.author="jroth"/>
 
 # Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (Administrador de recursos)
@@ -39,9 +39,8 @@ Si está aprovisionando una nueva máquina virtual de SQL Server con Resource Ma
 
 Para obtener un tutorial detallado del aprovisionamiento, consulte [Aprovisionamiento de una máquina virtual de SQL Server en el Portal de Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Si necesita habilitar la integración de AKV en una máquina virtual existente, puede usar una plantilla. Para más información, consulte [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-keyvault-setup) (Plantilla de inicio rápido de Azure para la integración del Almacén de claves de Azure).
-
+Si necesita habilitar la integración de AKV en una máquina virtual existente, puede usar una plantilla. Para obtener más información, consulte [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update) (Plantilla de inicio rápido de Azure para la integración del Almacén de claves de Azure).
 
 [AZURE.INCLUDE [Siguientes pasos de integración de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

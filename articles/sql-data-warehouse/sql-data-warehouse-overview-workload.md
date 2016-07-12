@@ -1,6 +1,6 @@
 <properties
    pageTitle="Carga de trabajo del almacenamiento de datos"
-   description="La elasticidad del servicio Almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU."
+   description="La elasticidad del servicio Almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/01/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -48,7 +48,7 @@ Las consultas de informes y análisis a menudo se clasifican como pequeñas, med
 ### Administración de datos
 La administración de datos es importante, sobre todo cuando se sabe que es posible agotar el espacio en disco en un futuro próximo. Normalmente, los almacenamientos de datos dividen los datos en intervalos significativos que se almacenan como particiones en una tabla. Todos los productos basados en SQL Server permiten mover particiones dentro y fuera de la tabla. Esta conmutación de las particiones permite mover los datos más antiguos a un almacenamiento menos costoso y mantener los datos más recientes disponibles en el almacenamiento en línea.
 
-- Los índices de almacén de columnas admiten tablas con particiones. Para los índices de almacén de columnas, las tablas con particiones se utilizan para la administración y el archivado de los datos. En las tablas almacenadas por filas, las particiones desempeñan una función mayor en el rendimiento de las consultas.  
+- Los índices de almacén de columnas admiten tablas con particiones. Para los índices de almacén de columnas, las tablas con particiones se utilizan para la administración y el archivado de los datos. En las tablas almacenadas por filas, las particiones desempeñan una función mayor en el rendimiento de las consultas.
 
 - PolyBase desempeña un papel importante en la administración de datos. Con PolyBase, existe la opción de archivar datos antiguos en almacenamiento de blobs de Azure o de Hadoop. Esto proporciona muchas opciones, ya que los datos aún están en línea. Es posible que se tarde más tiempo en recuperar datos de Hadoop, pero la contrapartida en tiempo de recuperación puede ser mayor que el costo de almacenamiento.
 
@@ -59,18 +59,16 @@ Un modo de hacer que los datos estén disponibles para la creación de informes 
 - Para los análisis, se puede generar un cubo de análisis en el almacenamiento de datos y ejecutar el análisis, o bien procesar previamente los datos y exportarlos al servidor de análisis para análisis posteriores.
 
 ## Pasos siguientes
-Para empezar a desarrollar el almacenamiento de datos, vea [Introducción al desarrollo][].
-
-## Libros
-[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) (Almacenamiento de macrodatos) por Karthik Ramachandran, Istvan Szededi y Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Almacenamiento de datos SQL][] y [cargar datos de ejemplo][] rápidamente.
 
 <!--Image references-->
 
 <!--Article references-->
-[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
+[cargar datos de ejemplo]: ./sql-data-warehouse-load-sample-databases.md
+[crear un Almacenamiento de datos SQL]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

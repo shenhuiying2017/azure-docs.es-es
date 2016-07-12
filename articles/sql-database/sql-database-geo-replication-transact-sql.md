@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-    ms.workload="data-management"
+   ms.workload="sqldb-bcdr"
     ms.date="06/14/2016"
     ms.author="carlrab"/>
 
@@ -26,7 +26,7 @@
 
 En este artículo se muestra cómo configurar la replicación geográfica activa para una instancia de Base de datos SQL de Azure mediante Transact-SQL.
 
-Para iniciar la conmutación por error, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-transact-sql.md).
+Para iniciar la conmutación por error mediante Transact-SQL, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 >[AZURE.NOTE] La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
 
@@ -56,7 +56,7 @@ Use los pasos siguientes para crear una base de datos secundaria no legible como
 
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use la siguiente instrucción **ALTER DATABASE** para convertir una base de datos local en una principal con replicación geográfica que tenga una base de datos secundaria no legible en un servidor MySecondaryServer1, donde MySecondaryServer1 sea el nombre descriptivo del servidor.
+3. Use la siguiente instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica que tenga una base de datos secundaria no legible en un servidor MySecondaryServer1 donde MySecondaryServer1 sea el nombre descriptivo del servidor.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -71,7 +71,7 @@ Use los siguientes pasos para crear una base de datos secundaria legible como ba
 
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una principal con replicación geográfica que posea una base de datos secundaria legible en un servidor secundario.
+3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria legible en un servidor secundario.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
@@ -88,7 +88,7 @@ Use los pasos siguientes para crear una base de datos secundaria no legible como
 
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una principal con replicación geográfica que posea una base de datos secundaria no legible en un servidor secundario de un grupo elástico.
+3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria no legible en un servidor secundario de un grupo elástico.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
@@ -105,7 +105,7 @@ Use los siguientes pasos para crear una base de datos secundaria legible como ba
 
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
-3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una principal con replicación geográfica que posea una base de datos secundaria legible en un servidor secundario de un grupo elástico.
+3. Use la instrucción **ALTER DATABASE** para convertir una base de datos local en una base de datos principal con replicación geográfica, que posea una base de datos secundaria legible en un servidor secundario de un grupo elástico.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
@@ -164,18 +164,7 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 
 ## Pasos siguientes
 
-- [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure](sql-database-geo-replication-failover-transact-sql.md)
-- [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
+- Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
 
-
-## Recursos adicionales
-
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [Spotlight on new Geo-Replication capabilities (Lo más destacado de las nuevas funcionalidades de replicación geográfica)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-- [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

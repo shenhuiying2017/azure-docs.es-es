@@ -13,173 +13,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="06/22/2016"
    ms.author="sstein"/>
 
 # Asesor de Base de datos SQL
 
-Se ha actualizado el Asesor de índices de Base de datos SQL de Azure a fin de ofrecer no solo recomendaciones para crear y quitar índices, sino que ahora incluye recomendaciones para parametrizar consultas y para solucionar problemas del esquema. Con estas recomendaciones adicionales el Asesor de índices es ahora el **Asesor de Base de datos SQL**.
+> [AZURE.SELECTOR]
+- [Información general del Asesor de Base de datos SQL](sql-database-advisor.md)
+- [Portal](sql-database-advisor-portal.md)
 
-El Asesor de Base de datos SQL evalúa el rendimiento mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos.
+El Asesor de Base de datos SQL de Azure ofrece recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas del esquema. El Asesor de Base de datos SQL evalúa el rendimiento mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos.
 
-Las recomendaciones siguientes están disponibles para los servidores V12 (no hay recomendaciones disponibles para servidores V11). Actualmente, puede establecer la aplicación automática de las recomendaciones para crear y quitar índices, vea la sección sobre [administración automática del índice](#enable-automatic-index-management) a continuación para obtener más información.
+Las recomendaciones siguientes están disponibles para los servidores V12 (no hay recomendaciones disponibles para servidores V11). En estos momentos, puede establecer la aplicación automática de las recomendaciones de creación y eliminación de índices. Para obtener más información, consulte la sección de [administración automática de índices](sql-database-advisor-portal.md#enable-automatic-index-management).
 
 ## Recomendaciones para crear índice 
 
-Las recomendaciones para **crear índice** aparecen cuando el servicio Base de datos SQL detecta que falta un índice que, si se crea, puede beneficiar la carga de trabajo de bases de datos (solo índices no clúster).
-
+Las recomendaciones de **creación de índices** aparecen cuando el servicio Base de datos SQL detecta que falta un índice que, si se crea, puede beneficiar a la carga de trabajo de las bases de datos (solo en el caso de los índices no agrupados en clústeres).
 
 ## Recomendaciones para quitar índice
 
-Las recomendaciones para **quitar índice** aparecen cuando el servicio Base de datos SQL detecta índices duplicados (actualmente en versión preliminar y solo se aplica a índices duplicados).
+Las recomendaciones de **eliminación de índices** aparecen cuando el servicio Base de datos SQL detecta índices duplicados (funcionalidad actualmente en versión preliminar; solo aplicable a índices duplicados).
 
 ## Recomendaciones para parametrizar consultas
 
-Las recomendaciones para **parametrizar consultas** aparecen cuando el servicio Base de datos SQL detecta que tiene una o más consultas que se vuelven a compilar continuamente pero terminan con el mismo plan de ejecución de consulta. Esto abre la posibilidad de aplicar la parametrización forzada, que permite que los planes de consulta se almacenen en caché y se reutilicen en el futuro para mejorar el rendimiento y reducir el uso de recursos.
+Las recomendaciones de **parametrización de consultas** aparecen cuando el servicio Base de datos SQL detecta que tiene una o varias consultas que se vuelven a compilar continuamente, pero que terminan con el mismo plan de ejecución de consultas. Esto abre la posibilidad de aplicar la parametrización forzada, que permite que los planes de consulta se almacenen en caché y se reutilicen en el futuro para mejorar el rendimiento y reducir el uso de recursos.
+
+Inicialmente, todas las consultas enviadas a SQL Server deben compilarse con el fin de generar un plan de ejecución que se utilizará para ejecutar la consulta. Cada plan generado se agrega a la caché de planes. Además, las ejecuciones posteriores de la misma consulta pueden volver a usar este plan desde la caché, lo que hace innecesarias más compilaciones.
+
+Las aplicaciones que envían consultas que incluyan valores sin parámetros pueden menoscabar el rendimiento, ya que se vuelve a compilar el plan de ejecución con cada consulta de este tipo. En numerosos casos, las mismas consultas con valores de parámetro diferentes generan los mismos planes de ejecución, pero estos se siguen agregando por separado a la caché de planes. Estas nuevas compilaciones utilizan recursos de base de datos, aumentan la duración de las consultas y desbordan la caché de planes, lo que provoca que estos se retiren de la caché. Este comportamiento de SQL Server puede modificarse estableciendo la opción de parametrización forzada en la base de datos.
+
+Para ayudarlo a estimar el impacto de esta recomendación, se le proporciona una comparación entre el uso real y el previsto de la CPU (como si se aplicase la recomendación). Además de los ahorros en uso de la CPU, se reducirá la duración de las compilaciones de las consultas. También habrá mucha menos sobrecarga en la caché de planes, con lo que la mayoría de los planes permanecerán en la caché y podrán reutilizarse. Puede aplicar esta recomendación de forma rápida y sencilla haciendo clic en el comando Aplicar.
+
+Cuando lo haga, se habilitará en cuestión de minutos la opción de parametrización forzada en la base de datos y se iniciará el proceso de supervisión, que dura aproximadamente 24 horas. Cuando transcurra este periodo, podrá ver el informe de validación que muestra el uso de la CPU de la base de datos 24 horas antes y después de haber aplicado la recomendación. El Asistente de Base de datos SQL tiene un mecanismo de seguridad que revierte automáticamente la recomendación aplicada en caso de detectarse una regresión del rendimiento.
 
 ## Recomendaciones para solucionar problemas del esquema
 
-Las recomendaciones para **solucionar problemas del esquema** aparecen cuando el servicio Base de datos SQL advierte alguna anomalía en el número de errores SQL relacionados con el esquema que se producen en la Base de datos SQL de Azure. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
-
-
-## Visualización de recomendaciones
-
-En la página de recomendaciones puede ver las principales recomendaciones por su impacto potencial para la mejora del rendimiento. También puede ver el estado de las operaciones históricas. Seleccione una recomendación o estado para ver sus detalles.
-
-Para ver y aplicar recomendaciones, necesita los permisos correctos de [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) en Azure. Se requieren permisos de **Lector**, **Colaborador de base de datos SQL** para ver recomendaciones, y permisos de **Propietario**, **Colaborador de base de datos SQL** para ejecutar acciones; por ejemplo, crear o quitar índices y cancelar la creación de índices.
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **EXAMINAR** > **Bases de datos SQL** y seleccione la base de datos.
-5. Haga clic en **Todas las configuraciones** > **Recomendaciones** para ver las **recomendaciones** disponibles para la base de datos seleccionada.
-
-> [AZURE.NOTE] Para obtener recomendaciones, es preciso que una base de datos tenga aproximadamente una semana de uso y, dentro de esa semana, debe haber alguna actividad. También debe haber actividad coherente. El Asesor de Base de datos SQL puede optimizar los patrones de consultas coherentes con más facilidad que en el caso de ráfagas irregulares de actividad. Si no hay recomendaciones disponibles, la página **Recomendaciones** debe ofrecer un mensaje que explique el motivo.
-
-![Recomendaciones](./media/sql-database-index-advisor/recommendations.png)
-
-Las recomendaciones se ordenan en las 4 siguientes categorías, según su impacto potencial en el rendimiento:
-
-| Impacto | Descripción |
-| :--- | :--- |
-| Alto | Las recomendaciones de alto impacto debe tener el impacto más importante en el rendimiento. |
-| Mediano | Las recomendaciones de impacto moderado deben mejorar el rendimiento, pero no de manera significativa. |
-| Bajo | Las recomendaciones de bajo impacto deben proporcionar un mejor rendimiento que el que se produciría sin ellas, pero es posible que las mejoras no sean significativas. 
-
-
-### Eliminación de recomendaciones de la lista
-
-Si la lista de recomendaciones contiene elementos que quiere quitar de la lista, puede descartar la recomendación:
-
-1. Seleccione una recomendación en la lista de **Recomendaciones**.
-2. Haga clic en **Descartar** en la hoja **Detalles**.
-
-
-Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaciones**:
-
-1. En la hoja **Recomendaciones**, haga clic en **View discarded** (Ver elementos descartados).
-1. Seleccione un elemento descartado de la lista para ver los detalles.
-1. También puede hacer clic en **Deshacer Descartar** para volver a agregar el índice a la lista principal de **Recomendaciones**.
-
-
-
-## Aplicación de las recomendaciones
-
-El Asesor de Base de datos SQL tiene el control completo sobre el modo en que se habilitan las recomendaciones mediante una de las tres opciones siguientes.
-
-- Aplicar recomendaciones individuales una a una.
-- Habilite el Asesor para que aplique recomendaciones automáticamente (actualmente solo se aplica a las recomendaciones de índices).
-- Ejecutar manualmente el script T-SQL recomendado en la base de datos para implementar una recomendación.
-
-Seleccione cualquier recomendación para ver sus detalles y, luego, haga clic en **Ver script** para revisar los detalles exactos del modo en que se creará la recomendación.
-
-La base de datos permanece en línea mientras el asesor aplica la recomendación. Con el Asesor de Base de datos SQL nunca se desconecta una base de datos.
-
-### Aplicar una recomendación individual
-
-Puede revisar y aceptar recomendaciones una a una.
-
-1. En la hoja **Recomendaciones**, haga clic en una recomendación.
-2. En la hoja **Detalles**, haga clic en **Aplicar**.
-
-    ![Aplicar recomendaciones](./media/sql-database-index-advisor/apply.png)
-
-
-### Habilitar la administración de índices automática
-
-Puede establecer que el Asesor de Base de datos SQL implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las operaciones de índice que administra el servicio, si el impacto en el rendimiento es negativo, se revertirá la recomendación.
-
-1. En la hoja **Recomendaciones**, haga clic en **Automatizar**:
-
-    ![Configuración del asesor](./media/sql-database-index-advisor/settings.png)
-
-2. Establezca el asesor para **Crear** o **Quitar** índices automáticamente:
-
-    ![Índices recomendados](./media/sql-database-index-advisor/automation.png)
-
-
-
-
-### Ejecutar manualmente el script T-SQL recomendado
-
-Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
-
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento*, por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen ganancias en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
-
-
-### Cancelación de recomendaciones
-
-Las recomendaciones que se encuentran en estado **Pending**, **Verifying** o **Success** puede cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
-
-1. Seleccione una recomendación en el área **Tuning History** (Historial de optimización) para abrir la hoja de **detalles de recomendaciones**.
-2. Haga clic en **Cancelar** para anular el proceso de aplicación de la recomendación.
-
-
-
-## Supervisión de operaciones
-
-Puede que una recomendación no se aplique de manera inmediata. El portal brinda detalles sobre el estado de las operaciones de recomendación. A continuación se indican los posibles estados en los que un índice puede encontrarse:
-
-| Estado | Descripción |
-| :--- | :--- |
-| Pending | El comando de aplicación de recomendaciones se ha recibido y su ejecución está programada. |
-| Executing | La recomendación está aplicándose. |
-| Correcto | La recomendación se aplicó correctamente. |
-| Error | Se produjo un error durante el proceso de aplicación de recomendaciones. Puede tratarse de un problema transitorio, o posiblemente se produjo un cambio de esquema en la tabla y el script ya no es válido. |
-| En reversión | La recomendación se aplicó, pero se ha considerado que no tuvo rendimiento y se está revirtiendo automáticamente. |
-| Reverted | La recomendación se revirtió. |
-
-Haga clic en una recomendación en proceso de la lista para ver sus detalles:
-
-![Índices recomendados](./media/sql-database-index-advisor/operations.png)
-
-
-
-### Reversión de una recomendación
-
-Si usa el asesor para aplicar la recomendación (es decir, no ejecuta manualmente el script T-SQL), revertirá automáticamente la acción si detecta que afecta de manera negativa al rendimiento. Si tan solo quiere revertir una recomendación, por el motivo que sea, realice los siguientes pasos:
-
-
-1. En el área **Tuning History** (Historial de optimización), seleccione una recomendación que se haya aplicado correctamente.
-2. Haga clic en **Revertir** en la hoja de **detalles de recomendaciones**.
-
-![Índices recomendados](./media/sql-database-index-advisor/details.png)
-
-
-## Supervisión del impacto en el rendimiento de las recomendaciones de índices
-
-Una vez implementadas correctamente las recomendaciones (actualmente, solo recomendaciones para indizar operaciones y parametrizar consultas), puede hacer clic en **Detalles de la consulta** en la hoja de detalles de recomendaciones para abrir [Información de rendimiento de consultas](sql-database-query-performance.md) y ver el impacto en el rendimiento de las consultas principales.
-
-![Supervisar el impacto en el rendimiento](./media/sql-database-index-advisor/query-insights.png)
-
-
-
-## Resumen
-
-Asesor de Base de datos SQL ofrece recomendaciones para mejorar el rendimiento de la base de datos SQL. Al proporcionar scripts T-SQL, así como opciones de ejecución individual y completamente automática (actualmente, solo índice), el asesor resulta útil para optimizar la base de datos y, en última instancia, para mejorar el rendimiento de las consultas.
-
-
+Las recomendaciones de **solución de problemas del esquema** aparecen cuando el servicio Base de datos SQL advierte alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en Base de datos SQL de Azure. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
+
+Los problemas del esquema constituyen una clase de errores de sintaxis en SQL Server que se producen cuando no están alineadas la definición de la consulta SQL y la del esquema de base de datos (por ejemplo, en la tabla de destino falta una de las columnas que espera la consulta, o viceversa).
+
+La recomendación de solución de problema del esquema aparece cuando el servicio Base de datos SQL de Azure advierte alguna anomalía en el número de errores SQL relacionados con el esquema que se producen en Base de datos SQL de Azure. En la tabla siguiente se muestran los errores relacionados con los problemas de esquema:
+
+|Código de error SQL|Message|
+|--------------|-------|
+|201|El procedimiento o la función '*' espera parámetros '*', que no se han proporcionado.|
+|207|Nombre de columna '*' no válido.|
+|208|Nombre de objeto '*' no válido. |
+|213|El nombre de columna o los valores especificados no corresponden a la definición de la tabla. |
+|2812|No se pudo encontrar el procedimiento almacenado '*'. |
+|8144|La función o el procedimiento * tiene demasiados argumentos. |
 
 ## Pasos siguientes
 
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. El Asesor de Base de datos SQL seguirá supervisando y ofreciendo recomendaciones que podrían mejorar el rendimiento de la base de datos.
 
-<!---HONumber=AcomDC_0504_2016-->
+ - Consulte el artículo del [Asistente de Base de datos SQL en el Portal de Azure](sql-database-advisor-portal.md) si quiere conocer los pasos necesarios para usar el Asistente de Base de datos SQL en el Portal de Azure.
+ - Consulte [Query Performance Insight de Base de datos SQL de Azure](sql-database-query-performance.md) para obtener información sobre el impacto en el rendimiento de las principales consultas.
+
+## Recursos adicionales
+
+- [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+- [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+- [Control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)
+
+<!---HONumber=AcomDC_0629_2016-->

@@ -16,14 +16,14 @@
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
-# Recuperar una base de datos SQL de Azure de un error de usuario
+# Recuperación de una base de datos SQL de Azure tras un error
 
 Base de datos SQL de Azure ofrece dos capacidades básicas para recuperase de los errores de usuario o de la modificación no intencionada de los datos.
 
-- [Restauración a un momento dado](sql-database-point-in-time-restore.md) 
-- [Restaurar la base de datos eliminada](sql-database-restore-deleted-database.md)
+- [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Restaurar la base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore)
 
-Base de datos SQL de Azure siempre se restaura en una base de datos nueva. Estas capacidades de restauración se ofrecen para todas las bases de datos de los niveles Basic, Standard y Premium.
+Base de datos SQL de Azure siempre restaura una base de datos nueva al realizar la restauración a un momento dado, pero puede restaurar a una base de datos con el mismo nombre cuando este proceso de realice a partir de una base de datos eliminada. Estas capacidades de restauración se ofrecen para todas las bases de datos de los niveles Basic, Standard y Premium.
 
 ##Restauración a un momento dado
 
@@ -35,7 +35,7 @@ Para llevar a cabo un punto de restauración a un momento dado, consulte:
 
 - [Point in Time Restore with the Azure Portal](sql-database-point-in-time-restore-portal.md) (Restauración a un momento dado con el Portal de Azure)
 - [Point in Time Restore with PowerShell](sql-database-point-in-time-restore-powershell.md) (Restauración a un momento dado con PowerShell)
-- [Point in Time Restore with REST API (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Restauración a un momento dado con la API de REST (createmode=PointInTimeRestore)) 
+- [Point in Time Restore with REST API (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Restauración a un momento dado con la API de REST (createmode=PointInTimeRestore))
 
 
 ## Restauración de una base de datos eliminada
@@ -53,18 +53,10 @@ Para restaurar una base de datos eliminada, consulte:
 
 ## Pasos siguientes
 
-- Para más información sobre el uso y la configuración de la replicación geográfica activa para la recuperación ante desastres, consulte [Información general: Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md).
-- Para más información sobre el uso de la restauración geográfica para la recuperación ante desastres, consulte [Información general: restauración geográfica de Base de datos SQL](sql-database-geo-restore.md).
+- Para ver una introducción a la continuidad empresarial, consulte [Información general de continuidad empresarial](sql-database-business-continuity.md).
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para obtener información sobre cómo usar la funcionalidad de replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 
-## Recursos adicionales
-
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

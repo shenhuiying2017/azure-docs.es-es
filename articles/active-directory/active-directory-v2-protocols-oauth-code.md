@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="dastrock"/>
 
 # Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
 
 La concesión de un código de autorización de OAuth 2.0 se puede usar en aplicaciones que se instalan en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 del modelo de aplicaciones v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones móviles y de escritorio. Esta guía, que es independiente del lenguaje, describe cómo enviar y recibir mensajes HTTP sin usar ninguna de nuestras bibliotecas de código abierto.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 > [AZURE.NOTE]
 	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
@@ -96,6 +96,20 @@ error=access_denied
 | error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error\_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
+#### Códigos de error correspondientes a errores de puntos de conexión de autorización
+
+En la tabla siguiente se describen los distintos códigos de error que pueden devolverse en el parámetro `error` de la respuesta de error.
+
+| Código de error | Descripción | Acción del cliente |
+|------------|-------------|---------------|
+| invalid\_request | Error de protocolo, como un parámetro obligatorio que falta. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales.|
+| unauthorized\_client | La aplicación cliente no puede solicitar un código de autorización. | Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
+| access\_denied | El propietario del recurso ha denegado el consentimiento. | La aplicación cliente puede notificar al usuario que no puede continuar, salvo que este dé su consentimiento. |
+| unsupported\_response\_type | El servidor de autorización no admite el tipo de respuesta de la solicitud. | Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que suele detectarse durante las pruebas iniciales.|
+|server\_error | El servidor ha detectado un error inesperado. | Vuelva a intentarlo. Estos errores pueden deberse a condiciones temporales. La aplicación cliente podría explicar al usuario que su respuesta se ha retrasado debido a un error temporal. |
+| temporarily\_unavailable | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentarlo. La aplicación cliente podría explicar al usuario que su respuesta se ha retrasado debido a una condición temporal. |
+| invalid\_resource |El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente.| Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
+
 ## Solicitud de un token de acceso
 Ahora que ha adquirido un código de autorización y el usuario le ha concedido permiso, puede canjear el `code` por un `access_token` al recurso deseado mediante el envío de una solicitud de `POST` al punto de conexión `/token`:
 
@@ -118,7 +132,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | --------------------- |
-| tenant | requerido | El valor de `{tenant}` en la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre los protocolos](active-directory-v2-protocols.md#endpoints). |
+| tenant | requerido | El valor de `{tenant}` en la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre los protocolos](active-directory-v2-protocols.md#endpoints). |
 | client\_id | requerido | El id. de aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
 | grant\_type | requerido | Debe ser `authorization_code` para el flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en esta fase deben ser un subconjunto de los ámbitos solicitados en el primer segmento o un equivalente de este. Si los ámbitos especificados en esta solicitud abarcan varios servidores de recursos, el extremo v2.0 devolverá un token para el recurso especificado en el primer ámbito. Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](active-directory-v2-scopes.md). |
@@ -146,7 +160,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | expires\_in | Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | ámbito | Los ámbitos para los que el access\_token es válido. |
 | refresh\_token | Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens de acceso adicionales una vez que expire el token de acceso actual. Los refresh\_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. Para más información, consulte la [referencia a los tokens v2.0](active-directory-v2-tokens.md). |
-| ID\_token | Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para más información sobre los parámetros id\_token, consulte la [referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
+| ID\_token | Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para obtener más información sobre los parámetros id\_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
 
 #### Respuesta de error
 Las respuestas de error tendrán un aspecto similar al siguiente:
@@ -172,6 +186,19 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | timestamp | La hora a la que se produjo el error. |
 | trace\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
+
+#### Códigos de error correspondientes a errores de puntos de conexión de token
+
+| Código de error | Descripción | Acción del cliente |
+|------------|-------------|---------------|
+| invalid\_request | Error de protocolo, como un parámetro obligatorio que falta. | Corrija el error y vuelva a enviar la solicitud. |
+| invalid\_grant | El código de autorización no es válido o ha expirado. | Trate de iniciar una nueva solicitud al punto de conexión `/authorize`. |
+| unauthorized\_client | El cliente autenticado no está autorizado para usar este tipo de concesión de autorización. | Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
+| invalid\_client | Se produjo un error de autenticación de cliente. | Las credenciales del cliente no son válidas. Para corregirlo, el administrador de la aplicación actualiza las credenciales. |
+| unsupported\_grant\_type | El servidor de autorización no admite el tipo de concesión de autorización. | Cambie el tipo de concesión de la solicitud. Este tipo de error solo debe producirse durante el desarrollo y detectarse en las pruebas iniciales. |
+| invalid\_resource | El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente. | Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
+| interaction\_required | La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. | Vuelva a tratar de realizar la solicitud con el mismo recurso. |
+| temporarily\_unavailable | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentarlo. La aplicación cliente podría explicar al usuario que su respuesta se ha retrasado debido a una condición temporal.|
 
 ## Uso del token de acceso
 Ahora que ha adquirido correctamente un `access_token`, puede usar el token en solicitudes a las API web mediante su inclusión en el encabezado `Authorization`:
@@ -206,7 +233,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parámetro | | Descripción |
 | ----------------------- | ------------------------------- | -------- |
-| tenant | requerido | El valor de `{tenant}` en la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre los protocolos](active-directory-v2-protocols.md#endpoints). |
+| tenant | requerido | El valor de `{tenant}` en la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre los protocolos](active-directory-v2-protocols.md#endpoints). |
 | client\_id | requerido | El id. de aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
 | grant\_type | requerido | Debe ser `refresh_token` para este segmento del flujo de código de autorización. |
 | ámbito | requerido | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en este segmento deben ser un subconjunto de los ámbitos solicitados en el segmento de la solicitud del authorization\_code original o un equivalente de este. Si los ámbitos especificados en esta solicitud abarcan varios servidores de recursos, el extremo v2.0 devolverá un token para el recurso especificado en el primer ámbito. Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](active-directory-v2-scopes.md). |
@@ -234,7 +261,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | expires\_in | Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | ámbito | Los ámbitos para los que el access\_token es válido. |
 | refresh\_token | Un nuevo token de actualización de OAuth 2.0. Debe reemplazar el token de actualización antiguo con este token de actualización recientemente adquirido para asegurar que los tokens de actualización siguen siendo válidos durante tanto tiempo como sea posible. |
-| ID\_token | Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para más información sobre los parámetros id\_token, consulte la [referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
+| ID\_token | Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para obtener más información sobre los parámetros id\_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
 
 #### Respuesta de error
 ```
@@ -259,4 +286,6 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | trace\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
 | correlation\_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
-<!---HONumber=AcomDC_0608_2016-->
+Para ver una descripción de los códigos de error y la acción recomendada que tiene que realizar el cliente, consulte la sección de [códigos de error de puntos de conexión de token](#error-codes-for-token-endpoint-errors).
+
+<!---HONumber=AcomDC_0629_2016-->

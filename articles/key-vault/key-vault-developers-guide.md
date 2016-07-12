@@ -1,6 +1,6 @@
 <properties
    pageTitle="Guía del desarrollador del Almacén de claves | Microsoft Azure"
-   description="Los desarrolladores pueden usar el Almacén de clave de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure."
+   description="Los desarrolladores pueden usar el Almacén de clave de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure. "
    services="key-vault"
    documentationCenter=""
    authors="BrucePerlerMS"
@@ -87,6 +87,13 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 
 Para obtener más instrucciones específicas sobre las tareas de integración y el uso de almacenes de claves con Azure, consulte las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
+## Integración con el Almacén de claves
+
+En estos artículos se describen otros escenarios y servicios que pueden integrarse con el Almacén de claves.
+
+- [Cifrado de discos de Azure](../azure-security-disk-encryption.md) aprovecha la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con el Almacén de claves de Azure para ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en el almacenamiento de Azure.
+
+
 ## Bibliotecas compatibles
 
 - [La biblioteca principal del Almacén de claves de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) proporciona las interfaces `IKey` e `IKeyResolver` para localizar las claves de los identificadores y realizar operaciones con ellas.
@@ -97,4 +104,4 @@ Para obtener más instrucciones específicas sobre las tareas de integración y 
 - [Blog de Almacén de claves](http://aka.ms/kvblog)
 - [Foro sobre Almacén de claves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

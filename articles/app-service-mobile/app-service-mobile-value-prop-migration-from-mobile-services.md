@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"></a>Uso de Servicios móviles: ¿cómo ayuda el Servicio de aplicaciones?
@@ -61,4 +61,4 @@ Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ens
 
 Para comenzar a aprovechar el *Servicio de aplicaciones* en su servicio móvil existente, siga este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

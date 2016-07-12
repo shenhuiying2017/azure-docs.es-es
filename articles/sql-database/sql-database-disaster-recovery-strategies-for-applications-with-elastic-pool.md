@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="sashan"/>
 
@@ -36,9 +36,9 @@ Para satisfacer el requisito de simplicidad, debe implementar todas las bases de
 
 En el caso de una interrupción en la región principal, se ilustran los pasos de recuperación para conectar la aplicación en el diagrama siguiente.
 
-- Realice inmediatamente una conmutación por error en las bases de datos de administración (2) en la región de recuperación ante desastres. 
+- Realice inmediatamente una conmutación por error en las bases de datos de administración (2) en la región de recuperación ante desastres.
 - Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región de recuperación ante desastres. Los clientes existentes verán que sus datos no están disponibles temporalmente.
-- Cree el grupo elástico con la misma configuración que el grupo original (3). 
+- Cree el grupo elástico con la misma configuración que el grupo original (3).
 - Use la restauración geográfica para crear copias de las bases de datos de inquilino (4). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
 
 En este momento, la aplicación vuelve a estar conectada en la región de recuperación ante desastres, pero algunos clientes experimentarán una demora al tener acceso a sus datos.
@@ -47,12 +47,12 @@ En este momento, la aplicación vuelve a estar conectada en la región de recupe
 
 Si la interrupción fue temporal, es posible que Azure recupere la región principal antes de que todas las restauraciones se completen en la región de recuperación ante desastres. En este caso, debe organizar el regreso de la aplicación a la región principal. El proceso realizará los pasos que se muestran en el diagrama siguiente.
  
-- Cancele todas las solicitudes de restauración geográfica pendientes.   
-- Realice la conmutación por error de las bases de datos de administración a la región principal (5). Nota: Después de la recuperación de la región, las principales anteriores se convierten automáticamente en secundarias. Ahora volverán a cambiar los roles. 
-- Cambie la cadena de conexión de la aplicación para que vuelva a apuntar a la región principal. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región principal. Algunos clientes existentes verán que sus datos no están disponibles temporalmente.   
-- Establezca todas las bases de datos en el grupo de recuperación ante desastres de solo lectura para asegurarse de que no se puede modificar en la región de recuperación ante desastres (6). 
-- Para las bases de datos del grupo de recuperación ante desastres que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes en el grupo principal (7). 
-- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (8). 
+- Cancele todas las solicitudes de restauración geográfica pendientes.
+- Realice la conmutación por error de las bases de datos de administración a la región principal (5). Nota: Después de la recuperación de la región, las principales anteriores se convierten automáticamente en secundarias. Ahora volverán a cambiar los roles.
+- Cambie la cadena de conexión de la aplicación para que vuelva a apuntar a la región principal. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región principal. Algunos clientes existentes verán que sus datos no están disponibles temporalmente.
+- Establezca todas las bases de datos en el grupo de recuperación ante desastres de solo lectura para asegurarse de que no se puede modificar en la región de recuperación ante desastres (6).
+- Para las bases de datos del grupo de recuperación ante desastres que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes en el grupo principal (7).
+- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (8).
 - Elimine el grupo de recuperación ante desastres (9).
 
 En este momento la aplicación estará en línea en la región principal con todas las bases de datos de inquilino disponibles en el grupo principal.
@@ -79,9 +79,9 @@ En el caso de una interrupción en la región principal, en el diagrama siguient
 
 - Realice inmediatamente una conmutación por error en las bases de datos de administración en la región de recuperación ante desastres (3).
 - Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crearán en la región de recuperación ante desastres. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
-- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago, en el grupo de la región de recuperación ante desastres, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final. 
-- Si el tamaño de eDTU del grupo secundario era menor que el principal porque las bases de datos secundarias solo requieren la capacidad para procesar los registros de cambio mientras eran secundarias, debe aumentar inmediatamente la capacidad del bloque para acomodar la carga de trabajo completa de todos los inquilinos (5). 
-- Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región de recuperación ante desastres para bases de datos de los clientes de versiones de prueba (6). 
+- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago, en el grupo de la región de recuperación ante desastres, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final.
+- Si el tamaño de eDTU del grupo secundario era menor que el principal porque las bases de datos secundarias solo requieren la capacidad para procesar los registros de cambio mientras eran secundarias, debe aumentar inmediatamente la capacidad del bloque para acomodar la carga de trabajo completa de todos los inquilinos (5).
+- Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región de recuperación ante desastres para bases de datos de los clientes de versiones de prueba (6).
 - Una vez creado el grupo de clientes de versiones de prueba, puede usar la restauración geográfica para restaurar las bases de datos de inquilino de versiones de prueba individuales en el nuevo grupo (7). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
 
 En este momento la aplicación vuelve a estar en línea en la región de recuperación ante desastres. Todos los clientes de versiones de pago tienen acceso a los datos, mientras que los clientes de versiones de prueba experimentarán una demora al acceder a los suyos.
@@ -90,13 +90,13 @@ Cuando Azure recupera la región primaria *después* de haber restaurado la apli
  
 ![Ilustración 6.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-- Cancele todas las solicitudes de restauración geográfica pendientes.   
-- Realice una conmutación por error en las bases de datos de administración (8). Después de la recuperación de la región, la principal anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.  
-- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago (9). De igual forma, después de la recuperación de la región, las principales anteriores se convierten automáticamente en secundarias. Ahora volverán a ser principales. 
+- Cancele todas las solicitudes de restauración geográfica pendientes.
+- Realice una conmutación por error en las bases de datos de administración (8). Después de la recuperación de la región, la principal anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.
+- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago (9). De igual forma, después de la recuperación de la región, las principales anteriores se convierten automáticamente en secundarias. Ahora volverán a ser principales.
 - Establezca las bases de datos de versiones de prueba restauradas que han cambiado en la región de recuperación ante desastres en solo lectura (10).
-- Para las bases de datos del grupo de recuperación ante desastres de los clientes de versiones de prueba que hayan cambiado desde la recuperación, cambie el nombre o elimine la base de datos correspondiente en el grupo principal (11). 
-- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (12). 
-- Elimine el grupo de recuperación ante desastres (13). 
+- Para las bases de datos del grupo de recuperación ante desastres de los clientes de versiones de prueba que hayan cambiado desde la recuperación, cambie el nombre o elimine la base de datos correspondiente en el grupo principal (11).
+- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (12).
+- Elimine el grupo de recuperación ante desastres (13).
 
 > [AZURE.NOTE] La operación de conmutación por error es asincrónica. Para minimizar el tiempo de recuperación, es importante ejecutar comando de conmutación por error de las bases de datos de inquilino en lotes de al menos 20 bases de datos.
 
@@ -122,9 +122,9 @@ El siguiente diagrama ilustra los pasos de recuperación que hay que llevar a ca
 
 - Realice inmediatamente una conmutación por error en las bases de datos de administración en la región B (3).
 - Cambie la cadena de conexión de la aplicación para que señale a las bases de datos de administración de la región B. Modifique las bases de datos de administración para asegurarse de que las nuevas cuentas y bases de datos de inquilino se crearán en la región B y que las bases de datos de inquilino existentes se encontrarán allí también. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
-- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago en el grupo 2 de la región B, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final. 
-- Ya que ahora el grupo 2 contiene solo bases de datos principales, aumentará la carga de trabajo total del grupo, por lo que debería aumentar de inmediato su tamaño de eDTU (5). 
-- Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región B para bases de datos de los clientes de versiones de prueba (6). 
+- Realice una conmutación por error en las bases de datos de inquilino de versiones de pago en el grupo 2 de la región B, para restaurar inmediatamente su disponibilidad (4). Dado que la conmutación por error es un rápido cambio de nivel de metadatos, se puede considerar una optimización cuando se desencadenan las conmutaciones por error individuales a petición de las conexiones del usuario final.
+- Ya que ahora el grupo 2 contiene solo bases de datos principales, aumentará la carga de trabajo total del grupo, por lo que debería aumentar de inmediato su tamaño de eDTU (5).
+- Cree el nuevo grupo elástico con el mismo nombre y la misma configuración en la región B para bases de datos de los clientes de versiones de prueba (6).
 - Una vez creado el grupo, puede usar la restauración geográfica para restaurar las bases de datos de inquilino de versiones de prueba individuales en el grupo (7). Considere desencadenar las restauraciones individuales por las conexiones de los usuarios finales o utilizar algún otro esquema de prioridad específica de la aplicación.
 
 
@@ -136,26 +136,26 @@ Cuando se recupera la región A, debe decidir si quiere usar la región B para c
  
 ![Ilustración 6.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-- Cancele todas las solicitudes de restauración geográfica pendientes en el grupo de recuperación ante desastres de versiones de prueba.   
-- Realice una conmutación por error en la base de datos de administración (8). Después de la recuperación de la región, la región principal anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.  
-- Seleccione qué bases de datos de inquilino de versiones de pago producirán una conmutación por recuperación en el grupo 1 e inicie la conmutación por error en sus secundarias (9). Después de la recuperación de la región, todas las bases de datos del grupo 1 se convertirán automáticamente en secundarias. Ahora el 50 % volverán a ser principales. 
+- Cancele todas las solicitudes de restauración geográfica pendientes en el grupo de recuperación ante desastres de versiones de prueba.
+- Realice una conmutación por error en la base de datos de administración (8). Después de la recuperación de la región, la región principal anterior se convierte automáticamente en secundaria. Ahora vuelve a convertir en principal.
+- Seleccione qué bases de datos de inquilino de versiones de pago producirán una conmutación por recuperación en el grupo 1 e inicie la conmutación por error en sus secundarias (9). Después de la recuperación de la región, todas las bases de datos del grupo 1 se convertirán automáticamente en secundarias. Ahora el 50 % volverán a ser principales.
 - Reduzca el tamaño del grupo 2 a la eDTU original (10).
 - Establezca todas las bases de datos de versiones de prueba restauradas de la región B en solo lectura (11).
-- Para las bases de datos del grupo de recuperación ante desastres de versiones de prueba que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes del grupo principal (12). 
-- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (13). 
-- Elimine el grupo de recuperación ante desastres (14). 
+- Para las bases de datos del grupo de recuperación ante desastres de versiones de prueba que hayan cambiado desde la recuperación, cambie el nombre o elimine las bases de datos correspondientes del grupo principal (12).
+- Copie las bases de datos actualizadas desde el grupo de recuperación ante desastres al grupo principal (13).
+- Elimine el grupo de recuperación ante desastres (14).
 
 Las principales **ventajas** de esta estrategia son las siguientes:
 
-- Admite el contrato de nivel de servicio más agresivo para los clientes de versiones de pago porque garantiza que una interrupción no puede afectar a más del 50 % de las bases de datos de inquilino. 
-- También garantiza que las nuevas versiones de prueba se desbloquean tan pronto se cree el grupo de recuperación ante desastres de versiones de prueba durante la recuperación. 
+- Admite el contrato de nivel de servicio más agresivo para los clientes de versiones de pago porque garantiza que una interrupción no puede afectar a más del 50 % de las bases de datos de inquilino.
+- También garantiza que las nuevas versiones de prueba se desbloquean tan pronto se cree el grupo de recuperación ante desastres de versiones de prueba durante la recuperación.
 - Permite un uso más eficaz de la capacidad del grupo, ya que se garantiza que el 50 % de las bases de datos secundarias de los grupos 1 y 2 sean menos activas que las bases de datos principales.
 
 Las **contrapartidas** principales son las siguientes:
 
 - Las operaciones de CRUD en las bases de datos de administración tendrán una latencia menor para los usuarios finales conectados a la región A que para los usuarios finales conectados a la región B, ya que se ejecutarán en la principal de las bases de datos de administración.
-- Requiere un diseño más complejo de la base de datos de administración. Por ejemplo, cada registro de inquilinos tendría que tener una etiqueta de ubicación que debe cambiarse durante la conmutación por error y la conmutación por recuperación.  
-- Los clientes de versiones de pago pueden experimentar un rendimiento inferior al normal hasta que se complete la actualización de los grupos en la región B. 
+- Requiere un diseño más complejo de la base de datos de administración. Por ejemplo, cada registro de inquilinos tendría que tener una etiqueta de ubicación que debe cambiarse durante la conmutación por error y la conmutación por recuperación.
+- Los clientes de versiones de pago pueden experimentar un rendimiento inferior al normal hasta que se complete la actualización de los grupos en la región B.
 
 ## Resumen
 
@@ -164,23 +164,10 @@ Este artículo se centra en las estrategias de recuperación ante desastres para
 
 ## Pasos siguientes
 
-Los pasos individuales necesarios para cada escenario implican operaciones en un gran número de bases de datos. Considere el uso de trabajos elásticos de Base de datos SQL para administrar estas operaciones a escala. Para obtener más información, consulte [Administración de bases de datos escaladas horizontalmente en la nube](./sql-database-elastic-jobs-overview.md). Las páginas siguientes le ayudarán a comprender las operaciones específicas necesarias para implementar cada uno de los escenarios de este artículo:
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-- [Agregar una base de datos secundaria](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
-- [Conmutar por error la base de datos en la secundaria](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Restaurar geográficamente la base de datos](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
-- [Quitar la base de datos](https://msdn.microsoft.com/library/azure/mt619368.aspx)
-- [Copiar la base de datos](https://msdn.microsoft.com/library/azure/mt603644.aspx)
-
-## Recursos adicionales
-
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

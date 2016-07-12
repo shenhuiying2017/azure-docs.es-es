@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="06/28/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: preguntas más frecuentes
@@ -35,8 +35,8 @@ Vea la [página de detalles de precios de Factoría de datos][adf-pricing-detail
 ### ¿Cómo puedo comenzar con la factoría de datos de Azure?
 
 - Para obtener información general sobre la factoría de datos de Azure, vea [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
-- Para consultar un tutorial sobre cómo **copiar o mover datos** mediante la actividad de copia, consulte [Copiar datos desde el almacenamiento de blobs de Azure a base de datos de SQL Azure](data-factory-get-started.md).
-- Consultar un tutorial sobre cómo **transformar datos** con la actividad de Hive de HDInsight, consulte [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md). 
+- Para ver un tutorial sobre cómo **copiar o mover datos** mediante la actividad de copia, consulte [Copiar datos desde el almacenamiento de blobs de Azure a base de datos de SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Consultar un tutorial sobre cómo **transformar datos** con la actividad de Hive de HDInsight, consulte [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md).
   
 ### ¿Cuál es la disponibilidad de regiones de la factoría de datos?
 Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
@@ -73,7 +73,7 @@ Sí. Utilice el botón **Mover** situado en la hoja de la factoría de datos tal
 ### ¿Qué tipos de actividades diferentes se pueden usar en una canalización de Data Factory? 
 
 - [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para mover los datos.
-- [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para procesar o transformar los datos. 
+- [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para procesar o transformar los datos.
 
 ### ¿Cuándo se ejecuta una actividad?
 La configuración de **disponibilidad** en la tabla de datos de salida determina cuándo se ejecuta la actividad. Si se especifican conjuntos de datos de entrada, la actividad comprueba si se cumplen todas las dependencias de datos de entrada (es decir, estado **Listo**) antes de ejecutarse.
@@ -81,6 +81,11 @@ La configuración de **disponibilidad** en la tabla de datos de salida determina
 ## Actividad de copia: preguntas más frecuentes
 ### ¿Es mejor tener una canalización con varias actividades o una canalización independiente para cada actividad? 
 Se supone que las canalizaciones incluyen actividades relacionadas. Lógicamente, puede mantener las actividades en una canalización si las tablas que las conectan no se consumen por otra actividad fuera de la canalización. De este modo, no necesitará períodos activos de canalizaciones de cadena puesto que se alinean con las demás. Además, la integridad de los datos de las tablas internas de la canalización se conservarán mejor cuando se actualice la canalización. La actualización de la canalización detiene fundamentalmente todas las actividades en la canalización, las elimina y las vuelve a crear. Desde la perspectiva de la creación, puede ser más fácil ver el flujo de datos dentro de las actividades relacionadas en un archivo JSON para la canalización.
+
+### ¿Dónde se realiza la operación de copia? 
+
+Consulte la sección [Movimiento de datos disponible globalmente](data-factory-data-movement-activities.md#global) para obtener más información. En resumen, cuando en el proceso participa un almacén de datos local, la operación de copia la realiza Data Management Gateway en el entorno local. Asimismo, cuando el movimiento de datos se produce entre dos almacenes en la nube, la operación de copia se realiza en la región más cercana a la ubicación del receptor en la misma zona geográfica.
+
 
 ## Actividad de HDInsight: preguntas más frecuentes
 
@@ -119,10 +124,10 @@ En el ejemplo anterior, otherLinkedServiceName1 y otherLinkedServiceName2 repres
 
 ## Segmentos: preguntas más frecuentes
 
-### ¿Por qué mi segmentos de entrada no presentan el estado Listo? 
-Un error común consiste en no definir la propiedad **external** como **true** en el conjunto de datos de entrada cuando los datos de entrada son externos a la factoría de datos (no producidos por esta).
+### ¿Por qué mi segmentos de entrada no presentan el estado Listo?  
+Un error común consiste en no definir la propiedad **external** en **True** en el conjunto de datos de entrada cuando los datos de entrada son externos a la factoría de datos (es decir, que no produce esta).
 
-En el ejemplo siguiente, solo debe establecer **external** como true en **dataset1**.
+En el ejemplo siguiente, solo debe establecer **external** en True en **dataset1**.
 
 **DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
@@ -133,7 +138,7 @@ Si tiene otra factoría de datos con una canalización que toma dataset4 (produc
 Si la propiedad externa está configurada correctamente, compruebe si los datos de entrada existen en la ubicación especificada en la definición del conjunto de datos de entrada.
 
 ### ¿Cómo se ejecuta un segmento en otro momento que no sea medianoche cuando este se produce diariamente?
-Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para más información sobre esta propiedad. Este es un ejemplo rápido:
+Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para obtener más información sobre esta propiedad. Este es un ejemplo rápido:
 
 	"availability":
 	{
@@ -147,25 +152,25 @@ Los segmentos diarios comienzan a las **6:00** en lugar de a medianoche, que es 
 ### ¿Cómo puedo volver a ejecutar un segmento?
 Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
-- Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Volver a ejecutar las ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obtener instrucciones.   
+- Use la aplicación de supervisión y administración para volver a ejecutar una ventana de actividad o segmento. Consulte [Volver a ejecutar las ventanas de actividad seleccionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para ver instrucciones.
 - Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento del portal.
-- Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado establecido en **En espera** para el segmento.   
+- Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado **En espera** para el segmento.
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Consulte [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
 
 ### ¿Cuánto tiempo se tardó en procesar un segmento?
-Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para más información.
+Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.
 
 También puede hacer lo siguiente en el Portal de Azure:
 
 1. Haga clic en la ventana **Conjuntos de datos** de la hoja **FACTORÍA DE DATOS** para su factoría de datos.
 2. Haga clic en el conjunto de datos específico de la hoja **Conjuntos de datos**.
 3. Seleccione el segmento en el que está interesado en la lista **Segmentos recientes** de la hoja **TABLA**.
-4. Haga clic en la actividad ejecutada en la lista **Ejecuciones de actividad** de la hoja **SEGMENTO DE DATOS**. 
-5. Haga clic en la ventana **Propiedades** de la hoja **DETALLES DE EJECUCIÓN DE ACTIVIDAD**. 
-6. Debería ver el campo **DURACIÓN** con un valor. Este es el tiempo necesario para procesar el segmento.   
+4. Haga clic en la actividad ejecutada en la lista **Ejecuciones de actividad** de la hoja **SEGMENTO DE DATOS**.
+5. Haga clic en la ventana **Propiedades** de la hoja **DETALLES DE EJECUCIÓN DE ACTIVIDAD**.
+6. Debería ver el campo **DURACIÓN** con un valor. Este es el tiempo necesario para procesar el segmento.
 
 ### ¿Cómo detener un segmento en ejecución?
 Si necesita detener la ejecución de la canalización, puede usar el cmdlet [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). Actualmente, la suspensión de la canalización no detiene las ejecuciones de segmentos en curso. Cuando terminan las ejecuciones en curso, no se selecciona ningún segmento adicional.
@@ -187,4 +192,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0629_2016-->

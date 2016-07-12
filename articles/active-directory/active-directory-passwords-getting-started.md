@@ -195,9 +195,9 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
 
 
 ### Paso 1: descargar la versión más reciente de Azure AD Connect
-La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
+La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
-####  Para comprobar la versión de Sincronización de Azure AD
+#### Para comprobar la versión de Sincronización de Azure AD
 1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**. 
 2.	Busque el archivo ejecutable **ConfigWizard.exe**.
 3.	Haga clic con el botón derecho en el archivo ejecutable y seleccione la opción **Propiedades** del menú contextual.
@@ -248,7 +248,7 @@ Una vez que haya habilitado la escritura diferida de contraseñas en la herramie
 1.	Una vez que finalice la instalación, si bloquea las conexiones salientes desconocidas en el entorno, también deberá agregar las reglas siguientes al firewall. Asegúrese de reiniciar su máquina con AAD Connect después de realizar estos cambios:
    - Permita conexiones salientes en el puerto TCP 443
    - Permita conexiones salientes a https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto TCP 9350-9354
+   - Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto 9350-9354 y el puerto TCP 5671.
 
 ### Paso 4: configurar los permisos adecuados de Active Directory
 Para cada bosque que contiene usuarios con contraseñas que se restablecerán, si X es la cuenta que se especificó para ese bosque en el asistente de configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio del bosque en cuestión. El derecho debe estar marcado como heredado por todos los objetos de usuario.
@@ -354,4 +354,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!-----HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

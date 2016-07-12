@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="06/22/2016"
    ms.author="larryfr"/>
 
 
@@ -81,7 +81,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 	Use __Seleccionar__ para guardar la información de __Planes de tarifa de nodo__.
 
-8. Seleccione __Configuración opcional__. Esta hoja permite seleccionar la versión del clúster y configurar otros valores de configuración opcionales, por ejemplo, unirse a una __red virtual__ o configurar una __tienda de metadatos externa__ para almacenar datos de Hive y Oozie.
+8. Seleccione __Configuración opcional__. Esta hoja le permite seleccionar la versión del clúster y configurar otros valores de configuración opcionales, como unir una __Red virtual__.
 
 	![Hoja Configuración opcional](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -245,4 +245,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0629_2016-->

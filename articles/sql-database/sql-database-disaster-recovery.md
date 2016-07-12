@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
+   ms.workload="sqldb-bcdr" 
    ms.date="06/16/2016"
    ms.author="carlrab"/>
 
@@ -21,9 +21,9 @@
 Base de datos SQL de Azure ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
 
 - [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
+- [Restauración geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-Para obtener información acerca de cómo prepararse ante desastres y sobre cuándo se debe recuperar la base de datos, visite la página [Diseño para la continuidad del negocio](sql-database-business-continuity-design.md).
+Para obtener información sobre cómo prepararse ante escenarios de desastres y sobre cuándo se debe recuperar la base de datos, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md) y [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria]().
 
 ## Cuándo iniciar la recuperación
 
@@ -31,7 +31,7 @@ La operación de recuperación repercute en la aplicación. Este proceso requier
 
 1.	Error de conectividad permanente de la capa de aplicación en la base de datos.
 2.	El Portal de Azure muestra una alerta acerca de una incidencia en una región con un gran impacto.
-3.	El servidor de base de datos de SQL Azure está marcado como degradado. 
+3.	El servidor de base de datos de SQL Azure está marcado como degradado.
 
 En función de la tolerancia de la aplicación al tiempo de inactividad y de la posible responsabilidad civil, puede considerar las siguientes opciones de recuperación.
 
@@ -43,7 +43,7 @@ Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad de
 
 ## Conmutación por error de la base de datos secundaria de replicación geográfica
 
-Si el tiempo de inactividad de la aplicación puede dar lugar a responsabilidades civiles, debería utilizar bases de datos con replicación geográfica en la aplicación. Esto permitirá que la aplicación restaure rápidamente la disponibilidad en una región diferente en caso de interrupción. Información sobre cómo [configurar la replicación geográfica](sql-database-geo-replication-portal.md).
+Si el tiempo de inactividad de la aplicación puede dar lugar a responsabilidades civiles, debería utilizar bases de datos con replicación geográfica en la aplicación. Esto permitirá que la aplicación restaure rápidamente la disponibilidad en una región diferente en caso de interrupción. Obtenga información sobre cómo [configurar la replicación geográfica](sql-database-geo-replication-portal.md).
 
 Para restaurar la disponibilidad de las bases de datos, es preciso iniciar la conmutación por error en la secundaria con replicación geográfica mediante uno de los métodos admitidos.
 
@@ -52,7 +52,7 @@ Utilice una de las siguientes guías para realizar la conmutación por error en 
 
 - [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md)
 - [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-powershell.md)
-- [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md) 
+- [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 
@@ -63,7 +63,7 @@ Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades ci
 Utilice una de las siguientes guías para restaurar geográficamente una base de datos en una región nueva:
 
 - [Geo-Restore an Azure SQL Database from a geo-redundant backup using the Azure Portal (Restauración geográfica de una Base de datos SQL de Azure a partir de una copia de seguridad con redundancia geográfica con el Portal de Azure)](sql-database-geo-restore-portal.md)
-- [Restore an Azure SQL Database from a geo-redundant backup using PowerShell (Restauración de una Base de datos SQL de Azure a una región nueva con Powershell)](sql-database-geo-restore-powershell.md) 
+- [Restore an Azure SQL Database from a geo-redundant backup using PowerShell (Restauración de una Base de datos SQL de Azure a una región nueva con Powershell)](sql-database-geo-restore-powershell.md)
 
 
 ## Configuración de la base de datos después de realizar la recuperación
@@ -74,7 +74,7 @@ Si se usa la conmutación por error con replicación geográfica o la funcionali
 
 Dado que la base de datos recuperada residirá en otro servidor, es preciso que actualice la cadena de conexión de la aplicación para que apunte a dicho servidor.
 
-Para obtener más información sobre cómo cambiar las cadenas de conexión, consulte el lenguaje de desarrollo adecuado para su [biblioteca de conexiones](sql-database-libraries.md).
+Para obtener más información sobre cómo cambiar las cadenas de conexión, consulte el lenguaje de desarrollo adecuado para la [biblioteca de conexiones](sql-database-libraries.md).
 
 ### Configuración de las reglas del firewall
 
@@ -100,18 +100,10 @@ Si se requiere una auditoría para tener acceso a una base de datos, será preci
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo usar y configurar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
-- Para obtener información sobre cómo utilizar la funcionalidad de replicación geográfica activa para realizar el proceso recuperación ante desastres, consulte [Restauración geográfica](sql-database-geo-restore.md).
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
+- Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-## Recursos adicionales
-
-- [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL](sql-database-business-continuity.md)
-- [Overview: SQL Database Point-in-Time Restore (Información general: Restauración a un momento dado de Base de datos SQL)](sql-database-point-in-time-restore.md)
-- [Restauración geográfica](sql-database-geo-restore.md)
-- [Replicación geográfica activa](sql-database-geo-replication-overview.md)
-- [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Finalización de una base de datos SQL de Azure recuperada](sql-database-recovered-finalize.md)
-- [Configuración de seguridad para Replicación geográfica activa o estándar](sql-database-geo-replication-security-config.md)
-- [P+F de BCDR de Base de datos SQL](sql-database-bcdr-faq.md)
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

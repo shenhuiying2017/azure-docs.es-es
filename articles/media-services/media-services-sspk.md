@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="xpouyat,vsood" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/21/2016"  
+	ms.date="06/22/2016"  
 	ms.author="xpouyat"/>
 
 #Licencias de Microsoft® Smooth Streaming Client Porting Kit
@@ -30,19 +30,19 @@ A continuación se incluye una arquitectura de alto nivel y el IIS Smooth Stream
 
 La licencia de SSPK tiene unos términos que ofrecen un valor empresarial excelente. La licencia SSPK proporciona al sector:
 
-- Código fuente de Smooth Streaming Porting Kit en C++ 
+- Código fuente de Smooth Streaming Porting Kit en C++
   - Implementa la funcionalidad Smooth Streaming Client
   - Agrega análisis de formato, heurística, lógica de almacenamiento en búfer, etc.
-- API de aplicación del reproductor 
+- API de aplicación del reproductor
   -	Interfaces de programación para la interacción con una aplicación del Reproductor multimedia
-- Interfaz de capa de abstracción de plataforma (PAL) 
+- Interfaz de capa de abstracción de plataforma (PAL)
   -	Interfaces de programación para la interacción con el sistema operativo (subprocesos, sockets)
-- Interfaz de capa de abstracción de hardware (HAL) 
+- Interfaz de capa de abstracción de hardware (HAL)
   -	Interfaces de programación para la interacción con el descodificadores de A/V de hardware (descodificación, representación)
-- Interfaz de administración de derechos digitales (DRM) 
+- Interfaz de administración de derechos digitales (DRM)
   -	Interfaces de programación para administrar DRM a través de la capa de abstracción de DRM (DAL)
   -	Microsoft PlayReady Porting Kit se distribuye por separado, pero se integra mediante esta interfaz. Para obtener más detalles acerca de las licencias de Microsoft PlayReady Device, haga clic en [aquí](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
-- Ejemplos de implementación 
+- Ejemplos de implementación
   -	Ejemplo de implementación de PAL para Linux
   -	Ejemplo de implementación de HAL para Linux
 
@@ -71,7 +71,7 @@ La licencia Smooth Streaming Client Final Product se ofrece en un modelo de rega
 
 - 0,10 USD por cada implementación de dispositivo enviada
 - La regalía está limitada a 50.000 USD al año
-- Sin regalía para las primeras 10.000 implementaciones de dispositivo cada año 
+- Sin regalía para las primeras 10.000 implementaciones de dispositivo cada año
 
 ##Procedimiento de licencias y acceso al SSPK
 
@@ -164,4 +164,4 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0629_2016-->

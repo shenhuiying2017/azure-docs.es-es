@@ -62,7 +62,7 @@ En el ejemplo siguiente, se muestran las asignaciones de roles del grupo *pharma
 
 ###	Lista de asignaciones de rol para un usuario, incluidas las asignadas a los grupos de un usuario
 
-En el ejemplo siguiente, se muestran las asignaciones de roles concedidas al usuario **sameert@aaddemo.com*. Entre ellas, los roles asignados directamente al usuario y también aquellos heredados de los grupos.
+En el ejemplo siguiente, se muestran las asignaciones de roles concedidas al usuario *sameert@aaddemo.com*. Entre ellas, los roles asignados directamente al usuario y también aquellos heredados de los grupos.
 
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -74,7 +74,7 @@ Cuando haya identificado el rol que desea asignar, para conceder acceso, use:
 ###	Asignación de un rol a grupo en el ámbito de la suscripción
 Para asignar un rol a un grupo en el ámbito de la suscripción, use:
 
-	azure role assignment create --objId  <group's object id> --role <name of role> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 En el ejemplo siguiente se asigna el rol *Lector* al *equipo de Christine Koch* en el ámbito de la *suscripción*.
 
@@ -83,7 +83,7 @@ En el ejemplo siguiente se asigna el rol *Lector* al *equipo de Christine Koch* 
 ###	Asignación de un rol a aplicación en el ámbito de la suscripción
 Para asignar un rol a una aplicación en el ámbito de la suscripción, use:
 
-    azure role assignment create --objId  <applications's object id> --role <name of role> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 En el ejemplo siguiente se concede el rol *Colaborador* a una aplicación de *Azure AD* en la suscripción seleccionada.
 
@@ -92,16 +92,16 @@ En el ejemplo siguiente se concede el rol *Colaborador* a una aplicación de *Az
 ###	Asignación de un rol a usuario en el ámbito del grupo de recursos
 Para asignar un rol a un usuario en el ámbito del grupo de recursos, use:
 
-	azure role assignment create --signInName  <user's email address> --roleName <name of role in quotes> --resourceGroup <resource group name>
+	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
-En el ejemplo siguiente se concede el rol *Colaborador de la máquina virtual* al usuario **samert@aaddemo.com* en el ámbito del grupo de recursos *Pharma-Sales-ProjectForcast*.
+En el ejemplo siguiente se concede el rol *Colaborador de la máquina virtual* al usuario *samert@aaddemo.com* en el ámbito del grupo de recursos *Pharma-Sales-ProjectForcast*.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Asignación de un rol a grupo en el ámbito del recurso
 Para asignar un rol a un grupo en el ámbito del recurso, use:
 
-    azure role assignment create --objId  <group id> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 El ejemplo siguiente concede el rol *Colaborador de la máquina virtual* a un grupo de *Azure AD* en una *subred*.
 
@@ -110,9 +110,9 @@ El ejemplo siguiente concede el rol *Colaborador de la máquina virtual* a un gr
 ##	Quitar acceso
 Para quitar una asignación de rol, use:
 
-    azure role assignment delete --objId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
 
-En el ejemplo siguiente se quita la asignación de rol *Colaborador de la máquina virtual* de **sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*. Luego, quita la asignación de rol de un grupo de la suscripción.
+En el ejemplo siguiente se quita la asignación de rol *Colaborador de la máquina virtual* de *sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*. Luego, quita la asignación de rol de un grupo de la suscripción.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure eliminada (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
@@ -162,4 +162,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0629_2016-->

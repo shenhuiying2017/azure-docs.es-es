@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Introducción a las plantillas de licencias de Widevine
@@ -210,4 +210,4 @@ En el ejemplo siguiente se muestra cómo utilizar las API de .NET para configura
 
 [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

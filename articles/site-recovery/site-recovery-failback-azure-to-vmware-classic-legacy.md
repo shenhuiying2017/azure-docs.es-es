@@ -55,7 +55,7 @@ Esta es la instalación de la conmutación por recuperación:
 
 Es preciso instalar un servidor local de vContinuum y apuntarlo hacia el servidor de configuración.
 
-1.  [Descargue vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
+1.  [Descargue vContinuum](http://go.microsoft.com/fwlink/?linkid=526305).
 2.  Después, descargue la versión de [actualización de vContinuum](http://go.microsoft.com/fwlink/?LinkID=533813).
 3. Instale la versión más reciente de vContinuum: En la página **principal**, haga clic en **Siguiente**.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  En la primera página del asistente, especifique tanto la dirección IP como el puerto del servidor de CX. Seleccione **Use HTTPS** (Usar HTTPS).
@@ -223,7 +223,7 @@ Antes de aplicar estos cambios asegúrese de que ha completado la sección anter
 3. Inicie sesión en la máquina virtual del servidor de destino maestra de Linux con el cliente ssh que prefiera.
 4. Si está conectado a la red de Azure en la que implementó el servidor de destino maestro de Linux a través de una conexión VPN, utilice la dirección IP interna para el servidor que encontrará en la pestaña **Dashboard** (Panel) de la máquina virtual y el puerto 22 para conectarse al servidor de destino maestro de Linux mediante Secure seguro.
 5. Si se va a conectar al servidor de destino maestro de Linux a través de una conexión a Internet pública, use la dirección IP virtual pública del servidor de destino maestro [desde la pestaña **Dashboard** (Panel) de las máquinas virtuales] y el punto de conexión público creado para ssh para iniciar sesión en el servidor de Linux.
-6. Extraiga los archivos del archivo tar del instalador de servidor de destino maestro de Linux comprimido con gzip ejecutando: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*”* del directorio que contenga el archivo del instalador.
+6. Extraiga los archivos del archivo TAR del instalador de servidor de destino maestro de Linux comprimido con GZIP ejecutando: *tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64* del directorio que contenga el archivo del instalador.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -266,7 +266,7 @@ Antes de la conmutación por recuperación es preciso proteger las máquinas vir
 Cuando una máquina virtual se conmuta por error a Azure, agrega una unidad temporal adicional para el archivo de paginación. La máquina virtual que se ha conmutado por error no suele requerir dicha unidad, ya que es posible que disponga de una unidad dedicada al archivo de paginación. Antes de comenzar la protección inversa de las máquinas virtuales, es preciso asegurarse de que la unidad está sin conexión, con el fin de que no reciba protección. Para ello, realice lo siguiente:
 
 1.  Abra Administración de almacenamiento y seleccione Administración de almacenamiento para que enumere tanto los discos en línea como los conectados a la máquina.
-2.  Seleccione el disco temporal conectado a la máquina y elija ponerlo sin conexión. 
+2.  Seleccione el disco temporal conectado a la máquina y elija ponerlo sin conexión.
 
 ### Protección de las máquinas virtuales
 
@@ -325,7 +325,7 @@ Cuando una máquina virtual se conmuta por error a Azure, agrega una unidad temp
 
 #### Configuración de NAT
 
-1. Para habilitar la protección de las máquinas virtuales, es preciso establecer dos canales de comunicación. El primer canal está entre la máquina virtual y el servidor de procesos. Este canal recopila los datos de la máquina virtual y los envía al servidor de procesos que, a su vez, los envía al servidor de destino maestro. Si el servidor de procesos y la máquina virtual que se va a proteger están en la misma red virtual de Azure, no es preciso utilizar la configuración de NAT. De lo contrario, especifique la configuración de NAT. Vea la dirección IP pública del servidor de procesos en Azure. 
+1. Para habilitar la protección de las máquinas virtuales, es preciso establecer dos canales de comunicación. El primer canal está entre la máquina virtual y el servidor de procesos. Este canal recopila los datos de la máquina virtual y los envía al servidor de procesos que, a su vez, los envía al servidor de destino maestro. Si el servidor de procesos y la máquina virtual que se va a proteger están en la misma red virtual de Azure, no es preciso utilizar la configuración de NAT. De lo contrario, especifique la configuración de NAT. Vea la dirección IP pública del servidor de procesos en Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
@@ -428,4 +428,4 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="04/19/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 #Creación de una aplicación iOS
@@ -29,7 +29,7 @@ En este tutorial se muestra cómo agregar [Aplicaciones móviles de Azure](app-s
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una [cuenta de Azure activa](https://azure.microsoft.com/pricing/free-trial/)
-* Un equipo con [Visual Studio Community 2013] o posterior 
+* Un equipo con [Visual Studio Community 2013] o posterior
 * Un equipo Mac con Xcode 7.3 o posterior
 
 ## Paso 1: Creación de un nuevo back-end de Aplicaciones móviles de Azure
@@ -52,4 +52,4 @@ Para completar este tutorial, necesitará lo siguiente:
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/02/2016"  
+	ms.date="06/22/2016"  
 	ms.author="juliako"/>
 
 #Guía de solución de problemas para el streaming en vivo
@@ -28,19 +28,19 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 - **Posible problema**: no puede encontrar los registros del codificador que podrían ayudar en los problemas de depuración.
 	
-	- **Telestream Wirecast**: normalmente encontrará los registros en C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 
-	- **Elemental Live**: puede encontrar vínculos a los registros en el Portal de administración. Haga clic en **Estadísticas** y luego en **Registros**. En la página **Log Files** (Archivos de registro), verá una lista de registros para todos los elementos de LiveEvent; seleccione el que coincida con su sesión actual. 
+	- **Telestream Wirecast**: normalmente encontrará los registros en C:\\Users{username}\\AppData\\Roaming\\Wirecast\\
+	- **Elemental Live**: puede encontrar vínculos a los registros en el Portal de administración. Haga clic en **Estadísticas** y luego en **Registros**. En la página **Log Files** (Archivos de registro), verá una lista de registros para todos los elementos de LiveEvent; seleccione el que coincida con su sesión actual.
 	- **Flash Media Encoder Live**: puede encontrar el **directorio de registro** desplazándose hasta la pestaña **Encoding Log** (Registro de codificación).
 	
 ###Problema: no hay ninguna opción para generar una secuencia progresiva
 
-- **Posible problema**: el codificador que se usa no deshace el entrelazado automáticamente. 
+- **Posible problema**: el codificador que se usa no deshace el entrelazado automáticamente.
 
 	**Pasos para solucionar problemas**: busque una opción de eliminación de entrelazado dentro de la interfaz del codificador. Cuando se habilite la opción de eliminación de entrelazado, compruebe de nuevo la configuración de la salida progresiva.
  
 ###Problema: se intentaron varias configuraciones de salida del codificador y todavía no es posible conectarse. 
 
-- **Posible problema**: el canal de codificación Azure no se restableció correctamente. 
+- **Posible problema**: el canal de codificación Azure no se restableció correctamente.
 
 	**Pasos para solucionar problemas**: asegúrese de que el codificador ya no está insertando en AMS, detenga y restablezca el canal. Cuando se vuelva a ejecutar, intente conectar su codificador con la nueva configuración. Si esto sigue sin solucionar el problema, intente crear un nuevo canal por completo; a veces, los canales se pueden dañar tras varios intentos con error.
 
@@ -55,7 +55,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 ###Problema: al configurar el codificador para que haga streaming con el protocolo RTP, no hay ningún lugar para escribir un nombre de host. 
 
-- **Posible problema**: muchos codificadores de RTP no permiten nombres de host y se necesitará adquirir una dirección IP.  
+- **Posible problema**: muchos codificadores de RTP no permiten nombres de host y se necesitará adquirir una dirección IP.
 
 	**Pasos para solucionar problemas**: para buscar la dirección IP, abra un símbolo del sistema en cualquier equipo. Para hacer esto en Windows, abra el selector de ejecución (WIN + R) y escriba "cmd" para abrir.
 
@@ -69,7 +69,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 ###Problema: no se puede reproducir la secuencia publicada.
  
-- **Posible problema**: no hay ningún extremo de streaming en ejecución o no hay ninguna unidad de streaming (unidades de escala) asignada. 
+- **Posible problema**: no hay ningún extremo de streaming en ejecución o no hay ninguna unidad de streaming (unidades de escala) asignada.
 
 	**Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming.
 	
@@ -85,4 +85,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->

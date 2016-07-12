@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/14/2016"   
+	ms.date="06/22/2016"   
 	ms.author="milanga;juliako;"/>
 
 #Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
@@ -76,7 +76,7 @@ El siguiente JSON establece los parámetros disponibles.
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en él.
-1. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON. 
+1. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON.
 		
 		{				
 			"version": "1.0",
@@ -273,4 +273,4 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

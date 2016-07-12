@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 # Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB
@@ -28,15 +28,19 @@ Para conectarse a una cuenta de DocumentDB con soporte de protocolo para MongoDB
 
 Para agregar su cuenta de DocumentDB con soporte de protocolo para MongoDB en el administrador de conexiones de MongoChef, realice los pasos siguientes.
 
-1. Haga clic en **Connect** (Conectar) para abrir el Connection Manager (Administrador de conexiones) y, después, haga clic en **New Connection** (Nueva conexión).
+1. Recupere la cuenta de DocumentDB con compatibilidad de protocolos con la información de cadena de conexión de MongoDB siguiendo [estas](documentdb-connect-mongodb-account.md) instrucciones.
+
+	![Captura de pantalla de la hoja Cadena de conexión](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+
+2. Haga clic en **Connect** (Conectar) para abrir Connection Manager (Administrador de conexiones) y, después, haga clic en **New Connection** (Nueva conexión).
 
 	![Captura de pantalla del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. En la ventana **New Connection** (Nueva conexión), en la pestaña **Server** (Servidor), escriba el puerto y el FQDN de la cuenta de DocumentDB con soporte de protocolo para MongoDB.
+2. En la ventana **New Connection** (Nueva conexión), en la pestaña **Server** (Servidor), escriba el HOST (FQDN) de la cuenta de DocumentDB con compatibilidad de protocolos con MongoDB y el PUERTO.
 	
 	![Captura de pantalla de la pestaña Server (Servidor) del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. En la ventana **New Connection** (Nueva conexión), en la pestaña **Authentication** (Autenticación), elija el modo de autenticación **Standard (MONGODB-CR or SCARM-SHA-1)** (Estándar (MONGODB-CR o SCARM-SHA-1) y escriba la información de nombre de usuario y contraseña. Acepte la base de datos de autenticación predeterminada (admin) o proporcione su propio valor.
+3. En la ventana **New Connection** (Nueva conexión), en la pestaña **Authentication** (Autenticación), elija el modo de autenticación **Standard (MONGODB-CR or SCARM-SHA-1)** (Estándar [MONGODB-CR o SCARM-SHA-1]) y escriba el NOMBRE DE USUARIO y la CONTRASEÑA. Acepte la base de datos de autenticación predeterminada (admin) o proporcione su propio valor.
 
 	![Captura de pantalla de la pestaña Authentication (Autenticación) del administrador de conexiones de MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -123,9 +127,9 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 
 ## Pasos siguientes
 
-- Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md) de MongoDB.
-- Obtenga información sobre la [versión preliminar de las instrucciones de desarrollo](documentdb-mongodb-guidelines.md) para DocumentDB con soporte de protocolo para MongoDB.
+- Explore DocumentDB con compatibilidad de protocolos con [ejemplos](documentdb-mongodb-samples.md) de MongoDB.
+- Obtenga información sobre la [versión preliminar de las instrucciones de desarrollo](documentdb-mongodb-guidelines.md) de DocumentDB con compatibilidad de protocolos con MongoDB.
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0629_2016-->

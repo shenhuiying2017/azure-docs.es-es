@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="06/24/2016"
 	ms.author="robmcm"/>
 
 # Aplicación web Node.js utilizando el servicio Tabla de Azure
@@ -53,7 +53,7 @@ Antes de seguir las instrucciones del presente artículo, asegúrese de tener in
 
 Cree una cuenta de Almacenamiento de Azure. La aplicación usará esta cuenta para almacenar los elementos de tareas pendientes.
 
-1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Almacenamiento**. Asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
@@ -72,7 +72,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 
 ### Instalar Express y generar scaffolding
 
-1. Desde la línea de comandos, cree un nuevo directorio denominado **tasklist** y cambie a ese directorio.  
+1. Desde la línea de comandos, cree un nuevo directorio denominado **tasklist** y cambie a ese directorio.
 
 2. Escriba el siguiente comando para instalar el módulo Express.
 
@@ -478,7 +478,7 @@ Aunque la aplicación se ejecuta localmente, almacena los datos en el servicio T
 
 En los pasos de esta sección se usan las herramientas de línea de comandos de Azure para crear una nueva aplicación web en el Servicio de aplicaciones y después implementar la aplicación mediante Git. Para realizar estos pasos debe tener una suscripción a Azure.
 
-> [AZURE.NOTE] Estos pasos también pueden llevarse a cabo usando el [Portal de Azure](https://portal.azure.com). Consulte [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
+> [AZURE.NOTE] Estos pasos también pueden llevarse a cabo usando el [Portal de Azure](https://portal.azure.com/). Consulte [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
 >
 > Si esta es la primera aplicación web que crea, debe usar el Portal de Azure para implementarla.
 
@@ -497,6 +497,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
+
 	La descarga del archivo se inicia automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
@@ -544,7 +545,7 @@ En este paso, agregará las variables de entorno a la configuración de la aplic
 		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Reemplace **<storage account name>** por el nombre de la cuenta de almacenamiento creada anteriormente y **<storage access key>** por la clave de acceso principal para la cuenta de almacenamiento. (Utilice los mismos valores que el archivo config.json que creó anteriormente).
+Reemplace **<nombre de cuenta de almacenamiento>** por el nombre de la cuenta de almacenamiento creada anteriormente y **<clave de acceso de almacenamiento>** por la clave de acceso principal de la cuenta de almacenamiento. (Utilice los mismos valores que el archivo config.json que creó anteriormente).
 
 También puede establecer las variables de entorno en el [Portal de Azure](https://portal.azure.com/):
 
@@ -637,4 +638,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0629_2016-->

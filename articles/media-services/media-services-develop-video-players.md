@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -32,23 +32,23 @@ Servicios multimedia de Microsoft Azure permite ofrecer contenido con formatos d
 Para obtener más información:
 
 - [Reproductor multimedia de Azure](http://aka.ms/ampinfo)
-- [Documentación de Reproductor multimedia de Azure](http://aka.ms/ampdocs) 
+- [Documentación de Reproductor multimedia de Azure](http://aka.ms/ampdocs)
 - [Blog de Introducción a Reproductor multimedia de Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Suscríbase para mantenerse al día con la versión más reciente de Reproductor multimedia de Azure](http://aka.ms/ampsignup)
-- [Agregue nuevas solicitudes, ideas, comentarios](http://aka.ms/ampuservoice) 
+- [Agregue nuevas solicitudes, ideas, comentarios](http://aka.ms/ampuservoice)
 
 
 ##Otras herramientas para crear aplicaciones del reproductor
 
 También puede usar algunos de los SDK siguientes:
 
-- [SDK de cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+- [SDK de cliente de Smooth Streaming](http://www.iis.net/downloads/microsoft/smooth-streaming)
 - [Aplicación de la Tienda Windows de Smooth Streaming](media-services-build-smooth-streaming-apps.md)
-- [Plataforma multimedia de Microsoft: Player Framework](http://playerframework.codeplex.com/) 
-- [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](http://aka.ms/sspk) 
-- [Desarrollo de aplicaciones de vídeo de XBOX](http://xbox.create.msdn.com/) 
+- [Plataforma multimedia de Microsoft: Player Framework](http://playerframework.codeplex.com/)
+- [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation)
+- [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057)
+- [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](http://aka.ms/sspk)
+- [Desarrollo de aplicaciones de vídeo de XBOX](http://xbox.create.msdn.com/)
  
 
 ##Publicidad
@@ -81,4 +81,4 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0629_2016-->

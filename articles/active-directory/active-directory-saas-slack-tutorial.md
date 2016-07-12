@@ -2,17 +2,17 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Slack | Microsoft Azure" 
     description="Aprenda a usar Slack con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Slack
   
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones en Slack:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-slack-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Slack**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Slack**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-slack-tutorial/IC794982.png "Configurar inicio de sesión único")
 
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-slack-tutorial/IC794983.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Slack**, escriba la dirección URL del inquilino de Slack (por ejemplo, "**https://azuread.slack.com*")) y haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Slack**, escriba la dirección URL del inquilino de Slack (por ejemplo, "*https://azuread.slack.com*") y haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-slack-tutorial/IC794984.png "Configurar dirección URL de la aplicación")
 
@@ -100,11 +100,11 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configuración de SAML](./media/active-directory-saas-slack-tutorial/IC794988.png "Configuración de SAML")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Slack**, copie el valor de **Dirección URL de SAML SSO** y péguelo en el cuadro de texto **Punto de conexión de SAML 2.0 (HTTP)**.
-    2.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Slack**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor del proveedor de identidades**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Slack**, copie el valor de **Dirección URL de SAML SSO** y péguelo en el cuadro de texto **Punto de conexión de SAML 2.0 (HTTP)**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Slack**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Emisor del proveedor de identidades**.
     3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
     
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el portapapeles y luego péguelo en el cuadro de texto **Certificado público**.
     5.  Anule la selección de **Permitir a los usuarios cambiar su dirección de correo electrónico**.
@@ -112,7 +112,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     7.  Como **La autenticación para su equipo debe usarse por**, seleccione **Es opcional**.
     8.  Haga clic en **Guardar configuración**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-slack-tutorial/IC794989.png "Configurar inicio de sesión único")
 
@@ -128,9 +128,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Slack, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **Slack**, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **Slack **, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-slack-tutorial/IC794990.png "Asignar usuarios")
 
@@ -140,4 +140,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0629_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Azure AD Connect Sync: administración de la cuenta de servicio de Azure AD | Microsoft Azure"
 	description="En este tema se describe cómo restaurar la cuenta de servicio de Azure AD."
 	services="active-directory"
-    keywords="Restablecimiento de la contraseña de la cuenta de servicio del conector de Azure AD Connect Sync"
+    keywords="AADSTS70002, AADSTS50054, Procedimiento para restablecer la contraseña de la cuenta de servicio del conector de Azure AD Connect Sync"
 	documentationCenter=""
 	authors="andkjell"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: administración de la cuenta de servicio de Azure AD
@@ -29,7 +29,16 @@ Si la cuenta de servicio definida en el conector de Azure AD no puede ponerse en
 
 Este cmdlet restablecerá la contraseña de la cuenta de servicio y la actualizará en Azure AD y en el motor de sincronización.
 
+## Problemas conocidos que pueden solucionarse siguiendo estos pasos
+Se trata de una lista de los errores que notifican los clientes que se corrigieron siguiendo estos pasos.
+
+-----------
+Evento 6900: el servidor encontró un error inesperado al procesar una notificación de cambio de contraseña: AADSTS70002: error al validar las credenciales. AADSTS50054: se utilizó una contraseña antigua para realizar la autenticación.
+
+----------
+Evento 659: error al recuperar la configuración de sincronización de directivas de contraseña. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: error al validar las credenciales. AADSTS50054: se utilizó una contraseña antigua para realizar la autenticación.
+
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0629_2016-->

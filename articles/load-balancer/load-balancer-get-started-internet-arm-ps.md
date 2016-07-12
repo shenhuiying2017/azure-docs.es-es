@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante el modelo de implementación clásica](load-balancer-get-started-internet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet mediante el modelo de implementación clásica](load-balancer-get-started-internet-classic-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -35,7 +35,7 @@ Aquí se tratará la secuencia de tareas individuales que debe realizarse para c
 
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes:
 
-- Configuración de direcciones IP front-end: contiene direcciones IP públicas para el tráfico de red entrante. 
+- Configuración de direcciones IP front-end: contiene direcciones IP públicas para el tráfico de red entrante.
 
 - Grupo de direcciones de back-end: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
 
@@ -54,7 +54,7 @@ Asegúrese de que tiene la última versión de producción del módulo Administr
 
 ### Paso 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 Se le pedirá que se autentique con sus credenciales.<BR>
 
@@ -62,20 +62,20 @@ Se le pedirá que se autentique con sus credenciales.<BR>
 
 Compruebe las suscripciones para la cuenta.
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Paso 3 
 
 Elija qué suscripción de Azure va a utilizar.<BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Paso 4
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
@@ -181,7 +181,7 @@ Cree una NIC llamada *lb-nic2-be* y asóciela con la segunda regla NAT y el prim
 Compruebe las tarjetas NIC.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Resultado esperado:
 
@@ -248,7 +248,7 @@ Cargue el recurso de equilibrador de carga en una variable (si no lo ha hecho to
 
 Cargue la configuración de back-end a una variable.
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Paso 3 
 
@@ -260,13 +260,13 @@ Cargue la interfaz de red ya creada en una variable. El nombre de variable que s
 
 Cambie la configuración de back-end en la interfaz de red.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Paso 5 
 
 Guarde el objeto de interfaz de red.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Después de agregar una interfaz de red para el grupo de back-end del equilibrador de carga, este inicia la recepción del tráfico de red según la reglas de equilibrio de carga para ese recurso de equilibrador de carga.
 
@@ -308,4 +308,4 @@ Use el comando `Remove-AzureLoadBalancer` para eliminar un equilibrador de carga
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0629_2016-->

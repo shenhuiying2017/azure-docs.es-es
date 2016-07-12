@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
@@ -51,7 +51,7 @@ El estado actual de un canal. Los valores posibles son:
 
 - **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
 - **Iniciando**. El canal se está iniciando. No se produce ninguna facturación en este estado. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado Detenido.
-- **En ejecución**. El canal es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el canal para evitar más facturación. 
+- **En ejecución**. El canal es capaz de procesar secuencias en directo. Está ahora el uso de facturación. Debe detener el canal para evitar más facturación.
 - **Deteniéndose**. El canal se está deteniendo. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
 - **Eliminando**. El canal se está eliminando. No se produce facturación en este estado transitorio. No se permiten actualizaciones ni streaming durante este estado.
 
@@ -89,7 +89,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 >[AZURE.NOTE] Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos de tiempo más largos, póngase en contacto con amslived en Microsoft.com. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" incurrirá en cargos por hora. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). 
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS).
 	
 	Este paso también puede realizarse después de crear el canal.
 
@@ -98,7 +98,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 1. Recupere la URL de ingesta de canales.
 
 	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal.
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
@@ -106,14 +106,14 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 	Con el Portal de Azure clásico, al crear un programa también se crea un recurso.
 
-	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
-1. Publique el recurso asociado al programa.   
+	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa.
+1. Publique el recurso asociado al programa.
 
 	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).   
+1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 >[AZURE.NOTE]Es muy importante no olvidar detener un canal de codificación en directo de Live. Tenga en cuenta que hay un impacto en la facturación por hora para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación. Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
@@ -124,7 +124,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
-- **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
+- **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
 - **RTMP** de una sola velocidad de bits
 - **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
 
@@ -136,12 +136,12 @@ Los emisores profesionales suelen trabajar con codificadores locales en directo 
 
 Consideraciones:
 
-- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS). 
-- Puede introducir un máximo de ocho secuencias de audio con MPEG-2 TS a través de RTP. 
+- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS).
+- Puede introducir un máximo de ocho secuencias de audio con MPEG-2 TS a través de RTP.
 - La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
 - La suma de la velocidad de bits media de las secuencias de audio debe ser inferior a 1 Mbps.
 - A continuación, se indican los códecs admitidos:
-	- MPEG-2/H.262 Video 
+	- MPEG-2/H.262 Video
 		
 		- Perfil Principal (4:2:0)
 		- Perfil Alta (4:2:0, 4:2:2)
@@ -310,13 +310,13 @@ Tenga en cuenta que si necesita valores preestablecidos personalizados, debe pon
 
 Velocidad de bits|Ancho|Alto|Fotogramas/seg. máx.|Perfil|Nombre secuencia salida
 ---|---|---|---|---|---
-3500|1280|720|30|Alto|Video\_1280x720\_3500kbps
-2200|960|540|30|Principal|Video\_960x540\_2200kbps
-1350|704|396|30|Principal|Video\_704x396\_1350kbps
-850|512|288|30|Principal|Video\_512x288\_850kbps
-550|384|216|30|Principal|Video\_384x216\_550kbps
-350|340|192|30|Línea base|Video\_340x192\_350kbps
-200|340|192|30|Línea base|Video\_340x192\_200kbps
+3500|1280|720|30|Alto|Vídeo_1280x720_3500 kbps
+2200|960|540|30|Principal|Vídeo_960 x 540_2200 kbps
+1350|704|396|30|Principal|Vídeo_704 x 396_1350 kbps
+850|512|288|30|Principal|Vídeo_512 x 288_850 kbps
+550|384|216|30|Principal|Vídeo_384 x 216_550 kbps
+350|340|192|30|Línea base|Vídeo_340 x 192_350 kbps
+200|340|192|30|Línea base|Vídeo_340 x 192_200 kbps
 
 
 ####Secuencia de audio de salida
@@ -476,4 +476,4 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0629_2016-->
