@@ -21,7 +21,7 @@
 
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [AZURE.VIDEO /en-us/documentation/videos/data-science-for-beginners-ask-a-question-you-can-answer-with-data/]
 
 ## Transcripción: Realización de preguntas que pueden responderse con datos
 
