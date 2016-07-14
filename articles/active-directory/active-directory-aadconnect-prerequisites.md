@@ -182,7 +182,7 @@ La tabla siguiente muestra los requisitos mínimos de un equipo con sincronizaci
 | ------------------------------------- | --- | ------ | --------------- |
 | Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
 | 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB* |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB |
 | Para 100.000 o más objetos, se requiere la versión completa de SQL Server| | | |
 | 100\.000–300.000 | 1,6 GHz | 32 GB | < 300 GB |
 | 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
