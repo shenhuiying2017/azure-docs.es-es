@@ -197,4 +197,4 @@ Los requisitos mínimos para equipos que ejecutan AD FS o servidores de aplicaci
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!----HONumber=AcomDC_0629_2016-->
