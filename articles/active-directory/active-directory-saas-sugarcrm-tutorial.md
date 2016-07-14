@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de SugarCRM**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación SugarCRM (por ejemplo: "**http://company.sugarondemand.com*") y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de SugarCRM**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación SugarCRM (por ejemplo: "*http://company.sugarondemand.com*") y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configurar dirección URL de la aplicación")
 
