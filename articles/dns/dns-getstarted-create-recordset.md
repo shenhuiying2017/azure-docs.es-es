@@ -145,4 +145,4 @@ En los ejemplos siguientes se muestra cómo crear un conjunto de registros de ca
 
 [Automate Azure operations with .NET SDK](dns-sdk.md) (Automatización de operaciones de Azure con el SDK de .NET)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!----HONumber=AcomDC_0615_2016-->
