@@ -107,7 +107,7 @@ Si usa **docker** y la opción `-H` para señalar al cliente de docker en su má
     Status: Downloaded newer image for swarm:latest
     bbf88f61300bf876c6202d4cf886874b363cd7e2899345ac34dc8ab10c7ae924
 
-Tiene buen aspecto. Para confirmar que **swarm** se está ejecutando en** swarm-node-1**, escriba:
+Tiene buen aspecto. Para confirmar que **swarm** se está ejecutando en **swarm-node-1**, escriba:
 
     $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
