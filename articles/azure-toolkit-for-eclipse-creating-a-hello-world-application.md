@@ -61,7 +61,9 @@ Tan pronto como tenga una aplicación web de Java lista para probar, puede usar 
 
 1. En el Explorador de proyectos de Eclipse, haga clic en **Hola a todos**.
 1. En la barra de herramientas de Eclipse, haga clic en el botón desplegable **Publish** (Publicar) y luego haga clic en **Publish As Azure Cloud Service** (Publicar como servicio en la nube de Azure).
+
 	![][publishDropdownButton]
+
 1. Si va a publicar esta aplicación en Azure por primera vez y no ha creado un proyecto de implementación de Azure para esta aplicación antes, se creará un proyecto de implementación de Azure automáticamente. Debería ver el siguiente símbolo del sistema, que también incluye el paquete de JDK y el servidor de aplicaciones que se implementarán automáticamente para ejecutar la aplicación.
 
 	![][ic789598]
@@ -71,14 +73,20 @@ Tan pronto como tenga una aplicación web de Java lista para probar, puede usar 
     1. Si no hay aún ninguna suscripción que seleccionar en la lista **Suscripción**, siga estos pasos para importar la información de suscripción:
         1. Haga clic en **Importar desde el archivo PUBLISH-SETTINGS**.
         1. En el cuadro de diálogo **Importar información de suscripción**, haga clic en **Descargar archivo PUBLISH-SETTINGS**. Si todavía no ha iniciado sesión en su cuenta de Azure, se le solicitará que lo haga. A continuación, se le solicitará que guarde un archivo de configuración de publicación de Azure. Guárdelo en su equipo local.
-        1. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente en el paso anterior y, a continuación, haga clic en **Abrir**. La pantalla debe parecerse a la siguiente: ![][ic644267].
+        1. Todavía en el cuadro de diálogo **Importar información de suscripción**, haga clic en el botón **Examinar**, seleccione el archivo de configuración de publicación que guardó localmente en el paso anterior y, a continuación, haga clic en **Abrir**. La pantalla debe parecerse a la siguiente:  
+
+			![][ic644267].
+
         1. Haga clic en **Aceptar**.
     1. En **Suscripción**, seleccione la suscripción que desee usar para la implementación.
     1. Para **Cuenta de almacenamiento**, seleccione la cuenta de almacenamiento que desee utilizar o haga clic en **Nuevo** para crear una nueva cuenta de almacenamiento.
     1. Para **Nombre de servicio**, seleccione el servicio en la nube que desee usar o haga clic en **Nuevo** para crear un nuevo servicio en la nube.
     1. Para **SO de destino**, seleccione la versión del sistema operativo que desee usar para la implementación.
     1. Para **Entorno de destino**, para fines de este tutorial, seleccione **Ensayo**. (Cuando esté listo para implementar en su sitio de producción, cámbielo a **Producción**.)
-    1. Opcional: asegúrese de que la opción **Sobrescribir implementación anterior** esté activada si desea que la nueva implementación sobrescriba automáticamente la implementación anterior. Cuando habilite esta opción, no experimentará los problemas del "conflicto 409" cuando publique en la misma ubicación. Tenga en cuenta que el cuadro de diálogo **Publicar en Azure** contiene una sección para **acceso remoto**. El acceso remoto no está habilitado de forma remota y no lo habilitaremos para este ejemplo. Para habilitar el acceso remoto, debe especificar el nombre de usuario y la contraseña que se utilizarán al iniciar la sesión de forma remota. Para obtener más información acerca del acceso remoto, consulte [Habilitación del acceso remoto para implementaciones de Azure en Eclipse][]. El cuadro de diálogo **Publicar en Azure** tendrá un aspecto similar al siguiente: ![][ic719488]
+    1. Opcional: asegúrese de que la opción **Sobrescribir implementación anterior** esté activada si desea que la nueva implementación sobrescriba automáticamente la implementación anterior. Cuando habilite esta opción, no experimentará los problemas del "conflicto 409" cuando publique en la misma ubicación. Tenga en cuenta que el cuadro de diálogo **Publicar en Azure** contiene una sección para **acceso remoto**. El acceso remoto no está habilitado de forma remota y no lo habilitaremos para este ejemplo. Para habilitar el acceso remoto, debe especificar el nombre de usuario y la contraseña que se utilizarán al iniciar la sesión de forma remota. Para obtener más información acerca del acceso remoto, consulte [Habilitación del acceso remoto para implementaciones de Azure en Eclipse][]. El cuadro de diálogo **Publicar en Azure** tendrá un aspecto similar al siguiente:
+
+		![][ic719488]
+
 1. Haga clic en **Publicar** para publicar en el entorno de ensayo. Cuando se le solicite que realice una compilación completa, haga clic en **Sí**. La primera compilación puede tardar varios minutos en completarse. Se mostrará un **registro de actividad de Azure** en la sección de vistas por pestañas de Eclipse. ![][ic719489] Puede usar este registro, así como la vista de **consola** para ver el progreso de la implementación. Una alternativa es iniciar sesión en el [Portal de administración de Azure][] y usar la sección de **servicios en la nube** para supervisar el estado.
 1. Cuando la implementación se implementa correctamente, el **registro de actividad de Azure** mostrará el estado **Publicado**. Haga clic en **Publicado**, como se muestra en la siguiente imagen, y el explorador abrirá una instancia de la implementación.
 	![][ic719490]
