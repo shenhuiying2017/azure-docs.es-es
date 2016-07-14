@@ -37,7 +37,7 @@ Para poder utilizar el cliente DNS, tendrá que instalar el paquete NuGet **Bibl
 
 ## Inicialización del cliente de administración de DNS
 
-El *DnsManagementClient* contiene los métodos y las propiedades necesarios para administrar los conjuntos de registros y las zonas DNS. Para que el cliente pueda acceder a su suscripción, debe configurar los permisos correctos y generar un token AWT. Para más información, consulte [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) (Autenticación de solicitudes de Azure Manager Resource).
+El *DnsManagementClient* contiene los métodos y las propiedades necesarios para administrar los conjuntos de registros y las zonas DNS. Para que el cliente pueda acceder a su suscripción, debe configurar los permisos correctos y generar un token AWT. Para más información, consulte [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) \(Autenticación de solicitudes de Azure Manager Resource).
 
 	// get a token for the AAD application (see the article link above for code)
 	string jwt = GetAToken();
