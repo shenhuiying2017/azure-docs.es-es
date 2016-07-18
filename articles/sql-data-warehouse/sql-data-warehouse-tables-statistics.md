@@ -323,7 +323,7 @@ UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 Por ejemplo:
 
 ```sql
-UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] \([stats_col1]);
 ```
 
 Al actualizar los objetos de estadísticas específicos, puede minimizar el tiempo y los recursos necesarios para administrar las estadísticas. Sin embargo, esto requiere un gran esfuerzo para elegir los objetos de estadísticas que se recomienda actualizar.

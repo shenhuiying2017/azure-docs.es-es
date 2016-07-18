@@ -306,7 +306,10 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 	![Resumen](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Debe instalarse el proxy del agente del servicio de recuperación de Microsoft Azure. Una vez completada la instalación, inicie una aplicación denominada "Shell de servicios de recuperación de Microsoft Azure" en el menú Inicio de Windows. En la ventana de comandos que se abre, ejecute el siguiente conjunto de comandos para definir la configuración del servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
 
 
 
@@ -326,7 +329,7 @@ Donde:
 - /PSIP y /CSIP. Obligatorio. Dirección IP del servidor de procesos y del servidor de configuración.
 - /PassphraseFilePath. Obligatorio. Ubicación del archivo de frase de contraseña.
 - /ByPassProxy. Opcional. Especifica si el servidor de administración se conectar a Azure sin proxy.
-- /ProxySettingsFilePath. Opcional. Especifica la configuración de un proxy personalizado (ya sea el proxy predeterminado en el servidor que requiere autenticación o un proxy personalizado).
+- /ProxySettingsFilePath. Opcional. Especifica la configuración de un proxy personalizado (ya sea el proxy predeterminado en el servidor que requiere autenticación o un proxy personalizado). 
 
 
 
@@ -412,7 +415,7 @@ El primer paso para habilitar la protección de las máquinas virtuales y los se
 Al agregar equipos a un grupo de protección, el servicio de movilidad se inserta automáticamente y el servidor de proceso lo instala en cada equipo.
 
 
-#### Preparación de la inserción automática en máquinas Windows
+#### Preparación de la inserción automática en máquinas Windows 
 
 A continuación, le mostramos cómo preparar las máquinas Windows para que el servidor de procesos pueda instalar automáticamente el servicio de movilidad.
 
@@ -443,8 +446,8 @@ A continuación, le mostramos cómo preparar las máquinas Windows para que el s
 
 3.	Compruebe que el archivo /etc/hosts del servidor Linux de origen contiene entradas que asignan el nombre de host local a las direcciones IP asociadas con todos los adaptadores de red.
 4.	Instale los paquetes openssh, openssh-server, openssl más recientes en el equipo que desea proteger.
-5.	Asegúrese de que SSH está habilitado y ejecutándose en el puerto 22.
-6.	Habilite la autenticación de la contraseña y del subsistema SFTP en el archivo sshd\_config:
+5.	Asegúrese de que SSH está habilitado y ejecutándose en el puerto 22. 
+6.	Habilite la autenticación de la contraseña y del subsistema SFTP en el archivo sshd\_config: 
 
 	- Inicie sesión como root.
 	- En el archivo /etc/ssh/sshd\_config, encuentre la línea que comienza con PasswordAuthentication.
@@ -490,7 +493,7 @@ Donde:
 - /Role: Obligatorio. Especifica si se debe instalar el servicio de movilidad.
 - /InstallLocation: Obligatorio. Especifica dónde instalar el servicio.
 - /PassphraseFilePath: Obligatorio. Especifica la frase de contraseña del servidor de configuración.
-- /LogFilePath: Obligatorio. Especifica la ubicación de los archivos de configuración de registro.
+- /LogFilePath: Obligatorio. Especifica la ubicación de los archivos de configuración de registro. 
 
 #### Modificar la dirección IP del servidor de administración
 
@@ -578,7 +581,7 @@ Además, el estado de protección se puede supervisar en **Elementos protegidos*
 ## Paso 11: Establecimiento de las propiedades de la máquina protegida
 
 1. Cuando los equipos ya tienen el estado **Protegido**, puede configurar sus propiedades de conmutación por error. En los detalles del grupo de protección, seleccione el equipo y abra la pestaña **Configurar**.
-2. Site Recovery sugiere automáticamente las propiedades para la máquina virtual de Azure y detecta la configuración de la red local.
+2. Site Recovery sugiere automáticamente las propiedades para la máquina virtual de Azure y detecta la configuración de la red local. 
 
 	![Establecer propiedades de máquina virtual](./media/site-recovery-vmware-to-azure-classic/vm-properties1.png)
 
@@ -592,7 +595,7 @@ Además, el estado de protección se puede supervisar en **Elementos protegidos*
 			- Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
 			- Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
 			- Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.
-		- Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure.
+		- Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure. 
 	- **Red de Azure**: debe especificar una red de Azure a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error. Si no especifica ninguna, las máquinas virtuales de Azure no se conectarán a ninguna red. Además, deberá especificar una red de Azure si desea realizar conmutación por recuperación desde Azure al sitio local. La conmutación por recuperación requiere una conexión VPN entre una red de Azure y una red local.
 	- **Azure IP address/subnet** (Dirección IP/subred de Azure): para cada adaptador de red, seleccione la subred a la que se debe conectar la máquina virtual de Azure. Observe lo siguiente:
 		- Si el adaptador de red de la máquina de origen está configurado para utilizar una dirección IP estática, puede especificar una dirección IP estática para la máquina virtual de Azure. Si no proporciona una dirección IP estática, se asignará cualquier dirección IP que se encuentre disponible. Si se especifica la dirección IP de destino, pero ya la usa otra máquina virtual en Azure, la conmutación por error presentará errores. Si el adaptador de red de la máquina de origen está configurado para utilizar DHCP, esta será la configuración para Azure.

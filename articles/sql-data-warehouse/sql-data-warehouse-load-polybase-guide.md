@@ -85,11 +85,11 @@ Vea [CREATE TABLE AS SELECT (Transact-SQL)][].
 Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
 ```sql
-create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
-create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
-create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
-create statistics [Speed] on [Customer_Speed] ([Speed]);
-create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
+create statistics [SensorKey] on [Customer_Speed] \([SensorKey]);
+create statistics [CustomerKey] on [Customer_Speed] \([CustomerKey]);
+create statistics [GeographyKey] on [Customer_Speed] \([GeographyKey]);
+create statistics [Speed] on [Customer_Speed] \([Speed]);
+create statistics [YearMeasured] on [Customer_Speed] \([YearMeasured]);
 ```
 
 ## Exportación de datos al almacenamiento de blobs de Azure

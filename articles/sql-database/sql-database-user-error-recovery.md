@@ -38,7 +38,7 @@ Para llevar a cabo un punto de restauración a un momento dado, consulte:
 - [Point in Time Restore with REST API (createmode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) (Restauración a un momento dado con la API de REST (createmode=PointInTimeRestore))
 
 
-## Restauración de una base de datos eliminada
+##Restauración de una base de datos eliminada
 
 En caso de que se elimine una base de datos, Base de datos SQL de Azure le permite restaurar la base de datos eliminada en el momento en que se eliminó. Base de datos SQL de Azure almacena la copia de seguridad de la base de datos eliminada durante el período de retención de la base de datos.
 

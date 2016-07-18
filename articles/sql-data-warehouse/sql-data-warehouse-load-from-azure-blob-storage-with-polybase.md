@@ -25,7 +25,7 @@
 
 Use PolyBase y comandos de T-SQL para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
 
-Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][] (Carga del esquema Contoso Retail Data Warehouse completo) desde el repositorio de ejemplos de Microsoft SQL Server.
+Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][] \(Carga del esquema Contoso Retail Data Warehouse completo) desde el repositorio de ejemplos de Microsoft SQL Server.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. Carga de los datos en nuevas tablas
 
-Para cargar datos de Almacenamiento de blobs de Azure y guardarlos en una tabla dentro de su base de datos, use la instrucción T-SQL [CREATE TABLE AS SELECT] [] (CTAS). Al realizarse la carga con CTAS, se aprovechan las tablas externas fuertemente tipadas que acaba de crear. Para cargar los datos en nuevas tablas, use una instrucción [CTAS][] por tabla.
+Para cargar datos de Almacenamiento de blobs de Azure y guardarlos en una tabla dentro de su base de datos, use la instrucción T-SQL [CREATE TABLE AS SELECT] [] \(CTAS). Al realizarse la carga con CTAS, se aprovechan las tablas externas fuertemente tipadas que acaba de crear. Para cargar los datos en nuevas tablas, use una instrucción [CTAS][] por tabla.
 
 CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
 

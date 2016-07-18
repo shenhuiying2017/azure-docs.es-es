@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.  
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.
 [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```
@@ -53,8 +53,8 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 Para habilitar las funcionalidades de edición y actualización, la asignación de volúmenes está configurada para compartir el código fuente del proyecto con la carpeta .app dentro del contenedor. Como los archivos se cambian en el equipo host, el directorio de la aplicación o contenedores usa el mismo directorio. En docker-compose.debug.yml, la siguiente configuración habilita la asignación de volúmenes
 
 ```
-volumes:
-    - ..:/app
+    volumes:
+      - ..:/app
 ```
 
 Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente comando:

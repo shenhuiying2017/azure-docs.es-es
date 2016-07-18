@@ -171,7 +171,7 @@ Una manera sencilla de identificar una tabla como sesgada es usar `DBCC PDW_SHOW
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado. Para empezar, cree la vista [dbo.vTableSizes][] mediante la instrucción SQL del artículo [Overview of tables in SQL Data Warehouse][Overview] (Información general de tablas en Almacenamiento de datos SQL). Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
+Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado. Para empezar, cree la vista [dbo.vTableSizes][] mediante la instrucción SQL del artículo [Overview of tables in SQL Data Warehouse][Overview] \(Información general de tablas en Almacenamiento de datos SQL). Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
 
 ```sql
 select *
@@ -222,14 +222,14 @@ OPTION  (LABEL  = 'CTAS : FactInternetSales_CustomerKey')
 ;
 
 --Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_CustomerKey] ([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_CustomerKey] ([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_CustomerKey] ([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_CustomerKey] ([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_CustomerKey] ([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] ([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] ([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] ([SalesAmount]);
+CREATE STATISTICS [ProductKey] ON [FactInternetSales_CustomerKey] \([ProductKey]);
+CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_CustomerKey] \([OrderDateKey]);
+CREATE STATISTICS [CustomerKey] ON [FactInternetSales_CustomerKey] \([CustomerKey]);
+CREATE STATISTICS [PromotionKey] ON [FactInternetSales_CustomerKey] \([PromotionKey]);
+CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_CustomerKey] \([SalesOrderNumber]);
+CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] \([OrderQuantity]);
+CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] \([UnitPrice]);
+CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] \([SalesAmount]);
 
 --Rename the tables
 RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
@@ -262,14 +262,14 @@ OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
 ;
 
 --Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] ([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] ([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] ([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] ([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] ([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
+CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] \([ProductKey]);
+CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] \([OrderDateKey]);
+CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] \([CustomerKey]);
+CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] \([PromotionKey]);
+CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] \([SalesOrderNumber]);
+CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] \([OrderQuantity]);
+CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] \([UnitPrice]);
+CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] \([SalesAmount]);
 
 --Rename the tables
 RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];

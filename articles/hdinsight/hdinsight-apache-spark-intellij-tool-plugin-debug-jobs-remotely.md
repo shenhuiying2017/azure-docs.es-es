@@ -68,7 +68,7 @@ También debe crear un clúster de Apache Spark en HDInsight de Azure que forme 
 
 	![Buscar dirección IP del nodo principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
 
-3. Debería ver una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen el prefijo **hn***. Haga clic en el primer nodo principal.
+3. Debería ver una lista de nodos principales, nodos de trabajo y nodos de Zookeeper. Los nodos principales tienen el prefijo **hn**. Haga clic en el primer nodo principal.
 
 	![Buscar dirección IP del nodo principal](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 

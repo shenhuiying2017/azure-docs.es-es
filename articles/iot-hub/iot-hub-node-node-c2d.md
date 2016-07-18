@@ -41,7 +41,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Node.js versión 0.12.x o posteriores. <br/>En [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
++ Node.js versión 0.12.x o posteriores. <br/>En [Prepare your development environment][lnk-dev-setup] \(Preparación de un entorno de desarrollo) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -175,7 +175,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![][img-send-command]
 
-    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
 
 ## Pasos siguientes
 

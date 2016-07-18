@@ -13,7 +13,9 @@ El kit de herramientas de Azure para Eclipse requiere los siguientes componentes
     * [Mac OS X](http://www.apple.com/osx) versiones "Yosemite" y "El Capitán"
     * [Ubuntu Linux](http://www.ubuntu.com) versiones 12, 14 y 15
 
-Encontrará más información en la página [Kit de herramientas de Azure para Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) en el Marketplace de Eclipse.
+>[AZURE.NOTE]Encontrará más información en la página [Kit de herramientas de Azure para Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) en el Marketplace de Eclipse.
+
+<br>
 
 > [AZURE.IMPORTANT] Si usa el Kit de herramientas de Azure para Eclipse en Windows, el kit de herramientas requiere la instalación de Azure SDK 2.9.1 o versiones posteriores. Tiene dos opciones para instalar el SDK de Azure:
 > 

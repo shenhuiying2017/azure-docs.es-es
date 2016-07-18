@@ -123,7 +123,7 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ge
 
 2. A la izquierda, haga clic en **En línea** y busque **Microsoft.Azure.NotificationHubs** en el cuadro **Buscar**.
 
-3. En la lista de resultados, haga clic en **Centros de notificaciones de Microsoft Azure ** y luego en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
+3. En la lista de resultados, haga clic en **Centros de notificaciones de Microsoft Azure** y luego en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
 
 	Así se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet Microsoft.Azure.Notification Hubs</a>.
 

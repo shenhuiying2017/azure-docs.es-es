@@ -24,7 +24,7 @@
 La integración de Aplicaciones web con la red CDN de Azure le ofrece las siguientes ventajas:
 
 - Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua de su aplicación web](web-sites-publish-source-control.md)
-- Actualización sencilla de los paquetes de NuGet de la aplicación web en el Servicio de aplicaciones de Azure, como versiones de jQuery o Bootstrap
+- Actualización sencilla de los paquetes de NuGet de la aplicación web en el Servicio de aplicaciones de Azure, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 - Integración de unión y minificación de ASP.NET con CDN de Azure
 
@@ -107,7 +107,7 @@ Una vez realizada la habilitación, el mismo vínculo al que se accede con difer
 
 >[AZURE.NOTE] Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
 
-2. Ahora, vaya a la dirección del punto de conexión de CDN. Si el extremo está listo, debería ver la aplicación web. Si obtiene un error **HTTP 404**, el extremo de la red CDN no está listo. Puede que sea necesario esperar hasta una hora para que la configuración de la red CDN se propague a todos los nodos perimetrales.
+2. Ahora, vaya a la dirección del punto de conexión de CDN. Si el extremo está listo, debería ver la aplicación web. Si obtiene un error **HTTP 404**, el extremo de la red CDN no está listo. Puede que sea necesario esperar hasta una hora para que la configuración de la red CDN se propague a todos los nodos perimetrales. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
@@ -127,7 +127,7 @@ De igual forma, puede acceder a cualquier URL de acceso público en **http://*&l
 
 -	Un archivo .js desde la ruta /Script
 -	Cualquier archivo de contenido desde la ruta /Content
--	Cualquier controlador/acción
+-	Cualquier controlador/acción 
 -	Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 -	La aplicación web de Azure completa, si todo el contenido es público
 
@@ -375,7 +375,7 @@ Esto permite depurar el código JavaScript de su entorno de desarrollo y, al mis
 
 Siga estos pasos para la integración de la unión y minificación de ASP.NET con el extremo de red CDN.
 
-1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:
+1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -422,7 +422,7 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 
 3. La cadena de consulta `<W.X.Y.Z>` se extrae de *Properties\\AssemblyInfo.cs* en el proyecto ASP.NET. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo, cambie `AssemblyVersion` tal y como se muestra a continuación:
 	
-		[assembly: AssemblyVersion("1.0.0.*")]
+			[assembly: AssemblyVersion("1.0.0.*")]
 	
 	Cualquier otra estrategia para optimizar la generación de una cadena única durante una implementación funcionará aquí.
 
@@ -458,7 +458,7 @@ Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá 
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red de entrega de contenido a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.
+1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red de entrega de contenido a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -518,7 +518,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	Este nuevo método de extensión usa la misma idea para inyectar el script en el código HTML a fin de comprobar si hay una coincidencia en el DOM para un nombre de clase, nombre de regla o valor de regla definidos en el paquete de CSS y, en caso de no encontrarla, recurre al servidor web de origen.
 
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
-5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:
+5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
 	
 	```
 	...

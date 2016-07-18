@@ -50,17 +50,17 @@ Antes de ejecutar la herramienta:
 3.	En la hoja de cálculo **Capacity Planner**, escriba la información que necesite. Debe rellenar todos los campos rodeados por un círculo rojo de la captura de pantalla siguiente.
 
 	- En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
-	- En **Tasa media diaria de cambio de datos (%)**, agregue la información que ha recopilado con la [herramienta de planeación de la capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o la [aplicación de planeación de la capacidad de vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
+	- En **Tasa media diaria de cambio de datos (%)**, agregue la información que ha recopilado con la [herramienta de planeación de la capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o la [aplicación de planeación de la capacidad de vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
 	- El valor **Compresión** solo se aplica a la compresión que se ofrece al replicar máquinas virtuales de VMware o servidores físicos en Azure. Consideramos que es del 30 % o más, pero el valor se puede modificar según sea necesario. Para la replicación de máquinas virtuales de Hyper-V a la compresión de Azure puede usar un dispositivo de terceros, como Riverbed.
 	-  En **Entradas de retención** especifique durante cuánto tiempo hay que conservar las réplicas. Si está replicando VMware o servidores físicos, especifique un valor en días. Si está replicando Hyper-V, especifique el tiempo en horas.
-	-  En **Number of hours in which initial replication for the batch of virtual machines should complete** (Número de horas en las que debe completarse la replicación inicial para el lote de máquinas virtuales) y **Number of virtual machines per initial replication batch** (Número de máquinas virtuales por lote de replicación inicial) hay que especificar la configuración que se ha usado para procesar los requisitos de replicación iniciales. Cuando se implementa Site Recovery, se debe cargar el conjunto de datos inicial completo.
+	-  En **Number of hours in which initial replication for the batch of virtual machines should complete** (Número de horas en las que debe completarse la replicación inicial para el lote de máquinas virtuales) y **Number of virtual machines per initial replication batch** (Número de máquinas virtuales por lote de replicación inicial) hay que especificar la configuración que se ha usado para procesar los requisitos de replicación iniciales. Cuando se implementa Site Recovery, se debe cargar el conjunto de datos inicial completo. 
 
 	![Entradas](./media/site-recovery-capacity-planner/inputs.png)
 
 2.	Después de haber especificado los valores para el entorno de origen, la salida mostrada incluye:
 
 	- **Ancho de banda necesario para la replicación diferencial** (MB/s). El ancho de banda de red necesario para la replicación diferencial se calcula según la tasa media diaria de cambio de datos.
-	- **Ancho de banda necesario para la replicación inicial** (MB/s). El ancho de banda de red para la replicación inicial se calcula según los valores de replicación inicial establecidos.
+	- **Ancho de banda necesario para la replicación inicial** (MB/s). El ancho de banda de red para la replicación inicial se calcula según los valores de replicación inicial establecidos. 
 	- **Almacenamiento necesario (en GB)** es el almacenamiento total requerido en Azure.
 	- El valor de **IOPS totales en cuentas de almacenamiento estándar** se calcula en función de un tamaño de unidad IOPS de 8 K en las cuentas de almacenamiento estándar totales. Para Quick Planner, el número se calcula en función de todos los discos de máquinas virtuales de origen y la tasa de cambio de los datos diarios. Para Detailed Planner el número se calcula en función del número total de máquinas virtuales que se asignan a las máquinas virtuales estándar de Azure y a la tasa de cambio de los datos en dichas máquinas virtuales.
 	- **Número de cuentas de almacenamiento estándar** proporciona el número total de cuentas de almacenamiento estándar necesarias para proteger las máquinas virtuales. Tenga en cuenta que una cuenta de almacenamiento estándar puede contener hasta 20 000 IOPS en todas las máquinas virtuales de un almacenamiento estándar y admite un máximo de 500 IOPS por disco.
@@ -76,12 +76,12 @@ Antes de ejecutar la herramienta:
 ## Ejecución de Detailed Planner
 
 
-1.	Descargue la herramienta [Capacity Planner de Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel) y ábrala. Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite.
+1.	Descargue la herramienta [Capacity Planner de Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel) y ábrala. Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite. 
 2.	En **Seleccionar un tipo de planificador**, elija **Planificador detallado** en el cuadro de lista.
 
 	![Introducción](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-3.	En la hoja de cálculo **Workload Qualification**, escriba la información necesaria. Debe rellenar todos los campos marcados.
+3.	En la hoja de cálculo **Calificación de infraestructura**, escriba la información necesaria. Debe rellenar todos los campos marcados.
 
 	- En **Núcleos de procesador**, especifique el número total de núcleos de un servidor de origen.
 	- En **Asignación de memoria en MB**, especifique el tamaño de la RAM de un servidor de origen.
@@ -129,7 +129,7 @@ Como ejemplo, para seis máquinas virtuales con los valores que se muestran en l
 ### Enviar datos en Capacity Planner
 
 1.	Cuando se abre la hoja de datos **Capacity Planner**, esta se rellena en función de la configuración que haya especificado. La palabra «Workload» aparece en la celda **Origen de entradas de infraestructura** para mostrar la entrada de la hoja de cálculo **Workload Qualification**.
-2.	Si desea realizar cambios, deberá modificar la hoja de cálculo **Workload Qualification** y hacer clic de nuevo en Enviar datos a la herramienta del planificador.
+2.	Si desea realizar cambios, deberá modificar la hoja de cálculo **Workload Qualification** y hacer clic de nuevo en Enviar datos a la herramienta del planificador.  
 
 	![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

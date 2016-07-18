@@ -43,7 +43,7 @@ RENAME OBJECT Customer TO CustomerOrig;
 
 ## Tablas distribuidas
 
-Un nuevo atributo fundamental introducido por sistemas distribuidos como Almacenamiento de datos SQL es la **columna de distribución**. La columna de distribución es mucho lo que parece. Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano. Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**. Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento. Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distributing tables in SQL Data Warehouse][Distribute] (Distribución de tablas en Almacenamiento de datos SQL).
+Un nuevo atributo fundamental introducido por sistemas distribuidos como Almacenamiento de datos SQL es la **columna de distribución**. La columna de distribución es mucho lo que parece. Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano. Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**. Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento. Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distributing tables in SQL Data Warehouse][Distribute] \(Distribución de tablas en Almacenamiento de datos SQL).
 
 ## Indexación y creación de particiones de tablas
 
@@ -55,7 +55,7 @@ Las estadísticas son muy importantes para obtener el máximo rendimiento de Alm
 
 ## Tablas temporales
 
-Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios. Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza. Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones. Consulte el artículos [Temporary tables in SQL Data Warehouse][Temporary] (Tablas temporales en Almacenamiento de datos SQL) para más información acerca de las tablas temporales.
+Las tablas temporales son tablas que solo existen durante el inicio de sesión y no pueden verlas los restantes usuarios. Las tablas temporales no solo pueden ser una buena forma de evitar que otros vean los resultados temporales, sino que también reducen la necesidad de limpieza. Dado que las tablas temporales también utilizan el almacenamiento local, pueden ofrecer un rendimiento más rápido para algunas operaciones. Consulte el artículos [Temporary tables in SQL Data Warehouse][Temporary] \(Tablas temporales en Almacenamiento de datos SQL) para más información acerca de las tablas temporales.
 
 ## Tablas externas
 
@@ -67,7 +67,7 @@ Mientras que Almacenamiento de datos SQL contiene muchas de las características
 
 | Características no admitidas |
 | --- |
-|[Propiedad IDENTITY][] (consulte [Assigning Surrogate Key Workaround][] [Solución alternativa para la asignación de una clave suplente])|
+|[Propiedad IDENTITY][] \(consulte [Assigning Surrogate Key Workaround][] [Solución alternativa para la asignación de una clave suplente])|
 |[Restricciones de tabla][] Primary Key, Foreign Key, Unique y Check|
 |[Índices únicos][]|
 |[Columnas calculadas][]|

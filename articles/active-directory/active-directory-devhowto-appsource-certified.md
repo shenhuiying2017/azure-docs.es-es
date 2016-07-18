@@ -24,7 +24,7 @@ Si no está familiarizado con el inicio de sesión en Azure AD o con el desarrol
 
 1. Para comenzar lea [Escenarios de autenticación para Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].
 2. A continuación, consulte las [guías de inicio rápido de aplicaciones web][AAD-QuickStart-Web-Apps] de Azure AD, que muestran cómo implementar el inicio de sesión e incluyen ejemplos de código complementarios.
-3. Para aprender a implementar el patrón de inicio de sesión multiempresa con Azure AD, consulte [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview] (Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicaciones multiempresa).
+3. Para aprender a implementar el patrón de inicio de sesión multiempresa con Azure AD, consulte [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview] \(Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicaciones multiempresa).
 
 ## Contenido relacionado
 Para más información sobre la creación de aplicaciones compatibles con el inicio de sesión de Azure AD, o para obtener ayuda y soporte técnico, consulte la [Guía del desarrollador de Azure AD][AAD-Dev-Guide].

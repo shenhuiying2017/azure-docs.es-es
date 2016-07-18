@@ -20,7 +20,8 @@
 
 Cuando la conexión a Base de datos SQL de Azure no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Base de datos SQL de Azure. Se presentan [las causas habituales](#cause) de problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que le ayuda a identificar el problema y se proporciona pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-the-persistent-errors). Por último, se enumeran [todos los artículos relacionados con la conectividad de Base de datos SQL de Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Causa
 
@@ -98,6 +99,6 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 - [Orientación general sobre reintentos](../best-practices-retry-general.md)
 - [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 - [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-- [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale)
+- [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 <!---HONumber=AcomDC_0706_2016-->

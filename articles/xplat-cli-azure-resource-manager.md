@@ -219,13 +219,13 @@ Para un grupo de recursos existente, puede ver la plantilla de Resource Manager 
 
 Con la CLI de Azure, puede exportar una plantilla que representa el estado actual de su grupo de recursos o descargar la plantilla que se usó para una implementación determinada.
 
-* **Export the template for a resource group** - This is helpful when you have made changes to a resource group, and need to retrieve the JSON representation of its current state. Sin embargo, la plantilla generada contiene solo un número mínimo de parámetros y ninguna variable. La mayoría de los valores de la plantilla está codificados. Antes de implementar la plantilla generada, quizás desee convertir más valores en parámetros para poder personalizar la implementación para distintos entornos.
+* **Exportar la plantilla para un grupo de recursos**: resulta útil cuando se han realizado cambios en un grupo de recursos y necesita recuperar la representación JSON del estado actual. Sin embargo, la plantilla generada contiene solo un número mínimo de parámetros y ninguna variable. La mayoría de los valores de la plantilla está codificados. Antes de implementar la plantilla generada, quizás desee convertir más valores en parámetros para poder personalizar la implementación para distintos entornos.
 
     Para exportar la plantilla para un grupo de recursos en un directorio local, ejecute el comando `azure group export` como se muestra en el ejemplo siguiente. (Sustituya un directorio local adecuado para su entorno de sistema operativo).
 
         azure group export testRG ~/azure/templates/
 
-* **Download the template for a particular deployment** -- This is helpful when you need to view the actual template that was used to deploy resources. La plantilla incluirá todos los parámetros y las variables definidas para la implementación original. Sin embargo, si alguien de su organización ha realizado cambios en el grupo de recursos fuera de lo que se define en la plantilla, esta plantilla no representará el estado actual del grupo de recursos.
+* **Exportar la plantilla para una implementación concreta**: resulta útil si necesita ver la plantilla real que se usó para implementar recursos. La plantilla incluirá todos los parámetros y las variables definidas para la implementación original. Sin embargo, si alguien de su organización ha realizado cambios en el grupo de recursos fuera de lo que se define en la plantilla, esta plantilla no representará el estado actual del grupo de recursos.
 
     Para descargar la plantilla usada para una implementación concreta en un directorio local, ejecute el comando `azure group deployment template download`.
 
@@ -236,6 +236,6 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 ## Pasos siguientes
 
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md)
-* For information on working with Azure Resource Manager from the Azure portal, see [Using the Azure Portal to deploy and manage your Azure resources](./azure-portal/resource-group-portal.md).
+* Para información sobre cómo trabajar con Azure Resource Manager desde el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 
 <!---HONumber=AcomDC_0706_2016-->

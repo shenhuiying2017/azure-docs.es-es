@@ -61,7 +61,7 @@ Asegúrese de:
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-- RECORDATORIO: Cree un **secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
+- RECORDATORIO: Cree un **secreto de aplicación** para la aplicación y cópielo. Lo necesitará en breve.
 - RECORDATORIO: Escriba el **id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 

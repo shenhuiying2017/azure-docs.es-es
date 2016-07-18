@@ -204,7 +204,7 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**|
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**| 
 |API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrado de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|

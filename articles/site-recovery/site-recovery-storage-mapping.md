@@ -53,7 +53,7 @@ Cuando use la réplica de Hyper-V para replicar con Site Recovery, asigne entre 
 Si las clasificaciones están configuradas correctamente en VMM, al seleccionar el servidor VMM de origen y de destino durante la asignación de almacenamiento, se mostrarán las clasificaciones de origen y de destino. Este es un ejemplo de recursos compartidos de archivos de almacenamiento y clasificaciones para una organización con dos ubicaciones en Nueva York y Chicago.
 
 **Ubicación** | **Servidor VMM** | **Recurso compartido de archivos (origen)** | **Clasificación (origen)** | **Asignado a** | **Recurso compartido de archivos (destino)**
----|---|--- |---|---|---
+---|---|---|---|---|---
 Nueva York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
  | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
  | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3

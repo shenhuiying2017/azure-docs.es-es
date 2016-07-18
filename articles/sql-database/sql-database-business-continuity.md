@@ -61,7 +61,7 @@ Voy a publicar una actualización importante de mi aplicación. Dicha actualizac
 En la siguiente tabla se exponen las características de continuidad del negocio de Base de datos SQL y se muestran sus diferencias entre los distintos [niveles de servicio](sql-database-service-tiers.md):
 
 | Capacidad | Nivel Basic | Nivel Standard |Nivel Premium
-| --- |--- | --- | ---
+| --- | --- | --- | ---
 | Restauración a un momento dado | Cualquier punto de restauración en 7 días | Cualquier punto de restauración en 35 días | Cualquier punto de restauración en 35 días
 | Restauración geográfica | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h
 | Replicación geográfica activa | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s

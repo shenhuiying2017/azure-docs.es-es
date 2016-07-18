@@ -31,7 +31,7 @@ Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR med
 
 ## Requisitos para la replicación de máquinas virtuales de Hyper-V
 
-**Componente** | **Replicación en Azure (con VMM)** | **Replicación en Azure (sin VMM)** | **Replicación en un sitio secundario (con VMM)**
+**Replicación en Azure (con VMM)** | **Replicación en Azure (sin VMM)** | **Replicación en un sitio secundario (con VMM)**
 ---|---|---|---
 **VMM** | Uno o más servidores VMM con System Center 2012 R2. El servidor VMM debe tener al menos una nube que contenga uno o más grupos de hosts VMM. | No aplicable | Al menos un servidor VMM que se ejecute en System Center 2012 R2. Se recomienda un servidor VMM en cada sitio. El servidor VMM debe tener al menos una nube que contenga uno o más grupos de hosts VMM. Las nubes deben tener establecido el perfil de funcionalidad de Hyper-V.
 **Hyper-V** | Uno o varios servidores host de Hyper-V en el centro de datos local con al menos Windows Server 2012 R2. El servidor de Hyper-V debe encontrarse en un grupo de hosts de una nube VMM. | Uno o varios servidores de Hyper-V en los sitios de origen y destino con al menos Windows Server 2012 R2. | Uno o varios servidores de Hyper-V en los sitios de origen y de destino con al menos Windows Server 2012 con las actualizaciones más recientes. El servidor de Hyper-V debe encontrarse en un grupo de hosts de una nube VMM.
@@ -85,7 +85,7 @@ Número de discos del sistema operativo | 1 | Se producirá un error en la compr
 Número de discos de datos | 16 o menos (el valor máximo es una función del tamaño de la máquina virtual que se está creando. 16 = XL) | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Tamaño de VHD del disco de datos | Hasta 1023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Adaptadores de red | Se admiten varios adaptadores |
-Dirección IP estática | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure. Tenga en cuenta que no se admite la dirección IP estática de una máquina virtual de Linux que se ejecuta en Hyper-v.
+Dirección IP estática | Compatible | Si la máquina virtual principal usa una dirección IP estática, puede especificar la dirección IP estática para la máquina virtual que se creará en Azure. Tenga en cuenta que no se admite la dirección IP estática de una máquina virtual de Linux que se ejecuta en Hyper-v. 
 Disco iSCSI | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 VHD compartido | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 Disco FC | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.

@@ -477,7 +477,7 @@ XML | String
 
 ## Sugerencias de solución de problemas
 
-**Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
+**Problema:** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
 
 **Causas posibles**
 
