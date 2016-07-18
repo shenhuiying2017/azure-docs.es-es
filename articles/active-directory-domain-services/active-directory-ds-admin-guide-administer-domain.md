@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Administración de un dominio administrado con Servicios de dominio de Azure Active Directory
@@ -146,4 +146,4 @@ Ahora que las herramientas administrativas de AD están instaladas en la máquin
 
 - [Implementar herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

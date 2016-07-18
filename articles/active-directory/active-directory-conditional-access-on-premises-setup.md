@@ -80,15 +80,15 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualizar el esquema de Servicios de dominio de Active Directory] (#Upgrade your Active Directory Domain Services Schema) |
-| Los dispositivos detectarán el servicio Registro de dispositivos de Azure Active Directory buscando registros DNS conocidos. Debe configurar el DNS de su compañía para que los dispositivos puedan detectar el servicio Registro de dispositivos de Azure Active Directory. | [Preparación de dispositivos de soporte de Active Directory] (#Prepare your Active Directory to support devices) |
+| Implemente el dominio de Servicios de dominio de Active Directory con las extensiones de esquema de Windows Server 2012 R2. No es preciso actualizar los controladores de dominio a Windows Server 2012 R2. El único requisito es la actualización del esquema. | [Actualización del esquema de Servicios de dominio de Active Directory](#upgrade-your-active-directory-domain-services-schema) |
+| Los dispositivos detectarán el servicio Registro de dispositivos de Azure Active Directory buscando registros DNS conocidos. Debe configurar el DNS de su compañía para que los dispositivos puedan detectar el servicio Registro de dispositivos de Azure Active Directory. | [Preparación de los dispositivos para la compatibilidad con Active Directory](#prepare-your-active-directory-to-support-devices) |
 
 
 ##Parte 3: habilitación de reescritura de dispositivos en Azure AD
 
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Complete la parte 2 de Habilitación de reescritura de dispositivos en Azure AD Connect. Tras la finalización, vuelva a esta guía. | [Habilitación de reescritura de dispositivos en Azure AD] (#Upgrade your Active Directory Domain Services Schema) |
+| Complete la parte 2 de Habilitación de reescritura de dispositivos en Azure AD Connect. Tras la finalización, vuelva a esta guía. | [Habilitación de escritura diferida de dispositivos en Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 
 ##[Opcional] Parte 4: Habilitar Multi-factor Authentication
@@ -102,10 +102,10 @@ La implementación ha finalizado. Ya puede probar algunos escenarios. Siga los v
 
 | Tarea | Referencia |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Conecte varios dispositivos al área de trabajo con el Registro de dispositivos de Azure Active Directory Puede conectar dispositivos iOS, Windows y Android | [Unir dispositivos a su área de trabajo con el registro de dispositivos de Azure Active Directory](#Join devices to your workplace using Azure Active Directory Device Registration) |
+| Conecte varios dispositivos al área de trabajo con el Registro de dispositivos de Azure Active Directory Puede conectar dispositivos iOS, Windows y Android | [Unión de dispositivos al área de trabajo mediante el Registro de dispositivos de Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | Los dispositivos registrados se pueden ver y habilitar o deshabilitar desde el Portal de administrador. En esta tarea verá algunos dispositivos registrados con el Portal de administrador. | [Descripción general sobre el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md) |
-| Compruebe que los objetos de dispositivo se reescriben desde Azure Active Directory a Windows Server Active Directory. | [Comprobar que los dispositivos registrados están reescritos en Active Directory] (#Verify registered devices are written-back to Active Director) |
-| Ahora que los usuarios pueden registrar sus dispositivos, puede crear en AD FS directivas de acceso a la aplicación que solo permitan dispositivos registrados. En esta tarea creará una regla de acceso a la aplicación y un mensaje de denegación de acceso personalizado | [Crear una directiva de acceso a una aplicación y un mensaje de acceso denegado personalizado] (#Create an application access policy and custom access denied message) |
+| Compruebe que los objetos de dispositivo se reescriben desde Azure Active Directory a Windows Server Active Directory. | [Comprobación de que los dispositivos registrados se reescriben en Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Ahora que los usuarios pueden registrar sus dispositivos, puede crear en AD FS directivas de acceso a la aplicación que solo permitan dispositivos registrados. En esta tarea creará una regla de acceso a la aplicación y un mensaje de denegación de acceso personalizado | [Creación de una directiva de acceso a aplicaciones y un mensaje personalizado de acceso denegado](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 
 
@@ -122,8 +122,7 @@ Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Ac
   3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
   
   > [AZURE.NOTE] 
-  Configurar la federación con AD FS como se describe en el documento vinculado arriba. 
-  No es preciso configurar las características de vista previa.
+  Configurar la federación con AD FS como se describe en el documento vinculado arriba. No es preciso configurar las características de vista previa.
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory
@@ -181,7 +180,7 @@ Donde `yourdomainname` es el nombre de dominio que se configuró con Azure Activ
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-Existen varias formas de comunicar la URL a los usuarios. Una forma que se recomienda consiste en publicar esta dirección URL en un mensaje personalizado de acceso denegado a la aplicación en AD FS. Esto se trata en la próxima sección: [Crear una directiva de acceso a una aplicación y un mensaje de acceso denegado personalizado] (#Create an application access policy and custom access denied message)
+Existen varias formas de comunicar la URL a los usuarios. Una forma que se recomienda consiste en publicar esta dirección URL en un mensaje personalizado de acceso denegado a la aplicación en AD FS. Este tema se trata en la siguiente sección: [Creación de una directiva de acceso a aplicaciones y mensaje personalizado de acceso denegado](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ###Unión de un dispositivo Windows 8.1 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
@@ -253,4 +252,4 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

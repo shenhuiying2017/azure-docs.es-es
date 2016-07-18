@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/05/2016"
    ms.author="heeldin;motanv"/>
 
 # Acciones de Testability
@@ -95,7 +95,7 @@ El resultado del primer **Get ServiceFabricNode** (un cmdlet del módulo de Powe
 
 La ejecución de una acción de Testability (mediante el uso de PowerShell) en un clúster de Azure es similar a la ejecución de la acción en un clúster local. La única diferencia es que, para poder ejecutar la acción, en lugar de conectarse al clúster local, debe conectarse primero al clúster de Azure.
 
-## Ejecución de una acción de Testability con C&#35; 
+## Ejecución de una acción de Testability con C&#35;
 
 Para ejecutar una acción de Testability con C#, primero es preciso conectarse al clúster mediante FabricClient. A continuación, hay que obtener los parámetros necesarios para ejecutar la acción. Se pueden usar distintos parámetros para ejecutar la misma acción. Examinando la acción RestartServiceFabricNode, una forma de ejecutarla es usar la información (nombre del nodo e Id. de instancia de nodo) del nodo en el clúster.
 
@@ -105,7 +105,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Explicación de parámetros:
 
-- **CompleteMode** especifica que el modo no debe comprobar si la acción de reinicio se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente.  
+- **CompleteMode** especifica que el modo no debe comprobar si la acción de reinicio se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente.
 - **OperationTimeout**: establece la cantidad de tiempo que falta para que la operación finalice antes de que se inicie una excepción TimeoutException.
 - **CancellationToken**: permite cancelar una llamada pendiente.
 
@@ -236,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Simulación de errores durante las cargas de trabajo del servicio](service-fabric-testability-workload-tests.md)
    - [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>
 
 # Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute 
@@ -21,7 +21,7 @@
 ## Información general ##
 Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a su infraestructura de red virtual, lo que permite ampliar la red local a Azure. Se puede crear un entorno del Servicio de aplicaciones en una subred de esta infraestructura de [red virtual][virtualnetwork]. Las aplicaciones que se ejecutan en el entorno del Servicio de aplicaciones pueden establecer conexiones seguras con los recursos backend a los que solo se puede tener acceso través de la conexión ExpressRoute.
 
-**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2". En estos momentos, los entornos del Servicio de aplicaciones solo funcionan con las redes virtuales clásicas "v1" que emplean un espacio de direcciones de RFC1918 (es decir, direcciones privadas).
+**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2". Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen o intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -140,4 +140,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

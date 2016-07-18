@@ -32,7 +32,7 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 - [Configuración de una contraseña para que caduque](#set-a-password-to-expire)
 
-- [Configuración de una contraseña para que no caduque](#set-a-password-not-to-expire)
+- [Configuración de una contraseña para que no caduque](#set-a-password-to-never-expire)
 
 ## Comprobación de la directiva de caducidad de una contraseña
 
@@ -64,4 +64,4 @@ Para usar los cmdlets de Windows PowerShell, primero debe instalarlos.
 
 	- Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

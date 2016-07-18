@@ -79,4 +79,8 @@ Las dos nuevas áreas Canadá central y Canadá oriental no se registran automá
 
 Sí. Para crear rápidamente una máquina virtual Linux de prueba, consulte [Creación de una máquina virtual de Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+## ¿Puedo agregar una NIC a mi máquina virtual después de crearla?
+
+No. Esta operación no se puede llevar a cabo actualmente en el momento de la creación.
+
+<!---HONumber=AcomDC_0706_2016-->

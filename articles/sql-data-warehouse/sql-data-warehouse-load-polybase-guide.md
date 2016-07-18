@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="06/30/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -180,9 +180,7 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 <!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Carga de datos con PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[solution partners]: ./sql-data-warehouse-solution-partners.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Estadísticas]: ./sql-data-warehouse-develop-statistics.md
+[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
 [información general sobre la migración de datos]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
@@ -208,4 +206,4 @@ Para obtener más información acerca de cómo mover datos al Almacenamiento de 
 
 <!-- External Links -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

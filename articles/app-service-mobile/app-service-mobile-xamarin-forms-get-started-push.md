@@ -330,43 +330,14 @@ Esta sección trata de la ejecución del proyecto de iOS de Xamarin para disposi
 
 ####Incorporación de notificaciones push a la aplicación iOS
 
-1. Agregue la siguiente instrucción `using` al principio del archivo **AppDelegate.cs**.
+1. En el proyecto **iOS**, abra AppDelegate.cs, agregue la siguiente instrucción **using** en la parte superior del archivo de código.
 
-        using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Newtonsoft.Json.Linq;
 
+4. En la clase **AppDelegate**, agregue una invalidación para el evento **RegisteredForRemoteNotifications** con el fin de registrar las notificaciones:
 
-2. En el proyecto de iOS, abra el archivo AppDelegate.cs y actualice `FinishedLaunching` para admitir notificaciones remotas como se indica a continuación.
-
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-
-            // IMPORTANT: uncomment this code to enable sync on Xamarin.iOS
-            // For more information, see: http://go.microsoft.com/fwlink/?LinkId=620342
-            //SQLitePCL.CurrentPlatform.Init();
-
-            // registers for push for iOS8
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert
-                | UIUserNotificationType.Badge
-                | UIUserNotificationType.Sound,
-                new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-
-			LoadApplication (new App ());
-
-			return base.FinishedLaunching (app, options);
-		}
-
-
-4. En el archivo AppDelegate.cs, agregue también una invalidación para el evento **RegisteredForRemoteNotifications** a fin de registrar las notificaciones:
-
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        public override void RegisteredForRemoteNotifications(UIApplication application, 
+			NSData deviceToken)
         {
             const string templateBodyAPNS = "{"aps":{"alert":"$(messageParam)"}}";
 
@@ -381,9 +352,10 @@ Esta sección trata de la ejecución del proyecto de iOS de Xamarin para disposi
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. En el archivo AppDelegate.cs, agregue también una invalidación para el evento **DidReceivedRemoteNotification** a fin de controlar las notificaciones entrantes mientras se ejecuta la aplicación:
+5. En **AppDelegate**, agregue también la invalidación siguiente para el controlador de eventos **DidReceivedRemoteNotification**.
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
+        public override void DidReceiveRemoteNotification(UIApplication application, 
+			NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
 
@@ -399,13 +371,29 @@ Esta sección trata de la ejecución del proyecto de iOS de Xamarin para disposi
             }
         }
 
+	Este método controla las notificaciones entrantes mientras se ejecuta la aplicación.
+
+2. En la clase **AppDelegate**, agregue el siguiente código al método **FinishedLaunching**:
+
+        // Register for push notifications.
+        var settings = UIUserNotificationSettings.GetSettingsForTypes(
+            UIUserNotificationType.Alert
+            | UIUserNotificationType.Badge
+            | UIUserNotificationType.Sound,
+            new NSSet());
+
+        UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+        UIApplication.SharedApplication.RegisterForRemoteNotifications();
+
+	Tras esto, se habilita la compatibilidad con las notificaciones remotas y el registro de inserción de solicitudes.
+
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
 ####Prueba de las notificaciones push en su aplicación de iOS
 
 1. Haga clic con el botón derecho en el proyecto de iOS y haga clic en **Establecer como proyecto de inicio**.
 
-2. Presione el botón **Ejecutar** o **F5** en Visual Studio para compilar el proyecto e iniciar la aplicación en un dispositivo iOS. Luego haga clic en **Aceptar** para aceptar las notificaciones push.
+2. Haga clic en el botón **Ejecutar** o presione la tecla **F5** en Visual Studio para compilar el proyecto e iniciar la aplicación en un dispositivo iOS. Luego, haga clic en **Aceptar** para aceptar las notificaciones push.
 
 	> [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
@@ -468,7 +456,7 @@ Esta sección está dedicada a la ejecución de los proyectos WinApp y WinPhone8
 
 	Este método obtiene el canal de notificación push y registra una plantilla para recibir notificaciones de plantilla desde el Centro de notificaciones. Se entregará a este cliente una notificación de plantilla que admita *messageParam*.
 
-3. En App.xaml.cs, actualice la definición del método de controlador de eventos **OnLaunched** con la adición del modificador `async`, y agregue la siguiente línea de código al final del método:
+3. En App.xaml.cs, actualice la definición del método de controlador de eventos **OnLaunched** con la adición del modificador `async` y agregue la siguiente línea de código al final del método:
 
         await InitNotificationsAsync();
 
@@ -493,13 +481,13 @@ Esta sección está dedicada a la ejecución de los proyectos WinApp y WinPhone8
 
 Más información acerca de las notificaciones push:
 
-* [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) Las etiquetas permiten dirigirse a clientes segmentados con inserciones. Aprenda a agregar etiquetas a la instalación de un dispositivo.
+* [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags): las etiquetas permiten dirigirse a clientes segmentados con inserciones. Aprenda a agregar etiquetas a la instalación de un dispositivo.
 
-* [Diagnosticar problemas de notificaciones push](../notification-hubs/notification-hubs-push-notification-fixer.md) Existen varias razones para que las notificaciones se pierdan o no lleguen a los dispositivos. En este tema se muestra cómo analizar y descubrir la causa principal de los errores de notificación push.
+* [Diagnosticar problemas de notificaciones push](../notification-hubs/notification-hubs-push-notification-fixer.md): existen varias razones para que las notificaciones se pierdan o no lleguen a los dispositivos. En este tema se muestra cómo analizar y descubrir la causa principal de los errores de notificación de inserción.
 
 También podría continuar con uno de los siguientes tutoriales:
 
-* [Agregar autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Agregar autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md): aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md) (Habilitación de la sincronización sin conexión para su aplicación): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red.
 
@@ -510,4 +498,4 @@ También podría continuar con uno de los siguientes tutoriales:
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

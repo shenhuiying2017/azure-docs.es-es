@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Uso del Almacén de claves de Azure desde una aplicación web #
@@ -97,7 +97,8 @@ A continuación se muestra el código para obtener un token de acceso de Azure A
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE] La forma más sencilla de autenticar una aplicación de Azure AD es mediante un secreto de cliente que use un Id. de cliente y un secreto del cliente. Y su uso en una aplicación web permite la separación de deberes y proporciona mayor control sobre la administración de claves. Pero se basa en colocar el secreto de cliente en las opciones de configuración, lo que, para algunos, puede ser tan arriesgado como poner el secreto que se desea proteger en las opciones de configuración. A continuación encontrará información sobre el uso de un Id. de cliente y un certificado, en lugar de un Id. de cliente y un secreto de cliente para autenticar la aplicación de Azure AD.
+> [AZURE.NOTE] 
+La forma más sencilla de autenticar una aplicación de Azure AD es mediante un secreto de cliente y un identificador de cliente. Y su uso en una aplicación web permite la separación de deberes y proporciona mayor control sobre la administración de claves. Pero se basa en colocar el secreto de cliente en las opciones de configuración, lo que, para algunos, puede ser tan arriesgado como poner el secreto que se desea proteger en las opciones de configuración. A continuación encontrará información sobre el uso de un Id. de cliente y un certificado, en lugar de un Id. de cliente y un secreto de cliente para autenticar la aplicación de Azure AD.
 
 
 
@@ -228,7 +229,7 @@ El último cambio de código se da en el método Application\_Start. En primer l
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 
 
-**Agregar un certificado a la aplicación web** La adición de un certificado a una aplicación web es un sencillo proceso de dos pasos. En primer lugar, vaya al Portal de Azure y navegue a la aplicación web. En la hoja Configuración de la aplicación web, haga clic en la entrada de "Dominios personalizados y SSL". En la hoja que se abre podrá cargar el certificado que creó anteriormente, KVWebApp.pfx, asegúrese de que recuerda la contraseña del archivo pfx.
+**Agregar un certificado a la aplicación web a través del Portal de Azure** La adición de un certificado a una aplicación web es un sencillo proceso de dos pasos. En primer lugar, vaya al Portal de Azure y navegue a la aplicación web. En la hoja Configuración de la aplicación web, haga clic en la entrada de "Dominios personalizados y SSL". En la hoja que se abre podrá cargar el certificado que creó anteriormente, KVWebApp.pfx, asegúrese de que recuerda la contraseña del archivo pfx.
 
 ![Adición de un certificado a una aplicación web en el Portal de Azure][2]
 
@@ -236,6 +237,9 @@ El último cambio de código se da en el método Application\_Start. En primer l
 Lo último que debe hacer es agregar una configuración de aplicación a la aplicación web cuyo nombre es WEBSITE\_LOAD\_CERTIFICATES y su valor es *. Esto garantizará que se cargan todos los certificados. Si desea cargar solo los certificados que ha cargado, puede escribir una lista separada por comas de sus huellas digitales.
 
 Para obtener más información sobre cómo agregar un certificado a una aplicación Web, consulte [Uso de certificados en las aplicaciones de Sitios web de Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+
+
+**Agregue un certificado al almacén de claves como un secreto** En lugar de cargar el certificado directamente al servicio de aplicación web, puede almacenarlo en el almacén de claves como un secreto e implementarlo desde allí. Este es un proceso de dos pasos que se describe en la siguiente entrada de blog [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implementación del certificado de la aplicación web de Azure a través del almacén de claves).
 
 
 
@@ -249,4 +253,4 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

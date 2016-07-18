@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/22/2016"
-   ms.author="rickbyh"/>
+   ms.date="07/05/2016"
+   ms.author="carlrab"/>
 
 # Supervisión de Base de datos SQL de Azure con vistas de administración dinámica
 
@@ -33,7 +33,7 @@ Para obtener información detallada sobre las vistas de administración dinámic
 
 En Base de datos SQL, para realizar consultas en una vista de administración dinámica se requiere disponer de permisos **VIEW DATABASE STATE**. El permiso **VIEW DATABASE STATE** devuelve información sobre todos los objetos de la base de datos actual. Para conceder el permiso **VIEW DATABASE STATE** a un usuario de base de datos en concreto, ejecute la consulta siguiente:
 
-```GRANT VIEW DATABASE STATE TO database_user;```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 En una instancia de SQL Server local, las vistas de administración dinámica devuelven la información de estado del servidor. En Base de datos SQL, devuelven información relativa únicamente a la base de datos lógica actual.
 
@@ -42,7 +42,7 @@ En una instancia de SQL Server local, las vistas de administración dinámica de
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
--- Calcula el tamaño de la base de datos. SELECT 
+-- Calculates the size of the database.
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

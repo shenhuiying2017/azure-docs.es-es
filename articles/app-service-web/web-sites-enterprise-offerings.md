@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2016" 
+	ms.date="06/29/2016" 
 	ms.author="anwestg"/>
 
 # Notas del producto sobre ofertas de Aplicaciones web del Servicio de aplicaciones de Azure para empresas #
@@ -47,9 +47,9 @@ Aplicaciones web del Servicio de aplicaciones es una buena opción para hospedar
 
 Un enfoque alternativo es hacer uso de su inversión existente local. En el escenario de ejemplo, un sistema de gastos de empleados, puede que le interese mantener el almacén de datos dentro de su propia infraestructura interna. Esto podría ser para la integración con sistemas internos (informes, nóminas, facturación, etc.) o para satisfacer un requisito de administración de TI. Aplicaciones web proporciona una serie de métodos que le permiten conectarse a su infraestructura local:
 
-- [Entornos del servicio de aplicaciones](app-service-app-service-environment-intro.md) : los entornos del servicio de aplicaciones (ASE) son una nueva característica premium que se agregó recientemente a la oferta del servicio de aplicaciones de Microsoft Azure. ASE proporcionan un entorno plenamente aislado y dedicado para ejecutar aplicaciones del Servicio de aplicaciones de Azure de forma segura a gran escala, al mismo tiempo que ofrece aislamiento y acceso seguro a redes   
-- [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md): Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Aplicaciones web conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados. 
-- [Integración de red virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): Integración de Aplicaciones web con Red virtual de Azure le permite conectar su aplicación web a una red virtual de Azure que, a su vez, se puede conectar a la infraestructura local través de una VPN de sitio a sitio. 
+- [Entornos del servicio de aplicaciones](app-service-app-service-environment-intro.md) : los entornos del servicio de aplicaciones (ASE) son una nueva característica premium que se agregó recientemente a la oferta del servicio de aplicaciones de Microsoft Azure. ASE proporcionan un entorno plenamente aislado y dedicado para ejecutar aplicaciones del Servicio de aplicaciones de Azure de forma segura a gran escala, al mismo tiempo que ofrece aislamiento y acceso seguro a redes
+- [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md): Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Aplicaciones web conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados.
+- [Integración de red virtual](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/): Integración de Aplicaciones web con Red virtual de Azure le permite conectar su aplicación web a una red virtual de Azure que, a su vez, se puede conectar a la infraestructura local través de una VPN de sitio a sitio.
 
 En los diagramas siguientes se describe un ejemplo de solución de alto nivel con opciones de conectividad para recursos locales. En el primer ejemplo se muestra cómo se puede conseguir esto con características estándar del Servicio de aplicaciones de Azure y, en el segundo, cómo se puede conseguir con la oferta premium de los entornos del Servicio de aplicaciones.
 
@@ -110,11 +110,11 @@ El primer paso de toda la solución para mover una aplicación de línea de nego
 Cuando se migra una aplicación desde un entorno local, debe tener en mente algunas restricciones de Aplicaciones web. A continuación presentamos algunos temas clave que se deben tener en cuenta al migrar aplicaciones web a Aplicaciones web ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
 
 -	Enlaces de puerto: Aplicaciones web solo admite el puerto 80 para el tráfico HTTP y el puerto 443 para el tráfico HTTPS. Si su aplicación usa cualquier otro puerto, entonces una vez migrada la aplicación asegúrese de usar el puerto 80 para HTTP y el puerto 443 para el tráfico HTTPS. Este suele ser un problema sin consecuencias, ya que, en implementaciones locales, es habitual usar distintos puertos para evitar el uso de nombres de dominio, especialmente en entornos de desarrollo y pruebas.
--	Autenticación: Aplicaciones web admite la autenticación anónima de forma predeterminada y la autenticación mediante formularios según se identifica por una aplicación. Aplicaciones web puede ofrecer autenticación de Windows cuando la aplicación se integra con Azure Active Directory y ADFS solamente. Se trata de una característica que se describe con más detalle [aquí](http://aka.ms/azurebizapp) 
+-	Autenticación: Aplicaciones web admite la autenticación anónima de forma predeterminada y la autenticación mediante formularios según se identifica por una aplicación. Aplicaciones web puede ofrecer autenticación de Windows cuando la aplicación se integra con Azure Active Directory y ADFS solamente. Se trata de una característica que se describe con más detalle [aquí](http://aka.ms/azurebizapp)
 -	Ensamblados basados en caché global de ensamblados: Aplicaciones web no permite la implementación de ensamblados en la memoria caché global de ensamblados, por lo que si la aplicación o que se está migrando usa esta característica de forma local, considere la posibilidad de mover los ensamblados a la carpeta de la papelera de dicha aplicación.
 -	Modo de compatibilidad con IIS5: Aplicaciones web no admite el modo de compatibilidad con IIS5 y, como tal, cada instancia de Aplicaciones web y todas las aplicaciones que se encuentran bajo la instancia primaria de Aplicaciones web se ejecutan en el mismo proceso de trabajo dentro de un único grupo de aplicaciones.
 -	Uso de bibliotecas COM: Aplicaciones web no permite el registro de componentes COM en la plataforma, por lo tanto, si la aplicación usa cualquiera de los componentes COM, estos necesitarían reescribirse en código administrado e implementarse con la aplicación.
--	Filtros ISAPI: los filtros ISAPI se pueden admitir en Aplicaciones web y necesitarán implementarse como parte de la aplicación y registrarse en el archivo web.config de dicha aplicación web. Para obtener más información, consulte [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md). 
+-	Filtros ISAPI: los filtros ISAPI se pueden admitir en Aplicaciones web y necesitarán implementarse como parte de la aplicación y registrarse en el archivo web.config de dicha aplicación web. Para obtener más información, consulte [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md).
 
 Una vez que estos temas se han tenido en cuenta, la aplicación web deberá estar lista para la nube. Y no se preocupe si algunos temas no se cumplen totalmente; la herramienta de migración hará todo lo posible para la migración.
 
@@ -159,4 +159,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

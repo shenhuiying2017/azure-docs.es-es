@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,42 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
 
 Con Azure Active Directory (AD), un administrador global (o un administrador de empresa) puede actualizar a los usuarios que están asignados **permanentemente** a roles en Azure AD. Para ello, se usan cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`. O bien, se puede utilizar el Portal de Azure clásico, como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
 
-La aplicación Privileged Identity Management de Azure AD permite también a los administradores de roles con privilegios realizar asignaciones de roles permanentes. Asimismo, les permite agregar o quitar candidatos de la asignación **temporal** a estos roles. Un candidato puede activar el rol cuando lo necesita y, cuando termina, sus permisos caducan.
+La aplicación Privileged Identity Management de Azure AD permite también a los administradores de roles con privilegios realizar asignaciones de roles permanentes. También, les permite realizar asignaciones temporales de roles y convertir a los usuarios en **aptos** para un rol. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan.
 
 ## Administración de roles con PIM en el Portal de Azure
 
-En su organización, puede asignar a los usuarios a roles administrativos diferentes en Azure AD. Estas asignaciones de roles controlan qué tareas, como agregar y quitar usuarios o cambiar la configuración de los servicios, pueden realizar los usuarios en Azure AD, Office 365 y otros servicios y aplicaciones de Microsoft. Encontrará más detalles sobre los roles disponibles en [Privileged Identity Management de Azure AD: Roles](active-directory-privileged-identity-management-roles.md).
+En su organización, puede asignar a los usuarios roles administrativos diferentes en Azure AD, Office 365 y otros servicios y aplicaciones de Microsoft. Encontrará más detalles sobre los roles disponibles en [Privileged Identity Management de Azure AD: Roles](active-directory-privileged-identity-management-roles.md).
 
-Para agregar a un usuario a un rol o quitar un usuario de un rol con Privileged Identity Management, abra el panel de PIM y haga clic en el botón **Usuarios en roles de administrador**, o seleccione un rol específico (como Administrador global) de la tabla de roles.
+Para agregar un usuario a un rol o quitarlo de un rol mediante Privileged Identity Management, abra el panel de PIM y haga clic en el botón **Usuarios en roles de administrador**, o seleccione un rol específico (como Administrador global) de la tabla de roles.
 
 > [AZURE.NOTE] Si aún no ha habilitado PIM en el Portal de Azure, vaya a [Introducción a Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) para más información.
 
 Si desea dar a otro usuario acceso a PIM, los roles que debe tener el usuario para PIM se describen con más detalle en [How to give access to manage Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-give-access-to-pim.md) (Cómo proporcionar acceso para administrar Privileged Identity Management de Azure AD).
 
 ## Adición de un usuario a un rol
-Cuando haya llegado a la hoja de roles, bien mediante la selección de un rol en el panel de PIM de Azure AD o con un clic en el botón **Usuarios en roles de administrador**,
 
-1. Haga clic en **Agregar**.
-  - Si para llegar aquí hizo clic en un rol de usuario en la hoja de roles, el rol ya estará seleccionado.  
-  - Si no, haga clic en **Seleccionar un rol** y elija un rol de la lista de roles. Por ejemplo, **Administrador de contraseñas**.
-2. Busque al usuario en la hoja **Seleccionar usuarios**. Si el usuario está en el directorio, su cuenta aparecerá mientras escribe.
-3. Seleccione el usuario en la lista de resultados de búsqueda y haga clic en **Listo**.
-4. Haga clic en **Aceptar** para guardar la selección. El usuario que seleccionó aparecerá en la lista y el rol será temporal de forma predeterminada.
+1. En el [Portal de Azure](https://portal.azure.com/), seleccione el icono **Privileged Identity Management de Azure AD** en el panel.
+2. Seleccione **Administrar roles con privilegios**.
+3. En la tabla **Resumen de roles**, seleccione el rol que quiere administrar.
+4. En la hoja de rol, seleccione **Agregar**.
+5. Haga clic en **Seleccionar usuarios** y busque el usuario en la hoja **Seleccionar usuarios**.
+6. Seleccione el usuario en la lista de resultados de búsqueda y haga clic en **Listo**.
+4. Haga clic en **Aceptar** para guardar la selección. El usuario que ha seleccionado aparecerá en la lista como apto para el rol.
 
-  >[AZURE.NOTE] Si quiere que el rol sea permanente, haga clic en el usuario en la lista. La información del usuario aparecerá en una nueva hoja. Seleccione **convertir en permanente** en el menú de información de usuario. Deberá hacer esto si el usuario no se puede registrar en Azure Multi-Factor Authentication (MFA) o si usa una cuenta de Microsoft. Los administradores temporales deben registrarse en MFA durante la activación.
+> [AZURE.NOTE]
+Los nuevos usuarios de un rol solo son aptos para el rol de forma predeterminada. Si quiere que el rol sea permanente, haga clic en el usuario en la lista. La información del usuario aparecerá en una nueva hoja. Seleccione **Establecer como permanente** en el menú de información de usuario. Si un usuario no puede registrarse para Azure Multi-Factor Authentication (MFA) o usa una cuenta de Microsoft (normalmente @outlook.com), deberá establecerlo como permanente en todos sus roles. Los administradores temporales deben registrarse en MFA durante la activación.
 
-Ahora que se ha asignado al usuario a un rol temporal, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Privileged Identity Management de Azure AD: Activación y desactivación de un rol](active-directory-privileged-identity-management-how-to-activate-role.md).
+Ahora que se ha asignado al usuario a un rol temporal, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación y desactivación de un rol](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ## Eliminación de un usuario de un rol
 
-Puede quitar a los usuarios de las asignaciones de rol temporal, pero asegúrese de que siempre haya al menos un usuario que sea un administrador global permanente.
+Puede quitar a los usuarios de las asignaciones de rol apto, pero asegúrese de que siempre haya al menos un usuario que sea un administrador global permanente.
 
 Siga estos pasos para quitar a un usuario específico de un rol:
 
@@ -64,4 +65,4 @@ Si no está seguro de si los usuarios necesitan aún sus asignaciones de roles, 
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

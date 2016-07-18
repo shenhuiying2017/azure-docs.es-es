@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Introducción a las API de análisis de texto para detectar opiniones, frases clave, temas e idioma
@@ -24,7 +24,7 @@ En este documento se explica cómo incorporar su servicio o aplicación para usa
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
-Esta guía se refiere a la versión 2 de las API. Para obtener detalles sobre la versión 1 de las API, [consulte este documento](../machine-learning-apps-text-analytics/).
+Esta guía se refiere a la versión 2 de las API. Para obtener detalles sobre la versión 1 de las API, [consulte este documento](../machine-learning/machine-learning-apps-text-analytics.md).
 
 Al final de este tutorial, podrá detectar lo siguiente mediante programación:
 
@@ -66,22 +66,32 @@ Es fácil detectar opiniones, frases clave e idiomas en el texto. Obtendrá de m
 
 >[AZURE.TIP] En el caso del análisis de opiniones, se recomienda dividir el texto en oraciones. Generalmente, esto lleva a una mayor precisión en las predicciones de opiniones.
 
+Tenga en cuenta que los idiomas admitidos son los siguientes:
+
+| Característica | Códigos de idioma admitidos |
+|:-----|:----|
+| Opinión | `en` (Inglés), `es` (Español), `fr` (Francés), `pt` (Portugués) |
+| Frases clave | `en` (Inglés), `es` (Español), `de` (Alemán), `ja` (Japonés) |
+
+
 1. Deberá definir los encabezados en lo siguiente. Tenga en cuenta que JSON actualmente es el único formato de entrada aceptado para las API. XML no se admite.
 
 		Ocp-Apim-Subscription-Key: <your API key>
 		Content-Type: application/json
 		Accept: application/json
 
-1. A continuación, aplique el formato JSON a las filas de entrada. El formato es el mismo para las opiniones, las frases clave y el idioma. Tenga en cuenta que cada id. debe ser único y será el id. que el sistema devuelva. El tamaño máximo de un documento que se puede enviar es de 10 KB y el tamaño máximo total de las entradas enviadas es de 1 MB. No se pueden enviar más de 1 000 documentos en una llamada. El siguiente es un ejemplo de entrada:
+1. A continuación, aplique el formato JSON a las filas de entrada. El formato es el mismo para las opiniones, las frases clave y el idioma. Tenga en cuenta que cada id. debe ser único y será el id. que el sistema devuelva. El tamaño máximo de un documento que se puede enviar es de 10 KB y el tamaño máximo total de las entradas enviadas es de 1 MB. No se pueden enviar más de 1 000 documentos en una llamada. Lenguaje es un parámetro opcional que se debe especificar si se analiza texto en un idioma que no es el inglés. A continuación, se muestra un ejemplo de la entrada, donde se ha incluido el parámetro opcional `language` para analizar opiniones o extraer frases clave:
 
 		{
 			"documents": [
 				{
+					"language": "en",
 					"id": "1",
 					"text": "First document"
 				},
                 ...
                 {
+					"language": "en",
 					"id": "100",
 					"text": "Final document"
 				}
@@ -153,7 +163,6 @@ Es fácil detectar opiniones, frases clave e idiomas en el texto. Obtendrá de m
 			]
 		}
 
-        
 
 ## Tarea 3: Detectar temas en el cuerpo del texto ####
 
@@ -206,7 +215,7 @@ Siga estos pasos para detectar temas en el texto.
 
 		{
 			"status": "succeeded",
-			"processingResult": {
+			"operationProcessingResult": {
 			  	"topics": [
                     {
 					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
@@ -284,4 +293,4 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 ¡Enhorabuena! Completó el tutorial sobre cómo usar el análisis de textos en sus datos. Es posible que ahora quiera obtener información sobre una herramienta como [Power BI](//powerbi.microsoft.com) para visualizar los datos, así como automatizar la información para brindarle una vista de los datos de texto en tiempo real.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

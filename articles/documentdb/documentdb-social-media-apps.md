@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="mimig"/>
 
 # Redes sociales y DocumentDB
@@ -107,6 +107,33 @@ Los flujos de fuente se pueden generar mediante procesos en segundo plano del [S
 
 La puntuación y los "me gusta" de una publicación se pueden procesar de manera aplazada usando esta misma técnica para crear un entorno coherente.
 
+Con los seguidores es más complicado. DocumentDB tiene un límite de tamaño de documentos de 512 kB, por lo que debería plantearse almacenar los seguidores como un documento con esta estructura:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"followersOf": "dse4-qwe2-ert4-aad2",
+    	"followers":[
+    		"ewr5-232d-tyrg-iuo2",
+    		"qejh-2345-sdf1-ytg5",
+    		//...
+    		"uie0-4tyg-3456-rwjh"
+    	]
+    }
+
+Este enfoque podría funcionar con un usuario que tenga unos miles de seguidores, pero si se trata de una persona famosa, terminaría superándose el límite de tamaño de documentos.
+
+Para solucionar esto, podemos adoptar un enfoque mixto. Como parte del documento Estadísticas de usuario, podemos almacenar el número de seguidores:
+
+    {
+    	"id":"234d-sd23-rrf2-552d",
+    	"user": "dse4-qwe2-ert4-aad2",
+    	"followers":55230,
+    	"totalPosts":452,
+    	"totalPoints":11342
+    }
+
+Asimismo, el gráfico real de seguidores puede almacenarse en tablas de almacenamiento de Azure con una [extensión](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) que posibilite unos procesos de almacenamiento y recuperación sencillos tipo "A sigue a B". De este modo, se puede delegar el proceso de recuperación de la lista de seguidores exacta (cuando se necesite) en las tablas de almacenamiento de Azure; sin embargo, para realizar una búsqueda rápida de números, seguimos utilizando DocumentDB.
+
 ## El modelo "Escalera" y la duplicación de datos
 
 Como habrá observado en el documento JSON que hace referencia a una publicación, hay varias apariciones de un usuario. Y, como ya habrá imaginado, esto significa que la información que representa a un usuario, dada esta desnormalización, puede existir en más de un lugar.
@@ -141,21 +168,26 @@ El paso intermedio se denomina usuario: son todos los datos que se usarán en la
 
 El mayor es el usuario extendido. Incluye toda la información crítica del usuario además de otros datos que no es necesario leer rápidamente o cuyo uso es eventual (como el proceso de inicio de sesión). Estos datos pueden almacenarse fuera de DocumentDB, en la base de datos SQL de Microsoft Azure o en tablas de almacenamiento de Azure.
 
-¿Por qué habríamos de dividir el usuario e incluso almacenar esta información en diferentes lugares? Porque el espacio de almacenamiento en DocumentDB no es infinito y, desde el punto de vista del rendimiento, cuanto mayores sean los documentos, más costosas serán las consultas. No sobrecargue los documentos; que tengan la información adecuada para realizar todas las consultas dependientes del rendimiento de la red social, y almacene el resto de la información adicional para escenarios eventuales, como modificaciones del perfil completo, inicios de sesión e incluso minería de datos para análisis de uso e iniciativas de macrodatos. No nos importa que la recopilación de información para minería de datos sea lenta, ya que se ejecuta en la Base de datos SQL de Microsoft Azure. Lo que sí nos importa es que los usuarios tengan una experiencia rápida y ligera. La apariencia de un usuario almacenado en DocumentDB sería la siguiente:
+¿Por qué habríamos de dividir el usuario e incluso almacenar esta información en diferentes lugares? Porque el espacio de almacenamiento en DocumentDB [no es infinito](documentdb-limits.md) y, desde el punto de vista del rendimiento, cuanto mayores sean los documentos, más costosas serán las consultas. No sobrecargue los documentos; que tengan la información adecuada para realizar todas las consultas dependientes del rendimiento de la red social, y almacene el resto de la información adicional para escenarios eventuales, como modificaciones del perfil completo, inicios de sesión e incluso minería de datos para análisis de uso e iniciativas de macrodatos. No nos importa que la recopilación de información para minería de datos sea lenta, ya que se ejecuta en la Base de datos SQL de Microsoft Azure. Lo que sí nos importa es que los usuarios tengan una experiencia rápida y ligera. La apariencia de un usuario almacenado en DocumentDB sería la siguiente:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
         "surname":"Doe",
+        "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john",
-        "totalPoints":100,
-        "totalPosts":24,
-        "following":{
-            "count":2,
-            "list":[
-                UserChunk1, UserChunk2
-            ]
+        "twitterHandle":"@john"
+    }
+
+Asimismo, una solicitud Post tendría el aspecto siguiente:
+
+    {
+        "id":"1234-asd3-54ts-199a",
+        "title":"Awesome post!",
+        "date":"2016-01-02",
+        "createdBy":{
+        	"id":"dse4-qwe2-ert4-aad2",
+    		"username":"johndoe"
         }
     }
 
@@ -165,13 +197,13 @@ Si se produce una modificación que afecte a uno de los atributos del fragmento,
 
 Los usuarios generarán, con suerte, una gran cantidad de contenido. Debemos proporcionar la capacidad de buscar y encontrar contenido que podría no estar directamente en los flujos de contenido de los usuarios, quizás porque no siguen a los creadores o quizás porque están buscando una publicación antigua de hace seis meses.
 
-Afortunadamente, y gracias a que estamos usando Azure DocumentDB, podemos implementar fácilmente un motor de búsqueda con [Búsqueda de Azure](https://azure.microsoft.com/services/search/) en un par de minutos y sin escribir una sola línea de código (aparte de, obviamente, el proceso de búsqueda y la interfaz de usuario).
+Afortunadamente, y gracias a que estamos usando Azure DocumentDB, podemos implementar fácilmente un motor de búsqueda con [Búsqueda de Azure](https://azure.microsoft.com/services/search/) en un par de minutos, y sin escribir una sola línea de código (aparte de, obviamente, el proceso de búsqueda y la interfaz de usuario).
 
 ¿Por qué es tan fácil?
 
-Búsqueda de Azure implementa lo que llaman [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Base de datos SQL de Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Azure DocumentDB](../documentdb/documentdb-search-indexer.md). La transición de información de DocumentDB a Búsqueda de Azure es sencilla porque ambos almacenan la información en formato JSON; tan solo debemos [crear nuestro índice](../search/search-create-index-portal.md) y asignar los atributos de los documentos que deseamos indexar. Y ya está, en cuestión de minutos (según el tamaño de los datos), todo el contenido estará disponible para buscarse con la mejor solución de búsqueda como servicio en la infraestructura de nube.
+Búsqueda de Azure implementa lo que llaman "[indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx)"; es decir, procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Base de datos SQL de Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Azure DocumentDB](../documentdb/documentdb-search-indexer.md). La transición de información de DocumentDB a Búsqueda de Azure es sencilla porque ambos almacenan la información en formato JSON; tan solo debemos [crear nuestro índice](../search/search-create-index-portal.md) y asignar los atributos de los documentos que deseamos indexar. En cuestión de minutos (según el tamaño de los datos), todo el contenido estará disponible para buscarse con la mejor solución de búsqueda como servicio en la infraestructura de nube.
 
-Para obtener más información sobre Búsqueda de Azure, puede visitar la guía [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Para obtener más información sobre Búsqueda de Azure, puede consultar la guía [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/) (Guía de búsqueda de Hitchhiker).
 
 ## La información subyacente
 
@@ -179,11 +211,13 @@ Después de almacenar todo este contenido que crece y crece diariamente, podría
 
 La respuesta es sencilla: póngala a trabajar y aprenda de ella.
 
-Pero, ¿qué podemos aprender? Por ejemplo, [análisis de opinión](https://en.wikipedia.org/wiki/Sentiment_analysis), recomendaciones de contenido según las preferencias de un usuario o incluso un moderador automatizado que garantiza que todo el contenido publicado por nuestra red social sea adecuado para la familia.
+Pero, ¿qué podemos aprender? Por ejemplo, [análisis de opinión](https://en.wikipedia.org/wiki/Sentiment_analysis), recomendaciones de contenido según las preferencias de un usuario o, incluso, un moderador automatizado que garantiza que todo el contenido que publique nuestra red social sea adecuado para todos los públicos.
 
 Ahora que ya está interesado, probablemente pensará que necesita un doctorado en ciencias matemáticas para extraer estos patrones y la información de los archivos y las bases de datos, pero no es así.
 
-[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), parte del [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R] (https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Aprendizaje automático de Azure](https://azure.microsoft.com/services/machine-learning/), que forma parte de [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R] (https://en.wikipedia.org/wiki/R_(programming_language)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+
+Para posibilitar cualquiera de estos escenarios de Aprendizaje automático, podemos usar [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para introducir la información de distintos orígenes, así como [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para procesar dicha información y generar una salida que pueda tratar Aprendizaje automático de Azure.
 
 ## Conclusión
 
@@ -197,6 +231,6 @@ La verdad es que no hay ninguna fórmula milagrosa para este tipo de escenarios,
 
 Obtenga más información sobre el modelado de datos en el artículo [Modelado de datos en DocumentDB](documentdb-modeling-data.md). Si está interesado en otros casos de uso de DocumentDB, consulte [Casos de uso comunes de DocumentDB](documentdb-use-cases.md).
 
-U obtenga más información acerca de DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
+También puede obtener más información sobre DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

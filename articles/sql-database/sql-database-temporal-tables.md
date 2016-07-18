@@ -34,6 +34,10 @@ Afortunadamente, no es necesario esforzarse mucho en la aplicación para mantene
 
 Dependiendo de si inicia un nuevo desarrollo o actualiza una aplicación existente, creará tablas temporales o modificará las existentes agregando atributos temporales. En general, el escenario puede ser una combinación de estas dos opciones. Realice estas acciones utilizando [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) o cualquier otra herramienta de desarrollo de Transact-SQL.
 
+
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ###Creación de una nueva tabla
 
 Utilice el elemento del menú contextual para nueva tabla con versión del sistema en el explorador de objetos de SSMS para abrir el editor de consultas con un script de plantilla de tabla temporal y después utilice "Especificar valores para parámetros de plantilla" (Ctrl+Mayús+M) para rellenar la plantilla:
@@ -195,4 +199,4 @@ Con tablas temporales con versión del sistema, la tabla de historial puede aume
 
 Para obtener información detallada sobre tablas temporales, consulte la [documentación de MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Visite Channel 9 para oír un [caso de éxito de implementación temporal de cliente real](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y ver una [demostración temporal en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

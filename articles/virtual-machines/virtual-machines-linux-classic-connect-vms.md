@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Conexión de máquinas virtuales Linux creadas con el modelo de implementación clásico con una red virtual o un servicio en la nube
@@ -33,4 +33,4 @@ Si coloca las máquinas virtuales en el mismo servicio en la nube independiente,
 
 Después de haber creado una máquina virtual, es conveniente [agregar un disco de datos](virtual-machines-linux-classic-attach-disk.md) para que los servicios y las cargas de trabajo tengan una ubicación donde almacenar los datos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -52,6 +52,10 @@ Sí. Para obtener instrucciones, consulte [Creación de una copia de una máquin
 
 ## ¿Por qué no veo las regiones de Canadá central y Canadá oriental por medio de Azure Resource Manager?
 
-Las dos nuevas áreas Canadá central y Canadá oriental no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implemente una máquina virtual mediante el portal de Azure en cualquier otra región mediante Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales posteriores.
+Las dos nuevas áreas Canadá central y Canadá oriental no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implemente una máquina virtual mediante el Portal de Azure en cualquier otra región usando Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales siguientes.
 
-<!---HONumber=AcomDC_0518_2016-->
+## ¿Puedo agregar una NIC a mi máquina virtual después de crearla?
+
+No. Esta operación no se puede llevar a cabo actualmente en el momento de la creación.
+
+<!---HONumber=AcomDC_0706_2016-->

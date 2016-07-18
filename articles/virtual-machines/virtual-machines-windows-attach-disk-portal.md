@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Cómo adjuntar un disco de datos a una máquina virtual Windows en el Portal de Azure
@@ -55,4 +55,4 @@ En este artículo se muestra cómo adjuntar discos nuevos y existentes a una má
 
 Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

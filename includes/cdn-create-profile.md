@@ -4,7 +4,7 @@
 
     Aparece la nueva hoja del perfil de CDN.
 
-    ![Nuevo perfil de CDN](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Nuevo perfil de CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. Escriba un nombre para su perfil de CDN.
 
@@ -14,8 +14,10 @@
 
 5. Seleccione un **plan de tarifa**. Consulte en [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md#azure-cdn-features) una comparación de los planes de tarifa.
     
-    ![Selección de planes de tarifa de CDN](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![Selección de planes de tarifa de CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Seleccione la **Suscripción** para este perfil de red de entrega de contenido.
 
 7. Haga clic en el botón **Crear** para crear el nuevo perfil.
+
+<!---HONumber=AcomDC_0706_2016-->

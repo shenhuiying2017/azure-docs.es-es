@@ -18,7 +18,7 @@
 
 #Enrutamiento dependiente de los datos
 
-**Enrutamiento dependiente de los datos** es la posibilidad de utilizar los datos de una consulta para enrutar la solicitud a una base de datos adecuada. Se trata de un patrón fundamental cuando se trabaja con bases de datos particionadas. El contexto de solicitud también puede utilizarse para enrutar la solicitud, en especial si la clave de particionamiento no forma parte de la consulta. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud. En las herramientas de Base de datos elástica de SQL Azure, este enrutamiento se efectúa con la **[clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** en aplicaciones ADO.NET.
+**Enrutamiento dependiente de los datos** es la posibilidad de utilizar los datos de una consulta para enrutar la solicitud a una base de datos adecuada. Se trata de un patrón fundamental cuando se trabaja con bases de datos particionadas. El contexto de solicitud también puede utilizarse para enrutar la solicitud, en especial si la clave de particionamiento no forma parte de la consulta. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud. En las herramientas de Base de datos elástica SQL de Azure, este enrutamiento se efectúa con la **[clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** en aplicaciones ADO.NET.
 
 La aplicación no necesita realizar el seguimiento de las distintas cadenas de conexión o ubicaciones de base de datos asociadas con diferentes segmentos de datos en el entorno particionado. Por el contrario, el [Administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) abre las conexiones a las bases de datos correctas cuando es necesario, en función de los datos del mapa de particiones y del valor de la clave de particionamiento que es el destino de la solicitud de la aplicación. (Esta clave normalmente es *customer\_id*, *tenant\_id*, *date\_key* o algún otro identificador específico que es un parámetro fundamental de la solicitud de base de datos).
 
@@ -52,7 +52,7 @@ El método **[ShardMap.OpenConnectionForKey](https://msdn.microsoft.com/library/
 	)
 
 
-* El parámetro **key** se usa como clave de búsqueda en el mapa de particiones para determinar la base de datos adecuada para la solicitud. 
+* El parámetro **key** se usa como clave de búsqueda en el mapa de particiones para determinar la base de datos adecuada para la solicitud.
 
 * El elemento **connectionString** se usa para pasar únicamente las credenciales de usuario para la conexión deseada. Ningún nombre de base de datos o de servidor se incluye en esta *connectionString* dado que el método determinará la base de datos y el servidor usando el **ShardMap**.
 
@@ -85,7 +85,7 @@ En este ejemplo se utiliza el valor de una clave de entero **CustomerID**, media
 
 El método **OpenConnectionForKey** devuelve una nueva conexión ya abierta a la base de datos correcta. Las conexiones utilizadas de esta manera seguirán aprovechando completamente las agrupaciones de conexiones de ADO.Net. Siempre y cuando las transacciones y las solicitudes puedan verse satisfecha por una partición a la vez, esta debiera ser la única modificación necesaria en una aplicación utilizando ya ADO.Net.
 
-El método **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** también está disponible si su aplicación hace uso de programación asincrónica con ADO.Net. Su comportamiento es equivalente al enrutamiento dependiente de los datos del método **[Connection.OpenAsync de ADO.Net](https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
+El método **[OpenConnectionForKeyAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)** también está disponible si su aplicación hace uso de programación asincrónica con ADO.Net. Su comportamiento es equivalente al enrutamiento dependiente de los datos del método **[Connection.OpenAsync] de ADO.Net (https://msdn.microsoft.com/library/hh223688(v=vs.110).aspx)**.
 
 ## Integración con el control de errores transitorios 
 
@@ -133,4 +133,4 @@ Para desasociar una partición, o volver a adjuntar una partición, consulte [Us
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

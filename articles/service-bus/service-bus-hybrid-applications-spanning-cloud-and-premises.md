@@ -29,14 +29,14 @@ Las aplicaciones en la nube o locales híbridas son una realidad de los entornos
 
 - [Crear una aplicación híbrida en la nube/local .NET mediante Retransmisión de bus de servicio](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 - [Uso de la retransmisión de bus de servicio (vídeo y código de ejemplo)](http://appfabricdemos.codeplex.com/releases/view/67597)
-- [Cómo integrar un sitio web de Azure con una aplicación LOB mediante la retransmisión de bus de servicio](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8) 
+- [Cómo integrar un sitio web de Azure con una aplicación LOB mediante la retransmisión de bus de servicio](https://code.msdn.microsoft.com/How-to-integrate-a-Windows-f1fedff8)
 - [Replicación geográfica con mensajes retransmitidos de Bus de servicio](http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd)
 - [Integración de un servicio móvil con un servicio Retransmisión de bus de servicio REST](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
  
 ## Popular
 
 - [Información de precios de Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/)
-- [P+F de precios de Bus de servicio](service-bus-pricing-faq.md)
+- [Preguntas más frecuentes sobre el Bus de servicio](service-bus-faq.md)
 - [Referencia de la API de REST de Bus de servicio](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - Regístrese para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
  
@@ -44,7 +44,7 @@ Las aplicaciones en la nube o locales híbridas son una realidad de los entornos
 
 - [Servicios de BizTalk](https://azure.microsoft.com/services/biztalk-services/)
 - [Aplicaciones móviles](https://azure.microsoft.com/services/app-service/mobile/)
-- [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/) 
+- [Servicios en la nube](https://azure.microsoft.com/services/cloud-services/)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones desde Java
@@ -25,14 +25,14 @@ En general, puede acceder a todas las características de los Centros de notific
 
 El SDK admite actualmente:
 
-- CRUD en los Centros de notificaciones 
+- CRUD en los Centros de notificaciones
 - CRUD en los registros
 - Administración de la instalación
 - Importación y exportación de registros
 - Envíos regulares
 - Envíos programados
 - Operaciones asincrónicas mediante Java NIO
-- Plataformas admitidas: APNS (iOS), GCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google) 
+- Plataformas admitidas: APNS (iOS), GCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google)
 
 ## Uso del SDK
 
@@ -285,7 +285,7 @@ La ejecución del código de Java debe generar ahora una notificación que apare
 ##<a name="next-steps"></a>Pasos siguientes
 En este tema hemos mostrado cómo crear un simple cliente REST en Java para Centros de notificaciones. Desde aquí puede:
 
-* Descargue el [SDK de Java] completo, que contiene todo el código SDK. 
+* Descargue el [SDK de Java] completo, que contiene todo el código SDK.
 * Practique con los ejemplos:
 	- [Introducción a los Centros de notificaciones]
 	- [Envío de noticias de última hora]
@@ -303,4 +303,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

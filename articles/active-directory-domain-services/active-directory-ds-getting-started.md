@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(versión preliminar)*: creación del grupo "Administradores de controlador de dominio de AAD"
@@ -58,4 +58,4 @@ En esta tarea de configuración, creará el grupo administrativo y agregará uno
 ## Tarea 2: Creación o selección de una red virtual de Azure.
 La siguiente tarea de configuración es [crear o seleccionar una red virtual de Azure](active-directory-ds-getting-started-vnet.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

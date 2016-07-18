@@ -46,6 +46,7 @@ Para habilitar Stretch Database en el servidor manualmente, ejecute **sp\_config
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -63,6 +64,10 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
 
 2.  En el servidor de Azure, cree una regla de firewall con el intervalo de direcciones IP de SQL Server que permita a esta herramienta comunicarse con el servidor remoto.
 
+    Puede intentar conectarse al servidor de Azure desde el Explorador de objetos de SQL Server Management Studio (SSMS) para encontrar fácilmente los valores que necesita y crear la regla de firewall. Para ayudarle a crear la regla, SSMS abre el siguiente cuadro de diálogo que ya incluye los valores de dirección IP necesarios.
+
+	![Creación de una regla de firewall en SSMS][FirewallRule]
+
 3.  Para configurar una base de datos de SQL Server para Stretch Database, la base de datos debe tener una clave maestra de base de datos. La clave maestra de base de datos protege las credenciales que Stretch Database usa para conectarse a la base de datos remota. A continuación, se muestra un ejemplo que crea una nueva clave maestra de base de datos.
 
     ```tsql
@@ -73,7 +78,7 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
 	GO
     ```
 
-    Para obtener más información sobre la clave maestra de base de datos, consulte [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) y [Crear la clave maestra de una base de datos](https://msdn.microsoft.com/library/aa337551.aspx).
+    Para más información sobre la clave maestra de base de datos, consulte [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) y [Crear la clave maestra de una base de datos](https://msdn.microsoft.com/library/aa337551.aspx).
 
 4.  Cuando configure una base de datos para Stretch Database, tendrá que proporcionar una credencial para Stretch Database use para la comunicación entre el servidor de Azure remoto y SQL Server local. Tiene dos opciones:
 
@@ -91,7 +96,7 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
         GO
         ```
 
-		Para obtener más información sobre la credencial que crea el asistente, consulte [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). La creación de la credencial requiere permisos ALTER ANY CREDENTIAL.
+		Para más información sobre la credencial que crea el asistente, consulte [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). La creación de la credencial requiere permisos ALTER ANY CREDENTIAL.
 
     -   Puede usar una cuenta de servicio federado para que SQL Server se comunique con el servidor remoto de Azure cuando se cumplan todas las condiciones siguientes.
 
@@ -120,9 +125,9 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
     ```
 
 ## Pasos siguientes
--   [Habilitación de Stretch Database en una tabla](sql-server-stretch-database-enable-table.md) para habilitar más tablas
+-   [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar tablas adicionales.
 
--   [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos
+-   [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos.
 
 -   [Pausa y reanudación Stretch Database](sql-server-stretch-database-pause.md)
 
@@ -136,4 +141,6 @@ La habilitación de Stretch Database en una base de datos o una tabla requiere p
 
 [Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
+
+<!---HONumber=AcomDC_0706_2016-->

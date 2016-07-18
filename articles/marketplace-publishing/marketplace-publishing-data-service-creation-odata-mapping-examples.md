@@ -155,4 +155,4 @@ Use la paginación RESTful de implementación a través de sus datos con GET. La
 - Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
 - Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

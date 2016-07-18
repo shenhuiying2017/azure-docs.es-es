@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Replicación de máquinas virtuales de Hyper-V (en una nube de VMM) en un sitio secundario con Azure Site Recovery mediante SAN
@@ -40,8 +40,8 @@ Este escenario ofrece las siguientes ventajas:
 - Aprovecha las capacidades de replicación de SAN proporcionadas por asociados de almacenamiento de información empresarial en el almacenamiento de canal de fibra o iSCSI. Consulte nuestros [asociados de almacenamiento de SAN](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).
 - Aprovecha su infraestructura SAN existente para proteger aplicaciones críticas implementadas en clústeres de Hyper-V.
 - Proporciona compatibilidad con clústeres invitados.
-- Garantiza la coherencia de la replicación entre distintos niveles de una aplicación mediante la replicación sincronizada para un bajo RTO y RPO y la replicación no sincronizada para una alta flexibilidad, según las capacidades de matriz de almacenamiento.  
-- La integración con VMM proporciona la administración de SAN en la consola VMM y SMI-S en VMM detecta el almacenamiento existente.  
+- Garantiza la coherencia de la replicación entre distintos niveles de una aplicación mediante la replicación sincronizada para un bajo RTO y RPO y la replicación no sincronizada para una alta flexibilidad, según las capacidades de matriz de almacenamiento.
+- La integración con VMM proporciona la administración de SAN en la consola VMM y SMI-S en VMM detecta el almacenamiento existente.
 
 ## Arquitectura
 
@@ -178,7 +178,7 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 
 	![Microsoft Updates](./media/site-recovery-vmm-san/ms-update.png)
 
-7. La ubicación de instalación está establecida en **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor.
+7. La ubicación de instalación está establecida en **<UnidadDeSistema>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor.
 
 	![InstallLocation](./media/site-recovery-vmm-san/install-location.png)
 
@@ -202,7 +202,7 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
 10. En **Clave de registro**, seleccione lo que ha descargado de Azure Site Recovery y copiado en el servidor VMM.
-11. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor. 
+11. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor.
 
 	![Registro de servidor](./media/site-recovery-vmm-san/vault-creds.png)
 
@@ -239,7 +239,7 @@ El proveedor de Azure Site Recovery también puede instalarse mediante la siguie
 
 Los parámetros son los siguientes:
 
- - **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
+ - **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.
  - **/FriendlyName**: parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
  - **/EncryptionEnabled**: parámetro opcional que solo es necesario usar en el escenario de VMM a Azure si se requiere el cifrado de las máquinas virtuales en reposo en Azure. Asegúrese de que el nombre del archivo que proporciona tiene la extensión **.pfx**.
  - **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
@@ -325,9 +325,7 @@ Puede seguir el progreso de la acción de habilitación de la protección en la 
 Pruebe la implementación para asegurarse de que la conmutación por error de las máquinas virtuales y los datos se realiza de la manera esperada. Para ello, creará un plan de recuperación seleccionando los grupos de replicación. A continuación, ejecute una conmutación por error de prueba en el plan.
 
 1. En la pestaña **Planes de recuperación**, haga clic en **Crear plan de recuperación**.
-2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN. 
-3. 
-	![Creación de un plan de recuperación](./media/site-recovery-vmm-san/r-plan.png)
+2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN. 3. ![Creación de un plan de recuperación](./media/site-recovery-vmm-san/r-plan.png)
 
 4. En **Seleccionar máquina virtual**, seleccione grupos de replicación. Se seleccionarán todas las máquinas virtuales asociadas al grupo de replicación y se agregarán al plan de recuperación. Estas máquinas virtuales se agregan al grupo predeterminado del plan de recuperación: grupo 1. Puede agregar más grupos si es necesario. Tenga en cuenta que tras la replicación las máquinas virtuales se iniciarán según el orden de los grupos del plan de recuperación.
 
@@ -363,4 +361,4 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 
 Cuando haya ejecutado una conmutación por error de prueba para comprobar que su entorno funciona según lo esperado, [conozca](site-recovery-failover.md) cuáles son los diferentes tipos de conmutaciones por error.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

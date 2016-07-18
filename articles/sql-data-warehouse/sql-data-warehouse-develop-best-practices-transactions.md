@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess"/>
 
 # Optimización de transacciones para Almacenamiento de datos SQL
@@ -413,7 +413,7 @@ Consulte [Transacciones en el Almacenamiento de datos SQL][] para obtener más i
 
 <!--Article references-->
 [Transacciones en el Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-transactions.md
-[partición de tabla]: ./sql-data-warehouse-develop-table-partitions.md
+[partición de tabla]: ./sql-data-warehouse-tables-partition.md
 [simultaneidad]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
@@ -424,4 +424,4 @@ Consulte [Transacciones en el Almacenamiento de datos SQL][] para obtener más i
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -29,7 +29,7 @@ Base de datos SQL de Azure siempre restaura una base de datos nueva al realizar 
 
 En caso de errores de los usuarios o modificaciones no intencionadas de los datos, se puede usar la restauración a un momento dado para restaurar la base de datos a cualquier punto dado del período de retención de la base de datos.
 
-Las bases de datos de la versión Basic tienen 7 días de retención, las de la versión Standard disponen de 14 días de retención y las de la versión Premium tienen 35 días de retención. Para más información sobre la retención de copia de seguridad de base de datos, consulte [Overview: SQL Database automated backups](sql-database-automated-backups.md) (Información general: copias de seguridad automatizadas de base de datos).
+Las bases de datos de la versión Basic tienen 7 días de retención, las de la versión Standard disponen de 35 días y las de la versión Premium tienen también 35 días. Para más información sobre la retención de copia de seguridad de base de datos, consulte [Overview: SQL Database automated backups](sql-database-automated-backups.md) (Información general: copias de seguridad automatizadas de base de datos).
 
 Para llevar a cabo un punto de restauración a un momento dado, consulte:
 
@@ -59,4 +59,4 @@ Para restaurar una base de datos eliminada, consulte:
 - Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md) (Restauración bases de datos a partir de las copias de seguridad iniciadas por el servicio).
 - Para obtener información sobre cómo usar la funcionalidad de replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

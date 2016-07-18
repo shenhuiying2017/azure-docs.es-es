@@ -52,7 +52,7 @@ Mediante el uso de grupos de recursos, tiene flexibilidad en el diseño de los c
 ### Redes virtual solo en la nube
 Si los equipos y usuarios locales no requieren conectividad continua a las máquinas virtuales de una red virtual de Azure, el diseño de la red virtual será bastante sencillo.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
+![Diagrama de red virtual básico solo en la nube](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
 
 Normalmente está destinada a cargas de trabajo con conexión a Internet, como un servidor web basado en Internet. Puede administrar estas máquinas virtuales mediante SSH o conexiones VPN de punto a sitio.
 
@@ -62,7 +62,7 @@ Como no se conectan a la red local, las redes virtuales solo de Azure pueden usa
 ### Redes virtuales entre locales
 Si los equipos y usuarios locales necesitan conectividad continua a máquinas virtuales en una red virtual de Azure, cree una red virtual entre locales y conéctela a la red local con ExpressRoute o con una conexión VPN de sitio a sitio.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
+![Diagrama de red virtual local](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
 En esta configuración, la red virtual de Azure es esencialmente una extensión basada en la nube de su red local.
 
@@ -107,4 +107,4 @@ Al igual que con una infraestructura de red física local, las redes virtuales d
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

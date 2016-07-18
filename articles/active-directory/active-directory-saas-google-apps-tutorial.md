@@ -88,7 +88,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. En la página **Configuración de las opciones de la aplicación**, en el campo **URL de inicio de sesión**, escriba la dirección URL del inquilino de Google Apps con el formato siguiente:`https://mail.google.com/a/<yourdomain>`
 
@@ -124,7 +124,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. En la página **Configuración de las opciones de la aplicación**, en el campo **URL de inicio de sesión**, escriba la dirección URL del inquilino de Google Apps con el formato siguiente:`https://mail.google.com/a/<yourdomain>`
 
@@ -194,7 +194,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 4. Si no ha agregado un nombre de dominio personalizado para Azure Active Directory todavía, siga estos pasos:
 
-	- En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**. En la lista de directorios, seleccione el directorio. 
+	- En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**. En la lista de directorios, seleccione el directorio.
 
 	- Haga clic en **Dominios** en el menú de nivel superior y, a continuación, haga clic en **Agregar un dominio personalizado**.
 
@@ -313,4 +313,4 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

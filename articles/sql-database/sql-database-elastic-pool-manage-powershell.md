@@ -83,8 +83,8 @@ Métricas que se pueden recuperar como porcentaje del límite del grupo de recur
 
 **Métricas de períodos de retención y granularidad:**
 
-* Los datos se devolverán con una granularidad de 5 minutos.  
-* La retención de datos es de 14 días.  
+* Los datos se devolverán con una granularidad de 5 minutos.
+* La retención de datos es de 35 días.
 
 Este cmdlet y la API limita el número de filas que se pueden recuperar en una llamada a 1000 filas (aproximadamente 3 días de datos con una granularidad de 5 minutos). Sin embargo, este comando se puede llamar varias veces con distintos intervalos de tiempo de inicio y fin para recuperar más datos.
 
@@ -177,7 +177,7 @@ Para utilizar esta implementación de ejemplo siga los pasos enumerados a contin
 
 1. Descargue los [scripts y la documentación](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modifique los scripts para su entorno. Especifique uno o más servidores en los que se alojan los grupos elásticos.
-3. Especifique una base de datos de telemetría donde se puedan almacenar las métricas recopiladas. 
+3. Especifique una base de datos de telemetría donde se puedan almacenar las métricas recopiladas.
 4. Personalice el script para especificar el tiempo de ejecución de los scripts.
 
 En un nivel alto, los scripts realizan lo siguiente:
@@ -276,4 +276,4 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 - [Creación de trabajos elásticos](sql-database-elastic-jobs-overview.md): los trabajos elásticos le permiten ejecutar scripts de T-SQL en cualquier cantidad de bases de datos del grupo.
 - Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

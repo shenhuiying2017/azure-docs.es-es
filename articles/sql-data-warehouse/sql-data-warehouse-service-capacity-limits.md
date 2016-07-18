@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Límites de capacidad de Almacenamiento de datos SQL
@@ -25,10 +25,10 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 
 | Categoría | Descripción | Máxima |
 | :------------------ | :------------------------------------------- | :----------------- |
-| Unidades de almacenamiento de datos (DWU)| Proceso, memoria y recursos de E/S | 2000 |
+| [Unidades de almacenamiento de datos (DWU)][]| Proceso, memoria y recursos de E/S | 2000 |
 | Conexión de base de datos | Sesiones abiertas simultáneas | 1024<br/><br/>Se admite un máximo de 1024 conexiones activas, cada una de las cuales puede enviar solicitudes a una base de datos de Almacenamiento de datos SQL de forma simultánea. Tenga en cuenta que hay límites en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso.|
 | Conexión de base de datos | Memoria máxima para instrucciones preparadas | 20 MB |
-| Administración de cargas de trabajo | N.º máximo de consultas simultáneas | 32<br/><br/>De forma predeterminada, Almacenamiento de datos SQL ejecutará un máximo de 32 consultas simultáneas y consultas que permanecen en cola.<br/><br/>El nivel de simultaneidad se puede reducir cuando se asigna a los usuarios a una clase de recurso superior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar. Para más información, consulte [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][].|
+| [Administración de cargas de trabajo][] | N.º máximo de consultas simultáneas | 32<br/><br/> De forma predeterminada, Almacenamiento de datos SQL ejecutará un máximo de 32 consultas simultáneas y consultas que permanecen en cola.<br/><br/>El nivel de simultaneidad se puede reducir cuando se asigna a los usuarios a una clase de recurso superior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar.|
 
 
 ## Objetos de base de datos
@@ -40,7 +40,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Tabla | Tablas por base de datos | 2 mil millones |
 | Tabla | Columnas por tabla | 1024 columnas |
 | Tabla | Bytes por columna | 8000 bytes |
-| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 KB][] disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)][] \(CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
+| Tabla | Bytes por fila, tamaño definido | 8060 bytes<br/><br/>El número de bytes por fila se calcula de la misma forma que para SQL Server con la compresión de página activada. Al igual que SQL Server, Almacenamiento de datos SQL admite el almacenamiento con desbordamiento de fila, lo que permite insertar columnas de longitud variable de forma no consecutiva. Solo se almacena una raíz de 24 bytes en el registro principal para las columnas de longitud variable insertadas de manera no consecutiva. Para más información, consulte el tema [Datos de desbordamiento de fila superiores a 8 KB][] disponible en los Libros en pantalla de SQL Server.<br/><br/>Para ver una lista de tamaños de los tipos de datos de Almacenamiento de datos SQL, consulte [CREATE TABLE (Azure SQL Data Warehouse)][] (CREATE TABLE [Almacenamiento de datos SQL de Azure]). |
 | Tabla | Particiones por tabla | 15 000<br/><br/>Para obtener un alto rendimiento, se recomienda reducir el número de particiones que necesita pero sin perder de vista sus necesidades empresariales. A medida que crece el número de particiones, la sobrecarga de operaciones de lenguaje de definición de datos (DDL) y lenguaje de manipulación de datos (DML) crece y da lugar a un rendimiento más lento.|
 | Tabla | Caracteres por valor de límite de partición| 4000 |
 | Índice | Índices no agrupados por tabla | 999<br/><br/>Solo se aplica a tablas de almacén de filas.|
@@ -77,7 +77,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | SELECT | Columnas por JOIN | 1024 columnas<br/><br/>Nunca puede tener más de 1024 columnas en la instrucción JOIN. No hay ninguna garantía de que siempre pueda tener 1024. Si el plan JOIN requiere una tabla temporal con más columnas que el resultado de JOIN, se aplica el límite de 1024 a la tabla temporal. |
 | SELECT | Bytes por columnas GROUP BY | 8060<br/><br/>Las columnas de la cláusula GROUP BY pueden tener como máximo 8060 bytes.|
 | SELECT | Bytes por columnas ORDER BY | 8060 bytes<br/><br/>Las columnas de la cláusula ORDER BY pueden tener como máximo 8060 bytes.|
-| Identificadores y constantes por instrucción | Número de identificadores y constantes de referencia. | 65 535<br/><br/>Almacenamiento de datos SQL limita el número de identificadores y constantes que pueden incluirse en una sola expresión de una consulta. Este límite es 65 535 GB. Si se supera este número se produce el error de SQL Server 8632. Para más información, consulte [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"][].|
+| Identificadores y constantes por instrucción | Número de identificadores y constantes de referencia. | 65 535<br/><br/>Almacenamiento de datos SQL limita el número de identificadores y constantes que pueden incluirse en una única expresión de una consulta. Este límite es 65 535 GB. Si se supera este número se produce el error de SQL Server 8632. Para más información, consulte [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"][].|
 
 
 ## Metadatos
@@ -101,12 +101,13 @@ Para obtener más información de referencia, vea [Información general de refer
 <!--Image references-->
 
 <!--Article references-->
-[Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
-[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
+[Unidades de almacenamiento de datos (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Información general de referencia de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-reference.md
+[Administración de cargas de trabajo]: ./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 [Datos de desbordamiento de fila superiores a 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
 [Mensaje de error cuando ejecuta una consulta en SQL Server 2005: "error interno: se ha alcanzado un límite de servicios de expresión"]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -24,7 +24,7 @@ Información general de las consideraciones, prácticas recomendadas y tareas pa
 
 | Categoría | Tarea o consideración | Descripción |
 | :-----------------------| :---------------------------------------------- | :----------- |
-| Rendimiento lento | Buscar una consulta de usuario de larga ejecución | [Find long-running queries][] (Búsqueda de consultas de larga ejecución) |
+| Rendimiento lento | Buscar una consulta de usuario de larga ejecución | [Find long-running queries (Búsqueda de consultas de larga ejecución)][] |
 | Simultaneidad | Asignar recursos simultáneos a consultas de usuario | [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][] |
 
 
@@ -39,13 +39,13 @@ Para obtener más sugerencias de administración, consulte la información gener
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: sql-data-warehouse-manage-find-long-running-queries.md
-[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: sql-data-warehouse-develop-concurrency.md
-[administración]: sql-data-warehouse-overview-manage.md
+[Find long-running queries (Búsqueda de consultas de larga ejecución)]: ./sql-data-warehouse-manage-monitor.md
+[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-concurrency.md
+[administración]: ./sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

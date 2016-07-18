@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Realización de una revisión de seguridad | Microsoft Azure"
+   pageTitle="Revisión de acceso | Microsoft Azure"
    description="Aprenda a realizar una revisión con la aplicación Privileged Identity Management de Azure."
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
-# Realización de una revisión de seguridad en Privileged Identity Management de Azure AD
+# Revisión de acceso en Privileged Identity Management de Azure AD
 
 Privileged Identity Management de Azure Active Directory (AD) simplifica el modo en que las empresas administran las identidades con privilegios y el acceso a los recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
 
@@ -28,25 +28,32 @@ Si es un administrador de roles con privilegios interesado en las revisiones de 
 
 Puede usar la aplicación Privileged Identity Management (PIM) de Azure AD en el [Portal de Azure](https://portal.azure.com/) para realizar la revisión. Si no tiene la aplicación en el portal, siga estos pasos para comenzar:
 
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Si su organización tiene más de un directorio, haga clic en su nombre de usuario en la esquina superior derecha del Portal de Azure y seleccione el directorio donde va a trabajar.
-3. Haga clic en el icono **Nuevo** en el panel de navegación de la izquierda.
-4. Seleccione **Seguridad e identidad** en el menú.
-5. Seleccione **Azure AD Privileged Identity Management**.
-6. Deje activada la casilla **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá la aplicación Privileged Identity Management.
+3. Seleccione **Nuevo** > **Seguridad e identidad** > **Privileged Identity Management de Azure AD**.
+
+	![Habilitación de PIM en el portal][1]
+
+4. Active la opción **Anclar al panel** y luego haga clic en el botón **Crear**. Se abrirá el panel Privileged Identity Management.
 
 
 ## Aprobación o denegación de acceso
 
-El acceso no cambiarán hasta que [la revisión esté completa](active-directory-privileged-identity-management-how-to-complete-review.md). Este proceso consiste simplemente en crear una lista de comprobación de aquellos cuyo acceso del rol se cambiaría. Después de seleccionar al menos un usuario, se habilitarán los botones **Aprobar acceso** y **Denegar acceso**.
+Al aprobar o denegar el acceso, lo que hace es indicar al revisor si aún usa o no este rol. Elija **Aprobar** si quiere mantener en el rol o **Denegar** si ya no va a volver a necesitar el acceso. Su estado no cambiará inmediatamente, hay que esperar a que el revisor aplique los resultados. Para buscar y completar la revisión de acceso, siga estos pasos:
 
-1. En la aplicación PIM, haga clic en **Revisar acceso administrativo** en el menú principal. Aparecerá una lista de revisiones de seguridad.
-2. Seleccione en la lista los **usuarios** cuyo acceso quiere cambiar.
-3. Haga clic en **Aprobar acceso** o **Denegar el acceso** para los usuarios que seleccionó. Aparecerá una notificación en el menú principal del Portal de Azure y los nombres seleccionados en la lista de revisiones desaparecerán (puede recuperarlos si vuelve a cambiar la opción de filtro). Cierre la hoja **Revisar roles de Azure AD**.
+1. En la aplicación PIM, seleccione **Revisar acceso con privilegios**. Si tienes revisiones de acceso pendientes, aparecerán en la hoja de revisiones de acceso de Azure AD.
+2. Seleccione la revisión que quiere completar.
+3. A no ser que haya creado la revisión, aparecerá como el único usuario en ella. Seleccione la marca de verificación junto a su nombre.
+4. Elija **Aprobar** o **Denegar**. Puede que necesite incluir un motivo de su decisión en el cuadro de texto **Proporcionar una razón**.
+5. Cierre la hoja **Revisar roles de Azure AD**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+
+<!---HONumber=AcomDC_0706_2016-->

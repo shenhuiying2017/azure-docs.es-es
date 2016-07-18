@@ -2,17 +2,17 @@
     pageTitle="Tutorial: integración de Azure Active Directory con Syncplicity | Microsoft Azure" 
     description="Aprenda cómo usar Syncplicity con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="06/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Syncplicity
   
@@ -38,7 +38,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Syncplicity:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-syncplicity-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Syncplicity**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Syncplicity**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configurar inicio de sesión único")
 
@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Syncplicity**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Syncplicity y haga clic en **Siguiente**.
 
-    La dirección URL de la aplicación es su URL de inquilino de Syncplicity, por ejemplo, **http://company.Syncplicity.com*):
+    La dirección URL de la aplicación es su URL de inquilino de Syncplicity, por ejemplo, *http://company.Syncplicity.com*:
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-syncplicity-tutorial/IC769536.png "Configurar dirección URL de la aplicación")
 
@@ -100,13 +100,13 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     1.  En el cuadro de texto **Custom Domain** (Dominio personalizado), escriba el nombre de su dominio.
     2.  Seleccione **Enabled** (Habilitado) como **Single Sign-On Status** (Estado de inicio de sesión único).
-    3.  En el Portal de Microsoft Azure, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad**.
-    4.  En el Portal de Microsoft Azure, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
-    5.  En el Portal de Microsoft Azure, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
-    6.  En **Certificado del proveedor de identidades**, haga clic en**Elegir archivo** y luego cargue el certificado que ha descargado del Portal de Microsoft Azure.
+    3.  En el Portal de Azure clásico, en la página **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
+    5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Syncplicity**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
+    6.  En **Certificado del proveedor de identidades**, haga clic en **Elegir archivo** y después cargue el certificado que ha descargado del Portal de Azure clásico.
     7.  Haga clic en **Guardar cambios**.
 
-8.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Confirmación](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Confirmación")
 
@@ -116,7 +116,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Sync
 
 ###Para aprovisionar cuentas de usuario a Syncplicity, realice los siguientes pasos:
 
-1.  Inicie sesión en su inquilino de **Syncplicity** (por ejemplo,: **https://company.Syncplicity.com*)).
+1.  Inicie sesión en su inquilino de **Syncplicity** (por ejemplo,: *https://company.Syncplicity.com*).
 
 2.  Haga clic en **Admin** (Administración) y seleccione **user accounts** (cuentas de usuario).
 
@@ -128,19 +128,19 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Sync
 
     ![Información de cuenta](./media/active-directory-saas-syncplicity-tutorial/IC769765.png "Información de cuenta")
 
-    >[AZURE.NOTE]El titular de la cuenta de AAD recibirá un mensaje de correo electrónico junto con un vínculo para confirmar y activar la cuenta.
+    >[AZURE.NOTE] El titular de la cuenta de AAD recibirá un mensaje de correo electrónico junto con un vínculo para confirmar y activar la cuenta.
 
 5.  Seleccione un grupo de la compañía de la que debe convertirse en miembro su nuevo usuario y luego haga clic en **Next** (Siguiente).
 
     ![Pertenencia a grupos](./media/active-directory-saas-syncplicity-tutorial/IC769772.png "Pertenencia a grupos")
 
-    >[AZURE.NOTE]Si no se muestra ningún grupo, simplemente haga clic en **Next** (Siguiente).
+    >[AZURE.NOTE] Si no se muestra ningún grupo, simplemente haga clic en **Next** (Siguiente).
 
 6.  Seleccione las carpetas que desea colocar bajo el control de Syncplicity en el equipo del usuario y luego haga clic en **Next** (Siguiente).
 
     ![Carpetas de Syncplicity](./media/active-directory-saas-syncplicity-tutorial/IC769773.png "Carpetas de Syncplicity")
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Syncplicity ofrecida por Syncplicity para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Syncplicity ofrecida por Syncplicity para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -148,7 +148,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Syncplicity, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **Syncplicity**, haga clic en **Asignar usuarios**.
 
@@ -160,4 +160,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

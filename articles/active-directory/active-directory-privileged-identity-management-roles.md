@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Roles en Privileged Identity Management de Azure AD
@@ -24,8 +24,9 @@ En su organización, puede asignar a usuarios a roles administrativos diferentes
 
 Un administrador global puede actualizar qué usuarios están **permanentemente** asignados a roles en Azure AD, mediante cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`, o a través del portal clásico, tal como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
 
-Privileged Identity Management (PIM) de Azure AD administra las directivas de acceso con privilegios para los usuarios en Azure AD. PIM asigna a usuarios a uno o varios roles de Azure AD y estas asignaciones pueden ser permanentes o temporales. Cuando un usuario se asigna permanentemente a un rol o activa una asignación de rol temporal, puede administrar Azure Active Directory, Office 365 y otras aplicaciones con los permisos asignados a su rol.
+Privileged Identity Management (PIM) de Azure AD administra las directivas de acceso con privilegios para los usuarios en Azure AD. PIM asigna a usuarios a uno o varios roles de Azure AD y puede asignar una persona para que esté permanentemente en el rol o sea apta para el rol. Cuando un usuario se asigna permanentemente a un rol o activa una asignación de rol apta, puede administrar Azure Active Directory, Office 365 y otras aplicaciones con los permisos asignados a su rol.
 
+No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. Son aptas para el rol y, pueden activarlas y desactivarlas cada vez que lo necesiten.
 
 ## Roles administrados en PIM
 
@@ -33,10 +34,10 @@ Privileged Identity Management (PIM) permite asignar usuarios a roles de adminis
 
 
 - El **administrador global** (también conocido como "administrador de la compañía") tiene acceso a todas las características administrativas. Puede tener más de un administrador global en su organización. La persona que se suscribe para comprar Office 365 automáticamente se convierte en un administrador global.
-- El **administrador de roles con privilegios** administra PIM de Azure AD y actualiza las asignaciones de roles para otros usuarios.  
-- El **administrador de facturación** hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
-- El **administrador de contraseñas** restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas están limitados a restablecer las contraseñas para los usuarios.
-- El **administrador de servicios** administra las solicitudes de servicio y supervisa el estado del servicio.
+- El **administrador de roles con privilegios** administra PIM de Azure AD y actualiza las asignaciones de roles para otros usuarios.
+- **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
+- **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas están limitados a restablecer las contraseñas para los usuarios.
+- **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
 
   > [AZURE.NOTE] Si usa Office 365, antes de asignar el rol de administrador de servicio a un usuario, asigne primero al usuario permisos administrativos a un servicio, como Exchange Online.
 
@@ -50,7 +51,7 @@ Consulte estos artículos para obtener más información sobre la [asignación d
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
 
-En PIM, puede [asignar estos roles a un usuario de forma temporal](active-directory-privileged-identity-management-how-to-add-role-to-user.md) para que pueda [activar el rol cuando lo necesite](active-directory-privileged-identity-management-how-to-activate-role.md).
+En PIM, puede [asignar estos roles a un usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md) para que pueda [activar el rol cuando lo necesite](active-directory-privileged-identity-management-how-to-activate-role.md).
 
 Si desea dar a otro usuario acceso para administrar en el mismo PIM, los roles que debe tener el usuario para PIM se describen con más detalle en [Concesión de acceso a PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
@@ -88,4 +89,4 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

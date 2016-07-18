@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 
@@ -24,7 +24,7 @@
 La integración de Aplicaciones web con la red CDN de Azure le ofrece las siguientes ventajas:
 
 - Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua de su aplicación web](web-sites-publish-source-control.md)
-- Actualización sencilla de los paquetes de NuGet de la aplicación web en el Servicio de aplicaciones de Azure, como versiones de jQuery o Bootstrap 
+- Actualización sencilla de los paquetes de NuGet de la aplicación web en el Servicio de aplicaciones de Azure, como versiones de jQuery o Bootstrap
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 - Integración de unión y minificación de ASP.NET con CDN de Azure
 
@@ -107,7 +107,7 @@ Una vez realizada la habilitación, el mismo vínculo al que se accede con difer
 
 >[AZURE.NOTE] Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
 
-2. Ahora, vaya a la dirección del punto de conexión de CDN. Si el extremo está listo, debería ver la aplicación web. Si obtiene un error **HTTP 404**, el extremo de la red CDN no está listo. Puede que sea necesario esperar hasta una hora para que la configuración de la red CDN se propague a todos los nodos perimetrales. 
+2. Ahora, vaya a la dirección del punto de conexión de CDN. Si el extremo está listo, debería ver la aplicación web. Si obtiene un error **HTTP 404**, el extremo de la red CDN no está listo. Puede que sea necesario esperar hasta una hora para que la configuración de la red CDN se propague a todos los nodos perimetrales.
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
@@ -123,18 +123,18 @@ Una vez realizada la habilitación, el mismo vínculo al que se accede con difer
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
-De igual forma, puede acceder a cualquier URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/**, directamente desde el extremo de CDN. Por ejemplo:
+De igual forma, puede acceder a cualquier URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/**, directamente desde el punto de conexión de red CDN. Por ejemplo:
 
 -	Un archivo .js desde la ruta /Script
 -	Cualquier archivo de contenido desde la ruta /Content
--	Cualquier controlador/acción 
+-	Cualquier controlador/acción
 -	Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 -	La aplicación web de Azure completa, si todo el contenido es público
 
 Tenga en cuenta que puede que no siempre sea una buena idea (o por lo general una buena idea) servir una aplicación web de Azure completa a través de la red CDN de Azure. Estos son algunos de los puntos a tener en cuenta:
 
 -	Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado.
--	Si por algún motivo el extremo de red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, la aplicación web entera se desconecta, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;sitename>*.azurewebsites.net/**.. 
+-	Si por algún motivo el punto de conexión de red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, la aplicación web entera se desconecta, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;sitename>*.azurewebsites.net/**.
 -	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de almacenamiento en caché para los archivos estáticos en la aplicación web de Azure](#configure-caching-options-for-static-files-in-your-azure-web-app)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento de la aplicación web de Azure y frustra el propósito de una red CDN.
 
 La alternativa es determinar caso por caso qué contenido se va a servir desde CDN de Azure en la aplicación web de Azure. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#serve-content-from-controller-actions-through-azure-cdn).
@@ -375,14 +375,14 @@ Esto permite depurar el código JavaScript de su entorno de desarrollo y, al mis
 
 Siga estos pasos para la integración de la unión y minificación de ASP.NET con el extremo de red CDN.
 
-1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:  
+1. De vuelta en *App\_Start\\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -413,15 +413,16 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 
 	es igual que:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
 
 	Este constructor indica que en la unión y minificación de ASP.NET se procesen archivos de script individuales cuando se depuren localmente, pero que se use la dirección de red CDN especificada para acceder al script en cuestión. Sin embargo, observe dos características importantes con esta URL de red CDN diseñada especialmente:
 	
-	- El origen de esta dirección URL de red CDN es `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, que es en realidad el directorio virtual del paquete de scripts en la aplicación web.
+	- El origen de esta dirección URL de red CDN es `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`, que es en realidad el directorio virtual del paquete de scripts en la aplicación web.
 	- Como está usando el constructor de red CDN, la etiqueta de script de red CDN del paquete ya no contiene la cadena de versión generada automáticamente en la URL procesada. Debe generar manualmente una cadena de versión única cada vez que se modifique el paquete de scripts con el fin de forzar un error de caché en la red CDN de Azure. Al mismo tiempo, esta cadena de versión única debe permanecer constante lo que dure la implementación para aumentar los aciertos de la caché en la red CDN de Azure después de implementarse el paquete.
-	- La cadena de consulta v=<W.X.Y.Z> se extrae de *Properties\\AssemblyInfo.cs en el proyecto ASP.NET*. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo:
 
-			[assembly: AssemblyVersion("1.0.0.*")]
+3. La cadena de consulta `<W.X.Y.Z>` se extrae de *Properties\\AssemblyInfo.cs* en el proyecto ASP.NET. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo, cambie `AssemblyVersion` tal y como se muestra a continuación:
+	
+		[assembly: AssemblyVersion("1.0.0.*")]
 	
 	Cualquier otra estrategia para optimizar la generación de una cadena única durante una implementación funcionará aquí.
 
@@ -430,11 +431,11 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 4. Vea el código HTML de la página. Debería poder ver la dirección URL de red CDN procesada, con una cadena de versión única cada vez que vuelve a publicar los cambios en la aplicación web de Azure. Por ejemplo:
 	
         ...
-        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
         ...
-        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
         ...
 
 5. En Visual Studio, depure la aplicación de ASP.NET en Visual Studio escribiendo `F5`.,
@@ -457,7 +458,7 @@ Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá 
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red de entrega de contenido a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.  
+1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red de entrega de contenido a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -517,37 +518,37 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	Este nuevo método de extensión usa la misma idea para inyectar el script en el código HTML a fin de comprobar si hay una coincidencia en el DOM para un nombre de clase, nombre de regla o valor de regla definidos en el paquete de CSS y, en caso de no encontrarla, recurre al servidor web de origen.
 
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
-5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
+5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:
 	
 	```
 	...
-	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
+                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
-			document.head.appendChild(meta);
-			var value = window.getComputedStyle(meta).getPropertyValue('width');
-			document.head.removeChild(meta);
-			if (value !== '1px') {
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
                             document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-			}
-		    }
-		}
-		return true;
-            }())||document.write('<script src="/Content/css"><\\/script>');</script>
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
@@ -558,7 +559,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 
-6. Para probar si el script de reserva funciona, vuelva a la hoja del punto de conexión de CDN y haga clic en **Detener**.
+6. Para probar si el script de reserva funciona, vuelva a la hoja del punto de conexión de red CDN y haga clic en **Detener**.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -570,8 +571,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
-
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

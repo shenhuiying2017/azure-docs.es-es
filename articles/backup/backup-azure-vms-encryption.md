@@ -4,7 +4,7 @@
    services="backup"
    documentationCenter=""
    authors="markgalioto"
-   manager="jwhit"
+   manager="cfreeman"
    editor=""/>
 <tags
    ms.service="backup"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="03/14/2016"
+   ms.date="07/01/2016"
    ms.author="markgal; jimpark"/>
 
 # Tratar con discos cifrados durante la copia de seguridad de máquina virtual
@@ -71,4 +71,4 @@ Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen c
 - [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

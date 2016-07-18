@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/29/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Preparación de la implementación de Azure Site Recovery
@@ -139,4 +139,4 @@ Una vez que conoce y puede comparar los requisitos de implementación generales,
 - [Replicación de máquinas virtuales de Hyper-V a un sitio secundario con SAN](site-recovery-vmm-san.md)
 - [Replicación de máquinas virtuales de Hyper-V con un solo servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

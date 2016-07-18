@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/01/2016"
 	ms.author="robinsh"/>
 
 # Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -37,9 +37,9 @@ Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabi
 
 ##Disponibilidad
 
-Para el almacenamiento estándar, esta característica está disponible actualmente en Centro de EE. UU., Oeste de EE. UU., Asia Oriental y Europa Occidental.
+Para el almacenamiento Estándar, esta característica está disponible actualmente en Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Europa Occidental y Oeste de EE. UU.
 
-Para el Almacenamiento Premium, esta característica está disponible actualmente en Centro de EE. UU., Oeste de EE. UU. y Japón Oriental.
+Para el almacenamiento Premium, esta característica está disponible actualmente en Centro de EE. UU., Este de EE. UU. 2, Japón Oriental y Oeste de EE. UU.
 
 Actualizaremos este documento a medida que esta característica se implemente en otras regiones.
 
@@ -229,4 +229,4 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

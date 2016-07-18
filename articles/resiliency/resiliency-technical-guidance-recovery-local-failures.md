@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
+   ms.date="07/05/2016"
    ms.author="patw;jroth;aglick"/>
 
 #Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure
@@ -69,7 +69,7 @@ Máquinas virtuales de Azure difiere de los roles de proceso de plataforma como 
 
 A diferencia de las instancias de rol de PaaS, los datos almacenados en las unidades de máquinas virtuales son persistentes, aunque la máquina virtual se reasigne. Las Máquinas virtuales de Azure usan discos de máquinas virtuales que existen como blobs en Almacenamiento de Azure. Debido a las características de disponibilidad de Almacenamiento de Azure, los datos almacenados en las unidades de una máquina virtual también presentan una alta disponibilidad.
 
-Tenga en cuenta que la unidad D es la excepción a esta regla. La unidad D es realmente un almacenamiento físico en el servidor en bastidor que hospeda la máquina virtual y sus datos se perderán si esta se recicla. La unidad D solo está prevista como almacenamiento temporal.
+Tenga en cuenta que, en las máquinas virtuales de Windows, la unidad D es la excepción a esta regla. La unidad D es realmente un almacenamiento físico en el servidor en bastidor que hospeda la máquina virtual y sus datos se perderán si esta se recicla. La unidad D solo está prevista como almacenamiento temporal. En Linux, Azure "normalmente" (pero no siempre) expone el disco local temporal como un dispositivo de bloques /dev/sdb. A menudo, el agente de Linux de Azure lo monta como los puntos de montaje /mnt/resource o /mnt (configurables mediante /etc/waagent.conf).
 
 ###Creación de particiones
 
@@ -118,13 +118,13 @@ Base de datos SQL de Azure proporciona resistencia integrada a errores en el niv
 
 ####Administración de recursos
 
-Cada base de datos, cuando se crea, se configura con un límite de tamaño superior. El tamaño máximo disponible actualmente es 150 GB. Cuando una base de datos alcanza su límite superior de tamaño, rechaza comandos INSERT o UPDATE adicionales (la consulta y eliminación de datos aún es posible).
+Cada base de datos, cuando se crea, se configura con un límite de tamaño superior. El tamaño máximo actualmente disponible es de 1 TB (los límites de tamaño varían según su nivel de servicio, consulte [Niveles de servicio y niveles de rendimiento de Base de datos SQL de Azure](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels). Cuando una base de datos alcanza su límite superior de tamaño, rechaza comandos INSERT o UPDATE adicionales (la consulta y eliminación de datos aún es posible).
 
 En una base de datos, Base de datos SQL de Azure usa un tejido para administrar los recursos. No obstante, en lugar de un controlador de tejido, usa una topología en anillo para detectar errores. Cada réplica de un clúster tienen dos vecinos y es responsable de detectar cuándo estos dejan de funcionar. Cuando una réplica deja de funcionar, sus vecinos desencadenan un agente de reconfiguración que la vuelve a crear en otra máquina. Se proporciona limitación del motor para garantizar que un servidor lógico no usa demasiados recursos de una máquina ni supera los límites físicos de la misma.
 
 ###Elasticidad
 
-Si la aplicación requiere más espacio que los 150 GB de la base de datos, deberá implementar un enfoque de escalado horizontal. El escalado horizontal con Base de datos SQL de Azure se realiza mediante la creación manual de particiones, operación que también se denomina particionamiento, de datos en varias bases de datos SQL. Este enfoque de escalado horizontal brinda la oportunidad de lograr un crecimiento del costo casi lineal con la escala. El crecimiento elástico o la capacidad a petición pueden aumentar según sea necesario, lo cual implicará un aumento de los costos, ya que las bases de datos se facturan según el tamaño real promedio usado cada día, y no según el tamaño máximo posible.
+Si la aplicación requiere más espacio que el límite de 1 TB de la base de datos, deberá implementar un enfoque de escalado horizontal. El escalado horizontal con Base de datos SQL de Azure se realiza mediante la creación manual de particiones, operación que también se denomina particionamiento, de datos en varias bases de datos SQL. Este enfoque de escalado horizontal brinda la oportunidad de lograr un crecimiento del costo casi lineal con la escala. El crecimiento elástico o la capacidad a petición pueden aumentar según sea necesario, lo cual implicará un aumento de los costos, ya que las bases de datos se facturan según el tamaño real promedio usado cada día, y no según el tamaño máximo posible.
 
 ##SQL Server en máquinas virtuales
 
@@ -132,11 +132,11 @@ Si instala SQL Server en (versión 2014 o posterior) Máquinas virtuales de Azur
 
 ###Nodos de alta disponibilidad en un conjunto de disponibilidad
 
-Cuando implementa una solución de alta disponibilidad en Azure, se puede usar el conjunto de disponibilidad de Azure para colocar los nodos de alta disponibilidad en dominios de error y de actualización independientes. Para ser más precisos, "conjunto de disponibilidad" es un concepto de Azure. Se trata de un procedimiento recomendado que debe seguir para asegurarse de que las bases de datos tienen realmente una alta disponibilidad, independientemente de que se utilicen grupos de disponibilidad AlwaysOn, creación de reflejo de la base de datos o cualquier otra característica. Si no sigue este procedimiento, es posible que tenga la certeza incorrecta de que su sistema tiene alta disponibilidad. Pero en realidad todos los nodos pueden dejar de funcionar simultáneamente porque están colocados en el mismo dominio de error del centro de datos de Azure.
+Cuando implementa una solución de alta disponibilidad en Azure, se puede usar el conjunto de disponibilidad de Azure para colocar los nodos de alta disponibilidad en dominios de error y de actualización independientes. Para ser más precisos, "conjunto de disponibilidad" es un concepto de Azure. Se trata de un procedimiento recomendado que debe seguir para asegurarse de que las bases de datos tienen realmente una alta disponibilidad, independientemente de que se utilicen grupos de disponibilidad AlwaysOn, creación de reflejo de la base de datos o cualquier otra característica. Si no sigue este procedimiento, es posible que tenga la certeza incorrecta de que su sistema tiene alta disponibilidad. Pero en realidad, todos los nodos pueden dejar de funcionar simultáneamente porque están colocados en el mismo dominio de error de la región de Azure.
 
-Esta recomendación no tiene tanta validez con el trasvase de registros. Al tratarse de una característica de recuperación ante desastres, debe asegurarse de que los servidores se ejecutan en ubicaciones (regiones) independientes del centro de datos de Azure. Por definición, estas ubicaciones de centros de datos son dominios de error independientes.
+Esta recomendación no tiene tanta validez con el trasvase de registros. Al tratarse de una característica de recuperación ante desastres, debe asegurarse de que los servidores se ejecutan en regiones independientes de Azure. Por definición, estas regiones son dominios de error independientes.
 
-Para que las máquinas virtuales de Azure se coloquen en el mismo conjunto de disponibilidad, debe implementarlas en el mismo servicio en la nube. Tenga en cuenta que solo las máquinas virtuales del mismo servicio en la nube puede participar en el mismo conjunto de disponibilidad. Además, las máquinas virtuales deben estar en la misma red virtual para asegurarse de que conservan sus direcciones IP incluso después de la recuperación del servicio, ya que esto evita los tiempos de actualización de DNS.
+En el caso de las máquinas virtuales en los servicios en la nube de Azure implementadas mediante el portal clásico en el mismo conjunto de disponibilidad, debe implementarlas en el mismo servicio en la nube. Las máquinas virtuales implementadas mediante Azure Resource Manager (el portal actual) no tienen esta limitación. En el caso de las máquinas virtuales implementadas mediante el portal clásico en el servicio en la nube de Azure, solo los nodos en el mismo servicio en la nube pueden participar en el mismo conjunto de disponibilidad. Además, las máquinas virtuales en los servicios en la nube deben estar en la misma red virtual para asegurarse de que conservan sus direcciones IP incluso después de la recuperación del servicio, ya que esto evita las interrupciones de actualización de DNS.
 
 ###Solo Azure: soluciones de alta disponibilidad
 
@@ -160,7 +160,7 @@ Las aplicaciones que se basan en Azure se benefician de las capacidades de la pl
 
 ###Bus de servicio
 
-Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus/service-bus-performance-improvements.md) y [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región de Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
+Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para más información, consulte [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio](../service-bus/service-bus-performance-improvements.md) y [Bus de servicio (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
 
 ###Servicios móviles
 
@@ -170,13 +170,13 @@ Si los Servicios móviles experimentan una interrupción temporal, es posible qu
 
 ###HDInsight
 
-Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. Almacenamiento de Azure especifica las propiedades de durabilidad y alta disponibilidad de Almacenamiento de blobs. El procesamiento de varios nodos asociado a los trabajos MapReduce de Hadoop se realiza en un sistema de archivos distribuido Hadoop (HDFS) transitorio que se aprovisiona cuando HDInsight lo necesita. Los resultados de un trabajo MapReduce también se almacenan de forma predeterminada en Almacenamiento de blobs de Azure, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster de Hadoop se desaprovisione. Para más información, consulte [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región de Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
+Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. Almacenamiento de Azure especifica las propiedades de durabilidad y alta disponibilidad de Almacenamiento de blobs. El procesamiento de varios nodos asociado a los trabajos MapReduce de Hadoop se realiza en un sistema de archivos distribuido Hadoop (HDFS) transitorio que se aprovisiona cuando HDInsight lo necesita. Los resultados de un trabajo MapReduce también se almacenan de forma predeterminada en Almacenamiento de blobs de Azure, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster de Hadoop se desaprovisione. Para más información, consulte [HDInsight (recuperación ante desastres)](./resiliency-technical-guidance-recovery-loss-azure-region.md#hdinsight).
 
 ##Listas de comprobación para errores locales
 
 ###Servicios en la nube
 
-  1. Consulte la sección [Servicios en la nube](#cloud-services) de este documento.
+  1. Revise la sección [Servicios en la nube](#cloud-services) de este documento.
   2. Configure al menos dos instancias para cada rol.
   3. Conserve el estado en un almacenamiento durable, no en instancias de rol.
   4. Controle correctamente el evento StatusCheck.
@@ -187,19 +187,19 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 ###Máquinas virtuales
 
-  1. Consulte la sección [Máquinas virtuales](#virtual-machines) de este documento.
+  1. Revise la sección [Máquinas virtuales](#virtual-machines) de este documento.
   2. No utilice la unidad D para el almacenamiento persistente.
   3. Agrupe las máquinas de un nivel de servicio en un conjunto de disponibilidad.
   4. Configure el equilibrio de carga y los sondeos opcionales.
 
 ###Almacenamiento
 
-  1. Consulte la sección [Almacenamiento](#storage) de este documento.
+  1. Revise la sección [Almacenamiento](#storage) de este documento.
   2. Utilice varias cuentas de almacenamiento cuando los datos o el ancho de banda superen las cuotas.
 
 ###Base de datos SQL
 
-  1. Consulte la sección [Base de datos SQL](#sql-database) de este documento.
+  1. Revise la sección [Base de datos SQL](#sql-database) de este documento.
   2. Implemente una directiva de reintentos para controlar los errores transitorios.
   3. Utilice el particionamiento como estrategia de escalado horizontal.
 
@@ -211,16 +211,16 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 
 ###Bus de servicio
 
-  1. Consulte la sección [Bus de servicio](#service-bus) de este documento.
+  1. Revise la sección [Bus de servicio](#service-bus) de este documento.
   2. Considere la creación de una cola duradera en el lado del cliente como copia de seguridad.
 
 ###HDInsight
 
-  1. Consulte la sección [HDInsight](#hdinsight) de este documento.
+  1. Revise la sección [HDInsight](#hdinsight) de este documento.
   2. Para los errores locales no se requieren más pasos de disponibilidad.
 
 ##Pasos siguientes
 
-Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región de Azure](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](./resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Recuperación ante una interrupción del servicio en toda la región](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

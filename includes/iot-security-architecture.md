@@ -21,7 +21,7 @@ Debe crear un modelo de riesgos para la solución en conjunto, pero que también
 
 - Las características de privacidad y seguridad
 - Las características cuyos errores son pertinentes para la seguridad
-- Las características que tocan un límite de confianza 
+- Las características que tocan un límite de confianza
 
 ### Quién debe crear modelos de riesgos
 
@@ -40,9 +40,9 @@ El proceso del modelado de riesgos consta de cuatro pasos, que son:
 
 Cuando se crea un modelo de riesgos es preciso tener en cuenta tres reglas generales:
 
-1. Cree un diagrama de la arquitectura de referencia. 
+1. Cree un diagrama de la arquitectura de referencia.
 2. Inicie la búsqueda en anchura. Obtenga información general y entienda el sistema como un todo, antes de realizar la búsqueda en profundidad. Así se asegurará de que realiza la búsqueda en profundidad en los lugares correctos.
-3. Maneje el proceso, no permita que el proceso le maneje a usted. Si encuentra algún problema en la fase de modelado y desea explorarlo, hágalo. No es preciso que siga estos pasos ciegamente.  
+3. Maneje el proceso, no permita que el proceso le maneje a usted. Si encuentra algún problema en la fase de modelado y desea explorarlo, hágalo. No es preciso que siga estos pasos ciegamente.
 
 #### Amenazas
 
@@ -224,9 +224,9 @@ Todos los dispositivos y puertas de enlace de campo tienen algún tipo de almace
 
 | **Componente** | **Threat** | **Mitigación** | **Riesgo** | **Implementación** |
 |------------------------------------------|------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Almacenamiento del dispositivo | TRID | Cifrado de almacenamiento, firma de los registros | Lectura de datos desde el almacenamiento de información (datos de DCP), manipulación de datos de telemetría. Manipulación de datos de control de comandos en cola o en la memoria caché. La manipulación de paquetes de actualización de configuración o firmware durante el almacenamiento en caché o en la cola local puede provocar que los componentes del sistema operativo o del sistema se encuentren en peligro | Cifrado, código de autenticación de mensajes (MAC) o firma digital. Donde sea posible, control de acceso seguro a través de listas de control de acceso (ACL) a los recursos o permisos. |
-| Imagen de sistema operativo de dispositivo | TRID | | Manipulación del sistema operativo o reemplazo de los componentes del sistema operativo. | Partición de sistema operativo de solo lectura, imagen de sistema operativo firmada, cifrado |
-| Almacenamiento en la puerta de enlace de campo (poner en cola los datos) | TRID | Cifrado de almacenamiento, firma de los registros | Leer datos desde el almacenamiento de información (datos de DCP), manipulación de datos de telemetría, manipule de datos de control de comandos en cola o almacenados en la caché. La manipulación de paquetes de actualización de configuración o firmware (destinados a los dispositivos o a la puerta de enlace de campo) durante el almacenamiento en caché o en la cola local puede provocar que los componentes del sistema operativo o del sistema se encuentren en peligro | BitLocker |
+| Almacenamiento del dispositivo | TRID | Cifrado de almacenamiento, firma de los registros | Lectura de datos desde el almacenamiento de información (datos de DCP), manipulación de datos de telemetría. Manipulación de datos de control de comandos en cola o en la memoria caché. La manipulación de paquetes de actualización de configuración o firmware durante el almacenamiento en caché o en la cola local puede provocar que los componentes del sistema operativo o del sistema se encuentren en peligro. | Cifrado, código de autenticación de mensajes (MAC) o firma digital. Donde sea posible, control de acceso seguro a través de listas de control de acceso (ACL) a los recursos o permisos. |
+| Imagen de sistema operativo de dispositivo | TRID | | Manipulación del sistema operativo o reemplazo de los componentes del sistema operativo | Partición de sistema operativo de solo lectura, imagen de sistema operativo firmada, cifrado |
+| Almacenamiento en la puerta de enlace de campo (poner en cola los datos) | TRID | Cifrado de almacenamiento, firma de los registros | Leer datos desde el almacenamiento de información (datos de DCP), manipulación de datos de telemetría, manipule de datos de control de comandos en cola o almacenados en la caché. La manipulación de paquetes de actualización de configuración o firmware (destinados a los dispositivos o a la puerta de enlace de campo) durante el almacenamiento en caché o en la cola local puede provocar que los componentes del sistema operativo o del sistema se encuentren en peligro. | BitLocker |
 | Imagen de sistema operativo de puerta de enlace de campo | TRID | | Manipulación del sistema operativo o reemplazo de los componentes del sistema operativo | Partición de sistema operativo de solo lectura, imagen de sistema operativo firmada, cifrado |
 
 ### Zona de procesamiento de dispositivos y eventos o de puerta de enlace en la nube
@@ -250,4 +250,4 @@ Para más información, consulte los artículos siguientes:
 - [Microsoft Azure IoT reference architecture available (Arquitectura de referencia de IoT de Microsoft Azure disponible)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

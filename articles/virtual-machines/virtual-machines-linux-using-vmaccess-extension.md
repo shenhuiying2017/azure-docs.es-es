@@ -21,13 +21,16 @@
 
 # Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess
 
-En este artículo se muestra cómo usar la extensión VMAccess de máquina virtual [(GitHub)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) para comprobar o reparar el disco, restablecer el acceso de usuario, administrar cuentas de usuario o restablecer la configuración de SSHD en Linux. Este artículo necesita [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves SSH](virtual-machines-linux-mac-create-ssh-keys.md), una máquina virtual de Linux de Azure y la CLI de Azure instalada y cambiada al modo ARM con `azure config mode arm`.
+En este artículo se muestra cómo usar la extensión VMAccess de máquina virtual [(GitHub)](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) para comprobar o reparar un disco, restablecer el acceso de usuario, administrar cuentas de usuario o restablecer la configuración de SSHD en Linux. Este artículo necesita [una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/), [claves SSH](virtual-machines-linux-mac-create-ssh-keys.md), una máquina virtual de Linux de Azure y la CLI de Azure instalada y cambiada al modo ARM con `azure config mode arm`.
 
 ## Comandos rápidos
 
-Existen dos maneras de usar VMAccess en las máquinas virtuales de Linux. La primera es usar la CLI de Azure con `azure vm reset-access` con la marca correcta. La segunda manera de usar VMAccess es con archivos JSON sin procesar que VMAccess procesará y, luego, actuará en ellos. Para la sección de comandos rápidos, usaremos el método `azure vm reset-access`.
+Existen dos maneras de usar VMAccess en las máquinas virtuales Linux:
 
-En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
+- Con la CLI de Azure y los parámetros necesarios.
+- Mediante archivos JSON sin formato que procesará VMAccess para luego realizar acciones en ellos.
+
+Para ver la sección de comandos rápidos, usaremos el método `azure vm reset-access` de la CLI de Azure. En los siguientes ejemplos de comandos, reemplace los valores entre &lt; y &gt; con los valores de su propio entorno.
 
 ## Restablecer contraseña raíz
 
@@ -72,9 +75,9 @@ azure vm reset-access -g <resource group> -n <vm name> -r
 
 ### VMAccess definido:
 
-El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si eso hubiese sucedido en los tiempos oscuros del centro de datos, vendría aquí, desbloquearía la puerta con su huella, entraría en la jaula y abriría el KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador de KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
+El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si eso hubiese sucedido en los tiempos oscuros del centro de datos, vendría aquí, desbloquearía la puerta con su huella, entraría en la jaula y abriría el KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
 
-En el tutorial detallado usaremos el formato largo de VMAccess, el que usa archivos JSON sin procesar. Estos archivos JSON de VMAccess también se pueden llamar desde las plantillas de Azure.
+En el tutorial detallado usaremos el formato largo de VMAccess, el que usa archivos JSON sin formato. Estos archivos JSON de VMAccess también se pueden llamar desde las plantillas de Azure.
 
 ### Uso de VMAccess para comprobar o reparar el disco de una máquina virtual de Linux
 
@@ -101,7 +104,7 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 
 ### Uso de VMAccess para restablecer el acceso de usuario a Linux
 
-Si perdió el acceso a la raíz de la máquina virtual de Linux, puede iniciar un script de VMAccess para restablecer la contraseña raíz y, así, desbloquear Linux.
+Si perdió el acceso a la raíz de la máquina virtual Linux, puede iniciar un script de VMAccess para restablecer la contraseña raíz.
 
 Para restablecer la contraseña raíz, use este script de VMAccess:
 
@@ -205,4 +208,4 @@ VMAccessForLinux Microsoft.OSTCExtensions * \
 --private-config-path reset_sshd.json
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

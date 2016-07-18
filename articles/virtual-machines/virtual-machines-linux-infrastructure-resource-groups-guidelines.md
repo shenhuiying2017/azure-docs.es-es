@@ -43,7 +43,7 @@ Tareas:
 
 En Azure, puede agrupar de forma lógica recursos relacionados tales como cuentas de almacenamiento, redes virtuales y máquinas virtuales (VM) para su implementación, administración y mantenimiento como entidad única. De este modo, resulta más fácil implementar aplicaciones al mismo tiempo que se mantienen juntos todos los recursos relacionados desde una perspectiva de administración, así como conceder acceso a otros usuarios a ese grupo de recursos. Para obtener una descripción más completa de los grupos de recursos, puede leer [Información general de Azure Resource Manager](../resource-group-overview.md).
 
-Una característica clave de los grupos de recursos es la capacidad de crear su entorno mediante un archivo JSON que declara los recursos de proceso, redes y almacenamiento junto con las configuraciones o scripts personalizados relacionados que se deben aplicar. Al usar estas plantillas JSON, puede crear implementaciones coherentes y reproducibles para sus aplicaciones. De este modo, se facilita la creación de un entorno en desarrollo y, a continuación, el uso de esa misma plantilla para crear una implementación de producción, o viceversa. Para comprender mejor el uso de plantillas, puede leer [el tutorial de plantillas](../resource-manager-template-walkthrough.md), el cual le guiará a través de cada paso de la creación de una plantilla JSON.
+Una característica clave de los grupos de recursos es la capacidad de crear su entorno mediante un archivo JSON que declara los recursos de proceso, redes y almacenamiento junto con las configuraciones o scripts personalizados relacionados que se deben aplicar. Al usar estas plantillas JSON, puede crear implementaciones coherentes y reproducibles para sus aplicaciones. De este modo, se facilita la creación de un entorno en desarrollo y, a continuación, el uso de esa misma plantilla para crear una implementación de producción, o viceversa. Para comprender mejor el uso de plantillas, puede leer [el tutorial de plantillas](../resource-manager-template-walkthrough.md), el cual le guiará en cada paso de la creación de una plantilla JSON.
 
 Existen dos enfoques diferentes que puede adoptar al diseñar su entorno con los grupos de recursos:
 
@@ -57,4 +57,4 @@ A medida que escala horizontalmente, la creación de grupos de recursos centrali
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

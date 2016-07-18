@@ -18,7 +18,7 @@
 
 # Información general: copias de seguridad automatizadas de Base de datos SQL
 
-El servicio Base de datos SQL de Azure protege todas las bases de datos con una copia de seguridad automatizada que se conserva durante 7 días para el nivel Básico, 14 días para el Estándar y 35 días para el Premium. Consulte [Niveles de servicio](sql-database-service-tiers.md) para obtener más información sobre las características disponibles con cada nivel de servicio.
+El servicio Base de datos SQL de Azure protege todas las bases de datos con una copia de seguridad automatizada que se conserva durante 7 días para el nivel Básico, 35 días para el Estándar y 35 días para el Premium. Consulte [Niveles de servicio](sql-database-service-tiers.md) para obtener más información sobre las características disponibles con cada nivel de servicio.
 
 Las copias de seguridad de la base de datos se realizan automáticamente, sin necesidad de aceptarlo ni de asumir ningún cargo adicional. Estas copias de seguridad automatizadas y la restauración a un momento dado proporcionan una forma sin costos y sin administración para proteger las bases de datos de daños de un daño o eliminación accidental, con independencia de la causa. Puede utilizar estas copias de seguridad automatizadas para realizar restauraciones a un momento dado y restaurar una base de datos eliminada tras la eliminación o el daño de los datos por accidente.
 
@@ -41,14 +41,14 @@ Los archivos de copia de seguridad se almacenan en una cuenta de almacenamiento 
 También puede [restaurar una base de datos desde las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md) durante su [período de retención](sql-database-service-tiers.md) en:
 
 - Una base de datos nueva en el mismo servidor lógico recuperada en un punto especificado en el tiempo dentro del período de retención.
-- Una base de datos en el mismo servidor lógico recuperada en la hora de eliminación de una base de datos eliminada.
-- Una base de datos nueva en cualquier servidor lógico en cualquier región recuperada en las copias de seguridad diarias más recientes en el almacenamiento de blobs de replicación geográfica (RA-GRS).
+- Una base de datos en el mismo servidor lógico recuperada a la hora de eliminación de una base de datos eliminada.
+- Una base de datos nueva en cualquier servidor lógico de cualquier región recuperada en las copias de seguridad diarias más recientes en el almacenamiento de blobs de replicación geográfica (RA-GRS).
 
 También puede usar [copias de seguridad automatizadas de la Base de datos SQL](sql-database-automated-backups.md) para crear un [copia de la base de datos](sql-database-copy.md) en cualquier servidor lógico en cualquier región que sea transaccionalmente coherente con la Base de datos SQL actual. Puede usar la copia de la base de datos y [exportar a un BACPAC](sql-database-export.md) para archivar una copia transaccionalmente coherente de una base de datos durante el almacenamiento a largo plazo más allá de su período de retención o para transferir una copia de la base de datos a una instancia de máquina virtual local o de Azure de SQL Server.
 
 ## ¿Qué le ocurre a mi período de retención del punto de restauración al cambiar a una versión anterior/actualizar por nivel de servicio?
 
-Después de cambiar a un nivel de rendimiento inferior, el período de retención del punto de restauración cambiará inmediatamente al período de retención del nivel de rendimiento de la base de datos actual. Si el nivel de servicio se actualiza, el período de retención se ampliará solo cuando se haya actualizado la base de datos. Por ejemplo, si la base de datos se degrada de la versión P1 a S3, el período de retención cambiará inmediatamente de 35 días a 14 días, por lo que todos los puntos de restauración anteriores a 14 días dejarán de estar disponibles. Posteriormente, si se actualiza la base de datos de nuevo a la versión P1, el período de retención comenzará a partir de 14 días y hasta 35 días.
+Después de cambiar a un nivel de rendimiento inferior, el período de retención del punto de restauración cambiará inmediatamente al período de retención del nivel de rendimiento de la base de datos actual. Si el nivel de servicio se actualiza, el período de retención se ampliará solo cuando se haya actualizado la base de datos. Por ejemplo, si la base de datos se degrada de la versión P1 a S3, el período de retención cambiará inmediatamente de 35 días a 35 días, por lo que todos los puntos de restauración anteriores a 35 días dejarán de estar disponibles. Posteriormente, si se actualiza la base de datos de nuevo a la versión P1, el período de retención comenzará a partir de 35 días y hasta 35 días.
 
 ## ¿Cuánto dura el período de retención para una base de datos que se ha quitado? 
 El período de retención se determina según el nivel de servicio de la base de datos mientras esta existe o según el número de días que exista la base de datos, el menor de estos dos valores.
@@ -62,4 +62,4 @@ El período de retención se determina según el nivel de servicio de la base de
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 - Para obtener una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

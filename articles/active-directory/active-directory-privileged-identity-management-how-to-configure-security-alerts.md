@@ -13,54 +13,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="06/30/2016"
    ms.author="kgremban"/>
 
 # Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
 
 ## Alertas de seguridad
-Privileged Identity Management (PIM) de Azure genera las alertas siguientes, que se pueden ver en la sección de alertas del panel de PIM.
+Privileged Identity Management (PIM) de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM.
+
+![Alertas de seguridad del panel de PIM: captura de pantalla][1]
+
+
 
 | Alerta | Desencadenador | Recomendación |
 | ----- | ------- | -------------- |
-| **Activación permanente** | A un administrador se le asignó un rol permanentemente, fuera de PIM. | Revise la nueva asignación de rol y cámbiela a temporal si es necesario. |
-| **Activación sospechosa de renovación de roles con privilegios** | Había demasiadas reactivaciones del mismo rol con el tiempo permitido en la configuración. | Póngase en contacto con el usuario para asegurarse de que puede activar el rol correctamente. |
-| **Autenticación débil configurada para la activación del rol** | Hay roles sin MFA en la configuración. | Considere la posibilidad de exigir MFA para la activación de todos los roles. |
-| **Administradores redundantes** | Hay administradores temporales que no han activado sus roles recientemente. | Quite las asignaciones de roles que ya no vayan a ser necesarias. |
-| **Demasiados administradores globales** | Hay más administradores globales de lo que se recomienda. | Quite las asignaciones de roles que ya no se necesiten o convierta algunas de ellas en temporales. |
+| **Se están asignando roles fuera de PIM** | Se ha asignado a un administrador a un rol de forma permanente, fuera de la interfaz de PIM. | Revise la nueva asignación de roles. Puesto que otros servicios solo pueden asignar administradores permanentes, cámbiela por una asignación apta en caso necesario. |
+| **Se están activando roles con demasiada frecuencia** | Había demasiadas reactivaciones del mismo rol con el tiempo permitido en la configuración. | Póngase en contacto con el usuario para ver por qué activó el rol tantas veces. Puede que el límite de tiempo sea demasiado corto para que complete sus tareas, o quizá utilice scripts para eludir el proceso. |
+| **No se necesita la autenticación multifactor para la activación de los roles** | Hay roles sin MFA habilitado en la configuración. | MFA se requiere para los roles con privilegios más elevados, pero se recomienda firmemente habilitar MFA para la activación de todos los roles. |
+| **Los administradores no están usando sus roles con privilegios** | Hay administradores temporales que no han activado sus roles recientemente. | Inicie una revisión de acceso para determinar los usuarios que ya no necesitan acceso. |
+| **Demasiados administradores globales** | Hay más administradores globales de lo que se recomienda. | Si tiene un gran número de administradores globales, es probable que los usuarios estén obteniendo más permisos de los que necesitan. Mueva usuarios a roles con menos privilegios, o establezca algunos de ellos como aptos para el rol en lugar de asignarlos de forma permanente. |
 
 ## Configuración de alertas de seguridad
 
-### Alerta de renovación de activación sospechosa de roles con privilegios
+Puede personalizar algunas de las alertas de seguridad de PIM para que funcionen con su entorno sus objetivos de entorno y seguridad. Siga estos pasos para llegar a la hoja de configuración:
 
-Configure los valores de **Período de tiempo de renovación de activaciones** y **Número de renovaciones de activación** para controlar cuándo se desencadena esta alerta.
+1. Vaya al [Portal de Azure](https://portal.azure.com/) y seleccione el icono **Privileged Identity Management de Azure AD** en el panel.
+2. Seleccione **Roles con privilegios administrados** > **Configuración** > **Configuración de alertas**.
 
-1. En la sección **Actividad** del panel, seleccione **Alertas de seguridad**. Aparecerá la hoja **Activar alertas de seguridad**.
-2. Haga clic en **Configuración**.
-3. Establezca el **Plazo de renovación de activación** ajustando el control deslizante o especificando el número de minutos en el campo de texto. El valor máximo es 100.
-4. Establezca el **Número de renovaciones de activación** en el plazo de renovación de activación ajustando el control deslizante o especificando el número de renovaciones en el campo de texto. El valor máximo es 100.
-5. Haga clic en **Guardar**.
+    ![Navegación a la configuración de alertas de seguridad][2]
 
-### Alerta de administradores redundantes
-1. En la sección **Actividad** del panel, seleccione **Alertas de seguridad**. Aparecerá la hoja **Activar alertas de seguridad**.
-2. Haga clic en **Configuración**.
-3. Seleccione el número de días permitidos sin activación del rol ajustando el control deslizante o especificando el número de días en el campo de texto.
-4. Haga clic en **Guardar**.
+### Alerta "Los roles se están activando con demasiada frecuencia"
 
-### Alerta de demasiados administradores globales
+Esta alerta se desencadena si un usuario activa el mismo rol con privilegios varias veces dentro de un período especificado. Puede configurar el período de tiempo y el número de activaciones.
 
-Existen dos configuraciones que pueden desencadenar esta alerta:
-- **Número mínimo de Administradores globales** desencadenará la alerta si hay más administradores globales de lo permitido.
-- **Porcentaje de Administradores globales** desencadenará la alerta si el porcentaje de administradores que son administradores globales es superior al valor permitido.
+- **Período de tiempo de renovación de activaciones**: especifique en días, horas, minutos y segundos, el período de tiempo que quiere usar para realizar el seguimiento de renovaciones sospechosas.
 
-1. En la sección **Actividad** del panel, seleccione **Alertas de seguridad**. Aparecerá la hoja **Activar alertas de seguridad**.
-2. Haga clic en **Configuración**.
-3. Establezca el **Número mínimo de administradores globales** ajustando el control deslizante o especificando el número en el campo de texto.
-4. Establezca **Porcentaje de Administradores globales** ajustando el control deslizante o especificando el porcentaje en el campo de texto.
-5. Haga clic en **Guardar**.
+- **Número de renovaciones de activación**: especifique el número de activaciones, de 2 a 100, que considere sospechosas, o que deban ser al menos objeto de alerta, en el período de tiempo que eligió. Para establecer este valor, mueva el control deslizante o escriba un número en el cuadro de texto.
+
+
+### Alerta "Demasiados administradores globales"
+
+El PIM desencadena esta alerta si se cumplen dos criterios diferentes, y puede configurar ambos. En primer lugar, debe alcanzar un determinado umbral de administradores globales. En segundo lugar, un porcentaje determinado de las asignaciones de roles totales deben ser administradores globales. Si solo se cumple uno de estos criterios, la alerta no aparecerá.
+
+- **Número mínimo de administradores globales**: especifique el número de administradores globales, de 2 a 100, que considera una cantidad poco segura.
+
+- **Porcentaje de administradores globales**: especifique el porcentaje de los administradores que son administradores globales, de 0 % a 100 %, que es poco seguro en su entorno.
+
+### Alerta "Los administradores no están usando sus roles con privilegios"
+
+Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un rol.
+
+- **Número de días**: especifique el número de días, de 0 a 100, que un usuario puede pasar sin activar un rol.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
+[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
+
+<!---HONumber=AcomDC_0706_2016-->

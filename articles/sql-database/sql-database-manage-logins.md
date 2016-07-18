@@ -52,11 +52,14 @@ Si se usa un puerto abierto en el firewall de nivel de servidor, los administrad
 Para obtener un tutorial de la conexión mediante SQL Server Management Studio, consulte [Conexión a Base de datos SQL con SQL Server Management Studio y ejecución de una consulta T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 
 
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Cuentas especiales adicionales
 Base de datos SQL proporciona dos roles administrativos restringidas en la base de datos maestra virtual a la que se pueden agregar cuentas de usuario.
 
 ### Creadores de bases de datos
-Las cuentas administrativas pueden crear nuevas bases de datos. Para crear una cuenta adicional que pueda crear bases de datos, es preciso crear un usuario en la base de datos maestra y agregar el usuario al rol de base se datos **dbmanager** especial. El usuario puede ser un usuario de una base de datos independiente o un usuario basado en un inicio de sesión de SQL Server en la base de datos maestra virtual.
+Las cuentas administrativas pueden crear nuevas bases de datos. Para crear una cuenta adicional que pueda crear bases de datos, es preciso crear un usuario en la base de datos maestra y agregar el usuario al rol de base de datos **dbmanager** especial. El usuario puede ser un usuario de una base de datos independiente o un usuario basado en un inicio de sesión de SQL Server en la base de datos maestra virtual.
 
 1.	Con una cuenta de administrador, conéctese a la base de datos maestra virtual.
 2.	Paso opcional: crear un inicio de sesión de autenticación de SQL Server mediante la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Instrucción de ejemplo:
@@ -90,7 +93,7 @@ Ahora el usuario puede conectarse a la base de datos maestra virtual y puede cre
 
 ### Administradores de inicio de sesión
 
-Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager** rol) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra virtual. En la mayoría de los casos no es necesario, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+Si lo desea, puede realizar los mismos pasos (crear un inicio de sesión y un usuario, y agregar un usuario al rol **loginmanager**) para que los usuarios puedan crear nuevos inicios de sesión en la base de datos maestra virtual. En la mayoría de los casos no es necesario, ya que Microsoft recomienda utilizar los usuarios de la base de datos independiente que se autenticarán en el nivel de base de datos, en lugar de utilizar los usuarios basándose en los inicios de sesión. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Usuarios no administradores
 
@@ -119,7 +122,7 @@ Como procedimiento recomendado, los usuarios no administradores solo deben tener
 
 ### Ruta de acceso de no administrador
 
-Si el firewall de nivel de base de datos está configurado correctamente, los usuarios de la base de datos pueden conectarse mediante herramientas de cliente como SQL Server Management Studio o SQL Server Data Tools. Solo las herramientas más recientes proporcionan todas las características y funcionalidades. El siguiente diagrama muestra una ruta de acceso de no administrador típica. ![Ruta de acceso de no administrador](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+Si el firewall de nivel de base de datos está configurado correctamente, los usuarios de la base de datos pueden conectarse mediante herramientas de cliente como SQL Server Management Studio o SQL Server Data Tools. Solo las herramientas más recientes proporcionan todas las características y funcionalidades. El siguiente diagrama muestra una ruta de acceso típica de no administrador. ![Ruta de acceso de no administrador](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
  
 ## Grupos y roles
 La administración de acceso eficiente utiliza los permisos asignados a grupos y roles, en lugar de a usuarios individuales. Por ejemplo, si se utiliza la autenticación de Azure Active Directory:
@@ -130,7 +133,7 @@ Si se utiliza la autenticación de SQL Server:
 
 - Cree usuarios de bases de datos independientes en la base de datos. Coloque uno o varios usuarios de base de datos en un rol de base de datos. Y, a continuación, asigne permisos al rol de base de datos.
 
-Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, y **db\_denydatareader**. **db\_owner** se suele utilizar para conceder permiso total a solo unos pocos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db\_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar atentamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realizará la agregación de los permisos de todos ellos.
+Los roles de base de datos pueden ser roles integrados como **db\_owner**, **db\_ddladmin**, **db\_datawriter**, **db\_datareader**, **db\_denydatawriter**, y **db\_denydatareader**. **db\_owner** se suele utilizar para conceder permiso total a solo unos pocos usuarios. Los restantes roles fijos de base de datos son útiles para obtener rápidamente una base de datos simple en la fase de desarrollo, pero no se recomiendan para la mayoría de las bases de datos de producción. Por ejemplo, el rol fijo de base de datos **db\_datareader** concede acceso de lectura a todas las tablas de la base de datos, algo que normalmente es más de lo estrictamente necesario. Es mucho mejor usar la instrucción [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para crear sus propios roles de base de datos definidos por el usuario y otorgar cuidadosamente a cada rol los permisos mínimos necesarios para la necesidad empresarial. Cuando un usuario es miembro de varios roles, realizará la agregación de los permisos de todos ellos.
 
 ## Permisos
 
@@ -158,4 +161,4 @@ En Base de datos SQL, hay más de 100 permisos que pueden conceder o denegar ind
 
 [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

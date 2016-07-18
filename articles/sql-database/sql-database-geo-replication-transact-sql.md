@@ -36,7 +36,10 @@ Para configurar la replicación geográfica activa mediante Transact-SQL, necesi
 - Un servidor lógico de Base de datos SQL de Azure <MyLocalServer> y una instancia de Base de datos SQL <MyDB>: la base de datos principal que quiere replicar.
 - Uno o varios servidores lógicos de Base de datos SQL de Azure <MySecondaryServer(n)>: servidores lógicos que serán los servidores asociados en los que se crearán bases de datos secundarias.
 - Un inicio de sesión que es DBManager en la base de datos principal (tiene db\_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
-- La versión más reciente de SQL Server Management Studio: para obtener la versión más reciente de SQL Server Management Studio (SSMS), vaya a [Descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obtener información sobre el uso de SQL Server Management Studio para administrar los servidores lógicos y las bases de datos de Base de datos SQL de Azure, consulte [Administración de Base de datos SQL de Azure con SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 ## Agregar una base de datos secundaria
 
@@ -164,7 +167,7 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 
 ## Pasos siguientes
 
-- Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md).
-- Para obtener información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
+- Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md)
+- Para más información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

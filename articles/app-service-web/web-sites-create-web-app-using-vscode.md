@@ -32,7 +32,7 @@ ASP.NET 5 es un rediseño significativo de ASP.NET. ASP.NET 5 es un nuevo marco 
 
 * Instalación de [VS Code](http://code.visualstudio.com/Docs/setup).
 * Instalación de [Node.js](http://nodejs.org): Node.js es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. En este tutorial utilizará npm para aplicar la técnica scaffolding a una aplicación web ASP.NET 5.
-* Instalación de Git. Puede instalarlo desde cualquiera de estas ubicaciones: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Si no está familiarizado con Git, elija [git-scm.com](http://git-scm.com/downloads) y seleccione la opción para **usar Git desde el símbolo del sistema de Windows**. Una vez que instale Git, también tendrá que establecer el nombre de usuario de Git y el correo electrónico, ya que es necesario más adelante en el tutorial (al realizar una confirmación desde VS Code).  
+* Instalación de Git. Puede instalarlo desde cualquiera de estas ubicaciones: [Chocolatey](https://chocolatey.org/packages/git) o [git-scm.com](http://git-scm.com/downloads). Si no está familiarizado con Git, elija [git-scm.com](http://git-scm.com/downloads) y seleccione la opción para **usar Git desde el símbolo del sistema de Windows**. Una vez que instale Git, también tendrá que establecer el nombre de usuario de Git y el correo electrónico, ya que es necesario más adelante en el tutorial (al realizar una confirmación desde VS Code).
 
 ## Instalación de ASP.NET 5 y DNX
 ASP.NET 5/DNX (el entorno de ejecución de .NET) es una pila de .NET eficiente que sirve para crear aplicaciones web y de nube modernas que se ejecutan en OS X, Linux y Windows. Se ha desarrollado desde el principio para proporcionar un marco de desarrollo optimizado para las aplicaciones que se implementan en la nube o se ejecutan de forma local. Consta de componentes modulares con una sobrecarga mínima, para continuar disfrutando de flexibilidad al crear soluciones.
@@ -123,7 +123,7 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 	Se mostrará la ventana de comandos que la aplicación ha iniciado. Si en la ventana de comandos no aparece este mensaje, compruebe la esquina inferior izquierda de VS Code para ver si hay errores en el proyecto.
 	
-	> [AZURE.NOTE] La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Puede ver los detalles relacionados con el comando **web** en el archivo *project.json*.
+	> [AZURE.NOTE] La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Puede ver los detalles relacionados con el comando **web** en el archivo *project.json*. Si el comando no aparece o no está disponible, debe instalar la extensión de C#. Ejecute `>Extensions: Install Extension` y `ext install c#` para instalar las extensiones de C#.
 
 2. Abra un explorador y vaya a la dirección URL siguiente.
 
@@ -169,7 +169,7 @@ Git es un sistema de control de versión distribuida que puede utilizar para imp
 
 4. Seleccione la aplicación web que creó en este tutorial.
 
-5. En la hoja de la aplicación web, haga clic en **Configuración** > **Implementación continua**.
+5. En la hoja de aplicaciones web, haga clic en **Configuración** > **Implementación continua**.
 
 	![Host de la aplicación web de Azure](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 
@@ -250,7 +250,7 @@ Ahora que ha implementado la aplicación web, vamos a ejecutar la aplicación mi
 
 Esto puede hacerse de dos maneras:
 
-* Abra un explorador y escriba el nombre de la aplicación web de la manera siguiente.   
+* Abra un explorador y escriba el nombre de la aplicación web de la manera siguiente.
 
 		http://SampleWebAppDemo.azurewebsites.net
  
@@ -262,4 +262,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para más información sobre VS Code, vea el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

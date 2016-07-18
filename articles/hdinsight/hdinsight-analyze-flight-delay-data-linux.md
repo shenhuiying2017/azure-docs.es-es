@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/19/2016" 
+	ms.date="07/05/2016" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -43,7 +43,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 1. Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. En la página, seleccione los siguientes valores:
 
-	| Nombre | Valor | | Año de filtro | 2013 | | Período de filtro | Enero | | Campos | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Borrado de los demás campos |
+    | Nombre | Valor |
+    | ---- | ---- |
+    | Filter Year | 2013 |
+    | Filter Period | January |
+    | Fields | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Borrado de los demás campos |
 
 3. Haga clic en **Descargar**.
 
@@ -75,7 +79,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	
 4. Use la instrucción siguiente para crear un nuevo directorio en WASB (el almacén de datos distribuidos que usa HDInsight) y copie el archivo:
 
-	hadoop fs -mkdir -p /tutorials/flightdelays/data hadoop fs -copyFromLocal FILENAME.csv /tutorials/flightdelays/data/FILENAME.csv
+	hdfs dfs -mkdir -p /tutorials/flightdelays/data hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
 	
 ##Creación y ejecución de HiveQL
 
@@ -149,13 +153,18 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 
 3. Use la instrucción siguiente para iniciar Hive y ejecutar el archivo __flightdelays.hql__:
 
-		hive -i flightdelays.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
 		
-	Se ejecuta el archivo y luego devuelve un símbolo del sistema `hive>`.
+	> [AZURE.NOTE] En este ejemplo, se utiliza `localhost`, ya que está conectado al nodo principal del clúster de HDInsight, que es donde se está ejecutando HiveServer2.
 
-4. Cuando reciba el símbolo del sistema `hive>`, use lo siguiente para recuperar datos de los datos de retrasos de vuelos importados.
+4. Utilice el siguiente comando para abrir una sesión interactiva de Beeline:
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+5. Cuando reciba el símbolo del sistema `jdbc:hive2://localhost:10001/>`, use lo siguiente para recuperar datos de los datos de retrasos de vuelos importados.
 
 		INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 		SELECT regexp_replace(origin_city_name, '''', ''),
 			avg(weather_delay)
 		FROM delays
@@ -164,34 +173,13 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 
 	Se recupera una lista de ciudades que experimentaron demoras debidas a inclemencias del tiempo, junto con el tiempo medio de retraso; guárdela en `/tutorials/flightdelays/output`. Más adelante, Sqoop leerá los datos desde esta ubicación y los exportará a la Base de datos SQL Azure.
 
-##una Base de datos SQL
+6. Para salir de Beeline, escriba `!quit` en el símbolo del sistema.
 
-Siga estos pasos para crear una Base de datos SQL de Azure: Esta se usará para almacenar los datos exportados desde HDInsight a través de Sqoop.
+## una Base de datos SQL
 
-1. Desde el entorno de desarrollo donde está instalada la CLI de Azure, use el comando siguiente para crear una nueva Base de datos SQL Azure:
+Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrarlo en el [Portal Azure](https://portal.azure.com) seleccionando __Bases de datos SQL__ y, después, filtrando el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna __SERVIDOR__.
 
-		azure sql server create <adminLogin> <adminPassword> <region>
-
-	Por ejemplo, `azure sql server create admin password "West US"`.
-
-	Cuando finalice el comando, recibirá una respuesta similar a lo siguiente:
-
-		info:    Executing command sql server create
-		+ Creating SQL Server
-		data:    Server Name i1qwc540ts
-		info:    sql server create command OK
-
-> [AZURE.IMPORTANT] Tenga en cuenta el nombre del servidor que devuelve este comando. Este es el nombre corto del servidor de la base de datos SQL que se creó. El nombre completo de dominio (FQDN) es `<shortname>.database.windows.net`.
-
-2. Utilice el siguiente comando para crear una base de datos denominada **sqooptest** en el servidor de la base de datos SQL:
-
-        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
-
-    Esto devolverá el mensaje "Aceptar" cuando termine.
-
-	> [AZURE.NOTE] Si recibe un error en el que se indica que no tiene acceso, puede que necesite agregar la dirección IP de la estación de trabajo del cliente en el firewall de la base de datos SQL mediante el siguiente comando:
-	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md). Tiene que guardar el nombre del servidor usado para la base de datos.
 
 ##Creación de una tabla de Base de datos SQL
 
@@ -203,9 +191,9 @@ Siga estos pasos para crear una Base de datos SQL de Azure: Esta se usará para 
 
         sudo apt-get --assume-yes install freetds-dev freetds-bin
 
-4. Una vez se ha instalado FreeTDS, use el comando siguiente para conectarse al servidor de la base de datos SQL que creó anteriormente:
+4. Cuando se haya instalado FreeTDS, use el comando siguiente para conectarse al servidor de la base de datos SQL. Reemplace __serverName__ por el nombre del servidor de la base de datos SQL. Reemplace __adminLogin__ y __adminPassword__ por el inicio de sesión de la base de datos SQL. Reemplace __databaseName__ por el nombre de la base de datos.
 
-        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
 
     Recibirá un resultado similar al siguiente.
 
@@ -234,27 +222,23 @@ Siga estos pasos para crear una Base de datos SQL de Azure: Esta se usará para 
     Debería ver una salida similar a la siguiente:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        sqooptest       dbo     delays      BASE TABLE
+        databaseName       dbo     delays      BASE TABLE
 
 8. Para salir de la utilidad tsql, escriba `exit` en el símbolo del sistema `1>`.
 	
 ##Exportación de datos con Sqoop
 
-1. Utilice el siguiente comando para crear un vínculo a JDBC Driver para SQL Server desde el directorio de la biblioteca de Sqoop. Esto permite a Sqoop utilizar este controlador para comunicarse con la base de datos SQL:
-
-		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
-
 2. Utilice el siguiente comando para comprobar que Sqoop puede ver la base de datos SQL:
 
 		sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
-	Esto debe devolver una lista de bases de datos, incluida la base de datos sqooptest que creó antes.
+	Se debe devolver una lista de bases de datos, incluida la que creó anteriormente en la tabla delays.
 
 3. Use el comando siguiente para exportar los datos de hivesampletable a la tabla mobiledata:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Esto indica a Sqoop que debe conectarse a la Base de datos SQL, a la base de datos sqooptest, y exportar los datos de wasb:///tutorials/flightdelays/output (donde se almacenó la salida de la consulta de Hive anterior) a la tabla delays.
+	Esto indica a Sqoop que debe conectarse a la base de datos SQL y a la base de datos que contiene la tabla delays, así como exportar los datos de wasb:///tutorials/flightdelays/output (donde se almacenó la salida de la consulta de Hive anterior) a la tabla delays.
 
 4. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -268,6 +252,7 @@ Siga estos pasos para crear una Base de datos SQL de Azure: Esta se usará para 
 	Debería ver una lista de los datos de la tabla. Escriba `exit` para salir de la utilidad de tsql.
 
 ##<a id="nextsteps"></a> Pasos siguientes
+
 Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo rellenar una tabla de Hive con los datos del almacenamiento de blobs de Azure, cómo ejecutar consultas de Hive y cómo usar Sqoop para exportar datos de HDFS a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a HDInsight][hdinsight-get-started]
@@ -306,4 +291,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

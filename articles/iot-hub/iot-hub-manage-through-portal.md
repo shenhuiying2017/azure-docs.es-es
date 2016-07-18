@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="06/06/2016"
+	 ms.date="06/28/2016"
 	 ms.author="nasing"/>
 
 # Administración de Centros de IoT a través del portal de Azure
@@ -44,11 +44,13 @@ Para crear un Centro de IoT, debe asignar un nombre al centro. Tenga en cuenta q
 
 ### Elección del plan de tarifa
 
-Puede elegir entre tres planes: **Gratis**, **Estándar 1 ** y **Estándar 2**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
+Puede elegir entre cuatro niveles: **Gratis**, **Estándar 1 **, **Estándar 2** y **Estándar S3**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.
 
-**S1 (baja frecuencia)**: la edición S1 (baja frecuencia) de Centros de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 (baja frecuencia) permite transmitir hasta 400 000 mensajes al día a través de todos los dispositivos conectados.
+**Estándar S1**: la edición S1 de Centro de IoT está diseñada para las soluciones de IoT que tienen un gran número de dispositivos que generan cantidades de datos relativamente pequeñas por cada dispositivo. Cada unidad de la edición S1 permite transmitir hasta 400.000 mensajes por día a través de todos los dispositivos conectados.
 
-**S2 (alta frecuencia)**: la edición S2 (alta frecuencia) de Centros de IoT está diseñada para las soluciones de IoT en las que los dispositivos generan grandes cantidades de datos. Cada unidad de la edición S2 (alta frecuencia) permite transmitir hasta 6 millones de mensajes al día entre todos los dispositivos conectados.
+**Estándar S2**: la edición S2 de Centro de IoT está diseñada para las soluciones de IoT en las que los dispositivos generan grandes cantidades de datos. Cada unidad de la edición S2 permite transmitir hasta 6 millones de mensajes al día entre todos los dispositivos conectados.
+
+**Estándar S3**: la edición S3 del Centro de IoT se ha diseñado para las soluciones de IoT que generan grandes cantidades de datos. Cada unidad de la edición S3 permite transmitir hasta 300 millones de mensajes al día entre todos los dispositivos conectados.
 
 ![][4]
 
@@ -72,7 +74,7 @@ El Centro de IoT de Azure muestra automáticamente la lista de suscripciones al 
 
 ### Selección de la ubicación
 
-La opción de ubicación proporciona una lista de las regiones en las que se ofrece Centro de IoT. Centro de IoT está disponible para su implementación en las siguientes ubicaciones: Este de EE. UU., Oeste de EE. UU., Norte de Europa, Oeste de Europa, Asia Oriental y Asia Sudoriental.
+La opción de ubicación proporciona una lista de las regiones en las que se ofrece Centro de IoT. Centro de IoT está disponible para su implementación en las siguientes ubicaciones: este de Australia, sudeste de Australia, este de Asia, sudeste de Asia, Norte de Europa, Oeste de Europa, Japón Oriental, Japón Occidental, Este de EE. UU., Oeste de EE. UU.
 
 ### Creación del Centro de IoT
 
@@ -94,7 +96,7 @@ Puede cambiar la configuración de un Centro de IoT existente después de crearl
 
 	Hay varios permisos que se pueden asociar a estas directivas compartidas. Las dos primeras directivas, **Lectura del Registro** y **Escritura del Registro**, conceden derechos de acceso de lectura y escritura para el almacén de identidades de dispositivo o el registro de identidades. Tenga en cuenta que, si selecciona la opción de escritura, se elegirá automáticamente también la opción de lectura.
 
- 	La directiva de conexión de servicios concede permiso al grupo de consumidores para servicios que se conectan al centro de IoT, mientras que la conexión de dispositivos concede permisos para los dispositivos del Centro de IoT.
+ 	La directiva **Service connect** concede permiso para acceder a los puntos de conexión de nube, como el grupo de consumidores de servicios que se conectan al Centro de IoT, mientras que la directiva **Device connect** concede permisos para enviar y recibir mensajes en los puntos de conexión del dispositivo del Centro de IoT.
 
 - Haga clic en **Crear** para agregar la directiva recién creada a la lista existente.
 
@@ -122,7 +124,7 @@ Haga clic en las directivas de **Mensajería** a fin de mostrar una lista de pro
 
 ## Carga de archivos
 
-Para utilizar la funcionalidad de carga de archivos en el Centro de IoT, primero debe asociar una cuenta de almacenamiento de Azure con su centro. Seleccione la configuración de **Carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
+Para utilizar la funcionalidad de carga de archivos en el Centro de IoT, primero debe asociar una cuenta de almacenamiento de Azure con su centro. Seleccione la configuración de **carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
 
 **Cuenta de almacenamiento:** use el portal para seleccionar un contenedor de blobs en una cuenta de almacenamiento de su suscripción actual con el fin de asociarlo a su Centro de IoT. Si es necesario, puede crear una nueva cuenta de almacenamiento en la hoja **Cuentas de almacenamiento**, y el nuevo contenedor de blobs en la hoja **Contenedores**. El Centro de IoT genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
@@ -132,7 +134,7 @@ Para utilizar la funcionalidad de carga de archivos en el Centro de IoT, primero
 
 **SAS TTL** (TTL SAS): este valor es el periodo de vida de los URI de SAS que el Centro de IoT devuelve al dispositivo. Se establece en una hora de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
-**TTL predeterminado de configuración de notificación de archivos**: el periodo de vida de una notificación de carga de archivos antes de que caduque. Se establece en 1 día de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
+**File notification settings default TTL** (TTL predeterminado de configuración de notificación de archivos): el periodo de vida de una notificación de carga de archivos antes de que caduque. Se establece en 1 día de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
 **File notification maximum delivery count** (Número máximo de entregas de notificaciones de archivo): el número de veces que el Centro de IoT tratará de entregar una notificación de carga de archivos. Se establece en 10 días de forma predeterminada, pero se puede personalizar con otros valores mediante el control deslizante.
 
@@ -147,7 +149,7 @@ El precio de un Centro de IoT existente se puede cambiar mediante la configuraci
 
 ![][12]
 
-Ir de un nivel alto (S2) a un nivel bajo (S1) solo está permitido cuando el número de mensajes enviados durante ese día no está en conflicto. Por ejemplo, si el número de mensajes por día supera los 400 000, no se puede cambiar el nivel para el Centro de IoT de S2 a S1.
+Ir de un nivel alto (S2 o S3) a un nivel bajo (S1 o S2) solo está permitido cuando el número de mensajes enviados durante ese día no está en conflicto. Por ejemplo, si el número de mensajes por día supera la cifra de 400.000, puede cambiar el nivel para Centro de IoT, pero si cambia al nivel de S1, el centro se limitará durante ese día.
 
 ## Eliminación del Centro de IoT
 
@@ -173,4 +175,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

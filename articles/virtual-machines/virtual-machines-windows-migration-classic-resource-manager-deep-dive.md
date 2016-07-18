@@ -47,7 +47,7 @@ Puede encontrar las representaciones del modelo clásico y de Resource Manager d
 | Rutas definidas por el usuario | Rutas definidas por el usuario | Las rutas definidas por el usuario asociadas a una subred se clonan como parte de la migración al modelo de implementación de Resource Manager. Tenga en cuenta que las rutas definidas por el usuario no se quitan en el modelo de implementación clásica durante la migración. Sin embargo, las operaciones de plano de administración para la rutas definidas por el usuario se bloquean cuando la migración está en curso. | | |
 | Propiedad de reenvío de IP en una configuración de red de máquina virtual | Propiedad de reenvío de IP en la NIC | La propiedad de reenvío de IP en una máquina virtual se convierte en una propiedad en la interfaz de red durante la migración. | | |
 | Equilibrador de carga con varias IP | Equilibrador de carga con varios recursos de dirección IP pública | Todas las direcciones IP públicas asociadas con el equilibrador de carga se convierten a un recurso de dirección IP pública y se asocian con el equilibrador de carga después de la migración. | | |
-| Nombres DNS internos en la máquina virtual | Nombres DNS internos en la NIC | Durante la migración, los sufijos DNS internos se actualizan para coincidir con los sufijos del modelo de implementación de Resource Manager. Tenga en cuenta que la resolución de nombres sigue funcionando después de la migración. Sin embargo, se cambian los sufijos asociados a las máquinas virtuales. | | |
+| Nombres DNS internos en la máquina virtual | Nombres DNS internos en la NIC | Durante la migración, se migran los sufijos DNS internos para la máquina virtual a una propiedad de solo lectura denominada "InternalDomainNameSuffix" en la NIC. El sufijo no cambia después de la migración y la resolución de la máquina virtual debería seguir funcionando como antes. | | |
 
 ## Ilustración del tutorial de migración simple
 
@@ -64,4 +64,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

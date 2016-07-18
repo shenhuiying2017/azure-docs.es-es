@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -85,7 +85,7 @@ Vaya al paso 2.
 
 ### 1\.2. Creación del origen de datos externo
 
-Utilice este comando [CREATE EXTERNAL DATA SOURCE] [] para almacenar la ubicación de los datos y el tipo de datos.
+Utilice este comando [CREATE EXTERNAL DATA SOURCE][] para almacenar la ubicación de los datos y el tipo de datos.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -100,7 +100,7 @@ WITH
 
 ## 2\. Configuración del formato de datos
 
-Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. Ejecute este comando [CREATE EXTERNAL FILE FORMAT] [] para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
+Los datos se almacenan en archivos de texto en Almacenamiento de blobs de Azure y un delimitador separa cada campo. Ejecute este comando [CREATE EXTERNAL FILE FORMAT][] para especificar el formato de los datos en los archivos de texto. Los datos de Contoso no están comprimidos y están delimitados por canalización.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +264,7 @@ WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
 
 ## 5\. Optimización de compresión de almacén de columnas
 
-De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas. Existen varios motivos por los que esto puede ocurrir. Para obtener más información, consulte ... .
+De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas. Existen varios motivos por los que esto puede ocurrir. Para más información, consulte la sección sobre [administración de índices de almacén de columnas][].
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas.
 
@@ -276,7 +276,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte el artículo sobre [administración de índices de almacén de columnas][].
+Para más información sobre el mantenimiento de los índices de almacén de columnas, consulte la sección sobre [administración de índices de almacén de columnas][].
 
 ## 6\. Optimización de estadísticas
 
@@ -351,16 +351,17 @@ Para cargar todos los datos de Contoso Retail Data Warehouse, use el script en P
 <!--Image references-->
 
 <!--Article references-->
-[Creación de Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[información general sobre desarrollo de Almacenamiento de datos SQL]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]:
-[estadísticas]: sql-data-warehouse-develop-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
+[Creación de Almacenamiento de datos SQL]: ./sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
+[administración de índices de almacén de columnas]: ./sql-data-warehouse-tables-index.md
+[estadísticas]: ./sql-data-warehouse-tables-statistics.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[label]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: [CREATE EXTERNAL FILE FORMAT]:
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/es-ES/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/es-ES/library/dn935026.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
@@ -368,4 +369,4 @@ Para cargar todos los datos de Contoso Retail Data Warehouse, use el script en P
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

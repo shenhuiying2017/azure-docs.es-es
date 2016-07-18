@@ -36,7 +36,7 @@ Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azu
 	- una subred front-end para los servidores web
 	- una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
+![Diagrama de distintos niveles de infraestructura de aplicaciones](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
 El tráfico web seguro entrante debe ser de carga equilibrada entre los servidores web a medida que los clientes examinan la tienda en línea. El tráfico de procesamiento de pedidos en forma de solicitudes HTTP procedente de los servidores web debe equilibrarse entre los servidores de aplicaciones. Además, la infraestructura debe diseñarse para alta disponibilidad.
 
@@ -115,7 +115,7 @@ Adventure Works Cycles decidió los siguientes nombres para sus máquinas virtua
 
 Aquí está la configuración resultante.
 
-![](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
+![Infraestructura de aplicaciones final implementada en Azure](./media/virtual-machines-common-infrastructure-service-guidelines/example-config.png)
 
 Esta configuración incluye:
 
@@ -132,4 +132,4 @@ Esta configuración incluye:
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

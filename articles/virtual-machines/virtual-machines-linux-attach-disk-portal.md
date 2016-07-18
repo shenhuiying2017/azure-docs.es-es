@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Incorporación de un disco de datos a una máquina virtual Linux en el Portal de Azure
@@ -34,4 +34,4 @@ En este artículo se muestra cómo adjuntar discos nuevos y existentes a una má
 
 Después de agregar el disco, debe prepararlo para poder usarlo. En el sistema operativo de la máquina virtual siga los pasos que se indican en la sección "Inicialización de un nuevo disco de datos en Linux" en este [artículo](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux) .
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

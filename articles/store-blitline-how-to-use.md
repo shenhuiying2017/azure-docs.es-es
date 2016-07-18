@@ -69,7 +69,7 @@ Puede obtener más información acerca de las *funciones* que proporcionamos aqu
 
 También puede encontrar información sobre las opciones del trabajo aquí: <http://www.blitline.com/docs/api>.
 
-Una vez que disponga de JSON, lo único que tiene que hacer es **PUBLICARLO** en `http://api.blitline.com/jobs`.
+Una vez que disponga de JSON, lo único que tiene que hacer es **PUBLICARLO** en `http://api.blitline.com/job`.
 
 Obtendrá un resultado JSON con una apariencia similar a la siguiente:
 
@@ -85,7 +85,7 @@ Obtendrá un resultado JSON con una apariencia similar a la siguiente:
     }
 
 
-Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se complete, la imagen estará disponible en: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se complete, la imagen estará disponible en: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure
 
@@ -132,4 +132,4 @@ Visite blitline.com para conocer toda la información sobre otras característic
 * Ejemplos de API de Blitline <http://www.blitline.com/docs/examples>
 * Biblioteca Nuget de terceros <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Servicios de dominio de Azure AD *(vista previa)*: Guía de solución de problemas
@@ -64,4 +64,4 @@ Si encuentra una situación en la que uno o más usuarios de su inquilino de Azu
 ### Ponerse en contacto con nosotros
 Póngase en contacto con el equipo de productos de Servicios de dominio de Azure Active Directory para [compartir comentarios u obtener asistencia](active-directory-ds-contact-us.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

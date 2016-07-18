@@ -52,7 +52,7 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 | Recomendación | Descripción |
 | :--- | :--- |
 | Actualizar | Actualice a un nuevo nivel. |
-| No disponible | Las bases de datos requieren una carga de trabajo mínima o aproximadamente 14 días de actividad. No hay suficientes datos para proporcionar una recomendación válida. |
+| No disponible | Las bases de datos requieren una carga de trabajo mínima o aproximadamente 35 días de actividad. No hay suficientes datos para proporcionar una recomendación válida. |
 
 ## Obtención de recomendaciones de nivel de precios
 
@@ -96,4 +96,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

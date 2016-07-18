@@ -6,7 +6,7 @@
 	authors="cynthn"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="03/11/2016"
+	ms.date="07/06/2016"
 	ms.author="cynthn"/>
 
 # Diferentes formas de crear una máquina virtual de Windows con el Administrador de recursos
@@ -47,4 +47,4 @@ Utilice Visual Studio para crear, administrar e implementar máquinas virtuales 
 
 [Herramientas de Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

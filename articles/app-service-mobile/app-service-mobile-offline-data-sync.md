@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="06/28/2016"
 	ms.author="wesmc"/>
 
 # Sincronización de datos sin conexión en Aplicaciones móviles de Azure
@@ -78,7 +78,7 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
   Si la consulta tiene un parámetro, una forma de crear un nombre de consulta único es incorporar el valor del parámetro. Por ejemplo, si está filtrando por userid, el nombre de consulta podría ser el siguiente (en C#):
 
-		await todoTable.PullAsync("todoItems" + userid, 
+		await todoTable.PullAsync("todoItems" + userid,
 			syncTable.Where(u => u.UserId == userid));
 
   Si desea cancelar la sincronización incremental, pase `null` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `PullAsync`, que es potencialmente ineficaz.
@@ -104,4 +104,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: habilitar la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

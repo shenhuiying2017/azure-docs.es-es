@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
 
 ## Información general ##
-Siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] "v1" regional clásica. Una nueva red virtual "v1" regional clásica y una nueva subred pueden definirse en el momento en que se crea un entorno del Servicio de aplicaciones. También puede crearse un entorno del Servicio de aplicaciones en una red virtual regional clásica "v1" y una subred preexistentes. En estos momentos solo se admiten redes virtuales con un espacio de direcciones de RFC1918 (es decir, direcciones privadas). Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
+Siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] "v1" regional clásica. Una nueva red virtual "v1" regional clásica y una nueva subred pueden definirse en el momento en que se crea un entorno del Servicio de aplicaciones. También puede crearse un entorno del Servicio de aplicaciones en una red virtual regional clásica "v1" y una subred preexistentes. Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen o intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
 
 **Nota:** No se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2" administrada por ARM.
 
 Siempre debe crearse un entorno del Servicio de aplicaciones dentro de una subred al proporcionar esta un límite de red que puede utilizarse para bloquear el tráfico entrante tras dispositivos y servicios ascendentes de forma que solo se acepta el tráfico HTTP y HTTPS de determinadas direcciones IP ascendentes.
 
-El tráfico de red entrante y saliente de una subred se controla mediante un [grupo de seguridad de red][NetworkSecurityGroups]. Para controlar el tráfico entrante, se requiere la creación de reglas de seguridad de red en un grupo de seguridad de red y, a continuación, la asignación a este de la subred que contiene el entorno del Servicio de aplicaciones.
+El tráfico de red entrante y saliente de una subred se controla mediante un [grupo de seguridad de red][NetworkSecurityGroups]. En estos momentos, el entorno del Servicio de aplicaciones solo admite los grupos de seguridad de red creados en el modelo de implementación clásica. Para controlar el tráfico entrante, se requiere la creación de reglas de seguridad de red en un grupo de seguridad de red y, a continuación, la asignación a este de la subred que contiene el entorno del Servicio de aplicaciones.
 
 Una vez que un grupo de seguridad de red se asigna a una subred, el tráfico entrante a aplicaciones en el entorno del Servicio de aplicaciones se permite o bloquea según las reglas de permiso y denegación definidas en el grupo de seguridad de red.
 
@@ -41,7 +41,7 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 80: puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 443: puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP.
-- 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP.   
+- 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP.
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
@@ -53,13 +53,13 @@ Los Entornos del Servicio de aplicaciones también requieren una infraestructura
 
 La siguiente lista detalla los requisitos de conectividad y DNS para un Entorno del Servicio de aplicaciones:
 
--  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
+-  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.
 -  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de Base de datos SQL se resuelven en el dominio siguiente: *database.windows.net*.
--  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*. 
+-  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*.
 -  Conectividad de red saliente a *ocsp.msocsp.com*, *mscrl.microsoft.com* y *crl.microsoft.com*. Es necesario para admitir la funcionalidad SSL.
 -  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
--  Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que contiene el entorno de Servicio de aplicaciones. 
--  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.  
+-  Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que contiene el entorno de Servicio de aplicaciones.
+-  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.
 -  El acceso de red entrante a los puertos necesarios para los Entornos del Servicio de aplicaciones debe estar permitido, como se describe en este [artículo](app-service-app-service-environment-control-inbound-traffic.md).
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno. De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
@@ -67,7 +67,7 @@ También se recomienda configurar de antemano los servidores DNS personalizados 
 ## Creación de un grupo de seguridad de red ##
 Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups]. Los detalles siguientes hacen referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno del Servicio de aplicaciones.
 
-**Nota:** Solo se pueden configurar grupos de seguridad de red con los cmdlets de Powershell descritos a continuación. Los grupos de seguridad de red no se pueden configurar gráficamente mediante el [Portal de Azure](https://portal.azure.com) porque este solo permite la configuración gráfica de grupos de seguridad de red asociados a las redes virtuales "v2". Sin embargo, los entornos de servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1". Como resultado, solo se pueden utilizar los cmdlets de Powershell para configurar los grupos de seguridad de red asociados a las redes virtuales "v1".
+**Nota:** Los grupos de seguridad de red se pueden configurar gráficamente con el [Portal Azure](https://portal.azure.com) o a través de Azure PowerShell.
 
 Los grupos de seguridad de red se crean por primera vez como una entidad independiente asociada a una suscripción. Puesto que los grupos de seguridad de red se crean en una región de Azure, asegúrese de que el grupo de seguridad de red se crea en la misma región que el entorno del Servicio de aplicaciones.
 
@@ -149,4 +149,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

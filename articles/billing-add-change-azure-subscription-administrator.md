@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/06/2016"
 	ms.author="genli"/>
 
 # Incorporación o cambio de roles de administrador de Azure
@@ -48,7 +48,7 @@ Hay tres tipos de roles de administrador en Microsoft Azure:
 
 	**Nota:**
 	- El rol de propietario tiene los mismos privilegios de acceso que el coadministrador. Este rol no tiene privilegios de acceso al [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions).
-	- Los propietarios que agregó mediante el [Portal de Azure](https://portal.azure.com) no pueden administrar servicios en el [Portal de Azure clásico](https://manage.windowsazure.com).  
+	- Los propietarios que agregó mediante el [Portal de Azure](https://portal.azure.com) no pueden administrar servicios en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 5. Escriba la dirección de correo electrónico del usuario al que desee agregar como propietario, haga clic en el usuario y luego haga clic en **Seleccionar**.
 
@@ -69,7 +69,7 @@ Hay tres tipos de roles de administrador en Microsoft Azure:
 Se puede agregar la siguiente dirección de correo electrónico como coadministrador:
 
 * **Cuenta Microsoft** (anteriormente Windows Live ID) </br> Puede usar una cuenta Microsoft para iniciar sesión en todos los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone y Xbox LIVE.
-* **Cuenta de organización**</br> Una cuenta de organización es una cuenta que se crea en Azure Active Directory. La dirección de la cuenta de organización se parece a esta: user@&lt;your dominio&gt;.onmicrosoft.com.
+* **Cuenta de organización**</br> Una cuenta de organización es una cuenta que se crea en Azure Active Directory. La dirección de la cuenta de organización se parece a esta: user@&lt;your domain&gt;.onmicrosoft.com
 
 ### Limitaciones y restricciones
 
@@ -94,7 +94,7 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 2. Seleccione la suscripción que desea cancelar.
 
-3. En el lado derecho, haga clic en **Editar suscripción**. </br>
+3. En la parte derecha, haga clic en **Editar detalles de suscripción**. </br>
 
 	![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
@@ -104,14 +104,14 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
 ## Cambio del administrador de cuenta
 
-Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de suscripciones de Azure](billing-subscription-transfer.md).
+Para transferir la propiedad de la cuenta de Azure a otra cuenta, consulte [Transferencia de la propiedad de una suscripción de Azure](billing-subscription-transfer.md).
 
 ## Pasos siguientes
 
-* Para obtener más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](./active-directory/active-directory-understanding-resource-access.md).
+* Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](./active-directory/active-directory-understanding-resource-access.md).
 
-* Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated directory.md)
+* Para más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 * Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asignación de roles de administrador en Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

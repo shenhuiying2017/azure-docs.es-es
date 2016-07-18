@@ -19,6 +19,16 @@
 
 # Introducción a la detección de amenazas
 
+> [AZURE.SELECTOR]
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+- [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
+- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Información general
 
 Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. Detección de amenazas está en vista previa y es compatible con Almacenamiento de datos SQL.
@@ -89,4 +99,4 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

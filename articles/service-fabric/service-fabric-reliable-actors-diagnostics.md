@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="07/05/2016"
    ms.author="abhisram"/>
 
 # Supervisión de diagnósticos y rendimiento para Reliable Actors
@@ -118,7 +118,7 @@ El tiempo de ejecución de Reliable Actors publica los siguientes contadores de 
 |Actor de Service Fabric|Duración promedia del bloqueo por actor en milisegundos|Tiempo (en milisegundos) que dura el bloqueo por actor|
 
 ### Contadores de rendimiento y eventos de administración del estado de los actores
-El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [administración del estado de los actores](service-fabric-reliable-actors-state-management).
+El tiempo de ejecución de Reliable Actors emite los siguientes eventos relacionados con la [administración del estado de los actores](service-fabric-reliable-actors-state-management.md).
 
 |Nombre del evento|Id. de evento|Level|Palabra clave|Descripción|
 |---|---|---|---|---|
@@ -169,4 +169,4 @@ Cuando un cliente invoca un método a través de un objeto de proxy de actor, se
  - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

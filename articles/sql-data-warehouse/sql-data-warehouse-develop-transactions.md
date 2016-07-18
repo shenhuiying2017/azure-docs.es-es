@@ -24,14 +24,14 @@ Como cabría esperar, el Almacenamiento de datos SQL admite transacciones como p
 El Almacenamiento de datos SQL implementa las transacciones ACID. Sin embargo, el aislamiento de la compatibilidad transaccional está limitado a `READ UNCOMMITTED` y no puede cambiarse. Puede implementar una serie de métodos para evitar lecturas de datos sucios si esto le plantea alguna preocupación. Los métodos más populares utilizan CTAS y la modificación de particiones de tabla (que suele conocerse como un patrón de ventana deslizante) para evitar que los usuarios consulten datos que aún se encuentran en fase de preparación. Las vistas que filtran los datos previamente también constituyen un enfoque popular.
 
 ## Tamaño de la transacción
-Una transacción de modificación de datos única tiene un tamaño limitado. Actualmente, el límite se aplica "por distribución". Por tanto, para obtener la cifra total debemos multiplicar el límite por el recuento de distribución. Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada columna. Para las columnas de longitud variable, en lugar de utilizar el tamaño máximo, tenga en cuenta la longitud media de la columna.
+Una transacción de modificación de datos única tiene un tamaño limitado. Actualmente, el límite se aplica "por distribución". Por lo tanto, la asignación total puede calcularse multiplicando el límite por el recuento de distribución. Para aproximar el número máximo de filas de la transacción, divida el extremo de la distribución entre el tamaño total de cada fila. Para las columnas de longitud variable, en lugar de utilizar el tamaño máximo, tenga en cuenta la longitud media de la columna.
 
 En la tabla siguiente se han considerado estas hipótesis:
 
 * Se ha producido una distribución uniforme de los datos
 * La longitud media de la fila es de 250 bytes
 
-| DWU | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | Número de filas por distribución | Máximo de filas por transacción |
+| [DWU][] | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | Número de filas por distribución | Máximo de filas por transacción |
 | ------ | -------------------------- | ----------------------- | -------------------------- | ----------------------- | ------------------------ |
 | DW100 | 1 | 60 | 60 | 4 000 000 | 240 000 000 |
 | DW200 | 1\.5 | 60 | 90 | 6\.000.000 | 360 000 000 |
@@ -110,7 +110,7 @@ SELECT @xact;
 Observe que la reversión de la transacción debe ocurrir antes de la lectura de la información de error en el bloque `CATCH`.
 
 ## Función Error\_Line()
-También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR\_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo [etiquetas de consulta] para obtener más detalles sobre esta característica.
+También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR\_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo sobre [USO DE ETIQUETAS][] para más información sobre esta característica.
 
 ## Uso de THROW y RAISERROR
 THROW es la implementación más moderna para producir excepciones en el Almacenamiento de datos SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
@@ -127,19 +127,23 @@ Los pasos son los siguientes:
 - Transacciones no distribuidas
 - Transacciones anidadas no permitidas
 - Puntos de almacenamiento no admitidos
-- No existe compatibilidad con DDL como el elemento `CREATE TABLE` de una transacción definida por el usuario.
+- No existe compatibilidad con DDL como el elemento `CREATE TABLE` de una transacción definida por el usuario
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para más información acerca de la optimización de transacciones, consulte [Optimización de transacciones para Almacenamiento de datos SQL][]. Para más información sobre otros procedimientos recomendados de Almacenamiento de datos SQL, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-[prácticas recomendadas relacionadas con las transacciones]: sql-data-warehouse-develop-best-practices-transactions.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Optimización de transacciones para Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[prácticas recomendadas relacionadas con las transacciones]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[USO DE ETIQUETAS]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

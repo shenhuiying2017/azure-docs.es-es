@@ -84,11 +84,11 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. En la página **Configurar opciones de aplicación**, complete la **dirección URL de inicio de sesión** escribiendo la dirección URL de dominio de Salesforce con el formato siguiente:
  - Cuenta de empresa: `https://<domain>.my.salesforce.com`
- - Cuenta de desarrollador: `https://<domain>-dev-ed.my.salesforce.com` 
+ - Cuenta de desarrollador: `https://<domain>-dev-ed.my.salesforce.com`
 
 	![Inserción de la dirección URL de inicio de sesión][8]
 
@@ -216,7 +216,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] Si está aprovisionando un entorno de **desarrolladores** de Salesforce, dispondrá de un número muy limitado de licencias disponibles para cada perfil. Por tanto, es mejor aprovisionar usuarios al perfil **Usuario Chatter Free**, que tiene 4.999 licencias disponibles.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Para probar la configuración de inicio de sesión única, abra el Panel de acceso en[https://myapps.microsoft.com](https://myapps.microsoft.com/) y, a continuación, inicie sesión en la cuenta de prueba y haga clic en **Salesforce**.
 
@@ -256,4 +256,4 @@ Puede seguir este tutorial con los vídeos a continuación.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -161,7 +161,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | &nbsp; | Título | Descripción |
 | --: | :-- | :-- |
 | 83 | [Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell](sql-database-elastic-jobs-powershell.md) | PowerShell usada para administrar grupos de Base de datos SQL de Azure |
-| 84 | [Creación y administración de bases de datos de SQL de Azure escaladas horizontalmente (versión preliminar)](sql-database-elastic-jobs-create-and-manage.md) | Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica. |
+| 84 | [Creación y administración de Bases de datos SQL de Azure escaladas horizontalmente (versión preliminar)](sql-database-elastic-jobs-create-and-manage.md) | Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica. |
 | 85 | [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md) | usar trabajos de base de datos elástica |
 | 86 | [Información general sobre la instalación de Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md) | Pasos de instalación de la característica de trabajo elástico. |
 | 87 | [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md) | Muestra el servicio de trabajo de base de datos elástica |
@@ -351,7 +351,7 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 180 | [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md) | En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure. |
 | 181 | [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md) | Instrucciones de Transact-SQL que no son totalmente compatibles con la Base de datos SQL de Azure |
 | 182 | [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md) | Muestra el número de versión mínimo para cada controlador que pueden usar los programas cliente para conectarse a Base de datos SQL de Azure o a Microsoft SQL Server. Se proporciona un vínculo con información acerca de los controladores publicados por la comunidad y no por Microsoft. |
-| 183 | [Búsqueda con filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Búsqueda con filtros de artículos de documentación sobre Base de datos SQL de Azure. |
+| 183 | [Búsqueda con filtros](https://azure.microsoft.com/es-ES/documentation/articles/?service=sql-database) | Búsqueda con filtros de artículos de documentación sobre Base de datos SQL de Azure. |
 
 
 ## Varios
@@ -378,4 +378,4 @@ En este documento se muestran todos los temas relacionados directamente con el s
 
 - Gráfico de ruta de aprendizaje: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

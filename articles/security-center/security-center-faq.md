@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="07/05/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -102,7 +102,7 @@ El Centro de seguridad de Azure recopila, analiza y combina automáticamente los
 ### ¿Qué diferencia hay entre las amenazas detectadas y advertidas por el Centro de respuestas de seguridad de Microsoft y las comunicadas por Azure Security Center?
 El Centro de respuestas de seguridad de Microsoft (MSRC) lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros. Cuando MSRC se da cuenta de que un usuario ilegítimo o no autorizado ha tenido acceso a los datos del cliente o de que el uso de Azure por parte del cliente no cumple las condiciones de uso aceptable, un administrador de incidentes de seguridad notifica al cliente. La notificación suele consistir en el envío de un correo electrónico a los contactos de seguridad especificados en Azure Security Center o el propietario de la suscripción de Azure en caso de no especificarse un contacto de seguridad.
 
-Azure Security Center es un servicio de Azure que no deja de supervisar el entorno de Azure del cliente y aplica análisis para detectar de forma automática una amplia variedad de actividades potencialmente malintencionadas. Estas detecciones aparecen como alertas de seguridad en el panel de Azure Security Center. En el futuro, la notificación por correo electrónico de alertas de seguridad se enviará también a los contactos de seguridad.
+Azure Security Center es un servicio de Azure que no deja de supervisar el entorno de Azure del cliente y aplica análisis para detectar de forma automática una amplia variedad de actividades potencialmente malintencionadas. Estas detecciones aparecen como alertas de seguridad en el panel de Azure Security Center.
 
 ### ¿Cómo se administran los permisos en el Centro de seguridad de Azure?
 El Centro de seguridad de Azure admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
@@ -114,15 +114,15 @@ Para editar una directiva de seguridad, debe ser propietario o colaborador de la
 ## Máquinas virtuales
 
 ### ¿Qué tipos de máquinas virtuales serán compatibles?
-Se admiten las máquinas virtuales creadas mediante los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
+Está disponible la supervisión del mantenimiento de seguridad y las recomendaciones para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md), incluidas las máquinas virtuales que forman parte de los clústeres de Azure Service Fabric.
 
-Máquinas virtuales con Windows admitidas:
+Máquinas virtuales de Windows admitidas:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Máquinas virtuales con Linux admitidas:
+Máquinas virtuales de Linux compatibles:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versiones de Debian 7, 8
@@ -130,4 +130,8 @@ Máquinas virtuales con Linux admitidas:
 - Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
 - Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
-<!---HONumber=AcomDC_0615_2016-->
+También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más acerca del servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
+
+La recomendación del Centro de seguridad [Aplicar actualizaciones del sistema](security-center-recommendations.md) recomienda implementar actualizaciones críticas y de seguridad del sistema que faltan a máquinas virtuales. Para las máquinas virtuales en los servicios en la nube, la recomendación **Actualizar versión del sistema operativo** recomienda actualizar el sistema operativo a la versión más reciente.
+
+<!---HONumber=AcomDC_0706_2016-->
