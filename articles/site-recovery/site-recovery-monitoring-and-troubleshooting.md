@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="07/06/2016" 
 	ms.author="anbacker"/>
 	
 # Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos
@@ -148,7 +148,7 @@ Para elevar la incidencia de soporte técnico para ASR, contacte con el soporte 
 -   [Conservación de la letra de la unidad para máquinas virtuales protegidas que se conmutaron por error o se migraron a Azure](http://support.microsoft.com/kb/3031135)
 -   [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/kb/3056159)
 -   [ASR: Error "No se encontró el recurso de clúster" al intentar habilitar la protección de una máquina virtual](http://support.microsoft.com/kb/3010979)
--   [Guía de descripción y solución de problemas de Réplica de Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016) 
+-   [Guía de descripción y solución de problemas de Réplica de Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=29016)
 
 ## Errores de ASR comunes y sus soluciones
 
@@ -171,7 +171,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 ### Protección
 - <span style="color:green;">NUEVO</span> [Habilitar protección presenta el error "No se pudo configurar la protección para la máquina virtual". Error 60007, 40003](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
 - <span style="color:green;">NUEVO</span> [Habilitar protección presenta el error "No se pudo habilitar la protección para la máquina virtual". Error 70094](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-- <span style="color:green;">NEW</span> [Error de migración en vivo 23848: La máquina virtual se va a mover con el tipo Live. Esto podría afectar al estado de protección de la recuperación de la máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx) 
+- <span style="color:green;">NEW</span> [Error de migración en vivo 23848: La máquina virtual se va a mover con el tipo Live. Esto podría afectar al estado de protección de la recuperación de la máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 - [Error en la habilitación de la protección, ya que el agente no está instalado en el equipo host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 - [No se puede encontrar un host adecuado para la máquina virtual de réplica debido a unos recursos de proceso bajos](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 - [No se puede encontrar un host adecuado para la máquina virtual de réplica debido a que no se conectó una red lógica](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
@@ -202,4 +202,4 @@ Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (M
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 -   Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. [Uso del documento de solución de problemas para RDP en la máquina virtual](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

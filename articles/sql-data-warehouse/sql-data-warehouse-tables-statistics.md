@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Administración de estadísticas en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para administrar estadísticas en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
+   pageTitle="Administración de estadísticas de tablas en Almacenamiento de datos SQL | Microsoft Azure"
+   description="Introducción a las estadísticas de tablas en Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,57 +13,48 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
-   ms.author="jrj;barbkess;sonyama;nicw"/>
+   ms.date="06/30/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
-# Administración de estadísticas en el Almacenamiento de datos SQL
- El Almacenamiento de datos SQL utiliza las estadísticas para evaluar el coste de diferentes formas para realizar una consulta distribuida. Cuando las estadísticas son precisas, el optimizador de consultas puede generar planes de consulta de alta calidad que mejoran el rendimiento de las consultas.
+# Administración de estadísticas en tablas en Almacenamiento de datos SQL
 
-Crear y actualizar estadísticas es importante para lograr un rendimiento de consulta que el Almacenamiento de datos SQL pretende proporcionar. En esta guía se proporciona información general de las estadísticas y, a continuación, se muestra cómo:
+> [AZURE.SELECTOR]
+- [Información general][]
+- [Tipo de datos][]
+- [Distribución][]
+- [Índice][]
+- [Partition][]
+- [Estadísticas][]
+- [Temporal][]
 
-- Crear estadísticas como parte del diseño de base de datos
-- Actualizar estadísticas como parte del mantenimiento de base de datos
-- Ver estadísticas con funciones y vistas del sistema
+Cuanto más sepa Almacenamiento de datos SQL acerca de los datos, más rápido podrá ejecutar consultas en ellos. La manera en que se informa a Almacenamiento de datos SQL acerca de los datos es mediante la recopilación de estadísticas sobre los datos. La obtención de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. Las estadísticas ayudan a Almacenamiento de datos SQL a crear el plan óptimo para las consultas. Esto se debe a que el optimizador de consultas de Almacenamiento de datos SQL se basa en costos. Es decir, compara el costo de varios planes de consulta y elige el de menor costo, que también debe ser el que se ejecutará más rápidamente.
 
-## Presentación de las estadísticas
+Se pueden crear estadísticas de una sola columna, de varias columnas o de un índice de una tabla. Las estadísticas se almacenan en un histograma que captura el intervalo y la selectividad de valores. Esto es de especial interés cuando el optimizador debe evaluar las cláusulas JOIN, GROUP BY, HAVING y WHERE en una consulta. Por ejemplo, si el optimizador estima que la fecha de filtro de la consulta devolverá una fila, puede elegir un plan completamente diferente del que elegiría si estima que la fecha seleccionada devolverá un millón de filas. Aunque la creación de estadísticas es muy importante, no lo es menos que las estadísticas reflejen *con precisión* el estado actual de la tabla. La existencia de las estadísticas actualizadas garantiza que el optimizador selecciona un buen plan. Los planes que crea el optimizador son igual de buenos que las estadísticas de los datos.
 
-Las estadísticas de columna única son objetos que contienen información sobre el intervalo y la frecuencia de valores en una sola columna. El optimizador de consultas utiliza este histograma para estimar el número de filas en el resultado de la consulta. Esto afecta directamente a las decisiones acerca de cómo optimizar la consulta.
+En la actualidad, el proceso de creación y actualización de estadísticas es un proceso manual, pero muy fácil. Esto es diferente de lo que sucede en SQL Server, que crea y actualiza automáticamente estadísticas de columnas únicas e índices. Mediante la información que proporciona a continuación, se puede automatizar en gran medida la administración de las estadísticas de los datos.
 
-Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas. Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades. Las estadísticas de varias columnas pueden mejorar el rendimiento de consulta para algunas operaciones, como las cláusulas compuestas Join y Group by.
+## Introducción a las estadísticas
 
-Para obtener más información, consulte [DBCC SHOW\_STATISTICS][] en MSDN.
+ Crear estadísticas de muestra en cada columna es una forma sencilla de empezar a trabajar con las estadísticas. Dado que también es muy importante que las estadísticas estén actualizadas, un enfoque conservador puede ser actualizar las estadísticas diariamente o después de cada carga. Existen inconvenientes entre el rendimiento y el costo de crear y actualizar las estadísticas. Si cree que tarda demasiado en realizar el mantenimiento de todas las estadísticas, puede intentar ser más selectivo acerca de las columnas con estadísticas o las que necesitan actualizarse con frecuencia. Por ejemplo, puede preferir actualizar las columnas de fecha diariamente, ya que se pueden agregar nuevos valores, en lugar de después de cada carga. Una vez más, la mayor ventaja se logrará si se tienen estadísticas de las columnas implicadas las cláusulas JOINs, GROUP BY, HAVING y WHERE. Si tiene una tabla con muchas columnas que solo se utilizan en la cláusula SELECT, es posible que las estadísticas de estas columnas no sirvan de ayuda, mientras que realizar ciertos esfuerzos para identificar solo las columnas en que las estadísticas servirán de ayuda puede reducir el tiempo necesario para mantener las estadísticas.
 
-## ¿Por qué son necesarias las estadísticas?
-Sin estadísticas adecuadas, no se obtendrá el rendimiento previsto para el Almacenamiento de datos SQL. Las tablas y columnas y las columnas no tienen estadísticas generadas automáticamente por el Almacenamiento de datos SQL, por lo que tendrá que crearlas por su cuenta. Es conveniente crearlas después de crear la tabla y, a continuación, actualizaras cuando las ha rellenado.
+## Estadísticas de varias columnas
 
-> [AZURE.NOTE] Si utiliza SQL Server, podría depender de SQL Server para crear y actualizar las estadísticas de columna única automáticamente según sea necesario. El Almacenamiento de datos SQL es diferente en este aspecto. Puesto que los datos se distribuyen, el Almacenamiento de datos SQL no agrega estadísticas automáticamente en todas las tablas distribuidas. Sólo generará las estadísticas agregadas al crear y actualizar las estadísticas.
+Además de crear estadísticas de columnas individuales, es posible que las consultas se beneficien de las estadísticas de varias columnas. Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas. Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades. Por ejemplo, si tiene una tabla que se une a otro en dos columnas, es posible que Almacenamiento de datos SQL pueda optimizar mejor el plan si conoce la relación entre las dos columnas. Las estadísticas de varias columnas pueden mejorar el rendimiento de las consultas en algunas operaciones, como las cláusulas compuestas JOINs y GROUP BY.
 
-## Al crear estadísticas
-Un conjunto coherente de estadísticas actualizadas es una parte importante del Almacenamiento de datos SQL. Por lo tanto, es importante crear estadísticas como parte del diseño de las tablas.
+## Actualización de estadísticas
 
-Crear estadísticas de columna única en cada columna es una forma sencilla de empezar a trabajar con las estadísticas. Sin embargo, siempre hay inconvenientes entre el rendimiento y el coste de crear y actualizar las estadísticas. Si crea estadísticas de columna única en todas las columnas y observa posteriormente que se tarda demasiado tiempo en actualizar todas las estadísticas, siempre puede quitar algunas de las estadísticas o actualizar algunas de ellas con más frecuencia que otras.
-
-Las estadísticas de varias columnas solo las utiliza el optimizador de consultas cuando las columnas están en cláusulas compuestas Join o Group by. Los filtros compuestos no se benefician actualmente de estadísticas de varias columnas.
-
-Por lo tanto, al comenzar a desarrollar para Almacenamiento de datos SQL es una buena idea implementar el siguiente patrón:
-- Crear estadísticas de una columna en todas las columnas de todas las tablas
-- Crear estadísticas de varias columnas en las columnas utilizadas por las consultas en uniones y cláusulas Group by.
-
-Como ya sabe cómo desea consultar los datos, sería conveniente que refine este modelo, sobre todo si las tablas son amplias. Consulte la sección [Implementación de administración de estadísticas] (## Implementación de administración de estadísticas) para ver un enfoque más avanzado del método.
-
-## Cuándo actualizar las estadísticas
-Es importante incluir la actualización de estadísticas en la rutina de administración de base de datos. Cuando se cambia la distribución de datos en la base de datos, las estadísticas deben actualizarse. De lo contrario, puede observar un rendimiento de consulta no óptimo, y los esfuerzos para solucionar problemas con la consulta podrían no merecer la pena.
+La actualización de estadísticas es una parte importante de la rutina de administración de base de datos. Cuando se cambia la distribución de datos en la base de datos, las estadísticas deben actualizarse. Las estadísticas obsoletas provocarán a rendimiento de las consultas que no llega a ser óptimo.
 
 Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de datos y hacen que las estadísticas se queden obsoletas. Por el contrario, es posible que las estadísticas de una columna de país en una tabla de clientes nunca deban actualizarse, pues la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si su almacenamiento de datos solo contiene un país y trae datos de un nuevo país, dando esto lugar al almacenamiento de datos de varios países, definitivamente debe actualizar estadísticas en la columna de país.
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es "¿Están actualizadas las estadísticas?".
 
-No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser muy antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna determinada, *entonces* será el momento de actualizar estadísticas.
+No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser muy antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de los valores de una columna determinada, ha llegado el momento de actualizar las estadísticas.
 
-Como referencia, **SQL Server** (no Almacenamiento de datos SQL) actualiza estadísticas automáticamente para estas situaciones:
+Como referencia, **SQL Server** (no Almacenamiento de datos SQL) actualiza automáticamente las estadísticas para estas situaciones:
 
-- Si tiene cero filas en la tabla, al agregar una fila (o filas), obtendrá una actualización automática de estadísticas
-- Al agregar más de 500 filas a una tabla comenzando con menos de 500 filas (p. ej., al principio tiene 499 y después agrega 500 filas a un total de 999 filas), obtendrá una actualización automática 
+- Si tiene cero filas en la tabla, al agregar una filas, las estadísticas se actualizarán automáticamente
+- Al agregar más de 500 filas a una tabla comenzando con menos de 500 filas (p. ej., al principio tiene 499 y después agrega 500 filas a un total de 999 filas), obtendrá una actualización automática
 - Una vez que haya más de 500 filas, deberá agregar 500 filas adicionales + el 20% del tamaño de la tabla antes de ver una actualización automática en las estadísticas
 
 Al no haber DMV para determinar si los datos de la tabla han cambiado desde la última actualización de estadísticas, estar al tanto de la antigüedad de estas puede proporcionarle una visión parcial. Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.
@@ -103,7 +94,7 @@ Para obtener más información, consulte [Estadísticas][] en MSDN.
 
 ## Implementación de administración de estadísticas
 
-A menudo resulta conveniente extender el proceso de carga de datos para garantizar que las estadísticas están actualizadas al final de la carga. La carga de datos se produce cuando las tablas cambian su tamaño con mayor frecuencia o la distribución de los valores. Por lo tanto, se trata de un lugar lógico para implementar algunos procesos de administración.
+A menudo resulta conveniente extender el proceso de carga de datos para garantizar que las estadísticas están actualizadas al final de la carga. La carga de datos se produce cuando las tablas cambian su tamaño con mayor frecuencia o la distribución de los valores. Por consiguiente, se trata de un lugar lógico para implementar algunos procesos de administración.
 
 A continuación se proporcionan algunos principios fundamentales para actualizar las estadísticas durante el proceso de carga:
 
@@ -155,7 +146,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 ### C. Crear estadísticas de columna única especificando el tamaño de muestra
 
-También puede especificar el tamaño de muestra como un porcentaje:
+Como alternativa, se puede especificar el tamaño de muestra en forma de porcentaje:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
@@ -332,7 +323,7 @@ UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 Por ejemplo:
 
 ```sql
-UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] \([stats_col1]);
 ```
 
 Al actualizar los objetos de estadísticas específicos, puede minimizar el tiempo y los recursos necesarios para administrar las estadísticas. Sin embargo, esto requiere un gran esfuerzo para elegir los objetos de estadísticas que se recomienda actualizar.
@@ -355,7 +346,7 @@ Esta instrucción es fácil de usar. Solo tiene que recordar que esto actualiza 
 
 > [AZURE.NOTE] Al actualizar todas las estadísticas de una tabla, el Almacenamiento de datos SQL realiza un análisis para crear muestras de la tabla para cada estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 
-Para obtener una implementación de un procedimiento `UPDATE STATISTICS`, consulte el artículo sobre [tablas temporales]. El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS` anterior, pero el resultado final es el mismo.
+Para ver una implementación de un procedimiento `UPDATE STATISTICS`, consulte el artículo sobre [tablas temporales][Temporary]. El método de implementación difiere ligeramente del procedimiento `CREATE STATISTICS` anterior, pero el resultado final es el mismo.
 
 Para obtener la sintaxis completa, consulte [Update Statistics][] en MSDN.
 
@@ -473,17 +464,28 @@ DBCC SHOW\_STATISTICS() se implementa de forma más estricta en el Almacenamient
 4. No se pueden usar nombres de columna para identificar objetos de estadísticas.
 5. No se admite el error personalizado 2767.
 
-
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
+
+Para obtener más información, consulte [DBCC SHOW\_STATISTICS][] en MSDN. Para más información, consulte los artículos sobre [información general de tablas][Overview], [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones en una tabla][Partition] y [tablas temporales][Temporary]. Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
-<!--Link references--In actual articles, you only need a single period before the slash.-->
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
-[tablas temporales]: ./sql-data-warehouse-develop-temporary-tables.md
+<!--Article references-->
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Información general]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Distribución]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Índice]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Temporal]: ./sql-data-warehouse-tables-temporary.md
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 
-<!-- External Links -->
+<!--MSDN references-->  
 [estimación de cardinalidad]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
@@ -498,4 +500,6 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!--Other Web references-->  
+
+<!---HONumber=AcomDC_0706_2016-->

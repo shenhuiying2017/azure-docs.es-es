@@ -444,9 +444,9 @@ El Administrador de recursos ofrece varias funciones para trabajar con valores d
 
 - [concat](#concat)
 - [length](#length)
-- [take](#take)
 - [skip](#skip)
 - [split](#split)
+- [take](#take)
 
 <a id="length" />
 ### length
@@ -469,37 +469,6 @@ O bien, puede usarla con una cadena:
     },
     "variables": { 
         "nameLength": "[length(parameters('appName'))]"
-    }
-
-<a id="take" />
-### take
-**take(originalValue, numberToTake)**
-
-Devuelve una matriz o una cadena con el número especificado de elementos o de caracteres desde el principio de la matriz o cadena.
-
-| Parámetro | Obligatorio | Descripción
-| :--------------------------------: | :------: | :----------
-| originalValue | Sí | La matriz o cadena de la que tomar los elementos o caracteres.
-| numberToTake | Sí | El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor a la longitud de la matriz o cadena especificada, se devolverán todos los elementos de la matriz o cadena.
-
-En el ejemplo siguiente se toma el número especificado de elementos de la matriz.
-
-    "parameters": {
-      "first": {
-        "type": "array",
-        "defaultValue": [ "one", "two", "three" ]
-      },
-      "second": {
-        "type": "int"
-      }
-    },
-    "resources": [
-    ],
-    "outputs": {
-      "return": {
-        "type": "array",
-        "value": "[take(parameters('first'),parameters('second'))]"
-      }
     }
 
 <a id="skip" />
@@ -530,6 +499,37 @@ En el ejemplo siguiente se omite el número especificado de elementos de la matr
       "return": {
         "type": "array",
         "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take
+**take(originalValue, numberToTake)**
+
+Devuelve una matriz o una cadena con el número especificado de elementos o de caracteres desde el principio de la matriz o cadena.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| originalValue | Sí | La matriz o cadena de la que tomar los elementos o caracteres.
+| numberToTake | Sí | El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor a la longitud de la matriz o cadena especificada, se devolverán todos los elementos de la matriz o cadena.
+
+En el ejemplo siguiente se toma el número especificado de elementos de la matriz.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int"
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
       }
     }
 
@@ -877,4 +877,4 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 - Para iterar una cantidad de veces determinada al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

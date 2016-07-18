@@ -4,7 +4,7 @@ El nuevo back-end ASP.NET WebAPI se creará en las secciones siguientes y tendr�
 
 1. **Autenticación de clientes**: más adelante se agregará un controlador de mensajes para autenticar las solicitudes de cliente y asociar al usuario con la solicitud.
 2. **Registros de notificaciones de cliente**: más adelante agregará un controlador para manejar los registros nuevos de un dispositivo cliente para que reciba notificaciones. El nombre de usuario autenticado se agregará automáticamente al registro como una [etiqueta](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Envío de notificaciones a clientes**: más adelante, también agregará un controlador para proporcionar una forma en que un usuario desencadenará una inserción segura a los dispositivos y clientes asociados con la etiqueta. 
+3. **Envío de notificaciones a clientes**: más adelante, también agregará un controlador para proporcionar una forma en que un usuario desencadenará una inserción segura a los dispositivos y clientes asociados con la etiqueta.
 
 Los pasos siguientes muestran cómo crear el nuevo back-end de ASP.NET WebAPI:
 
@@ -16,7 +16,7 @@ Los pasos siguientes muestran cómo crear el nuevo back-end de ASP.NET WebAPI:
 > [AZURE.NOTE] Asegúrese de que ha instalado el [SDK de Azure](https://azure.microsoft.com/downloads/) para Visual Studio para la implementación de sitios web.
 
 1. Inicie Visual Studio o Visual Studio Express. Haga clic en **Explorador de servidores** e inicie sesión en su cuenta de Azure. Visual Studio necesitará que inicies sesión para crear los recursos del sitio web en su cuenta.
-2. En Visual Studio, haga clic en **Archivo** y, a continuación, en **Nuevo** y en **Proyecto**, expanda **Plantillas**, **Visual C#** y, a continuación, haga clic en **Web** y **Aplicación web ASP.NET**, escriba el nombre **AppBackendy**, a continuación, haga clic en **Aceptar**. 
+2. En Visual Studio, haga clic en **Archivo** y, a continuación, en **Nuevo** y en **Proyecto**, expanda **Plantillas**, **Visual C#** y, a continuación, haga clic en **Web** y **Aplicación web ASP.NET**, escriba el nombre **AppBackendy**, a continuación, haga clic en **Aceptar**.
 	
 	![][B1]
 
@@ -48,7 +48,10 @@ En esta sección creará una nueva clase de controlador de mensajes llamada **Au
 
 3. En AuthenticationTestHandler.cs, reemplace la definición de clase `AuthenticationTestHandler` con lo siguiente:
 
-	Este controlador autoriza la solicitud cuando se cumplen las tres condiciones siguientes: * La solicitud se incluye en un encabezado *Authorization*. * La solicitud emplea autenticación *básica*. * La cadena de nombre de usuario y la cadena de contraseña son la misma cadena.
+	Este controlador autorizará la solicitud cuando se cumplan las tres condiciones siguientes:
+	* La solicitud incluía un encabezado *Autorización*.
+	* La solicitud utiliza la autenticación *básica*.
+	* La cadena de nombre de usuario y la cadena de contraseña son la misma cadena.
 
 	De lo contrario, se rechazará la solicitud. Este no es un enfoque de autorización y autenticación real. Es solo un ejemplo muy simple para este tutorial.
 
@@ -120,11 +123,11 @@ En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para ge
 
 2. A la izquierda, haga clic en **En línea** y busque **Microsoft.Azure.NotificationHubs** en el cuadro **Buscar**.
 
-3. En la lista de resultados, haga clic en **Centros de notificaciones de Microsoft Azure ** y luego en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
+3. En la lista de resultados, haga clic en **Centros de notificaciones de Microsoft Azure** y luego en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
 
-	Esto agrega una referencia al SDK de los Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet de Centros Microsoft.Azure.Notification</a>.
+	Así se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet Microsoft.Azure.Notification Hubs</a>.
 
-4. Ahora crearemos un nuevo archivo de clase que representa las distintas notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenan en una base de datos. Por simplicidad, este tutorial las almacena en memoria. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Después de asignar el nombre a la nueva clase **Notifications.cs**, haga clic en **Agregar** para generar la clase.
+4. Ahora creará un archivo de clase que representa la conexión con el Centro de notificaciones usado para enviar notificaciones. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Después de asignar el nombre a la nueva clase **Notifications.cs**, haga clic en **Agregar** para generar la clase.
 
 	![][B6]
 
@@ -364,4 +367,4 @@ En esta sección agregará un nuevo controlador que expone una forma de que los 
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0706_2016-->

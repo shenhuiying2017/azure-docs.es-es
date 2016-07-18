@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Administración de DNS en un dominio administrado con Servicios de dominio de Azure AD
@@ -118,4 +118,4 @@ Para obtener más información sobre la administración de DNS, consulte el art�
 
 - [Herramientas de DNS](https://technet.microsoft.com/library/cc753579.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

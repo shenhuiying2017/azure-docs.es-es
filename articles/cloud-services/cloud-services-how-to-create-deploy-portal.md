@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -75,7 +75,7 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 4. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**
 5. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
 6. Seleccione una **ubicación**.
-7. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios.  
+7. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios.
 
      Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 
@@ -116,4 +116,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

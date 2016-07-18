@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="07/01/2016"
 	ms.author="cephalin"/>
 
 
@@ -43,7 +43,7 @@ Recorrerá un flujo de trabajo típico de desarrollo-prueba-ensayo-producción p
 
 Para traducir la imagen en palabras:
 
--	La arquitectura de implementación se divide en tres entornos distintos (o [grupos de recursos](../resource-group-overview.md) en Azure), cada uno con su correspondiente [plan de Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configuración de [escalado](web-sites-scale.md) y base de datos SQL. 
+-	La arquitectura de implementación se divide en tres entornos distintos (o [grupos de recursos](../resource-group-overview.md) en Azure), cada uno con su correspondiente [plan de Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configuración de [escalado](web-sites-scale.md) y base de datos SQL.
 -	Cada entorno se puede administrar por separado. Incluso pueden existir en distintas suscripciones.
 -	El ensayo y la producción se implementan como dos ranuras de la misma aplicación de Servicio de aplicaciones. La rama principal se configura para la integración continua con la ranura de ensayo.
 -	Cuando una confirmación en la rama principal se comprueba en la ranura de ensayo (con datos de producción), la aplicación de ensayo comprobada se cambia a la ranura de producción [sin tiempo de inactividad](web-sites-staged-publishing.md).
@@ -60,14 +60,16 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 
 -	Una cuenta de Azure
 -	Una cuenta [GitHub](https://github.com/)
--	Shell de Git (instalado con [GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión 
+-	Shell de Git (instalado con [GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión
 -	Bits más recientes de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Conocimientos básicos de lo siguiente:
 	-	Implementación de plantillas de [Administrador de recursos de Azure](../resource-group-overview.md) (vea también [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](/pricing/free-trial/): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure:
+> + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/): obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
+> + Puede [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 >
 > Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -121,7 +123,7 @@ Ya tiene configurado el entorno de producción. Luego, iniciará una nueva actua
 
 Ahora que tiene una aplicación compleja en ejecución en producción en Azure, realizará una actualización a la aplicación de acuerdo con la metodología ágil. En esta sección, creará las ramas de desarrollo y prueba que necesitará para realizar las actualizaciones necesarias.
 
-1.	En primer lugar, cree el entorno de prueba. En la sesión del Shell de Git, ejecute los siguientes comandos para crear el entorno para una nueva rama denominada **NewUpdate**. 
+1.	En primer lugar, cree el entorno de prueba. En la sesión del Shell de Git, ejecute los siguientes comandos para crear el entorno para una nueva rama denominada **NewUpdate**.
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -280,4 +282,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

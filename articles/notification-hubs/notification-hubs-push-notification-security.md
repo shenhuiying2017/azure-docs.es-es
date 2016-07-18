@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Seguridad
@@ -47,4 +47,4 @@ De modo similar a otras entidades, las operaciones del Centro de notificaciones 
 
 Los Centros de notificaciones aceptan notificaciones concedidas por tokens de Control de acceso de Microsoft Azure y tokens de firma generados con claves compartidas configuradas directamente en el Centro de notificaciones.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

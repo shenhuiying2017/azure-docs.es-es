@@ -19,14 +19,14 @@
 
 # Escalas de Base de datos SQL de Azure sobre la marcha
 
-## Cuando su aplicación crece desde un número pequeño de clientes hasta casi todo el mundo, puede escalar Base de datos SQL de Azure sobre la marcha sin experimentar un tiempo de inactividad de la aplicación
+## Cuando su aplicación crece desde un número pequeño de clientes hasta casi todo el mundo, puede escalar Base de datos SQL de Azure sobre la marcha con un tiempo mínimo de inactividad de la aplicación
 
 Una de las ventajas de la ejecución de Base de datos SQL en Microsoft Azure es poder escalar o reducir verticalmente el rendimiento sobre la marcha para adaptarse rápidamente a las cambiantes exigencias de la carga de trabajo. Base de datos SQL ofrece una amplia gama de niveles de rendimiento para satisfacer las necesidades específicas de su aplicación. Y cada nivel garantiza el rendimiento, por lo que los usuarios de la aplicación tienen una experiencia de rendimiento predecible.
 
 ![escalas sobre la marcha](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
 ## Si la aplicación es un éxito de la noche a la mañana
-Base de datos SQL facilita el escalado en un instante. Por lo que si la aplicación se vuelve un éxito de la noche a la mañana, únicamente tendrá que hacer un solo clic para dar cabida a las nuevas necesidades de rendimiento. Todo ello, además, sin tiempo de inactividad, con lo que no tendrá que preocuparse por si la aplicación se puede ver afectada cuando llegue el momento de escalar o reducir verticalmente.
+Base de datos SQL facilita el escalado en un instante. Por lo que si la aplicación se vuelve un éxito de la noche a la mañana, únicamente tendrá que hacer un solo clic para dar cabida a las nuevas necesidades de rendimiento. Todo ello, además, con un tiempo mínimo de inactividad, por lo que no tendrá que preocuparse por si la aplicación se puede ver afectada cuando llegue el momento de escalar o reducir verticalmente.
 
 [Lea la documentación](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -54,4 +54,4 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
  
 Revise la [información general técnica de Base de datos SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

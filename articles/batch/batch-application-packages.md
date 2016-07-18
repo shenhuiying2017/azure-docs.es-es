@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/20/2016"
+	ms.date="06/30/2016"
 	ms.author="marsma" />
 
 # Implementación de aplicaciones con paquetes de aplicación de Lote de Azure
@@ -198,6 +198,8 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await myCloudPool.CommitAsync();
 ```
 
+Los paquetes de aplicación que especifique para un grupo se instalan en cada nodo de proceso cuando este se una al grupo, además de cuando se reinicie o se restablezca la imagen inicial. Si, por cualquier motivo, se produce un error en una implementación del paquete de aplicación, el servicio Lote marca el nodo como [inutilizable][net_nodestate] y no se programarán tareas de ejecución en ese nodo. En este caso, debería **reiniciar** el nodo que va a volver a iniciar la implementación del paquete (al reiniciar el nodo, también podrá volver a habilitar la programación de tareas en el nodo).
+
 ## Ejecución de las aplicaciones instaladas
 
 Cuando cada nodo de proceso se une a un grupo (o se reinicia o su imagen inicial se restablece), los paquetes que ha especificado se descargan y se extraen a un directorio con nombre dentro de `AZ_BATCH_ROOT_DIR` en el nodo. Lote también crea una variable de entorno para que las líneas de comando de la tarea la utilicen al llamar a los archivos binarios de aplicación; esta variable se ajusta al esquema de nomenclatura siguiente:
@@ -230,7 +232,7 @@ Si un grupo existente ya se ha configurado con un paquete de aplicación, se pue
 * Los nodos de proceso que ya se encuentren en el grupo cuando actualice las referencias del paquete no instalan automáticamente el nuevo paquete de aplicación, sino que se deben reiniciar o restablecerse su imagen inicial para recibir el nuevo paquete.
 * Cuando se implementa un nuevo paquete, las variables de entorno creadas reflejan las nuevas referencias del paquete de aplicación.
 
-En este ejemplo, el grupo existente tiene la versión 2.7 de la aplicación *blender* configurada como una de sus propiedades [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para actualizar los nodos del grupo con la versión 2.76b, especifique una nueva clase [ApplicationPackageReference][net_pkgref] con la nueva versión y confirme el cambio.
+En este ejemplo, el grupo existente tiene la versión 2.7 de la aplicación *blender* configurada como uno de sus propiedades [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para actualizar los nodos del grupo con la versión 2.76b, especifique una nueva clase [ApplicationPackageReference][net_pkgref] con la nueva versión y confirme el cambio.
 
 ```csharp
 string newVersion = "2.76b";
@@ -244,11 +246,11 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Ahora que se ha configurado la nueva versión, todos los nodos *nuevos* que se unan al grupo tendrán implementada la versión 2.76b. Para instalar la versión 2.76b en los nodos que *ya* están en el grupo, reinícielos (o restablezca su imagen inicial). Tenga en cuenta que los nodos reiniciados conservarán los archivos de las anteriores implementaciones del paquete.
+Ahora que se ha configurado la nueva versión, todos los nodos *nuevos* que se unan al grupo tendrán la versión 2.76b implementada. Para instalar la versión 2.76b en los nodos que *ya* están en el grupo, reinícielos (o restablezca su imagen inicial). Tenga en cuenta que los nodos reiniciados conservarán los archivos de las anteriores implementaciones del paquete.
 
 ## Enumeración de las aplicaciones en una cuenta de Lote
 
-Puede enumerar las aplicaciones y sus paquetes en una cuenta de Lote mediante el método [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries].
+Para enumerar las aplicaciones y sus paquetes en una cuenta de Lote mediante el método [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries].
 
 ```csharp
 // List the applications and their application packages in the Batch account.
@@ -270,9 +272,9 @@ Con los paquetes de aplicaciones le resultará más fácil proporcionar a los cl
 
 ## Pasos siguientes
 
-* La [API de REST de Lote][api_rest] también proporciona compatibilidad para trabajar con paquetes de aplicación. Por ejemplo, consulte el elemento [applicationPackageReferences][rest_add_pool_with_packages] en [Adición de un grupo a una cuenta][rest_add_pool] para especificar los paquetes que se instalan con la API de REST. Para obtener más información sobre cómo obtener información de las aplicaciones mediante la API de REST de Lote, consulte [Aplicaciones][rest_applications].
+* El [API de REST de Lote][api_rest] también proporciona compatibilidad con el trabajo con paquetes de aplicación. Por ejemplo, consulte el elemento [applicationPackageReferences][rest_add_pool_with_packages] de [Agregar un grupo a una cuenta][rest_add_pool] para especificar los paquetes que se instalan mediante la API de REST. Para más información acerca de cómo obtener información de las aplicaciones mediante la API de REST de Lote, consulte [Aplicaciones][rest_applications].
 
-* Descubra cómo [administrar mediante programación cuentas y cuotas de Lote de Azure con la biblioteca .NET de Administración de Lote](batch-management-dotnet.md). La biblioteca [.NET de Administración de Lote][api_net_mgmt] puede habilitar las características de creación y eliminación de cuentas de una aplicación o servicio de Lote.
+* Aprenda a administrar [mediante programación cuentas y cuotas de Lote de Azure con .NET de Administración de Lote](batch-management-dotnet.md). La biblioteca [.NET de Administración de Lote][api_net_mgmt] puede habilitar las características de creación y eliminación de cuentas de una aplicación o servicio de Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -284,6 +286,7 @@ Con los paquetes de aplicaciones le resultará más fácil proporcionar a los cl
 [net_appops_listappsummaries]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.applicationpackagereferences.aspx
+[net_nodestate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.state.aspx
 [net_pkgref]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.applicationpackagereference.aspx
 [rest_applications]: https://msdn.microsoft.com/library/azure/mt643945.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -301,4 +304,4 @@ Con los paquetes de aplicaciones le resultará más fácil proporcionar a los cl
 [11]: ./media/batch-application-packages/app_pkg_11.png "Hoja Actualizar paquete en el Portal de Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Cuadro de diálogo de confirmación de eliminación de paquetes en el Portal de Azure"
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

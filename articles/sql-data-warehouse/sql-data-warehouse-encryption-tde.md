@@ -17,9 +17,15 @@
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL
+
 > [AZURE.SELECTOR]
-- [Portal de Azure](sql-data-warehouse-encryption-tde.md)
-- [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+- [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
+- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 El Cifrado de datos transparente (TDE) del Almacenamiento de datos SQL facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin requerir cambios en la aplicación.
 
@@ -29,21 +35,21 @@ TDE cifra el almacenamiento de una base de datos completa mediante el uso de una
 
 Para habilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 
-1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com).
+1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
 2. En la hoja de la base de datos, haga clic en el botón **Configuración**
 3. Seleccione la opción **Cifrado de datos transparente** ![][1]
 4. Seleccione el valor **Activado** ![][2]
-5. Seleccione **Guardar** ![][3]  
+5. Seleccione **Guardar** ![][3]
 
 ##Deshabilitar el cifrado
 
 Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 
-1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com).
+1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
 2. En la hoja de la base de datos, haga clic en el botón **Configuración**
 3. Seleccione la opción **Cifrado de datos transparente** ![][1]
 4. Seleccione el valor **Desactivado** ![][4]
-5. Seleccione **Guardar** ![][5]  
+5. Seleccione **Guardar** ![][5]
 
 ##DMV de cifrado
 
@@ -66,4 +72,4 @@ El cifrado se puede confirmar con las siguientes DMV:
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

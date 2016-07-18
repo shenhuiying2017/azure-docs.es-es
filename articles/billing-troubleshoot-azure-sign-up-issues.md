@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="cjiang"/>
 
 # Resolución de problemas de suscripción a Azure
 Este artículo le ayudará a solucionar las causas comunes de los problemas que pueden producirse al realizar la suscripción a Azure.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure en el [sitio de soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## Aparece un error al escribir la información para suscribirme.
 ¿Es correcta la información del perfil de la cuenta? Los datos del perfil se usan para generar los extractos de facturación, por lo que es importante escribir la información de forma precisa. Estos son algunos ejemplos de información incorrecta en los campos:
@@ -81,4 +81,4 @@ Sugerencias
 Sugerencias
 - Si ya activó una suscripción de Azure en el pasado y se produce un error en la activación de la evaluación gratuita, considere la posibilidad de comprar una suscripción de pago por uso. También puede ser elegible para una oferta ventajosa. Obtenga más información en la [página Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) como alternativa al plan de evaluación gratuita de Azure. Tenga en cuenta que los planes de ofertas y prestaciones requieren requisitos previos específicos.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

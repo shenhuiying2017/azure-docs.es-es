@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Administración y cambio de tamaño de un grupo de bases de datos elásticas con C&#x23; 
@@ -29,9 +29,7 @@ Obtenga información sobre cómo crear un [grupo de bases de datos elásticas](s
 
 Para ver los códigos de error comunes, consulte [Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas](sql-database-develop-error-messages.md).
 
-Los grupos de bases de datos elásticas están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12. Si tiene un servidor de Base de datos SQL V11, puede [usar PowerShell para actualizar a V12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
-
-En los ejemplos se usa la [biblioteca de Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx). Instálela ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
+En los ejemplos siguientes se usa la [biblioteca de la Base de datos SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), por lo que, si aún no está instalada, debe instalarla antes de continuar. Puede instalar esta biblioteca ejecutando el siguiente comando en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -104,13 +102,13 @@ Recupere las propiedades del grupo existentes. Modifique los valores y ejecute e
 
 ## Administración de un ejemplo de grupo con C#
 
-Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
+Las bibliotecas siguientes son necesarias para ejecutar este ejemplo. Puede instalarlas ejecutando los siguientes comandos en la [Consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) de Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md).
+Cree una aplicación de consola y reemplace el contenido de Program.cs por el código siguiente. Para obtener el identificador de cliente necesario y los valores relacionados, consulte [Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -432,4 +430,4 @@ Cree una aplicación de consola y reemplace el contenido de Program.cs por el c�
 - [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md)
 - Consulte [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, realizar consultas o crear transacciones.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -45,11 +45,7 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 | [Compilación de la primera Data Factory de Azure mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con Azure PowerShell. |
 | [Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) | En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con la plantilla del Administrador de recursos de Azure. |
 | [Tutorial: Creación de su primera factoría de datos (Introducción)](data-factory-build-your-first-pipeline.md) | En este tutorial se muestra cómo crear una factoría de datos con una canalización de datos que transforma los datos con HDInsight de Azure. |
-| [Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure](data-factory-get-started.md) | En este tutorial se muestra cómo usar la actividad de copia en una canalización de la factoría de datos de Azure para copiar datos desde un Azure blob en una base de datos SQL de Azure. |
-| [Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell](data-factory-monitor-manage-using-powershell.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Azure PowerShell. |
 | [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) | En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Asistente para copia compatible con Data Factory. |
-| [Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos](data-factory-get-started-using-editor.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure. |
-| [Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio](data-factory-get-started-using-vs.md) | En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Visual Studio. |
 
 ## Movimiento de datos
 
@@ -157,4 +153,4 @@ En este tema se muestran todos los temas que se aplican directamente al servicio
 
 - Gráfico de la ruta de aprendizaje: [data-factory](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

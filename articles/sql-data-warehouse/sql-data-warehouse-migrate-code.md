@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migración del código SQL a Almacenamiento de datos SQL
@@ -115,14 +115,14 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consu
 <!--Image references-->
 
 <!--Article references-->
-[ANSI JOINS en UPDATE]: ./sql-data-warehouse-develop-ctas.md
-[ANSI JOINS en DELETE]: ./sql-data-warehouse-develop-ctas.md
-[instrucción MERGE]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[ANSI JOINS en UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI JOINS en DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[instrucción MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Temas de Transact-SQL]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [cursores]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: ./sql-data-warehouse-develop-group-by-options.md
 [cláusula agrupar por con opciones de acumulación/cubo/agrupación]: ./sql-data-warehouse-develop-group-by-options.md
 [anidación de niveles más allá de 8]: ./sql-data-warehouse-develop-transactions.md
@@ -134,4 +134,4 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, consu
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

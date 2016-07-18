@@ -29,9 +29,9 @@
 <table>
 <tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] (http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] (https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] (documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] \(http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] \(https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] \(documentdb-nodejs-get-started.md)</td></tr>
 <tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -47,7 +47,7 @@
 
 ###<a name="1.6.0"/>1.6.0</a>
 
-- Se han implementado [colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md). 
+- Se han implementado [colecciones con particiones](documentdb-partition-data.md) y [niveles de rendimiento definidos por el usuario](documentdb-performance-levels.md).
 
 ###<a name="1.5.6"/>1.5.6</a>
 
@@ -79,7 +79,7 @@
 
 ### <a name="1.4.0"/>1.4.0</a>
 
-- Implementación de Upsert. Se han agregado nuevos métodos upsertXXX en documentClient. 
+- Implementación de Upsert. Se han agregado nuevos métodos upsertXXX en documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
 
@@ -98,7 +98,7 @@
 ### <a name="1.2.0"/>1.2.0</a>
 
 - Se agregó compatibilidad con índice geoespacial.
-- Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, &#47;&#47;, ni terminar con un espacio. 
+- Valida la propiedad id para todos los recursos. Los identificadores de recursos no pueden contener los caracteres ?, /, #, &#47;&#47;, ni terminar con un espacio.
 - Agrega el nuevo encabezado "progreso de transformación de índices" a ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -137,30 +137,30 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
-| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
-| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- 
-| [1\.5.6](#1.5.6) | 08 de marzo, 2016 |--- 
-| [1\.5.5](#1.5.5) | 02 de febrero, 2016 |--- 
-| [1\.5.4](#1.5.4) | 01 de febrero, 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 de enero, 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 de enero, 2016 |--- 
-| [1\.5.1](#1.5.1) |04 de enero, 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |--- 
-| [1\.4.0](#1.4.0) | 06 de octubre, 2015 |--- 
-| [1\.3.0](#1.3.0) | 06 de octubre, 2015 |--- 
-| [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |--- 
-| [1\.2.1](#1.2.1) | 15 de agosto, 2015 |--- 
-| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- 
-| [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- 
-| [1\.0.3](#1.0.3) | 04 de junio, 2015 |--- 
-| [1\.0.2](#1.0.2) | 23 de mayo, 2015 |--- 
-| [1\.0.1](#1.0.1) | 15 de mayo, 2015 |--- 
-| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
-| 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016 
-| 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016 
-| 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016 
-| 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016 
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |---
+| [1\.7.0](#1.7.0) | 26 de abril, 2016 |---
+| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |---
+| [1\.5.6](#1.5.6) | 08 de marzo, 2016 |---
+| [1\.5.5](#1.5.5) | 02 de febrero, 2016 |---
+| [1\.5.4](#1.5.4) | 01 de febrero, 2016 |---
+| [1\.5.2](#1.5.2) | 26 de enero, 2016 |---
+| [1\.5.2](#1.5.2) | 22 de enero, 2016 |---
+| [1\.5.1](#1.5.1) |04 de enero, 2016 |---
+| [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |---
+| [1\.4.0](#1.4.0) | 06 de octubre, 2015 |---
+| [1\.3.0](#1.3.0) | 06 de octubre, 2015 |---
+| [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |---
+| [1\.2.1](#1.2.1) | 15 de agosto, 2015 |---
+| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |---
+ [1\.1.0](#1.1.0) | 09 de julio, 2015 |---
+| [1\.0.3](#1.0.3) | 04 de junio, 2015 |---
+| [1\.0.2](#1.0.2) | 23 de mayo, 2015 |---
+| [1\.0.1](#1.0.1) | 15 de mayo, 2015 |---
+| [1\.0.0](#1.0.0) | 08 de abril, 2015 |---
+| 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016
+| 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016
+| 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016
+| 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016
 | 0.9.0-versión preliminar | 21 de agosto, 2014 | 29 de febrero, 2016
 
 
@@ -171,4 +171,4 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

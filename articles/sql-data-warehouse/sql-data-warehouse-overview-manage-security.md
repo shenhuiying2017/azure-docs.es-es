@@ -18,6 +18,16 @@
 
 # Proteger una base de datos en Almacenamiento de datos SQL
 
+> [AZURE.SELECTOR]
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+- [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
+- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 En este artículo se describen los fundamentos de la protección de una base de datos de Almacenamiento de datos SQL de Azure. En concreto, este artículo le ayudará a empezar a trabajar con los recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos.
 
 ## Seguridad de conexión
@@ -53,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][] (Conexión a Almacenamiento de datos SQL con la autenticación de Azure Active Directory).
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][]. Para más información sobre el uso de la versión preliminar de Azure AD para Almacenamiento de datos SQL, consulte [Autenticación a Almacenamiento de datos SQL de Azure][].
 
 
 ## Autorización
@@ -101,7 +111,7 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 [Conexión a Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-connections.md
 [Introducción a la auditoría de Base de datos SQL]: ./sql-data-warehouse-overview-auditing.md
 [Introducción al cifrado de datos transparente (TDE)]: ./sql-data-warehouse-encryption-tde.md
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
+[Autenticación a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall de Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +125,4 @@ Para obtener detalles y ejemplos sobre la conexión de Almacenamiento de datos S
 <!--Other Web references-->
 [Control de acceso basado en rol en el Portal de Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

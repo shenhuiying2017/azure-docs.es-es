@@ -26,8 +26,12 @@ Puede cambiar el [nivel de servicio](sql-database-service-tiers.md) de una base 
 2.	Use [Información de rendimiento de consultas de Base de datos SQL de Azure](sql-database-query-performance.md) para evaluar las consultas mediante DTU y después utilice el [Asesor de Base de datos SQL](sql-database-advisor.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema.
 3.	Puede usar vistas de administración dinámica (DMV), eventos extendidos (Xevents) y el almacén de consultas en SSMS para obtener parámetros de rendimiento en tiempo real. Vea el [tema de directrices sobre el rendimiento](sql-database-performance-guidance.md) para la supervisión detallada y sugerencias de optimización.
 
+
+    > [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Pasos para mejorar el rendimiento de la base de datos con más recursos
 1.	Para las bases de datos únicas, puede [cambiar los niveles de servicio](sql-database-scale-up.md) a petición para mejorar el rendimiento de la base de datos.
 2.	Para varias bases de datos, considere el uso de [grupos de bases de datos elásticas](sql-database-elastic-pool-guidance.md) para escalar recursos automáticamente.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

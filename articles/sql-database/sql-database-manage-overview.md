@@ -46,4 +46,4 @@ Use las herramientas de bases de datos elásticas para realizar acciones como la
 * Administrar bases de datos en un modelo de inquilino único o un modelo multiinquilino con la [biblioteca cliente de escalado elástico](sql-database-elastic-database-client-library.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

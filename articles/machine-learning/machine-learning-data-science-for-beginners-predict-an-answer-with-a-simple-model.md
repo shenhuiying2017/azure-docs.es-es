@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Predicción de respuestas con un modelo sencillo | Microsoft Azure"
+   pageTitle="Predicción de respuestas con un modelo sencillo: ciencia de datos para principiantes | Microsoft Azure"
    description="Cómo crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal básica con los datos de destino."                                  
    keywords="crear un modelo, modelo simple, modelo de datos simple, predicción del precio, modelo de regresión simple"
    services="machine-learning"
@@ -17,9 +17,11 @@
    ms.date="06/29/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Predicción de respuestas con un modelo simple: vídeo 4 de Ciencia de datos para principiantes
+# Ciencia de datos para principiantes, vídeo 5: Predicción de respuestas con un modelo sencillo
 
 Aprenda a crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
+
+Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
@@ -72,7 +74,7 @@ Ahora podemos hacer lo mismo con cada diamante de esta lista. Cuando hayamos ter
 
 Si observa los puntos con los ojos entrecerrados, la colección parece una línea gruesa y difuminada. Podemos tomar nuestro marcador y dibujar una línea recta a través de ellos.
 
-Al dibujar una línea, creamos un *modelo*. Piense en esto como tomar el mundo real y hacer un cómic simplista de él. Ahora el cómic es incorrecto: la línea no pasa por todos los puntos de datos. Pero es una simplificación útil.
+Al dibujar una línea, hemos creado un *modelo*. Piense en esto como tomar el mundo real y hacer un cómic simplista de él. Ahora el cómic es incorrecto: la línea no pasa por todos los puntos de datos. Pero es una simplificación útil.
 
 ![Línea de regresión lineal](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
@@ -125,14 +127,15 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
 
-  * Vídeo 1: [Las cinco preguntas a las que puede responder la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). **Ya disponible.**
-  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) **Ya disponible.**
-  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md). **Ya disponible.**
-  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md). Disponible el 30 de junio.
+  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
+  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
+  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
+  * Vídeo 4: Predicción de respuestas con un modelo sencillo
+  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Pasos siguientes
 
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

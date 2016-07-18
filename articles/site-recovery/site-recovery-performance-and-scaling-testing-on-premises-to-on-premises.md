@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Resultados de escalado y pruebas de rendimiento de la replicación de Hyper-V entre sitios locales con Site Recovery.
@@ -195,17 +195,17 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
 |Métrica|Contador|
 |---|---|
-|CPU|\\Procesador(\_Total)\\% Hora del procesador|
+|CPU|Procesador(\_Total)\\% Hora del procesador|
 |Memoria disponible|\\Memoria\\MB disponibles|
 |E/S|\\Disco físico(\_Total)\\Transferencias de disco/s|
-|Operaciones de lectura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s|
-|Operaciones de escritura de VM por segundo (E/S)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s|
-|Rendimiento de lectura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s|
-|Rendimiento de escritura de VM|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
+|Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s|
+|Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s|
+|Rendimiento de lectura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s|
+|Rendimiento de escritura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
 
 
 ## Pasos siguientes
 
 - [Configuración de la protección entre dos sitios VMM locales](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

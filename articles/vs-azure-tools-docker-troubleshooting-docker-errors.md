@@ -41,7 +41,7 @@ public class Program
 }
 ```
 
-UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.  
+UseUrls() configuró WebHost para escuchar el tráfico de la dirección URL entrante.
 [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configurará la variable de entorno en el modo dockerfile.debug/release de la siguiente forma:
 
 ```
@@ -53,8 +53,8 @@ ENV ASPNETCORE_SERVER.URLS http://*:80
 Para habilitar las funcionalidades de edición y actualización, la asignación de volúmenes está configurada para compartir el código fuente del proyecto con la carpeta .app dentro del contenedor. Como los archivos se cambian en el equipo host, el directorio de la aplicación o contenedores usa el mismo directorio. En docker-compose.debug.yml, la siguiente configuración habilita la asignación de volúmenes
 
 ```
-volumes:
-    - ..:/app
+    volumes:
+      - ..:/app
 ```
 
 Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente comando:
@@ -62,7 +62,7 @@ Para comprobar si funciona la asignación de volúmenes, pruebe el siguiente com
 **En Windows**
 
 ```
-
+docker run -it -v /c/Users/Public:/wormhole busybox
 / # ls
 ```
 
@@ -106,14 +106,14 @@ Si utiliza el Explorador de Microsoft Edge, puede que el sitio no se abra ya que
 
 1. Vaya a **Opciones de Internet**.
     - En Windows 10, puede escribir `Internet Options` en el cuadro de ejecución de Windows.
-    - En Internet Explorer, puede ir al menú **Herramientas** y seleccionar **Opciones de Internet**. 
-1. Seleccione **Opciones de Internet** cuando aparezca. 
+    - En Internet Explorer, puede ir al menú **Herramientas** y seleccionar **Opciones de Internet**.
+1. Seleccione **Opciones de Internet** cuando aparezca.
 1. Seleccione la pestaña **Seguridad**.
 1. Seleccione la zona **Intranet local**.
-1. Seleccione **Sitios**. 
-1. Agregue la dirección IP de la máquina virtual (en este caso, el host de Docker) en la lista. 
-1. Actualice la página en Edge; debería ver que el sitio está en funcionamiento. 
-1. Para más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox). 
+1. Seleccione **Sitios**.
+1. Agregue la dirección IP de la máquina virtual (en este caso, el host de Docker) en la lista.
+1. Actualice la página en Edge; debería ver que el sitio está en funcionamiento.
+1. Para más información sobre este problema, consulte la publicación del blog de Scott Hanselman [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx) (Microsoft Edge no puede ver ni abrir los sitios web locales hospedados en VirtualBox).
 
 ##Solución de problemas de la versión 0.15, o de las versiones anteriores
 
@@ -136,4 +136,4 @@ Podría tratarse de un error durante `docker-compose-up`. Para ver el error, rea
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
     ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

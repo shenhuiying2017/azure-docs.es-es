@@ -34,7 +34,7 @@ Use nuestro [foro de Aprendizaje automático de Microsoft Azure](https://social.
 
 Acceda a la página principal de las competiciones a través de la Galería de Cortana Intelligence. Esta página contiene todas las competiciones que hay en curso. Cada competición incluirá instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
 
-1. Busque la competición en la que le gustaría participar en la Galería de Cortana Intelligence, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón “Participar en la competición” para copiar el experimento de inicio en su área de trabajo de aprendizaje automático de Azure. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.   
+1. Busque la competición en la que le gustaría participar en la Galería de Cortana Intelligence, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón “Participar en la competición” para copiar el experimento de inicio en su área de trabajo de aprendizaje automático de Azure. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.
 
 2. Cree un experimento predictivo a partir del modelo entrenado del experimento de inicio. Después, ajuste con cuidado el esquema de entrada y de salida del servicio web para asegurarse de que cumplen con el requisito especificado en la documentación de la competición. El documento del tutorial generalmente contiene instrucciones detalladas sobre cómo conseguirlo. También puede ver el vídeo del tutorial si está disponible.
 
@@ -115,4 +115,4 @@ La plataforma de competición actual solo admite el envío de entradas que se re
 
 Solo se conservan las entradas de los usuarios para fines de evaluación para identificar las soluciones ganadoras. Consulte los [Términos y condiciones](http://aka.ms/comptermsandconditions) para obtener información específica.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

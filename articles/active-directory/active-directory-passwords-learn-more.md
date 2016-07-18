@@ -28,7 +28,7 @@ Si ya ha implementado la administración de contraseñas, o simplemente desea ob
   - [Cómo obtener acceso a los datos de restablecimiento de la contraseña de los usuarios](#how-to-access-password-reset-data-for-your-users)
 
 ## Información general sobre la escritura diferida de contraseñas
-La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](active-directory-aadconnect) que los suscriptores actuales de Azure Active Directory Premium pueden habilitar y utilizar. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](active-directory-aadconnect.md) que los suscriptores actuales de Azure Active Directory Premium pueden habilitar y utilizar. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 La escritura diferida de contraseñas le permite configurar el inquilino de nube para que escriba contraseñas en diferido en su Active Directory local. Evita tener que configurar y administrar una solución de restablecimiento de contraseñas de autoservicio local y ofrece una manera conveniente basada en la nube para que los usuarios restablezcan sus contraseñas locales dondequiera que estén. Siga leyendo para conocer algunas de las características clave de la escritura diferida de contraseñas:
 
@@ -66,7 +66,7 @@ Si un usuario federado o con sincronización de hash de contraseña cambia o res
 10.	Si se produce un error en la operación de establecimiento de la contraseña, se devolverá el error al usuario y se le permitirá que vuelva a intentarlo. La operación puede producir un error porque el servicio no estaba disponible, la contraseña seleccionada no cumplía las directivas de la organización, no se encontraba el usuario en el entorno local de AD o por otros motivos. Disponemos de un mensaje específico para muchos de estos casos, a fin de indicar al usuario qué puede hacer para resolver el problema.
 
 ### Escenarios admitidos para la escritura diferida de contraseñas
-En la tabla siguiente se describe qué escenarios se admiten para las versiones de nuestras capacidades de sincronización. En general, se recomienda que instale la versión más reciente de [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
+En la tabla siguiente se describe qué escenarios se admiten para las versiones de nuestras capacidades de sincronización. En general, se recomienda que instale la versión más reciente de [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
 
   ![][002]
 
@@ -279,7 +279,7 @@ Es posible acceder a los siguientes campos mediante Azure AD PowerShell y la API
 * Correo electrónico de autenticación
 
 ####Datos configurables solamente con la IU de registro
-Solo se puede acceder a los campos siguientes a través del interfaz de usuario de registro SSPR (https://aka.ms/ssprsetup):
+Solo se puede acceder a los campos siguientes a través de la interfaz de usuario de registro SSPR (https://aka.ms/ssprsetup):
 
 * Preguntas y respuestas de seguridad
 
@@ -379,4 +379,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

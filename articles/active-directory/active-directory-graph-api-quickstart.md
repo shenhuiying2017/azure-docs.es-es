@@ -20,7 +20,7 @@
 
 # Guía de inicio rápido de la API Graph de Azure AD
 
-La API Graph de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para obtener más información acerca de los escenarios de aplicaciones y características de API Graph, consulte [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y [los requisitos previos de la API Graph de Azure AD](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
+La API Graph de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para obtener más información acerca de los escenarios de aplicaciones y características de API Graph, consulte [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y [los requisitos previos de la API Graph de Azure AD](https://msdn.microsoft.com/library/hh974476.aspx).
 
 > [AZURE.IMPORTANT] Esta función también está disponible mediante [Microsoft Graph](https://graph.microsoft.io/), una API unificada que incluye las API de otros servicios de Microsoft como Outlook, OneDrive, OneNote, Organizador y Office Graph, accesible con un único punto de conexión y un solo token de acceso.
 
@@ -120,4 +120,4 @@ Para más información sobre las entidades y los tipos de Azure AD expuestos por
 - Obtenga más información acerca de la [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 - Más información sobre [los ámbitos de permiso de la API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

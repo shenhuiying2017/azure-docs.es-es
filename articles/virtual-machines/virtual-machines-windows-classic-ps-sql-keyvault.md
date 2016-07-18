@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/08/2016"
+	ms.date="07/05/2016"
 	ms.author="jroth"/>
 
 # Configuración de la integración de Almacén de claves de Azure para SQL Server en máquinas virtuales de Azure (implementación clásica)
@@ -70,4 +70,4 @@ La extensión del agente de Iaas de SQL actualizará la máquina virtual de SQL 
 
 [AZURE.INCLUDE [Siguientes pasos de integración de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

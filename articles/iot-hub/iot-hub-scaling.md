@@ -36,8 +36,9 @@ Los mensajes de dispositivo a nube siguen estas directrices de capacidad de proc
 
 | Nivel: | Capacidad de procesamiento sostenida | Velocidad de envío sostenida |
 | ---- | -------------------- | ------------------- |
-| S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
+| S1 | Hasta 1111 KB/minuto por unidad<br/>(1,5 GB/día/unidad) | Promedio de 278 mensajes/minuto por unidad<br/>(400 000 mensajes/día por unidad) |
 | S2 | Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) | Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
+| S3 | Hasta 814 MB/minuto por unidad<br/>(1144,4 GB/día/unidad) | Promedio de 208.333 mensajes/minuto por unidad<br/>(300 millones de mensajes/día por unidad) |
 
 El rendimiento de los mensajes de nube a dispositivo escala por dispositivo, y cada dispositivo recibe hasta 5 mensajes por minuto.
 
@@ -64,4 +65,4 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0706_2016-->

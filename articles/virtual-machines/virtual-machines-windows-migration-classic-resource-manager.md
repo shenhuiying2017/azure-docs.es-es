@@ -27,8 +27,6 @@ Con el lanzamiento del nuevo modelo, es posible implementar, administrar y super
 
 En Azure Resource Manager, se admiten casi todas las características del modelo de implementación clásica en cuanto a proceso, red y almacenamiento. Gracias a esta nueva funcionalidad y al aumento de la base de implementaciones en Azure Resource Manager, deseamos que los clientes puedan migrar sus implementaciones existentes en el modelo de implementación clásica.
 
->[AZURE.NOTE] Durante la versión preliminar pública del servicio de migración, solo se recomienda migrar las cargas de trabajo que no sean de producción en la suscripción de Azure.
-
 ## Cambios en la automatización y las herramientas después de la migración
 
 Como parte del proceso de migración de los recursos del modelo clásico al modelo de Resource Manager, tendrá que actualizar la automatización o las herramientas existentes a fin de asegurarse de que siguen funcionando después de la migración.
@@ -44,7 +42,7 @@ Antes de profundizar en los detalles, explicaremos brevemente la diferencia entr
 
 ## Ámbitos admitidos de la migración
 
-Durante la versión preliminar pública, se ofrecen dos ámbitos de migración que se destinan principalmente a procesos y redes. Para lograr una migración sin problemas, se ha permitido que las cuentas de almacenamiento clásicas contengan discos para las máquinas virtuales de Resource Manager.
+Existen tres ámbitos de migración que tienen como destino principalmente los procesos, las redes y el almacenamiento.
 
 ### Migración de máquinas virtuales (no en una red virtual)
 
@@ -65,11 +63,11 @@ En este momento, no se admiten las siguientes configuraciones. Si se agrega comp
 
 >[AZURE.NOTE] En este ámbito de migración, es posible que haya un determinado período durante la migración en que no se permitan las operaciones en el plano de administración. Para determinadas configuraciones descritas antes, se producirá un tiempo de inactividad en el plano de datos.
 
-### Cuentas de almacenamiento y migración
+### Migración de cuentas de almacenamiento
 
-No se admite la migración de cuentas de almacenamiento con esta versión preliminar pública.
+Para lograr una migración sin problemas, se ha habilitado la posibilidad de implementar máquinas virtuales de Resource Manager en una cuenta de almacenamiento clásico. Con esta funcionalidad, los recursos de procesos y redes se pueden y se deben migrar con independencia de las cuentas de almacenamiento. Una vez que haya migrado las máquinas virtuales y la red virtual, debe migrar las cuentas de almacenamiento para completar el proceso de migración.
 
-Para lograr una migración sin problemas, se ha habilitado la posibilidad de implementar máquinas virtuales de Resource Manager en una cuenta de almacenamiento clásico. Con esta funcionalidad, los recursos de procesos y redes se pueden y se deben migrar con independencia de las cuentas de almacenamiento.
+>[AZURE.NOTE] El modelo de implementación de Resource Manager carece del concepto clásico de discos e imágenes. Cuando se migra la cuenta de almacenamiento, estos no estarán visibles en la pila de Resource Manager, pero los discos duros virtuales de respaldo permanecerán en la cuenta de almacenamiento.
 
 ## Configuraciones y características no admitidas
 
@@ -77,7 +75,7 @@ En este momento, no se admiten determinadas características y configuraciones. 
 
 ### Características no admitidas
 
-Las siguientes características no se admiten en la versión preliminar pública. Opcionalmente, puede quitar estas configuraciones, migrar las máquinas virtuales y después volver a habilitar dichas configuraciones en el modelo de implementación de Resource Manager.
+Actualmente no se admiten las siguientes características. Opcionalmente, puede quitar estas configuraciones, migrar las máquinas virtuales y después volver a habilitar dichas configuraciones en el modelo de implementación de Resource Manager.
 
 Proveedor de recursos | Característica
 ---------- | ------------
@@ -90,7 +88,7 @@ Red | Puertas de enlace de red virtual (de sitio a sitio, Azure ExpressRoute, de
 
 ### Configuraciones no admitidas
 
-Las siguientes configuraciones no se admiten en la versión preliminar pública.
+Actualmente no se admiten las siguientes configuraciones.
 
 Servicio | Configuración | Recomendación
 ---------- | ------------ | ------------
@@ -111,13 +109,12 @@ Antes de comenzar la experiencia de migración, se recomienda encarecidamente lo
 
 - Asegúrese de que los recursos que desea migrar no usan las características o configuraciones no admitidas. En la mayoría de los casos, la plataforma detecta estos problemas y genera un error.
 - Si tiene máquinas virtuales que no están en una red virtual, se detendrán y desasignarán como parte de la operación de preparación. Si no desea perder la dirección IP pública, considere la opción de reservar la dirección IP antes de comenzar la operación de preparación. Sin embargo, si las máquinas virtuales están en una red virtual, estas no se detendrán ni desasignarán.
-- No intente migrar recursos de producción en este momento.
 - Planee la migración fuera del horario de actividad, para dar cabida a errores inesperados que surjan durante ella.
 - Descargue la configuración actual de las máquinas virtuales mediante PowerShell, los comandos de la interfaz de la línea de comandos (CLI) o las API de REST para facilitar la validación una vez que finalice el paso de preparación.
 - Actualice los scripts de automatización y operacionalización para controlar el modelo de implementación de Resource Manager antes de iniciar la migración. También tiene la opción de realizar las operaciones GET cuando los recursos se encuentren en el estado preparado.
 - Evalúe las directivas de RBAC configuradas en los recursos de IaaS clásicos y cuente con un plan para cuando se haya completado la migración.
 
-El flujo de trabajo de migración es el siguiente. Con el anuncio de la versión preliminar pública, se ha agregado compatibilidad para iniciar la migración por medio de las API de REST, PowerShell y la CLI de Azure.
+El flujo de trabajo de migración es el siguiente.
 
 ![Captura de pantalla que muestra el flujo de trabajo de migración](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
@@ -138,6 +135,8 @@ Después, la plataforma comenzará la migración de los metadatos del modelo cl�
 
 Una vez completada la operación de preparación, tendrá la opción de visualizar los recursos tanto en el modelo clásico como en el de Resource Manager. Para cada servicio en la nube en el modelo de implementación clásica, se creará un nombre de grupo de recursos con el patrón `cloud-service-name>-migrated`.
 
+>[AZURE.NOTE] Las máquinas virtuales que no se encuentran en una red virtual clásica se detendrán y desasignarán en esta fase de la migración.
+
 ### Comprobación (manual o mediante scripts)
 
 En este paso de comprobación, puede optar por usar la configuración que descargó antes para comprobar si esa migración parece correcta. También tiene la posibilidad de iniciar sesión en el portal y revisar las propiedades y los recursos para asegurarse de que los metadatos de la migración sean correctos.
@@ -152,13 +151,15 @@ Si ve algún problema, siempre puede anular la migración y volver al modelo de 
 
 ### Anulación
 
-Se trata de un paso opcional que puede usar para revertir los cambios realizados en el modelo de implementación clásica y detener la migración. Tenga en cuenta que esta operación no se puede ejecutar una vez que se haya desencadenado la operación de confirmación.
+Se trata de un paso opcional que puede usar para revertir los cambios realizados en el modelo de implementación clásica y detener la migración.
+
+>[AZURE.NOTE] Esta operación no se puede ejecutar una vez que se haya desencadenado la operación de confirmación.
 
 ### Confirmación
 
 Después de finalizar la validación, puede confirmar la migración. Los recursos no aparecerán en el modelo clásico y estarán disponibles solo en el modelo de implementación de Resource Manager. Esto también significa que los recursos migrados solo se pueden administrar en el nuevo portal.
 
-Si se produce un error en esta operación, se recomienda que la intente de nuevo un par de veces. Si sigue sin poder completarla, cree una incidencia de soporte técnico o publique una entrada con una etiqueta ClassicIaaSMigration en el [foro de máquinas virtuales](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=WAVirtualMachinesforWindows).
+>[AZURE.NOTE] Se trata de una operación idempotente. Si se produce un error, se recomienda que la intente de nuevo un par de veces. Si sigue sin poder completarla, cree una incidencia de soporte técnico o publique una entrada con la etiqueta ClassicIaaSMigration en el [foro de máquinas virtuales](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=WAVirtualMachinesforWindows).
 
 ## Preguntas más frecuentes
 
@@ -168,7 +169,7 @@ No. Las máquinas virtuales (clásicas) son servicios totalmente compatibles en 
 
 **¿Qué ocurre con mis máquinas virtuales si por ahora no tengo planeado migrar?**
 
-Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](virtual-machines-windows-compare-deployment-models.md) como parte de IaaS en Azure Resource Manager.
+Las API y el modelo de recursos clásicos existentes no van a quedar en desuso. Queremos facilitar la migración, dadas las características avanzadas disponibles en el modelo de implementación de Resource Manager. Es muy recomendable que repase [algunos de los avances realizados](virtual-machines-windows-compare-deployment-models.md) como parte de IaaS en Resource Manager.
 
 **¿Qué supone este plan de migración para las herramientas existentes?**
 
@@ -176,7 +177,7 @@ La actualización de sus herramientas al modelo de implementación de Resource M
 
 **¿Cuánto tiempo durará el tiempo de inactividad del plano de administración?**
 
-Depende del número de recursos que se vayan a migrar. Para las implementaciones más pequeñas (unas decenas de máquinas virtuales), el proceso completo de migración debería tardar menos de una hora. Para implementaciones a gran escala (cientos de máquinas virtuales), la migración puede tardar unas horas. Dado que el servicio está en la versión preliminar pública, es muy recomendable que lo ejecute en su suscripción de prueba o desarrollo para evaluar el impacto.
+Depende del número de recursos que se vayan a migrar. Para las implementaciones más pequeñas (unas decenas de máquinas virtuales), el proceso completo de migración debería tardar menos de una hora. Para implementaciones a gran escala (cientos de máquinas virtuales), la migración puede tardar unas horas.
 
 **¿Puedo revertir el proceso después de que la migración de los recursos esté confirmada en Resource Manager?**
 
@@ -188,7 +189,7 @@ No se puede anular la migración si se produce un error en la operación de conf
 
 **¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager?**
 
-No. Hace poco se ha habilitado la [coexistencia de un circuito de ExpressRoute en el modelo clásico y el de Azure Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
+No. Hace poco se ha habilitado la [coexistencia de un circuito de ExpressRoute en el modelo clásico y el de Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
 
 **¿Qué ocurre si había configurado las directivas de control de acceso basado en rol para mis recursos IaaS clásicos?**
 
@@ -223,4 +224,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

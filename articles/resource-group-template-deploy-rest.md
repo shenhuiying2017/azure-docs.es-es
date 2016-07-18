@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="06/30/2016"
    ms.author="tomfitz"/>
 
 # Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
@@ -22,8 +22,11 @@
 - [PowerShell](resource-group-template-deploy.md)
 - [CLI de Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
-- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 - [API DE REST](resource-group-template-deploy-rest.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 En este artículo se explica cómo usar la API de REST de Resource Manager con plantillas de Resource Manager para implementar sus recursos en Azure.
 
@@ -31,6 +34,8 @@ En este artículo se explica cómo usar la API de REST de Resource Manager con p
 >
 > - [Visualización de operaciones de implementación con la API de REST de Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) para obtener información que le ayudará a solucionar el error
 > - [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) para obtener información sobre cómo resolver errores comunes de implementación
+
+La plantilla puede ser un archivo local o en un archivo externo que está disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a la plantilla y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -88,4 +93,4 @@ En este artículo se explica cómo usar la API de REST de Resource Manager con p
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
 - Para obtener más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

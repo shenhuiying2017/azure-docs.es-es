@@ -47,13 +47,13 @@ Esta es una descripción de los puntos de conexión:
 * **Puntos de conexión de dispositivo**. Para cada dispositivo aprovisionado en el registro de identidad del dispositivos, Centro de IoT muestra un conjunto de puntos de conexión que el dispositivo puede usar para enviar y recibir mensajes:
     - *Envío de mensajes de dispositivo a nube*. Use este punto de conexión para enviar mensajes de dispositivo a la nube. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Recepción de mensajes de nube a dispositivo*. El dispositivo usa ese punto de conexión para recibir mensajes de nube a dispositivos dirigidos. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
-    - *Iniciar cargas de archivos*. Un dispositivo usa este punto de conexión para recibir un URI de SAS de Almacenamiento de Azure del Centro de IoT para cargar un archivo. Para más información, consulte [Cargas de archivos](#fileupload). 
+    - *Iniciar cargas de archivos*. Un dispositivo usa este punto de conexión para recibir un URI de SAS de Almacenamiento de Azure del Centro de IoT para cargar un archivo. Para más información, consulte [Cargas de archivos](#fileupload).
 
     Estos puntos de conexión se exponen mediante los protocolos HTTP 1.1, [MQTT v3.1.1][lnk-mqtt] y [AMQP 1.0][lnk-amqp]. Tenga en cuenta que AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
 * **Puntos de conexión de servicio**. Cada Centro de IoT muestra un conjunto de puntos de conexión que el back-end de aplicaciones puede usar para comunicarse con los dispositivos. Estos extremos se exponen actualmente usando solo el protocolo [AMQP][lnk-amqp].
     - *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con los [Centros de eventos de Azure][lnk-event-hubs]. Un servicio back-end puede usarse para leer todos los mensajes de dispositivo a nube enviados por los dispositivos. Para obtener más información, consulte [Mensajería de dispositivo a nube](#d2c).
     - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
-    - *Recepción de notificaciones de archivos*. Este punto de conexión de mensajería le permite recibir notificaciones del momento en que los dispositivos cargan correctamente un archivo. 
+    - *Recepción de notificaciones de archivos*. Este punto de conexión de mensajería le permite recibir notificaciones del momento en que los dispositivos cargan correctamente un archivo.
 
 En el artículo [SDK de Centro de IoT][lnk-apis-sdks] se describen las distintas formas con las que se puede acceder a estos puntos de conexión.
 
@@ -70,7 +70,7 @@ Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, 
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** iothub-ns-myiothub-1234**.
 
 Luego, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -248,7 +248,7 @@ El Centro de IoT proporciona primitivas de mensajería para comunicarse:
 
 - [Nube a dispositivo](#c2d): desde un back-end de aplicación (*servicio* o *nube*).
 - [Dispositivo a nube](#d2c): desde un dispositivo hasta un back-end de aplicación.
-- [Cargas de archivos](#fileupload) desde un dispositivo hasta una cuenta de almacenamiento de Azure asociada. 
+- [Cargas de archivos](#fileupload) desde un dispositivo hasta una cuenta de almacenamiento de Azure asociada.
 
 Las propiedades básicas de la funcionalidad de mensajería del Centro de IoT son la confiabilidad y durabilidad de los mensajes. Esto permite la resistencia a la conectividad intermitente en el dispositivo y a los picos de carga del procesamiento de eventos en la nube. El Centro de IoT implementa *al menos una vez* garantías de entrega para la mensajería del dispositivo a la nube y de la nube al dispositivo.
 
@@ -550,18 +550,18 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 
 | Limitación | Valor por centro |
 | -------- | ------------- |
-| Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 100/min/unidad, hasta 5000/min |
-| Conexiones de dispositivos | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 equivalen a 2 * 12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
-| Envíos de dispositivo a nube | 120/seg/unidad (para S2), 12/seg/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 equivalen a 2 * 12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
-| Envíos de nube a dispositivo | 100/min/unidad |
-| Recepciones de nube a dispositivo | 1000/min/unidad |
-| Operaciones de carga de archivos | Notificaciones de carga de 100 archivos por minuto y unidad <br/> Pueden quedar fuera 10 000 URI de SAS para una cuenta de almacenamiento a la vez <br/> Pueden quedar fuera 10 URI de SAS por dispositivo a la vez | 
+| Operaciones de registro de identidad (crear, recuperar, enumerar, actualizar y eliminar) | 5000/min/unidad (para S3) <br/> 100/min/unidad (para S1 y S2). |
+| Conexiones de dispositivos | 6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 equivalen a 2*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
+| Envíos de dispositivo a nube | 6000/s/unidad (para S3), 120/s/unidad (para S2), 12/s/unidad (para S1). <br/>Mínimo de 100/s. <br/> Por ejemplo, dos unidades S1 equivalen a 2*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9 * 12) en las unidades. |
+| Envíos de nube a dispositivo | 5000/min/unidad (para S3), 100/min/unidad (para S1 y S2). |
+| Recepciones de nube a dispositivo | 50000/min/unidad (para S3), 1000/min/unidad (para S1 y S2). |
+| Operaciones de carga de archivos | Notificaciones de carga de 5000 archivos/min/unidad (para S3), notificaciones de carga de 100 archivos/min/unidad (para S1 y S2). <br/> 10000 URI de SAS pueden estar fuera de una cuenta de almacenamiento al mismo tiempo.<br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. | 
 
 Es importante aclarar que la limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con un Centro de IoT, no el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el concentrador.
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Esto significa que, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad de dispositivos.
 
-Consulte [IoT Hub throttling and you][lnk-throttle-blog] \(Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
+Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
 
 >[AZURE.NOTE] En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 
@@ -624,4 +624,4 @@ Ahora que ha visto la información general sobre desarrollo para Centro de IoT, 
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

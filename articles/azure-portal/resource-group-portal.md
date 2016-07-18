@@ -19,9 +19,18 @@
 
 # Administración de los recursos de Azure a través del Portal
 
-En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Si desea más información acerca de cómo implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
+> [AZURE.SELECTOR]
+- [Portal](azure-portal/resource-group-portal.md)
+- [CLI de Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+En este tema se muestra cómo utilizar el [Portal de Azure](https://portal.azure.com) con [Azure Resource Manager](../resource-group-overview.md) para administrar los recursos de Azure. Si quiere obtener más información cómo implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
+
+Actualmente, no todos los servicios son compatibles con el portal o con el Administrador de recursos. Para esos servicios, deberá usar el [portal clásico](https://manage.windowsazure.com). Para obtener más información sobre el estado de cada servicio, consulte [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 <a id="access-control-for-azure-dashboards" />
 ## Personalización del panel para supervisar los recursos
@@ -30,10 +39,10 @@ El Portal proporciona un panel que puede utilizar para supervisar y administrar 
 
 ![dashboard](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] Es la mejor manera de aprender a trabajar con los paneles ver el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Compilación de paneles personalizados en el Portal de Microsof Azure).
+> [AZURE.TIP] Es la mejor manera de aprender a trabajar con los paneles ver el vídeo [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Compilación de paneles personalizados en el Portal de Microsoft Azure).
 
 ### Uso compartido de los paneles y el control de acceso de Azure
-Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. El [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md) de Azure rige el acceso a la información que se muestra en los iconos del Portal. Todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
+Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. El [control de acceso basado en roles](../active-directory/role-based-access-control-configure.md) de Azure rige el acceso a la información que se muestra en los iconos del Portal. Todos los paneles publicados se implementan como recursos de Azure. Desde una perspectiva de control de acceso, los paneles no son distintos de una máquina virtual o de una cuenta de almacenamiento.
 
 Aquí tiene un ejemplo. Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción. Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos. Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tienen la opción de publicar esos cambios de vuelta en el servidor. Podrán realizar una copia privada del panel para ellos mismos.
 
@@ -107,7 +116,7 @@ Después de configurar el grupo de recursos, quizás quiera ver la plantilla de 
 
 2. Para familiarizarse con la sintaxis de la plantilla, consulte la notación de objetos JavaScript (JSON) que representa la solución.
 
-Para instrucciones detalladas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../resource-manager-export-template.md).
+Para consultar instrucciones detalladas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../resource-manager-export-template.md).
 
 ## Eliminación de los recursos o grupos de recursos
 
@@ -122,4 +131,4 @@ Al eliminar un grupo de recursos se eliminan todos los recursos contenidos en el
 - Para solucionar problemas de implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Para implementar recursos a través del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

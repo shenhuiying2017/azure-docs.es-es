@@ -13,88 +13,64 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/01/2016"
    ms.author="sonyama;barbkess"/>
 
 # Solución de problemas de Almacenamiento de datos SQL de Azure
-En el siguiente tema se muestran algunos de los problemas más comunes que podría encontrarse con Almacenamiento de datos SQL de Azure.
+
+En este tema se describen algunas de las preguntas de solución de problemas más comunes que oímos de nuestros clientes.
+
+## Conexión
+
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| Error CTAIP | Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Server, pero no en la base de datos de Almacenamiento de datos SQL. Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad][]. En este artículo se explica cómo crear un inicio de sesión en una base de datos maestra y luego cómo crear un usuario en la base de datos de Almacenamiento de datos SQL.|
+| Bloqueado por el firewall |Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección de [configuración del acceso de nivel de firewall para el cliente IP][] en las [instrucciones de aprovisionamiento][].|
+| No se puede conectar con una herramienta o un controlador | Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] para consultar los datos. Para la conectividad de cliente, se recomienda [SQL Server Native Client 10/11 (ODBC)][].|
 
 
-##Errores de conexión
+## Herramientas
 
-Si tiene problemas de conexión, a continuación presentamos algunos de los problemas más comunes notificados por los clientes.
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| El Explorador de objetos de Visual Studio no muestra usuarios de AAD | Este es un problema conocido. Como solución alternativa, vea los usuarios en [sys.database\_principals][]. Consulte [Autenticación a Almacenamiento de datos SQL de Azure][] para más información sobre Azure Active Directory con Almacenamiento de datos SQL.|
 
-### Error CTAIP
-Este error puede producirse cuando se ha creado un inicio de sesión en la base de datos maestra de SQL Server, pero no en la base de datos de Almacenamiento de datos SQL. Si se produce este error, eche un vistazo al artículo sobre la [información general de seguridad][]. En este artículo se explica cómo crear un inicio de sesión en una base de datos maestra y luego cómo crear un usuario en la base de datos de Almacenamiento de datos SQL.
+## Rendimiento
 
-### Reglas de firewall
-Las bases de datos SQL de Azure están protegidas por firewalls de nivel de servidor y base de datos para garantizar que solo las direcciones IP conocidas tienen acceso a una base de datos. Los firewalls están protegidos de manera predeterminada, lo que significa que debe habilitar explícitamente una dirección IP o un intervalo de direcciones para poder conectarse. Para configurar el firewall para el acceso, siga los pasos de la sección [Configure server firewall access for your client IP][] (Configurar el acceso del firewall del servidor para su IP de cliente) en las [instrucciones de aprovisionamiento][].
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| Solución de problemas de rendimiento de consultas | Si está intentando solucionar los problemas de una consulta determinada, comience por [aprender a supervisar las consultas][].|
+| Un bajo rendimiento de las consultas y unos planes mal diseñados suelen ser el resultado de la falta de estadísticas | La causa más común del rendimiento ineficiente es la falta de estadísticas en las tablas. Para más información sobre cómo crear estadísticas y por qué son tan importantes para el rendimiento, consulte [Mantenimiento de estadísticas de tablas][Statistics].|
+| Baja simultaneidad o consultas en cola | Para comprender el modo de equilibrar la asignación de memoria con la simultaneidad, es importante entender la [administración de la carga de trabajo][].|
+| Implementación de procedimientos recomendados | El mejor lugar para empezar a aprender formas de mejorar el rendimiento de las consultas es el artículo [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].|
+| Mejora del rendimiento con el escalado | En ocasiones, la solución para mejorar el rendimiento consiste simplemente en agregar más potencia de proceso a las consultas mediante el [escalado de Almacenamiento de datos SQL][].|
+| Bajo rendimiento de las consultas como resultado de poca calidad del índice | A veces la velocidad de las consultas se puede reducir debido a la [baja calidad del índice de almacén de columnas][]. Para más información al respecto y conocer el modo de [volver a generar los índices para mejorar la calidad del segmento][], consulte este artículo.|
 
-### Uso de herramientas o protocolos no admitidos
-Almacenamiento de datos SQL recomienda el uso de [Visual Studio 2013 o 2015][] para consultar los datos. Para la conectividad de cliente, se recomienda [SQL Server Native Client 10/11 (ODBC)][]. Aún no se admite SQL Server Management Studio (SSMS) y, aunque funciona parcialmente, el árbol del explorador de objetos no funciona con Almacenamiento de datos SQL y es posible que funcione la consulta después de ignorar algunos mensajes de error.
+## Administración del sistema
 
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| Investigación del uso del espacio | Consulte los [tamaños de tabla][] para comprender el uso del espacio del sistema.|
+| Ayuda con la administración de tablas | Para obtener ayuda con la administración de las tablas, consulte la [información general sobre las tablas][Overview]. Este artículo también incluye vínculos a temas más detallados como [tipos de datos de tabla][Data types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary].|
 
-## Problemas de rendimiento
+## PolyBase
 
-El mejor lugar para empezar a aprender formas de mejorar el rendimiento de las consultas es el artículo [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][]. Si está intentando solucionar problemas de una consulta determinada, otro buen lugar para empezar es el artículo para [aprender a supervisar las consultas][]. A veces, para que una consulta se ejecute más rápido, basta con agregar más potencia de proceso a las consultas [escalando el Almacenamiento de datos SQL][].
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| Error de UTF-8 | Actualmente, PolyBase solo admite la carga de archivos de datos que se han codificado con UTF-8. Consulte [Evitar el requisito UTF-8 de PolyBase][] para obtener instrucciones sobre cómo superar esta limitación.|
+| Se produce un error en la carga porque hay filas de gran tamaño | Actualmente la compatibilidad con filas de gran tamaño no está disponible en Polybase. Esto significa que si su tabla contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), no se pueden utilizar tablas externas para cargar los datos. Las cargas de filas de gran tamaño solo se admiten mediante Data Factory de Azure (con BCP), Análisis de transmisiones de Azure, SSIS, BCP o la clase SQLBulkCopy de .NET. La compatibilidad con filas de gran tamaño en PolyBase se agregará en una versión futura.|
+| La carga de la tabla bcp con el tipo de datos MAX está dando error | Existe un problema conocido que requiere la colocación de VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX) al final de la tabla en algunos escenarios. Intente mover las columnas MAX al final de la tabla.|
 
-## Calidad de segmento de almacén de columnas en clúster
+## Diferencias con respecto a Base de datos SQL
 
-La calidad de segmento de almacén de columnas en clúster es importante para lograr un rendimiento de consultas óptimo de las tablas de almacén de columnas en clúster. La calidad de segmento se puede medir por el número de filas de un grupo de filas comprimido. La siguiente consulta identificará las tablas con segmentos de índices de almacén de columnas en mal estado y generará T-SQL para recompilar el índice de almacén de columnas en estas tablas. La primera columna de este resultado de la consulta proporcionará T-SQL para recompilar cada uno de los índices. La segunda columna proporcionará una recomendación de la clase de recurso mínima que debe usarse para optimizar la compresión.
- 
-**PASO 1:** ejecute esta consulta en cada base de datos de Almacenamiento de datos SQL para identificar los índices de almacén de columnas en clúster que no son óptimos. Si no se devuelven filas, no es necesario realizar ninguna acción adicional.
-
-```sql
-SELECT 
-     'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;' AS [T-SQL to Rebuild Index]
-    ,CASE WHEN n.nbr_nodes < 3 THEN 'xlargerc' WHEN n.nbr_nodes BETWEEN 4 AND 6 THEN 'largerc' ELSE 'mediumrc' END AS [Resource Class Recommendation]
-    ,s.name AS [Schema Name]
-    ,t.name AS [Table Name]
-    ,AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) AS [Ave Rows in Compressed Row Groups]
-FROM 
-    sys.pdw_nodes_column_store_row_groups rg
-    JOIN sys.pdw_nodes_tables pt 
-        ON rg.object_id = pt.object_id AND rg.pdw_node_id = pt.pdw_node_id AND pt.distribution_id = rg.distribution_id
-    JOIN sys.pdw_table_mappings tm 
-        ON pt.name = tm.physical_name
-    INNER JOIN sys.tables t 
-        ON tm.object_id = t.object_id
-INNER JOIN sys.schemas s
-    ON t.schema_id = s.schema_id
-CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compute') n
-GROUP BY 
-    n.nbr_nodes, s.name, t.name
-HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
-    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
-
-ORDER BY 
-    s.name, t.name
-```
- 
-**PASO 2:** aumente la clase de recurso de un usuario que tenga permisos para recompilar el índice de esta tabla en la clase de recurso recomendada de la segunda columna de la consulta anterior.
-
-```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
-```
-
-> [AZURE.NOTE]  LoadUser anterior debe tratarse de un usuario válido creado para ejecutar la instrucción ALTER INDEX. No se puede cambiar la clase de recurso del usuario db\_owner. En el vínculo siguiente encontrará más información sobre las clases de recurso y cómo crear un nuevo usuario.
-
- 
-**PASO 3:** inicie sesión como usuario del paso 2 (por ejemplo, "LoadUser"), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX generadas por la consulta en el PASO 1. Asegúrese de que este usuario tiene el permiso ALTER para las tablas identificadas en la consulta del PASO 1.
- 
-**PASO 4:** vuelva a ejecutar la consulta del paso 1. Si los índices se han creado de forma eficaz, esta consulta no debe devolver ninguna fila. Si no se devuelve ninguna fila, ya ha terminado. Si tiene varias bases de datos de Almacenamiento de datos SQL, querrá repetir este proceso en cada una de sus bases de datos. Si se devuelven filas, continúe con el paso 5.
- 
-**PASO 5:** si se devuelven filas al volver a ejecutar la consulta del paso 1, es posible que tenga tablas con filas más anchas que necesiten una elevada cantidad de memoria para crear de forma óptima los índices de almacén de columnas en clúster. Si es así, pruebe de nuevo este proceso para las tablas que usan la clase xlargerc. Para cambiar la clase de recurso, repita el paso 2 mediante xlargerc. A continuación, repita el paso 3 para las tablas que aún tienen índices que no son óptimos. Si usa DW100 - DW300 y ya ha utilizado xlargerc, puede elegir entre dejar los índices tal cual o aumentar DWU de forma temporal para proporcionar más memoria a esta operación.
- 
-**PASOS FINALES:** la clase de recurso designada anteriormente es la clase de recurso mínima recomendada para crear los índices de almacén de columnas de mayor calidad. Se recomienda conservar esta configuración para el usuario que carga sus datos. Sin embargo, si desea deshacer el cambio del paso 2, puede hacerlo con el siguiente comando.
-
-```sql
-EXEC sp_droprolemember 'smallrc', 'LoadUser'
-```
-
-Las instrucciones de carga a una tabla de CCI para la clase de recurso mínima consisten en usar xlargerc para DW100 a DW300, largerc para DW400 a DW600 y mediumrc para cualquier Almacenamiento de datos igual o mayor que 1000. Estas instrucciones son recomendables para la mayoría de las cargas de trabajo. El objetivo es dar a cada operación de creación de índices 400 MB de memoria o más. Sin embargo, no hay una solución única para todos los casos. La memoria necesaria para optimizar un índice de almacén de columnas depende de los datos cargados, que se ven principalmente afectados por el tamaño de fila. Las tablas con anchos de fila más reducidos necesitan menos memoria, mientras que los anchos de fila más amplios necesitan más. Si desea experimentar, puede usar la consulta del Paso 1 para ver si obtiene índices de almacén de columnas óptimos en asignaciones de memoria más pequeñas. Como mínimo, desea una media de más de 100 000 filas por cada grupo de filas. Más de 500 000 es mejor aún. Lo máximo que verá es 1 millón de filas por cada grupo de filas. Para obtener más información sobre cómo administrar clases de recurso y simultaneidad, consulte el siguiente vínculo.
-
+| Problema | Resolución |
+| :----------------------------------| :---------------------------------------------- |
+| Características de Base de datos SQL no admitidas | Consulte la [tabla de características no admitidas][].|
+| Tipos de datos de Base de datos SQL no admitidos | Consulte los [tipos de datos no admitidos][].|
+| Limitaciones de DELETE y UPDATE | Consulte las [soluciones alternativas de UPDATE][], las [soluciones alternativas de DELETE][] y el [uso de CTAS para resolver la sintaxis de UPDATE y DELETE no admitida][]. |
+| No se admite la instrucción MERGE | Consulte las [soluciones alternativas para MERGE][].|
+| Limitaciones de procedimientos almacenados | Consulte las [limitaciones de los procedimientos almacenados][] para conocer algunas de las limitaciones de los procedimientos almacenados.|
+| Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF. Consulte [CREATE FUNCTION][] para comprobar la sintaxis que se admite. |
 
 ## Pasos siguientes
 
@@ -114,15 +90,37 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 <!--Article references-->
 [información general de seguridad]: ./sql-data-warehouse-overview-manage-security.md
 [Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[escalando el Almacenamiento de datos SQL]: ./sql-data-warehouse-manage-compute-overview.md
+[escalado de Almacenamiento de datos SQL]: ./sql-data-warehouse-manage-compute-overview.md
 [aprender a supervisar las consultas]: ./sql-data-warehouse-manage-monitor.md
 [instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
-[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
+[configuración del acceso de nivel de firewall para el cliente IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[tamaños de tabla]: ./sql-data-warehouse-tables-overview.md#table-size-queries
+[tabla de características no admitidas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[tipos de datos no admitidos]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[baja calidad del índice de almacén de columnas]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[volver a generar los índices para mejorar la calidad del segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[administración de la carga de trabajo]: ./sql-data-warehouse-develop-concurrency.md
+[uso de CTAS para resolver la sintaxis de UPDATE y DELETE no admitida]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[soluciones alternativas de UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[soluciones alternativas de DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[soluciones alternativas para MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[limitaciones de los procedimientos almacenados]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Autenticación a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-authentication.md
+[Evitar el requisito UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
 [SQL Server Native Client 10/11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
+[sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
+[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
@@ -133,4 +131,4 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

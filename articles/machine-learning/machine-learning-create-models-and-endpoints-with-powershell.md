@@ -68,14 +68,14 @@ En primer lugar, configure nuestro entorno de PowerShell:
 	# Assume the default configuration file exists and is properly set to point to the valid Workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 Después, ejecute el siguiente comando de PowerShell:
 
 	# Create 10 endpoints on the scoring web service.
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
 	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
+	    Write-Host ('adding endpoint ' + $endpointName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
 
@@ -87,8 +87,10 @@ Ahora hemos creado 10 puntos de conexión y todos ellos contienen el mismo model
 
 El siguiente paso consiste en actualizar los puntos de conexión con modelos entrenados excepcionalmente en datos individuales de cada cliente. Pero primero necesitamos generar estos modelos desde el servicio web **Bike Rental Training** (Entrenamiento para alquiler de bicicletas). Volvamos al servicio web **Bike Rental Training** (Entrenamiento para alquiler de bicicletas). Es necesario llamar a su punto de conexión BES 10 veces con 10 conjuntos de datos de entrenamiento distintos para generar 10 modelos diferentes. Vamos a usar el cmdlet de PowerShell **InovkeAmlWebServiceBESEndpoint** para hacerlo.
 
+También debe proporcionar credenciales para su cuenta de almacenamiento de blobs en `$configContent`, es decir, los campos `AccountName`, `AccountKey` y `RelativeLocation`. El `AccountName` puede ser uno de los nombres de cuenta, como se muestra en el **Portal de administración de Azure clásico** (pestaña *Almacenamiento*). Cuando haga clic en una cuenta de almacenamiento, su `AccountKey` puede encontrarse presionando el botón **Administrar claves de acceso**, situado en la parte inferior, y copiando la *clave de acceso principal*. El campo `RelativeLocation` es la ruta de acceso relativa al almacenamiento donde se almacenará un nuevo modelo. Por ejemplo, la ruta de acceso `hai/retrain/bike_rental/` en el script siguiente señala a un contenedor denominado `hai` y `/retrain/bike_rental/` son subcarpetas. Actualmente, no puede crear subcarpetas a través del portal de interfaz de usuario, pero hay [varios exploradores de Almacenamiento de Azure](../storage/storage-explorers.md) que le permiten hacerlo. Se recomienda crear un nuevo contenedor en el almacenamiento para almacenar los nuevos modelos entrenados (archivos .ilearner) como sigue: en la página de almacenamiento, haga clic en el botón **Agregar**, situado en la parte inferior, y asígnele el nombre `retrain`. En resumen, los cambios necesarios para el siguiente script se refieren a `AccountName`, `AccountKey` y `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+
 	# Invoke the retraining API 10 times
-	# This is the default (and the only) endpoint on the training web service 
+	# This is the default (and the only) endpoint on the training web service
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
 	$apiKey = $trainingSvcEp.PrimaryKey;
@@ -122,12 +124,12 @@ Esto se debe ejecutar bastante rápido. Cuando la ejecución finalice, habremos 
 ## Script de PowerShell completo
 
 Este es el listado del código fuente completo:
-	
+
 	Import-Module .\AzureMLPS.dll
 	# Assume the default configuration file exists and properly set to point to the valid workspace.
 	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
 	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
-	
+
 	# Create 10 endpoints on the scoring web service
 	For ($i = 1; $i -le 10; $i++){
 	    $seq = $i.ToString().PadLeft(3, '0');
@@ -135,7 +137,7 @@ Este es el listado del código fuente completo:
 	    Write-Host ('adding endpoint ' + $endpontName + '...')
 	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
 	}
-	
+
 	# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
 	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
 	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
@@ -147,7 +149,7 @@ Este es el listado del código fuente completo:
 	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
 	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
 	}
-	
+
 	# Patch the 10 endpoints with respective .ilearner models
 	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
 	$sasToken = '?test'
@@ -159,4 +161,4 @@ Este es el listado del código fuente completo:
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

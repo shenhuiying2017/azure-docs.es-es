@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
-   ms.author="iainfour;memccror"/>
+   ms.date="07/05/2016"
+   ms.author="memccror"/>
 
 # Etiquetado de una máquina virtual Linux en Azure
 
@@ -25,7 +25,7 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 
 ## Etiquetado con la CLI de Azure
 
-El etiquetado también es compatible con los recursos creados a través de la CLI de Azure. Para comenzar, configure el [entorno de la CLI de Azure][]. Inicie sesión en su suscripción a través de la CLI de Azure y cambie al modo de Resource Manager (`azure config mode arm`).
+Para comenzar, [instale y configure la CLI de Azure](../xplat-cli-azure-resource-manager.md) y asegúrese de que está en modo de Resource Manager (`azure config mode arm`).
 
 Con este comando es posible ver todas las propiedades de una máquina virtual dada, incluidas las etiquetas:
 
@@ -53,10 +53,10 @@ Ahora que hemos aplicado etiquetas a nuestros recursos a través de PowerShell, 
 
 
 
-[entorno de la CLI de Azure]: ./xplat-cli-azure-resource-manager.md
+[Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Información general de Azure Resource Manager]: ../resource-group-overview.md
 [Uso de etiquetas para organizar los recursos de Azure]: ../resource-group-using-tags.md
 [Comprender la factura de Microsoft Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

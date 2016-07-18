@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 #  Replicación de las máquinas virtuales de Hyper-V en un único servidor VMM
@@ -27,7 +27,7 @@ Si tiene alguna pregunta después de leer el artículo, publíquela al final de 
 
 Puede replicar las VM de Hyper-V ubicadas en hosts de Hyper-V en nubes VMM de dos modos:
 
-- Replicación en Azure. 
+- Replicación en Azure.
 - Replicación en un sitio de VMM.
 
 ¿Pero qué sucede si quiere replicar las VM en una ubicación de VMM secundaria, pero solo dispone de un solo servidor VMM en su implementación?
@@ -62,7 +62,7 @@ Siga las instrucciones de [este artículo](site-recovery-vmm-to-vmm.md) para cre
 
 Cuando se produzca una interrupción, recuperará las cargas de trabajo de las VM de Hyper-V del siguiente modo:
 
-1. Realice manualmente la conmutación por error de la VM de VMM en el sitio secundario utilizando el Administrador de Hyper-V con una conmutación por error planeada. 
+1. Realice manualmente la conmutación por error de la VM de VMM en el sitio secundario utilizando el Administrador de Hyper-V con una conmutación por error planeada.
 2. Una vez recuperada la máquina virtual de VMM, puede iniciar sesión en el Administrador de recuperación de Hyper-V desde el sitio secundario y ejecutar una conmutación por error no planeada de las VM de este al primario. Tenga en cuenta que la VM de VMM debe conmutarse por error manualmente al sitio secundario para que las cargas de trabajo de las VM se puedan conmutar por error.
 3. Una vez completada la conmutación por error no planeada, se podrá acceder a todos los recursos de nuevo desde el sitio primario.
 
@@ -93,4 +93,4 @@ Si se produce alguna interrupción, el servidor VMM y su base de datos de SQL Se
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

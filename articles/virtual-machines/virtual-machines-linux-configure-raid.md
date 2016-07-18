@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2016" 
+	ms.date="06/21/2016" 
 	ms.author="rclaus"/>
 
 
@@ -171,4 +171,4 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`". En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

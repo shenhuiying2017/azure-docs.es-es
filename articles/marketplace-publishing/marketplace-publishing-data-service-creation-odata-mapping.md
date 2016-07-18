@@ -69,15 +69,15 @@ Una extensión de ATOM Pub donde cada entrada representa una fila de un conjunto
 
 Permitir definir funciones (SPROC) y entidades expuestas a través de una base de datos. Puede encontrar más información en este vínculo: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)
 
-> [AZURE.TIP]Haga clic en el menú desplegable **Otras versiones** y seleccione una versión si no ve el artículo.
+> [AZURE.TIP] Haga clic en el menú desplegable **Otras versiones** y seleccione una versión si no ve el artículo.
 
 ### EDM: modelo de datos de entrada
 - Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Presentación técnica: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
 - Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 El siguiente diagrama el flujo detallado de izquierda a derecha desde donde el cliente ingresa la instrucción OData (llamada al servicio web del proveedor de contenido) para recuperar los resultados/datos:
 
@@ -115,7 +115,11 @@ Relacione estos elementos de la siguiente manera en un servicio de datos:
 - EntityType ~= Columnas
 - FunctionImport ~= Procedimiento almacenado
 
-**Verbos HTTP permitidos**: GET: devuelve valores desde la base de datos (devuelve una colección). POST: se usa para transmitir datos a una base de datos y, de manera opcional, devolver valores desde la misma (crea una nueva entrada en la colección, identificador/URI de devolución). DELETE: elimina los datos de la base de datos (elimina una colección). PUT: actualiza los datos de una base de datos (reemplaza una colección o crea una).
+**Verbos HTTP permitidos**
+- GET: devuelve valores de la base de datos (devuelve una colección).
+- POST: se usa para transmitir datos a una base de datos y, de manera opcional, devolver valores desde ella (crea una entrada en la colección, identificador/URI de devolución).
+- DELETE: elimina los datos de la base de datos (elimina una colección).
+- PUT: actualiza los datos de una base de datos (reemplaza una colección o crea una).
 
 ## Documento de asignación/metadatos
 
@@ -123,7 +127,10 @@ El documento de asignación/metadatos se usa para asignar los servicios web exis
 
 A continuación, aparece un ejemplo del CSDL: (copie y pegue el CSDL de ejemplo siguiente en un editor de XML y cámbielo para que coincida con su servicio. Luego, péguelo en Asignación de CSDL en la pestaña Servicio de datos cuando cree su servicio en el [Portal de publicación de Azure Marketplace](https://publish.windowsazure.com)).
 
-**Términos:** relación de los términos de CSDL con los términos de la interfaz de usuario del [Portal de publicación](https://publish.windowsazure.com) (PPUI). -En la PPUI, el "título" de la oferta se relaciona con MyWebOffer - En la PPUI, MyCompany se relaciona con [Nombre para mostrar del publicador](http://dev.windows.com/registration?accountprogram=azure) en la interfaz de usuario del **Centro para desarrolladores de Microsoft** - La API se relaciona con un servicio web o un servicio de datos (un plan en la PPUI).
+**Términos:** relacionan los términos CSDL con los términos de la interfaz de usuario del [Portal de publicación](https://publish.windowsazure.com) (PPUI).
+- El título ("Title") de la oferta en la PPUI se relaciona con MyWebOffer.
+- MyCompany en la PPUI se relaciona con el **Nombre para mostrar del publicador** de la interfaz de usuario de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure).
+- La API se relaciona con una web o un servicio de datos (un plan en la PPUI)
 
 **Jerarquía:** una empresa (proveedor de contenido) es propietaria de ofertas que tienen planes, es decir, servicios, que se alinean con una API.
 
@@ -239,7 +246,7 @@ Se conecta a un servicio que expone un punto de conexión de aplicaciones web (c
             </EntityType>
         </Schema>
 
-> [AZURE.TIP]Puede ver más ejemplos de servicio web de CSDL en el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
+> [AZURE.TIP] Puede ver más ejemplos de servicio web de CSDL en el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
 
 ###Ejemplo de CSDL de servicio de datos
 
@@ -301,4 +308,4 @@ Se conecta a un servicio que expone una vista o una tabla de base de datos como 
 - Si está interesado en revisar ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md), donde encontrará ejemplos de código y una explicación del contexto y la sintaxis del código.
 - Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0706_2016-->

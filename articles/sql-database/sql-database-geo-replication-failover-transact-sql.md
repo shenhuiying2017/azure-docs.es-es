@@ -32,7 +32,11 @@ En este artículo se muestra cómo iniciar la conmutación por error a una Base 
 Para iniciar la conmutación por error, necesitará lo siguiente:
 
 - Un inicio de sesión que es DBManager en la base de datos principal (tiene db\_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
-- La versión más reciente de SQL Server Management Studio: para obtener la versión más reciente de SQL Server Management Studio (SSMS), vaya a [Descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para obtener información sobre el uso de SQL Server Management Studio para administrar los servidores lógicos y las bases de datos de Base de datos SQL de Azure, consulte [Administración de Base de datos SQL de Azure con SQL Server Management Studio](sql-database-manage-azure-ssms.md)
+- SQL Server Management Studio (SSMS)
+
+
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 
 
@@ -92,10 +96,10 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
 ## Recursos adicionales
 
-- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Lo más destacado de las nuevas funcionalidades de replicación geográfica)
+- [Spotlight on new Geo-Replication capabilities (Lo más destacado de las nuevas funcionalidades de replicación geográfica)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Diseño de aplicaciones de nube para la continuidad de negocio mediante replicación geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 - [Documentación de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
 - [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery-drills.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="05/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Para configurar la integración de Soonr Workplace en Azure AD, deberá agregar 
 
 **Para agregar Soonr Workplace desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -86,7 +86,7 @@ Para configurar la integración de Soonr Workplace en Azure AD, deberá agregar 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Soonr Workplace con una usuaria de prueba llamada "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Soonr Workplace para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Soonr Workplace. Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Soonr Workplace.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Soonr Workplace para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Soonr Workplace.
 
 
 Para configurar y probar el inicio de sesión único de Azure AD con Soonr Workplace, es preciso completar los siguientes bloques de creación:
@@ -118,7 +118,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 	![Configurar inicio de sesión único](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png)
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Soonr Workplace con el siguiente patrón: **"https://<nombre-servidor>.soonr.com/singlesignon/saml/SSO"**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Soonr Workplace con el siguiente patrón: **"https://<server-name>.soonr.com/singlesignon/saml/SSO"**.
 
     b. Haga clic en **Siguiente**.
 
@@ -131,7 +131,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Soonr Workplace y envíe el archivo de metadatos descargado adjunto por correo electrónico. Además, proporcione la dirección URL del emisor, la dirección URL de inicio de sesión único de SAML y la dirección URL de cierre de sesión para que se puedan configurar para la integración de SSO.
+5. Para obtener el SSO configurado para la aplicación, consulte la Guía de integración de SSO de Soonr Workplace o puede hacer referencia a los socios de integración para obtener más detalles.
 
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
@@ -161,11 +161,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_03.png)
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_04.png)
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-soonr-tutorial/create_aaduser_05.png)
 
@@ -219,7 +219,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar la usuaria Britta Simon a Soonr Workplace, siga estos pasos:**
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en la opción **Aplicaciones** del menú superior.
 
 	![Asignar usuario][201]
 
@@ -268,4 +268,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-soonr-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

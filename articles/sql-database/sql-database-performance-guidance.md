@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/29/2016"
+	ms.date="06/30/2016"
 	ms.author="carlrab" />
 
 # Guía de rendimiento de Base de datos SQL de Azure
@@ -23,7 +23,7 @@
 
 Base de datos SQL de Microsoft Azure tiene tres [niveles de servicio](sql-database-service-tiers.md), Básico, Estándar y Premium. Todos aíslan de forma estricta el recurso proporcionado a Base de datos SQL Azure y garantizan un rendimiento predecible. El rendimiento garantizado para la base de datos aumenta de Básico, pasando por Estándar, hasta Premium.
 
->[AZURE.NOTE] Los niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-server-portal.md).
+>[AZURE.NOTE] Los niveles de servicio Business y Web se retiraron en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obtener información detallada sobre cómo actualizar las bases de datos Web o Business existentes a los nuevos niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-server-portal.md).
 
 Este documento proporciona instrucciones para ayudarle a determinar qué nivel de servicio es el adecuado para su aplicación y proporciona recomendaciones para optimizar la aplicación para obtener el máximo partido de Base de datos SQL de Azure.
 
@@ -206,7 +206,7 @@ Para otras consultas, consulte los ejemplos de [sys.dm\_db\_resource\_stats](htt
 
 ### Uso de sys.resource\_stats
 
-La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** proporciona información adicional para supervisar el uso del rendimiento de Base de datos SQL dentro de su nivel de rendimiento y nivel de servicio específicos. Los datos se recopilan cada cinco minutos y se mantienen durante aproximadamente 14 días. Esta vista es más útil para realizar análisis históricos a largo plazo sobre el uso de recursos de Base de datos SQL.
+La vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) en la base de datos **maestra** proporciona información adicional para supervisar el uso del rendimiento de Base de datos SQL dentro de su nivel de rendimiento y nivel de servicio específicos. Los datos se recopilan cada cinco minutos y se mantienen durante aproximadamente 35 días. Esta vista es más útil para realizar análisis históricos a largo plazo sobre el uso de recursos de Base de datos SQL.
 
 El siguiente gráfico muestra el uso de recursos de CPU para la base de datos Premium con un nivel de rendimiento P2 durante cada hora en una semana. Este gráfico en concreto empieza el lunes, muestra 5 días laborables y, a continuación, un fin de semana donde hay mucha menos actividad en la aplicación.
 
@@ -368,7 +368,7 @@ La consulta siguiente puede usarse para evaluar posibles índices que faltan.
 
 En este ejemplo, se recomienda el siguiente índice.
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
+	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] \([col2])  
 
 Una vez creado, esa misma instrucción SELECT elige un plan diferente que usa una búsqueda en lugar de un recorrido y se ejecuta más eficazmente, como se muestra en el siguiente plan de consulta.
 
@@ -507,4 +507,4 @@ Algunas aplicaciones de base de datos contienen cargas de trabajo con operacione
 
 Los niveles de servicio de Base de datos SQL de Azure le permiten elevar el listón de los tipos de aplicaciones que puede compilar en la nube. Cuando se combina con la optimización de aplicaciones, puede obtener un rendimiento eficaz y confiable para su aplicación. Este documento describe las técnicas recomendadas para optimizar el consumo de recursos de la base de datos que encaja perfectamente en uno de los niveles de rendimiento. La optimización es un ejercicio continuado en el modelo de nube, y los niveles de servicio y sus niveles de rendimiento permiten a los administradores maximizar el rendimiento y minimizar los costos en la plataforma de Microsoft Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

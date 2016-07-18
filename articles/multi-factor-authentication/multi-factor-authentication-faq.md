@@ -52,10 +52,10 @@ Cuando se usa Servidor Azure Multi-Factor Authentication (MFA) local, los datos 
 - Dirección de correo electrónico: opcional
 - Número de teléfono: al realizar la autenticación de una llamada de voz o SMS
 - Token de dispositivo: al realizar la autenticación de una aplicación móvil
-- Modo de autenticación 
-- Resultado de la autenticación 
-- Nombre de Servidor MFA 
-- IP de Servidor MFA 
+- Modo de autenticación
+- Resultado de la autenticación
+- Nombre de Servidor MFA
+- IP de Servidor MFA
 - IP de cliente: si está disponible
 
 
@@ -83,7 +83,7 @@ Modelo de facturación | Precio
 Consumo por usuario (compromiso monetario de Azure)| 1,40 $ al mes (autenticaciones ilimitadas)
 Consumo por autenticación (compromiso monetario de Azure)|1,40 $ por 10 autenticaciones
 Licencia anual por usuario (directa)|1,40 $ al mes (autenticaciones ilimitadas)
-Licencia anual por usuario (licencias por volumen)|Póngase en contacto con su [representante del contrato Enterprise.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
+Licencia anual por usuario (licencias por volumen)|Póngase en contacto con su [representante del Contrato Enterprise](https://www.microsoft.com/es-ES/licensing/licensing-programs/enterprise.aspx).
 
 **P: En el modelo de facturación "por usuario" ¿cómo se efectúan los cargos, según el número de usuarios habilitados para Multi-Factor Authentication o el número de usuarios que realizan comprobaciones?**
 
@@ -132,7 +132,7 @@ Puede eliminar todas las contraseñas de aplicación del usuario para evitar un 
 **P: ¿Qué pasa si el usuario no es capaz de iniciar sesión en aplicaciones sin explorador?**
 
 - Los usuarios habilitados para la autenticación multifactor requerirán la contraseña de aplicación para iniciar sesión en algunas aplicaciones sin explorador.
-- Los usuarios tendrán que borrar la información de inicio de sesión (eliminar información de inicio de sesión), reiniciar la aplicación e iniciar sesión con su nombre de usuario y contraseña de aplicación. 
+- Los usuarios tendrán que borrar la información de inicio de sesión (eliminar información de inicio de sesión), reiniciar la aplicación e iniciar sesión con su nombre de usuario y contraseña de aplicación.
 
 Para obtener información acerca de cómo crear contraseñas de aplicación consulte [Ayuda con las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md)
 
@@ -183,6 +183,6 @@ A veces, cuando las llamadas MFA se realizan a través de la red telefónica pú
 
 Actualmente, la comprobación de seguridad adicional solo puede utilizarse con aplicaciones o servicios a los que pueda tener acceso a través del explorador. Aplicaciones sin explorador (también denominadas aplicaciones cliente enriquecidas) que están instaladas en el equipo local como Windows Powershell no funcionarán con cuentas que son necesarias para la comprobación de seguridad adicional. En este caso, verá el error 0x800434D4L que genera la aplicación.
 
-Una forma de solucionar este problema es tener una cuenta de usuario independiente para las operaciones relacionadas con la administración, diferenciándolas de las operaciones no administrativas. Más adelante puede vincular los buzones entre la cuenta de administrador y una cuenta sin derechos administrativos, y así que podrá iniciar sesión en Outlook con su cuenta sin derechos administrativos. Para obtener más detalles acerca de esta información, consulte [Dar a un administrador la capacidad de abrir y ver el contenido del buzón de correo de un usuario] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
+Una forma de solucionar este problema es tener una cuenta de usuario independiente para las operaciones relacionadas con la administración, diferenciándolas de las operaciones no administrativas. Más adelante puede vincular los buzones entre la cuenta de administrador y una cuenta sin derechos administrativos, y así que podrá iniciar sesión en Outlook con su cuenta sin derechos administrativos. Para obtener más detalles acerca de esta información, consulte [Dar a un administrador la capacidad de abrir y ver el contenido del buzón de correo de un usuario] \(http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

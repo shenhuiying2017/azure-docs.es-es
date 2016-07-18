@@ -28,7 +28,7 @@ Si encuentra problemas de conexión, pruebe los pasos de solución de problemas 
 Los problemas de conexión pueden tener alguna de las siguientes causas:
 
 - Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones. Para comenzar, consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md).
-- Reconfiguración de la base de datos SQL Azure
+- Reconfiguración de la Base de datos SQL de Azure
 - Configuración de firewall
 - Tiempo de espera de conexión agotado
 - Información de inicio de sesión incorrecta
@@ -53,7 +53,7 @@ Si la aplicación está experimentando errores transitorios, revise los siguient
 
 ## Solución de problemas de errores persistentes (no transitorios)
 
-Si la aplicación no se puede conectar a la base de datos SQL Azure de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
+Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
 - Configuración del firewall. La base de datos SQL de Azure o el firewall del cliente están bloqueando las conexiones de la base de datos SQL de Azure.
 - Reconfiguración de la red en el lado cliente: por ejemplo, un nuevo servidor de proxy o dirección IP.
@@ -101,4 +101,4 @@ En la siguiente tabla se enumeran todos los temas de problemas de conexión que 
 - [La ruta aprendizaje para el uso de Base de datos SQL de Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [La ruta de aprendizaje para el uso de herramientas y características de bases de datos elásticas](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

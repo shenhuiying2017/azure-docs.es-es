@@ -64,7 +64,7 @@ Hay varias funcionalidades de Azure Active Directory disponibles mediante las ed
 
 **Características comunes**
 
-- [Objetos de directorio](#directory-objects) 
+- [Objetos de directorio](#directory-objects)
 
 - [Administración de usuarios y grupos (agregar/actualizar/eliminar)/aprovisionamiento basado en el usuario, registro de dispositivos](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
@@ -163,11 +163,11 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita| Edición básica| Edición premium| Solo aplicaciones de Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicaciones por usuario [1] \(SaaS preintegrado y aplicaciones integradas por el desarrollador)| 10 aplicaciones por usuario [1] \(nivel Gratis y aplicaciones de proxy de aplicación) | No hay límite [2] \(niveles Básico y Gratis + plantillas de integración de aplicaciones de autoservicio)| 10 aplicaciones por usuario [1] \(SaaS preintegrado y aplicaciones integradas por el desarrollador)|
+| 10 aplicaciones por usuario (1) | 10 aplicaciones por usuario (1) | Ilimitado (2) | 10 aplicaciones por usuario (1)|
 
-[1] Con las ediciones Gratis y Básico de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
+1. Con las ediciones Gratis y Básico de Azure AD, los usuarios finales a los que se haya asignado acceso a aplicaciones de SaaS pueden ver hasta 10 aplicaciones en su Panel de acceso y obtener inicio de sesión único en ellas. Los usuarios pueden configurar el inicio de sesión único y asignar acceso de usuario a tantas aplicaciones de SaaS como deseen con los niveles Gratis y Básico; sin embargo, los usuarios finales verán solo 10 aplicaciones en su Panel de acceso a la vez.
 
-[2] Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+2. Integración de autoservicio de cualquier aplicación que admita SAML, SCIM o autenticación basada en formularios mediante el uso de plantillas proporcionadas en el menú de la Galería de aplicaciones. Para más información, consulte [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md).
 
 **Más detalles:**
 
@@ -177,7 +177,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Cambio de contraseña de autoservicio para usuarios en la nube
 
-**Tipo:** Características comunes
+**Tipo:** características comunes
 
 **Disponibilidad:**
 
@@ -194,7 +194,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Conexión (motor de sincronización que extiende los directorios locales a Azure Active Directory) 
 
-**Tipo:** Características comunes
+**Tipo:** características comunes
 
 
 **Disponibilidad:**
@@ -211,7 +211,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Informes de seguridad y uso
 
-**Tipo:** Características comunes
+**Tipo:** características comunes
 
 
 **Disponibilidad:**
@@ -230,7 +230,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 ## Características de las ediciones Premium y Basic
 #### Aprovisionamiento y administración del acceso basados en grupo
 
-**Tipo:** Características básicas
+**Tipo:** características básicas
 
 
 **Disponibilidad:**
@@ -247,7 +247,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Restablecimiento de contraseña de autoservicio para usuarios en la nube
 
-**Tipo:** Características básicas
+**Tipo:** características básicas
 
 
 **Disponibilidad:**
@@ -264,7 +264,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Personalización de marca de la compañía (personalización de las páginas de inicio de sesión y del panel de acceso)
 
-**Tipo:** Características básicas
+**Tipo:** características básicas
 
 
 **Disponibilidad:**
@@ -281,7 +281,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Proxy de aplicación
 
-**Tipo:** Características básicas
+**Tipo:** características básicas
 
 
 **Disponibilidad:**
@@ -298,7 +298,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Contrato de nivel de servicio del 99,9 %
 
-**Tipo:** Características básicas
+**Tipo:** características básicas
 
 
 **Disponibilidad:**
@@ -317,7 +317,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 ## Características de la edición Premium
 #### Administración de grupos y aplicaciones de autoservicio/incorporaciones de aplicaciones de autoservicio/grupos dinámicos
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -332,7 +332,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
          
 #### Restablecimiento de contraseñas de autoservicio/cambio/desbloqueo con escritura diferida local
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -347,7 +347,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 #### Multi-Factor Authentication (en la nube y local (servidor MFA))
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -366,7 +366,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Puesto que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, siempre que un servidor ejecute una copia válida y con licencia de Windows Server, Microsoft Identity Manager podrá instalarse y usarse en ese servidor. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -381,7 +381,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 #### Cloud App Discovery 
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -398,7 +398,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 #### Connect Health
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -415,7 +415,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 #### Sustitución automática de la contraseña para cuentas de grupo
 
-**Tipo:** Características de la edición Premium
+**Tipo:** características de la edición Premium
 
 
 **Disponibilidad:**
@@ -495,4 +495,4 @@ Además de las características disponibles normalmente en las ediciones Free Ed
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

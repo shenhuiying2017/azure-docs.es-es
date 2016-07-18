@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="mobile"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
     keywords="notificación push, notificaciones push, notificaciones push de iOS, notificaciones push de android, inserción de ios, inserción de android"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc" />
 
 #Notificaciones push con los Centros de notificaciones de Azure: preguntas más frecuentes
@@ -200,4 +200,4 @@ También proporciona la funcionalidad de exportar los datos de telemetría media
 [Aplicaciones móviles de Azure]: https://azure.microsoft.com/es-ES/services/app-service/mobile/
 [Precios de servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

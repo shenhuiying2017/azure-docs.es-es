@@ -13,74 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/05/2016"
    ms.author="hascipio" />
 
-# Publicación de una oferta en Azure Marketplace
-Este artículo sirve de ayuda para desarrollar e implementar una solución en Azure Marketplace para que otros socios y clientes de Azure la compren y la usen.
+# Publicación y administración de una oferta en Azure Marketplace
+Este artículo sirve de ayuda para crear, implementar y administrar sus soluciones incluidas en Azure Marketplace para que otros asociados y clientes de Azure las compren y usen.
 
 Lo primero que le convendría hacer como publicador es definir el tipo de solución que ofrece su compañía. Azure Marketplace admite varias soluciones y cada una de ellas requiere que se establezca un conjunto de trabajo ligeramente diferente para publicar correctamente en Marketplace.
 
-Tipos de soluciones:
-
-- Imagen de máquina virtual
-- Servicio de desarrolladores
-- Servicio de datos
-- Plantilla de solución
+## Tipos de ofertas
+|Tipo de oferta| Definición |
+|---|---|
+|Imagen de máquina virtual | Imagen de la máquina virtual preconfigurada con un sistema operativo completamente instalado y una o varias aplicaciones. Las ofertas de imagen de máquina virtual pueden incluir una sola imagen o varias relacionadas mediante una plantilla de solución. Una imagen de máquina virtual ("Imagen") proporciona la información necesaria para crear e implementar máquinas virtuales en el servicio Máquinas virtuales de Azure. Una imagen está formada por una unidad de disco duro virtual del sistema operativo y cero o más unidades de disco duro virtuales del disco de datos. Los clientes pueden implementar cualquier cantidad de máquinas virtuales a partir de una única imagen.|
+|Servicio de desarrolladores| Servicios totalmente administrados para trabajadores de la información, analistas de negocios, desarrolladores o profesionales de TI que se usan en el desarrollo de aplicaciones personalizadas o la administración de sistemas. Los servicios de desarrolladores aportan una funcionalidad que permite a los clientes desarrollar con rapidez aplicaciones para la nube en Azure. Para comprar servicios de desarrolladores, los clientes deben tener una suscripción de Azure. Los publicadores son responsables de medir el uso de los servicios de desarrolladores por parte de los clientes, así como de notificar la información de uso a Microsoft, tal y como se detalla en el Acuerdo del publicador de Microsoft Azure Marketplace.|
+|Plantilla de solución|Una "Plantilla de solución de Azure Resource Manager (ARM)" es una estructura de datos que puede hacer referencia a una o varias ofertas distintivas, incluidas las publicadas por otros publicadores, para permitir que los clientes de Azure implementen una o varias ofertas de forma sencilla y coordinada.|
 
 Algunos pasos se comparten entre los distintos tipos de soluciones. En este artículo se ofrece una breve introducción a los pasos que debe completar para cualquier tipo de solución.
 
+## 1\. Requisitos previos
+
 > [AZURE.NOTE] Antes de empezar cualquier trabajo en Azure Marketplace, debe obtener la probación previa. Esto no se aplica a los publicadores de servicios de datos.
 
-||Imagen de máquina virtual |Servicio de desarrolladores | Servicio de datos | Plantilla de solución |
-|----|----|----|----|----|
-| **Obtención de la aprobación previa** | [Microsoft Azure Certified][link-certification] | Vista previa privada | N/D | [Microsoft Azure Certified][link-certification] |
-| **Paso 1: Registro de la cuenta de desarrollador** | [Cuenta de Microsoft Developer: creación y registro][link-accts] | Vista previa privada | [Cuenta de Microsoft Developer: creación y registro][link-accts] | [Cuenta de Microsoft Developer: creación y registro][link-accts] |
-|**Paso 2: Creación de la oferta**| [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)| Vista previa privada | [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)| [Requisitos previos no técnicos generales](marketplace-publishing-pre-requisites.md)|
-|| [Requisitos previos técnicos de máquina virtual][link-single-vm-prereq] | Vista previa privada | [Requisitos previos técnicos del servicio de datos](marketplace-publishing-data-service-creation-prerequisites.md) | [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[Guía de publicación de imágenes de máquina virtual][link-single-vm] | Vista previa privada | [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md) | [Guía de publicación de plantillas de solución](marketplace-publishing-solution-template-creation.md) |
-|| [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | Vista previa privada | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] | [Guía de contenido de marketing de Azure Marketplace][link-pushstaging] |
-| **Paso 3: Traslado de la oferta al entorno de ensayo** | [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md) | Vista previa privada | [Prueba de la oferta de servicio de datos en el entorno de ensayo](marketplace-publishing-data-service-test-in-staging.md) | [Prueba de la plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md) |
-| **Paso 4: Implementación de la oferta en Marketplace** | [Implementación de la oferta en Marketplace][link-pushprod] | Vista previa privada | [Implementación de la oferta en Marketplace][link-pushprod] | [Implementación de la oferta en Marketplace][link-pushprod] |
+1. [Solicitar la aprobación previa de Microsoft Azure Certified](marketplace-publishing-azure-certification.md)
+2. [Crear y registrar una cuenta de desarrollador de Microsoft](marketplace-publishing-accounts-creation-registration.md)
+3. [Cumplir los requisitos previos no técnicos](marketplace-publishing-pre-requisites.md)
 
-## Soporte técnico
-- [Guía de pos-producción para ofertas de la máquina virtual](marketplace-publishing-vm-image-post-publishing.md)
-- [Descripción de informes de perspectivas de vendedor][suppt-rpt-insights]
-- [Descripción de informes de pago][suppt-rpt-payouts]
-- [Cómo cambiar el incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
-- [Solución de problemas comunes de publicación en Marketplace][suppt-common]
-- [Obtención de soporte técnico como publicador][suppt-general]
+## 2\. Publicación de la oferta
+### 2\.1 Realización de los requisitos previos técnicos específicos de la oferta
+- [Requisitos previos técnicos de la máquina virtual](marketplace-publishing-vm-image-creation-prerequisites.md)
+- [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md)
 
-## Recursos adicionales
-- Para más información sobre los portales que se usan, vea [Portales que necesitará](marketplace-publishing-portals.md).
+### 2\.2 Creación de la oferta
+1. Cree su oferta mediante las siguientes directrices específicas de la oferta.
+    - [Crear su oferta de máquina virtual](marketplace-publishing-vm-image-creation.md)
+    - [Crear su oferta de plantilla de solución](marketplace-publishing-solution-template-creation.md)
+2. [Crear la oferta de contenido de marketing](marketplace-publishing-push-to-staging.md)
 
-**Máquinas virtuales**
+### 2\.3 Prueba de la oferta de máquina virtual en el entorno de ensayo
+- [Prueba de la oferta de máquina virtual en el entorno de ensayo](marketplace-publishing-vm-image-test-in-staging.md)
+- [Prueba de la oferta de plantilla de solución en el entorno de ensayo](marketplace-publishing-solution-template-test-in-staging.md)
 
-- [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
+### 2\.4 Implementación de la oferta en Marketplace
+- [Implementación de su oferta en Azure Marketplace](marketplace-publishing-push-to-production.md)
+
+### Pasos específicos de la imagen de máquina virtual ###
 - [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-**Servicios de datos**
 
-- [Asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Nodos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
-- [Ejemplos de asignación de OData del servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+- [Solución de problemas comunes de publicación en Marketplace](marketplace-publishing-support-common-issues.md)
+- Para más información sobre los portales que se usan, vea [Portales que necesitará](marketplace-publishing-portals.md).
 
-[suppt-general]: marketplace-publishing-get-publisher-support.md
-[suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
-[suppt-rpt-payouts]: marketplace-publishing-report-payout.md
-[suppt-common]: marketplace-publishing-support-common-issues.md
-[link-certification]: marketplace-publishing-azure-certification.md
-[link-accts]: marketplace-publishing-accounts-creation-registration.md
-[link-single-vm]: marketplace-publishing-vm-image-creation.md
-[link-single-vm-prereq]: marketplace-publishing-vm-image-creation-prerequisites.md
-[link-multi-vm]: marketplace-publishing-solution-template-creation.md
-[link-multi-vm-prereq]: marketplace-publishing-solution-template-creation-prerequisites.md
-[link-datasvc]: marketplace-publishing-data-service-creation.md
-[link-datasvc-prereq]: marketplace-publishing-data-service-creation-prerequisites.md
-[link-devsvc]: marketplace-publishing-dev-service-creation.md
-[link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
-[link-pushstaging]: marketplace-publishing-push-to-staging.md
-[link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0608_2016-->
+## 3\. Administración posterior a la publicación de la oferta
+- [Guía de pos-producción para ofertas de la máquina virtual](marketplace-publishing-vm-image-post-publishing.md)
+- [Actualización de los detalles no técnicos de una oferta o una SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
+- [Eliminación de una oferta o una SKU de Azure Marketplace](marketplace-publishing-vm-image-post-publishing.md#4-how-to-delete-a-live-offer-or-sku-from-the-azure-marketplace)
+- [Cómo cambiar el incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
+- [Descripción de los informes de información del vendedor](marketplace-publishing-report-seller-insights.md)
+- [Descripción de los informes de pago](marketplace-publishing-report-payout.md)
+- [Obtención de soporte técnico como publicador](marketplace-publishing-get-publisher-support.md)
+
+## Recursos adicionales
+- [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)
+
+<!---HONumber=AcomDC_0706_2016-->

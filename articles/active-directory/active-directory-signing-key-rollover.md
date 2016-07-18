@@ -20,7 +20,7 @@
 
 En este tema se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder controlar mediante programación el proceso de sustitución de claves. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación para controlar la sustitución de claves si fuera necesario.
 
-> [AZURE.IMPORTANT] La siguiente sustitución de claves de firma se producirá el 15 de agosto de 2016 y *no* afectará a las aplicaciones de la galería o una aplicación de inquilinos B2C.
+> [AZURE.IMPORTANT] La sustitución de claves de firma siguiente está programada para el 15 de agosto de 2016 y le **no** afectará a las aplicaciones cliente, aplicaciones que se agregaron desde la Galería (incluido personalizado), las aplicaciones publicadas a través del proxy de aplicación o las aplicaciones de inquilinos B2C.
 
 ## Información general sobre las claves de firma de Azure AD
 
@@ -328,4 +328,4 @@ Para recuperar manualmente la clave más reciente desde el documento de metadato
 
 Acaba de crear el certificado X509 que se utiliza como la clave pública de Azure AD. Con los detalles del certificado, como su huella digital y fecha de expiración, puede comprobar manualmente o mediante programación que la huella digital y el certificado que utiliza actualmente la aplicación son válidos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

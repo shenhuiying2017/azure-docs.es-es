@@ -3,7 +3,7 @@
 	description="Aprenda a enviar notificaciones push a los usuarios en Azure. Ejemplos de código escritos en Objective-C con la API de .NET."
 	documentationCenter="ios"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Los Centros de notificaciones de Azure notifican a los usuarios para iOS con back-end de .NET
@@ -69,7 +69,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 
 		- (IBAction)LogInAction:(id)sender;
 
-4. En ViewController.h, agregue el `#define` siguiente justo debajo de las instrucciones de importación. Sustituya el marcador de posición *<Escriba su extremo de back-end>* por la URL de destino utilizada para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, **http://you_backend.azurewebsites.net*.
+4. En ViewController.h, agregue el `#define` siguiente justo debajo de las instrucciones de importación. Sustituya el marcador de posición *<Escriba su extremo de back-end>* por la URL de destino utilizada para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, *http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 
 	![][3]
 
-4. En el campo de texto **Etiqueta de nombre de usuario destinatario**, escriba la etiqueta de nombre de usuario usada con el registro desde otro dispositivo.
+4. En el campo de texto para la *etiqueta del nombre de usuario del destinatario*, escriba la etiqueta del nombre de usuario usada con el registro desde otro dispositivo.
 5. Escriba un mensaje de notificación y haga clic en **Enviar notificación**. Solo los dispositivos que tienen un registro con la etiqueta de nombre de usuario del destinatario reciben el mensaje de notificación. Solo se envía a los usuarios.
 
 	![][4]
@@ -465,4 +465,4 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

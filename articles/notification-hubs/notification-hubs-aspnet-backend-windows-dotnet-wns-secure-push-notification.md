@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="notification-hubs"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
@@ -186,4 +186,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -37,6 +37,6 @@ Este error se produce cuando la base de datos de Azure se está moviendo (o reco
 
 ## Pasos siguientes
 - Si el error que se muestra es diferente, evalúe si en el [mensaje de error](sql-database-develop-error-messages.md) se proporciona alguna indicación sobre la causa.
-- Si el problema persiste, visite la página de ayuda de [Solución de problemas de conexión comunes relacionados con la base de datos SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+- Si el problema persiste, visite la página de ayuda de [Solución de problemas de conexión de Base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

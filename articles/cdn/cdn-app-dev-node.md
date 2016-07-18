@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="07/01/2016"
 	ms.author="casoper"/>
 
-# Introducción al SDK de red CDN de Azure para Node.js
+# Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 
-Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de CDN. Este tutorial explicará paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles. No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
+> [AZURE.SELECTOR]
+- [.NET](cdn-app-dev-net.md)
+- [Node.js](cdn-app-dev-node.md)
+
+Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN. Este tutorial explicará paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles. No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
 
 Para completar este tutorial, debe tener ya instalado y configurado [Node.js](http://www.nodejs.org) **4.x.x** o superior. Puede usar cualquier editor de texto que desee para crear la aplicación de Node.js. Para escribir este tutorial, se ha usado [Visual Studio Code](https://code.visualstudio.com).
 
-Encontrará un ejemplo completo de este tutorial [aquí](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
+> [AZURE.TIP] El [proyecto completado en este tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) está disponible para descargarse en MSDN.
 
 [AZURE.INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
@@ -107,7 +111,7 @@ Con *apps.js* abierto en el editor, vamos a escribir la estructura básica del p
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
 
-	No olvide reemplazar los elementos en **&lt;angle brackets&gt** con la información correcta. Para `<redirect URI>` use el URI de redirección que especificó al registrar la aplicación en Azure AD.
+	No olvide reemplazar los elementos en **&lt;angle brackets&gt** por la información correcta. Para `<redirect URI>`, use el URI de redirección que especificó al registrar la aplicación en Azure AD.
 	
 
 4.  Nuestra aplicación de consola Node.js necesita algunos parámetros de línea de comandos. Vamos a dar por válido que por lo menos un parámetro se pasó.
@@ -337,7 +341,7 @@ function cdnDelete() {
 
 Ahora ya podemos ejecutar nuestro programa de Node.js usando nuestro depurador preferido o en la consola.
 
-> [AZURE.TIP] Si usa código de Visual Studio como depurador, tiene que configurar su entorno para pasar los parámetros de línea de comandos. El código de Visual Studio hace esto en el archivo **lanuch.json**. Busque una propiedad denominada **args** y agregue una matriz de valores de cadena para los parámetros, de forma que se parezca a esto: `"args": ["list", "profiles"]`.
+> [AZURE.TIP] Si usa código de Visual Studio como depurador, tiene que configurar su entorno para pasar los parámetros de línea de comandos. El código de Visual Studio realiza esta operación en el archivo **lanuch.json**. Busque una propiedad denominada **args** y agregue una matriz de valores de cadena para los parámetros, de forma que se parezca a esto: `"args": ["list", "profiles"]`.
 
 Vamos a empezar con una lista de nuestros perfiles.
 
@@ -361,6 +365,6 @@ Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://
 
 Para ver la referencia del SDK de red CDN de Azure para Node.js, consulte el documento de [referencia](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Para encontrar documentación adicional sobre el SDK de Azure para Node.js, consulte el [material de referencia completo](http://azure.github.io/azure-sdk-for-node/).
+Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [material de referencia completo](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

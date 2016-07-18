@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/30/2016"
 	ms.author="genli"/>
 
 # No puedo iniciar sesión para administrar mi suscripción de Azure
 
-> [AZURE.NOTE]Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) y haga clic en Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
+> [AZURE.NOTE] Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure en el [sitio de soporte técnico de Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409). Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Este artículo le ayudará a solucionar algunas de las causas comunes de los problemas de inicio de sesión.
 
@@ -54,4 +54,4 @@ Ahora que es posible iniciar sesión en Azure con una cuenta profesional, estos 
 
 Trate de eliminar caché o cookies usando el modo de exploración de InPrivate de Internet Explorer y también mediante otro explorador.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

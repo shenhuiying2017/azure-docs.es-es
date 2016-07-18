@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Unión de una máquina virtual de Red Hat Enterprise Linux 7 a un dominio administrado
@@ -177,4 +177,4 @@ Consulte el artículo [Solución de problemas de unión al dominio](active-direc
 - [Installing Kerberos](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Instalación de Kerberos)
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/es-ES/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: guía de integración de Windows)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

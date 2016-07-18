@@ -26,6 +26,18 @@ Este artículo contiene información sobre las diversas versiones y actualizacio
 
 > [AZURE.NOTE] También hay un Kit de herramientas de Azure para el IDE de IntelliJ. Para más información, consulte [Kit de herramientas de Azure para IntelliJ].
 
+### 29 de junio de 2016
+
+El kit de herramientas de Azure para Eclipse, versión de junio de 2016, incluye las siguientes mejoras:
+
+* **Requisito de Java 8**. El Kit de herramientas de Azure para Eclipse ahora requiere Java 8, aunque este requisito es solo para el kit de herramientas: las aplicaciones pueden seguir usando todas las versiones de Java compatibles con Azure.
+* **Compatibilidad para el JDK más reciente de Java**. Las versiones más recientes de los JDK de Java ahora admiten el Kit de herramientas de Azure para Eclipse.
+* **Compatibilidad con la versión 2.9.1 del SDK de Azure**. La versión más reciente del SDK de Azure ahora es el requisito previo mínimo para el kit de herramientas de Azure para Eclipse.
+* **Ejemplos integrados**. El Kit de herramientas de Azure para Eclipse ahora cuenta con varias aplicaciones de ejemplo para ayudar a los desarrolladores a empezar a trabajar.
+* **Integración de herramientas de HDInsight**. Las herramientas de HDInsight de Azure ahora están incluidas en el Kit de herramientas de Azure para Eclipse.
+* **Depuración remota de aplicaciones web de Java**. El Kit de herramientas de Azure para Eclipse ahora admite la depuración remota de aplicaciones web de Java en el Servicio de aplicaciones de Azure.
+* **Compatibilidad con la versión Kepler de Luna.** La nueva versión mínima necesaria del IDE de Eclipse es Luna.
+
 ### 12 de abril de 2016
 
 El kit de herramientas de Azure para Eclipse, versión de abril de 2016, incluye las siguientes mejoras:
@@ -280,7 +292,7 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de junio de 2012. Las 
 * **Detección automática de los requisitos previos de la versión 1.7 del SDK de Azure:** al crear un nuevo proyecto de implementación de Azure, esta versión se descargará automáticamente si no está ya instalada.
 * **Puntos de conexión de instancia:** permite el acceso directo del punto de conexión del puerto para la comunicación con instancias de rol de carga equilibrada. Se pueden agregar los puntos de conexión de instancia a través de la interfaz de usuario de los puntos de conexión, disponible en la página [Propiedades de puntos de conexión]. Esto ayuda a habilitar la depuración remota y el diagnóstico de JMX para instancias de proceso específicas que se ejecutan en la nube en escenarios con implementaciones de varias instancias.
 * **Interfaz de usuario para componentes:** facilita a los usuarios avanzados la configuración de las dependencias del proyecto entre los roles individuales de Azure en el proyecto y otros recursos externos como los proyectos de aplicación de Java; también facilita la descripción de su lógica de implementación. Para más información, consulte [Propiedades de componentes].
-* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con **\_Upgraded ** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
+* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con **\_Upgraded** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
 
 ### 10 de diciembre de 2011
 
@@ -308,6 +320,7 @@ Para más información acerca de los kits de herramientas de Azure para los IDE 
 - [Kit de herramientas de Azure para IntelliJ]
   - [Instalación del kit de herramientas de Azure para IntelliJ]
   - [Creación de una aplicación web Hello World para Azure en IntelliJ]
+  - [Novedades del kit de herramientas de Azure para IntelliJ]
 
 Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
@@ -319,9 +332,12 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novedades del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [página web de Azul Systems para Zulu de OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
-[Centro para desarrolladores de Java de Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Puntos de conexión de servicio de Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de cuentas de almacenamiento de Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Propiedades de componentes]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
@@ -352,4 +368,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

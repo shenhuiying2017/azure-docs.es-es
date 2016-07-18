@@ -34,7 +34,7 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 | Restauración de BD | Nivel Basic | Niveles Standard | Niveles Premium |
 | :-- | :-- | :-- | :-- |
-| Restauración a un momento dado | Cualquier punto de restauración en 7 días|Cualquier punto de restauración en 14 días| Cualquier punto de restauración en 35 días|
+| Restauración a un momento dado | Cualquier punto de restauración en 7 días|Cualquier punto de restauración en 35 días| Cualquier punto de restauración en 35 días|
 
 ## Copiar la tabla de la base de datos restaurada mediante la herramienta de migración de Base de datos SQL
 1. Descargue e instale el [Asistente para migración de Base de datos SQL](https://sqlazuremw.codeplex.com).
@@ -71,4 +71,4 @@ Puede pasarle que haya modificado algunos datos por error en una base de datos S
 
 [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="06/30/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
@@ -30,6 +30,8 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed';
 
 ## Investigación de la ejecución de la consulta
 Para supervisar la ejecución de la consulta, comience por [sys.dm\_pdw\_exec\_requests][]. Esta vista contiene las consultas en curso, así como un historial de las consultas que se han completado recientemente. El campo request\_id identifica cada consulta de forma única y es la clave principal de esta vista. El campo request\_id se asigna de forma secuencial para cada nueva consulta. Al consultar en esta tabla sobre un campo session\_id determinado, se mostrarán todas las consultas de un inicio de sesión concreto.
+
+>[AZURE.NOTE] Los procedimientos almacenados utilizan varios request\_ids. Los identificadores de solicitudes se asignarán en orden secuencial.
 
 Estos son los pasos que deben seguirse para investigar los planes de ejecución de consultas y las horas de una consulta determinada.
 
@@ -106,7 +108,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 
-Si la consulta se está ejecutando actualmente, [DBCC PDW\_SHOWEXECUTIONPLAN][] se puede utilizar para recuperar el plan de ejecución de SQL Server para el paso de SQL que se están ejecutando para una distribución particular.
+Si la consulta se está ejecutando actualmente, [DBCC PDW\_SHOWEXECUTIONPLAN][] se puede utilizar para recuperar el plan de ejecución de SQL Server para el paso de SQL que se está ejecutando para una distribución particular.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -143,15 +145,14 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Pasos siguientes
-Para obtener más información sobre las vistas de administración dinámica (DMV), consulte [Vistas de sistema][]. Para obtener sugerencias sobre cómo administrar el Almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][]. Paras obtener procedimientos recomendados, consulte [SQL Data Warehouse Best Practices][] (Procedimientos recomendados de Almacenamiento de datos SQL).
+Para más información sobre las vistas de administración dinámica (DMV), consulte [Vistas de sistema][]. Para obtener sugerencias sobre cómo administrar el Almacenamiento de datos SQL, consulte [Herramientas de administración para Almacenamiento de datos SQL][]. Paras obtener procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
-[Herramientas de administración para Almacenamiento de datos SQL]: sql-data-warehouse-overview-manage.md
-[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
-[Vistas de sistema]: sql-data-warehouse-reference-tsql-system-views.md
+[Herramientas de administración para Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage.md
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[Vistas de sistema]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +163,4 @@ Para obtener más información sobre las vistas de administración dinámica (DM
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

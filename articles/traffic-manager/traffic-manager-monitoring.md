@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/04/2016"
+   ms.date="07/01/2016"
    ms.author="jtuliani" />
 
 # Supervisión de puntos de conexión del Administrador de tráfico y conmutación por error
@@ -175,4 +175,4 @@ Aprenda a [crear un perfil del Administrador de tráfico](traffic-manager-manage
 
 [Solución de problemas de estado degradado en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

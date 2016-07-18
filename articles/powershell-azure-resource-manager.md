@@ -19,8 +19,14 @@
 # Uso de Azure PowerShell con Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Portal](azure-portal/resource-group-portal.md)
 - [CLI de Azure](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 Administrador de recursos de Azure presenta un concepto totalmente nuevo acerca de los recursos de Azure. En lugar de crear y administrar recursos individuales, empiece por imaginar una solución entera, como un blog, una galería de fotos, un portal de SharePoint o un wiki. Use una plantilla, una representación declarativa de la solución, para crear un grupo de recursos que contiene todos los recursos que necesita para respaldar la solución. Luego, administre e implemente ese grupo de recursos como una unidad lógica.
 
@@ -31,7 +37,7 @@ En este tutorial, aprenderá a usar Azure PowerShell con el Administrador de rec
 - Reglas de firewall: para permitir que la aplicación web se conecte a la base de datos.
 - Plan de servicio de aplicaciones: para definir las capacidades y el costo de la aplicación web.
 - Sitio web: para ejecutar la aplicación web.
-- Configuración web: para almacenar la cadena de conexión en la base de datos. 
+- Configuración web: para almacenar la cadena de conexión en la base de datos.
 - Reglas de alerta: para supervisar el rendimiento y los errores
 - Application Insights: para configurar el escalado automático
 
@@ -43,7 +49,7 @@ Para completar este tutorial, necesita:
   + Puede [abrir una cuenta de Azure de manera gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
   
   + Puede [activar las ventajas de suscriptor de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Su suscripción a MSDN le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-- Azure PowerShell 1.0. Para más información sobre esta versión y cómo instalarla, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell 1.0. Para más información acerca de esta versión y cómo instalarla, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 Este tutorial está diseñado para los principiantes de PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones.
 
@@ -380,4 +386,4 @@ Los ejemplos de implementación anteriores en este tema solo mostraban los cmdle
 - Para ver un ejemplo detallado de cómo implementar un proyecto, consulte [Implementación predecible de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para información sobre la solución de problemas de una implementación que da error, consulte [Solución de problemas de implementaciones de grupos de recursos en Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

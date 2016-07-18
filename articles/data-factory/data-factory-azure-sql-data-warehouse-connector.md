@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure
@@ -509,7 +509,7 @@ Si el origen de datos cumple los criterios siguientes, puede realizar las copias
 Tenga en cuenta que, si no se cumplen los requisitos, Data Factory de Azure comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
 1.	**Servicio vinculado de origen** es de tipo **Almacenamiento de Azure** y no está configurado para utilizar la autenticación de SAS (firma de acceso compartido). Consulte [Servicio vinculado de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información.
-2. El **conjunto de datos de entrada ** es de tipo **Blob de Azure** y el tipo de formato en las propiedades de tipo es **OrcFormat** o **TextFormat** con las configuraciones siguientes:
+2. El **conjunto de datos de entrada** es de tipo **Blob de Azure** y el tipo de formato en las propiedades de tipo es **OrcFormat** o **TextFormat** con las configuraciones siguientes:
 	1. **rowDelimiter** debe ser **\\n**.
 	2. **nullValue** está establecido en **cadena vacía** ("").
 	3. **encodingName** está establecido en **utf-8**, el valor **predeterminado**, por lo que no se establece en un valor diferente.
@@ -654,4 +654,4 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

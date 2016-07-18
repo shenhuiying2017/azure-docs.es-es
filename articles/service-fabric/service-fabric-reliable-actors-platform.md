@@ -39,7 +39,7 @@ En Reliable Services, el servicio hereda la clase `StatefulService`, que deriva 
 
  - Copia de seguridad y restauración del servicio.
  - Funcionalidad compartida para todos los actores, por ejemplo, un interruptor.
- - Llamadas de procedimiento remoto en el servicio de actor mismo, así como en otro actor individual. 
+ - Llamadas de procedimiento remoto en el servicio de actor mismo, así como en otro actor individual.
 
 ### Uso del servicio de actor
 
@@ -251,7 +251,7 @@ Cuando se usan GUID y cadenas, se aplica un algoritmo hash a los valores en un I
  - [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)
  - [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
  - [Documentación de referencia de la API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+ - [Código de ejemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -261,4 +261,4 @@ Cuando se usan GUID y cadenas, se aplica un algoritmo hash a los valores en un I
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

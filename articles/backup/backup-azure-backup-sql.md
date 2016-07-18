@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="07/01/2016"
 	ms.author="giridham; jimpark;"/>
 
 
@@ -30,7 +30,7 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 3. Recuperación de la base de datos de Azure.
 
 ## Antes de comenzar
-Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](../backup-azure-dpm-introduction/#prerequisites) para usar Copia de seguridad de Microsoft Azure a fin de proteger las cargas de trabajo. Los requisitos previos cubren tareas como: crear un almacén de copia de seguridad, descargar las credenciales del almacén, instalar el agente de Copia de seguridad de Azure y registrar el servidor con el almacén.
+Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](../backup-azure-dpm-introduction.md#prerequisites) para usar Copia de seguridad de Microsoft Azure a fin de proteger las cargas de trabajo. Los requisitos previos cubren tareas como: crear un almacén de copia de seguridad, descargar las credenciales del almacén, instalar el agente de Copia de seguridad de Azure y registrar el servidor con el almacén.
 
 ## Crear una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure
 
@@ -52,7 +52,7 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](.
 
     ![Selección de base de datos SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. Proporcione el nombre para el grupo de protección que va a crear. Asegúrese de seleccionar la opción “**Deseo protección en línea**”.
+6. Proporcione el nombre para el grupo de protección que va a crear. Asegúrese de seleccionar la opción **Deseo protección en línea**.
 
     ![Método de protección de datos: disco a corto plazo y en línea de Azure](./media/backup-azure-backup-sql/pg-name.png)
 
@@ -62,7 +62,7 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](.
 
     ![Objetivos a corto plazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] A las 8:00 p.m. (de acuerdo con la entrada de la pantalla) se crea un punto de copia de seguridad cada día mediante la transferencia de los datos modificados desde el punto de copia de seguridad de las 8:00 p.m. del día anterior. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 p.m., entonces se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8 p.m. en este caso).
+    >[AZURE.NOTE] A las 20:00 (de acuerdo con la entrada de la pantalla) se crea un punto de copia de seguridad cada día mediante la transferencia de los datos modificados desde el punto de copia de seguridad de las 20:00 del día anterior. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 p.m., entonces se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8 p.m. en este caso).
 
 8. Haga clic en **Siguiente**.
 
@@ -174,4 +174,4 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
 • [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter=".net"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Administración de registros
@@ -329,4 +329,4 @@ Desde el back-end de la aplicación, puede ejecutar operaciones de tipo CRUD en 
 
 El back-end debe controlar la simultaneidad entre las actualizaciones de los registros. Bus de servicio ofrece un control de simultaneidad optimista para la administración de registros. A nivel de HTTP, se implementa con el uso de ETag en las operaciones de administración de registros. Los SDK de Microsoft utilizan esta característica de manera transparente y generan una excepción si se rechaza una actualización por motivos de simultaneidad. El back-end de aplicación es responsable de controlar estas excepciones y de volver a intentar la actualización, si es necesario.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

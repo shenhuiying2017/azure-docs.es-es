@@ -18,6 +18,14 @@
 
 # Almacenamiento de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría
 
+> [AZURE.SELECTOR]
+- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+- [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
+- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Introducción a la auditoría](sql-data-warehouse-auditing-overview.md)
+- [Auditoría de los clientes de nivel inferior](sql-data-warehouse-auditing-downlevel-clients.md)
+
 
 [Auditoría](sql-data-warehouse-auditing-overview.md) funciona con los clientes SQL que admiten el redireccionamiento de TDS.
 
@@ -38,4 +46,4 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

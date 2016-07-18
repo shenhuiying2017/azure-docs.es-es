@@ -1,6 +1,6 @@
 <properties
    pageTitle="Tablas temporales en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para usar las tablas temporales en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
+   description="Introducción a las tablas temporales en Almacenamiento de datos SQL de Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,21 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/06/2016"
+   ms.date="06/29/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Tablas temporales en el Almacenamiento de datos SQL
-Las tablas temporales son muy útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Las tablas temporales de Almacenamiento de datos SQL existen en el nivel de sesión. Sin embargo, se definen como tablas temporales locales pero, a diferencia de las tablas de SQL Server, se puede tener acceso a ellas desde cualquier lugar dentro de la sesión.
 
-Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. Esta información le ayudará a modularizar el código. La modularidad de código es importante para facilitar el mantenimiento y la reutilización del código.
+> [AZURE.SELECTOR]
+- [Información general][]
+- [Tipo de datos][]
+- [Distribución][]
+- [Índice][]
+- [Partition][]
+- [Estadísticas][]
+- [Temporal][]
 
-## Creación de tablas temporales
-Es muy sencillo crear una tabla temporal. Lo único que debe hacer es usar el prefijo # antes del nombre de la tabla, como en el ejemplo siguiente:
+Las tablas temporales son muy útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Las tablas temporales de Almacenamiento de datos SQL existen en el nivel de sesión. Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra. Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto. No son iguales en Almacenamiento de datos SQL que en Base de datos SQL de Azure en el sentido de que se puede acceder a ellas desde cualquier parte de la sesión, incluso dentro y fuera de un procedimiento almacenado.
+
+Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. La información de este artículo puede ayudarle a dividir en secciones el código y así mejorar su reusabilidad y facilidad de mantenimiento.
+
+## Creación de una tabla temporal
+
+Las tablas temporales se crean colocando simplemente `#` delante del nombre de la tabla. Por ejemplo:
 
 ```sql
 CREATE TABLE #stats_ddl
 (
-	[schema_name]			NVARCHAR(128) NOT NULL
+	[schema_name]		NVARCHAR(128) NOT NULL
 ,	[table_name]            NVARCHAR(128) NOT NULL
 ,	[stats_name]            NVARCHAR(128) NOT NULL
 ,	[stats_is_filtered]     BIT           NOT NULL
@@ -42,7 +53,7 @@ WITH
 )
 ```
 
-También se pueden crear tablas temporales mediante `CTAS` siguiendo exactamente el mismo método.
+También se pueden crear tablas temporales mediante `CTAS` siguiendo exactamente el mismo método:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -95,12 +106,12 @@ FROM    t1
 ;
 ``` 
 
->[AZURE.NOTE] `CTAS` es un comando muy eficaz y ofrece un uso muy eficiente del espacio del registro de transacciones.
+>[AZURE.NOTE] `CTAS` es un comando muy eficaz, con la ventaja adicional de que ofrece un uso muy eficiente del espacio de registro de transacciones.
 
 
 ## Eliminación de tablas temporales
 
-Para garantizar que las instrucciones `CREATE TABLE` sean correctas, es importante asegurarse de que la tabla no existe en la sesión. Para ello puede llevar a cabo una sencilla comprobación de existencia previa usando el patrón siguiente:
+Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal. Sin embargo, si llama al mismo procedimiento almacenado, lo que crea un archivo temporal con el mismo nombre, para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, se puede usar una sencilla comprobación de existencia previa con `DROP`, como en el ejemplo siguiente:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -109,23 +120,15 @@ BEGIN
 END
 ```
 
-> [AZURE.NOTE] Por coherencia de la codificación, se recomienda usar este patrón tanto para las tablas como para las tablas temporales.
-
-También es buena idea usar `DROP TABLE` para quitar las tablas temporales cuando haya acabado con ellas en el código.
+Por coherencia con la codificación, se recomienda usar este patrón tanto para tablas como para tablas temporales. También es buena idea usar `DROP TABLE` para quitar las tablas temporales cuando ya no las necesite en el código. En el desarrollo de procedimientos almacenados es bastante habitual que los comandos de eliminación se empaqueten juntos al final de un procedimiento para garantizar que estos objetos se limpian.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-En el desarrollo de procedimientos almacenados es bastante habitual que los comandos de eliminación se empaqueten juntos al final de un procedimiento para garantizar que estos objetos se limpian.
-
 ## Modularización de código
 
-Puede aprovechar el hecho de que las tablas temporales se pueden ver en cualquier parte en una sesión de usuario para modularizar el código de la aplicación.
-
-Vamos a exponer un ejemplo práctico.
-
-El siguiente procedimiento almacenado combina los ejemplos mencionados anteriormente. El código puede usarse para generar el archivo DDL necesario para actualizar las estadísticas de todas las columnas de la base de datos:
+Como las tablas temporales se pueden ver en cualquier parte de una sesión de usuario, se puede aprovechar este hecho para ayudarle a dividir en secciones el código de aplicación. Por ejemplo, el siguiente procedimiento almacenado reúne los procedimientos recomendados anteriormente para generar DDL, que actualizará todas las estadísticas de la base de datos por el nombre de la estadística.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -199,15 +202,7 @@ FROM    t1
 GO
 ```
 
-En esta fase no se ha producido ninguna acción en la tabla. El procedimiento simplemente ha generado el archivo DDL necesario para actualizar las estadísticas y ha almacenado ese código en una tabla temporal.
-
-Sin embargo, tenga en cuenta que el procedimiento almacenado no incluye un comando `DROP TABLE` al final. Sin embargo, incluimos una comprobación de existencia previa en el procedimiento almacenado para que el código sea sólido y repetible. Así nos aseguramos de que `CTAS` no producirá ningún error como consecuencia de un objeto duplicado en la sesión.
-
-Ahora viene la parte interesante.
-
-En el Almacenamiento de datos SQL es posible usar la tabla temporal fuera del procedimiento que la creó. Esto es diferente de SQL Server. De hecho se puede utilizar la tabla temporal **en cualquier parte** dentro de la sesión.
-
-Esto puede generar código más modular y fácil de administrar. Observe el ejemplo siguiente:
+En este punto, la única acción que se ha producido es la creación de un procedimiento almacenado que simplemente generará una tabla temporal, #stats\_ddl, con instrucciones DDL. Este procedimiento almacenado quitará #stats\_ddl si ya existe para tener la seguridad de que no dará error si se ejecuta más de una vez dentro de una sesión. Sin embargo, puesto que no hay ningún elemento `DROP TABLE` al final del procedimiento almacenado, cuando se complete este, saldrá de la tabla creada para que se pueda leer fuera del procedimiento almacenado. En Almacenamiento de datos SQL, a diferencia de otras bases de datos SQL Server, es posible usar la tabla temporal fuera del procedimiento almacenado que la ha creado. Las tablas temporales de Almacenamiento de datos SQL se pueden usar **en cualquier parte** dentro de la sesión. Esto puede dar lugar a código más modular y administrable como en el ejemplo siguiente:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -228,30 +223,33 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-El código resultante es mucho más compacto.
-
-En algunos casos, las funciones insertadas y de múltiples instrucciones también pueden reemplazarse con esta técnica.
-
-> [AZURE.NOTE] También puede extender esta solución. Si solo quería actualizar una única tabla, por ejemplo, lo único que tiene que hacer es filtrar la tabla #stats\_ddl.
-
 ## Limitaciones de tablas temporales
-El Almacenamiento de datos SQL impone algunas limitaciones al implementar las tablas temporales.
 
-Las principales limitaciones son:
-
-- No se admiten tablas temporales globales.
-- No se pueden crear vistas en las tablas temporales.
+El Almacenamiento de datos SQL impone algunas limitaciones al implementar las tablas temporales. Actualmente, solo se admiten tablas temporales con ámbito de sesión. No se admiten tablas temporales globales. Además, no se pueden crear vistas en las tablas temporales.
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+
+Para más información, consulte los artículos sobre [información general de tablas][Overview], [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition] y [mantenimiento de estadísticas de tablas][Statistics]. Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Información general]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Distribución]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Índice]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
+[Temporal]: ./sql-data-warehouse-tables-temporary.md
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

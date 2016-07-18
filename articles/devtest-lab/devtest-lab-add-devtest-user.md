@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/05/2016"
 	ms.author="tarcher"/>
 
 # Adición de propietarios y usuarios a un laboratorio
@@ -31,7 +31,7 @@ Se concede acceso al laboratorio a través de dos roles:
 -  **Usuario de DevTest Labs**: los usuarios asignados al rol **Usuario de DevTest Labs** pueden crear máquinas virtuales en el laboratorio especificado, así como ver todos los recursos de laboratorio, como máquinas virtuales, directivas y redes virtuales. Los usuarios pueden ser *internos* (miembro de Azure Active Directory para la suscripción) o *externos* (usuario que no es miembro de Azure AD, como un miembro de una organización asociada).
 	-  Un rol **Usuario de DevTest Labs** debe asignarse a través de los iconos **Agregar usuarios** del laboratorio.
 	-  Los usuarios del rol **Usuario de DevTest Labs** pueden realizar estas operaciones solo dentro del laboratorio al que están asignados. Por ejemplo, un **Usuario de DevTest Labs** no puede crear una máquina virtual mediante el servicio Máquina virtual de la suscripción. La creación de una máquina virtual solo se permite desde la cuenta de DevTest Labs.
-	- Los usuarios *externos* deben tener una cuenta en uno de los dominios de cuentas de Microsoft (es decir, @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com o cualquier variante de un país específico).
+	- *Externo*: los usuarios son usuarios con una cuenta Microsoft (MSA).
  
 Una vez que se crea una máquina virtual, el usuario que la crea se asigna automáticamente al rol de **Propietario** en esa máquina, de forma que puede realizar todas las acciones que se ofrecen en el laboratorio.
 
@@ -103,4 +103,4 @@ Para agregar un usuario de DevTest Labs al laboratorio, siga estos pasos:
 
 1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

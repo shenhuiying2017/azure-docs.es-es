@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="07/01/2016"
    ms.author="kgremban"/>
 
 # Uso del registro de auditoría en Privileged Identity Management de Azure AD
@@ -21,7 +21,7 @@
 Puede utilizar el registro de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de usuario y las activaciones comprendidas en un período de tiempo determinado.
 
 ## Desplazamiento al registro de auditoría
-En el panel del [Portal de Azure](https://portal.azure.com), seleccione la aplicación **Azure AD Priviliged Identity Management**. Desde ahí, acceda al registro de auditoría; para ello, haga clic en **Historial de auditoría** en el panel de PIM.
+En el panel del [Portal de Azure](https://portal.azure.com), seleccione la aplicación **Azure AD Priviliged Identity Management**. Desde ahí, acceda al registro de auditoría; para ello, haga clic en **Administrar roles con privilegios** > **Historial de auditorías** en el panel de PIM.
 
 ## Gráfico del registro de auditoría
 Puede utilizar el registro de auditoría para ver el total de activaciones, el número máximo de activaciones por día y el promedio de activaciones por día en un gráfico de líneas. También puede filtrar los datos por rol si hay más de un rol en el historial de auditoría.
@@ -60,4 +60,4 @@ Active o desactive la casilla **Rol** situada junto a cada rol que quiera inclui
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

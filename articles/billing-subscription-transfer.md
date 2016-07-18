@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Transferencia de suscripciones de Azure | Microsoft Azure"
+   pageTitle="Transferencia de la propiedad de una suscripción de Azure| Microsoft Azure"
    description="Transferencia de una suscripción de Azure a otro usuario y algunas preguntas más frecuentes (P+F) sobre el proceso"
    services="billing"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="04/14/2016"
+   ms.date="07/04/2016"
    ms.author="genli"/>
 
-# Transferencia de suscripciones de Azure
+# Transferencia de la propiedad de una suscripción de Azure
 
 Entonces:
 
@@ -27,7 +27,16 @@ Entonces:
 
 Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las suscripciones de pago por uso, MSDN, Action Pack o BizSpark. Hemos agregado la capacidad de transferir suscripciones a otros usuarios. En otras palabras, ahora puede cambiar el administrador de la cuenta en cualquier suscripción de pago por uso, MSDN, Action Pack o BizSpark que usted posea, sin importar el país en el que trabaja. Ahora también es posible transferir compras de Azure Marketplace para estos tipos de suscripción.
 
-## Transferencia de una suscripción de Azure
+**Nota:** debe ser el administrador de cuentas para realizar una transferencia de propiedad. Puede confirmar quién es el administrador de cuentas de la suscripción de la siguiente forma:
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En el menú Concentrador, seleccione **Suscripción**.
+3. Seleccione la suscripción que desee comprobar y, a continuación, seleccione **Configuración**. ![configuración](./media/billing-subscription-transfer/settings.png)
+4. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se mostrará en el cuadro **ADMINISTRADOR DE CUENTA** cuadro. ![checkaa](./media/billing-subscription-transfer/checkaa.png)
+
+## Transferencia de una propiedad de suscripción de Azure
+
+> [AZURE.VIDEO transfer-an-azure-subscription]
 
 1.  Inicie sesión en <https://account.windowsazure.com/Subscriptions>
 
@@ -59,9 +68,9 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     No afectan al servicio. Esto cancela de forma efectiva la suscripción del administrador de cuenta actual y crea una nueva en la cuenta del destinatario, pero asocia los servicios subyacentes de Azure con la nueva suscripción. La Id. de la suscripción no cambia.
 
--   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?**   
+-   **¿Cómo puedo usar este mecanismo para cambiar el directorio de suscripción?**-   
     Las suscripciones de Azure se crean en el directorio al que pertenece el administrador de la cuenta. Por lo tanto, para cambiar el directorio, solo tiene que transferir la suscripción a una cuenta de usuario en el directorio de destino. Cuando el usuario completa los pasos para aceptar la transferencia, la suscripción se mueve automáticamente al directorio de destino.
-
+   
 -   **¿Si se hace cargo de la propiedad de la facturación de una suscripción de otra organización, seguirán teniendo acceso a mis recursos?**
 
     Si la suscripción se transfiere a otro inquilino, los usuarios asociados al inquilino anterior perderán el acceso a la suscripción. Aunque un usuario deje de ser administrador o coadministrador de servicios, puede seguir teniendo acceso a la suscripción a través de otros mecanismos de seguridad. Entre ellos se incluyen los siguientes:
@@ -71,7 +80,7 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 
     Esta lista no está completa. El destinatario debe considerar la actualización de todos los secretos asociados al servicio si es necesario restringir el acceso a sus recursos. La mayoría de los recursos se pueden actualizar como se indican a continuación:
 
-    1.   Vaya al portal de Azure: [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Vaya al Portal de Azure: [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Haga clic en Examinar todo - &gt; Todos los recursos
 
@@ -115,4 +124,4 @@ Puede hacerlo fácilmente en el Centro de cuentas de Microsoft Azure para las su
 4. Actualice las alertas de facturación para esta suscripción en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). [Más información](http://go.microsoft.com/fwlink/?LinkID=533292).
 5. 	Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede hacerlo en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -82,7 +82,7 @@ Si ajusta el nivel de rendimiento de una colección para un plazo de una hora, s
 
 Las unidades de solicitud se reservan para cada colección en función del nivel de rendimiento definido. El consumo de las unidades de solicitud se evalúa por cada segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada (o nivel de rendimiento) en su colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado para esa colección. Si su aplicación necesita un nivel mayor de capacidad de proceso, puede aumentar el nivel de rendimiento para cada colección.
 
-> [AZURE.NOTE] Cuando la aplicación supera los niveles de rendimiento de una o varias colecciones, se limitarán las solicitudes para cada colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas. Se recomienda agregar
+> [AZURE.NOTE] Cuando la aplicación supera los niveles de rendimiento de una o varias colecciones, se limitarán las solicitudes para cada colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas. Cuando exista una limitación, se recomienda agregar un número de reintentos reducido para atender los picos de tráfico de solicitud.
 
 ## Trabajo con niveles de rendimiento
 Las colecciones de DocumentDB permiten agrupar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Con la función de indexación automática y de consultas de DocumentDB, es bastante habitual ubicar documentos heterogéneos en la misma colección. Estas son algunas de las consideraciones clave que se deben tener en cuenta a la hora de decidir si hay que utilizar colecciones independientes:
@@ -179,4 +179,4 @@ Para empezar a trabajar con pruebas de escala y rendimiento con DocumentDB, cons
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

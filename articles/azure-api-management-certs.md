@@ -32,19 +32,24 @@ También puede usar [Azure Active Directory](/services/active-directory/) para a
 Una vez que tenga un certificado de administración creado, (archivo .cer con solo la clave pública) puede cargarlo en el portal. Cuando el certificado esté disponible en el portal, cualquiera que tenga un certificado que coincida (clave privada) puede conectarse a través de la API de administración y obtener acceso a los recursos de la suscripción asociada.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
-2. Haga clic en **Configuración** en el lateral izquierdo del portal (es posible que tenga que desplazarse hacia abajo). 
+
+2. Asegúrese de seleccionar la suscripción correcta a la que desee asociar un certificado. Presione el texto **Suscripciones** texto en la parte superior derecha del portal.
+
+	![Settings](./media/azure-api-management-certs/subscription.png)
+
+3. Una vez que tenga la suscripción correcta seleccionada, presione **Configuración** en el lado izquierdo del portal (es posible que necesite desplazarse hacia abajo).
     
     ![Settings](./media/azure-api-management-certs/settings.png)
 
-3. Haga clic en la pestaña **Certificados de administración**.
+4. Presione la pestaña **Certificados de administración**.
 
     ![Settings](./media/azure-api-management-certs/certificates-tab.png)
     
-4. Haga clic en el botón **Upload**.
+5. Presione el botón **Cargar**.
 
     ![Settings](./media/azure-api-management-certs/upload.png)
     
-5. Complete la información del cuadro de diálogo y haga clic en la **marca de verificación** de completado.
+6. Complete la información del cuadro de diálogo y presione la **marca de verificación** de completado.
 
     ![Settings](./media/azure-api-management-certs/upload-dialog.png)
 
@@ -52,4 +57,4 @@ Una vez que tenga un certificado de administración creado, (archivo .cer con so
 
 Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST de administración de servicios](https://msdn.microsoft.com/library/azure/mt420159.aspx) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->
