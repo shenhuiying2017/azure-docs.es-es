@@ -71,11 +71,11 @@ Cree un archivo zip que contenga todos los archivos requeridos para instalar apl
 		
 	>Tenga en cuenta que el nombre del script consta de tres partes:
 		
-	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
-	>	2. A "-" for readability.
-	>	3. A unique string function with the application name as the parameter.
+	>	1. El prefijo del nombre del script, que incluirá el nombre de la aplicación o un nombre relevante para la aplicación.
+	>	2. Un signo "-", para mejorar la legibilidad.
+	>	3. Una función de cadena única con el nombre de la aplicación como parámetro.
 
-	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	El ejemplo anterior se acaba convirtiendo en: hue-install-v0-4wkahss55hlas en la lista de acciones de script persistentes. Para ver una carga de JSON de ejemplo, diríjase a [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Todos los scripts requeridos.
 
