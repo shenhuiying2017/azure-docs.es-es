@@ -93,7 +93,7 @@ Puede buscar las credenciales de las cuentas de Lote y de Almacenamiento en el [
 
 Tras actualizar el proyecto con sus credenciales, haga clic con el botón derecho en la solución en el Explorador de soluciones y haga clic en **Compilar solución**. Si se le solicita, confirme la restauración de los paquetes NuGet.
 
-> [AZURE.TIP] Si los paquetes NuGet no se restauran automáticamente o aparecen errores relacionados con la restauración de los paquetes, asegúrese de que tiene instalado el [Administrador de paquetes NuGet][nuget_packagemgr] y habilite la descarga de los paquetes que falten. Consulte [Enabling Package Restore During Build][nuget_restore] (Habilitación de la restauración de paquetes durante la compilación) para habilitar la descarga de paquetes.
+> [AZURE.TIP] Si los paquetes NuGet no se restauran automáticamente o aparecen errores relacionados con la restauración de los paquetes, asegúrese de que tiene instalado el [Administrador de paquetes NuGet][nuget_packagemgr] y habilite la descarga de los paquetes que falten. Consulte [Enabling Package Restore During Build][nuget_restore] \(Habilitación de la restauración de paquetes durante la compilación) para habilitar la descarga de paquetes.
 
 En las secciones siguientes, se desglosarán los pasos que lleva a cabo la aplicación de ejemplo para procesar una carga de trabajo en el servicio Lote y se explicarán dichos pasos con detalle. Es aconsejable consultar la solución abierta en Visual Studio a medida que se avanza en este artículo, ya que no se tratan todas las líneas de código del ejemplo.
 
@@ -203,7 +203,7 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
 
 En `Program.cs`, hay dos métodos que intervienen en el proceso de carga:
 
-- `UploadFilesToContainerAsync`: este método devuelve una colección de objetos [ResourceFile][net_resourcefile] (que se explican a continuación) y llama internamente a `UploadFileToContainerAsync` para cargar todos los archivos que se pasan en el parámetro *filePaths*.
+- `UploadFilesToContainerAsync`: este método devuelve una colección de objetos [ResourceFile][net_resourcefile] \(que se explican a continuación) y llama internamente a `UploadFileToContainerAsync` para cargar todos los archivos que se pasan en el parámetro *filePaths*.
 - `UploadFileToContainerAsync`: es el método que realmente realiza la carga de archivos y crea los objetos [ResourceFile][net_resourcefile]. Después de cargar el archivo, obtiene una firma de acceso compartido (SAS) para el archivo y devuelve un objeto ResourceFile que lo representa. A continuación también se tratan las firmas de acceso compartido.
 
 ```
@@ -363,7 +363,7 @@ Ahora que se ha creado un trabajo, se agregan las tareas para realizar dicho tra
 
 ![Agregar tareas al trabajo][5]<br/> *(1) Las tareas se agregan al trabajo, (2) las tareas se programan para ejecutarse en los nodos y (3) las tareas descargan los archivos de datos que se van a procesar*.
 
-Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][net_task] se configura mediante una propiedad command-line y [ResourceFiles][net_task_resourcefiles] (al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el proyecto de ejemplo *DotNetTutorial*, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
+Para realizar el trabajo, las tareas deben agregarse a un trabajo. Cada tarea [CloudTask][net_task] se configura mediante una propiedad command-line y [ResourceFiles][net_task_resourcefiles] \(al igual que con la tarea StartTask del grupo) que la tarea descarga en el nodo antes de que su línea de comandos se ejecute automáticamente. En el proyecto de ejemplo *DotNetTutorial*, cada tarea procesa un solo archivo. Por lo tanto, su colección ResourceFiles contiene un único elemento.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(
@@ -459,7 +459,7 @@ En el método `MonitorTasks` del archivo `Program.cs` de DotNetTutorial, hay tre
 
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] proporciona aplicaciones de .NET de Lote con utilidades auxiliares para la supervisión de los estados de las tareas. En `MonitorTasks`, *DotNetTutorial* espera hasta que todas las tareas alcanzan el estado [TaskState.Completed][net_taskstate] dentro de un límite de tiempo. Luego finaliza el trabajo.
 
-3. **TerminateJobAsync**: finalizar un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial si la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo de tarea especial, que se describe en [tareas de preparación y finalización de trabajos](batch-job-prep-release.md).
+3. **TerminateJobAsync**: finalizar un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] \(o JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial si la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo de tarea especial, que se describe en [tareas de preparación y finalización de trabajos](batch-job-prep-release.md).
 
 A continuación, se muestra el método `MonitorTasks` del archivo `Program.cs` de *DotNetTutorial*:
 

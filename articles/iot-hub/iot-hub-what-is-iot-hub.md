@@ -31,7 +31,7 @@ En el artículo [Comparación del Centro de IoT y los Centros de eventos][lnk-co
 
 ![Centro de IoT de Azure como solución de puerta de enlace de nube en Internet de las cosas][img-architecture]
 
-> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Arquitectura de referencia de IoT de Microsoft Azure).
+> [AZURE.NOTE] Para ver un análisis detallado de la arquitectura de IoT, consulte el PDF [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Arquitectura de referencia de IoT de Microsoft Azure).
 
 ## Problemas de conectividad de dispositivos IoT
 

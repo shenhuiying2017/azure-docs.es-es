@@ -116,7 +116,7 @@ Cree un panel de KPI que contenga la siguiente información
 3.	¿Dónde se encuentran estos datos para mi aplicación (es decir, pantalla, configuración, sistema...)?
 4.	¿Se puede reproducir una secuencia de compromiso para este KPI?
 
-Puede usar la hoja de cálculo **KPI Builder** (Generador de KPI) de [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
+Puede usar la hoja de cálculo **KPI Builder** (Generador de KPI) de [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
 
 
 
@@ -251,7 +251,7 @@ Azure Mobile Engagement proporciona dos maneras de intentar evitar que las comun
 
 Dedique un tiempo a resumir los objetivos y a definir las campañas que piensa desarrollar con secuencias específicas. Asegúrese de aplicar el enfoque de las 3 W a las notificaciones de sus campañas.
 
-Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) de [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
+Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) de [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
 
 
 ## Paso 3: Integración de la aplicación
@@ -261,7 +261,7 @@ Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) d
 
 Para integrar Azure Mobile Engagement en la aplicación, debe crear un plan de etiquetas. El plan de etiquetas constituye la piedra angular del proyecto. Define la relación entre las especificaciones de marketing, el flujo de trabajo de la aplicación y los datos de etiquetas reales recopilados en la aplicación para medir los KPI. Indica qué análisis podrá ver en el portal. También ayuda a definir segmentos de usuarios y a enviar notificaciones push enfocadas hacia el compromiso de los usuarios finales. Una vez definido el plan de etiquetas, agregar el código para integrarlo en su aplicación es sencillo mediante el SDK de Azure Mobile Engagement.
 
-Un plan de etiquetas no debe etiquetarlo todo en una aplicación. Solo debe incluir los datos de etiquetas que forman parte de su estrategia de Mobile Engagement. Esto probablemente variará de una aplicación a otra. La plantilla [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) proporcionada por Azure Mobile Engagement le ayuda a crear un plan de etiquetas con un método determinado. Use la hoja de cálculo **Tag Plan** (Plan de etiquetas) como guía para crear su plan de etiquetas.
+Un plan de etiquetas no debe etiquetarlo todo en una aplicación. Solo debe incluir los datos de etiquetas que forman parte de su estrategia de Mobile Engagement. Esto probablemente variará de una aplicación a otra. La plantilla [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) proporcionada por Azure Mobile Engagement le ayuda a crear un plan de etiquetas con un método determinado. Use la hoja de cálculo **Tag Plan** (Plan de etiquetas) como guía para crear su plan de etiquetas.
 
 Al definir una sección de etiqueta en la hoja de cálculo, sea muy específico. Esto es muy importante para evitar confusiones. Proporcione detalles de cada escenario esperado en el que se enviará cada etiqueta. Incluya el nombre de la actividad en la que está insertada cada etiqueta. Debería estar todo incluido en la parte **Informative** (Informativa) de la hoja de cálculo. La hoja de cálculo Tag Plan (Plan de etiquetas) debe ser la referencia principal para la comprobación de la prueba.
 

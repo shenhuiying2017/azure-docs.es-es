@@ -62,7 +62,7 @@ Al enfoque de MPP también contribuyen algunas optimizaciones del rendimiento es
 
 - Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del Servicio de movimiento de datos se producen de forma automática.
 
-- Índices de **columnstore ** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
+- Índices de **columnstore** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
 
 
 ## Rendimiento predecible y escalable
