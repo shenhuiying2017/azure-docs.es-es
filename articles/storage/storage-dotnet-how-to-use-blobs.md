@@ -41,6 +41,11 @@ Este tutorial muestra cómo escribir código .NET para algunos escenarios comune
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
+### Más ejemplos
+
+Para ver ejemplos adicionales con el almacenamiento de blobs, consulte [Introducción a almacenamiento de blobs de Azure en .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Puede descargar la aplicación de ejemplo y ejecutarla, así como ver el código en GitHub.
+
+
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -89,8 +94,7 @@ En este ejemplo se muestra cómo crear un contenedor si todavía no existe:
 De manera predeterminada, el nuevo contenedor es privado, lo que significa que debe especificar su clave de acceso de almacenamiento para descargar blobs de él. Si desea poner los archivos del contenedor a disposición de todo el mundo, puede convertir el contenedor en público utilizando el código siguiente:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
-	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
 Cualquier usuario de Internet puede ver los blobs de los contenedores públicos, pero solo es posible modificarlos o eliminarlos si se dispone de la clave de acceso apropiada o una firma de acceso compartido.
 
@@ -360,19 +364,23 @@ De forma predeterminada, Almacenamiento de Azure protege sus datos al limitar el
 
 De forma predeterminada, los datos Blob de su cuenta de almacenamiento solo son accesibles para el propietario de la cuenta de almacenamiento. Para autenticar las solicitudes en el Almacenamiento de blobs, se necesita la clave de acceso de la cuenta de forma predeterminada. Sin embargo, puede que quiera que determinados datos Blob estén disponibles para otros usuarios. Tiene dos opciones:
 
-- **Acceso anónimo:** puede hacer que un contenedor y sus blobs estén públicamente disponibles para el acceso anónimo. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) para más información.
-- **Firmas de acceso compartido:** puede proporcionar a los clientes una firma de acceso compartido (SAS), que ofrece acceso delegado a un recurso de la cuenta de almacenamiento, con los permisos que especifique y durante un intervalo que determine. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
+- **Acceso anónimo:** puede hacer que un contenedor o sus blobs estén públicamente disponibles para el acceso anónimo. Vea [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md) para más información.
+- **Firma de acceso compartido:** puede proporcionar a los clientes una firma de acceso compartido (SAS), que ofrece acceso delegado a un recurso de la cuenta de almacenamiento, con los permisos que especifique y durante el intervalo que indique. Para más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Cifrado de datos Blob
 
 Almacenamiento de Azure admite el cifrado de datos Blob en el cliente y en el servidor:
 
-- **Cifrado en el cliente:** la Biblioteca del cliente de almacenamiento de Azure para .NET admite el cifrado de datos dentro de las aplicaciones cliente antes de cargarlos en Almacenamiento de Azure y el descifrado de los datos mientras se descargan en el cliente. La biblioteca también admite la integración con el Almacén de claves de Azure para la administración de las claves de la cuenta de almacenamiento. Consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md) para más información. Consulte también [Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Cifrado en el servidor**: Almacenamiento de Azure ahora admite el cifrado en el servidor. Consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](storage-service-encryption.md). 
+- **Cifrado en el cliente:** la Biblioteca del cliente de almacenamiento para .NET admite el cifrado de datos dentro de las aplicaciones cliente antes de cargarlos en Almacenamiento de Azure y el descifrado de los datos mientras se descargan en el cliente. La biblioteca también admite la integración con el Almacén de claves de Azure para la administración de las claves de la cuenta de almacenamiento. Consulte [Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure](storage-client-side-encryption.md) para más información. Consulte también [Tutorial: Cifrado y descifrado de blobs en Almacenamiento de Microsoft Azure con Almacén de claves de Azure](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Cifrado en el servidor**: Almacenamiento de Azure ahora admite el cifrado en el servidor. Consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](storage-service-encryption.md).
 
 ## Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento de blobs, siga estos vínculos para obtener más información.
+
+### Ejemplos de Almacenamiento de blobs
+
+- [Introducción a almacenamiento de blobs de Azure en .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Referencia de Almacenamiento de blobs
 
@@ -396,4 +404,4 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

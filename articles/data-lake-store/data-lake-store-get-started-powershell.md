@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Introducción al Almacén de Azure Data Lake mediante Azure PowerShell
@@ -43,7 +43,7 @@ Consulte la sección de requisitos previos de [Uso de Azure PowerShell con Azure
 
 ## Creación de una cuenta de Almacén de Azure Data Lake
 
-1. Desde el escritorio, abra una nueva ventana de Azure PowerShell y escriba el siguiente fragmento de código para iniciar sesión en su cuenta de Azure, establecer la suscripción y registrar el proveedor del Almacén de Data Lake. Cuando se le solicite iniciar sesión, asegúrese de iniciarla como uno de los administradores o propietario de la suscripción:
+1. En el escritorio, abra una nueva ventana de Windows PowerShell y escriba el siguiente fragmento de código para iniciar sesión en su cuenta de Azure, establecer la suscripción y registrar el proveedor del Almacén de Data Lake. Cuando se le solicite que inicie sesión, asegúrese de iniciarla como uno de los administradores o como el propietario de la suscripción:
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +141,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 - [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

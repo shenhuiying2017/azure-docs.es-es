@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/27/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Consumo de una aplicación de API desde JavaScript con CORS
 
@@ -285,4 +285,4 @@ Para más información acerca de las características de Visual Studio que simpl
 
 En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS del Servicio de aplicaciones para que el código JavaScript del cliente pueda llamar a una API de un dominio diferente. Para aprender más sobre las aplicaciones de API, consulte [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md) y después vaya al tutorial [Autenticación de usuario para aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

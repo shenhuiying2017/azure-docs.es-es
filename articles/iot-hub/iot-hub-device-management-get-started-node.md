@@ -182,9 +182,11 @@ Para recuperar, compilar y ejecutar la interfaz de usuario de ejemplo de adminis
 Deje ejecutándose los dispositivos simulados y la aplicación de administración de dispositivos mientras trabaja en el siguiente tutorial de administración de dispositivos.
 
 
-## Paso siguiente
+## Pasos siguientes
 
-Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] \(Exploración de administración de dispositivos de Centro de IoT de Azure mediante la interfaz de usuario de ejemplo).
+Para continuar con la introducción a Centro de IoT, consulte la [introducción al SDK de puerta de enlace][lnk-gateway-SDK].
+
+Para aprender más sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-sample-ui].
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
@@ -200,5 +202,6 @@ Para continuar aprendiendo sobre las características de administración de disp
 [Uso de grupos de recursos para administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

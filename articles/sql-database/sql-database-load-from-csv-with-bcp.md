@@ -1,0 +1,130 @@
+<properties
+   pageTitle="Carga de datos desde un archivo CSV en Base de datos de SQL Azure (bcp) | Microsoft Azure"
+   description="Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="06/30/2016"
+   ms.author="carlrab"/>
+
+
+# Carga de datos desde CSV en Almacenamiento de datos SQL de Azure (archivos planos)
+
+Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Base de datos SQL de Azure.
+
+## Antes de empezar
+
+### Requisitos previos
+
+Para seguir paso a paso este tutorial, necesita:
+
+- Un servidor lógico de Base de datos SQL de Azure y una base de datos
+- La utilidad de línea de comandos bcp instalada
+- La utilidad de línea de comandos sqlcmd instalada
+
+Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][].
+
+### Datos en los formatos ASCII o UTF-16
+
+Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8.
+
+PolyBase admite UTF-8, pero aún no es compatible con UTF-16. Tenga en cuenta que si desea combinar bcp con PolyBase, será preciso que transforme los datos al formato UTF-8 después de que se exportan desde SQL Server.
+
+
+## 1\. Creación de una tabla de destino.
+
+Defina en Almacenamiento de datos SQL una tabla que será la tabla de destino de la carga. Las columnas de la tabla deben corresponder con los datos de cada fila del archivo de datos.
+
+Para crear una tabla, abra un símbolo del sistema y use sqlcmd.exe para ejecutar el comando siguiente:
+
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    ;
+"
+```
+
+
+## 2\. Creación de un archivo de datos de origen
+
+Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\\Temp\\DimDate2.txt. Estos datos están en formato ASCII.
+
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
+
+(Opcional) Para exportar sus propios datos desde una base de datos de SQL Server, abra un símbolo del sistema y ejecute el comando siguiente. Reemplace TableName, ServerName, DatabaseName, Username y Password por su propia información.
+
+```sql
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```
+
+## 3\. Carga de los datos
+Para cargar los datos, abra un símbolo del sistema y ejecute el comando siguiente, pero reemplace los valores de nombre de servidor, nombre de base de datos, nombre de usuario y contraseña por su propia información.
+
+```sql
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```
+
+Utilice este comando para comprobar que los datos se cargaron correctamente
+
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
+```
+
+El resultado debería ser similar a este:
+
+DateId |CalendarQuarter |FiscalQuarter
+----------- |--------------- |-------------
+20150101 |1 |3
+20150201 |1 |3
+20150301 |1 |3
+20150401 |2 |4
+20150501 |2 |4
+20150601 |2 |4
+20150701 |3 |1
+20150801 |3 |1
+20150801 |3 |1
+20151001 |4 |2
+20151101 |4 |2
+20151201 |4 |2
+
+
+## Pasos siguientes
+
+Para migrar una base de datos de SQL Server, consulte el artículo sobre la [migración de una base de datos de SQL Server](sql-database-cloud-migrate.md).
+
+<!--MSDN references-->
+[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+<!--Other Web references-->
+[Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+
+<!---HONumber=AcomDC_0713_2016-->

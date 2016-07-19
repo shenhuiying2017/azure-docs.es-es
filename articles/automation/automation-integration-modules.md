@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="06/24/2016"
+   ms.date="07/08/2016"
    ms.author="magoedte" />
 
 # Módulos de integración de Automatización de Azure
@@ -199,6 +199,6 @@ El hecho de que los módulos de integración sean básicamente módulos de Power
 ## Pasos siguientes
 
 - Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
-- Para más información sobre la creación de módulos de PowerShell, consulte [Creación de un módulo de Windows PowerShell](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx).
+- Para más información sobre la creación de módulos de PowerShell, consulte [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Creación de un módulo de Windows PowerShell).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

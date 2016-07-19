@@ -257,7 +257,7 @@ Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte d
 
 - **Firmas de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *salida* de Almacenamiento de Azure. Para ello, TaskApplication usa una firma de acceso compartido de contenedor que proporciona acceso de escritura al contenedor como parte de la ruta de acceso al cargar el archivo. La obtención de la firma de acceso compartido del contenedor se realiza de manera similar que cuando se obtiene la firma de acceso compartido de un blob. En DotNetTutorial, observará que el método auxiliar `GetContainerSasUrl` llama a [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para hacerlo. En "Paso 6: Supervisar tareas", obtendrá más información acerca de la forma en que TaskApplication usa la firma de acceso compartido de un contenedor.
 
-> [AZURE.TIP] Para más información acerca de cómo proporcionar acceso seguro a los datos de una cuenta de Almacenamiento, consulte la serie de dos partes acerca de las firmas de acceso compartido, [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) y [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Para más información acerca de cómo proporcionar acceso seguro a los datos de una cuenta de Almacenamiento, consulte la serie de dos partes acerca de las firmas de acceso compartido, [Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) y [Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md).
 
 ## Paso 3: Crear el grupo de Lote
 
@@ -754,4 +754,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

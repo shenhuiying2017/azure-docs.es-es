@@ -43,7 +43,7 @@ El siguiente procedimiento utiliza una plantilla ARM de Azure para crear un clú
 
 1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure. La plantilla ARM se encuentra en un contenedor de blobs público.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. En la hoja **Parámetros**, escriba lo siguiente:
 
@@ -216,7 +216,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 	Debe codificar en base64 los valores especificados en el modificador -d. En el ejemplo:
 
 	- MTAwMA==: 1000
-	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name
+	- UGVyc29uYWw6TmFtZQ==: Personal:Name
 	- Sm9obiBEb2xl: John Dole
 
 	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) permite insertar varios valores (por lotes).
@@ -238,7 +238,7 @@ SSH también se puede usar para tunelizar las solicitudes locales, como solicitu
 
 **Para establecer una sesión de tunelización de SSH**
 
-1. Abra **PuTTY**.  
+1. Abra **PuTTY**.
 2. Si especificó una clave SSH al crear la cuenta de usuario durante el proceso de creación, debe realizar el siguiente paso para seleccionar la clave privada que se usará al autenticarse en el clúster:
 
 	En **Category** (Categoría), expanda **Connection** (Conexión), **SSH** y, a continuación, seleccione **Auth** (Autenticar). Finalmente, haga clic en **Browse** (Examinar) y seleccione el archivo .ppk que contiene su clave privada.
@@ -247,7 +247,7 @@ SSH también se puede usar para tunelizar las solicitudes locales, como solicitu
 4. Entre las opciones básicas para su pantalla de sesión de PuTTY, escriba los siguientes valores:
 
 	- **Nombre de host**: dirección de SSH de su servidor de HDInsight en el campo del nombre de host (o dirección IP). La dirección SSH es el nombre de su clúster, seguido de **-ssh.azurehdinsight.net**. Por ejemplo, *mycluster-ssh.azurehdinsight.net*.
-	- **Puerto**: 22. El puerto ssh en el odo principal 0 es 22.  
+	- **Puerto**: 22. El puerto ssh en el odo principal 0 es 22.
 5. En la sección **Categoría**, situada a la izquierda del cuadro de diálogo, expanda **Conexión**, **SSH** y haga clic en **Túneles**.
 6. Proporcione la siguiente información en el formulario Opciones que controlan el desvío de puertos SSH:
 
@@ -325,5 +325,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

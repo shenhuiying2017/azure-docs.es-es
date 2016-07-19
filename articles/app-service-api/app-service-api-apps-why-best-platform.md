@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
 	ms.date="05/03/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Información general sobre Aplicaciones de API
 
@@ -57,10 +57,10 @@ Algunas características de Administración de API y Aplicaciones de API tienen 
 
 Para empezar a trabajar con Aplicaciones de API mediante la implementación de código de ejemplo en una, consulte el tutorial para la plataforma que prefiera:
 
-* [ASP.NET](app-service-api-dotnet-get-started.md) 
-* [Node.js](app-service-api-nodejs-api-app.md) 
-* [Java](app-service-api-java-api-app.md) 
+* [ASP.NET](app-service-api-dotnet-get-started.md)
+* [Node.js](app-service-api-nodejs-api-app.md)
+* [Java](app-service-api-java-api-app.md)
 
 Para plantear preguntas sobre Aplicaciones de API, cree una conversación en el [foro de Aplicaciones de API](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps).
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

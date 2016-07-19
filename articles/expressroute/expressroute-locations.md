@@ -75,7 +75,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Interxion** | Compatible | Compatible | Ámsterdam, Londres, París |
 | **Jisc** | Próximamente | Próximamente | Londres+ | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Compatible | Compatible | Ámsterdam, Chicago, Dallas, Las Vegas+, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Compatible | Compatible | Dallas, Las Vegas+, Los Ángeles, Melbourne, Nueva York, Seattle, Singapur, Sidney, Washington DC |
+| **Megaport** | Compatible | Compatible | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, Nueva York, Seattle, Singapur, Sidney, Washington DC |
 | **MTN** | Compatible | Compatible | Londres |
 | **NEXTDC** | Compatible | Compatible | Melbourne, Sidney |
 | **NTT Communications** | Compatible | Compatible | Londres, Osaka, Tokio |
@@ -164,4 +164,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de ubicación"
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

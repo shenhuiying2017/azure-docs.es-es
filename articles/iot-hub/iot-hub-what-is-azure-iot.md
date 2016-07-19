@@ -20,13 +20,13 @@
 
 ## Pasos siguientes
 
-El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Además, hace posible que el back-end de la aplicación reciba telemetría a escala de los dispositivos, enrute esos datos a un procesador de eventos de transmisión y envíe comandos de nube a dispositivo a dispositivos específicos. Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para obtener más información, consulte:
+El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Además, hace posible que el back-end de la aplicación reciba telemetría a escala de los dispositivos, enrute esos datos a un procesador de eventos de transmisión y envíe comandos de nube a dispositivo a dispositivos específicos. Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para más información acerca del Centro de IoT, consulte [¿Qué es el Centro de IoT?][lnk-iot-hub].
 
-- [¿Qué es el Centro de IoT?][lnk-iot-hub]
-- [Introducción al centro de IoT][lnk-getstarted]
-- [Una descripción general de la administración de dispositivos con Centro de IoT de Azure][lnk-device-management]
+Para más información acerca de cómo puede administrar, configurar y actualizar sus dispositivos de forma remota mediante la administración de dispositivos IoT basada en estándares del Centro de IoT de Azure, consulte [Introducción a la administración de dispositivos desde Centro de IoT de Azure][lnk-device-management].
 
 Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre una serie de protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
+
+Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutorial [Introducción al Centro de IoT de Azure para .NET][lnk-getstarted].
 
 También puede interesarle el [Conjunto de aplicaciones de IoT de Azure][lnk-iot-suite], que es una colección de soluciones preconfiguradas. El Conjunto de aplicaciones de IoT le permite comenzar rápidamente y escalar proyectos IoT en escenarios comunes de IoT como, por ejemplo, supervisión remota, administración de activos y mantenimiento predictivo.
 
@@ -37,4 +37,4 @@ También puede interesarle el [Conjunto de aplicaciones de IoT de Azure][lnk-iot
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

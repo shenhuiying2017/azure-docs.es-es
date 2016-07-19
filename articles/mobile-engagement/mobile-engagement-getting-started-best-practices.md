@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/28/2016"
-	ms.author="wesmc"/>
+	ms.date="07/07/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guía de introducción con prácticas recomendadas
 
@@ -24,12 +24,12 @@
 
 El usuario de móvil medio instalará y desinstalará aplicaciones con mucha frecuencia en función de sus intereses y experiencias en las aplicaciones. Para determinar el éxito de una aplicación, resulta crucial saber algo más que cuántos usuarios van a instalar la aplicación. Es importante conocer la utilidad de la aplicación y si esa tendencia de uso está cambiando. Las siguientes preguntas son fundamentales:
 
-- ¿Están los usuarios empezando a pensar que su aplicación no es interesante o está obsoleta? 
-- ¿Cuántos usuarios han dejado de usar su aplicación? 
+- ¿Están los usuarios empezando a pensar que su aplicación no es interesante o está obsoleta?
+- ¿Cuántos usuarios han dejado de usar su aplicación?
 - ¿Está la tendencia de adquisición de la aplicación subiendo o bajando?
-- ¿Pueden los usuarios completar o no los flujos de trabajo debido a problemas con la aplicación o por falta de interés? 
-- ¿Puede mantener la utilidad y pertinencia de su aplicación agregando nuevo contenido para su base de usuarios? 
-- ¿Este nuevo contenido será el mismo para todos los usuarios o se centrará en segmentos de usuario según el comportamiento de la aplicación? 
+- ¿Pueden los usuarios completar o no los flujos de trabajo debido a problemas con la aplicación o por falta de interés?
+- ¿Puede mantener la utilidad y pertinencia de su aplicación agregando nuevo contenido para su base de usuarios?
+- ¿Este nuevo contenido será el mismo para todos los usuarios o se centrará en segmentos de usuario según el comportamiento de la aplicación?
  
 Respuestas a preguntas similares a estas pueden ayudar a ampliar la duración y los ingresos de su aplicación. También pueden ayudarle a definir y mantener su base de usuarios.
 
@@ -70,7 +70,7 @@ Los KPI de negocio son los más fáciles de crear. Probablemente ya los había d
 	- Número de cuentas
 	- Características activadas
 	- Páginas de oferta visitadas
-	- Alertas pulsadas o activadas	   
+	- Alertas pulsadas o activadas
 
 
 
@@ -80,7 +80,7 @@ Un KPI de compromiso es un indicador de rendimiento que mide el nivel de comprom
 
 - Usuarios activos en los últimos siete días
 - Número de usuarios inactivos en los últimos siete días
-- Número de usuarios que no usaron la aplicación en 30 días  
+- Número de usuarios que no usaron la aplicación en 30 días
 
 Algunos factores externos obvios pueden influir en los indicadores en este campo. Por ejemplo, puede pensar que un dispositivo móvil está con el usuario en todo momento. Esto puede ser o no verdad. Una aplicación de juegos tiende a usarse más en vacaciones cuando un jugador tiene más tiempo de jugar porque está fuera del trabajo o de la escuela.
 
@@ -94,7 +94,7 @@ Los indicadores de rendimiento de esta categoría le ayudan a determinar si la a
  
 A continuación se muestran algunos ejemplos de KPI técnicos:
 
-- Recuento e información de excepciones controladas o no controladas 
+- Recuento e información de excepciones controladas o no controladas
 - Marca de tiempo del último bloqueo
 - Último botón pulsado o última página visitada
 - Uso de memoria de la aplicación
@@ -213,7 +213,7 @@ También es posible administrar el redireccionamiento para otros sistemas. Por e
 - Un buzón de correo electrónico con mensajes ya configurados
 - Un buzón de SMS
 - Un servicio de marcado telefónico
-- Directamente al almacén de la aplicación para la evaluación de la aplicación. 
+- Directamente al almacén de la aplicación para la evaluación de la aplicación.
 
 Esto ofrece muchas oportunidades para aumentar el compromiso de los usuarios finales y crear reglas automáticas para mejorar el rendimiento.
 
@@ -297,7 +297,7 @@ Los trabajos se usan para notificar acciones que tienen una duración. Algunos e
 
 - Ejecución de llamadas a la API
 - Tiempo de visualización de anuncios
-- Duración de tareas en segundo plano 
+- Duración de tareas en segundo plano
 - Duración del proceso de compra
 - Reproducción de un vídeo
 
@@ -362,7 +362,7 @@ Se recomienda comenzar por la configuración de los roles adecuados y las perten
 
 - Administradores
 - Desarrolladores
-- Lectores 
+- Lectores
 
 Posteriormente:
 - Registre su deviceID para probar en su propio dispositivo.
@@ -382,7 +382,7 @@ Al principio, al ir desarrollando su experiencia con las estrategias de compromi
 
 Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus programas de compromiso:
 
-- Seguimiento: adquiere usuarios y probablemente defina orígenes de recopilación de datos. Azure Mobile Engagement se puede vincular a orígenes de recopilación de datos. Le permite supervisar el rendimiento de cada origen. Esta información será interesante para aumentar al máximo la inversión de la adquisición. 
+- Seguimiento: adquiere usuarios y probablemente defina orígenes de recopilación de datos. Azure Mobile Engagement se puede vincular a orígenes de recopilación de datos. Le permite supervisar el rendimiento de cada origen. Esta información será interesante para aumentar al máximo la inversión de la adquisición.
 
 - Pruebas A/B: es una parte esencial del programa de compromiso. Cada aplicación tiene sus propias características específicas. Con pruebas A/B, puede mejorar el programa de compromiso.
 
@@ -407,4 +407,4 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -59,7 +59,7 @@ El Centro de IoT de Azure aborda las dificultades de conectividad de dispositivo
 
 -   **Extensibilidad y protocolos de IoT**. Si la solución no puede usar las bibliotecas de dispositivos, el Centro de IoT expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTP 1.1 o AMQP 1.0 de forma nativa. También puede ampliar el Centro de IoT para ofrecer soporte para protocolos personalizados mediante:
 
-    - Creación de una puerta de enlace de campo con el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] que convierte su protocolo personalizado en uno de los tres protocolos compatibles con el Centro de IoT. 
+    - Creación de una puerta de enlace de campo con el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] que convierte su protocolo personalizado en uno de los tres protocolos compatibles con el Centro de IoT.
     - Personalización de la [puerta de enlace de protocolo de IoT de Azure][protocol-gateway], un componente de código abierto que se ejecuta en la nube.
 
 -   **Escalabilidad.** El centro de IoT de Azure se puede escalar a millones de dispositivos conectados de manera simultánea y a millones de eventos por segundo.
@@ -96,13 +96,14 @@ El sector móvil ha usado correctamente el patrón de comunicación asistida por
 
 ## Pasos siguientes
 
-Para obtener más información sobre el Centro de IoT de Azure, consulte estos vínculos:
+Para más información acerca de cómo puede administrar, configurar y actualizar sus dispositivos de forma remota mediante la administración de dispositivos IoT basada en estándares del Centro de IoT de Azure, consulte [Introducción a la administración de dispositivos desde Centro de IoT de Azure][lnk-device-management].
 
-* [Introducción al centro de IoT][lnk-get-started]
-* [Conectar el dispositivo][lnk-connect-device]
-* [Procesamiento de mensajes de dispositivo a la nube][lnk-d2c]
+Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre una serie de protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
+
+Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutorial [Introducción al Centro de IoT de Azure para .NET][lnk-get-started].
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,5 +121,6 @@ Para obtener más información sobre el Centro de IoT de Azure, consulte estos v
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

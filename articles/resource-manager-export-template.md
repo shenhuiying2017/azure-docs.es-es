@@ -147,7 +147,7 @@ Aunque cada implementación solo muestra los cambios que haya realizado en el gr
 
       ![exportar grupo de recursos](./media/resource-manager-export-template/export-resource-group.png)
 
-     No todos los tipos de recursos admiten la función de exportación de plantilla. Si el grupo de recursos solo contiene la cuenta de almacenamiento y la red virtual mostradas en este artículo, no verá un error. Sin embargo, si ha creado otros tipos de recursos, verá un error que indica que hay un problema con la exportación. Puede aprender más sobre cómo resolver estos problemas en la sección [Solución de problemas de exportación](#fixing-export-issues).
+     No todos los tipos de recursos admiten la función de exportación de plantilla. Si el grupo de recursos solo contiene la cuenta de almacenamiento y la red virtual mostradas en este artículo, no verá un error. Sin embargo, si ha creado otros tipos de recursos, verá un error que indica que hay un problema con la exportación. Puede aprender más sobre cómo resolver estos problemas en la sección [Solución de problemas de exportación](#fix-export-issues).
 
       
 
@@ -342,4 +342,4 @@ Agregue un tipo de recurso de conexión.
 - Para ver cómo exportar una plantilla mediante PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](powershell-azure-resource-manager.md).
 - Para ver cómo exportar una plantilla mediante la CLI de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

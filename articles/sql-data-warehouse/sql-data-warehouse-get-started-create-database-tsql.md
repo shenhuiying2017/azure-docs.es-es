@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/11/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
@@ -80,4 +80,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

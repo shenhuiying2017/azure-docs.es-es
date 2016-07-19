@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Arquitectura de Bus de servicio | Microsoft Azure"
-    description="Describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure."
+    description="Describe la arquitectura de procesamiento de Retransmisión y mensajes del Bus de servicio de Azure."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Arquitectura del Bus de servicio
 
-En este artículo se describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure.
+En este artículo se describe la arquitectura de procesamiento de Retransmisión y mensajes del Bus de servicio de Azure.
 
 ## Unidades de escala del Bus de servicio
 
@@ -53,10 +53,10 @@ Cuando se establece la conexión de retransmisión, los clientes pueden intercam
 
 ## Pasos siguientes
 
-Ahora que ha leído una visión general de cómo funciona el Bus de servicio, para empezar, visite los siguientes vínculos:
+Ahora que ha leído la información general sobre la arquitectura del Bus de servicio, visite los siguientes vínculos para empezar:
 
 - [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 - [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
 - [Una solución de mensajería en cola mediante las colas de Bus de servicio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->
