@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Análisis de aplicaciones web de Java con Application Insights | Microsoft Azure"
-	description="Supervisión del rendimiento y del uso de su sitio web de Java con Application Insights."
+	description="Supervisión del rendimiento y del uso de su sitio web de Java con Application Insights. "
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -163,6 +163,19 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
 * La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y lo agrega como una propiedad a cada elemento de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
 
+### Alternativas para establecer la clave de instrumentación
+
+SDK de Application Insights busca la clave en este orden:
+
+1. Propiedad del sistema:-DAPPLICATION\_INSIGHTS\_IKEY = your\_ikey
+2. Variable de entorno: APPLICATION\_INSIGHTS\_IKEY
+3. Archivo de configuración: ApplicationInsights.xml
+
+También puede [configurarlo con código](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
+
 ## 4\. Adición de un filtro HTTP
 
 El último paso de la configuración permite que el componente de la solicitud HTTP registre las solicitudes web. (No es necesario si solo desea la API básica).
@@ -248,16 +261,14 @@ A medida que acumula más datos, puede ejecutar consultas tanto para agregar dat
 ![Ejemplo de Analytics](./media/app-insights-java-get-started/025.png)
 
 
-## 5\. Instalación de la aplicación en el servidor
+## 7\. Instalación de la aplicación en el servidor
 
 Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los usuarios y ver la telemetría en el portal.
 
 * Asegúrese de que el firewall permite que la aplicación envíe datos de telemetría a estos puertos:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * En los servidores de Windows, instale:
@@ -274,7 +285,7 @@ Las excepciones no controladas se recopilan automáticamente:
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a trackException() en el código][apiexceptions]. 
+* [Insertar llamadas a trackException() en el código][apiexceptions].
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 
@@ -401,4 +412,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

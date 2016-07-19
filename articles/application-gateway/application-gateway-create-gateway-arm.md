@@ -40,7 +40,7 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 ## Antes de empezar
 
 1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. La versión más reciente se puede descargar e instalar desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
-2. Creará una red virtual y subred para la Puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
+2. Si tiene una red virtual existente, seleccione una subred vacía existente o cree una nueva subred en la red virtual existente, únicamente para uso de la puerta de enlace de aplicaciones. No se puede implementar la puerta de enlace de la aplicación en una red virtual diferente de los recursos que se van a implementar detrás de la puerta de enlace de aplicaciones.
 3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
 ## ¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
@@ -270,4 +270,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

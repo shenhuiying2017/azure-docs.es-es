@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Lista de conectores administrados de Microsoft para usar en aplicaciones lógicas de Microsoft Azure | Servicio de aplicaciones de Microsoft Azure"
+	pageTitle="Lista de conectores administrados de Microsoft para usar en Aplicaciones lógicas de Microsoft Azure | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure"
 	description="Obtenga una lista completa de los conectores administrados de Microsoft que puede usar para crear Aplicaciones lógicas en el Servicio de aplicaciones de Azure"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="07/07/2016"
 	ms.author="deonhe"/>
 
 # Lista de conectores
@@ -34,7 +34,7 @@ Seleccione un icono para aprender a aprovechar rápidamente estos conectores a f
 |[![Icono de API][blobicon]<br/>**Blob de Azure**][azureblobdoc]|[![Icono de API][boxicon]<br/>**Box**][boxDoc]|[![Icono de API][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![Icono de API][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
 |[![Icono de API][facebookicon]<br/>**Facebook**][facebookdoc]|[![Icono de API][ftpicon]<br/>**FTP**][ftpdoc]|[![Icono de API][githubicon]<br/>**GitHub**][githubdoc]|[![Icono de API][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
 |[![Icono de API][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![Icono de API][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![Icono de API][office365icon]<br/>**Usuarios de**<br/>**Office 365**][office365usersdoc]|
-|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][onedriveicon]<br/>**OneDrive para<br/>la Empresa**][onedriveforbusinessdoc]|[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![Icono de API][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![Icono de API][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![Icono de API][onedriveicon]<br/>**OneDrive<br/>para la Empresa**][onedriveforbusinessdoc]|[![Icono de API][outlookicon]<br/>**Outlook**][outlookdoc]|
 |[![Icono de API][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![Icono de API][rssicon]<br/>**RSS**][rssdoc]|[![Icono de API][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![Icono de API][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
 |[![Icono de API][servicebusicon]<br/>**Bus de servicio**][servicebusdoc]|[![Icono de API][sftpicon]<br/>**SFTP**][sftpdoc]|[![Icono de API][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![Icono de API][slackicon]<br/>**Slack**<br/>][slackdoc]|
 |[![Icono de API][smtpicon]<br/>**SMTP**][smtpdoc]|[![Icono de API][sqlicon]<br/>**SQL Azure**][sqldoc]|[![Icono de API][trelloicon]<br/>**Trello**][trellodoc]|[![Icono de API][twilioicon]<br/>**Twilio**][twiliodoc]|
@@ -105,7 +105,7 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Más información sobre AS2 para integración empresarial."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Más información sobre X12 para integración empresarial."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Más información sobre archivo plano para integración empresarial."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Más información sobre archivo plano para integración empresarial."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Más información sobre validación XML para integración empresarial."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Más información sobre transformaciones para integración empresarial."
 
@@ -148,4 +148,4 @@ Los conectores también pueden utilizarse como acciones dentro de las aplicacion
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

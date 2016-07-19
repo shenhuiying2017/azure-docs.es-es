@@ -5,8 +5,8 @@
 	keywords="Administración de contraseñas de Active Directory, administración de contraseñas, restablecimiento de contraseñas de Azure AD"
 	documentationCenter=""
 	authors="asteen"
-	manager="kbrint"
-	editor="billmath"/>
+	manager="femila"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016" 
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Introducción a la administración de contraseñas
+
+> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+
 Permitir que los usuarios administren sus propias contraseñas de Active Directory local o de Azure Active Directory en la nube solo requiere de unos pocos pasos simples. Una vez que se asegure de haber cumplido algunos requisitos previos simples, tendrá habilitado el cambio y el restablecimiento de contraseñas para toda su organización de manera inmediata. Este artículo le guiará a través de los conceptos siguientes:
 
 * [**Cómo permitir que los usuarios restablezcan sus contraseñas de Azure Active Directory en la nube**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -198,7 +201,7 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
 La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior. La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Para comprobar la versión de Sincronización de Azure AD
-1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**. 
+1.	Vaya a **%ProgramFiles%\Azure Active Directory Sync**.
 2.	Busque el archivo ejecutable **ConfigWizard.exe**.
 3.	Haga clic con el botón derecho en el archivo ejecutable y seleccione la opción **Propiedades** del menú contextual.
 4.	Haga clic en la pestaña **Detalles**.
@@ -310,7 +313,7 @@ Ahora que la escritura diferida de contraseñas está habilitada, para saber si 
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
 * [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
@@ -354,4 +357,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

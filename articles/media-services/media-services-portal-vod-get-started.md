@@ -40,7 +40,7 @@ Este tutorial incluye las siguientes tareas:
 Los pasos de esta sección muestran cómo crear una nueva cuenta de AMS.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **+Nuevo** > **Servicio multimedia + CDN** > **Servicios multimedia**.
+2. Haga clic en **+Nuevo** > **Medios + CDN** > **Servicios multimedia**.
 
 	![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -229,4 +229,4 @@ Se aplican algunas consideraciones:
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

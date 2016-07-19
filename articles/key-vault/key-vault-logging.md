@@ -25,7 +25,7 @@ Después de haber creado uno o varios almacenes de claves, es probable que desee
 Puede acceder a la información de registro como máximo, 10 minutos después de la operación del Almacén de claves. En la mayoría de los casos, será más rápido que esto. Es decisión suya administrar los registros en la cuenta de almacenamiento:
 
 - Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
-- Elimine los registros que ya no desee mantener en la cuenta de almacenamiento. 
+- Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
 Use este tutorial para tener ayuda para empezar a trabajar con el registro del Almacén de claves de Azure, para crear la cuenta de almacenamiento, habilitar el registro e interpretar la información de registro recopilada.
 
@@ -40,8 +40,8 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 
 Para realizar este tutorial, necesitará lo siguiente:
 
-- Un Almacén de claves existente que ha utilizado.  
-- Azure PowerShell, **versión mínima: 1.0.1**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`.  
+- Un Almacén de claves existente que ha utilizado.
+- Azure PowerShell, **versión mínima: 1.0.1**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`.
 - Suficiente almacenamiento en Azure para sus registros del Almacén de claves.
 
 
@@ -105,7 +105,7 @@ Qué se registra:
 - Se registran todas las solicitudes de API de REST autenticadas, incluidas las solicitudes con error debido a permisos de acceso, errores del sistema o solicitudes incorrectas.
 - Las operaciones en el Almacén de claves, incluidas la creación, la eliminación, la definición de políticas de acceso del Almacén de claves y la actualización de los atributos del Almacén de claves, como las etiquetas.
 - Las operaciones en claves y secretos del Almacén de claves, incluidas la creación, la modificación o la eliminación de estas claves o secretos; operaciones como firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos, generar listas de claves y secretos y sus versiones.
-- Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.  
+- Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o tienen un token no válido.
 
 
 ## <a id="access"></a>Acceso a los registros ##
@@ -116,7 +116,7 @@ Los registros del Almacén de claves se almacenan en el contenedor **insights-lo
 
 El resultado será similar al siguiente.
 
-****Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 
 **Name**
@@ -127,10 +127,10 @@ El resultado será similar al siguiente.
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
  
 
-Como puede ver en esta salida, los blobs siguen una convención de nomenclatura: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
+Como puede ver en este resultado, la convención de nomenclatura utilizada en los blobs es: **resourceId=<identificador de recurso de ARM>/y=<año>/m=<mes>/d=<día>/h=<hora>/m=<minuto>/filename.json**
 
 Los valores de fecha y hora usan UTC.
 
@@ -148,7 +148,7 @@ Canalice esta lista mediante 'Get-AzureStorageBlobContent' para descargar los bl
 
 	$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-Al ejecutar este segundo comando, el delimitador **/** en los nombres de los blobs crea una estructura de carpeta completa en la carpeta de destino; esta estructura se usará para descargar y almacenar los blobs como archivos.
+Al ejecutar este segundo comando, el delimitador **/** de los nombres de los blobs crea una estructura de carpeta completa en la carpeta de destino; esta estructura se usará para descargar y almacenar los blobs como archivos.
 
 Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo:
 
@@ -156,7 +156,7 @@ Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejempl
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 
-- Si tiene varios grupos de recursos y desea descargar los registros solo para un grupo de recursos, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+- Si tiene varios grupos de recursos y solo desea descargar los registros de un grupo de recursos específico, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 
@@ -166,9 +166,9 @@ Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejempl
 
 Ahora está listo para comenzar a ver lo que está en los registros. Pero antes de pasar a eso, hay otros dos parámetros de Get-AzureRmDiagnosticSetting que puede ser necesario conocer:
 
-- Para consultar la configuración del estado de diagnóstico para el recurso del Almacén de claves: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+- Si desea consultar la configuración del estado de diagnóstico establecida para el recurso del almacén de claves: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
  
-- Para deshabilitar el registro para el recurso del Almacén de claves: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+- Para deshabilitar el registro del recurso del almacén de claves: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
 ## <a id="interpret"></a>Interpretación de los registros del Almacén de claves ##
@@ -219,9 +219,9 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos.
  
 
 
-Los valores del campo **operationName** están en formato ObjectVerb. Por ejemplo:
+Los valores del campo **operationName** tienen el formato ObjectVerb. Por ejemplo:
 
-- Todas las operaciones del Almacén de claves tienen el formato 'Vault`<action>`', como `VaultGet` y `VaultCreate`. 
+- Todas las operaciones del almacén de claves tienen el formato 'Vault`<action>`', como `VaultGet` y `VaultCreate`.
 
 - Todas las operaciones de las claves tienen el formato 'Key`<action>`', como `KeySign` y `KeyList`.
 
@@ -264,11 +264,12 @@ En la tabla siguiente se muestra el operationName y el comando de API de REST co
 
 ## <a id="next"></a>Pasos siguientes ##
 
-Para ver un tutorial que usa el Almacén de claves de Azure en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
+Para ver un tutorial donde el Almacén de claves de Azure se usa en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Almacén de claves de Azure, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Cmdlets de Almacén de claves de Azure).
- 
+Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para el Almacén de claves de Azure, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Cmdlets del Almacén de claves de Azure).
 
-<!---HONumber=AcomDC_0511_2016-->
+Para ver un tutorial sobre la rotación de claves y la auditoría de registros con el Almacén de claves de Azure, consulte [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Configuración del Almacén de claves con rotación y auditoría de claves de un extremo a otro).
+
+<!---HONumber=AcomDC_0713_2016-->

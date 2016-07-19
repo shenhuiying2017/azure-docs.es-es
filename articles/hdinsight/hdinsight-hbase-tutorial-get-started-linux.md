@@ -216,7 +216,7 @@ Puede consultar datos en tablas de HBase mediante el uso de Hive. En esta secci�
 	Debe codificar en base64 los valores especificados en el modificador -d. En el ejemplo:
 
 	- MTAwMA==: 1000
-	- UGVyc29uYWw6TmFtZQ==: Peronsal:Name
+	- UGVyc29uYWw6TmFtZQ==: Personal:Name
 	- Sm9obiBEb2xl: John Dole
 
 	[false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) permite insertar varios valores (por lotes).
@@ -325,5 +325,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

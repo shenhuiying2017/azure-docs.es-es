@@ -14,7 +14,7 @@
 	ms.devlang="node"
 	ms.topic="get-started-article"
 	ms.date="05/26/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Creación de una API de RESTful de Node.js e implementación en una aplicación de API de Azure
 
@@ -90,7 +90,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
 
 ### Personalización del código con scaffold
 
-1. Copie la carpeta **lib** de la carpeta **start** a la carpeta **ContactList** creada por el procesador de scaffolding. 
+1. Copie la carpeta **lib** de la carpeta **start** a la carpeta **ContactList** creada por el procesador de scaffolding.
 
 1. Reemplace el código del archivo **handlers/contacts.js** por el siguiente.
 
@@ -155,7 +155,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
 
 ### Prueba con la API ejecutada localmente
 
-1. Active el servidor mediante el archivo ejecutable de línea de comandos de Node.js. 
+1. Active el servidor mediante el archivo ejecutable de línea de comandos de Node.js.
 
         node server.js
 
@@ -179,7 +179,7 @@ Aunque el Servicio de aplicaciones admite muchas maneras de implementar el códi
 
 En esta sección, use el Portal de Azure para crear una nueva aplicación de API en Azure. Esta aplicación de API representa los recursos de procesos que proporcionará Azure para ejecutar su código. En secciones posteriores, implementará su código en la nueva aplicación de API.
 
-1. Vaya al [Portal de Azure](https://portal.azure.com/). 
+1. Vaya al [Portal de Azure](https://portal.azure.com/).
 
 1. Haga clic en **Nuevo > Web + móvil > Aplicación de API**.
 
@@ -221,7 +221,7 @@ En esta sección, use el Portal de Azure para crear una nueva aplicación de API
 
 Implementará el código en la aplicación de API insertando confirmaciones en un repositorio de Git en el Servicio de aplicaciones de Azure. En esta sección del tutorial, creará las credenciales y el repositorio de Git en Azure que va a usar para la implementación.
 
-1. Una vez creada la aplicación de API, haga clic en **Servicios de aplicaciones > {su aplicación de API}** en la página principal del portal. 
+1. Una vez creada la aplicación de API, haga clic en **Servicios de aplicaciones > {su aplicación de API}** en la página principal del portal.
 
 	El portal muestra las hojas **Aplicación de API** y **Configuración**.
 
@@ -294,7 +294,7 @@ En esta sección, creará un repositorio de Git local que contiene su código de
 
 ## Prueba con la API ejecutada en Azure
  
-3. Copie la **URL** en la sección **Essentials** de la hoja Aplicación de API. 
+3. Copie la **URL** en la sección **Essentials** de la hoja Aplicación de API.
 
     ![Implementación completada](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
@@ -312,4 +312,4 @@ Ahora que tiene conectada la entrega continua, puede realizar cambios en el cód
 
 Ya ha creado una aplicación de API e implementado código de API Node.js en ella correctamente. El siguiente tutorial muestra cómo [consumir aplicaciones de API desde clientes de JavaScript con CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

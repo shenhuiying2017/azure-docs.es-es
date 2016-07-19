@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="get-started-article"
 	ms.date="06/01/2016"
-	ms.author="bradygaster"/>
+	ms.author="rachelap"/>
 
 # Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure
 
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo crear una aplicación de Java e implementarla 
 
 ## Requisitos previos
 
-1. [Kit para desarrolladores de Java 8] (o superior)
+1. [Kit para desarrolladores de Java 8] \(o superior)
 1. [Maven] instalado en el equipo de desarrollo
 1. [GIT] instalado en el equipo de desarrollo
 1. Una suscripción de [evaluación gratuita] o de pago a [Microsoft Azure]
@@ -153,7 +153,7 @@ Esta demostración comenzará con un cuerpo JSON de Swagger que se pegará en el
 
 En esta sección va a reemplazar la implementación en el lado servidor del código generado por Swagger con el código personalizado. El nuevo código devolverá una listaDeMatrices de entidades de contactos para el cliente que realiza la llamada.
 
-1. Abra el archivo de modelo *Contact.java*, ubicado en la carpeta *src/gen/java/io/swagger/model*, mediante [código de Visual Studio] o en el editor de texto de su elección. 
+1. Abra el archivo de modelo *Contact.java*, ubicado en la carpeta *src/gen/java/io/swagger/model*, mediante [código de Visual Studio] o en el editor de texto de su elección.
 
     ![Abrir archivo de modelo de contacto][open-contact-model-file]
 
@@ -338,4 +338,4 @@ Para obtener más información sobre del uso de Java en Azure, consulte el [Cent
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

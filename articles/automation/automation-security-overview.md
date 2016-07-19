@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="07/06/2016"
    ms.author="magoedte" />
 
 # Seguridad de Automatización de Azure
@@ -45,4 +45,4 @@ Objeto de entidad de servicio de Azure AD | Administrador de recursos de Azure |
 Autenticación de Windows | Centro de datos local | [Autenticación de Runbooks para Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md)
 Credenciales de AWS | Amazon Web Services | [Autenticación de Runbooks con Amazon Web Services (AWS)](../automation/automation-sec-configure-aws-account.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->
