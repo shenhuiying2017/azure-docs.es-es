@@ -29,7 +29,7 @@ Puede usar SQL Server Management Studio (SSMS) para administrar las bases de dat
 
 Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure.
 
-> [AZURE.IMPORTANT] Debe usar siempre la versión más reciente de SQL Server Management Studio (SSMS) para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. Las versiones anteriores de SSMS no funcionarán correctamente con Base de datos SQL. Vaya a [descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerla.
+> [AZURE.IMPORTANT] Debe usar siempre la versión más reciente de SQL Server Management Studio (SSMS) para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. Las versiones anteriores de SSMS no funcionarán correctamente con Base de datos SQL así que vaya a [descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerla.
 
 ## Crear y administrar bases de datos SQL de Azure
 
@@ -76,7 +76,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
 -   Para conceder permisos a login1 para una base de datos llamada **myTestDB**, siga estos pasos:
 
- 1.  Para actualizar el Explorador de objetos y ver la base de datos **myTestDB** que acaba de crear, haga clic con el botón derecho en el nombre del servidor en el Explorador de objetos y, a continuación, haga clic en **Actualizar**.  
+ 1.  Para actualizar el Explorador de objetos y ver la base de datos **myTestDB** que acaba de crear, haga clic con el botón derecho en el nombre del servidor en el Explorador de objetos y, a continuación, haga clic en **Actualizar**.
 
      Si cerró la conexión, puede seleccionar **Conectar Explorador de objetos** para volver a establecerla en el menú Archivo.
 
@@ -151,4 +151,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

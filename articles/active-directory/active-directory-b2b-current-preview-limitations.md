@@ -25,7 +25,7 @@
 - Actualmente no se admiten invitaciones a las direcciones de correo electrónico de consumidor (como hotmail.com, Gmail.com o comcast.net).
 - No se ha probado el acceso externo de usuarios a aplicaciones locales.
 - Los usuarios externos no se limpian automáticamente cuando el usuario real se elimina de su directorio.
-- No se admiten las invitaciones a DL.
+- No se admiten invitaciones a listas de distribución.
 - Se pueden cargar un máximo de 2000 registros mediante CSV.
 
 ## Artículos relacionados
@@ -39,4 +39,4 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

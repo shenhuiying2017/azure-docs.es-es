@@ -27,9 +27,8 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 
 - Consulte la [lista de configuraciones o características no admitidas](virtual-machines-windows-migration-classic-resource-manager.md). Si tiene máquinas virtuales que usan configuraciones o características no admitidas, se recomienda esperar a que se anuncie dicha compatibilidad. Como alternativa, puede quitar esa característica o salir de esa configuración para habilitar la migración si se ajusta a sus necesidades.
 -	Si tiene actualmente scripts automatizados que implementan la infraestructura y las aplicaciones, intente crear una configuración de prueba similar usando esos scripts para la migración. También puede configurar entornos de ejemplo mediante el Portal de Azure.
-- Puesto que el servicio está en versión preliminar pública, asegúrese de que el entorno de prueba para la migración esté aislado de su entorno de producción. No mezcle cuentas de almacenamiento, redes virtuales u otros recursos entre los entornos de prueba y producción.
 
-## Paso 2: Establecimiento de la suscripción para la versión preliminar pública de la migración
+## Paso 2: Establecimiento de la suscripción y registro para la migración
 
 Para los escenarios de migración, debe configurar el entorno para el modelo clásico y el de Resource Manager. [Instale la CLI de Azure](../xplat-cli-install.md) y [seleccione su suscripción](../xplat-cli-connect.md).
 
@@ -37,11 +36,15 @@ Seleccione la suscripción de Azure con el siguiente comando:
 
 	azure account set "azure-subscription-name"
 
-Regístrese para la versión preliminar pública con el siguiente comando. Tenga en cuenta que, en algunos casos, se agota el tiempo de espera de este comando. Sin embargo, el registro se realizará correctamente.
+>[AZURE.NOTE] El registro es un paso que solo se realiza una vez pero que es necesario antes de intentar la migración. Si no se registra, verá el siguiente mensaje de error:
+
+>	*BadRequest : Subscription is not registered for migration.* 
+
+Regístrese con el proveedor de recursos de migración mediante el comando siguiente. Tenga en cuenta que, en algunos casos, se agota el tiempo de espera de este comando. Sin embargo, el registro se realizará correctamente.
 
 	azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Espere cinco minutos a que finalice el registro. Puede comprobar el estado de la aprobación con el siguiente comando. Asegúrese de que RegistrationState es `Registered` antes de continuar.
+Espere cinco minutos a que finalice el registro. Puede comprobar el estado de la aprobación con el siguiente comando. Asegúrese de que RegistrationState sea `Registered` antes de continuar.
 
 	azure provider show Microsoft.ClassicInfrastructureMigrate
 
@@ -105,9 +108,25 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 
 	azure network vnet commit-migration virtualnetworkname
 
+### Migración de una cuenta de almacenamiento
+
+Cuando haya terminado de migrar las máquinas virtuales, se recomienda migrar la cuenta de almacenamiento.
+
+Prepare la cuenta de almacenamiento para la migración mediante el siguiente comando.
+
+	azure storage account prepare-migration storageaccountname
+
+Compruebe la configuración de la cuenta de almacenamiento preparada mediante la CLI o el Portal de Azure. Si no está preparado para la migración y desea volver al estado anterior, utilice el siguiente comando.
+
+	azure storage account abort-migration storageaccountname
+
+Si la configuración preparada parece correcta, puede continuar y confirmar los recursos mediante el siguiente comando.
+
+	azure storage account commit-migration storageaccountname
+
 ## Pasos siguientes
 
 - [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

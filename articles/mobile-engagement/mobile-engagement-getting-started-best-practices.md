@@ -13,8 +13,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/28/2016"
-	ms.author="wesmc"/>
+	ms.date="07/07/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Guía de introducción con prácticas recomendadas
 
@@ -24,12 +24,12 @@
 
 El usuario de móvil medio instalará y desinstalará aplicaciones con mucha frecuencia en función de sus intereses y experiencias en las aplicaciones. Para determinar el éxito de una aplicación, resulta crucial saber algo más que cuántos usuarios van a instalar la aplicación. Es importante conocer la utilidad de la aplicación y si esa tendencia de uso está cambiando. Las siguientes preguntas son fundamentales:
 
-- ¿Están los usuarios empezando a pensar que su aplicación no es interesante o está obsoleta? 
-- ¿Cuántos usuarios han dejado de usar su aplicación? 
+- ¿Están los usuarios empezando a pensar que su aplicación no es interesante o está obsoleta?
+- ¿Cuántos usuarios han dejado de usar su aplicación?
 - ¿Está la tendencia de adquisición de la aplicación subiendo o bajando?
-- ¿Pueden los usuarios completar o no los flujos de trabajo debido a problemas con la aplicación o por falta de interés? 
-- ¿Puede mantener la utilidad y pertinencia de su aplicación agregando nuevo contenido para su base de usuarios? 
-- ¿Este nuevo contenido será el mismo para todos los usuarios o se centrará en segmentos de usuario según el comportamiento de la aplicación? 
+- ¿Pueden los usuarios completar o no los flujos de trabajo debido a problemas con la aplicación o por falta de interés?
+- ¿Puede mantener la utilidad y pertinencia de su aplicación agregando nuevo contenido para su base de usuarios?
+- ¿Este nuevo contenido será el mismo para todos los usuarios o se centrará en segmentos de usuario según el comportamiento de la aplicación?
  
 Respuestas a preguntas similares a estas pueden ayudar a ampliar la duración y los ingresos de su aplicación. También pueden ayudarle a definir y mantener su base de usuarios.
 
@@ -70,7 +70,7 @@ Los KPI de negocio son los más fáciles de crear. Probablemente ya los había d
 	- Número de cuentas
 	- Características activadas
 	- Páginas de oferta visitadas
-	- Alertas pulsadas o activadas	   
+	- Alertas pulsadas o activadas
 
 
 
@@ -80,7 +80,7 @@ Un KPI de compromiso es un indicador de rendimiento que mide el nivel de comprom
 
 - Usuarios activos en los últimos siete días
 - Número de usuarios inactivos en los últimos siete días
-- Número de usuarios que no usaron la aplicación en 30 días  
+- Número de usuarios que no usaron la aplicación en 30 días
 
 Algunos factores externos obvios pueden influir en los indicadores en este campo. Por ejemplo, puede pensar que un dispositivo móvil está con el usuario en todo momento. Esto puede ser o no verdad. Una aplicación de juegos tiende a usarse más en vacaciones cuando un jugador tiene más tiempo de jugar porque está fuera del trabajo o de la escuela.
 
@@ -94,7 +94,7 @@ Los indicadores de rendimiento de esta categoría le ayudan a determinar si la a
  
 A continuación se muestran algunos ejemplos de KPI técnicos:
 
-- Recuento e información de excepciones controladas o no controladas 
+- Recuento e información de excepciones controladas o no controladas
 - Marca de tiempo del último bloqueo
 - Último botón pulsado o última página visitada
 - Uso de memoria de la aplicación
@@ -116,7 +116,7 @@ Cree un panel de KPI que contenga la siguiente información
 3.	¿Dónde se encuentran estos datos para mi aplicación (es decir, pantalla, configuración, sistema...)?
 4.	¿Se puede reproducir una secuencia de compromiso para este KPI?
 
-Puede usar la hoja de cálculo **KPI Builder** (Generador de KPI) de [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
+Puede usar la hoja de cálculo **KPI Builder** (Generador de KPI) de [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
 
 
 
@@ -213,7 +213,7 @@ También es posible administrar el redireccionamiento para otros sistemas. Por e
 - Un buzón de correo electrónico con mensajes ya configurados
 - Un buzón de SMS
 - Un servicio de marcado telefónico
-- Directamente al almacén de la aplicación para la evaluación de la aplicación. 
+- Directamente al almacén de la aplicación para la evaluación de la aplicación.
 
 Esto ofrece muchas oportunidades para aumentar el compromiso de los usuarios finales y crear reglas automáticas para mejorar el rendimiento.
 
@@ -251,7 +251,7 @@ Azure Mobile Engagement proporciona dos maneras de intentar evitar que las comun
 
 Dedique un tiempo a resumir los objetivos y a definir las campañas que piensa desarrollar con secuencias específicas. Asegúrese de aplicar el enfoque de las 3 W a las notificaciones de sus campañas.
 
-Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) de [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
+Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) de [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) para ver ejemplos y recomendaciones.
 
 
 ## Paso 3: Integración de la aplicación
@@ -261,7 +261,7 @@ Puede usar la hoja de cálculo **Engagement Program** (Programa de compromiso) d
 
 Para integrar Azure Mobile Engagement en la aplicación, debe crear un plan de etiquetas. El plan de etiquetas constituye la piedra angular del proyecto. Define la relación entre las especificaciones de marketing, el flujo de trabajo de la aplicación y los datos de etiquetas reales recopilados en la aplicación para medir los KPI. Indica qué análisis podrá ver en el portal. También ayuda a definir segmentos de usuarios y a enviar notificaciones push enfocadas hacia el compromiso de los usuarios finales. Una vez definido el plan de etiquetas, agregar el código para integrarlo en su aplicación es sencillo mediante el SDK de Azure Mobile Engagement.
 
-Un plan de etiquetas no debe etiquetarlo todo en una aplicación. Solo debe incluir los datos de etiquetas que forman parte de su estrategia de Mobile Engagement. Esto probablemente variará de una aplicación a otra. La plantilla [Media Playbook Template][Media Playbook link] (Plantilla del cuaderno de estrategias de medios) proporcionada por Azure Mobile Engagement le ayuda a crear un plan de etiquetas con un método determinado. Use la hoja de cálculo **Tag Plan** (Plan de etiquetas) como guía para crear su plan de etiquetas.
+Un plan de etiquetas no debe etiquetarlo todo en una aplicación. Solo debe incluir los datos de etiquetas que forman parte de su estrategia de Mobile Engagement. Esto probablemente variará de una aplicación a otra. La plantilla [Media Playbook Template][Media Playbook link] \(Plantilla del cuaderno de estrategias de medios) proporcionada por Azure Mobile Engagement le ayuda a crear un plan de etiquetas con un método determinado. Use la hoja de cálculo **Tag Plan** (Plan de etiquetas) como guía para crear su plan de etiquetas.
 
 Al definir una sección de etiqueta en la hoja de cálculo, sea muy específico. Esto es muy importante para evitar confusiones. Proporcione detalles de cada escenario esperado en el que se enviará cada etiqueta. Incluya el nombre de la actividad en la que está insertada cada etiqueta. Debería estar todo incluido en la parte **Informative** (Informativa) de la hoja de cálculo. La hoja de cálculo Tag Plan (Plan de etiquetas) debe ser la referencia principal para la comprobación de la prueba.
 
@@ -297,7 +297,7 @@ Los trabajos se usan para notificar acciones que tienen una duración. Algunos e
 
 - Ejecución de llamadas a la API
 - Tiempo de visualización de anuncios
-- Duración de tareas en segundo plano 
+- Duración de tareas en segundo plano
 - Duración del proceso de compra
 - Reproducción de un vídeo
 
@@ -362,7 +362,7 @@ Se recomienda comenzar por la configuración de los roles adecuados y las perten
 
 - Administradores
 - Desarrolladores
-- Lectores 
+- Lectores
 
 Posteriormente:
 - Registre su deviceID para probar en su propio dispositivo.
@@ -382,7 +382,7 @@ Al principio, al ir desarrollando su experiencia con las estrategias de compromi
 
 Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus programas de compromiso:
 
-- Seguimiento: adquiere usuarios y probablemente defina orígenes de recopilación de datos. Azure Mobile Engagement se puede vincular a orígenes de recopilación de datos. Le permite supervisar el rendimiento de cada origen. Esta información será interesante para aumentar al máximo la inversión de la adquisición. 
+- Seguimiento: adquiere usuarios y probablemente defina orígenes de recopilación de datos. Azure Mobile Engagement se puede vincular a orígenes de recopilación de datos. Le permite supervisar el rendimiento de cada origen. Esta información será interesante para aumentar al máximo la inversión de la adquisición.
 
 - Pruebas A/B: es una parte esencial del programa de compromiso. Cada aplicación tiene sus propias características específicas. Con pruebas A/B, puede mejorar el programa de compromiso.
 
@@ -407,4 +407,4 @@ Una vez conseguida una mayor experiencia, puede agregar lo siguiente a sus progr
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -66,4 +66,4 @@ O bien, si desea revisar el proceso general y los artículos correspondientes pa
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0706_2016-->

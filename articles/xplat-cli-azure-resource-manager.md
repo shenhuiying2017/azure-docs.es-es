@@ -20,9 +20,13 @@
 # Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure
 
 > [AZURE.SELECTOR]
+- [Portal](azure-portal/resource-group-portal.md)
 - [CLI de Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
-
+- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 
 Este artículo describe formas habituales de crear y administrar los recursos de Azure con la interfaz de la línea de comandos de Azure (CLI de Azure) en el modo Azure Resource Manager.
@@ -65,7 +69,7 @@ Enumera las regiones de Azure que están disponibles, como "Oeste de EE. UU.", "
 
 ## Crear un grupo de recursos
 
-Un grupo de recursos es una agrupación lógica de los recursos como recursos de red, almacenamiento y proceso. Casi todos los comandos en el modo Resource Manager necesitan un grupo de recursos. Puede crear un grupo de recursos en la región Oeste de EE. UU. denominado _testRG_; por ejemplo, mediante el siguiente comando:
+Un grupo de recursos es una agrupación lógica de los recursos como recursos de red, almacenamiento y proceso. Casi todos los comandos en el modo Resource Manager necesitan un grupo de recursos. Puede crear un grupo de recursos en la región Oeste de EE. UU. denominado _testRG_; por ejemplo, mediante el siguiente comando.
 
 	azure group create -n "testRG" -l "West US"
 
@@ -111,7 +115,7 @@ La creación de una nueva plantilla está fuera del ámbito de este artículo, a
 			}
 
 	```
-3.  Una vez modificados los parámetros de la implementación, se implementará la máquina virtual con Ubuntu en el grupo de recursos *testRG* que creó anteriormente. Elija un nombre para la implementación (*testRGDeploy* en este ejemplo) y use el comando siguiente para iniciarla:
+3.  Una vez modificados los parámetros de la implementación, se implementará la máquina virtual con Ubuntu en el grupo de recursos *testRG* que creó anteriormente. Elija un nombre para la implementación (*testRGDeploy* en este ejemplo) y use el comando siguiente para iniciarla.
 
 	```
 	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGDeploy
@@ -179,7 +183,7 @@ A pesar de que las plantillas le permiten declarar cambios de configuración en 
 
 		azure resource list testRG
 
-2. Para ver un recurso individual dentro del grupo, como la máquina virtual denominada *MyUbuntuVM*, use un comando similar al siguiente:
+2. Para ver un recurso individual dentro del grupo, como la máquina virtual denominada *MyUbuntuVM*, use un comando similar al siguiente.
 
 		azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -234,4 +238,4 @@ Con la CLI de Azure, puede exportar una plantilla que representa el estado actua
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md)
 * Para información sobre cómo trabajar con Azure Resource Manager desde el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

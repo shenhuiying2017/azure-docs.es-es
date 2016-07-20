@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="07/05/2016"
 	ms.author="onewth"/>
 
 # Actualización a la versión 2 de la API de Text Analytics #
 
-Esta guía le guiará por el proceso de actualizar el código tanto con la [primera versión de la API](../machine-learning-apps-text-analytics/) como con la segunda.
+Esta guía le guiará por el proceso de actualizar el código tanto con la [primera versión de la API](../machine-learning/machine-learning-apps-text-analytics.md) como con la segunda.
 
 Si no ha utilizado la API y desea obtener más información, puede **[hacerlo aquí](//go.microsoft.com/fwlink/?LinkID=759711)** o **[siga la Guía de inicio rápido](//go.microsoft.com/fwlink/?LinkID=760860)**. Para obtener referencia técnica, consulte la **[definición de la API](//go.microsoft.com/fwlink/?LinkID=759346)**.
 
@@ -308,4 +308,4 @@ Cuando haya finalizado la API de temas, se devolverá un estado con el valor `su
 
 Con esto debe poder continuar. Pruebe el código con una muestra pequeña para asegurarse de que puede procesar correctamente los datos.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -62,7 +62,7 @@ Los afijos pueden hacer referencia a distintos aspectos que describen los recurs
 | Environment | dev, stg, prod | Según el propósito y el nombre de cada entorno. |
 | Ubicación | usw (Oeste de EE. UU.), use (Este de EE. UU. 2) | Según la región del centro de datos o la región de la organización. |
 | Componente, servicio o producto de Azure | Rg para grupo de recursos, VNet para red virtual | Según el producto para el que proporciona compatibilidad el recurso. |
-| Rol | sql, ora, sp, iis | Según el rol de la máquina virtual. |
+| Rol | bd, aplicación, web | Según el rol de la máquina virtual. |
 | Instance | 01, 02, 03, etc. | Para los recursos que pueden tener más de una instancia. Por ejemplo, servidores web de carga equilibrada en un servicio en la nube. |
 
 
@@ -110,4 +110,4 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 ## Pasos siguientes
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

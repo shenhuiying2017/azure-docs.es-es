@@ -22,16 +22,28 @@ Uno de los desafíos de la integración de datos moderna es mover datos sin prob
 
 Para más información, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-## CURRENT VERSION (1.12.5953.1)
-- Corrección de errores
+## VERSIÓN ACTUAL (2.0.6013.1)
+
+- Puede seleccionar el idioma o la referencia cultural que utilizará una puerta de enlace durante la instalación manual.
+- Cuando la puerta de enlace no funciona del modo previsto, puede optar por enviar los registros de la puerta de enlace de los últimos 7 días a Microsoft para que pueda solucionar el problema. Si la puerta de enlace no está conectada al servicio en la nube, puede guardar y archivar los registros de la puerta de enlace.
+- Mejoras de la interfaz de usuario del Administrador de configuración de puertas de enlace:
+	- Mayor visibilidad del estado de la puerta de enlace en la pestaña Inicio.
+	- Controles reorganizados y simplificados.
+- Puede copiar datos de un almacenamiento distinto de Blob de Azure en Almacenamiento de datos SQL de Azure a través de PolyBase y el blob provisional mediante la [herramienta de vista previa de copia sin código](data-factory-copy-data-wizard-tutorial.md). Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para obtener más información sobre esta característica en general.
+- Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Aprendizaje automático de Azure.
+- Mejoras en el rendimiento
+	- Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server mediante la herramienta de vista previa de copia sin código.
 
 
 ## Versiones anteriores
 
+## 1\.12.5953.1
+- Corrección de errores
+
 ## 1\.11.5918.1
 
 - El tamaño máximo del registro de eventos de puerta de enlace ha aumentado de 1 MB a 40 MB.
-- En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante. 
+- En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante.
 - En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación 3 veces al máximo.
 - Mejoras en el rendimiento
 	- Rendimiento mejorado para la carga de tablas de gran tamaño desde el servidor local en un escenario de copia sin código.
@@ -49,7 +61,7 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 - Capacidad para "Actualizar ahora" desde el cliente
 - Capacidad para establecer la hora de programación de las actualizaciones
 - Script de PowerShell para activar y desactivar la actualización automática
-- Compatibilidad con formato JSON  
+- Compatibilidad con formato JSON
 - Mejoras en el rendimiento
 - Corrección de errores
 
@@ -134,7 +146,7 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 
 ### 1\.2.5303.1
 
-- 	Corrección del problema del tiempo de espera para admitir más conexiones de orígenes de datos que requieren mucho tiempo. 
+- 	Corrección del problema del tiempo de espera para admitir más conexiones de orígenes de datos que requieren mucho tiempo.
  	
 ### 1\.1.5526.8
 
@@ -142,11 +154,11 @@ Para más información, consulte [Movimiento de datos entre orígenes locales y 
 
 ### 1\.0.5144.2
 
-- No hay cambios que afecten a los escenarios de Factoría de datos de Azure. 
+- No hay cambios que afecten a los escenarios de Factoría de datos de Azure.
 
 ## Preguntas y respuestas
 
 ### ¿Por qué intenta conectarse el Administrador de origen de datos a una puerta de enlace?
 Se trata de un diseño de seguridad en el que solo se pueden configurar los orígenes de datos locales para el acceso a la nube dentro de la red corporativa y sus credenciales no fluirán fuera del firewall corporativo. Asegúrese de que su equipo puede acceder el equipo en que está instalado la puerta de enlace.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

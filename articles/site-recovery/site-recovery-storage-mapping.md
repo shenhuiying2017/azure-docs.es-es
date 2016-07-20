@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 
@@ -53,7 +53,7 @@ Cuando use la réplica de Hyper-V para replicar con Site Recovery, asigne entre 
 Si las clasificaciones están configuradas correctamente en VMM, al seleccionar el servidor VMM de origen y de destino durante la asignación de almacenamiento, se mostrarán las clasificaciones de origen y de destino. Este es un ejemplo de recursos compartidos de archivos de almacenamiento y clasificaciones para una organización con dos ubicaciones en Nueva York y Chicago.
 
 **Ubicación** | **Servidor VMM** | **Recurso compartido de archivos (origen)** | **Clasificación (origen)** | **Asignado a** | **Recurso compartido de archivos (destino)**
----|---|--- |---|---|---
+---|---|---|---|---|---
 Nueva York | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
  | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
  | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
@@ -65,7 +65,9 @@ Se configuran en la pestaña **Almacenamiento del servidor** en la página **Rec
 
 ![Configurar la asignación de almacenamiento](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-En este ejemplo: - si una máquina virtual de réplica se crea para cualquier máquina virtual en almacenamiento GOLD (SourceShare1), se replicará en un almacenamiento de GOLD\_TARGET (TargetShare1). - Cuando se crea una máquina virtual de réplica para cualquier máquina virtual en almacenamiento SILVER (SourceShare2), se replicarán en un almacenamiento SILVER\_TARGET (TargetShare2) y así sucesivamente.
+Con este ejemplo:
+- Si una máquina virtual de réplica se crea para cualquier máquina virtual en almacenamiento GOLD (SourceShare1), se replicará en un almacenamiento de GOLD\_TARGET (TargetShare1).
+- Cuando se crea una máquina virtual de réplica para cualquier máquina virtual en almacenamiento SILVER (SourceShare2), se replicará en un almacenamiento SILVER\_TARGET (TargetShare2) y así sucesivamente.
 
 Los recursos compartidos de archivo reales y sus clasificaciones asignadas en VMM aparecen en la siguiente captura de pantalla.
 
@@ -98,4 +100,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | No hay ninguna asignación, por 
 
 Ahora que dispone de más información sobre la asignación de almacenamiento, [prepárese para la implementación de Azure Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,9 +1,9 @@
-En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, F1). Para obtener información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios del Centro de IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
+En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3, F1). Para obtener información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios del Centro de IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Recurso | S1 Estándar | S2 Estándar | F1 Gratis |
-| -------- | ----------- | ----------- | ------- |
-| Mensajes por día | 400\.000 | 6\.000.000 | 8\.000 |
-| Unidades máximas | 200 | 200 | 1 |
+| Recurso | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
+| -------- | ----------- | ----------- | ----------- | ------- |
+| Mensajes por día | 400\.000 | 6\.000.000 | 300\.000.000 | 8\.000 |
+| Unidades máximas | 200 | 200 | 200 | 1 |
 
 > [AZURE.NOTE] Si prevé usar más de 200 unidades con un centro de nivel S1 o S2, póngase en contacto con el soporte técnico de Microsoft.
 
@@ -35,4 +35,4 @@ El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas
 | Envíos de nube a dispositivo | 100/min/unidad |
 | Recepciones de nube a dispositivo | 1000/min/unidad |
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

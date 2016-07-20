@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/28/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Implementación y administración de Centros de notificaciones mediante PowerShell
@@ -96,7 +96,7 @@ Para aprovisionar un nuevo centro de notificaciones, use la [API de .NET para Ce
 En esta parte del script, configuramos cuatro variables locales.
 
 1. `$Namespace`: establezca esta variable en el nombre del espacio de nombres donde quiera crear un centro de notificaciones.
-2. `$Path`: establezca esta ruta de acceso en el nombre del nuevo centro de notificaciones. Por ejemplo, "MyHub".    
+2. `$Path`: establezca esta ruta de acceso en el nombre del nuevo centro de notificaciones. Por ejemplo, "MyHub".
 3. `$WnsPackageSid`: establezca esta variable en el SID del paquete para la aplicación de Windows desde el [Centro de desarrollo de Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey`: establezca este valor en la clave secreta para la aplicación de Windows desde el [Centro de desarrollo de Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
@@ -172,4 +172,4 @@ Además, puede descargar algunos scripts listos para usar:
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->

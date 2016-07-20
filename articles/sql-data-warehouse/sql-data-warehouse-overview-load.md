@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carga de datos en Almacenamiento de datos SQL de Azure
@@ -22,7 +22,7 @@ Resumen de las opciones de escenario y recomendaciones para cargar datos en Alma
 
 La parte más difícil de carga de datos suele ser la preparación de los datos para la carga. Azure simplifica la carga mediante el almacenamiento de blobs de Azure como almacén de datos común para muchos de los servicios y usando Data Factory de Azure para organizar la comunicación y el movimiento de datos entre los servicios de Azure. Estos procesos se integran con la tecnología PolyBase, que usa el procesamiento paralelo masivo (MPP) para cargar datos en paralelo desde el almacenamiento de blobs de Azure en Almacenamiento de datos SQL.
 
-Para ver tutoriales que cargan bases de datos de ejemplo, vea [Load sample data into SQL Data Warehouse][] \(Carga de datos de ejemplo).
+Para ver tutoriales que cargan bases de datos de ejemplo, consulte [Carga de datos de ejemplo en Almacenamiento de datos SQL][].
 
 ## Carga desde el almacenamiento de blobs de Azure
 La manera más rápida de importar datos en Almacenamiento de datos SQL es usar PolyBase para cargar datos desde el almacenamiento de blobs de Azure. PolyBase usa el procesamiento paralelo masivo (MPP) de Almacenamiento de datos SQL para cargar datos en paralelo desde el almacenamiento de blobs de Azure. Para usar PolyBase, puede usar comandos T-SQL o una canalización de Data Factory de Azure.
@@ -51,7 +51,7 @@ Resumen del proceso de carga:
 3. Cree una canalización de Data Factory de Azure para introducir los datos. Use la opción PolyBase.
 4. Programe y ejecute la canalización.
 
-Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)][].
+Para ver un tutorial, consulte [Carga de datos del Almacenamiento de blobs de Azure en Almacenamiento de datos SQL de Azure (Data Factory de Azure)][].
 
 
 ## Carga desde SQL Server
@@ -89,7 +89,7 @@ Resumen del proceso de carga:
 1. Use la utilidad de línea de comandos bcp para exportar datos de SQL Server a archivos planos.
 2. Use bcp para cargar datos de archivos planos directamente en Almacenamiento de datos SQL.
 
-Para ver un tutorial, consulte [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)][].
+Para ver un tutorial, consulte [Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (archivos planos)][].
 
 
 ### Uso de importación/exportación (recomendado para datos de menos de 10 TB)
@@ -105,7 +105,6 @@ Resumen del proceso de carga
 
 Muchos de nuestros asociados tienen soluciones de carga. Para más información, consulte una lista de nuestros [asociados de soluciones][].
 
-
 Si los datos provienen de un origen no relacional y quiere cargarlos en Almacenamiento de datos SQL,debe transformarlos en filas y columnas antes de cargarlos. Los datos transformados no necesitan almacenarse en una base de datos; se puede almacenar en archivos de texto.
 
 Cree estadísticas de los datos recién cargados. Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Para obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Para más información, consulte las [estadísticas][].
@@ -117,21 +116,21 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (Data Factory de Azure)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
-[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
+[Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Carga de datos del Almacenamiento de blobs de Azure en Almacenamiento de datos SQL de Azure (Data Factory de Azure)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (archivos planos)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[información general sobre migración]: sql-data-warehouse-overview-migrate.md
-[asociados de soluciones]: sql-data-warehouse-integrate-solution-partners.md
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
-[estadísticas]: sql-data-warehouse-develop-statistics.md
+[Carga de datos de ejemplo en Almacenamiento de datos SQL]: ./sql-data-warehouse-load-sample-databases.md
+[información general sobre migración]: ./sql-data-warehouse-overview-migrate.md
+[asociados de soluciones]: ./sql-data-warehouse-integrate-solution-partners.md
+[información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
+[estadísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Importación y exportación]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

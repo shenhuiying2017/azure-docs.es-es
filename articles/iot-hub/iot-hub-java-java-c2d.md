@@ -24,7 +24,11 @@
 
 Centro de IoT de Azure es un servicio totalmente administrado que ayuda a habilitar la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de aplicación. El tutorial [Introducción al Centro de IoT] muestra cómo crear un Centro de IoT, aprovisionar la identidad de un dispositivo en él y codificar un dispositivo simulado que envía mensajes de dispositivo a nube.
 
-Este tutorial se basa en la [introducción al Centro de IoT]. Se muestra cómo enviar mensajes de la nube a un solo dispositivo, solicitar confirmación de entrega (*comentarios*) del Centro de IoT y recibirla desde el back-end en la nube de la aplicación.
+Este tutorial se basa en la [introducción al Centro de IoT]. En él se muestra cómo realizar las siguientes acciones:
+
+- Desde el back-end de la nube de la aplicación, envíe mensajes de la nube al dispositivo en un único dispositivo a través de Centro de IoT.
+- Reciba mensajes de nube a dispositivo en un dispositivo.
+- Desde el back-end de la nube de la aplicación, solicite confirmación de entrega (*comentarios*) para los mensajes enviados a un dispositivo desde Centro de IoT.
 
 Encontrará más información sobre los mensajes de nube a dispositivo en la [Guía para desarrolladores del Centro de IoT][IoT Hub Developer Guide - C2D].
 
@@ -37,9 +41,9 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Java:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Java SE 8. <br/> En [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) se describe cómo instalar Java para este tutorial en Windows o Linux.
++ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
 
-+ Maven 3. <br/> En [Prepare your development environment][lnk-dev-setup] (Preparación del entorno de desarrollo) se describe cómo instalar Maven para este tutorial en Windows o Linux.
++ Maven 3. <br/> [Prepare your development environment][lnk-dev-setup] \(Preparación del entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -77,7 +81,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
 ## Envío de un mensaje de nube a dispositivo desde el back-end de la aplicación
 
-En esta sección, escribirá una aplicación de consola de Java que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el tutorial de [introducción al Centro de IoT] y la cadena de conexión de su centro de IoT que encontrará en el
+En esta sección, escribirá una aplicación de consola de Java que envía mensajes de nube a dispositivo a la aplicación del dispositivo simulado. Necesitará el identificador del dispositivo que agregó en el tutorial de [introducción al Centro de IoT] y la cadena de conexión de su centro de IoT que encontrará en el [Portal de Azure].
 
 1. Cree un nuevo proyecto de Maven denominado **send-c2d-messages** mediante el siguiente comando en el símbolo del sistema. Tenga en cuenta que es un comando único y largo.
 
@@ -149,7 +153,27 @@ En esta sección, escribirá una aplicación de consola de Java que envía mensa
     }
     ```
 
-    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
+    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
+
+## Ejecución de las aplicaciones
+
+Ahora está preparado para ejecutar las aplicaciones.
+
+1. En un símbolo del sistema, en la carpeta simulated-device, ejecute el siguiente comando para empezar el envío de datos de telemetría al Centro de IoT:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
+
+    ![][img-simulated-device]
+
+2. En un símbolo del sistema de la carpeta send-c2d-messages, ejecute el siguiente comando para enviar un mensaje de la nube a dispositivo y esperar una confirmación de comentarios:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
+
+    ![][img-send-command]
 
 ## Pasos siguientes
 
@@ -166,6 +190,10 @@ Información adicional sobre el centro de IoT:
 * [Lenguajes y plataformas de dispositivos compatibles]
 * [Centro para desarrolladores de Azure]
 
+
+<!-- Images -->
+[img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
+[img-send-command]: media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
 [Introducción al Centro de IoT]: iot-hub-java-java-getstarted.md
@@ -182,5 +210,6 @@ Información adicional sobre el centro de IoT:
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

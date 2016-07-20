@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: registro de cambios de la API de .NET 
@@ -45,7 +45,7 @@ Fecha de lanzamiento: 14/04/2016
 	- [Conjuntos de datos](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 - Se han agregado las siguientes propiedades a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
 	- [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-- Se han agregado los nuevos tipos [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) y [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir conjuntos de datos cuyos datos están en formato JSON. 
+- Se han agregado los nuevos tipos [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) y [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir conjuntos de datos cuyos datos están en formato JSON.
 
 ## Versión 4.5.0
 Fecha de lanzamiento: 24/02/2016
@@ -53,11 +53,11 @@ Fecha de lanzamiento: 24/02/2016
 ### Incorporación de características
 * Se han agregado [operaciones de lista para la ventana de actividad](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
     * Se agregaron métodos para recuperar ventanas de la actividad con filtros basados en los tipos de entidad (es decir, fábricas de datos, conjuntos de datos, canalizaciones y actividades).
-* Se han agregado los siguientes tipos de servicios vinculados: 
+* Se han agregado los siguientes tipos de servicios vinculados:
     * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
-* Se han agregado los siguientes tipos de conjuntos de datos: 
+* Se han agregado los siguientes tipos de conjuntos de datos:
     * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
-* Se han agregado los siguientes tipos de origen de copia: 	
+* Se han agregado los siguientes tipos de origen de copia:
     * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## Versión 4.4.0
@@ -66,7 +66,7 @@ Fecha de lanzamiento: 28.01.2016
 ### Incorporación de características
 
 - El siguiente tipo de servicio vinculado se ha agregado como orígenes de datos y receptores para actividades de copia:
-	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Servicio vinculado de SAS de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service). 
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Servicio vinculado de SAS de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
 
 ## Versión 4.3.0
 Fecha de lanzamiento: 25.11.2015
@@ -74,8 +74,8 @@ Fecha de lanzamiento: 25.11.2015
 ### Incorporación de características
 
 - Los siguientes tipos de servicio vinculado se ha agregado como orígenes de datos para actividades de copia:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde HDFS local mediante Factoría de datos de Azure](data-factory-hdfs-connector.md). 
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde almacenes de datos ODBC mediante Data Factory de Azure](data-factory-odbc-connector.md). 
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde HDFS local mediante Factoría de datos de Azure](data-factory-hdfs-connector.md).
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde almacenes de datos ODBC mediante Data Factory de Azure](data-factory-odbc-connector.md).
 
 ## Versión 4.2.0
 Fecha de lanzamiento: 10-11-2015
@@ -83,21 +83,21 @@ Fecha de lanzamiento: 10-11-2015
 ### Incorporación de características
 
 - Se ha agregado el nuevo tipo de actividad siguiente: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Para obtener más información acerca de la actividad, consulte [Actualización de modelos de Aprendizaje automático de Azure mediante la actividad de recursos de actualización](data-factory-azure-ml-batch-execution-activity.md#updating-azure-ml-models-using-the-update-resource-activity).
-- Se ha agregado una nueva propiedad opcional [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) a la [clase AzureMLLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx). 
-- Se han agregado las propiedades [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) y [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) a la clase [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx). 
-- Permita la configuración de los tiempos de espera para las llamadas de cliente al servicio de Factoría de datos. 
+- Se ha agregado una nueva propiedad opcional [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) a la [clase AzureMLLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx).
+- Se han agregado las propiedades [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) y [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) a la clase [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx).
+- Permita la configuración de los tiempos de espera para las llamadas de cliente al servicio de Factoría de datos.
 
 
 ## Versión 4.1.0
 Fecha de lanzamiento: 28-10-2015
 
 ### Incorporación de características
-* Se han agregado los siguientes tipos de servicios vinculados: 
+* Se han agregado los siguientes tipos de servicios vinculados:
     * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
     * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
-* Se han agregado los siguientes tipos de actividades: 
+* Se han agregado los siguientes tipos de actividades:
     * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
-* Se han agregado los siguientes tipos de conjuntos de datos: 
+* Se han agregado los siguientes tipos de conjuntos de datos:
     * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
 * Se han agregado los siguientes tipos de origen y el receptor para la actividad de copia:
     * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
@@ -164,4 +164,4 @@ Fecha de lanzamiento: 02/10/2015
 
 - Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Consulte los artículos [Base de datos SQL de Azure](data-factory-azure-sql-connector.md#sqlsource) y [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com para obtener detalles sobre estas propiedades.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0706_2016-->

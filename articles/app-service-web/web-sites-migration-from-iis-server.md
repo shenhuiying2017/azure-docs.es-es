@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="07/01/2016" 
 	ms.author="cephalin"/>
 
 # Migración de una aplicación web de empresa al Servicio de aplicaciones de Azure
@@ -30,14 +30,14 @@ El [Asistente para migración de Aplicaciones web](https://www.movemetothecloud.
 ## Elementos comprobados durante el análisis de compatibilidad ##
 El Asistente para migración crea un informe de preparación para identificar las posibles causas de problemas de preocupación o bloqueo que pueden evitar una migración correcta de un IIS local a Aplicaciones web del Servicio de aplicaciones de Azure. Algunos de los elementos claves que se deben tener en cuenta son:
 
--	Enlaces de puerto: Aplicaciones web solo admite el puerto 80 para el tráfico HTTP y el puerto 443 para el tráfico HTTPS. Se ignorarán otras configuraciones de puerto y el tráfico se redirigirá a 80 o 443. 
--	Autenticación: Aplicaciones web admite la autenticación anónima de forma predeterminada y la autenticación de formularios cuando una aplicación lo especifique. Puede utilizarse la autenticación de Windows solo mediante la integración con Azure Active Directory y ADFS. Todos las demás formas de autenticación, por ejemplo la autenticación básica, no se admiten actualmente. 
--	Caché global de ensamblados (GAC): la GAC no se admite en Aplicaciones web. Si la aplicación hace referencia a ensamblados que se implementan normalmente en la GAC, tendrá que implementarlos en la carpeta bin de la aplicación en Aplicaciones web. 
--	Modo de compatibilidad con IIS5: no admitido en Aplicaciones web. 
+-	Enlaces de puerto: Aplicaciones web solo admite el puerto 80 para el tráfico HTTP y el puerto 443 para el tráfico HTTPS. Se ignorarán otras configuraciones de puerto y el tráfico se redirigirá a 80 o 443.
+-	Autenticación: Aplicaciones web admite la autenticación anónima de forma predeterminada y la autenticación de formularios cuando una aplicación lo especifique. Puede utilizarse la autenticación de Windows solo mediante la integración con Azure Active Directory y ADFS. Todos las demás formas de autenticación, por ejemplo la autenticación básica, no se admiten actualmente.
+-	Caché global de ensamblados (GAC): la GAC no se admite en Aplicaciones web. Si la aplicación hace referencia a ensamblados que se implementan normalmente en la GAC, tendrá que implementarlos en la carpeta bin de la aplicación en Aplicaciones web.
+-	Modo de compatibilidad con IIS5: no admitido en Aplicaciones web.
 -	Grupos de aplicaciones: en Aplicaciones web, cada sitio y sus aplicaciones secundarias se ejecutan en el mismo grupo de aplicaciones. Si el sitio tiene varias aplicaciones secundarias con varios grupos de aplicaciones, se deben consolidar en un único grupo de aplicaciones con la misma configuración, o bien migrar cada aplicación a una aplicación web independiente.
 -	Componentes COM: Aplicaciones web no permite el registro de componentes COM en la plataforma. Si los sitios web o las aplicaciones utilizan algún componente COM, debe volver a escribirlos en código administrado e implementarlos con el sitio web o la aplicación.
 -	Filtros ISAPI: Aplicaciones web admite el uso de los filtros ISAPI. Debe hacer lo siguiente:
-	-	implementar los archivos DLL con su aplicación web 
+	-	implementar los archivos DLL con su aplicación web
 	-	registrar los archivos DLL mediante [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
 	-	colocar un archivo applicationHost.xdt en la raíz del sitio con el siguiente contenido:
 
@@ -57,7 +57,7 @@ El Asistente para migración crea un informe de preparación para identificar la
 ## Uso del Asistente para migración de Aplicaciones web ##
 En esta sección se analiza un ejemplo para migrar algunos sitios web que utilizan una base de datos de SQL Server y se ejecutan en un equipo de Windows Server 2003 R2 (IIS 6.0) local:
 
-1.	En el servidor IIS o en el equipo cliente, navegue a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1.	En el servidor IIS o en el equipo cliente, navegue a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/)
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
@@ -135,4 +135,4 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

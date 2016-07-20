@@ -62,7 +62,7 @@ Al enfoque de MPP también contribuyen algunas optimizaciones del rendimiento es
 
 - Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del Servicio de movimiento de datos se producen de forma automática.
 
-- Índices de **columnstore ** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
+- Índices de **columnstore** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
 
 
 ## Rendimiento predecible y escalable
@@ -162,13 +162,13 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[cargar datos de ejemplo]: ./sql-data-warehouse-load-sample-databases.md
-[crear un Almacenamiento de datos SQL]: ./sql-data-warehouse-get-started-provision.md
-[documentación de migración]: ./sql-data-warehouse-overview-migrate.md
-[asociados de soluciones de Almacenamiento de datos SQL]: ./sql-data-warehouse-integrate-solution-partners.md
-[información general sobre las herramientas integradas]: ./sql-data-warehouse-overview-integrate.md
-[información general sobre la copia de seguridad y la restauración]: ./sql-data-warehouse-restore-database-overview.md
+[Creación de una incidencia de soporte técnico]: sql-data-warehouse-get-started-create-support-ticket.md
+[cargar datos de ejemplo]: sql-data-warehouse-load-sample-databases.md
+[crear un Almacenamiento de datos SQL]: sql-data-warehouse-get-started-provision.md
+[documentación de migración]: sql-data-warehouse-overview-migrate.md
+[asociados de soluciones de Almacenamiento de datos SQL]: sql-data-warehouse-partner-business-intelligence.md
+[información general sobre las herramientas integradas]: sql-data-warehouse-overview-integrate.md
+[información general sobre la copia de seguridad y la restauración]: sql-data-warehouse-restore-database-overview.md
 
 <!--MSDN references-->
 
@@ -176,9 +176,9 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs del equipo de CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Foro de MSDN]: https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureSQLDataWarehouse
+[Foro de MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

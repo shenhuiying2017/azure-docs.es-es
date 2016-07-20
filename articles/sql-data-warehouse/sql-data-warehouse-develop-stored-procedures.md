@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/14/2016"
+   ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Procedimientos almacenados en el Almacenamiento de datos SQL
@@ -89,12 +89,12 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Image references-->
 
 <!--Article references-->
-[tablas temporales]: sql-data-warehouse-develop-temporary-tables.md
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[tablas temporales]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

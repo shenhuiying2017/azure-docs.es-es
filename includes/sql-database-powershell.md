@@ -1,7 +1,7 @@
 
 ## Inicio de una sesión de PowerShell
 
-Primero, debe tener [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 o posterior) instalado y ejecutándose. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md).
+Primero, debe tener la versión más reciente de [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) instalada y ejecutándose. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md).
 
 
 >[AZURE.NOTE] Muchas de las nuevas características de Base de datos SQL solo se admiten con el [modelo de implementación de Azure Resource Manager](../articles/resource-group-overview.md), por lo que los ejemplos utilizan los [cmdlets de PowerShell de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) para Resource Manager. Se admiten los [cmdlets de Base de datos SQL de Azure (clásicos)](https://msdn.microsoft.com/library/azure/dn546723.aspx) del modelo de implementación clásica existentes por compatibilidad con versiones anteriores, pero se recomienda usar los cmdlets de Resource Manager.
@@ -15,3 +15,4 @@ Si tiene varias suscripciones, use el cmdlet [**Set-AzureRmContext**](https://ms
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
+<!---HONumber=AcomDC_0706_2016-->

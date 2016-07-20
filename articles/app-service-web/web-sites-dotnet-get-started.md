@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="04/22/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio
 
@@ -199,8 +199,7 @@ En esta sección se implementa el proyecto web en la aplicación web.
 
 	![Aplicación Web que se ejecuta en Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-	> [AZURE.TIP] Para agilizar la implementación, puede habilitar la barra de herramientas **Publicación en Web con un solo clic**. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Esta barra de herramientas se puede usar para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**. 
-	![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+	> [AZURE.TIP] Para agilizar la implementación, puede habilitar la barra de herramientas **Publicación en Web con un solo clic**. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Esta barra de herramientas se puede usar para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**. ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Solución de problemas
 
@@ -214,7 +213,7 @@ Una vez que la aplicación web ASP.NET se esté ejecutando en el Servicio de apl
 
 En este tutorial, aprendió a crear una aplicación web sencilla e implementarla en una aplicación web de Azure. Estos son algunos temas y recursos relacionados que le permitirán saber más sobre el Servicio de aplicaciones de Azure:
 
-* Supervisión y administración de una aplicación web en el [Portal de Azure](https://portal.azure.com/). 
+* Supervisión y administración de una aplicación web en el [Portal de Azure](https://portal.azure.com/).
 
 	Para más información, consulte la [introducción al Portal de Azure](/services/management-portal/) y [Configuración de aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-configure.md).
 
@@ -241,4 +240,4 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 	Para obtener información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../resource-group-portal.md).
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -27,7 +27,6 @@
  - [Reposición de informes de Azure Active Directory](active-directory-reporting-backfill.md)
  - [Latencias de informes de Azure Active Directory](active-directory-reporting-latencies.md)
  - [Evento 'Actor desconocido' de informes de Azure Active Directory](active-directory-reporting-unknown-actor.md)
- - [Informe de actividad de inicio de sesión de todos los usuarios de Azure Active Directory](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0706_2016-->

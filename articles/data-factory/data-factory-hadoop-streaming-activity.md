@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Actividad de streaming de Hadoop
@@ -74,7 +74,7 @@ Tenga en cuenta lo siguiente:
 2. Establezca el tipo de la actividad en **HDInsightStreaming**.
 3. Para la propiedad **mapper**, especifique el nombre del ejecutable del asignador. En el ejemplo anterior, cat.exe es el ejecutable del asignador.
 4. Para la propiedad **reducer**, especifique el nombre del ejecutable del reductor. En el ejemplo anterior, wc.exe es el ejecutable del reductor.
-5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample es el contenedor de blobs, example/data/Gutenberg es la carpeta y davinci.txt es el blob.
+5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt", adfsample es el contenedor de blobs, "example/data/Gutenberg" es la carpeta y "davinci.txt" es el blob.
 6. Para la propiedad **output** type, especifique el archivo de salida (incluida la ubicación) para el reductor. La salida del trabajo de streaming de Hadoop se escribirá en la ubicación especificada para esta propiedad.
 7. En la sección **filePaths**, especifique las rutas de acceso para los archivos ejecutables del asignador y del reductor. En el ejemplo: "adfsample/example/apps/wc.exe", adfsample es el contenedor de blobs, example/apps es la carpeta y wc.exe es el ejecutable.
 8. Para la propiedad **fileLinkedService**, especifique el servicio vinculado de Almacenamiento de vinculados que representa el almacenamiento de Azure que contiene los archivos especificados en la sección filePaths.
@@ -199,4 +199,4 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
 - [Invocar programas Spark](data-factory-spark.md)
 - [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

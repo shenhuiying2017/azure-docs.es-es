@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="07/05/2016"
     ms.author="larryfr"/>
 
 # Desarrollo de la acción de script con HDInsight
@@ -50,6 +50,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 - [Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure](#bPS6)
 - [Escribir información en STDOUT y STDERR](#bPS7)
 - [Guardar los archivos como ASCII con el fin de línea LF](#bps8)
+- [Utilizar la lógica de reintento para recuperarse de errores transitorios](#bps9)
 
 > [AZURE.IMPORTANT] Las acciones de script se tienen que completar dentro de un periodo de 60 minutos o superarán el tiempo de espera. Durante el aprovisionamiento del nodo, el script se ejecuta a la vez con otros procesos de instalación y de configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
@@ -107,7 +108,7 @@ De forma predeterminada, `echo` enviará la cadena a STDOUT. Para dirigirla a ST
 
 Esto redirige la información que se envía a STDOUT (1, que es el predeterminado, por lo que no se muestran aquí,) a STDERR (2). Para obtener más información sobre la redirección de E/S, consulte [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Para más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+Para obtener más información sobre la visualización de información registrada por las acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ###<a name="bps8"></a>Guardar los archivos como ASCII con el fin de línea LF
 
@@ -115,6 +116,40 @@ Los scripts de Bash deben almacenarse con formato ASCII, con líneas terminadas 
 
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
+
+###<a name="bps9"></a> Utilizar la lógica de reintento para recuperarse de errores transitorios
+
+Al descargar archivos, instalar paquetes mediante apt-get o realizar otras acciones que transmiten datos por Internet, se puede producir un error en la acción debido a errores de red transitorios. Por ejemplo, puede suceder que el recurso remoto con el que se está comunicando esté a punto de conmutar por error a un nodo de copia de seguridad.
+
+Para que el script sea resistente a los errores transitorios, puede implementar la lógica de reintento. A continuación se muestra ejemplo de una función que ejecutará cualquier comando que se pase a este y, si dicho comando no se ejecuta correctamente, volverá a intentarlo hasta tres veces. Esperará dos segundos entre cada reintento.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+Abajo verá ejemplos de uso de esta función.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
 ## <a name="helpermethods"></a>Métodos auxiliares para scripts personalizados
 
@@ -190,7 +225,7 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 - [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md)
 - [Instalación y uso de R en clústeres de Hadoop para HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md)
-- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)  
+- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
 > [AZURE.NOTE] Los documentos con enlaces anteriores son específicos de los clústeres de HDInsight basados en Linux. Para un script que funcione con HDInsight basado en Windows, consulte [Desarrollo de la acción de script con HDInsight (Windows)](hdinsight-hadoop-script-actions.md) o use los vínculos disponibles en la parte superior de cada artículo.
 
@@ -227,10 +262,10 @@ Para el comando anterior, reemplace __INFILE__ por el archivo que contiene la ma
 
 ## <a name="seeAlso"></a>Pasos siguientes
 
-* Infórmese sobre cómo [Personalizar clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md)
+* Obtenga información sobre cómo [personalizar clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Use la [referencia del SDK de .NET de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para obtener más información sobre la creación de aplicaciones .NET que administran HDInsight.
 
 * Use la [API de REST de HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para obtener información sobre cómo usar REST para realizar acciones de administración en clústeres de HDInsight.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -54,9 +54,11 @@ Ahora que completó este tutorial de Base de datos SQL y que creó una base de d
 
 - Si desea mover las bases de datos de SQL Server locales a Azure, consulte [Migrar una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
 
+- Si desea cargar algunos datos en una nueva tabla desde un archivo CSV mediante BCP, consulte el artículo sobre la [carga de datos en una Base de datos SQL desde un archivo CSV con BCP](sql-database-load-from-csv-with-bcp.md).
+
 
 ## Recursos adicionales
 
 [¿Qué es Base de datos SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="07/06/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -82,7 +82,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 Si se trabaja con aplicaciones del Servicio de aplicaciones, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones del Servicio de aplicaciones, las opciones son:
 
-- Trasladar el plan del Servicio de aplicaciones y el resto de recursos del Servicio de aplicaciones de ese grupo de recursos a un nuevo grupo que aún no tenga recursos del Servicio de aplicaciones. De esta manera, deberá trasladar incluso los recursos del Servicio de aplicaciones que no estén asociados al plan del Servicio de aplicaciones. 
+- Trasladar el plan del Servicio de aplicaciones y el resto de recursos del Servicio de aplicaciones de ese grupo de recursos a un nuevo grupo que aún no tenga recursos del Servicio de aplicaciones. De esta manera, deberá trasladar incluso los recursos del Servicio de aplicaciones que no estén asociados al plan del Servicio de aplicaciones.
 - Mover las aplicaciones a un grupo de recursos distinto, pero mantener todos los planes del Servicio de aplicaciones del grupo de recursos original.
 
 Si el grupo de recursos original también incluye un recurso de Application Insights, no podrá mover ese recurso porque Application Insights no admite actualmente la operación de traslado. Si se incluye el recurso de Application Insights al mover las aplicaciones del Servicio de aplicaciones, se producirá un error que afectará a toda la operación de traslado. Sin embargo, no es necesario que el plan del Servicio de aplicaciones y Application Insights residan en el mismo grupo de recursos que la aplicación para que esta funcione correctamente.
@@ -119,7 +119,7 @@ Las opciones para mover recursos implementados mediante el modelo clásico varí
 Al mover recursos de un grupo de recursos a otro **dentro de la misma suscripción**, se aplican las restricciones siguientes:
 
 - No se pueden mover redes virtuales (clásico).
-- Las máquinas virtuales (clásico) se deben mover con el servicio en la nube. 
+- Las máquinas virtuales (clásico) se deben mover con el servicio en la nube.
 - El servicio en la nube solo se puede mover cuando el traslado incluye todas sus máquinas virtuales.
 - Solo se puede mover un servicio en la nube cada vez.
 - Solo se puede mover una cuenta de almacenamiento (clásico) cada vez.
@@ -132,11 +132,11 @@ Al mover recursos a una **nueva suscripción**, se aplican las restricciones sig
 
 ## Uso del portal para mover recursos
 
-Algunos recursos se pueden mover a través del portal; sin embargo, no todos los proveedores de recursos que admiten dicha proporcionan esa funcionalidad a través del portal.
-
 Para mover un recurso, selecciónelo y, después, haga clic en el botón **Mover**.
 
 ![mover recurso](./media/resource-group-move-resources/move-resources.png)
+
+> [AZURE.NOTE] No todos los recursos admiten actualmente el traslado a través del portal. Si no ve el botón **Mover** botón para el recurso que desea trasladar, use PowerShell, CLI o la API de REST para mover el recurso.
 
 Especifique el grupo de recursos y la suscripción de destino al mover el recurso. Si deben moverse otros recursos junto con el seleccionado, se enumerarán.
 
@@ -272,4 +272,4 @@ Con el cuerpo de solicitud:
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

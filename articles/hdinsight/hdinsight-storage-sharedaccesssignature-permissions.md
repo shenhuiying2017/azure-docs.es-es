@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/19/2016"
+ms.date="07/05/2016"
 ms.author="larryfr"/>
 
 #Uso de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight
@@ -290,4 +290,4 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

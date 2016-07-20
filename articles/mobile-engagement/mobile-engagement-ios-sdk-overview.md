@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Información general del SDK de iOS de Azure Mobile Engagement"
+	pageTitle="Información general de SDK de iOS de Azure Mobile Engagement | Microsoft Azure"
 	description="Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
 #SDK de iOS para Azure Mobile Engagement
 
@@ -32,9 +32,9 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###3\.2.2 (04/07/2016)
+###3\.2.4 (30/06/2016)
 
--   Se ha corregido el error en la cancelación de solicitud HTTP que provocaba a veces bloqueos. 
+-   Agregación fija entre registros técnicos y otros registros.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -59,4 +59,4 @@ El método `application:didReceiveRemoteNotification:` debe reemplazarse por `ap
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

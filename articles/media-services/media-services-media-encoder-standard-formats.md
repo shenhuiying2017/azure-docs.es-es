@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="06/29/2016"
 	ms.author="juliako;anilmur"/>
 
 #Códecs y formatos de Media Encoder Standard
@@ -37,7 +37,9 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Sí
 Matroska/WebM (.mkv) |Sí 
 WAVE/WAV (.wav) |Sí 
 QuickTime (.mov) |Sí
- 
+
+>[AZURE.NOTE] La lista anterior contiene las extensiones de archivo más habituales. El Codificador multimedia estándar admite muchos más (por ejemplo: .m2ts, .mpeg2video, .qt). Si intenta codificar un archivo y recibe un mensaje de error que indica que no se admite el formato, notifíquelo [aquí](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+
 ###Formatos de audio en contenedores de entrada 
 
 Media Encoder Standard admite el transporte de los siguientes formatos de audio en contenedores de entrada:
@@ -121,4 +123,4 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

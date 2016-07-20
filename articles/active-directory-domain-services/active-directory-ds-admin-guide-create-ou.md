@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Creación de una unidad organizativa en un dominio administrado de Servicios de dominio de Azure AD
@@ -21,7 +21,7 @@ Los dominios administrados de Servicios de dominio de Azure AD incluyen dos cont
 
 
 ## Instalación de herramientas de administración de AD en una máquina virtual unida a dominio para la administración remota
-Los dominios administrados con Servicios de dominio de Azure AD pueden administrarse de forma remota mediante las conocidas herramientas administrativas de Active Directory, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado a través del Escritorio remoto. Para administrar el dominio administrado, instale la característica de herramientas de administración de AD en una máquina virtual unida al dominio administrado. Consulte el artículo [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md) (Administración de un dominio administrado con Servicios de dominio de Azure AD) para obtener instrucciones.
+Los dominios administrados con Servicios de dominio de Azure AD se pueden controlar de forma remota mediante las conocidas herramientas administrativas de Active Directory, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado a través del Escritorio remoto. Para administrar el dominio administrado, instale la característica de herramientas de administración de AD en una máquina virtual unida al dominio administrado. Consulte las instrucciones en el artículo [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md).
 
 ## Creación de una unidad organizativa en un dominio administrado
 Ahora que se han instalado las herramientas administrativas de AD en la máquina virtual unida a dominio, podemos usarlas para crear una unidad organizativa en el dominio administrado. Lleve a cabo los siguiente pasos.
@@ -44,9 +44,9 @@ Ahora que se han instalado las herramientas administrativas de AD en la máquina
 
     ![ADAC: nueva unidad organizativa](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 
-5. Debería ver la opción para crear a una unidad organizativa. Haga clic en **Unidad organizativa** para iniciar el cuadro de diálogo **Crear unidad organizativa**.
+5. Debería ver la opción para crear una unidad organizativa. Haga clic en **Unidad organizativa** para abrir el cuadro de diálogo **Create Organizational Unit** (Crear unidad organizativa).
 
-6. En el cuadro de diálogo **Crear unidad organizativa**, especifique un **Nombre** para la nueva unidad organizativa. Proporcione una breve descripción de la unidad organizativa. También puede establecer el campo **Administrado por** para la unidad organizativa. Haga clic en **Aceptar** para crearla nueva unidad organizativa.
+6. En el cuadro de diálogo **Create Organizational Unit** (Crear unidad organizativa), especifique un **Nombre** para la nueva unidad organizativa. Proporcione una breve descripción de la unidad organizativa. También puede establecer el campo **Administrado por** para la unidad organizativa. Haga clic en **Aceptar** para crear la nueva unidad organizativa.
 
     ![ADAC: cuadro de diálogo de creación de unidad organizativa](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 
@@ -69,10 +69,10 @@ Ahora que ha creado una unidad organizativa personalizada, puede seguir y crear 
 
 ## Contenido relacionado
 
-- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md) (Administración de un dominio administrado con Servicios de dominio de Azure AD)
+- [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
 - [Centro de administración de Active Directory: introducción](https://technet.microsoft.com/library/dd560651.aspx)
 
 - [Guía paso a paso de las cuentas de servicio](https://technet.microsoft.com/library/dd548356.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

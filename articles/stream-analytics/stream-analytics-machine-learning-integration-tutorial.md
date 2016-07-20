@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/06/2016" 
 	ms.author="jeffstok"
 />
 
@@ -27,11 +27,11 @@ En este tutorial se incluye un archivo CSV de ejemplo con texto (como se muestra
 
 Ilustración 1:
 
-![tutorial de aprendizaje automático de análisis de transmisiones - ilustración 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
+![tutorial de aprendizaje automático de análisis de transmisiones - ilustración 1](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
 
 Ilustración 2:
 
-![tutorial de aprendizaje automático de análisis de transmisiones - ilustración 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)
+![tutorial de aprendizaje automático de análisis de transmisiones - ilustración 2](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)
 
 ## Requisitos previos
 
@@ -46,14 +46,14 @@ A nivel general, se llevarán a cabo los pasos siguientes:
 2.	Adición de un modelo de análisis de opinión de la galería de Cortana Intelligence al área de trabajo de Aprendizaje automático
 3.	Implementación de este modelo como un servicio web dentro del área de trabajo de Aprendizaje automático de Azure
 4.	Creación de un trabajo de Análisis de transmisiones que llama a este servicio web como una función para determinar la opinión sobre la entrada de texto
-5.	Inicio del trabajo de Análisis de transmisiones y observación de la salida 
+5.	Inicio del trabajo de Análisis de transmisiones y observación de la salida
 
 
 ## Carga del archivo de entrada CSV en Almacenamiento de blobs
 
 En este paso puede usar cualquier archivo CSV, incluso el especificado en la introducción. Para cargar el archivo, se puede usar [Explorador de almacenamiento de Azure](http://storageexplorer.com/) o Visual Studio, así como código personalizado. En este tutorial se proporcionan ejemplos para Visual Studio.
 
-1.	Expanda Azure y haga clic con el botón secundario en el **Almacenamiento**. Elija **Asociar almacenamiento externo** y ofrezca un valor para **Nombre de cuenta** y **Clave de cuenta**.  
+1.	Expanda Azure y haga clic con el botón secundario en el **Almacenamiento**. Elija **Asociar almacenamiento externo** y ofrezca un valor para **Nombre de cuenta** y **Clave de cuenta**.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - explorador de servidores](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
@@ -65,13 +65,13 @@ En este paso puede usar cualquier archivo CSV, incluso el especificado en la int
 
 ## Adición del modelo de análisis de opinión desde la galería de Cortana Intelligence
 
-1.	Descargue el [modelo de análisis de opinión predictivo](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) desde la galería de Cortana Intelligence.  
-2.	Haga clic en **Abrir** en Studio:  
+1.	Descargue el [modelo de análisis de opinión predictivo](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) desde la galería de Cortana Intelligence.
+2.	Haga clic en **Abrir** en Studio:
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - abrir studio de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
 
 3.	Inicie sesión para acceder al área de trabajo. Elija la ubicación que mejor se adapte a la suya.
-4.	Ahora haga clic en **Ejecutar** en la parte inferior de Studio.  
+4.	Ahora haga clic en **Ejecutar** en la parte inferior de Studio.
 5.	Cuando se ejecuta correctamente, haga clic en **Implementar servicio web**.
 6.	El modelo de análisis de opinión ya está listo para su uso. Para validarlo, haga clic en el botón **Probar** y ofrezca una entrada de texto como "Me encanta Microsoft" y la prueba debe devolver un resultado similar al que se muestra a continuación:
 
@@ -89,21 +89,21 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 
 ## Creación de un trabajo de Análisis de transmisiones que usa el modelo de Aprendizaje automático
 
-1.	Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).  
-2.	Haga clic en **Nuevo**, **Servicios de datos**, **Análisis de transmisiones** y **Creación rápida**. Ofrezca un valor en **Nombre del trabajo**, un valor para la **Región** apropiada al trabajo y elija una **Cuenta de almacenamiento de supervisión regional**.    
-3.	Una vez creado el trabajo, vaya a la pestaña **Entradas** y haga clic en **Agregar entrada**.  
+1.	Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
+2.	Haga clic en **Nuevo**, **Servicios de datos**, **Análisis de transmisiones** y **Creación rápida**. Ofrezca un valor en **Nombre del trabajo**, un valor para la **Región** apropiada al trabajo y elija una **Cuenta de almacenamiento de supervisión regional**.
+3.	Una vez creado el trabajo, vaya a la pestaña **Entradas** y haga clic en **Agregar entrada**.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - entrada de aprendizaje automático de adición de datos](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)
 
 4.	En la primera página de la ventana del asistente **Agregar entrada**, seleccione **Flujo de datos** y haga clic en Siguiente. En la segunda página, seleccione **Almacenamiento de blobs** como entrada y haga clic en **Siguiente**.
-5.	En la página del asistente **Configuración del almacenamiento de blobs** del asistente, proporcione el nombre del contenedor de blobs de la cuenta de almacenamiento definida anteriormente cuando se cargaron los datos. Haga clic en **Siguiente**. Elija **CSV** como **Formato de serialización de eventos**. Acepte los valores predeterminados para el resto de la **Configuración de serialización**. Haga clic en **Aceptar**.  
-6.	Desplácese hasta la pestaña **Salidas** y haga clic en **Agregar una salida**.  
+5.	En la página del asistente **Configuración del almacenamiento de blobs** del asistente, proporcione el nombre del contenedor de blobs de la cuenta de almacenamiento definida anteriormente cuando se cargaron los datos. Haga clic en **Siguiente**. Elija **CSV** como **Formato de serialización de eventos**. Acepte los valores predeterminados para el resto de la **Configuración de serialización**. Haga clic en **Aceptar**.
+6.	Desplácese hasta la pestaña **Salidas** y haga clic en **Agregar una salida**.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - agregar salida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)
 
 7.	Elija **Almacenamiento de blobs** y proporcione los mismos parámetros excepto el contenedor. El valor **Entrada** se configuró para leerse desde el contenedor denominado "test", donde se cargó el archivo **CSV**. Como valor de **Salida**, use "testoutput". Los nombres del contenedor deben diferentes, y compruebe que existe este contenedor.
 8.	Haga clic en **Siguiente** para definir la **Configuración de serialización** de la salida. Al igual que en la entrada, elija **CSV** y haga clic en el botón **Aceptar**.
-9.	Vaya a la pestaña **Funciones** y haga clic en **Agregar una función de aprendizaje automático**.  
+9.	Vaya a la pestaña **Funciones** y haga clic en **Agregar una función de aprendizaje automático**.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - agregar función de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)
 
@@ -121,20 +121,20 @@ Tome nota de la clave de acceso y de la dirección URL de servicio web desde el 
 	Select text, result.[Score]  
 	Into output  
 	From subquery  
-```
+```    
 
-12. Haga clic en **Guardar** para guardar la consulta.    
+A continuación, haga clic en **Guardar** para guardar la consulta.
 
 ## Inicio del trabajo de Análisis de transmisiones y observación de la salida
 
-1.	Haga clic en **Iniciar** en la parte inferior del trabajo. 
-2.	En el **cuadro de diálogo Iniciar consulta**, elija **Hora personalizada** y seleccione una hora antes de cuando se cargó el archivo CSV en Almacenamiento de blobs. Haga clic en **Aceptar**.  
+1.	Haga clic en **Iniciar** en la parte inferior del trabajo.
+2.	En el **cuadro de diálogo Iniciar consulta**, elija **Hora personalizada** y seleccione una hora antes de cuando se cargó el archivo CSV en Almacenamiento de blobs. Haga clic en **Aceptar**.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - hora personalizada](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-custom-time.png)
 
 3.	Desplácese hasta Almacenamiento de blobs mediante la herramienta usada cuando se cargó el archivo CSV. Este tutorial utilizó Visual Studio.
-4.	Pocos minutos después de iniciado el trabajo, se crea el contenedor de salida y se carga en él un archivo CSV.  
-5.	Si se hace doble clic en el archivo, se abrirá el editor de CSV predeterminado, que debe mostrar algo como lo siguiente:  
+4.	Pocos minutos después de iniciado el trabajo, se crea el contenedor de salida y se carga en él un archivo CSV.
+5.	Si se hace doble clic en el archivo, se abrirá el editor de CSV predeterminado, que debe mostrar algo como lo siguiente:
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de csv](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)
 
@@ -144,10 +144,10 @@ En este tutorial, se creó un trabajo de Análisis de transmisiones que lee dato
 
 También se pueden observar las métricas relacionadas con funciones de Aprendizaje automático de Azure. Haga clic en la pestaña **MONITOR**. Se muestran tres métricas relacionadas con funciones.
   
-- SOLICITUDES DE FUNCIÓN indica el número de solicitudes en el servicio web de Aprendizaje automático.  
-- EVENTOS DE FUNCIÓN indica el número de eventos de la solicitud. De forma predeterminada, cada solicitud de servicio web de Aprendizaje automático contiene hasta 1000 eventos.  
-- SOLICITUDES DE FUNCIÓN CON ERROR indica el número de solicitudes con error en el servicio web de Aprendizaje automático.  
+- SOLICITUDES DE FUNCIÓN indica el número de solicitudes en el servicio web de Aprendizaje automático.
+- EVENTOS DE FUNCIÓN indica el número de eventos de la solicitud. De forma predeterminada, cada solicitud de servicio web de Aprendizaje automático contiene hasta 1000 eventos.
+- SOLICITUDES DE FUNCIÓN CON ERROR indica el número de solicitudes con error en el servicio web de Aprendizaje automático.
 
     ![tutorial de aprendizaje automático de análisis de transmisiones - vista de monitor de aprendizaje automático](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

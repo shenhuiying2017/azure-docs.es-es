@@ -53,8 +53,8 @@ La ejecución de clústeres de Service Fabric en Azure proporciona ventajas fren
 
 * **Administrador de recursos de Azure:** el uso del Administrador de recursos de Azure permite una administración sencilla de todos los recursos que usa el clúster como una unidad y simplifica el costo del seguimiento y la facturación.
 * **Clúster de Service Fabric como recurso de Azure** Un clúster de Service Fabric es un recurso de ARM, por tanto, puede ajustarlo como hace con otros recursos de ARM en Azure.
-* **Integración con la infraestructura de Azure**: Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
-* **Diagnósticos:** en Azure se proporciona la integración con Diagnósticos y Visión operativa de Azure.
+* **Integración con la infraestructura de Azure**: Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.
+* **Diagnósticos:** en Azure se proporciona la integración con Diagnósticos y Log Analytics de Azure.
 * **Escalado automático:** para los clústeres hospedados en Azure, proporcionamos una funcionalidad integrada de escalado automático debido a los conjuntos de escalas de la máquina virtual. En los entornos locales y otros entornos en la nube, hay que crear una característica propia de escalado automático o realizar el escalado manualmente mediante las API que ofrece Service Fabric para escalar los clústeres.
 
 ## Pasos siguientes
@@ -62,4 +62,4 @@ Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows S
 
 Creación de un clúster en máquinas virtuales o equipos que ejecutan Linux: [Service Fabric en Linux](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0706_2016-->

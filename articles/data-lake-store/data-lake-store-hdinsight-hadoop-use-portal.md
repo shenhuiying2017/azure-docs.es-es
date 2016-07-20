@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -31,7 +31,11 @@ Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, H
 
 * **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional. Para obtener más información, consulte [Usar el Almacén de Data Lake con clústeres de HBase](#use-data-lake-store-with-hbase-clusters).
 
-> [AZURE.NOTE] La opción para crear clústeres de HDInsight con acceso al Almacén de Data Lake solo está disponible para HDInsight versión 3.2 y 3.4 (para clústeres de Hadoop, HBase y Storm en Windows y Linux). Para los clústeres Spark en Linux, esta opción solo está disponible en los clústeres de HDInsight 3.4.
+> [AZURE.NOTE] Algunos puntos importantes que tener en cuenta:
+> 
+> * La opción para crear clústeres de HDInsight con acceso al Almacén de Data Lake solo está disponible para HDInsight versión 3.2 y 3.4 (para clústeres de Hadoop, HBase y Storm en Windows y Linux). Para los clústeres Spark en Linux, esta opción solo está disponible en los clústeres de HDInsight 3.4.
+>
+> * Tal y como se mencionó anteriormente, el Almacén de Data Lake está disponible como almacenamiento predeterminado para algunos tipos de clúster (HBase) y como almacenamiento adicional para otros tipos de clúster (Hadoop, Spark y Storm). Utilizar el Almacén de Data Lake como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura y escritura en el almacenamiento del clúster. En un escenario donde se utiliza el Almacén de Data Lake como almacenamiento adicional, los archivos relacionados con el clúster (por ejemplo, registros, etc.) se crean en el almacenamiento predeterminado (Blobs de Azure), mientras que los datos que quiere procesar pueden almacenarse en una cuenta de Almacén de Data Lake.
 
 
 ## Requisitos previos
@@ -111,7 +115,7 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 	![Inicie el panel del clúster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Inicie el panel del clúster")
 
-	También puede ir directamente a Ambari dirigiéndose a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde **CLUSTERNAME** es el nombre del clúster de HDInsight).
+	También puede ir directamente a Ambari accediendo a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde **CLUSTERNAME** es el nombre del clúster de HDInsight).
 
 2. Abra la vista de Hive. Seleccione el grupo de cuadrados en el menú de la página (junto al vínculo **Administrador** y el botón de la derecha de la página) para mostrar las vistas disponibles. Seleccione la vista **Hive**.
 
@@ -190,7 +194,7 @@ Una vez que configure el clúster de HDInsight para que use el Almacén de Data 
 
 En esta sección, se usará SSH en el clúster y se ejecutarán los comandos de HDFS. Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obtener más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Una vez conectado, utilice el siguiente comando del sistema de archivos HDFS para enumerar los archivos del Almacén de Data Lake.
 
@@ -233,7 +237,7 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 En esta sección, se usa el cuaderno de Jupyter Notebook disponible con los clústeres de HDInsight Spark para ejecutar un trabajo que lee datos de una cuenta del Almacén de Data Lake que asoció con un clúster de HDInsight Spark, en lugar de la cuenta de blob de Almacenamiento de Azure predeterminada.
 
-1. Copie datos de ejemplo de la cuenta de almacenamiento predeterminada (WASB) asociada con el clúster de Spark a la cuenta del Almacén de Azure Data Lake asociada con el clúster. Puede usar la [herramienta AdlCopy](http://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
+1. Copie datos de ejemplo de la cuenta de almacenamiento predeterminada (WASB) asociada con el clúster de Spark a la cuenta del Almacén de Azure Data Lake asociada con el clúster. Puede usar la [herramienta ADLCopy](http://aka.ms/downloadadlcopy) para hacerlo. Descargue e instale la herramienta desde el vínculo.
 
 2. Abra un símbolo del sistema y vaya al directorio donde está instalada la herramienta AdlCopy, normalmente `%HOMEPATH%\Documents\adlcopy`.
 
@@ -299,7 +303,7 @@ En esta sección, se usa el cuaderno de Jupyter Notebook disponible con los clú
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Como está usando un kernel de PySpark, ahora puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Como está usando un kernel de PySpark, ahora puede ejecutar directamente una consulta SQL en la tabla temporal **hvac** que acaba de crear con la instrucción mágica `%%sql`. Para obtener más información sobre la instrucción mágica `%%sql`, así como otras instrucciones mágicas disponibles con el kernel de PySpark, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -317,7 +321,7 @@ En esta sección, se usa el cuaderno de Jupyter Notebook disponible con los clú
 
 ## Uso del Almacén de Data Lake en una topología de Storm
 
-El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para instrucciones sobre cómo lograr este escenario, consulte [Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
+El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para obtener instrucciones sobre cómo posibilitar este escenario, consulte [Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Uso del Almacén de Data Lake con clústeres de HBase
 
@@ -343,4 +347,4 @@ Con los clústeres de HBase, puede usar el Almacén de Data Lake como almacenami
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

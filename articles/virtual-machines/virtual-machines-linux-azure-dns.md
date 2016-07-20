@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/11/2016"
+   ms.date="06/21/2016"
    ms.author="rclaus" />
 
 # Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure
@@ -78,9 +78,9 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 - **Ubuntu (usa resolvconf)**:
 	- instalar únicamente el paquete dnsmasq ("sudo apt-get install dnsmasq")
 - **SUSE (usa netconf)**:
-	- instalar el paquete dnsmasq ("sudo apt-get install dnsmasq") 
-	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service") 
-	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service") 
+	- instalar el paquete dnsmasq ("sudo apt-get install dnsmasq")
+	- habilitar el servicio de dnsmasq ("systemctl enable dnsmasq.service")
+	- iniciar el servicio de dnsmasq ("systemctl start dnsmasq.service")
 	- editar “/etc/sysconfig/network/config” y cambie NETCONFIG\_DNS\_FORWARDER="" por ”dnsmasq”
 	- actualizar resolv.conf ("netconfig update") para establecer la memoria caché como el solucionador DNS local
 - **OpenLogic (usa NetworkManager)**:
@@ -96,8 +96,8 @@ Hay una serie de distintos paquetes de almacenamiento en caché DNS disponibles,
 
 DNS es principalmente un protocolo UDP. Como el protocolo UDP no garantiza la entrega de mensajes, la lógica de reintento se controla en el mismo protocolo DNS. Cada cliente DNS (sistema operativo) puede presentar una lógica de reintento diferente, dependiendo de la preferencia de los creadores:
 
- - Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros 2, 4 y otros 4 segundos. 
- - El programa de instalación predeterminado de Linux lo intenta después de 5 segundos. Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.  
+ - Los sistemas operativos Windows realizan un intento tras un segundo y después tras otros 2, 4 y otros 4 segundos.
+ - El programa de instalación predeterminado de Linux lo intenta después de 5 segundos. Se recomienda cambiar esta opción para reintentarlo 5 veces a intervalos de 1 segundo.
 
 Para comprobar la configuración actual en una máquina virtual Linux, 'cat /etc/resolv.conf' y busque la línea 'options', p. ej.:
 
@@ -106,13 +106,13 @@ Para comprobar la configuración actual en una máquina virtual Linux, 'cat /etc
 El archivo resolv.conf suele ser autogenerado y no se debe editar. Los pasos específicos para agregar la línea 'options' varían según la distribución:
 
 - **Ubuntu** (usa resolvconf):
-	- agregar la línea de opciones a '/ etc/resolveconf/resolv.conf.d/head' 
+	- agregar la línea de opciones a '/ etc/resolveconf/resolv.conf.d/head'
 	- ejecutar 'resolvconf -u' para actualizar
 - **SUSE** (usa netconf):
-	- agregar 'timeout:1 attempts:5' al parámetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" en '/etc/sysconfig/network/config' 
+	- agregar 'timeout:1 attempts:5' al parámetro NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" en '/etc/sysconfig/network/config'
 	- ejecutar 'netconfig update' para actualizar
 - **OpenLogic** (usa NetworkManager):
-	- agregar 'echo "options timeout:1 attempts:5"' a '/etc/NetworkManager/dispatcher.d/11-dhclient' 
+	- agregar 'echo "options timeout:1 attempts:5"' a '/etc/NetworkManager/dispatcher.d/11-dhclient'
 	- ejecutar 'service network restart' para actualizar
 
 ## Resolución de nombres mediante su propio servidor DNS
@@ -126,16 +126,16 @@ El reenvío de DNS también habilita la resolución de DNS entre redes virtuales
 
 Cuando se utiliza la resolución de nombres proporcionada por Azure, el sufijo DNS interno se proporciona a cada máquina virtual mediante DHCP. Cuando se utiliza su propia solución de resolución de nombres, no se proporciona este sufijo a las máquinas virtuales puesto que interfiere con otras arquitecturas DNS. Para hacer referencia a equipos mediante el FQDN (o para configurar el sufijo en las máquinas virtuales), el sufijo puede determinarse mediante PowerShell o la API:
 
--  Para las redes virtuales administradas de la administración de recursos de Azure, el sufijo está disponible a través del recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx); también puede ejecutar el comando `azure network public-ip show <resource group> <pip name>` para mostrar los detalles de la dirección IP pública, incluido el FQDN de la NIC.    
+-  Para las redes virtuales administradas de la administración de recursos de Azure, el sufijo está disponible a través del recurso de [tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx); también puede ejecutar el comando `azure network public-ip show <resource group> <pip name>` para mostrar los detalles de la dirección IP pública, incluido el FQDN de la NIC.
 
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debe proporcionar su propia solución de DNS. La solución de DNS deberá cumplir estos requisitos:
 
--  Proporcione la resolución apropiada para el nombre de host, por ejemplo, a través de [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente. 
+-  Proporcione la resolución apropiada para el nombre de host, por ejemplo, a través de [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md). Tenga en cuenta que si usa DDNS debe deshabilitar la limpieza de registros DNS, ya que las concesiones DHCP de Azure son muy largas y, al efectuar la limpieza, se pueden eliminar los registros DNS prematuramente.
 -  Proporcionar la resolución recursiva adecuada para permitir la resolución de nombres de dominio externos.
 -  Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
 -  Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
 
 > [AZURE.NOTE] Para obtener un mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, se debe deshabilitar IPv6 y debe asignarse una [IP pública de nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) a cada máquina virtual del servidor DNS.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

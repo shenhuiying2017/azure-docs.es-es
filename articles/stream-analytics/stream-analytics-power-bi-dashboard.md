@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="jeffstok"/>
 
 #  Análisis de transmisiones y Power BI: panel de análisis en tiempo real de flujo de datos
@@ -24,8 +24,6 @@ Análisis de transmisiones de Azure permite aprovechar una de las principales he
 Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un panel dinámico. [Vea un vídeo que ilustra el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas mediante Power BI como salida para los trabajos de Análisis de transmisiones de Azure y a utilizar un panel en tiempo real.
-
-> [AZURE.NOTE] En este momento, la creación y configuración de salidas de Power BI no se admiten en el Portal de Azure, solo en el Portal de Azure clásico.
 
 ## Requisitos previos
 
@@ -98,7 +96,7 @@ Proporcione valores como sigue:
 * **Alias de salida**: puede colocar cualquier alias de salida a la que es fácil que haga referencia. Este alias de salida es especialmente útil si decide tener varias salidas para su trabajo. En ese caso, debe hacer referencia a esta salida de la consulta. Por ejemplo, vamos a usar el valor de alias de salida = "OutPbi".
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
 *	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
-*	**Área de trabajo** : seleccione un área de trabajo en el inquilino de Power BI en donde se creará el conjunto de datos.
+*	**Área de trabajo**: seleccione un área de trabajo en el inquilino de Power BI en donde se creará el conjunto de datos.
 
 >	[AZURE.NOTE] No debe crear explícitamente este conjunto de datos y esta tabla en su cuenta de Power BI. Se crearán automáticamente cuando empiece su trabajo de Análisis de transmisiones y el trabajo comience a producir salidas en Power BI. Si el trabajo no devuelve resultados, no se creará el conjunto de datos ni la tabla.
 
@@ -162,7 +160,7 @@ Ahora cuando vea el panel con este informe anclado, verá la actualización de i
 
 Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para un conjunto de datos. Power BI puede ayudarle a crear otras herramientas de inteligencia empresarial de cliente para su organización. Para obtener otro ejemplo de un panel de Power BI, vea el vídeo [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Para obtener más información acerca de cómo configurar una salida de Power BI y para utilizar grupos de Power BI, revise la [sección Power BI](stream-analytics-define-outputs.md#power-bi) de [Descripción de salidas de Análisis de transmisiones](stream-analytics-define-outputs.md "Descripción de salidas de Análisis de transmisiones"). Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Paneles de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Para obtener más información acerca de cómo configurar una salida de Power BI y para utilizar grupos de Power BI, revise la [sección Power BI](stream-analytics-define-outputs.md#power-bi) de [Descripción de salidas de Análisis de transmisiones](stream-analytics-define-outputs.md "Descripción de salidas de Análisis de transmisiones"). Otro recurso útil para aprender más sobre la creación de paneles con Power BI es [Paneles de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitaciones y prácticas recomendadas
 
@@ -203,9 +201,18 @@ Tendrá que volver a autenticar la cuenta de Power BI si su contraseña ha cambi
 
 ![graphic12][graphic12]
 
+De forma similar, si un trabajo intenta iniciarse mientras el token está caducado, se producirá un error y no se iniciará. El error será algo como lo que aparece a continuación:
+
+![Error de validación de Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
+ 
+
 Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida de Power BI. Haga clic en el vínculo "Renovar autorización" y reinicie el trabajo desde la hora en que se detuvo por última vez para evitar la pérdida de datos.
 
-![graphic13][graphic13]
+![Renovación de la validación de Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png)
+
+Después de que la autorización se actualiza con Power BI, verá una alerta verde en el área de autorización:
+
+![Renovación de la validación de Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -233,4 +240,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0706_2016-->

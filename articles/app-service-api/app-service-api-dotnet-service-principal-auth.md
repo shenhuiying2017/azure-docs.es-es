@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="06/30/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticación de entidad de servicio para Aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -83,8 +83,8 @@ Una vez adquirido el token, el llamador lo incluye con las solicitudes HTTP en e
 
 Los tokens de portador para los usuarios en el mismo inquilino se consideran válidos para la aplicación de API protegida. Si desea asegurarse de que solo una entidad de servicio pueda llamar a la aplicación de API protegida, agregue el código en la aplicación de API protegida para validar las siguientes notificaciones del token:
 
-* `appid` debe ser el identificador de cliente de la aplicación de Azure AD que está asociada con el llamador. 
-* `oid` (`objectidentifier`) debe ser el identificador de entidad de servicio del llamador. 
+* `appid` debe ser el identificador de cliente de la aplicación de Azure AD que está asociada con el llamador.
+* `oid` (`objectidentifier`) debe ser el identificador de entidad de servicio del llamador.
 
 El Servicio de aplicaciones también proporciona la notificación `objectidentifier` en el encabezado X-MS-CLIENT-PRINCIPAL-ID.
 
@@ -150,7 +150,7 @@ Si experimenta problemas al seguir las instrucciones del tutorial, consulte la s
 
 ### Comprobación de la protección de la aplicación de API
 
-1. En un explorador, vaya a la dirección URL de la aplicación de API: en la hoja **Aplicación de API** del Portal de Azure, haga clic en el vínculo en **URL**. 
+1. En un explorador, vaya a la dirección URL de la aplicación de API: en la hoja **Aplicación de API** del Portal de Azure, haga clic en el vínculo en **URL**.
 
 	Se le redirigirá a una pantalla de inicio de sesión porque no se permite que las solicitudes no autenticadas tengan acceso a la aplicación de API.
 
@@ -166,7 +166,7 @@ En esta sección realizará las siguientes tareas:
 
 * Agregar el código en la aplicación de API de nivel intermedio que usa credenciales de la aplicación de Azure AD para adquirir un token y enviarlo con las solicitudes HTTP a la aplicación de API de capa de datos.
 * Obtener las credenciales que necesita de Azure AD.
-* Escribir las credenciales en la configuración del entorno en tiempo de ejecución de Servicio de aplicaciones de Azure en la aplicación de API de nivel intermedio. 
+* Escribir las credenciales en la configuración del entorno en tiempo de ejecución de Servicio de aplicaciones de Azure en la aplicación de API de nivel intermedio.
 
 ### Configuración del proyecto ToDoListAPI para adquirir y enviar el token de Azure AD
 
@@ -415,4 +415,4 @@ Para más información acerca de Azure Active Directory, consulte los siguientes
 
 Para más información sobre otras formas de implementar proyectos de Visual Studio en aplicaciones de API, ya sea con Visual Studio o mediante la [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

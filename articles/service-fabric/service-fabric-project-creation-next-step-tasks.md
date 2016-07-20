@@ -47,7 +47,7 @@ Cuando se agrega una nueva instancia de Reliable Actors, Visual Studio agrega do
 El proyecto de actor proporciona métodos para configurar y obtener el valor de un contador que se conserva de forma confiable dentro de estado del actor. El proyecto de interfaz proporciona una interfaz que pueden usar otros servicios para invocar al actor.
 
 ### API web sin estado
-El proyecto de API web sin estado proporciona un servicio web básico que puede usar para abrir la aplicación en clientes externos. Para obtener más información sobre cómo ver el proyecto estructurado, consulte [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi) (Servicios de API web de Service Fabric con autohospedaje OWIN).
+El proyecto de API web sin estado proporciona un servicio web básico que puede usar para abrir la aplicación en clientes externos. Para más información sobre cómo ver el proyecto estructurado, consulte [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 ## Pasos siguientes
 ### Creación de un clúster de Azure
@@ -80,4 +80,4 @@ Para obtener información sobre cómo puede configurar un proceso de integració
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0706_2016-->

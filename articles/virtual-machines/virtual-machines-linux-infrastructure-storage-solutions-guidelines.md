@@ -46,7 +46,7 @@ Almacenamiento de Azure es una parte clave del proceso de implementación y admi
 Existen dos tipos de cuentas de almacenamiento disponibles para la compatibilidad con máquinas virtuales.
 
 - La cuenta de almacenamiento Estándar le da acceso al Almacenamiento de blobs (que se usa para almacenar discos de máquinas virtuales de Azure), de tablas, en cola y de archivos.
-- [Almacenamiento premium](../storage/storage-premium-storage.md) ofrece soporte de disco de alto rendimiento y baja latencia para cargas de trabajo de E/S intensivas, como los servidores de SQL Server en un clúster de AlwaysOn y actualmente solo admite discos de máquinas virtuales de Azure.
+- [Almacenamiento premium](../storage/storage-premium-storage.md) ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo de E/S intensivas, como el clúster con particiones de MongoDB, y actualmente solo se admiten discos de máquina virtual de Azure.
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. Tanto el disco del sistema operativo como los discos de datos son blobs en páginas de Azure, mientras que el disco temporal se almacena localmente en el nodo en que reside el equipo. Tenga cuidado al diseñar aplicaciones para que solo utilice este disco temporal para datos no persistentes, ya que la máquina virtual se puede migrar entre hosts durante un evento de mantenimiento. Se podrían perder los datos almacenados en el disco temporal.
 
@@ -56,7 +56,7 @@ Los discos del sistema operativo y los discos de datos tienen un tamaño máximo
 
 Hay algunos límites de escalabilidad al diseñar las implementaciones de Almacenamiento de Azure. Consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md#storage-limits) para más detalles. Vea también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../storage/storage-scalability-targets.md).
 
-En cuanto al almacenamiento de la aplicación, puede almacenar datos de objeto no estructurados como documentos, imágenes, copias de seguridad, datos de configuración, registros, etc., mediante el Almacenamiento de blobs. En lugar de que aplicación escriba en un disco virtual asociado a la máquina virtual, la aplicación puede escribir directamente en el Almacenamiento de blobs de Azure. Almacenamiento de blobs también proporciona la opción de [capas de almacenamiento de acceso frecuente y de acceso esporádico](../storage/storage-blob-storage-tiers.md) según las necesidades de disponibilidad y las restricciones de costo.
+En cuanto al almacenamiento de la aplicación, puede almacenar datos de objetos no estructurados como documentos, imágenes, copias de seguridad, datos de configuración, registros, etc., mediante el Almacenamiento de blobs. En lugar de que aplicación escriba en un disco virtual asociado a la máquina virtual, la aplicación puede escribir directamente en el Almacenamiento de blobs de Azure. Almacenamiento de blobs también proporciona la opción de [capas de almacenamiento de acceso frecuente y de acceso esporádico](../storage/storage-blob-storage-tiers.md) según las necesidades de disponibilidad y las restricciones de costo.
 
 
 ## Discos con bandas
@@ -71,7 +71,7 @@ Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las s
 - Uso de LVM
 - Evite el uso de opciones de almacenamiento en caché del disco de datos de Azure (directiva de almacenamiento en caché = ninguna)
 
-Para obtener más información, consulte [Espacios de almacenamiento - Diseño para el rendimiento](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Para más información, consulte [Configuración del LVM en una máquina virtual Linux en Azure](virtual-machines-linux-configure-lvm.md).
 
 
 ## Cuentas de almacenamiento múltiples
@@ -85,4 +85,4 @@ Para más información sobre las funcionalidades de E/S de las distintas opcione
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

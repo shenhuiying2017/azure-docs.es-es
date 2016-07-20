@@ -30,7 +30,7 @@ Requisitos previos para los ejercicios de este documento:
 
 ## Implementación de un contenedor nuevo
 
-Para crear un nuevo contenedor en Docker Swarm, use el comando `docker run`. Este ejemplo crea un contenedor a partir de la imagen `yeasy/simple-web`:
+Para crear un nuevo contenedor en Docker Swarm, use el comando `docker run` (asegúrese de que ha abierto un túnel SSH para los patrones de acuerdo con los requisitos previos anteriores). Este ejemplo crea un contenedor a partir de la imagen `yeasy/simple-web`:
 
 
 ```bash
@@ -54,9 +54,11 @@ Ahora puede acceder a la aplicación que se ejecuta en este contenedor a través
 
 ![Resultados de la visita real](media/real-visit.jpg)
 
+De forma predeterminada, el equilibrador de carga tiene los puertos 80, 443 y 8080 abiertos. Si va a conectar en otro puerto debe abrirlo en Azure Load Balancer para el grupo de agentes.
+
 ## Implementación de varios contenedores
 
-Cuando se inician varios contenedores en el clúster de Docker Swarm, se puede usar el comando `docker ps` para ver en qué host se ejecutan los contenedores. En este ejemplo, tres contenedores se propagan uniformemente por los tres agentes de Swarm:
+Cuando se inician varios contenedores, al ejecutar varias veces "docker run", se puede usar el comando `docker ps` para ver en qué host se ejecutan los contenedores. En el siguiente ejemplo, tres contenedores se propagan uniformemente por los tres agentes de Swarm:
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Implementación de contenedores mediante Docker Compose
 
-Puede usar Docker Compose para automatizar la implementación y configuración de varios contenedores. Para ello, asegúrese de que se ha creado un túnel Secure Shell (SSH) y se ha establecido la variable DOCKER\_HOST.
+Puede usar Docker Compose para automatizar la implementación y configuración de varios contenedores. Para ello, asegúrese de que se ha creado un túnel Secure Shell (SSH) y se ha establecido la variable DOCKER\_HOST (consulte los requisitos previos anteriores).
 
 Cree un archivo docker-compose.yml en el sistema local. Para ello, use este [ejemplo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -88,7 +90,7 @@ rest:
 
 ```
 
-Ejecute `docker-compose up -d` para iniciar las implementaciones de contenedores.
+Ejecute `docker-compose up -d` para iniciar las implementaciones de contenedores:
 
 
 ```bash
@@ -115,8 +117,10 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Naturalmente, puede usar `docker-compose ps` para examinar solo los contenedores definidos en su archivo `compose.yml`.
+
 ## Pasos siguientes
 
-[Más información acerca de Docker Swarm](https://docs.docker.com/swarm/).
+[Más información acerca de Docker Swarm.](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

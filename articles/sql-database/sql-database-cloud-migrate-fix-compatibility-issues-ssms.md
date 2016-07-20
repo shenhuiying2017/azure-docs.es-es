@@ -25,6 +25,10 @@
 
 Los usuarios avanzados pueden corregir los problemas de compatibilidad con las bases de datos SQL Server mediante SQL Server Management Studio antes de realizar la migración a Base de datos SQL de Azure.
 
+
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ## Uso de SQL Server Management Studio
 
 Use SQL Server Management Studio para corregir los problemas de compatibilidad con varios comandos de Transact-SQL, como **ALTER DATABASE**. Este método va dirigido principalmente a usuarios avanzados que se sienten a gusto trabajando con Transact-SQL en una base de datos activa. De lo contrario, se recomienda el uso de SSDT.
@@ -43,4 +47,4 @@ Use SQL Server Management Studio para corregir los problemas de compatibilidad c
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

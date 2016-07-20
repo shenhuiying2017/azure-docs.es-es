@@ -61,8 +61,8 @@ Voy a publicar una actualización importante de mi aplicación. Dicha actualizac
 En la siguiente tabla se exponen las características de continuidad del negocio de Base de datos SQL y se muestran sus diferencias entre los distintos [niveles de servicio](sql-database-service-tiers.md):
 
 | Capacidad | Nivel Basic | Nivel Standard |Nivel Premium
-| --- |--- | --- | ---
-| Restauración a un momento dado | Cualquier punto de restauración en 7 días | Cualquier punto de restauración en 14 días | Cualquier punto de restauración en 35 días
+| --- | --- | --- | ---
+| Restauración a un momento dado | Cualquier punto de restauración en 7 días | Cualquier punto de restauración en 35 días | Cualquier punto de restauración en 35 días
 | Restauración geográfica | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h
 | Replicación geográfica activa | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s
 
@@ -73,7 +73,7 @@ Estas características se proporcionan para abordar los escenarios mencionados a
 
 ###Restauración a un momento dado
 
-La funcionalidad de [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) está diseñada para restablecer la base de datos a un punto anterior en el tiempo. Esta característica usa las copias de seguridad de la base de datos, las copias de seguridad incrementales y las copias de seguridad de registros de transacciones que el servicio mantiene automáticamente para cada base de datos de usuario. Esta capacidad está disponible para todos los niveles de servicio. Puede recuperar la base de datos de hace 7 días, con el nivel Basic, 14 días, con el nivel Standard, y 35 días, con el nivel Premium.
+La funcionalidad de [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) está diseñada para restablecer la base de datos a un punto anterior en el tiempo. Esta característica usa las copias de seguridad de la base de datos, las copias de seguridad incrementales y las copias de seguridad de registros de transacciones que el servicio mantiene automáticamente para cada base de datos de usuario. Esta capacidad está disponible para todos los niveles de servicio. Puede recuperar la base de datos de hace 7 días, con el nivel Basic, 35 días, con el nivel Standard, y 35 días, con el nivel Premium.
 
 ### Restauración geográfica
 
@@ -126,4 +126,4 @@ Para obtener más información sobre las estrategias de recuperación cuando se 
 - Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

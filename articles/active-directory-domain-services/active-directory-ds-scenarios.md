@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 
@@ -62,4 +62,4 @@ Azure RemoteApp permite al administrador de Contoso crear una colección unida a
 
 Para más información sobre este escenario de implementación, consulte el artículo del blog de servicios de escritorio remoto titulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Elevación y desplazamiento de las cargas de trabajo con Azure RemoteApp y los Servicios de dominio de Azure AD).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

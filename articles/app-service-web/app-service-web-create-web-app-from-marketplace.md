@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="07/11/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -26,13 +26,13 @@ Azure Marketplace pone a disposición del usuario una gran variedad de populares
 
 En este tutorial, aprenderá a:
 
-* Buscar una plantilla de aplicación en Azure Marketplace.
-* Crear una aplicación web basada en la plantilla en el Servicio de aplicaciones de Azure.
-* Configurar el Servicio de aplicaciones de Azure para la nueva aplicación web y la base de datos.
+* Encontrar y crear una aplicación web basada en la plantilla de Azure Marketplace del Servicio de aplicaciones de Azure.
+* Configurar el Servicio de aplicaciones de Azure para la nueva aplicación web.
+* Iniciar y administrar la aplicación web.
 
 En este tutorial implementará un blog de WordPress desde Azure Marketplace. Una vez terminados los pasos de este tutorial, tendrá su propio sitio de WordPress en marcha en la nube.
 
-![Ejemplo de panel de la aplicación web de WordPress][WordPressDashboard]
+![Ejemplo de panel de la aplicación web de WordPress][WordPressDashboard1]
 
 El sitio de WordPress que se implementa en este tutorial utiliza MySQL para la base de datos. Si desea usar Base de datos SQL para la base de datos, consulte [Project Nami], que también está disponible en Azure Marketplace.
 
@@ -41,7 +41,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones]. A partir de ahí puede crear de forma inmediata una aplicación web de inicio de corta duración en Servicio de aplicaciones; no se requiere ninguna tarjeta de crédito y no se establece ningún compromiso.
 
-## Selección de WordPress y configuración para el Servicio de aplicaciones de Azure
+## Búsqueda y creación de una aplicación web en el Servicio de aplicaciones de Azure
 
 1. Inicie sesión en el [Portal de Azure].
 
@@ -57,13 +57,15 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 	![Creación de una aplicación web de WordPress][MarketplaceCreate]
 
-1. Se muestra la hoja de configuración de WordPress, que usará para completar los pasos siguientes:
+## Configuración del Servicio de aplicaciones de Azure para la nueva aplicación web
+
+1. Una vez creada la nueva aplicación web, se muestra la hoja de configuración de WordPress, que usará para completar los pasos siguientes:
 
 	![Configuración de las opciones de la aplicación web de WordPress][ConfigStart]
 
 1. Escriba un nombre para la aplicación web en el cuadro **Aplicación web**.
 
-	Este nombre debe ser único en el dominio azurewebsites.net, ya que la dirección URL de la aplicación web será *{nombre}*.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
+	Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será *{nombre}*.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
 
 	![Configuración del nombre de la aplicación web de WordPress][ConfigAppName]
 
@@ -79,7 +81,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 1. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
-	Para más información sobre los planes de Servicio de aplicaciones, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure][AzureAppServicePlans].
+	Para más información sobre los planes del Servicio de aplicaciones, consulte [Introducción general sobre los planes del Servicio de aplicaciones de Azure][AzureAppServicePlans].
 
 	![Configuración del plan de servicio para la aplicación web][ConfigServicePlan]
 
@@ -93,7 +95,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 	d. Elija un plan de tarifa. **Mercurio**: para este tutorial sirve Mercurio, que es gratis y tiene un mínimo de conexiones y espacio en disco.
 
-	e. En la hoja **Nueva base de datos MySQL**, acepte los términos legales y haga clic en **Crear**.
+	e. En la hoja **Nueva base de datos MySQL**, acepte los términos legales y haga clic en **Aceptar**.
 
 	![Configuración de las opciones de la base de datos para la aplicación web][ConfigDatabase]
 
@@ -119,7 +121,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 	![Desplazamiento a la aplicación web de WordPress][WordPressBrowse]
 
-1. Si se le pide que seleccione el idioma para el blog de WordPress, seleccione el que desee y haga clic en **Continuar**.
+1. Si se le pide que seleccione el idioma para el blog de WordPress, seleccione el que quiera y haga clic en **Continuar**.
 
 	![Configuración del idioma de la aplicación web de WordPress][WordPressLanguage]
 
@@ -131,7 +133,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 1. Se abrirá la página Panel del sitio, que mostrará la información que proporcionó.
 
-	![Visualización del panel de WordPress][WordPressDashboard]
+	![Visualización del panel de WordPress][WordPressDashboard2]
 
 ## Pasos siguientes
 
@@ -174,7 +176,8 @@ Para más información acerca de cómo desarrollar aplicaciones web de WordPress
 [WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
 [WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
 [WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard.png
+[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
+[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

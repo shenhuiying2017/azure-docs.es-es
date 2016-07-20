@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
-    ms.author="sethm" />
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # Entidades de mensajería con particiones
 
@@ -111,16 +111,25 @@ committableTransaction.Commit();
 
 Bus de servicio de Azure admite el reenvío automático de mensajes desde entidades con particiones, así como a ellas y entre ellas. Para habilitar el reenvío automático de mensajes, establezca la propiedad [QueueDescription.ForwardTo][] en la cola o suscripción de origen. Si el mensaje especifica una clave de partición ([SessionId][], [PartitionKey][] o [MessageId][]), esa clave de partición se usa para la entidad de destino.
 
+## Consideraciones e instrucciones
+
+- **Características de alta coherencia**: si una entidad utiliza características como sesiones, detección de duplicados o control explícito de la clave de creación de particiones, las operaciones de mensajería se enrutarán siempre a fragmentos específicos. Si cualquiera de estos fragmentos experimenta un tráfico elevado o el almacén subyacente es incorrecto, se producirá un error en las operaciones y se reducirá la disponibilidad. En general, la coherencia es todavía mucho mayor que en las entidades sin particiones ya que solo un subconjunto del tráfico tiene problemas, en lugar de todo el tráfico.
+- **Administración**: las operaciones Create, Update y Delete se deben realizar en todos los fragmentos de la entidad. Si algún fragmento es incorrecto, podría provocar errores en estas operaciones. Para la operación Get, la información como el número de mensajes se debe agregar desde todos los fragmentos. Si algún fragmento es incorrecto, se notifica el estado de disponibilidad de la entidad como limitado.
+- **Escenarios de bajo volumen de mensajes**: para tales escenarios, especialmente cuando se usa el protocolo HTTP, tendrá que realizar varias operaciones de recepción con el fin de obtener todos los mensajes. Para las solicitudes de recepción, el equipo front-end realiza una operación de recepción en todos los fragmentos y almacena en caché todas las respuestas recibidas. Una solicitud de recepción posterior en la misma conexión se beneficiaría de este almacenamiento en caché y las latencias de recepción serían menores. Sin embargo, si tiene varias conexiones o utiliza el protocolo HTTP, se establecerá una conexión nueva para cada solicitud. Por lo tanto, no hay ninguna garantía de que llegará al mismo nodo. Si todos los mensajes existentes están bloqueados y almacenados en caché en otro equipo front-end, la operación de recepción devolverá un valor **null**. Finalmente, los mensajes caducan y podrá volver a recibirlos. Se recomienda mantener la conexión HTTP.
+- **Examinar o buscar mensajes**: PeekBatch no siempre devuelve el número de mensajes especificado en la [propiedad MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). Esto tiene dos motivos habituales. Uno de ellos es que el tamaño agregado de la colección de mensajes supera el tamaño máximo de 256 KB. El otro es que si la cola o tema tiene la [propiedad EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) establecida como **true**, puede que una partición no tenga suficientes mensajes para completar el número solicitado de mensajes. En general, si una aplicación desea recibir un número específico de mensajes, debe llamar a [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) repetidamente hasta que obtenga ese número de mensajes o no habrá más mensajes para inspeccionar. Para más información, incluidos algunos ejemplos de código, consulte [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) o [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+
+## Características agregadas más recientes
+
+- La opción Agregar o quitar regla ya es compatible con las entidades con particiones. A diferencia de las entidades sin particiones, estas operaciones no se admiten en las transacciones.
+- Ahora se admite AMQP para enviar mensajes a una entidad con particiones o recibirlos de ella.
+- Ahora se admite AMQP para las siguientes operaciones: [Batch Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [Batch Receive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [Receive by Sequence Number](https://msdn.microsoft.com/library/azure/hh330765.aspx), [Peek](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [Renew Lock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [Schedule Message](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [Cancel Scheduled Message](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [Add Rule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Remove Rule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Session Renew Lock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [Set Session State](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [Get Session State](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [Peek Session Messages](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx) y [Enumerate Sessions](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx).
+
 ## Limitaciones de las entidades con particiones
 
 En su implementación actual, Bus de servicio impone las siguientes limitaciones en colas y temas con particiones:
 
--   Las colas y temas con particiones están disponibles a través de SBMP o HTTP/HTTPS, así como de AMQP.
-
 -   Las colas y los temas con particiones no admiten el envío de mensajes que pertenecen a sesiones diferentes en una sola transacción.
-
 -   Actualmente Bus de servicio permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres.
-
 -   Las colas y temas con particiones no están admitidos en Bus de servicio para Windows Server versiones 1.0 y 1.1.
 
 ## Pasos siguientes
@@ -144,4 +153,4 @@ Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las cola
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0706_2016-->

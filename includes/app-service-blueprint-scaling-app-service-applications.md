@@ -1,4 +1,4 @@
-* [Escalar Servicio de aplicaciones de Azure](../articles/app-service/app-service-scale.md)
+* [Escalar Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-scale.md)
 	* Descripción de redundancia y confiabilidad
 	* Comparación de aplicaciones con y sin estado
 		* [Configuración de una aplicación sin estado](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
@@ -14,4 +14,4 @@
 * Distribución geográfica
 	* [Sacar provecho de Administrador de tráfico para alcanzar una escala global](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -27,7 +27,7 @@ En esta página se describe cómo el Administrador de tráfico admite diferentes
 
 El Administrador de tráfico admite tres tipos de puntos de conexión:
 
-- Los **puntos de conexión de Azure** se utilizan para los servicios hospedados en Azure.  
+- Los **puntos de conexión de Azure** se utilizan para los servicios hospedados en Azure.
 - Los **puntos de conexión externos** se emplean para los servicios hospedados fuera de Azure; es decir, de forma local o con otro proveedor de hospedaje.
 - Los **puntos de conexión anidados** se utilizan para combinar los perfiles del Administrador de tráfico con el objetivo de crear esquemas de enrutamiento de tráfico más flexibles y, de este modo, satisfacer los requisitos de implementaciones más complejas y de mayor envergadura.
 
@@ -121,13 +121,13 @@ Una vez que recibe una consulta de DNS, Administrador de tráfico responderá co
 
 Tenga en cuenta que, para que las comprobaciones de estado del Administrador de tráfico funcionen correctamente, el servicio también tendrá que exponer un punto de conexión IPv4. Esto se debe asignar desde el mismo nombre DNS del punto de conexión con un registro A DNS.
 
-### ¿Puedo usar el Administrador de tráfico con más aplicaciones web en la misma región?
+### ¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?
 
 Normalmente, el Administrador de tráfico se utiliza para dirigir el tráfico a las aplicaciones implementadas en diferentes regiones. Sin embargo, también se puede utilizar en los casos en que una aplicación tenga más de una implementación en la misma región.
 
 En el caso de las aplicaciones web, los puntos de conexión de Azure del Administrador de tráfico no permiten que se agregue más de un punto de conexión de aplicación web de la misma región de Azure al mismo perfil del Administrador de tráfico. En los pasos siguientes se ofrece una solución alternativa a esta restricción:
 
-1.	Compruebe que las aplicaciones web de la misma región se encuentren en diferentes unidades de escalado de aplicación web; es decir, en distintas instancias del servicio de aplicaciones web. Para ello, compruebe la ruta DNS de la entrada DNS <...>.azurewebsites.net; la unidad de escalado deberá ser similar a esta: waws-prod-xyz-123.vip.azurewebsites.net. Debe asignar un nombre de dominio determinado a un único sitio de una unidad de escalado específica y, por este motivo, dos aplicaciones web de la misma unidad de escalado no pueden compartir un perfil del Administrador de tráfico. 
+1.	Compruebe que las aplicaciones web de la misma región se encuentren en diferentes unidades de escalado de aplicación web; es decir, en distintas instancias del servicio de aplicaciones web. Para ello, compruebe la ruta DNS de la entrada DNS <...>.azurewebsites.net; la unidad de escalado deberá ser similar a esta: waws-prod-xyz-123.vip.azurewebsites.net. Debe asignar un nombre de dominio determinado a un único sitio de una unidad de escalado específica y, por este motivo, dos aplicaciones web de la misma unidad de escalado no pueden compartir un perfil del Administrador de tráfico.
 2.	Suponiendo que cada aplicación web está en una unidad de escalado diferente, agregue el nombre de dominio personal como nombre de host personalizado a cada una de las aplicaciones web. Para ello, todas las aplicaciones web deben pertenecer a la misma suscripción.
 3.	Agregue un solo punto de conexión de aplicación web de la misma forma que lo haría con el perfil del Administrador de tráfico; es decir, como punto de conexión de Azure.
 4.	Agregue cada punto de conexión de aplicación web adicional al perfil del Administrador de tráfico como punto de conexión externo. Para ello, hay que utilizar el servicio Azure Resource Manager del Administrador de tráfico en lugar de Administración del servicio.
@@ -142,4 +142,4 @@ En el caso de las aplicaciones web, los puntos de conexión de Azure del Adminis
 
 - Conozca los [métodos de enrutamiento de tráfico del Administrador de tráfico](traffic-manager-routing-methods.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0706_2016-->

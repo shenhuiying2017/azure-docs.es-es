@@ -13,23 +13,23 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/23/2016"
+   ms.date="07/06/2016"
    ms.author="mbaldwin"/>
 
 
 # Guía del desarrollador de Azure Active Directory
 
 ## Información general
-Al ser una plataforma de administración de identidades como servicio (IDMaaS), Azure Active Directory proporciona a los desarrolladores una manera eficaz de integrar la administración de identidades en sus aplicaciones. Los siguientes artículos ofrecen información general sobre la implementación y las características clave de Azure Active Directory. Se recomienda leerlos por orden o, si desea profundizar en el tema, ir directamente a [Introducción](#getting-started).
+Al ser una plataforma de administración de identidades como servicio (IDMaaS), Azure Active Directory (AD) proporciona a los desarrolladores una manera eficaz de integrar la administración de identidades en sus aplicaciones. Los siguientes artículos ofrecen información general sobre la implementación y las características clave de Azure AD. Se recomienda leerlos por orden o, si desea profundizar en el tema, ir directamente a [Introducción](#getting-started).
 
 
-1. [Beneficios de la integración con Azure Active Directory](active-directory-how-to-integrate.md): descubra por qué la integración con Azure Active Directory ofrece la mejor solución para lograr una autorización y un inicio de sesión seguros.
+1. [Ventajas de la integración con Azure Active Directory](active-directory-how-to-integrate.md): descubra por qué la integración con Azure AD ofrece la mejor solución de seguridad para la autorización y el inicio de sesión.
 
-1. [Escenarios de autenticación de Active Directory](active-directory-authentication-scenarios.md): aproveche la autenticación simplificada de Azure Active Directory para proporcionar inicio de sesión en la aplicación.
+1. [Escenarios de autenticación para Active Directory](active-directory-authentication-scenarios.md): aproveche la autenticación simplificada de Azure AD para el inicio de sesión en la aplicación.
 
-1. [Integración de las aplicaciones con Azure Active Directory](active-directory-integrating-applications.md): obtenga información sobre cómo agregar, actualizar y quitar aplicaciones de Azure Active Directory, y acerca de las directrices de personalización de marca para aplicaciones integradas.
+1. [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md): obtenga información sobre cómo agregar, actualizar y quitar aplicaciones de Azure AD, y acerca de las directrices de personalización de marca para aplicaciones integradas.
 
-1. [API Graph de Azure Active Directory](active-directory-graph-api.md): use la API Graph de Azure Active Directory para acceder mediante programación a Azure Active Directory a través de extremos de la API de REST. Tenga en cuenta que la API Graph de Azure AD también es accesible a través de [Microsoft Graph](https://graph.microsoft.io/), una API unificada que permite el acceso a varias API del servicio de Microsoft Cloud a través de un punto de conexión de API de REST único y con un token de acceso único.
+1. [API Graph de Azure Active Directory](active-directory-graph-api.md): use la API Graph de Azure AD para acceder mediante programación a Azure AD a través de los puntos de conexión de API de REST. Tenga en cuenta que la API Graph de Azure AD también es accesible a través de [Microsoft Graph](https://graph.microsoft.io/), una API unificada que permite el acceso a varias API del servicio de Microsoft Cloud a través de un punto de conexión de API de REST único y con un token de acceso único.
 
 1. [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md): autentique a los usuarios fácilmente para obtener tokens de acceso mediante las bibliotecas de autenticación de Azure para .NET, JavaScript, Objective-C, Android, etc.
 
@@ -66,12 +66,13 @@ Estos tutoriales están adaptados para varias plataformas y pueden ayudarle a em
 
 En estos artículos se describe cómo realizar tareas específicas con Azure Active Directory:
 
-- [Obtención de un inquilino de Azure Active Directory](active-directory-howto-tenant.md)
-- [Visualización de la aplicación en la galería de aplicaciones de Azure Active Directory](active-directory-app-gallery-listing.md)
-- [Descripción del manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md)
-- [Creación de una aplicación con las API de Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
+- [Obtención de un inquilino de Azure AD](active-directory-howto-tenant.md)
+- [Inicio de sesión de cualquier usuario de AD mediante el patrón de aplicación multiinquilino](active-directory-devhowto-multi-tenant-overview.md)
+- Habilitación de SSO entre aplicaciones con ADAL, en dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
+- [Certificación de la aplicación AppSource para Azure AD](active-directory-devhowto-appsource-certified.md)
+- [Presentación de la aplicación en la galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md)
 - [Envío de aplicaciones web para Office 365 al panel de vendedores](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-- Aprenda cómo habilitar SSO entre aplicaciones con ADAL, en dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md).
+- [Descripción del manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md)
 - [Comprender las directrices de personalización de marca para los botones de adquisición de aplicación y de inicio de sesión en la aplicación cliente](active-directory-branding-guidelines.md)
 - [Vista previa: cómo compilar aplicaciones que inician sesión para los usuarios tanto con cuentas personales como profesionales o educativas](active-directory-appmodel-v2-overview.md)
 - [Vista previa: Creación de aplicaciones que registren e inicien la sesión de los consumidores](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -102,11 +103,11 @@ Estos artículos proporcionan información básica sobre las API de REST y de la
 
 - [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md): aprenda sobre la cadencia de sustitución de claves de firma de Azure AD y sobre cómo actualizar la clave en los escenarios de aplicación más comunes.
 
-- [Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)](active-directory-dev-understanding-oauth2-implicit-grant.md): aprenda sobre la concesión de autorización "implícita" y si es adecuada para su aplicación.
+- [Protocolo OAuth 2.0: descripción del flujo de concesión implícita](active-directory-dev-understanding-oauth2-implicit-grant.md): aprenda sobre la concesión de autorización implícita y si es adecuada para su aplicación.
 
 - [Referencia del protocolo SAML 2.0](active-directory-saml-protocol-reference.md): el protocolo SAML 2.0 permite que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios.
 
-- [Protocolo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory admite WS-Federation 1.2 según la especificación Web Services Federation versión 1.2. Para más información sobre los documentos de metadatos de federación que publica Azure AD, consulte [Metadatos de la federación](active-directory-federation-metadata.md).
+- [Protocolo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory admite WS-Federation 1.2 de acuerdo con la especificación Web Services Federation versión 1.2. Para más información sobre los documentos de metadatos de federación, consulte [Metadatos de federación](active-directory-federation-metadata.md).
 
 - [Tipos de token y de notificación admitidos](active-directory-token-and-claims.md): puede usar esta guía para entender y evaluar las notificaciones en los tokens web JSON (JWT) y SAML 2.0.
 
@@ -138,4 +139,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

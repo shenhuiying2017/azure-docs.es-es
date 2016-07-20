@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/19/2016"
+ ms.date="07/05/2016"
  ms.author="larryfr"/>
 
 # Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
@@ -27,11 +27,11 @@ En este documento, obtendrá información sobre cómo crear una topología bási
 
 ## Requisitos previos
 
--	Herramientas de HDInsight para Visual Studio: vea [Introducción al uso de herramientas de HDInsight para Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obtener información acerca de la instalación.
+-	Visual Studio y herramientas de HDInsight para Visual Studio: consulte [Introducción al uso de Herramientas de HDInsight para Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obtener información sobre la instalación.
 
--	Clúster de Apache Storm en HDInsight
+-	Apache Storm en clústeres de HDInsight (Windows) Se ejecuta la topología de Storm, que procesa los datos entrantes y los almacena en HBase.
 
--	Clúster de Apache HBase en HDInsight
+-	Apache HBase en clústeres de HDInsight (Windows o Linux) Se trata del almacén de datos que se utiliza para este ejemplo.
 
 ## Arquitectura
 
@@ -204,4 +204,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0706_2016-->

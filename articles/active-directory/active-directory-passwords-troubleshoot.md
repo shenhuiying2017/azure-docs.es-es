@@ -37,12 +37,12 @@ Si no puede resolver el problema con las instrucciones siguientes, póngase en c
  - **Descripción general del error**: qué mensaje de error exacto ha obtenido el usuario. Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado.
  - **Página**: en qué página estaba cuando se generó el error (incluir la dirección URL).
  - **Fecha/hora/marca de tiempo**: en qué fecha y a qué hora exactamente se ha generado el error (incluir la marca de tiempo).
- - **Código de soporte** : qué código de soporte se generó cuando el usuario obtuvo el error (para encontrarlo, reproducir el error, hacer clic en el vínculo Código de soporte en la parte inferior de la pantalla y enviar el GUID resultante al ingeniero de soporte). 
+ - **Código de soporte** : qué código de soporte se generó cuando el usuario obtuvo el error (para encontrarlo, reproducir el error, hacer clic en el vínculo Código de soporte en la parte inferior de la pantalla y enviar el GUID resultante al ingeniero de soporte).
    - Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
 
     ![][001]
 
- - **Id. de usuario**: cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
+ - **Id. de usuario**: ¿cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
  - **Información sobre el usuario**: si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube. ¿El usuario tenía asignada una licencia AAD Premium o AAD Basic?
  - **Registro de eventos de la aplicación**: si utiliza la escritura diferida de contraseñas y el error se produce en la infraestructura local, comprima una copia del registro de eventos de la aplicación desde el servidor de Azure AD Connect y envíela junto con su solicitud.
 
@@ -102,7 +102,7 @@ Si se produce un error al configurar el restablecimiento de la contraseña, pued
             </td>
             <td>
               <p>Muchos elementos de la IU están ocultos hasta que se necesitan. Intente habilitar todas las opciones en la página si desea verlas.</p>
-              <p>Consulte <a href="../active-directory-passwords-customize#password-management-behavior">Personalización de la directiva de restablecimiento de contraseña</a> para obtener más información acerca de todos los controles disponibles.</p>
+              <p>Consulte <a href="active-directory-passwords-customize.md#password-management-behavior">Comportamiento de administración de contraseñas</a> para más información sobre todos los controles que están disponibles.</p>
             </td>
           </tr>
           <tr>
@@ -114,7 +114,7 @@ Si se produce un error al configurar el restablecimiento de la contraseña, pued
             </td>
             <td>
               <p>Esta opción solo está visible si ha descargado Azure AD Connect y ha configurado la escritura diferida de contraseñas. Cuando haya hecho esto, esta opción aparece y le permite habilitar o deshabilitar la escritura diferida de contraseñas desde la nube.</p>
-              <p>Consulte <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
+              <p>Consulte <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Habilitar la escritura diferida de contraseñas en Azure AD Connect</a> para más información al respecto.</p>
             </td>
           </tr>
         </tbody></table>
@@ -289,7 +289,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
             </td>
             <td>
-              <p>Asegúrese de que el usuario ha formado correctamente los datos de contacto en el archivo del directorio antes de continuar. Consulte <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a> para obtener información sobre cómo configurar la información de autenticación en el directorio para que los usuarios no obtengan este error.</p>
+              <p>Asegúrese de que el usuario ha formado correctamente los datos de contacto en el archivo del directorio antes de continuar. Consulte <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a> para obtener información sobre cómo configurar la información de autenticación en el directorio para que los usuarios no obtengan este error.</p>
             </td>
           </tr>
           <tr>
@@ -305,7 +305,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
             </td>
             <td>
-              <p>Asegúrese de que el usuario tiene al menos dos métodos de contacto configurados correctamente (por ejemplo, teléfono móvil y teléfono del trabajo) antes de continuar. Consulte <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a> para obtener información sobre cómo configurar la información de autenticación en el directorio para que los usuarios no obtengan este error.</p>
+              <p>Asegúrese de que el usuario tiene al menos dos métodos de contacto configurados correctamente (por ejemplo, teléfono móvil y teléfono del trabajo) antes de continuar. Consulte <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a> para obtener información sobre cómo configurar la información de autenticación en el directorio para que los usuarios no obtengan este error.</p>
             </td>
           </tr>
           <tr>
@@ -327,7 +327,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>El usuario hace clic en "Enviar mensaje" o "Llamarme”, pero no recibe nada.</p>
             </td>
             <td>
-              <p>Esto puede ser el resultado de un número de teléfono incorrecto en el directorio. Asegúrese de que el número de teléfono tiene el formato "+ccc xxxyyyzzzzXeeee". Para obtener más información acerca del formato de los números de teléfono para utilizarlos con el restablecimiento de contraseñas, consulte <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a></p>
+              <p>Esto puede ser el resultado de un número de teléfono incorrecto en el directorio. Asegúrese de que el número de teléfono tiene el formato "+ccc xxxyyyzzzzXeeee". Para obtener más información acerca del formato de los números de teléfono para utilizarlos con el restablecimiento de contraseñas, consulte <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a></p>
               <p>Si se requiere una extensión para enrutar al usuario en cuestión, tenga en cuenta que restablecer la contraseña no admite extensiones, incluso si se especifica una en el directorio (se quitan antes de enviar la llamada). Pruebe a utilizar un número sin una extensión o a integrar la extensión en el número de teléfono en su PBX.</p>
             </td>
           </tr>
@@ -340,7 +340,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
             </td>
             <td>
               <p>La causa más común para este problema es que un filtro de correo no deseado rechaza el mensaje. Compruebe la carpeta de elementos eliminados o correo no deseado para comprobar si ha recibido el correo.</p>
-              <p>También asegúrese de que está comprobando el correo electrónico adecuado para el mensaje... muchas personas tienen direcciones de correo electrónico muy similares y terminan por comprobar si el mensaje ha llegado en la bandeja de entrada incorrecta. Si ninguna de estas opciones funciona, también es posible que la dirección de correo electrónico del directorio sea incorrecta; compruébelo para asegurarse de que la dirección de correo electrónico es la adecuada e inténtelo de nuevo. Para obtener más información acerca del formato de las direcciones de correo electrónico para utilizarlas con el restablecimiento de contraseñas, consulte <a href="../active-directory-passwords-learn-more#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a></p>
+              <p>También asegúrese de que está comprobando el correo electrónico adecuado para el mensaje... muchas personas tienen direcciones de correo electrónico muy similares y terminan por comprobar si el mensaje ha llegado en la bandeja de entrada incorrecta. Si ninguna de estas opciones funciona, también es posible que la dirección de correo electrónico del directorio sea incorrecta; compruébelo para asegurarse de que la dirección de correo electrónico es la adecuada e inténtelo de nuevo. Para obtener más información acerca del formato de las direcciones de correo electrónico para utilizarlas con el restablecimiento de contraseñas, consulte <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">¿Qué datos sirven para restablecer la contraseña?</a></p>
             </td>
           </tr>
           <tr>
@@ -519,7 +519,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Después trabajar durante algún tiempo, los usuarios federados o con sincronización de hash de contraseña no pueden restablecer las contraseñas.</p>
             </td>
             <td>
-              <p>En algunos casos excepcionales, el servicio de escritura diferida de contraseñas puede no volver a iniciarse cuando se reinicia Azure AD Connect. En estos casos, en primer lugar, compruebe si la escritura diferida de contraseñas está habilitada en el entorno local. Esto puede hacerse mediante el Asistente de Azure AD Connect o PowerShell (consulte la sección anterior sobre los procedimientos). Si la característica parece estar habilitada, pruebe a habilitar o deshabilitar la característica de nuevo a través de la interfaz de usuario o de PowerShell. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
+              <p>En algunos casos excepcionales, el servicio de escritura diferida de contraseñas puede no volver a iniciarse cuando se reinicia Azure AD Connect. En estos casos, en primer lugar, compruebe si la escritura diferida de contraseñas está habilitada en el entorno local. Esto puede hacerse mediante el Asistente de Azure AD Connect o PowerShell (consulte la sección anterior sobre los procedimientos). Si la característica parece estar habilitada, pruebe a habilitar o deshabilitar la característica de nuevo a través de la interfaz de usuario o de PowerShell. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
               <p>
                 
               </p>
@@ -563,7 +563,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
                 <li>
 										Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El asistente creará el nombre del conector mediante las credenciales, como "abc.onmicrosoft.com – AAD", y pasará al cmdlet de escritura diferida de contraseñas. Esto generará un error porque no hay ningún conector creado con este nombre.&lt;br>&lt;br></li>
               </ol>
-              <p>Esto se ha solucionado en nuestras compilaciones más recientes. Si tiene una compilación anterior, una solución alternativa es usar el cmdlet de PowerShell para habilitar o deshabilitar la característica. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
+              <p>Esto se ha solucionado en nuestras compilaciones más recientes. Si tiene una compilación anterior, una solución alternativa es usar el cmdlet de PowerShell para habilitar o deshabilitar la característica. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
             </td>
           </tr>
           <tr>
@@ -638,7 +638,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Al intentar restablecer la contraseña en nombre del usuario del Portal de administración de Azure, obtendrá el siguiente mensaje: "El servicio de restablecimiento de contraseña ejecutado en su entorno local no admite que los administradores restablezcan las contraseñas de usuario". Actualice a la versión más reciente de Azure AD Connect para resolver el problema”.</p>
             </td>
             <td>
-              <p>Esto sucede cuando la versión del motor de sincronización no admite la operación particular utilizada de la escritura diferida de contraseñas. Las versiones de Azure AD Connect posteriores a la 1.0.0419.0911 admiten todas las operaciones de administración de contraseñas, entre otras, la escritura diferida de restablecimiento de contraseñas, la escritura diferida de modificación de contraseñas y la escritura diferida de restablecimiento de contraseñas iniciada por el administrador desde el Portal de administración de Azure.&#160; Las versiones de DirSync posteriores a la 1.0.6862 solo admiten la escritura diferida de restablecimiento de contraseñas. Para resolver este problema, recomendamos encarecidamente que instale la versión más reciente de Azure AD Connect o Azure Active Directory Connect (para obtener más información, consulte <a href="../active-directory-aadconnect#download-azure-ad-connect">Herramientas de integración de directorio</a>) para resolver este problema y para sacar el máximo partido de la escritura diferida de contraseñas en su organización.</p>
+              <p>Esto sucede cuando la versión del motor de sincronización no admite la operación particular utilizada de la escritura diferida de contraseñas. Las versiones de Azure AD Connect posteriores a la 1.0.0419.0911 admiten todas las operaciones de administración de contraseñas, entre otras, la escritura diferida de restablecimiento de contraseñas, la escritura diferida de modificación de contraseñas y la escritura diferida de restablecimiento de contraseñas iniciada por el administrador desde el Portal de administración de Azure.&#160; Las versiones de DirSync posteriores a la 1.0.6862 solo admiten la escritura diferida de restablecimiento de contraseñas. Para resolver este problema, recomendamos encarecidamente que instale la versión más reciente de Azure AD Connect o Azure Active Directory Connect (para obtener más información, consulte <a href="active-directory-aadconnect">Herramientas de integración de directorio</a>) para resolver este problema y para sacar el máximo partido de la escritura diferida de contraseñas en su organización.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1284,7 +1284,7 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Este evento indica que la cuenta de servicio del agente de administración no tiene los permisos adecuados en la cuenta en cuestión para establecer una nueva contraseña. Asegúrese de que la cuenta del agente de administración en el bosque del usuario tiene los permisos de restablecimiento y cambio de contraseña en todos los objetos del bosque. Para obtener más información sobre cómo hacerlo, consulte <a href="../active-directory-passwords-getting-started#step-4-set-up-the-appropriate-active-directory-permissions">Paso 4: configurar los permisos adecuados de Active Directory</a>.</p>
+              <p>Este evento indica que la cuenta de servicio del agente de administración no tiene los permisos adecuados en la cuenta en cuestión para establecer una nueva contraseña. Asegúrese de que la cuenta del agente de administración en el bosque del usuario tiene los permisos de restablecimiento y cambio de contraseña en todos los objetos del bosque. Para obtener más información sobre cómo hacerlo, consulte <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Paso 4: configurar los permisos adecuados de Active Directory</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1416,11 +1416,12 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
             </td>
           </tr>
         </tbody></table>
+		
 ## Solución de problemas con la conectividad de la escritura diferida de contraseñas
 
 Si se producen interrupciones del servicio con el componente de escritura diferida de contraseñas de Azure AD Connect, aquí tiene algunos pasos que puede seguir para resolver este problema:
 
- - [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-AD-sync-service)
+ - [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
  - [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
  - [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
  - [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback)
@@ -1465,7 +1466,7 @@ Si el problema no se soluciona después de deshabilitar y volver a habilitar la 
 ### Instalación de la última versión de Azure AD Connect
 Volver a instalar el paquete de Azure AD Connect resolverá cualquier problema de configuración que pueda afectar a su capacidad de conectarse a nuestros servicios en la nube o administrar contraseñas en su entorno de AD local. Se recomienda realizar este paso sólo después de probar los dos primeros pasos descritos anteriormente.
 
- 1.	Descargue la última versión de Azure AD Connect [aquí](active-directory-aadconnect.md#download-azure-ad-connect).
+ 1.	Descargue la última versión de Azure AD Connect [aquí](active-directory-aadconnect.md#install-azure-ad-connect).
  2.	Puesto que ya ha instalado Azure AD Connect, sólo necesitará realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
  3.	Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect. No se necesitan pasos manuales adicionales a menos que haya personalizado reglas de sincronización rápida, en cuyo caso debe **realizar una copia de seguridad antes de continuar con la actualización y volver a implementarla de forma manual cuando haya terminado**.
 
@@ -1497,4 +1498,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0706_2016-->

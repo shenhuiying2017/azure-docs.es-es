@@ -137,8 +137,8 @@ Hay tres portales de Azure, y cada uno tiene distintas capacidades con respecto 
  - La base de datos de V11 *no* se puede actualizar a V12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portal clásico de base de datos SQL de Azure:
- - No se pueden administrar los servidores de V12
+- (http://*yourservername*.database.windows.net)<br/> Portal clásico de Base de datos SQL de Azure:
+ - *No* se pueden administrar los servidores de V12.
 
 
 Se recomienda conectarse a las bases de datos SQL de Azure con Visual Studio 2013 (VS2013). VS2013 se puede usar para tareas como las siguientes:
@@ -158,6 +158,9 @@ En el Portal de Azure clásico anterior, en la página de la base de datos, pued
 Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [CU6](http://support.microsoft.com/kb/3031047/) para conectarse a Base de datos SQL de Azure. En esta publicación de blog:<br/>[Actualizaciones de herramientas de cliente para Base de datos SQL de Azure](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/) encontrará más detalles al respecto.
 
 
+> [AZURE.IMPORTANT] Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 ### Limitación *durante* la actualización a V12
 
 
@@ -166,7 +169,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 
 | Limitación | Descripción |
 | :--- | :--- |
-| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
+| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tienen bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium<br/><br/> La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que actualmente se encuentra en proceso de realizar una actualización desde V11. |
 | La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Pero la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
 
@@ -253,4 +256,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 <!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -180,22 +180,28 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 
 Puede iniciar y detener la supervisión mediante PowerShell.
 
+En primer lugar, importe el módulo de Application Insights:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Encuentre las aplicaciones en supervisión:
+
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
-* `-Name` (Opcional) El nombre de una aplicación web.
+* `-Name` (Opcional) Nombre de una aplicación web.
 * Muestra el estado de supervisión de Application Insights para cada aplicación web (u otra aplicación con nombre) en este servidor IIS.
 
 * Devuelve `ApplicationInsightsApplication` para cada aplicación:
- * `SdkState==EnabledAfterDeployment`: la aplicación se está supervisando y se ha instrumentado en tiempo de ejecución, ya sea mediante la herramienta Monitor de estado o mediante `Start-ApplicationInsightsMonitoring`.
- * `SdkState==Disabled`: la aplicación no se ha instrumentado para Application Insights. Nunca se ha instrumentado o se deshabilitó la supervisión en tiempo de ejecución mediante la herramienta Monitor de estado o mediante `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledAfterDeployment`: la aplicación se está supervisando y se ha instrumentado en tiempo de ejecución, ya sea con la herramienta Monitor de estado o con `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: la aplicación no se ha instrumentado para Application Insights. Nunca se ha instrumentado o se deshabilitó la supervisión en tiempo de ejecución con la herramienta Monitor de estado o con `Stop-ApplicationInsightsMonitoring`.
  * `SdkState==EnabledByCodeInstrumentation`: se ha instrumentado la aplicación agregando el SDK al código fuente. El SDK no se puede actualizar ni detener.
  * `SdkVersion` muestra la versión en uso para la supervisión de esta aplicación.
- * `LatestAvailableSdkVersion` muestra la versión disponible actualmente en la galería de NuGet. Para actualizar la aplicación a esta versión, utilice `Update-ApplicationInsightsMonitoring`.
+ * `LatestAvailableSdkVersion` muestra la versión disponible actualmente en la galería de NuGet. Para actualizar la aplicación a esta versión, use `Update-ApplicationInsightsMonitoring`.
 
 `Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
 
 * `-Name` El nombre de la aplicación en IIS
-* `-InstrumentationKey` El valor ikey del recurso de Application Insights donde desea que se muestren los resultados.
+* `-InstrumentationKey` El valor ikey del recurso de Application Insights donde quiere que se muestren los resultados.
 
 * Este cmdlet solo afecta a las aplicaciones que no se han instrumentado, es decir, aquellas cuyo SdkState == NotInstrumented.
 
@@ -205,7 +211,7 @@ Puede iniciar y detener la supervisión mediante PowerShell.
 
     Para descargar la versión más reciente, use Update-ApplicationInsightsVersion.
 
-* Devuelve `ApplicationInsightsApplication` si es correcto. Si se produce un error, inicia un seguimiento a stderr.
+* Si se descarga correctamente, devuelve `ApplicationInsightsApplication`. Si se produce un error, inicia un seguimiento a stderr.
 
     
           Name                      : Default Web Site/WebApp1
@@ -218,15 +224,15 @@ Puede iniciar y detener la supervisión mediante PowerShell.
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
 * `-Name` El nombre de una aplicación en IIS
-* `-All` Detiene la supervisión de todas las aplicaciones en este servidor IIS para las que `SdkState==EnabledAfterDeployment`
+* `-All` Detiene la supervisión de todas las aplicaciones en este servidor IIS con `SdkState==EnabledAfterDeployment`
 
-* Detiene la supervisión de las aplicaciones especificadas y quita la instrumentación. Solo funciona para las aplicaciones que se han instrumentado en tiempo de ejecución mediante la herramienta Monitor de estado o Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+* Detiene la supervisión de las aplicaciones especificadas y quita la instrumentación. Solo funciona para las aplicaciones que se han instrumentado en tiempo de ejecución con la herramienta Monitor de estado o Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
 
 * Devuelve ApplicationInsightsApplication.
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`: el nombre de una aplicación web en IIS.
+* `-Name`: el nombre de la aplicación web en IIS.
 * `-InstrumentationKey` (Opcional). Utilice esto para cambiar el recurso al que se envía la telemetría de la aplicación.
 * Este cmdlet:
  * Permite actualizar la aplicación con nombre a la versión del SDK descargada más recientemente en este equipo. (Solo funciona si `SdkState==EnabledAfterDeployment`)
@@ -257,8 +263,8 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
        ]
      } 
 
-* `nameOfAIAppResource`: un nombre para el recurso de Application Insights
-* `myWebAppName`: el identificador de la aplicación web
+* `nameOfAIAppResource`: nombre para el recurso de Application Insights
+* `myWebAppName`: identificador de la aplicación web
 
 ## <a name="next"></a>Pasos siguientes
 
@@ -284,4 +290,4 @@ Si la aplicación web está en Azure y crea los recursos mediante una plantilla 
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

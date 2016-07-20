@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/19/2016"
+   ms.date="07/05/2016"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con la API de REST de Ambari
@@ -76,13 +76,11 @@ Si la ejecuta, reemplazando __PASSWORD__ por la contraseña de administrador del
         "Host/host_status/UNKNOWN" : 0,
         "Host/host_status/ALERT" : 0
 
-Como es un documento JSON, normalmente resulta más fácil usar un analizador JSON para recuperar datos. Por ejemplo, si desea recuperar un recuento de alertas (contenidas en el elemento __"Host/host\_status/ALERT"__), puede usar lo siguiente para tener acceso directamente al valor:
+Como es un documento JSON, normalmente resulta más fácil usar un analizador JSON para recuperar datos. Por ejemplo, si desea recuperar la información de estado del clúster, puede utilizar lo siguiente.
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report."Host/host_status/ALERT"'
+    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
     
-Con esto se recupera el documento JSON y, luego, se canaliza el resultado a jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indica el elemento dentro del documento JSON que desea recuperar.
-
-> [AZURE.NOTE] El elemento __Host/host\_status/ALERT__ aparece entre comillas para indicar que "/" es parte del nombre del elemento. Para obtener más información sobre cómo usar jq, consulte el [sitio web de jq](https://stedolan.github.io/jq/).
+Con esto se recupera el documento JSON y, luego, se canaliza el resultado a jq. `.Clusters.health_report` indica el elemento dentro del documento JSON que desea recuperar.
 
 ##Ejemplo: Obtener el FQDN de los nodos del clúster
 
@@ -176,7 +174,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
     * Crea un documento raíz para la nueva configuración deseada.
     * Obtiene el contenido de la matriz .items y lo agrega en el elemento __desired\_config__.
     * Elimina los elementos __href__, __version__ y __Config__, ya que estos no son necesarios para enviar una nueva configuración.
-    * Agrega un nuevo elemento __tag__ y establece su valor en __versionnºnºnºnºnºnºnºnºnºnºnºnºnºnºnºnºnº__ donde la parte numérica se basa en la fecha actual. Cada configuración debe tener una etiqueta única.
+    * Agrega un nuevo elemento __tag__ y establece su valor en __versionn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.ºn.º__ donde la parte numérica se basa en la fecha actual. Cada configuración debe tener una etiqueta única.
     
     Por último, los datos se guardan en el documento __newconfig.json__. La estructura del documento será similar a la siguiente:
     
@@ -194,7 +192,7 @@ Luego, puede usar esta información con la [CLI de Azure](../xplat-cli-install.m
             }
         }
 
-3. Abra el documento __newconfig.json__ y agregue o modifique los valores del objeto __properties__. Por ejemplo, cambie el valor de __"spark.yarn.am.memory"__ de __"1g"__ a __"3g"__ y agregue un nuevo elemento para __"spark.kryoserializer.buffer.max"__ con un valor de __"256m"__.
+3. Abra el documento __newconfig.json__ y agregue o modifique los valores del objeto __properties__. Por ejemplo, cambie el valor de __spark.yarn.am.memory__ de __1g__ a __3g__ y agregue un nuevo elemento para __spark.kryoserializer.buffer.max__ con un valor de __256m__.
 
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
@@ -239,7 +237,7 @@ En este momento, si observa la IU web de Ambari, el servicio Spark le indicará 
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
     
-    Si este valor devuelve `"COMPLETED"`, entonces la solicitud ha finalizado.
+    Si este valor devuelve `"COMPLETED"`, significa que la solicitud ha finalizado.
 
 4. Una vez finalizada la solicitud anterior, use lo siguiente para iniciar el servicio.
 
@@ -257,4 +255,4 @@ Para obtener una referencia completa de la API de REST, consulte [Referencia de 
 
 > [AZURE.NOTE] Cierta funcionalidad de Ambari está deshabilitada, puesto que está administrada por el servicio en la nube de HDInsight; por ejemplo, agregar o quitar hosts del clúster o agregar nuevos servicios.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0706_2016-->

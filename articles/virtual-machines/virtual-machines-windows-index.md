@@ -20,7 +20,7 @@
 # Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica
 
 
-Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales de Windows en el modelo de implementación clásica.
+Encuentre toda la documentación que necesita para crear y administrar máquinas virtuales Windows en el modelo de implementación clásica.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -77,7 +77,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Captura de una máquina virtual de Windows creada en el modelo de implementación clásica](virtual-machines-windows-classic-capture-image.md)
 
-[Creación y carga de un VHD de Windows Server mediante Powershell](virtual-machines-windows-classic-createupload-vhd.md)
+[Crear y cargar un VHD de Windows Server a Azure](virtual-machines-windows-classic-createupload-vhd.md)
 
 [Automatización de la implementación de la máquina virtual de Azure con Chef](virtual-machines-windows-chef-automation.md)
 
@@ -192,4 +192,4 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0706_2016-->

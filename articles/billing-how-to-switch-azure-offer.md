@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="06/29/2016"
 	ms.author="genli"/>
 
 # Cambio a otra oferta de Azure
@@ -25,6 +25,8 @@ Puede cambiar la suscripción existente a una oferta más favorable sin ningún 
 -	Si desea aprovechar ventajas de pertenencia, como MSDN o BizSpark, después de haberse registrado con una suscripción de pago por uso.
 
 ## Cambio de la suscripción a otra oferta
+
+> [AZURE.VIDEO switch-to-a-different-azure-offer]
 
 1.	Inicie sesión en [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 2.	Seleccione la suscripción que va a transferir.
@@ -60,7 +62,7 @@ No hay consecuencias en los usuarios asociados a la suscripción.
 
 El día que realiza el cambio, se generará una factura por todos los cargos pendientes. Posteriormente, la suscripción se facturará según los términos de precios de la nueva oferta. La fecha de facturación de la suscripción pasa a ser la fecha del cambio de oferta. Los datos de uso y facturación anteriores al cambio de oferta no se conservarán, por lo que se recomienda descargarlos antes de realizar el cambio.
 
-**Nota** debido a restricciones relacionadas con la facturación, no se puede cambiar de oferta durante el primer ciclo de facturación después de crear una suscripción.
+**Nota:** debido a restricciones relacionadas con la facturación, no se puede cambiar de oferta durante el primer ciclo de facturación después de crear una suscripción.
 
 **¿Puedo usar este mecanismo para migrar desde una oferta directa de la web a [Proveedor de soluciones en la nube ](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o de una oferta de [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?**
 
@@ -73,4 +75,4 @@ A continuación se muestran las rutas de acceso que se admiten actualmente en el
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a la [Oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a cualquiera de las [ofertas de crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0706_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/26/2016" 
+	ms.date="07/12/2016" 
 	ms.author="spelluru"/>
 
 # Introducción al servicio Data Factory de Azure, un servicio de integración de datos en la nube
@@ -69,5 +69,13 @@ Por ejemplo, supongamos que sus entornos de proceso, tales como clúster de Azur
 
 En el futuro, pretendemos tener Data Factory de Azure en todas las ubicaciones geográficas admitidas por Azure.
   
+## Pasos siguientes
+Siga las instrucciones paso a paso en los siguientes tutoriales para aprender a crear factorías de datos con canalizaciones de datos.
 
-<!---HONumber=AcomDC_0629_2016-->
+Tutorial | Descripción
+-------- | -----------
+[Creación de una canalización de datos que procese los datos con el clúster de Hadoop](data-factory-build-your-first-pipeline.md) | En este tutorial, va a crear su primera factoría de datos de Azure con una canalización de datos que **procesa los datos** ejecutando el script de Hive en un clúster de HDInsight de Azure (Hadoop). |
+[Creación de una canalización de datos para mover datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | En este tutorial, creará una factoría de datos con una canalización que **mueve datos** del Almacenamiento de blobs a Base de datos SQL.
+[Creación de una canalización de datos para mover datos entre un almacén de datos local y un almacén de datos en la nube mediante la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md) | En este tutorial, creará una factoría de datos con una canalización que **mueve los datos** de una base de datos de SQL Server **local** a un blob de Azure. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina. 
+
+<!---HONumber=AcomDC_0713_2016-->

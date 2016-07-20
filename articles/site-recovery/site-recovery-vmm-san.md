@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Replicación de máquinas virtuales de Hyper-V (en una nube de VMM) en un sitio secundario con Azure Site Recovery mediante SAN
@@ -178,7 +178,7 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 
 	![Microsoft Updates](./media/site-recovery-vmm-san/ms-update.png)
 
-7. La ubicación de instalación está establecida en **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor.
+7. La ubicación de instalación está establecida en **<UnidadDeSistema>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Haga clic en el botón Instalar para iniciar la instalación del proveedor.
 
 	![InstallLocation](./media/site-recovery-vmm-san/install-location.png)
 
@@ -325,8 +325,8 @@ Puede seguir el progreso de la acción de habilitación de la protección en la 
 Pruebe la implementación para asegurarse de que la conmutación por error de las máquinas virtuales y los datos se realiza de la manera esperada. Para ello, creará un plan de recuperación seleccionando los grupos de replicación. A continuación, ejecute una conmutación por error de prueba en el plan.
 
 1. En la pestaña **Planes de recuperación**, haga clic en **Crear plan de recuperación**.
-2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN. 
-3. 
+2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN.
+3.
 	![Creación de un plan de recuperación](./media/site-recovery-vmm-san/r-plan.png)
 
 4. En **Seleccionar máquina virtual**, seleccione grupos de replicación. Se seleccionarán todas las máquinas virtuales asociadas al grupo de replicación y se agregarán al plan de recuperación. Estas máquinas virtuales se agregan al grupo predeterminado del plan de recuperación: grupo 1. Puede agregar más grupos si es necesario. Tenga en cuenta que tras la replicación las máquinas virtuales se iniciarán según el orden de los grupos del plan de recuperación.
@@ -338,6 +338,7 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 
 
 	![Selección de la red de prueba](./media/site-recovery-vmm-san/test-fail1.png)
+	
 
 8. La máquina virtual de prueba se creará en el mismo host en el que existe la máquina virtual de réplica. No se agregará a la nube en la que se encuentra la máquina virtual de réplica.
 9. Después de la replicación, la máquina virtual de réplica tendrá una dirección IP que no es la misma que la dirección IP de la máquina virtual principal. Si está emitiendo direcciones de DHCP, a continuación, se actualizará automáticamente. Si no utiliza DHCP y desea asegurarse de que las direcciones son las mismas, deberá ejecutar un par de scripts.
@@ -363,4 +364,4 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 
 Cuando haya ejecutado una conmutación por error de prueba para comprobar que su entorno funciona según lo esperado, [conozca](site-recovery-failover.md) cuáles son los diferentes tipos de conmutaciones por error.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0706_2016-->

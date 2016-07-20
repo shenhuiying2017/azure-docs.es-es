@@ -4,7 +4,7 @@
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
 # Uso de los centros de notificaciones desde Python
@@ -28,8 +28,8 @@ Puede tener acceso a todas las características de los Centros de notificaciones
 En este tema le mostraremos cómo:
 
 * Cree un cliente REST para las características de los centros de notificaciones de Python.
-* Envíe notificaciones mediante la interfaz de Python a la API REST del centro de notificaciones. 
-* Obtenga un volcado de la solicitud/respuesta REST de HTTP con fines de aprendizaje y depuración. 
+* Envíe notificaciones mediante la interfaz de Python a la API REST del centro de notificaciones.
+* Obtenga un volcado de la solicitud/respuesta REST de HTTP con fines de aprendizaje y depuración.
 
 Puede seguir el [tutorial de introducción](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) para la plataforma móvil de su elección e implementar la parte de back-end en Python.
 
@@ -320,7 +320,7 @@ Al habilitar el indicador de depuración al inicializar NotificationHub, se most
 
 El resultado detallado del centro de notificaciones se mostrará, por ejemplo,
 
-- cuando el mensaje se envíe correctamente al servicio de notificaciones de inserción. 
+- cuando el mensaje se envíe correctamente al servicio de notificaciones de inserción.
 	
 		<Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
 
@@ -393,4 +393,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0706_2016-->
