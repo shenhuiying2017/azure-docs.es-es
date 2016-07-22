@@ -29,9 +29,9 @@
 <table>
 <tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] \(http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] \(https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] \(documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] (https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] (documentdb-nodejs-get-started.md)</td></tr>
 <tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -152,7 +152,7 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 | [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |---
 | [1\.2.1](#1.2.1) | 15 de agosto, 2015 |---
 | [1\.2.0](#1.2.0) | 05 de agosto, 2015 |---
- [1\.1.0](#1.1.0) | 09 de julio, 2015 |---
+| [1\.1.0](#1.1.0) | 09 de julio, 2015 |---
 | [1\.0.3](#1.0.3) | 04 de junio, 2015 |---
 | [1\.0.2](#1.0.2) | 23 de mayo, 2015 |---
 | [1\.0.1](#1.0.1) | 15 de mayo, 2015 |---

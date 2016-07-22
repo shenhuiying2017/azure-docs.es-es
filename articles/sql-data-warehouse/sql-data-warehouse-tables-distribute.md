@@ -278,7 +278,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Pasos siguientes
 
-Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [índice][], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary]. Paras obtener información general acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
+Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [Índice][], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary]. Paras obtener información general acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 
 <!--Image references-->

@@ -31,7 +31,7 @@ Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR med
 
 ## Requisitos para la replicación de máquinas virtuales de Hyper-V
 
-**Replicación en Azure (con VMM)** | **Replicación en Azure (sin VMM)** | **Replicación en un sitio secundario (con VMM)**
+**Componente** | **Replicación en Azure (con VMM)** | **Replicación en Azure (sin VMM)** | **Replicación en un sitio secundario (con VMM)**
 ---|---|---|---
 **VMM** | Uno o más servidores VMM con System Center 2012 R2. El servidor VMM debe tener al menos una nube que contenga uno o más grupos de hosts VMM. | No aplicable | Al menos un servidor VMM que se ejecute en System Center 2012 R2. Se recomienda un servidor VMM en cada sitio. El servidor VMM debe tener al menos una nube que contenga uno o más grupos de hosts VMM. Las nubes deben tener establecido el perfil de funcionalidad de Hyper-V.
 **Hyper-V** | Uno o varios servidores host de Hyper-V en el centro de datos local con al menos Windows Server 2012 R2. El servidor de Hyper-V debe encontrarse en un grupo de hosts de una nube VMM. | Uno o varios servidores de Hyper-V en los sitios de origen y destino con al menos Windows Server 2012 R2. | Uno o varios servidores de Hyper-V en los sitios de origen y de destino con al menos Windows Server 2012 con las actualizaciones más recientes. El servidor de Hyper-V debe encontrarse en un grupo de hosts de una nube VMM.
