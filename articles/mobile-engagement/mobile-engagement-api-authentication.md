@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Autenticación con las API de REST de Mobile Engagement
 
@@ -40,7 +40,7 @@ Existen diferentes formas de obtener un token. Puesto que a las API se las suele
 
 Debe seguir el conjunto de instrucciones indicado más abajo para realizar la instalación mediante un script de PowerShell, que tarda la cantidad de tiempo mínima, pero utiliza los valores predeterminados más permisivos. Opcionalmente, también puede seguir las instrucciones de [instalación manual](mobile-engagement-api-authentication-manual.md) para llevar esto a cabo directamente desde el Portal de Azure y especificar una configuración más detallada.
 
-1. Obtenga la versión más reciente de Azure PowerShell [aquí](http://aka.ms/webpi-azps). Para obtener más información sobre las instrucciones de descarga, puede consultar este [vínculo](../powershell-install-configure.md).  
+1. Obtenga la versión más reciente de Azure PowerShell [aquí](http://aka.ms/webpi-azps). Para obtener más información sobre las instrucciones de descarga, puede consultar este [vínculo](../powershell-install-configure.md).
 
 2. Una vez instalado Azure PowerShell, use los siguientes comandos para asegurarse de que tiene el **módulo de Azure** instalado:
 
@@ -94,8 +94,8 @@ Debe seguir el conjunto de instrucciones indicado más abajo para realizar la in
 
 1. Llame a la API con los siguientes parámetros y asegúrese de sustituir TENANT\_ID, CLIENT\_ID y CLIENT\_SECRET:
 
-	- **URL de solicitud** como **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **Encabezado Content-Type HTTP** como *application/x-www-form-urlencoded*
+	- **URL de solicitud** como *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
+	- **Encabezado Content-Type HTTP** como *application/x-www-form-urlencoded*
 	- **Cuerpo de la solicitud HTTP** como *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	La siguiente es una solicitud de ejemplo:
@@ -141,13 +141,13 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
 	- **3** `{app-resource-name}`
-	- **4** El nombre de su grupo de recursos será **MobileEngagement** a menos que haya creado uno nuevo. 
+	- **4** El nombre de su grupo de recursos será **MobileEngagement** a menos que haya creado uno nuevo.
 
 	![Parámetros de URI de la API de Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
 >1. Omita la dirección raíz de la API, ya que era para las API anteriores.<br/>
->2. Si ha creado la aplicación con el Portal de Azure clásico, debe usar el nombre del recurso de la aplicación que es diferente del nombre de la propia aplicación. Si ha creado la aplicación en el Portal de Azure, debe usar el propio nombre de la aplicación (no hay diferencia entre el nombre de recurso de aplicación y el nombre de aplicación para aplicaciones creadas en el nuevo portal).  
+>2. Si ha creado la aplicación con el Portal de Azure clásico, debe usar el nombre del recurso de la aplicación que es diferente del nombre de la propia aplicación. Si ha creado la aplicación en el Portal de Azure, debe usar el propio nombre de la aplicación (no hay diferencia entre el nombre de recurso de aplicación y el nombre de aplicación para aplicaciones creadas en el nuevo portal).
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -155,4 +155,4 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

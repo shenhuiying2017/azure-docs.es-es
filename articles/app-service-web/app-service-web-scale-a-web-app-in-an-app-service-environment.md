@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # Escalado de aplicaciones en un entorno del Servicio de aplicaciones #
@@ -21,7 +21,7 @@
 En el Servicio de aplicaciones de Azure hay normalmente tres cosas que puede escalar:
 
 - plan de precios
-- tamaño de trabajo 
+- tamaño de trabajo
 - número de instancias.
 
 En un entorno del Servicio de aplicaciones no es necesario seleccionar o cambiar el plan de precios. En términos de capacidades ya está en un nivel de capacidad de precios Premium.
@@ -84,4 +84,4 @@ Para obtener más información acerca de la plataforma Servicio de aplicaciones 
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

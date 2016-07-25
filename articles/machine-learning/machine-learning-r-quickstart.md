@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Tutorial rápido para el lenguaje de programación R para Aprendizaje automático de Azure
@@ -1296,13 +1296,13 @@ RStudio cuenta con una documentación bastante extensa, por lo que en este apén
 
 Este tutorial de programación R cubre los aspectos básicos de lo que debe usar el lenguaje R con Estudio de aprendizaje automático de Azure. Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 
-- R para principiantes de Emmanuel Paradis es un buen punto de partida en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+- R para principiantes de Emmanuel Paradis es un buen punto de partida en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.
 
 - Una introducción a R de W. N. Venables y otros entra en un poco más profundidad, en http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Existen muchas obras sobre el código R que pueden servirle como punto de partida. Estas son algunas que considero más útiles:
 
-- The Art of R Programming: A Tour of Statistical Software Design de Norman Matloff ofrece una excelente introducción a la programación en código R.  
+- The Art of R Programming: A Tour of Statistical Software Design de Norman Matloff ofrece una excelente introducción a la programación en código R.
 
 - R Cookbook de Paul Teetor ofrece un enfoque del uso del código R basado en problemas y soluciones.
 
@@ -1318,7 +1318,7 @@ El libro Introductory Time Series with R de Paul Cowpertwait y Andrew Metcalfe o
 
 Algunos recursos excelentes en Internet:
 
-- DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Siga el tutorial interactivo de R gratuito en https://www.datacamp.com/courses/introduction-to-r.  
+- DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Siga el tutorial interactivo de R gratuito en https://www.datacamp.com/courses/introduction-to-r.
 
 - Un tutorial rápido de R de Kelly Black de la Universidad de Clarkson http://www.cyclismo.org/tutorial/R/.
 
@@ -1358,4 +1358,4 @@ Algunos recursos excelentes en Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

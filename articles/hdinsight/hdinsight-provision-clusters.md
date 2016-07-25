@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/09/2016"
+   ms.date="07/08/2016"
    ms.author="jgao"/>
 
 # Creación de clústeres de Hadoop basados en Windows en HDInsight
@@ -45,11 +45,11 @@ Cada tipo de clúster tiene su propia terminología de nodos dentro del clúster
 |Storm|Nodo Nimbus (2), servidor de supervisor (más de 1), nodo Zookeeper (3)|![Nodos de clúster de Storm en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Nodo principal (2), nodo de trabajo (más de 1), nodo Zookeeper (3) (gratis para el tamaño de máquina virtual Zookeepers A1)|![Nodos de clúster de Spark en HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* Entre paréntesis se indica el número de nodos de cada tipo.
+Nota: Entre paréntesis se indica el número de nodos de cada tipo.
 
 > [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 
-Puede agregar otros componentes, como Hue o R, a estos tipos básicos mediante el uso de [acciones de script](#customize-clusters-using-script-action).
+Puede agregar otros componentes, como Hue o R, a estos tipos básicos usando [acciones de script](#customize-clusters-using-script-action).
 
 ## Opciones de configuración básica
 
@@ -64,7 +64,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 - **Tipo de clúster**
 
-    Vea [Tipos de clúster](#cluster-types).
+    Consulte [Tipos de clúster](#cluster-types).
 
 - **Sistema operativos**
 
@@ -110,7 +110,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 	Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-    Además del almacenamiento de blobs de Azure, también puede usar [Almacén de Azure Data Lake](data-lake-store-overview.md) como cuenta de almacenamiento predeterminada para el clúster de HBase en HDInsight y como almacenamiento vinculado para los cuatro tipos de clúster de HDInsight. Consulte las instrucciones en [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    Además del almacenamiento de blobs de Azure, también puede usar [Almacén de Azure Data Lake](data-lake-store-overview.md) como cuenta de almacenamiento predeterminada para el clúster de HBase en HDInsight y como almacenamiento vinculado para los cuatro tipos de clúster de HDInsight. Consulte las instrucciones en [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
     
 - **Ubicación (región)**
 
@@ -173,7 +173,7 @@ A continuación se presentan las opciones de configuración básicas para crear 
         |Standard\_D13\_v2 |8|56 GB|8|Temporal (SSD) =400 GB |16|16x500|
         |Standard\_D14\_v2 |16|112 GB|8|Temporal (SSD) =800 GB |32|32x500|    
  
-    Para conocer las consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos, vea [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md). Para obtener información sobre los precios de los diferentes tamaños, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+    Para conocer las consideraciones de implementación que hay que tener en cuenta siempre que planee usar estos recursos, consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-size-specs.md). Para más información sobre los precios de los diferentes tamaños, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight)
     
 	> [AZURE.IMPORTANT] Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o al cambiar el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. La facturación se inicia una vez creado el clúster y solo se detiene cuando se elimina el clúster. Para obtener más información sobre los precios, consulte [Detalles de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -182,16 +182,20 @@ A continuación se presentan las opciones de configuración básicas para crear 
 
 En algunos casos, es posible que desee agregar almacenamiento adicional al clúster. Por ejemplo, dispone de varias cuentas de almacenamiento de Azure para diferentes regiones geográficas, o para distintos servicios, pero desea analizarlas con HDInsight.
 
-Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener más información sobre el uso de almacenes de Data Lake secundarios, consulte [Creación de clústeres de HDInsight con Almacén de Data Lake con el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para más información sobre el uso de almacenes de Data Lake secundarios, consulte [Creación de clústeres de HDInsight con Almacén de Data Lake con el Portal de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 ## Uso de la tienda de metadatos de Hive/Oozie
 
 Se recomienda encarecidamente usar una tienda de metadatos personalizada si desea conservar las tablas de Hive después de eliminar el clúster de HDInsight, con el fin de asociar dicha tienda de metadatos a otro clúster de HDInsight en el futuro.
 
+> [AZURE.IMPORTANT] La tienda de metadatos de HDInsight no es compatible con versiones anteriores. Por ejemplo, no puede utilizar una tienda de metadatos de un clúster de HDInsight 3.3 para crear un clúster de HDInsight 3.2.
+
 La tienda de metadatos contiene metadatos de Hive y Oozie, como columnas, esquemas, particiones y tablas de Hive. El uso de la tienda de metadatos le ayuda a conservar sus metadatos de Hive y Oozie, por lo que no es necesario volver a crear tablas de Hive o trabajos de Oozie al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos SQL de Azure incrustada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster. Por ejemplo, tiene un clúster creado con una tienda de metadatos de Hive. Creó algunas tablas de Hive. Después de eliminar el clúster y de volverlo a crear con la misma tienda de metadatos de Hive, podrá ver las tablas de Hive que creó en el clúster original.
 
-> [AZURE.NOTE] La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
+La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
+
+> [AZURE.IMPORTANT] Al crear una tienda de metadatos personalizada, no debe utilizar un nombre de base de datos que contenga guiones, ya que esto puede producir un error en el proceso de creación del clúster.
 
 ## Uso de redes virtuales de Azure
 
@@ -254,4 +258,4 @@ En este artículo, ha obtenido información básica acerca de cómo crear un cl�
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Plantillas de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

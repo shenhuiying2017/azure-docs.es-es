@@ -149,17 +149,18 @@ Ya está preparado para ejecutar las aplicaciones.
 
 ## Pasos siguientes
 
-En este tutorial ha aprendido a usar la funcionalidad de carga de archivos del Centro de IoT para simplificar la carga de archivos desde los dispositivos. Puede explorar las características del centro de IoT y distintos escenarios con el tutorial siguiente:
+En este tutorial ha aprendido a usar la funcionalidad de carga de archivos del Centro de IoT para simplificar la carga de archivos desde los dispositivos. Puede explorar las características del Centro de IoT y distintos escenarios con los siguientes artículos:
 
-- [Process Device-to-Cloud messages] (Procesamiento de mensajes de dispositivo a nube) muestra cómo procesar de forma fiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
+- [Create an IoT hub programatically (Crear un Centro de IoT mediante programación)][lnk-create-hub]
+- [Introducción a C SDK][lnk-c-sdk]
+- [SDK de Centro de IoT][lnk-sdks]
 
-Información adicional sobre el centro de IoT:
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Información general sobre el centro de IoT]
-* [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el centro de IoT]
-* [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de Azure]
+- [Diseño de la solución][lnk-design]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Images. -->
 
@@ -169,35 +170,31 @@ Información adicional sobre el centro de IoT:
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-
 [Portal de Azure]: https://portal.azure.com/
 
 [Data Factory de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
 [Tutorial: cómo envío mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
 [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el centro de IoT]: iot-hub-guidance.md
-[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introducción al Centro de IoT de Azure para .NET]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
-[Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Administración de Centros de IoT a través del portal de Azure]: iot-hub-manage-through-portal.md#file-upload
 [paquete NuGet del SDK de servicio de IoT de Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

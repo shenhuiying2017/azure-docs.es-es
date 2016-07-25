@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Picturepark | Microsoft Azure" 
     description="Aprenda cómo usar Picturepark con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Picturepark
   
@@ -31,13 +31,14 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 4.  Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Escenario")
+
 ##Habilitación de la integración de aplicaciones para Picturepark
   
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Picturepark.
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Picturepark:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
 
@@ -62,13 +63,14 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 7.  En el panel de resultados, seleccione **Picturepark** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
+
 ##Configuración del inicio de sesión único
   
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Picturepark con su cuenta de Azure AD usando el protocolo SAML basado en la federación. La configuración de un inicio de sesión único para Picturepark requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Picturepark**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Picturepark**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configurar inicio de sesión único")
 
@@ -76,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-picturepark-tutorial/IC795059.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Picturepark**, escriba su dirección URL con el siguiente patrón "**http://company.picturepark.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de Picturepark**, escriba su dirección URL con el siguiente patrón "*http://company.picturepark.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-picturepark-tutorial/IC795060.png "Configurar dirección URL de la aplicación")
 
@@ -101,16 +103,16 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en **Agregar**.
     2.  Escriba un nombre para su configuración.
     3.  Seleccione **Establecer como predeterminado**.
-    4.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Picturepark**, copie el valor de **Dirección URL de SSO de SAML** y luego péguelo en el cuadro de texto **URI de emisor**.
-    5.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del emisor de confianza**.  
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Picturepark**, copie el valor de **Dirección URL de SSO de SAML** y luego péguelo en el cuadro de texto **URI de emisor**.
+    5.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del emisor de confianza**.
 
         >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
     6.  Haga clic en **JoinDefaultUsersGroup**.
-    7.  Para establecer el atributo **Emailaddress** en el cuadro de texto **Notificación**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuración](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuración")
-8.  Haga clic en **Guardar**.
+    7.  Para establecer el atributo **Emailaddress** en el cuadro de texto **Notificación**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuración](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuración")
+    8.  Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurar inicio de sesión único")
 
@@ -146,7 +148,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Picturepark, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **Picturepark**, haga clic en **Asignar usuarios**.
 
@@ -158,4 +160,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

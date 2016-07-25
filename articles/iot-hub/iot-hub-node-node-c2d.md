@@ -41,7 +41,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Node.js versión 0.12.x o posteriores. <br/>En [Prepare your development environment][lnk-dev-setup] \(Preparación de un entorno de desarrollo) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
++ Node.js versión 0.12.x o posteriores. <br/>En [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
 
@@ -175,22 +175,15 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![][img-send-command]
 
-    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
+    > [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
 
 ## Pasos siguientes
 
-En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. Puede seguir explorando las características del Centro de IoT y los distintos escenarios con los tutoriales siguientes:
+En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo.
 
-- [Procesamiento de mensajes de dispositivo a la nube] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- [Carga de archivos desde dispositivos], describe un patrón que usa los mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+Para ver ejemplos de soluciones completas de un extremo a otro que usen el Centro de IoT, consulte [Documentación del Conjunto de aplicaciones de IoT].
 
-Información adicional sobre el centro de IoT:
-
-* [Información general sobre el centro de IoT]
-* [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el centro de IoT]
-* [Lenguajes y plataformas de dispositivos compatibles]
-* [Centro para desarrolladores de Azure]
+Para más información sobre cómo desarrollar soluciones con el Centro de IoT, consulte la [Guía del desarrollador del Centro de IoT de Azure].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-node-node-c2d/receivec2d.png
@@ -202,17 +195,17 @@ Información adicional sobre el centro de IoT:
 [Introducción al Centro de IoT de Azure para .NET]: iot-hub-node-node-getstarted.md
 [Introducción al Centro de IoT de Azure para Node.js]: iot-hub-node-node-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Procesamiento de mensajes de dispositivo a la nube]: iot-hub-csharp-csharp-process-d2c.md
-[Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
-[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el centro de IoT]: iot-hub-guidance.md
-[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
-[Lenguajes y plataformas de dispositivos compatibles]: iot-hub-supported-devices.md
-[Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
+[Guía del desarrollador del Centro de IoT de Azure]: iot-hub-devguide.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Portal de Azure]: https://portal.azure.com
+[Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

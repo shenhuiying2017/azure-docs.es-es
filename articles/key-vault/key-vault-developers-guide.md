@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Guía del desarrollador del Almacén de claves de Azure
@@ -64,9 +64,9 @@ Con la debida autorización, puede hacer lo siguiente:
 
 Los SDK siguientes están disponibles para trabajar con Almacén de claves:
 
-|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[Documentación del SDK de .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Documentación del SDK de Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Documentación del SDK de .NET](https://msdn.microsoft.com/library/mt430941.aspx)|[Documentación del SDK de Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Paquete del SDK de .NET](https://azure.microsoft.com/documentation/api/)|[Paquete del SDK de Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -84,6 +84,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - [Uso de Almacén de claves para la administración extensible de claves con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). El Conector de SQL Server para Almacén de claves de Azure permite que SQL Server y SQL en una VM use el servicio de Almacén de claves de Azure como un proveedor de administración extensible de claves (EKM) con el fin de proteger sus claves de inscripción para el vínculo de aplicaciones; Cifrado de datos transparente, Cifrado de copia de seguridad y Cifrado de nivel de columna.
 - [Implementación de certificados en máquinas virtuales desde el almacén de claves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): una aplicación de nube que se ejecute en una máquina virtual de Azure necesita un certificado. Sepa cómo añadirlo a la máquina virtual hoy mismo.
 - [Integración del almacén de claves con Cifrado de discos de Azure para máquinas virtuales de IaaS de Windows y Linux](../azure-security-disk-encryption.md): la solución de cifrado de discos se integra con el Almacén de claves de Azure para contribuir al control y la administración de los secretos y las claves de cifrado de discos de su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en el almacenamiento de Azure.
+- [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Configuración del Almacén de claves con rotación y auditoría de claves de un extremo a otro): este es un tutorial sobre la rotación y auditoría de claves con el Almacén de claves de Azure.
 
 Para obtener más instrucciones específicas sobre las tareas de integración y el uso de almacenes de claves con Azure, consulte las [plantillas de ARM de ejemplo de Ryan Jones para Almacén de claves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
@@ -104,4 +105,4 @@ En estos artículos se describen otros escenarios y servicios que pueden integra
 - [Blog de Almacén de claves](http://aka.ms/kvblog)
 - [Foro sobre Almacén de claves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

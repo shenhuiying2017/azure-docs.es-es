@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/04/2016" 
+    ms.date="07/08/2016" 
     ms.author="hawong"/>
 
 # Casos de uso comunes de DocumentDB
@@ -33,7 +33,7 @@ Azure DocumentDB es una base de datos NoSQL de ámbito general que se utiliza en
 
 - DocumentDB crea de forma nativa particiones para sus datos a fin de ofrecer una alta disponibilidad y escalabilidad.
 - DocumentDB cuenta con almacenamiento respaldado por SSD con tiempos de respuesta con una reducida latencia, de milésimas de segundo.
-- La compatibilidad de DocumentDB con niveles de coherencia, como eventual, sesión y obsolescencia entrelazada, permite disfrutar de una excelente relación precio-rendimiento. 
+- La compatibilidad de DocumentDB con niveles de coherencia, como eventual, sesión y obsolescencia entrelazada, permite disfrutar de una excelente relación precio-rendimiento.
 - DocumentDB presenta un modelo de precios flexible e idóneo para los datos que mide el almacenamiento y el rendimiento por separado.
 - El modelo de rendimiento reservado de DocumentDB permite que pueda planear en lo relativo a las operaciones de lectura/escritura en lugar de a la CPU, la memoria o las E/S por segundo del hardware subyacente.
 - El diseño de DocumentDB le permite adaptarse a enormes volúmenes de solicitudes que pueden ascender a miles de millones al día.
@@ -99,9 +99,9 @@ O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene 
 - [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB (Halo 5 utiliza Azure DocumentDB para implementar el juego social).
 - [Galería de Cortana Analytics](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Galería de Cortana Analytics: un sitio de la comunidad escalable basado en Azure DocumentDB.
 - [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Integrador líder del sector ofrece a empresas multinacionales perspectivas globales en minutos con tecnologías en la nube flexibles.
-- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Incorporación de inteligencia a las noticias para proporcionar información con propósito a ciudadanos comprometidos. 
+- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Incorporación de inteligencia a las noticias para proporcionar información con propósito a ciudadanos comprometidos.
 - [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Para obtener un color uniforme en todo el mundo, las principales marcas recurren a SGS. Y SGS recurre a Azure.
-- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Telenor, empresa líder a nivel global, usa la nube para moverse con la velocidad de una startup. 
+- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Telenor, empresa líder a nivel global, usa la nube para moverse con la velocidad de una startup.
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). El almacén del futuro se ejecuta con la rapidez en la búsqueda y la sencillez en el flujo de datos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos
@@ -40,14 +40,14 @@ En este artículo aprenderá a calcular y a ajustar la consulta para aumentar el
 ## Trabajo embarazosamente paralelo
 El trabajo embarazosamente paralelo es el escenario más escalable que tenemos en el Análisis de transmisiones de Azure. Conecta una partición de la entrada en una instancia de la consulta a una partición de la salida. Para conseguir este paralelismo es necesario seguir algunos pasos:
 
-1.  Si la lógica de la consulta depende de la misma clave procesada por la misma instancia de consulta, debe asegurarse de que los eventos vayan a la misma partición de la entrada. En el caso de los Centros de eventos, esto significa que los datos de eventos deben tener establecido el valor **PartitionKey**, o bien puede usar remitentes con particiones. Para blobs, esto significa que los eventos se envían a la misma carpeta de partición. Si la lógica de consulta no requiere que la misma instancia de consulta procese la misma clave, puede ignorar este requisito. Un ejemplo de esto sería un consulta de selección, proyecto o filtro sencilla.  
-2.	Cuando los datos se colocan como deben en la salida, necesitamos asegurarnos de que la consulta está particionada. Esto requiere usar **Partition By** en todos los pasos. Se permiten varios pasos, pero todos ellos deben particionarse con la misma clave. Otra cosa que se debe tener en cuenta es que, actualmente, la clave de partición debe establecerse en **PartitionId** para tener un trabajo totalmente paralelo.  
-3.	Actualmente solo los Centros de eventos y los blobs admiten las salidas con particiones. Para la salida de los Centros de eventos, debe configurar el campo **PartitionKey** como **PartitionId**. En el caso de los blobs, no tiene que hacer nada.  
-4.	Otra cosa que se debe tener en cuenta es que el número de particiones de entrada debe ser igual al número de particiones de salida. La salida de blobs no es compatible actualmente con particiones, pero esto está bien porque heredará el esquema de partición de la consulta de nivel superior. Ejemplos de valores de partición que permitirían un trabajo totalmente paralelo:  
+1.  Si la lógica de la consulta depende de la misma clave procesada por la misma instancia de consulta, debe asegurarse de que los eventos vayan a la misma partición de la entrada. En el caso de los Centros de eventos, esto significa que los datos de eventos deben tener establecido el valor **PartitionKey**, o bien puede usar remitentes con particiones. Para blobs, esto significa que los eventos se envían a la misma carpeta de partición. Si la lógica de consulta no requiere que la misma instancia de consulta procese la misma clave, puede ignorar este requisito. Un ejemplo de esto sería un consulta de selección, proyecto o filtro sencilla.
+2.	Cuando los datos se colocan como deben en la salida, necesitamos asegurarnos de que la consulta está particionada. Esto requiere usar **Partition By** en todos los pasos. Se permiten varios pasos, pero todos ellos deben particionarse con la misma clave. Otra cosa que se debe tener en cuenta es que, actualmente, la clave de partición debe establecerse en **PartitionId** para tener un trabajo totalmente paralelo.
+3.	Actualmente solo los Centros de eventos y los blobs admiten las salidas con particiones. Para la salida de los Centros de eventos, debe configurar el campo **PartitionKey** como **PartitionId**. En el caso de los blobs, no tiene que hacer nada.
+4.	Otra cosa que se debe tener en cuenta es que el número de particiones de entrada debe ser igual al número de particiones de salida. La salida de blobs no es compatible actualmente con particiones, pero esto está bien porque heredará el esquema de partición de la consulta de nivel superior. Ejemplos de valores de partición que permitirían un trabajo totalmente paralelo:
 	1.	8 particiones de entrada de centros de eventos y 8 particiones de salida de centros de eventos
-	2.	8 particiones de entrada de centros de eventos y salida de blobs  
-	3.	8 particiones de entrada de blobs y salida de blobs  
-	4.	8 particiones de entrada de blobs y 8 particiones de salida de centros de eventos  
+	2.	8 particiones de entrada de centros de eventos y salida de blobs
+	3.	8 particiones de entrada de blobs y salida de blobs
+	4.	8 particiones de entrada de blobs y 8 particiones de salida de centros de eventos
 
 Estos son algunos escenarios de ejemplo que son embarazosamente paralelos.
 
@@ -88,7 +88,7 @@ Entrada: Centro de eventos con 8 particiones Salida: Centro de eventos con 8 par
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de **PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
+Esta consulta tiene una clave de agrupación y, por tanto, es necesario que la misma instancia de consulta procese la misma clave. Podemos usar la misma estrategia que en la consulta anterior. La consulta tiene varios pasos. ¿Cada paso tiene **Partition By** de ** PartitionId**? Sí, así que lo estamos haciendo bien. Para la salida, es necesario establecer **PartitionKey** en **PartitionId** como se mencionó anteriormente y también podemos ver que tiene el mismo número de particiones que la entrada. Esta topología es embarazosamente paralela.
 
 
 ## Estos son algunos escenarios de ejemplo que NO son embarazosamente paralelos.
@@ -148,7 +148,7 @@ La consulta anterior tiene dos pasos.
 
 El particionamiento de un paso requiere las siguientes condiciones:
 
-- El origen de entrada debe tener particiones. Para obtener más información, consulte la [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md).
+- El origen de entrada debe tener particiones. Para más información, consulte la [Guía de programación de Centros de eventos](../event-hubs/event-hubs-programming-guide.md).
 - La instrucción **SELECT** de la consulta debe leer desde un origen de entrada particionada.
 - La consulta dentro del paso debe incluir la palabra clave **Partition By**.
 
@@ -326,7 +326,6 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
-- [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
@@ -351,4 +350,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

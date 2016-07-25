@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
 # Anotaciones de la versión de Application Insights
@@ -40,7 +40,7 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](app-insights-overview.md), si aún no lo ha hecho).
-2. Abra **Configuración**, **Acceso de API** y realice una copia del **Id. de Application Insights**.
+2. Abra **Acceso de API** y realice una copia del **Id. de Application Insights**.
 
     ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie el identificador de aplicación.](./media/app-insights-annotations/20.png)
 
@@ -48,7 +48,7 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 
     Agregue una tarea y seleccione la tarea de anotación de versión de Application Insights en el menú.
 
-    Pegue el **Id. de la aplicación** que copió desde la hoja Acceso de API.
+    Pegue el **Id. de la aplicación** que ha copiado de la hoja Acceso de API.
 
     ![En Visual Studio Team Services, abra Versión, seleccione una definición de versión y elija Editar. Haga clic en Agregar tarea y seleccione Anotación de versión de Application Insights. Pegue el Id. de Application Insights.](./media/app-insights-annotations/30.png)
 
@@ -85,7 +85,7 @@ Obtenga la [secuencia de comandos de Powershell desde GitHub](https://github.com
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
 
-Obtenga `applicationId` y `apiKey` de recurso de Application Insights: Abrir configuración, Acceso de API, y copie el Id. de aplicación. A continuación, haga clic en Crear clave de API y copie la clave.
+Obtenga `applicationId` y `apiKey` del recurso de Application Insights: Abrir configuración, Acceso de API, y copie el Id. de aplicación. A continuación, haga clic en Crear clave de API y copie la clave.
 
 ## Anotaciones de la versión
 
@@ -96,4 +96,4 @@ Haga clic en cualquier marcador de anotación para abrir los detalles de la vers
 
 ![Haga clic en cualquier marcador de anotación de la versión.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

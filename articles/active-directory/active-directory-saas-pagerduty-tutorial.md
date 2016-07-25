@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Pagerduty
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Pagerduty**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Pagerduty**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configurar inicio de sesión único")
 
@@ -98,17 +98,17 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Habilitar el inicio de sesión único](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Habilitar inicio de sesión único")
 
-    1.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    1.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    2.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Login URL (dirección URL de inicio de sesión)**.
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+    2.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Login URL (dirección URL de inicio de sesión)**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Pagerduty**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     5.  Seleccione **Activar inicio de sesión único**.
     6.  Haga clic en **Guardar cambios**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -129,9 +129,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Pagerduty, deben a
 
     ![Invitar a su equipo](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invitar a su equipo")
 
-    >[AZURE.NOTE]Todos los usuarios agregados recibirán una invitación para crear una cuenta de PagerDuty.
+    >[AZURE.NOTE] Todos los usuarios agregados recibirán una invitación para crear una cuenta de PagerDuty.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Pagerduty ofrecida por Pagerduty para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Pagerduty ofrecida por Pagerduty para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -139,9 +139,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Pagerduty, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de la aplicación **Pagerduty **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de la aplicación **Pagerduty**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-pagerduty-tutorial/IC778541.png "Asignar usuarios")
 
@@ -151,4 +151,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

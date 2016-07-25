@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Predicción de respuestas con un modelo sencillo: ciencia de datos para principiantes | Microsoft Azure"
+   pageTitle="Predicción de respuestas con un modelo simple - modelo de regresión | Microsoft Azure"
    description="Cómo crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal básica con los datos de destino."                                  
    keywords="crear un modelo, modelo simple, modelo de datos simple, predicción del precio, modelo de regresión simple"
    services="machine-learning"
@@ -138,4 +138,4 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

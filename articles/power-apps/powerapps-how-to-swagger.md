@@ -14,15 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Personalización de la definición de Swagger para PowerApps y flujos de lógica
 
+>[AZURE.IMPORTANT] Este tema se ha movido a powerapps.microsoft.com en [Customize your Swagger definition for PowerApps and Flows](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) (Personalización de la definición de Swagger para PowerApps y flujos). Vaya a PowerApps para ver la versión más reciente. Este vínculo de Azure está en proceso de archivo.
+
+
 ## Definición de la API de Swagger 2.0 de autor para la API
 
-Para obtener información sobre cómo agregar Swagger a la WebAPI, consulte [Swashbuckle][1].
+Para más información sobre cómo agregar Swagger a WebAPI, consulte [Swashbuckle][1].
 
 ## Extensiones de esquema
 Además de las especificaciones de Swagger estándar, existen algunas extensiones de Swagger adicionales disponibles cuando se crea una API personalizada para PowerApps y flujos de lógica. En esta sección, se enumeran y describen estas extensiones.
@@ -54,7 +57,7 @@ El valor es un objeto que contiene las siguientes propiedades:
 	
 - `operationId`: cadena que coincide con el valor operationId de la operación que se invoca.
 - `parameters`: objeto cuyas propiedades definen los parámetros necesarios para la operación.
-- `value-collection`: cadena de ruta de acceso que se evalúa en una matriz de objetos en la carga de respuesta.
+- `value-collection`: cadena de ruta de acceso que se evalúa en una matriz de objetos en la carga útil de respuesta.
 - `value-path`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia al valor del parámetro.
 - `value-title`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia a una descripción del valor.
 
@@ -115,4 +118,4 @@ Esto es útil en escenarios en los que las entradas para una operación son din�
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

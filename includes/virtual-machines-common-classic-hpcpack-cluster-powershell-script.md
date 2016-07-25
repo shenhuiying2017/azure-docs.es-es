@@ -2,7 +2,7 @@
 
 
 
-En función del entorno y las opciones, el script puede crear toda la infraestructura del clúster, incluida la red virtual de Azure, cuentas de almacenamiento, servicios en la nube, controlador de dominio, bases de datos SQL locales o remotas, nodo principal, nodos de agente, nodos de proceso y nodos de servicios en la nube de Azure (de "ráfaga" o PaaS). Como alternativa, el script puede usar la infraestructura de Azure existente y, a continuación, crear el nodo principal del clúster HPC, nodos de agente, nodos de proceso y nodos de ráfaga de Azure.
+En función del entorno y las opciones, el script puede crear toda la infraestructura del clúster, como la red virtual de Azure, las cuentas de almacenamiento, los servicios en la nube, los controladores de dominio, las bases de datos SQL locales o remotas, el nodo principal y los nodos de clúster adicionales. Como alternativa, el script puede usar la infraestructura de Azure ya existente y crear solo los nodos del clúster HPC.
 
 
 Para obtener información general acerca de cómo diseñar un clúster de HPC Pack, consulte el contenido de [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) (Planeación y evaluación del producto) y de [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) (Introducción) en la Biblioteca de TechNet de HPC Pack.
@@ -14,12 +14,12 @@ Para obtener información general acerca de cómo diseñar un clúster de HPC Pa
 * **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. Los límites de su suscripción afectarán al número y al tipo de nodos de clúster que puede implementar. Para obtener información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
 
 
-* **Equipo cliente Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md). El script se ejecuta en el modo de administración de servicios de Azure (asm).
+* **Equipo cliente de Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado**: consulte [Cómo instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md) para ver instrucciones de instalación y pasos para conectarse a su suscripción de Azure.
 
 
-* **Script de implementación de IaaS de HPC Pac**: descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Compruebe la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.0 del script.
+* **Script de implementación de IaaS de HPC Pac**: descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Compruebe la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.1 del script.
 
-* **Archivo de configuración del script**: necesitará crear un archivo XML que el script usará para configurar el clúster de HPC. Para obtener información y ejemplos, consulte las secciones correspondientes más adelante en este artículo.
+* **Archivo de configuración del script**: necesitará crear un archivo XML que el script usará para configurar el clúster de HPC. Para más información, junto con ejemplos, vea las secciones más adelante en este artículo y el archivo Manual.rtf que acompaña al script de implementación.
 
 
 ## Sintaxis
@@ -31,13 +31,13 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### Parámetros
 
-* **ConfigFile**: especifica la ruta de acceso del archivo de configuración para describir el clúster de HPC. Para obtener más información, consulte [Archivo de configuración](#Configuration-file) en este tema o el archivo Manual.rtf en la carpeta que contiene el script.
+* **ConfigFile**: especifica la ruta de acceso del archivo de configuración para describir el clúster de HPC. Puede leer más sobre el archivo de configuración en este tema, o en el archivo Manual.rtf de la carpeta que contiene el script.
 
 * **AdminUserName**: especifica el nombre de usuario. Si el script crea el bosque de dominio, esto se convierte en el nombre de usuario del administrador local para todas las máquinas virtuales, así como el nombre del administrador de dominio. Si ya existe un bosque de dominio, esto especifica el usuario de dominio como nombre de usuario del administrador local para instalar HPC Pack.
 
 * **AdminPassword**: especifica la contraseña del administrador. Si no se especifica en la línea de comandos, el script le solicitará que escriba la contraseña.
 
-* **HPCImageName** (opcional): especifica el nombre de imagen de la máquina virtual de HPC Pack que se usa para implementar el clúster de HPC. Debe ser una imagen de HPC Pack proporcionada por Microsoft desde Azure Marketplace. Si no se especifica (recomendado en la mayoría de los casos), el script elige la imagen de HPC Pack publicada más reciente.
+* **HPCImageName** (opcional): especifica el nombre de imagen de la máquina virtual de HPC Pack que se usa para implementar el clúster de HPC. Debe ser una imagen de HPC Pack proporcionada por Microsoft desde Azure Marketplace. Si no se especifica (recomendado en la mayoría de los casos), el script elige la [imagen de HPC Pack](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) publicada más reciente. La última imagen se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 instalado.
 
     >[AZURE.NOTE] Se producirá un error en la implementación si no se indica una imagen de HPC Pack válida.
 
@@ -56,12 +56,12 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 En el ejemplo siguiente se crea un nuevo clúster de HPC Pack mediante el archivo de configuración *MyConfigFile.xml* y se especifican las credenciales administrativas para instalar el clúster.
 
 ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+.\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
 ### Consideraciones adicionales
 
-* El script usa la imagen de máquina virtual de HPC Pack en Azure Marketplace para crear el nodo principal del clúster. La última imagen se basa en Windows Server 2012 R2 Datacenter con HPC Pack 2012 R2 Update 3 instalado.
+
 
 * El script puede, opcionalmente, habilitar el envío de trabajos mediante el portal web de HPC Pack o la API de REST de HPC Pack.
 
@@ -70,6 +70,6 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
 ## Archivo de configuración
 
-El archivo de configuración para el script de implementación es un archivo XML. El archivo de esquema HPCIaaSClusterConfig.xsd está en la carpeta de scripts de implementación de HPC Pack IaaS. **IaaSClusterConfig** es el elemento raíz del archivo de configuración que contiene los elementos secundarios descritos en detalle en el archivo Manual.rtf de la carpeta de scripts de implementación. Para ver ejemplos de archivos para distintos escenarios, consulte [Archivos de configuración de ejemplo](#Example-configuration-files) en este artículo.
+El archivo de configuración para el script de implementación es un archivo XML. El archivo de esquema HPCIaaSClusterConfig.xsd está en la carpeta de scripts de implementación de HPC Pack IaaS. **IaaSClusterConfig** es el elemento raíz del archivo de configuración que contiene los elementos secundarios descritos en detalle en el archivo Manual.rtf de la carpeta de scripts de implementación.
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

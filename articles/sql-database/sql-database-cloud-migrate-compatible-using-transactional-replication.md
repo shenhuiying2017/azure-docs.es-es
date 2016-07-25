@@ -40,9 +40,9 @@ Cuando finalice la sincronización y esté listo para realizar la migración, so
 
 ## Requisitos de la replicación transaccional
 
-La replicación transaccional es una tecnología integrada con SQL Server desde SQL Server 6.5. Es una tecnología muy madura y comprobada, que conocen la mayoría de los administradores de base de datos y con la que tienen experiencia. Con la [vista previa de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/), ahora es posible configurar Base de datos SQL de Azure como un [suscriptor de replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) a la publicación local. La experiencia que obtiene configurándolo desde Management Studio es exactamente la misma que si configura un suscriptor de replicación transaccional en un servidor local. Se admite la compatibilidad con este escenario cuando el publicador y el distribuidor es al menos de una de las siguientes versiones de SQL Server:
+La replicación transaccional es una tecnología integrada con SQL Server desde SQL Server 6.5. Es una tecnología muy madura y comprobada, que conocen la mayoría de los administradores de base de datos y con la que tienen experiencia. Ahora, con [SQL Server 2016](https://www.microsoft.com/es-ES/cloud-platform/sql-server), Base de datos SQL de Azure se puede configurar como un [suscriptor de replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) para la publicación local. La experiencia que obtiene configurándolo desde Management Studio es exactamente la misma que si configura un suscriptor de replicación transaccional en un servidor local. Se admite la compatibilidad con este escenario cuando el publicador y el distribuidor es al menos de una de las siguientes versiones de SQL Server:
 
- - SQL Server 2016 CTP3 (vista previa) y versiones posteriores 
+ - SQL Server 2016 y versiones posteriores
  - SQL Server 2014 SP1 CU3 y versiones posteriores
  - SQL Server 2014 RTM CU10 y versiones posteriores
  - SQL Server 2012 SP2 CU8 y versiones posteriores
@@ -56,7 +56,7 @@ La replicación transaccional es una tecnología integrada con SQL Server desde 
 
 - [Versión más reciente de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Versión más reciente de SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Versión preliminar de SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [SQL Server 2016](https://www.microsoft.com/es-ES/cloud-platform/sql-server)
 
 ## Recursos adicionales
 
@@ -65,4 +65,4 @@ La replicación transaccional es una tecnología integrada con SQL Server desde 
 - [Diferencias de Transact-SQL de Base de datos SQL de Azure](sql-database-transact-sql-information.md)
 - [Migración de bases de datos no SQL Server mediante SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

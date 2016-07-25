@@ -27,7 +27,7 @@ En este artículo se explica cómo realizar una copia de seguridad de los archiv
 
 ![Pasos del proceso de copia de seguridad](./media/backup-configure-vault/initial-backup-process.png)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
 
 ## Antes de comenzar
 Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
@@ -184,17 +184,19 @@ Para realizar la copia de seguridad inicial, use el agente de Copia de seguridad
 
 El agente de copia de seguridad ofrece limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
 
+>[AZURE.NOTE] La limitación de la red no está disponible en Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ni en Windows 7 (con Service Packs). La característica de limitación de la red de copia de seguridad de Azure participa en la Calidad del servicio (QoS) del sistema operativo local. Aunque la copia de seguridad de Azure puede proteger estos sistemas operativos, la versión de QoS disponible en estas plataformas no funciona con la limitación de la red de copia de seguridad de Azure. La limitación de la red puede usarse en todos los demás [sistemas operativos admitidos](backup-azure-backup-faq.md#installation-amp-configuration).
+
 **Para habilitar la limitación de red**
 
-1. En el agente de copia de seguridad, haga clic en **Cambiar propiedades**.
+1. En el agente de Copia de seguridad, haga clic en **Cambiar propiedades**.
 
     ![Cambiar propiedades](./media/backup-configure-vault/change-properties.png)
 
-2. En la pestaña **Limitación**, active la casilla **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad**.
+2. En la pestaña **Limitación**, active la casilla **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**.
 
     ![Limitación de la red](./media/backup-configure-vault/throttling-dialog.png)
 
-3. Después de habilitar la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante las **horas laborables** y las **horas no laborables**.
+3. Una vez que se ha habilitado la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante la **jornada laboral** y las **horas de descanso**.
 
     Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden subir hasta 1023 megabytes por segundo (Mbps). También puede designar el inicio y el final de la **jornada laboral**, así como qué días de la semana se consideran laborables. Las horas que se encuentran fuera de las horas laborables designadas se consideran como no laborables.
 
@@ -202,15 +204,15 @@ El agente de copia de seguridad ofrece limitación de la red. Esta limitación c
 
 ### Creación de copias de seguridad de archivos y carpetas por primera vez
 
-1. En el agente de copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
+1. En el agente de Copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
 
     ![Realizar copia de seguridad de Windows Server ahora](./media/backup-configure-vault/backup-now.png)
 
-2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Back Up** (Crear copia de seguridad).
+2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
 
 3. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice el proceso de copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 
-Cuando finaliza la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
+Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
 
 ![IR completado](./media/backup-configure-vault/ircomplete.png)
 
@@ -220,7 +222,7 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 ## Pasos siguientes
 Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
-- Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y los servidores](backup-azure-manage-windows-server.md).
+- Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 - Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

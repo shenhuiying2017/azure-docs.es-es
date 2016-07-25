@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Pasos siguientes
 
-En este artículo, aprendió a realizar operaciones de forma masiva en el registro de identidad del dispositivo en un Centro de IoT. Puede seguir explorando las características del Centro de IoT y otros escenarios en los artículos siguientes:
+En este artículo, aprendió a realizar operaciones de forma masiva en el registro de identidad del dispositivo en un Centro de IoT. Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
 
-- [Create an IoT hub programatically (Crear un Centro de IoT mediante programación)](iot-hub-rm-template.md)
-- [IoT Hub usage metrics (Métricas de uso del Centro de IoT)](iot-hub-metrics.md)
-- [IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)](iot-hub-operations-monitoring.md)
+- [Métricas de uso][lnk-metrics]
+- [Supervisión de operaciones][lnk-monitor]
+- [Configuración y administración del acceso al Centro de IoT][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

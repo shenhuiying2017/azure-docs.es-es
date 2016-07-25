@@ -41,7 +41,7 @@ Este tutorial requiere lo siguiente:
 
 Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión. Para usar estas características en la aplicación, inicialice [SyncContext][synccontext] en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite se utiliza como almacén local en el dispositivo.
 
-1. Instale [entorno de tiempo de ejecución de SQLite para la plataforma Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Instale el [entorno en tiempo de ejecución de SQLite para la plataforma universal de Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. En Visual Studio, abra el Administrador de paquetes NuGet para el proyecto de aplicación para UWP que completó en el tutorial [Creación de una aplicación para Windows] y busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 
@@ -211,4 +211,4 @@ Los temas siguientes ofrecen información de fondo adicional sobre la caracterí
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

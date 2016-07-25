@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/21/2016"
-	ms.author="cephalin;tdykstra;dariac"/>
+	ms.author="cephalin;dariac"/>
     
 # Documentación de implementación del Servicio de aplicaciones de Azure
 
@@ -26,12 +26,12 @@ El Servicio de aplicaciones de Azure mantiene el marco de la aplicación para us
 
 Como no tiene que preocuparse por el marco de la aplicación o del servidor web, la implementación de la aplicación en el Servicio de aplicaciones consiste en implementar código, archivos binarios, archivos de contenido y su estructura de directorios correspondiente en el directorio [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) en Azure (o el directorio **/site/wwwroot/App\_Data/Jobs/** para WebJobs). El Servicio de aplicaciones admite las siguientes opciones de implementación:
 
-- [FTP o FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): use sus FTP o FTPS favoritos habilitados para mover los archivos a Azure, desde [FileZilla](https://filezilla-project.org) hasta IDE completos como [NetBeans](https://netbeans.org). Se trata estrictamente de un proceso de carga de archivos. El Servicio de aplicaciones no proporciona servicios adicionales, como control de versiones, administración de estructura de archivos, etc. 
+- [FTP o FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): use sus FTP o FTPS favoritos habilitados para mover los archivos a Azure, desde [FileZilla](https://filezilla-project.org) hasta IDE completos como [NetBeans](https://netbeans.org). Se trata estrictamente de un proceso de carga de archivos. El Servicio de aplicaciones no proporciona servicios adicionales, como control de versiones, administración de estructura de archivos, etc.
 
 - [Kudu (Git/Mercurial o OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): use el [motor de implementación](https://github.com/projectkudu/kudu/wiki) en el Servicio de aplicaciones. Inserte el código en Kudu directamente desde cualquier repositorio. Kudu también proporciona servicios agregados siempre que se inserte código en él, como por ejemplo, control de versiones, restauración de paquetes, MSBuild y [enlaces web](https://github.com/projectkudu/kudu/wiki/Web-hooks), para la implementación continua y otras tareas de automatización. El motor de implementación de Kudu es compatible con 3 tipos distintos de orígenes de implementación:
-    * Sincronización de contenido de OneDrive y Dropbox.   
-    * Implementación continua basada en repositorio con sincronización automática desde GitHub, Bitbucket y Visual Studio Team Services.  
-    * Implementación basada en repositorio con sincronización manual desde Git local.  
+    * Sincronización de contenido de OneDrive y Dropbox.
+    * Implementación continua basada en repositorio con sincronización automática desde GitHub, Bitbucket y Visual Studio Team Services.
+    * Implementación basada en repositorio con sincronización manual desde Git local.
 
 - [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): implemente código en Servicio de aplicaciones directamente desde las herramientas de Microsoft de su preferencia, como Visual Studio, con las mismas herramientas que automatizan la implementación en servidores de IIS. Esta herramienta es compatible con la implementación de solo diferencias, la creación de bases de datos, las transformaciones de cadenas de conexión, etc. Web Deploy difiere de Kudu en que los archivos binarios de aplicación se compilan antes de implementarlos en Azure. De forma similar a FTP, el Servicio de aplicaciones no proporciona servicios adicionales.
 
@@ -44,16 +44,16 @@ Si está familiarizado con la copia manual de contenido web en un servidor web, 
 
 Las ventajas de la copia manual de archivos son las siguientes:
 
-- La familiaridad y la complejidad mínima de las herramientas de FTP. 
+- La familiaridad y la complejidad mínima de las herramientas de FTP.
 - Se sabe exactamente dónde van los archivos.
 - Mayor seguridad con FTPS.
 
 Los inconvenientes de la copia manual de archivos son los siguientes:
 
-- La necesidad de saber cómo implementar archivos en los directorios correctos en Servicio de aplicaciones. 
+- La necesidad de saber cómo implementar archivos en los directorios correctos en Servicio de aplicaciones.
 - No hay control de versiones para la reversión cuando se producen errores.
 - No existe un historial integrado de las implementaciones para solucionar problemas con la implementación.
-- Existe la posibilidad de que se generen tiempos de implementación prolongados, debido a que muchas de las herramientas de FTP no ofrecen la funcionalidad para copiar solo las diferencias y simplemente copian todos los archivos.  
+- Existe la posibilidad de que se generen tiempos de implementación prolongados, debido a que muchas de las herramientas de FTP no ofrecen la funcionalidad para copiar solo las diferencias y simplemente copian todos los archivos.
 
 ### <a name="howtoftp"></a>Implementación mediante la copia manual de archivos en Azure
 La copia de archivos en Azure implica unos pocos pasos sencillos:
@@ -61,7 +61,7 @@ La copia de archivos en Azure implica unos pocos pasos sencillos:
 1. Si ya estableció las credenciales de implementación, puede obtener la información sobre la conexión de FTP si va a **Configuración** > **Propiedades** y, luego, copia los valores de **FTP/usuario de implementación**, **Nombre de host FTP** y **Nombre de host FTPS**. Copie el valor de usuario **FTP/usuario de implementación** tal como aparece en el Portal de Azure, incluido el nombre de la aplicación a fin de proporcionar el contexto adecuado para el servidor FTP.
 2. Desde el cliente de FTP, use la información de conexión recopilada para conectarse a la aplicación.
 3. Copie los archivos y la estructura de directorio correspondiente al directorio [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) en Azure (o el directorio **/site/wwwroot/App\_Data/Jobs/** para WebJobs).
-4. Vaya a la dirección URL de la aplicación para comprobar que la aplicación se está ejecutando correctamente. 
+4. Vaya a la dirección URL de la aplicación para comprobar que la aplicación se está ejecutando correctamente.
 
 Para obtener más información, consulte el siguiente recurso:
 
@@ -84,7 +84,7 @@ Los inconvenientes de sincronizar con una carpeta en la nube son los siguientes:
 ### <a name="howtodropbox"></a>Implementación mediante sincronización con una carpeta en la nube
 En el [Portal de Azure](https://portal.azure.com), puede designar una carpeta para la sincronización de contenido en el almacenamiento en la nube de OneDrive o Dropbox, trabajar con el código de la aplicación y el contenido de dicha carpeta y sincronizar con el Servicio de aplicaciones con solo hacer clic en un botón.
 
-* [Sincronización de contenido de una carpeta en la nube con Servicio de aplicaciones de Azure](app-service-deploy-content-sync.md). 
+* [Sincronización de contenido de una carpeta en la nube con Servicio de aplicaciones de Azure](app-service-deploy-content-sync.md).
 
 ## <a name="continuousdeployment"></a>Implementación continua desde un servicio de control de código fuente basado en la nube
 Si el equipo de desarrollo usa un servicio de administración de código fuente (SCM) basado en la nube, como [Visual Studio Team Services](http://www.visualstudio.com/), [GitHub](https://www.github.com) o [BitBucket](https://bitbucket.org/), se puede configurar Servicio de aplicaciones para integrarlo con el repositorio e implementarlo de manera continua.
@@ -92,7 +92,7 @@ Si el equipo de desarrollo usa un servicio de administración de código fuente 
 Las ventajas de la implementación desde un servicio de control de código fuente basado en la nube son las siguientes:
 
 - Control de versiones para habilitar la reversión.
-- Capacidad para configurar la implementación continua de repositorios Git (y Mercurial, cuando corresponda). 
+- Capacidad para configurar la implementación continua de repositorios Git (y Mercurial, cuando corresponda).
 - Implementación específica de ramas, se pueden implementar ramas diferentes en [ranuras](web-sites-staged-publishing.md) distintas.
 - Toda la funcionalidad del motor de implementación de Kudu está disponible (por ejemplo, control de versiones de implementación, reversión, restauración de paquetes, automatización).
 
@@ -103,7 +103,7 @@ La desventaja de la implementación desde un servicio de control de código fuen
 ###<a name="vsts"></a>Implementación continua desde un servicio de control de código fuente basado en la nube
 En el [Portal de Azure](https://portal.azure.com), puede configurar la implementación continua desde GitHub, BitBucket y Visual Studio Team Services.
 
-* [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continous-deployment.md). 
+* [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continous-deployment.md).
 
 ## <a name="localgitdeployment"></a>Implementación desde Git local
 Si el equipo de desarrollo usa un servicio de administración de código fuente (SCM) local basado en Git, puede configurarlo como un origen de implementación en Servicio de aplicaciones.
@@ -117,13 +117,13 @@ Las ventajas de implementar desde un repositorio local Git son las siguientes:
 La desventaja de implementar desde un repositorio local de Git es la siguiente:
 
 - Se requiere cierto conocimiento del sistema de SCM respectivo.
-- No hay ninguna solución llave en mano para la implementación continua. 
+- No hay ninguna solución llave en mano para la implementación continua.
 
 ###<a name="vsts"></a>Implementación desde Git local
 En el [Portal de Azure](https://portal.azure.com), puede configurar la implementación de Git local.
 
-* [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md). 
-* [Publicación en aplicaciones web desde cualquier repositorio git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
+* [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
+* [Publicación en aplicaciones web desde cualquier repositorio git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).
 
 ## Implementación mediante un IDE
 Si ya usa [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) con un [Azure SDK](https://azure.microsoft.com/downloads/), o bien otros conjuntos de aplicaciones de IDE, como [Xcode](https://developer.apple.com/xcode/), [Eclipse](https://www.eclipse.org) e [IntelliJ IDEA](https://www.jetbrains.com/idea/), puede efectuar implementaciones en Azure directamente desde el IDE. Esta opción es perfecta para un desarrollador individual.
@@ -132,7 +132,7 @@ Visual Studio admite los tres procesos de implementación (FTP, Git y Web Deploy
 
 Las ventajas de la implementación mediante un IDE son las siguientes:
 
-- Reduce al mínimo, potencialmente, las herramientas para el ciclo de vida de la aplicación de un extremo a otro. Desarrolle, depure, realice un seguimiento e implemente la aplicación en Azure, todo ello sin salir de su IDE. 
+- Reduce al mínimo, potencialmente, las herramientas para el ciclo de vida de la aplicación de un extremo a otro. Desarrolle, depure, realice un seguimiento e implemente la aplicación en Azure, todo ello sin salir de su IDE.
 
 Los inconvenientes de la implementación mediante un IDE son los siguientes:
 
@@ -141,16 +141,16 @@ Los inconvenientes de la implementación mediante un IDE son los siguientes:
 
 <a name="vspros"></a> Las ventajas adicionales de la implementación mediante Visual Studio con Azure SDK son las siguientes:
 
-- Azure SDK hace de los recursos de Azure ciudadanos de primera clase en Visual Studio. Cree, elimine, edite, inicie y detenga aplicaciones, consulte la Base de datos SQL del back-end, depure en directo la aplicación de Azure y mucho más. 
+- Azure SDK hace de los recursos de Azure ciudadanos de primera clase en Visual Studio. Cree, elimine, edite, inicie y detenga aplicaciones, consulte la Base de datos SQL del back-end, depure en directo la aplicación de Azure y mucho más.
 - Edición en directo de archivos de código en Azure.
 - Depuración en directo de aplicaciones en Azure.
 - Explorador integrado de Azure.
-- Implementación de solo diferencias. 
+- Implementación de solo diferencias.
 
 ###<a name="vs"></a>Implementación directa desde Visual Studio
 
 * [Introducción a Azure y ASP.NET](web-sites-dotnet-get-started.md). Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
-* [Implementación de WebJobs de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.  
+* [Implementación de WebJobs de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.
 * [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y base de datos SQL en aplicaciones web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
 * [Implementación web de ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista. Desde que se escribió el tutorial se han agregado algunas características de implementación de Azure, pero las notas agregadas posteriormente explican lo que falta.
 * [Implementación de un sitio web ASP.NET en Azure en Visual Studio 2012 desde un repositorio Git directamente](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git. A partir de Visual Studio 2013, la compatibilidad con Git está integrada y no requiere la instalación de un complemento.
@@ -234,4 +234,4 @@ Para obtener información sobre cómo usar el control de acceso basado en roles 
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

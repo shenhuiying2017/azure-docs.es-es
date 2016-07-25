@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Introducción a la API de Centros de eventos
@@ -189,4 +189,4 @@ A continuación se incluyen referencias de API de .NET:
 - [Referencias de la API de .NET de Centros de eventos y de Bus de servicio](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

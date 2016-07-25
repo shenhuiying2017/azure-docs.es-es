@@ -36,7 +36,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 * Las máquinas virtuales de la serie F son una opción excelente para cargas de trabajo que exigen CPU más rápidas, pero que no necesitan tanta memoria o SSD local por núcleo de CPU. Las cargas de trabajo, como análisis, servidores de juegos, servidores web y procesamiento por lotes se beneficiarán del valor de la serie F.
 
-*   Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual <machine name>** o **No se pudo crear la máquina virtual <machine name>** al cambiar el tamaño de una máquina virtual existente a un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes de 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
+*   Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual <nombre de la máquina>** o **No se pudo crear la máquina virtual <nombre de la máquina>** al cambiar el tamaño de una máquina virtual existente por un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes del 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
 
 
 ## Consideraciones sobre rendimiento
@@ -91,7 +91,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 ## Serie A: instancias de proceso intensivo
 
-Nota: Para obtener información y consideraciones sobre el uso de estos tamaños, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
+Para más información, junto con consideraciones sobre el uso de estos tamaños, consulte [Sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 |Tamaño |Núcleos de CPU|Memoria|NICs (Máx)|Tamaño máx. del disco|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)| Ancho de banda de red máximo |
 |---|---|---|---|---|---|---|---|
@@ -122,12 +122,12 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 |Standard\_D2\_v2 |2|7 GB|2|Temporal (SSD) =100 GB |4|4x500| Alto |
 |Standard\_D3\_v2 |4|14 GB|4|Temporal (SSD) =200 GB |8|8x500| Alto |
 |Standard\_D4\_v2 |8|28 GB|8|Temporal (SSD) =400 GB |16|16x500| Alto |
-|Standard\_D5\_v2 |16|56 GB|8|Temporal (SSD) =800 GB |32|32x500| Muy alto |
+|Standard\_D5\_v2 |16|56 GB|8|Temporal (SSD) =800 GB |32|32x500| Extremadamente alto |
 |Standard\_D11\_v2 |2|14 GB|2|Temporal (SSD) =100 GB |4|4x500| Alto |
 |Standard\_D12\_v2 |4|28 GB|4|Temporal (SSD) =200 GB |8|8x500| Alto |
 |Standard\_D13\_v2 |8|56 GB|8|Temporal (SSD) =400 GB |16|16x500| Alto |
-|Standard\_D14\_v2 |16|112 GB|8|Temporal (SSD) =800 GB |32|32x500| Muy alto |
-|Standard\_D15\_v2 |20|140 GB|10|Temporal (SSD) =1 TB |40|40 x 500| Muy alto |
+|Standard\_D14\_v2 |16|112 GB|8|Temporal (SSD) =800 GB |32|32x500| Extremadamente alto |
+|Standard\_D15\_v2 |20|140 GB|10|Temporal (SSD) =1 TB |40|40 x 500| Extremadamente alto |
 
 
 ## Serie DS*
@@ -143,7 +143,7 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 |Standard\_DS13 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 256 MB por segundo | Alto |
 |Standard\_DS14 |16|112|8|Disco SSD local = 224 GB |32|576| 51 200 512 MB por segundo | Muy alto |
 
-**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
+*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
 
 
 ## Serie DSv2*
@@ -154,15 +154,15 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 |Standard\_DS2\_v2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 96 MB por segundo | Alto |
 |Standard\_DS3\_v2 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 192 MB por segundo | Alto |
 |Standard\_DS4\_v2 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 384 MB por segundo | Alto |
-|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 51 200 768 MB por segundo | Alto |
+|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 51 200 768 MB por segundo | Extremadamente alto |
 |Standard\_DS11\_v2 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 96 MB por segundo | Alto |
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | Alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | Alto |
-|Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 51 200 768 MB por segundo | Muy alto |
-|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|64 000 960 MB por segundo | Muy alto |
+|Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 51 200 768 MB por segundo | Extremadamente alto |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|64 000 960 MB por segundo | Extremadamente alto |
 
 
-**Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
+*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
 
 
 ## Serie F
@@ -174,7 +174,7 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 | Standard\_F2 | 2 | 4 GB | 2 | Temporal (SSD) =32 GB | 4 | 4x500 | Alto |
 | Standard\_F4 | 4 | 8 GB | 4 | Temporal (SSD) =64 GB | 8 | 8x500 | Alto |
 | Standard\_F8 | 8 | 16 GB | 8 | Temporal (SSD) =128 GB | 16 | 16x500 | Alto |
-| Standard\_F16 | 16 | 32 GB | 8 | Temporal (SSD) =256 GB | 32 | 32x500 | Muy alto |
+| Standard\_F16 | 16 | 32 GB | 8 | Temporal (SSD) =256 GB | 32 | 32x500 | Extremadamente alto |
 
 
 
@@ -186,11 +186,11 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 | Standard\_F2s | 2 | 4 | 2 | Disco SSD local = 8 GB | 4 | 24 | 6\.400 96 MB por segundo | Alto |
 | Standard\_F4s | 4 | 8 | 4 | Disco SSD local = 16 GB | 8 | 48 | 12\.800 192 MB por segundo | Alto |
 | Standard\_F8s | 8 | 16 | 8 | Disco SSD local = 32 GB | 16 | 96 | 25\.600 384 MB por segundo | Alto |
-| Standard\_F16s | 16 | 32 | 8 | Disco SSD local = 64 GB | 32 | 192 | 51 200 768 MB por segundo | Muy alto |
+| Standard\_F16s | 16 | 32 | 8 | Disco SSD local = 64 GB | 32 | 192 | 51 200 768 MB por segundo | Extremadamente alto |
 
 
 
-**Las operaciones de entrada/salida máximas por segundo (IOPS) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie Fs se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
+*Las operaciones de entrada/salida máximas por segundo (IOPS) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie Fs se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para las cargas de trabajo de la máquina virtual de Azure](../articles/storage/storage-premium-storage.md)
 
 
 
@@ -227,7 +227,7 @@ Nota: Para obtener información y consideraciones sobre el uso de estos tamaños
 
 En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en Powershell:
 
-* Standard\_A0 es ExtraSmall 
+* Standard\_A0 es ExtraSmall
 * Standard\_A1 es Small
 * Standard\_A2 es Medium
 * Standard\_A3 es Large
@@ -236,7 +236,7 @@ En el modelo de implementación clásica, algunos nombres de tamaños de VM var�
 
 ## Pasos siguientes
 
-- Conozca los [límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
+- Conozca los [límites, las cuotas y las restricciones de suscripción y servicios de Azure](../articles/azure-subscription-service-limits.md).
 - Más información [sobre las instancias de proceso intensivo A8, A9, A10 y A11](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabajo, como informática de alto rendimiento (HPC).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

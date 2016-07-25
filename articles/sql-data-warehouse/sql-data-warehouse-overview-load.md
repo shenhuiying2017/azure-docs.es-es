@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/12/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carga de datos en Almacenamiento de datos SQL de Azure
@@ -100,6 +100,19 @@ Resumen del proceso de carga
 3. Envíe los discos a Microsoft.
 4. Microsoft carga los datos en Almacenamiento de datos SQL
 
+## Carga desde HDInsight
+El Almacenamiento de datos SQL admite la carga de datos desde HDInsight a través de PolyBase. El proceso es el mismo que para cargar datos desde el Almacenamiento de blobs de Azure: mediante PolyBase para conectarse a HDInsight para cargar los datos.
+
+### 1\. Usar PolyBase y T-SQL
+
+Resumen del proceso de carga:
+
+2. Formatee los datos como UTF-8, ya que actualmente PolyBase no admite UTF-16.
+2. Mueva los datos a HDInsight y almacénelos en formato de archivos de texto, ORC o Parquet.
+3. Configure objetos externos en Almacenamiento de datos SQL para definir la ubicación y el formato de los datos.
+4. Ejecute un comando T-SQL para cargar los datos en paralelo en una nueva tabla de base de datos.
+
+Para ver un tutorial, consulte [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)][].
 
 ## Recomendaciones
 
@@ -124,7 +137,7 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Carga de datos de ejemplo en Almacenamiento de datos SQL]: ./sql-data-warehouse-load-sample-databases.md
 [información general sobre migración]: ./sql-data-warehouse-overview-migrate.md
-[asociados de soluciones]: ./sql-data-warehouse-integrate-solution-partners.md
+[asociados de soluciones]: ./sql-data-warehouse-partner-business-intelligence.md
 [información general sobre desarrollo]: ./sql-data-warehouse-overview-develop.md
 [estadísticas]: ./sql-data-warehouse-tables-statistics.md
 
@@ -133,4 +146,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Importación y exportación]: https://azure.microsoft.com/documentation/articles/storage-import-export-service/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

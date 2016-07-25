@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Canvas LMS
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Canvas:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-canvas-lms-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Canvas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Canvas**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-canvas-lms-tutorial/IC771709.png "Configurar inicio de sesión único")
 
@@ -98,19 +98,19 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Integración actual](./media/active-directory-saas-canvas-lms-tutorial/IC775992.png "Integración actual")
 
-    1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
-    2.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    3.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
-    4.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar vínculo de contraseña**.
-    5.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado**.  
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Canvas**, copie el valor de **Cambiar dirección URL de contraseña** y péguelo en el cuadro de texto **Cambiar vínculo de contraseña**.
+    5.  Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Huella digital del certificado**.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP] Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
     6.  En la lista **Atributo de inicio de sesión**, seleccione **NameID**.
     7.  En la lista **Formato de identificador** , seleccione **emailAddress**.
     8.  Haga clic en **Guardar configuración de autenticación**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-canvas-lms-tutorial/IC775993.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -143,7 +143,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
     4.  Seleccione **Email the user about this account creation** (Enviar correo electrónico al usuario sobre la creación de esta cuenta).
     5.  Haga clic en **Add User** (Agregar usuario).
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Canvas para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Canvas para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -151,7 +151,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 ###Para asignar usuarios a Canvas, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Canvas**, haga clic en **Asignar usuarios**.
 
@@ -163,4 +163,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

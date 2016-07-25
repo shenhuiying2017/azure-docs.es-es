@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Learningpool
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Learningpool:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Learningpool**, en el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Learningpool**, en el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**.
 
     ![Atributos](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Atributos")
 
@@ -106,7 +106,7 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configurar inicio de sesión único")
 
-7.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Learningpool**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación Learningpool (por ejemplo: "*https://parliament.preview.learningpool.com/auth/shibboleth/index.php)) y, luego, haga clic en **Siguiente**.
+7.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Learningpool**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación Learningpool (por ejemplo: https://parliament.preview.learningpool.com/auth/shibboleth/index.php) y, luego, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configurar dirección URL de la aplicación")
 
@@ -118,7 +118,7 @@ La aplicación Learningpool espera las aserciones de SAML en un formato específ
 
     >[AZURE.NOTE]El equipo de soporte técnico de Learningpool es el que debe habilitar el inicio de sesión único.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -135,7 +135,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 ###Para asignar usuarios a Learningpool, siga estos pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Learningpool**, haga clic en **Asignar usuarios**.
 
@@ -147,4 +147,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

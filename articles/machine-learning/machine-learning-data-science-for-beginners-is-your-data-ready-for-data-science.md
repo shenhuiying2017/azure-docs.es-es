@@ -1,5 +1,5 @@
 <properties
-   pageTitle="¿Están sus datos preparados para la ciencia de datos? (evaluación de datos): ciencia de datos para principiantes | Microsoft Azure"
+   pageTitle="¿Están sus datos preparados para la ciencia de datos? Evaluación de los datos | Microsoft Azure"
    description="Aprenda los cuatro criterios para que los datos estén preparado para la ciencia de datos. El vídeo 2 de Ciencia de datos para principiantes tiene ejemplos concretos para ayudar con la evaluación de datos básicos."
    keywords="evaluación de los datos, datos pertinentes, evaluar los datos, preparar datos, criterios de datos, datos preparados"
    services="machine-learning"
@@ -116,4 +116,4 @@ Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiant
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

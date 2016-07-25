@@ -26,7 +26,7 @@ Los requisitos del sistema incluyen:
 
 - **Requisitos de software para clientes de almacenamiento**: describe los sistemas operativos compatibles y cualquier requisito adicional para esos sistemas operativos.
 - **Requisitos de red para el dispositivo StorSimple**: proporciona información acerca de los puertos que deben estar abiertos en el firewall para permitir el tráfico iSCSI, de nube o de administración.
-- **Requisitos de alta disponibilidad para StorSimple**: describe los requisitos de alta disponibilidad y las prácticas recomendadas del equipo host y del dispositivo StorSimple. 
+- **Requisitos de alta disponibilidad para StorSimple**: describe los requisitos de alta disponibilidad y las prácticas recomendadas del equipo host y del dispositivo StorSimple.
 
 
 ## Requisitos de software para los clientes de almacenamiento
@@ -87,7 +87,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Microsoft Azure| Interfaces de red habilitadas para la nube |
 |`https://*.backup.windowsazure.com`|Registro de dispositivos| Solo DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |Interfaces de red habilitadas para la nube |
-| `https://*.core.windows.net/*` | Supervisión y cuentas de Almacenamiento de Azure | Interfaces de red habilitadas para la nube |
+| `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Supervisión y cuentas de Almacenamiento de Azure | Interfaces de red habilitadas para la nube |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> | Solo direcciones IP fijas del controlador |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |Solo direcciones IP fijas del controlador |
 | `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte | Interfaces de red habilitadas para la nube |
@@ -96,7 +96,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 Una métrica de enrutamiento se asocia con las interfaces y con la puerta de enlace que enruta los datos a las redes específicas. La métrica de enrutamiento la usa el protocolo de enrutamiento para calcular la mejor ruta a un destino determinado, si aprende que existen varias rutas al mismo destino. Cuanto más bajo sea el valor de la métrica de enrutamiento, mayor será la preferencia.
 
-En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Obtenga más información sobre el cmdlet Get-HcsRoutingTable en [Solución de problemas de implementación de dispositivos de StorSimple](storsimple-troubleshoot-deployment.md).
+En el contexto de StorSimple, si se configuran varias puertas de enlace e interfaces de red para el tráfico del canal, la métrica de enrutamiento entra en juego para determinar el orden relativo en que se usarán las interfaces. El usuario no puede cambiar las métricas de enrutamiento. Sin embargo, puede usar el cmdlet `Get-HcsRoutingTable` para imprimir la tabla de enrutamiento (y las métricas) en el dispositivo de StorSimple. Para más información sobre el cmdlet Get-HcsRoutingTable, consulte [Solución de problemas de implementación de dispositivos de StorSimple](storsimple-troubleshoot-deployment.md).
 
 Los algoritmos de la métrica de enrutamiento difieren en función de la versión de software que se ejecuta en el dispositivo de StorSimple.
 
@@ -120,19 +120,14 @@ Esto incluye las versiones de software, como 1, 1.1 o 1.2. El orden basado en la
 
 Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enrutamiento han cambiado. El comportamiento puede explicarse como sigue.
 
-- Un conjunto de valores predeterminados se han asignado a interfaces de red. 	
+- Un conjunto de valores predeterminados se han asignado a interfaces de red.
 
 - Considere una tabla de ejemplo que se muestra a continuación con valores asignados a las diversas interfaces de red si están habilitadas para la nube o deshabilitadas para la nube pero con una puerta de enlace configurada. Tenga en cuenta que los valores asignados en este artículo representan únicamente valores de ejemplo.
 
 
 	| Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - | 
-	| Data 1 | 2 | 20 | 
-	| Data 2 | 3 | 30 | 
-	| Data 3 | 4 | 40 | 
-	| Data 4 | 5 | 50 | 
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
@@ -280,4 +275,4 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

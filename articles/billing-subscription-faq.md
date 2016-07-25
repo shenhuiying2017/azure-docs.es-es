@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/11/2016"
 	ms.author="genli"/>
 
 #  Preguntas más frecuentes sobre suscripciones y facturación de Azure
 
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre facturación y suscripciones de Azure.
 
-**Administración de cuentas**
+## Administración de cuentas
 
 - [¿Cómo administro las cuentas de administrador en el nuevo Portal de Azure?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
 - [¿Se pueden enviar notificaciones a una dirección de correo electrónico diferente de la dirección de correo electrónico del propietario de la cuenta asociada a mi cuenta?](#can-notifications-be-sent-to-a-different-email-address-other-than-the-account-owner-email-address-associated-with-my-account)
 - [¿Por qué no puedo editar o agregar detalles a mi suscripción?](#why-cannot-i-edit-or-add-details-to-my-subscription)
 - [No puedo iniciar sesión en el Portal de Azure](#i-am-unable-to-log-in-to-the-azure-portal)
 
-**Facturación**
+## Facturación
 
 - [¿Cómo puedo obtener una copia de la factura?](#how-do-i-get-a-copy-of-my-invoice)
-- [No veo una factura por el último período de facturación. ¿Por qué?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [No veo la factura del último período de facturación. ¿Por qué?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
 
-**Versión de prueba gratuita**
+## Versión de prueba gratuita
 
 - [¿Puedo probar Azure gratis, sin riesgo de que se realicen cargos?](#can-i-try-azure-for-free-without-any-risk-of-being-charged)
 - [¿Qué es una suscripción de evaluación y cuánto dura?](#what-is-a-trial-subscription-and-how-long-does-it-last)
@@ -41,7 +41,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Qué sucede si quito el límite de gasto de mi evaluación gratuita?](#what-happens-if-i-remove-the-spending-limit-on-my-free-trial)
 - [¿Dónde puedo obtener más detalles sobre la versión de evaluación gratuita?](#where-can-i-get-more-details-on-free-trial)
 
-**Instrucciones para contratar Azure**
+## Instrucciones para contratar Azure
 
 - [¿En qué países y regiones está comercialmente disponible Microsoft Azure y qué divisas pueden usarse para comprar Azure?](#in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure)
 - [¿Existen restricciones en cuanto a la reventa de servicios basados en Azure a países con embargo?](#do-we-restrict-resale-of-azure-based-service-into-countries-under-embargo)
@@ -49,7 +49,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Puedo usar mis licencias de Windows existentes que compré fuera de Azure?](#can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure)
 - [¿Quién puede adquirir servicios de Azure?](#who-can-purchase-azure-services)
 
-**Realizar pagos**
+## Realizar pagos
 
 - [¿Qué opciones de pago tengo para adquirir Azure?](#what-payment-options-do-i-have-in-purchasing-azure)
 - [¿Cómo puedo solicitar el método de pago de facturación?](#how-can-i-request-the-invoice-method-of-payment)
@@ -58,24 +58,24 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Cómo puedo actualizar o cambiar la información de la tarjeta de crédito?](#how-can-i-update-or-change-my-credit-card-information)
 - [¿Cómo puedo editar la información de pago de las suscripciones de Azure?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
 
-**Precios de Azure**
+## Precios de Azure
 
 - [¿Dónde puedo encontrar información sobre beneficios y precios de Servicios de Azure?](#where-can-i-find-the-benefits-and-pricing-information-for-azure-services)
 - [¿Cómo puedo cambiar el plan de precios?](#how-do-i-change-my-pricing-plan)
 
-**Contratos de nivel de servicio (SLA)**
+## Contratos de nivel de servicio (SLA)
 
 - [¿Cómo se pueden conocer por adelantado los períodos de inactividad del servicio por mantenimiento planeado?](#how-do-we-know-in-advance-about-service-downtime-for-planned-maintenance)
 - [¿Qué es el contrato de nivel de servicio de Azure de tiempo de actividad y conectividad?](#what-is-the-azure-sla-agreement-for-uptime-and-connectivity)
 - [¿Qué son los créditos del contrato de nivel de servicio de Azure?](#what-are-the-azure-sla-credits)
 - [¿Cómo funcionarán los contratos de nivel de servicio de Azure con los contratos de licencia locales de Microsoft vigentes en la actualidad?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-**Límites de gasto de Azure**
+## Límites de gasto de Azure
 
 - [¿Si desactivo el límite de gasto, puedo activarlo después?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [¿Se puede ajustar el importe del límite de gasto?](#can-i-adjust-the-amount-of-the-spending-limit)
 
-**Planes de soporte técnico**
+## Planes de soporte técnico
 
 - [¿Cómo compro soporte técnico de Azure?](#how-do-i-purchase-azure-support)
 - [¿La cuota mensual cubre un único plan de Azure o toda la cuenta?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
@@ -84,7 +84,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 - [¿Qué ocurre al final del período de la suscripción?](#what-happens-at-the-end-of-the-term)
 - [¿Cómo cancelo mi plan de soporte técnico de Azure?](#how-do-i-cancel-my-azure-support-plan)
 
-**Migración de las suscripciones, los servicios y los datos**
+## Migración de las suscripciones, los servicios y los datos
 
 - [¿Cómo puedo migrar datos y servicios de la suscripción de Azure a una nueva suscripción?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 - [¿Cómo puedo transferir la propiedad de mis suscripciones?](#how-do-i-transfer-ownership-of-my-subscriptions)
@@ -105,7 +105,7 @@ Siga los pasos que se indican en [Facturación de Azure](https://azure.microsoft
 
 ### ¿Cómo puedo comprobar el estado de un pago realizado con tarjeta de crédito?
 
-Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico con el fin de comprobar el estado de pago realizado mediante tarjeta de crédito, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para crear una incidencia de soporte técnico con el fin de comprobar el estado de un pago realizado mediante tarjeta de crédito, consulte [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Cómo puedo obtener una copia de la factura?
 
@@ -117,25 +117,25 @@ Debe enviar una incidencia de soporte técnico para solicitar asistencia. Para c
 
 ### ¿Cómo puedo actualizar o cambiar la información de la tarjeta de crédito?
 
-Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, solo tiene que actualizar la información de la tarjeta de crédito existente, como la fecha de caducidad. Si el número de su tarjeta de crédito cambia o si desea usar otra tarjeta distinta, tendrá que agregar la nueva tarjeta. Puede ver instrucciones para actualizar o agregar una tarjeta de crédito en [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
+Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, solo tiene que actualizar la información de la tarjeta de crédito existente, como la fecha de caducidad. Si el número de su tarjeta de crédito cambia o si desea usar otra tarjeta distinta, tendrá que agregar la nueva tarjeta. Puede consultar instrucciones para actualizar o agregar una tarjeta de crédito en [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
 ### ¿Cómo se pueden conocer por adelantado los períodos de inactividad del servicio por mantenimiento planeado?
 
-Nuestro contrato de nivel de servicio de disponibilidad se aplica a las aplicaciones cliente que utilizan un mínimo de dos instancias de rol. No hay ningún contrato de nivel de servicio para instancias únicas. Consulte la [página del contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
+Nuestro contrato de nivel de servicio de disponibilidad se aplica a las aplicaciones cliente que utilizan un mínimo de dos instancias de rol. No hay ningún contrato de nivel de servicio para instancias únicas. Consulte la [página del SLA](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
 
-**Mantenimiento planeado (Portal clásico)**: en configuraciones de una o varias instancias, Azure envía comunicaciones por correo electrónico por adelantado para avisarle del próximo mantenimiento planeado (con una semana de antelación en el caso de una instancia y con 48 horas de antelación en el caso de instancias múltiples). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador de cuenta, del administrador de servicios y del coadministrador facilitadas en la suscripción.
+**Mantenimiento planeado (portal clásico)**: en configuraciones de una o varias instancias, Azure envía comunicaciones por correo electrónico por adelantado para avisarle del próximo mantenimiento planeado (con una semana de antelación en el caso de una sola instancia y con 48 horas de antelación en el caso de varias instancias). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador de cuenta, del administrador de servicios y del coadministrador facilitadas en la suscripción.
 
 **NOTA:** Si quiere obtener más información específica de las máquinas virtuales, consulte el artículo [Mantenimiento planeado de máquinas virtuales Linux en Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-**Mantenimiento no planeado**: en caso de que se produzca una interrupción del servicio no planeada en la Plataforma de Azure, se realizarán actualizaciones de estado en nuestro [panel de servicios](http://status.azure.com/) y los clientes recibirán también un aviso en el [Portal de Azure clásico](https://manage.windowsazure.com/).
+**Mantenimiento no planeado**: en caso de que se produzca una interrupción del servicio no planeada en la plataforma Azure, se realizarán actualizaciones de estado en nuestro [panel de servicios](http://status.azure.com/) y los clientes recibirán también un aviso en el [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 ### ¿Qué es el contrato de nivel de servicio de Azure de tiempo de actividad y conectividad?
 
-Azure tiene contratos de nivel de servicio independientes para todos los servicios que se encuentran disponibles con carácter general y no en vista previa. El contrato de nivel de servicio explica los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Consulte la información más reciente en la [página del contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
+Azure tiene contratos de nivel de servicio independientes para todos los servicios que se encuentran disponibles con carácter general y no en vista previa. El contrato de nivel de servicio explica los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Consulte la información más reciente en la [página del SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### ¿Qué son los créditos del contrato de nivel de servicio de Azure?
 
-Los créditos del contrato de nivel de servicio de Azure se calculan por cada suscripción como un porcentaje de la factura por ese servicio en el mes de facturación en que se incumplió el contrato de nivel de servicio. Los créditos del servicio se aplican en la factura del mes posterior. Por lo general, proporcionamos un 10 % de crédito si caemos por debajo del primer umbral (99,95 % o 99,9 %, dependiendo del servicio) y el 25 % si caemos por debajo del umbral siguiente (99 %). Consulte la [página del contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
+Los créditos del contrato de nivel de servicio de Azure se calculan por cada suscripción como un porcentaje de la factura por ese servicio en el mes de facturación en que se incumplió el contrato de nivel de servicio. Los créditos del servicio se aplican en la factura del mes posterior. Por lo general, proporcionamos un 10 % de crédito si caemos por debajo del primer umbral (99,95 % o 99,9 %, dependiendo del servicio) y el 25 % si caemos por debajo del umbral siguiente (99 %). Consulte la [página del SLA](https://azure.microsoft.com/support/legal/sla/) para ver todos los detalles.
 
 ### ¿Cómo funcionarán los contratos de nivel de servicio de Azure con los contratos de licencia locales de Microsoft vigentes en la actualidad?
 
@@ -154,7 +154,7 @@ En el siguiente artículo se le ayudará a solucionar algunas de las causas comu
 
 [No puedo iniciar sesión para administrar mi suscripción de Azure](billing-cannot-login-subscription.md)
 
-**Nota:** Asegúrese de que ha iniciado sesión con el administrador correcto. Un administrador de cuenta solo puede tener acceso al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso al [Portal de Azure](https://portal.azure.com/) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
+**Nota:** Asegúrese de haber iniciado sesión con el administrador correcto. Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/), mientras que los administradores de servicios (SA) y los coadministradores (CA) solo pueden acceder al [Portal de Azure](https://portal.azure.com/) o al [Portal de Azure clásico](https://manage.windowsazure.com/).
 
 ### ¿Cómo compro soporte técnico de Azure?
 Los planes de soporte técnico de Azure se pueden comprar en línea o a través de un contrato Enterprise. Los planes de soporte técnico Developer, Standard o Professional Direct están disponibles en línea a través de la página [Planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/). Para comprar un plan de soporte técnico, debe ser el propietario de la cuenta de Microsoft Azure.
@@ -171,7 +171,7 @@ Para acceder a una cuenta de Microsoft Azure, puede usar el [Centro de cuentas d
 
 ### ¿Cómo cambio a un plan de soporte técnico de Azure de nivel superior?
 
-Para cambiar a un plan de nivel superior, [envíe una solicitud de soporte técnico](billing-how-to-create-billing-support-ticket.md) y elija "Administración de la suscripción". Microsoft renunciará a los pagos restantes de su plan de soporte técnico original de Azure y se le cobrarán los meses restantes de su compromiso inicial con arreglo al nivel superior.
+Para actualizar a un plan de nivel superior, [envíe una solicitud de soporte técnico](billing-how-to-create-billing-support-ticket.md) y elija "Administración de la suscripción". Microsoft renunciará a los pagos restantes de su plan de soporte técnico original de Azure y se le cobrarán los meses restantes de su compromiso inicial con arreglo al nivel superior.
 
 ### ¿Cuándo se me cobrará el soporte técnico de Azure?
 
@@ -179,19 +179,19 @@ Cuando compre un plan de soporte técnico de Azure en línea, se le cobrará inm
 
 ### ¿Qué ocurre al final del período de la suscripción?
 
-Al final del período de seis meses, los planes se renovarán automáticamente durante otros seis meses en el mismo plan de soporte técnico de Azure y con el mismo método de pago. Como propietario de la cuenta, puede elegir desactivar la función de renovación automática a través del [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index).
+Al final del período de seis meses, los planes se renovarán automáticamente durante otros seis meses en el mismo plan de soporte técnico de Azure y con el mismo método de pago. Como propietario de la cuenta, puede optar por desactivar la función de renovación automática mediante el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index).
 
 Si no quiere que la suscripción se renueve automáticamente, inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index), seleccione el plan de soporte técnico en cuestión, haga clic en "Cambiar detalles de renovación" y desactive la opción predeterminada de renovación automática.
 
 ### ¿Cómo cancelo mi plan de soporte técnico de Azure?
 
-El propietario de una cuenta puede cancelar un plan de soporte técnico de Azure. Para ello, debe iniciar sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index) y seleccionar primero “CENTRO DE CUENTAS” y después "Suscripciones". Si tiene una suscripción, se mostrará su lista de suscripciones. Seleccione la suscripción que desea cancelar. A continuación, se mostrarán los detalles de la suscripción con una lista de opciones a la derecha de la pantalla. Seleccione "Cancelar" y continúe. Si no tiene una suscripción, aparecerá el mensaje "No tiene ninguna suscripción".
+El propietario de una cuenta puede cancelar un plan de soporte técnico de Azure. Para ello, debe iniciar sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index), seleccionar “CENTRO DE CUENTAS” y luego "Suscripciones". Si tiene una suscripción, se mostrará su lista de suscripciones. Seleccione la suscripción que desea cancelar. A continuación, se mostrarán los detalles de la suscripción con una lista de opciones a la derecha de la pantalla. Seleccione "Cancelar" y continúe. Si no tiene una suscripción, aparecerá el mensaje "No tiene ninguna suscripción".
 
 Tenga en cuenta que un plan de soporte técnico de Azure tiene una duración de seis meses y Microsoft requiere un compromiso monetario continuado durante todo este período. La cancelación antes del vencimiento del período no eximirá del compromiso restante ni supondrá el reembolso de ningún importe prepagado. Para obtener más información, consulte [Cancelación de su suscripción de Azure](billing-how-to-cancel-azure-subscription.md).
 
 ### ¿Cómo puedo migrar datos y servicios de la suscripción de Azure a una nueva suscripción?
 
-Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para obtener más información. Para crear una incidencia de soporte técnico con el fin de migrar datos y servicios de una suscripción de Azure a una nueva suscripción, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
+Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para obtener más información. Para crear una incidencia de soporte técnico con el fin de migrar datos y servicios de una suscripción de Azure a otra nueva, consulte el artículo [Creación de una incidencia de soporte técnico para problemas de suscripción y facturación de Azure](billing-how-to-create-billing-support-ticket.md).
 
 ### ¿Cómo administro las cuentas de administrador en el nuevo Portal de Azure?
 
@@ -211,7 +211,7 @@ Para obtener información sobre las ventajas de los servicios de Azure, consulte
 
 ### ¿Cómo puedo cambiar mi plan de precios?
 
-Puede cambiar su suscripción de pago por uso por la [oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Con esta oferta, pague por adelantado los servicios de Azure durante un período de 12 meses y reciba un 5 % de descuento. En el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), vaya a su suscripción y haga clic en Cambiar oferta. Esta es actualmente la única oferta que se puede cambiar mediante el Centro de cuentas. También puede ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para cambiar a una oferta diferente.
+Puede cambiar su suscripción de pago por uso por la [oferta de pago por adelantado de doce meses](https://azure.microsoft.com/offers/ms-azr-0026p/). Con esta oferta, pague por adelantado los servicios de Azure durante un período de 12 meses y reciba un 5 % de descuento. En el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions), vaya a su suscripción y haga clic en Cambiar oferta. Esta es actualmente la única oferta que se puede cambiar mediante el Centro de cuentas. También puede ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para cambiar a una oferta diferente.
 
 ### ¿Se pueden enviar notificaciones a una dirección de correo electrónico diferente de la dirección de correo electrónico del propietario de la cuenta asociada a mi cuenta?
 
@@ -226,12 +226,12 @@ Para ver y editar la información de la cuenta de Azure, debe iniciar sesión en
 
 1.	Vaya al [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions).
 2.	En la página de suscripciones, haga clic en la suscripción para la que desea actualizar el método de pago.
-3.	En la página de resumen de la **suscripción**, haga clic en Cambiar método de pago. Aparece la herramienta **Cambiar método de pago** en una ventana nueva.
+3.	En la página de resumen de la **suscripción**, haga clic en Cambiar el método de pago. Aparecerá la herramienta **Cambiar el método de pago** en una ventana independiente.
 
-**NOTA**: También puede obtener acceso al Centro de cuentas desde el Portal de Microsoft Azure clásico. Para ello, haga clic en el nombre de su cuenta y elija Ver mi factura.
-4.	En la página **Elegir método de pago**, haga clic en la lista desplegable, seleccione el método de pago que quiere actualizar y después haga clic en **Editar**.
+**NOTA**: También puede acceder al Centro de cuentas desde el Portal de Microsoft Azure clásico. Para ello, haga clic en el nombre de su cuenta y elija Ver mi factura.
+4.	En la página **Elegir método de pago**, haga clic en la lista desplegable, seleccione el método de pago que quiera actualizar y haga clic en **Editar**.
 5.	En la página de detalles, compruebe que ha seleccionado el tipo y el número de tarjeta de crédito correctos.
-6.	Haga los cambios necesarios en los datos de la tarjeta y después elija **Siguiente**.
+6.	Haga los cambios necesarios en los datos de la tarjeta y haga clic en **Siguiente**.
 
 Para obtener más información, consulte el artículo [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
@@ -247,7 +247,7 @@ Azure está concebido para su uso por empresas que deseen compilar servicios y a
 
 ### ¿Puedo probar Azure gratis, sin riesgo de que se realicen cargos?
 
-Sí. Con nuestra [característica de límite de gasto](https://azure.microsoft.com/pricing/spending-limits/), los clientes que se registren en una oferta de evaluación gratuita, MSDN, MPN o BizSpark pueden usar Azure sin riesgo de que se realicen cargos, siempre y cuando tengan activada dicha característica. Para obtener información sobre el registro en Azure, consulte el artículo [Beneficios y limitaciones de las ofertas de Azure: registro, compra, actualización o activación](billing-buy-sign-up-azure-subscription.md).
+Sí. Con nuestra [característica de límite de gasto](https://azure.microsoft.com/pricing/spending-limits/), los clientes que se suscriban a una oferta de evaluación gratuita, MSDN, MPN o BizSpark pueden usar Azure sin riesgo de que se realicen cargos, siempre y cuando tengan activada dicha característica. Para obtener información sobre la suscripción de Azure, consulte el artículo [Procedimiento para registrar, comprar, actualizar o activar Azure](billing-buy-sign-up-azure-subscription.md).
 
 ### ¿Si desactivo el límite de gasto, puedo activarlo después?
 
@@ -277,13 +277,13 @@ Puede registrarse para obtener una suscripción de evaluación [aquí](http://az
 
 ### ¿Qué recursos están disponibles cuando se usa una cuenta de evaluación?
 
-Con la evaluación gratuita recibirá un crédito de $200 de Azure. Usted decide cómo desea usar esta cantidad. Consulte la [página de la oferta de Evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) para obtener más detalles.
+Con la evaluación gratuita recibirá un crédito de $200 de Azure. Usted decide cómo desea usar esta cantidad. Consulte la [página de la oferta de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) para obtener más detalles.
 
 ### ¿Qué sucede si quito el límite de gasto de mi evaluación gratuita?
 
 Al quitar el límite de gasto, se le empieza a cobrar por el consumo de recursos una vez superado el crédito de la evaluación gratuita. No podrá restablecer el límite de gasto una vez que se haya quitado.
 
 ### ¿Dónde puedo obtener más detalles sobre la versión de evaluación gratuita?
-Visite la [página de la oferta de Evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) y lea las [preguntas más frecuentes oficiales sobre la Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial-faq/).
+Visite la [página de la oferta de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) y lea las [preguntas más frecuentes oficiales sobre la evaluación gratuita](https://azure.microsoft.com/pricing/free-trial-faq/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

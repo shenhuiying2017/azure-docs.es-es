@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 # Introducción al acceso condicional a Azure AD  
@@ -68,7 +68,7 @@ En la vista previa actual, se admiten las opciones siguientes:
 
 * **Requerir autenticación multifactor**: con esta opción, los usuarios a los que se aplican las reglas de acceso deberán llevar a cabo la autenticación multifactor antes de acceder a la aplicación a la que se aplica la directiva.
 
-* **Requerir autenticación multifactor fuera del trabajo**: con esta opción, a los usuarios que proceden de una dirección IP de confianza no se les pedirá que realicen la autenticación multifactor. Los intervalos de direcciones IP de confianza se pueden configurar en la página de configuración de la autenticación multifactor o mediante la configuración de intervalos de direcciones IP públicos en la pestaña Configurar del directorio.
+* **Requerir autenticación multifactor fuera del trabajo**: con esta opción, a los usuarios que proceden de una dirección IP de confianza no se les pedirá que realicen la autenticación multifactor. Los intervalos de direcciones IP de confianza pueden configurarse en la página de configuración de Multi-Factor Authentication.
 
 * **Bloquear acceso fuera del trabajo**: con esta opción, se bloqueará a los usuarios que no procedan de una dirección IP de confianza. Los intervalos de direcciones IP de confianza pueden configurarse en la página de configuración de Multi-Factor Authentication.
 
@@ -94,4 +94,4 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 - [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Polimorfismo en el marco de trabajo de Reliable Actors
@@ -35,7 +35,7 @@ También puede crear una jerarquía de tipos de actores, que se derivan de la cl
 public abstract class Shape : Actor, IShape
 {
     public abstract Task<int> GetVerticeCount();
-    
+
     public abstract Task<double> GetAreaAsync();
 }
 ```
@@ -75,12 +75,4 @@ Observe el atributo `ActorService` en el tipo de actor. Este atributo indica al 
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
 
-## Pasos siguientes
- - [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)
- - [Ciclo de vida de un actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
- - [Recordatorios y temporizadores de los actores](service-fabric-reliable-actors-timers-reminders.md)
- - [Eventos de actor](service-fabric-reliable-actors-events.md)
- - [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
- - [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

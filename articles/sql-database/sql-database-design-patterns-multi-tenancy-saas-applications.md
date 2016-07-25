@@ -31,7 +31,8 @@ En el contexto de este artículo, una aplicación multiinquilino es una aplicaci
 
 Las aplicaciones multiinquilino son un ejemplo visible de un tipo de aplicación cuyos datos y cargas de trabajo se pueden dividir fácilmente. Por ejemplo, con las aplicaciones multiinquilino, los datos y la carga de trabajo normalmente se pueden dividir a lo largo de los límites del inquilino, puesto que la mayoría de las solicitudes se refieren a un inquilino. En el resto del artículo se analiza qué propiedad es inherente a los datos y la carga de trabajo, y favorece a los patrones de las aplicaciones.
 
-Encontramos que dichas aplicaciones se extienden por todo el espectro de aplicaciones basadas en la nube, incluidos
+Vemos que dichas aplicaciones se extienden por todo el espectro de aplicaciones basadas en la nube, incluyendo:
+
 - Aplicaciones de base de datos de ISV en transición a la nube como aplicaciones de SaaS
 - Aplicaciones de SaaS elaboradas para la nube desde cero
 - Aplicaciones directas al consumidor/para el usuario final
@@ -117,7 +118,7 @@ La base de datos SQL de Azure proporciona "grupos de bases de datos elásticas" 
 | Facilidad de DevOps entre bases de datos | [Grupos de bases de datos elásticas:](sql-database-elastic-pool.md) como se indica anteriormente.|
 ||[Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md) proporciona capacidad de consulta entre las bases de datos para los informes o el análisis entre inquilinos.|
 ||[Trabajos elásticos:](sql-database-elastic-jobs-overview.md) proporciona capacidad para empaquetar e implementar de forma fiable las operaciones de mantenimiento de bases de datos o los cambios de esquema de base de datos en varias bases de datos.|
-||[Transacciones elásticas:](sql-database-elastic-scale.md) proporciona capacidad para procesar los cambios en varias bases de datos de forma atómica y aislada. Esto es necesario cuando las aplicaciones necesitan garantías de "todo o nada" para varias operaciones de base de datos. |
+||[Transacciones elásticas:](sql-database-elastic-transactions-overview.md) proporcionan la capacidad para procesar los cambios en varias bases de datos de forma atómica y aislada. Esto es necesario cuando las aplicaciones necesitan garantías de "todo o nada" para varias operaciones de base de datos. |
 ||[Biblioteca de cliente de base de datos elástica:](sql-database-elastic-database-client-library.md) esta característica permite administrar las distribuciones de los datos y la asignación de inquilinos para las bases de datos. |
 ||||
 
@@ -179,4 +180,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de Base 
 
 	
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

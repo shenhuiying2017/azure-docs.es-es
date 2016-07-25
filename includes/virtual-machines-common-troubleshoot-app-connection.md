@@ -1,4 +1,4 @@
-Hay varias causas que pueden generar problemas de conexión a una aplicación que se ejecuta en una máquina virtual (VM) de Azure, como por ejemplo que la aplicación no se ejecute y no escuche en los puertos esperados o que las reglas de red no pasen correctamente el tráfico a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
+Hay varias causas que pueden generar problemas de conexión o inicio de una aplicación que se ejecuta en una máquina virtual (VM) de Azure, por ejemplo, que la aplicación no se ejecute o no escuche en los puertos esperados, que escuche en un puerto bloqueado o que las reglas de red no pasen correctamente el tráfico a la aplicación. En este artículo se describe un enfoque metódico para buscar y corregir el problema.
 
 Si tiene problemas para conectarse a la máquina virtual con RDP o SSH, consulte en primer lugar uno de los siguientes artículos:
 
@@ -29,14 +29,14 @@ Para obtener más información, consulte [Solución de problemas con la conectiv
 
 Hay cuatro áreas principales para solucionar el acceso de una aplicación que se ejecuta en una máquina virtual de Azure.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
+![solución de problemas no se puede iniciar la aplicación](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1.	La aplicación que se ejecuta en la máquina virtual de Azure.
 	- ¿La aplicación se ejecuta correctamente?
 2.	La máquina virtual de Azure.
 	- ¿La VM se ejecuta correctamente y responde a las solicitudes?
 3.	Puntos de conexión de Azure para el servicio en la nube que contiene la máquina virtual (para las máquinas virtuales del modelo de implementación clásica), reglas NAT de entrada (para las máquinas virtuales del modelo de implementación de Resource Manager) y grupos de seguridad de red.
-	- ¿El tráfico fluye desde los usuarios a la máquina virtual o la aplicación por los puertos esperados?
+	- ¿El tráfico fluye entre los usuarios y la máquina virtual o la aplicación en los puertos esperados?
 4.	El dispositivo perimetral de Internet.
 	- ¿Hay instauradas reglas de firewall que impidan que el tráfico fluya correctamente?
 
@@ -46,7 +46,7 @@ Para los equipos cliente que tienen acceso a la aplicación a través de una con
 
 Intente obtener acceso a la aplicación con el programa cliente adecuado desde la VM en la que se ejecuta. Use el nombre de host local, la dirección IP local o la dirección de bucle invertido (127.0.0.1).
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
+![iniciar la aplicación directamente desde la máquina virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
 
 Por ejemplo, si la aplicación es un servidor web, abra un explorador en la VM e intente obtener acceso a una página web hospedada en ella.
 
@@ -57,13 +57,13 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 - La aplicación se ejecuta en la máquina virtual de destino.
 - La aplicación está escuchando en los puertos TCP y UDP esperados.
 
-En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a** para mostrar los puertos de escucha activos. Examine la salida para los puertos esperados en el que debe escuchar su aplicación. Reinicie la aplicación o configúrela para que use los puertos esperados según sea necesario e intente de nuevo obtener acceso a al aplicación de forma local.
+En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a** para mostrar los puertos de escucha activos. Examine la salida para los puertos esperados en el que debe escuchar su aplicación. Reinicie la aplicación o configúrela para que use los puertos esperados según sea necesario e intente de nuevo el acceso a la aplicación de forma local.
 
 ## <a id="step2"></a>Paso 2: ¿Tiene acceso a la aplicación desde otra máquina virtual en la misma red virtual?
 
 Intente obtener acceso a la aplicación desde otra VM (que esté en la misma red virtual) con el nombre de host de la VM o con su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas con el modelo de implementación clásica, no use la dirección IP pública del servicio en la nube.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
+![iniciar la aplicación desde una máquina virtual diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
 
 Por ejemplo, si la aplicación es un servidor web, intente obtener acceso a una página web desde un explorador en una VM diferente de la misma red virtual.
 
@@ -84,7 +84,7 @@ En una máquina virtual basada en Windows, use el Firewall de Windows con seguri
 
 Intente obtener acceso a la aplicación desde un equipo situado fuera de la red virtual como la VM en la que se está ejecutando la aplicación, pero que no esté en la misma red que el equipo cliente original.
 
-![](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
+![iniciar la aplicación desde un equipo situado fuera de la red virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la página web desde un explorador de un equipo que no esté en la red virtual.
 
@@ -94,7 +94,7 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 	- Que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
 	- Que las listas de control de acceso (ACL) en el punto de conexión no impidan el tráfico entrante desde Internet.
 	- Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
-	
+
 - Para las máquinas virtuales creadas con el modelo de implementación de Resource Manager:
 	- Que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
 	- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente.
@@ -118,4 +118,4 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Clever
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Clever:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clever-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Clever**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **Clever**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clever-tutorial/IC784682.png "Configurar inicio de sesión único")
 
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clever-tutorial/IC798981.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Clever**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Clever (por ejemplo: **https://clever.com/in/azsandbox*)) y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Clever**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Clever (por ejemplo: *https://clever.com/in/azsandbox*) y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-clever-tutorial/IC798982.png "Configurar dirección URL de la aplicación")
 
@@ -96,14 +96,14 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Inicio de sesión instantáneo](./media/active-directory-saas-clever-tutorial/IC798985.png "Inicio de sesión instantáneo")
 
-    1.  Escriba la **Dirección URL de inicio de sesión**.  
+    1.  Escriba la **Dirección URL de inicio de sesión**.
 
-        >[AZURE.NOTE]La **URL de inicio de sesión** es un valor personalizado. El valor real puede obtenerlo del equipo de soporte técnico de Clever.
+        >[AZURE.NOTE] La **URL de inicio de sesión** es un valor personalizado. El valor real puede obtenerlo del equipo de soporte técnico de Clever.
 
     2.  En **Sistema de identidades**, seleccione **ADFS**.
     3.  Haga clic en **Guardar**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clever-tutorial/IC798986.png "Configurar inicio de sesión único")
 
@@ -130,7 +130,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 Para permitir que los usuarios de Azure AD inicien sesión en Clever, deben aprovisionarse en Clever. En el caso de Clever, el aprovisionamiento es una tarea manual que debe realizar el equipo de soporte técnico de Clever.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Clever ofrecida por Clever para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Clever ofrecida por Clever para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -138,9 +138,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Clever, siga estos pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Clever **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Clever**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-clever-tutorial/IC798987.png "Asignar usuarios")
 
@@ -150,4 +150,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

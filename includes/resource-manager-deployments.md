@@ -5,13 +5,15 @@ De forma predeterminada, el Administrador de recursos controla las implementacio
 - **deja sin modificar** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
 - **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
 - **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
 
 Con la implementación completa, el Administrador de recursos:
 
 - **elimina** recursos que existen en el grupo de recursos, pero que no se especifican en la plantilla
 - **agrega** recursos que se especifican en la plantilla, pero que no existen en el grupo de recursos
 - **no vuelve a aprovisionar** recursos que existen en el grupo de recursos en la misma condición definida en la plantilla
+- **vuelve a aprovisionar** recursos existentes con la configuración actualizada de la plantilla
  
 El tipo de implementación se especifica a través de la propiedad **Mode**.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

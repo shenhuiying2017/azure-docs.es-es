@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Intacct
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Intacct:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Intacct**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **Intacct**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configurar inicio de sesión único")
 
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Intacct**, escriba su dirección URL con el siguiente patrón "**https://Intacct.com/company*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Intacct**, escriba su dirección URL con el siguiente patrón "*https://Intacct.com/company*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configurar dirección URL de la aplicación")
 
@@ -100,8 +100,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     1.  Seleccione **Habilitar inicio de sesión único**.
     2.  En **Tipo de proveedor de identidad**, seleccione **SAML 2.0**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Intacct**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **URL del emisor**.
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Intacct**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Intacct**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **URL del emisor**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Intacct**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     5.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
         
 		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
@@ -109,7 +109,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     6.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**.
     7.  Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -136,9 +136,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Intacct, tienen qu
     2.  Seleccione **Privilegios administrativos** de una cuenta de Azure AD que quiera aprovisionar.
     3.  Haga clic en **Guardar**.
         
-		>[AZURE.NOTE]El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
+		>[AZURE.NOTE] El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Intacct ofrecida por Intacct para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Intacct ofrecida por Intacct para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -146,9 +146,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Intacct, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Intacct **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Intacct**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-intacct-tutorial/IC790044.png "Asignar usuarios")
 
@@ -158,4 +158,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

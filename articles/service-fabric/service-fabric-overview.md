@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
+   ms.date="07/05/2016"
    ms.author="mfussell"/>
 
 # Información general de Service Fabric
@@ -41,7 +41,7 @@ Para obtener más información sobre los microservicios, lea [¿Por qué usar un
 ## Crear clústeres de Service Fabric en cualquier lugar
 Puede crear clústeres de Service Fabric en muchos entornos para implementar sus aplicaciones. Se puede hacer en Azure o en un entorno local, en Windows Server o en Linux. Además, el entorno de desarrollo del SDK es idéntico al entorno de producción; no se usa ningún emulador. En otras palabras, si se ejecuta en el clúster de desarrollo local, se implementará en el mismo clúster en otros entornos.
 
-Para obtener más información, lea [Deploy anywhere on Windows Server or Linux with Service Fabric](service-fabric-deploy-anywhere.md) (Deploy Anywhere en Windows Server o Linux con Service Fabric).
+Para más información sobre la creación de clústeres locales, lea sobre la [creación de un clúster en Windows Server o Linux](service-fabric-deploy-anywhere.md) o sobre la creación de un clúster de Azure [mediante el Portal de Azure](service-fabric-cluster-creation-via-portal.md).
 
 ![Plataforma de Service Fabric][Image1]
 
@@ -55,16 +55,16 @@ Service Fabric permite compilar aplicaciones que constan de microservicios. Los 
 
 2. La simplificación del diseño de la aplicación, como microservicios con estado, elimina la necesidad de colas adicionales y memorias caché. Tradicionalmente eran necesarios para satisfacer los requisitos de disponibilidad y latencia de una aplicación puramente sin estado. Como los servicios con estado son de alta disponibilidad y de baja latencia de forma natural, hay menos partes en movimiento que administrar en su aplicación en su conjunto.
 
-Para obtener más información sobre los patrones de aplicación con Service Fabric, lea [Escenarios de aplicación](service-fabric-application-scenarios.md) y [Elección de un marco para su servicio](service-fabric-choose-framework.md).
+Para más información sobre los patrones de aplicación con Service Fabric, lea [Escenarios de aplicación](service-fabric-application-scenarios.md) y [Selección de un marco de modelo de programación](service-fabric-choose-framework.md) para el servicio.
 
 ## Administración del ciclo de vida de aplicación
 Service Fabric ofrece compatibilidad de primera clase para toda la administración del ciclo de vida de aplicación (ALM) de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada.
 
 Las capacidades de ALM de Service Fabric permiten a los administradores de aplicación/operadores de TI usar flujos de trabajo simples y de baja interacción para aprovisionar, implementar, aplicar revisiones y supervisar aplicaciones. Estos flujos de trabajo integrados reducen en gran medida la carga de los operadores de TI para mantener las aplicaciones continuamente disponibles.
 
-La mayoría de las aplicaciones constan de una combinación de microservicios con estado y sin estado y otros tiempos de ejecución/ejecutables que se implementan juntos. Al tener tipos seguros en las aplicaciones y los microservicios empaquetados, Service Fabric permite la implementación de varias instancias de aplicación, en las que cada una de ellas se puede administrar y actualizar de forma independiente. Lo importante es que Service Fabric puede implementar *cualquier* ejecutable o tiempo de ejecución y hacer que sean confiables. Por ejemplo, se puede usar para implementar ASP.NET Core 1, Node.js, máquinas virtuales de Java, scripts o cualquier cosa que conforme la aplicación.
+La mayoría de las aplicaciones constan de una combinación de microservicios con estado y sin estado y otros tiempos de ejecución/ejecutables que se implementan juntos. Al tener tipos seguros en las aplicaciones y los microservicios empaquetados, Service Fabric permite la implementación de varias instancias de aplicación, en las que cada una de ellas se puede administrar y actualizar de forma independiente. Lo importante es que Service Fabric puede implementar *cualquier* ejecutable o sistema en tiempo de ejecución y hacer que sean confiables. Por ejemplo, se puede usar para implementar ASP.NET Core 1, Node.js, máquinas virtuales de Java, scripts o cualquier cosa que conforme la aplicación.
 
-Para obtener más información sobre la administración del ciclo de vida de las aplicaciones, lea [Ciclo de vida de la aplicación](service-fabric-application-lifecycle.md). Si quiere informarse sobre la implementación de cualquier código, vea [Implementación de un ejecutable invitado](service-fabric-deploy-existing-app.md).
+Para más información sobre la administración del ciclo de vida de las aplicaciones, lea [Ciclo de vida de la aplicación](service-fabric-application-lifecycle.md). Si quiere informarse sobre la implementación de cualquier código, consulte [Implementación de un ejecutable invitado](service-fabric-deploy-existing-app.md).
 
 ## Principales capacidades
 Usando Service Fabric, puede:
@@ -105,9 +105,9 @@ Usando Service Fabric, puede:
 * Para obtener más información:
     * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
     * [Información general sobre la terminología](service-fabric-technical-overview.md)
-* Configuración del [entorno de desarrollo](service-fabric-get-started.md) de Service Fabric  
-* Selección de un [marco de modelo de programación](service-fabric-choose-framework.md) para el servicio
+* Configuración del [entorno de desarrollo](service-fabric-get-started.md) de Service Fabric
+* [Selección de un marco de modelo de programación](service-fabric-choose-framework.md) para el servicio
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

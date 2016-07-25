@@ -38,10 +38,14 @@ No es raro usar el Centro de IoT y los Centros de eventos en la misma solución,
 
 ## Pasos siguientes
 
-Siga estos vínculos para obtener más información sobre el Centro de IoT de Azure:
+Para más información acerca de planificación de la implementación del Centro de IoT, consulte [Escalado del Centro de IoT][lnk-scaling].
 
-- [Introducción al Centro de IoT de Azure (Tutorial)][lnk-get-started]
-- [¿Qué es el Centro de IoT de Azure?][]
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 [Centros de eventos de Azure]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [sección de seguridad de la Guía del desarrollador del Centro de IoT]: iot-hub-devguide.md#security
@@ -49,8 +53,12 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
 [cuotas de Bus de servicio de Azure]: ../service-bus/service-bus-quotas.md
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

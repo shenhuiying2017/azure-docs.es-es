@@ -198,13 +198,11 @@ Para más información sobre cómo usar el SDK de puerta de enlace, consulte lo 
 - [SDK de puerta de enlace: envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway-simulated].
 - [Azure IoT Gateway SDK][lnk-gateway-sdk] (SDK de puerta de enlace de IoT de Azure) en GitHub.
 
-Puede encontrar más información sobre la administración de dispositivos con el Centro de IoT en [Overview of Azure IoT Hub device management][lnk-device-management] (Información general sobre la administración de dispositivos del Centro de IoT de Azure).
-
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-device-management]: ../articles/iot-hub/iot-hub-device-management-overview.md
 
+<!---HONumber=AcomDC_0713_2016-->

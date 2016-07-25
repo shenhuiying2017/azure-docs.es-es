@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
-	description="Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante el Servicio de aplicaciones de Microsoft Azure." 
+	pageTitle="Aprenda a codificar o descodificar archivos sin formato mediante Enterprise Integration Pack y Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
+	description="Use las características de Enterprise Integration Pack y Aplicaciones lógicas para codificar o descodificar archivos sin formato" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Integración de empresas con archivos sin formato
@@ -65,4 +65,4 @@ Ahora puede probar el conector realizando una solicitud al punto de conexión HT
 ## Más información
 - [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

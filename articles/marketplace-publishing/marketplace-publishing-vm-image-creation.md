@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="07/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guía para la creación de una imagen de máquina virtual para Azure Marketplace
@@ -33,6 +33,8 @@ Una oferta es un "elemento primario" de todas sus SKU. Puede tener varias oferta
 Una SKU es el nombre comercial de una imagen de máquina virtual. Una imagen de máquina virtual contiene un disco del sistema operativo y cero o más discos de datos. Se trata, básicamente, del perfil de almacenamiento completo de una máquina virtual. Es necesario un VHD por disco. Incluso los discos de datos vacíos requieren la creación de un VHD.
 
 Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la SKU. Los usuarios no pueden quitar discos que formen parte de una imagen durante la implementación pero siempre pueden agregar discos durante o después de la implementación si los necesitan.
+
+>[AZURE.IMPORTANT] **No cambie el número de discos en una nueva versión de imagen.** Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una nueva versión de la imagen con un número de discos distinto, las nuevas implementaciones que se realicen con arreglo a la nueva versión pueden registrar problemas con la autoescala, con la implementación automática de soluciones mediante plantillas de ARM y con otros escenarios.
 
 ### 1\.1 Agregar una oferta
 
@@ -499,7 +501,7 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 4. Rellene las propiedades de la sección **SKUs**.
 5. En **Familia del sistema operativo**, haga clic en el tipo de sistema operativo asociado con el VHD del sistema operativo.
 6. En el cuadro **Sistema operativo**, describa el sistema operativo. Considere un formato como familia de sistemas operativos, tipo, versión y actualizaciones. Por ejemplo, "Windows Server Datacenter 2014 R2".
-7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen. **Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
+7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen. **Solo son recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
 8. Especifique la versión. El campo de versión encapsula una versión semántica para identificar el producto y sus actualizaciones:
   -	Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
   -	Imágenes de SKU diferentes pueden tener distintas versiones principales y secundarias.
@@ -511,7 +513,7 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
     ![dibujo](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## Paso siguiente
-Cuando haya terminado con los detalles de SKU, puede avanzar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.
+Cuando termine con los detalles de SKU, podrá continuar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.
 
 ## Consulte también
 - [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -567,4 +569,4 @@ Cuando haya terminado con los detalles de SKU, puede avanzar con la [guía de co
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="04/13/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Introducción al Servicio de aplicaciones de Azure y a ASP.NET Web API 2 mediante Visual Studio
 
@@ -263,4 +263,4 @@ Una vez que la aplicación de API de ASP.NET se esté ejecutando en el Servicio 
 
 En este tutorial, aprendió a crear una API web sencilla y a implementarla en una aplicación de API del Servicio de aplicaciones de Azure. Para obtener una introducción a las características del servicio de aplicaciones que facilitan el desarrollo y utilización de las API web, consulte la serie de tutoriales que comienza con [Introducción a aplicaciones de API y ASP.NET](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

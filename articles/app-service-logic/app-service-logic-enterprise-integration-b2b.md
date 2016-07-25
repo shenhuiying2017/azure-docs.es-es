@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de soluciones B2B con Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Creación de soluciones B2B con Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Obtenga información sobre cómo recibir datos utilizando las características B2B de paquete de Enterprise Integration Pack." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Obtenga información sobre cómo recibir datos utilizando las características B2B de paquete de Enterprise Integration Pack.#
@@ -75,4 +75,4 @@ En este momento, ya ha terminado de configurar su Aplicación lógica B2B. En un
 
 [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

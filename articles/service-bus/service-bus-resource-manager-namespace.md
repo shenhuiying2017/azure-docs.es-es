@@ -18,9 +18,9 @@
 
 # Creación de un espacio de nombres del Bus de servicio mediante una plantilla de Azure Resource Manager
 
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager (ARM) que crea un espacio de nombres de "mensajería" del Bus de servicio con una SKU de nivel básico o estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres del Bus de servicio del tipo **Mensajería** con una SKU de nivel básico o estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
 Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres del Bus de servicio][] en GitHub.
 
@@ -31,7 +31,7 @@ Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres del
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
 >
->Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
+>Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
 
 ## ¿Qué va a implementar?
 
@@ -45,7 +45,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-Vamos a describir cada parámetro de la plantilla.
+La plantilla define los parámetros siguientes.
 
 ### serviceBusNamespaceName
 
@@ -82,7 +82,7 @@ La plantilla define los valores permitidos para este parámetro (Básico o Está
 
 Hay un cargo base para el nivel Estándar de 10 $ al mes, que le permite realizar hasta 12,5 millones de operaciones al mes sin ningún costo adicional. El nivel Básico cuesta 0,05 $ por cada millón de operaciones.
 
-Para obtener más información sobre los precios de Bus de servicio, consulte [Precios y facturación de Bus de servicio][].
+Para más información sobre los precios de Bus de servicio, consulte [Precios y facturación de Bus de servicio][].
 
 ### serviceBusApiVersion
 
@@ -149,9 +149,9 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 
   [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
   [Plantilla de espacio de nombres del Bus de servicio]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/
+  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Precios y facturación de Bus de servicio]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="07/07/2016"
 	ms.author="onewth"/>
 
 
 # API de aprendizaje automático: análisis de texto de opinión, extracción de frases clave, detección de idiomas y detección de temas
 
->[AZURE.NOTE] Esta guía es para la versión 1 de la API. Para la versión 2, [**consulte esta documentación**](../cognitive-services-text-analytics-quick-start/). La versión 2 es ahora la versión preferida de esta API.
+>[AZURE.NOTE] Esta guía es para la versión 1 de la API. Para la versión 2, [**consulte este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). La versión 2 es ahora la versión preferida de esta API.
 
 ## Información general
 
@@ -385,4 +385,4 @@ Las propiedades de cada parte de la respuesta son las siguientes:
 | TopicId | El identificador de tema que se ha asignado al registro. |
 | Distancia | Confianza de que el registro pertenece al tema. La distancia más cercana a cero indica mayor confianza. |
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

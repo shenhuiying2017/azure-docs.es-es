@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Más información: Administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="Temas avanzados sobre administración de contraseñas de Azure AD, entre otros, el funcionamiento de la escritura diferida de contraseñas, la seguridad de la escritura diferida de contraseñas, el funcionamiento del portal de restablecimiento de contraseñas y los datos que sirven para el restablecimiento de contraseñas." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Más información: Administración de contraseñas de Azure AD | Microsoft Azure"
+	description="Temas avanzados sobre administración de contraseñas de Azure AD, entre otros, el funcionamiento de la escritura diferida de contraseñas, la seguridad de la escritura diferida de contraseñas, el funcionamiento del portal de restablecimiento de contraseñas y los datos que sirven para el restablecimiento de contraseñas."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Más información sobre la administración de contraseñas
+
+> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+
 Si ya ha implementado la administración de contraseñas, o simplemente desea obtener más información sobre los detalles técnicos del funcionamiento antes de implementarla, en esta sección se le ofrece una introducción apropiada de los conceptos técnicos subyacentes al servicio. Trataremos lo siguiente:
 
 * [**Información general sobre la escritura diferida de contraseñas**](#password-writeback-overview)
@@ -365,7 +368,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -379,4 +382,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

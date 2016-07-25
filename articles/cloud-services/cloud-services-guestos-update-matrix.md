@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/15/2016"
+   ms.date="07/13/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
@@ -28,6 +28,8 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## Actualizaciones de noticias
+###### **13 de julio de 2016**
+La implementación del SO invitado de julio comienza el 13 de julio de 2016, y está previsto que se lance el 12 de agosto de 2016.
 
 ###### **15 de junio de 2016**
 La implementación del SO invitado de junio comienza el 15 de junio de 2016, y está previsto que se lance el 14 de julio de 2016.
@@ -61,9 +63,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.33\_201606-01 | 14 de julio de 2016* | Después de la versión 4.35 | TBD |
+| WA-GUEST-OS-4.34\_201607-01 | 12 de agosto de 2016* | Publicación 4.36 | TBD |
+| WA-GUEST-OS-4.33\_201606-01 | 13 de julio de 2016 | Después de la versión 4.35 | TBD |
 | WA-GUEST-OS-4.32\_201605-01 | 10 de junio de 2016 | Post 4.34 | TBD |
-| WA-GUEST-OS-4.31\_201604-01 | 2 de mayo de 2016 | Post 4.33 | TBD |
+| WA-GUEST-OS-4.31\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-4.29\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD | 
@@ -88,9 +91,10 @@ Admite .NET 4.0, 4.5, 4.5.1 y 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.40\_201606-01 | 14 de julio de 2016* | Después de la versión 3.42 | TBD |
+| WA-GUEST-OS-3.41\_201607-01 | 12 de agosto de 2016* | Publicación 3.43 | TBD |
+| WA-GUEST-OS-3.40\_201606-01 | 13 de julio de 2016 | Después de la versión 3.42 | TBD |
 | WA-GUEST-OS-3.39\_201605-01 | 10 de junio de 2016 | Post 3.41 | TBD |
-| WA-GUEST-OS-3.38\_201604-01 | 2 de mayo de 2016 | Post 3.40 | TBD |
+| WA-GUEST-OS-3.38\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-3.36\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
@@ -116,9 +120,10 @@ Admite .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.52\_201606-01 | 14 de julio de 2016* | Después de la versión 2.54 | TBD |
+| WA-GUEST-OS-2.53\_201607-01 | 12 de agosto de 2016* | Publicación 2.55 | TBD |
+| WA-GUEST-OS-2.52\_201606-01 | 13 de julio de 2016 | Después de la versión 2.54 | TBD |
 | WA-GUEST-OS-2.51\_201605-01 | 10 de junio de 2016 | Post 2.53 | TBD |
-| WA-GUEST-OS-2.50\_201604-01 | 2 de mayo de 2016 | Post 2.52 | TBD |
+| WA-GUEST-OS-2.50\_201604-01 | 2 de mayo de 2016 | 13 de agosto de 2016 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | 10 de julio de 2016 | TBD |
 | WA-GUEST-OS-2.48\_201602-02 | 12 de marzo de 2016 | 2 de junio de 2016 | TBD |
 | WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | 7 de mayo de 2016 | TBD |
@@ -150,7 +155,7 @@ Aunque la [directiva de retirada para el SDK de Azure][retire policy sdk] indica
 ## Información de los lanzamientos del SO invitado
 Hay tres fechas importantes para los lanzamientos de SO invitado: la de **lanzamiento**, la de **deshabilitación** y la de **expiración**. Se considera que un SO invitado se encuentra disponible cuando figura en el Portal y se puede seleccionar como el SO invitado de destino. Cuando un SO invitado llega a su fecha de **deshabilitación**, se quita de Azure. Sin embargo, cualquier servicio en la nube que utilice dicho SO invitado seguirá funcionando con normalidad.
 
-El período entre las fechas de **deshabilitación** y de **expiración** permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si utiliza la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
+El período entre las fechas de **deshabilitación** y de **expiración** permite realizar la transición de un SO invitado a uno más reciente con tranquilidad. Si usa la opción *automática* para el SO invitado, siempre tendrá la versión más reciente, por lo que no tendrá que preocuparse de que expire.
 
 Una vez que transcurra la fecha de **expiración**, cualquier servicio en la nube que siga usando ese SO invitado se detendrá, eliminará o actualizará de forma obligada. Puede leer más sobre la directiva de retirada [aquí][retirepolicy].
 
@@ -209,4 +214,4 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -3,7 +3,7 @@
 	description="Más información sobre Compatibilidad de clientes de nivel inferior de Base de datos SQL y cambios de punto de conexión IP para auditoría."
 	services="sql-database"
 	documentationCenter=""
-	authors="nadavhelfman"
+	authors="ronitr"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nadavh;ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
 
 # Base de datos SQL: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría
 
@@ -72,4 +72,4 @@ El nuevo punto de conexión de IP de la base de datos dependerá de la región d
 | Centro de Canadá | 13\.88.248.106 |
 | Este de Canadá | 40\.86.227.82 |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

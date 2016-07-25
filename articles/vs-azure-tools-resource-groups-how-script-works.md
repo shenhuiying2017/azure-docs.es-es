@@ -3,8 +3,8 @@
 	description="Describe cómo funciona el script de PowerShell en el proyecto de implementación de grupo de recursos de Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Información general sobre el script de implementación del proyecto de grupo de recursos de Azure
 
@@ -73,7 +73,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
 
 1.	Convierta las variables con rutas de acceso relativas a rutas de acceso absolutas. Por ejemplo, cambe una ruta de acceso como `..\Tools\AzCopy.exe` a `C:\YourFolder\Tools\AzCopy.exe`. Igualmente, inicialice las variables *ArtifactsLocationName* y *ArtifactsLocationSasTokenName* en null. *ArtifactsLocation* y *SaSToken* pueden ser parámetros de la plantilla. Si sus valores son nulos después de leer el archivo de parámetros, el script genera valores para ellos.
 
-    Las herramientas de Azure usan los valores de parámetro *\_artifactsLocation* y *\_artifactsLocationSasToken* en la plantilla para administrar los artefactos. Si el script de PowerShell busca los parámetros con esos nombres, pero no se proporcionan los valores de parámetro, el script carga los artefactos y devuelve los valores adecuados para esos parámetros. A continuación los pasa al cmdlet a través de `@OptionsParameters`.
+    Las herramientas de Azure usan los valores de parámetro *\_artifactsLocation* y *\_artifactsLocationSasToken* en la plantilla de administración de artefactos. Si el script de PowerShell busca los parámetros con esos nombres, pero no se proporcionan los valores de parámetro, el script carga los artefactos y devuelve los valores adecuados para esos parámetros. A continuación los pasa al cmdlet a través de `@OptionsParameters`.
 
 	|Variable|Descripción|
     |---|---|
@@ -94,7 +94,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.	Esta sección comprueba si el archivo <app name>.parameters.json (el llamado "archivo de parámetros") tiene un nodo primario denominado **parámetros** (en el bloque `else`). De lo contrario, no tiene nodo primario. Cualquier formato es aceptable.
+1.	Esta sección comprueba si el archivo <nombre de la aplicación>.parameters.json (el llamado "archivo de parámetros") tiene un nodo primario denominado **parameters** (en el bloque `else`). De lo contrario, no tiene nodo primario. Cualquier formato es aceptable.
     
 	```
     if ($JsonParameters -eq $null) {
@@ -105,7 +105,7 @@ A continuación se describe lo que hacen secciones seleccionadas del script de P
         }
     ```
 
-1.	Itere a través de la colección de parámetros JSON. Si se ha asignado un valor de parámetro a *\_artifactsLocation* o *\_artifactsLocationSasToken*, a continuación, establezca la variable *$OptionalParameters* con esos valores. Esto impide que el script sobrescriba accidentalmente los valores de parámetro que usted proporcione.
+1.	Itere a través de la colección de parámetros JSON. Si se ha asignado un valor de parámetro a *\_artifactsLocation* o *\_artifactsLocationSasToken*, establezca la variable *$OptionalParameters* con dichos valores. Esto impide que el script sobrescriba accidentalmente los valores de parámetro que usted proporcione.
 
     ```
     $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -264,4 +264,4 @@ Para obtener más información sobre el Administrador de recursos de Azure, cons
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

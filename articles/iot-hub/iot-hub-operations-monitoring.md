@@ -13,19 +13,20 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="07/07/2016"
  ms.author="nberdy"/>
 
 # Introducción a la supervisión de operaciones
 
 La supervisión de operaciones del Centro de IoT permite a los usuarios supervisar el estado de las operaciones de su Centro de IoT en tiempo real. Centro de IoT realiza el seguimiento de eventos a través de varias categorías de operaciones, y los usuarios pueden optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su Centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en modelos de datos.
 
-El Centro de IoT supervisa cuatro categorías de eventos:
+El Centro de IoT supervisa cinco categorías de eventos:
 
 - Operaciones de identidad de dispositivos
 - Telemetría de dispositivo
 - Comandos de nube a dispositivo
 - Conexiones
+- Cargas de archivos
 
 ## Habilitación de la supervisión de operaciones
 
@@ -143,11 +144,14 @@ La categoría de carga de archivos supervisa los errores que se producen en el C
 
 ## Pasos siguientes
 
-Ahora que vio información general sobre la supervisión de operaciones, siga estos vínculos para obtener más información:
+Ahora que ha visto una visión general de la supervisión de operaciones, consulte [Configuración y administración del acceso al Centro de IoT][lnk-itpro] para obtener información adicional acerca de cómo administrar el Centro de IoT.
 
-- [Métricas de diagnóstico del Centro de IoT][lnk-diagnostic-metrics]
-- [Escalado del Centro de IoT][lnk-scaling]
-- [Alta disponibilidad y recuperación ante desastres del Centro de IoT][lnk-dr]
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -158,4 +162,11 @@ Ahora que vio información general sobre la supervisión de operaciones, siga es
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

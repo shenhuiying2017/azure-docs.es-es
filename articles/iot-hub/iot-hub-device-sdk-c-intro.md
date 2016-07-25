@@ -469,4 +469,23 @@ Este artículo contiene los aspectos básicos del uso de las bibliotecas en el *
 
 Para aprender a usar las funcionalidades de administración de dispositivos del **SDK de dispositivo IoT de Azure para C**, consulte [Introducción a la biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure](iot-hub-device-management-library.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+Para más información acerca del desarrollo para el Centro de IoT, consulte el [SDK de Centro de IoT][lnk-sdks].
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

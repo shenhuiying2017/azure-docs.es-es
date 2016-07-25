@@ -3,14 +3,15 @@
     description="Aprenda cómo usar InsideView con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="jeevansd"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con InsideView
@@ -36,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para InsideView:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
 
@@ -67,7 +68,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **InsideView**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **InsideView**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configurar inicio de sesión único")
 
@@ -94,28 +95,28 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Agregar un nuevo SAML](./media/active-directory-saas-insideview-tutorial/IC794136.png "Agregar un nuevo SAML")
 
     1.  En el cuadro de texto **Nombre STS**, escriba el nombre de la configuración.
-    2.  En el Portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en InsideView**, copie el valor de **Punto de conexión iniciado por el proveedor de servicios** y luego péguelo en el cuadro de texto **Punto de conexión no solicitado SamlP/WS-Fed**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en InsideView**, copie el valor de **Punto de conexión iniciado por el proveedor de servicios** y luego péguelo en el cuadro de texto **Punto de conexión no solicitado SamlP/WS-Fed**.
     3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
         
 		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado STS**.
-    5.  En el cuadro de texto **Asignación de Id. de usuario de Crm**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-6.  En el cuadro de texto **Asignación de correo electrónico de Crm**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  En el cuadro de texto **Asignación de nombre de Crm**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  En el cuadro de texto **Asignación de apellido de Crm**, escriba ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Haga clic en **Guardar**.
+    5.  En el cuadro de texto **Asignación de Id. de usuario de Crm**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  En el cuadro de texto **Asignación de correo electrónico de Crm**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  En el cuadro de texto **Asignación de nombre de Crm**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    8.  En el cuadro de texto **Asignación de apellido de Crm**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    9.  Haga clic en **Guardar**.
 
-8.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+8.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
   
 Para permitir que los usuarios de Azure AD inicien sesión en InsideView, tienen que aprovisionarse en InsideView. En el caso de InsideView, el aprovisionamiento es una tarea manual.
   
-Para obtener los usuarios o contactos creados en InsideView, póngase en contacto con su administrador de éxito de clientes o envíe un correo electrónico a ****support@insideview.com**.
+Para obtener los usuarios o contactos creados en InsideView, póngase en contacto con su administrador de éxito de clientes o envíe un correo electrónico a **support@insideview.com**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de InsideView suministrada por InsideView para aprovisionar cuentas de usuario de Azure AD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de InsideView suministrada por InsideView para aprovisionar cuentas de usuario de Azure AD.
 
 ##Asignación de usuarios
   
@@ -123,9 +124,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a InsideView, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **InsideView **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **InsideView**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-insideview-tutorial/IC794138.png "Asignar usuarios")
 
@@ -135,4 +136,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

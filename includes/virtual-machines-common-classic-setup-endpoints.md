@@ -12,7 +12,7 @@ Tras la creación de un extremo, puede utilizar una lista de control de acceso (
 
 ## Creación de un extremo
 
-1.	Si no lo ha hecho todavía, inicie sesión en el Portal de Azure clásico.
+1.	Si no lo ha hecho todavía, inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
 2.	Haga clic en **Máquinas virtuales** y haga clic en el nombre de la máquina virtual que desea configurar.
 3.	Haga clic en **Extremos**. En la página **Puntos de conexión** se enumeran todos los puntos de conexión actuales de la máquina virtual. (Este ejemplo es una VM Windows. Una VM Linux mostrará de forma predeterminada un punto de conexión para SSH).
 
@@ -60,4 +60,4 @@ Puede usar reglas para permitir solo el tráfico desde equipos específicos corr
 
 Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../articles/virtual-network/virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

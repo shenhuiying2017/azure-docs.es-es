@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre las cuentas de integración y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Información general sobre las cuentas de integración y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Aprenda todo lo que necesita saber sobre las cuentas de integración, Enterprise Integration Pack y las Aplicaciones lógicas." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Información general sobre las cuentas de integración
@@ -73,4 +73,4 @@ Puede mover fácilmente una cuenta de integración a una nueva suscripción y a 
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

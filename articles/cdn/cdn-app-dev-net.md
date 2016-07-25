@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Eliminación de perfiles y puntos de conexión de CDN
 
-Los últimos métodos que incluiremos eliminarán el punto de conexión y el perfil.
+Los últimos métodos eliminarán el punto de conexión y el perfil.
 
 ```
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -337,4 +337,4 @@ Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://
 
 Para ver más documentación sobre la biblioteca de administración de red CDN de Azure para .NET, consulte la [referencia en MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

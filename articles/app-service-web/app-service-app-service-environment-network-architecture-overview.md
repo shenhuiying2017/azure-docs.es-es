@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
@@ -23,9 +23,11 @@ Los entornos de Servicio de aplicaciones siempre se crean dentro de una subred d
 
 ## Flujo de red general ##
  
-Un entorno del Servicio de aplicaciones siempre tiene una dirección IP virtual (VIP) pública. Todo el tráfico entrante llega a esa VIP pública, incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure. Para obtener una lista completa de los puertos específicos (necesarios y opcionales) que están disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en un entorno del Servicio de aplicaciones.
+Cuando un entorno del Servicio de aplicaciones (ASE) utiliza una dirección IP virtual pública (VIP) para las aplicaciones, todo el tráfico entrante llega a esa VIP pública, incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure. Para obtener una lista completa de los puertos específicos (necesarios y opcionales) que están disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en un entorno del Servicio de aplicaciones.
 
-En el diagrama siguiente se ofrece información general sobre los distintos flujos de red entrantes y salientes:
+Los entornos del Servicio de aplicaciones también admiten aplicaciones en ejecución enlazadas únicamente a una dirección de red virtual interna, que también se denomina "dirección del ILB" (equilibrador de carga interno). En un ASE con un ILB, el tráfico HTTP y HTTPS de las aplicaciones, así como las llamadas de depuración remota, proceden de la dirección del ILB. En las configuraciones de ASE con un ILB más habituales, el tráfico FTP y FTPS también llegan desde esa dirección. Sin embargo, las operaciones de administración de Azure seguirán fluyendo a los puertos 454 y 455 en la VIP pública de un ASE con un ILB.
+
+En el diagrama siguiente se muestra información general de los distintos flujos de red entrantes y salientes de un entorno del Servicio de aplicaciones, donde las aplicaciones se enlazan a una dirección IP virtual pública:
 
 ![Flujos de red generales][GeneralNetworkFlows]
 
@@ -46,7 +48,7 @@ Si el extremo al que se llama está **fuera** de la topología de red virtual, e
  
 ![Dirección IP saliente][OutboundIPAddress]
 
-Esta dirección también se puede determinar si se crea una aplicación en el entorno de Servicio de aplicaciones y después se realiza una *nslookup* en la dirección de la aplicación. La dirección IP resultante es tanto la VIP pública como la dirección NAT saliente del entorno del Servicio de aplicaciones.
+Esta dirección también se puede determinar para los ASE que solo tienen una VIP pública creando una aplicación en el entorno de Servicio de aplicaciones y, después, realizando una operación *nslookup* en la dirección de la aplicación. La dirección IP resultante es tanto la VIP pública como la dirección NAT saliente del entorno del Servicio de aplicaciones.
 
 Si el extremo al que se llama está **dentro** de la topología de red virtual, la dirección saliente de la aplicación de llamada será la dirección IP interna del recurso de proceso individual que ejecuta la aplicación. Sin embargo, no hay una asignación persistente de direcciones IP internas de red virtual a las aplicaciones. Las aplicaciones pueden moverse a través de recursos informáticos diferentes y el grupo de recursos informáticos disponibles en un entorno del Servicio de aplicaciones puede cambiar debido a las operaciones de ajuste de escala.
 
@@ -73,6 +75,8 @@ En el ejemplo anterior, el entorno de Servicio de aplicaciones "ASE One" tiene l
 Aunque las llamadas entre diferentes entornos de Servicio de aplicaciones se tratan como llamadas de "Internet", cuando ambos entornos de Servicio de aplicaciones se encuentran en la misma región de Azure, el tráfico de red permanecerá en la red regional de Azure y no pasará físicamente a través de la Internet pública. Como resultado, puede usar un grupo de seguridad de red en la subred del segundo entorno de Servicio de aplicaciones para permitir solo las llamadas entrantes desde el primer entorno de Servicio de aplicaciones (cuya dirección IP saliente es 192.23.1.2), lo que garantiza una comunicación segura entre los entornos de Servicio de aplicaciones.
 
 ## Información y vínculos adicionales ##
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
+
 Se puede obtener más información sobre los puertos de entrada usados por los entornos de Servicio de aplicaciones y sobre el uso de grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
 
 Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos del Servicio de aplicaciones están disponibles en este [artículo][ExpressRoute].
@@ -89,4 +93,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

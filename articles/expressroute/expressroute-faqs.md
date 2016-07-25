@@ -251,4 +251,4 @@ Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a travé
 ### ¿Se puede acceder a Dynamics AX a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

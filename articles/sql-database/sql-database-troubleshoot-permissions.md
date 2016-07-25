@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Tareas administrativas comunes en Base de datos SQL de Azure"
-	description="Describe cómo realizar tareas administrativas comunes"
+	pageTitle="Realización de tareas administrativas, por ejemplo, restablecer la contraseña de administrador | Microsoft Azure"
+	description="Describe como realizar tareas administrativas comunes en Base de datos SQL de Azure. Por ejemplo, restablecer la contraseña de administrador, conceder y revocar el acceso."
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="restablecer la contraseña del administrador"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="07/06/2016"
 	ms.author="v-shysun"/>
 
-# Tareas administrativas comunes en Base de datos SQL de Azure
+# Realización de tareas administrativas comunes como el restablecimiento de la contraseña de administrador en Base de datos SQL de Azure
 Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base de datos SQL de Azure. Para información más completa, vea:
 
 - [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
@@ -26,9 +27,7 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-
-## Para cambiar la contraseña administrativa para un servidor lógico
-
+## Para restablecer la contraseña de administrador para un servidor lógico
 
 - En el [Portal de Azure](https://portal.azure.com) haga clic en **Servidores SQL Server**, seleccione el servidor en la lista y luego haga clic en **Restablecer contraseña**.
 
@@ -42,6 +41,6 @@ Use este tema para pasos rápidos, para conceder y quitar el acceso a una Base d
 - Consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Para crear inicios de sesión adicionales para usuarios con privilegios elevados en la base de datos maestra virtual
-- Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y consulte la sección "Administración de inicios de sesión" de [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md) para obtener más información.
+- Use la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) y consulte la sección "Administradores de inicio de sesión" en [Autorización y autenticación de Base de datos SQL: concesión de acceso](sql-database-manage-logins.md) para más información.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

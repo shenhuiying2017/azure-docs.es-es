@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Mimecast Personal Portal:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Mimecast Personal Portal**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Mimecast Personal Portal**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794994.png "Configurar inicio de sesión único")
 
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
 3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Mimecast Personal Portal**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación Mimecast Personal Portal (por ejemplo, “https://webmail-uk.mimecast.com” o “https://webmail-us.mimecast.com”) y haga clic en **Siguiente**.
 
-    >[AZURE.NOTE]La dirección URL de inicio de sesión es específica de la región.
+    >[AZURE.NOTE] La dirección URL de inicio de sesión es específica de la región.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC794996.png "Configurar dirección URL de la aplicación")
 
@@ -106,22 +106,22 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
     1.  En el cuadro de texto **Descripción**, escriba un nombre para la configuración.
     2.  Seleccione **Aplicar la autenticación SAML a Mimecast Personal Portal**.
-    3.  Como **Proveedor**, seleccione **Azure Active Directory**.
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **URL del emisor**.
-    5.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    6.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.  
+    3.  Como **Provider** (Proveedor), seleccione **Azure Active Directory**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **URL del emisor**.
+    5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    6.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mimecast Personal Portal**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
 
-        >[AZURE.NOTE]El valor de Dirección URL de inicio de sesión y el valor de Dirección URL de cierre de sesión para Mimecast Personal Portal son los mismos.
+        >[AZURE.NOTE] El valor de Dirección URL de inicio de sesión y el valor de Dirección URL de cierre de sesión para Mimecast Personal Portal son los mismos.
 
     7.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Para más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Abra el certificado codificado en base 64 en el Bloc de notas, quite la primera línea (“*--*”) y la última línea (“*--*”), copie el resto del contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)**.
+    8.  Abra el certificado codificado en base 64 en el Bloc de notas, quite la primera línea (*--*) y la última línea (*--*), copie el resto del contenido en el Portapapeles y, después, péguelo en el cuadro de texto **Certificado de proveedor de identidades (metadatos)**.
     9.  Seleccione **Permitir inicio de sesión único**.
     10. Haga clic en **Guardar**.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mimecast-personal-portal-tutorial/IC795002.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -161,7 +161,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 ###Para asignar usuarios a Mimecast Personal Portal, siga estos pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Mimecast Personal Portal**, haga clic en **Asignar usuarios**.
 
@@ -173,4 +173,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creación de soluciones integradas con Almacenamiento de datos SQL | Microsoft Azure"
-   description="Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL."
+   description="Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL. "
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -38,7 +38,7 @@ Consulte [Integración con Power BI](./sql-data-warehouse-integrate-power-bi.md)
 Factoría de datos de Azure ofrece a los usuarios una plataforma administrada para crear canalizaciones complejas de extracción y carga. La integración de Almacenamiento de datos SQL con Factoría de datos de Azure incluye lo siguiente:
 
 + **Procedimientos almacenados**: coordinar la ejecución de procedimientos almacenados en Almacenamiento de datos SQL.
-+ **Copia**: use ADF para mover datos a Almacenamiento de datos SQL. Esta operación puede utilizar el mecanismo estándar de movimiento de datos de ADF o PolyBase en segundo plano. 
++ **Copia**: use ADF para mover datos a Almacenamiento de datos SQL. Esta operación puede utilizar el mecanismo estándar de movimiento de datos de ADF o PolyBase en segundo plano.
 
 Consulte [Integración con Factoría de datos de Azure](./sql-data-warehouse-integrate-azure-data-factory.md) o la [documentación de Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/) para obtener más información.
 
@@ -66,10 +66,10 @@ Consulte [Integración con Análisis de transmisiones de Azure](./sql-data-wareh
 [Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
 [Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
 [Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Partners]: sql-data-warehouse-integrate-solution-partners.md
+[Partners]: sql-data-warehouse-partner-business-intelligence.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/06/2016"
 	ms.author="casoper"/>
 
 # Mejora del rendimiento mediante la compresión de archivos
@@ -114,15 +114,16 @@ Estas tablas describen el comportamiento de la compresión CDN de Azure para cad
 |----------------|-----------|------------|-----|
 |Comprimidos|Comprimidos|Comprimidos|La red CDN transcodifica entre los formatos admitidos|
 |Comprimidos|Sin comprimir|Comprimidos|La red CDN realiza la compresión|
-|Comprimidos|No almacenado en caché|Comprimidos|La red CDN realiza la compresión si el origen devuelve sin comprimir|
+|Comprimidos|No almacenado en caché|Comprimidos|La red CDN realiza la compresión si el origen se devuelve sin comprimir. **CDN de Azure de Verizon** pasará el archivo descomprimido en la primera solicitud y, después, comprime y almacena en caché el archivo para solicitudes posteriores. Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimirán. 
 |Sin comprimir|Comprimidos|Sin comprimir|La red CDN realiza la descompresión|
 |Sin comprimir|Sin comprimir|Sin comprimir| |	
-|Sin comprimir|No almacenado en caché|Sin comprimir| |	
+|Sin comprimir|No almacenado en caché|Sin comprimir| |
 
-## Notas
-1. Para los puntos de conexión de streaming habilitados para la red CDN de Servicios multimedia, la compresión está habilitada de forma predeterminada para los siguientes tipos de contenido: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. No se puede habilitar o deshabilitar la compresión de los tipos mencionados mediante el Portal de Azure.  
+## Compresión de red CDN de servicios multimedia
+
+Para los puntos de conexión de streaming habilitados para la red CDN de Servicios multimedia, la compresión está habilitada de forma predeterminada para los siguientes tipos de contenido: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. No se puede habilitar o deshabilitar la compresión de los tipos mencionados mediante el Portal de Azure.
 
 ## Consulte también
-- [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)    
+- [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->
