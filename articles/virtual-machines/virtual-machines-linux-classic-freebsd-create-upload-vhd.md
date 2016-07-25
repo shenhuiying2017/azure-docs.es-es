@@ -19,63 +19,61 @@
 
 # Creación y carga de un VHD de FreeBSD en Azure
 
-En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo FreeBSD, de forma que pueda usarlo como su propia imagen para crear una máquina virtual en Azure.
+En este artículo se muestra cómo crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo FreeBSD. Después de cargarlo, puede utilizarlo como su propia imagen para crear una máquina virtual (VM) en Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-##Requisitos previos##
+## Requisitos previos
 En este artículo se supone que tiene los siguientes elementos:
 
-- **Una suscripción de Azure:** si no tiene ninguna, puede crear una cuenta en un par de minutos. Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, consulte [crear una cuenta de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- **Una suscripción de Azure**: si no tiene una cuenta, puede crear una en un par de minutos. Si tiene una suscripción a MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, obtenga información sobre cómo [crear una cuenta de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Herramientas de Azure PowerShell**: dispone del módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción. Para descargar el módulo, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/). Hay disponible un tutorial para instalar y configurar el módulo aquí. Usará el cmdlet de [descargas de Azure](https://azure.microsoft.com/downloads/) para cargar el VHD.
+- **Herramientas de Azure PowerShell**: el módulo Azure PowerShell debe estar instalado y configurado para utilizar su suscripción de Azure. Para descargar el módulo, consulte la página de [descargas de Azure](https://azure.microsoft.com/downloads/). Hay disponible aquí un tutorial que describe cómo instalar y configurar el módulo. Use el cmdlet de [descargas de Azure](https://azure.microsoft.com/downloads/) para cargar el VHD.
 
-- **Sistema operativo FreeBSD instalado en un archivo .vhd**: ha instalado un sistema operativo FreeBSD compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
+- **Sistema operativo FreeBSD instalado en un archivo .vhd**: se debe instalar un sistema operativo FreeBSD compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones sobre cómo instalar y utilizar Hyper-V, consulte [Instalar Hyper-V y crear una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
+> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx). Además, hay un [tutorial en MSDN sobre cómo utilizar FreeBSD con Hyper-V](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
 
 Esta tarea incluye los cinco pasos siguientes.
 
-## Paso 1: Preparación de la imagen que se va a cargar ##
+## Paso 1: Preparación de la imagen que se va a cargar
 
-Para la instalación de FreeBSD en Hyper-v, hay disponible un tutorial [aquí](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
+En la máquina virtual en la que se instaló el sistema operativo FreeBSD, realice los procedimientos siguientes:
 
-Desde la máquina virtual en la que se instaló el sistema operativo FreeBSD, realice los procedimientos siguientes:
-
-1. **Habilitar DHCP**
+1. Habilite DHCP.
 
 		# echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
 		# service netif restart
 
-2. **Habilitar SSH**
+2. Habilite SSH.
 
-    SSH se activa de forma predeterminada después de la instalación desde el disco. Si no es así, o si utiliza VHD de FreeBSD directamente, escriba:
+    SSH se activa de forma predeterminada después de la instalación desde el disco. Si no está habilitado por algún motivo, o si utiliza VHD de FreeBSD directamente, escriba lo siguiente:
 
 		# echo 'sshd_enable="YES"' >> /etc/rc.conf
 		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
-3. **Configurar la consola de serie**
+3. Configure la consola de serie.
 
 		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
 		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
 
-4. **Instalar sudo**
+4. Instale sudo.
 
-    La cuenta raíz está deshabilitada en Azure y, por tanto, deberá usar sudo con un usuario sin privilegios para ejecutar comandos con privilegios elevados.
+    La cuenta raíz está deshabilitada en Azure. Esto significa que deberá usar sudo con un usuario sin privilegios para ejecutar comandos con privilegios elevados.
 
 		# pkg install sudo
-
-5. **Requisitos previos del agente de Azure**
+;
+5. Requisitos previos del agente de Azure.
 
 		# pkg install python27  
 		# pkg install Py27-setuptools27   
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python   
-		# pkg install git 
+		# pkg install git
 
-6. **Instalar el agente de Azure**
+6. Instale el agente de Azure.
 
     Siempre puede encontrar la versión más reciente del agente de Azure en [github](https://github.com/Azure/WALinuxAgent/releases). La versión 2.0.10 + admite oficialmente FreeBSD 10 y 10.1 y la versión 2.1.4 admite oficialmente FreeBSD 10.2 y versiones posteriores.
 
@@ -88,21 +86,21 @@ Desde la máquina virtual en la que se instaló el sistema operativo FreeBSD, re
 		v2.1.4
 		v2.1.4.rc0
 		v2.1.4.rc1
-   
-    Para 2.0, usaremos la 2.0.16 aquí como ejemplo.
-    
+
+    Para 2.0, usaremos la 2.0.16 como ejemplo:
+
 		# git checkout WALinuxAgent-2.0.16
 		# python setup.py install  
 		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
-    Para 2.1, usaremos la 2.1.4 aquí como ejemplo.
-    
+    Para 2.1, utilizaremos la 2.1.4 como ejemplo:
+
 		# git checkout v2.1.4
 		# python setup.py install  
 		# ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 		# ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
-   
-    **Importante**: Después de la instalación, puede comprobar la versión y ver si se está ejecutando.
+
+    >[AZURE.IMPORTANT] Después de instalar el agente de Azure, es recomendable comprobar que está ejecutándose:
 
 		# waagent -version
 		WALinuxAgent-2.1.4 running on freebsd 10.3
@@ -111,34 +109,34 @@ Desde la máquina virtual en la que se instaló el sistema operativo FreeBSD, re
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
-7. **Desaprovisionamiento**
+7. Desaprovisione el sistema.
 
-    Se trata de una limpieza del sistema y una preparación para el reaprovisionamiento. El comando siguiente también elimina la última cuenta de usuario aprovisionada y los datos asociados.
+    Desaprovisione el sistema para limpiarlo y dejarlo adecuado para un reaprovisionamiento. El comando siguiente también elimina la última cuenta de usuario aprovisionada y los datos asociados:
 
 		# echo "y" |  /usr/local/sbin/waagent -deprovision+user  
 		# echo  'waagent_enable="YES"' >> /etc/rc.conf
-    
-    Ahora podría **apagar** la máquina virtual.
+
+    Ahora ya puede apagar la máquina virtual.
 
 ## Paso 2: Creación de una cuenta de almacenamiento en Azure ##
 
-Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, por lo que se puede usar en Azure para crear una máquina virtual. Puede utilizar el portal clásico de Azure para crear una cuenta de almacenamiento.
+Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, que se puede usar para crear una máquina virtual. Puede utilizar el portal clásico de Azure para crear una cuenta de almacenamiento.
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 2. En la barra de comandos, haga clic en **Nuevo**.
 
-3. Haga clic en **Servicios de datos** > **Almacenamiento** > **Creación rápida**.
+3. Seleccione **Servicios de datos** > **Almacenamiento** > **Creación rápida**.
 
 	![Crear rápidamente una cuenta de almacenamiento](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Rellene los campos de la manera siguiente:
 
-	- En **URL**, escriba un nombre de subdominio que vaya a usar en la URL para la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este nombre se convierte en el nombre del host dentro de la URL que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
+	- En el campo **URL**, escriba un nombre de subdominio que vaya a usar en la URL de la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 números y letras minúsculas. Este nombre se convierte en el nombre del host dentro de la URL que se ha usado para direccionar el Almacenamiento de blobs de Azure, el Almacenamiento en cola de Azure o los recursos de Almacenamiento de tablas de Azure de la suscripción.
 
-	- Elija **la ubicación o el grupo de afinidad** para la cuenta de almacenamiento. Un grupo de afinidad le permite colocar sus servicios y almacenamiento en la nube en el mismo centro de datos.
+	- En la lista desplegable **Ubicación/grupo de afinidad**, seleccione una **ubicación o grupo de afinidad** para la cuenta de almacenamiento. Un grupo de afinidad le permite colocar sus servicios y almacenamiento en la nube en el mismo centro de datos.
 
-	- Decida si va a utilizar la **replicación geográfica** para la cuenta de almacenamiento. La replicación geográfica está activada de forma predeterminada. Esta opción replica los datos en una ubicación secundaria, sin coste, por lo que su almacenamiento conmuta por error a esa ubicación si se produce un error importante en la ubicación principal. La ubicación secundaria se asigna automáticamente y no se puede cambiar. Si necesita más control sobre la ubicación del almacenamiento en la nube debido a requisitos legales o las directivas de su organización, puede desactivar la replicación geográfica. Sin embargo, tenga en cuenta que si más tarde activa la replicación geográfica, deberá pagar una cuota de transferencia de datos puntual para replicar los datos existentes en la ubicación secundaria. Los servicios de almacenamiento sin replicación geográfica se ofrecen con descuento. Puede encontrar más detalles sobre la replicación geográfica de las cuentas de almacenamiento en: [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/#replication-options).
+	- En el campo **Replicación**, decida si va a utilizar la replicación **Redundancia geográfica** para la cuenta de almacenamiento. La replicación geográfica está activada de forma predeterminada. Esta opción replica los datos en una ubicación secundaria, sin coste, por lo que su almacenamiento conmuta por error a esa ubicación si se produce un error importante en la ubicación principal. La ubicación secundaria se asigna automáticamente y no se puede cambiar. Si necesita más control sobre la ubicación del almacenamiento en la nube debido a requisitos legales o las directivas de su organización, puede desactivar la replicación geográfica. Sin embargo, tenga en cuenta que si más tarde activa la replicación geográfica, deberá pagar una cuota de transferencia de datos puntual para replicar los datos existentes en la ubicación secundaria. Los servicios de almacenamiento sin replicación geográfica se ofrecen con descuento. Puede encontrar más detalles sobre la replicación geográfica de las cuentas de almacenamiento en: [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/#replication-options).
 
 	![Escribir los detalles de la cuenta de almacenamiento](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-create-account.png)
 
@@ -147,84 +145,87 @@ Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, por 
 
 	![Cuenta de almacenamiento creada correctamente](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storagenewaccount.png)
 
-6. Después cree un contenedor para los VHD que ha cargado. Haga clic en el nombre de la cuenta de almacenamiento y, a continuación, en **Contenedores**.
+6. Después, cree un contenedor para los archivos .vhd que ha cargado. Seleccione el nombre de la cuenta de almacenamiento y, a continuación, elija **Contenedores**.
 
 	![Detalles de la cuenta de almacenamiento](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_detail.png)
 
-7. Haga clic en **Crear un contenedor**.
+7. Seleccione **Crear un contenedor**.
 
 	![Detalles de la cuenta de almacenamiento](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_container.png)
 
-8. Escriba un **Nombre** para el contenedor y seleccione la **Directiva de acceso**.
+8. En el campo **Nombre**, escriba un nombre para el contenedor. A continuación, en el menú desplegable **Acceso**, seleccione el tipo de directiva de acceso que desee.
 
 	![Nombre del contenedor](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE] De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, utilice la opción de "Public Blob". Para permitir el acceso de lectura público completo del contenedor y de los blobs, utilice la opción de "Public Container".
+    > [AZURE.NOTE] De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir el acceso de lectura público a los blobs del contenedor, pero no a las propiedades y metadatos del contenedor, use la opción **Blob público**. Para permitir el acceso de lectura público completo para el contenedor y los blobs, utilice la opción **Contenedor público**.
 
-## Paso 3: Preparación de la conexión con Microsoft Azure ##
+## Paso 3: Preparación de la conexión a Azure
 
-Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el equipo y la suscripción de Azure. Para ello, puede utilizar el método de Microsoft Azure Active Directory o el método del certificado.
+Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el equipo y la suscripción de Azure. Para ello, puede utilizar el método de Azure Active Directory (Azure AD) o el método del certificado.
 
-###Uso del método de Microsoft Azure AD
+### Uso del método de Azure AD para cargar un archivo .vhd
 
-1. Abra la consola de PowerShell de Azure.
+1. Abra la consola de Azure PowerShell.
 
 2. Escriba el siguiente comando: `Add-AzureAccount`
 
-	Este comando abre una ventana de inicio de sesión que le permitirá iniciar sesión con su cuenta profesional o educativa.
+	Este comando abre una ventana de inicio de sesión donde podrá iniciar sesión con su cuenta profesional o educativa.
 
 	![Ventana de PowerShell](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/add_azureaccount.png)
 
-3. Azure autentica y guarda las credenciales y, a continuación, cierra la ventana.
+3. Azure autentica y guarda las credenciales. A continuación, cierra la ventana.
 
-###Uso del método del certificado
+### Uso del método del certificado para cargar un archivo .vhd
 
 1. Abra la consola de Azure PowerShell.
 
 2. Escriba: `Get-AzurePublishSettingsFile`.
 
-3. Se abre una ventana del explorador que le solicita que descargue un archivo .publishsettings. Contiene información y un certificado para su suscripción de Microsoft Azure.
+3. Se abre una ventana del explorador que le solicita que descargue un archivo .publishsettings. Este archivo contiene información y un certificado para su suscripción de Azure.
 
 	![Página de descarga del explorador](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 
 3. Guarde el archivo .publishsettings.
 
-4. Escriba: `Import-AzurePublishSettingsFile <PathToFile>`
+4. Escriba: `Import-AzurePublishSettingsFile <PathToFile>`, donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
 
-	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
+   Para obtener información, consulte [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) (Introducción a los cmdlets de Azure).
 
-   Para obtener información, consulte [Introducción a los cmdlets de Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
+   Para más información sobre cómo instalar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
 
-   Para obtener más información acerca de la instalación y configuración de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+## Paso 4: Carga del archivo .vhd
 
-## Paso 4: Carga del archivo .vhd ##
+Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del Almacenamiento de blobs. A continuación se muestran algunos términos que se van a utilizar al cargar el archivo:
+-  **URLAlmacenamientoDeBlobs** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
+-  **SuCarpetaDeImágenes** es el contenedor de Almacenamiento de blobs en el que desea almacenar las imágenes.
+- **VHDName** es la etiqueta que aparece en el Portal de Azure clásico para identificar el disco duro virtual.
+- **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd.
 
-Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del almacenamiento de blobs. En los siguientes ejemplos de comandos, **BlobStorageURL** es la URL de la cuenta de almacenamiento que ha creado en el paso 2 y **YourImagesFolder** es el contenedor dentro del almacenamiento de blobs donde desea almacenar las imágenes. **VHDName** es la etiqueta que aparece en el Portal de Azure clásico para identificar el disco duro virtual. **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd.
 
-
-1. Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
+Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
 		Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## Paso 5: Creación de una máquina virtual con VHD cargado ##
-Después de cargar el archivo .vhd, puede agregarlo como una imagen a la lista de imágenes personalizadas asociadas con su suscripción y crear una máquina virtual con esta imagen personalizada.
+## Paso 5: Creación de una máquina virtual con el archivo .vhd cargado
+Después de cargar el archivo .vhd, puede agregarlo como imagen a la lista de imágenes personalizadas que están asociadas con su suscripción y crear una máquina virtual con esta imagen personalizada.
 
 1. Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Importante**: use Linux como tipo de sistema operativo por ahora, ya que la versión actual de Azure PowerShell solo acepta "Linux" o "Windows" como parámetro.
+    > [AZURE.NOTE]Utilice Linux como tipo de sistema operativo. La versión actual de Azure PowerShell acepta solo "Linux" o "Windows" como parámetro.
 
 2. Tras completar los pasos anteriores, la nueva imagen aparecerá en la lista cuando elija la pestaña **Imágenes** en el Portal de Azure clásico.
 
-    ![agregar imagen](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/addfreebsdimage.png)
+    ![Elija una imagen](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/addfreebsdimage.png)
 
-3. Cree una máquina virtual desde la galería. Esta nueva imagen ahora está disponible en **Mis imágenes**. Seleccione la nueva imagen y siga las indicaciones para configurar un nombre de host, una contraseña o clave SSH, etc.
+3. Cree una máquina virtual desde la galería. Esta nueva imagen ahora está disponible en **Mis imágenes**.
+4. Seleccione la nueva imagen. Siga las indicaciones para configurar un nombre de host, una contraseña, una clave SSH, etc.
 
-	![imagen personalizada](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
+	![Imagen personalizada](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/createfreebsdimageinazure.png)
 
-4. Cuando haya completado el aprovisionamiento, verá que la máquina virtual de FreeBSD se ejecuta en Azure.
+4. Una vez completado el aprovisionamiento, verá que la máquina virtual de FreeBSD se ejecuta en Azure.
 
-	![imagen de FreeBSD en azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
+	![Imagen de FreeBSD en Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

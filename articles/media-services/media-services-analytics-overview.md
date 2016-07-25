@@ -73,7 +73,7 @@ En esta sección se enumeran todos los procesadores de multimedia (MP) de análi
 
 ### .NET
 
-La siguiente función toma uno de los nombres de MP especificados y devuelve un objeto de MP.
+La siguiente función toma uno de los nombres de MP especificados y devuelve un objeto MP.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -144,4 +144,4 @@ Respuesta:
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

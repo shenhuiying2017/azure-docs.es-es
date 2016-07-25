@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/04/2016"
+	ms.date="07/12/2016"
 	ms.author="ccompy"/>
 
 # Creación de una aplicación web en un entorno del Servicio de aplicaciones
@@ -30,7 +30,7 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
 
 ## Creación de una aplicación web
 
-1. En el [Portal de Azure](https://portal.azure.com/), haga clic en **Nuevo > Web y móvil > Aplicación web**. 
+1. En el [Portal de Azure](https://portal.azure.com/), haga clic en **Nuevo > Web y móvil > Aplicación web**.
 
 	![][1]
 
@@ -44,7 +44,7 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
 
 4. Seleccione o cree un plan del Servicio de aplicaciones.
 
-	Los *planes del Servicio de aplicaciones* son conjuntos administrados de aplicaciones web. Cuando se selecciona el precio, el precio que se cobra se aplica al plan del Servicio de aplicaciones y no a las aplicaciones individuales. Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan del Servicio de aplicaciones. Esto afecta a todas las aplicaciones web de ese plan. Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan. Para obtener más información, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+	Los *planes del Servicio de aplicaciones* son conjuntos administrados de aplicaciones web. Normalmente, cuando se selecciona el precio, el precio que se cobra se aplica al plan del Servicio de aplicaciones y no a las aplicaciones individuales. En un ASE, paga por las instancias de proceso que se han asignado al ASE en lugar de lo que ha enumerado con su ASP. Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan del Servicio de aplicaciones. Esto afecta a todas las aplicaciones web de ese plan. Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan. Para obtener más información, consulte [Información general sobre los planes del Servicio de aplicaciones de Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 	Puede identificar los planes del Servicio de aplicaciones de su ASE con solo mirar la ubicación que se indica bajo el nombre del plan.
 
@@ -54,15 +54,9 @@ En este tutorial se supone que ha creado un entorno del Servicio de aplicaciones
 
 5. Escriba el nombre de la aplicación web y luego haga clic en **Crear**.
 
-	El nombre de la aplicación web debe ser único en el Servicio de aplicaciones de Azure. Esto significa que si quiere crear una aplicación web llamada "thisismywebapp", entonces no puede haber actualmente ninguna otra aplicación web llamada "thisismywebapp" en el Servicio de aplicaciones de Azure.
-
-	La dirección URL de una aplicación web en un ASE es:
-
-	[*nombre del sitio*].[*nombre del entorno del Servicio de aplicaciones*].p.azurewebsites.net
-
-	en lugar de
-
-	[*nombre del sitio*].azurewebsites.net
+	Si su ASE usa una VIP externa, la dirección URL de una aplicación de un ASE es: [*nombre del sitio*].[*nombre de su Entorno del Servicio de aplicaciones *].p.azurewebsites.net en lugar de [*nombre del sitio*].azurewebsites.net
+	
+	Si su ASE usa una VIP interna, la dirección URL de una aplicación de un ASE es: [*nombre del sitio*].[*subdominio especificado durante la creación del ASE*]. Después de que seleccione su ASP durante la creación del ASE, verá la actualización del subdominio debajo del **Nombre**
 
 ## <a name="createplan"></a> Creación de un plan del Servicio de aplicaciones
 
@@ -118,4 +112,4 @@ Después de crear la aplicación web y el plan del Servicio de aplicaciones, es 
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

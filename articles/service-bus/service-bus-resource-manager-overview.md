@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/22/2016"
+    ms.date="07/11/2016"
     ms.author="sethm"/>
 
 # Creación de recursos de Bus de servicio con las plantillas de Azure Resource Manager
@@ -22,7 +22,7 @@ Este artículo muestra cómo crear e implementar recursos de Bus de servicio y C
 
 Las plantillas de Azure Resource Manager ayudan a definir los recursos que se implementarán en una solución, y a especificar parámetros y variables que permitan introducir valores de entrada para distintos entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener información detallada sobre cómo escribir plantillas de Azure Resource Manager y obtener una explicación del formato de plantilla, consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
 
->[AZURE.NOTE] Los ejemplos de este artículo muestran cómo utilizar Azure Resource Manager para crear una entidad de mensajería (cola) y un espacio de nombres de Bus de servicio. Para obtener otros ejemplos de plantillas, consulte la [Galería de plantillas de inicio rápido de Azure][] y busque "Bus de servicio".
+>[AZURE.NOTE] Los ejemplos de este artículo muestran cómo utilizar Azure Resource Manager para crear una entidad de mensajería (cola) y un espacio de nombres de Bus de servicio. Para obtener otros ejemplos de plantillas, visite la [Galería de plantillas de inicio rápido de Azure][] y busque "Bus de servicio".
 
 ## Plantillas de Bus de servicio y Azure Resource Manager de Centros de eventos
 
@@ -144,7 +144,7 @@ Para utilizar un archivo de parámetros opcional, copie el archivo [201-serviceb
 }
 ```
 
-Para más información, consulte el artículo del [archivo de parámetros](../resource-group-template-deploy.md#parameter-file).
+Para más información, consulte el tema del [archivo de parámetros](../resource-group-template-deploy.md#parameter-file).
 
 ### Inicio de sesión en Azure y establecimiento de la suscripción de Azure
 
@@ -154,13 +154,13 @@ En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 Login-AzureRmAccount
 ```
 
-Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles:
+Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles.
 
 ```
 Get-AzureRMSubscription
 ```
 
-Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea utilizar:
+Este comando devuelve una lista de suscripciones de Azure disponibles. Seleccione una suscripción para la sesión actual mediante la ejecución del siguiente comando. Reemplace `<YourSubscriptionId>` por el GUID de la suscripción de Azure que desea utilizar.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -174,7 +174,7 @@ Si no tiene un grupo de recursos existente, cree uno nuevo con el comando **New-
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Si es correcto, se muestra un resumen del nuevo grupo de recursos:
+Si es correcto, se muestra un resumen del nuevo grupo de recursos.
 
 ```
 ResourceGroupName : MyDemoRG
@@ -194,7 +194,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### Creación de la implementación
 
-Para crear la nueva implementación, ejecute el comando `New-AzureRmResourceGroupDeployment` y proporcione los parámetros necesarios cuando se les solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado de **Incremental**. Para más información, consulte [Implementaciones incrementales y completadas](../resource-group-template-deploy.md#incremental-and-complete-deployments).
+Para crear la nueva implementación, ejecute el comando `New-AzureRmResourceGroupDeployment` y proporcione los parámetros necesarios cuando se le solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para más información, consulte [Implementaciones incrementales y completas](../resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 El siguiente comando le solicita los tres parámetros en la ventana de PowerShell:
 
@@ -202,7 +202,7 @@ El siguiente comando le solicita los tres parámetros en la ventana de PowerShel
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Para utilizar un archivo de parámetros en su lugar, use el siguiente comando.
+Para especificar un archivo de parámetros en su lugar, use el siguiente comando.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -253,4 +253,4 @@ Ahora ha visto los comandos y el flujo de trabajo básico para la implementació
 [Implementación de recursos con plantillas de Azure Resource Manager]: ../resource-group-template-deploy.md
 [Galería de plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

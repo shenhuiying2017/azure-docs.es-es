@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
-# Creación de particiones de datos en DocumentDB con el SDK de .NET
+# Cómo realizar una partición en los datos mediante la compatibilidad del lado cliente en DocumentDB
 
-Azure DocumentDB admite recopilaciones que se pueden escalar verticalmente para lograr [grandes volúmenes de almacenamiento y rendimiento](documentdb-partition-data.md). Sin embargo, hay casos donde resulta ventajoso tener un control específico sobre el comportamiento de la creación de particiones. Para reducir la cantidad de código reutilizable necesario en las tareas de creación de particiones, agregamos una función en el SDK de .NET., Node.js y Java que simplifica la compilación de aplicaciones que se escalan horizontalmente en varias colecciones.
+Azure DocumentDB es compatible con la [creación de particiones automáticas de colecciones](documentdb-partition-data.md). Sin embargo, hay casos donde resulta ventajoso tener un control específico sobre el comportamiento de la creación de particiones. Para reducir la cantidad de código reutilizable necesario en las tareas de creación de particiones, agregamos una función en el SDK de .NET., Node.js y Java que simplifica la compilación de aplicaciones que se escalan horizontalmente en varias colecciones.
 
 En este artículo, nos fijaremos en las clases e interfaces del SDK de .NET y en su uso para desarrollar aplicaciones con particiones. Otros SDK como Java, Python y Node.js admiten métodos e interfaces similares para creación de particiones del lado cliente.
 
-## Creación de particiones con el SDK de DocumentDB
+## Creación de particiones del lado del cliente con el SDK de DocumentDB
 
 Antes de profundizar más en la creación de particiones, resumamos algunos conceptos básicos de DocumentDB relacionados con ello. Toda cuenta de base de datos de Azure DocumentDB consta de un conjunto de bases de datos, cada una con varias recopilaciones. Cada recopilación puede contener, a su vez, procedimientos almacenados, desencadenadores, UDF, documentos y datos adjuntos relacionados. Las colecciones pueden ser de una única partición o se pueden crear particiones automáticamente y tener las siguientes propiedades:
 
@@ -140,7 +140,7 @@ Los ejemplos son de código abierto y le animamos a que envíe solicitudes de ex
 
 Sí, DocumentDB admite [creación de particiones en el lado servidor](documentdb-partition-data.md). En los casos de uso más avanzados, DocumentDB también permite la creación de particiones en el lado de cliente a través de solucionadores de partición del lado de cliente.
 
-** ¿Cuándo debo usar la creación de particiones del lado de servidor y cuándo la del lado de cliente?** En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
+**¿Cuándo debería usar la creación de particiones del lado del cliente o del lado del servidor?** En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
 
 **¿Cómo se puede agregar una colección a mi esquema de creación de particiones o quitarla del mismo?**
 
@@ -164,4 +164,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

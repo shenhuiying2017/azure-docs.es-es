@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="femila"/>
 
 
@@ -57,7 +57,9 @@ En Exchange, hay dos categorías principales de revisión de protocolo y selecci
 
 
 ### Ejemplo de reglas de AD FS
-Las siguientes reglas se pueden usar para bloquear el acceso de los protocolos heredados en AD FS, en dos configuraciones comunes. Opción 1: Permitir que Exchange ActiveSync y permitir solo las aplicaciones heredadas en la intranet.
+Las siguientes reglas se pueden usar para bloquear el acceso de los protocolos heredados en AD FS, en dos configuraciones comunes.
+
+### Opción 1: permitir Exchange ActiveSync y solo las aplicaciones heredadas en la intranet.
 
 Al aplicar las tres reglas siguientes a la relación de confianza para usuario autenticado de AD FS para la Plataforma de identidad de Microsoft Office 365, se permitirá el tráfico de Exchange ActiveSync, junto con el tráfico del explorador y la autenticación moderna. Las aplicaciones heredadas se bloquearán desde la extranet.
 
@@ -105,4 +107,4 @@ Regla 3
 	c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"] 
 	=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

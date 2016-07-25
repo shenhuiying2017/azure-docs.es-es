@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -31,112 +31,9 @@ En la mayoría de los casos, este usuario no existirá en la imagen base y se cr
 
  - Consulte también: [Base estándar de Linux - Intervalos de identificadores de usuarios](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-A continuación, se indican los nombres de usuario que debería evitar al realizar el aprovisionamiento de una máquina virtual de Linux. Le recomendamos que **no use estos nombres de usuario** porque el proceso de aprovisionamiento de máquinas virtuales podría generar un error.
+A continuación encontrará una lista de usuarios de sistema integrados comunes para CentOS y Ubuntu que se debe intentar no usar al aprovisionar una máquina virtual Linux en Azure. Esta lista es solo un ejemplo, consulte la documentación de su distribución para asegurarse de que el nombre de usuario que elija no entra en conflicto con un usuario existente del sistema.
 
 
-## openSUSE
-- abrt
-- adm
-- audio
-- bin
-- bin
-- cdrom
-- cgred
-- daemon
-- dbus
-- dialout
-- dip
-- disk
-- floppy
-- ftp
-- games
-- gopher
-- haldaemon
-- halt
-- kmem
-- lock
-- lp
-- mail
-- man
-- mem
-- nfsnobody
-- nobody
-- ntp
-- operator
-- oprofile
-- postdrop
-- postfix
-- qpidd
-- root
-- rpc
-- rpcuser
-- saslauth
-- shutdown
-- slocate
-- sshd
-- stapdev
-- stapusr
-- sync
-- sys
-- tape
-- test
-- tcpdump
-- tty
-- users
-- utempter
-- utmp
-- uucp
-- vcsa
-- video
-- wheel
-
-
-## SLES
-- audio
-- bin
-- cdrom
-- console
-- daemon
-- dialout
-- disk
-- floppy
-- ftp
-- ftp
-- games
-- haldaemon
-- kmem
-- lp
-- lp
-- mail
-- maildrop
-- man
-- messagebus
-- modem
-- news
-- news
-- nobody
-- nogroup
-- polkituser
-- postfix
-- public
-- root
-- shadow
-- sshd
-- sys
-- test
-- trusted
-- tty
-- users
-- utmp
-- uucp
-- uuidd
-- video
-- wheel
-- www
-- wwwrun
-- xok
-
- 
 ## CentOS
 - abrt
 - adm
@@ -251,4 +148,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

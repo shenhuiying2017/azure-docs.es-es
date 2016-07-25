@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -132,7 +132,7 @@ El ejemplo sudoku proporciona instrucciones de uso no muy útiles para incluir u
 
 - Las celdas se separan por un espacio.
 
-Existe una forma determinada de construir rompecabezas sudoku para que no se repita un número en una columna o fila. Afortunadamente, hay un ejemplo en el clúster de HDInsight que se ha creado correctamente. Se encuentra en **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** y contiene lo siguiente:
+Existe una forma determinada de construir rompecabezas sudoku para que no se repita un número en una columna o fila. Hay un ejemplo en el clúster de HDInsight que se ha creado correctamente. Se encuentra en **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** y contiene lo siguiente:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -236,4 +236,4 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

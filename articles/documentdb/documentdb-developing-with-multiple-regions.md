@@ -143,4 +143,4 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

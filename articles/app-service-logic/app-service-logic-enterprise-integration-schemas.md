@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre los contratos y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Información general sobre los esquemas y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Sepa cómo usar los esquemas con las Aplicaciones lógicas y Enterprise Integration Pack." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Información sobre los esquemas y Enterprise Integration Pack  
@@ -53,8 +53,8 @@ En el Portal de Azure:
 
 ## Pasos siguientes
 
-- [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
+- [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
       
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

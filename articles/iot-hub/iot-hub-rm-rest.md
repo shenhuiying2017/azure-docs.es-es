@@ -173,8 +173,20 @@ Ahora puede completar la aplicación llamando al método **CreateIoTHub** antes 
 
 Ahora que ha implementado un Centro de IoT mediante la API de REST, quizá desee seguir explorando:
 
-- Explore las capacidades de la [API de REST del proveedor de recursos del centro de IoT][lnk-rest-api].
+- Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] (API de REST del proveedor de recursos del centro de IoT).
 - Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
+
+Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
+
+- [Introducción a C SDK][lnk-c-sdk]
+- [SDK de Centro de IoT][lnk-sdks]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -183,4 +195,12 @@ Ahora que ha implementado un Centro de IoT mediante la API de REST, quizá desee
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0601_2016-->
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="07/08/2016"
     ms.author="sethm" />
 
 # Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica del Bus de servicio
@@ -81,13 +81,13 @@ Al crear un cliente de cola o suscripción, puede especificar un modo de recepci
 
 Cuando se establece el modo de recepción en [ReceiveAndDelete][], ambos pasos se combinan en una sola solicitud. Esto reduce el número total de operaciones y puede mejorar el rendimiento general de los mensajes. Esta mejora del rendimiento conlleva el riesgo de la pérdida de mensajes.
 
-El Bus de servicio no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de PeekLock para aquellos escenarios en los que el cliente desee aplazar un mensaje o procesarlo como correo devuelto.
+El Bus de servicio no admite transacciones para las operaciones de recepción y eliminación. Además, se necesita la semántica de PeekLock para aquellos escenarios en los que el cliente desee aplazar un mensaje o [procesarlo como correo devuelto](service-bus-dead-letter-queues.md).
 
 ## Procesamiento por lotes del lado cliente
 
 El procesamiento por lotes del lado cliente permite que un cliente de cola o tema retrase el envío de un mensaje durante un período determinado. Si el cliente envía más mensajes durante este período, los transmite en un único lote. Además, el procesamiento por lotes del lado cliente también hace que un cliente de cola o suscripción procese varias solicitudes **Complete** por lotes en una única solicitud. El procesamiento por lotes solo está disponible para las operaciones **Send** y **Complete** asincrónicas. Las operaciones sincrónicas se envían de inmediato al servicio Bus de servicio. El procesamiento por lotes no tiene lugar para las operaciones de inspección o recepción, así como tampoco entre clientes.
 
-Si el lote supera el tamaño máximo del mensaje, se quita el último mensaje del lote y el cliente envía inmediatamente el lote. El último mensaje pasa a ser el primero del siguiente lote. De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
+Si el lote supera el tamaño máximo del mensaje, se quita el último mensaje del lote y el cliente envía inmediatamente el lote. El último mensaje pasa a ser el primero del siguiente lote. De forma predeterminada, un cliente usa un intervalo entre lotes de 20 ms. Puede cambiar el intervalo entre lotes si configura la propiedad [BatchFlushInterval][] antes de crear la factoría de mensajería. Esta configuración afecta a todos los clientes que se creen en esta factoría.
 
 Para deshabilitar el procesamiento por lotes, establezca la propiedad [BatchFlushInterval][] en **TimeSpan.Zero**. Por ejemplo:
 
@@ -102,7 +102,7 @@ El procesamiento por lotes no afecta al número de operaciones de mensajería fa
 
 ## Acceso al almacén de procesamiento por lotes
 
-Para aumentar el rendimiento de una cola, un tema o una suscripción, el Bus de servicio procesa varios mensajes por lotes cuando escribe en su almacén interno. Si se habilita en una cola o un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, el Bus de servicio retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
+Para aumentar el rendimiento de una cola, un tema o una suscripción, el Bus de servicio procesa varios mensajes por lotes cuando escribe en su almacén interno. Si se habilita en una cola o un tema, la escritura de mensajes en el almacén se procesará por lotes. Si se habilita en una cola o una suscripción, la eliminación de mensajes del almacén se procesará por lotes. Si el acceso al almacén de procesamiento por lotes está habilitado para una entidad, el Bus de servicio retrasa una operación de escritura en almacenamiento relacionada con dicha entidad unos 20 ms. Las demás operaciones de almacenamiento que se producen durante este intervalo se agregan al lote. El acceso al almacén de procesamiento por lotes solo afecta a las operaciones **Send** y **Complete**, pero no a las de recepción. El acceso al almacén de procesamiento por lotes es una propiedad de una entidad. El procesamiento por lotes se produce en todas las entidades que tengan habilitado el acceso al almacén de procesamiento por lotes.
 
 Cuando se crea una cola, un tema o una suscripción nuevos, el acceso al almacén de procesamiento por lotes está habilitado de forma predeterminada. Para deshabilitar el acceso al almacén de procesamiento por lotes, establezca la propiedad [EnableBatchedOperations][] en **false** antes de crear la entidad. Por ejemplo:
 
@@ -116,7 +116,7 @@ El acceso al almacén de procesamiento por lotes no afecta al número de operaci
 
 ## Captura previa
 
-La captura previa permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la memoria caché está determinado por las propiedades [QueueClient.PrefetchCount][] y [SubscriptionClient.PrefetchCount][]. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 kB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
+La captura previa permite que el cliente de cola o suscripción cargue más mensajes desde el servicio cuando realice una operación de recepción. El cliente almacena estos mensajes en una memoria caché local. El tamaño de la memoria caché está determinado por las propiedades [QueueClient.PrefetchCount][] o [SubscriptionClient.PrefetchCount][]. Cada cliente con la captura previa habilitada mantiene su propia memoria caché. La memoria caché no se comparte entre los clientes. Si el cliente inicia una operación de recepción y su memoria caché está vacía, el servicio transmite un lote de mensajes. El tamaño del lote equivale al tamaño de la memoria caché o a 256 kB, con preferencia por el menor valor. Si el cliente inicia una operación de recepción y la memoria caché contiene un mensaje, el mensaje se recupera de la memoria caché.
 
 Cuando se lleva a cabo la captura previa de un mensaje, el servicio bloquea dicho mensaje. De esta manera, se impide que otro receptor reciba el mensaje con captura previa. Si el receptor no puede completar el mensaje antes de que expire el bloqueo, el mensaje pasa a estar disponible para otros receptores. La copia de captura previa del mensaje permanece en la memoria caché. El receptor que consume la copia en caché expirada recibirá una excepción cuando intente completar dicho mensaje. De forma predeterminada, el bloqueo del mensaje expira tras 60 segundos. Este valor puede ampliarse a 5 minutos. Para evitar el consumo de mensajes expirados, el tamaño de la memoria caché debe ser siempre menor que el número de mensajes que un cliente puede consumir en el intervalo de tiempo de espera de bloqueo.
 
@@ -142,7 +142,7 @@ Si se envía un mensaje que contiene información importante y que no debe perde
 
 ## Uso de colas o temas particionados
 
-De forma interna, el Bus de servicio usa el mismo nodo y el mismo almacén de mensajería para procesar y almacenar todos los mensajes para una entidad de mensajería (cola o tema). Por otro lado, una cola o un tema particionados se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas particionados no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][] en **true**, como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][].
+De forma interna, el Bus de servicio usa el mismo nodo y el mismo almacén de mensajería para procesar y almacenar todos los mensajes para una entidad de mensajería (cola o tema). Por otro lado, una cola o un tema particionados se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas particionados no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][] en **true**, como se muestra en el ejemplo siguiente. Para más información acerca de las entidades con particiones, consulte [Entidades de mensajería con particiones][].
 
 ```
 // Create partitioned queue.
@@ -171,7 +171,7 @@ Objetivo: Maximizar el rendimiento de una sola cola. El número de remitentes y 
 
 -   Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
 
--   Establezca el intervalo de procesamiento por lotes en 50 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio. Si se usan varios remitentes, aumente el intervalo de procesamiento por lotes a 100 ms.
+-   Establezca el intervalo de procesamiento por lotes en 50 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio. Si se usan varios remitentes, aumente el intervalo de procesamiento por lotes a 100 ms.
 
 -   Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la tasa general con que se pueden escribir mensajes en la cola.
 
@@ -211,7 +211,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 -   Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
 
--   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
+-   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
 
 -   Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la tasa general con que se pueden escribir mensajes en la cola o el tema.
 
@@ -249,7 +249,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 -   Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
 
--   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
+-   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
 
 -   Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la tasa general con que se pueden escribir mensajes en el tema.
 
@@ -267,7 +267,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 -   Use operaciones asincrónicas para aprovechar el procesamiento por lotes del lado cliente.
 
--   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
+-   Use el intervalo predeterminado de procesamiento por lotes de 20 ms para reducir el número de transmisiones del protocolo de cliente del Bus de servicio.
 
 -   Deje habilitado el acceso al almacén de procesamiento por lotes. Esto aumenta la tasa general con que se pueden escribir mensajes en el tema.
 
@@ -275,7 +275,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 ## Pasos siguientes
 
-Para obtener información acerca de cómo optimizar el rendimiento del bus de servicio, consulte [Entidades de mensajería con particiones][].
+Para más información acerca de cómo optimizar el rendimiento del bus de servicio, consulte [Entidades de mensajería con particiones][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -291,4 +291,4 @@ Para obtener información acerca de cómo optimizar el rendimiento del bus de se
   [Entidades de mensajería con particiones]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

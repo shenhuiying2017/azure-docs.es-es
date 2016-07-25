@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # Consulta SQL y sintaxis SQL en DocumentDB
@@ -864,8 +864,7 @@ El ejemplo siguiente se amplía para mostrar cómo devolver valores primitivos J
 	]
 
 
-###* Operador
-Se admite el operador especial (*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Aunque una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f ` y `SELECT *, f.id FROM Families f ` no lo son.
+###* Operador: se admite el operador especial (*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Aunque una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f ` y `SELECT *, f.id FROM Families f ` no lo son.
 
 **Consultar**
 
@@ -2367,8 +2366,8 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx)
 9.	Técnicas de evaluación de consultas para bases de datos de gran tamaño [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
-10.	Procesamiento de consultas en sistemas paralelos de bases de datos relacionales, IEEE Computer Society Press, 1994
-11.	Lu, Ooi, Tan, Procesamiento de consultas en sistemas paralelos de bases de datos relacionales, IEEE Computer Society Press, 1994.
+10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
+11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13.     G. Graefe. El marco de cascadas para la optimización de consultas. IEEE Data Eng. Bull., 18(3): 1995.
 
@@ -2378,4 +2377,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

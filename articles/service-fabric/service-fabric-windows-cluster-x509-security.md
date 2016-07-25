@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2016"
+   ms.date="07/08/2016"
    ms.author="dkshir"/>
 
-# Protección de un clúster de Windows independiente mediante certificados
+# Protección de un clúster independiente en Windows mediante certificados X.509
 
-Este artículo describe cómo proteger la comunicación entre los diversos nodos del clúster de Windows independiente, así cómo autenticar a los clientes que se conectan a él, mediante certificados X.509. Esto garantiza que solo los usuarios autorizados pueden tener acceso al clúster, y a las aplicaciones implementan, y realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo. Para más información sobre la seguridad de nodo a nodo, la seguridad de cliente a nodo y el control de acceso basado en roles, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
+Este artículo describe cómo proteger la comunicación entre los diversos nodos del clúster de Windows independiente, así cómo autenticar a los clientes que se conectan a él, mediante certificados X.509. Esto garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, y realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.
+
+Para más información sobre la seguridad de clúster, como la seguridad de nodo a nodo, la seguridad de cliente a nodo y el control de acceso basado en roles, consulte [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md).
 
 ## ¿Qué certificados necesitará?
 
-Para empezar, [descargue el paquete de clúster independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) a uno de los nodos del clúster. En el paquete descargado, encontrará un archivo **ClusterConfig.X509.json**. Abra el archivo en modo *Editar* y revise la sección **security** en la pestaña **properties**:
+Para empezar, [descargue el paquete de clúster independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) en uno de los nodos del clúster. En el paquete descargado, encontrará el archivo **ClusterConfig.X509.MultiMachine.json**. Abra el archivo y revise la sección **security** en la sección **properties**:
 
     "security": {
         "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
@@ -54,62 +56,211 @@ Para empezar, [descargue el paquete de clúster independiente](service-fabric-cl
         }
     },
 
-En esta sección se describen todos los certificados que necesitará para proteger el clúster de Windows independiente. Habilite la seguridad basada en certificados estableciendo los valores de **ClusterCredentialType** y **ServerCredentialType** en *X509*.
+En esta sección se describen los certificados que necesita para proteger el clúster de Windows independiente. Para habilitar la seguridad basada en certificados, establezca los valores de **ClusterCredentialType** y **ServerCredentialType** en *X509*.
 
 >[AZURE.NOTE] Una [huella digital](https://en.wikipedia.org/wiki/Public_key_fingerprint) es la identidad principal de un certificado. Consulte [Cómo recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695.aspx) para averiguar la huella digital de los certificados que cree.
 
-En la siguiente tabla se enumeran los certificados reales que va a necesitar en su instalación del clúster:
+En la siguiente tabla se enumeran los certificados que va a necesitar en su instalación del clúster:
 
 |**Valor de CertificateInformation**|**Descripción**|
 |-----------------------|--------------------------|
-|ClusterCertificate|Este certificado es necesario para proteger la comunicación entre los nodos de un clúster. Puede utilizar dos certificados diferentes, uno principal y otro secundario para la conmutación por error. Establece la huella digital del certificado principal en la sección **Thumbprint** y la del secundario en la variable **ThumbprintSecondary**.|
-|ServerCertificate|Este certificado se presenta al cliente cuando intenta conectarse a este clúster. Para mayor comodidad, puede utilizar el mismo certificado para *ClusterCertificate* y *ServerCertificate*. Puede utilizar dos certificados de servidor diferentes, uno principal y otro secundario para la conmutación por error. Establece la huella digital del certificado principal en la sección **Thumbprint **y la del secundario en la variable **ThumbprintSecondary**. |
-|ClientCertificateThumbprints|Se trata de un conjunto de certificados que desea instalar en los clientes autenticados. Puede tener varios certificados de cliente diferentes instalados en los equipos a los que desea permitir el acceso al clúster y las aplicaciones se ejecutan en ellos. Establece la huella digital de cada certificado en la variable **CertificateThumbprint**. Si establece **IsAdmin** en *True*, el cliente con este certificado instalado puede realizar diversas actividades de administración del clúster. Si **IsAdmin** es *False*, solo puede acceder a las aplicaciones que se ejecutan en el clúster.|
-|ClientCertificateCommonNames|Establezca el nombre común del primer certificado de cliente para **CertificateCommonName**. **CertificateIssuerThumbprint** es la huella digital del emisor de este certificado. Consulte [Trabajar con certificados](https://msdn.microsoft.com/library/ms731899.aspx) para obtener más información sobre los nombres comunes y el emisor.|
+|ClusterCertificate|Este certificado es necesario para proteger la comunicación entre los nodos de un clúster. Puede utilizar dos certificados diferentes, uno principal y otro secundario para la actualización. Establece la huella digital del certificado principal en la sección **Thumbprint** y la del secundario en la variable **ThumbprintSecondary**.|
+|ServerCertificate|Este certificado se presenta al cliente cuando intenta conectarse a este clúster. Para mayor comodidad, puede utilizar el mismo certificado para *ClusterCertificate* y *ServerCertificate*. Puede utilizar dos certificados de servidor diferentes, uno principal y otro secundario para la actualización. Establece la huella digital del certificado principal en la sección **Thumbprint **y la del secundario en la variable **ThumbprintSecondary**. |
+|ClientCertificateThumbprints|Se trata de un conjunto de certificados que desea instalar en los clientes autenticados. Puede tener varios certificados de cliente diferentes instalados en los equipos a los que desea permitir el acceso al clúster. Establece la huella digital de cada certificado en la variable **CertificateThumbprint**. Si establece **IsAdmin** en *True*, el cliente con este certificado instalado puede realizar actividades de administración en el clúster. Si **IsAdmin** es *false*, el cliente con este certificado solo puede realizar las acciones permitidas para los derechos de acceso de usuario, normalmente de solo lectura. Para más información sobre roles, consulte [Control de acceso basado en roles (RBAC)](service-fabric-cluster-security.md/#role-based-access-control-rbac). |
+|ClientCertificateCommonNames|Establezca el nombre común del primer certificado de cliente para **CertificateCommonName**. **CertificateIssuerThumbprint** es la huella digital del emisor de este certificado. Consulte [Trabajar con certificados](https://msdn.microsoft.com/library/ms731899.aspx) para más información sobre los nombres comunes y el emisor.|
 
+Este es un ejemplo de configuración del clúster en el que se han proporcionado los certificados de clúster, servidor y cliente.
+
+ ```
+ {
+    "name": "SampleCluster",
+    "clusterManifestVersion": "1.0.0",
+    "apiVersion": "2015-01-01-alpha",
+    "nodes": [{
+        "nodeName": "vm0",
+		"metadata": "Replace the localhost below with valid IP address or FQDN",
+        "iPAddress": "10.7.0.5",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r0",
+        "upgradeDomain": "UD0"
+    }, {
+      "nodeName": "vm1",
+      		"metadata": "Replace the localhost with valid IP address or FQDN",
+        "iPAddress": "10.7.0.4",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r1",
+        "upgradeDomain": "UD1"
+    }, {
+        "nodeName": "vm2",
+      "iPAddress": "10.7.0.6",
+      		"metadata": "Replace the localhost with valid IP address or FQDN",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r2",
+        "upgradeDomain": "UD2"
+    }],
+    "diagnosticsFileShare": {
+        "etlReadIntervalInMinutes": "5",
+        "uploadIntervalInMinutes": "10",
+        "dataDeletionAgeInDays": "7",
+        "etwStoreConnectionString": "file:c:\\ProgramData\\SF\\FileshareETW",
+        "crashDumpConnectionString": "file:c:\\ProgramData\\SF\\FileshareCrashDump",
+        "perfCtrConnectionString": "file:c:\\ProgramData\\SF\\FilesharePerfCtr"
+    },
+    "properties": {
+        "security": {
+            "metadata": "The Credential type X509 indicates this is cluster is secured using X509 Certificates. The thumbprint format is - d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
+            "ClusterCredentialType": "X509",
+            "ServerCredentialType": "X509",
+            "CertificateInformation": {
+                "ClusterCertificate": {
+                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
+                    "X509StoreName": "My"
+                },
+                "ServerCertificate": {
+                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
+                    "X509StoreName": "My"
+                },
+                "ClientCertificateThumbprints": [{
+                    "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
+                    "IsAdmin": false
+                }, {
+                    "CertificateThumbprint": "71 de 04 46 7c 9e d0 54 4d 02 10 98 bc d4 4c 71 e1 83 41 4e",
+                    "IsAdmin": true
+                }]
+            }
+        },
+        "reliabilityLevel": "Bronze",
+        "nodeTypes": [{
+            "name": "NodeType0",
+            "clientConnectionEndpointPort": "19000",
+            "clusterConnectionEndpoint": "19001",
+            "httpGatewayEndpointPort": "19080",
+            "applicationPorts": {
+                "startPort": "20001",
+                "endPort": "20031"
+            },
+            "ephemeralPorts": {
+                "startPort": "20032",
+                "endPort": "20062"
+            },
+            "isPrimary": true
+        }
+         ],
+        "fabricSettings": [{
+            "name": "Setup",
+            "parameters": [{
+                "name": "FabricDataRoot",
+                "value": "C:\\ProgramData\\SF"
+            }, {
+                "name": "FabricLogRoot",
+                "value": "C:\\ProgramData\\SF\\Log"
+            }]
+        }]
+    }
+}
+ ```
+
+## Adquisición de certificados X.509
+Para proteger la comunicación en el clúster, primero deberá obtener certificados X.509 para los nodos del clúster. Además, para limitar la conexión a este clúster a los equipos o usuarios autorizados, debe obtener e instalar certificados para los equipos cliente.
+
+Para los clústeres que ejecutan cargas de trabajo de producción, debe usar un certificado X.509 firmado por una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) con el fin de proteger el clúster. Para más información sobre cómo obtener estos certificados, consulte [Cómo obtener un certificado (WCF)](http://msdn.microsoft.com/library/aa702761.aspx).
+
+En los clústeres que se usan con fines de prueba, puede usar un certificado autofirmado.
+
+## Opcional: Creación de un certificado autofirmado
+Una forma de crear un certificado autofirmado que se puede proteger correctamente es usar el script *CertSetup.ps1* de la carpeta del SDK de Service Fabric en el directorio *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\ClusterSetup\\Secure*. Edite este archivo y utilícelo para crear un certificado con un nombre adecuado.
+
+Ahora exporte el certificado a un archivo PFX con una contraseña protegida. Primero debe obtener la huella digital del certificado. Ejecute la aplicación certmgr.exe. Vaya a la carpeta **Equipo local\\Personal** y busque el certificado recién creado. Haga doble clic en el certificado para abrirlo, seleccione la pestaña *Detalles* y desplácese hacia abajo hasta el campo *Huella digital*. Copie el valor de la huella digital en el comando de PowerShell siguiente, sin espacios. Cambie el valor *$pswd* por una contraseña segura para protegerlo y ejecute PowerShell:
+
+```   
+$pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
+Get-ChildItem -Path cert:\localMachine\my<Thumbprint> | Export-PfxCertificate -FilePath C:\mypfx.pfx -Password $pswd
+```
+
+Para ver los detalles de un certificado instalado en el equipo, puede ejecutar el siguiente comando de PowerShell:
+
+```
+$cert = Get-Item Cert:\LocalMachine\My<Thumbprint>
+Write-Host $cert.ToString($true)
+```
+
+Como alternativa, si tiene una suscripción de Azure, puede seguir la sección [Adquisición de certificados X.509](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) para crear los certificados.
 
 ## Instalación de los certificados
+Cuando tenga los certificados, puede instalarlos en los nodos del clúster. Los nodos deben tener instalada la versión más reciente de Windows PowerShell 3.x. Debe repetir estos pasos en cada nodo, para los certificados del clúster y el servidor y cualquier certificado secundario.
 
-Para proteger la comunicación entre el clúster, primero deberá obtener certificados X.509 para los nodos del clúster. Además, para limitar la conexión a este clúster a los equipos o usuarios autorizados, debe obtener e instalar certificados para estos equipos cliente potenciales. Consulte [Cómo obtener un certificado (WCF)](https://msdn.microsoft.com/library/aa702761.aspx) si desea conocer los pasos para obtener los certificados X.509. Debe crear un certificado **.pfx** para poder guardar su clave privada. Como alternativa, si tiene una suscripción de Azure, puede seguir la sección [Adquisición del(los) certificado(s) X.509](service-fabric-secure-azure-cluster-with-certs.md#acquirecerts) para crear los certificados. Una vez que tenga este certificado, puede instalarlo en los nodos del clúster mediante los pasos siguientes. Tenga en cuenta que en los pasos se considera que los nodos ya tienen la versión más reciente de Windows PowerShell 3.x instalada. Debe repetir estos pasos en cada nodo, para los certificados del clúster y el servidor y cualquier certificado secundario para cada uno de ellos.
+1. Copie los archivos .pfx en el nodo.
+2. Abra una ventana de PowerShell como administrador y ejecute el siguiente comando. Reemplace *$pswd* por la contraseña que usó para crear este certificado. Reemplace *$PfxFilePath* por la ruta de acceso completa del archivo .pfx copiado en este nodo.
 
-- Copie el archivo .pfx en el nodo.
+    ```
+    $pswd = "1234"
+    $PfcFilePath ="C:\mypfx.pfx"
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
+    ```
 
-- Abra una ventana de PowerShell como administrador y ejecute el siguiente comando:
-	
-		Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My `
-		-FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $password -AsPlainText -Force)
+3. A continuación, debe establecer el control de acceso de este certificado para que el proceso Service Fabric, que se ejecuta en la cuenta de servicio de red, pueda usarlo al ejecutar el script siguiente. Proporcione la huella digital del certificado y especifique "SERVICIO DE RED" para la cuenta de servicio. Puede comprobar que las ACL del certificado son correctas con la herramienta certmgr.exe y mediante Administrar claves privadas en el certificado.
 
-Reemplace *$password* por la contraseña que usó para crear este certificado. Reemplace $PfxFilePath por la ruta de acceso completa del archivo .pfx copiado en este nodo.
+    ```
+    param
+    (
+        [Parameter(Position=1, Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$pfxThumbPrint,
 
-- Establezca el control de acceso de este certificado para que el proceso Service Fabric pueda usar al ejecutar el script siguiente:
+        [Parameter(Position=2, Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$serviceAccount
+        )
 
-		$cert = get-item Cert:\LocalMachine\My<CertificateThumbprint>
-		$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
+        $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
 
-		#Note down the string output by this command, this is the container name for your private key. 
+        # Specify the user, the permissions and the permission type
+        $permission = "$($serviceAccount)","FullControl","Allow"
+        $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
 
-		$privateKeyFilePath = 'C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys<PrivateKeyContainerName>'
-	
-		#Observe the access rights currently assigned to this certificate.
-		get-acl $privateKeyFilePath | fl
+        # Location of the machine related keys
+        $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys";
+        $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
+        $keyFullPath = $keyPath + $keyName;
 
-		#Set the ACL so that the Service Fabric process can access it.
-		$acl = get-acl $privateKeyFilePath
-		$acl.SetAccessRule((New-Object System.Security.Accesscontrol.FileSystemAccessRule("NT AUTHORITY\NetworkService","FullControl","Allow")))
-		Set-Acl $privateKeyFilePath $acl -ErrorAction Stop 
-	
+        # Get the current acl of the private key
+        $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
 
-Use estos pasos para instalar también los certificados de cliente en los equipos a los que desea permitir el acceso al clúster.
+        # Add the new ace to the acl of the private key
+        $acl.SetAccessRule($accessRule);
 
+        # Write back the new acl
+        Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
 
-## Pasos siguientes
+        #Observe the access rights currently assigned to this certificate.
+        get-acl $keyFullPath| fl
+        ```
 
-Después de configurar la sección **security** del archivo ClusterConfig.X509.json, puede continuar con la sección [Creación del clúster](service-fabric-cluster-creation-for-windows-server.md#createcluster) para configurar los nodos y crear el clúster independiente. Recuerde usar el archivo **ClusterConfig.X509.json** al crear el clúster. Por ejemplo, el comando podría ser similar al siguiente:
+4. Repita los pasos anteriores para cada certificado de servidor. También puede usar estos pasos para instalar los certificados de cliente en las máquinas a las que desea permitir el acceso al clúster.
 
-	cd $ServiceFabricDeployAnywhereFolder
-	.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true -Verbose
+## Creación del clúster seguro
+Después de configurar la sección **security** del archivo **ClusterConfig.X509.MultiMachine.json**, puede continuar con la sección [Creación del clúster](service-fabric-cluster-creation-for-windows-server.md#createcluster) para configurar los nodos y crear el clúster independiente. Recuerde usar el archivo **ClusterConfig.X509.MultiMachine.json** al crear el clúster. Por ejemplo, el comando podría ser similar al siguiente:
 
+```
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+```
 
-Una vez que el clúster de Windows independiente se ejecuta correctamente y que ha configurado los clientes autenticados para conectarse a él, siga la sección [Conexión a un clúster seguro con PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) para conectarse a él.
+Una vez que el clúster de Windows independiente seguro se ejecuta correctamente y que ha configurado los clientes autenticados para conectarse a él, siga la sección [Conexión a un clúster seguro con PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) para conectarse a él. Por ejemplo:
 
-<!---HONumber=AcomDC_0622_2016-->
+```
+Connect-ServiceFabricCluster -ConnectionEndpoint 10.7.0.4:19000 -KeepAliveIntervalInSec 10 -X509Credential -ServerCertThumbprint 057b9544a6f2733e0c8d3a60013a58948213f551 -FindType FindByThumbprint -FindValue 057b9544a6f2733e0c8d3a60013a58948213f551 -StoreLocation CurrentUser -StoreName My
+```
+
+Si ha iniciado sesión en una de las máquinas del clúster, dado que esta ya tiene el certificado instalado localmente, solo tiene que ejecutar el comando de Powershell para conectarse al clúster y mostrar una lista de nodos:
+
+```
+Connect-ServiceFabricCluster
+Get-ServiceFabricNode
+```
+Para quitar el clúster, llame al siguiente comando:
+
+```
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
+```
+
+<!---HONumber=AcomDC_0713_2016-->

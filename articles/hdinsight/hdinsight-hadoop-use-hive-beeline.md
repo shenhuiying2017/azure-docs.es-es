@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Uso de Hive con Hadoop en HDInsight con Beeline
@@ -55,25 +55,13 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 
 ##<a id="beeline"></a>Uso del comando de Beeline
 
-1. Una vez conectado, use lo siguiente para obtener el nombre de host del nodo principal:
+1. Una vez conectado, use lo siguiente para iniciar Beeline:
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    Esto hará que se inicie el cliente de Beeline y se conecte a la dirección URL de JDBC. En este caso, se utiliza `localhost` debido a que HiveServer2 se ejecuta en ambos nodos principales del clúster y estamos ejecutando Beeline directamente en el nodo principal 0.
     
-    Guarde el nombre de host devuelto, ya que se utilizará más adelante al conectarse a HiveServer2 desde Beeline.
-    
-2. Inicie la CLI de Hive con el siguiente comando:
-
-        beeline
-
-2. En el símbolo del sistema de `beeline>`, use el siguiente código para conectarse al servicio HiveServer2. Reemplace __HOSTNAME__ por el nombre de host devuelto para el nodo principal anteriormente:
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-        
-    Esto indica a Beeline que se conecte al puerto __10001__ en el valor de __HOSTNAME__ especificado y que __HTTP__ es el método de transporte. La cuenta __admin__ se utiliza para autenticar la conexión.
-
-    Cuando se le pida, escriba la contraseña del administrador (admin) para el clúster de HDInsight. Una vez establecida la conexión, el símbolo del sistema cambiará a:
-    
-        jdbc:hive2://HOSTNAME:10001/>
+    Una vez completado el comando, llegará a una petición `jdbc:hive2://localhost:10001/>`.
 
 3. Los comandos de Beeline suelen empiezan con un carácter `!`, por ejemplo `!help` muestra la ayuda. Sin embargo, con frecuencia se puede omitir el elemento `!`. Por ejemplo, `help` también funcionará.
 
@@ -176,13 +164,15 @@ Beeline también se puede usar para ejecutar un archivo que contiene instruccion
     
     > [AZURE.NOTE] A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
     
-3. Para guardar el archivo, use __Ctrl__+___\_X__, escriba __Y__ y, finalmente, presione __Entrar__.
+3. Para guardar el archivo, use __Ctrl__+___\_X_, escriba __Y__ y, finalmente, presione __Entrar.
 
-4. Use el siguiente código para ejecutar el archivo mediante Beeline: Sustituya __HOSTNAME__ por el nombre obtenido anteriormente para el nodo principal, y __PASSWORD__ por la contraseña de la cuenta de administrador:
+4. Use el siguiente código para ejecutar el archivo mediante Beeline: Sustituya __HOSTNAME__ por el nombre obtenido anteriormente para el nodo principal y __PASSWORD__ por la contraseña de la cuenta de administrador:
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. Para comprobar que la tabla **errorLogs** se creó, inicie Beeline y conéctese a HiveServer2, luego use la siguiente instrucción para devolver todas las filas de **errorLogs**:
+    > [AZURE.NOTE] El parámetro `-i` inicia Beeline, ejecuta las instrucciones del archivo query.hql y permanece en Beeline en la petición `jdbc:hive2://localhost:10001/>`. También puede ejecutar un archivo mediante el parámetro `-f`, que le llevará de nuevo a Bash una vez procesado el archivo.
+
+5. Para comprobar que la tabla **errorLogs** se creó, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
 
         SELECT * from errorLogs;
 
@@ -245,4 +235,4 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

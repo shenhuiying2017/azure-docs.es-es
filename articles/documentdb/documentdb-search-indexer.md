@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="06/20/2016"
+    ms.date="07/08/2016"
     ms.author="anhoh"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
@@ -134,6 +134,8 @@ Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede cre
 
 
 Asegúrese de que el esquema del índice de destino es compatible con el de los documentos JSON de origen o el resultado de la proyección de consultas personalizada.
+
+>[AZURE.NOTE] Para las colecciones con particiones, la clave de documento predeterminada es la propiedad `_rid` de DocumentDB, que cambia su nombre a `rid` en Búsqueda de Azure. Además, los valores `_rid` de DocumentDB contienen caracteres que no son válidos en las claves de Búsqueda de Azure; por consiguiente, los valores `_rid` se codifican en Base64.
 
 ###Figura A: asignación entre tipos de datos de JSON y de Búsqueda de Azure
 
@@ -270,8 +272,8 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
 ¡Enhorabuena! En este artículo ha aprendido a integrar Azure DocumentDB con Búsqueda de Azure usando el indizador para dicha base de datos.
 
- - Para más información sobre Azure DocumentDB, consulte la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
+ - Para más información sobre Azure DocumentDB, vea la [página del servicio DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Para más información sobre Búsqueda de Azure, consulte la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
+ - Para más información sobre Búsqueda de Azure, vea la [página del servicio Búsqueda](https://azure.microsoft.com/services/search/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

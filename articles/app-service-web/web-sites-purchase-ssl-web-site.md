@@ -146,7 +146,7 @@ En este paso, aprenderá a comprobar la verificación de la propiedad del domini
             
             * Haga clic en **“Actualizar”** para poner al día el estado del certificado después de completar la comprobación. La comprobación podría tardar unos minutos en completarse.
                               
-            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **.contosocertdemo.com** o **.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
+            Por ejemplo, para realizar la validación de un certificado comodín con el nombre de host **\*.contosocertdemo.com** o **\*.subdomain.contosocertdemo.com** y el token de comprobación de dominio **cAGgQrKc**, deberá crear un registro TXT en dzc.contosocertdemo.com con el valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Paso 3: Asignar el certificado a la aplicación del Servicio de aplicaciones

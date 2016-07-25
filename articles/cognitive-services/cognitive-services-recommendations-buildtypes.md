@@ -188,7 +188,7 @@ En el momento de la compilación, y como parte de los respectivos parámetros de
 
 2.	Si lo desea, puede seleccionar *splitterStrategy* (*RandomSplitter* o *LastEventSplitter*). *RandomSplitter* divide los datos de uso de los conjuntos de entrenamiento y prueba basándose en valores de inicialización aleatorios y en el porcentaje de la prueba *randomSplitterParameters*. *LastEventSplitter* divide los datos de uso de los conjuntos de entrenamiento y prueba basándose en la última transacción de cada usuario.
 
-Esto desencadenará una compilación que utiliza solo un subconjunto de los datos para el entrenamiento, mientras que el resto de los datos se usan para calcular las métricas de evaluación. Una vez completada la compilación, para obtener el resultado de la evaluación, basta con llamar a la [API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/573e43bb3e9d4627a8c4bd3e/console) pasando los respectivos parámetros *modelId* y *buildId*.
+Esto desencadenará una compilación que utiliza solo un subconjunto de los datos para el entrenamiento, mientras que el resto de los datos se usan para calcular las métricas de evaluación. Una vez completada la compilación, para obtener el resultado de la evaluación, basta con llamar a la [API Get build metrics](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/577eaa75eda565095421666f) pasando los respectivos parámetros *modelId* y *buildId*.
 
  A continuación se muestra la salida de JSON de la evaluación de ejemplo que hemos realizado:
 
@@ -271,4 +271,4 @@ Esto desencadenará una compilación que utiliza solo un subconjunto de los dato
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/26/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Mozy Enterprise
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Mozy Enterprise:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mozy-enterprise-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Mozy Enterprise**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Mozy Enterprise**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC771709.png "Configurar inicio de sesión único")
 
@@ -97,9 +97,9 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     1.  Seleccione **Servicio de directorio** como **Proveedor**.
     2.  Seleccione **Use LDAP Push** (Usar inserción de LDAP).
     3.  Haga clic en la pestaña **SAML Authentication** (Autenticación SAML).
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Dirección URL de solicitud de autenticación** y péguelo en el cuadro de texto **Dirección URL de autenticación**.
-    5.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Identificador del proveedor de identidades** y péguelo en el cuadro de texto **Extremo de SAML**.
-    6.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Dirección URL de solicitud de autenticación** y péguelo en el cuadro de texto **Dirección URL de autenticación**.
+    5.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, copie el valor de **Identificador del proveedor de identidades** y péguelo en el cuadro de texto **Extremo de SAML**.
+    6.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -107,7 +107,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     8.  Seleccione **Habilitar SSO para que los administradores inicien sesión con sus credenciales de red**.
     9.  Haga clic en **Guardar cambios**.
 
-8.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
+8.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Mozy Enterprise**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -145,7 +145,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 ###Para asignar usuarios a Mozy Enterprise, siga estos pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Mozy Enterprise**, haga clic en **Asignar usuarios**.
 
@@ -157,4 +157,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0713_2016-->

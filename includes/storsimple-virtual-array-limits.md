@@ -4,10 +4,14 @@
 | Capacidad total (incluida la nube) | Hasta 64 TB por dispositivo virtual |
 | Número máximo de credenciales de la cuenta de almacenamiento por dispositivo | 1 | |
 | Número máximo de volúmenes o recursos compartidos | 16 | |
-| Tamaño mínimo del volumen o del recurso compartido en niveles | 500 GB | |
-| Tamaño máximo del volumen o del recurso compartido en niveles | 20 TB | |
-| Tamaño mínimo del volumen o del recurso compartido anclado localmente | 50 GB | |
-| Tamaño máximo del volumen o del recurso compartido anclado localmente | 2 TB | |
+| Tamaño mínimo de un recurso compartido en capas | 500 GB | |
+| Tamaño mínimo de un volumen en capas | 500 GB | |
+| Tamaño máximo de un recurso compartido en capas | 20 TB | |
+| Tamaño máximo de un volumen en capas | 5 TB | |
+| Tamaño mínimo de un recurso compartido anclado localmente | 50 GB | |
+| Tamaño mínimo de un volumen anclado localmente | 50 GB | |
+| Tamaño máximo del recurso compartido anclado localmente | 2 TB | |
+| Tamaño máximo de un volumen anclado localmente | 500 GB | |
 | Número máximo de conexiones de iSCSI de iniciadores | 512 | |
 | Número máximo de registros de control de acceso por dispositivo | 64 | |
 | Número máximo de copias de seguridad retenidas por el dispositivo virtual en la carpeta *.backups* del servidor de archivos | 5 | Esto incluye las últimas copias de seguridad manuales y programadas (generadas por la directiva de copias de seguridad predeterminada). |
@@ -15,4 +19,4 @@
 | Número máximo de copias de seguridad manuales retenidas por el dispositivo | 45 | |
 | Tiempo de recuperación de la restauración | Restauración rápida | La restauración se basa en el mapa térmico y depende del tamaño del volumen. <br>Pueden llevarse a cabo operaciones de copia de seguridad mientras esté en curso una operación de restauración. |
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

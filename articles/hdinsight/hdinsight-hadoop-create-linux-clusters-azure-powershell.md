@@ -14,14 +14,14 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="07/08/2016"
    	ms.author="nitinme"/>
 
 #Crear clústeres basados en Linux en HDInsight con Azure PowerShell
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este documento se ofrece información sobre cómo aprovisionar un clúster de HDInsight basado en Linux mediante Azure PowerShell, así como un script de ejemplo.
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell, así como un script de ejemplo.
 
 > [AZURE.NOTE] Azure PowerShell solo está disponible en clientes de Windows. Si está usando un cliente de Linux, Unix o Mac OS X, vea [Crear un clúster de HDInsight basado en Linux con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para obtener información sobre el uso de la CLI de Azure para crear un clúster.
 
@@ -39,14 +39,14 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight con Azure PowerShell:
+Los siguientes procedimientos son necesarios para crear un clúster de HDInsight con Azure PowerShell:
 
 - Creación de un grupo de recursos de Azure
 - Crear una cuenta de Almacenamiento de Azure
 - Creación de un contenedor de blobs de Azure
 - Creación de un clúster de HDInsight
 
-Los dos parámetros más importantes que debe establecer para aprovisionar clústeres de Linux son donde especifica el tipo de sistema operativo y los detalles del usuario de SSH:
+Los dos parámetros más importantes que debe establecer para crear clústeres de Linux son donde especifica el tipo de sistema operativo y los detalles del usuario de SSH:
 
 - Asegúrese de especificar el parámetro **-OSType** como **Linux**.
 - Para usar SSH para las sesiones remotas en los clústeres, puede especificar la contraseña del usuario de SSH o la clave pública SSH. Si se especifica tanto la contraseña del usuario de SSH como la clave pública SSH, se omitirá la clave. Si desea usar la clave SSH en las sesiones remotas, debe especificar una contraseña SSH en blanco cuando se le solicite. Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
@@ -56,53 +56,55 @@ Los dos parámetros más importantes que debe establecer para aprovisionar clús
 
 El script siguiente muestra cómo crear un nuevo clúster:
 
-    ###########################################
-    # Create required items, if none exist
-    ###########################################
+    $token ="<SpecifyAnUniqueString>" 
 
-    # Sign in
+    $resourceGroupName = $token + "rg"      # Provide a Resource Group name
+    $clusterName = $token
+    $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
+    $defaultStorageContainerName = $token + "container" 
+    $location = "East US 2"     # Change the location if needed
+    $clusterNodes = 1           # The number of nodes in the HDInsight cluster
+
+    # Sign in to Azure
     Login-AzureRmAccount
 
-    # Select the subscription to use
-    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    # Select the subscription to use if you have multiple subscriptions
+    #$subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+    #Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
     # Create an Azure Resource Group
-    $resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
-    $location = "<Location>"                        # For example, "West US"
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create an Azure Storage account
-    $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+    # Create an Azure Storage account and container used as the default storage
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -StorageAccountName $defaultStorageAccountName `
+        -Location $location `
+        -Type Standard_LRS
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+    $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
 
-    # Create an Azure Blob Storage container
-    $containerName = "<ContainerName>"              # Provide a container name
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureStorageContainer -Name $containerName -Context $destContext
-
-    ###########################################
-    # Create an HDInsight Cluster
-    ###########################################
-
-    # Skip these variables if you just created them
-    $resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
-    $storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
-    $containerName = "<ContainerName>"              # Provide the container name
-    $storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-
-    # Set these variables
-    $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
-    $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
+    # Create an HDInsight cluster
     $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials" 
 
-    # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
+    # The location of the HDInsight cluster must be in the same data center as the Storage account.
+    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $defaultStorageAccountName | %{$_.Location}
 
-    # Create a new HDInsight cluster
-    New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -OSType Linux -Version "3.2" -SshCredential $sshCredentials
+    New-AzureRmHDInsightCluster `
+        -ClusterName $clusterName `
+        -ResourceGroupName $resourceGroupName `
+        -HttpCredential $credentials `
+        -Location $location `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $defaultStorageContainerName  `
+        -ClusterSizeInNodes $clusterNodes `
+        -ClusterType Hadoop `
+        -OSType Linux `
+        -Version "3.4" `
+        -SshCredential $sshCredentials 
 
 Los valores que se especifican para **$clusterCredentials** se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster. Los valores que se especifican para **$sshCredentials** se usan para crear la cuenta de usuario de SSH para el clúster. Esta cuenta se usa para iniciar una sesión remota de SSH en el clúster y ejecutar trabajos.
 
@@ -110,12 +112,38 @@ Los valores que se especifican para **$clusterCredentials** se usan para crear l
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Puede tardar hasta 15 minutos en completarse el aprovisionamiento.
+Un clúster puede tardar hasta 20 minutos en crearse.
+
+En el siguiente ejemplo se muestra cómo agregar una cuenta de almacenamiento adicional:
+
+    # Create another storage account used as additional storage account
+    $additionalStorageAccountName = $token + "store2"
+    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $additionalStorageAccountName -Location $location -Type Standard_LRS
+    $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+
+    $config = New-AzureRmHDInsightClusterConfig
+    Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.windows.net" -StorageAccountKey $additionalStorageAccountKey
+
+    # Create a new HDInsight cluster
+    New-AzureRmHDInsightCluster `
+        -ClusterName $clusterName `
+        -ResourceGroupName $resourceGroupName `
+        -HttpCredential $credentials `
+        -Location $location `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $defaultStorageContainerName  `
+        -ClusterSizeInNodes $clusterNodes `
+        -ClusterType Hadoop `
+        -OSType Linux `
+        -Version "3.4" `
+        -SshCredential $sshCredentials `
+        -Config $config
 
 ##Personalización de los clústeres
 
-- Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-- Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+- Vea [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+- Vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
 ##Eliminación del clúster
 
@@ -134,7 +162,7 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 ###Clústeres HBase
 
 * [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clústeres Storm
 
@@ -150,4 +178,4 @@ Ahora que ya creó un clúster de HDInsight correctamente, use lo siguiente para
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

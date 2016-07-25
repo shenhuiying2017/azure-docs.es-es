@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con FM: Systems
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para FM:Systems:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-fm-systems-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **FM:Systems**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **FM:Systems**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configurar inicio de sesión único")
 
@@ -80,9 +80,9 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **Dirección URL de inicio de sesión de FM:Systems**, escriba la **dirección URL de respuesta** de FM:Systems (p. ej.: **https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
+    1.  En el cuadro de texto **Dirección URL de inicio de sesión de FM:Systems**, escriba la **dirección URL de respuesta** de FM:Systems (p. ej.: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
 
-        >[AZURE.WARNING]Este valor lo puede proporcionar el equipo de soporte técnico de FM:Systems.
+        >[AZURE.WARNING] Este valor lo puede proporcionar el equipo de soporte técnico de FM:Systems.
 
     2.  Haga clic en **Siguiente**.
 
@@ -92,9 +92,9 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
 
 5.  Envíe el archivo de metadatos descargado al equipo de soporte técnico de FM: Systems.
 
-    >[AZURE.NOTE]El equipo de soporte técnico de FM: Systems es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
+    >[AZURE.NOTE] El equipo de soporte técnico de FM: Systems es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
 
-6.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -120,7 +120,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en FM:Systems, deben 
     1.  Escriba el nombre de usuario, la contraseña y su confirmación, la dirección de correo electrónico y el Id. de empleado de la cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Siguiente**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FM:Systems que proporcione FM:Systems para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FM:Systems que proporcione FM:Systems para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -128,9 +128,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a FM:Systems, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **FM:Systems **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **FM:Systems**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Asignar usuarios")
 
@@ -140,4 +140,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

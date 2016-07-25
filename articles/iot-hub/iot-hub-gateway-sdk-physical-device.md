@@ -426,7 +426,17 @@ El comportamiento predeterminado de un dispositivo que usa el protocolo HTTP par
 
 ## Pasos siguientes
 
-Para obtener más información, consulte [Azure IoT Gateway SDK][lnk-sdk] (SDK de puerta de enlace de IoT de Azure).
+Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
+
+- [SDK de puerta de enlace de IoT (beta): administración de dispositivos con el SDK de puerta de enlace][lnk-manage-devices]
+- [SDK de puerta de enlace IoT de Azure][lnk-gateway-sdk]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -441,4 +451,11 @@ Para obtener más información, consulte [Azure IoT Gateway SDK][lnk-sdk] (SDK d
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

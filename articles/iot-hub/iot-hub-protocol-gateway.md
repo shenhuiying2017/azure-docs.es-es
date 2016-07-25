@@ -39,4 +39,23 @@ Para más información sobre la puerta de enlace de protocolos de IoT de Azure y
 * [Repositorio de puerta de enlace de protocolos de IoT de Azure en GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Guía para desarrolladores de puerta de enlace de protocolos de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+Para más información acerca de planificación de la implementación del Centro de IoT, consulte:
+
+- [Comparación del Centro de IoT y los Centros de eventos][lnk-compare]
+- [Escalado del Centro de IoT][lnk-scaling]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

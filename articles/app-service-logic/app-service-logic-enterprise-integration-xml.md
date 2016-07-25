@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Información general sobre la validación XML y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
-	description="Sepa cómo funciona el proceso de validación con las Aplicaciones lógicas y Enterprise Integration Pack." 
+	pageTitle="Información general sobre el procesamiento XML en Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
+	description="Aprenda a procesar y validar mensajes XML con Enterprise Integration Pack y las Aplicaciones lógicas" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,30 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/07/2016" 
 	ms.author="deonhe"/>
 
-# Integración de empresas con validación XML
 
-## Información general
-A menudo, en los escenarios B2B, los partners de un contrato deben validar que los mensajes que se intercambian entre sí son válidos antes de iniciar el procesamiento de los datos. En Enterprise Integration Pack, puede usar el conector de validación XML para validar documentos con un esquema predefinido.
+# Procesamiento XML
 
-## Procedimiento para validar documentos con el conector de validación XML
-1. Cree una Aplicación lógica y [vincúlela a la cuenta de integración](./app-service-logic-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica.") que contenga el esquema que utilizará para validar los datos XML.
-2. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la Aplicación lógica. ![](./media/app-service-logic-enterprise-integration-xml/xml-1.png)
-3. Agregue la acción **XML Validation** (Validación XML) seleccionando primero **Agregar una acción**.
-4. Escriba *xml* en el cuadro de búsqueda para filtrar todas las acciones que quiera usar.
-5. Seleccione **XML Validation (Validación XML)**. ![](./media/app-service-logic-enterprise-integration-xml/xml-2.png)
-6. Elija el cuadro de texto **CONTENIDO**. ![](./media/app-service-logic-enterprise-integration-xml/xml-1-5.png)
-7. Seleccione la etiqueta Cuerpo como el contenido que quiere validar. ![](./media/app-service-logic-enterprise-integration-xml/xml-3.png)
-8. Seleccione el cuadro de lista **NOMBRE DE ESQUEMA** y elija el esquema que quiera utilizar para validar la entrada de *Contenido* anterior. ![](./media/app-service-logic-enterprise-integration-xml/xml-4.png)
-9. Guarde el trabajo. ![](./media/app-service-logic-enterprise-integration-xml/xml-5.png)
+Enterprise Integration Pack facilita la validación y el procesamiento de los documentos XML que intercambia con los asociados. Estas son los métodos de procesamiento de los mensajes XML mediante Aplicaciones lógicas:
 
-En este momento, ya ha terminado de configurar el conector de validación. En una aplicación real, puede almacenar los datos validados en una aplicación LOB como SalesForce. Puede agregar fácilmente una acción para enviar el resultado de la acción de validación a Salesforce.
+- [Validación XML](./app-service-logic-enterprise-integration-xml-validation.md "Información sobre la validación de mensajes XML"): Permite validar un mensaje procedente de un punto de conexión de origen con respecto a un esquema concreto.
+- [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones y transformaciones de mensajes XML"): Permite convertir un mensaje XML a partir de los requisitos de un punto de conexión de destino.
+- [Codificación y descodificación de archivos sin formato](./app-service-logic-enterprise-integration-flatfile.md "Información sobre la codificación y descodificación de archivos sin formato"): Permiten codificar o descodificar un archivo sin formato.
+- [XPath](https://msdn.microsoft.com/library/mt643789.aspx): Permite enriquecer un mensaje y extraer propiedades específicas de él. Las propiedades extraídas se pueden utilizar para redirigir el mensaje a un destino o un punto de conexión intermediario.
 
-Ahora puede probar la acción de validación realizando una solicitud al punto de conexión HTTP.
+## Más información
 
-## Pasos siguientes
-- [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
+[Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

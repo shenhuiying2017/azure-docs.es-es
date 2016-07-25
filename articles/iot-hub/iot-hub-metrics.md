@@ -54,11 +54,17 @@ Centro de IoT proporciona varias métricas para ofrecerle una visión general de
 
 ## Pasos siguientes
 
-Ahora que ha visto la información general sobre las métricas de diagnóstico, siga estos vínculos para obtener más información:
+Ahora que ha visto la información general sobre las métricas de diagnóstico, siga estos vínculos para más información acerca de la administración del Centro de IoT de Azure:
 
-- [IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)][lnk-operations-monitoring]
-- [Escalado del Centro de IoT][lnk-scaling]
-- [Alta disponibilidad y recuperación ante desastres del Centro de IoT][lnk-dr]
+- [Supervisión de operaciones][lnk-monitor]
+- [Configuración y administración del acceso al Centro de IoT][lnk-itpro]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@ Ahora que ha visto la información general sobre las métricas de diagnóstico, 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

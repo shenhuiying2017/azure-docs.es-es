@@ -42,14 +42,22 @@ El acceso a otros extremos de administración en un Centro de IoT también se co
 
 ## Pasos siguientes
 
-Este artículo contiene información específica para que los desarrolladores y profesionales de TI configuren sus entornos de desarrollo y pruebas. Siga estos vínculos para obtener más información sobre el servicio Centro de IoT de Azure:
+Este artículo contiene información específica para que los desarrolladores y profesionales de TI configuren sus entornos de desarrollo y pruebas. La [sección de seguridad de la Guía del desarrollador del Centro de IoT de Azure][lnk-devguide] ofrece información adicional sobre los tokens y el sistema de permisos del Centro de IoT.
 
-- [¿Qué es el Centro de IoT de Azure?][lnk-iothub]
-- La [sección de seguridad de la Guía del desarrollador del Centro de IoT de Azure][lnk-devguide] ofrece información adicional sobre los tokens y el sistema de permisos del Centro de IoT.
-- [Administración del Centro de IoT a través del Portal de Azure][lnk-manage-portal] describe el uso del Portal de Azure para administrar el Centro de IoT.
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

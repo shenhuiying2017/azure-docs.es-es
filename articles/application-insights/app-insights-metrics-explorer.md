@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="02/06/2016" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -114,9 +114,13 @@ Si codifica las [métricas personalizadas][track] en la aplicación (llamadas a 
 
 ## Segmentación de los datos
 
+Puede dividir una métrica mediante la propiedad, por ejemplo, para comparar vistas de páginas en clientes con diferentes sistemas operativos.
+
 Seleccione un diagrama o cuadrícula, cambie a agrupación y elija una propiedad para agruparla por:
 
 ![Seleccionar Agrupación en, seleccione una propiedad en Agrupar por](./media/app-insights-metrics-explorer/15-segment.png)
+
+> [AZURE.NOTE] Cuando usa la agrupación, los tipos de gráfico de barras y de áreas proporcionan una visualización apilada. Esto es conveniente cuando el método de agregación es la suma. Pero cuando el tipo de agregación es el promedio, elija los tipos de visualización de líneas o de cuadrícula.
 
 Si codifica las [métricas personalizadas][track] en la aplicación e incluyen los valores de propiedad, podrá seleccionar la propiedad en la lista.
 
@@ -210,7 +214,7 @@ Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tie
 
 ## Exportación continua
 
-Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la [Exportación continua](app-insights-export-telemetry.md).
+Si quiere que los datos se exporten continuamente para procesarlos externamente, puede usar la [Exportación continua](app-insights-export-telemetry.md).
 
 ### Power BI
 
@@ -224,7 +228,7 @@ El [análisis](app-insights-analytics.md) es una forma más versátil de analiza
 
 *No veo ningún dato en el gráfico.*
 
-* Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro. 
+* Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro.
 
     Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
 
@@ -247,4 +251,4 @@ El [análisis](app-insights-analytics.md) es una forma más versátil de analiza
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

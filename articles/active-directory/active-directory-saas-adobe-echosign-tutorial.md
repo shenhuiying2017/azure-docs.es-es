@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Adobe EchoSign
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Adobe EchoSign:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-adobe-echosign-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Adobe EchoSign**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Adobe EchoSign**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Configurar inicio de sesión único")
 
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Adobe EchoSign**, escriba su dirección URL con el siguiente patrón "**https://company.echosign.com/*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Adobe EchoSign**, escriba su dirección URL con el siguiente patrón "*https://company.echosign.com/*" y, después, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-adobe-echosign-tutorial/IC789518.png "Configurar dirección URL de la aplicación")
 
@@ -102,16 +102,16 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configuración de SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "Configuración de SAML")
 
-    1.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de IdP**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de IdP**.
-    4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de IdP**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de IdP**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adobe EchoSign**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de IdP**.
+    4.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+		>[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
     5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado IdP**.
     6.  Haga clic en **Guardar cambios**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -133,9 +133,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adobe EchoSign, de
     1.  Escriba **Email Address** (Dirección de correo electrónico), **First Name** (Nombre) y **Last Name** (Apellido) de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes.
     2.  Haga clic en **Create User** (Crear usuario).
 
-		>[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+		>[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Adobe EchoSign ofrecida por Adobe EchoSign para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Adobe EchoSign ofrecida por Adobe EchoSign para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -143,7 +143,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Adobe EchoSign, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Adobe EchoSign**, haga clic en **Asignar usuarios**.
 
@@ -155,4 +155,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

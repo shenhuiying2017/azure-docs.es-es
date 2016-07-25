@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="04/27/2016"
+	ms.date="07/12/2016"
 	ms.author="sdanie" />
 
 # Proveedor de estado de sesión de ASP.NET para Caché en Redis de Azure
@@ -53,7 +53,7 @@ El paquete de NuGet se descarga, agrega las referencias de ensamblado requeridas
     		operationTimeoutInMilliseconds = "5000" [number]
 		/>
         -->
-		<add name="MySessionStateStore"type="Microsoft.Web.Redis.RedisSessionStateProvider"host="127.0.0.1"accessKey="" ssl="false"/>
+		<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
         </providers>
     </sessionState>
 
@@ -106,4 +106,4 @@ Para obtener más información sobre el estado de sesión y otros procedimientos
 
 Consulte [Proveedor de caché de resultados de ASP.NET para Caché en Redis de Azure](cache-aspnet-output-cache-provider.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introducción a Reliable Actors
@@ -32,10 +32,11 @@ Para empezar a trabajar con Reliable Actors, solo es necesario comprender cuatro
 	* Resuelve nombres. Es capaz de ubicar el actor en el clúster (encontrar el nodo en que se hospeda el clúster).
 	* Controla errores. Puede reintentar las invocaciones de métodos y volver a determinar la ubicación del actor, por ejemplo, tras un error que requiere que el actor se reubique en otro nodo del clúster.
 
-Conviene destacar las siguientes reglas que pertenecen a los métodos de interfaz de actor:
+Conviene destacar las siguientes reglas que pertenecen a las interfaces de actor:
 
 - No se pueden sobrecargar los métodos de interfaz de actor.
 - Los métodos de interfaz de actor no deben tener parámetros out, ref u opcionales.
+- No se admiten las interfaces genéricas.
 
 ## Creación de un proyecto en Visual Studio
 Después de instalar las herramientas de Service Fabric para Visual Studio, puede crear tipos de proyecto nuevos. Los nuevos tipos de proyecto están en la categoría **Nube** del cuadro de diálogo **Nuevo proyecto**.
@@ -81,7 +82,7 @@ internal class MyActor : Actor, IMyActor
 }
 ```
 
-El servicio de actor debe registrarse con un tipo de servicio en el runtime de Service Fabric. Para que el servicio de actor ejecute las instancias de actor, el tipo de actor debe estar registrado también con el servicio de actor. El método de registro `ActorRuntime` realiza esta tarea para los actores.
+El servicio de actor debe registrarse con un tipo de servicio en el runtime de Service Fabric. Para que el servicio de actor ejecute las instancias de actor, el tipo de actor debe estar registrado también con el servicio de actor. El método de registro `ActorRuntime` realiza este trabajo para los actores.
 
 ```csharp
 internal static class Program
@@ -112,7 +113,7 @@ Si comienza a partir de un proyecto nuevo en Visual Studio y tiene una única de
 
 ```
 
-> [AZURE.TIP] El runtime de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
+> [AZURE.TIP] El sistema en tiempo de ejecución de Service Fabric Actors emite algunos [eventos y contadores de rendimiento relacionados con los métodos de actor](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Son útiles para la supervisión del rendimiento y los diagnósticos.
 
 
 ## Depuración
@@ -139,4 +140,4 @@ Durante el proceso de implementación, puede ver el progreso en la ventana **Res
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

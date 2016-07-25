@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="07/12/2016"  
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET
@@ -75,7 +75,12 @@ Aparecerá el cuadro de diálogo Administrar referencias.
 Para obtener la información del **nombre de cuenta** y la **clave de cuenta**, abra el **Portal de Azure clásico**, seleccione la cuenta de Servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
 
-<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	<configuration>
+	...
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
 	  
 	</configuration>
 
@@ -103,4 +108,4 @@ En este punto, está listo para iniciar el desarrollo de una aplicación de Serv
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

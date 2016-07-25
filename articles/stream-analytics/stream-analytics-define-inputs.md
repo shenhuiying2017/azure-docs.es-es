@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="06/15/2016"
+	ms.date="07/13/2016"
 	ms.author="jeffstok"/>
 
 # Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
@@ -118,6 +118,8 @@ El almacenamiento de blobs ofrece una solución rentable y escalable para aquell
 
 Es importante tener en cuenta que la marca de tiempo predeterminada de los eventos del almacenamiento de blobs en Análisis de transmisiones es la marca de tiempo cuando se modificó el blob por última vez, que es *isBlobLastModifiedUtcTime*. Para procesar los datos como una transmisión mediante una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
+Observe también que las entradas con formato **requieren** una fila de encabezado para definir los campos del conjunto de datos. Los campos de fila de encabezado adicionales deben ser **únicos**.
+
 > [AZURE.NOTE] Análisis de transmisiones no admite que se agregue contenido a un blob existente. Análisis de transmisiones solo visualizará un blob una vez, y no procesará los cambios que se realicen tras esta lectura. El procedimiento recomendado es cargar todos los datos una vez y no agregar eventos adicionales al almacén de blobs.
 
 En la tabla siguiente se explica cada propiedad en la pestaña de entrada de almacenamiento de blobs con su descripción:
@@ -211,4 +213,4 @@ Ha obtenido información sobre las opciones de conexión de datos de Azure para 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

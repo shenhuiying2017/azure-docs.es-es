@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante Aplicaciones lógicas." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Información general sobre Enterprise Integration Pack
@@ -35,7 +35,7 @@ Desde el punto de vista de su arquitectura, Enterprise Integration Pack se basa 
 ## ¿Cómo se puede empezar a disfrutar de Enterprise Integration Pack?
 Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el diseñador de Aplicaciones lógicas en el **Portal de Azure**.
 
-A continuación, se muestra un resumen de los pasos que hay que llevar a cabo antes de crear aplicaciones del Portal de Azure: ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+A continuación, se muestra un resumen de los pasos que hay que llevar a cabo para crear aplicaciones en el Portal de Azure: ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## ¿Cuáles son algunos escenarios comunes?
 
@@ -44,23 +44,21 @@ Enterprise Integration Pack admite estos estándares del sector:
 - EDI: intercambio electrónico de datos
 - EAI: integración de aplicaciones empresariales
 
-## ¿Cuánto cuesta?
-Para obtener información sobre los precios y una lista de lo que se incluye con cada nivel de servicio, consulte [Precios del Servicio de aplicaciones de Azure](https://azure.microsoft.com/pricing/details/app-service/).
-
 ## Requisitos para poder comenzar
 - Tener una suscripción de Azure con una cuenta de integración
 - Disponer de Visual Studio 2015 para crear esquemas y asignaciones
 - [Herramientas de integración de empresas de Aplicaciones Lógicas de Microsoft Azure para la versión 2.0 de Visual Studio 2015](https://aka.ms/vsmapsandschemas)
 
 ## Más información sobre:
-- [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Información sobre los esquemas de integración de empresas")
-- [Asignaciones](./app-service-logic-enterprise-integration-maps.md "Información sobre las asignaciones de integración de empresas")
-- [Certificados](./app-service-logic-enterprise-integration-certificates.md "Información sobre los certificados de integración de empresas")
-- [Asociados](./app-service-logic-enterprise-integration-partners.md "Información sobre los partners de integración de empresas")
 - [Contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
-- [Cuentas de integración](./app-service-logic-enterprise-integration-accounts.md "Información sobre las cuentas de integración")
 - [Escenarios de negocio a negocio (B2B)](./app-service-logic-enterprise-integration-b2b.md "Aprenda a crear Aplicaciones lógicas con características B2B.")
-- [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
+- [Certificados](./app-service-logic-enterprise-integration-certificates.md "Información sobre los certificados de integración de empresas")
 - [Codificación y descodificación de archivos sin formato](./app-service-logic-enterprise-integration-flatfile.md "Sepa cómo codificar y descodificar el contenido de archivos sin formato.")
+- [Cuentas de integración](./app-service-logic-enterprise-integration-accounts.md "Información sobre las cuentas de integración")
+- [Asignaciones](./app-service-logic-enterprise-integration-maps.md "Información sobre las asignaciones de integración de empresas")
+- [Asociados](./app-service-logic-enterprise-integration-partners.md "Información sobre los partners de integración de empresas")
+- [Esquemas](./app-service-logic-enterprise-integration-schemas.md "Información sobre los esquemas de integración de empresas")
+- [Validación de mensajes XML](./app-service-logic-enterprise-integration-xml.md "Obtenga información sobre cómo validar mensajes XML con Aplicaciones lógicas.")
+- [Transformación XML](./app-service-logic-enterprise-integration-transform.md "Información sobre las asignaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

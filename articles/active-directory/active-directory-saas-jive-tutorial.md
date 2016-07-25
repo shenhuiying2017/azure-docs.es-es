@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Jive
@@ -33,7 +33,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Jive:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jive-tutorial/IC700993.png "Active Directory")
 
@@ -64,7 +64,7 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1.  En el Portal de administración de Azure, en la página de integración de aplicaciones de **Jive**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo de **Configurar aprovisionamiento de usuarios**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Jive**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo de **Configurar aprovisionamiento de usuarios**.
 
 2.  En la página **Especifique sus credenciales de Jive para habilitar el aprovisionamiento automático de usuarios**, proporcione los valores de configuración siguientes:
 
@@ -74,7 +74,7 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
 
     3.  En el cuadro de texto **Dirección URL de inquilino de Jive**, escriba la dirección URL del inquilino de Jive.
 
-        >[AZURE.NOTE]La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive. Normalmente, la dirección URL tiene el formato siguiente: **www.<organización>.jive.com**.
+        >[AZURE.NOTE] La dirección URL del inquilino de Jive es la que se usa en su organización para iniciar sesión en Jive. Normalmente, la dirección URL tiene el formato siguiente: **www.<organización>.jive.com**.
 
     4.  Haga clic en **Validar** para comprobar la configuración.
 
@@ -84,4 +84,4 @@ La captura de pantalla siguiente muestra un ejemplo del cuadro de diálogo relac
   
 Ahora ya puede crear una cuenta de prueba, espere 10 minutos y compruebe si la cuenta se ha sincronizado en Jive.com.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

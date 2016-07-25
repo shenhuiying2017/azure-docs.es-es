@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Solución de problemas: Administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="Pasos comunes de solución de problemas para la administración de contraseñas de Azure AD, entre otros, restablecimiento, cambio, escritura diferida, registro y la información que hay que proporcionar al solicitar ayuda." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Solución de problemas: Administración de contraseñas de Azure AD | Microsoft Azure"
+	description="Pasos comunes de solución de problemas para la administración de contraseñas de Azure AD, entre otros, restablecimiento, cambio, escritura diferida, registro y la información que hay que proporcionar al solicitar ayuda."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Solución de problemas de administración de contraseñas
+
+> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+
 Si tiene problemas con la administración de contraseñas, estamos aquí para ayudarlo. Se pueden resolver la mayoría de los problemas que pueden surgir con unos sencillos pasos que puede leer a continuación para solucionar problemas de implementación:
 
 * [**Información para incluir si necesita ayuda**](#information-to-include-when-you-need-help)
@@ -216,7 +219,7 @@ Si se produce un error al registrar un usuario para el restablecimiento de contr
             <td>
               <p>El usuario ve un error que indica:</p>
               <p>
-                
+
               </p>
               <p>Error al procesar la solicitud </p>
               <p>Al tratar de restablecer la contraseña.</p>
@@ -257,7 +260,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>La cuenta no está habilitada para restablecer la contraseña</p>
               <p>El administrador no ha configurado la cuenta para utilizarla con este servicio. </p>
               <p>
-                
+
               </p>
               <p>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
             </td>
@@ -284,7 +287,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>La cuenta no está habilitada para restablecer la contraseña</p>
               <p>El administrador no ha configurado la cuenta para utilizarla con este servicio. </p>
               <p>
-                
+
               </p>
               <p>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
             </td>
@@ -300,7 +303,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>La cuenta no está habilitada para restablecer la contraseña</p>
               <p>El administrador no ha configurado la cuenta para utilizarla con este servicio. </p>
               <p>
-                
+
               </p>
               <p>Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña.</p>
             </td>
@@ -362,7 +365,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
             <td>
               <p>El usuario obtiene un error que indica:</p>
               <p>
-                
+
               </p>
               <p>Use otra opción.</p>
               <p>Ha intentado comprobar su cuenta demasiadas veces en la última hora. Por motivos de seguridad, tendrá que esperar 24 horas antes de volver a intentarlo. </p>
@@ -388,7 +391,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
             <td>
               <p>Al intentar comprobar un teléfono para usarlo como método de autenticación, el usuario obtiene un error que indica:</p>
               <p>
-                
+
               </p>
               <p>Número de teléfono incorrecto especificado.</p>
             </td>
@@ -404,7 +407,7 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
             <td>
               <p>El usuario ve un error que indica:</p>
               <p>
-                
+
               </p>
               <p>Error al procesar la solicitud </p>
               <p>Al tratar de restablecer la contraseña.</p>
@@ -444,7 +447,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>El servicio de restablecimiento de contraseña no se inicia de forma local con el error 6800 en el registro de eventos de la aplicación de la máquina de Azure AD Connect.</p>
               <p>
-                
+
               </p>
               <p>Después de la incorporación, los usuarios federados o con sincronización de hash de contraseña no pueden restablecer sus contraseñas.</p>
             </td>
@@ -460,7 +463,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>En el último paso del proceso de instalación de Azure AD Connect, se generará un error que indica que no se ha podido configurar la escritura diferida de contraseñas.</p>
               <p>
-                
+
               </p>
               <p>El registro de eventos de la aplicación para Azure AD Connect contiene el error 32009 con el texto "Error al obtener el token de autorización".</p>
             </td>
@@ -484,17 +487,17 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>El registro de eventos del equipo de Azure AD Connect contiene el error 32002 producido por PasswordResetService.</p>
               <p>
-                
+
               </p>
               <p>El error dice: "Error al conectarse al Bus de servicio, el proveedor de tokens no pudo proporcionar un token de seguridad..."</p>
               <p>
-                
+
               </p>
             </td>
             <td>
               <p>La causa raíz de este error es que el servicio de restablecimiento de contraseña ejecutado en su entorno local no es capaz de conectarse al extremo del Bus de servicio en la nube. Este error normalmente se debe a una regla de firewall que bloquea una conexión saliente a una dirección de puerto o web determinada.</p>
               <p>
-                
+
               </p>
               <p>Asegúrese de que el firewall permite las conexiones salientes para lo siguiente:</p>
               <ul>
@@ -506,7 +509,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
 										Conexiones salientes a &lt;br>&lt;br></li>
               </ul>
               <p>
-                
+
               </p>
               <p>Una vez que haya actualizado estas reglas, reinicie el equipo de Azure AD Connect y la escritura diferida de contraseñas debería empezar a funcionar de nuevo.</p>
             </td>
@@ -521,7 +524,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>En algunos casos excepcionales, el servicio de escritura diferida de contraseñas puede no volver a iniciarse cuando se reinicia Azure AD Connect. En estos casos, en primer lugar, compruebe si la escritura diferida de contraseñas está habilitada en el entorno local. Esto puede hacerse mediante el Asistente de Azure AD Connect o PowerShell (consulte la sección anterior sobre los procedimientos). Si la característica parece estar habilitada, pruebe a habilitar o deshabilitar la característica de nuevo a través de la interfaz de usuario o de PowerShell. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
               <p>
-                
+
               </p>
               <p>Si esto no funciona, pruebe a desinstalar por completo y volver a instalar Azure AD Connect.</p>
             </td>
@@ -533,14 +536,14 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseñas obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio.</p>
               <p>
-                
+
               </p>
               <p>Además, durante las operaciones de restablecimiento de contraseña, verá un error relacionado con que al agente de administración se le denegó el acceso a los registros de eventos locales.</p>
             </td>
             <td>
               <p>Si ve estos errores en el registro de eventos, confirme que la cuenta de AD MA (que se especificó en el asistente en el momento de la configuración) tiene los permisos necesarios para la escritura diferida de contraseñas.</p>
               <p>
-                
+
               </p>
               <p>TENGA EN CUENTA que una vez que se concede este permiso, puede tardar hasta una hora en poder utilizarse a través de la tarea en segundo plano sdprop en el controlador de dominio. </p>
               <p>Para que el restablecimiento de contraseña funcione, el permiso debe quedar marcado en el descriptor de seguridad del objeto de usuario cuya contraseña se está restableciendo. Hasta que este permiso se muestra en el objeto de usuario, el restablecimiento de contraseña seguirá generando un error con acceso denegado.</p>
@@ -576,7 +579,7 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>Los usuarios con privilegios en Active Directory están protegidos mediante AdminSDHolder. Consulte <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> para obtener más detalles. </p>
               <p>
-                
+
               </p>
               <p>Esto significa que los descriptores de seguridad en estos objetos se comprueban periódicamente para que coincidan con el especificado en AdminSDHolder y se restablecen si son diferentes. Por lo tanto, los permisos adicionales necesarios para la escritura diferida de contraseñas no filtran a dichos usuarios. Esto puede ocasionar que la escritura diferida de contraseñas no funcione para dichos usuarios. Como resultado, no se admite la administración de contraseñas para los usuarios de estos grupos porque rompe el modelo de seguridad de AD.</p>
             </td>
@@ -588,14 +591,14 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseñas obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio.</p>
               <p>
-                
+
               </p>
               <p>Además, durante las operaciones de restablecimiento de contraseña, puede obtener un error en los registros de eventos del servicio Azure AD Connect que indique un error “No se encontró el objeto”.</p>
             </td>
             <td>
               <p>Este error suele indicar que el motor de sincronización no puede encontrar el objeto de usuario en el espacio del conector de AAD o en el objeto de espacio del conector MV o AD vinculado. </p>
               <p>
-                
+
               </p>
               <p>Para solucionar este problema, asegúrese de que el usuario realmente está sincronizado desde el entorno local a AAD a través de la instancia actual de Azure AD Connect e inspeccione el estado de los objetos de los espacios de conector y MV. Confirme que el objeto de AD CS es conector al objeto MV a través de la regla "Microsoft.InfromADUserAccountEnabled.xxx".</p>
             </td>
@@ -607,14 +610,14 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
             <td>
               <p>Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseñas obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio.</p>
               <p>
-                
+
               </p>
               <p>Además, durante las operaciones de restablecimiento de contraseña, puede obtener un error en los registros de eventos del servicio Azure AD Connect que indique un error “Varias coincidencias detectadas”.</p>
             </td>
             <td>
               <p>Esto indica que el motor de sincronización ha detectado que el objeto de MV está conectado a más de un objeto de AD CS a través de "Microsoft.InfromADUserAccountEnabled.xxx". Esto significa que el usuario tiene una cuenta habilitada en más de un bosque. </p>
               <p>
-                
+
               </p>
               <p>Actualmente, este escenario no se admite para la escritura diferida de contraseñas.</p>
             </td>
@@ -1416,7 +1419,7 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
             </td>
           </tr>
         </tbody></table>
-		
+
 ## Solución de problemas con la conectividad de la escritura diferida de contraseñas
 
 Si se producen interrupciones del servicio con el componente de escritura diferida de contraseñas de Azure AD Connect, aquí tiene algunos pasos que puede seguir para resolver este problema:
@@ -1482,7 +1485,7 @@ Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución d
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -1498,4 +1501,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

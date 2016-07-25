@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introducción a Service Fabric Reliable Actors.
@@ -105,7 +105,7 @@ La clase `ActorProxy` del cliente realiza la resolución necesaria para localiza
 
 El tiempo de ejecución de Reliable Actors ofrece un modelo de acceso simple basado en turnos para obtener acceso a los métodos de actor. Esto significa que no puede haber más de un subproceso activo dentro del código del objeto de actor en ningún momento. El acceso basado en turnos simplifica considerablemente sistemas simultáneos, pues no es necesario que los mecanismos de sincronización tengan acceso a datos. También significa que los sistemas deben diseñarse con consideraciones especiales para la naturaleza de acceso uniproceso de cada instancia de actor.
 
- - Una sola instancia de actor no puede procesar más de una solicitud cada vez. Una instancia de actor puede provocar un cuello de botella de procesamiento si se espera que controle solicitudes simultáneas. 
+ - Una sola instancia de actor no puede procesar más de una solicitud cada vez. Una instancia de actor puede provocar un cuello de botella de procesamiento si se espera que controle solicitudes simultáneas.
  - Los actores pueden interbloquearse si hay una solicitud circular entre dos actores mientras se realiza una solicitud externa destinada a uno de los actores simultáneamente. El tiempo de ejecución del actor agotará el tiempo de expiración en llamadas de actor automáticamente y generará una excepción al autor de llamada para interrumpir posibles situaciones de interbloqueo.
 
 ![Comunicación de Reliable Actors][3]
@@ -158,4 +158,4 @@ El tiempo de ejecución de los actores ofrece estas garantías de simultaneidad 
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

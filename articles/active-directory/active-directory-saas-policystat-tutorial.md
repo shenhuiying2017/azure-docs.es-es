@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con PolicyStat | Microsoft Azure" 
     description="Aprenda cómo usar PolicyStat con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con PolicyStat
   
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **PolicyStat**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **PolicyStat**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configurar inicio de sesión único")
 
@@ -113,7 +113,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **Metadatos del proveedor de identidades**.
     2.  Haga clic en **Guardar cambios**.
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configurar inicio de sesión único")
 
@@ -142,7 +142,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **PolicyStat**, haga clic en **Asignar usuarios**.
 
@@ -154,4 +154,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN
@@ -39,7 +39,9 @@ Empiece por crear una nueva aplicación Service Fabric, con un servicio único s
 
 ![Crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
-Si usa API web, encontrará una plantilla de Visual Studio para un servicio sin estado. En este tutorial, crearemos un proyecto que tenga como resultado lo que se obtendría si seleccionase esa plantilla. En este punto, puede empezar por la API web del servicio sin estado y seguir los pasos, o bien por un servicio sin estado vacío y crearlo desde cero.
+Si usa API web, encontrará una plantilla de Visual Studio para un servicio sin estado. En este tutorial, crearemos desde cero un proyecto de API web que tenga como resultado lo que se obtendría si seleccionara esta plantilla.
+
+Seleccione un proyecto de servicio sin estado en blanco para aprender a crear un proyecto de API web desde cero; también puede empezar con la plantilla de API web de servicio sin estado y seguir los pasos.
 
 ![Crear un servicio sin estado único](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
@@ -165,9 +167,9 @@ Los detalles adicionales sobre el proceso de host de servicio y el registro del 
 
 Dado que el código de aplicación de la API web se hospeda en su propio proceso, ¿cómo se conecta a un servidor web? Escriba [OWIN](http://owin.org/). OWIN es simplemente un contrato entre las aplicaciones web .NET y servidores web. Tradicionalmente, cuando se usa ASP.NET (hasta MVC 5), la aplicación web se acoplaba estrechamente con IIS a través de System.Web. Sin embargo, la API web implementa OWIN, lo que le permite escribir una aplicación web que se separa del servidor web que la hospeda. Por este motivo, puede usar un servidor web OWIN de *autohospedaje* que puede iniciar en su propio proceso. Encaja perfectamente con el modelo de hospedaje de Service Fabric que acabamos de describir.
 
-En este artículo, usaremos Katana como el host OWIN para la aplicación API web. Katana es una implementación de host OWIN de código abierto.
+En este artículo, usaremos Katana como el host OWIN para la aplicación API web. Katana es una implementación del host OWIN de código abierto basada en [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) y la [API de servidor HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) de Windows.
 
-> [AZURE.NOTE] Para obtener más información sobre Katana, vaya al [sitio de Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para obtener una introducción rápida sobre cómo usar Katana para el autohospedaje de la API web, consulte [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso de OWIN para autohospedaje de la API web de ASP.NET 2).
+> [AZURE.NOTE] Para más información sobre Katana, vaya al [sitio de Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para una introducción rápida sobre cómo usar Katana para el autohospedaje de la API web, consulte [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api) (Uso de OWIN para autohospedaje de la API web de ASP.NET 2).
 
 
 ## Configurar el servidor web
@@ -349,7 +351,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Tenga en cuenta que "http://+" se utiliza aquí. Esto le permite asegurarse de que el servidor web está escuchando todas las direcciones disponibles, incluyendo localhost, FQDN y la dirección IP del equipo.
 
-La implementación de OpenAsync es una de las razones más importantes por las que el servidor web (o cualquier pila de comunicación) se implementa como un ICommunicationListener en lugar de simplemente abrirlo directamente desde `RunAsync()` en el servicio. El valor devuelto de OpenAsync es la dirección que está escuchando el servidor web. Cuando se devuelve esta dirección al sistema, registra la dirección con el servicio. Service Fabric proporciona una API que permite a los clientes y otros servicios pedir esta dirección por nombre de servicio. Esto es importante porque la dirección del servicio no es estática. Los servicios se mueven en el clúster para fines de disponibilidad y equilibrio de recursos. Este es el mecanismo que permite a los clientes resolver la dirección de escucha de un servicio.
+La implementación de OpenAsync es una de las razones más importantes por las que el servidor web (o cualquier pila de comunicación) se implementa como una interfaz ICommunicationListener en lugar de simplemente abrirse directamente desde `RunAsync()` en el servicio. El valor devuelto de OpenAsync es la dirección que está escuchando el servidor web. Cuando se devuelve esta dirección al sistema, registra la dirección con el servicio. Service Fabric proporciona una API que permite a los clientes y otros servicios pedir esta dirección por nombre de servicio. Esto es importante porque la dirección del servicio no es estática. Los servicios se mueven en el clúster para fines de disponibilidad y equilibrio de recursos. Este es el mecanismo que permite a los clientes resolver la dirección de escucha de un servicio.
 
 Con eso en mente, OpenAsync inicia el servidor web y devuelve la dirección en que está escuchando. Tenga en cuenta que realiza escuchas en "http://+", pero antes de que OpenAsync devuelva la dirección, el "+" se sustituye por la dirección IP o FQDN del nodo en el que está actualmente. La dirección que este método devuelve es la que se registra con el sistema. También es lo que los clientes y otros servicios ven cuando solicitan la dirección de un servicio. Para que los clientes se conecten correctamente a ella, necesitan un IP o FQDN real en la dirección.
 
@@ -382,7 +384,7 @@ Con eso en mente, OpenAsync inicia el servidor web y devuelve la dirección en q
 
 Tenga en cuenta que esto hace referencia a la clase Inicio que se pasó a OwinCommunicationListener en el constructor. El servidor web utiliza esta instancia de inicio para arrancar la aplicación de la API web.
 
-La línea `ServiceEventSource.Current.ServiceMessage()` aparecerá en la ventana de eventos de diagnóstico más adelante al ejecutar la aplicación para confirmar que el servidor web se ha iniciado correctamente.
+La línea `ServiceEventSource.Current.ServiceMessage()` aparecerá en la ventana Eventos de diagnóstico más adelante al ejecutar la aplicación para confirmar que el servidor web se ha iniciado correctamente.
 
 ## Implementación de CloseAsync y Abort
 
@@ -439,11 +441,11 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Aquí es donde la *aplicación* de la API web y el *host* de OWIN se encuentran finalmente. Al host (OwinCommunicationListener) se le asigna una instancia de la *aplicación* (la API web a través del inicio). Service Fabric administra su ciclo de vida. Normalmente este mismo patrón puede ser seguido de cualquier pila de comunicación.
+Aquí es donde la *aplicación* de la API web y el *host* OWIN se encuentran finalmente. Al host (OwinCommunicationListener) se le asigna una instancia de la *aplicación* (la API web a través del inicio). Service Fabric administra su ciclo de vida. Normalmente este mismo patrón puede ser seguido de cualquier pila de comunicación.
 
 ## Colocación de todo junto
 
-En este ejemplo, no necesita hacer nada en el método `RunAsync()`, de modo que la invalidación se puede quitar fácilmente.
+En este ejemplo, no necesita hacer nada en el método `RunAsync()`, de modo que simplemente se puede quitar la invalidación.
 
 La implementación del servicio final debe ser muy sencilla. Solo es necesario crear el agente de escucha de comunicación:
 
@@ -645,7 +647,7 @@ Ahora que ha colocado todas las piezas en su lugar, el proyecto debe presentar e
 Si no lo ha hecho, [configure el entorno de desarrollo](service-fabric-get-started.md).
 
 
-Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana de eventos de diagnósticos, debe aparecer un mensaje que indica que el servidor web se ha abierto en http://localhost:8281/.
+Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio para compilar e implementar la aplicación. En la ventana Eventos de diagnóstico, debe aparecer un mensaje que indica que el servidor web se ha abierto en http://localhost:8281/.
 
 
 ![Ventana Eventos de diagnóstico de Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -653,7 +655,7 @@ Ahora puede compilar e implementar su servicio. Presione **F5** en Visual Studio
 > [AZURE.NOTE] Si el puerto ya lo ha abierto otro proceso en el equipo, puede aparecer un error aquí. Esto indica que no se ha podido abrir el agente de escucha. Si ese es el caso, intente utilizar un puerto diferente para configurar el punto de conexión en ServiceManifest.xml.
 
 
-Una vez que el servicio se esté ejecutando, abra un explorador y navegue hasta [http://localhost:8281/api/values](http://localhost:8281/api/values) para probarlo.
+Una vez que el servicio se esté ejecutando, abra un explorador y vaya a [http://localhost:8281/api/values](http://localhost:8281/api/values) para probarlo.
 
 ## Escala horizontal
 
@@ -679,10 +681,10 @@ También puede hacerlo al definir un servicio predeterminado en un proyecto de s
 
 ```
 
-Para obtener más información sobre cómo crear aplicaciones e instancias de servicio, vea [Implementación de una aplicación](service-fabric-deploy-remove-applications.md).
+Para más información sobre cómo crear aplicaciones e instancias de servicio, consulte [Implementar una aplicación](service-fabric-deploy-remove-applications.md).
 
 ## Pasos siguientes
 
 [Depurar la aplicación de Service Fabric con Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

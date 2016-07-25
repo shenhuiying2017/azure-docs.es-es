@@ -119,7 +119,18 @@ Para ejecutar el ejemplo:
 
 ## Pasos siguientes
 
-Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Azure IoT Gateway SDK][lnk-gateway-sdk] \(SDK de puerta de enlace de IoT de Azure) en GitHub.
+Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
+
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux][lnk-physical-device]
+- [SDK de puerta de enlace de IoT (beta): administración de dispositivos con el SDK de puerta de enlace][lnk-manage-devices]
+- [SDK de puerta de enlace IoT de Azure][lnk-gateway-sdk]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -128,4 +139,12 @@ Para más información sobre cómo usar el SDK de puerta de enlace, consulte [Az
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="07/07/2016" 
 	ms.author="andrl"/>
 
 # SDK de DocumentDB
@@ -29,17 +29,25 @@
 <table>
 <tr><td>**Descargar**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 <tr><td>**Contribuciones**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] \(http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] \(https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] \(documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Documentación**</td><td>[Documentación de referencia del SDK de Node.js] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js] (https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Node.js] (documentdb-nodejs-get-started.md)</td></tr>
 <tr><td>**Plataforma admitida actualmente**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
 ##Notas de la versión
 
+###<a name="1.9.0"/>1.9.0</a>
+
+- Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, DocumentDB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, cumpliendo el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. DocumentDB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
+
+- DocumentDB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que ha esperado la solicitud entre los reintentos.
+
+- Se ha agregado la clase RetryOptions que expone la propiedad RetryOptions en la clase ConnectionPolicy que puede usarse para reemplazar algunas de las opciones de reintentos predeterminadas.
+
 ###<a name="1.8.0"/>1.8.0</a>
 
-  - Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
+ - Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 
 ###<a name="1.7.0"/>1.7.0</a>
 
@@ -137,30 +145,31 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 | Versión | Fecha de lanzamiento | Fecha de retirada 
 | ---	  | ---	         | ---
-| [1\.8.0](#1.8.0) | 14 de junio, 2016 |---
-| [1\.7.0](#1.7.0) | 26 de abril, 2016 |---
-| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |---
-| [1\.5.6](#1.5.6) | 08 de marzo, 2016 |---
-| [1\.5.5](#1.5.5) | 02 de febrero, 2016 |---
-| [1\.5.4](#1.5.4) | 01 de febrero, 2016 |---
-| [1\.5.2](#1.5.2) | 26 de enero, 2016 |---
-| [1\.5.2](#1.5.2) | 22 de enero, 2016 |---
-| [1\.5.1](#1.5.1) |04 de enero, 2016 |---
-| [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |---
-| [1\.4.0](#1.4.0) | 06 de octubre, 2015 |---
-| [1\.3.0](#1.3.0) | 06 de octubre, 2015 |---
-| [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |---
-| [1\.2.1](#1.2.1) | 15 de agosto, 2015 |---
-| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |---
- [1\.1.0](#1.1.0) | 09 de julio, 2015 |---
-| [1\.0.3](#1.0.3) | 04 de junio, 2015 |---
-| [1\.0.2](#1.0.2) | 23 de mayo, 2015 |---
-| [1\.0.1](#1.0.1) | 15 de mayo, 2015 |---
-| [1\.0.0](#1.0.0) | 08 de abril, 2015 |---
-| 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016
-| 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016
-| 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016
-| 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016
+| [1\.9.0](#1.9.0) | 07 de julio, 2016 |--- 
+| [1\.8.0](#1.8.0) | 14 de junio, 2016 |--- 
+| [1\.7.0](#1.7.0) | 26 de abril, 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 de marzo, 2016 |--- 
+| [1\.5.6](#1.5.6) | 08 de marzo, 2016 |--- 
+| [1\.5.5](#1.5.5) | 02 de febrero, 2016 |--- 
+| [1\.5.4](#1.5.4) | 01 de febrero, 2016 |--- 
+| [1\.5.2](#1.5.2) | 26 de enero, 2016 |--- 
+| [1\.5.2](#1.5.2) | 22 de enero, 2016 |--- 
+| [1\.5.1](#1.5.1) | 04 de enero, 2016 |--- 
+| [1\.5.0](#1.5.0) | 31 de diciembre, 2015 |--- 
+| [1\.4.0](#1.4.0) | 06 de octubre, 2015 |--- 
+| [1\.3.0](#1.3.0) | 06 de octubre, 2015 |--- 
+| [1\.2.2](#1.2.2) | 10 de septiembre, 2015 |--- 
+| [1\.2.1](#1.2.1) | 15 de agosto, 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto, 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julio, 2015 |--- 
+| [1\.0.3](#1.0.3) | 04 de junio, 2015 |--- 
+| [1\.0.2](#1.0.2) | 23 de mayo, 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 de mayo, 2015 |--- 
+| [1\.0.0](#1.0.0) | 08 de abril, 2015 |--- 
+| 0.9.4-versión preliminar | 06 de abril, 2015 | 29 de febrero, 2016 
+| 0.9.3-versión preliminar | 14 de enero, 2015 | 29 de febrero, 2016 
+| 0.9.2-versión preliminar | 18 de diciembre, 2014 | 29 de febrero, 2016 
+| 0.9.1-versión preliminar | 22 de agosto, 2014 | 29 de febrero, 2016 
 | 0.9.0-versión preliminar | 21 de agosto, 2014 | 29 de febrero, 2016
 
 
@@ -171,4 +180,4 @@ Todas las versiones del SDK de Azure DocumentDB para Node.js anteriores a la ver
 
 Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

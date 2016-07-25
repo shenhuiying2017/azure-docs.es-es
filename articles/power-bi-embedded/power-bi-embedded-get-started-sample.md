@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introducción al ejemplo"
+   pageTitle="Introducción a un ejemplo"
    description="Power BI Embedded, usar el SDK para agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
    services="power-bi-embedded"
    documentationCenter=""
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/05/2016"
    ms.author="owend"/>
 
-# Introducción al ejemplo de Microsoft Power BI Embedded
+# Introducción a un ejemplo de Power BI Embedded
 
-Con la **versión preliminar de Microsoft Power BI Embedded**, puede integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para visualizar datos de los usuarios. Los siguientes recursos pueden ayudarle a empezar a integrar informes de Power BI en la aplicación.
+Con **Microsoft Power BI Embedded**, puede integrar informes de Power BI directamente en las aplicaciones web o móviles. En este artículo, ofreceremos el ejemplo introductorio de **Power BI Embedded**.
+
+Antes de avanzar, probablemente deseará guardar los recursos siguientes. Nos permitirán integrar informes de Power BI en la aplicación de ejemplo y también sus propias aplicaciones.
 
  -	[Aplicación web de panel de ejemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Referencia de API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[SDK de .NET de Power BI Embedded (disponible a través de NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
+ -	[SDK de .NET de Power BI Embedded](http://go.microsoft.com/fwlink/?LinkId=746472) (disponible a través de NuGet)
 
-En este artículo, se ofrece el ejemplo introductorio de **Power BI Embedded**. Empecemos por configurar la aplicación de ejemplo para que pueda ejecutar la aplicación web de ejemplo.
 
-> [AZURE.NOTE] Para poder configurar y ejecutar el ejemplo introductorio de Power BI Embedded, debe crear al menos una **colección de área de trabajo** en su suscripción de Azure. Para ver cómo crear una **colección de área de trabajo** en el Portal de Azure, consulte [Getting Started with Power BI Preview incrustado](power-bi-embedded-get-started.md) (Versión preliminar de Microsoft Power BI Embedded).
+
+> [AZURE.NOTE] Para poder configurar y ejecutar el ejemplo introductorio de Power BI Embedded, debe crear al menos una **colección de área de trabajo** en su suscripción de Azure. Para ver cómo crear una **colección de áreas de trabajo** en el Portal de Azure, consulte [Introducción a la versión preliminar de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## Configuración de la aplicación de ejemplo
 
-Los siguientes pasos le guiarán por la configuración del entorno de desarrollo de Visual Studio para tener acceso a los componentes de la versión preliminar necesarios para ejecutar la aplicación de ejemplo.
+Veamos la configuración del entorno de desarrollo de Visual Studio para acceder a los componentes necesarios para ejecutar la aplicación de ejemplo.
 
 1. Descargue y descomprima el ejemplo [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) (Power BI Embedded - Integración de un informe en una aplicación web) en GitHub.
 
@@ -40,11 +42,11 @@ Los siguientes pasos le guiarán por la configuración del entorno de desarrollo
 
 4. Ejecute la aplicación de consola **ProvisionSample**. En la aplicación de consola del ejemplo, aprovisione un área de trabajo e importe un archivo PBIX.
 
-5. Para aprovisionar una nueva **área de trabajo**, seleccione la opción **5. Aprovisione una nueva área de trabajo en una colección existente de área de trabajo**.
+5. Para aprovisionar una nueva **área de trabajo**, seleccione la opción 5, **Aprovisionar una nueva área de trabajo en una colección de áreas de trabajo existente**.
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para más información sobre cómo obtener la **clave de acceso**, consulte [View Power BI API Access Keys](power-bi-embedded-get-started-sample.md#view-access-keys) (Vista de teclas de acceso de API de vista de Power BI) en Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded).
+6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -65,13 +67,11 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] Si el archivo PBIX contiene las conexiones de consulta directa, ejecute la opción 7 para actualizar las cadenas de conexión.
 
-En este momento, tiene un informe PBIX de Power BI importado en su **área de trabajo**. En la siguiente sección se muestra cómo ejecutar la aplicación web de ejemplo introductorio de **Power BI Embedded**. En la siguiente sección, aprenderá cómo ejecutar el ejemplo de aplicación web.
+En este momento, tiene un informe PBIX de Power BI importado en su **área de trabajo**. Ahora, veamos cómo ejecutar la aplicación web de ejemplo introductorio de **Power BI Embedded**.
 
 ## Ejecución de la aplicación web de ejemplo
 
-El ejemplo de aplicación web es un panel de ejemplo que representa los informes importados a su **área de trabajo**.
-
-Vea cómo configurar el ejemplo de aplicación web.
+El ejemplo de aplicación web es un panel de ejemplo que representa los informes importados a su **área de trabajo**. Vea cómo configurar el ejemplo de aplicación web.
 
 1. En la solución de Visual Studio **PowerBI-embedded**, haga clic con el botón derecho en la aplicación web **EmbedSample** y elija **Establecer como proyecto de inicio**.
 2. En **web.config**, en la aplicación web **EmbedSample**, edite los valores de **appSettings**: **AccessKey**, nombre de **WorkspaceCollection** y **WorkspaceId**.
@@ -86,7 +86,7 @@ Vea cómo configurar el ejemplo de aplicación web.
     ```
 3. Ejecute la aplicación web **EmbedSample**.
 
-Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes** menú. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
+Una vez ejecutada la aplicación web **EmbedSample**, el panel de navegación izquierdo debe contener un menú **Informes**. Para ver el informe que ha importado, expanda **Informes** y haga clic en un informe. Por ejemplo, si ha importado el [ejemplo de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547), la aplicación web de muestra tendría el siguiente aspecto:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -94,12 +94,11 @@ Tras hacer clic en un informe, la aplicación web **EmbedSample** debe tener un 
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
-En la siguiente sección se explora el código de ejemplo de **Power BI Embedded**.
 
 ## Exploración del código de ejemplo
-El ejemplo de versión preliminar de **Microsoft Power BI Embedded** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del código de ejemplo que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para más información sobre MVC, consulte [Más información sobre ASP.NET](http://www.asp.net/mvc).
+El ejemplo de **Microsoft Power BI Embedded** es una aplicación web de panel de ejemplo que muestra cómo integrar informes de **Power BI** en la aplicación. Usa un modelo de diseño Model-View-Controller (MVC) para demostrar las prácticas recomendadas. En esta sección se destacan las partes del código de ejemplo que puede explorar dentro de la solución de aplicación web **PowerBI-embedded**. El modelo Model-View-Controller (MVC) separa el modelado de dominio, la presentación y las acciones basadas en la entrada del usuario en tres clases distintas: Model, View y Control. Para más información sobre MVC, consulte [Learn About ASP.NET](http://www.asp.net/mvc) (Más información sobre ASP.NET).
 
-El código de ejemplo de versión preliminar de **Microsoft Power BI Embedded** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
+El código de ejemplo de **Microsoft Power BI Embedded** se divide de la forma siguiente. Cada sección incluye el nombre de archivo de la solución PowerBI-embedded.sln para que pueda encontrar fácilmente el código en el ejemplo.
 
 > [AZURE.NOTE] Esta sección es un resumen del código de ejemplo que muestra cómo se escribe el código. Cuando pasemos a la versión de disponibilidad general, ampliaremos la descripción del ejemplo. Para ver el ejemplo completo, cargue la solución PowerBI-embedded.sln en Visual Studio.
 
@@ -123,9 +122,9 @@ El ejemplo incluye las clases **ReportsViewModel** y **ReportViewModel**.
     }
 
 ### Ver
-En la **vista** se administra la presentación de **informes** de Power BI y un **informe** Power BI.
+En la **vista** se administra la presentación de los **informes** de Power BI y de un **informe** Power BI.
 
-**Reports.cshtml**: recorre en iteración **Model.Reports** para crear un **ActionLink**. El **ActionLink** se compone de los siguientes elementos:
+**Reports.cshtml**: recorre en iteración **Model.Reports** para crear un **ActionLink**. **ActionLink** se compone de los siguientes elementos:
 
 |Elemento|Descripción
 |---|---
@@ -146,7 +145,7 @@ En la **vista** se administra la presentación de **informes** de Power BI y un 
         </div>
     </div>
 
-Report.cshtml: establece el **Model.AccessToken** y la expresión lambda para **PowerBIReportFor**.
+Report.cshtml: establece **Model.AccessToken** y la expresión lambda para **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -217,7 +216,7 @@ Task<ActionResult> Report(string reportId)
 
 ### Integración de un informe en la aplicación
 
-Cuando tenga un **informe**, use un **IFrame** para insertar el **informe** de Power BI. Este es un fragmento de código de powerbi.js en el ejemplo de versión preliminar de **Microsoft Power BI Embedded**.
+Cuando tenga un **informe**, puede usar **IFrame** para insertar el **informe** de Power BI. Este es un fragmento de código de powerbi.js en el ejemplo de versión preliminar de **Microsoft Power BI Embedded**.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
@@ -237,9 +236,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 ## Consulte también
 
-- [Qué es Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Common Microsoft Power BI Embedded Preview scenarios (Escenarios comunes de la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
-- [Get started with Microsoft Power BI Embedded Preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
+- [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
 - [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Adaptive Suite
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Adaptive Suite:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-adaptive-suite-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Adaptive Suite**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Adaptive Suite**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configurar inicio de sesión único")
 
@@ -76,9 +76,9 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar las opciones de la aplicación**, en el cuadro de texto **URL de respuesta **, escriba su dirección URL con el siguiente patrón "**https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar las opciones de la aplicación**, en el cuadro de texto **URL de respuesta**, escriba su dirección URL con el siguiente patrón "*https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" y, después, haga clic en **Siguiente**.
 
-    >[AZURE.NOTE]Puede obtener este valor de la página **SAML SSO Settings** (Configuración SSO de SAML) de Adaptive Suite.
+    >[AZURE.NOTE] Puede obtener este valor de la página **SAML SSO Settings** (Configuración SSO de SAML) de Adaptive Suite.
 
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configurar las opciones de la aplicación")
 
@@ -101,9 +101,9 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![SAML SSO Settings (Configuración de SSO de) SAML](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings (Configuración de SSO de) SAML")
 
     1.  En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad de proveedor de identidades**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de proveedor de identidades**.
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión personalizada**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de proveedor de identidades**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión único de proveedor de identidades**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Dirección URL de inicio de sesión único de SAML** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión personalizada**.
     5.  Para cargar el certificado descargado, haga clic en **Choose file** (Elegir archivo).
     6.  En **SAML user id** (Id. de usuario de SAML), seleccione **User’s Adaptive Insights user name** (Nombre de usuario de Adaptive Insights del usuario).
     7.  En **SAML user id location** (Ubicación del id. de usuario de SAML), seleccione **User id in NameID of Subject** (Id. de usuario en NameID del tema).
@@ -111,7 +111,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     9.  En **Enable SAML** (Habilitar SAML), seleccione **Allow SAML SSO and direct Adaptive Insights login** (Permitir inicio de sesión único de SAML e inicio de sesión directo de Adaptive Insights).
     10. Haga clic en **Guardar**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -138,7 +138,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Adaptive Suite, de
     2.  Seleccione un **Role** (rol).
     3.  Haga clic en **Enviar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Adaptive Suite ofrecida por Adaptive Suite para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Adaptive Suite ofrecida por Adaptive Suite para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -146,7 +146,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Adaptive Suite, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Adaptive Suite**, haga clic en **Asignar usuarios**.
 
@@ -158,4 +158,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

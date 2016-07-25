@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="07/11/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos y actividad de copia: migración de datos a la nube y entre almacenes en la nube
@@ -33,9 +33,11 @@ Cuando los almacenes de datos de origen y receptor (destino) residen en la nube,
 
 
 ## Copia de datos entre un almacén de datos local y un almacén de datos en la nube
-Para [mover datos entre almacenes de datos locales detrás del firewall corporativo y un almacén de datos en la nube de forma segura](#moveonpremtocloud), necesitará instalar Data Management Gateway, que es un agente que permite el procesamiento y movimiento de datos híbridos, en el equipo local. Data Management Gateway puede instalarse en la misma máquina que el propio almacén de datos o en una máquina independiente que tenga acceso para alcanzar el almacén de datos. En este escenario, la serialización y deserialización, la compresión y descompresión, la asignación de columnas y la conversión de tipos se realizan mediante Data Management Gateway. Los datos no fluyen a través del servicio Factoría de datos de Azure en ese caso. Data Management Gateway escribe directamente los datos en el almacén de destino.
+Para mover datos entre almacenes de datos locales detrás del firewall corporativo y un almacén de datos en la nube de forma segura, necesitará instalar Data Management Gateway, que es un agente que permite el procesamiento y movimiento de datos híbridos, en el equipo local. Data Management Gateway puede instalarse en la misma máquina que el propio almacén de datos o en una máquina independiente que tenga acceso para alcanzar el almacén de datos. En este escenario, la serialización y deserialización, la compresión y descompresión, la asignación de columnas y la conversión de tipos se realizan mediante Data Management Gateway. Los datos no fluyen a través del servicio Factoría de datos de Azure en ese caso. Data Management Gateway escribe directamente los datos en el almacén de destino.
 
 ![copia de local a la nube](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
+
+Vea el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener una introducción y un tutorial, y el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener información detallada sobre Data Management Gateway.
 
 ## Copia de datos con un almacén de datos en una VM IaaS de Azure 
 También puede mover datos desde y hacia almacenes de datos compatibles hospedados en VM IaaS de Azure (máquinas virtuales de infraestructura como servicio) mediante Data Management Gateway. En este caso, Data Management Gateway puede instalarse en la misma VM de Azure que el propio almacén de datos o en una VM independiente que tenga acceso para alcanzar el almacén de datos.
@@ -45,18 +47,18 @@ La actividad de copia copia los datos de un almacén de datos de **origen** a un
 
 | Orígenes| Receptores |
 |:------- | :---- |
-| <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[Base de datos MySQL local/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[Base de datos DB2 local/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Base de datos Teradata local/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Base de datos Sybase local/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[Base de datos PostgreSQL local/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[Orígenes de datos ODBC locales/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Sistema de archivos distribuido de Hadoop (HDFS) local /Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Orígenes de OData](data-factory-odata-connector.md)</li><li>[Tabla web (tabla de HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian local/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (consulte la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Almacén de Azure Data Lake](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
+| <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vea la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[Base de datos MySQL local/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[Base de datos DB2 local/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Base de datos Teradata local/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Base de datos Sybase local/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[Base de datos PostgreSQL local/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[Orígenes de datos ODBC locales/Azure IaaS](data-factory-odbc-connector.md)</li><li>[Sistema de archivos distribuido de Hadoop (HDFS) local /Azure IaaS](data-factory-hdfs-connector.md)</li><li>[Orígenes de OData](data-factory-odata-connector.md)</li><li>[Tabla web (tabla de HTML)](data-factory-web-table-connector.md)</li><li>[GE Historian local/Azure IaaS](data-factory-odbc-connector.md#ge-historian-store)</li></ul> | <ul><li>[Blob de Azure](data-factory-azure-blob-connector.md)</li><li>[Tabla de Azure](data-factory-azure-table-connector.md)</li><li>[Base de datos SQL de Azure](data-factory-azure-sql-connector.md)</li><li>[Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (vea la nota siguiente)](data-factory-azure-documentdb-connector.md)</li><li>[Azure Data Lake Store](data-factory-azure-datalake-connector.md)</li><li>[SQL Server local/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[Sistema de archivos local/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Base de datos de Oracle local/Azure IaaS](data-factory-onprem-oracle-connector.md)</li></ul> |
 
 
 > [AZURE.NOTE] En estos momentos, no se pueden copiar datos entre los almacenes de datos de IaaS de Azure o local y Azure DocumentDB. En breve, habilitaremos la matriz completa de Azure DocumentDB.
 
-Si tiene que meter (o sacar) datos a un almacén de datos que no sea compatible con la **actividad de copia**, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Consulte el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para más información sobre la creación y el uso de una actividad personalizada.
+Si tiene que meter (o sacar) datos a un almacén de datos que no sea compatible con la **actividad de copia**, puede usar la **actividad personalizada** de Data Factory con su propia lógica para copiar o mover los datos. Vea el artículo [Uso de actividades personalizadas en una canalización de Data Factory de Azure](data-factory-use-custom-activities.md) para más información sobre la creación y el uso de una actividad personalizada.
 
 ## Tutorial
 Para obtener un tutorial rápido sobre el uso de la actividad de copia, consulte [Tutorial: Uso de la actividad de copia en una canalización de la Factoría de datos de Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). En el tutorial, usará la actividad de copia para copiar datos desde un almacenamiento de blobs de Azure en una base de datos SQL de Azure.
 
 ## <a name="copyactivity"></a>Actividad de copia
-Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) a uno de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad. Para más información sobre cómo definir actividades en general, consulte el artículo [Canalizaciones y actividades en Data Factory de Azure](data-factory-create-pipelines.md).
+Esta actividad copia los datos de un conjunto de datos de entrada (**origen**) a uno de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad. Para más información sobre cómo definir actividades en general, vea el artículo [Canalizaciones y actividades en Data Factory de Azure](data-factory-create-pipelines.md).
 
 La actividad de copia proporciona las siguientes capacidades:
 
@@ -70,25 +72,10 @@ Ubicación de almacén de datos de origen | Ubicación de almacén de datos de d
 local o VM de Azure (IaaS) | nube | **Data Management Gateway** en un equipo local o máquina virtual de Azure. Los datos no fluyen a través del servicio en la nube. <br/><br/>Nota: Data Management Gateway puede estar en el mismo equipo local o máquina virtual de Azure que el almacén de datos o en uno diferente, siempre que se pueda conectar a ambos almacenes de datos.
 nube | local o VM de Azure (IaaS) | Igual que el anterior. 
 local o VM de Azure (IaaS) | local o VM de Azure | **Data Management Gateway asociado al origen**. Los datos no fluyen a través del servicio en la nube. Consulte la nota anterior.   
-nube | nube | **El servicio en la nube que permite la actividad de copia**. Factoría de datos de Azure usa la implementación de este servicio en la región más cercana a la ubicación del receptor en la misma zona geográfica. Consulte la tabla siguiente para realizar la asignación: <br/><br/><table><tr><th>Región del almacén de datos de destino</th> <th>Región usada para el movimiento de datos</th></tr><tr><td>Este de EE. UU.</td><td>Este de EE. UU.</td></tr><tr><td>Este de EE. UU. 2</td><td>Este de EE. UU. 2</td><tr/><tr><td>Centro de EE. UU.</td><td>Centro de EE. UU.</td><tr/><tr><td>Oeste de EE. UU.</td><td>Oeste de EE. UU.</td></tr><tr><td>Centro-norte de EE. UU.</td><td>Centro-norte de EE. UU.</td></tr><tr><td>Centro-sur de EE. UU.</td><td>Centro-sur de EE. UU.</td></tr><tr><td>Europa del Norte</td><td>Europa del Norte</td></tr><tr><td>Europa Occidental</td><td>Europa Occidental</td></tr><tr><td>Sudeste Asiático</td><td>Sudeste Asiático</td></tr><tr><td>Asia Oriental</td><td>Asia Suroriental</td></tr><tr><td>Japón Oriental</td><td>Japón Oriental</td></tr><tr><td>Japón Occidental</td><td>Japón Oriental</td></tr><tr><td>Sur de Brasil</td><td>Sur de Brasil</td></tr><tr><td>Este de Australia</td><td>Este de Australia</td></tr><tr><td>Sudeste de Australia</td><td>Sudeste de Australia</td></tr></table>
+nube | nube | **El servicio en la nube que permite la actividad de copia**. Factoría de datos de Azure usa la implementación de este servicio en la región más cercana a la ubicación del receptor en la misma zona geográfica. Vea la tabla siguiente para realizar la asignación: <br/><br/><table><tr><th>Región del almacén de datos de destino</th> <th>Región usada para el movimiento de datos</th></tr><tr><td>Este de EE. UU.</td><td>Este de EE. UU.</td></tr><tr><td>Este de EE. UU. 2</td><td>Este de EE. UU. 2</td><tr/><tr><td>Centro de EE. UU.</td><td>Centro de EE. UU.</td><tr/><tr><td>Oeste de EE. UU.</td><td>Oeste de EE. UU.</td></tr><tr><td>Centro-norte de EE. UU.</td><td>Centro-norte de EE. UU.</td></tr><tr><td>Centro-sur de EE. UU.</td><td>Centro-sur de EE. UU.</td></tr><tr><td>Europa del Norte</td><td>Europa del Norte</td></tr><tr><td>Europa Occidental</td><td>Europa Occidental</td></tr><tr><td>Sudeste Asiático</td><td>Sudeste Asiático</td></tr><tr><td>Asia Oriental</td><td>Asia Suroriental</td></tr><tr><td>Japón Oriental</td><td>Japón Oriental</td></tr><tr><td>Japón Occidental</td><td>Japón Oriental</td></tr><tr><td>Sur de Brasil</td><td>Sur de Brasil</td></tr><tr><td>Este de Australia</td><td>Este de Australia</td></tr><tr><td>Sudeste de Australia</td><td>Sudeste de Australia</td></tr></table>
 
 
 > [AZURE.NOTE] Si la región del almacén de datos de destino no está en la lista anterior, se producirá un error en la actividad de copia, en lugar de atravesar una región alternativa.
-
-
-
-### <a name="moveonpremtocloud"></a>Transferencia de datos segura entre la nube y la ubicación local
-Uno de los desafíos de la moderna integración de datos es transferir datos sin problemas entre el entorno local y la nube. Data management gateway es un agente que puede instalar de forma local para permitir canalizaciones de datos híbridas.
-
-La puerta de enlace de datos proporciona las siguientes capacidades:
-
-1.	Administrar el acceso a almacenes de datos locales de forma segura.
-2.	Usar modelos de almacenes de datos locales y almacenes de datos en la nube dentro de la misma factoría de datos y mover los datos.
-3.	Tener un solo panel de vidrio para la supervisión y administración con visibilidad del estado de la puerta de enlace mediante el panel basado en la nube de la factoría de datos.
-
-Debe tratar el origen de datos como un origen de datos local (que está detrás de un firewall) aunque use **ExpressRoute** y **usar la puerta de enlace** para establecer la conectividad entre el servicio y el origen de datos.
-
-Para más información, consulte [Movimiento de datos entre la ubicación local y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 
 ### Movimiento de datos confiable y rentable
@@ -175,7 +162,7 @@ Puede ejecutar la operación de copia solo una vez o de forma periódica (cada h
 
 
 ### Prueba 
-Para ver un tutorial rápido sobre cómo usar el **Asistente para copia de Data Factory** a fin de crear una canalización con una actividad de copia, consulte el [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md).
+Para ver un tutorial rápido sobre cómo usar el **Asistente para copia de Data Factory** a fin de crear una canalización con una actividad de copia, vea el [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md).
 
 
 ### Variables de la ruta de la carpeta de blobs de Azure
@@ -196,4 +183,9 @@ También puede usar una variable **personalizada** como se muestra a continuaci�
 
 ![Uso de la variable personalizada](./media/data-factory-data-movement-activities/blob-custom-variables-in-folder-path.png)
 
-<!---HONumber=AcomDC_0629_2016-->
+## Pasos siguientes
+- Vea [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener información sobre cómo usar Copiar actividad para mover datos desde un almacén de datos de origen a un almacén de datos de receptor en general.
+- Vea [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener información sobre cómo mover datos de un almacén de datos local a un almacén de datos en la nube.
+ 
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/06/2016"
+   ms.date="07/08/2016"
    ms.author="seanmck"/>
 
 # Solución de problemas de instalación del clúster de desarrollo local
@@ -92,10 +92,11 @@ Este error suele producirse cuando se intenta iniciar manualmente un proceso de 
 
 Asegúrese de que no tenga ningún proyecto de servicio establecido como proyecto de inicio de la solución. Solo los proyectos de aplicación de Service Fabric deben establecerse como proyectos de inicio.
 
+>[AZURE.TIP] Si, después de la configuración, el clúster local comienza a comportarse de forma anormal, puede restablecerse con la aplicación de la bandeja del sistema de administrador de clústeres locales. De este modo, se quitará el clúster existente y se configurará uno nuevo. Tenga en cuenta que todas las aplicaciones implementadas y los datos asociados también se quitarán.
 
 ## Pasos siguientes
 
 - [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -379,7 +379,14 @@ Ahora ha finalizado el tutorial que muestra cómo utilizar el cliente de adminis
 
 Para más información sobre la administración de dispositivos con el Centro de IoT y la interfaz de usuario de ejemplo, consulte el artículo [Introducción a la administración de dispositivos del Centro de IoT de Azure][lnk-device-management].
 
-Para más información sobre cómo conectar dispositivos físicos a su Centro de IoT, consulte el artículo [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux][lnk-gateway-physical].
+Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, visite la página del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk].
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 
 
@@ -411,4 +418,9 @@ Para más información sobre cómo conectar dispositivos físicos a su Centro de
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

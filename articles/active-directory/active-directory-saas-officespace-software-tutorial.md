@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con OfficeSpace Software
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para OfficeSpace Software:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-officespace-software-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Configurar inicio de sesión único")
 
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de OfficeSpace Software**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación OfficeSpace Software (por ejemplo: "**https://company.officespacesoftware.com*")) y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de OfficeSpace Software**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación OfficeSpace Software (por ejemplo: "*https://company.officespacesoftware.com*") y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Configurar dirección URL de la aplicación")
 
@@ -98,15 +98,16 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configuración de SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Configuración de SAML")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL del proveedor de cierre de sesión**.
-    2.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de destino de IdP de cliente**.
-    3.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital del certificado de IdP de cliente**.  
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL del proveedor de cierre de sesión**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en OfficeSpace Software**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de destino de IdP de cliente**.
+    3.  Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital del certificado de IdP de cliente**.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]
+        Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
     4.  Haga clic en **Guardar configuración**.
 
-9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-officespace-software-tutorial/IC777772.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -121,7 +122,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a OfficeSpace Software, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **OfficeSpace Software**, haga clic en **Asignar usuarios**.
 
@@ -133,4 +134,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Transmisión de datos del blob de Almacenamiento de Azure al Almacén de Data Lake mediante el Análisis de transmisiones
 
 En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Análisis de transmisiones de Azure. Este artículo muestra un escenario simple que lee datos desde un blob de Almacenamiento de Azure (entrada) y los escribe en el Almacén de Data Lake (salida).
 
->[AZURE.NOTE] En este momento, la creación y la configuración de salidas del Almacén de Data Lake para Análisis de transmisiones solo se admiten en el [Portal de Azure clásico](manage.windowsazure.com). Por lo tanto, algunas partes de este tutorial usarán el Portal de Azure clásico.
+>[AZURE.NOTE] En este momento, la creación y la configuración de salidas de Data Lake Store para Análisis de transmisiones solo se admiten en el [Portal de Azure clásico](https://manage.windowsazure.com). Por lo tanto, algunas partes de este tutorial usarán el Portal de Azure clásico.
 
 ## Requisitos previos
 
@@ -103,7 +103,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
 
 	![Especificar el formato de salida](./media/data-lake-store-stream-analytics/create.output.4.png "Especificar el formato de salida")
 
-6. Cuando haya terminado con el asistente, se agregará la salida de Almacén de Data Lake en la pestaña **Salidas** y la columna **Diagnóstico** debe mostrar **Aceptar**. También puede probar explícitamente la conexión a la salida con el botón **Probar conexión** situado en la parte inferior.
+6. Cuando haya terminado con el asistente, se agregará la salida de Data Lake Store en la pestaña **Salidas** y la columna **Diagnóstico** debe mostrar **Aceptar**. También puede probar explícitamente la conexión a la salida con el botón **Probar conexión** situado en la parte inferior.
 
 ## Ejecución del trabajo de Análisis de transmisiones
 
@@ -119,14 +119,14 @@ Cuando se inicia el trabajo, haga clic en la pestaña **Supervisión** para ver 
 
 ![Supervisar el trabajo](./media/data-lake-store-stream-analytics/run.query.3.png "Supervisar el trabajo")
 
-Por último, puede usar el [Portal de Azure](portal.azure.com) para abrir la cuenta de Almacén de Data Lake y compruebe si los datos se han escrito correctamente en la cuenta.
+Por último, puede usar el [Portal de Azure](https://portal.azure.com) para abrir la cuenta de Data Lake Store y comprobar si los datos se han escrito correctamente en la cuenta.
 
 ![Comprobar salida](./media/data-lake-store-stream-analytics/run.query.4.png "Comprobar salida")
 
-En el panel Explorador de datos, tenga en cuenta que la salida se escribe en una carpeta, según lo especificado en la configuración de salida del Almacén de Data Lake (`streamanalytics/job/output/{date}/{time}`).
+En el panel Explorador de datos, tenga en cuenta que la salida se escribe en una carpeta, según lo especificado en la configuración de salida de Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
 
 ## Consulte también
 
 * [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

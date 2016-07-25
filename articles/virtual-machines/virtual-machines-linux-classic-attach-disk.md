@@ -122,7 +122,7 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
 
 11. Agregue la nueva unidad a /etc/fstab:
 
-	Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (es decir, /dev/sdc1). Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
+	Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (es decir, /dev/sdc1). De esta forma, se evita que el disco incorrecto se monte en una ubicación determinada si el sistema operativo detecta un error de disco durante el inicio y el resto de discos de datos se asignan a esos id. de dispositivo. Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
 
 		# sudo -i blkid
 
@@ -173,4 +173,4 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

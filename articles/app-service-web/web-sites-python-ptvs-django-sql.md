@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="07/07/2016"
 	ms.author="huguesv"/>
 
 
@@ -26,16 +26,16 @@ En este tutorial, usaremos las [Herramientas de Python para Visual Studio] a fin
 
 Vamos a aprender a usar una base de datos SQL hospedada en Azure, configurar la aplicación web para usar una base de datos SQL y publicar la aplicación web en [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Consulte el [Centro para desarrolladores de Python] para tener acceso a más artículos que tratan sobre el desarrollo de Aplicaciones web del Servicio de aplicaciones de Azure con PTVS mediante el uso de marcos web Bottle, Flask y Django, con MongoDB, Almacenamiento de tablas de Azure y los servicios de Base de datos MySQL y SQL. Si bien estos artículos se centran en el Servicio de aplicaciones, los pasos son similares a los que se aplican para desarrollar [Servicios en la nube de Azure].
+Vea el [Centro para desarrolladores de Python] para acceder a más artículos sobre el desarrollo de Aplicaciones web del Servicio de aplicaciones de Azure con PTVS mediante marcos web Bottle, Flask y Django, con Almacenamiento de tablas de Azure y los servicios de Base de datos MySQL y SQL. Si bien estos artículos se centran en el Servicio de aplicaciones, los pasos son similares a los que se aplican para desarrollar [Servicios en la nube de Azure].
 
 ## Requisitos previos
 
- - Visual Studio 2013 o 2015
+ - Visual Studio 2015
+ - [Python 2.7 de 32 bits]
  - [Python Tools 2.2 para Visual Studio]
  - [Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]
- - [Herramientas del SDK de Azure para 2013] o [Herramientas del SDK de Azure para VS 2015]
- - [Python 2.7 de 32 bits]
- - Django 1.6 o anterior
+ - [Azure SDK y herramientas para VS 2015]
+ - Django 1.9 o posterior
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -47,7 +47,7 @@ En esta sección, vamos a crear un proyecto de Visual Studio con la utilización
 
 1.  En Visual Studio, seleccione **Archivo** y **Nuevo proyecto**.
 
-1.  Las plantillas de proyecto de los archivos VSIX de ejemplo de PTVS se encuentran disponibles en **Python**, **Samples** (Ejemplos). Seleccione **Polls Django Web Project** (Proyecto web de Django para sondeos) y haga clic en OK (Aceptar) para crear el proyecto.
+1.  Las plantillas de proyecto de los [archivos VSIX de ejemplo de Python Tools 2.2 para Visual Studio] se encuentran disponibles en **Python**, **Ejemplos**. Seleccione **Polls Django Web Project** (Proyecto web de Django para sondeos) y haga clic en OK (Aceptar) para crear el proyecto.
 
   	![Cuadro de diálogo Nuevo proyecto](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
@@ -59,15 +59,9 @@ En esta sección, vamos a crear un proyecto de Visual Studio con la utilización
 
   	![Cuadro de diálogo Agregar entorno virtual](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
-1.  Haga clic con el botón derecho en el nodo del proyecto y seleccione **Python**, **Django Sync DB** (Base de datos de sincronización de Django).
+1.  En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo de proyecto, seleccione **Python** y **Django Migrate (Migración de Django)**. Después, seleccione **Django Create Superuser (Crear superusuario de Django)**.
 
-  	![Comando Base de datos de sincronización de Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
-
-1.  A continuación, se abrirá la consola de administración de Django. Siga las indicaciones para crear un usuario.
-
-    Se creará una base de datos sqlite en la carpeta del proyecto.
-
-  	![Ventana de la Consola de administración de Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+1.  Se abre la consola de administración de Django donde se va a crear una base de datos de sqlite en la carpeta del proyecto. Siga las indicaciones para crear un usuario.
 
 1.  Presione <kbd>F5</kbd> para confirmar que la aplicación funciona.
 
@@ -97,11 +91,7 @@ Siga estos pasos para crear una base de datos.
 
 1.  En la parte inferior del panel de navegación, haga clic en **NUEVO**, haga clic en **Datos + almacenamiento** > **Base de datos SQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
-
 1.  Configure la nueva Base de datos SQL mediante la creación de un nuevo grupo de recursos y seleccione la ubicación adecuada para él.
-
-  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  Una vez creada la Base de datos SQL, haga clic en **Abrir en Visual Studio** en la hoja de la base de datos.
 2.  Haga clic en **Configurar el firewall**.
@@ -148,11 +138,9 @@ Edite la definición de `DATABASES` para usar los valores anteriores.
 
   	![Cuadro de diálogo Instalar paquete de Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  Haga clic con el botón derecho en el nodo del proyecto y seleccione **Python**, **Django Sync DB** (Base de datos de sincronización de Django).
+1.  En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo de proyecto, seleccione **Python** y **Django Migrate (Migración de Django)**. Después, seleccione **Django Create Superuser (Crear superusuario de Django)**.
 
     De esta forma, se crearán las tablas para la base de datos SQL que hemos creado en la sección anterior. Siga las indicaciones para crear un usuario, que no tiene que coincidir con el usuario de la base de datos sqlite creada en la primera sección.
-
-  	![Ventana de la Consola de administración de Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Presione `F5` para ejecutar la aplicación. Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en la base de datos SQL.
 
@@ -163,7 +151,7 @@ El SDK de Azure .NET ofrece una forma fácil de implementar la aplicación web e
 
 1.  En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Publicar**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
+  	![Cuadro de diálogo Publicación web](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 
 1.  Haga clic en **Aplicaciones web de Microsoft Azure**.
 
@@ -175,8 +163,6 @@ El SDK de Azure .NET ofrece una forma fácil de implementar la aplicación web e
 	-	**Grupos de recursos**
 	-	**Región**
 	-	Deje **Servidor de base de datos** establecido en **No hay base de datos**
-
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  Acepte todos los valores predeterminados y haga clic en **Publicar**.
 
@@ -210,8 +196,8 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Herramientas del SDK de Azure para 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Herramientas del SDK de Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[archivos VSIX de ejemplo de Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Azure SDK y herramientas para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Documentación sobre Python Tools para Visual Studio]: http://aka.ms/ptvsdocs
 [Depuración remota en Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -220,4 +206,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Documentación de Django]: https://www.djangoproject.com/
 [Base de datos SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

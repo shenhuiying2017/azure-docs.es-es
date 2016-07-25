@@ -20,17 +20,21 @@
 
 Este artículo contiene información general sobre los tutoriales de soluciones de Base de datos SQL de Azure. Estos tutoriales demuestran el uso de Base de datos SQL en la solución completa basada en escenarios del mundo real. Para ver tutoriales paso a paso sencillos que demuestran el uso de una determinada característica de Base de datos SQL de Azure, consulte [Exploración de tutoriales de Base de datos SQL de Azure](sql-database-explore-tutorials.md).
 
+## Demostración y laboratorio práctico de WingTipTickets
+
+Demostración y laboratorio práctico [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets). Estos archivos constituyen unas prácticas guiadas que muestran una aplicación de ejemplo basada en Base de datos SQL de Azure y Búsqueda de Azure que se usa para la venta de entradas para conciertos
+
 ## Recopilación y supervisión de datos de uso de recursos entre varios grupos
 
 Este tutorial de soluciones proporciona una solución para la recopilación y la supervisión del uso de recursos de Base de datos SQL de Azure en varios grupos de una suscripción. Si hay un gran número de bases de datos en una suscripción, es complicado supervisar cada grupo elástico por separado. Para resolver este problema, se pueden combinar las consultas de T-SQL y los cmdlets de PowerShell de Base de datos SQL para recopilar datos de uso de recursos de varios grupos y sus bases de datos para la supervisión y el análisis del uso de recursos.
 
-[Administre varios grupos elásticos en Base de datos SQL mediante PowerShell y Power BI](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools). En el repositorio de ejemplos de SQL Server de GitHub se proporciona un conjunto de scripts de powershell y consultas de T-SQL, junto con documentación sobre cómo funcionan y la forma de usarlos.
+[Manage Mulitiple Elastic Pools in SQL Database Using PowerShell and Power BI](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) (Administración de varios grupos elásticos en Base de datos SQL usando PowerShell y Power BI) en el repositorio de ejemplos de SQL Server de GitHub proporciona un conjunto de scripts de PowerShell y consultas T-SQL, junto con documentación sobre para qué sirven y cómo se usan.
 
 ## Introducción al uso de grupos elásticos en un escenario de SaaS
 
 Este tutorial de soluciones proporciona una solución para un escenario de Software como solución (SaaS) que aprovecha los grupos elásticos para proporcionar un back-end de base de datos escalable y rentable de una aplicación SaaS. En esta solución, recorrerá los pasos de implementación de una aplicación web que le permite visualizar la carga que se crea en un grupo elástico. Dicha carga se genera mediante un generador de carga usando un panel personalizado que complementa al Portal de Azure.
 
-En el artículo [Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Panel personalizado de grupos elásticos para SaaS) del repositorio de ejemplos de SQL Server de GitHub se proporciona un generador de carga, así como ejemplos de supervisión de una aplicación web junto con la documentación sobre cómo funcionan y cómo usarlos.
+[Elastic Pool Custom Dashboard for Saas](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) (Panel personalizado de grupos elásticos para SaaS) en el repositorio de ejemplos de SQL Server de GitHub proporciona un generador de carga, así como una aplicación web de supervisión junto con la documentación sobre para qué sirven y cómo se usan.
 
 ## Creación de una base de datos SQL de Azure mediante desarrollo de Entity Framework y Code First
 
@@ -38,11 +42,11 @@ En este vídeo y ejemplo se proporciona una introducción al desarrollo de Code 
 
 ## Integración de herramientas para bases de datos elásticas en una aplicación de Entity Framework
 
-Este ejemplo muestra los cambios que hay que realizar en una aplicación de Entity Framework para integrarse con las [herramientas para bases de datos elásticas](sql-database-elastic-scale-get-started.md). Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque Code First de Entity Framework. El [ejemplo de Code First en una nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF servirá como ejemplo de ejecución en todo momento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio. Consulte [Biblioteca de cliente de base de datos elástica con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md).
+Este ejemplo muestra los cambios que hay que realizar en una aplicación de Entity Framework para realizar una integración con las [herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md). Se centra en la composición de [Shard Map Management](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con Entity Framework Code First. El [ejemplo Codificar primero una nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF nos sirve como muestra para todo el ejemplo. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio. Consulte [Biblioteca de cliente de base de datos elástica con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md).
 
 ## Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
-Este ejemplo muestra los cambios que hay que realizar en una aplicación de Entity Framework para integrar las [herramientas para bases de datos elásticas](sql-database-elastic-scale-get-started.md) con la [seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). También se ilustra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admita particiones multiinquilino mediante el uso de ADO.NET SqlClient o Entity Framework. Este ejemplo amplía la [biblioteca de cliente de Base de datos elásticas con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) agregando compatibilidad con las bases de datos de particiones multiinquilino. También genera una aplicación de consola sencilla para la creación de blogs y publicaciones, con cuatro inquilinos y dos bases de datos de particiones multiinquilino. Consulte [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md).
+Este ejemplo muestra los cambios que hay que realizar en una aplicación de Entity Framework para integrar las [herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md) con la [seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). También se ilustra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admita particiones multiinquilino mediante el uso de ADO.NET SqlClient o Entity Framework. Este ejemplo amplía la [Biblioteca de cliente de base de datos elásticas con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) agregando compatibilidad con las bases de datos de particiones multiinquilino. También genera una aplicación de consola sencilla para la creación de blogs y publicaciones, con cuatro inquilinos y dos bases de datos de particiones multiinquilino. Consulte [Aplicaciones multiinquilino con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md).
 
 ## Aplicación Tailspin Surveys
 
@@ -52,4 +56,4 @@ Este ejemplo es una aplicación web multiinquilino, llamada "Surveys", que permi
 
 [Exploración de tutoriales de Base de datos SQL de Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

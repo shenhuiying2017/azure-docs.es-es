@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/16/2016" 
-	ms.author="guayan"/>
+	ms.author="rachelap"/>
 
 # Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
 
@@ -39,8 +39,8 @@ Por ejemplo, supongamos que el código de su cliente utiliza la [aplicación API
 
 Actualmente, se admiten dos tipos de desencadenadores:
 
-- Desencadenador de sondeo: el cliente sondea la aplicación de API para la notificación de un evento que se ha activado. 
-- Desencadenador de inserción: se notifica al cliente mediante la aplicación de API cuando se activa un evento. 
+- Desencadenador de sondeo: el cliente sondea la aplicación de API para la notificación de un evento que se ha activado.
+- Desencadenador de inserción: se notifica al cliente mediante la aplicación de API cuando se activa un evento.
 
 ### Desencadenador de sondeo
 
@@ -342,4 +342,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
     }
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

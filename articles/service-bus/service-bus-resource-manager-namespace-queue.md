@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Creación de un espacio de nombres de Bus de servicio mediante una plantilla de Azure Resource Manager
 
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Bus de servicio y una cola. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
 Para ver la plantilla completa, consulte la [Plantilla de cola y espacio de nombres de Bus de servicio][] en GitHub.
 
@@ -31,15 +31,13 @@ Para ver la plantilla completa, consulte la [Plantilla de cola y espacio de nomb
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
 >
->Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
+>Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
 
 ## ¿Qué va a implementar?
 
 Con esta plantilla, implementará un espacio de nombres de Bus de servicio con una cola.
 
-Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia.
-
-[Obtenga más información sobre las colas de Bus de servicio](service-bus-queues-topics-subscriptions.md).
+Las [colas de Bus de servicio](service-bus-queues-topics-subscriptions.md#queues) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -49,7 +47,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-Vamos a describir cada parámetro de la plantilla.
+La plantilla define los parámetros siguientes.
 
 ### serviceBusNamespaceName
 
@@ -142,9 +140,9 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 
   [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
   [Plantilla de cola y espacio de nombres de Bus de servicio]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/
+  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

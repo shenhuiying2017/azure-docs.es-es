@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Administración de estado de Reliable Actors
@@ -62,7 +62,7 @@ Esta configuración utiliza un proveedor de estado solo en memoria y establece e
 
 ### Valores predeterminados y configuración generada
 
-Cuando se usa el atributo `StatePersistence`, se selecciona automáticamente un proveedor de estado en tiempo de ejecución cuando se inicia el servicio de actor. Sin embargo, el número de réplicas, se establece en tiempo de compilación con las herramientas de compilación de actores de Visual Studio. Las herramientas de compilación generan automáticamente un *servicio predeterminado* del servicio de actor en ApplicationManifest.xml. Los parámetros se crean para **min replica set size** y **target replica set size**. Por supuesto, puede cambiar estos parámetros manualmente; sin embargo, cada vez que se cambia el atributo `StatePersistence`, los parámetros se establecerán, de forma predeterminada, en los valores del tamaño del conjunto de réplicas para el atributo `StatePersistence`, invalidando los valores anteriores.
+Cuando se usa el atributo `StatePersistence`, se selecciona automáticamente un proveedor de estado en tiempo de ejecución cuando se inicia el servicio de actor. Sin embargo, el número de réplicas, se establece en tiempo de compilación con las herramientas de compilación de actores de Visual Studio. Las herramientas de compilación generan automáticamente un *servicio predeterminado* del servicio de actor en ApplicationManifest.xml. Los parámetros se crean para **min replica set size** y **target replica set size**. Por supuesto, puede cambiar estos parámetros manualmente; sin embargo, cada vez que se cambia el atributo `StatePersistence`, los parámetros se establecerán, de forma predeterminada, en los valores del tamaño del conjunto de réplicas para el atributo `StatePersistence`, invalidando los valores anteriores. Es decir, los valores establecidos en ServiceManifest.xml **solo** se reemplazarán al compilar cuando cambie el valor del atributo `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -98,9 +98,9 @@ Se puede acceder al estado a través del administrador de estado mediante una cl
 
  - Un método de actor produce una excepción no controlada después de recuperar un objeto del administrador de estado.
  - Un actor se vuelve a activar después de haberse desactivado o debido a un error.
- - Si el proveedor de estado pagina el estado en el disco. Este comportamiento depende de la implementación del proveedor de estado. El proveedor de estado predeterminado para la configuración `Persisted` tiene este comportamiento. 
+ - Si el proveedor de estado pagina el estado en el disco. Este comportamiento depende de la implementación del proveedor de estado. El proveedor de estado predeterminado para la configuración `Persisted` tiene este comportamiento.
 
-El estado se puede recuperar mediante una operación *Get* estándar que produce `KeyNotFoundException` si no existe una entrada para la clave especificada:
+El estado se puede recuperar mediante una operación *Get* estándar que inicia `KeyNotFoundException` si no existe ninguna entrada para la clave especificada:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -113,7 +113,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado también se puede recuperar mediante un método *TryGet* que no producirá ninguna excepción si no existe una entrada para la clave especificada:
+El estado también se puede recuperar mediante un método *TryGet* que no iniciará ninguna excepción si no existe ninguna entrada para la clave especificada:
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -135,7 +135,7 @@ class MyActor : Actor, IMyActor
 
 Los métodos de recuperación del administrador de estado devuelven una referencia a un objeto en la memoria local. La modificación de este objeto solo en la memoria local no hace que se guarde de forma duradera. Cuando un objeto se recupera desde el administrador de estado y se modifica, debe volver a insertarse en el administrador de estado para que se guarde de forma duradera.
 
-El estado se puede insertar utilizando un método *Set* estándar, que es el equivalente de la sintaxis `dictionary["key"] = value`:
+El estado se puede insertar mediante una operación *Set* no condicional, que equivale a la sintaxis `dictionary["key"] = value`:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -148,7 +148,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado puede agregarse con el método *Add*, que producirá un `InvalidOperationException` cuando se intenta agregar una clave que ya existe:
+El estado puede agregarse con el método *Add*, que iniciará una excepción `InvalidOperationException` cuando se intente agregar una clave que ya existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -161,7 +161,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado puede agregarse también con el método *TryAdd*, que no producirá ninguna excepción cuando se intente agregar una clave que ya existe:
+El estado puede agregarse también con el método *TryAdd*, que no iniciará ninguna excepción cuando se intente agregar una clave que ya existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -194,7 +194,7 @@ async Task IMyActor.SetCountAsync(int count)
 
 ### Eliminación del estado
 
-El estado puede quitarse permanentemente del administrador de estado de un actor mediante la llamada el método *Remove*. Este método producirá la excepción `KeyNotFoundException` al intentar quitar una clave que no existe:
+El estado puede quitarse permanentemente del administrador de estado de un actor mediante la llamada al método *Remove*. Este método iniciará la excepción `KeyNotFoundException` cuando se intente quitar una clave que no existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -207,7 +207,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado también se puede quitar de manera permanente mediante el método *TryRemove*, que no producirá ninguna excepción al intentar quitar una clave que no existe:
+El estado también se puede quitar de manera permanente mediante el método *TryRemove*, que no iniciará ninguna excepción cuando se intente quitar una clave que no existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -232,4 +232,4 @@ class MyActor : Actor, IMyActor
  - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

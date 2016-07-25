@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con Druva
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Druva:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-druva-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@ La aplicación Druva espera las aserciones de SAML en un formato específico, qu
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure Active Directory, en la página de integración de aplicaciones de **Druva**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **Druva**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/IC795027.png "Configurar inicio de sesión único")
 
@@ -80,7 +80,7 @@ La aplicación Druva espera las aserciones de SAML en un formato específico, qu
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/IC795088.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Druva**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Druva (por ejemplo: "**https://cloud.druva.com/home/*”)) y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Druva**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Druva (por ejemplo: "*https://cloud.druva.com/home/*”) y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-druva-tutorial/IC795089.png "Configurar dirección URL de la aplicación")
 
@@ -98,11 +98,11 @@ La aplicación Druva espera las aserciones de SAML en un formato específico, qu
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-druva-tutorial/IC795092.png "Configuración de inicio de sesión único")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Druva**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de Id.**.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Druva**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de proveedor de Id.**.
-    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Druva**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de proveedor de Id.**
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Druva**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de proveedor de Id.**
+    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de Id.**.
     5.  Para abrir la página **Configuración**, haga clic en **Guardar**.
@@ -118,7 +118,7 @@ La aplicación Druva espera las aserciones de SAML en un formato específico, qu
     1.  Haga clic en **Copiar**.
     2.  Haga clic en **Cerrar**.
 
-10. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/IC795095.png "Configurar inicio de sesión único")
 
@@ -161,7 +161,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Druva, deben aprov
     1.  Escriba la dirección de correo electrónico y el nombre de la cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
     2.  Haga clic en **Crear usuario**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Druva que proporcione Druva para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Druva que proporcione Druva para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -169,9 +169,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Druva, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **Druva **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **Druva**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-druva-tutorial/IC795100.png "Asignar usuarios")
 
@@ -181,4 +181,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->
