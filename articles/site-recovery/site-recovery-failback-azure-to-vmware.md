@@ -98,7 +98,7 @@ Si ha protegido las máquinas como recursos clásicos (es decir, la máquina vir
 
 1.  En Almacén > Configuración > Manage Site Recovery Infrastructure (Administrar infraestructura de Site Recovery) > **Servidores de configuración**, en el encabezado For VMware and Physical Machines (Para VMware y máquinas físicas), seleccione el servidor de configuración. Haga clic en + Servidor de procesos.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. Elija la opción para implementar el servidor de procesos como "Deploy a failback process server in Azure" (Implementación de un servidor de procesos de conmutación por recuperación en Azure).
 
@@ -108,11 +108,11 @@ Si ha protegido las máquinas como recursos clásicos (es decir, la máquina vir
 
 5. Si ha seleccionado una red de *implementación clásica*, se le pedirá que cree una máquina virtual nueva a través de la galería de Azure y que instale en ella el servidor de procesos.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2* (Servidor de procesos de Microsoft Azure Site Recovery, versión 2). Asegúrese de seleccionar *Clásico* como el modelo de implementación.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Instale el servidor de procesos según los pasos [especificados aquí](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -128,7 +128,7 @@ Si ha protegido las máquinas como recursos clásicos (es decir, la máquina vir
 	
 	5. Elija la subred específica y la interfaz de red para conectarse a ella. Nota: Debe crear su propia tarjeta de [interfaz de red](../virtual-network/virtual-networks-multiple-nics.md) (NIC) y seleccionarla durante la implementación.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
 	6. Haga clic en Aceptar. Esto desencadenará un trabajo que creará una máquina virtual con el tipo de implementación de Resource Manager con la instalación del servidor de procesos. Debe ejecutar la instalación dentro de la máquina virtual para registrar el servidor en el servidor de configuración. Para ello, siga [estos pasos](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
