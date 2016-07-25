@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/06/2016" 
 	ms.author="arramac"/>
 
 # Pruebas de escala y rendimiento con Azure DocumentDB
@@ -25,7 +25,7 @@ Este artículo es una referencia para los desarrolladores que implementan conjun
 Después de leer este artículo, podrá responder a las siguientes preguntas:
 
 - ¿Dónde puedo encontrar una aplicación cliente de .NET de ejemplo para pruebas de rendimiento de Azure DocumentDB?
-- ¿Cuáles son los factores clave que afectan el rendimiento de un extremo a otro de las solicitudes realizadas a Azure DocumentDB? 
+- ¿Cuáles son los factores clave que afectan el rendimiento de un extremo a otro de las solicitudes realizadas a Azure DocumentDB?
 - ¿Cómo se pueden alcanzar niveles de alto rendimiento con Azure DocumentDB desde mi aplicación cliente?
 
 Para empezar a trabajar con código, descargue el proyecto de [Ejemplo de pruebas de rendimiento de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark).
@@ -39,18 +39,18 @@ Para obtener el máximo rendimiento de un extremo a otro con DocumentDB, conside
 - **Pruebas en la misma región de Azure**: siempre que sea posible, realice las pruebas desde una máquina virtual o Servicio de aplicaciones implementados en la misma región de Azure. Para obtener una comparación aproximada, las llamadas a DocumentDB en la misma región se realizan en menos de 1 o 2 ms, pero la latencia entre las costas este y oeste de Estados Unidos es mayor de 50 ms.
 - **Aumentar el valor de MaxConnections de System.Net por host**: las solicitudes de DocumentDB se realizan a través de HTTPS o REST de forma predeterminada y están condicionados por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecerlo en un valor mayor (100-1000) para que la biblioteca del cliente pueda utilizar varias conexiones simultáneas a DocumentDB. En .NET, es [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
 - **Activar GC en el servidor**: en algunos casos, puede resultar útil reducir la frecuencia de recopilación de elementos no utilizados. En. NET, establezca [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) en true.
-- **Usar la conectividad directa con el protocolo TCP**: use la [conectividad directa](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) con [protocolo TCP](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.protocol.aspx) para obtener el mejor rendimiento. 
-- **Implementar retrocesos en intervalos de RetryAfter**: durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una pequeña tasa de solicitudes. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Ello le permite dedicar una cantidad de tiempo de espera mínima entre reintentos. Consulte [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+- **Usar conectividad directa**: use [conectividad directa](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionmode.aspx) para obtener el mejor rendimiento.
+- **Implementar retrocesos en intervalos de RetryAfter**: durante las pruebas de rendimiento, debe aumentar la carga hasta que se limite una pequeña tasa de solicitudes. Si se limita, la aplicación del cliente debe retroceder de acuerdo con la limitación para el intervalo de reintento que el servidor especificó. Ello le permite dedicar una cantidad de tiempo de espera mínima entre reintentos. Vea [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 - **Escalar horizontalmente la carga de trabajo del cliente**: si va a realizar pruebas en niveles de alto rendimiento (>50 000 RU/s), la aplicación del cliente puede convertirse en un cuello de botella debido a que la máquina limita el uso de CPU o la red. Si llega a este punto, puede seguir insertando la cuenta de DocumentDB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
 
 ## Primeros pasos
 La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, tal como se describe en los pasos siguientes. También puede revisar el código fuente e implementar configuraciones similares a sus propias aplicaciones cliente.
 
-**Paso 1:** descargue el proyecto del [ejemplo de pruebas de rendimiento de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o copie el repositorio de Github.
+**Paso 1:** descargue el proyecto del [ejemplo de pruebas de rendimiento de DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o bifurque el repositorio de Github.
 
 **Paso 2:** modifique la configuración de EndpointUrl, AuthorizationKey, CollectionThroughput y DocumentTemplate (opcional) en el archivo App.config.
 
-> [AZURE.NOTE] Antes de aprovisionar colecciones con un alto rendimiento, consulte el [página de precios](https://azure.microsoft.com/pricing/details/documentdb/) para estimar los costos por colección. DocumentDB factura el almacenamiento y el rendimiento por separado y por horas, por lo que puede ahorrar costos eliminando o reduciendo el rendimiento de las colecciones de DocumentDB una vez realizadas las pruebas.
+> [AZURE.NOTE] Antes de aprovisionar colecciones con un alto rendimiento, vea la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/) para estimar los costos por colección. DocumentDB factura el almacenamiento y el rendimiento por separado y por horas, por lo que puede ahorrar costos eliminando o reduciendo el rendimiento de las colecciones de DocumentDB una vez realizadas las pruebas.
 
 **Paso 3:** compile y ejecute la aplicación de consola en la línea de comandos. El resultado debe ser parecido a lo siguiente:
 
@@ -112,4 +112,4 @@ En este artículo, hemos examinado cómo puede realizar el rendimiento y escalar
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 * [Blog de DocumentDB sobre sugerencias de rendimiento](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

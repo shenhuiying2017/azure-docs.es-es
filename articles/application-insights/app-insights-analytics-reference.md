@@ -729,25 +729,26 @@ Alias de [limit](#limit-operator)
 
 ### Operador top
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 
 
 **Sintaxis**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Argumentos**
 
 * *NumberOfRows*: el número de filas de *T* que se devuelve.
 * *Sort\_expression*: una expresión por la que se ordenan las filas. Suele ser un nombre de columna. Puede especificar más de una sort\_expression.
 * `asc` o `desc` (valor predeterminado) puede aparecer para controlar si la selección se hace realmente desde la parte "superior" o desde la parte "inferior" del intervalo.
+* `nulls first` o `nulls last` controla dónde aparecen los valores NULL. `First` es el valor predeterminado para `asc`, `last` es el valor predeterminado para `desc`.
 
 
 **Sugerencias**
 
-`top 5 by name` es superficialmente equivalente a `sort by name | take 5`. Sin embargo, se ejecuta más rápido y siempre devuelve resultados ordenados, mientras que `take` no ofrece ninguna garantía en este sentido.
+`top 5 by name` es superficialmente equivalente a `sort by name | take 5`. En cambio, se ejecuta más rápido y siempre devuelve resultados ordenados, mientras que `take` no ofrece ninguna garantía en este sentido.
 
 ### top-nested operator
 
@@ -784,14 +785,14 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 **Argumentos**
 
-* *Table1*, *Table2*...
+* *Tabla1*, *Tabla2*...
  *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o bien,
  *  una expresión de consulta, como `(requests | where success=="True")`.
  *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comienza por "e", junto con la tabla "excepciones".
 * `kind`:
  * `inner`: el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer`: el resultado tiene todas las columnas que aparecen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
-* `withsource=`*ColumnName*: si se especifica, el resultado incluirá una columna denominada *ColumnName*, cuyo valor indica qué tabla de origen ha aportado cada fila.
+* `withsource=`*ColumnName:* si se especifica, el resultado incluirá una columna denominada *ColumnName*, cuyo valor indica qué tabla de origen ha aportado cada fila.
 
 **Devoluciones**
 
@@ -816,7 +817,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-El número de usuarios distintos que han creado un evento `exceptions` o un evento `traces` el día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
+El número de usuarios diferentes que han creado ya sea un evento `exceptions` o un evento `traces` a lo largo del día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
 
 ```AIQL
 exceptions
@@ -843,7 +844,7 @@ Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 **Argumentos**
 
 * *T*: la entrada tabular cuyos registros se van a filtrar.
-* *Predicate*: una [expresión](#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
+* *Predicate:* una [expresión](#boolean) `boolean` sobre las columnas de *T*. Se evalúa para cada fila en *T*.
 
 **Devoluciones**
 
@@ -853,11 +854,11 @@ Filas en *T* para las que *Predicate* es `true`.
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante en la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [cláusula `let`](#let-clause)).
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una cláusula [`let`](#let-clause)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que afecten a una sola columna. Por tanto, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
+* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que impliquen una sola columna. Así pues, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
 
 
 **Ejemplo**
@@ -1029,11 +1030,11 @@ Son equivalentes a un subconjunto de las anotaciones de tipo TypeScript, codific
 
     count([ Predicate ])
 
-Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún elemento *Predicate* especificado, se devuelve el número total de registros del grupo.
+Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún valor *Predicate* especificado, se devuelve el número total de registros en el grupo.
 
-**Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`.
+**Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`
 
-> [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos mantenido en Application Insights será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
+> [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos que se ha mantenido en Application Insights será menor que el número de eventos originales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
 ### countif
 
@@ -1041,7 +1042,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no h
 
 Devuelve un número de filas para las que *Predicate* equivale a `true`.
 
-**Sugerencias de rendimiento**: Utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`.
+**Sugerencias de rendimiento**: Utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`
 
 > [AZURE.NOTE] Evite usar countif() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
@@ -1070,7 +1071,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintos de *Expr* de las filas del grupo para el que el valor de *Predicate* es True. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintos de *Expr* de las filas del grupo para las que el valor de *Predicate* es True. (Para mostrar los valores distintos, use [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1097,7 +1098,7 @@ Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* del grupo.
 
     makeset(Expression [ , MaxSetSize ] )
 
-Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintos, utilice [`dcount`](#dcount)).
+Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintos, use [`dcount`](#dcount)).
   
 *  *MaxSetSize* es un límite de entero opcional para el número máximo de elementos devueltos (el valor predeterminado es *128*).
 
@@ -1109,7 +1110,7 @@ Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Consulte también el [operador `mvexpand`](#mvexpand-operator) para la función opuesta.
+Vea también el [operador `mvexpand`](#mvexpand-operator) para la función opuesta.
 
 
 ### max, min
@@ -1122,7 +1123,7 @@ Calcula el máximo de *Expr*.
 
 Calcula el mínimo de *Expr*.
 
-**Sugerencia**: Esto ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. Sin embargo, si desea tener otras columnas de la fila (por ejemplo, el nombre del proveedor con el precio más bajo), use [argmin o argmax](#argmin-argmax).
+**Sugerencia**: Esto ofrece el valor mínimo o máximo por sí mismo; por ejemplo, el precio más alto o más bajo. En cambio, si quiere tener otras columnas de la fila (por ejemplo, el nombre del proveedor con el precio más bajo), use [argmin o argmax](#argmin-argmax).
 
 
 <a name="percentile"></a> <a name="percentiles"></a> <a name="percentilew"></a> <a name="percentilesw"></a>
@@ -1186,7 +1187,7 @@ El código toma una secuencia de medidas de latencia en milisegundos. Por ejempl
     
      { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
 
-Cuenta las mediciones en las ubicaciones siguientes: `{ 10, 20, 30, 40, 50, 100 }`
+Cuenta las medidas en las ubicaciones siguientes: `{ 10, 20, 30, 40, 50, 100 }`
 
 Periódicamente, realiza una serie de llamadas a TrackEvent, una para cada depósito, con medidas personalizadas en cada llamada:
 
@@ -1204,11 +1205,11 @@ En Analytics, verá un grupo de eventos así parecido al siguiente:
 3 | 30 | = 3 operaciones en la ubicación 30 ms
 1 | 40 | = 1 operación en la ubicación 40 ms
 
-Para obtener una imagen precisa de la distribución original de latencias de eventos, utilizamos `percentilesw`:
+Para obtener una imagen precisa de la distribución original de latencias de eventos, usamos `percentilesw`:
 
     customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
 
-Los resultados son los mismos, como si hubiéramos utilizado `percentiles` normales en el conjunto original de medidas.
+Los resultados son los mismos, como si hubiéramos usado `percentiles` normales en el conjunto original de medidas.
 
 > [AZURE.NOTE] Los percentiles ponderados no son aplicables a [datos muestreados](app-insights-sampling.md), donde cada fila muestreada representa una muestra aleatoria de filas originales, en lugar de una ubicación. Las funciones de percentil normales son adecuadas para datos muestreados.
 
@@ -1461,17 +1462,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que 
-|`<=`|Menor que o Igual a 
-|`>` |Mayor que 
-|`>=`|Mayor que o Igual a 
-|`<>`|No igual a 
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o Igual a |`>` |Mayor que |`>=`|Mayor que o Igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -1491,7 +1482,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 <a name="bin"></a><a name="floor"></a>
 ### bin, floor
 
-Redondea los valores hacia abajo hasta un entero múltiplo del tamaño de un intervalo determinado. Se utiliza mucho en la consulta [`summarize by`](#summarize-operator). Si tiene un conjunto de valores dispersos, se agruparán en un conjunto más pequeño de valores específicos.
+Redondea los valores hacia abajo hasta un entero múltiplo del tamaño de un intervalo determinado. Se usa mucho en la consulta [`summarize by`](#summarize-operator). Si tiene un conjunto de valores dispersos, se agruparán en un conjunto más pequeño de valores específicos.
 
 Alias `floor`.
 
@@ -1657,7 +1648,7 @@ Expresión |Resultado
 
 ### ago
 
-Resta un intervalo de tiempo especificado a la hora UTC actual. Al igual que `now()`, esta función se puede utilizar varias veces en una instrucción, y la hora UTC a la que se hace referencia será la misma para todas las instancias.
+Resta un intervalo de tiempo especificado a la hora UTC actual. Al igual que `now()`, esta función se puede usar varias veces en una instrucción, y la hora UTC a la que se hace referencia será la misma para todas las instancias.
 
 **Sintaxis**
 
@@ -1873,7 +1864,7 @@ Las reglas son las mismas que en JavaScript.
 
 Las cadenas pueden incluirse entre comillas sencillas o dobles.
 
-La barra diagonal inversa (``) se utiliza para los caracteres de escape, como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
+La barra diagonal inversa (``) se usa para los caracteres de escape, como `\t` (tabulación), `\n` (nueva línea) y las instancias del carácter de comillas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -1896,20 +1887,26 @@ h"hello"
 Operador|Descripción|Distingue mayúsculas de minúsculas|Ejemplo real
 ---|---|---|---
 `==`|Equals |Sí| `"aBc" == "aBc"`
-`<>`|No es igual a|Sí| `"abc" <> "ABC"`
+`<>` `!=`|No es igual a|Sí| `"abc" <> "ABC"`
 `=~`|Equals |No| `"abc" =~ "ABC"`
 `!~`|No es igual a |No| `"aBc" !~ "xyz"`
 `has`|El lado derecho (RHS) es un término completo en el lado izquierdo (LHS)|No| `"North America" has "america"`
 `!has`|RHS no es un término completo en LHS|No|`"North America" !has "amer"` 
+`hasprefix`|RHS es un prefijo de término en LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS no es un prefijo de término en LHS|No|`"North America" !hasprefix "mer"`
 `contains` | RHS ocurre como una subsecuencia de LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS no ocurre en LHS|No| `"Fabrikam" !contains "xyz"`
 `containscs` | RHS ocurre como una subsecuencia de LHS|Sí| `"FabriKam" contains "Kam"`
 `!containscs`| RHS no ocurre en LHS|Sí| `"Fabrikam" !contains "Kam"`
 `startswith`|RHS es una subsecuencia inicial de LHS|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS no es una subsecuencia inicial de LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS es una subsecuencia terminal de LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS no es una subsecuencia terminal de LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contiene una coincidencia para RHS|Sí| `"Fabrikam" matches regex "b.*k"`
+`in`|Igual a cualquiera de los elementos|Sí|`"abc" in ("123", "345", "abc")`
+`!in`|No es igual a ninguno de los elementos|Sí|`"bc" !in ("123", "345", "abc")`
 
-
-Use `has` o `in` si está probando la presencia de un término léxico completo; es decir, un símbolo o una palabra alfanumérica delimitada por caracteres no alfanuméricos o el inicio o el final del campo. `has` se ejecuta con mayor rapidez que `contains` o `startswith`. La primera de estas consultas se ejecuta más rápido:
+Use `has` o `in` si está probando la presencia de un término léxico completo; es decir, un símbolo o una palabra alfanumérica delimitada por caracteres no alfanuméricos o el inicio o el final del campo. `has` se ejecuta con mayor rapidez que `contains`, `startswith` o `endswith`. La primera de estas consultas se ejecuta más rápido:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1997,7 +1994,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-True si el argumento es una cadena vacía o es null. Consulte también [isnull](#isnull).
+True si el argumento es una cadena vacía o es null. Vea también [isnull](#isnull).
 
 
 **Sintaxis**
@@ -2085,7 +2082,7 @@ Divide una cadena determinada según un delimitador especificado y devuelve una 
 **Argumentos**
 
 * *source*: la cadena de origen que se va a dividir según el delimitador especificado.
-* *delimiter*: el delimitador que se utilizará para dividir la cadena de origen.
+* *delimiter*: el delimitador que se usará para dividir la cadena de origen.
 * *requestedIndex*: un índice de base cero opcional `int`. Si se proporciona, la matriz de cadenas devuelta contendrá la subcadena solicitada, si existe.
 
 **Devoluciones**
@@ -2131,7 +2128,7 @@ Extraiga una subcadena de una cadena de origen determinada a partir de un índic
 
 * *source*: la cadena de origen de la que se tomará la subcadena.
 * *startingIndex*: la posición del carácter inicial basado en cero de la subcadena solicitada.
-* *length*: un parámetro opcional que puede utilizarse para especificar el número de caracteres solicitado de la subcadena.
+* *length*: un parámetro opcional que puede usarse para especificar el número de caracteres solicitado de la subcadena.
 
 **Devoluciones**
 
@@ -2180,7 +2177,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Sin embargo, use `arraylength` y otras funciones de Analytics (no ".length").
+* En cambio, use `arraylength` y otras funciones de Analytics (no ".length"!).
 
 **Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
 
@@ -2237,7 +2234,7 @@ Resultado:
       "rawStack":"string"
     }}
 
-Observe que `indexer` se utiliza para marcar el punto en el que debe utilizar un índice numérico. En el caso de este esquema, algunas rutas válidas podrían las siguientes (suponiendo que estos índices de ejemplo se encuentren en el intervalo):
+Observe que `indexer` se usa para marcar el punto en el que debe usar un índice numérico. En el caso de este esquema, algunas rutas válidas podrían las siguientes (suponiendo que estos índices de ejemplo se encuentren en el intervalo):
 
     details[0].parsedStack[2].level
     details[0].message
@@ -2248,7 +2245,7 @@ Observe que `indexer` se utiliza para marcar el punto en el que debe utilizar un
 
 ### Literales de matriz y objeto
 
-Para crear un literal dinámico, utilice `parsejson` (alias `todynamic`) con un argumento de cadena de JSON:
+Para crear un literal dinámico, use `parsejson` (alias `todynamic`) con un argumento de cadena de JSON:
 
 * `parsejson('[43, 21, 65]')`: una matriz de números.
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')`
@@ -2271,8 +2268,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True si hay un elemento de *array* == *value*<br/>`where City in ('London', 'Paris', 'Rome')`.
-| *value* `!in` *array*| True si no hay ningún elemento de *array* == *value*.
+| *value* `in` *array*| True si hay un elemento de *array* == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| True si no hay ningún elemento de *array* == *value*
 |[`arraylength(`array`)`](#arraylength)| Es null si no es una matriz
 |[`extractjson(`path,object`)`](#extractjson)|Usa una ruta para navegar al objeto.
 |[`parsejson(`source`)`](#parsejson)| Convierte una cadena JSON en un objeto dinámico.
@@ -2493,4 +2490,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

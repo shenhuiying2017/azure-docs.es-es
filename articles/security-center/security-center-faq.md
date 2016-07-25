@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
+   ms.date="07/11/2016"
    ms.author="terrylan"/>
 
 # Preguntas más frecuentes sobre el Centro de seguridad de Azure
@@ -105,7 +105,7 @@ El Centro de respuestas de seguridad de Microsoft (MSRC) lleva a cabo una select
 Azure Security Center es un servicio de Azure que no deja de supervisar el entorno de Azure del cliente y aplica análisis para detectar de forma automática una amplia variedad de actividades potencialmente malintencionadas. Estas detecciones aparecen como alertas de seguridad en el panel de Azure Security Center.
 
 ### ¿Cómo se administran los permisos en el Centro de seguridad de Azure?
-El Centro de seguridad de Azure admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
+Azure Security Center admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
 Cuando un usuario abre el Centro de seguridad de Azure, solo se verán las recomendaciones de alertas relacionadas con los recursos a los que el usuario tiene acceso. Esto significa que el usuario verá solo los elementos relacionados con los recursos donde el usuario tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o el grupo de recursos al que pertenece un recurso.
 
@@ -126,12 +126,10 @@ Máquinas virtuales de Linux compatibles:
 
 - Versiones de Ubuntu 12.04, 14.04, 15.10, 16.04
 - Versiones de Debian 7, 8
-- Versiones de CentOS 6.\*, 7.*
-- Versiones de Red Hat Enterprise Linux (RHEL) 6.\*, 7.*
-- Versiones de SUSE Linux Enterprise Server (SLES) 11.\*, 12.*
+- Versiones de CentOS 6.*, 7.*
+- Versiones de Red Hat Enterprise Linux (RHEL) 6.*, 7.*
+- Versiones de SUSE Linux Enterprise Server (SLES) 11.*, 12.*
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más acerca del servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
 
-La recomendación del Centro de seguridad [Aplicar actualizaciones del sistema](security-center-recommendations.md) recomienda implementar actualizaciones críticas y de seguridad del sistema que faltan a máquinas virtuales. Para las máquinas virtuales en los servicios en la nube, la recomendación **Actualizar versión del sistema operativo** recomienda actualizar el sistema operativo a la versión más reciente.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

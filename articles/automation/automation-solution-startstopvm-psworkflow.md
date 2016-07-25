@@ -12,17 +12,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/14/2016"
+	ms.date="07/06/2016"
 	ms.author="bwren" />
 
 # Escenario de Automatización de Azure: inicio y detención de máquinas virtuales
 
 Este escenario de Automatización de Azure incluye runbooks para iniciar y detener las máquinas virtuales clásicas. Puede usar este escenario para cualquiera de las siguientes acciones:
 
-- Usar los runbooks sin modificaciones en su propio entorno. 
-- Modificar los runbooks para ejecutar la funcionalidad personalizada.  
-- Llamar a los runbooks desde otro runbook como parte de una solución global. 
-- Usar los runbooks como tutoriales para aprender los conceptos de creación de runbooks. 
+- Usar los runbooks sin modificaciones en su propio entorno.
+- Modificar los runbooks para ejecutar la funcionalidad personalizada.
+- Llamar a los runbooks desde otro runbook como parte de una solución global.
+- Usar los runbooks como tutoriales para aprender los conceptos de creación de runbooks.
 
 > [AZURE.SELECTOR]
 - [Gráfico](automation-solution-startstopvm-graphical.md)
@@ -190,7 +190,7 @@ Las líneas siguientes recorren cada máquina virtual. Primero se comprueba el *
 
 ## Pasos siguientes
 
-- [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
-- [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
+- Para obtener más información sobre cómo trabajar con Runbooks secundarios, vea [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md).
+- Para obtener más información sobre los mensajes de salida durante la ejecución de un Runbook y el inicio de sesión para ayudar en la solución de problemas, vea [Salidas de Runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

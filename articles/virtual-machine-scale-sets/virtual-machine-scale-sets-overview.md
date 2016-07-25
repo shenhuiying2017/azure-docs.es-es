@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/12/2016"
 	ms.author="guybo"/>
 
 # Información general de conjuntos de escala de máquinas virtuales
@@ -25,7 +25,7 @@ Para las aplicaciones que necesiten escalar y reducir horizontalmente los recurs
 
 Eche un vistazo a estos vídeos para más información sobre los conjuntos de escala de máquinas virtuales:
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+ - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 
  - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -43,13 +43,13 @@ En las páginas de detalle de estas plantillas, verá un botón que vincula con 
 
 Para aumentar o disminuir el número de máquinas virtuales en un conjunto de escala de máquinas virtuales, basta con cambiar la propiedad _capacity_ y volver a implementar la plantilla. Esta sencillez facilita la escritura de su propia capa de escalado personalizada si quiere definir eventos personalizados de escalado que no sean compatibles con el escalado automático de Azure.
 
-Si va a volver a implementar una plantilla para modificar la capacidad, puede definir una plantilla mucho más pequeña que solo incluya la SKU y la capacidad actualizada. [Aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json) puede ver un ejemplo.
+Si va a volver a implementar una plantilla para modificar la capacidad, puede definir una plantilla mucho más pequeña que solo incluya la SKU y la capacidad actualizada. [Aquí](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) puede ver un ejemplo.
 
 Para recorrer los pasos que crean un conjunto de escala que se escala automáticamente, consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-autoscale.md).
 
 ## Supervisión del conjunto de escala de máquinas virtuales
 
-Actualmente se recomienda usar el [Explorador de recursos de Azure](https://resources.azure.com) para ver los conjuntos de escala de máquinas virtuales. Los conjuntos de escala de máquinas virtuales son un recurso en Microsoft.Compute, por lo que en este sitio puede verlos si expande los vínculos siguientes:
+En el [Portal de Azure](https://portal.azure.com) se muestran los conjuntos de escala y las propiedades básicas, así como las máquinas virtuales del conjunto. Para más información puede utilizar el [Explorador de recursos de Azure](https://resources.azure.com) para ver los conjuntos de escala de máquina virtual. Los conjuntos de escala de máquinas virtuales son un recurso en Microsoft.Compute, por lo que en este sitio puede verlos si expande los vínculos siguientes:
 
 	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
@@ -57,9 +57,9 @@ Actualmente se recomienda usar el [Explorador de recursos de Azure](https://reso
 
 En esta sección se enumeran algunos escenarios típicos de conjunto de escala de máquinas virtuales. Algunos servicios de Azure de niveles superiores (por ejemplo, Lote, Service Fabric, servicio Contenedor de Azure) usarán estos escenarios.
 
- - **RDP/SSH a instancias de conjuntos de escala de máquinas virtuales**: se crea un conjunto de escala de máquinas virtuales dentro de una red virtual y a las máquinas virtuales individuales del conjunto de escala no se les asignan direcciones IP públicas. Esto es algo bueno, ya que normalmente no desea los costos ni la sobrecarga administrativa que supone la asignación de direcciones IP independientes a todos los recursos sin estado en la cuadrícula de procesos y puede conectarse fácilmente a estas máquinas virtuales desde otros recursos en la red virtual, incluidas aquellas con direcciones IP públicas, como los equilibradores de carga o las máquinas virtuales independientes.
+ - **RDP/SSH a instancias de conjuntos de escala de VM**: se crea un conjunto de escala de VM dentro de una red virtual y a las máquinas virtuales individuales del conjunto de escala no se les asignan direcciones IP públicas. Esto es algo bueno, ya que lo normal es que no quiera el costo y la sobrecarga administrativa que supone la asignación de direcciones IP públicas independientes a todos los recursos sin estado de la cuadrícula de procesos, y puede conectarse fácilmente a estas máquinas virtuales desde otros recursos de la red virtual, incluidos aquellos con direcciones IP públicas, como equilibradores de carga o máquinas virtuales independientes.
 
- - **Conexión a máquinas virtuales con reglas NAT**: puede crear una dirección IP pública, asignarla a un equilibrador de carga y definir reglas NAT entrantes que asignen un puerto de la dirección IP a un puerto de una máquina virtual en el conjunto de escala de máquinas virtuales:
+ - **Conexión a máquinas virtuales con reglas NAT**: puede crear una dirección IP pública, asignarla a un equilibrador de carga y definir reglas NAT entrantes que asignen un puerto de la dirección IP a un puerto de una máquina virtual en el conjunto de escala de máquinas virtuales. Por ejemplo:
  
 	Origen | Puerto de origen | Destino | Puerto de destino
 	--- | --- | --- | ---
@@ -75,9 +75,9 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 	[Para ver un ejemplo de este enfoque, esta plantilla crea un clúster sencillo de Mesos compuesto por una máquina virtual maestra independiente que administra un clúster de máquinas virtuales basado en un conjunto de escalado de máquinas virtuales.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Equilibrio de carga round robin en instancias del conjunto de escala de máquinas virtuales**: si desea entregar trabajo a un clúster de proceso de máquinas virtuales con un enfoque "round robin", puede configurar un Equilibrador de carga de Azure con reglas de equilibrio de carga según corresponda. También puede definir sondeos para comprobar que la aplicación se esté ejecutando; estos hacen ping a puertos con un protocolo, un intervalo y una ruta de acceso de solicitud especificados.
+ - **Equilibrio de carga en instancias de conjunto de escala de VM**: si desea entregar trabajo a un clúster de proceso de máquinas virtuales con un enfoque "round robin", puede configurar un equilibrador de carga de Azure con reglas de equilibrio de carga según corresponda. También puede definir sondeos para comprobar que la aplicación se esté ejecutando haciendo ping a los puertos con un protocolo, un intervalo y una ruta de acceso de solicitud especificados. La [Puerta de enlace de aplicaciones](https://azure.microsoft.com/services/application-gateway/) de Azure también admite conjuntos de escala, junto con escenarios de equilibrio de carga más sofisticados.
 
-	[Este es un ejemplo que crea un conjunto de escalado de máquinas virtuales con máquinas virtuales que ejecutan un servidor web de IIS y usa un equilibrador de carga para equilibrar la carga que recibe cada máquina virtual. También usa el protocolo HTTP para hacer ping a una dirección URL específica en cada máquina virtual. ](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Examine el tipo de recurso Microsoft.Network/loadBalancers, networkProfile y extensionProfile en virtualMachineScaleSet).
+	[En este ejemplo se crea un conjunto de escala de VM de máquinas virtuales que ejecutan un servidor web de IIS y se usa un equilibrador de carga para equilibrar la carga que recibe cada máquina virtual. También usa el protocolo HTTP para hacer ping a una dirección URL específica en cada máquina virtual. ](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Examine el tipo de recurso Microsoft.Network/loadBalancers, networkProfile y extensionProfile en virtualMachineScaleSet).
 
  - **Implementación de un conjunto de escala de máquinas virtuales como un clúster de proceso en un administrador de clústeres PaaS**: los conjuntos de escala de máquinas virtuales se describen como un rol de trabajo de próxima generación. Es una descripción válida pero también existe el riesgo de confundir las características del conjunto de escalado con las del rol de trabajo v1 de PaaS. En cierto sentido, los conjuntos de escalado de máquinas virtuales proporcionan un verdadero "rol de trabajo" o recurso de trabajo, pues suministran un recurso de proceso generalizado que no depende de la plataforma ni del tiempo de ejecución, es personalizable y se integra en IaaS del Administrador de recursos de Azure.
 
@@ -92,13 +92,13 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 - Distancie las primeras letras de los nombres de las cuentas de almacenamiento lo más posible. Las plantillas de conjunto de escalado de máquinas virtuales de ejemplo en la página de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/) muestran cómo hacerlo.
 - Si usa máquinas virtuales personalizadas, no planee más de 40 máquinas virtuales por conjunto de escalado de máquinas virtuales en una única cuenta de almacenamiento. Necesitará copiar antes la imagen en la cuenta de almacenamiento para poder comenzar la implementación del conjunto de escalado de máquinas virtuales. Consulte las preguntas más frecuentes para más información.
 - No planee más de 4096 máquinas virtuales por red virtual.
-- El número de máquinas virtuales que puede crear está limitado por la cuota de núcleos en la región en la que realiza la implementación. Puede que necesite ponerse en contacto con el servicio de soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: `azure vm list-usage`, y el siguiente comando de PowerShell: `Get-AzureRmVMUsage` (si usa una versión de PowerShell anterior a 1.0, use `Get-AzureVMUsage`).
+- El número de máquinas virtuales que puede crear está limitado por la cuota de núcleos en la región en la que realiza la implementación. Puede que necesite ponerse en contacto con el servicio de soporte al cliente para aumentar el límite de cuota de proceso incluso si ya tiene un límite alto de núcleos para su uso con los servicios en la nube o IaaS v1. Para consultar la cuota, puede ejecutar el siguiente comando en la CLI de Azure: `azure vm list-usage`, y el siguiente comando de PowerShell: `Get-AzureRmVMUsage` (si utiliza una versión de PowerShell anterior a 1.0, use `Get-AzureVMUsage`).
 
 ## Preguntas más frecuentes sobre los conjuntos de escala de máquinas virtuales
 
 **P.** ¿Cuántas máquinas virtuales puede tener en un conjunto de escala de máquinas virtuales?
 
-**R.** 100 si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40 (si la propiedad _overprovision_ está establecida en "false", 20 de forma predeterminada), porque las imágenes personalizadas se limitan a una única cuenta de almacenamiento durante la versión preliminar.
+**R.** 100 si usa imágenes de plataforma que se puedan distribuir entre varias cuentas de almacenamiento. Si usa imágenes personalizadas, hasta 40 (si la propiedad _overprovision_ está establecida en "false", 20 de forma predeterminada), dado que las imágenes personalizadas se limitan actualmente a una única cuenta de almacenamiento.
 
 **P** ¿Qué otros límites de recursos existen para los conjuntos de escala de máquinas virtuales?
 
@@ -149,10 +149,10 @@ En esta sección se enumeran algunos escenarios típicos de conjunto de escala d
 
 **P.** Si uso varias extensiones en un conjunto de escala de máquinas virtuales, ¿se puede aplicar una secuencia de ejecución?
 
-**R.** No directamente, pero para la extensión customScript, el script podría esperar a que se completara otra extensión ([por ejemplo, supervisando el registro de la extensión](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
+**R.** No directamente, pero para la extensión customScript, el script podría esperar a que se completara otra extensión ([por ejemplo, supervisando el registro de la extensión](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Encontrará instrucciones adicionales sobre la secuenciación de extensión en esta entrada de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Secuenciación de extensión en conjuntos de escala de VM de Azure).
 
 **P.** ¿Funcionan los conjuntos de escala de máquinas virtuales con los conjuntos de disponibilidad de Azure?
 
 **R.** Sí. Un conjunto de escala es de forma implícita un conjunto de disponibilidad con cinco dominios de error y cinco dominios de actualización. No es necesario configurar nada en virtualMachineProfile. En futuras versiones, es probable que los conjuntos de escala abarquen varios inquilinos pero, por ahora, un conjunto de escala es un único conjunto de disponibilidad.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

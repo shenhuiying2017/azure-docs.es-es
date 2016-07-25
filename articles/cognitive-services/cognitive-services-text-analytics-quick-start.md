@@ -36,7 +36,9 @@ Al final de este tutorial, podrá detectar lo siguiente mediante programación:
 
 - **Idiomas**. ¿En qué idioma está escrito el texto?
 
-Tenga en cuenta que esta API cobra una transacción por registro de texto enviado.
+Tenga en cuenta que esta API cobra una transacción por documento enviado. A modo de ejemplo, si solicita una opinión para 1000 documentos en una sola llamada, se deducirán 1000 transacciones.
+
+
 
 <a name="Overview"></a>
 ## Información general ##
@@ -293,4 +295,6 @@ Las explicaciones de cada parte de la respuesta son las siguientes:
 
 ¡Enhorabuena! Completó el tutorial sobre cómo usar el análisis de textos en sus datos. Es posible que ahora quiera obtener información sobre una herramienta como [Power BI](//powerbi.microsoft.com) para visualizar los datos, así como automatizar la información para brindarle una vista de los datos de texto en tiempo real.
 
-<!---HONumber=AcomDC_0706_2016-->
+Para ver cómo pueden usarse las funcionalidades de análisis de textos, como una opinión, como parte de un bot, vea el ejemplo [Emotional Bot](http://docs.botframework.com/es-ES/bot-intelligence/language/#example-emotional-bot) en el sitio de Bot Framework.
+
+<!---HONumber=AcomDC_0713_2016-->

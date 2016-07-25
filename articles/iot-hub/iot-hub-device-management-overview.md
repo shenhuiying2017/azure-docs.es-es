@@ -103,7 +103,9 @@ La biblioteca de cliente de administración de dispositivos tiene dos responsabi
 
 Para obtener más información sobre estas responsabilidades y sobre la implementación en el dispositivo físico, consulte [Introducing the Azure IoT Hub device management library for C][lnk-library-c] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure para C).
 
-## Paso siguiente
+## Pasos siguientes
+
+Para implementar aplicaciones cliente que se ejecuten en una gran variedad de plataformas de hardware de dispositivos y sistemas operativos, puede usar los SDK de dispositivos IoT. Los SDK de dispositivos IoT incluyen bibliotecas que facilitan el envío de telemetría a un Centro de IoT y la recepción de comandos de nube a dispositivo. Al usar los SDK, puede elegir entre una serie de protocolos de red para comunicarse con el Centro de IoT. Para más información, vea la [información sobre los SDK de dispositivo][lnk-device-sdks].
 
 Para continuar aprendiendo sobre las características de administración de dispositivos de Centro de IoT de Azure, consulte el tutorial [Introducción a la administración de dispositivos de Centro de IoT de Azure con C# (versión preliminar)][lnk-get-started].
 
@@ -118,5 +120,6 @@ Para continuar aprendiendo sobre las características de administración de disp
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Copia del trabajo de otras personas para realizar ciencia de datos: Ciencia de datos para principiantes | Microsoft Azure"
+   pageTitle="Copia del trabajo de otras personas para realizar ciencia de datos - ejemplo experimental | Microsoft Azure"
    description="El secreto comercial de la ciencia de datos: consiga que otras personas hagan el trabajo por usted. Vea ejemplos en la Galería de Cortana Analytics; por ejemplo, uno de algoritmo de agrupación en clústeres."
    keywords="ejemplos de ciencia de datos,ejemplo de algoritmo,ejemplo de experimento, ejemplo de aprendizaje automático, algoritmo de agrupación en clústeres"
    services="machine-learning"
@@ -94,4 +94,4 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

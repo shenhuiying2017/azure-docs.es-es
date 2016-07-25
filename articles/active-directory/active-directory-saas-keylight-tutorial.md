@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Integrar Keylight con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a Keylight.
 - Puede permitir que los usuarios inicien sesión automáticamente en Keylight (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@ Para configurar la integración de Keylight en Azure AD, es preciso agregar Keyl
 
 **Para agregar Keylight desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **Portal de administración** de Azure, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -99,12 +99,12 @@ Para configurar y probar el inicio de sesión único de Azure AD con Keylight, e
 
 ### Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de Azure y configurará el inicio de sesión único en la aplicación Keylight.
+En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurará el inicio de sesión único en la aplicación Keylight.
 
 
 **Para configurar el inicio de sesión único de Azure AD con Keylight, realice los pasos siguientes:**
 
-1. En el Portal de Azure, en la página de integración de aplicaciones de **Keylight**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Keylight**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
 	![Configurar inicio de sesión único][6]
 
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/402.png)
 
-    d. En el cuadro de diálogo **SAML Settings** (Configuración de SAML), haga clic en **Edit** (Editar).
+    d. En el cuadro de diálogo **SAML Settings ** (Configuración de SAML), haga clic en **Edit** (Editar).
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-keylight-tutorial/404.png)
   
@@ -163,7 +163,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     e. Establezca **SAML User Id location** (Ubicación de id. de usuario de SAML) en **NameIdentifier element of the subject statement** (Elemento NameIdentifier de la instrucción Subject).
    
-    f. Proporcione la información del campo Proveedor de servicios de Keylight mediante el siguiente patrón: **https://&lt;Company nombre de la compañía&gt;.keylightgrc.com**.
+    f. Proporcione la información del campo **Proveedor de servicios de Keylight mediante el siguiente patrón: **https://&lt;Companynombre de la compañía&gt;.keylightgrc.com**.
 
     g. Establezca **Auto-provision users** (Usuarios de aprovisionamiento automático) en **Active** (Activado).
 
@@ -184,7 +184,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
   
    
   
-6. En el Portal de Azure, seleccione la confirmación de la configuración del inicio de sesión único y haga clic en **Siguiente**.
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
 	![Inicio de sesión único de Azure AD][10]
 
@@ -196,7 +196,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 
 ### Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el Portal de Azure.
+En esta sección, se crea un usuario de prueba llamado Britta Simon en el Portal de Azure clásico.
 
 En la lista Usuarios, seleccione **Britta Simon**.
 
@@ -206,7 +206,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el **Portal de Azure**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png)
 
@@ -277,7 +277,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 **Para asignar a Britta Simon a Keylight, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones. Para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú superior.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
 	![Asignar usuario][201]
 
@@ -329,4 +329,4 @@ Al hacer clic en el icono de Keylight en el Panel de acceso, debería iniciar se
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

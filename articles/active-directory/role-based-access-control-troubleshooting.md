@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Solución de problemas del control de acceso basado en roles"
-	description="Trabajar con diferentes tipos de recursos para el control de acceso basado en rol."
+	pageTitle="Solución de problemas del control de acceso basado en roles | Microsoft Azure"
+	description="Obtenga ayuda para los problemas o dudas que le surjan relativos a los recursos del control de acceso basado en roles."
 	services="azure-portal"
 	documentationCenter="na"
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="kgremban"/>
 
 # Solución de problemas del control de acceso basado en rol
@@ -24,9 +24,9 @@
 
 En este documento se explica qué puede esperar al usar algunos de los nuevos roles del Portal de Azure. Estos tres roles abarcan todos los tipos de recursos:
 
-- Propietario  
-- Colaborador  
-- Lector  
+- Propietario
+- Colaborador
+- Lector
 
 Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. Consulte el artículo de [introducción de Control de acceso basado en rol](role-based-access-control-configure.md) para obtener más información sobre cómo conceder acceso.
 
@@ -59,17 +59,17 @@ Como consecuencia, si le concede a alguien acceso solo a la aplicación web, muc
 
 Estos elementos requieren acceso de **lectura** al **plan del Servicio de aplicaciones** que se corresponde con su sitio web:
 
-- Visualización del plan de tarifa de la aplicación web (gratis o estándar).  
-- Configuración de escala (número de instancias, tamaño de la máquina virtual y configuración de escala automática).  
-- Cuotas (almacenamiento, ancho de banda y CPU).  
+- Visualización del plan de tarifa de la aplicación web (gratis o estándar).
+- Configuración de escala (número de instancias, tamaño de la máquina virtual y configuración de escala automática).
+- Cuotas (almacenamiento, ancho de banda y CPU).
 
 Estos elementos requieren acceso de **lectura** a todo el **grupo de recursos** que contiene su sitio web:
 
-- Enlaces y certificados SSL (porque los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-- Reglas de alertas  
-- Opciones de escala automática  
-- Componentes de Application Insights  
-- Pruebas web  
+- Enlaces y certificados SSL (porque los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)
+- Reglas de alertas
+- Opciones de escala automática
+- Componentes de Application Insights
+- Pruebas web
 
 ## Cargas de trabajo de máquina virtual
 
@@ -79,16 +79,16 @@ Las máquinas virtuales están relacionadas con los nombres de dominio, las rede
 
 Estos elementos requieren acceso de **escritura** a la **máquina virtual**:
 
-- Extremos  
-- Direcciones IP  
-- Discos  
-- Extensiones  
+- Extremos
+- Direcciones IP
+- Discos
+- Extensiones
 
 Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo de recursos** (junto con el nombre de dominio) donde se encuentran:
 
-- El conjunto de disponibilidad  
-- El conjunto de carga equilibrada  
-- Las reglas de alertas  
+- El conjunto de disponibilidad
+- El conjunto de carga equilibrada
+- Las reglas de alertas
 
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
@@ -98,4 +98,4 @@ Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador 
 - [Roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 - [Creación de un informe de historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice un seguimiento del cambio de asignaciones de rol en el RBAC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

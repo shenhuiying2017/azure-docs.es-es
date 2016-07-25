@@ -62,7 +62,7 @@ Ahora, ejecute la siguiente consulta en la base de datos **Clientes** para crear
 		WITH IDENTITY = '<username>', 
 		SECRET = '<password>';  
 
-	"username" y "contraseña" deben ser el nombre de usuario y la contraseña usados para iniciar sesión en la base de datos Clientes.
+	"username" y "contraseña" deben ser el nombre de usuario y la contraseña usados para iniciar sesión en la base de datos Clientes. Actualmente no se admite la autenticación usando Azure Active Directory con consultas elásticas.
 
 ### Orígenes de datos externos
 Para crear un origen de datos externo, ejecute el siguiente comando en la base de datos Pedidos:
@@ -106,4 +106,4 @@ Para obtener información de precios, vea [Precio de Base de datos SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

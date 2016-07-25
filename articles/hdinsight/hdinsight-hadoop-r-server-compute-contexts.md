@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/07/2016"
    ms.author="jeffstok"
 />
 
@@ -46,7 +46,7 @@ Actualmente no hay ninguna fórmula que indique qué contexto de proceso ejecuta
 2.	Los análisis repetidos son más rápidos si los datos son locales y están en XDF.
 3.	Es preferible transmitir pequeñas cantidades de datos desde un origen de datos de texto; si la cantidad de datos es mayor, conviértalos a XDF antes del análisis.
 4.	La sobrecarga de copiar o transmitir los datos al nodo perimetral para su análisis se convierte en algo difícil de manejar en el caso de cantidades de datos muy grandes.
-5.	Spark es más rápido que Map Reduce para el análisis en Hadoop hasta que la cantidad de datos sea muy grande y ya no quepa en la memoria distribuida.
+5.	Spark es más rápido que MapReduce para el análisis de Hadoop.
 
 Con estos principios, las siguientes son algunas reglas generales para seleccionar un contexto de proceso:
 
@@ -61,7 +61,7 @@ Con estos principios, las siguientes son algunas reglas generales para seleccion
 
 ### Hadoop MapReduce
 
-- Si la cantidad de datos que se va a analizar es muy grande y el rendimiento de Spark comienza a deteriorarse, intente realizar un análisis mediante ’MapReduce’.
+- Úselo solo si detecta un problema insuperable con el contexto de procesos de Spark, ya que generalmente será más lento.
 
 ## Ayuda insertada en rxSetComputeContext
 
@@ -81,4 +81,4 @@ En este artículo, ha aprendido a crear un nuevo clúster de HDInsight que inclu
 - [Add RStudio Server to HDInsight Premium (Agregar un servidor de RStudio a HDInsight Premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Azure Storage options for R Server on HDInsight Premium (Opciones de almacenamiento de Azure del servidor de R en HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

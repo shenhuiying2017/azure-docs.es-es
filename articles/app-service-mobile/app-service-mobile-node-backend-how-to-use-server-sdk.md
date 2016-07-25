@@ -134,7 +134,7 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 
 2. Siga los pasos de [Habilitación del repositorio de aplicaciones web](../app-service-web/web-sites-publish-source-control.md#Step4) a fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
-3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git**.
+3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
 
 4.  Ejecute el comando `git clone` en una herramienta de línea de comandos compatible con Git mediante la URL de clonación de Git e introduzca la contraseña cuando sea necesario, como en el ejemplo siguiente:
 
@@ -174,11 +174,11 @@ El SDK del servidor de Node.js de azure-mobile-apps proporciona mecanismos para 
 
 | Operación | Descripción |
 | --------- | ----------- |
-| GET /tables/\_tablename\_ | Obtener todos los registros de la tabla |
-| GET /tables/\_tablename\_/:id | Obtener un registros específico de la tabla |
-| POST /tables/\_tablename\_ | Crear un nuevo registro en la tabla |
-| PATCH /tables/\_tablename\_/:id | Actualizar un registro existente en la tabla |
-| DELETE /tables/\_tablename\_/:id | Eliminar un registro de la tabla |
+| GET /tables/_nombredelatabla_ | Obtener todos los registros de la tabla |
+| GET /tables/_nombredelatabla_/:id | Obtener un registros específico de la tabla |
+| POST /tables/_nombredelatabla_ | Crear un nuevo registro en la tabla |
+| PATCH /tables/_nombredelatabla_/:id | Actualizar un registro existente en la tabla |
+| DELETE /tables/_nombredelatabla_/:id | Eliminar un registro de la tabla |
 
 Esta WebAPI admite [OData] y amplía el esquema de tabla para admitir la [sincronización de datos sin conexión].
 
@@ -379,7 +379,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
@@ -393,7 +393,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 La creación de la base de datos puede tardar unos minutos. Use el área de **notificaciones** para supervisar el progreso de la implementación. No continúe hasta que la base de datos se haya implementado correctamente. Una vez implementada correctamente, se creará una cadena de conexión para la instancia de Base de datos SQL en la configuración de la aplicación de back-end móvil. Puede ver la configuración de esta aplicación en **Configuración** > **Configuración de la aplicación** > **Cadenas de conexión**.
 
-### <a name="howto-tables-auth"></a>Requerimiento de la autenticación necesaria para el acceso a las tablas
+### <a name="howto-tables-auth"></a>Requerimiento de la autenticación para acceder a las tablas
 
 Si quiere usar la autenticación del Servicio de aplicaciones con el punto de conexión de tablas, tiene que configurar primero la autenticación del Servicio de aplicaciones en el [Portal de Azure]. Para obtener más información sobre cómo configurar la autenticación en un Servicio de aplicaciones de Azure, revise la Guía de configuración del proveedor de identidades que pretende usar:
 
@@ -433,7 +433,7 @@ Si la propiedad de acceso no está definida, se permite el acceso no autenticado
 
 ### <a name="howto-tables-getidentity"></a>Uso de notificaciones de autenticación con las tablas
 
-Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles a través del objeto `context.user`. Sin embargo, se pueden recuperar mediante el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
+Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles por medio del objeto `context.user`. Sin embargo, se pueden recuperar mediante el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
 
 Por ejemplo, si establece la autenticación mediante una cuenta Microsoft y solicita la notificación de direcciones de correo electrónico, puede agregar la dirección de correo electrónico al registro con la información siguiente:
 
@@ -611,7 +611,7 @@ Se recomienda llamar explícitamente al método initialize() para crear la tabla
 
 ### <a name="Swagger"></a>Habilitación de la compatibilidad con Swagger
 
-Las Aplicaciones móviles del Servicio de aplicaciones de Azure incorporan compatibilidad con [Swagger]. Para habilitar la compatibilidad con Swagger, instale primero el archivo swagger-ui como una dependencia:
+Aplicaciones móviles del Servicio de aplicaciones de Azure incorpora compatibilidad con [Swagger]. Para habilitar la compatibilidad con Swagger, instale primero el archivo swagger-ui como una dependencia:
 
     npm install --save swagger-ui
 
@@ -629,7 +629,7 @@ También puede agregar la opción de Swagger a su archivo `azureMobile.js` si so
 
 ## <a name="push">Notificaciones push
 
-Las aplicaciones móviles se integran con los Centros de notificaciones de Azure para permitirle el envío de notificaciones push destinadas a millones de dispositivos en las plataformas más importantes. Mediante el uso de los Centros de notificaciones puede enviar notificaciones push a dispositivos iOS, Android y Windows. Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](./notification-hubs/notification-hubs-push-notification-overview.md).
+Las aplicaciones móviles se integran con los Centros de notificaciones de Azure para permitirle el envío de notificaciones push destinadas a millones de dispositivos en las plataformas más importantes. Mediante el uso de los Centros de notificaciones puede enviar notificaciones push a dispositivos iOS, Android y Windows. Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Envío de notificaciones push
 
@@ -664,7 +664,7 @@ Al crear un registro de inserción de plantillas desde el cliente, puede enviar 
     }
 
 
-###<a name="push-user"></a>Envío de notificaciones push a un usuario autenticado mediante etiquetas.
+###<a name="push-user"></a>Envío de notificaciones push a un usuario autenticado mediante etiquetas
 
 Cuando un usuario autenticado se registra para las notificaciones push, se agrega automáticamente una etiqueta con el identificador de usuario al registro. Mediante el uso de esta etiqueta, puede enviar notificaciones push a todos los dispositivos registrados por un usuario específico. El código siguiente obtiene el SID del usuario que realiza la solicitud y envía una notificación push de plantilla a cada registro de dispositivo para ese usuario:
 
@@ -826,13 +826,13 @@ El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración
 
 - [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]
 - [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]
-- [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio]
+- [Solución de problemas del Servicio de aplicaciones de Azure en Visual Studio]
 
 Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico. Internamente, el SDK de Node.js de Aplicaciones móviles de Azure usa [Winston] para el registro de diagnóstico. Esto se habilita automáticamente al activar el modo de depuración o al establecer la configuración de la aplicación **MS\_DebugMode** en true en el [Portal de Azure]. Los registros generados aparecerán en los registros de diagnóstico en el [Portal de Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Trabajo con tablas fáciles en el Portal de Azure
 
-Las tablas fáciles del portal le permiten crear y trabajar con tablas directamente en el portal. Incluso puede editar las operaciones de tabla mediante el editor de Visual Studio Online.
+Las tablas fáciles del portal le permiten crear y trabajar con tablas directamente en el portal. Incluso puede editar las operaciones de tabla mediante el editor del Servicio de aplicaciones.
 
 Al hacer clic en **Tablas fáciles** en la configuración del sitio del back-end, puede agregar una tabla nueva, así como modificar o eliminar una tabla existente. También puede ver los datos de la tabla.
 
@@ -841,7 +841,7 @@ Al hacer clic en **Tablas fáciles** en la configuración del sitio del back-end
 Los siguientes comandos están disponibles en la barra de comandos para una tabla:
 
 + **Cambiar permisos**: modifica el permiso para leer, insertar, actualizar y eliminar operaciones en la tabla. Las opciones son permitir el acceso anónimo, requerir autenticación o deshabilitar todos los accesos a la operación. Esto modifica el archivo de código del proyecto table.json.
-+ **Editar script**: el archivo de script para la tabla se abre en el editor de Visual Studio Team Services.
++ **Editar script**: el archivo de script de la tabla se abre en el editor del Servicio de aplicaciones.
 + **Administrar esquema**: agrega o elimina columnas o cambia el índice de tabla.
 + **Borrar tabla**: trunca una tabla existente eliminando todas las filas de datos pero dejando el esquema sin cambiar.
 + **Eliminar filas**: elimina filas individuales de datos.
@@ -849,21 +849,21 @@ Los siguientes comandos están disponibles en la barra de comandos para una tabl
 
 ###<a name="work-easy-apis"></a>Trabajo con API fáciles en el Portal de Azure
 
-Las API fáciles del portal le permiten crear y trabajar con API personalizadas directamente en el portal. Incluso puede editar los scripts de las API mediante el editor de Visual Studio Online.
+Las API fáciles del portal le permiten crear y trabajar con API personalizadas directamente en el portal. Incluso puede editar scripts de API mediante el editor del Servicio de aplicaciones.
 
 Al hacer clic en **API fáciles** en la configuración del sitio del back-end, puede agregar un nuevo punto de conexión de API personalizado, así como modificar o eliminar un punto de conexión de API existente.
 
 ![Trabajo con API fáciles](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-En el portal, puede cambiar los permisos de acceso para una acción de HTTP determinada, editar el archivo de script de API en el editor de Visual Studio Team Services o ver los registros de streaming.
+En el portal, puede cambiar los permisos de acceso para una acción de HTTP determinada, editar el archivo de script de API en el editor del Servicio de aplicaciones o ver los registros de streaming.
 
-###<a name="online-editor"></a>Edición de código en Visual Studio Team Services
+###<a name="online-editor"></a>Edición de código en el editor del Servicio de aplicaciones
 
-El Portal de Azure le permite editar archivos de script de back-end de Node.js en Visual Studio Team Services sin tener que descargar el proyecto en el equipo local. Para editar archivos de script en el editor en línea:
+El Portal de Azure le permite editar los archivos de script de back-end de Node.js en el editor de Servicio de aplicaciones sin tener que descargar el proyecto en el equipo local. Para editar archivos de script en el editor en línea:
 
-1. En la hoja de back-end de la aplicación móvil, haga clic en **Toda la configuración** > **Tablas fáciles** o **API fáciles**, en una tabla o API y luego en **Editar script**. El archivo de script se abre en el editor de Visual Studio Team Services.
+1. En la hoja de back-end de la aplicación móvil, haga clic en **Toda la configuración** > **Tablas fáciles** o **API fáciles**, en una tabla o API y luego en **Editar script**. El archivo de script se abrirá en el editor del Servicio de aplicaciones.
 
-	![Editor de códigos de Visual Studio Team Services](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Editor del Servicio de aplicaciones](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Realice los cambios en el archivo de código en el editor en línea. Los cambios se guardan automáticamente a medida que se escriben.
 
@@ -895,7 +895,7 @@ El Portal de Azure le permite editar archivos de script de back-end de Node.js e
 [Guía de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
 [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-monitor.md
 [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[Solución de problemas del Servicio de aplicaciones de Azure en Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [Especificación de una versión de Node.js en una aplicación Azure]: ../nodejs-specify-node-version-azure-apps.md
 [Uso de módulos de Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
@@ -917,4 +917,4 @@ El Portal de Azure le permite editar archivos de script de back-end de Node.js e
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

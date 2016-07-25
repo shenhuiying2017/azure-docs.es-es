@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/06/2016"
+	ms.date="07/13/2016"
 	ms.author="ashmaka"/>
 
 # Creación de un servicio Búsqueda de Azure mediante el Portal de Azure
@@ -23,14 +23,14 @@ En esta guía se asume que ya tiene una suscripción de Azure y puede iniciar se
 ## Encontrar Búsqueda de Azure en el Portal de Azure
 1. Abra el [Portal de Azure](https://portal.azure.com/) e inicie sesión.
 1. Haga clic en el signo más ("+") en la esquina superior izquierda.
-2. Seleccione "Datos y almacenamiento".
-3. Seleccione "Búsqueda de Azure".
+2. Seleccione **Datos y almacenamiento**.
+3. Seleccione **Búsqueda de Azure**.
 
 ![](./media/search-create-service-portal/find-search.png)
 
 ## Elegir un nombre de servicio y el punto de conexión de la dirección URL del servicio
 1. El nombre del servicio será parte de la dirección URL del punto de conexión del servicio Búsqueda de Azure contra el que hará las llamadas de API para administrar y usar el servicio de búsqueda.
-2. Escriba el nombre del servicio en el campo 'Dirección URL'. El nombre del servicio debe cumplir los siguientes requisitos:
+2. Escriba el nombre del servicio en el campo **Dirección URL**. El nombre del servicio debe cumplir los siguientes requisitos:
   * Solo debe contener letras minúsculas, números o guiones ("-").
   * No puede utilizar guiones ("-") en los dos primeros caracteres o en el último carácter.
   * No puede contener guiones consecutivos ("--").
@@ -47,7 +47,7 @@ Cree un nuevo grupo de recursos o seleccione uno existente. Un grupo de recursos
 En cuanto servicio de Azure, Búsqueda de Azure está disponible para hospedarse en centros de datos de todo el mundo. Tenga en cuenta que los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
 
 ## Seleccionar el plan de tarifa
-[Búsqueda de Azure se ofrece actualmente en varios planes de tarifa](https://azure.microsoft.com/pricing/details/search/): Gratis, Básico y Estándar. Cada plan tiene su propia [capacidad y sus propios límites](search-limits-quotas-capacity.md).
+[Búsqueda de Azure se ofrece actualmente en varios planes de tarifa](https://azure.microsoft.com/pricing/details/search/): Gratis, Básico y Estándar. Cada plan tiene su propia [capacidad y sus propios límites](search-limits-quotas-capacity.md). Consulte [Selección SKU o plan de tarifa](search-sku-tier.md) para obtener instrucciones.
 
 En este caso, hemos elegido el nivel Estándar para nuestro servicio.
 
@@ -57,14 +57,14 @@ En este caso, hemos elegido el nivel Estándar para nuestro servicio.
 
 ## Escalar el servicio
 
-Cuando el servicio haya terminado de aprovisionarse, puede escalarlo de acuerdo con sus necesidades. Si ha elegido el nivel Estándar para el servicio Búsqueda de Azure, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas.
+Después de aprovisionado el servicio, se puede escalar para satisfacer sus necesidades. Si ha elegido el nivel Estándar para el servicio Búsqueda de Azure, puede escalar el servicio en dos dimensiones: réplicas y particiones. Si ha elegido el nivel Básico, solo puede agregar réplicas.
 
 Las *__particiones__* permiten que el servicio almacene y busque en más documentos.
 
 Las *__réplicas__* permiten que el servicio gestione una carga más elevada de consultas de búsqueda: [un servicio requiere 2 réplicas para lograr un SLA de solo lectura y 3 réplicas para lograr un SLA de lectura y escritura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Vaya a la hoja de administración de su servicio Búsqueda de Azure en el Portal de Azure.
-2. En la hoja "Configuración", seleccione "Escala".
+2. En la hoja **Configuración**, seleccione **Escala**.
 3. Puede escalar el servicio mediante la adición de particiones o réplicas.
   * No se puede escalar el servicio por encima de 36 unidades de búsqueda. El número total de unidades de búsqueda es el producto de sus réplicas y particiones (réplicas * particiones = total de unidades de búsqueda).
   * Si ha elegido el nivel Básico, solo puede escalar a 3 réplicas. Los servicios básicos están enlazados a una sola partición.
@@ -74,4 +74,6 @@ Las *__réplicas__* permiten que el servicio gestione una carga más elevada de 
 ## Pasos siguientes
 Después de aprovisionar un servicio Búsqueda de Azure, estará listo para [definir un índice de Búsqueda de Azure](search-what-is-an-index.md) para que pueda cargar y buscar los datos.
 
-<!---HONumber=AcomDC_0608_2016-->
+Consulte [Introducción a Búsqueda de Azure en el Portal](search-get-started-portal.md) para un tutorial rápido.
+
+<!---HONumber=AcomDC_0713_2016-->

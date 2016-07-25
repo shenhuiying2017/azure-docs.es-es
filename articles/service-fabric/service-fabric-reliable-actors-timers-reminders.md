@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 Cuando un recordatorio se desencadena, el runtime de Reliable Actors invocará al método `ReceiveReminderAsync` en el actor. Un actor puede registrar varios recordatorios y el método `ReceiveReminderAsync` se invoca cuando se desencadene uno de ellos. El actor puede usar el nombre del recordatorio que se pasa al método `ReceiveReminderAsync` para averiguar el recordatorio que se activó.
 
-El runtime de los actores guarda su estado cuando termina la llamada a `ReceiveReminderAsync`. Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia. Para especificar que el estado no debe guardarse tras finalizar la devolución de llamada del recordatorio, la marca `ActorReminderAttributes.ReadOnly` puede establecerse en el parámetro `attributes` cuando se llama al método `RegisterReminder` para crear el recordatorio.
+El sistema en tiempo de ejecución de Actors guarda el estado del actor cuando termina la llamada `ReceiveReminderAsync`. Si se produce un error al guardar el estado, se desactivará dicho objeto de actor y se activará una nueva instancia.
 
 Para anular el registro de un recordatorio, un actor llama al método `UnregisterReminder`, tal y como se muestra en el ejemplo siguiente.
 
@@ -125,4 +125,4 @@ Como se indicó anteriormente, el método `UnregisterReminder` acepta una interf
  - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

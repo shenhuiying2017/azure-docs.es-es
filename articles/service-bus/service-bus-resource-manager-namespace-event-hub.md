@@ -13,14 +13,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Creación de un espacio de nombres de Bus de servicio con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager
 
 En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Bus de servicio con un centro de eventos y un grupo de consumidores. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
+Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][].
 
 Para ver la plantilla completa, consulte la [plantilla Service Bus Event Hub and consumer group][] en GitHub.
 
@@ -31,15 +31,13 @@ Para ver la plantilla completa, consulte la [plantilla Service Bus Event Hub and
 >-    [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 >-    [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
 >
->Para buscar las últimas plantillas, consulte [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
+>Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][] y busque Bus de servicio.
 
 ## ¿Qué va a implementar?
 
 Con esta plantilla, implementará un espacio de nombres de Bus de servicio con un grupo de consumidores y Centro de eventos.
 
-Centros de eventos es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad.
-
-Obtenga más información acerca de los [Centros de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+[Centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -49,7 +47,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-Vamos a describir cada parámetro de la plantilla.
+La plantilla define los parámetros siguientes.
 
 ### serviceBusNamespaceName
 
@@ -163,9 +161,9 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 - [Administración de recursos de Centros de eventos con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/
+  [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [plantilla Service Bus Event Hub and consumer group]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

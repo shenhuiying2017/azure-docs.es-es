@@ -99,11 +99,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia
 
-Para evaluar el rendimiento de las solicitudes en el servidor:
-
-![En la página de información general de la aplicación en Application Insights, haga clic en el icono de rendimiento.](./media/app-insights-asp-net-dependencies/01-performance.png)
-
-Desplácese hacia abajo para buscar en la cuadrícula de solicitudes:
+Para evaluar el rendimiento de las solicitudes de su servidor, abra la hoja Rendimiento y desplácese hacia abajo para buscar en la cuadrícula de solicitudes:
 
 ![Lista de solicitudes con promedios y recuentos](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
@@ -116,21 +112,24 @@ Haga clic en esa fila para ver los eventos de solicitud individuales:
 
 Haga clic en cualquier instancia de ejecución prolongada para inspeccionarla con mayor profundidad.
 
-> [AZURE.NOTE] Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
-
 Desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
 
 ![Búsqueda de llamadas a dependencias remotas, identificación de duración inusual.](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
 Parece que la mayoría del tiempo que se ha invertido en atender a esta solicitud se ha empleado en una llamada a un servicio local.
 
-Seleccione esa fila para obtener más información:
 
+Seleccione esa fila para obtener más información:
 
 ![Haga clic en esa dependencia remota para identificar la causa.](./media/app-insights-asp-net-dependencies/05-detail.png)
 
 El detalle incluye suficiente información para diagnosticar el problema.
 
+
+En un caso diferente, ninguna llamada de dependencia es larga pero al cambiar a la vista Escala de tiempo, podemos ver dónde se produce el retraso en nuestro procesamiento interno:
+
+
+![Búsqueda de llamadas a dependencias remotas, identificación de duración inusual.](./media/app-insights-asp-net-dependencies/04-1.png)
 
 
 ## Errores
@@ -178,9 +177,9 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 ## Pasos siguientes
 
-- [Excepciones](app-insights-asp-net-exception-mvc.md#selector1)
-- [Datos de página y usuario](app-insights-asp-net-client.md#selector1)
-- [Disponibilidad](app-insights-monitor-web-app-availability.md#selector1)
+- [Excepciones](app-insights-asp-net-exceptions.md)
+- [Datos de página y usuario][client]
+- [Disponibilidad](app-insights-monitor-web-app-availability.md)
 
 
 
@@ -202,4 +201,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

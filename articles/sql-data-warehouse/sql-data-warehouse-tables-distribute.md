@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distribución de tablas en Almacenamiento de datos SQL
@@ -28,6 +28,12 @@
 - [Temporal][]
 
 El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). Al dividir los datos y la funcionalidad de procesamiento entre varios nodos, Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que cualquier sistema individual. La decisión de cómo distribuir los datos en Almacenamiento de datos SQL es uno de los factores más importantes para lograr un rendimiento óptimo. La clave para lograr un rendimiento óptimo es minimizar el movimiento de datos y, a su vez, la clave para minimizar el movimiento de datos es seleccionar la estrategia de distribución adecuada.
+
+## Descripción del movimiento de datos
+
+En un sistema MPP, los datos de cada tabla se dividen entre varias bases de datos subyacentes. Las consultas más optimizadas en un sistema MPP se pueden pasar simplemente para su ejecución en las bases de datos distribuidas individuales sin interacción entre las otras bases de datos. Por ejemplo, supongamos que tiene una base de datos con datos de ventas que contiene dos tablas, ventas y clientes. Si tiene una consulta que necesite combinar la tabla de ventas con la de clientes y divide ambas tablas por el número de cliente, coloque a cada cliente en una base de datos independiente y, de este modo, se podrán resolver todas las consultas que combinen ventas y clientes dentro de cada base de datos sin el conocimiento de las otras bases de datos. En cambio, si divide los datos de ventas por número de pedido y los datos de clientes por número de cliente, cualquier base de datos dada no tendrá los datos correspondientes de cada cliente y, por tanto, si desea combinar los datos de ventas con los datos de clientes, necesitará obtener los datos para cada cliente desde las demás bases de datos. En este segundo ejemplo, el movimiento de datos debe producirse para mover los datos del cliente a los datos de ventas, de modo que se pueden combinar las dos tablas.
+
+El movimiento de datos no es algo negativo, a veces es necesario para resolver una consulta. Pero si se puede evitar este paso adicional, evidentemente la consulta se ejecutará más rápido. El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones. Normalmente, tendrá que realizar ambas acciones por lo que, aunque es posible que pueda optimizar un escenario como el de una combinación, necesitará el movimiento de datos para ayudarle con la resolución del otro escenario, el de una agregación. El truco es averiguar cuál supone menos trabajo. En la mayoría de los casos, la distribución de tablas de datos de gran tamaño en una columna que normalmente está combinada es el método más eficaz para reducir al máximo el movimiento de datos. La distribución de datos en columnas de combinación es un método mucho más frecuente para reducir el movimiento de datos que la distribución de datos en columnas que participan en una agregación.
 
 ## Selección del método de distribución
 
@@ -148,14 +154,16 @@ Si no existe ninguna columna que sea una buena candidata, considere la posibilid
 
 ### Selección de una columna de distribución que minimizará el movimiento de datos
 
-Una de las estrategias más importantes para optimizar el rendimiento de Almacenamiento de datos SQL es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta. El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones. Uno de los métodos más efectivos para minimizar el movimiento de datos es la distribución por hash de tablas de datos de gran tamaño en una columna que normalmente está combinada. Además de seleccionar una columna de combinación para evitar el movimiento de datos, también deben cumplirse algunos criterios para evitar el movimiento de datos. Para evitar el movimiento de datos:
+Una de las estrategias más importantes para optimizar el rendimiento de Almacenamiento de datos SQL es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta. El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones. Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas **buenas** candidatas para la distribución por hash. Por otro lado, las columnas de la cláusula `WHERE` **no** son buenas candidatas a columnas de hash porque limitan las distribuciones que participan en la consulta.
 
-1. Las tablas implicadas en la combinación deben distribuirse por hash en una de las columnas de combinación.
-2. Los tipos de datos de las columnas de combinación deben coincidir.
+Por lo general, si tiene dos tablas de datos de gran tamaño implicadas normalmente en una combinación, obtendrá el mayor rendimiento distribuyendo ambas tablas en una de las columnas de combinación. Si tiene una tabla que nunca se combina con otra tabla de datos de gran tamaño, examine las columnas que se encuentran con frecuencia en la cláusula `GROUP BY`.
+
+Hay algunos criterios clave que deben cumplirse para evitar el movimiento de datos durante una combinación:
+
+1. Las tablas implicadas en la combinación deben distribuirse por hash en **una** de las columnas que participan en la combinación.
+2. Los tipos de datos de las columnas de combinación deben coincidir en ambas tablas.
 3. Las columnas deben combinarse con un operador equals.
 4. El tipo de combinación no puede ser `CROSS JOIN`.
-
-Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas buenas candidatas a para la combinación por hash. Por otro lado, las columnas de la cláusula `WHERE` **no** son buenas candidatas a columnas de hash porque limitan las distribuciones de participan en la consulta. Por lo general, si tiene dos tablas de datos de gran tamaño suelen están implicadas en una combinación, muy a menudo la distribución se realizará en una de las columnas de combinación. Si tiene una tabla que nunca se combina con otra tabla de datos de gran tamaño, examine las columnas que se encuentran con frecuencia en la cláusula `GROUP BY`. A menos que no encuentre una columna que sea buena candidata que distribuya los datos uniformemente, normalmente beneficiará a las consultas que se seleccione una columna de distribución, en lugar de utilizar la distribución Round Robin predeterminada.
 
 
 ## Solución de problemas de asimetría de datos
@@ -171,7 +179,7 @@ Una manera sencilla de identificar una tabla como sesgada es usar `DBCC PDW_SHOW
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado. Para empezar, cree la vista [dbo.vTableSizes][] mediante la instrucción SQL del artículo [Overview of tables in SQL Data Warehouse][Overview] \(Información general de tablas en Almacenamiento de datos SQL). Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
+Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado. Para empezar, cree la vista [dbo.vTableSizes][] mediante la instrucción SQL del artículo sobre [información general de tablas][Overview]. Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
 
 ```sql
 select *
@@ -222,14 +230,14 @@ OPTION  (LABEL  = 'CTAS : FactInternetSales_CustomerKey')
 ;
 
 --Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_CustomerKey] \([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_CustomerKey] \([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_CustomerKey] \([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_CustomerKey] \([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_CustomerKey] \([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] \([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] \([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] \([SalesAmount]);
+CREATE STATISTICS [ProductKey] ON [FactInternetSales_CustomerKey] ([ProductKey]);
+CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_CustomerKey] ([OrderDateKey]);
+CREATE STATISTICS [CustomerKey] ON [FactInternetSales_CustomerKey] ([CustomerKey]);
+CREATE STATISTICS [PromotionKey] ON [FactInternetSales_CustomerKey] ([PromotionKey]);
+CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_CustomerKey] ([SalesOrderNumber]);
+CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] ([OrderQuantity]);
+CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] ([UnitPrice]);
+CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] ([SalesAmount]);
 
 --Rename the tables
 RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
@@ -262,14 +270,14 @@ OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
 ;
 
 --Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] \([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] \([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] \([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] \([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] \([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] \([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] \([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] \([SalesAmount]);
+CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] ([ProductKey]);
+CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] ([OrderDateKey]);
+CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] ([CustomerKey]);
+CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] ([PromotionKey]);
+CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] ([SalesOrderNumber]);
+CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuantity]);
+CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
+CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
 
 --Rename the tables
 RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
@@ -278,7 +286,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Pasos siguientes
 
-Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [Índice][], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary]. Paras obtener información general acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
+Para más información acerca del diseño de tablas, consulte los artículos acerca de la [distribución][], el [índice][], la [partición][], los [tipos de datos][], las [estadísticas][] y las [tablas temporales][Temporary]. Paras obtener información general acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][].
 
 
 <!--Image references-->
@@ -304,4 +312,4 @@ Para más información acerca del diseño de tablas, consulte los artículos ace
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

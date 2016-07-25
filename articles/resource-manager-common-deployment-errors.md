@@ -1,12 +1,13 @@
 <properties
    pageTitle="Solución de errores comunes de implementación de Azure | Microsoft Azure"
-   description="Describe cómo resolver errores comunes durante la implementación con Azure Resource Manager."
+   description="Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="error de implementación, implementación de Azure, implementar en Azure"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,12 +15,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="07/06/2016"
    ms.author="tomfitz"/>
 
-# Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager
+# Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
-En este tema se describe cómo resolver algunos errores comunes que puede encontrarse al implementar recursos en Azure. Si necesita más información sobre el motivo del error de implementación, consulte primero [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md) y, luego, vuelva a este artículo con el fin de obtener ayuda para solucionar el error.
+En este tema se describe cómo resolver algunos errores comunes con los que puede encontrarse al realizar una implementación de Azure. Si necesita más información sobre el motivo del error de implementación, consulte primero [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md) y luego vuelva a este artículo con el fin de obtener ayuda para solucionar el error.
 
 ## Plantilla o recurso no válidos
 
@@ -34,9 +35,9 @@ En función de si el carácter que falta está ubicado en la plantilla, recibir�
 ## El nombre del recurso ya existe o ya lo utiliza otro recurso
 
 Para algunos recursos, sobre todo cuentas de almacenamiento, servidores de base de datos y sitios web, debe proporcionar un nombre para el recurso que sea único en todo Azure. Puede crear un nombre único concatenando la convención de nomenclatura con el resultado de la función [uniqueString](resource-group-template-functions.md#uniquestring).
- 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
-    "type": "Microsoft.Storage/storageAccounts", 
+
+    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
+    "type": "Microsoft.Storage/storageAccounts",
 
 ## No se encuentra el recurso durante la implementación
 
@@ -54,7 +55,7 @@ Cuando es posible, Resource Manager optimiza la implementación mediante la crea
 
 ## No se pudo encontrar el miembro 'copy' en el objeto
 
-Este error se produce cuando se ha aplicado el elemento **copy** a una parte de la plantilla que no lo admite. Solo se puede aplicar el elemento copy a un tipo de recurso. No se puede aplicar el elemento copy a una propiedad de un tipo de recurso. Por ejemplo, puede aplicar el elemento copy a una máquina virtual, pero no puede aplicarlo a los discos del sistema operativo de una máquina virtual. En algunos casos, puede convertir un recurso secundario en un recurso primario para crear un bucle del elemento copy. Para más información sobre cómo usar este elemento, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
+Este error se produce cuando se ha aplicado el elemento **copy** a una parte de la plantilla que no lo admite. Solo se puede aplicar el elemento copy a un tipo de recurso. No se puede aplicar el elemento copy a una propiedad de un tipo de recurso. Por ejemplo, puede aplicar el elemento copy a una máquina virtual, pero no puede aplicarlo a los discos del sistema operativo de una máquina virtual. En algunos casos, puede convertir un recurso secundario en un recurso primario para crear un bucle del elemento copy. Para obtener más información sobre cómo usar este elemento, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
 
 ## SKU no disponible
 
@@ -65,18 +66,18 @@ Al implementar un recurso (normalmente una máquina virtual), puede recibir el s
 
 Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejemplo, el tamaño de máquina virtual) no está disponible para la ubicación seleccionada. Tiene dos opciones para resolver este problema:
 
-1.	Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz de usuario. A medida que establezca los valores, verá las SKU disponibles para ese recurso. 
+1.	Inicie sesión en el portal y agregue un nuevo recurso a través de la interfaz de usuario. A medida que establezca los valores, verá las SKU disponibles para ese recurso.
 
     ![sku disponibles](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-2.	Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga sus necesidades empresariales, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
+2.	Si no puede encontrar una SKU adecuada en esa región ni en ninguna región alternativa que satisfaga las necesidades de su negocio, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 
 ## No se encontró el proveedor registrado
 
 Al implementar recursos, puede recibir el siguiente código y mensaje de error:
 
-    Dode: NoRegisteredProviderFound
+    Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
 
 Recibirá este error por uno de estos tres motivos:
@@ -89,11 +90,11 @@ El mensaje de error debería proporcionarle sugerencias con respecto a las versi
 
 ### PowerShell
 
-Para ver su estado de registro, use **Get-AzureRmResourceProvider**.
+Para ver el estado de su registro, use **Get-AzureRmResourceProvider**.
 
     Get-AzureRmResourceProvider -ListAvailable
 
-Para registrar un proveedor, use **Register-AzureRmResourceProvider** y proporcione el nombre del proveedor de recursos que desea registrar.
+Para registrar un proveedor, use **Register-AzureRmResourceProvider** e indique el nombre del proveedor de recursos que desea registrar.
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
@@ -110,7 +111,7 @@ Para conocer las versiones de API admitidas para un tipo determinado de recurso,
 Para ver si el proveedor está registrado, utilice el comando `azure provider list`.
 
     azure provider list
-        
+
 Para registrar un proveedor de recursos, use el comando `azure provider register` y especifique el *espacio de nombres* que desea registrar.
 
     azure provider register Microsoft.Cdn
@@ -118,17 +119,17 @@ Para registrar un proveedor de recursos, use el comando `azure provider register
 Para ver las ubicaciones y las versiones de API admitidas por un proveedor de recursos, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
-    
+
 ## Cuota superada
 
 Podría tener problemas cuando una implementación supera una cuota, lo que podría suceder por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si intenta implementar una máquina virtual con más núcleos que la cantidad permitida, recibirá un error que indica que se ha superado la cuota. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md).
 
-Para examinar las cuotas de su suscripción respecto a núcleos, puede usar el comando `azure vm list-usage` en la CLI de Azure. En el siguiente ejemplo se muestra que la cuota de núcleos para una cuenta de evaluación gratuita es 4:
+Para examinar las cuotas de núcleos de su suscripción, puede usar el comando `azure vm list-usage` en la CLI de Azure. En el siguiente ejemplo se muestra que la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
     azure vm list-usage
-    
+
 Que devuelve:
-    
+
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
@@ -142,10 +143,10 @@ Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en 
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
-O bien, en PowerShell, puede emplear el cmdlet **Get-AzureRmVMUsage**.
+O bien en PowerShell, puede emplear el cmdlet **Get-AzureRmVMUsage**.
 
     Get-AzureRmVMUsage
-    
+
 Que devuelve:
 
     ...
@@ -167,41 +168,41 @@ En estos casos, debe ir al portal y archivar un problema de soporte técnico par
 
 Puede recibir un error durante la implementación porque la cuenta o la entidad de servicio que intenta implementar los recursos no tiene acceso para realizar esas acciones. Azure Active Directory permite al usuario o al administrador controlar qué identidades pueden acceder a qué recursos con un alto grado de precisión. Por ejemplo, si su cuenta se asigna al rol Lector, no podrá crear nuevos recursos. En ese caso, debería ver un mensaje de error que indica que hubo un error de autorización.
 
-Para más información sobre el control de acceso basado en roles, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
+Para obtener más información sobre el control de acceso basado en roles, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
 
-Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+Además del control de acceso basado en roles, las acciones de implementación pueden estar limitadas por las directivas de la suscripción. A través de directivas, el administrador puede exigir convenciones en todos los recursos implementados en la suscripción. Por ejemplo, un administrador puede requerir que se proporcione un valor de etiqueta específico para un tipo de recurso. Si no ha cumplido los requisitos de la directiva, recibirá un error durante la implementación. Para obtener más información sobre las directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
-## Solución de problemas con máquinas virtuales 
+## Solución de problemas con máquinas virtuales
 
 | Error | Artículos |
 | -------- | ----------- |
-| Errores de extensión de script personalizado | [Errores de extensión de máquina virtual Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />o<br />[Errores de extensión de máquina virtual Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) | 
-| Errores de aprovisionamiento de imágenes de sistema operativo | [Errores de la nueva máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />o<br />[Errores de la nueva máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) | 
-| Errores de asignación | [Errores de asignación de máquina virtual Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />o<br />[Errores de asignación de máquina virtual Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) | 
-| Errores de Secure Shell (SSH) al intentar conectarse | [Conexiones de Secure Shell a máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) | 
-| Errores de conexión a una aplicación que se ejecuta en una máquina virtual | [Aplicación que se ejecuta en una máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />o<br />[Aplicación que se ejecuta en una máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) | 
-| Errores de conexión del Escritorio remoto | [Conexiones del Escritorio remoto a máquinas virtuales Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) | 
-| Errores de conexión resueltos mediante la repetición de la implementación | [Nueva implementación de la máquina virtual en un nuevo nodo de Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) | 
-| Errores de servicio en la nube | [Problemas de implementación de servicio en la nube](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) | 
+| Errores de extensión de script personalizado | [Errores de extensión de máquina virtual Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />o<br />[Errores de extensión de máquina virtual Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
+| Errores de aprovisionamiento de imágenes de sistema operativo | [Errores de la nueva máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />o<br />[Errores de la nueva máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
+| Errores de asignación | [Errores de asignación de máquina virtual Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />o<br />[Errores de asignación de máquina virtual Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
+| Errores de Secure Shell (SSH) al intentar conectarse | [Conexiones de Secure Shell a máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
+| Errores de conexión a una aplicación que se ejecuta en una máquina virtual | [Aplicación que se ejecuta en una máquina virtual Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />o<br />[Aplicación que se ejecuta en una máquina virtual Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
+| Errores de conexión del Escritorio remoto | [Conexiones del Escritorio remoto a máquinas virtuales Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
+| Errores de conexión resueltos mediante la repetición de la implementación | [Nueva implementación de la máquina virtual en un nuevo nodo de Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
+| Errores de servicio en la nube | [Problemas de implementación de servicio en la nube](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
-## Solución de problemas con otros servicios 
+## Solución de problemas con otros servicios
 
 La tabla siguiente no es una lista completa de temas de solución de problemas de Azure. En su lugar, se centra en los problemas relacionados con la implementación o la configuración de recursos. Si necesita ayuda para solucionar problemas de tiempo de ejecución con un recurso, consulte la documentación de ese servicio de Azure.
 
 | Servicio | Artículo |
 | -------- | -------- |
-| Automatización | [Sugerencias para la solución de problemas para errores comunes de Automatización de Azure](./automation/automation-troubleshooting-automation-errors.md) | 
-| Azure Stack | [Solución de problemas de Microsoft Azure Stack](./azure-stack/azure-stack-troubleshooting.md) | 
-| Azure Stack | [Aplicaciones Web y Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) | 
-| Factoría de datos | [Solución de problemas de la factoría de datos](./data-factory/data-factory-troubleshoot.md) | 
-| Service Fabric | [Solución de problemas comunes al implementar servicios en Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) | 
+| Automatización | [Sugerencias para la solución de problemas para errores comunes de Automatización de Azure](./automation/automation-troubleshooting-automation-errors.md) |
+| Azure Stack | [Solución de problemas de Microsoft Azure Stack](./azure-stack/azure-stack-troubleshooting.md) |
+| Azure Stack | [Aplicaciones Web y Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
+| Factoría de datos | [Solución de problemas de la factoría de datos](./data-factory/data-factory-troubleshoot.md) |
+| Service Fabric | [Solución de problemas comunes al implementar servicios en Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Recuperación de sitios | [Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Almacenamiento | [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple | [Solución de problemas de implementación de dispositivos de StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) | 
-| Base de datos SQL | [Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) | 
-| Almacenamiento de datos SQL | [Solución de problemas de Almacenamiento de datos SQL de Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) | 
+| StorSimple | [Solución de problemas de implementación de dispositivos de StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) |
+| Base de datos SQL | [Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
+| Almacenamiento de datos SQL | [Solución de problemas de Almacenamiento de datos SQL de Azure](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
-## Comprensión de cuándo una implementación está lista 
+## Comprensión de cuándo una implementación está lista
 
 Azure Resource Manager notifica que una implementación se realizó correctamente cuando todos los proveedores regresan de la implementación correctamente. Sin embargo, tenga en cuenta que esto no significa necesariamente que el grupo de recursos esté "activo y listo para sus usuarios". Por ejemplo, una implementación puede que necesite descargar actualizaciones, esperar en otros recursos que no son plantillas o instalar complejos scripts o alguna otra actividad ejecutable que Azure no conoce porque no es una actividad de la que un proveedor esté realizando seguimiento. En estos casos, puede trascurrir algo de tiempo antes de que los recursos estén disponibles para su utilización por parte de todos los usuarios. Por ello, debe esperar a cierto tiempo tras la confirmación del estado de implementación antes de que la implementación se pueda utilizar realmente.
 
@@ -209,7 +210,7 @@ Sin embargo, puede evitar que Azure informe de que la implementación se produjo
 
 ## Pasos siguientes
 
-- Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Resolución de errores comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-troubleshoot-deployments-portal.md).
+- Para obtener más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
+- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

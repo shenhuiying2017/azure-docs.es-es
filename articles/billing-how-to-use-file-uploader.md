@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="07/13/2016"
 	ms.author="genli"/>
 
 # Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
@@ -30,7 +30,7 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 - No se puede cargar más de un archivo.
 - Los archivos no pueden ser superiores a 4 MB.
 
-## Tabla de extensiones de nombre de archivo
+## Tabla de las extensiones de nombre de archivo permitidas
 
 | 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -63,4 +63,4 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

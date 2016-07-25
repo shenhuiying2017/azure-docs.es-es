@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/28/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
 
@@ -112,7 +112,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -126,7 +126,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\HomeController.cs*.
+1. Abra *Controllers\\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -268,7 +268,7 @@ Una aplicación de ASP.NET que se ejecuta en una aplicación web de Azure puede 
 La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Registros de servidor web**<br/>  
 El servidor web crea una entrada de registro para cada solicitud HTTP a la aplicación web.
-* **Registros de mensajes de error detallados**<br/> El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las que generan el código de error 400 o superior). 
+* **Registros de mensajes de error detallados**<br/> El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las que generan el código de error 400 o superior).
 * **Registros de seguimiento de solicitudes con error**<br/> El servidor web crea un archivo XML con información de seguimiento detallada para solicitudes HTTP con error. El servidor web también proporciona un archivo XSL para dar formato al XML en un explorador.
   
 El registro afecta el rendimiento de la aplicación web, por lo que Azure le ofrece la posibilidad de habilitar o deshabilitar cada tipo de registro según sea necesario. En el caso de registros de aplicaciones, puede especificar que solo se escriban los registros por encima de un determinado nivel de gravedad. Cuando crea una aplicación web, todos los registros están deshabilitados de manera predeterminada.
@@ -281,7 +281,7 @@ En esta sección realizará las siguientes tareas:
 
 * Agregue instrucciones de seguimiento para el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 * Ver los registros cuando ejecute localmente el proyecto.
-* Ver los registros a medida que los genera la aplicación que se ejecuta en Azure. 
+* Ver los registros a medida que los genera la aplicación que se ejecuta en Azure.
 
 Para obtener información acerca de cómo crear registros de aplicaciones en WebJobs, consulte [Trabajo con el almacenamiento de cola de Azure mediante el SDK de WebJobs - Cómo escribir registros](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs). Las instrucciones siguientes para ver los registros y controlar cómo se almacenan en Azure se aplican también a los registros de aplicación creados por WebJobs.
 
@@ -351,7 +351,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 3. Presione CTRL+F5 para ejecutar la aplicación.
 
-4. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, a continuación, presione Entrar (la dirección URL será similar a http://localhost:53370/trace.axd)).
+4. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y después presione Entrar (la dirección URL será similar a http://localhost:53370/trace.axd).
 
 5. En la página **Seguimiento de la aplicación**, haga clic en **Ver detalles** en la primera línea (no en la línea BrowserLink).
 
@@ -495,9 +495,9 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 	![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
-	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
-	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
+	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\\Application*.
+	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\\http\\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\\DetailedErrors*.
 
 	(La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).
 
@@ -523,7 +523,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 ![Crear una cuenta de almacenamiento](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento. 
+3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
 
 	El nombre debe ser único (ninguna otra cuenta de almacenamiento de Azure puede tener el mismo nombre). Si el nombre especificado ya está en uso, tendrá la oportunidad de cambiarlo.
 
@@ -618,7 +618,7 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 
 	![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	Cuando **inicie sesión**, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
+	**Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\\myid".
 
 5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
 
@@ -650,7 +650,7 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 Ha visto cómo Visual Studio facilita la visualización de registros creados por una aplicación web de Azure. Las secciones siguientes proporcionan vínculos a más recursos sobre temas relacionados:
 
 * Solución de problemas de las aplicaciones web de Azure
-* Depuración en Visual Studio 
+* Depuración en Visual Studio
 * Depuración remota en Azure
 * Seguimiento en aplicaciones de ASP.NET
 * Análisis de registros de servidor web
@@ -733,4 +733,4 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

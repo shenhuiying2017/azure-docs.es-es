@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Exploración de los registros de seguimiento de Java en Application Insights
@@ -136,9 +136,9 @@ Los appenders de Application Insights pueden hacer referencia a cualquier regist
 
 ## En el portal de Application Insights, explore los seguimientos.
 
-Ahora que ha configurado el proyecto para enviar el seguimiento a Application Insights, puede ver y buscar estos seguimientos en el portal de Application Insights, en la hoja [Búsqueda de diagnóstico][diagnostic].
+Ahora que ha configurado el proyecto para enviar el seguimiento a Application Insights, puede ver y buscar estos seguimientos en el portal de Application Insights, en la hoja [Búsqueda][diagnostic].
 
-![En el portal de Application Insights, abra la búsqueda de diagnóstico.](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![En el portal de Application Insights, abra Búsqueda.](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Pasos siguientes
 
@@ -151,4 +151,4 @@ Ahora que ha configurado el proyecto para enviar el seguimiento a Application In
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure
 
@@ -28,7 +28,7 @@ El siguiente diagrama ilustra algunas de las características clave de la autent
 
 * Preprocesa las solicitudes entrantes de API, lo que significa que funciona con cualquier lenguaje o marco admitido por el Servicio de aplicaciones.
 * Le ofrece varias opciones para elegir cuánto trabajo de autenticación desea realizar en su propio código.
-* Funciona para la autenticación tanto del usuario final como de la cuenta de servicio. 
+* Funciona para la autenticación tanto del usuario final como de la cuenta de servicio.
 * Admite cinco proveedores de identidades: Azure Active Directory, Facebook, Google, Twitter y cuenta de Microsoft.
 * Funciona igual para Aplicaciones de API, Aplicaciones Web y Aplicaciones móviles.
 
@@ -94,12 +94,12 @@ Para más información sobre cómo controlar la autenticación desde clientes m�
 Para más información sobre la autenticación y la autorización del Servicio de aplicaciones de Azure, consulte los siguientes recursos:
 
 * [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) (Expansión de la autenticación/autorización del Servicio de aplicaciones)
-* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Cómo configurar la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory), con vínculos a otros proveedores de autenticación en la parte superior de la página. 
+* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Cómo configurar la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory), con vínculos a otros proveedores de autenticación en la parte superior de la página.
 
 Para obtener más información sobre OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT), consulte los siguientes recursos.
 
-* [Introducción a OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Introducción a OAuth 2.0") 
-* [Introducción a OAuth2, OpenID Connect y JSON Web Tokens (JWT): curso de PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Introducción a OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Introducción a OAuth 2.0")
+* [Introducción a OAuth2, OpenID Connect y JSON Web Tokens (JWT): curso de PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction)
 * [Cómo compilar una API de RESTful API y garantizar su seguridad para varios clientes en ASP.NET: curso de PluralSight](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 Para más información acerca de Azure Active Directory, consulte los siguientes recursos.
@@ -112,4 +112,4 @@ Para más información acerca de Azure Active Directory, consulte los siguientes
 
 En este artículo se han explicado las características de autenticación y autorización del Servicio de aplicaciones que puede utilizar para las aplicaciones de API. En el siguiente tutorial de la serie de introducción, aprenderá a implementar la [autenticación de usuario para aplicaciones de API del Servicio de aplicaciones](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

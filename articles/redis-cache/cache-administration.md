@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Administración de la Caché en Redis de Azure
@@ -80,7 +80,7 @@ Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar
 
 ### ¿Puedo reiniciar la caché con PowerShell, CLI u otras herramientas de administración?
 
-Por ahora no, pero esta funcionalidad estará disponible próximamente.
+Sí. Para más información sobre las instrucciones de PowerShell consulte la sección [Reinicio de una caché en Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### ¿Con qué planes de tarifa se puede usar la funcionalidad de reinicio?
 
@@ -116,4 +116,4 @@ La programación de actualizaciones solo está disponible en el plan de tarifa P
 
 -	Explore más características del [nivel premium de Caché en Redis de Azure](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

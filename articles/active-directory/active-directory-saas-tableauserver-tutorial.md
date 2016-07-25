@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,7 +25,7 @@ Integrar Tableau Server con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a Tableau Server.
 - Puede permitir que los usuarios inicien sesión automáticamente en Tableau Server (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@ Para configurar la integración de Tableau Server en Azure AD, será preciso que
 
 **Para agregar Tableau Server desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
  
 	![Active Directory][1]
 
@@ -189,7 +189,7 @@ La aplicación Tableau Server espera las aserciones de SAML en un formato concre
 
 	b. Active la casilla de **Use SAML for single sign-on** (Usar SAML para inicio de sesión único).
 
-	c. Busque el archivo de metadatos de federación descargado desde el Portal de administración de Azure y después cárguelo en el **SAML Idp metadata file** (Archivo de metadatos de Idp SAML).
+	c. Busque el archivo de metadatos de federación descargado desde el Portal de Azure clásico y después cárguelo en el **SAML Idp metadata file** (Archivo de metadatos de Idp SAML).
 
 	d. Tableau Server return URL (URL de retorno de Tableau Server): es la URL a la que accederán los usuarios de Tableau Server, como http://tableau_server. No se recomienda usar http://localhost. No se admiten direcciones URL que tengan una barra diagonal final (por ejemplo, http://tableau_server/). Copie el valor de **Tableau Server return URL** y péguelo en el cuadro de texto **URL de inicio de sesión**, tal como se muestra en el paso 3.
 
@@ -341,4 +341,4 @@ Al hacer clic en el icono de Tableau Server en el panel de acceso, debería inic
 [204]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

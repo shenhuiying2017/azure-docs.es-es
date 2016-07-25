@@ -92,9 +92,9 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 
 |Comando|Descripción|
 |-------|-----------|
-|[ALTER DATABASE (Base de datos SQL de Azure)]https://msdn.microsoft.com/es-ES/library/mt574871.aspx)|Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos|
-|[ALTER DATABASE (Base de datos SQL de Azure)]https://msdn.microsoft.com/es-ES/library/mt574871.aspx)|Se utiliza FAILOVER o FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error
-|[ALTER DATABASE (Base de datos SQL de Azure)]https://msdn.microsoft.com/es-ES/library/mt574871.aspx)|Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una Base de datos SQL y la base de datos secundaria especificada.|
+|[ALTER DATABASE (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Se utiliza el argumento ADD SECONDARY ON SERVER a fin de crear una base de datos secundaria para una base de datos existente e iniciar la replicación de datos|
+|[ALTER DATABASE (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Se utiliza FAILOVER o FORCE\_FAILOVER\_ALLOW\_DATA\_LOSS para cambiar una base de datos de secundaria a principal e iniciar la conmutación por error
+|[ALTER DATABASE (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt574871.aspx)|Se utiliza REMOVE SECONDARY ON SERVER para finalizar una replicación de datos entre una Base de datos SQL y la base de datos secundaria especificada.|
 |[sys.geo\_replication\_links (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt575501.aspx)|Devuelve información sobre todos los vínculos de replicación existentes para cada base de datos del servidor lógico de Base de datos SQL de Azure.|
 |[sys.dm\_geo\_replication\_link\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/mt575504.aspx)|Obtiene la hora de la última replicación, el retraso de la última replicación y otro tipo de información sobre el vínculo de replicación para una Base de datos SQL determinada.|
 |[sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx)|Muestra el estado de todas las operaciones de base de datos, incluido el estado de los vínculos de replicación.|
@@ -116,7 +116,7 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 
 |API|Descripción|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, actualiza o restaura una base de datos principal o secundaria.|
+|[Crear o actualizar base de datos (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Crea, actualiza o restaura una base de datos principal o secundaria.|
 |[Obtener el estado de creación o actualización de la base de datos](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Devuelve el estado durante una operación de creación.|
 |[Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx)|Promueve una base de datos secundaria en una asociación de replicación geográfica para convertirla en la nueva base de datos principal.|
 |[Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://msdn.microsoft.com/library/azure/mt582027.aspx)|Forzar una conmutación por error a la base de datos secundaria y establecer la base de datos secundaria como principal.|
@@ -128,10 +128,10 @@ Como se dijo anteriormente, además del Portal de Azure, la replicación geográ
 
 ## Pasos siguientes
 
-- Para obtener una descripción general de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
-- Para más información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
-- Para más información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
-- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md)
-- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo sobre [copia de bases de datos](sql-database-copy.md)
+- Para ver una introducción a la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md).
+- Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+- Para más información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad empresarial de Base de datos SQL de Microsoft Azure](sql-database-business-continuity-scenarios.md).
+- Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
+- Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo sobre [Copia de una Base de datos SQL de Azure](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

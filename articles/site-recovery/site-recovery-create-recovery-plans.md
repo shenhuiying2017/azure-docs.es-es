@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/01/2016" 
+	ms.date="07/08/2016" 
 	ms.author="raynew"/>
 
 # Creación de planes de recuperación
@@ -73,10 +73,10 @@ Los planes de recuperación se crean como se indica a continuación:
 
 1. Haga clic en la pestaña **Planes de recuperación** > **Crear plan de recuperación**. Especifique un nombre para el plan de recuperación y un origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación.
 
-	- Si va a realizar la replicación de VMM a VMM, seleccione **Tipo de origen** > **VMM** y los servidores VMM de origen y destino. Haga clic en **Hyper-V** para ver las nubes configuradas para usar réplica de Hyper-V. 
+	- Si va a realizar la replicación de VMM a VMM, seleccione **Tipo de origen** > **VMM** y los servidores VMM de origen y destino. Haga clic en **Hyper-V** para ver las nubes configuradas para usar réplica de Hyper-V.
 	- Si va a realizar la replicación de VMM a VMM con SAN, seleccione **Tipo de origen** > **VMM** y los servidores VMM de origen y destino. Haga clic en **SAN** para ver las nubes configuradas para la replicación de SAN.
 	- Si va a realizar la replicación de VMM a Azure, seleccione **Tipo de origen** > **VMM**. Seleccione el servidor VMM de origen y **Azure** como destino.
-	- Si va a realizar la replicación de un sitio Hyper-V, seleccione **Tipo de origen** > **Sitio Hyper-V**. Seleccione el sitio como origen y **Azure **como destino.
+	- Si va a realizar la replicación de un sitio Hyper-V, seleccione **Tipo de origen** > **Sitio Hyper-V**. Seleccione el sitio como origen y **Azure** como destino.
 	- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
 
 2. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desea agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
@@ -115,7 +115,7 @@ El plan de recuperación se puede extender mediante la ejecución de un runbook 
 1. Abra el plan de recuperación que desea personalizar.
 2. Haga clic en él para agregar una máquina virtual o un grupo nuevos.
 3. Para agregar un script o una acción manual, haga clic en cualquiera de los elementos de la lista **Paso** y, a continuación, haga clic en **Script** o **Acción manual**. Especifique si desea agregar el script o la acción antes o después del elemento seleccionado. Utilice los botones de comando **Subir** y **Bajar** para mover la posición del script hacia arriba o hacia abajo.
-4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique la ruta de acceso: \\RPScripts\\RPScript.PS1.
+4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \\<NombreDeServidorVMM>\\MSSCVMMLibrary\\RPScripts, especifique la ruta de acceso: \\RPScripts\\RPScript.PS1.
 5. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Automatización de Azure ** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure**.
 5. Realice una conmutación por error del plan de recuperación para asegurarse de que el script funciona según lo previsto.
 
@@ -127,4 +127,4 @@ Puede ejecutar diferentes tipos de planes de recuperación de conmutaciones por 
 
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0713_2016-->

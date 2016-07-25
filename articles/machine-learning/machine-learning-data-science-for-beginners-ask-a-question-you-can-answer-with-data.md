@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Realización de preguntas que pueden responderse con datos: ciencia de datos para principiantes | Microsoft Azure"
+   pageTitle="Realización de preguntas que pueden responderse con datos - formular preguntas | Microsoft Azure"
    description="Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión."
    keywords="elegir una pregunta,preguntas de ciencias de datos,formular pregunta,formular preguntas,preguntas de regresión,preguntas de clasificación,pregunta directa"
    services="machine-learning"
@@ -17,7 +17,7 @@
    ms.date="06/28/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ciencia de datos para principiantes, vídeo 3: Realización de preguntas que pueden responderse con datos 
+# Ciencia de datos para principiantes, vídeo 3: Realización de preguntas que pueden responderse con datos
 
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
@@ -99,4 +99,4 @@ Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para pr
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

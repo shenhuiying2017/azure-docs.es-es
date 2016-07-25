@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/07/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con ScreenSteps
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para ScreenSteps:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **ScreenSteps**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **ScreenSteps**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configurar inicio de sesión único")
 
@@ -110,12 +110,12 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Extremo de autenticación remota](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Extremo de autenticación remota")
 
-    1.  En el Portal de Azure AD, en la página de diálogo **Configurar inicio de sesión único en ScreenSteps**, copie el valor de la **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Remote Login URL (dirección URL de inicio de sesión remoto)**.
-    2.  En el Portal de Azure AD, en la página de diálogo **Configurar inicio de sesión único en ScreenSteps**, copie el valor de la **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión remoto**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ScreenSteps**, copie el valor de la **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión remoto**.
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ScreenSteps**, copie el valor de la **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **URL de cierre de sesión**.
     3.  Haga clic en **Elegir un archivo** y luego cargue el certificado descargado.
     4.  Haga clic en **Actualizar**.
 
-11. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-screensteps-tutorial/IC778542.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -140,7 +140,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en **ScreenSteps**, d
 
 5.  Desde la lista **Rol de usuario**, seleccione un rol para el usuario.
 
-6.  En la sección de Rol de usuario, escriba el "**Nombre**, **Apellido**, **Correo electrónico**, **Inicio de sesión**, **Contraseña** y **Confirmación de contraseña**" de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
+6.  En la sección de Rol de usuario, escriba el **nombre**, los **apellidos**, el **correo electrónico**, el **inicio de sesión**, la **contraseña** y la **confirmación de contraseña** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
 
     ![Nuevo usuario](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Nuevo usuario")
 
@@ -156,7 +156,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a ScreenSteps, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **ScreenSteps**, haga clic en **Asignar usuarios**.
 
@@ -168,4 +168,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

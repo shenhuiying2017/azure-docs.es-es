@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante el Servicio de aplicaciones de Microsoft Azure." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Integración de empresas con transformaciones XML
@@ -34,28 +34,24 @@ Cuando cargue la transformación en la cuenta de integración, podrá emplearla 
 
 ### Requisitos previos 
 En la versión preliminar, tendrá que llevar a cabo estos pasos:
+
 -  [Crear un contenedor de Funciones de Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Creación de un contenedor de Funciones de Azure").
+-  [Agregar una función al contenedor de Funciones de Azure.](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Esta plantilla crea una función de Azure de C# basada en webhooks con funcionalidades de transformación que se utilizarán en escenarios de integración de Aplicaciones lógicas.")
+-  Crear una cuenta de integración y agregarle una asignación.
 
-
->[AZURE.TIP] Anote el nombre del contenedor de Funciones de Azure, ya que lo necesitará en el paso siguiente.
-
-
--  [Agregar una función al contenedor de Funciones de Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Esta plantilla crea una función de Azure de C# basada en webhooks con funcionalidades de transformación que se utilizarán en escenarios de integración de Aplicaciones lógicas.").
-
-
->[AZURE.TIP] Anote el nombre de la función, ya que lo necesitará en el paso siguiente.
+>[AZURE.TIP] Anote el nombre del contenedor de Funciones de Azure y el de la función de Azure, ya que los necesitará en el paso siguiente.
 
 Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplicación lógica:
 
-1. Crear una Aplicación lógica y [vincularla a la cuenta de integración](./app-service-logic-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica.") que contenga la transformación.
-2. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la Aplicación lógica. ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
-3. Agregue la acción **Transform XML** (Transformar XML) seleccionando primero **Agregar una acción**. ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
-4. Escriba la palabra *transform* en el cuadro de búsqueda para filtrar todas las acciones que quiera usar. ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
-5. Elija la acción **Transform XML** (Transformar XML). ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)
-6. Seleccione el **contenedor de funciones** que incluya la función que vaya a utilizar. Este es el nombre del contenedor de Funciones de Azure que creó anteriormente en estos pasos.
-7. Seleccione la **función** que quiera utilizar. Este es el nombre de la Función de Azure que creó anteriormente.
-8. Agregue el **contenido** XML que vaya a transformar. Tenga en cuenta que puede usar cualquier dato XML que reciba en la solicitud HTTP como el **contenido**. En este ejemplo, seleccione el cuerpo de la solicitud HTTP que desencadenó la Aplicación lógica.
-9. Seleccione el nombre de la **asignación** que quiera usar para realizar la transformación. La asignación ya debe estar en la cuenta de integración. En el paso anterior, ya concedió a la Aplicación lógica acceso a la cuenta de integración que contiene la asignación.
+1. Cree una aplicación lógica y [vincúlela a la cuenta de integración](./app-service-logic-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica.") que contenga la asignación.
+2. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica.![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
+3. Agregue la acción **Transform XML** (Transformar XML) seleccionando primero **Agregar una acción**.![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
+4. Escriba la palabra *transform* en el cuadro de búsqueda para filtrar todas las acciones que quiera usar.![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
+5. Seleccione la acción **Transform XML** (Transformar XML).![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)
+6. Seleccione el **CONTENEDOR DE FUNCIONES** que incluya la función que vaya a utilizar. Este es el nombre del contenedor de Funciones de Azure que creó anteriormente en estos pasos.
+7. Seleccione la **FUNCIÓN** que quiera utilizar. Este es el nombre de la Función de Azure que creó anteriormente.
+8. Agregue el **CONTENIDO** XML que vaya a transformar. Tenga en cuenta que puede usar cualquier dato XML que reciba en la solicitud HTTP como valor de **CONTENIDO**. En este ejemplo, seleccione el cuerpo de la solicitud HTTP que desencadenó la Aplicación lógica.
+9. Seleccione el nombre de la **ASIGNACIÓN** que quiera usar para realizar la transformación. La asignación ya debe estar en la cuenta de integración. En el paso anterior, ya concedió a la Aplicación lógica acceso a la cuenta de integración que contiene la asignación.
 10. Guarde el trabajo. ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png)
 
 En este momento, ya ha terminado de configurar su asignación. En una aplicación real, puede almacenar los datos transformados en una aplicación LOB como SalesForce. Puede agregar fácilmente una acción para enviar el resultado de la transformación a Salesforce.
@@ -75,6 +71,7 @@ Ahora puede probar la transformación realizando una solicitud al punto de conex
 
 ## Más información
 - [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
+- [Más información sobre las asignaciones](./app-service-logic-enterprise-integration-maps.md "Información sobre las asignaciones de integración de empresas")
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

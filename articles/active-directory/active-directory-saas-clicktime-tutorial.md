@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con ClickTime
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para ClickTime:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clicktime-tutorial/IC700993.png "Active Directory")
 
@@ -66,11 +66,11 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en ClickTime con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere cargar un certificado codificado en base 64 en el inquilino de ClickTime. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
->[AZURE.IMPORTANT]Para poder configurar el inicio de sesión único en el inquilino de ClickTime, deberá ponerse en contacto primero con el soporte técnico de ClickTime para habilitar esta característica.
+>[AZURE.IMPORTANT] Para poder configurar el inicio de sesión único en el inquilino de ClickTime, deberá ponerse en contacto primero con el soporte técnico de ClickTime para habilitar esta característica.
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **ClickTime**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **ClickTime**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Habilitar inicio de sesión único](./media/active-directory-saas-clicktime-tutorial/IC777277.png "Habilitar inicio de sesión único")
 
@@ -91,15 +91,15 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Configuración de seguridad](./media/active-directory-saas-clicktime-tutorial/IC777280.png "Configuración de seguridad")
 
     1.  Seleccione **Permitir** el inicio de sesión mediante inicio de sesión único (SSO) con **OneLogin**.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en ClickTime**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión de proveedor de identidades**.
-    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ClickTime**, copie el valor de **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Punto de conexión de proveedor de identidades**.
+    3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Abra el certificado codificado en base 64 en el **Bloc de notas**, copie el contenido y, a continuación, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509).
     5.  Haga clic en **Guardar**.
 
-7.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+7.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-clicktime-tutorial/IC777281.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -123,13 +123,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en ClickTime, deben a
     ![Contactos](./media/active-directory-saas-clicktime-tutorial/IC777284.png "Contactos")
 
     1.  En el cuadro de texto **dirección de correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Azure AD.
-    2.  En el cuadro de texto **nombre completo**, escriba el nombre de la cuenta de Azure AD.  
+    2.  En el cuadro de texto **nombre completo**, escriba el nombre de la cuenta de Azure AD.
 
-        >[AZURE.NOTE]Si lo desea, puede establecer propiedades adicionales del nuevo objeto persona.
+        >[AZURE.NOTE] Si lo desea, puede establecer propiedades adicionales del nuevo objeto persona.
 
     3.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ClickTime ofrecida por ClickTime para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ClickTime ofrecida por ClickTime para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -137,9 +137,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a ClickTime, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
-2.  En la página de integración de aplicaciones de **ClickTime **, haga clic en **Asignar usuarios**.
+2.  En la página de integración de aplicaciones de **ClickTime**, haga clic en **Asignar usuarios**.
 
     ![Asignar usuarios](./media/active-directory-saas-clicktime-tutorial/IC777285.png "Asignar usuarios")
 
@@ -149,4 +149,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

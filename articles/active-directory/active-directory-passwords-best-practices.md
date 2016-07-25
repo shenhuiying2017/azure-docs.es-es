@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de aprendizaje para la administración de contraseñas en Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure"
+	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de aprendizaje para la administración de contraseñas en Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
+
+> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+
 Después de habilitar el restablecimiento de contraseña, la siguiente tarea es conseguir que los usuarios de su organización utilicen este servicio. Para ello, deberá asegurarse de que los usuarios están configurados para usar el servicio correctamente y también de que los usuarios tienen la formación que necesitan para administrar correctamente sus propias contraseñas. En este artículo se explican los conceptos siguientes:
 
 * [**Configuración de los usuarios para la Administración de contraseñas**](#how-to-get-users-configured-for-password-reset)
@@ -84,7 +87,7 @@ Muchos de nuestros clientes más grandes eligen crear una entrada DNS raíz, com
 Para comenzar aquí, hemos creado una página sencilla que usa los últimos paradigmas de diseño UI que funcionan, y que sirve para todos los exploradores y dispositivos móviles.
 
   ![][007]
-  
+
 Puede [descargar la plantilla del sitio web aquí](https://github.com/kenhoff/password-reset-page). Se recomienda personalizar el logotipo y los colores de acuerdo con las necesidades de su organización.
 
 ### Uso del registro exigido
@@ -112,12 +115,12 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 1.	Diríjase a su directorio en la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.	Haga clic en la pestaña **Usuarios**.
 3.	Seleccione en la lista el usuario que le interese.
-4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña. 
+4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña.
 
     ![][005]
 
 5.	Haga clic en la pestaña **Información laboral**.
-6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña. 
+6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña.
 
     ![][006]
 
@@ -134,7 +137,7 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -153,4 +156,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

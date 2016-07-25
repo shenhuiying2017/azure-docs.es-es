@@ -34,6 +34,8 @@ Hive comprende cómo trabajar con datos estructurados y semiestructurados, como 
 
 Hive también puede extenderse a través de **funciones definidas por el usuario (UDF)**. Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL. Para obtener un ejemplo del uso de UDF con Hive, vea lo siguiente:
 
+* [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md) (Uso de una función de Java definida por el usuario con Hive)
+
 * [Uso de Python con Hive y Pig en HDInsight](hdinsight-python.md)
 
 * [Uso de C# con Hive y Pig en HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
@@ -46,7 +48,7 @@ Hive también puede extenderse a través de **funciones definidas por el usuario
 Existen determinados aspectos que debe conocer en relación con la tabla interna y externa de Hive:
 
 - El comando **CREATE TABLE** crea una tabla interna. El archivo de datos debe ubicarse en el contenedor predeterminado.
-- El comando **CREATE TABLE** mueve el archivo de datos a la carpeta /hive/warehouse/<TableName>.
+- El comando **CREATE TABLE** mueve el archivo de datos a la carpeta /hive/warehouse/<NombreDeTabla>.
 - El comando **CREATE EXTERNAL TABLE** crea una tabla externa. El archivo de datos puede estar ubicado fuera del contenedor predeterminado.
 - El comando **CREATE EXTERNAL TABLE** no mueve el archivo de datos.
 - El comando **CREATE EXTERNAL TABLE** no permite ninguna carpeta en LOCATION. Este es el motivo por el que el tutorial hace una copia del archivo sample.log.
@@ -70,7 +72,7 @@ Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HD
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/sample.log** desde HiveQL.
 
-> [AZURE.NOTE] La sintaxis, **wasb:///**, se usa para acceder a los archivos almacenados en el contenedor de almacenamiento predeterminado del clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] La sintaxis, **wasb:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabajo de ejemplo: proyectar columnas en datos delimitados
 
@@ -85,7 +87,7 @@ Las siguientes instrucciones de HiveQL proyectarán columnas en datos delimitado
 
 En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguientes:
 
-* __set hive.execution.engine=tez;__: establece el motor de ejecución para usar Tez. Si se utiliza Tez en lugar de MapReduce, se puede mejorar el rendimiento de las consultas. Para obtener más información sobre Tez, consulte la sección [Use Apache Tez para un mejor rendimiento](#usetez).
+* __set hive.execution.engine=tez;__: establece el motor de ejecución para usar Tez. Si se utiliza Tez en lugar de MapReduce, se puede mejorar el rendimiento de las consultas. Para más información sobre Tez, consulte la sección [Use Apache Tez para un mejor rendimiento](#usetez).
 
     > [AZURE.NOTE] Esta instrucción solo es necesaria si se utiliza un clúster de HDInsight basado en Windows; Tez es el motor de ejecución predeterminado para HDInsight basado en Linux.
 
@@ -212,4 +214,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

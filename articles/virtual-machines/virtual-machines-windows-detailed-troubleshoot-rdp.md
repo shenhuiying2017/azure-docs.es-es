@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Solución de problemas detallada de Escritorio remoto | Microsoft Azure"
-	description="Pasos de solución de problemas detallada para las conexiones de RDP a una máquina virtual de Azure con Windows."
+	pageTitle="Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows | Microsoft Azure"
+	description="Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"
+	keywords="no se puede conectar a un escritorio remoto, solucionar problemas de escritorio remoto, no puede conectarse a escritorio remoto, errores de escritorio remotos, solución de problemas de escritorio remoto, problemas de escritorio remoto"/>
 
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/07/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Solución de problemas detallada de conexiones de Escritorio remoto a máquinas virtuales de Azure basadas en Windows
+# Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows
 
 Este artículo ofrece pasos detallados de solución de problemas para diagnosticar y corregir errores complejos de Escritorio remoto en máquinas virtuales de Azure basadas en Windows.
 
@@ -113,7 +114,15 @@ Para comprobar si el punto de conexión es la causa del problema, quite el punto
 
 ### <a id="nsgs"></a>Causa 4: Grupos de seguridad de red
 
-Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet.
+Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet:
+
+- En el Portal de Azure, seleccione la máquina virtual.
+- Haga clic en **Toda la configuración** | **Interfaces de red** y seleccione la interfaz de red.
+- Haga clic en **Toda la configuración** | **Grupo de seguridad de red** y seleccione el grupo de seguridad de red.
+- Haga clic en **Toda la configuración** | **Reglas de seguridad de entrada** y asegúrese de que tiene una regla que permita RDP en el puerto 3389 de TCP.
+	- Si no tiene una regla, haga clic en **Agregar** para crear una. Escriba **TCP** para el protocolo y **3389** para el intervalo de puertos de destino.
+	- Asegúrese de que la acción se establece en **Permitir** y haga clic en Aceptar para guardar la nueva regla de entrada.
+
 
 Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 
@@ -139,7 +148,7 @@ A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [
 
 Después, abra un símbolo del sistema de Azure PowerShell y cambie la carpeta actual a la ubicación del archivo de script **InstallWinRMCertAzureVM.ps1**. Para ejecutar un script de Azure PowerShell, debe establecer la directiva de ejecución correcta. Ejecute el comando **Get-ExecutionPolicy** para determinar el nivel de directiva actual. Para obtener información sobre cómo establecer el nivel adecuado, vea [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-A continuación, rellene su nombre de suscripción a Azure, el nombre del servicio en la nube y el nombre de la máquina virtual (quitando los caracteres < and >) y ejecute estos comandos.
+A continuación, rellene su nombre de suscripción a Azure, el nombre del servicio en la nube y el nombre de la máquina virtual (quitando los caracteres < y >) y ejecute estos comandos.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -195,4 +204,4 @@ Compruebe que el punto de conexión de Escritorio remoto para la máquina virtua
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

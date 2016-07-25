@@ -28,6 +28,11 @@ La biblioteca de cliente de Java para Centros de eventos está disponible para s
 	<artifactId>azure-eventhubs</artifactId>
 	<version>0.7.2</version>
 </dependency>
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs-eph</artifactId>
+	<version>0.7.2</version>
+</dependency>
 ```
  
 Para los diferentes tipos de entornos de compilación, puede obtener explícitamente los archivos JAR publicados más recientemente en el [repositorio central de Maven][Maven Package] o en el [punto de distribución de versiones en GitHub](https://github.com/Azure/azure-event-hubs/releases).
@@ -193,4 +198,4 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

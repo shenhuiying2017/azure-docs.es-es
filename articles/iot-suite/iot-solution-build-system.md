@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 
 # Compilación e implementación de la solución MyDriving en su entorno
@@ -149,7 +149,7 @@ Si tiene problemas al compilar, pruebe las soluciones para las diferentes peculi
 
 -   *La aplicación Android no se compila*:
 
-    -   Abra **Herramientas** > **Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
+    -   Abra **Herramientas** > ** Android** > **Android SDK Manager** (Administrador de SKD de Android) y asegúrese de que instaló la plataforma Android 6 (API 23)/SDK.
 
     -   Elimine este directorio y luego recompile:<br/> `%LocalAppData%\Xamarin\zips`
 
@@ -462,4 +462,4 @@ Esperamos sus noticias.
 
 Se recomienda la lectura de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), donde se describe de manera detallada el diseño del sistema y sus componentes.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

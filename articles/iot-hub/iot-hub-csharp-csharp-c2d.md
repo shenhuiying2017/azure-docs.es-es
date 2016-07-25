@@ -77,7 +77,7 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
 
         ReceiveC2dAsync();
 
-> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
+> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
 
 ## Envío de un mensaje de nube a dispositivo desde el back-end de la aplicación
 
@@ -169,22 +169,15 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
 
     ![Aplicación que recibe el mensaje][22]
 
-> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] \(Control de errores transitorios).
+> [AZURE.NOTE] Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling] (Control de errores transitorios).
 
 ## Pasos siguientes
 
-En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. Puede seguir explorando las características del Centro de IoT y los distintos escenarios con los tutoriales siguientes:
+En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo.
 
-- [Procesamiento de mensajes de dispositivo a la nube] muestra cómo procesar de forma confiable la telemetría y los mensajes interactivos procedentes de los dispositivos.
-- [Carga de archivos desde dispositivos], describe un patrón que usa los mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+Para ver ejemplos de soluciones completas de un extremo a otro que usen el Centro de IoT, consulte [Documentación del Conjunto de aplicaciones de IoT].
 
-Información adicional sobre el centro de IoT:
-
-* [Información general sobre el centro de IoT]
-* [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el centro de IoT]
-* [Lenguajes y plataformas de dispositivos compatibles]
-* [Centro para desarrolladores de Azure]
+Para más información sobre cómo desarrollar soluciones con el Centro de IoT, consulte la [Guía del desarrollador del Centro de IoT de Azure].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -198,17 +191,11 @@ Información adicional sobre el centro de IoT:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Procesamiento de mensajes de dispositivo a la nube]: iot-hub-csharp-csharp-process-d2c.md
-[Carga de archivos desde dispositivos]: iot-hub-csharp-csharp-file-upload.md
-
-[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el centro de IoT]: iot-hub-guidance.md
-[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
-[Lenguajes y plataformas de dispositivos compatibles]: iot-hub-supported-devices.md
+[Guía del desarrollador del Centro de IoT de Azure]: iot-hub-devguide.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introducción al Centro de IoT de Azure para .NET]: iot-hub-csharp-csharp-getstarted.md
-[Centro para desarrolladores de Azure]: http://www.azure.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -54,7 +54,7 @@ Antes de ejecutar este ejemplo, debe haber completado los pasos de [Introducció
 
 Para iniciar el ejemplo, debe ejecutar ```jobClient_devicePropertyReadWrite.js```. Así se leen las propiedades del dispositivo tanto del dispositivo gemelo como del dispositivo físico. También cambia una propiedad del dispositivo en el dispositivo físico. Para iniciar el ejemplo, siga los pasos que se indican a continuación:
 
-1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya al directorio **azure-iot-sdks/node/service/samples**.  
+1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya al directorio **azure-iot-sdks/node/service/samples**.
 
 2.  Abra **jobClient\_devicePropertyReadWrite.js** y reemplace el marcador de posición por su cadena de conexión del Centro de IoT.
 
@@ -92,7 +92,7 @@ Las propiedades del servicio, que solo se almacenan en el dispositivo gemelo, se
 
 ### Lectura profunda
 
-Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos de dispositivos se presentaron en [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-dm-overview] y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] \(Tutorial: Uso de trabajos de dispositivos para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
+Una lectura profunda inicia un trabajo del dispositivo para leer el valor de la propiedad solicitada desde el dispositivo físico. Los trabajos de dispositivos se presentaron en [Introducción a la administración de dispositivos de Centro de IoT de Azure][lnk-dm-overview] y se describen detalladamente en [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs] (Tutorial: Uso de trabajos de dispositivos para actualizar el firmware del dispositivo). La lectura profunda le proporcionará un valor más actualizado de la propiedad del dispositivo, porque la actualización no está limitada por el intervalo de notificación. El trabajo envía un mensaje al dispositivo físico y actualiza el dispositivo gemelo con el valor más reciente solo para la propiedad especificada. No actualiza todo el dispositivo gemelo.
 
 ```
 scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
@@ -102,7 +102,7 @@ No puede hacer una lectura profunda de las propiedades del servicio o etiquetas,
 
 ### Escritura profunda
 
-Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para ver una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] \(Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
+Si desea cambiar una propiedad del dispositivo grabable, puede hacerlo con una escritura profunda que inicie un trabajo de dispositivo para escribir el valor en el dispositivo físico. No todas las propiedades de dispositivo se pueden grabar. Para ver una lista completa, consulte el apéndice A de [Introducing the Azure IoT Hub device management client library][lnk-dm-library] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
 
 El trabajo envía un mensaje al dispositivo físico para actualizar la propiedad especificada. El dispositivo gemelo no se actualiza inmediatamente al finalizar el trabajo. Debe esperar a l siguiente intervalo de notificación. Una vez que se produzca la sincronización, podrá ver el cambio en el dispositivo gemelo con una lectura superficial.
 
@@ -121,17 +121,24 @@ int level = get_batterylevel();  // call to platform specific code
 set_device_batterylevel(0, level);
 ```
 
-En lugar de utilizar el método set, puede implementar una devolución de llamada. Para obtener más información sobre esta opción, consulte [Introducing the Azure IoT Hub device management library][lnk-dm-library] \(Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
+En lugar de utilizar el método set, puede implementar una devolución de llamada. Para obtener más información sobre esta opción, consulte [Introducing the Azure IoT Hub device management library][lnk-dm-library] (Introducción a la biblioteca de administración de dispositivos del Centro de IoT de Azure).
 
 ## Pasos siguientes
 
 Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
 
 - [How to find device twins using queries (Búsqueda de dispositivos gemelos mediante consultas)][lnk-tutorial-queries]
-
-- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-dm-jobs]
-
+- [How to use device jobs to update device firmware (Uso de trabajos de dispositivos para actualizar el firmware del dispositivo)][lnk-tutorial-jobs]
+- [Habilitación de los dispositivos administrados detrás de una puerta de enlace de IoT][lnk-dm-gateway]
+- [Introducción a la biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure][lnk-library-c]
 - Las bibliotecas de cliente de administración de dispositivos proporcionan un ejemplo de un extremo a otro mediante un [dispositivo Intel Edison][lnk-edison].
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
@@ -145,4 +152,14 @@ Para más información acerca de las características de administración de disp
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

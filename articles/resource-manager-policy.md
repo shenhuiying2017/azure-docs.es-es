@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -131,7 +131,7 @@ Actualmente, los alias admitidos son:
 
 | Nombre de alias | Descripción |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Los tipos de recursos que se admiten son: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis y <br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | El tipo de recurso admitido es Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -155,9 +155,9 @@ La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
 
 - Deny genera un evento en el registro de auditoría y se produce un error en la solicitud
 - Audit genera un evento en el registro de auditoría pero no producirá un error en la solicitud
-- Append agrega el conjunto de campos definido a la solicitud 
+- Append agrega el conjunto de campos definido a la solicitud
 
-En el caso de **append**, debe proporcionar los detalles como se muestra a continuación:
+En el caso de **append**, debe dar los detalles como se muestra a continuación:
 
     ....
     "effect": "append",
@@ -468,4 +468,4 @@ Para ver todos los eventos relacionados con el efecto de auditoría, puede usar 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

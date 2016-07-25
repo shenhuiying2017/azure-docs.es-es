@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Tipos de runbooks de Automatización de Azure"
-   description="Describe los distintos tipos de runbooks que puede usar en la Automatización de Azure y las consideraciones que debe tener en cuenta al determinar qué tipo usar."
+   description="Describe los distintos tipos de Runbooks que puede usar en la Automatización de Azure y las consideraciones que debe tener en cuenta al determinar qué tipo usar. "
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/31/2016"
+   ms.date="07/06/2016"
    ms.author="bwren" />
 
 # Tipos de runbooks de Automatización de Azure
@@ -52,7 +52,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell. Puede modificar
 
 ### Ventajas
 
-- Implemente toda la lógica compleja con código de PowerShell sin las complejidades adicionales de flujo de trabajo de PowerShell. 
+- Implemente toda la lógica compleja con código de PowerShell sin las complejidades adicionales de flujo de trabajo de PowerShell.
 - El runbook se inicia con más rapidez que los runbooks gráficos o de flujo de trabajo de PowerShell, ya que no es necesario compilarlos antes de la ejecución.
 
 ### Limitaciones
@@ -67,7 +67,7 @@ A continuación se describen los problemas conocidos actuales con runbooks de Po
 
 - Los runbooks de PowerShell no pueden recuperar un [activo de variables](automation-variables.md) sin cifrar con un valor null.
 - Los runbooks de PowerShell no pueden recuperar un [activo de variables](automation-variables.md) con *~* en el nombre.
-- Get-Process en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones. 
+- Get-Process en un bucle de un runbook de PowerShell puede bloquearse después de más de 80 iteraciones.
 - Un runbook de PowerShell puede producir un error si se intenta escribir una gran cantidad de datos en el flujo de salida a la vez. Se puede evitar este problema si se genera únicamente la información que se necesita al trabajar con objetos grandes. Por ejemplo, en lugar de generar un elemento *Get-Process*, puede generar simplemente los campos obligatorios con *Get-Process | Select ProcessName, CPU*.
 
 ## Runbooks del flujo de trabajo de PowerShell
@@ -102,6 +102,6 @@ Se deben tener en cuenta las siguientes consideraciones adicionales al determina
 
 - Para más información sobre la creación de runbooks de gráficos, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 - Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md).
-- Para más información sobre cómo crear o importar un runbook, consulte [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md).
+- Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](automation-creating-importing-runbook.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

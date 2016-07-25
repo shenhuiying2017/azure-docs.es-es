@@ -20,7 +20,7 @@
 
 # Procedimiento para registrar, comprar, actualizar o activar Azure
 
-Azure proporciona diversas ofertas que se adaptan a las necesidades de su negocio y le permiten comenzar a trabajar con Azure. Visite [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) para obtener una lista completa de todas las ofertas activas con detalles sobre cada oferta: qué abarca, beneficios y disponibilidad por país o región.
+Azure brinda varias ofertas que se adaptan a las necesidades de su negocio y le permiten comenzar a trabajar con Azure. Visite [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) para obtener una lista completa de todas las ofertas activas con detalles sobre cada oferta: qué abarca, beneficios y disponibilidad por país o región.
 
 ## Ofertas de Azure: ventajas y límites
 
@@ -90,4 +90,4 @@ Si compró créditos de Azure bajo licencia Open a un revendedor y obtuvo una cl
 
 3. Escriba la clave de producto y active la opción de contrato.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

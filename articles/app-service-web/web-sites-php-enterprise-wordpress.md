@@ -1,10 +1,10 @@
 <properties
-	pageTitle="WordPress de clase empresarial en el Servicio de aplicaciones de Azure"
+	pageTitle="WordPress de clase empresarial en el Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="Obtenga información sobre cómo hospedar un sitio web de WordPress de clase empresarial en el Servicio de aplicaciones de Azure"
 	services="app-service\web"
 	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="01/26/2016"
-	ms.author="robmcm"/>
+	ms.date="07/06/2016"
+	ms.author="sumuth"/>
 
-#WordPress de clase empresarial en el Servicio de aplicaciones de Azure
+# WordPress de clase empresarial en el Servicio de aplicaciones de Azure
 
 El Servicio de aplicaciones de Azure proporciona un entorno escalable, seguro y fácil de usar para sitios de [WordPress][wordpress] críticos y a gran escala. El propio Microsoft ejecuta sitios de clase empresarial como los blogs de [Office][officeblog] y [Bing][bingblog]. Este documento muestra cómo puede usar Aplicaciones web del Servicio de aplicaciones de Azure para establecer y mantener un sitio de WordPress basado en la nube y de clase empresarial que pueda administrar un gran volumen de visitantes.
 
@@ -32,7 +32,7 @@ Una instalación básica de WordPress solamente tiene dos requisitos.
 
 	> [AZURE.NOTE] Le recomendamos ejecutar siempre la versión más reciente de PHP para asegurarse de que dispone de las correcciones de seguridad más actuales.
 
-###Implementación básica
+### Implementación básica
 
 Usando simplemente los requisitos básicos, podría crear una solución básica dentro de una región de Azure.
 
@@ -41,7 +41,7 @@ Usando simplemente los requisitos básicos, podría crear una solución básica 
 Aunque esto podría permitirle escalar la aplicación horizontalmente creando varias instancias de Aplicaciones web del sitio, todo se hospeda dentro de los centros de datos en una región geográfica específica. Los visitantes que se encuentran fuera de esta región pueden experimentar tiempos de respuesta lentos cuando usen el sitio y si los centros de datos de esta región dejan de funcionar, también lo hará su aplicación.
 
 
-###Implementación en varias regiones
+### Implementación en varias regiones
 
 Mediante el [Administrador de tráfico de Azure][trafficmanager], es posible escalar su sitio de WordPress en varias regiones geográficas proporcionando solamente una dirección URL para los visitantes. Todos los visitantes entran a través del Administrador de tráfico y, después, se les dirige a una región en función de la configuración del equilibrio de carga.
 
@@ -51,7 +51,7 @@ Dentro de cada región, el sitio de WordPress se seguiría escalando entre varia
 
 La replicación y el enrutamiento a varias bases de datos MySQL se pueden hacer usando el [enrutador de alta disponibilidad CDBR][cleardbscale] de ClearDB (mostrado la izquierda) o [MySQL Cluster CGE][cge].
 
-###Implementación en varias regiones con almacenamiento multimedia y almacenamiento en caché
+### Implementación en varias regiones con almacenamiento multimedia y almacenamiento en caché
 
 Si el sitio va a aceptar cargas u hospedar archivos multimedia, use almacenamiento de blogs de Azure. Si necesita almacenamiento en caché, plantéese el uso de [Caché en Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](https://azure.microsoft.com/gallery/store/).
 
@@ -59,9 +59,9 @@ Si el sitio va a aceptar cargas u hospedar archivos multimedia, use almacenamien
 
 De forma predeterminada, el almacenamiento de blobs se distribuye geográficamente entre regiones, por lo que no tiene que preocuparse por la replicación de archivos entre todos los sitios. También puede habilitar la [Red de entrega de contenido (CDN)][cdn] de Azure para almacenamientos de blobs, que distribuye archivos a los nodos extremo más próximos a los visitantes.
 
-###Planificación
+### Planificación
 
-####Requisitos adicionales
+#### Requisitos adicionales
 
 Para hacer esto... | Use esto...
 ------------------------|-----------
@@ -73,14 +73,14 @@ Para hacer esto... | Use esto...
 **Supervisión y solución de problemas** | [Habilitación del registro de diagnóstico para Aplicaciones web en el Servicio de aplicaciones de Azure][log] y [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure][monitor]
 **Implementación de su sitio** | [Implementar una aplicación web en el Servicio de aplicaciones de Azure][deploy]
 
-####Disponibilidad y recuperación ante desastres
+#### Disponibilidad y recuperación ante desastres
 
 Para hacer esto... | Use esto...
 ------------------------|-----------
 **Sitios de equilibrio de carga** o **sitios distribuidos geográficamente** | [Enrutamiento del tráfico con el Administrador de tráfico de Azure][trafficmanager]
 **Copia de seguridad y restauración** | [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure][backup] y [Restauración de una aplicación web en el Servicio de aplicaciones de Azure][restore]
 
-####Rendimiento
+#### Rendimiento
 
 El rendimiento en la nube se logra principalmente mediante almacenamiento en caché y escalamiento horizontal; sin embargo, la memoria, el ancho de banda y otros atributos del hospedaje de Aplicaciones web también debe tenerse en cuenta.
 
@@ -90,7 +90,7 @@ Para hacer esto... | Use esto...
 **Almacenar recursos en caché** | [Caché en Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) o una de las otras ofertas de almacenamiento en caché de la [Tienda de Azure](/gallery/store/)
 **Escalar su aplicación** | [Escalar una aplicación web en Servicio de aplicaciones de Azure][websitescale] y [Enrutamiento de alta disponibilidad de ClearDB][cleardbscale] Si opta por hospedar y administrar su propia instalación de MySQL, debe plantearse el uso de [CGE de MySQL Cluster][cge] para escalado horizontal
 
-####Migración
+#### Migración
 
 Existen dos métodos para migrar un sitio de WordPress existente a Servicio de aplicaciones de Azure.
 
@@ -120,7 +120,7 @@ Como se mencionó en la sección [Arquitectura y planificación](#planning), hay
 
 Use una de las siguientes secciones para migrar el sitio.
 
-####Método de exportación e importación
+#### Método de exportación e importación
 
 1. Use la [exportación de WordPress][export] para exportar el sitio existente.
 
@@ -145,7 +145,7 @@ Si usaba esto... | Haga esto...
 **Temas** | Vaya a **Apariencia** -> **Tema** y actualice el tema del sitio según corresponda
 **Menús** | Si el tema admite menús, los vínculos a la página principal todavía pueden tener el subdirectorio antiguo incrustado en ellos. Vaya a **Apariencia** -> **Menús** y actualícelos
 
-####Método de copia de seguridad y restauración
+#### Método de copia de seguridad y restauración
 
 1. Haga una copia de seguridad del sitio de WordPress existente usando la información que se encuentra en [Copias de seguridad de WordPress][wordpressbackup].
 
@@ -177,17 +177,17 @@ Si usaba esto... | Haga esto...
 
 5. Una vez implementado el sitio de WordPress, debiera poder tener acceso al sitio nuevo (como una aplicación web del Servicio de aplicaciones) usando la dirección URL *.azurewebsite.net correspondiente al sitio.
 
-###Configuración del sitio
+### Configuración del sitio
 
 Después de crear o migrar el sitio de WordPress, use la siguiente información para mejorar el rendimiento o habilitar funcionalidades adicionales.
 
 Para hacer esto... | Use esto...
 ------------- | -----------
 **Establecer el tamaño y el modo del plan de Servicio de aplicaciones y habilitar el escalado** | [Escalación de una aplicación web en el Servicio de aplicaciones de Azure][websitescale]
-**Habilitar las conexiones de base de datos persistentes** <p>De manera predeterminada, WordPress no utiliza las conexiones de base de datos persistentes, lo cual puede provocar que la conexión a la base de datos se vea limitada después de varias conexiones.</p> | <ol><li><p>Edite el archivo <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Busque la línea siguiente.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Reemplace la línea anterior por la siguiente.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Reemplace la línea anterior por la siguiente.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Guarde el archivo <strong>wp-includes/wp-db.php</strong> y vuelva a implementar el sitio.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Estos cambios se pueden sobrescribir cuando se actualiza WordPress.</p><p>WordPress tiene activadas las actualizaciones automáticas de manera predeterminada, que se pueden deshabilitar editando el archivo <strong>wp-config.php</strong> y agregando el código <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Otra forma de administrar las actualizaciones sería usar un WebJob que supervise el archivo <strong>wp-db.php</strong> y realice las modificaciones anteriores cada vez que se actualiza el archivo. Consulte <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Introducción a WebJobs</a> para obtener más información.</p></div>
-**Mejorar el rendimiento** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Deshabilitar la cookie ARR</a>: es posible mejorar el rendimiento cuando se ejecute WordPress en varias instancias de Aplicaciones web</p></li><li><p>Activación del almacenamiento en caché. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Caché de Redis</a> (vista previa) se puede utilizar con el <a href="https://wordpress.org/plugins/redis-object-cache/">Complemento de WordPress para caché de objeto de Redis</a>, o bien se puede utilizar otra de las ofertas de caché de la <a href="/gallery/store/">Tienda de Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Cómo hacer que WordPress funcione más rápido con Wincache</a> - Wincache está habilitado de forma predeterminada para Aplicaciones web</p></li><li><p><a href="../web-sites-scale/">Escale su aplicación web de Azure en el Servicio de aplicaciones de Azure</a> y utilice el <a href="http://www.cleardb.com/developers/cdbr/introduction">Enrutamiento de alta disponibilidad de ClearDB</a> o el <a href="http://www.mysql.com/products/cluster/">CGE de MySQL Cluster</a></p></li></ul>
-**Usar blobs para almacenamiento** | <ol><li><p><a href="../storage-create-storage-account/">Crear una cuenta de Almacenamiento de Azure</a></p></li><li><p>Aprenda a <a href="../cdn-how-to-use/">Usar la red de distribución de contenido (CDN)</a> para distribuir geográficamente los datos almacenados en blobs.</p></li><li><p>Instale y configure el <a href="https://wordpress.org/plugins/windows-azure-storage/">Complemento del Almacenamiento de Azure para WordPress</a>.</p><p>Para ver información detallada de instalación y configuración para el complemento, consulte la <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guía de usuario</a>.</p> </li></ol>
-**Habilitar correo electrónico** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Habilitar SendGrid mediante la Tienda Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Instale el complemento de SendGrid para WordPress</a></p></li></ol>
+**Habilitar las conexiones de base de datos persistentes** <p>De manera predeterminada, WordPress no utiliza las conexiones de base de datos persistentes, lo cual puede provocar que la conexión a la base de datos se vea limitada después de varias conexiones.</p> | <ol><li><p>Edite el archivo <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Busque la línea siguiente.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Reemplace la línea anterior por la siguiente.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Reemplace la línea anterior por la siguiente.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Guarde el archivo <strong>wp-includes/wp-db.php</strong> y vuelva a implementar el sitio.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Estos cambios se pueden sobrescribir cuando se actualiza WordPress.</p><p>WordPress tiene activadas las actualizaciones automáticas de manera predeterminada, que se pueden deshabilitar editando el archivo <strong>wp-config.php</strong> y agregando el código <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Otra forma de administrar las actualizaciones sería usar un WebJob que supervise el archivo <strong>wp-db.php</strong> y realice las modificaciones anteriores cada vez que se actualiza el archivo. Vea [Introducción a WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx) para obtener más información.</p></div>
+**Mejorar el rendimiento** | <ul><li><p>[Deshabilitar la cookie ARR](http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx): es posible mejorar el rendimiento cuando se ejecute WordPress en varias instancias de Aplicaciones web</p></li><li><p>Activación del almacenamiento en caché. [Caché de Redis](http://msdn.microsoft.com/library/azure/dn690470.aspx) se puede usar con el [Complemento de WordPress para caché de objeto de Redis](https://wordpress.org/plugins/redis-object-cache/), o bien se puede usar otra de las ofertas de caché de la [Tienda de Azure](/gallery/store/)</p></li><li><p>[Cómo hacer que WordPress funcione más rápido con Wincache](http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/): Wincache está habilitado de forma predeterminada para Aplicaciones web</p></li><li><p>[Escale una aplicación web en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-scale.md) y use el [Enrutamiento de alta disponibilidad de ClearDB](http://www.cleardb.com/developers/cdbr/introduction) o el [CGE de MySQL Cluster](http://www.mysql.com/products/cluster/)</p></li></ul>
+**Usar blobs para almacenamiento** | <ol><li><p>[Crear una cuenta de Almacenamiento de Azure](../storage/storage-create-storage-account.md)</p></li><li><p>Obtenga información sobre cómo [Usar la red de distribución de contenido (CDN)][cdn] para distribuir geográficamente los datos almacenados en blobs.</p></li><li><p>Instalar y configurar el [Complemento del Almacenamiento de Azure para WordPress](https://wordpress.org/plugins/windows-azure-storage/).</p><p>Para ver información detallada de la instalación y configuración del complemento, vea la [guía de usuario](http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx).</p> </li></ol>
+**Habilitar correo electrónico** | <ol><li><p>[Habilitar SendGrid mediante la Tienda Azure](/gallery/store/sendgrid/sendgrid-azure/)</p></li><li><p>[Instalar el complemento de SendGrid para WordPress](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)</p></li></ol>
 **Configuración de un nombre de dominio personalizado** | [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure][customdomain]
 **Habilitar HTTPS para un nombre de dominio personalizado** | [Habilitar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure][httpscustomdomain]
 **Equilibrio de carga o distribución geográfica para el sitio** | [Enrutamiento del tráfico con el Administrador de tráfico de Azure][trafficmanager]. Si está usando un dominio personalizado, consulte [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure][customdomain] para obtener información sobre el uso de Administrador de tráfico con nombres de dominio personalizados
@@ -235,7 +235,9 @@ Para hacer esto... | Use esto...
 >[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+
+<!-- URL List -->
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -260,8 +262,8 @@ Para hacer esto... | Use esto...
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -276,10 +278,9 @@ Para hacer esto... | Use esto...
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
-[posh]: ../install-configure-powershell.md
+[posh]: ../powershell-install-configure.md
 [Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: ../cdn-how-to-use.md
- 
+[cdn]: ../cdn/cdn-overview.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -20,7 +20,7 @@
 
 ## Introducción
 
-El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Otros tutoriales ([Introducción al Centro de IoT de Azure para .NET] y [Envío de mensajes de nube a dispositivo con el Centro de IoT]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo del Centro de IoT.
+El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Otros tutoriales ([Introducción al Centro de IoT de Azure para .NET] y [Envío de mensajes de nube a dispositivo con el Centro de IoT][lnk-c2d]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo del Centro de IoT.
 
 Este tutorial se basa en el código que se muestra en el tutorial [Introducción al Centro de IoT de Azure para .NET] y muestra dos patrones escalables que se pueden usar para procesar mensajes de dispositivo a nube:
 
@@ -108,14 +108,14 @@ La aplicación utiliza la característica de desduplicación del Bus de servicio
 
 Para tener la seguridad de que no se reenvía ningún mensaje fuera de la ventana de desduplicación, el código sincroniza el mecanismo de ejecución de puntos de control de la clase **EventProcessorHost** con la ventana de desduplicación de cola del Bus de servicio. Para ello, se fuerza un punto de control al menos una vez cada vez que transcurre una ventana de tiempo de desduplicación (en este tutorial, una hora).
 
-> [AZURE.NOTE] En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio] para más información sobre cómo utilizar las colas del Bus de servicio para cumplir los requisitos de escalabilidad de su solución.
+> [AZURE.NOTE] En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio de Azure] para más información sobre cómo utilizar las colas del Bus de servicio para cumplir los requisitos de escalabilidad de su solución.
 
 ### Aprovisionamiento de una cuenta de almacenamiento de Azure y una cola del Bus de servicio
 Para poder utilizar la clase [EventProcessorHost], debe tener una cuenta de Almacenamiento de Azure que permita que la clase **EventProcessorHost** registre la información del punto de control. Puede utilizar una cuenta de almacenamiento que ya exista o seguir las instrucciones que se indican en [Acerca de las cuentas de almacenamiento de Azure] para crear una nueva. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
 
 > [AZURE.NOTE] Al copiar y pegar la cadena de conexión de la cuenta de almacenamiento, asegúrese de que no contenga ningún espacio.
 
-También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de una hora, tal y como se explica en [Utilización de las colas del Bus de servicio][Service Bus queue]. Como alternativa, puede usar el [Portal de Azure clásico] siguiendo estos pasos:
+También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de una hora, tal y como se explica en [Utilización de las colas del Bus de servicio][Service Bus queue]. Como alternativa, puede usar el [Portal de Azure clásico][lnk-classic-portal] siguiendo estos pasos:
 
 1. Haga clic en la opción **Nuevo** de la esquina inferior izquierda. Después, haga clic en **Servicios de aplicaciones** > **Bus de servicio** > **Cola** > **Creación personalizada**. Escriba el nombre **d2ctutorial**, seleccione una región y use un espacio de nombres existente o cree uno nuevo. En la siguiente página, seleccione **Habilitar detección de duplicados**, y establezca el valor de **Período de tiempo de historial de detección de duplicados** en una hora. Haga clic en la marca de verificación de la esquina inferior derecha para guardar la configuración de la cola.
 
@@ -396,24 +396,15 @@ Ya está preparado para ejecutar las aplicaciones.
 
 En este tutorial, ha aprendido a procesar de manera confiable mensajes de dispositivo a nube interactivos y de punto de datos mediante la clase [EventProcessorHost].
 
-El tutorial [Cómo cargar archivos desde dispositivos a la nube con un centro de IoT] se basa en este tutorial utilizando la lógica de procesamiento de mensaje análoga. También describe un patrón que usa mensajes de nube a dispositivo para facilitar la carga de archivos desde los dispositivos.
+El [Tutorial: procesamiento de mensajes de dispositivo a la nube del Centro de IoT][lnk-c2d] muestra cómo enviar mensajes a los dispositivos desde el back-end.
 
-Información adicional sobre el centro de IoT:
+Para ver ejemplos de soluciones completas de un extremo a otro que usen el Centro de IoT, consulte [Documentación del Conjunto de aplicaciones de IoT][lnk-suite].
 
-* [Información general sobre el centro de IoT]
-* [Guía del desarrollador del centro de IoT]
-* [Directrices sobre el centro de IoT]
-* [Lenguajes y plataformas de dispositivos compatibles][Supported devices]
-* [Centro para desarrolladores de Azure]
+Para más información sobre cómo desarrollar soluciones con el Centro de IoT, consulte la [Guía del desarrollador del Centro de IoT de Azure].
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-[12]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp3.png
-
-[20]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage1.png
-[21]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage2.png
-[22]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage3.png
 
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
@@ -426,24 +417,16 @@ Información adicional sobre el centro de IoT:
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [cola del Bus de servicio]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-
-
 
 [Guía del desarrollador del Centro de IoT de Azure - Dispositivo a nube]: iot-hub-devguide.md#d2c
 
 [Almacenamiento de Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Bus de servicio de Azure]: https://azure.microsoft.com/documentation/services/service-bus/
+[documentación del Bus de servicio de Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[Envío de mensajes de nube a dispositivo con el Centro de IoT]: iot-hub-csharp-csharp-c2d.md
-[Cómo cargar archivos desde dispositivos a la nube con un centro de IoT]: iot-hub-csharp-csharp-file-upload.md
-[Información general sobre el centro de IoT]: iot-hub-what-is-iot-hub.md
-[Directrices sobre el centro de IoT]: iot-hub-guidance.md
-[Guía del desarrollador del centro de IoT]: iot-hub-devguide.md
+[Guía del desarrollador del Centro de IoT de Azure]: iot-hub-devguide.md
 [Introducción al Centro de IoT]: iot-hub-csharp-csharp-getstarted.md
 [Introducción al Centro de IoT de Azure para .NET]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
-[Centro para desarrolladores de Azure]: https://azure.microsoft.com/develop/iot
 [Centro para desarrolladores de IoT de Azure]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -452,19 +435,18 @@ Información adicional sobre el centro de IoT:
 
 <!-- Links -->
 [Acerca de las cuentas de almacenamiento de Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Introducción a los Centros de eventos]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 [instrucciones de escalabilidad de Almacenamiento de Azure]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Centros de eventos ]: ../event-hubs/event-hubs-overview.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Centros de eventos]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guía de programación de Centros de eventos]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Portal]: https://manage.windowsazure.com/
 [Compilación de aplicaciones de varios niveles con el Bus de servicio]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[documentación del Bus de servicio]: https://azure.microsoft.com/documentation/services/service-bus/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-classic-portal]: https://manage.windowsazure.com
+[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0713_2016-->

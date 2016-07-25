@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Administración de Base de datos SQL de Azure con PowerShell
@@ -53,7 +53,7 @@ Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de
 
 Si desea crear una regla de firewall para acceder al servidor, use el comando [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el cliente.
 
-Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs** que agregará una regla de firewall especial y permitirá todo el acceso de tráfico de Azure al servidor.
+Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs** que añadirá una regla de firewall especial y permitirá todo el acceso de tráfico de Azure al servidor.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -83,18 +83,18 @@ Puede eliminar una base de datos SQL con el comando [Remove-AzureRMSqlDatabase](
 
 También puede eliminar un servidor con el comando [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). En el siguiente ejemplo se elimina un servidor con el nombre server12.
 
+
+>[AZURE.NOTE]  La operación de eliminación es asincrónica y puede tardar algún tiempo, por tanto, compruebe que la operación haya finalizado antes de realizar cualquier operación adicional que dependa de que el servidor se haya eliminado completamente (por ejemplo, la creación de un nuevo servidor con el mismo nombre).
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Si va a volver a crear estos recursos de SQL de Azure o unos recursos similares, puede realizar lo siguiente:
-
-- Guarde este recurso como archivo de secuencia de comandos de PowerShell (*.ps1).
-- Guardar este recurso como Runbook de automatización de Azure en la sección Automatización del Portal de Azure clásico. 
 
 ## Pasos siguientes
 
-Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre comillas, incluidos los caracteres < and > por los valores para crear un servidor, una regla de firewall y una base de datos:
+Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre comillas, incluidos los caracteres < and >, por los valores para crear un servidor, una regla de firewall y una base de datos:
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 
 - [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

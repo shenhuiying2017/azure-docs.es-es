@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Acerca del flujo del token de aplicación en Power BI Embedded"
-   description="Power BI Embedded sobre los token de la aplicación para la autenticación y autorización"
+   pageTitle="Autenticación y autorización con Power BI Embedded"
+   description="Autenticación y autorización con Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="minewiskan"
@@ -13,14 +13,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/28/2016"
+   ms.date="07/01/2016"
    ms.author="owend"/>
 
-# Acerca del flujo del token de aplicación en Power BI Embedded
+# Autenticación y autorización con Power BI Embedded
 
-El servicio de **Power BI Embedded** usa **tokens de aplicación** para la autenticación y autorización en lugar de la autenticación explícita del usuario final. En el modelo **App Token**, su aplicación administra la autenticación y la autorización para los usuarios finales. Cuando es necesario, la aplicación crea y envía los **tokens de aplicación** que indican a nuestro servicio que presente el informe solicitado. Este diseño no requiere que su aplicación use **Azure Active Directory** para la autenticación y autorización del usuario, aunque puede hacerlo.
+El servicio Power BI Embedded usa **claves** **tokens de aplicación** para la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En este modelo, la aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. Si es necesario, la aplicación crea y envía los tokens de aplicación que indican a nuestro servicio que presente el informe solicitado. En este diseño no es necesario que la aplicación use Azure Active Directory para la autenticación y la autorización de usuarios, aunque puede hacerlo.
 
-**Así es como funciona el flujo de clave del token de aplicación**
+## Dos modos de autenticación
+
+**Clave**: puede usar claves para todas las llamadas de API de REST de Power BI Embedded. Las claves pueden encontrarse en el **Portal de Azure** haciendo clic en **Toda la configuración** y, luego, en **Claves de acceso**. Debe tratar siempre la clave como si fuese una contraseña. Estas claves tienen permisos para llamar a cualquier API de REST en una colección de área de trabajo determinada.
+
+Para utilizar una clave en una llamada de REST, agregue el siguiente encabezado de autorización:
+
+    Authorization: AppKey {your key}
+
+**Token de aplicación**: los tokens de aplicación se utilizan para todas las solicitudes de inserción. Están diseñados para ejecutarse en el lado del cliente, por lo que están restringidas a un único informe y se recomienda establecer un tiempo de expiración.
+
+Los tokens de aplicación son un JWT (JSON Web Token) que está firmado por una de sus claves.
+
+El token de la aplicación puede contener las siguientes notificaciones:
+
+| Notificación | Descripción |
+|--------------|------------|
+| **ver** | La versión del token de aplicación. La versión actual es 1.0.0. |
+| **aud** | El destinatario previsto del token. Para usar Power BI Embedded: "https://analysis.windows.net/powerbi/api". |
+| **iss** | Una cadena que indica la aplicación que emitió el token. |
+| **type** | El tipo de token de aplicación que se está creando. El único tipo admitido actualmente es **insertar**. |
+| **wcn** | El nombre de la colección de área de trabajo para el que se emite el token. |
+| **wid** | El id. del área de trabajo para el que se emite el token. |
+| **rid** | El id. del informe para el que se emite el token. |
+| **username** (opcional) | Se utiliza con RLS y es una cadena que ayuda a identificar el usuario cuando se aplican las reglas RLS. |
+| **roles** (opcional) | Una cadena que contiene los roles que seleccione al aplicar las reglas de seguridad de nivel de fila. Si se pasa más de un rol, se deben pasar como una matriz de cadenas. |
+| **exp** (opcional) | Indica la hora a la que caducará el token. Se deben pasar como marcas de tiempo de Unix. |
+| **nbf** (opcional) | Indica la hora a la que comienza a ser válido el token. Se deben pasar como marcas de tiempo de Unix. |
+
+Un ejemplo de token de aplicación tendrá este aspecto:
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-coded.png)
+
+
+Cuando se descodifica, tendrá un aspecto similar al siguiente:
+
+![](media\power-bi-embedded-app-token-flow\power-bi-embedded-app-token-flow-sample-decoded.png)
+
+
+## Funcionamiento del flujo
 
 1. Copie las claves de API a la aplicación. Puede obtener las claves en el **Portal de Azure**.
 
@@ -52,8 +90,7 @@ Después de que **Power BI Embedded** envíe un informe al usuario, este puede v
 
 ## Otras referencias
 - [Get started with Microsoft Power BI Embedded sample (Introducción al ejemplo de Microsoft Power BI Embedded)](power-bi-embedded-get-started-sample.md)
-- [Qué es Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Common Microsoft Power BI Embedded Preview scenarios (Escenarios comunes de la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
-- [Get started with Microsoft Power BI Embedded preview (Introducción a la versión preliminar de Microsoft Power BI Embedded)](power-bi-embedded-get-started.md)
+- [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
+- [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

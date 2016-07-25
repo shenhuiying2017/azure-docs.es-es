@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integración de Azure Active Directory con ABa Sainsburys Connect
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para ABa Sainsburys Connect:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **ABa Sainsburys Connect**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **ABa Sainsburys Connect**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807726.png "Configurar inicio de sesión único")
 
@@ -80,7 +80,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Configurar las opciones de la aplicación")
 
-    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación ABa Sainsburys Connect (p. ej.: **https://myaba.co.uk/client-access/sainsburys/saml.php*).
+    1.  En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación Aba Sainsburys Connect (p. ej.: *https://myaba.co.uk/client-access/sainsburys/saml.php*).
     2.  Haga clic en **Siguiente**.
 
 4.  En la página **Configurar inicio de sesión único en Aba Sainsburys Connect**, para descargar los metadatos, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
@@ -89,16 +89,16 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  Envíe el archivo de metadatos descargado al equipo de soporte técnico de ABa Sainsburys Connect.
 
-    >[AZURE.NOTE]El equipo de soporte técnico de ABa Sainsburys Connect es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
+    >[AZURE.NOTE] El equipo de soporte técnico de ABa Sainsburys Connect es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
 
-6.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807730.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
 Para permitir que los usuarios de Azure AD inicien sesión en ABa Sainsburys Connect, deben aprovisionarse en ABa Sainsburys Connect. En el caso de ABa Sainsburys Connect, el equipo de soporte técnico de ABa Sainsburys Connect debe crear las cuentas de usuario.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ABa Sainsburys Connect que proporcione ABa Sainsburys Connect para aprovisionar cuentas de usuario de Azure Active Directory.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ABa Sainsburys Connect que proporcione ABa Sainsburys Connect para aprovisionar cuentas de usuario de Azure Active Directory.
 
 ##Asignación de usuarios
 
@@ -106,7 +106,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a ABa Sainsburys Connect, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **ABa Sainsburys Connect**, haga clic en **Asignar usuarios**.
 
@@ -118,4 +118,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

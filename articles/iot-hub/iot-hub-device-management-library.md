@@ -20,7 +20,7 @@
 
 ## Información general
 
-La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] \(Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
+La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure permite administrar dispositivos IoT con el Centro de IoT de Azure. "Administrar" incluye acciones tales como el reinicio, el restablecimiento de fábrica y la actualización del firmware. Actualmente se ofrece una biblioteca de C independiente de la plataforma, pero pronto se agregará compatibilidad con otros idiomas. Como se describe en el artículo [Azure IoT Hub device management overview][lnk-dm-overview] (Información general sobre la administración de dispositivos de Centro de IoT de Azure), hay tres conceptos clave en la administración de dispositivos de Centro de IoT:
 
 - Dispositivos gemelos
 - Trabajos del dispositivo
@@ -152,7 +152,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 - Ejemplo de actualización de firmware de Intel Edison: ejemplo con características de administración de dispositivos habilitadas con un dispositivo Intel Edison. Consulte [iotdm\_edison\_sample][lnk-edison-sample].
 - Ejemplo de dispositivos simulados: un ejemplo de dispositivos independientes de plataforma que se ejecuta en dispositivos con Linux y Windows. Consulte [iotdm\_simple\_sample][lnk-simple-sample]
-- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] \(Registro de recursos y objetos OMA LWM2M).
+- Para más información acerca de los objetos LWM2M, consulte [OMA LWM2M object and resource registry][lnk-oma] (Registro de recursos y objetos OMA LWM2M).
 
 ## Apéndice: Recursos y objetos LWM2M admitidos
 
@@ -184,7 +184,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 | PackageUri | Escritura | String | 0-255 bytes | Identificador URI desde el cual el dispositivo puede descargar el paquete de firmware.<br/>Se asigna a la API de servicio: **SystemPropertyNames.FirmwarePackageUri** |
 | Actualizar | Ejecución | | | Actualiza el firmware mediante el paquete de firmware almacenado en el paquete, o bien utilizando el firmware descargado desde el identificador URI de paquete.<br/>Se asigna a la API de servicio:<br/>**ScheduleFirmwareUpdateAsync** |
 | Estado | Lectura | Entero | 1-3 | Estado del proceso de actualización de firmware:<br/>**1**: inactivo. Esto puede ocurrir antes de descargar el paquete de firmware o después de aplicar el paquete de firmware.<br/>**2**: descargando el paquete de firmware.<br/>**3**: paquete de firmware descargado.<br/> Se asigna a la API de servicio: **SystemPropertyNames.FirmwareUpdateState** |
-| UpdateResult | Lectura | Entero | 0-6 | Resultado de la descarga o actualización del firmware<br/>**0**: valor predeterminado.<br/>**1**: actualización de firmware correcta.<br/>**2**: no hay suficiente almacenamiento para el nuevo paquete de firmware.<br/>**3**: memoria agotada durante la descarga del paquete de firmware.<br/>**4**: conexión perdida durante la descarga del paquete de firmware.<br/>**5**: error de comprobación de CRC para el nuevo paquete descargado.<br/>**6**: tipo de paquete de firmware no admitido.<br/>**7**: URI no válido. Se asigna a la API de servicio: **SystemPropertyNames.FirmwareUpdateState** |
+| UpdateResult | Lectura | Entero | 0-6 | Resultado de la descarga o actualización del firmware<br/>**0**: valor predeterminado.<br/>**1**: actualización de firmware correcta.<br/>**2**: no hay suficiente almacenamiento para el nuevo paquete de firmware.<br/>**3**: memoria agotada durante la descarga del paquete de firmware.<br/>**4**: conexión perdida durante la descarga del paquete de firmware.<br/>**5**: error de comprobación de CRC para el nuevo paquete descargado.<br/>**6**: tipo de paquete de firmware no admitido.<br/>**7**: URI no válido. Se asigna a la API de servicio: **SystemPropertyNames.FirmwareUpdateResult** |
 | PkgName | Lectura | String | 0-255 bytes | Nombre descriptivo del paquete de firmware al que hace referencia el recurso **Paquete**<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.FirmwarePackageName** |
 | PackageVersion | Lectura | String | 0-255 bytes | Versión del paquete de firmware al que hace referencia el recurso **Paquete**<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.FirmwarePackageVersion** |
 
@@ -192,7 +192,7 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 
 | Nombre de recurso | Operación | Tipo | Intervalo y unidades | Descripción |
 |------------------------|------------|---------|-----------------|---------------|
-| Período mínimo predeterminado | Lectura Escritura | Entero | Segundos | El período durante el cual el dispositivo retrasa el envío de una actualización a una propiedad observada. Por ejemplo, dado un valor **DefaultMinPeriod** de 5 minutos, el dispositivo envía una actualización a una propiedad observada a lo sumo cada 5 minutos, incluso si el valor cambia con más frecuencia. Se asigna a la API de servicio: **SystemPropertyNames.FirmwareUpdateState** |
+| Período mínimo predeterminado | Lectura Escritura | Entero | Segundos | El período durante el cual el dispositivo retrasa el envío de una actualización a una propiedad observada. Por ejemplo, dado un valor **DefaultMinPeriod** de 5 minutos, el dispositivo envía una actualización a una propiedad observada a lo sumo cada 5 minutos, incluso si el valor cambia con más frecuencia. Se asigna a la API de servicio: **SystemPropertyNames.DefaultMinPeriod** |
 | Período máximo predeterminado | Lectura Escritura | Entero | Segundos | El período (en segundos) en el que el dispositivo, con independencia de si cambia la propiedad observada, envía una actualización para el valor de la propiedad. Por ejemplo, dado un valor **DefaultMaxPeriod** de 6 horas, una propiedad observada envía una actualización para el valor de dicha propiedad al menos cada 6 horas, con independencia de los cambios de los recursos.<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.DefaultMaxPeriod** |
 | Vigencia | Lectura Escritura | Entero | Segundos | La duración de registro del dispositivo. Un nuevo registro o una actualización de solicitud debe recibirse desde el dispositivo dentro de esta duración; de lo contrario, se cancela el registro del dispositivo desde el servicio.<br/>Se asigna a la API de servicio:<br/>**SystemPropertyNames.RegistrationLifetime** |
 
@@ -203,6 +203,15 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 | Nombre | Lectura Escritura | String | | Identifica de manera exclusiva el nombre de la configuración del dispositivo que se va a leer o actualizar. |
 | Valor | Lectura Escritura | String | | Identifica de manera exclusiva el valor de configuración que se va a leer o actualizar. |
 | Aplicar | Ejecución | | | Se aplica el cambio de configuración en el dispositivo. |
+
+## Pasos siguientes
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 [img-library-overview]: media/iot-hub-device-management-library/library.png
 [lnk-dm-overview]: iot-hub-device-management-overview.md
@@ -216,10 +225,14 @@ Para obtener experiencia práctica, puede tener acceso a los recursos siguientes
 [Wakaama]: https://github.com/eclipse/wakaama
 [OMA LWM2M Object and resource registry]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-run-linux]: http://TODO
 [lnk-Wakaama]: https://github.com/eclipse/wakaama
 [lnk-github1]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
-	ms.author="wesmc" />
+	ms.date="07/07/2016" 
+	ms.author="wesmc;ricksal" />
 
 #Uso de REST para acceder a las API del servicio Azure Mobile Engagement
 
@@ -49,7 +49,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
 
 ## Creación de la aplicación de API de servicio
 
-1. En primer lugar, necesitará cuatro parámetros de autenticación para usar con este ejemplo. Estos parámetros son **SubscriptionId**, **TenantId**, **ApplicationId** y **Secret**. Para obtener estos parámetros de autenticación, se recomienda usar el enfoque de script de PowerShell mencionado en la sección *Instalación única (mediante script)* del tutorial [Autenticación](mobile-engagement-api-authentication.md#authentication). 
+1. En primer lugar, necesitará cuatro parámetros de autenticación para usar con este ejemplo. Estos parámetros son **SubscriptionId**, **TenantId**, **ApplicationId** y **Secret**. Para obtener estos parámetros de autenticación, se recomienda usar el enfoque de script de PowerShell mencionado en la sección *Instalación única (mediante script)* del tutorial [Autenticación](mobile-engagement-api-authentication.md#authentication).
 
 2. Usaremos una sencilla aplicación de consola de Windows para mostrar cómo trabajar con las API del servicio REST para crear y activar una nueva campaña de anuncio. Por tanto, abra Visual Studio y cree una nueva **aplicación de consola**.
 
@@ -461,4 +461,4 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

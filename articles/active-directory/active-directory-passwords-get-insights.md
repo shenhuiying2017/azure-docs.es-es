@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure"
+	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Visión operativa con los informes de la administración de contraseñas
+
+> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+
 En esta sección se describe cómo puede usar informes de administración de contraseñas de Azure Active Directory para ver cómo utilizan los usuarios el restablecimiento y el cambio de contraseña en su organización.
 
 - [**Información general de los informes de administración de contraseñas**](#overview-of-password-management-reports)
@@ -109,7 +112,7 @@ En la tabla siguiente se describen los distintos valores permitidos para cada co
 Columna|Valores permitidos y su significado
 ---|---
 Métodos usados|**Correo electrónico alternativo**: el usuario utilizó un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse<p>**Teléfono del trabajo**: el usuario utilizó el teléfono de la oficina para autenticarse<p>**Teléfono móvil**: el usuario utilizó un teléfono móvil o un teléfono de autenticación para autenticarse<p>**Preguntas de seguridad**: el usuario utilizó preguntas de seguridad para autenticarse<p>**Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña.
-Resultado|**Abandonado**: el usuario inició un restablecimiento de contraseña, pero lo interrumpió antes de que finalizara<p>**Bloqueado**: se impidió que la cuenta de usuario usara el restablecimiento de contraseña debido a un intento de utilizar la página de restablecimiento de contraseña o una sola puerta de restablecimiento de contraseña demasiadas veces en un período de 24 horas<p>**Cancelado**: el usuario inició un restablecimiento de contraseña, pero después hizo clic en el botón Cancelar para cancelar la sesión en mitad del proceso <p>**Administrador contactado**: el usuario tuvo un problema durante su sesión que no pudo resolver, por lo que hizo clic en el vínculo "Póngase en contacto con el administrador" en lugar de finalizar el flujo de restablecimiento de contraseña<p>**Con error**: el usuario no pudo restablecer una contraseña, probablemente porque el usuario no estaba configurado para usar esta característica (por ejemplo, no tiene licencia, falta información de autenticación, la contraseña se administra en el entorno local pero la escritura diferida está desactivada).<p>**Correcto**: la contraseña se restableció correctamente.
+Resultado|**Abandonado**: el usuario inició un restablecimiento de contraseña, pero lo interrumpió antes de que finalizara<p>**Bloqueado**: se impidió que la cuenta de usuario usara el restablecimiento de contraseña debido a un intento de utilizar la página de restablecimiento de contraseña o una sola puerta de restablecimiento de contraseña demasiadas veces en un período de 24 horas<p>**Cancelado**: el usuario inició un restablecimiento de contraseña, pero después hizo clic en el botón Cancelar para cancelar la sesión en mitad del proceso <p>**Administrador contactado**: el usuario tuvo un problema durante su sesión que no pudo resolver, por lo que hizo clic en el vínculo "Póngase en contacto con el administrador" en lugar de finalizar el flujo de restablecimiento de contraseña<p>**Con error**: el usuario no pudo restablecer una contraseña, probablemente porque el usuario no estaba configurado para usar esta característica (por ejemplo, no tiene licencia, falta información de autenticación, la contraseña se administra en el entorno local, pero la escritura diferida está desactivada).<p>**Correcto**: la contraseña se restableció correctamente.
 Detalles|Consulte la tabla siguiente:
 
 ### Valores permitidos para la columna Detalles
@@ -156,7 +159,7 @@ El usuario restableció la contraseña correctamente.|Succeeded
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
+* **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -171,4 +174,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->
