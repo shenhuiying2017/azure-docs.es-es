@@ -24,9 +24,9 @@ Este es un resumen de las características que quizá no ha probado de [Applicat
 ||
 |---|---
 |[**Pruebas de disponibilidad**](app-insights-monitor-web-app-availability.md)<br/>Envíe las solicitudes HTTP de la aplicación web a intervalos regulares desde todo el mundo. Recibirá una alerta si la respuesta es lenta o poco confiable.| 
-|[**Llamadas de dependencia y AJAX**](app-insights-asp-net-dependencies.md)<br/>Supervise consultas SQL y llamadas a REST u otros recursos.|
+|[**Llamadas de dependencia**](app-insights-asp-net-dependencies.md)<br/>Supervise consultas SQL y llamadas a REST u otros recursos.|
 |[**Excepciones**](app-insights-asp-net-exceptions.md)<br/>Cuente excepciones controladas y no controladas, obtenga seguimientos de pila y haga clic en el código.|
-|[**Páginas web**](app-insights-javascript.md)<br/>Supervise el uso y el rendimiento de las páginas mediante la instrumentación de las páginas web.
+|[**Páginas web**](app-insights-javascript.md)<br/>Supervise el uso, el rendimiento de las páginas y las llamadas AJAX mediante la instrumentación de las páginas web.
 |**Rendimiento de hosts: [Diagnósticos de Azure](app-insights-azure-diagnostics.md), [contadores de rendimiento de Windows](app-insights-web-monitor-performance.md)**<br/>Vea el uso de CPU y otras métricas del contexto. |![](./media/app-insights-asp-net-more/04.png)
 |[**API del SDK: telemetría personalizada**](app-insights-api-custom-events-metrics.md)<br/>Envíe sus propios eventos y métricas para obtener una vista más detallada del rendimiento y el uso de la aplicación, tanto en código de servidor como de cliente.|
 |[**Integración de registros**](app-insights-asp-net-trace-logs.md)<br/>Si usa una plataforma de registro como Log4Net, NLog o System.Diagnostics.Trace, puede instalar un adaptador que envíe estos registros a Application Insights junto con otros informes de telemetría.|
@@ -52,4 +52,4 @@ Este es un resumen de las características que quizá no ha probado de [Applicat
 |**API de acceso a datos**<br/>Próximamente.|
 |[**Muestreo**](app-insights-sampling.md)<br/>Reduce la velocidad de los datos y le permite permanecer dentro del límite de su plan de tarifa.|![Icono de muestreo](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

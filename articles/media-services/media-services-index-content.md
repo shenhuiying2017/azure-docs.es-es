@@ -272,7 +272,7 @@ Código | Nombre | Razones posibles
 2005 | Tipo de archivo no admitido | No se admite el tipo de archivo multimedia de entrada.
 2006 | Hay demasiados archivos de entrada | Hay más de 10 archivos en el manifiesto de entrada.
 3000 | No se pudo descodificar el archivo multimedia | Códec multimedia no compatible <br/>o<br/> Archivo de medios dañado <br/>o<br/> No hay secuencias de audio en los medios de entrada.
-4000 | Indización de lote parcialmente correcta | Algunos de los archivos multimedia de entrada no se pudieron indizar. Para obtener más información, consulte <a href="output_files">Archivos de salida</a>.
+4000 | Indización de lote parcialmente correcta | Algunos de los archivos multimedia de entrada no se pudieron indizar. Para obtener más información, consulte <a href="#output_files">Archivos de salida</a>.
 otros | Errores internos | Póngase en contacto con el equipo de soporte técnico. indexer@microsoft.com
 
 
@@ -298,4 +298,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 [Indización de archivos multimedia con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

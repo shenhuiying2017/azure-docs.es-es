@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/27/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
 
@@ -60,8 +60,7 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
 ### Supervisión
 
 - Desde el Portal de Azure, puede [agregar métricas de rendimiento](web-sites-monitor.md), como el uso de la CPU y el número de solicitudes de clientes.
-- Si quiere más detalles, use New Relic para supervisar y administrar el rendimiento. Consulte [Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración del rendimiento de la aplicación New Relic](store-new-relic-web-sites-dotnet-application-performance-management.md).
-- [Escale su aplicación web](web-sites-scale.md) en respuesta al tráfico. En función de su nivel, puede escalar el número de máquinas virtuales y/o el tamaño de las instancias de las máquinas virtuales. En los niveles estándar y premium, también puede configurar la autoescala para que la aplicación web escale automáticamente, bien según una programación fija, o bien en respuesta a la carga.  
+- [Escale su aplicación web](web-sites-scale.md) en respuesta al tráfico. En función de su nivel, puede escalar el número de máquinas virtuales y/o el tamaño de las instancias de las máquinas virtuales. En los niveles estándar y premium, también puede configurar la autoescala para que la aplicación web escale automáticamente, bien según una programación fija, o bien en respuesta a la carga.
  
 ### Copias de seguridad
 
@@ -70,7 +69,7 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
 
 ### Solución de problemas
 
-- Si se produce algún error, puede [solucionar los problemas en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) usando registros de diagnóstico y depuración activa en la nube. 
+- Si se produce algún error, puede [solucionar los problemas en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) usando registros de diagnóstico y depuración activa en la nube.
 - Fuera de Visual Studio, hay varias formas de recopilar registros de diagnóstico. Consulte [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-enable-diagnostic-log.md).
 - Para aplicaciones Node.js, consulte [Depuración de una aplicación Node.js en Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md).
 
@@ -87,7 +86,7 @@ Puede usar una [implementación de ensayo](web-sites-staged-publishing.md). Esta
 
 Si usa Visual Studio Team Services, puede configurar una implementación continua desde el control de código fuente:
 
-- [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
 - [Uso de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
@@ -98,4 +97,4 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

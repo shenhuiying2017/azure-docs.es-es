@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Indexación de tablas en Almacenamiento de datos SQL
@@ -27,7 +27,7 @@
 - [Estadísticas][]
 - [Temporal][]
 
-Almacenamiento de datos SQL ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas][] e [índices agrupados y no agrupados descritos][]. Además, también no ofrece una opción sin índice, que también se conoce como [montón][]. En este artículo se tratan las ventajas de cada tipo de índice, así como sugerencias para obtener el máximo rendimiento de los índices. Para más información acerca de cómo crear tablas en Almacenamiento de datos SQL, consulte [create table syntax][] \(Sintaxis de CREATE TABLE).
+Almacenamiento de datos SQL ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas][] e [índices agrupados y no agrupados descritos][]. Además, también no ofrece una opción sin índice, que también se conoce como [montón][]. En este artículo se tratan las ventajas de cada tipo de índice, así como sugerencias para obtener el máximo rendimiento de los índices. Para más información acerca de cómo crear tablas en Almacenamiento de datos SQL, consulte [create table syntax][] (Sintaxis de CREATE TABLE).
 
 ## Índices de almacén de columnas en clúster
 
@@ -232,7 +232,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Paso 2: volver a generar índices de almacén de columnas en clúster con un usuario con una clase de recurso mayor
 Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
-Como alternativa, en lugar de volver a generar el índice, se puede copiar la tabla en otra tabla nueva con [] [CTAS]. ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, [CTAS][] suele ser más rápido que [ALTER INDEX][]. Sin embargo, en el caso de volúmenes menores de datos, [ALTER INDEX][] es más fácil de usar y no requerirá el intercambio de la tabla. Para más información acerca de cómo volver a generar índices con CTAS, consulte **Regeneración de índices con CTAS y conmutación de particiones**.
+Como alternativa, en lugar de volver a generar el índice, se puede copiar la tabla en otra tabla nueva con [CTAS][]. ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, [CTAS][] suele ser más rápido que [ALTER INDEX][]. Sin embargo, en el caso de volúmenes menores de datos, [ALTER INDEX][] es más fácil de usar y no requerirá el intercambio de la tabla. Para más información acerca de cómo volver a generar índices con CTAS, consulte **Regeneración de índices con CTAS y conmutación de particiones**.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -244,7 +244,17 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
-La regeneración de un índice en Almacenamiento de datos SQL es una operación que se realiza sin conexión. Para más información acerca de cómo volver a generar índices, consulte la sección ALTER INDEX REBUILD de [Columnstore Indexes Defragmentation][] \(Desfragmentación de índices de almacén de columnas) y el tema de sintaxis [ALTER INDEX][].
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
+La regeneración de un índice en Almacenamiento de datos SQL es una operación que se realiza sin conexión. Para más información acerca de cómo volver a generar índices, consulte la sección ALTER INDEX REBUILD de [Columnstore Indexes Defragmentation][] (Desfragmentación de índices de almacén de columnas) y el tema de sintaxis [ALTER INDEX][].
  
 ### Paso 3: comprobar que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
 Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado. Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas. Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices. si se necesita más memoria.
@@ -315,6 +325,7 @@ Para más información, consulte los artículos sobre [información general de t
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Temporal]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -327,4 +338,4 @@ Para más información, consulte los artículos sobre [información general de t
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

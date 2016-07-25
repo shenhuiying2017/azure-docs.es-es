@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/13/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
 
 ## Información general ##
-Siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] "v1" regional clásica. Una nueva red virtual "v1" regional clásica y una nueva subred pueden definirse en el momento en que se crea un entorno del Servicio de aplicaciones. También puede crearse un entorno del Servicio de aplicaciones en una red virtual regional clásica "v1" y una subred preexistentes. Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen o intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
-
-**Nota:** No se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2" administrada por ARM.
+Puede crearse un entorno del Servicio de aplicaciones en una red virtual de Azure Resource Manager **o**en [una][virtualnetwork] del modelo de implementación clásica. Una nueva red virtual y una nueva subred pueden definirse en el momento en que se crea un entorno del Servicio de aplicaciones. También puede crearse un entorno del Servicio de aplicaciones en una red virtual y subred preexistentes. Con un cambio reciente realizado en junio de 2016, ahora se pueden implementar los ASE en redes virtuales que usen o intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas). Para obtener más detalles sobre la creación de un entorno del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
 
 Siempre debe crearse un entorno del Servicio de aplicaciones dentro de una subred al proporcionar esta un límite de red que puede utilizarse para bloquear el tráfico entrante tras dispositivos y servicios ascendentes de forma que solo se acepta el tráfico HTTP y HTTPS de determinadas direcciones IP ascendentes.
 
@@ -36,38 +34,27 @@ Antes de bloquear el tráfico de red entrante con un grupo de seguridad de red, 
 
 A continuación se muestra una lista de puertos utilizados por un entorno del Servicio de aplicaciones:
 
-- 454: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto.
-- 455: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto.
-- 80: puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
-- 443: puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
-- 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP.
-- 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP.
-- 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
-- 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
-- 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
+- 454: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+- 455: **puerto obligatorio** utilizado por la infraestructura de Azure para administrar y mantener entornos del Servicio de aplicaciones. No bloquee el tráfico a este puerto. Este puerto siempre está enlazado a la dirección VIP pública de un ASE.
+- 80: el puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
+- 443: el puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
+- 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
+- 10001-10020: canales de datos para FTP. Al igual que con el canal de control, estos puertos pueden bloquear de forma segura si no se utiliza FTP. En un ASE con un ILB, este puerto puede enlazarse a la dirección del ILB de un ASE.
+- 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
+- 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
+- 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica. En un ASE con un ILB, este puerto está enlazado a la dirección del ILB del ASE.
 
 ## Requisitos de DNS y conectividad saliente ##
-Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como a la Base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
+Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida a varios puntos de conexión. Una lista completa de los puntos de conexión externos que utiliza un ASE en la sección "Conectividad de red necesaria" del artículo [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
-Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", situado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno seleccionará la nueva configuración de DNS.
-
-La siguiente lista detalla los requisitos de conectividad y DNS para un Entorno del Servicio de aplicaciones:
-
--  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.
--  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de Base de datos SQL se resuelven en el dominio siguiente: *database.windows.net*.
--  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*.
--  Conectividad de red saliente a *ocsp.msocsp.com*, *mscrl.microsoft.com* y *crl.microsoft.com*. Es necesario para admitir la funcionalidad SSL.
--  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
--  Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que contiene el entorno de Servicio de aplicaciones.
--  La ruta de acceso de la red saliente no puede atravesar los servidores proxy corporativos internos, ni puede forzar la tunelización a local. Si lo hace, se cambiará la dirección NAT en vigor del tráfico de red saliente del entorno del Servicio de aplicaciones. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones causará errores de conectividad a muchos de los puntos de conexión enumerados anteriormente. Lo que da como resultado un error al intentar la creación del entorno del Servicio de aplicaciones, y además, los entornos del Servicio de aplicaciones previamente correctos estarán marcados como incorrectos.
--  El acceso de red entrante a los puertos necesarios para los Entornos del Servicio de aplicaciones debe estar permitido, como se describe en este [artículo](app-service-app-service-environment-control-inbound-traffic.md).
+Los Entornos del Servicio de aplicaciones requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono de Reiniciar, ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno recogerá la nueva configuración de DNS.
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno. De manera similar, si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
 
 ## Creación de un grupo de seguridad de red ##
 Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups]. Los detalles siguientes hacen referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno del Servicio de aplicaciones.
 
-**Nota:** Los grupos de seguridad de red se pueden configurar gráficamente con el [Portal Azure](https://portal.azure.com) o a través de Azure PowerShell.
+**Nota:** Los grupos de seguridad de red se pueden configurar gráficamente con el [Portal de Azure](https://portal.azure.com) o a través de Azure PowerShell.
 
 Los grupos de seguridad de red se crean por primera vez como una entidad independiente asociada a una suscripción. Puesto que los grupos de seguridad de red se crean en una región de Azure, asegúrese de que el grupo de seguridad de red se crea en la misma región que el entorno del Servicio de aplicaciones.
 
@@ -121,13 +108,17 @@ Por razones de integridad, en el ejemplo siguiente se muestra cómo quitar y, po
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Consideraciones especiales para IP-SSL explícito ##
-Si una aplicación está configurada con una dirección IP explícita en lugar de la dirección IP predeterminada del entorno de Servicio de aplicaciones, tanto el tráfico HTTP como el tráfico HTTPS fluyen a la subred a través de un conjunto de puertos distintos de los puertos 80 y 443.
+Si una aplicación está configurada con una dirección IP-SSL explícita (aplicable a los ASE que solo tienen una dirección VIP pública) en lugar de la dirección IP predeterminada del entorno de Servicio de aplicaciones, tanto el tráfico HTTP como el tráfico HTTPS fluyen a la subred a través de un conjunto de puertos distintos de los puertos 80 y 443.
 
-El par individual de puertos utilizados para cada dirección IP-SSL se encuentra haciendo clic en "Todas las configuraciones" --> "Direcciones IP" de la hoja de la interfaz de usuario del entorno del Servicio de aplicaciones. La hoja "Direcciones IP" muestra una tabla de todas las direcciones IP-SSL configuradas explícitamente para el entorno del Servicio de aplicaciones, junto con el par de puertos especiales que se utilizan para enrutar el tráfico HTTP y HTTPS asociado con cada dirección IP-SSL. Es este par de puertos el que debe utilizarse para los parámetros de DestinationPortRange al configurar las reglas de un grupo de seguridad de red.
+El par de puertos que utiliza cada dirección IP-SSL individual puede encontrarse en la interfaz de usuario del portal, en la hoja de experiencia de usuario de los detalles del entorno del Servicio de aplicaciones. Seleccione Toda la configuración > Direcciones IP. La hoja Direcciones IP muestra una tabla de todas las direcciones IP-SSL configuradas expresamente para el entorno del Servicio de aplicaciones, junto con el par de puertos especiales que se utilizan para enrutar el tráfico HTTP y HTTPS asociado con cada dirección IP-SSL. Es este par de puertos el que debe utilizarse para los parámetros de DestinationPortRange al configurar las reglas de un grupo de seguridad de red.
+
+Cuando una aplicación de un ASE está configurada para usar IP-SSL, los clientes externos no verán la asignación del par de puertos especial. El tráfico a las aplicaciones fluirá con normalidad a la dirección IP-SSL configurada. La traslación del par de puertos especial se realiza de manera automática e interna durante el tramo final del enrutamiento del tráfico en la subred que contiene el ASE.
 
 ## Introducción
 
-Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment]
+Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment].
+
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Para obtener detalles en torno a las aplicaciones que se conectan de forma segura al recurso de back-end desde un entorno del Servicio de aplicaciones, consulte [Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones][SecurelyConnecttoBackend]
 
@@ -149,4 +140,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="07/12/2016" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -75,6 +75,7 @@ La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre
 -	[¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[¿Se pueden usar redes virtuales con una memoria caché Basic o Estándar?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 -	[¿Por qué se produce un error al crear una caché en Redis en algunas subredes, pero no en otras?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+-	[¿Funcionarán todas las características al alojar una caché en una red virtual?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 
 ## ¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?
@@ -97,7 +98,7 @@ Cuando la Caché en Redis de Azure se hospeda en una red virtual, se usan los pu
 
 Existen requisitos de conectividad de red para entornos para una Caché en Redis de Azure que no pueden cumplirse inicialmente en una red virtual. Caché en Redis de Azure requiere todos los elementos siguientes para funcionar correctamente cuando se utiliza en una red virtual.
 
--  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Aquí se incluyen los puntos de conexión ubicados en la misma región que la instancia de Caché en Redis de Azure, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*. 
+-  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Aquí se incluyen los puntos de conexión ubicados en la misma región que la instancia de Caché en Redis de Azure, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.
 -  Conectividad de red saliente a *ocsp.msocsp.com*, *mscrl.microsoft.com* y *crl.microsoft.com*. Es necesario para admitir la funcionalidad SSL.
 -  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Se pueden cumplir los requisitos de DNS al asegurar que se configura y se mantiene una infraestructura DNS válida para la red virtual.
 
@@ -112,6 +113,13 @@ Las redes virtuales solo se pueden usar con memorias caché Premium.
 Si se implementa una Caché en Redis de Azure en una red virtual con el enfoque de ARM, la memoria caché debe estar en una subred dedicada que no contenga otro tipo de recursos. Si se intenta implementar una Caché en Redis de Azure en una subred de una red virtual con el enfoque de ARM que contenga otros recursos, se producirá un error en la implementación. Para poder crear una nueva caché en Redis, es preciso eliminar los recursos existentes en la subred.
 
 Puede implementar varios tipos de recursos en una red virtual con el enfoque clásico, siempre que tenga suficientes direcciones IP disponibles.
+
+### ¿Funcionarán todas las características al alojar una caché en una red virtual?
+
+Cuando la memoria caché forma parte de una red virtual, solo los clientes en la red virtual pueden tener acceso a ella y, como resultado, las siguientes características de administración de memoria caché no funcionan en este momento.
+
+-	Consola de Redis: dado que la Consola de Redis usa el cliente de redis-cli.exe hospedado en máquinas virtuales que no forman parte de su red virtual, no se puede conectar a su memoria caché.
+
 
 ## Uso de ExpressRoute con Caché en Redis de Azure
 
@@ -138,7 +146,7 @@ Aunque la conexión a una instancia de Caché en Redis de Azure desde una aplica
 
 Se puede encontrar información de contexto sobre las rutas definidas por el usuario en esta [información general](../virtual-network/virtual-networks-udr-overview.md).
 
-Para más información acerca de ExpressRoute, consulte [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Para más información acerca de ExpressRoute, consulte [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
@@ -160,4 +168,4 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

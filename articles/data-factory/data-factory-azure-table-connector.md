@@ -403,7 +403,7 @@ azureTableDefaultPartitionKeyValue | Valor predeterminado de la clave de la part
 azureTablePartitionKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se utilizan como clave de la partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. | Un nombre de columna. | No |
 azureTableRowKeyName | Nombre de columna especificado por el usuario, cuyos valores de columna se usan como clave de fila. Si no se especifica, use un GUID para cada fila. | Un nombre de columna. | No  
 azureTableInsertType | Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Tenga en cuenta que esta configuración se aplica en el nivel de fila, no el nivel de tabla, y que ninguna opción eliminará filas de la tabla de salida que no existan en la entrada. | merge (predeterminado)<br/>replace | No 
-writeBatchSize | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | Entero | No (valor predeterminado = 10000) 
+writeBatchSize | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | Entero (número de filas)| No (valor predeterminado = 10000) 
 writeBatchTimeout | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) | No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos)
 
 ### azureTablePartitionKeyName
@@ -529,4 +529,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 ## Rendimiento y optimización  
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

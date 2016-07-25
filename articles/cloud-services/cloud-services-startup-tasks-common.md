@@ -28,22 +28,7 @@ Muchas de las tareas aquí usan lo siguiente:
 
 ## Definición de variables de entorno antes de que se inicie un rol
 
-Puede definir variables de entorno para un rol completo, agregue el elemento [Runtime] a la definición del role en el archivo de definición de servicio.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-Si necesita las variables de entorno definidas para una tarea específica, que no estén compartidas con otras tareas, puede usar el elemento [Environment] dentro del elemento [Task].
+Si necesita las variables de entorno definidas para una tarea específica, use el elemento [Environment] dentro del elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,7 +376,6 @@ La manera más sencilla de detectar si una tarea se ha ejecutado ya es crear un 
     REM   Exit normally.
     EXIT /B 0
 
-
 ## Prácticas recomendadas para las tareas
 A continuación presentamos algunas prácticas recomendadas que debería seguir al configurar una tarea para el rol web o de trabajo.
 
@@ -503,4 +487,4 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

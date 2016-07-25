@@ -32,7 +32,7 @@ Azure mantiene centros de datos en muchas regiones del mundo. Esta infraestructu
 
 Si se produce un error en una región concreta, el tráfico debe redirigirse a los servicios o implementaciones de otra región. Este enrutamiento se puede realizar manualmente, pero es más eficaz utilizar un proceso automatizado. El Administrador de tráfico de Azure está diseñado para esta tarea. Puede usarse para administrar automáticamente la conmutación por error del tráfico de los usuarios a otra región, en caso de que se produzca un error en la región principal. Dado que la administración del tráfico es una parte importante de la estrategia global, es importante comprender los conceptos básicos del Administrador de tráfico.
 
-En el diagrama siguiente, los usuarios se conectan a una dirección URL especificada para el Administrador de tráfico (__http://myATMURL.trafficmanager.net__) que resume las direcciones URL de los sitios reales (__http://app1URL.cloudapp.net__ y \_\___http://app2URL.cloudapp.net__). En función de cómo se configuren los criterios de enrutamiento de los usuarios, se les enviará al sitio real correcto cuando la directiva lo establezca. Las opciones de la directiva son: round-robin, rendimiento o conmutación por error. Para este artículo, solo nos centraremos en la opción de conmutación por error.
+En el diagrama siguiente, los usuarios se conectan a una dirección URL especificada para el Administrador de tráfico (__http://myATMURL.trafficmanager.net__) que resume las direcciones URL de los sitios reales (__http://app1URL.cloudapp.net__ y \_\_http://app2URL.cloudapp.net__). En función de cómo se configuren los criterios de enrutamiento de los usuarios, se les enviará al sitio real correcto cuando la directiva lo establezca. Las opciones de la directiva son: round-robin, rendimiento o conmutación por error. Para este artículo, solo nos centraremos en la opción de conmutación por error.
 
 ![Enrutamiento mediante el Administrador de tráfico de Azure](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 
@@ -305,4 +305,4 @@ Hay otras técnicas que puede usar para probar los planes de recuperación ante 
 
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). El anterior artículo de esta serie es [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](./resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

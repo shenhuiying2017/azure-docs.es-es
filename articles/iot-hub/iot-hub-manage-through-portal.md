@@ -157,10 +157,19 @@ Puede examinar el Centro de IoT que desea eliminar haciendo clic en **Examinar**
 
 ## Pasos siguientes
 
-Siga estos vínculos para obtener más información sobre el Centro de IoT de Azure:
+Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
 
-- [Introducción al Centro de IoT (Tutorial)][lnk-get-started]
-- [¿Qué es el Centro de IoT de Azure?][]
+- [Administración de identidades de dispositivos de Centro de IoT de forma masiva][lnk-bulk]
+- [Métricas de uso][lnk-metrics]
+- [Supervisión de operaciones][lnk-monitor]
+- [Configuración y administración del acceso al Centro de IoT][lnk-itpro]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -173,6 +182,16 @@ Siga estos vínculos para obtener más información sobre el Centro de IoT de Az
   [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[¿Qué es el Centro de IoT de Azure?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

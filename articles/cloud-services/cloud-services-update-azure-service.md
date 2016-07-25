@@ -3,7 +3,7 @@ pageTitle="Actualización de un servicio en la nube | Microsoft Azure"
 description="Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad."
 services="cloud-services"
 documentationCenter=""
-authors="kenazk"
+authors="Thraka"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="10/26/2015"
-ms.author="kenazk"/>
+ms.date="05/05/2016"
+ms.author="adegeo"/>
 
 # Actualización de un servicio en la nube
 
@@ -26,7 +26,7 @@ Azure organiza las instancias de rol en agrupaciones lógicas denominadas domini
 
 El número predeterminado de dominios de actualización es 5. Puede especificar un número diferente de dominios de actualización incluyendo el atributo upgradeDomainCount en el archivo de definición de servicio (.csdef). Para obtener más información sobre el atributo upgradeDomainCount, consulte [Esquema WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) o [Esquema WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-Al realizar una actualización local de uno o varios roles en el servicio, Azure actualiza los conjuntos de instancias de rol según el dominio de actualización al que pertenecen. Azure actualiza todas las instancias de un dominio de actualización dado (deteniéndolas, actualizándolas, conectándolas de nuevo), y luego pasa al dominio siguiente. Al detener solo las instancias que se ejecutan en el dominio de actualización en ese moment, Azure se asegura de que una actualización se realiza con el menor impacto posible en el servicio que está en ejecución. Para obtener más información, consulte [Cómo se realiza una actualización](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) más adelante en este artículo.
+Al realizar una actualización local de uno o varios roles en el servicio, Azure actualiza los conjuntos de instancias de rol según el dominio de actualización al que pertenecen. Azure actualiza todas las instancias de un dominio de actualización dado (deteniéndolas, actualizándolas, conectándolas de nuevo), y luego pasa al dominio siguiente. Al detener solo las instancias que se ejecutan en el dominio de actualización en ese moment, Azure se asegura de que una actualización se realiza con el menor impacto posible en el servicio que está en ejecución. Para obtener más información, consulte [Cómo se realiza una actualización](#howanupgradeproceeds) más adelante en este artículo.
 
 > [AZURE.NOTE] Aunque en el contexto de Azure hay pequeñas diferencias entre los distintos tipos de actualización, en este documento el término "actualización" se usa de forma general en las explicaciones de los procesos y las descripciones de las características.
 
@@ -145,7 +145,7 @@ Esta funcionalidad la proporcionan las características siguientes:
 
 Hay algunas situaciones en las que no se admite la reversión de una actualización, estas son las siguientes:
 
--   Reducción de recursos locales: si la actualización aumenta los recursos locales para un rol, la plataforma Azure no permite la reversión. Para obtener más información acerca de cómo configurar los recursos locales para un rol, consulte [Configuración de recursos de almacenamiento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Reducción de recursos locales: si la actualización aumenta los recursos locales para un rol, la plataforma Azure no permite la reversión.
 -   Limitaciones de cuota: si la actualización fue una operación de reducción vertical, es posible que no tenga una cuota de proceso suficiente para completar la operación de reversión. Cada suscripción a Azure tiene una cuota asociada que especifica el número máximo de núcleos que todos los servicios hospedados que pertenecen a dicha suscripción pueden usar. Si la reversión de una determinada actualización hace que su suscripción supere la cuota asignada, no se habilitará dicha reversión.
 -   Condición de carrera: si se completó la actualización inicial, no es posible una reversión.
 
@@ -167,7 +167,7 @@ Dos operaciones [Obtener implementación](https://msdn.microsoft.com/library/azu
 Para llamar a la versión de estos métodos que devuelve la marca de bloqueado, debe establecer el encabezado de solicitud a "x-ms-version: 2011-10-01" o una versión posterior. Para obtener más información acerca de los encabezados de control de versiones, consulte [Control de versiones de la administración del servicio](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 ## Distribución de roles entre dominios de actualización
-Azure distribuye las instancias de un rol uniformemente en un número determinado de dominios de actualización, que pueden configurarse como parte del archivo de definición (.csdef). El número máximo de dominios de actualización es 20 y el número predeterminado 5. Para obtener más información sobre cómo modificar el archivo de definición de servicio, consulte [Esquema de definición del servicio de Azure (archivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+Azure distribuye las instancias de un rol uniformemente en un número determinado de dominios de actualización, que pueden configurarse como parte del archivo de definición (.csdef). El número máximo de dominios de actualización es 20 y el número predeterminado 5. Para obtener más información sobre cómo modificar el archivo de definición de servicio, consulte [Esquema de definición del servicio de Azure (archivo .csdef)](cloud-services-model-and-package.md#csdef).
 
 Por ejemplo, si su rol tiene diez instancias, de forma predeterminada cada dominio de actualización contiene dos instancias. Si su rol tiene 14 instancias, entonces cuatro de los dominios de actualización contienen tres instancias y un quinto dominio contiene dos.
 
@@ -180,8 +180,8 @@ El siguiente diagrama ilustra cómo se distribuyen los dos roles que contiene un
 > [AZURE.NOTE] Tenga en cuenta que Azure controla cómo se asignan las instancias en los dominios de actualización. No es posible especificar las instancias que se asignan a un dominio determinado.
 
 ## Pasos siguientes
-[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br>
-[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br>
+[Administración de servicios en la nube](cloud-services-how-to-manage.md)<br> 
+[Supervisión de servicios en la nube](cloud-services-how-to-monitor.md)<br> 
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

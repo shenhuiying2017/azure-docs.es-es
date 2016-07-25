@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Información sobre partners y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
-	description="Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack." 
+	pageTitle="Información sobre asociados y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
+	description="Sepa cómo usar partners con las Aplicaciones lógicas y Enterprise Integration Pack" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Información sobre partners y Enterprise Integration Pack
@@ -53,14 +53,12 @@ Siga estos pasos para editar un partner que ya exista en la cuenta de integraci�
 3. En el icono de **Update Partner** (Actualizar partner), realice los cambios necesarios.
 4. Si está satisfecho con los cambios, haga clic en el vínculo **Guardar**, o bien en **Descartar** para deshacerlos. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
-
 ## ¿Cómo se eliminan partners?
 1. Seleccione el icono de **Asociados**.
 2. Elija el partner que quiera editar cuando se abra la hoja Asociados.
 3. Haga clic en el vínculo **Eliminar**. ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
-
 ## Pasos siguientes
 - [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -24,7 +24,10 @@ Antes de crear una canalización con una actividad de copia para mover datos hac
 >  
 > Revise el [tutorial Compilación de la primera canalización ](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Factoría de datos, Visual Studio o Azure PowerShell para crear las entidades de Factoría de datos.
 
-En los siguientes ejemplos, se muestra cómo copiar datos entre Almacén de Azure Data Lake y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+## Asistente para copia de datos
+La manera más sencilla de crear una canalización que copie datos a o desde Azure Data Lake Store es usar el Asistente para copiar datos. Vea [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para obtener un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+
+En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante el [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre Azure Data Lake Store y el Almacenamiento de blobs de Azure. En cambio, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
 
 
 ## Ejemplo: copia de datos de un blob de Azure al almacén de Azure Data Lake
@@ -78,7 +81,7 @@ El procedimiento siguiente proporciona los pasos para crear un servicio vinculad
 5. (Opcional) Especifique valores para los parámetros opcionales, como **accountName**, **subscriptionID** y **resourceGroupName**, del código JSON o bien elimine esas propiedades de dicho código.
 6. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
-> [AZURE.IMPORTANT] El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Necesitará **volver a dar la autorización** con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. Para más información, consulte [Propiedades del servicio vinculado de Almacén de Azure Data Lake](#azure-data-lake-store-linked-service-properties).
+> [AZURE.IMPORTANT] El código de autorización que ha generado al hacer clic en el botón **Autorizar** expira poco tiempo después. Necesitará **volver a dar la autorización** con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. Para más información, vea [Propiedades del servicio vinculado de Azure Data Lake Store](#azure-data-lake-store-linked-service-properties).
 
 
 
@@ -405,7 +408,7 @@ Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de
 | Propiedad | Descripción | Obligatorio |
 | :-------- | :----------- | :-------- |
 | type | La propiedad type debe establecerse en: **AzureDataLakeStore** | Sí |
-| dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el formato siguiente: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sí |
+| dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el formato siguiente: https://<nombre de la cuenta de Azure Data Lake>.azuredatalakestore.net/webhdfs/v1 | Sí |
 | authorization | Haga clic en el botón **Autorizar** del **Editor de la Factoría de datos** y escriba sus credenciales. De esta forma, se asigna la dirección URL de autorización generada automáticamente a esta propiedad. | Sí |
 | sessionId | Identificador de sesión OAuth de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Se genera automáticamente al usar el Editor de la Factoría de datos. | Sí |  
 | accountName | Nombre de la cuenta de Data Lake. | No |
@@ -413,13 +416,13 @@ Puede vincular una cuenta de Almacenamiento de Azure a una Factoría de datos de
 | resourceGroupName | Nombre del grupo de recursos de Azure. | No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
 ## Expiración del token 
-El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: "Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales". AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21-09-31Z".
+El código de autorización que genera al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21-09-31Z".
 
 
 | Tipo de usuario | Expira después de |
 | :-------- | :----------- | 
 | Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
-| Cuentas de usuario administradas por Azure Active Directory (AAD) | 14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada 14 días. |
+| Cuentas de usuario administradas por Azure Active Directory (AAD) | 14 días después de la ejecución del último segmento. <br/><br/>90 días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada 14 días. |
 
 Tenga en cuenta que si cambia la contraseña antes de esta hora de expiración del token, el token caduca inmediatamente y verá el error mencionado anteriormente.
 
@@ -450,7 +453,7 @@ Para evitar o resolver este error, será preciso que vuelva a dar la autorizaci�
         }
     }
 
-Para más información sobre las clases de Data Factory que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para obtener más información sobre las clases de Data Factory que se usan en el código, vea los temas [Clase AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Clase AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [Clase AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Es preciso que agregue una referencia a: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
  
 
 ## Propiedades de tipo del conjunto de datos de Azure Data Lake
@@ -462,10 +465,10 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | Propiedad | Descripción | Obligatorio |
 | :-------- | :----------- | :-------- |
 | folderPath | Ruta de acceso al contenedor y a la carpeta del almacén de Azure Data Lake. | Sí |
-| fileName | Nombre del archivo en el almacén de Azure Data Lake. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas. <br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el archivo específico.<br/><br/>Cuando no se especifica fileName, la copia incluye todos los archivos de folderPath para el conjunto de datos de entrada.<br/><br/>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. | No |
+| fileName | Nombre del archivo en el almacén de Azure Data Lake. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas. <br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el archivo específico.<br/><br/>Cuando no se especifica fileName, la copia incluye todos los archivos de folderPath para el conjunto de datos de entrada.<br/><br/>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt). | No |
 | partitionedBy | partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección Uso de la propiedad partitionedBy a continuación para obtener información detallada y ejemplos. | No |
-| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** y **OrcFormat**. Deberá establecer la propiedad **type** de formato en uno de los siguientes valores. Consulte las secciones [Especificación de TextFormat](#specifying-textformat), [Especificación de AvroFormat](#specifying-avroformat), [Especificación de JsonFormat](#specifying-jsonformat) y [Especificación de OrcFormat](#specifying-orcformat) para obtener más detalles. Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), puede omitir la sección de formato en las definiciones de conjunto de datos de entrada y salida.| No
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2**, y los niveles admitidos son: **Óptimo** y **Más rápida**. Tenga en cuenta que actualmente la configuración de compresión no es compatible con los datos de **AvroFormat** u **OrcFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
+| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat** y **OrcFormat**. Deberá establecer la propiedad **type** de formato en uno de los siguientes valores. Vea las secciones [Especificación de TextFormat](#specifying-textformat), [Especificación de AvroFormat](#specifying-avroformat), [Especificación de JsonFormat](#specifying-jsonformat) y [Especificación de OrcFormat](#specifying-orcformat) para obtener más detalles. Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), puede omitir la sección de formato en las definiciones de conjunto de datos de entrada y salida.| No
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2** y los niveles admitidos: **óptimo** y **más rápido**. Tenga en cuenta que actualmente la configuración de compresión no es compatible con los datos de **AvroFormat** u **OrcFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
 ### Uso de la propiedad partitionedBy
 Tal como se mencionó anteriormente, puede especificar un valor folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy**, macros de la Factoría de datos y las variables del sistema: SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
@@ -526,10 +529,10 @@ Para especificar la compresión para un conjunto de datos, use la propiedad **co
  
 Observe que la sección **compression** tiene dos propiedades:
   
-- **Type:** el códec de compresión, que puede ser **GZIP**, **Deflate** o **BZIP2**.  
-- **Level:** la relación de compresión, que puede ser **Optimal** o **Fastest**. 
-	- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. 
-	- **Optimal:** la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. 
+- **Type:** el códec de compresión, que puede ser **GZIP**, **Deflate** o **BZIP2**.
+- **Level:** la relación de compresión, que puede ser **Optimal** o **Fastest**.
+	- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.
+	- **Optimal:** la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
 	
 	Consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) para obtener más información.
 
@@ -537,9 +540,9 @@ Supongamos que el conjunto de datos de ejemplo anterior se usa como salida de un
 
 Cuando se especifica la propiedad compression en un conjunto de datos de entrada JSON, la canalización puede leer los datos comprimidos desde el origen, y cuando se especifica la propiedad en un conjunto de datos de salida JSON, la actividad de copia puede escribir datos comprimidos en el destino. Estos son algunos escenarios de ejemplo:
 
-- Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos y escribir los datos de resultado en una base de datos SQL de Azure. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con la propiedad JSON compression en este caso. 
-- Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un almacén de Azure Data Lake. Defina un conjunto de datos de Azure Data Lake de salida con la propiedad JSON compression en este caso.  
-- Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un almacén de Azure Data Lake. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con el tipo de compresión establecido en GZIP y el conjunto de datos de salida con el tipo de compresión establecido en BZIP2 en este caso.   
+- Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos y escribir los datos de resultado en una base de datos SQL de Azure. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con la propiedad JSON compression en este caso.
+- Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un almacén de Azure Data Lake. Defina un conjunto de datos de Azure Data Lake de salida con la propiedad JSON compression en este caso.
+- Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un almacén de Azure Data Lake. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con el tipo de compresión establecido en GZIP y el conjunto de datos de salida con el tipo de compresión establecido en BZIP2 en este caso.
 
 
 ## Propiedades de tipo de actividad de copia de Azure Data Lake  
@@ -569,6 +572,6 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Rendimiento y optimización  
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Vea [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

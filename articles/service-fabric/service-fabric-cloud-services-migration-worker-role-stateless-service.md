@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
@@ -49,7 +49,7 @@ ASP.NET Core 1 | Sí | N/D
 
 Las API de rol de trabajo y las de los servicios de Service Fabric ofrecen puntos de entrada similares:
 
-**Punto de entrada** | **Rol de trabajo** | **Servicio de Service Fabric**.
+**Punto de entrada** | **Rol de trabajo** | **Servicio de Service Fabric.**
 --- | --- | ---
 Processing | `Run()` | `RunAsync()`
 Inicio de máquina virtual | `OnStart()` | N/D
@@ -160,7 +160,7 @@ Se puede acceder a los valores de configuración de cada instancia de servicio a
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -204,7 +204,7 @@ Estos eventos están disponibles para consumir los cambios en los paquetes de se
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -277,4 +277,4 @@ Conozca más información acerca de Reliable Services de Service Fabric y las di
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general sobre las asignaciones y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure" 
+	pageTitle="Información general sobre las asignaciones y Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
 	description="Sepa cómo usar las asignaciones con las Aplicaciones lógicas y Enterprise Integration Pack." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Información sobre las asignaciones y Enterprise Integration Pack
@@ -47,15 +47,15 @@ Siga estos pasos para cargar una nueva asignación que reemplace una que ya exis
 4. Seleccione el archivo de asignación que quiera cargar mediante el cuadro de diálogo selector de archivos que se abre. Después, haga clic en la opción **Abrir** del selector de archivos ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. Recibirá una notificación emergente cuando se cargue la asignación.
 
-
 ## ¿Cómo se eliminan asignaciones?
 1. Seleccione el icono de **Asignaciones**.
 2. Elija la asignación que quiera eliminar cuando se abra la hoja Asignaciones.
 3. Haga clic en el vínculo **Eliminar**. ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. Confirme que quiere eliminar realmente la asignación. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## Pasos siguientes
+- [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 - [Más información sobre los contratos](./app-service-logic-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")
+- [Más información sobre las transformaciones](./app-service-logic-enterprise-integration-transform.md "Información sobre las transformaciones de integración de empresas")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

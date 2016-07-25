@@ -8,7 +8,7 @@ La tabla siguiente enumera los requisitos para las puertas de enlace VPN basadas
 | **Método de autenticación** | Clave precompartida | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S | Clave precompartida para la conectividad de S2S, Certificados para la conectividad de P2S |
 | **Número máximo de conexiones S2S** | 1 | 10 | 10 | 30 |
 | **Número máximo de conexiones P2S** | No compatible | 128 | 128 | 128 |
-|**Compatibilidad con enrutamiento activo (BGP)** | No compatible | No compatible | No compatible | No compatible |
+|**Compatibilidad con enrutamiento activo (BGP)** | No compatible | No compatible | Compatible | Compatible |
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

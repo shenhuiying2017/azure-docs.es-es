@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/22/2016"
+ ms.date="07/12/2016"
  ms.author="larryfr"/>
 
 #Entender y resolver errores recibidos de WebHCat (Templeton), en HDInsight
@@ -86,4 +86,4 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

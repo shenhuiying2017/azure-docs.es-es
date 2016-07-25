@@ -140,15 +140,15 @@ Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de s
 
 	El siguiente ejemplo de cmdlet agrega una ruta predeterminada a la tabla de enrutamiento que creó en el paso 1. Tenga en cuenta que la única ruta admitida es el prefijo de destino de "0.0.0.0/0" para el siguiente salto "VPNGateway".
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Asocie la tabla de enrutamiento a las subredes.
 
 	Una vez creada una tabla de enrutamiento y agregada una ruta, use el cmdlet siguiente para agregar o asociar la tabla de enrutamiento a una subred de la red virtual. Los siguientes ejemplos agregan la tabla de enrutamiento de "MyRouteTable" a las subredes Midtier y Backend de VNet MultiTier-VNet.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Asigne un sitio predeterminado para la tunelización forzada.
 
@@ -161,7 +161,7 @@ Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de s
 
 ### Para eliminar una tabla de enrutamiento
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### Para mostrar una tabla de enrutamiento
 
@@ -173,14 +173,14 @@ Los pasos del procedimiento establecerán *DefaultSiteHQ* como la conexión de s
 
 ### Para quitar una ruta de una subred
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Para mostrar la tabla de enrutamiento asociada a una subred
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Para quitar un sitio predeterminado de una puerta de enlace de VPN de VNet
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -43,7 +43,7 @@ La tabla siguiente contiene vínculos a ejemplos de código para cada idioma adm
 
 Si un dispositivo no puede usar los SDK de cliente de dispositivo, tendrá la posibilidad de conectarse a los puntos de conexión públicos del dispositivo mediante el protocolo MQTT. En el paquete **CONNECT** el dispositivo debe usar los siguientes valores:
 
-- Para el campo **ClientId**, use **deviceId**. 
+- Para el campo **ClientId**, use **deviceId**.
 - Para el campo **Nombre de usuario** use `{iothubhostname}/{device_id}`, donde {iothubhostname} es el CName completo del Centro de IoT.
 
     Por ejemplo, si el nombre de su Centro de IoT es **contoso.azure devices.net** y si el nombre del dispositivo es **MyDevice01**, el campo **Nombre de usuario** completo debe contener `contoso.azure-devices.net/MyDevice01`.
@@ -85,13 +85,24 @@ Para recibir mensajes de un Centro de IoT, un dispositivo debe suscribirse media
 
 Para más información sobre la compatibilidad con MQTT con los SDK de dispositivo IoT, consulte la sección [Notas sobre la compatibilidad con MQTT][lnk-mqtt-devguide] en la Guía del desarrollador del Centro de IoT de Azure.
 
-Para más información sobre el uso de los SDK de cliente de dispositivo para comunicarse con el Centro de IoT, consulte [Introducción al Centro de IoT de Azure para .NET][lnk-iot-get-stated].
-
 Para más información sobre el protocolo MQTT, consulte la [documentación de MQTT][lnk-mqtt-docs].
+
+Para más información acerca de planificación de la implementación del Centro de IoT, consulte:
+
+- [Dispositivos compatibles][lnk-devices]
+- [Compatibilidad con protocolos adicionales para Centro de IoT][lnk-protocols]
+- [Comparación del Centro de IoT y los Centros de eventos][lnk-compare]
+- [Escalado del Centro de IoT][lnk-scaling]
+
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+
+- [Guía del desarrollador][lnk-devguide]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
-[lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
@@ -101,4 +112,13 @@ Para más información sobre el protocolo MQTT, consulte la [documentación de M
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

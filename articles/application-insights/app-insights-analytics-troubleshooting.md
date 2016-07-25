@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Solución de problemas de Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Azure" 
-	description="¿Problemas con Analytics de Application Insights? Comience aquí." 
+	description="¿Problemas con Analytics de Application Insights? Comience aquí. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="07/11/2016" 
 	ms.author="awills"/>
 
 
@@ -28,39 +28,44 @@
 * En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
 * Exploradores en los que la hemos probado: últimas ediciones de Chrome, Edge e Internet Explorer.
 
-## "Error inesperado"
+
+## Extensiones de explorador incompatibles conocidas
+
+* Ghostery
+
+Deshabilite la extensión o use un explorador diferente.
+
+
+##<a name="e-a"></a> "Error inesperado"
 
 ![Pantalla de error inesperado](./media/app-insights-analytics-troubleshooting/010.png)
 
 Error interno durante el tiempo de ejecución del portal: excepción no controlada.
 
-* Limpie la caché del explorador. 
+* Limpie la caché del explorador.
 
-## 403\... intente volver a cargar
+## <a name="e-b"></a>403... intente volver a cargar
 
 ![403\... intente volver a cargar](./media/app-insights-analytics-troubleshooting/020.png)
 
 Se ha producido un error relacionado con la autenticación (durante la autenticación o durante la generación del token de acceso). Puede que el portal no tenga forma de recuperarse sin cambiar la configuración del explorador.
 
-* Compruebe que las cookies de terceros estén habilitadas en el explorador. 
+* Compruebe que las [cookies de terceros estén habilitadas](#cookies) en el explorador.
 
-    Consulte [How to disable third-party cookies in all major web browsers](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers) (Cómo deshabilitar las cookies de terceros en todos los principales exploradores), pero tenga en cuenta que es necesario **habilitarlas**.
 
-## 403\... compruebe la zona de seguridad
+## <a name="authentication"></a>403... compruebe la zona de seguridad
 
 ![403\... compruebe la zona de seguridad](./media/app-insights-analytics-troubleshooting/030.png)
 
 Se ha producido un error relacionado con la autenticación (durante la autenticación o durante la generación del token de acceso). Puede que el portal no tenga forma de recuperarse sin cambiar la configuración del explorador.
 
-1. Compruebe que las cookies de terceros estén habilitadas en el explorador. 
-
-    Consulte [How to disable third-party cookies in all major web browsers](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers) (Cómo deshabilitar las cookies de terceros en todos los principales exploradores), pero tenga en cuenta que es necesario **habilitarlas**.
+1. Compruebe que las [cookies de terceros estén habilitadas](#cookies) en el explorador.
 
 2. ¿Ha utilizado un favorito, un marcador o un vínculo guardado para abrir el portal de Analytics? ¿Ha iniciado sesión con credenciales diferentes a las que utilizó cuando guardó el vínculo?
 
- 2. Pruebe a usar una ventana de exploración privada o de incógnito (después de cerrar todas estas ventanas). Tendrá que proporcionar sus credenciales.
+2. Pruebe a usar una ventana de exploración privada o de incógnito (después de cerrar todas estas ventanas). Tendrá que proporcionar sus credenciales.
 
- 2. Abra otra ventana de explorador (ordinaria) y vaya a [Azure](https://portal.azure.com). Cierre la sesión. A continuación, abra el vínculo e inicie sesión con las credenciales correctas.
+2. Abra otra ventana de explorador (ordinaria) y vaya a [Azure](https://portal.azure.com). Cierre la sesión. A continuación, abra el vínculo e inicie sesión con las credenciales correctas.
 
 2. Los usuarios de Edge y de Internet Explorer también pueden recibir este error cuando no se admite la configuración de zona Sitios de confianza.
 
@@ -75,14 +80,14 @@ Se ha producido un error relacionado con la autenticación (durante la autentica
     https://analytics.applicationinsights.io<br/> https://login.microsoftonline.com<br/> https://login.windows.net
 
 
-## 404 ... Recurso no encontrado
+## <a name="e-d"></a>404 ... Recurso no encontrado
 
 ![404 \... recurso no encontrado](./media/app-insights-analytics-troubleshooting/040.png)
 
 Los recursos de la aplicación se eliminaron de Application Insights y ya no están disponibles. Esto puede suceder si guardó la dirección URL en la página de Analytics.
 
 
-## 403 ... Sin autorización
+## <a name="e-e"></a>403 ... Sin autorización
 
 ![403 \... no autorizado](./media/app-insights-analytics-troubleshooting/050.png)
 
@@ -91,7 +96,7 @@ No tiene permiso para abrir esta aplicación en Analytics.
 * ¿Recibió el vínculo de otra persona? Pregúnteles para asegurarse de que se encuentra en los roles de [lector o colaborador en este grupo de recursos](app-insights-resources-roles-access-control.md).
 * ¿Guardó el vínculo mediante credenciales diferentes? Abra el [Portal de Azure](https://portal.azure.com), cierre sesión y vuelva a probar este vínculo con las credenciales correctas.
 
-## 403 ... Almacenamiento de HTML5
+## <a name="html-storage"></a>403 ... Almacenamiento de HTML5
 
 Nuestro portal utiliza localStorage y sessionStorage de HTML5.
 
@@ -101,7 +106,7 @@ Nuestro portal utiliza localStorage y sessionStorage de HTML5.
 
 ![403\... pruebe a habilitar el almacenamiento de HTML5](./media/app-insights-analytics-troubleshooting/060.png)
 
-## 404 ... Suscripción no encontrada
+## <a name="e-g"></a>404 ... Suscripción no encontrada
 
 
 ![404 \... Suscripción no encontrada](./media/app-insights-analytics-troubleshooting/070.png)
@@ -110,7 +115,7 @@ La dirección URL no es válida.
 
 * Abra el recurso de aplicación en el [portal de Application Insights](https://portal.azure.com). A continuación, utilice el botón de Analytics.
 
-## 404\... la página no existe
+## <a name="e-h"></a>404... la página no existe
 
 ![404 \... La página no existe](./media/app-insights-analytics-troubleshooting/080.png)
 
@@ -118,10 +123,14 @@ La dirección URL no es válida.
 
 * Abra el recurso de aplicación en el [portal de Application Insights](https://portal.azure.com). A continuación, utilice el botón de Analytics.
 
-## Si todo lo demás no funciona    
+## <a name="cookies"></a>Habilitar cookies de terceros
 
-Abra una [incidencia de soporte técnico](app-insights-get-dev-support.md).
+  Vea [How to disable third-party cookies in all major web browsers](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers) (Cómo deshabilitar las cookies de terceros en todos los principales exploradores), pero tenga en cuenta que es necesario **habilitarlas**.
+
+## <a name="e-x"></a>Si todo lo demás no funciona    
+
+[Póngase en contacto con nosotros](app-insights-get-dev-support.md).
  
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

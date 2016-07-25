@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Habilitar las métricas de almacenamiento en el Portal de Azure | Microsoft Azure" 
-	description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo" 
-	services="storage" 
-	documentationCenter="" 
-	authors="robinsh" 
-	manager="carmonm" 
+<properties
+	pageTitle="Habilitar las métricas de almacenamiento en el Portal de Azure | Microsoft Azure"
+	description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo"
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/09/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="robinsh"/>
 
 # Habilitar las métricas de almacenamiento de Azure y ver sus datos
@@ -30,7 +30,7 @@ Al habilitar las Métricas de almacenamiento, debe elegir un período de retenci
 
 Siga estos pasos para habilitar las métricas en el [Portal de Azure](https://portal.azure.com):
 
-1. Vaya a la cuenta de almacenamiento. 
+1. Vaya a la cuenta de almacenamiento.
 1. Abra la hoja **Configuración** y seleccione **Diagnósticos**.
 1. Asegúrese de que la opción **Estado** está establecida en **Activada**.
 1. Seleccione las métricas para los servicios que desea supervisar.
@@ -71,7 +71,7 @@ El siguiente fragmento de C# muestra cómo habilitar el registro y las métricas
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    // Enable Storage Analytics logging and set retention policy to 10 days.
     ServiceProperties properties = new ServiceProperties();
     properties.Logging.LoggingOperations = LoggingOperations.All;
     properties.Logging.RetentionDays = 10;
@@ -92,7 +92,7 @@ El siguiente fragmento de C# muestra cómo habilitar el registro y las métricas
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
 
-    
+
 ## Mostrar Métricas de almacenamiento
 
 Cuando haya configurado las métricas del Análisis de almacenamiento para supervisar su cuenta de almacenamiento, el Análisis de almacenamiento se encargará de registrar las métricas en un conjunto de tablas conocidas en su cuenta de almacenamiento. Puede configurar gráficos para ver las métricas por hora en el [Portal de Azure](https://portal.azure.com):
@@ -102,7 +102,16 @@ Cuando haya configurado las métricas del Análisis de almacenamiento para super
 3. Para modificar las métricas que se muestran en un gráfico, haga clic en el vínculo **Editar**. Puede agregar o quitar métricas individuales seleccionándolas o anulándolas.
 4. Haga clic en **Guardar** cuando haya terminado de modificar las métricas.
 
-Si quiere descargar las métricas para su almacenamiento de larga duración o para analizarlas localmente, deberá usar una herramienta o escribir código para leer las tablas. Debe descargar las métricas por minuto para el análisis. Las tablas no aparecen si lista todas las tablas en su cuenta de almacenamiento, pero puede acceder a ellas directamente por su nombre. Muchas herramientas de exploración de almacenamiento de terceros tienen en cuenta estas tablas y permiten que las vea directamente (vea la publicación en el blog [Información general sobre los exploradores del almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) para ver una lista de herramientas disponibles).
+Si quiere descargar las métricas para su almacenamiento de larga duración o para analizarlas localmente, deberá:
+
+- Usar una herramienta que reconozca estas tablas y que le permita poder verlas y descargarlas.
+- Escribir una aplicación personalizada o un script para leer y almacenar las tablas.
+
+Muchas herramientas de exploración de almacenamiento de terceros reconocen estas tablas y permiten que las pueda ver directamente. Consulte [Exploradores de Almacenamiento de Azure](storage-explorers.md) para obtener una lista de herramientas disponibles.
+
+> [AZURE.NOTE] A partir de la versión 0.8.0 del [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/), podrá ver y descargar las tablas de métricas de análisis.
+
+Para tener acceso a las tablas de análisis mediante programación, tenga en cuenta que estas no aparecerán si enumera todas las tablas en la cuenta de almacenamiento. Puede tener acceso a ellas directamente mediante el nombre o utilizando la [API de CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) en la biblioteca de cliente .NET para consultar los nombres de tabla.
 
 ### Métricas por hora
 - $MetricsHourPrimaryTransactionsBlob
@@ -148,7 +157,7 @@ El listado siguiente muestra código C# de ejemplo que accede a las métricas po
     // Convert the dates to the format used in the PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
-    
+
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
@@ -161,9 +170,9 @@ El listado siguiente muestra código C# de ejemplo que accede a las métricas po
     // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
     // because they are calculated fields in the MetricsEntity class.
     // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0
     select entity;
-    
+
     // Filter on "user" transactions after fetching the metrics from Table Storage.
     // (StartsWith is not supported using LINQ with Azure table storage)
     var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
@@ -171,7 +180,7 @@ El listado siguiente muestra código C# de ejemplo que accede a las métricas po
     Console.WriteLine(resultString);
     }
     }
-    
+
     private static string MetricsString(MetricsEntity entity, OperationContext opContext)
     {
     var entityProperties = entity.WriteEntity(opContext);
@@ -181,7 +190,7 @@ El listado siguiente muestra código C# de ejemplo que accede a las métricas po
     string.Format("TransactionType: {0}, ", entity.TransactionType) +
     string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
     return entityString;
-    
+
     }
 
 
@@ -203,6 +212,5 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 
 ## Pasos siguientes:
 [Habilitar el registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/dn782840.aspx)
- 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

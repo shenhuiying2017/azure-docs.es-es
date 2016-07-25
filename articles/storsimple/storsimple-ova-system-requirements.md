@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # Requisitos del sistema de la matriz virtual de StorSimple
@@ -93,6 +93,9 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
+> [AZURE.IMPORTANT] Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
+
+
 ### Patrones de URL para reglas de firewall 
 
 Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. La matriz virtual y el servicio de StorSimple Manager dependen de otras aplicaciones de Microsoft, como el Bus de servicio de Microsoft Azure, el Servicio de control de acceso de Microsoft Azure AD, las cuentas de almacenamiento y los servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Esta realidad, a su vez, requiere que el administrador de red supervise y actualice las reglas de firewall de su StorSimple de forma pertinente y oportuna.
@@ -101,16 +104,16 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 > [AZURE.NOTE] 
 > 
-> - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube. 
-> - Las IP de destino, por su parte, se deben establecer en los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
+> - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
+> - Por su parte, las direcciones IP de destino se deben establecer en los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
 
 
 | Patrón de URL | Componente o funcionalidad |
 |------------------------------------------------------------------|---------------------------------------------------------------|
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio de StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Microsoft Azure|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Servicio StorSimple Manager<br>Servicio de control de acceso<br>Bus de servicio de Azure|
 |`http://*.backup.windowsazure.com`|Registro de dispositivos|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revocación de certificados |
-| `https://*.core.windows.net/*` | Supervisión y cuentas de Almacenamiento de Azure |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Supervisión y cuentas de Almacenamiento de Azure |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte |
@@ -120,4 +123,4 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 -   [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

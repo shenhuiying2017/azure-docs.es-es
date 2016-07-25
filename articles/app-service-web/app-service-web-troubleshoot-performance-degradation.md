@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Solución de problemas: degradación del rendimiento en una aplicación web"
-	description="Este artículo le ayuda a solucionar los problemas de rendimiento en las aplicaciones web hospedadas en el Servicio de aplicaciones de Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+<properties pageTitle="Rendimiento reducido de aplicaciones web en el Servicio de aplicaciones | Microsoft Azure" description="Este artículo le ayuda a solucionar los problemas de rendimiento reducido de aplicaciones web en el Servicio de aplicaciones de Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="rendimiento de aplicaciones web, ralentizar aplicación, aplicación lenta"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,12 +6,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Solución de problemas: degradación del rendimiento en una aplicación web
+# Solucionar los problemas de rendimiento reducido de aplicaciones web en el Servicio de aplicaciones de Azure
 
-Este artículo le ayuda a solucionar los problemas de rendimiento en las aplicaciones web hospedadas en el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artículo le ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
 
@@ -64,7 +56,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación web s
 -	Espacio de trabajo de memoria
 -	Solicitudes
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![supervisar el rendimiento de aplicaciones web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Para más información, consulte:
 
@@ -182,8 +174,8 @@ Para obtener más información, consulte [Recuperación automática de Sitios we
 
 Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lugar una vez. En el [Portal de Azure](https://portal.azure.com/), en la hoja de la aplicación web, tiene las opciones para detener o reiniciar la aplicación.
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![reiniciar las aplicaciones web para resolver los problemas de rendimiento](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

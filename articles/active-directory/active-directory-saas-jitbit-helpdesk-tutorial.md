@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Jitbit Helpdesk:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC700993.png "Active Directory")
 
@@ -66,11 +66,11 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
   
 El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jitbit Helpdesk con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
->[AZURE.IMPORTANT]Para poder configurar el inicio de sesión único en el inquilino de Jitbit Helpdesk, deberá ponerse en contacto primero con el soporte técnico de Jitbit Helpdesk para habilitar esta característica.
+>[AZURE.IMPORTANT] Para poder configurar el inicio de sesión único en el inquilino de Jitbit Helpdesk, deberá ponerse en contacto primero con el soporte técnico de Jitbit Helpdesk para habilitar esta característica.
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Jitbit Helpdesk**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Jitbit Helpdesk**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configurar inicio de sesión único")
 
@@ -101,7 +101,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     ![Configuración de autenticación](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777683.png "Configuración de autenticación")
 
     1.  Seleccione **Habilitar inicio de sesión único SAML 2.0** para iniciar sesión mediante inicio de sesión único (SSO) con **OneLogin**.
-    2.  En el Portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Jitbit Helpdesk**, copie el valor de **Punto de conexión iniciado por el proveedor de servicios** y luego péguelo en el cuadro de texto **Dirección URL del punto de conexión**.
+    2.  En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Jitbit Helpdesk**, copie el valor de **Punto de conexión iniciado por el proveedor de servicios** y luego péguelo en el cuadro de texto **Dirección URL del punto de conexión**.
     3.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
         
 		>[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
@@ -109,7 +109,7 @@ El objetivo de esta sección es describir cómo habilitar la autenticación de u
     4.  Abra el certificado codificado en base 64, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
     5.  Haga clic en **Guardar cambios**.
 
-9.  En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+9.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -138,7 +138,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
 6.  Haga clic en **Crear**.
 
->[AZURE.NOTE]Puede usar cualquier herramienta de creación de cuentas de usuario de Jitbit Helpdesk u otras API proporcionadas por Jitbit Helpdesk para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier herramienta de creación de cuentas de usuario de Jitbit Helpdesk u otras API proporcionadas por Jitbit Helpdesk para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -146,7 +146,7 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 ###Para asignar usuarios a Jitbit Helpdesk, siga estos pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Jitbit Helpdesk**, haga clic en **Asignar usuarios**.
 
@@ -158,4 +158,4 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

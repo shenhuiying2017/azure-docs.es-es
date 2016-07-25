@@ -1,12 +1,13 @@
 <properties
-	pageTitle="Mi tarjeta de crédito no se acepta cuando intento suscribirme a Azure | Microsoft Azure"
-	description="Se describen algunas causas comunes de problemas que surgen al realizar la suscripción con una tarjeta de crédito o débito."
+	pageTitle="Rechazo de la tarjeta de crédito o débito al realizar la suscripción | Microsoft Azure"
+	description="Se describen algunas causas habituales de problemas que surgen al realizar la suscripción a Microsoft Azure como, por ejemplo, el rechazo de la tarjeta de crédito o débito."
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="top-support-issue"
+	keywords="tarjeta de crédito rechazada, tarjeta de débito rechazada, se rechazó su tarjeta de crédito, la tarjeta de crédito no se acepta"/>
 
 <tags
 	ms.service="billing"
@@ -17,10 +18,10 @@
 	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
-# Mi tarjeta de crédito no se acepta cuando intento suscribirme a Azure
-En la actualidad solamente se aceptan como opciones de pago válidas tarjetas de crédito o débito que no sean virtuales ni de prepago. Los proveedores de tarjetas de crédito o débito aceptados varían según el país.
+# Mi tarjeta de crédito o débito se rechaza cuando trato de suscribirme a Azure
+Si se rechazó su tarjeta de crédito o débito, esto puede deberse a que utiliza una tarjeta de prepago o virtual. Actualmente, aceptamos el pago con la mayoría de las tarjetas de crédito y débito, pero no las tarjetas virtuales o de prepago. Las últimas no se aceptan como opciones de pago válidas. Los proveedores de tarjetas de crédito o débito aceptados varían según el país. En la lista desplegable de elección de tarjeta de crédito, solo verá las opciones válidas para el país seleccionado.
 
-Asegúrese también de que el método de pago esté activo y de que su entidad bancaria no bloquee las transacciones en línea en aplicación de sus directivas de seguridad.
+Si realmente utiliza una tarjeta de crédito o débito válida, asegúrese de que esta esté activa y de que su entidad bancaria no bloquee las transacciones en línea en aplicación de sus directivas de seguridad.
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
@@ -31,13 +32,13 @@ Asegúrese también de que el método de pago esté activo y de que su entidad b
 - El código CVV que especifique tiene que coincidir exactamente con el código que aparece en el reverso o anverso de la tarjeta de crédito o débito.
 
 ## ¿Está intentando activar una evaluación gratuita de Azure?
-La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya ha activado una evaluación gratuita anteriormente con esta tarjeta de crédito o tenía en otro momento una suscripción de Azure vinculada a dicha tarjeta, el sistema no le permitirá activar ahora una evaluación gratuita. En su lugar, utilice uno de los otros planes de Azure disponibles que se indican en la página [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
+La oferta de evaluación gratuita de Azure está limitada a una activación por usuario. Si ya ha activado una evaluación gratuita anteriormente con esta tarjeta de crédito o tenía en otro momento una suscripción de Azure vinculada a dicha tarjeta, el sistema no le permitirá activar ahora una evaluación gratuita. En lugar de ello, utilice uno de los otros planes de Azure disponibles que se indican en la página [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## ¿Desea usar otra opción de pago aparte de una tarjeta de crédito o débito?
 También puede pagar la suscripción de Azure mediante métodos de pago de facturación, como cheques, cheques urgentes y transferencias bancarias.
 
 Para usar la opción de pago con factura, debe representar a una empresa. Esta opción no está disponible para suscriptores individuales. Tras configurar la opción de pago con factura para su empresa, no podrá cambiar a otra opción de pago posteriormente.
 
-Para iniciar el proceso de configuración de una factura, consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para más información.
+Para iniciar el proceso de configuración de una factura, consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/) para obtener más información.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

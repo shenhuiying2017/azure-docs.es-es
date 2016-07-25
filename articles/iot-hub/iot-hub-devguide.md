@@ -55,22 +55,22 @@ Esta es una descripción de los puntos de conexión:
     - *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables de nube a dispositivo y recibir las confirmaciones de entrega o expiración correspondientes. Para obtener más información, consulte [Mensajería de nube a dispositivo](#c2d).
     - *Recepción de notificaciones de archivos*. Este punto de conexión de mensajería le permite recibir notificaciones del momento en que los dispositivos cargan correctamente un archivo.
 
-En el artículo [SDK de Centro de IoT][lnk-apis-sdks] se describen las distintas formas con las que se puede acceder a estos puntos de conexión.
+En el artículo [SDK de Centro de IoT][lnk-sdks] se describen las distintas formas con las que se puede acceder a estos puntos de conexión.
 
 Finalmente, es importante tener en cuenta que todos los puntos de conexión del Centro de IoT usan el protocolo [TLS][lnk-tls] y ningún punto de conexión se expone en canales sin cifrar o no seguros.
 
 ### Cómo interpretar los extremos compatibles con los centros de eventos. <a id="eventhubcompatible"></a>
 
-Cuando se usa el [SDK de Bus de servicio de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) o el [host del procesador de eventos de Centros de eventos][], puede utilizar cualquier cadena de conexión del Centro de IoT con los permisos correctos y después emplear **messages/events** como nombre del Centro de eventos.
+Cuando se usa el [SDK de Bus de servicio de Azure para .NET][lnk-servicebus-sdk] o el [host del procesador de eventos de Centros de eventos][lnk-eventprocessorhost], puede utilizar cualquier cadena de conexión del Centro de IoT con los permisos correctos y después emplear **messages/events** como nombre del Centro de eventos.
 
-Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos que sean compatibles de la configuración del Centro de IoT en el [Portal de Azure][]\:
+Cuando use SDK (o integraciones de productos) que no detectan el Centro de IoT, tiene que recuperar un punto de conexión y un nombre de centro de eventos que sean compatibles de la configuración del Centro de IoT en el [Portal de Azure][lnk-management-portal]\:
 
 1. En la hoja Centro de IoT, haga clic en **Configuración** > **Mensajería**.
 2. En la sección **Device-to-cloud settings** (Configuración de dispositivo a nube), encontrará los valores **Event Hub-compatible endpoint** (Punto de conexión compatible con Centro de eventos), **Event Hub-compatible name** (Nombre compatible con Centro de eventos) y **Particiones**.
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Si el SDK requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema del **punto de conexión compatible con Centro de eventos**. Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el** nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el ****espacio de nombres** iothub-ns-myiothub-1234**.
 
 Luego, puede usar cualquier directiva de seguridad de acceso compartido que tenga permisos **ServiceConnect** para conectarse al Centro de eventos especificado.
 
@@ -92,7 +92,7 @@ Cada Centro de IoT contiene un registro de identidad de dispositivo. Puede utili
 
 En un nivel superior, el registro de identidad del dispositivo es una colección de recursos de identidad de dispositivos compatible con REST. Las secciones siguientes detallan las propiedades de los recursos de identidad del dispositivo y las operaciones que el registro permite en las identidades.
 
-> [AZURE.NOTE] Consulte [SDK de Centro de IoT][lnk-apis-sdks] para más información sobre el protocolo HTTP y los SDK que puede usar para interactuar con el registro de identidad de dispositivo.
+> [AZURE.NOTE] Consulte [SDK de Centro de IoT][lnk-sdks] para más información sobre el protocolo HTTP y los SDK que puede usar para interactuar con el registro de identidad de dispositivo.
 
 ### Propiedades de identidad del dispositivo <a id="deviceproperties"></a>
 
@@ -227,7 +227,7 @@ Nombre de usuario (DeviceId distingue entre mayúsculas y minúsculas): `iothubn
 
 Contraseña (Generar SAS con el Explorador de dispositivos): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
-> [AZURE.NOTE] Los [SDK del Centro de IoT de Azure][lnk-apis-sdks] generan tokens automáticamente cuando se conectan al servicio. En algunos casos, los SDK no admiten todos los protocolos o todos los métodos de autenticación.
+> [AZURE.NOTE] Los [SDK del Centro de IoT de Azure][lnk-sdks] generan tokens automáticamente cuando se conectan al servicio. En algunos casos, los SDK no admiten todos los protocolos o todos los métodos de autenticación.
 
 #### Consideraciones especiales para SASL PLAIN
 
@@ -262,7 +262,7 @@ Los mensajes del Centro de IoT constan de:
 * Un conjunto de *propiedades de la aplicación*. Se trata de un diccionario de propiedades de cadena que la aplicación puede definir y acceder sin necesidad de deserializar el cuerpo del mensaje. Centro de IoT nunca modifica estas propiedades.
 * Un cuerpo binario opaco.
 
-Para más información sobre cómo se codifica el mensaje en distintos protocolos, consulte [SDK de Centro de IoT][lnk-apis-sdks].
+Para más información sobre cómo se codifica el mensaje en distintos protocolos, consulte [SDK de Centro de IoT][lnk-sdks].
 
 Es el conjunto de propiedades del sistema en los mensajes del Centro de IoT.
 
@@ -327,7 +327,7 @@ De todas formas, hay algunas diferencias importantes entre los mensajes de dispo
 
 Tenga en cuenta que esto no significa que puede sustituir Centro de IoT en Centros de eventos en todas las situaciones. Por ejemplo, en algunos cálculos de procesamiento de eventos, podría ser necesario volver a crear particiones de eventos con respecto a un campo o propiedad diferentes antes de analizar los flujos de datos. En esta situación, puede usar un Centro de eventos para desacoplar las dos partes de la canalización de procesamiento de la transmisión. Para más información, consulte la sección *Particiones* del artículo [Información general de los Centros de eventos de Azure][lnk-eventhub-partitions].
 
-Para obtener información detallada sobre cómo usar la mensajería de dispositivo a nube, consulte [API y SDK del Centro de IoT][lnk-apis-sdks].
+Para obtener información detallada sobre cómo usar la mensajería de dispositivo a nube, consulte [API y SDK del Centro de IoT][lnk-sdks].
 
 > [AZURE.NOTE] Cuando se usa HTTP para enviar mensajes de dispositivo a nube, los valores y los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -397,7 +397,7 @@ Podría producirse un error en el subproceso al procesar un mensaje sin notifica
 
 Un mensaje puede cambiar entre los estados **Enqueued** (En cola) e **Invisible** un número de veces especificado en la propiedad **Número máximo de entregas** en el Centro de IoT. Después de ese número de transiciones, el Centro de IoT establece el estado del mensaje en **Deadlettered** (Procesado como devuelto). De igual forma, el Centro de IoT establece el estado de un mensaje en **Deadlettered** (Procesado como devuelto) después de su fecha de caducidad (consulte [Período de vida](#ttl)).
 
-Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introducción a los mensajes de nube a dispositivo del Centro de IoT de Azure][lnk-getstarted-c2d-tutorial]. Para consultar temas de referencia sobre cómo las diferentes API y SDK exponen la funcionalidad de dispositivo de nube, vea [API y SDK del Centro de IoT][lnk-apis-sdks].
+Para ver un tutorial sobre los mensajes de nube a dispositivo, consulte [Introducción a los mensajes de nube a dispositivo del Centro de IoT de Azure][lnk-getstarted-c2d-tutorial]. Para consultar temas de referencia sobre cómo las diferentes API y SDK exponen la funcionalidad de dispositivo de nube, vea [API y SDK del Centro de IoT][lnk-sdks].
 
 > [AZURE.NOTE] Normalmente los mensajes de nube a dispositivo se completan siempre que la pérdida del mensaje no afecte a la lógica de aplicación. Por ejemplo, el contenido del mensaje se ha guardado correctamente en el almacenamiento local, o se ha ejecutado correctamente una operación. El mensaje también puede llevar información transitoria, cuya pérdida no afectaría a la funcionalidad de la aplicación. A veces, para tareas de larga duración, puede completar el mensaje de nube a dispositivo después de guardar la descripción de la tarea en el almacenamiento local. A continuación, se puede notificar al back-end de aplicación con uno o más mensajes de dispositivo a nube en distintas fases de progreso de la tarea.
 
@@ -471,7 +471,7 @@ Cada Centro de IoT expone las siguientes opciones de configuración para la mens
 | feedback.ttlAsIso8601 | Retención de mensajes de comentarios del límite de servicio. | Intervalo de ISO\_8601 hasta 2D (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | feedback.maxDeliveryCount | Número máximo de entregas para la cola de comentarios. | De 1 a 100. Valor predeterminado: 100. |
 
-Para más información, consulte [Administración de Centros de IoT a través del Portal de Azure][lnk-manage].
+Para más información, consulte [Administración de Centros de IoT a través del Portal de Azure][lnk-portal].
 
 ### Cargas de archivos <a id="fileupload"></a>
 
@@ -483,7 +483,7 @@ En lugar de servir de intermediario de los mensajes, el Centro de IoT actúa com
 
 Para utilizar la funcionalidad de carga de archivos, primero debe vincular una cuenta de Almacenamiento de Azure al Centro de IoT. Esto puede hacerlo en el [Portal de Azure][lnk-management-portal] o mediante programación, con las [API del proveedor de recursos del Centro de IoT de Azure][lnk-resource-provider-apis]. Una vez que ha asociado una cuenta de almacenamiento al Centro de IoT, el servicio devuelve un URI de SAS a un dispositivo cuando este inicie una solicitud de carga de archivos.
 
-> [AZURE.NOTE] Los [SDK del Centro de IoT de Azure][lnk-apis-sdks] administran automáticamente la recuperación del URI de SAS: cargan el archivo y notifican al Centro de IoT que la carga se ha completado.
+> [AZURE.NOTE] Los [SDK del Centro de IoT de Azure][lnk-sdks] administran automáticamente la recuperación del URI de SAS: cargan el archivo y notifican al Centro de IoT que la carga se ha completado.
 
 #### Inicialización de una carga de archivos
 
@@ -532,7 +532,7 @@ Cada Centro de IoT expone las siguientes opciones de configuración para las not
 | **fileNotifications.lockDuration** | Duración del bloqueo de la cola de notificaciones de carga de archivos. | De 5 a 300 segundos (5 segundos como mínimo). Valor predeterminado: 60 segundos. |
 | **fileNotifications.maxDeliveryCount** | Número máximo de entregas en la cola de notificaciones de carga de archivos. | De 1 a 100. Valor predeterminado: 100. |
 
-Para más información, consulte [Administración de Centros de IoT a través del portal de Azure][lnk-manage].
+Para más información, consulte [Administración de Centros de IoT a través del portal de Azure][lnk-portal].
 
 ## Cuotas y limitación <a id="throttling"></a>
 
@@ -561,7 +561,7 @@ Es importante aclarar que la limitación de las *conexiones de dispositivo* dete
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Esto significa que, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad de dispositivos.
 
-Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
+Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitación del Centro de IoT) para ver una explicación detallada del comportamiento de limitación del Centro de IoT.
 
 >[AZURE.NOTE] En cualquier momento, es posible aumentar las cuotas o las limitaciones si aumenta el número de unidades aprovisionadas en un Centro de IoT.
 
@@ -571,21 +571,26 @@ Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] \(Li
 
 Ahora que ha visto la información general sobre desarrollo para Centro de IoT, siga estos vínculos para más información:
 
-- [Introducción a los Centros de IoT (tutorial)][lnk-get-started]
-- [Compatibilidad de hardware y de plataformas de sistema operativo][lnk-compatibility]
-- [Centro para desarrolladores de IoT de Azure][lnk-iotdev]
-- [Diseño de la solución][lnk-guidance]
+- [Carga de archivos desde dispositivos (tutorial)][lnk-file upload]
+- [Create an IoT hub programatically (Crear un Centro de IoT mediante programación)][lnk-create-hub]
+- [Introducción a C SDK][lnk-c-sdk]
+- [SDK de Centro de IoT][lnk-sdks]
 
-[host del procesador de eventos de Centros de eventos]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-[Portal de Azure]: https://portal.azure.com
+- [Diseño de la solución][lnk-design]
+- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+
+
+
+[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: iot-hub-tested-configurations.md
-[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -597,8 +602,6 @@ Ahora que ha visto la información general sobre desarrollo para Centro de IoT, 
 [lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-guidance]: iot-hub-guidance.md
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
@@ -607,7 +610,6 @@ Ahora que ha visto la información general sobre desarrollo para Centro de IoT, 
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-createuse-sas]: ../storage-dotnet-shared-access-signature-part-2/
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
@@ -617,11 +619,20 @@ Ahora que ha visto la información general sobre desarrollo para Centro de IoT, 
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-manage]: iot-hub-manage-through-portal.md
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
+[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

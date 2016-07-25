@@ -25,8 +25,8 @@ Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones 
 Hay unas cuantas ventajas inherentes a la ejecución de un ejecutable invitado en un clúster de Service Fabric:
 
 - Alta disponibilidad. Las aplicaciones que se ejecutan en Service Fabric ofrecen alta disponibilidad de forma inmediata. Service Fabric se asegura de que siempre haya una instancia de una aplicación en funcionamiento.
-- Supervisión del estado. Desde el primer momento, la supervisión del estado de Service Fabric detecta si la aplicación está en funcionamiento y proporciona información de diagnóstico en caso de que se produzca un error.   
-- Administración del ciclo de vida de las aplicaciones. Además de las actualizaciones sin tiempo de inactividad, Service Fabric también permite volver a la versión anterior, en caso de que se produzcan problemas durante la actualización.    
+- Supervisión del estado. Desde el primer momento, la supervisión del estado de Service Fabric detecta si la aplicación está en funcionamiento y proporciona información de diagnóstico en caso de que se produzca un error.
+- Administración del ciclo de vida de las aplicaciones. Además de las actualizaciones sin tiempo de inactividad, Service Fabric también permite volver a la versión anterior, en caso de que se produzcan problemas durante la actualización.
 - Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
 
 En este artículo, se describen los pasos básicos para empaquetar un ejecutable invitado e implementarlo en Service Fabric.
@@ -52,12 +52,12 @@ Para implementar una aplicación en Service Fabric, la aplicación debe seguir u
 
 ```
 |-- ApplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|-- Settings.xml
-  |-- data    
-  |-- ServiceManifest.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |-- Settings.xml
+    |-- data
+    |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -308,4 +308,4 @@ En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implemen
 - [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 - [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

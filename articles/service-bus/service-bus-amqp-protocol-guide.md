@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos | Microsoft Azure" 
     description="Guía del protocolo para expresiones y la descripción de AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos" 
-    services="service-bus" 
+    services="service-bus,event-hubs" 
     documentationCenter=".net" 
     authors="clemensv" 
     manager="timlt" 
@@ -234,6 +234,8 @@ En las siguientes secciones se explican las propiedades de las secciones de mens
 
 En esta sección se tratan las funcionalidades avanzadas del Bus de servicio de Azure que se basan en los borradores de la extensión AMQP que actualmente estamos desarrollando en el comité técnico de OASIS para AMQP. El Bus de servicio de Azure implementa el estado más reciente de estos borradores y adopta los cambios introducidos a medida que los borradores alcanzan el estado estándar.
 
+> [AZURE.NOTE] Se admiten las operaciones avanzadas de mensajería de Bus de servicio mediante un modelo de solicitud y respuesta. Los detalles de estas operaciones se describen en el documento [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx) (AMQP 1.0 en el Bus de servicio: operaciones basadas en solicitudes y respuestas).
+
 ### Administración de AMQP
 
 La especificación Administración de AMQP es el primero de los borradores de extensiones que analizaremos aquí. Esta especificación define un conjunto de gestos de protocolo superpuesto al protocolo AMQP que permite las interacciones de administración con la infraestructura de mensajería a través de AMQP. La especificación define operaciones genéricas como *crear*, *leer*, *actualizar* y *eliminar* para administrar entidades dentro de una infraestructura de mensajería y un conjunto de operaciones de consulta.
@@ -292,7 +294,7 @@ La propiedad *name* identifica la entidad a la que se va a asociar el token. En 
 
 Los tokens confieren derechos. El Bus de servicio conoce tres derechos fundamentales: "Enviar" permite enviar, "Escuchar" permite recibir y "Administrar" permite manipular las entidades. Los tokens SWT emitidos por AAD/ACS incluyen explícitamente dichos derechos como notificaciones. Los tokens de SAS del Bus de servicio hacen referencia a las reglas configuradas en el espacio de nombres o la entidad, y dichas reglas se configuran con derechos. Firmar el token con la clave asociada a esa regla hace que el token exprese los derechos correspondientes. El token asociado a una entidad con *put-token* permitirá que el cliente conectado interactúe con la entidad de acuerdo con los derechos del token. Un vínculo en el que cliente adopta el rol *remitente* requiere el derecho "Enviar"; adoptar el rol *receptor* requiere el derecho "Escuchar".
 
-El mensaje de respuesta tiene los siguientes valores de *application-properties*:
+El mensaje de respuesta tiene los siguientes valores de *application-properties*
 
 | Clave | Opcional | Tipo de valor | Contenido del valor |
 |--------------------|----------|------------|-----------------------------------|
@@ -327,4 +329,4 @@ Para aprender más sobre AMQP, consulte los siguientes vínculos:
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

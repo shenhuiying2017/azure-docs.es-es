@@ -66,7 +66,7 @@ Antes de ejecutar este ejemplo, debe haber completado los pasos de [Introducció
 
 Para iniciar el ejemplo, debe ejecutar `jobClient_scheduleJob.js`. Esto iniciará el proceso de actualización de firmware en todos los dispositivos simulados. Para iniciar el ejemplo, siga los pasos que se indican a continuación:
 
-1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya al directorio **azure-iot-sdks/node/service/samples**.  
+1.  Desde la carpeta raíz donde clonó el repositorio **azure-iot-sdks**, vaya al directorio **azure-iot-sdks/node/service/samples**.
 
 2.  Abra **jobClient\_scheduleJob.js** y reemplace el marcador de posición por su cadena de conexión del Centro de IoT.
 
@@ -104,13 +104,18 @@ La biblioteca de cliente de la administración de dispositivos del Centro de IoT
 
 ## Pasos siguientes
 
-Para más información acerca de las características de administración de dispositivos del Centro de IoT de Azure puede realizar los tutoriales:
+Para más información acerca de las características de administración de dispositivos de Centro de IoT de Azure puede realizar los tutoriales:
 
+- [Habilitación de los dispositivos administrados detrás de una puerta de enlace de IoT][lnk-dm-gateway]
+- [Introducción a la biblioteca de cliente de administración de dispositivos de Centro de IoT de Azure][lnk-library-c]
 - La biblioteca de cliente de administración de dispositivos del Centro de IoT de Azure proporciona un ejemplo de un extremo a otro mediante un [dispositivo Intel Edison][lnk-edison].
 
-- [How to use the device twin (Uso del conjunto de dispositivos)][lnk-twin-tutorial]
+Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-- [How to find device twins using queries (Cómo encontrar conjuntos de dispositivos con las consultas)][lnk-tutorial-queries]
+- [Diseño de la solución][lnk-design]
+- [Guía del desarrollador][lnk-devguide]
+- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 <!-- Images and links -->
 
@@ -127,4 +132,12 @@ Para más información acerca de las características de administración de disp
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

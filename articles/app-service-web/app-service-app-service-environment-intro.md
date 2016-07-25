@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
+	ms.date="07/11/2016"
 	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
@@ -58,7 +58,7 @@ Para obtener más detalles sobre la cantidad de recursos de proceso disponibles 
 Para obtener más detalles sobre los tamaños de los recursos de proceso disponibles admitidos en un entorno del Servicio de aplicaciones, consulte la página de [Precios de Servicio de aplicaciones][AppServicePricing] y revise las opciones disponibles para este tipo de entornos en el nivel de precios Premium.
 
 ## Compatibilidad con redes virtuales ##
-Un entorno del Servicio de aplicaciones puede crearse en una red virtual regional clásica "v1" existente, o bien en una nueva red virtual regional clásica "v1" ([más información sobre redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual regional y, más concretamente, en una subred de una red virtual regional, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
+Puede crearse un entorno del Servicio de aplicaciones en una red virtual de Azure Resource Manager **o**en una del modelo de implementación clásica ([obtenga más información sobre las redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual y, más concretamente, en una subred de una red virtual, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
 
 Puede usar [grupos de seguridad de red][NetworkSecurityGroups] para restringir las comunicaciones de red entrantes a la subred donde reside el entorno del Servicio de aplicaciones. Esto le permite ejecutar aplicaciones tras dispositivos y servicios ascendentes, como firewalls de aplicaciones web y proveedores de SaaS de red.
 
@@ -66,11 +66,11 @@ Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como 
 
 Para obtener más detalles sobre cómo funcionan los entornos del Servicio de aplicaciones con redes virtuales y redes locales, consulte los siguientes artículos en [Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones][NetworkArchitectureOverview], [Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones][ControllingInboundTraffic] y [Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones][SecurelyConnectingToBackends].
 
-**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2".
-
 ## Introducción
 
 Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Creación de un entorno del Servicio de aplicaciones][HowToCreateAnAppServiceEnvironment].
+
+Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
@@ -108,4 +108,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de julio de 2016](#july_changes16)
 - [Versión de abril de 2016](#apr_changes16)
 - [Versión de febrero de 2016](#feb_changes16)
 - [Versión de enero de 2016](#jan_changes_16)
@@ -68,8 +69,8 @@ Varios encabezados comunes HTTP no se proporcionan en la API de REST.|Si desarro
 Al codificar un activo con un nombre de archivo que contiene caracteres de escape (por ejemplo, %20), se muestra el error "MediaProcessor: archivo no encontrado".|Los nombres de archivos que se van a agregar a un activo y que luego se van a codificar deben contener caracteres alfanuméricos y espacios. El problema se corregirá en una futura actualización.
 El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente.|Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente.
 El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).|Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Códigos de error de Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. | Debe usar **Skip** y **Take** (. NET) / **top** (REST) como se describe en estos ejemplos de [.NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y de [API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
+Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. | Tiene que usar **Skip** y **Take** (.NET)/ **top** (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y [este ejemplo de API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Cambios en la versión de manifiesto de Smooth Streaming|Para obtener más información, consulte [esta](media-services-deliver-content-overview.md#known-issues) sección.
 
 ### <a id="dotnet_issues"></a>Problemas del SDK .NE de Servicios multimedia
 
@@ -81,15 +82,33 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
 
+##<a id="july_changes16"></a>Versión de julio de 2016
+
+###Actualiza al archivo de manifiesto (*. ISM) generado por las tareas de codificación
+
+Cuando una tarea de codificación se envía al Codificador multimedia estándar o al Codificador multimedia de Azure, la tarea de codificación genera un [archivo de manifiesto de streaming](media-services-deliver-content-overview.md) (* .ism) en el recurso de salida. Con la última versión de servicio se ha actualizado la sintaxis de este archivo de manifiesto de streaming.
+
+>[AZURE.NOTE]La sintaxis del archivo de manifiesto de streaming (.ism) está reservada para uso interno y está sujeta a cambios en futuras versiones. No modifique ni manipular el contenido de este archivo.
+
+###Un nuevo manifiesto de cliente (*ISMC) se genera en el recurso de salida cuando una tarea de codificación genera uno o varios archivos MP4
+
+A partir de la versión de servicio más reciente, después de completar una tarea de codificación que genera uno más archivos MP4, el recurso de salida también contendrá un archivo de manifiesto de cliente de streaming (*.ismc). El archivo .ismc ayuda a mejorar el rendimiento del streaming dinámico.
+
+>[AZURE.NOTE]La sintaxis del archivo de manifiesto de cliente (.ism) está reservada para uso interno y está sujeta a cambios en futuras versiones. No modifique ni manipular el contenido de este archivo.
+
+Para más información, vea [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+
+Para comprobar los problemas conocidos, consulte [esta](media-services-deliver-content-overview.md#known-issues) sección.
+
 ##<a id="apr_changes16"></a>Versión de abril de 2016
 
 ### Análisis multimedia de Azure
 
-Servicios multimedia de Azure presentó Análisis multimedia de Azure para inteligencia de vídeo eficaz. Para obtener más información, consulte [Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md).
+Servicios multimedia de Azure presentó Análisis multimedia de Azure para inteligencia de vídeo eficaz. Para más información, consulte [Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md).
 
 ### Apple FairPlay (versión preliminar)
 
-Servicios multimedia de Azure permite ahora cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También puede usar el servicio de entrega de licencias de AMS para entregar licencias de FairPlay a los clientes. Para obtener más información, consulte [Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay](media-services-protect-hls-with-fairplay.md).
+Servicios multimedia de Azure permite ahora cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También puede usar el servicio de entrega de licencias de AMS para entregar licencias de FairPlay a los clientes. Para más información, consulte [Uso de Servicios multimedia de Azure para transmitir contenido HLS protegido con Apple FairPlay](media-services-protect-hls-with-fairplay.md).
   
 ##<a id="feb_changes16"></a>Versión de febrero de 2016
 
@@ -206,29 +225,29 @@ Presentación de las nuevas características siguientes:
 
 ##<a id="april_changes_15"></a>Versión de abril de 2015
 
-        ###General Media Services Updates
+ ###Actualizaciones generales de Servicios multimedia
 
-        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
-        - Azure Media Indexer updates
-        - Support for Spanish Language
-        - New configuration xml format
+- [Presentación de Reproductor multimedia de Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- A partir de Servicios multimedia REST 2.10, los canales configurados para introducir un protocolo RTMP, se crean con direcciones URL de ingesta principal y secundaria. Para obtener más información, consulte [Configuraciones de ingesta de canales](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+- Actualizaciones de Azure Media Indexer
+- Compatibilidad con el idioma español
+- Nuevo formato de xml de configuración
 
-        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-        ###Media Services .NET SDK Updates
+Para obtener más información, consulte [este blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+###Actualizaciones del SDK .NET de Servicios multimedia
 
-        Azure Media Services .NET SDK is now version 3.2.0.0.
+Ahora la versión del SDK .NET de Servicios multimedia de Azure es la versión 3.2.0.0.
 
-        The following are some of the customer facing updates:
+Estas son algunas actualizaciones destinadas a los clientes:
 
-        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
-        - Updates related to creating custom retry policies.
-        - Bug fixes related to uploading/downloading files.
-        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+- **Cambios importantes**: **TokenRestrictionTemplate.Issuer** y **TokenRestrictionTemplate.Audience** cambiados a un tipo de cadena.
+- Las actualizaciones relacionadas con la creación personalizada de directivas de reintento.
+- Correcciones de errores relacionados con la carga/descarga de archivos.
+- La clase **MediaServicesCredentials** ahora acepta el extremo de control de acceso principal y secundario para la autenticación.
 
 
 
-        ##<a id="march_changes_15"></a>March 2015 Release
+##<a id="march_changes_15"></a>Versión de marzo de 2015
 
 ### Actualizaciones generales de Servicios multimedia
 
@@ -350,7 +369,7 @@ Actualmente, cuenta con las dos opciones siguientes para resolver el problema.
 
 	Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Nuevas características/escenarios que forman parte de la versión de vista previa pública
+### <a id="sept_14_preview_changes"></a>Nuevas características/escenarios que forman parte de la versión preliminar pública
 
 * Vista previa de Live Streaming. Para obtener más información, consulte [Trabajo con el streaming en vivo de Servicios multimedia de Azure].
 
@@ -631,7 +650,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 
 <!-- Images. -->
 
-<!-- URLs. -->
+<!--- URLs. --->
 [foro de MSDN de Servicios multimedia de Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referencia de la API de REST de Servicios multimedia de Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Detalles de precios de Servicios multimedia]: http://azure.microsoft.com/pricing/details/media-services/
@@ -665,4 +684,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

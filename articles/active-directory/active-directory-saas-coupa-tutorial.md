@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Coupa
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de l
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Coupa:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-coupa-tutorial/IC700993.png "Active Directory")
 
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Metadatos de SP Coupa](./media/active-directory-saas-coupa-tutorial/IC791901.png "Metadatos de SP Coupa")
 
-4.  En otra ventana de explorador, inicie sesión en el Portal de Azure Active Directory.
+4.  En otra ventana de explorador, inicie sesión en el Portal de Azure clásico.
 
 5.  En la página de integración de aplicaciones de **Coupa**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -92,7 +92,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-coupa-tutorial/IC791904.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación Coupa (p. ej.: “*http://company.Coupa.com*”)
+    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación Coupa (p. ej.: "*http://company.Coupa.com*”).
     2.  Abra el archivo de metadatos de Coupa descargado y después copie la **dirección URL/índice AssertionConsumerService**.
     3.  En el cuadro de texto **Dirección URL de respuesta de Coupa**, pegue el valor de **la dirección URL/índice AssertionConsumerService**.
     4.  Haga clic en **Siguiente**.
@@ -113,7 +113,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     2.  Haga clic en **Examinar** para cargar el archivo de metadatos de Azure Active descargado.
     3.  Haga clic en **Guardar**.
 
-11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -139,9 +139,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Coupa, tienen que 
     1.  En los cuadros de texto relacionados, escriba los atributos **Nombre de usuario**, **Nombre**, **Apellido**, **Id. de inicio de sesión único**, **Correo electrónico** de una cuenta válida de Azure Active Directory que quiera aprovisionar.
     2.  Haga clic en **Crear**.
 
-    >[AZURE.NOTE]El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
+    >[AZURE.NOTE] El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Coupa para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Coupa para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -149,7 +149,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Coupa, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Coupa**, haga clic en **Asignar usuarios**.
 
@@ -161,4 +161,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

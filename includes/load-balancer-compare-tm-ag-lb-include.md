@@ -2,7 +2,7 @@
 
 Existen diversas opciones para distribuir el tráfico de red con Microsoft Azure. Estos opciones funcionan de manera diferente, ya que disponen de un conjunto de características distintas y son compatibles con escenarios distintos. Cada una se puede usar por separado, pero también se pueden combinar.
 
-- El Equilibrador de carga de Azure funciona en el nivel de red (nivel 4 en la pila de referencia de red de OSI). Proporciona distribución del tráfico en el nivel de red entre las instancias de una aplicación que se ejecutan en el mismo centro de datos de Azure.
+- Azure Load Balancer actúa como capa de transporte (nivel 4 en la pila de referencia de red de OSI). Proporciona distribución del tráfico en el nivel de red entre las instancias de una aplicación que se ejecutan en el mismo centro de datos de Azure.
 
 - La Puerta de enlace de aplicaciones funciona en el nivel de aplicación (nivel 7 en la pila de referencia de red de OSI). Actúa como un servicio de proxy inverso, que termina la conexión de cliente y reenvía las solicitudes de vuelta a los puntos de conexión de back-end.
 
@@ -10,7 +10,7 @@ Existen diversas opciones para distribuir el tráfico de red con Microsoft Azure
 
 | Servicio | Equilibrador de carga de Azure | Puerta de enlace de aplicaciones | Administrador de tráfico |
 |---|---|---|---|
-|Technology| Nivel de red (nivel 4) | Nivel de aplicación (nivel 7) | Nivel de DNS |
+|Technology| Nivel de transporte (nivel 4) | Nivel de aplicación (nivel 7) | Nivel de DNS |
 | Protocolos de aplicación admitidos |	Cualquiera | HTTP y HTTPS | 	Cualquiera (es necesario un punto de conexión HTTP/S para la supervisión del punto de conexión) |
 | Extremos | Instancias de rol de máquinas virtuales de Azure y servicios en la nube | Cualquier dirección IP interna de Azure o dirección IP de Internet pública | Máquinas virtuales de Azure, servicios en la nube, aplicaciones web de Azure y puntos de conexión externos |
 | Compatibilidad de redes virtuales | Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) | Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) |	Solo es compatible con aplicaciones accesibles desde Internet |
@@ -30,4 +30,4 @@ Supervisión de puntos de conexión | Se admite a través de sondeos | Se admite
 
   
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

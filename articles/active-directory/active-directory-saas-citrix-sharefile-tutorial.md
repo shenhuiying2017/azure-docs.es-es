@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración con Azure Active Directory con Citrix ShareFile
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Citrix ShareFile:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-sharefile-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@ El objetivo de esta sección es describir cómo se habilita a los usuarios para 
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **Citrix ShareFile**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **Citrix ShareFile**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Habilitar inicio de sesión único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Habilitar inicio de sesión único")
 
@@ -96,15 +96,15 @@ El objetivo de esta sección es describir cómo se habilita a los usuarios para 
 
     ![Inicio de sesión único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773628.png "Inicio de sesión único")
 
-    1.  Haga clic **Habilitar SAML**.
-    2.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Su emisor de IDP/Id. de entidad**.
-    3.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    4.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+    1.  Haga clic en **Enable SAML** (Habilitar SAML).
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Su emisor de IDP/Id. de entidad**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix ShareFile**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     5.  Haga clic en **Cambiar** junto al campo **Certificado X.509** y luego cargue el certificado que descargó desde el Portal de Azure AD. ![Configuración básica](./media/active-directory-saas-citrix-sharefile-tutorial/IC773629.png "Configuración básica")
 
 9.  Haga clic en **Guardar** en el portal de administración de Citrix ShareFile.
 
-10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
@@ -125,9 +125,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Citrix ShareFile, 
 
 4.  Haga clic en **Add User** (Agregar usuario).
 
-    >[AZURE.NOTE]El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
+    >[AZURE.NOTE] El titular de la cuenta de AAD recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Citrix ShareFile ofrecida por Citrix ShareFile para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Citrix ShareFile ofrecida por Citrix ShareFile para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
 
@@ -135,7 +135,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Citrix ShareFile, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Citrix ShareFile** haga clic en **Asignar usuarios**.
 
@@ -147,4 +147,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

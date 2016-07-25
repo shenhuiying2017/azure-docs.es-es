@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/11/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transacciones en el Almacenamiento de datos SQL
@@ -43,10 +43,12 @@ En la tabla siguiente se han considerado estas hipótesis:
 | DW1200 | 9 | 60 | 540 | 36 000 000 | 2 160 000 000 |
 | DW1500 | 11,25 | 60 | 675 | 45 000 000 | 2 700 000 000 |
 | DW2000 | 15 | 60 | 900 | 60 000 000 | 3 600 000 000 |
+| DW3000 | 22\.5 | 60 | 1,350 | 90,000,000 | 5,400,000,000 |
+| DW6000 | 45 | 60 | 2,700 | 180,000,000 | 10,800,000,000 |
 
 Se aplica el límite de tamaño de la transacción por transacción u operación. No se aplica en todas las transacciones simultáneas. Por tanto, cada transacción puede escribir esta cantidad de datos en el registro.
 
-Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo sobre [prácticas recomendadas relacionadas con las transacciones][].
+Para optimizar y minimizar la cantidad de datos que se escriben en el registro, consulte el artículo sobre [procedimientos recomendados relacionados con las transacciones][].
 
 > [AZURE.WARNING] El tamaño máximo de la transacción solo se puede conseguir para las tablas de distribución HASH o ROUND\_ROBIN donde la propagación de los datos es uniforme. Si la transacción está escribiendo datos de forma sesgada en las distribuciones, es posible que el límite se alcance antes de que la transacción llegue al máximo de su tamaño.
 <!--REPLICATED_TABLE-->
@@ -138,7 +140,7 @@ Para más información acerca de la optimización de transacciones, consulte [Op
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [Optimización de transacciones para Almacenamiento de datos SQL]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[prácticas recomendadas relacionadas con las transacciones]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[procedimientos recomendados relacionados con las transacciones]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 [USO DE ETIQUETAS]: ./sql-data-warehouse-develop-label.md
 
@@ -146,4 +148,4 @@ Para más información acerca de la optimización de transacciones, consulte [Op
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

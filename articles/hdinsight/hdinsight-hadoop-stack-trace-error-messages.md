@@ -4,7 +4,7 @@
 	keywords="seguimiento de la pila, mensajes de error"
 	services="hdinsight"
 	documentationCenter="NA"
-	authors="cjgronlund"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.workload="big-data"
 	ms.date="03/21/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Errores de seguimiento de la pila de Hadoop en HDInsight: índice de artículos de solución de problemas
 
@@ -34,4 +34,4 @@ Use este índice de errores de seguimiento de la pila de Hadoop para solucionar 
 * [Recopilar volcados de memoria en el almacenamiento de blobs para depurar y analizar servicios de Hadoop](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Notas de la versión de los componentes de Hadoop en HDInsight de Azure](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

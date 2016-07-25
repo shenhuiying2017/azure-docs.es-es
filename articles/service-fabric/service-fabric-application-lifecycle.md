@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="07/11/2016"
    ms.author="ryanwi"/>
 
 
@@ -100,7 +100,7 @@ Consulte [Tutorial de actualización de la aplicación](service-fabric-applicati
 5. Cuando se agregan nodos nuevos al clúster o se quitan nodos existentes, Service Fabric equilibra automáticamente la carga de las aplicaciones en ejecución en todos los nodos del clúster para lograr un rendimiento óptimo.
 
 ## Remove
-1. Un *operador* puede eliminar una instancia específica de un servicio en ejecución en el clúster sin quitar la aplicación completa mediante el uso del método [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), el cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) o la operación REST [**Eliminar servicio**](https://msdn.microsoft.com/library/azure/dn707687.aspx).  
+1. Un *operador* puede eliminar una instancia específica de un servicio en ejecución en el clúster sin quitar la aplicación completa mediante el uso del método [**DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), el cmdlet [**Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) o la operación REST [**Eliminar servicio**](https://msdn.microsoft.com/library/azure/dn707687.aspx).
 
 2. Un *operador* también puede eliminar una instancia de aplicación y todos sus servicios mediante el uso del método [**DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), el cmdlet [**Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) o la operación REST [**Eliminar aplicación**](https://msdn.microsoft.com/library/azure/dn707651.aspx).
 
@@ -121,4 +121,4 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 - [Información general sobre Testability](service-fabric-testability-overview.md)
 - [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -289,7 +289,7 @@ Un cliente en posesión de una SAS de servicio puede usarla desde el código par
 Cuando use firmas de acceso compartido en sus aplicaciones, debe tener en cuenta dos posibles riesgos:
 
 - Si se perdió una SAS, cualquier persona que la consiga puede usarla, lo que puede poner en riesgo su cuenta de almacenamiento.
-- Si una SAS proporcionada para una aplicación cliente expira y la aplicación no puede recuperar una nueva SAS del servicio, la funcionalidad de la aplicación puede verse afectada.  
+- Si una SAS proporcionada para una aplicación cliente expira y la aplicación no puede recuperar una nueva SAS del servicio, la funcionalidad de la aplicación puede verse afectada.
 
 Las siguientes recomendaciones para el uso de firmas de acceso compartido le ayudarán a equilibrar estos riesgos:
 
@@ -318,4 +318,4 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

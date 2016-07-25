@@ -433,7 +433,7 @@ oracleReaderQuery | Utilice la consulta personalizada para leer los datos. | Cad
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. | timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). | No
-writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. | Entero | No (valor predeterminado = 10000)  
+writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. | Entero (número de filas)| No (valor predeterminado = 10000)  
 sqlWriterCleanupScript | Consulta especificada por el usuario para que la actividad de copia se ejecute de tal forma que se limpien los datos de un segmento específico. | Una instrucción de consulta. | No
 sliceIdentifierColumnName | Nombre de columna especificado por el usuario para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. | Nombre de columna de una columna con el tipo de datos binarios (32). | No
 
@@ -477,7 +477,7 @@ XML | String
 
 ## Sugerencias de solución de problemas
 
-**Problema:** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
+**Problema: ** se visualiza el siguiente **mensaje de error**: La actividad de copia detectó parámetros no válidos: "UnknownParameterName". Mensaje detallado: No se encontró el proveedor de datos de .Net Framework solicitado. Puede que no esté instalado".
 
 **Causas posibles**
 
@@ -501,4 +501,4 @@ XML | String
 ## Rendimiento y optimización  
 Para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

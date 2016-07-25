@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solución de problemas de conexiones SSH a una máquina virtual de Azure | Microsoft Azure"
+	pageTitle="Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure | Microsoft Azure"
 	description="Solucionar problemas y corregir errores de SSH como, por ejemplo, errores en la conexión SSH o conexiones SSH rechazadas para una máquina virtual de Azure con Linux."
 	keywords="conexión ssh rechazada, error de ssh azure ssh, error de conexión ssh"
 	services="virtual-machines-linux"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Solución de problemas de conexiones SSH a una máquina virtual de Azure
+# Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure
 
-Hay varias razones por las que podrían generarse errores de Secure Shell (SSH) al intentar conectarse a una máquina virtual (VM) de Azure basada en Linux. Este artículo le ayudará a identificar esos problemas y corregirlos.
+Hay varias razones por las que podrían generarse errores de Secure Shell (SSH), un error de conexión de SSH o se rechaza al intentar conectarse a una máquina virtual (VM) de Azure basada en Linux. Este artículo le ayudará a identificar esos problemas y corregirlos.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ Siga estos pasos para intentar resolver los errores de conexión SSH más habitu
 	- Restablecer la configuración de SSH.
 
 - Compruebe el estado de los recursos de la máquina virtual para ver si hay algún problema en la plataforma.<br> Seleccione **Examinar** > **Máquinas virtuales (clásico)** > *su máquina virtual Linux* > **Configuración** > **Comprobar el estado**.
-	 
+
 
 ## Recursos adicionales
 
@@ -134,4 +134,4 @@ Siga estos pasos para intentar resolver los errores de conexión SSH más habitu
 
 - Para más información sobre cómo solucionar problemas de máquinas virtuales que se crearon mediante el modelo de implementación clásica, consulte [Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/16/2016" 
+	ms.date="07/08/2016" 
 	ms.author="hillaryc;sethm"/>
 
 # Compatibilidad de AMQP 1.0 con los temas y las colas con particiones del Bus de servicio 
@@ -26,9 +26,11 @@ Las **colas y los temas con particiones**, también conocidos como *entidades co
 
 La incorporación de AMQP 1.0 como protocolo para comunicarse con las colas y los temas con particiones le permite crear aplicaciones interoperables que aprovechan las ventajas de la mayor disponibilidad, confiabilidad y rendimiento que ofrecen las entidades con particiones del Bus de servicio.
 
+Si desea obtener una guía detallada a nivel de conexión del protocolo AMQP 1.0, que describe cómo el Bus de servicio se implementa y se basa en la especificación técnica de OASIS AMQP, consulte la [Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos](service-bus-amqp-protocol-guide.md).
+
 ## Uso de AMQP con colas con particiones
 
-Las colas son útiles para escenarios que requieren desacoplamiento temporal, distribución de carga, equilibrio de carga y acoplamiento flexible. Con una cola, los editores envían mensajes a la cola y los consumidores reciben mensajes desde la cola, en situaciones en las que un mensaje se puede recibir solo una vez. Un buen ejemplo de esto es un sistema de inventario donde los terminales del punto de venta publican los datos en una cola en lugar de hacerlo directamente en el sistema de administración del inventario. El sistema de administración del inventario podría consumir los datos en cualquier momento para administrar la reposición de existencias. Esto tiene varias ventajas, incluido el hecho de que el sistema de administración del inventario no tiene que estar en línea en todo momento. Para obtener más información acerca de las colas del Bus de servicio, consulte [Creación de aplicaciones que usan colas del Bus de servicio](service-bus-create-queues.md).
+Las colas son útiles para escenarios que requieren desacoplamiento temporal, distribución de carga, equilibrio de carga y acoplamiento flexible. Con una cola, los editores envían mensajes a la cola y los consumidores reciben mensajes desde la cola, en situaciones en las que un mensaje se puede recibir solo una vez. Un buen ejemplo de esto es un sistema de inventario donde los terminales del punto de venta publican los datos en una cola en lugar de hacerlo directamente en el sistema de administración del inventario. El sistema de administración del inventario podría consumir los datos en cualquier momento para administrar la reposición de existencias. Esto tiene varias ventajas, incluido el hecho de que el sistema de administración del inventario no tiene que estar en línea en todo momento. Para más información acerca de las colas del Bus de servicio, consulte [Creación de aplicaciones que usan colas del Bus de servicio](service-bus-create-queues.md).
 
 Una cola con particiones aumenta la disponibilidad, la confiabilidad y el rendimiento de las aplicaciones, ya que estas colas tienen particiones para distintos almacenes y agentes de mensajes.
 
@@ -66,9 +68,9 @@ receivedMessage.Complete();
 
 ## Uso de AMQP con temas con particiones
 
-Los temas se parecen conceptualmente a las colas, pero pueden dirigir una copia del mismo mensaje a varios suscriptores. En un tema, los editores envían mensajes al tema y los consumidores reciben mensajes procedentes de las *suscripciones*. En el escenario de un punto de venta del sistema de inventario, los terminales publican los datos en el tema. El sistema de administración del inventario recibe mensajes desde una suscripción. Además, un sistema de supervisión puede recibir el mismo mensaje desde una suscripción diferente. Para obtener más información sobre los temas y las suscripciones de Bus de servicio, consulte [Creación de aplicaciones que usan temas y suscripciones de Bus de servicio](service-bus-create-topics-subscriptions.md).
+Los temas se parecen conceptualmente a las colas, pero pueden dirigir una copia del mismo mensaje a varias *suscripciones*. En un tema, los editores envían mensajes al tema y los consumidores reciben mensajes procedentes de las suscripciones. En el escenario de un punto de venta del sistema de inventario, los terminales publican los datos en el tema. El sistema de administración del inventario recibe mensajes desde una suscripción. Además, un sistema de supervisión puede recibir el mismo mensaje desde una suscripción diferente. Para más información sobre los temas y las suscripciones de Bus de servicio, consulte [Creación de aplicaciones que usan temas y suscripciones de Bus de servicio](service-bus-create-topics-subscriptions.md).
 
-Un tema con particiones aumenta la disponibilidad, la confiabilidad y el rendimiento de las aplicaciones, ya que estos temas y sus suscripciones tienen particiones para distintos almacenes y agentes de mensajes.
+Al igual que con las colas, un tema con particiones aumentaría la disponibilidad, la confiabilidad y el rendimiento de las aplicaciones, ya que estos temas y sus suscripciones tienen particiones para distintos almacenes y agentes de mensajes.
 
 ### Creación de temas con particiones
 
@@ -108,14 +110,15 @@ receivedMessage.Complete();
 
 ## Pasos siguientes
 
-Consulte la siguiente información adicional para obtener más información sobre las entidades de mensajería con particiones.
+Consulte la siguiente información adicional para más información sobre las entidades de mensajería con particiones así como sobre AMQP.
 
 *    [Entidades de mensajería con particiones](service-bus-partitioning.md)
 *    [Advanced Message Queuing Protocol (AMQP) de OASIS, versión 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [Soporte de AMQP 1.0 en el Bus de servicio](service-bus-amqp-overview.md)
+*    [Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos](service-bus-amqp-protocol-guide.md)
 *    [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Uso de AMQP 1.0 con la API .NET del bus de servicio](service-bus-dotnet-advanced-message-queuing.md)
 
 [Portal de Azure clásico]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

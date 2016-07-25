@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con SAP HANA Cloud Platform | Microsoft Azure" 
     description="Aprenda cómo usar SAP HANA Cloud Platform con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/07/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con SAP HANA Cloud Platform
   
@@ -70,7 +70,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el Portal de Azure AD, en la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único **.
+1.  En el Portal de Azure clásico, en la página de integración de aplicaciones de **SAP HANA Cloud Platform**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurar inicio de sesión único")
 
@@ -78,7 +78,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurar inicio de sesión único")
 
-3.  En una ventana de explorador web diferente, inicie sesión en SAP HANA Cloud Platform Cockpit en https://account.\<host horizontal>.ondemand.com/cockpit (por ejemplo, **https://account.hanatrial.ondemand.com/cockpit*)).
+3.  En una ventana de explorador web diferente, inicie sesión en SAP HANA Cloud Platform Cockpit en https://account.\<host horizontal>.ondemand.com/cockpit (por ejemplo, *https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Haga clic en la pestaña **Trust** (Confianza).
 
@@ -91,11 +91,11 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en la pestaña **Local Service Provide** (Proveedor de servicios local).
     2.  Para descargar el archivo de metadatos de SAP HANA Cloud Platform, haga clic en **Get Metadata** (Obtener metadatos).
 
-6.  En el portal de Azure Active Directory, en la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**.
+6.  En el Portal de Azure clásico, en la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurar dirección URL de la aplicación")
 
-    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL usada por los usuarios para iniciar sesión en la aplicación **SAP HANA Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP HANA Cloud Platform. La dirección URL se basa en el modelo siguiente: *https://\<NombreAplicación><NombreCuenta>.<host horizontal>.ondemand.com/<ruta\_a\_recurso\_protegido>*(por ejemplo, **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
+    1.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL usada por los usuarios para iniciar sesión en la aplicación **SAP HANA Cloud Platform**. Se trata de la URL específica de la cuenta de un recurso protegido en su aplicación SAP HANA Cloud Platform. La dirección URL se basa en el modelo siguiente: *https://\<NombreAplicación><NombreCuenta>.<host horizontal>.ondemand.com/<ruta\_a\_recurso\_protegido>*(por ejemplo, *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*).
 
 		>[AZURE.NOTE]Se trata de la URL de la aplicación SAP HANA Cloud Platform que requiere que autentique el usuario.
 
@@ -128,7 +128,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Administración de confianza](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Administración de confianza")
 
-    >[AZURE.NOTE]Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
+    >[AZURE.NOTE] Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
 
 11. Haga clic en la pestaña **Attributes** (Atributos).
 
@@ -150,7 +150,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     >
     >b. Los nombres y valores para el **Principal Attribute** (Atributo principal) que se muestran en la captura de pantalla dependen de cómo se desarrolle la aplicación. Es posible que la aplicación requiera diferentes asignaciones.
 
-13. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en SAP HANA Cloud Platform**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
+13. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en SAP HANA Cloud Platform**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configurar inicio de sesión único")
   
@@ -158,7 +158,7 @@ Como paso opcional, puede configurar grupos basados en aserción para su proveed
 
 >[AZURE.NOTE]El uso de grupos en SAP HANA Cloud Platform le permite asignar dinámicamente uno o más usuarios a uno o más roles en sus aplicaciones de SAP HANA Cloud Platform, determinados por los valores de los atributos de la aserción de SAML 2.0. Por ejemplo, si la aserción contiene el atributo "*contrato=temporal*", puede que desee que se agreguen todos los usuarios afectados al grupo"*TEMPORAL*". El grupo "*TEMPORAL*" puede contener uno o varios roles de una o más de las aplicaciones implementadas en la cuenta de SAP HANA Cloud Platform.
 >  
->Use los grupos basados en aserciones si quiere asignar de manera masiva muchos usuarios a uno o más roles de las aplicaciones en su cuenta de SAP HANA Cloud Platform. Si quiere asignar un número único o pequeño de usuarios a roles específicos, recomendamos asignarlos directamente en la pestaña "**Autorizaciones**" de la cabina de SAP HANA Cloud Platform.
+>Use los grupos basados en aserciones si quiere asignar de manera masiva muchos usuarios a uno o más roles de las aplicaciones en su cuenta de SAP HANA Cloud Platform. Si quiere asignar un número único o pequeño de usuarios a roles específicos, recomendamos asignarlos directamente en la pestaña **Autorizaciones** de la cabina de SAP HANA Cloud Platform.
 
 ##Asignación de un rol a un usuario
   
@@ -184,7 +184,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a SAP HANA Cloud Platform, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **SAP HANA Cloud Platform**, haga clic en **Asignar usuarios**.
 
@@ -196,4 +196,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0713_2016-->
