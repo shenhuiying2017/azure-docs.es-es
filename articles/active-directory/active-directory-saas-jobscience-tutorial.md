@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Jobscience
   
-El objetivo de este tutorial es mostrar la integración de Azure y Jobscience. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Jobscience.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único en Jobscience
@@ -64,7 +65,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML. La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado. Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Jobscience con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+La configuración de un inicio de sesión único para Jobscience requiere la recuperación de un valor de huella digital de un certificado.  
+Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -145,10 +148,12 @@ Para obtener la dirección URL de inicio de sesión único iniciado por el prove
 
 ![Controles de seguridad](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Controles de seguridad")
   
-Haga clic en el perfil SSO creado en el paso anterior. Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, *https://companyname.my.salesforce.com?so=companyid*).
+Haga clic en el perfil SSO creado en el paso anterior.  
+Esta página muestra la dirección URL de inicio de sesión único de su empresa (por ejemplo, *https://companyname.my.salesforce.com?so=companyid*).
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience. En el caso de Jobscience, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Jobscience, deben aprovisionarse en Jobscience.  
+En el caso de Jobscience, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 

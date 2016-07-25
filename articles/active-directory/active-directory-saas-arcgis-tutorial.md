@@ -112,7 +112,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS. En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.  
+En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 

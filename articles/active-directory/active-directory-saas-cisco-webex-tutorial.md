@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Active Directory con Cisco Webex
 
-El objetivo de este tutorial es mostrar la integración de Azure y Cisco Webex. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Cisco Webex.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Cisco Webex
@@ -64,7 +65,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
 ##Configuración del inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cisco Webex con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cisco Webex con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -120,7 +123,8 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar inicio de sesión único](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en Cisco Webex, tienen que aprovisionarse en Cisco Webex. En el caso de Cisco Webex, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Cisco Webex, tienen que aprovisionarse en Cisco Webex.  
+En el caso de Cisco Webex, el aprovisionamiento es una tarea manual.
 
 ###Para aprovisionar cuentas de usuario, realice estos pasos:
 

@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Brightspace by Desire2Learn
 
-El objetivo de este tutorial es mostrar la integración de Azure y Brightspace by Desire2Learn. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Brightspace by Desire2Learn.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para inicio de sesión único de Brightspace by Desire2Learn
@@ -89,14 +90,16 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  Enviar el archivo de metadatos descargados al equipo de soporte técnico de Brightspace by Desire2Learn.
 
-    >[AZURE.NOTE] El equipo de soporte técnico de Brightspace by Desire2Learn es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
+    >[AZURE.NOTE]El equipo de soporte técnico de Brightspace by Desire2Learn es el que tiene que realizar la configuración real de SSO.
+    Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
 
 6.  En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
 
-Para permitir que los usuarios de Azure AD inicien sesión en Brightspace by Desire2Learn, tienen que aprovisionarse en Brightspace by Desire2Learn. En el caso de Brightspace by Desire2Learn, las cuentas de usuario tiene que crearlas el equipo de soporte técnico de Brightspace by Desire2Learn.
+Para permitir que los usuarios de Azure AD inicien sesión en Brightspace by Desire2Learn, tienen que aprovisionarse en Brightspace by Desire2Learn.  
+En el caso de Brightspace by Desire2Learn, las cuentas de usuario tiene que crearlas el equipo de soporte técnico de Brightspace by Desire2Learn.
 
 >[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Brightspace by Desire2Learn que proporcione Brightspace by Desire2Learn para aprovisionar cuentas de usuario de Azure Active Directory.
 

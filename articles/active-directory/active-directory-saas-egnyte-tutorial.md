@@ -16,7 +16,8 @@
 
 #Tutorial: integración de Azure Active Directory con Egnyte
   
-El objetivo de este tutorial es mostrar la integración de Azure y Egnyte. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Egnyte.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Una suscripción habilitada para el inicio de sesión único en Egnyte
@@ -64,7 +65,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Egnyte con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Egnyte con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -120,7 +123,8 @@ El objetivo de esta sección es describir cómo permitir a los usuarios autentic
     ![Configurar inicio de sesión único](./media/active-directory-saas-egnyte-tutorial/IC787823.png "Configurar inicio de sesión único")
 ##Configuración del aprovisionamiento de usuario
   
-Para permitir que los usuarios de Azure AD inicien sesión en Egnyte, deben aprovisionarse en Egnyte. En el caso de Egnyte, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en Egnyte, deben aprovisionarse en Egnyte.  
+En el caso de Egnyte, el aprovisionamiento es una tarea manual.
 
 ###Para aprovisionar cuentas de usuario, realice estos pasos:
 

@@ -206,7 +206,11 @@ En las siguientes secciones se explican las propiedades de las secciones de mens
 
 | Nombre del campo | Uso | Nombre de la API |
 |----------------	|-------------------------------	|---------------	|
-| durable | - | - | | priority | - | - | | ttl | Tiempo de duración de este mensaje | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | - | - | | delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | - | - |
+| priority | - | - |
+| ttl | Tiempo de duración de este mensaje | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | - | - |
+| delivery-count | - | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### propiedades
 

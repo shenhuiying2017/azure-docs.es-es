@@ -16,7 +16,8 @@
 
 #Tutorial: Integración de Azure Active Directory con Kudos
   
-El objetivo de este tutorial es mostrar la integración de Azure y Kudos. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Kudos.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Kudos
@@ -64,7 +65,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Kudos con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Kudos con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 

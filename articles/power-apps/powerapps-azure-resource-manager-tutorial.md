@@ -40,7 +40,7 @@ En primer lugar, se debe crear una aplicación de Azure Active Directory (AAD) q
 
 3. Escriba un nombre para la aplicación, seleccione **Aplicación web y/o API web** y, luego, seleccione **Siguiente**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication.png "Aplicación nueva")
 
-4. En **URL de inicio de sesión**, escriba: *http://login.windows.net*. En **URI de id. de aplicación**, escriba cualquier URI único. Luego, seleccione **Completar**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Segunda aplicación nueva")
+4. En **URL de inicio de sesión**, escriba: **http://login.windows.net**. En **URI de id. de aplicación**, escriba cualquier URI único. Luego, seleccione **Completar**: ![](./media/powerapps-azure-resource-manager-tutorial/newapplication2.png "Segunda aplicación nueva")
 
 5. Una vez que se crea la aplicación AAD, vaya a la pestaña **Configurar**. En esta pestaña, configuramos los permisos de la aplicación.
 
