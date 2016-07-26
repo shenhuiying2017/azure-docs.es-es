@@ -184,7 +184,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
 
 1.  Cree una nueva cuenta de automatización. Manténgala en la misma geoárea o región en la que se crearon las cuentas de almacenamiento y el StorSimple Cloud Appliance.
 
-2.  Haga clic en **Nuevo** & gt; **Servicios de aplicaciones** & gt; **Automatización** & gt; **Runbook** & gt; **De la galería** para importar todos los runbooks necesarios en la cuenta de automatización.
+2.  Haga clic en **Nuevo** &gt; **Servicios de aplicaciones** &gt; **Automatización** &gt; **Runbook** &gt; **De la galería** para importar todos los runbooks necesarios en la cuenta de automatización.
 
 	![](./media/storsimple-dr-using-asr/image3.png)
 
@@ -211,7 +211,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
 
 	Utilice la credencial de Windows PowerShell. Debe tratarse de una credencial que contenga un nombre de usuario de identificador de organización y una contraseña con acceso a esta suscripción de Azure y con la autenticación multifactor deshabilitada. Esto resulta necesario para realizar la autenticación en nombre del usuario durante las conmutaciones por error y para que aparezcan los volúmenes del servidor de archivos en el sitio de recuperación ante desastres.
 
-1.  En la cuenta de automatización, seleccione la pestaña **Activos** y, después, haga clic en **Agregar configuración** & gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación (que creará en el paso siguiente) se denomina planDePrueba, las variables deben ser planDePrueba-StorSimClaveReg, planDePrueba-nombreDeSuscripciónDeAzure y así sucesivamente.
+1.  En la cuenta de automatización, seleccione la pestaña **Activos** y, después, haga clic en **Agregar configuración** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación (que creará en el paso siguiente) se denomina planDePrueba, las variables deben ser planDePrueba-StorSimClaveReg, planDePrueba-nombreDeSuscripciónDeAzure y así sucesivamente.
 
 	-   *nombreDelPlanDeRecuperación***-StorSimClaveReg **: la clave de registro para el servicio StorSimple Manager.
 
@@ -233,7 +233,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
 
 	-   *nombreDelPlanDeRecuperación***-contenedorDeScript **: el nombre del contenedor en el que se almacenará el script en la nube. Si el contenedor no existe, se creará.
 
-	-   *nombreDelPlanDeRecuperación***-GUIDDeVM **: al proteger una máquina virtual, Azure Site Recovery asigna a cada VM un identificador único que proporciona los detalles de la máquina virtual conmutada por error. Para obtener el GUIDDeVM, seleccione la pestaña **Servicios de recuperación** y, después, haga clic en **Elemento protegido** & gt; **Grupos de protección** & gt; **Máquinas** & gt; **Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
+	-   *nombreDelPlanDeRecuperación***-GUIDDeVM **: al proteger una máquina virtual, Azure Site Recovery asigna a cada VM un identificador único que proporciona los detalles de la máquina virtual conmutada por error. Para obtener el GUIDDeVM, seleccione la pestaña **Servicios de recuperación** y, después, haga clic en **Elemento protegido** &gt; **Grupos de protección** &gt; **Máquinas** &gt; **Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
 	-   *nombreDelPlanDeRecuperación*** - nombreDeCuentaDeAutomatización **: el nombre de la cuenta de automatización en la que ha agregado los runbooks y los activos.
 
@@ -403,4 +403,4 @@ El planeamiento de capacidad se compone de al menos dos procesos importantes:
 
 Con Azure Site Recovery, puede crear un plan de recuperación ante desastres automatizado completo para una máquina virtual de servidor de archivos con recursos compartidos de archivos hospedados en el almacenamiento de StorSimple. Puede iniciar la conmutación por error en cuestión de segundos desde cualquier lugar si se produce una interrupción y poner en funcionamiento la aplicación en unos minutos.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!----HONumber=AcomDC_0518_2016-->
