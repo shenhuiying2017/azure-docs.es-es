@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/19/2016"
    ms.author="owend"/>
 
 # Inserción de un informe de Power BI con un iframe
@@ -28,23 +28,23 @@ Estos son los pasos necesarios para integrar un informe:
 - Paso 1: [Obtención de un informe en un área de trabajo](#GetReport). En este paso, utilizará un flujo de tokens de aplicación para obtener un token de acceso que llame a la operación de REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx). Si obtiene un informe desde la lista **Get Reports**, podrá insertarlo en una aplicación utilizando un elemento **IFrame**.
 - Paso 2: [Inserción de un informe en una aplicación](#EmbedReport). En este paso, va a usar un token que se inserta en un informe, algo de código JavaScript y un objeto IFrame para integrar, o insertar, un informe en una aplicación web.
 
-Si desea ejecutar el ejemplo para ver cómo se integra un informe, descargue de GitHub el ejemplo para [integrar un informe con un objeto IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) y configure tres opciones de Web.Config:
+Si desea ejecutar el ejemplo de [integración de un informe con un objeto IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe), descárguelo de GitHub y configure estas tres opciones de Web.Config:
 
-- **AccessKey**: los objetos **AccessKey** se utilizan para generar una instancia de JSON Web Token (JWT), que se emplea para obtener los informes e insertar uno de ellos. Para más información sobre cómo obtener un objeto **AccessKey**, consulte [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceName**: para más información acerca de cómo obtener un objeto **WorkspaceName**, consulte [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceId**: para más información acerca de cómo obtener un objeto **WorkspaceId**, consulte [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **AccessKey**: los objetos **AccessKey** se utilizan para generar una instancia de JSON Web Token (JWT), que se emplea para obtener los informes e insertar uno de ellos.
+- **Nombre de la colección de áreas de trabajo**: identifica el área de trabajo.
+- **Id. del área de trabajo**: identificador único del área de trabajo.
 
-En las secciones siguientes se muestra el código que se necesita para integrar un informe.
+Para más información acerca de cómo obtener una clave de acceso, el nombre de una colección de áreas de trabajo y un identificador de área de trabajo en el Portal de Azure, consulte la [introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
 
 <a name="GetReport"/>
 ## Obtención de un informe en un área de trabajo
 
-Para integrar un informe en una aplicación, necesita el **ID** y la dirección **embedUrl** de un informe. Para obtener el **ID** y la dirección **embedUrl** de un informe, debe llamar a la operación REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) y elegir un informe en la lista JSON. En [Inserción de un informe en una aplicación](#EmbedReport), va a utilizar un **ID** y una dirección **embedUrl** de informe para insertar el informe en la aplicación.
+Para integrar un informe en una aplicación, necesita el **identificador** y la dirección **embedUrl** de un informe. Para ello, debe llamar a la operación REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) y elegir un informe en la lista JSON.
 
 ### Respuesta JSON de Get Reports
 ```
 {
-  "@odata.context":"https://api.powerbi.com/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
     {
       "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
     },{
@@ -55,25 +55,13 @@ Para integrar un informe en una aplicación, necesita el **ID** y la dirección 
 
 ```
 
-Para llamar a la operación REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), utilizará un token de aplicación. Para más información sobre el flujo del token de aplicación, consulte [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md). El código siguiente describe cómo obtener una lista JSON de informes. Para insertar un informe, consulte [Inserción de un informe en una aplicación](#EmbedReport).
+Para llamar a la operación REST [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx), debe utilizar un token de aplicación. Para más información, consulte [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md). El código siguiente describe cómo obtener una lista JSON de informes.
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
 {
-    //Get an app token to generate a JSON Web Token (JWT). An app token flow is a claims-based design pattern.
-    //To learn how you can code an app token flow to generate a JWT, see the PowerBIToken class.
-    var appToken = PowerBIToken.CreateDevToken(workspaceName, workspaceId);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = appToken.Generate(accessKey);
-
-    //Set app token textbox to JWT string to show that the JWT was generated
-    appTokenTextbox.Text = jwt;
-
     //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/beta/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
 
     //Configure reports request
     System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
@@ -82,7 +70,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 
     //Set the WebRequest header to AppToken, and jwt
     //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppToken {0}", jwt));
+    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
 
     //Get reports response from request.GetResponse()
     using (var response = request.GetResponse() as System.Net.HttpWebResponse)
@@ -104,12 +92,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
         }
     }
 }
+
 ```
 
 <a name="EmbedReport"/>
 ## Inserción de un informe en una aplicación
 
-Antes de poder insertar un informe en la aplicación, necesita un token de inserción para un informe. Este token es similar a los tokens de aplicación que se usan para llamar a las operaciones REST de **Power BI Embedded** salvo porque, en lugar de generarse para un recurso REST, se genera para un recurso de informe. Lo siguiente es el código para obtener un token de aplicación para un informe. Para usar el token de aplicación de informes, consulte [Inserción de un informe en la aplicación](#EmbedReportJS).
+Antes de poder insertar un informe en la aplicación, necesita un token de inserción para un informe. Este token es similar a los tokens de aplicación que se usan para llamar a las operaciones REST de Power BI Embedded salvo porque, en lugar de generarse para un recurso de REST, se genera para un recurso de informe. Lo siguiente es el código para obtener un token de aplicación para un informe.
 
 <a name="EmbedReportToken"/>
 ### Obtención del token una aplicación para un informe
@@ -133,7 +122,7 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 <a name="EmbedReportJS"/>
 ### Inserción de un informe en la aplicación
 
-Para insertar un informe de **Power BI** en la aplicación, puede utilizar un objeto IFrame y código JavaScript. A continuación se muestra un ejemplo del objeto IFrame y de código JavaScript para insertar un informe. Si desea ver todo el código de ejemplo que se utiliza para insertar un informe, consulte el ejemplo de [integración de un informe con un objeto IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) en GitHub.
+Para incrustar un informe de **Power BI** en la aplicación, puede utilizar un objeto IFrame y código JavaScript. A continuación se muestra un ejemplo del objeto IFrame y de código JavaScript para insertar un informe. Si desea ver todo el código de ejemplo que se utiliza para incrustar un informe, consulte el ejemplo de [integración de un informe con un objeto IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) en GitHub.
 
 ![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
 
@@ -223,4 +212,4 @@ En este artículo, se ha presentado el código necesario para integrar un inform
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

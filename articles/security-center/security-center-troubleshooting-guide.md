@@ -13,19 +13,16 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/20/2016"
    ms.author="yurid"/>
 
 # Guía de solución de problemas de Azure Security Center
-Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center.
+Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
 
 > [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
 
-## ¿Qué es el Centro de seguridad de Azure?
-El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
-
 ## Guía de solución de problemas
-Esta guía explica cómo solucionar problemas relacionados con Azure Security Center. La mayoría de las soluciones de problemas en Azure Security Center se realizan examinando primero el [registro de auditoría](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) del componente afectado. A través de los registros de auditoría puede determinar:
+Esta guía explica cómo solucionar problemas relacionados con Security Center. La mayoría de las soluciones de problemas en Security Center se realizan examinando primero el [registro de auditoría](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) del componente afectado. A través de los registros de auditoría puede determinar:
 
 - Qué operaciones se han llevado a cabo
 - Quién inició la operación
@@ -51,7 +48,7 @@ Si la instalación se realizó correctamente, debería ver una entrada similar a
 
 También puede obtener más información sobre el proceso de instalación leyendo los registros del agente, que se encuentran en *%systemdrive%\\windowsazure\\logs* (ejemplo: C:\\WindowsAzure\\Logs).
 
-[AZURE.NOTE] Si el comportamiento del agente de Azure Security Center no es correcto, debe reiniciar la máquina virtual de destino, ya que no hay ningún comando para detener e iniciar al agente.
+> [AZURE.NOTE] Si el comportamiento del agente de Azure Security Center no es correcto, debe reiniciar la máquina virtual de destino, ya que no hay ningún comando para detener e iniciar al agente.
 
 ## Solución de problemas de instalación del agente de supervisión en Linux
 Al solucionar problemas de instalación del agente de máquina virtual en un sistema Linux, debe asegurarse de que la extensión se descargó en /var/lib/waagent/. Puede ejecutar el comando siguiente para comprobar si se ha instalado:
@@ -74,7 +71,7 @@ Algunos problemas pueden identificarse mediante las instrucciones proporcionadas
 ![Soporte técnico de Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
-## Pasos siguientes
+## Consulte también
 
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
@@ -85,4 +82,4 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 - [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

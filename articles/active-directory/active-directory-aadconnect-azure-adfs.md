@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS en Azure 
+# Implementación de AD FS en Azure 
 
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo. La implementación de AD FS en Azure tiene varias ventajas; a continuación se enumeran algunas:
 
@@ -259,11 +259,9 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	Permite la comunicación HTTPS con la red perimetral. | Entrada |
 |DenyAllFromDMZ| Esta regla bloqueará todo el tráfico de la subred DMZ a la interna. La regla AllowHTTPSFromDMZ ya se encarga de garantizar que la comunicación HTTPS pasa, mientras que todo lo demás queda bloqueado por esta regla. | Entrada |
-|AllowHTTPSToDMZ| Esta regla permitirá la comunicación HTTPS con la red perimetral. | Salida |
-|DenyDMZAll| Esta regla bloqueará el resto del tráfico a la red perimetral, excepto HTTPS. | Salida |
 |DenyInternetOutbound| Sin acceso a Internet | Salida |
 
-![Reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![Reglas de acceso INT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[comentario]: <> (![Reglas de acceso INT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comentario]: <> (![Reglas de acceso INT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Protección de la subred DMZ**
 
@@ -271,13 +269,12 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Permite HTTPS desde la red virtual | Entrada |
 |AllowHTTPSInternet| Permite HTTPS de Internet a la red perimetral | Entrada|
-|DenyingressexceptHTTPS|	Bloquea todo, excepto HTTPS de Internet | Entrada |
-|AllowOutToADFS| Permite HTTPS a la subred interna | Salida |
-|AllowHTTPSToInternet| Permite HTTPS a Internet | Salida |
+|DenyingressexceptHTTPS| Bloquea todo, excepto HTTPS de Internet | Entrada |
 |DenyOutToInternet|	No se bloquea nada, excepto HTTPS a Internet | Salida |
 
-![Reglas de acceso EXT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![Reglas de acceso EXT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[comentario]: <> (![Reglas de acceso EXT (entrantes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comentario]: <> (![Reglas de acceso EXT (salientes)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] Si se requiere la autenticación del certificado de usuario del cliente (autenticación de clientTLS mediante certificados de usuario X509), AD FS necesitará que el puerto TCP 49443 esté habilitado para el acceso de entrada.
 
 ###10\. Prueba del inicio de sesión de AD FS
 
@@ -306,4 +303,4 @@ Cuando se inicia sesión correctamente, aparecerá un mensaje de confirmación s
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

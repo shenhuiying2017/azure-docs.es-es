@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/08/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Obtención de información mediante los datos de Azure Security Center con Power BI
@@ -107,7 +107,7 @@ Conéctese a los [servicios de paquete de contenido de Power BI](https://msit.po
 
 	![Panel Administración de directivas](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Pasos siguientes
+## Consulte también
 En este documento, ha aprendido a usar Power BI en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear la adopción de Azure Security Center.
@@ -116,4 +116,4 @@ En este documento, ha aprendido a usar Power BI en Azure Security Center. Para o
 - [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

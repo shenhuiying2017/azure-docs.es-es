@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de NAT ExpressRoute
@@ -52,7 +52,7 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 
 #### Tráfico procedente de Microsoft destinado a la red
 
-- Algunos escenarios requieren que Microsoft inicie la conectividad con extremos de servicio hospedados dentro de la red. Un ejemplo típico del escenario sería la conectividad con los servidores ADFS hospedados en la red de Office 365. En tales casos, debe filtrar prefijos adecuados desde la red en el emparejamiento de tráfico de Microsoft. 
+- Algunos escenarios requieren que Microsoft inicie la conectividad con extremos de servicio hospedados dentro de la red. Un ejemplo típico del escenario sería la conectividad con los servidores ADFS hospedados en la red de Office 365. En tales casos, debe filtrar prefijos adecuados desde la red en el emparejamiento de tráfico de Microsoft.
 
 - Debe aplicar SNAT al tráfico destinado a direcciones IP dentro de la red desde Microsoft.
 
@@ -66,4 +66,4 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

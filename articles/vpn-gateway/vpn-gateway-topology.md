@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Topologías de conexión de la puerta de enlace de VPN de Azure
+# Conexiones de Puerta de enlace de VPN de Azure
 
 Este artículo muestra las topologías de línea de base de la conexión de la puerta de enlace de VPN. Puede utilizar los gráficos y las descripciones para ayudarle a seleccionar la topología de configuración que mejor se ajuste a sus requisitos. Aunque este artículo trata las topologías principales de línea de base, también se pueden crear topologías más complejas utilizando los diagramas como guía.
 
 Cada topología contiene una tabla con el modelo de implementación para el que está disponible, las herramientas de implementación que puede usar para configurar cada topología y un vínculo directo a un artículo relacionado, si hubiera alguno disponible. Actualizamos las tablas con frecuencia a medida que nuevos artículos y herramientas de implementación están disponibles para su uso.
 
-Si desea más información sobre las puertas de enlace de VPN, consulte [Información acerca las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
-
-
+Las instrucciones que se usan para crear la puerta de enlace de VPN dependerán del modelo de implementación usado para crear la red virtual. Por ejemplo, si la red virtual se creó con el modelo de implementación clásica, usará las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. No se puede crear una puerta de enlace de VPN de Resource Manager para una red virtual del modelo de implementación clásica. Vea [Descripción de los modelos de implementación clásica y de Resource Manager](../resource-manager-deployment-model.md) para más información sobre los modelos de implementación.
 
 ## De sitio a sitio y multisitio
 
@@ -104,4 +102,4 @@ Le recomendamos familiarizarse con el contenido de los artículos [Información 
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

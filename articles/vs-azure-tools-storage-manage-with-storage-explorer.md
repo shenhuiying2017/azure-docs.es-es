@@ -8,12 +8,12 @@
 	editor="" />
 
  <tags
-	ms.service="visual-studio-online"
+	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/06/2016"
+	ms.date="07/14/2016"
 	ms.author="tarcher" />
 
 # Introducción al Explorador de almacenamiento (versión preliminar)
@@ -166,7 +166,7 @@ Para ilustrar este punto, supongamos que el Usuario A es el administrador de una
 
 ## Conexión de servicio mediante SAS
 
-La sección [Conexión a una cuenta de almacenamiento mediante SAS](#attach-account-using-sas) muestra cómo un administrador de suscripción de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación (y uso compartido) de una SAS para la cuenta de almacenamiento. De forma similar, se puede generar una SAS para un servicio específico (contenedor de blobs, cola o tabla) dentro de una cuenta de almacenamiento.
+La sección [Conexión a una cuenta de almacenamiento mediante SAS](#attach-storage-account-using-sas) muestra cómo un administrador de suscripción de Azure puede conceder acceso temporal a una cuenta de almacenamiento mediante la generación (y uso compartido) de una SAS para la cuenta de almacenamiento. De forma similar, se puede generar una SAS para un servicio específico (contenedor de blobs, cola o tabla) dentro de una cuenta de almacenamiento.
 
 ### Generación de una SAS para el servicio que se desea compartir
 
@@ -226,4 +226,4 @@ Para borrar la búsqueda, seleccione el botón **x** en el cuadro de búsqueda.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

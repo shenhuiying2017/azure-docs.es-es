@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"virtual
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 #Supervisión del estado de seguridad en el Centro de seguridad de Azure
@@ -21,25 +21,22 @@ Este documento le ayuda a usar las funcionalidades de supervisión del Centro de
 
 > [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
 
-## ¿Qué es el Centro de seguridad de Azure?
-El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con mayor visibilidad y control de la seguridad de los recursos de Azure. Ofrece administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
-
 ##¿Qué es la supervisión del estado de seguridad?
 Con frecuencia se piensa que supervisar es observar y esperar que se produzca un evento, para así poder reaccionar ante la situación. La supervisión de seguridad se refiere a contar con una estrategia proactiva que audita los recursos a fin de identificar los sistemas que no cumplen con los estándares o los procedimientos recomendados de la organización.
 
 ##Supervisión del estado de seguridad
-Después de habilitar las [directivas de seguridad](security-center-policies.md) de los recursos de una suscripción, el Centro de seguridad analizará la seguridad de los recursos para identificar vulnerabilidades potenciales. La información acerca de la configuración de la red está disponible de inmediato; sin embargo, la información acerca de la configuración de las máquinas virtuales, como el estado de las actualizaciones de seguridad y la configuración del sistema operativo, puede tardar una hora, o más, en estar disponible. Puede consultar el estado de seguridad de sus recursos, además de cualquier problema que exista, en las hojas de **Estado de seguridad de los recursos**. También puede ver una lista de esos problemas en las hojas de **Recomendaciones**.
+Después de habilitar las [directivas de seguridad](security-center-policies.md) de los recursos de una suscripción, Security Center analizará la seguridad de los recursos para identificar vulnerabilidades potenciales. La información acerca de la configuración de la red está disponible de inmediato; sin embargo, la información acerca de la configuración de las máquinas virtuales, como el estado de las actualizaciones de seguridad y la configuración del sistema operativo, puede tardar una hora, o más, en estar disponible. Puede consultar el estado de seguridad de sus recursos, además de cualquier problema que exista, en las hojas de **Estado de seguridad de los recursos**. También puede ver una lista de esos problemas en las hojas de **Recomendaciones**.
 
 Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en el Centro de seguridad de Azure](security-center-recommendations.md).
 
-El icono **Estado de seguridad de los recursos** permite supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
+El icono **Estado de seguridad del recurso** permite supervisar el estado de seguridad de los recursos. En el ejemplo siguiente puede ver varios problemas con una gravedad alta y media que requieren atención. Las directivas de seguridad habilitadas afectarán a los tipos de controles que se supervisan.
 
 ![Estado de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
-Si el Centro de seguridad identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md), se enumerará aquí.
+Si Security Center identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md), se enumerará aquí.
 
 ###Supervisión de máquinas virtuales
-Al hacer clic en **Máquinas virtuales** en el icono **Estado de seguridad de los recursos**, se abrirá la hoja **Máquinas virtuales**, donde encontrará más detalles sobre los pasos de incorporación y prevención, así como una lista de las máquinas virtuales que supervisa el Centro de seguridad de Azure, tal como se muestra a continuación.
+Al hacer clic en **Máquinas virtuales** en el icono **Estado de seguridad del recurso**, se abrirá la hoja **Máquinas virtuales**, donde encontrará más detalles sobre los pasos de incorporación y prevención, así como una lista de las máquinas virtuales que supervisa Security Center, tal como se muestra a continuación.
 
 ![Actualización del sistema faltante por VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
@@ -50,7 +47,7 @@ Al hacer clic en **Máquinas virtuales** en el icono **Estado de seguridad de lo
 En cada sección puede seleccionar una opción individual para ver más detalles sobre el paso recomendado para abordar el problema. Las siguientes secciones tratarán estas áreas de forma más detallada.
 
 ####Pasos para la incorporación
-En esta sección se muestra el número total de máquinas virtuales que se inicializaron para la recopilación de datos y su estado actual. Una vez que se haya inicializado la recopilación de datos en todas las máquinas virtuales, estarán listas para recibir las directivas de seguridad del Centro de seguridad. Al hacer clic en esta entrada, se abre la hoja **Inicialización de recopilación de datos**, donde podrá ver los nombres de las máquinas virtuales y el estado actual de la recopilación de datos en la columna **ESTADO DE INICIALIZACIÓN**, como se muestra a continuación:
+En esta sección se muestra el número total de máquinas virtuales que se inicializaron para la recopilación de datos y su estado actual. Una vez que se haya inicializado la recopilación de datos en todas las máquinas virtuales, estarán listas para recibir las directivas de seguridad del Centro de seguridad. Al hacer clic en esta entrada, se abre la hoja **Inicializando la recolección de datos**, donde podrá ver los nombres de las máquinas virtuales y el estado actual de la recopilación de datos en la columna **ESTADO DE INICIALIZACIÓN**, como se muestra a continuación.
 
 ![Estado de la inicialización](./media/security-center-monitoring/security-center-monitoring-fig3-new.png)
 
@@ -60,15 +57,17 @@ Esta sección contiene un conjunto de recomendaciones para cada máquina virtual
 
 ![Recomendaciones de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
-Cada recomendación tiene un conjunto de acciones que se pueden realizar una vez que haga clic en ella. Por ejemplo, si hace clic en **Actualizaciones del sistema que faltan**, se abrirá la hoja **Actualizaciones del sistema que faltan**. En dicha hoja se enumeran las máquinas virtuales a las que faltan revisiones y la gravedad de la actualización que falta, como se muestra a continuación.
+> [AZURE.NOTE] Solo las máquinas virtuales con al menos un punto de conexión público se muestran en la hoja de estado de red en la lista de topología de red.
+
+Cada recomendación tiene un conjunto de acciones que se pueden realizar una vez que haga clic en ella. Por ejemplo, si hace clic en **Faltan las actualizaciones del sistema**, se abrirá la hoja **Faltan las actualizaciones del sistema**. En dicha hoja se enumeran las máquinas virtuales a las que faltan revisiones y la gravedad de la actualización que falta, como se muestra a continuación.
 
 ![Actualizaciones del sistema que faltan](./media/security-center-monitoring/security-center-monitoring-fig5-new.png)
 
-La hoja **Actualizaciones del sistema que faltan** mostrará una tabla con la siguiente información:
+La hoja **Faltan las actualizaciones del sistema** mostrará una tabla con la siguiente información:
 
 - **MÁQUINA VIRTUAL**: el nombre de la máquina virtual en la que faltan actualizaciones.
 - **ACTUALIZACIONES DEL SISTEMA**: el número actualizaciones del sistema que faltan.
-- **HORA DEL ÚLTIMO EXAMEN**: la hora en que el Centro de seguridad realizó el último examen de la máquina virtual en busca de actualizaciones.
+- **HORA DE LA ÚLTIMA DETECCIÓN**: la hora en que Security Center realizó el último examen de la máquina virtual en busca de actualizaciones.
 - **ESTADO**: el estado actual de la recomendación:
 	- **Abierta**: la recomendación aún no se ha abordado.
 	- **En curso**: la recomendación se aplica actualmente a los recursos; no se requiere ninguna acción de su parte.
@@ -106,7 +105,7 @@ Tendrá que seguir los pasos de la recomendación para actualizar la versión de
 
 ![Detalles del servicio en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en **Actualizar Versión del SO** en la columna **DESCRIPCIÓN**. Se abrirá la hoja **Actualizar versión del SO (versión preliminar)** con más detalles.
+Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en Actualizar **Versión del SO** en la columna **DESCRIPCIÓN**. Se abrirá la hoja **Update OS version (Preview)** [Actualizar versión del SO (versión preliminar)] con más detalles.
 
 ![Recomendaciones de servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)
 
@@ -131,7 +130,7 @@ Al hacer clic en una de las recomendaciones, se abrirá una nueva hoja con más 
 
 ![Restricción del punto de conexión](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-En este ejemplo, la hoja **Configurar los grupos de seguridad de red que faltan para las subredes** tiene una lista de subredes y máquinas virtuales que carecen de protección con NSG. Si hace clic en la subred a la que desea aplicar el NSG, se abre otra hoja.
+En este ejemplo, la hoja **Configure Missing Network Security Groups for Subnets** (Configurar grupos de seguridad de red que faltan para subredes) tiene una lista de subredes y máquinas virtuales que carecen de protección con NSG. Si hace clic en la subred a la que desea aplicar el NSG, se abre otra hoja.
 
 En la hoja **Elegir grupo de seguridad de red**, seleccione el grupo de seguridad de red más adecuado para la subred o cree uno.
 
@@ -199,13 +198,13 @@ La hoja **Aplicaciones web no seguras** incluirá una lista de todas las máquin
 
 ![Adición de WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
-## Pasos siguientes
+## Consulte también
 En este documento, aprendió a usar las funcionalidades de supervisión en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 - [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md): obtenga información sobre cómo configurar los ajustes de seguridad en el Centro de seguridad de Azure.
 - [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 - [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Preguntas más frecuentes acerca del Centro de seguridad de Azure](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
+- [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md): Encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

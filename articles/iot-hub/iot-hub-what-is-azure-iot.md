@@ -13,14 +13,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Pasos siguientes
 
-El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Además, hace posible que el back-end de la aplicación reciba telemetría a escala de los dispositivos, enrute esos datos a un procesador de eventos de transmisión y envíe comandos de nube a dispositivo a dispositivos específicos. Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para más información acerca del Centro de IoT, consulte [¿Qué es el Centro de IoT?][lnk-iot-hub].
+El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Además, hace posible que el back-end de la aplicación reciba telemetría a escala de los dispositivos, enrute esos datos a un procesador de eventos de transmisión, reciba cargas de archivos desde los dispositivos y envíe comandos de nube a dispositivo a dispositivos específicos. Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para más información acerca del Centro de IoT, consulte [¿Qué es el Centro de IoT?][lnk-iot-hub].
 
 Para más información acerca de cómo puede administrar, configurar y actualizar sus dispositivos de forma remota mediante la administración de dispositivos IoT basada en estándares del Centro de IoT de Azure, consulte [Introducción a la administración de dispositivos desde Centro de IoT de Azure][lnk-device-management].
 
@@ -37,4 +37,4 @@ También puede interesarle el [Conjunto de aplicaciones de IoT de Azure][lnk-iot
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

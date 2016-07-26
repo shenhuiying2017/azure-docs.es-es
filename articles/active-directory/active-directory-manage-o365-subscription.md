@@ -18,15 +18,7 @@
 
 # Administración del directorio para la suscripción de Office 365 en Azure
 
-En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 con el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser el administrador de servicios o un coadministrador de una suscripción de Azure. Si aún no tiene una suscripción de Azure:
-
-1. Puede suscribirse usando la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
-
-![Cuadro de entrada de dirección de correo electrónico](./media/active-directory-manage-o365-subscription/AAD_O365_01.png)
-
-Se le notificará que no se ha encontrado una suscripción correspondiente de Azure. Si hace clic en **Sign up for Azure** (Registrarse en Azure), se rellena previamente la información relevante de la cuenta de Office 365 en el formulario de registro. De manera predeterminada, la misma cuenta se asigna al rol de administrador de servicios.
-
-![Enlace para crear una suscripción a Azure](./media/active-directory-manage-o365-subscription/AAD_O365_02.png)
+En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 con el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser el administrador de servicios o un coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure puede suscribirse a una [evaluación gratuita de 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
 
 Después de realizar la suscripción de Azure, puede iniciar sesión en el Portal de Azure clásico y obtener acceso a los servicios de Azure. Haga clic en la extensión de Active Directory para administrar el mismo directorio que autentica a los usuarios de Office 365.
 
@@ -52,7 +44,7 @@ Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con un
 1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como msmith@hotmail.com.
 2.	Haga clic en **Nuevo** > **Servicios de aplicaciones** > **Active Directory** > **Directorio** > **Creación personalizada**.
 3.	Haga clic en Usar directorio existente y active la casilla **Estoy listo para cerrar la sesión ahora**.
-4.	Inicie sesión en el Portal de Azure clásico como administrador global de Contoso.onmicrosoft.com (por ejemplo, msmith@contoso.com)).
+4.	Inicie sesión en el Portal de Azure clásico como administrador global de Contoso.onmicrosoft.com (por ejemplo, msmith@contoso.com).
 5.	Cuando se le pregunte **¿Usar el directorio Contoso con Azure?**, haga clic en **Continuar**.
 6.	Haga clic en **Cerrar sesión ahora**.
 7.	Inicie sesión en el Portal de Azure clásico como msmith@hotmail.com. El directorio Contoso y el directorio predeterminado aparecen en la extensión de Active Directory.
@@ -64,9 +56,9 @@ Ahora supongamos que Jane Doe necesita administrar recursos de base de datos y s
 
 1.	Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) mediante la cuenta de administrador de servicios de la suscripción de Azure (en este ejemplo, msmith@hotmail.com).
 2.	Transfiera la suscripción al directorio Contoso: haga clic en **Configuración** > **Suscripciones** > seleccione la suscripción > **Editar directorio** > y seleccione **Contoso (Contoso.com)**. Como parte de la transferencia, se eliminan todas las cuentas profesionales o educativas que sean coadministradores de la suscripción.
-3.	Agregue a Jane Doe como coadministradora de la suscripción: haga clic en **Configuración** > **Administradores** > seleccione la suscripción > **Agregar**> y escriba ****JohnDoe@Contoso.com**.
+3.	Agregue a Jane Doe como coadministradora de la suscripción: haga clic en **Configuración** > **Administradores** > seleccione la suscripción > **Agregar**> y escriba **JohnDoe@Contoso.com**.
 
 ## Pasos siguientes
 Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!-----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

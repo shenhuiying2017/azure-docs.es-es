@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protección de máquinas virtuales en Azure con Copia de seguridad de Azure | Microsoft Azure"
+	pageTitle="Primer análisis: protección de máquinas virtuales en Azure con Copia de seguridad de Azure | Microsoft Azure"
 	description="Protección de máquinas virtuales de Azure con el servicio Copia de seguridad de Azure. El tutorial explica la creación de un almacén, el registro de máquinas virtuales, la creación de directivas y la protección de máquinas virtuales en Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/22/2016"
+	ms.date="07/18/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Primer contacto: copia de seguridad de máquinas virtuales de Azure
 
 > [AZURE.SELECTOR]
-- [Copia de seguridad de máquinas virtuales en ARM](backup-azure-vms-first-look-arm.md)
+- [Copia de seguridad de máquinas virtuales de Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Copia de seguridad de máquinas virtuales en modo clásico](backup-azure-vms-first-look.md)
 
-Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure. Para completar correctamente este tutorial, deben existir estos requisitos previos:
+Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure en un almacén de copia de seguridad de Azure. Este artículo describe el modelo de implementación clásica o el de Service Manager, para la creación de copias de seguridad de máquinas virtuales. Si está interesado en la creación de una copia de seguridad de una máquina virtual en un almacén de Servicios de recuperación que pertenece a un grupo de recursos, consulte la pestaña Copia de seguridad de máquinas virtuales de Resource Manager. Para completar correctamente este tutorial, deben existir estos requisitos previos:
 
 - Ha creado una máquina virtual en su suscripción de Azure.
 - La máquina virtual tiene conectividad a las direcciones IP públicas de Azure. Para más información, consulte [Conectividad de red](./backup-azure-vms-prepare.md#network-connectivity).
@@ -213,4 +213,4 @@ Una vez que se ha copiado correctamente una máquina virtual, hay varios pasos q
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

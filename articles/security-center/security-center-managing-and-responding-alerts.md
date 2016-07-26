@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/13/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
@@ -21,11 +21,10 @@ Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure 
 
 > [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure.
 
-## ¿Qué es el Centro de seguridad de Azure?
- El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
-
 ## ¿Qué son las alertas de seguridad?
-El Centro de seguridad recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y los firewalls y programas antimalware para detectar amenazas reales y reducir los falsos positivos. En el Centro de seguridad, se muestra una lista de alertas de seguridad prioritarias, incluidas las procedentes de soluciones integradas de asociados, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
+Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
+
+> [AZURE.NOTE] Para más información acerca de cómo actúan las funcionalidades de detección de Security Center, consulte [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md).
 
 Los investigadores en seguridad de Microsoft están analizando constantemente las amenazas que surgen en todo el mundo, incluidos los nuevos patrones y tendencias de ataque vistos en sus productos para consumidores y empresas, y servicios en línea. Como consecuencia, el Centro de seguridad puede actualizar sus algoritmos de detección a medida que se descubren nuevas vulnerabilidades para ayudar a los clientes a mantenerse al ritmo de las amenazas cambiantes. Algunos ejemplos de los tipos de amenazas que puede detectar el Centro de seguridad son:
 
@@ -38,7 +37,7 @@ Los investigadores en seguridad de Microsoft están analizando constantemente la
 
 Puede revisar las alertas actuales en el icono **Alertas de seguridad**. Siga los pasos siguientes para ver más detalles sobre cada alerta:
 
-1. En el panel del Centro de seguridad, verá el icono **Alertas de seguridad**.
+1. En el panel Security Center, verá el icono **Alertas de seguridad**.
 
     ![El icono Alertas de seguridad en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-new.png)
 
@@ -52,7 +51,7 @@ En la parte inferior de esta hoja aparecen los detalles de cada alerta. Para ord
 - **Recuento**: una lista de todas las alertas de este tipo específico que se han detectado en un día concreto.
 - **Detectado por**: el servicio responsable de desencadenar la alerta.
 - **Fecha**: la fecha en que se ha producido el evento.
-- **Estado**: el estado actual de esa alerta. Existen tres tipos de estado:
+- **Estado**: el estado actual de esa alerta. Existen dos tipos de servicios:
     - **Activa**: se ha detectado la alerta de seguridad.
     - **Descartada**: el usuario ha descartado la alerta de seguridad. Este estado suele utilizarse para alertas que se han investigado pero que no se han mitigado, o se ha observado que no plantean un ataque real.
 
@@ -64,7 +63,7 @@ Puede filtrar alertas en función de la fecha, el estado y la gravedad. Puede re
 
 	![Filtrar alertas en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-new.png)
 
-2. 	Después de investigar una alerta de seguridad, es posible que descubra que es un falso positivo para su entorno o que indica un comportamiento normal de un recurso determinado. En cualquier caso, si determina que una alerta de seguridad no es aplicable, puede descartarla y después filtrarla de la vista. Hay dos formas de descartar una alerta de seguridad. Haga clic con el botón derecho en una alerta y seleccione **Descartar**, o bien mantenga el mouse sobre un elemento, haga clic en los tres puntos que aparecen a la derecha y seleccione **Descartar**. Para ver las alertas de seguridad descartadas, haga clic en **Filtro** y seleccione **Descartadas**.
+2. 	Después de investigar una alerta de seguridad, es posible que descubra que es un falso positivo para su entorno o que indica un comportamiento normal de un recurso determinado. En cualquier caso, si determina que una alerta de seguridad no es aplicable, puede descartarla y después filtrarla de la vista. Hay dos formas de descartar una alerta de seguridad. Haga clic con el botón derecho en una alerta y seleccione **Descartar**, o bien mantenga el mouse sobre un elemento, haga clic en los tres puntos que aparecen a la derecha y seleccione **Descartar**. Para ver las alertas de seguridad descartadas, haga clic en **Filtro** y seleccione **Descartado**.
 
 	![Filtrar alertas en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-new.png)
 
@@ -73,7 +72,7 @@ Seleccione una alerta de seguridad para ver más información sobre el evento o 
 
 ![Responder a alertas de seguridad en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig7.png)
 
-En este caso, las alertas desencadenadas hacen referencia a las actividades sospechosas del Protocolo de escritorio remoto (RDP). En la primera columna se muestran los recursos atacados; en la segunda, la hora a la que se detectó el ataque; en la tercera, el estado de la alerta; y en la cuarta, la gravedad del ataque. Después de revisar esta información, haga clic en el recurso atacado. Se abrirá una nueva hoja con más sugerencias sobre qué hacer a continuación, tal como se muestra en el ejemplo siguiente.
+En este caso, las alertas desencadenadas hacen referencia a las actividades sospechosas del Protocolo de escritorio remoto (RDP). En la primera columna se muestran los recursos atacados; en la segunda, la hora a la que se detectó el ataque; en la tercera, el estado de la alerta; y en la cuarta, la gravedad del ataque. Después de revisar esta información, haga clic en el recurso atacado y se abrirá una nueva hoja.
 
 ![Sugerencias sobre qué hacer con las alertas de seguridad en el Centro de seguridad de Azure](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8-1.png)
 
@@ -81,13 +80,43 @@ En el campo **Alerta** de esta hoja encontrará más detalles sobre este evento.
 
 > [AZURE.NOTE] La corrección sugerida por el Centro de seguridad variará según la alerta de seguridad. En algunos casos, tendrá que utilizar otras capacidades de Azure para implementar la corrección recomendada. Por ejemplo, la corrección para este ataque consiste en colocar la dirección IP que lo está generando en la lista negra mediante una [ACL de red](../virtual-network/virtual-networks-acl.md) o una regla de [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
+## Alertas de seguridad por tipo
+Los mismos pasos que se usaron para acceder a la alerta de actividad sospechosa de RDP pueden utilizarse para acceder a otro tipo de alertas. Estos son otros ejemplos de alertas que se pueden ver en las alertas de Security Center:
 
-## Pasos siguientes
+**Potential SQL Injection** (Posible inyección de código SQL) La inyección de código SQL es un ataque en el que se inserta código malintencionado en cadenas que posteriormente se pasan a una instancia de SQL Server para su análisis y ejecución. Deben revisarse todos los procedimientos que crean instrucciones SQL en busca de vulnerabilidades por inyección de código, porque SQL Server ejecutará todas las consultas sintácticamente válidas que reciba.
+
+![Alerta de inyección de código SQL](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig9.png)
+
+Esta alerta proporciona información que le permite identificar el recurso atacado, la hora de detección, el estado del ataque y también proporciona un vínculo a pasos de investigación adicionales.
+
+**Suspicious outgoing traffic detected** (Tráfico saliente sospechoso detectado)
+
+Se pueden detectar dispositivos de red y perfiles de la misma manera que otros tipos de sistemas. Los atacantes suelen comenzar con la exploración de puertos o con el barrido de puertos. En el ejemplo siguiente se muestra un tráfico SSH sospechoso desde una máquina virtual que puede estar realizando un ataque por fuerza bruta de SSH o un barrido de puerto contra un recurso externo.
+
+![Alerta de tráfico saliente sospechoso](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-10.png)
+
+Esta alerta proporciona información que le permite identificar el recurso que se usó para iniciar este ataque, el equipo en riesgo, la hora de detección, el protocolo y puerto que se utilizó. Esta hoja también proporciona una lista de pasos de corrección que pueden utilizarse para mitigar este problema.
+
+**Network communication with a malicious machine** (Comunicación de red con una máquina malintencionada)
+ 
+Mediante el aprovechamiento de las fuentes de inteligencia de amenazas de Microsoft, Azure Security Center puede detectar equipos en peligro que se comunican con direcciones IP malintencionadas, en muchos casos, mediante un comando y un centro de control. En este caso Azure Security Center ha detectado que la comunicación se realizó mediante el malware Pony Loader (también conocido como [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
+
+![Comunicación de red con una alerta de máquina malintencionada](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig-11.png)
+
+Esta alerta proporciona información que le permite identificar el recurso que se usó para iniciar este ataque, el recurso atacado, la dirección IP víctima, la dirección IP del atacante y la hora de detección.
+
+> [AZURE.NOTE] Las direcciones IP activas se quitaron de esta captura de pantalla por privacidad.
+
+
+## Consulte también
+
 En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-- [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Supervisión de soluciones de asociados con Azure Security Center): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
+- [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda cómo supervisar el estado de los recursos de Azure.
+- [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

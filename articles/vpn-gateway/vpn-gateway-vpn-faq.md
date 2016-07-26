@@ -88,13 +88,17 @@ Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace si
 
 Se admiten los siguientes sistemas operativos:
 
-- Windows 7 (solo versión de 64 bits)
+- Windows 7 (32 bits y 64 bits)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (solo 64 bits)
 
-- Windows 8 (solo versión de 64 bits)
+- Windows 8 (32 bits y 64 bits)
 
-- Windows Server 2012
+- Windows 8.1 (32 bits y 64 bits)
+
+- Windows Server 2012 (solo 64 bits)
+
+- Windows Server 2012 R2 (solo 64 bits)
 
 - Windows 10
 
@@ -279,4 +283,4 @@ Puede ver más información sobre las puertas de enlace de VPN en la [Página de
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

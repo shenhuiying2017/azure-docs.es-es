@@ -201,10 +201,10 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothubname}** por el nombre del Centro de IoT y **{yourdevicekey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
+5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo. Reemplace **{youriothostname}** por el nombre del Centro de IoT que creó en la sección *Creación de un Centro de IoT* y **{yourdevicekey}** por la clave del dispositivo que generó en la sección *Creación de una identidad de dispositivo*:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -220,7 +220,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     }
     ```
 
-7. Cree una devolución de llamada y utilice la función **setInterval** para enviar un nuevo mensaje al Centro de IoT cada segundo:
+7. Cree una devolución de llamada y utilice la función **setInterval** para enviar un nuevo mensaje a su Centro de IoT cada segundo:
 
     ```
     var connectCallback = function (err) {
@@ -256,7 +256,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
 
 Ahora está preparado para ejecutar las aplicaciones.
 
-1. En un símbolo del sistema, en la carpeta **readdevicetocloudmessages**, ejecute el siguiente comando para comenzar la supervisión del Centro de IoT:
+1. En un símbolo del sistema, en la carpeta **readdevicetocloudmessages**, ejecute el siguiente comando para empezar la supervisión del Centro de IoT:
 
     ```
     node ReadDeviceToCloudMessages.js 
@@ -264,7 +264,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![][7]
 
-2. En un símbolo del sistema, en la carpeta **simulateddevice**, ejecute el siguiente comando para comenzar el envío de datos de telemetría al Centro de IoT:
+2. En un símbolo del sistema, en la carpeta **simulateddevice**, ejecute el siguiente comando para empezar el envío de datos de telemetría al Centro de IoT:
 
     ```
     node SimulatedDevice.js
@@ -312,4 +312,4 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
