@@ -11,7 +11,7 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="05/16/2016"
@@ -129,6 +129,8 @@ Observe el diagrama siguiente:
 
 ![][img-flowchart]
 
+> [AZURE.NOTE] Si sigue viendo el error después de validar que usted es un administrador global en el inquilino de AAD y un coadministrador de la suscripción, haga que el administrador de cuenta quite el usuario y vuelva a asignar los permisos necesarios en este orden: agregue al usuario como administrador global y, a continuación, agregue al usuario como coadministrador de la suscripción de Azure. Si los problemas persisten, póngase en contacto con [Ayuda y soporte técnico][lnk-help-support].
+
 **¿Por qué veo este error cuando tengo una suscripción de Azure?** *Para crear soluciones preconfiguradas se requiere una suscripción de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos.*
 
 Si está seguro de que tiene una suscripción de Azure, valide la asignación del inquilino de la suscripción y asegúrese de que se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino deseado es el correcto, siga el diagrama anterior y validar la asignación de la suscripción y de este inquilino de AAD.
@@ -144,5 +146,6 @@ Si está seguro de que tiene una suscripción de Azure, valide la asignación de
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
+[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -72,7 +72,7 @@ Para crear un almacén de Servicios de recuperación:
 
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o haga clic en **Nuevo** para crear uno nuevo. Para información completa acerca de los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o haga clic en **Nuevo** para crear uno nuevo. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales que quiere proteger.
 
@@ -219,4 +219,4 @@ Si tiene problemas para realizar algunas de las tareas en este artículo, consul
 ## ¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

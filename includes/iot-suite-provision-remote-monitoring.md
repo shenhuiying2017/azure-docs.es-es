@@ -1,8 +1,6 @@
-## Aprovisionamiento de la solución preconfigurada de supervisión remota
+## Aprovisionamiento de la solución
 
 1.  Inicie sesión en [azureiotsuite.com][lnk-azureiotsuite] con sus credenciales de la cuenta de Azure y haga clic en **+** para crear una nueva solución.
-
-    > [AZURE.NOTE] Si tiene problemas con los permisos requeridos para aprovisionar una solución, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions].
 
 2.  Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 
@@ -24,12 +22,11 @@
 
 > [AZURE.NOTE] Si surgen problemas al implementar la solución preconfigurada, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions] y [Preguntas más frecuentes][lnk-faq]. Si los problemas persisten, cree un vale de servicio en el [portal][lnk-portal].
 
-¿Hay detalles que esperaría ver que no aparezcan para su solución? Puede sugerirnos nuevas en características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (La voz del usuario).
+¿Hay detalles que esperaría ver que no aparezcan para su solución? Puede sugerirnos nuevas características en [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (La voz del usuario).
 
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

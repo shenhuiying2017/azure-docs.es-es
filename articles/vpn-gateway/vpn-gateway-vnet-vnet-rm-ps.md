@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/15/2016"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión entre dos redes virtuales mediante Azure Resource Manager y PowerShell
@@ -58,27 +58,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
 ### P+F sobre conexiones de red virtual a red virtual
 
-- Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
-
-- Un servicio en la nube o un extremo de equilibrio de carga NO PUEDE abarcar varias redes virtuales aunque estas estén conectadas entre sí.
-
-- La conexión simultánea de varias redes virtuales de Azure no requiere puertas de enlace de VPN locales, a menos que sea necesaria la conectividad entre locales.
-
-- VNet a VNet admite la conexión de redes virtuales. No admite la conexión de máquinas virtuales o servicios en la nube que NO estén en una red virtual.
-
-- La conexión entre dos redes virtuales requiere puertas de enlace de VPN de Azure con tipos de VPN RouteBased (antes denominado enrutamiento dinámico).
-
-- La conectividad de red virtual se puede usar simultáneamente con VPN de varios sitios. El número máximo de túneles VPN para una puerta de enlace de VPN de red virtual que se conecte a otras redes virtuales o a sitios locales será 10 con puertas de enlace estándares o predeterminadas o 30 con puertas de enlace de alto rendimiento.
-
-- Los espacios de direcciones de las redes virtuales y de los sitios de red local no se pueden solapar. Los espacios de direcciones solapados provocarán un error al crear conexiones entre dos redes virtuales.
-
-- No se admiten los túneles redundantes entre un par de redes virtuales.
-
-- Todos los túneles de VPN de la red virtual comparten el ancho de banda disponible en la puerta de enlace de VPN de Azure y el mismo SLA de tiempo de actividad de puerta de enlace de VPN en Azure.
-
-- El tráfico entre dos redes virtuales viaja por la red de Microsoft, no por Internet.
-
-- El tráfico entre dos redes virtuales dentro de la misma región es gratuito en ambos sentidos; si las redes virtuales se encuentran en regiones diferentes, el tráfico se cobra según las tarifas de transferencia de datos de salida entre redes virtuales en función de las regiones de origen. Consulte la página [Precios de Puerta de enlace VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) para más detalles.
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 
 ## ¿Qué serie de pasos debo seguir?
@@ -103,7 +83,7 @@ Esta configuración se aplica a las redes virtuales que están en la misma suscr
 
 ### Antes de empezar
 
-- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
+- Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
 - Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
 
@@ -312,18 +292,18 @@ Después de configurar TestVNet1, debe repetir los pasos para crear TestVNet4. S
 
 	Después de unos minutos, la conexión debería haberse establecido.
 
-## <a name="Verify"></a>Verificación de la conexión de red virtual a red virtual
+## <a name="Verify"></a>Comprobación de la conexión de red virtual a red virtual
 
 En los ejemplos siguientes se muestra cómo comprobar la conexión. Asegúrese de cambiar los valores para que coincidan con los de su entorno.
 
 ### Para comprobar la conexión mediante el uso del Portal de Azure
 
-Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** -> **haga clic en el nombre de su puerta de enlace** -> **Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
+Para comprobar una conexión VPN en el Portal de Azure, vaya a **Puertas de enlace de red virtual** ->** haga clic en el nombre de su puerta de enlace** ->**Configuración** -> **Conexiones**. Para ver más información en la hoja **Conexión**, seleccione el nombre de la conexión.
 
 
 ### Para comprobar la conexión mediante el uso de PowerShell
 
-También se puede verificar que la conexión se realizó correctamente con *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Puede usar el siguiente ejemplo y cambiar los valores para que coincidan con los suyos. Cuando se le pida, seleccione A para ejecutar todo.
+También es posible comprobar que la conexión se realizó correctamente; para ello, utilice *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Puede usar el siguiente ejemplo y cambiar los valores para que coincidan con los suyos. Cuando se le pida, seleccione A para ejecutar todo.
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
@@ -529,6 +509,6 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 ## Pasos siguientes
 
 - Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
-- Para más información acerca de BGP, consulte [Información acerca de BGP](vpn-gateway-bgp-overview.md) y [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Configuración de BGP). 
+- Para más información acerca de BGP, consulte [Información general de BGP con puertas de enlace de VPN de Azure](vpn-gateway-bgp-overview.md) y [Cómo configurar BGP en puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

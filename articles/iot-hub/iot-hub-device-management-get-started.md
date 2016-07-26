@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
@@ -100,7 +100,7 @@ Para compilar los ejemplos y aprovisionar dispositivos en el Centro de IoT, siga
 
 El script hace lo siguiente:
 
-1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que los archivos de código fuente se encuentran en la carpeta **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Ejecuta **cmake** para crear una solución de Visual Studio 2015 para el dispositivo simulado. Este archivo de proyecto es **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que los archivos de código fuente se encuentran en la carpeta ***azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila el proyecto **iotdm\_simple\_sample.vcxproj** para el dispositivo simulado.
 
@@ -197,4 +197,4 @@ Para aprender más sobre las características de administración de dispositivos
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
