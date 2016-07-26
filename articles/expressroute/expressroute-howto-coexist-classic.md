@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="07/19/2016"
    ms.author="charwen"/>
 
 # Configuración de conexiones coexistentes de sitio a sitio y ExpressRoute para el modelo de implementación clásico
@@ -35,7 +35,7 @@ Tener la posibilidad de configurar VPN de sitio a sitio y ExpressRoute tiene var
 
 - **El enrutamiento de tránsito no se admite:** no se puede realizar un enrutamiento (mediante Azure) entre una red local conectada con una VPN de sitio a sitio y una red local conectada con ExpressRoute.
 - **Punto a sitio no se admite:** no se pueden habilitar conexiones VPN de punto a sitio a la misma red virtual que esté conectada a ExpressRoute. VPN de punto a sitio y ExpressRoute no pueden coexistir en la misma red virtual.
-- **No se puede habilitar la tunelización forzada en la puerta de enlace de VPN de sitio a sitio:** solo puede "forzar" todo el tráfico enlazado a Internet a la red local mediante ExpressRoute. 
+- **No se puede habilitar la tunelización forzada en la puerta de enlace de VPN de sitio a sitio:** solo puede "forzar" todo el tráfico enlazado a Internet a la red local mediante ExpressRoute.
 - **Solo puertas de enlace de rendimiento alto o estándar:** debe usar una puerta de enlace de rendimiento alto o estándar para la puerta de enlace de ExpressRoute y la puerta de enlace de VPN de sitio a sitio. Para información sobre las SKU de puerta de enlace, consulte [SKU de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Solo puerta de enlace de VPN basada en enrutamiento:** debe utilizar una puerta de enlace de VPN basada en enrutamiento. Consulte [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) para más información sobre la puerta de enlace de VPN basada en enrutamiento.
 - **Requisito de ruta estática**: si la red local está conectada a ExpressRoute y a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
@@ -78,7 +78,7 @@ Hay dos conjuntos diferentes de los procedimientos entre los que elegir para con
 
 Este procedimiento le guiará en la creación de una red virtual y conexiones de sitio a sitio y ExpressRoute que coexistirán.
 
-1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
+1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
 
 2. Cree un esquema para la red virtual. Para más información sobre el esquema de configuración, consulte [Esquema de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -192,7 +192,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 
 >[AZURE.NOTE] Cuando elimine la puerta de enlace existente, las instalaciones locales perderán la conexión con la red virtual mientras trabaja en esta configuración.
 
-1. Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
+1. Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
 
 2. Elimine la puerta de enlace de la VPN de ExpressRoute o de sitio a sitio. Use el siguiente cmdlet, reemplazando los valores por los suyos propios.
 
@@ -225,4 +225,4 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 
 Para más información sobre ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

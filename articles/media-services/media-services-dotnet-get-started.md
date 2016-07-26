@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ En el tutorial se muestra cómo realizar las siguientes tareas:
 
 Los siguientes requisitos son necesarios para completar el tutorial.
 
-- Para completar este tutorial, deberá tener una cuenta de Azure. 
+- Para completar este tutorial, deberá tener una cuenta de Azure.
 	
 	En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
 - Sistemas operativos: Windows 8 o posterior, Windows 2008 R2, Windows 7.
@@ -253,7 +253,7 @@ Como se ha indicado antes, cuando se trabaja con Servicios multimedia de Azure, 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.  
+- Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.
 - Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
 
 El código siguiente muestra cómo enviar un trabajo de codificación. El trabajo contiene una tarea que especifica la transcodificación del archivo intermedio en un conjunto de MP4 de velocidades de bits adaptables con el **Estándar de Codificador multimedia**. El código envía el trabajo y espera hasta que se complete.
@@ -453,4 +453,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -239,7 +239,7 @@ En esta sección, se usan las herramientas de Azure integradas en el Asistente p
 
 	Un grupo de recursos es una colección de recursos de Azure tales como aplicaciones de API, bases de datos, máquinas virtuales, etc. Para este tutorial, se recomienda crear un nuevo grupo de recursos, ya que así podrá eliminar fácilmente y en un solo paso todos los recursos de Azure que cree para el tutorial.
 
-	Este cuadro permite seleccionar un [grupo de recursos](../azure-portal/resource-group-portal.md) existente o crear uno nuevo, para lo que se debe escribir un nombre de grupo recursos que no exista en la suscripción.
+	Este cuadro permite seleccionar un [grupo de recursos](../resource-group-overview.md) existente o crear uno nuevo, para lo que se debe escribir un nombre de grupo recursos que no exista en la suscripción.
 
 4. Haga clic en el botón **Nuevo** situado junto a la lista desplegable **Plan de servicio de aplicaciones**.
 
@@ -491,4 +491,4 @@ Si desea crear proyectos de aplicación de API desde cero, use la plantilla **Ap
 
 La elección de la plantilla de proyecto **Aplicación de API de Azure** equivale a elegir la plantilla **vacía** de ASP.NET 4.5.2, hacer clic en la casilla para agregar compatibilidad con Web API e instalar el paquete NuGet Swashbuckle. Además, la plantilla agrega algún código de configuración de Swashbuckle diseñado para evitar la creación de identificadores de operación de Swagger duplicados. Una vez que haya creado un proyecto de aplicación de API, puede implementarlo en una aplicación de API del mismo modo que el mostrado en este tutorial.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

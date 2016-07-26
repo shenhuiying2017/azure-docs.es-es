@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/14/2016"
 	ms.author="wesmc"/>
 
 # Envío de notificaciones push a Android con los Centros de notificaciones de Azure
@@ -158,7 +158,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 		public class NotificationSettings {
 		    public static String SenderId = "<Your project number>";
 		    public static String HubName = "<Your HubName>";
-		    public static String HubListenConnectionString = "<Your default listen connection string>";
+		    public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
 		}
 
 2. Use los pasos anteriores para agregar otra clase nueva llamada `MyInstanceIDService`. Se trata de nuestra implementación de servicio de escucha de Instance ID.
@@ -462,6 +462,8 @@ Para probar la recepción de notificaciones push en la aplicación, envíelas a 
 
 ## (Opcional) Envío de notificaciones push directamente desde la aplicación
 
+>[AZURE.IMPORTANT] Este ejemplo sobre el envío de notificaciones desde la aplicación cliente se ha diseñado exclusivamente con fines informativos. `DefaultFullSharedAccessSignature` deberá estar presente en la aplicación cliente, lo que supone un riesgo para el Centro de notificaciones, ya que un usuario podría obtener acceso para enviar notificaciones no autorizadas a los clientes.
+
 Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos casos, puede que quiera enviar notificaciones push directamente desde la aplicación cliente. En esta sección se explica cómo enviar notificaciones desde el cliente mediante la [API de REST del Centro de notificaciones de Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
 1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño `activity_main.xml` y haga clic en la pestaña **Texto** para actualizar el contenido de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación push al Centro de notificaciones. Agregue este código al final, inmediatamente antes de `</RelativeLayout>`.
@@ -490,11 +492,11 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
         <string name="notification_message_hint">Enter notification message text</string>
 
 
-3. En su archivo `NotificationSetting.java`, agregue la siguiente configuración a la clase `NotificationSettings`.
+3. En el archivo `NotificationSetting.java`, agregue la siguiente configuración a la clase `NotificationSettings`.
 
-	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** de su centro. Esta cadena de conexión se puede copiar desde el [Portal de Azure]. Para ello, haga clic en **Directivas de acceso** en la hoja **Configuración** del Centro de notificaciones.
+	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** de su centro. Esta cadena de conexión se puede copiar desde el [Portal de Azure]. Para ello, en la hoja **Configuración** del Centro de notificaciones, haga clic en **Directivas de acceso**.
 
-		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+		public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
 
 4. En el archivo `MainActivity.java`, agregue las siguientes instrucciones `import` antes de la clase `MainActivity`.
 
@@ -548,7 +550,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 	    }
 
 
-7. En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para crear un token de autenticación SaS.
+7. En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para crear un token de autenticación de SaS.
 
 	    /**
 	     * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
@@ -604,7 +606,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 
 
 
-8. En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para controlar si se hace clic en el botón **Enviar notificación** y envíe el mensaje de notificación push al centro mediante la API de REST integrada.
+8. En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para controlar si se hace clic en el botón **Enviar notificación** y enviar el mensaje de notificación push al centro mediante la API de REST integrada.
 
 	    /**
 	     * Send Notification button click handler. This method parses the
@@ -692,7 +694,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
 
 Si desea probar notificaciones push en un emulador, asegúrese de que la imagen del emulador admita el nivel de API de Google que elija para la aplicación. Si la imagen no es compatible con las API de Google nativas, aparecerá la excepción **SERVICE\_NOT\_AVAILABLE**.
 
-Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecución en **Configuración**->**Cuentas**. De lo contrario, sus intentos de registrarse con GCM podrían generar la excepción **AUTHENTICATION\_FAILED**.
+Compruebe, además, que ha agregado la cuenta de Google al emulador en ejecución en **Configuración** > **Cuentas**. De lo contrario, sus intentos de registrarse con GCM podrían generar la excepción **AUTHENTICATION\_FAILED**.
 
 ####Ejecución de la aplicación
 
@@ -704,7 +706,7 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 
    	![Prueba en Android - envío de un mensaje](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
 
-3. Presione **Enviar notificación**. Los dispositivos en los que se ejecute la aplicación mostrarán un instancia de `AlertDialog` con el mensaje de notificación push. Los dispositivos en que la aplicación no esté en ejecución, pero que anteriormente se hayan registrado para recibir notificaciones push, recibirán una notificación en el administrador de notificaciones de Android. Para verlas, deslice el dedo hacia abajo desde la esquina superior izquierda.
+3. Presione **Enviar notificación**. En los dispositivos en los que se ejecute la aplicación, aparecerá una instancia de `AlertDialog` con el mensaje de notificación push. Los dispositivos en que la aplicación no esté en ejecución, pero que anteriormente se hayan registrado para recibir notificaciones push, recibirán una notificación en el administrador de notificaciones de Android. Para verlas, deslice el dedo hacia abajo desde la esquina superior izquierda.
 
    	![Prueba en Android - notificaciones](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
@@ -714,7 +716,7 @@ Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros d
 
 Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora].
 
-Para más información sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
+Para más información sobre los Centros de notificaciones, consulte [Centros de notificaciones de Azure].
 
 <!-- Images. -->
 
@@ -725,9 +727,9 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Centros de notificaciones de Azure]: notification-hubs-push-notification-overview.md
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

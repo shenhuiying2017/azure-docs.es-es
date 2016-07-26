@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Bienvenido al tutorial de NoSQL para el SDK de DocumentDB para .NET. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
+Bienvenido al tutorial de NoSQL para el SDK de Azure DocumentDB para .NET. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
 
 Describiremos:
 
@@ -98,13 +98,13 @@ Seguidamente, diríjase al [Portal de Azure](https://portal.azure.com) para recu
 
 En el Portal de Azure, navegue a la cuenta de DocumentDB que se creó en el paso 1.
 
-Haga clic en el icono de las **llaves** de la barra de **Essentials**. Copie el identificador URI y reemplace *<your endpoint URI>* por el identificador URI copiado en el programa. Copie la clave principal y reemplace *<your key>* por la clave copiada en el programa.
+Haga clic en el icono de las **llaves** de la barra de **Essentials**. Copie el identificador URI y reemplace *<el identificador URI del punto de conexión>* por el identificador URI copiado en el programa. Copie la clave principal y reemplace *<la clave>* por la clave copiada en el programa.
 
 ![Captura de pantalla del Portal de Azure usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón CLAVES resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves.][keys]
 
 Iniciaremos la aplicación de introducción, para lo que crearemos una nueva instancia de **DocumentClient**.
 
-Debajo del método **Main**, agregue una nueva tarea asincrónica denominada **GetStartedDemo**, que creará una instancia del nuevo **DocumentClient**.
+Debajo del método **Main**, agregue esta nueva tarea asincrónica denominada **GetStartedDemo**, que creará una instancia del nuevo **DocumentClient**.
 
 	static void Main(string[] args)
 	{
@@ -548,7 +548,7 @@ Presione **F5** para ejecutar la aplicación.
 
 La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (colecciones, documentos, etc.).
 
-Copie y pegue el código siguiente en el método **GetStartedDemo** debajo del documento delete para eliminar toda la base de datos y todos los recursos secundarios.
+Copie y pegue el código siguiente en el método **GetStartedDemo** debajo de la sección "delete" del documento para eliminar toda la base de datos y todos los recursos secundarios.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -603,7 +603,7 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 ## Pasos siguientes
 
 - ¿Desea un tutorial de ASP.NET MVC NoSQL más complejo? Consulte [Creación de una aplicación web con ASP.NET MVC mediante DocumentDB](documentdb-dotnet-application.md).
-- ¿Desea realizar pruebas de escala y rendimiento con DocumentDB? Consulte [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Pruebas de escala y rendimiento con Azure DocumentDB).
+- ¿Desea realizar pruebas de escala y rendimiento con DocumentDB? Consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
 -	Aprenda a [supervisar una cuenta de DocumentDB](documentdb-monitor-accounts.md).
 -	Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).
 -	Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
@@ -612,4 +612,4 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

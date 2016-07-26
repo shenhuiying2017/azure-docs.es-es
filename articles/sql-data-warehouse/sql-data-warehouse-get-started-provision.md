@@ -32,7 +32,7 @@ En este tutorial, usará el Portal de Azure para crear una instancia de Almacena
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
+2. Haga clic en **+ Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
 
     ![Crear](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
@@ -40,15 +40,15 @@ En este tutorial, usará el Portal de Azure para crear una instancia de Almacena
 
     ![Crear base de datos](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Servidor**: se recomienda que seleccione primero su servidor. Puede seleccionar uno existente o [crearlo](./sql-data-warehouse-get-started-new-server.md). 
+	- **Servidor**: se recomienda que seleccione primero su servidor. Puede seleccionar uno existente o [crearlo](./sql-data-warehouse-get-started-new-server.md).
 
 	- **Nombre de la base de datos**: el nombre que se usará para hacer referencia a Almacenamiento de datos SQL. Debe ser exclusivo en el servidor.
 	
-    - **Rendimiento**: se recomienda empezar con 400 DWU. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el rendimiento de su almacén de datos, o bien para reducirlo o escalarlo verticalmente una vez creado. Para aprender más sobre las DWU, consulte la documentación sobre el [escalado](./sql-data-warehouse-manage-compute-overview.md) o nuestra [página de precios](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+    - **Rendimiento**: se recomienda empezar con 400 DWU. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el rendimiento de su almacén de datos, o bien para reducirlo o escalarlo verticalmente una vez creado. Para aprender más sobre las DWU, consulte la documentación sobre el [escalado](./sql-data-warehouse-manage-compute-overview.md) o nuestra [página de precios](https://azure.microsoft.com/es-ES/pricing/details/sql-data-warehouse/).
 
     - **Suscripción**: seleccione la suscripción a la que se facturará por esta instancia de Almacenamiento de datos SQL.
 
-    - **Grupo de recursos**: los grupos de recursos son contenedores diseñados para ayudarlo a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../azure-portal/resource-group-portal.md).
+    - **Grupo de recursos**: los grupos de recursos son contenedores diseñados para ayudarlo a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../resource-group-overview.md).
 
     - **Seleccionar origen**: haga clic en **Seleccionar origen** > **Muestra**. Dado que hay solo una base de datos de ejemplo disponible en este momento, al seleccionar Ejemplo, Azure rellena automáticamente la opción **Seleccionar muestra** con AdventureWorksDW.
 
@@ -68,4 +68,4 @@ Para cargar datos en Almacenamiento de datos SQL, consulte la [información gene
 
 Si intenta migrar una base de datos a Almacenamiento de datos SQL, consulte [Información general sobre migración](./sql-data-warehouse-overview-migrate.md) o use la [utilidad de migración](./sql-data-warehouse-migrate-migration-utility.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

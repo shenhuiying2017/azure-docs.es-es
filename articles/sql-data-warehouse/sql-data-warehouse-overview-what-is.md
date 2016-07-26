@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/16/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -62,7 +62,7 @@ Al enfoque de MPP también contribuyen algunas optimizaciones del rendimiento es
 
 - Técnicas y algoritmos avanzados integrados en el proceso de movimiento de datos, con el fin de mover datos de forma eficaz entre los recursos de proceso según sea necesario para realizar la consulta. Estas operaciones de movimiento de datos están integradas y todas las optimizaciones del Servicio de movimiento de datos se producen de forma automática.
 
-- Índices de **columnstore** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
+- Índices de **columnstore ** agrupado de manera predeterminada. Mediante el uso del almacenamiento basado en columnas, Almacenamiento de datos SQL obtiene de media unas ganancias de compresión que quintuplican las del almacenamiento tradicional orientado a filas y que multiplica por 10 o más las del rendimiento de las consultas. Las consultas de Análisis que necesitan examinar un gran número de filas funcionan estupendamente en índices de almacén de columnas.
 
 
 ## Rendimiento predecible y escalable
@@ -176,9 +176,9 @@ Ahora que ya conoce un poco Almacenamiento de datos SQL, aprenda a [crear un Alm
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs del equipo de CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Foro de MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
+[Foro de MSDN]: https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=AzureSQLDataWarehouse
 [Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -65,7 +65,7 @@ Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no 
 
 5. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 5. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
@@ -128,4 +128,4 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

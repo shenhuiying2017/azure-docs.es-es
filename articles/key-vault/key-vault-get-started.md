@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -35,7 +35,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene, puede registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
-- Azure PowerShell, **versión mínima: 1.1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets del Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Cmdlets de Almacén de claves de Azure). 
+- Azure PowerShell, **versión mínima: 1.1.0**. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para obtener una lista de los cmdlets del Almacén de claves para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Cmdlets de Almacén de claves de Azure).
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 
@@ -116,7 +116,7 @@ A continuación, escriba lo siguiente para importar la clave desde el archivo .P
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
+Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
 
 Para mostrar el URI para esta clave, escriba:
 
@@ -130,7 +130,7 @@ A continuación, escriba lo siguiente:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
+Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -245,4 +245,4 @@ Para obtener una lista de los cmdlets de Azure PowerShell más recientes para el
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

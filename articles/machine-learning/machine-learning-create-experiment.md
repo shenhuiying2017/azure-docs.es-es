@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Creación de un experimento sencillo en Estudio de aprendizaje automático | Azure"
-	description="Un primer tutorial de Aprendizaje de máquina para la creación de un experimento sencilla para entrenar y probar un modelo de regresión lineal en Estudio de aprendizaje automático de Azure."
-	keywords="experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo"
+	pageTitle="Un experimento sencillo en Estudio de aprendizaje automático | Microsoft Azure"
+	description="Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión."
+	keywords="experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/09/2016"
+	ms.date="07/14/2016"
 	ms.author="garye"/>
 
-# Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure
+# Tutorial de aprendizaje automático: creación del primer experimento de ciencia de datos en Estudio de aprendizaje automático de Azure
 
-En este primer tutorial de Aprendizaje automático, crearemos un modelo de regresión lineal que predecirá el precio de un automóvil en función de diferentes variables, como la marca y las especificaciones técnicas. Para ello, usaremos Estudio de aprendizaje automático de Azure para desarrollar e iterar en un experimento sencillo de análisis predictivo.
+Este tutorial de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Vamos a crear un modelo de regresión lineal que predecirá el precio de un automóvil en función de diferentes variables, como la marca y las especificaciones técnicas. Para ello, usaremos Estudio de aprendizaje automático de Azure para desarrollar e iterar en un experimento sencillo de análisis predictivo.
+
+*Análisis predictivo* es un tipo de ciencia de datos que utiliza los datos actuales para predecir resultados futuros. Si quiere ver un ejemplo muy sencillo de análisis predictivo, consulte Ciencia de datos para principiantes, vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (tiempo de ejecución: 7:42).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un experimento de Estudio de aprendizaje automático de Azure consiste en arrastrar componentes a un lienzo y conectarlos para *crear un modelo*, *entrenar el modelo* y *puntuar y probar el modelo*. El experimento usa técnicas de modelado predictivo en forma de módulos de Estudio de aprendizaje automático que recopila datos, entrena un modelo y aplica dicho modelo a nuevos datos. También se pueden agregar módulos para procesar previamente los datos y seleccionar las funciones, dividir los datos en conjuntos de formación y prueba y evaluar o validar de forma cruzada la calidad del modelo.
+## ¿Cómo funciona la ayuda de Estudio de aprendizaje automático?
 
-Abra Estudio de aprendizaje automático de Azure en [https://studio.azureml.net](https://studio.azureml.net) y haga clic en el botón **Comenzar**. Puede elegir el acceso de invitado o iniciar sesión con su cuenta Microsoft.
+Estudio de aprendizaje automático facilita la configuración de un experimento con módulos de arrastrar y colocar programados previamente con técnicas de modelado predictivo. Para ejecutar el experimento y predecir una respuesta, deberá utilizar Estudio de aprendizaje automático para *crear un modelo*, *entrenar el modelo* y *puntuar y probar el modelo*.
 
-Para obtener más información sobre Estudio de aprendizaje automático, consulte [¿Qué es el Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md)
+Visite Estudio de aprendizaje automático en: [https://studio.azureml.net](https://studio.azureml.net). Si ya se ha registrado en Estudio de aprendizaje automático antes, haga clic en **iniciar sesión aquí**. De lo contrario, haga clic en **Registrarse** y elija entre las opciones gratuitas y las pagadas.
 
->[AZURE.TIP] Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
-
+Para más información sobre Estudio de aprendizaje automático, consulte [¿Qué es el Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md)
 
 ## Cinco pasos para crear un experimento
 
@@ -66,7 +67,11 @@ Hay una serie de conjuntos de datos de ejemplo incluidos en Estudio de aprendiza
 
 	![Dataset][screen1]
 
-Para ver la apariencia de estos datos, haga clic en el puerto de salida, en la parte inferior del conjunto de datos de automóvil, y seleccione **Visualizar**. Las variables del conjunto de datos aparecen como columnas, y cada instancia de un automóvil aparece como una fila. La columna de la derecha (columna 26 y la titulada "precio") es la variable de destino que vamos a intentar predecir.
+Para ver la apariencia de estos datos, haga clic en el puerto de salida, en la parte inferior del conjunto de datos de automóvil, y seleccione **Visualizar**.
+
+![Puerto de salida del módulo][screen1c]
+
+Las variables del conjunto de datos aparecen como columnas, y cada instancia de un automóvil aparece como una fila. La columna de la derecha (columna 26 y la titulada "precio") es la variable de destino que vamos a intentar predecir.
 
 ![Dataset visualization][screen1b]
 
@@ -84,8 +89,9 @@ En primer lugar, eliminaremos la columna **normalized-losses** y luego las filas
 
 2. Seleccione el módulo [Seleccionar columnas en el conjunto de datos][select-columns] y haga clic en **Iniciar el selector de columnas** en el panel de **propiedades**.
 
-	- Asegúrese de que **Todas las columnas** esté seleccionado en la lista desplegable del filtro **Comenzar con**. Esto indica a [Seleccionar columnas en el conjunto de datos][select-columns] que pase todas las columnas (excepto las que se van a excluir).
-	- En la siguiente fila, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** y se agregará al cuadro de texto.
+	- A la izquierda, haga clic en **Con reglas**.
+	- En **Empiezan por**, haga clic en **Todas las columnas**. Esto indica a [Seleccionar columnas en el conjunto de datos][select-columns] que pase todas las columnas (excepto las que se van a excluir).
+	- En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. A continuación, se mostrará una lista de columnas. Seleccione **normalized-losses** y se agregará al cuadro de texto.
 	- Haga clic en el botón Aceptar con la marca de verificación para cerrar el selector de columnas.
 
     ![Select columns][screen3]
@@ -112,21 +118,26 @@ Ahora los datos están limpios y ya puede especificar qué características se v
 
 ## Paso 3: Definir las características
 
-En el aprendizaje automático, las *características* son propiedades mensurables individuales de algo que le interesa. En nuestro conjunto de datos, cada fila representa un automóvil y cada columna es una característica de ese automóvil. Encontrar un buen conjunto de funciones para la creación de un modelo de predicción requiere experimentación y conocimientos acerca del problema que desea resolver. Algunas características son mejores para predecir el destino que otras. Además, algunas funciones tienen una fuerte correlación con otras (por ejemplo, city-mpg frente a highway-mpg), por lo tanto, no agregarán mucha información nueva al modelo y se podrán eliminar.
+En el aprendizaje automático, las *características* son propiedades mensurables individuales de algo que le interesa. En nuestro conjunto de datos, cada fila representa un automóvil y cada columna es una característica de ese automóvil.
 
-Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de datos. Puede volver y seleccionar diferentes funciones, ejecutar de nuevo el experimento y ver si obtiene mejores resultados. Como primera suposición, seleccionaremos las siguientes características (columnas) con el módulo [Seleccionar columnas en el conjunto de datos][select-columns]. Tenga en cuenta que para entrenar el modelo, debemos incluir el valor *precio* que vamos a predecir.
+Encontrar un buen conjunto de funciones para la creación de un modelo de predicción requiere experimentación y conocimientos acerca del problema que desea resolver. Algunas características son mejores para predecir el destino que otras. Además, algunas funciones tienen una fuerte correlación con otras (por ejemplo, city-mpg frente a highway-mpg), por lo tanto, no agregarán mucha información nueva al modelo y se podrán eliminar.
+
+Creemos un modelo que use un subconjunto de las funciones de nuestro conjunto de datos. Puede volver y seleccionar diferentes funciones, ejecutar de nuevo el experimento y ver si obtiene mejores resultados. Pero, para empezar, vamos a intentar las siguientes características:
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+
 
 1. Arrastre otro módulo [Seleccionar columnas en el conjunto de datos][select-columns] al lienzo de experimentos y conéctelo al puerto de salida izquierdo del módulo [Limpiar datos que faltan][clean-missing-data]. Haga doble clic en el módulo y escriba "Seleccionar funciones para la predicción".
 
 2. Haga clic en **Iniciar el selector de columnas** en el panel **Propiedades**.
 
-3. En el selector de columnas, seleccione **Sin columnas** en **Comenzar con** y luego seleccione **Incluir** y **nombres de columna** en la fila de filtro. Escriba nuestra lista de nombres de columnas. Esto indica al módulo que pase solo las columnas que le especificamos.
+3. Haga clic en **With rules** (Con reglas).
 
-	> [AZURE.TIP] Como hemos ejecutado el experimento, las definiciones de columna de nuestros datos han pasado del conjunto de datos original al módulo [Limpiar datos que faltan][clean-missing-data]. Cuando conecta [Seleccionar columnas en el conjunto de datos][select-columns] a [Limpiar datos que faltan][clean-missing-data], el módulo [Seleccionar columnas en el conjunto de datos][select-columns] descubre las definiciones de columna de nuestros datos. Cuando hace clic en el cuadro **nombres de columna**, se muestra una lista de columnas y puede seleccionar las que quiera agregar a la lista.
+4. En **Empezar por** haga clic en **No columns** (Ninguna columna) y luego seleccione **Incluir** y **nombres de columna** en la fila de filtro. Escriba nuestra lista de nombres de columnas. Esto indica al módulo que pase solo las columnas que le especificamos.
 
-4. Haga clic en el botón de marca de verificación (Aceptar).
+	> [AZURE.TIP] Mediante la ejecución del experimento, hemos garantizado que las definiciones de columna de nuestros datos han pasado desde el conjunto de datos a través del módulo [Limpiar datos que faltan][clean-missing-data]. Esto significa que otros módulos que se conecten también dispondrán de la información del conjunto de datos.
+
+5. Haga clic en el botón de marca de verificación (Aceptar).
 
 ![Select columns][screen6]
 
@@ -134,13 +145,13 @@ De esta forma se produce el conjunto de datos que se usará en el algoritmo de a
 
 ## Paso 4: Elegir y aplicar un algoritmo de aprendizaje
 
-Ahora que los datos están listos, la construcción de un modelo predictivo consiste en entrenar y probar. Usaremos nuestros datos para entrenar el modelo y luego probarlo para ver lo que se aproxima en sus predicciones de los precios.
+Ahora que los datos están listos, la construcción de un modelo predictivo consiste en entrenar y probar. Usaremos nuestros datos para entrenar el modelo y luego probarlo para ver lo que se aproxima en sus predicciones de los precios. Por ahora, no se preocupe de por qué necesitamos entrenar y probar un modelo.
 
-*Clasificación* y *regresión* son dos tipos de técnicas de aprendizaje automático supervisado. La clasificación se usa para realizar una predicción a partir de un conjunto definido de valores, como el color (rojo, azul o verde). La regresión se usa para realizar una predicción a partir de un conjunto continuo de valores, como la edad de una persona.
+*Clasificación* y *regresión* son dos tipos de técnicas de aprendizaje automático supervisado. La clasificación permite predecir una respuesta a partir de un conjunto definido de categorías, como el color (rojo, azul o verde). La regresión se usa para predecir un número.
 
-Queremos predecir el precio de un automóvil, que puede ser cualquier valor, así que usaremos un modelo de regresión. En este ejemplo, entrenaremos un modelo sencillo de *regresión lineal* y en el siguiente paso lo probaremos.
+Como queremos predecir un precio, que es un número, vamos a usar el modelo de regresión. En este ejemplo, entrenaremos un modelo sencillo de *regresión lineal* y en el siguiente paso lo probaremos.
 
-1. Podemos usar nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Seleccionar columnas en el conjunto de datos][select-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
+1. Usaremos nuestros datos para el entrenamiento y la prueba si los dividimos en conjuntos diferentes para entrenamiento y prueba. Seleccione y arrastre el módulo [Dividir datos][split] al lienzo de experimentos y conéctelo a la salida del último módulo [Seleccionar columnas en el conjunto de datos][select-columns]. Establezca **Fracción de filas del primer conjunto de datos de salida** en 0,75. De esta forma, usaremos el 75 % de los datos para entrenar el modelo y retendremos el 25 % para prueba.
 
 	> [AZURE.TIP] Al cambiar el parámetro **Valor de inicialización aleatorio**, puede producir muestras aleatorias diferentes para entrenamiento y prueba. Este parámetro controla la inicialización del generador de números pseudoaleatorios.
 
@@ -166,7 +177,7 @@ El resultado es un modelo de regresión entrenado que se puede usar para puntuar
 
 Ahora que hemos entrenado el modelo usando el 75 % de nuestros datos, podemos usarlo para puntuar el otro 25 % de los datos y ver cómo funciona el modelo.
 
-1. Busque y arrastre el módulo [Puntuar modelo][score-model] al lienzo de experimentos y conecte el puerto de entrada izquierdo a la salida del módulo [Entrenar modelo][train-model]. Conecte el puerto de entrada derecho a la salida de datos de prueba (puerto derecho) del módulo [Dividir datos][split].  
+1. Busque y arrastre el módulo [Puntuar modelo][score-model] al lienzo de experimentos y conecte el puerto de entrada izquierdo a la salida del módulo [Entrenar modelo][train-model]. Conecte el puerto de entrada derecho a la salida de datos de prueba (puerto derecho) del módulo [Dividir datos][split].
 
 	![Score Model module][screen8a]
 
@@ -212,6 +223,7 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [screen1]: ./media/machine-learning-create-experiment/screen1.png
 [screen1a]: ./media/machine-learning-create-experiment/screen1a.png
 [screen1b]: ./media/machine-learning-create-experiment/screen1b.png
+[screen1c]: ./media/machine-learning-create-experiment/screen1c.png
 [screen2]: ./media/machine-learning-create-experiment/screen2.png
 [screen3]: ./media/machine-learning-create-experiment/screen3.png
 [screen4]: ./media/machine-learning-create-experiment/screen4.png
@@ -234,4 +246,4 @@ Si desea un tutorial más amplio y detallado de las técnicas de modelado predic
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

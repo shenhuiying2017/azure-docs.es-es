@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Creación y modificación del enrutamiento de un circuito ExpressRoute
@@ -113,8 +113,8 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
 
 2. Establezca la configuración del emparejamiento publico de Azure para el circuito. Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
 
-	- Una subred /30 para el vínculo principal. 
-	- Una subred /30 para el vínculo secundario. 
+	- Una subred /30 para el vínculo principal.
+	- Una subred /30 para el vínculo secundario.
 	- Todas las direcciones IP usadas para configurar este emparejamiento deben ser direcciones IPv4 públicas válidas.
 	- Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
 	- Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
@@ -237,4 +237,4 @@ Siguiente paso, [Vinculación de redes virtuales a circuitos ExpressRoute](expre
 
 -  Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

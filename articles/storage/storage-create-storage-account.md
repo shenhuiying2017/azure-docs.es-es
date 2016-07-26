@@ -79,7 +79,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 7. Seleccione la suscripción en la que desea crear la nueva cuenta de almacenamiento.
 
-8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-portal/resource-group-portal.md).
+8. Especifique un nuevo grupo de recursos o seleccione un grupo de recursos existente. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 9. Seleccione la ubicación geográfica para la cuenta de almacenamiento. Consulte [Regiones de Azure](https://azure.microsoft.com/regions/#services) para más información acerca de qué servicios están disponibles en cada región.
 
@@ -157,4 +157,4 @@ Para más información, consulte la [documentación sobre máquinas virtuales de
 - [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

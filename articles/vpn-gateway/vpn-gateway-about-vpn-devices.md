@@ -26,7 +26,7 @@ Si el dispositivo no aparece en la tabla de dispositivos VPN validados, consulte
 
 - Ha habido un cambio de terminología del enrutamiento estático y dinámico. Es probable que realice la ejecución en ambos términos. No hay ningún cambio de funcionalidad; solo cambian los nombres.
 	- Enrutamiento estático = basada en directivas
-	- Enrutamiento dinámico = basada en enrutamiento 
+	- Enrutamiento dinámico = basada en enrutamiento
 - Las especificaciones de puerta de enlace de VPN de alto rendimiento y de puerta de enlace de VPN basada en enrutamiento son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN basadas en enrutamiento también serán compatibles con la nueva puerta de enlace de VPN de alto rendimiento de Azure.
 
 
@@ -51,7 +51,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Citrix | Dispositivo CloudBridge MPX o dispositivo virtual VPX | N/D | [Instrucciones de integración](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | No compatible |
 | Dell SonicWALL | Serie TZ, serie NSA, serie SuperMassive, serie NSA E-Class | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Instrucciones: SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instrucciones: SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Serie BIG-IP | N/D | [Instrucciones de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | No compatible |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) | [Instrucciones de configuración](http://docs.fortinet.com/fortigate/admin-guides) |
+| Fortinet | FortiGate | FortiOS 5.0.7 | [Instrucciones de configuración](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Instrucciones de configuración](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | Internet Initiative Japan (IIJ) | Serie SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Instrucciones de configuración](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | No compatible |
 | Juniper | SRX | JunOS 10.2 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | Serie J | JunOS 10.4r9 (basada en directivas), JunOS 11.4 (basada en enrutamiento) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Ejemplos de Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -76,7 +76,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 
 **Para editar una muestra:**
 
-1. Abra el ejemplo con el Bloc de notas. 
+1. Abra el ejemplo con el Bloc de notas.
 1. Busque y reemplace todas las cadenas de <*texto*> por los valores que pertenezcan al entorno. Asegúrese de incluir < y >. Cuando se especifica un nombre, el nombre que seleccione debe ser único. Si un comando no funciona, consulte la documentación del fabricante del dispositivo.
 
 | **Texto de ejemplo** | **Cambiar a** |
@@ -97,7 +97,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 
 ## Parámetros de IPsec
 
->[AZURE.NOTE] Aunque los valores enumerados a continuación son compatibles con la Puerta de enlace de VPN de Azure, actualmente no hay ninguna manera de especificar o seleccionar una combinación específica en la Puerta de enlace de VPN de Azure. Debe especificar las restricciones en el dispositivo VPN local.
+>[AZURE.NOTE] Aunque los valores enumerados a continuación son compatibles con la Puerta de enlace de VPN de Azure, actualmente no hay ninguna manera de especificar o seleccionar una combinación específica en la Puerta de enlace de VPN de Azure. Debe especificar las restricciones en el dispositivo VPN local. Además, tiene que fijar el tamaño de segmento máximo en 1350.
 
 ### Configuración de la fase 1 de IKE
 
@@ -117,11 +117,8 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | Versión de IKE | IKEv1 | IKEv2 |
 | Algoritmo hash | SHA1(SHA128) | SHA1(SHA128) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3.600 segundos | 3.600 segundos |
-| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - |
-| Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Consulte *Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) |
-| Confidencialidad directa total (PFS) | No | Sí (DH Grupo1, 2, 5, 14, 24) |
-| Detección de pares no alcanzados (DPD) | No se admite | Se admite |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 2 | 3\.600 segundos | 3\.600 segundos |
+| Vida útil (rendimiento) de la asociación de seguridad (SA) de la fase 2 | 102.400.000 KB | - | | Cifrado y ofertas de autenticación de SA de IPsec (por orden de preferencia) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. No disponible | Consulte *Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento* (a continuación) | | Confidencialidad directa total (PFS) | No | Sí (DH Grupo1, 2, 5, 14, 24) | | Detección de pares no alcanzados (DPD) | No se admite | Se admite |
 
 ### Ofertas de asociación de seguridad (SA) con IPsec de puerta de enlace basada en enrutamiento
 
@@ -145,12 +142,11 @@ En la tabla encontrará una lista de las ofertas de autenticación y cifrado de 
 | 14 | AH MD5 con ESP DES HMAC nulo, sin vida útil propuesta | AH MD5 con ESP DES MD5, sin vida útil |
 | 15 | AH SHA1 con ESP DES SHA1, sin vida útil | ESP SHA, sin vida útil |
 | 16 | AH MD5 con ESP DES MD5, sin vida útil | ESP MD5, sin vida útil |
-| 17 | - | AH SHA, sin vida útil |
-| 18 | - | AH MD5, sin vida útil |
+| 17 | - | AH SHA, sin vida útil | | 18 | - | AH MD5, sin vida útil |
 
 
 - Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN de alto rendimiento y basadas en enrutamiento. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia. Los clientes pueden optar por usar estos escenarios de comunicación de red virtual a red virtual, o el momento de aplicación del cifrado en otra parte de la solución.
 
 - Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

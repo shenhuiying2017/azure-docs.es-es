@@ -31,7 +31,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 - **Cuenta de Azure**: consulte [Evaluación gratuita de Azure][] o [Crédito mensual de Azure para suscriptores de Visual Studio][] para crear una cuenta.
 - **SQL Server V12 de Azure**: consulte [Creación de un servidor lógico de Base de datos SQL de Azure][] o [Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall][].
-- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server V12 de Azure o consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure][] para crear uno.
+- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server V12 de Azure o consulte [Creación de un grupo de recursos][] para crear uno.
 - **Visual Studio con SQL Server Data Tools**: para ver instrucciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL][].
 
 > [AZURE.NOTE] La creación de una nueva instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
@@ -67,7 +67,7 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Creación de un servidor lógico de Base de datos SQL de Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Uso del Portal de Azure para implementar y administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
+[Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md
 [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL]: ./sql-data-warehouse-install-visual-studio.md
 
 
@@ -80,4 +80,4 @@ Después de que su Almacenamiento de datos SQL termine el aprovisionamiento, pue
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

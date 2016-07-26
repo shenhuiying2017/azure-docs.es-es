@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Configuración de conexiones coexistentes de sitio a sitio y ExpressRoute para el modelo de implementación de Resource Manager
@@ -34,7 +34,7 @@ Tener la posibilidad de configurar VPN de sitio a sitio y ExpressRoute tiene var
 ## Límites y limitaciones
 
 - **El enrutamiento de tránsito no se admite:** no se puede realizar un enrutamiento (mediante Azure) entre una red local conectada con una VPN de sitio a sitio y una red local conectada con ExpressRoute.
-- **No se puede habilitar la tunelización forzada en la puerta de enlace de VPN de sitio a sitio:** solo puede "forzar" todo el tráfico enlazado a Internet a la red local mediante ExpressRoute. 
+- **No se puede habilitar la tunelización forzada en la puerta de enlace de VPN de sitio a sitio:** solo puede "forzar" todo el tráfico enlazado a Internet a la red local mediante ExpressRoute.
 - **Solo puertas de enlace de rendimiento alto o estándar:** debe usar una puerta de enlace de rendimiento alto o estándar para la puerta de enlace de ExpressRoute y la puerta de enlace de VPN de sitio a sitio. Para información sobre las SKU de puerta de enlace, consulte [SKU de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - **Solo puerta de enlace de VPN basada en enrutamiento:** debe utilizar una puerta de enlace de VPN basada en enrutamiento. Consulte [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) para más información sobre la puerta de enlace de VPN basada en enrutamiento.
 - **Requisito de ruta estática**: si la red local está conectada a ExpressRoute y a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
@@ -143,7 +143,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 
 >[AZURE.NOTE] Cuando elimine la puerta de enlace existente, las instalaciones locales perderán la conexión a la red virtual mientras trabaja en esta configuración.
 
-1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
+1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell. Tenga en cuenta que los cmdlets que se van a utilizar en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
 
 2. Elimine la puerta de enlace de la VPN de ExpressRoute o de sitio a sitio.
 
@@ -169,7 +169,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 ## Incorporación de la configuración de punto a sitio a la puerta de enlace de VPN
 Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en una configuración de coexistencia, puede seguir los pasos que se indican a continuación.
 
-1. Agregue el grupo de direcciones de clientes de VPN. 
+1. Agregue el grupo de direcciones de clientes de VPN.
 
 		$azureVpn = Get-AzureRmVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
 		Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
@@ -194,4 +194,4 @@ Para más información sobre la VPN de punto a sitio, consulte [Configuración d
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

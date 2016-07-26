@@ -66,7 +66,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 6. Seleccione un **Grupo de recursos** o cree uno nuevo.
 
-	Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure](../resource-group-portal.md).
+	Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
 
 7. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
 
@@ -183,7 +183,7 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 
 ## Publicación de cambios de la aplicación
 
-1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n". 
+1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n".
 
 2. Guarde el archivo .
 
@@ -225,4 +225,4 @@ Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure,
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
