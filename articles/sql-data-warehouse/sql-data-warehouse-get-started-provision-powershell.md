@@ -28,7 +28,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 - **Cuenta de Azure**: consulte [Evaluación gratuita de Azure][] o [Crédito mensual de Azure para suscriptores de Visual Studio][] para crear una cuenta.
 - **SQL Server V12 de Azure**: consulte [Creación de un servidor lógico de Base de datos SQL de Azure][] o [Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall][].
-- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server V12 de Azure o consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure][] para crear uno.
+- **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server V12 de Azure o consulte [Creación de un grupo de recursos][] para crear uno.
 - **PowerShell versión 1.0.3 o posterior**: para comprobar la versión, ejecute **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][].
 
 > [AZURE.NOTE] La creación de una nueva instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable. Consulte [Precios de Almacenamiento de datos SQL][] para más información sobre los precios.
@@ -87,7 +87,7 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Creación de un servidor lógico de Base de datos SQL de Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Configuración de la base de datos: creación de un grupo de recursos, un servidor y una regla de firewall]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[Uso del Portal de Azure para implementar y administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
+[Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -100,4 +100,4 @@ Si está interesado en más información sobre cómo administrar Almacenamiento 
 [Evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [Crédito mensual de Azure para suscriptores de Visual Studio]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

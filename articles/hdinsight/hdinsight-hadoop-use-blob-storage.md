@@ -27,11 +27,7 @@ El almacenamiento de blobs de Azure es una solución de almacenamiento sólida y
 
 Almacenar los datos en un almacenamiento de blobs hace que elimine de forma segura los clústeres de HDInsight que se usan para los cálculos sin perder los datos del usuario.
 
-> [AZURE.NOTE]	La sintaxis **asv://* no se admite en los clústeres de HDInsight versión 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight versión 3.0 y que usen explícitamente la sintaxis **asv://* tendrán errores. Debería usarse la sintaxis **wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight versión 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
-
-> Actualmente HDInsight solo es compatible con blobs en bloques.
-
-> La mayoría de los comandos HDFS (por ejemplo, <b>ls</b>, <b>copyFromLocal</b> y <b>mkdir</b>) siguen funcionando según lo previsto. Únicamente los comandos específicos de la implementación nativa de HDFS (a la que nos referiremos como DFS), como <b>fschk</b> y <b>dfsadmin</b>, mostrarán comportamientos diferentes en el almacenamiento de blobs de Azure.
+> [AZURE.IMPORTANT] HDInsight solo es compatible con blobs en bloques. No admite blobs en páginas ni blobs en anexos.
 
 Para obtener información sobre cómo crear un clúster de HDInsight, consulte [Introducción a HDInsight][hdinsight-get-started] o [Creación de clústeres de HDInsight][hdinsight-creation].
 
@@ -49,6 +45,7 @@ Además, HDInsight ofrece la capacidad de acceder a los datos almacenados en el 
 
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] En versiones de HDInsight anteriores a la 3.0, `asv://` se utilizaba en lugar de `wasb://`. `asv://` no debe usarse con clústeres de HDInsight 3.0 o superiores, ya que producirán un error.
 
 Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación de HDInsight, se designan una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs de Azure específico de dicha cuenta como sistema de archivos predeterminado.
 
@@ -83,7 +80,7 @@ Hay varias ventajas asociadas al almacenamiento de datos en el almacenamiento de
 
 Determinados trabajos y paquetes de MapReduce podrían crear resultados intermedios que realmente no desea almacenar en el almacenamiento de blobs de Azure. En tal caso, puede optar por almacenar los datos en el HDFS local. De hecho, HDInsight usa DFS para varios de estos resultados intermedios en los trabajos de Hive y otros procesos.
 
-
+> [AZURE.NOTE] La mayoría de los comandos HDFS (por ejemplo, <b>ls</b>, <b>copyFromLocal</b> y <b>mkdir</b>) siguen funcionando según lo previsto. Únicamente los comandos específicos de la implementación nativa de HDFS (a la que nos referiremos como DFS), como <b>fschk</b> y <b>dfsadmin</b>, mostrarán comportamientos diferentes en el almacenamiento de blobs de Azure.
 
 ## Creación de contenedores de blobs
 
@@ -304,4 +301,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

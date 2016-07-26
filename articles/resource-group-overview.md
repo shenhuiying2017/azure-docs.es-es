@@ -13,12 +13,22 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
 
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlas, administrarlas y supervisarlas como grupo. Administrador de recursos de Azure permite trabajar con los recursos de la solución como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la solución en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación.
+
+## Terminología
+
+Si no conoce Azure Resource Manager, estos son algunos términos con los que puede no estar familiarizado.
+
+- **recurso**: elemento que forma parte de la solución de Azure. Algunos recursos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual, pero hay muchos más.
+- **grupo de recursos**: contenedor que almacena los recursos relacionados de una aplicación. El grupo de recursos puede incluir todos los recursos de una aplicación o solo aquellos que se agrupan de forma lógica. Puede decidir cómo desea asignar los recursos a los grupos de recursos en función de lo que más convenga a su organización. Consulte [Grupos de recursos](#resource-groups).
+- **proveedor de recursos**: servicio que proporciona los recursos que puede implementar y administrar mediante Resource Manager. Cada proveedor de recursos ofrece operaciones para trabajar con los recursos que se implementan. Algunos proveedores de recursos comunes son Microsoft.Compute, que proporciona el recurso de máquinas virtuales, Microsoft.Storage, que proporciona el recurso de cuentas de almacenamiento y Microsoft.Web que proporciona recursos relacionados con las aplicaciones web. Consulte [Proveedores de recursos](#resource-providers).
+- **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos. También define las dependencias entre los recursos implementados. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Implementación de plantilla](#template-deployment).
+- **sintaxis declarativa**: sintaxis que le permite establecer "Aquí está lo que pretendo crear", sin tener que escribir la secuencia de comandos de programación para crearla. La plantilla de Resource Manager es un ejemplo de sintaxis declarativa. En el archivo, puede definir las propiedades de la infraestructura que se va a implementar en Azure.
 
 ## Ventajas de usar Administrador de recursos
 
@@ -26,7 +36,7 @@ Administrador de recursos ofrece varias ventajas:
 
 - Puede implementar, administrar y supervisar todos los recursos para su solución como grupo, en lugar de controlar estos recursos individualmente.
 - Puede implementar la solución repetidamente a lo largo del ciclo de vida del desarrollo y tener la seguridad de que los recursos se implementan de forma coherente.
-- Puede utilizar plantillas declarativas para definir la implementación.
+- Puede administrar la infraestructura mediante plantillas declarativas en lugar de scripts.
 - Puede definir las dependencias entre recursos de modo que se implementen en el orden correcto.
 - Puede aplicar control de acceso a todos los servicios del grupo de recursos al integrarse de forma nativa Control de acceso basado en rol (RBAC) en la plataforma de administración.
 - Puede aplicar etiquetas a los recursos para organizar de manera lógica todos los recursos en su suscripción.
@@ -43,9 +53,9 @@ Las siguientes sugerencias le ayudarán a sacar el máximo partido de Administra
 3. Ejecute comandos imperativos para administrar los recursos, como iniciar o detener una aplicación o un equipo.
 4. Organice los recursos con el mismo ciclo de vida en un grupo de recursos. Use etiquetas para organizar los demás recursos.
 
-## Grupos de recursos
+Para más recomendaciones, consulte [Procedimientos recomendados para crear plantillas de Azure Resource Manager](resource-manager-template-best-practices.md).
 
-Un grupo de recursos es un contenedor que incluye los recursos relacionados de una aplicación. El grupo de recursos puede incluir todos los recursos de una aplicación o solo aquellos que se agrupan juntos lógicamente. Puede decidir cómo desea asignar los recursos a los grupos de recursos en función de lo que más convenga a su organización.
+## Grupos de recursos
 
 Hay algunos factores importantes que se deben tener en cuenta al definir el grupo de recursos:
 
@@ -55,21 +65,19 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 4. Puede mover un recurso de un grupo de recursos a otro. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 4. Un grupo de recursos puede contener recursos que residen en diferentes regiones.
 5. Un grupo de recursos puede utilizarse para definir el ámbito de control de acceso para las acciones administrativas.
-6. Se puede vincular un recurso a otro recurso de un grupo de recursos distinto cuando los dos recursos deben interactuar entre sí pero no comparten el mismo ciclo de vida (por ejemplo, varias aplicaciones que se conectan a una base de datos). Para obtener más información, consulte [Vinculación de recursos en el Administrador de recursos de Azure](resource-group-link-resources.md).
+6. Un recurso puede interactuar con otro recurso de un grupo de recursos distinto cuando los dos recursos están relacionados pero no comparten el mismo ciclo de vida (por ejemplo, aplicaciones web que se conectan a una base de datos).
 
 ## Proveedores de recursos
 
-Un proveedor de recursos es un servicio que proporciona los recursos que puede implementar y administrar mediante el Administrador de recursos. Cada proveedor de recursos ofrece operaciones de API de REST para trabajar con los recursos. Por ejemplo, si desea implementar un Almacén de claves de Azure para almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos dispone de un tipo de recurso llamado **almacenes** que permite crear el almacén de claves. También cuenta con un tipo de recurso denominado **almacenes/secretos** que permite crear un secreto en un almacén de claves. Si necesita más información sobre un proveedor de recursos, puede consultar las operaciones de la API de REST; por ejemplo, [Operaciones de API de REST para almacenes de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx).
+Cada proveedor de recursos ofrece un conjunto de recursos y operaciones para trabajar con un área técnica. Por ejemplo, si desea almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos dispone de un tipo de recurso llamado **almacenes** que permite crear el almacén de claves. También cuenta con un tipo de recurso denominado **almacenes/secretos** que permite crear un secreto en un almacén de claves. También proporciona operaciones a través de [operaciones de API de REST Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx). Puede llamar directamente a la API de REST o usar los [cmdlets de PowerShell de Almacén de claves](https://msdn.microsoft.com/library/dn868052.aspx) y [la CLI de Azure de Almacén de claves](./key-vault/key-vault-manage-with-cli.md) para administrar el almacén de claves. También puede utilizar varios lenguajes de programación para trabajar con la mayoría de los recursos. Para más información, consulte la sección [SDK y ejemplos](#sdks-and-samples).
 
 Para implementar y administrar la infraestructura, debe conocer los detalles acerca de los proveedores de recursos como, por ejemplo, los tipos de recurso que ofrece, los números de versión de las operaciones de API de REST, las operaciones que admite y el esquema que se usará al establecer los valores del tipo de recurso que desea crear. Para información sobre los proveedores de recursos admitidos, consulte [proveedores del Administrador de recursos, regiones, versiones de API y esquemas](resource-manager-supported-services.md).
 
 ## Implementación de plantilla
 
-Con Administrador de recursos, puede crear una plantilla sencilla (en formato JSON) que define la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla de Administrador de recursos y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
+Con Administrador de recursos, puede crear una plantilla sencilla (en formato JSON) que define la implementación y configuración de la aplicación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente. Azure Resource Manager analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para obtener más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
 
-Dentro de la plantilla puede definir la infraestructura de la aplicación, cómo configurar dicha infraestructura y cómo publicar el código de aplicación en ella. No necesita preocuparse por el orden de implementación porque Administrador de recursos de Azure analiza las dependencias para asegurarse de que los recursos se crean en el orden correcto. Para obtener más información, consulte [Definición de dependencias en plantillas del Administrador de recursos de Azure](resource-group-define-dependencies.md).
-
-Cuando crea una solución desde Marketplace, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero, puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos a una plantilla o la visualización de la plantilla que se usó para una implementación determinada. Una buena estrategia para obtener más información sobre la sintaxis de una plantilla es consultar la plantilla exportada. Para más información sobre el uso de plantillas exportadas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
+Cuando crea una solución desde el Portal, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero, puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos a una plantilla o la visualización de la plantilla que se usó para una implementación determinada. Una buena estrategia para obtener más información sobre la sintaxis de una plantilla es consultar la plantilla exportada. Para más información sobre el uso de plantillas exportadas, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
 No es necesario definir toda la infraestructura en una sola plantilla. A menudo, tiene sentido dividir los requisitos de implementación en un conjunto de plantillas seleccionadas, específicas para un propósito. Puede fácilmente volver a usar estas plantillas para distintas soluciones. Para implementar una solución determinada, cree una plantilla maestra que vincule todas las plantillas necesarias. Para más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
@@ -121,7 +129,7 @@ Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure p
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Para consultar las operaciones de REST de los recursos implementados, consulte [Uso del Explorador de recursos de Azure para ver y modificar recursos](resource-manager-resource-explorer.md).
 
-Para más información sobre cómo usar el portal, consulte [Uso del Portal de Azure para administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
+Para más información sobre el uso del Portal, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](resource-group-template-deploy-portal.md).
 
 El Administrador de recursos de Azure admite el uso compartido de recursos entre orígenes (CORS). Con CORS, puede llamar a la API de REST del Administrador de recursos o un API de REST de un servicio Azure desde una aplicación web que reside en un dominio diferente. Sin compatibilidad con CORS, el explorador web evitaría que una aplicación en un dominio acceda a recursos de otro dominio. El Administrador de recursos habilita CORS para todas las solicitudes con credenciales de autenticación válidas.
 
@@ -133,7 +141,7 @@ El código de cada uno de estos SDK se genera en las especificaciones de la API 
 
 **Ejemplos**: empiece rápidamente en el lenguaje que desee.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) *próximamente*
+- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
 - [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) *próximamente*
 - [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
 - [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
@@ -157,9 +165,10 @@ El código de cada uno de estos SDK se genera en las especificaciones de la API 
 - Para ver un tutorial más detallado sobre la creación de una plantilla, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
 - Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](resource-group-template-functions.md)
 - Para más información sobre el uso de Visual Studio con Resource Manager, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Para más información sobre el uso de Visual Studio Code con Resource Manager, consulte [Trabajo con plantillas de Azure Resource Manager en Visual Studio Code](resource-manager-vs-code.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

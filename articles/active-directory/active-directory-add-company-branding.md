@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/16/2016" 
+	ms.date="07/13/2016"
 	ms.author="MarkVi"/>
 
 # Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso
@@ -42,7 +42,7 @@ Si ha aplicado cambios a la página de inicio de sesión, puede tardar hasta una
 
 Una página de inicio de sesión de marca solo aparece cuando visite un servicio con una dirección URL específica de inquilino como https://outlook.com/**contoso**.com o https://mail.**contoso**.com.
 
-Cuando visita un servicio con direcciones URL no específicas de inquilinos (p. ej.: https://mail.office365.com)), aparece una página de inicio de sesión sin marca. En este caso, la marca aparece una vez que ha escrito el identificador de usuario o que haya seleccionado un icono de usuario.
+Cuando visita un servicio con direcciones URL no específicas de inquilinos (p. ej.: https://mail.office365.com), aparece una página de inicio de sesión sin marca. En este caso, la marca aparece una vez que ha escrito el identificador de usuario o que haya seleccionado un icono de usuario.
 
 > [AZURE.NOTE]
 >
@@ -120,8 +120,8 @@ Por ejemplo, si configura un logotipo del banner predeterminado pero no una ilus
 
 Suponga la configuración siguiente:
 
-- Un logotipo del banner predeterminado y el inicio de sesión en el texto de página en inglés 
-- Un texto de la página de inicio de sesión específico para un idioma en alemán 
+- Un logotipo del banner predeterminado y el inicio de sesión en el texto de página en inglés
+- Un texto de la página de inicio de sesión específico para un idioma en alemán
 
 Si su preferencia de idioma es alemán, obtiene el logotipo del banner predeterminado pero con el texto en alemán.
 
@@ -177,8 +177,8 @@ Se recomienda que experimente con un inquilino de prueba antes de realizar cambi
 
 **Para comprobar si se ha aplicado la información de marca:**
 
-1. Abra una sesión de explorador InPrivate o de incógnito. 
-2. Visite https://outlook.com/contoso.com, sustituyendo contoso.com por el dominio que haya personalizado. 
+1. Abra una sesión de explorador InPrivate o de incógnito.
+2. Visite https://outlook.com/contoso.com, sustituyendo contoso.com por el dominio que haya personalizado.
 
 Esto también funciona con los dominios que tengan un aspecto similar a contoso.onmicrosoft.com.
 
@@ -219,4 +219,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

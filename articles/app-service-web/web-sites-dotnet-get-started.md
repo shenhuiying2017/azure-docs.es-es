@@ -238,6 +238,6 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Eliminación del grupo de recursos que contiene la aplicación web y todos los recursos de Azure relacionados cuando haya terminado con ellos.
 
-	Para obtener información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../resource-group-portal.md).
+	Para más información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

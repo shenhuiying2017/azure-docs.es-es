@@ -54,7 +54,7 @@ La hoja **Creación** contiene la información que necesita para llamar a las AP
 <a name="view-access-keys"/>
 ## Visualización de las claves de acceso de API de Power BI
 
-Uno de los datos más importantes que se necesitan para llamar a las API de REST de Power BI son las **claves de acceso**. Las claves de acceso se utilizan para generar los **tokens de aplicación** que se emplean para autenticar las solicitudes de API. Para ver las **claves de acceso**, haga clic en **Claves de acceso** en la hoja **Configuración**. Para más información sobre los **tokens de aplicación**, consulte la sección sobre [cómo funciona el flujo de tokens de aplicación](power-bi-embedded-app-token-flow.md).
+Uno de los datos más importantes que se necesitan para llamar a las API de REST de Power BI son las **claves de acceso**. Las claves de acceso se utilizan para generar los **tokens de aplicación** que se emplean para autenticar las solicitudes de API. Para ver las **claves de acceso**, haga clic en **Claves de acceso** en la hoja **Configuración**. Para más información sobre los **tokens de aplicación**, consulte [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,9 +98,7 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 
 ## Otras referencias
 - [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](power-bi-embedded-get-started-sample.md)
-- [What is Microsoft Power BI Embedded (¿Qué es Microsoft Power BI Embedded?)](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Precios Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

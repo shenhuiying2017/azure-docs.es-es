@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="cherylmc"/>
 
 # Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico
@@ -25,7 +25,7 @@
 
 Una configuración punto a sitio permite crear una conexión segura a la red virtual desde un equipo cliente, de forma individual. Se establece una conexión VPN al iniciar la conexión desde el equipo cliente. La conexión punto a sitio es una solución excelente cuando desea conectarse a la red virtual desde una ubicación remota, como desde una casa o una conferencia, o si solo tiene unos pocos clientes que necesitan conectarse a una red virtual.
 
-Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Para más información sobre las conexiones de punto a sitio, consulte [Preguntas frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
+Las conexiones punto a sitio no requieren un dispositivo VPN o una dirección IP pública para que funcionen. Para obtener más información sobre las conexiones de punto a sitio, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) y [Acerca de las conexiones entre locales](vpn-gateway-cross-premises-options.md).
 
 La información de este artículo se aplica a las conexiones de puerta de enlace de VPN de punto a sitio a una red virtual creada mediante el **modelo de implementación clásica** (Administración de servicios) y el Portal clásico. Cuando tengamos los pasos para el Portal de Azure, los vincularemos a dicho artículo desde esta página.
 
@@ -209,4 +209,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea obtener más información acerca de las redes virtuales, consulte la página [Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

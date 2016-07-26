@@ -50,7 +50,7 @@ En el ejemplo siguiente se restablece la Puerta de enlace de VPN de Azure para l
 		StatusCode     : OK
 
 
-Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo donde se estén reiniciando ambas instancias de VM (activa y en espera). En este caso, ocurrirá una interrupción mayor en la conectividad de VPN, de 2 a 4 minutos, para que las máquinas virtuales completen los reinicios.
+Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar el mismo comando para reiniciar la segunda instancia de VM (la nueva puerta de enlace activa). Si se solicitan los dos reinicios consecutivamente, habrá un período un poco más largo durante el que se estén reiniciando ambas instancias de máquina virtual (activa y en espera). En este caso, ocurrirá una interrupción mayor en la conectividad de VPN, de 2 a 4 minutos, para que las máquinas virtuales completen los reinicios.
 
 Después de dos reinicios, si sigue teniendo problemas de conectividad entre locales, abra una incidencia de soporte técnico en el Portal de Azure clásico para ponerse en contacto con el soporte técnico de Microsoft Azure.
 
@@ -58,4 +58,4 @@ Después de dos reinicios, si sigue teniendo problemas de conectividad entre loc
 	
 Para obtener más información sobre este cmdlet consulta la [Referencia de PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

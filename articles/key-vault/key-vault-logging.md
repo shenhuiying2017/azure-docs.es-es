@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Registro del Almacén de claves de Azure #
@@ -33,6 +33,8 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro del A
 >[AZURE.NOTE]  Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 >
 >Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
+
+Los registros recopilados se pueden visualizar mediante el uso de Log Analytics de Operations Management Suite. Para más información, consulte [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (Solución de Almacén de claves de Azure (versión preliminar) en Log Analytics).
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
@@ -68,7 +70,7 @@ Para obtener más información sobre cómo configurar PowerShell de Azure, consu
 
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros del Almacén de claves. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
 
-Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Este de Asia. Sustituya estos valores para los suyos propios, según corresponda:
+Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores para los suyos propios, según corresponda:
 
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
@@ -127,7 +129,7 @@ El resultado será similar al siguiente.
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
  
 
 Como puede ver en este resultado, la convención de nomenclatura utilizada en los blobs es: **resourceId=<identificador de recurso de ARM>/y=<año>/m=<mes>/d=<día>/h=<hora>/m=<minuto>/filename.json**
@@ -272,4 +274,4 @@ Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para el Almacén d
 
 Para ver un tutorial sobre la rotación de claves y la auditoría de registros con el Almacén de claves de Azure, consulte [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Configuración del Almacén de claves con rotación y auditoría de claves de un extremo a otro).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
