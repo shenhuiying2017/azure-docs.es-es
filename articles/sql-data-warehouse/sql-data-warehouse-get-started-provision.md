@@ -32,7 +32,7 @@ En este tutorial, usará el Portal de Azure para crear una instancia de Almacena
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Haga clic en **+ Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
+2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
 
     ![Crear](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 

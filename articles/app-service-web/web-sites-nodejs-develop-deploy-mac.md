@@ -183,7 +183,7 @@ En esta sección, creará un archivo **server.js** que contiene una versión lig
 
 ## Publicación de cambios de la aplicación
 
-1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n".
+1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n". 
 
 2. Guarde el archivo .
 

@@ -232,6 +232,7 @@ Instale el Proveedor de Azure Site Recovery en el servidor VMM y registre el ser
 	![Registro de servidor](./media/site-recovery-vmm-to-azure/provider5.png)
 
 8. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
+
 13. Habilite la opción **Sincronizar metadatos de nube** si desea sincronizar los metadatos de todas las nubes en el servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM. Haga clic en **Register** para finalizar el proceso.
 
 	![Registro de servidor](./media/site-recovery-vmm-to-azure/provider6.png)
