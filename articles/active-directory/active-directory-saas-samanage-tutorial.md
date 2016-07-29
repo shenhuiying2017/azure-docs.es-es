@@ -97,13 +97,13 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 8.  En la página del cuadro de diálogo **Inicio de sesión mediante SAML**, realice los pasos siguientes y luego haga clic en **Guardar cambios**:
 
     1.  Haga clic en **Habilitar el inicio de sesión único con SAML**.
-    
-    ![Inicio de sesión mediante SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Inicio de sesión mediante SAML")
+
+    	![Inicio de sesión mediante SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Inicio de sesión mediante SAML")
 
     2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor del **Id. de proveedor de identidades** y luego péguelo en el cuadro de texto **URL del proveedor de identidades**.
     	![Configurar inicio de sesión único](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurar inicio de sesión único")
-    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
-    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.  
+    4.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.  
     5.  Cree un archivo **codificado en base 64** a partir del certificado descargado.
 
         >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
