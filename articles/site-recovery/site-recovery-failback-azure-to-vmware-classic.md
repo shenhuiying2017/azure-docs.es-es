@@ -39,7 +39,7 @@ Use esta arquitectura cuando el servidor de procesos sea local y se esté usando
 
 Use esta arquitectura cuando el servidor de procesos esté en Azure y tenga una VPN o una conexión de ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Para ver la lista completa de puertos y el diagrama de la arquitectura de la conmutación por recuperación, consulte la imagen siguiente.
 
