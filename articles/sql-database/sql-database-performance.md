@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="07/19/2016"
    ms.author="sstein"/>
 
 # SQL Database Performance Insight (Información de rendimiento de Base de datos SQL)
@@ -68,4 +68,4 @@ Al hacer clic en **Información general** o en el icono de **Rendimiento**, acce
 - [Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md)
 - [¿Cuándo se debe utilizar un grupo de bases de datos elásticas?](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

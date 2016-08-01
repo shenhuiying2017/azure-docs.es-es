@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="tdykstra"/>
 
 # Comparación de Servicio de aplicaciones de Azure, Máquinas virtuales, Service Fabric y Servicios en la nube
@@ -26,9 +26,42 @@ El Servicio de aplicaciones de Azure es la opción más adecuada para la mayorí
 
 Service Fabric es una buena opción si se va a crear una aplicación nueva o se va a volver a escribir una aplicación existente para que use una arquitectura de microservicios. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y crecer a gran escala con cientos o miles de máquinas, en caso de que sea necesario. Los servicios con estado facilitan el almacenaniento consistente y confiable del estado de la aplicación, mientras que Service Fabric administra automáticamente la creación de particiones, el escalado y la disponibilidad de los servicios. Service Fabric también admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET Core. En comparación con el Servicio de aplicaciones, Service Fabric también proporciona más control sobre la infraestructura subyacente o acceso directo a ella. Puede acceder de forma remota a los servidores o configurar las tareas de inicio de los servidores. Servicios en la nube es similar a Service Fabric en lo que se refiere al grado de control frente a la facilidad de uso, pero es un servicio heredado y Service Fabric se recomienda para los desarrollos nuevos.
 
-Si tiene una aplicación que requiera modificaciones sustanciales para ejecutarse en el Servicio de aplicaciones o en Service Fabric, puede elegir Máquinas virtuales para simplificar la migración a la nube. Sin embargo, la configuración, la protección y el mantenimiento adecuados de las máquinas virtuales requieren mucho más tiempo y conocimientos de TI, en comparación con el Servicio de aplicaciones de Azure y Service Fabric. Si está considerando la opción de Máquinas virtuales Azure, tenga en cuenta el esfuerzo constante de mantenimiento requerido para aplicar revisiones al entorno de Máquina virtual, así como para actualizarlo y administrarlo.
+Si tiene una aplicación que requiera modificaciones sustanciales para ejecutarse en el Servicio de aplicaciones o en Service Fabric, puede elegir Máquinas virtuales para simplificar la migración a la nube. Sin embargo, la configuración, la protección y el mantenimiento adecuados de las máquinas virtuales requieren mucho más tiempo y conocimientos de TI, en comparación con el Servicio de aplicaciones de Azure y Service Fabric. Si está considerando la opción de Máquinas virtuales Azure, tenga en cuenta el esfuerzo constante de mantenimiento requerido para aplicar revisiones al entorno de Máquina virtual, así como para actualizarlo y administrarlo. Máquinas virtuales de Azure es una infraestructura como servicio (IaaS), mientras que Servicio de aplicaciones y Service Fabric son plataformas como servicio (Paas).
 
-##<a name="scenarios"></a>Escenarios y recomendaciones
+## <a name="features"></a>Comparación de características
+
+La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Servicios en la nube, Máquinas virtuales y Service Fabric para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/support/legal/sla/).
+
+Característica|Servicio de aplicaciones (aplicaciones web)|Servicios en la nube (roles web)|Máquinas virtuales|Service Fabric|Notas
+---|---|---|---|---|---
+Implementación casi instantánea|X|||X|La implementación de una aplicación o la actualización de una aplicación a un Servicio en la nube, o la creación de una máquina virtual, toma varios minutos; la implementación de una aplicación a una aplicación web tarda segundos.
+Escalado horizontal a máquinas más grandes sin volver a implementar|X|||X|
+Las instancias de un servidor web comparten contenido y configuración; esto significa que no es necesario volver a implementar o configurar a medida que escale.|X|||X|
+Varios entornos de implementación (producción y ensayo)|X|X||X|Service Fabric le permite tener varios entornos para las aplicaciones o para implementar versiones diferentes de su aplicación en paralelo.
+Administración de actualización automática del SO|X|X|||Las actualizaciones automáticas del SO están previstas para las próximas versiones de Service Fabric.
+Intercambio fluido entre plataformas (mover fácilmente entre 32 bits y 64 bits)|X|X|||
+Código de implementación con GIT, FTP|X||X||
+Código de implementación con Web Deploy|X||X||Servicios en la nube admite el uso de Web Deploy para implementar actualizaciones en instancias de rol individuales. Sin embargo, no puede utilizarlo para la implementación inicial de un rol, y si utiliza Web Deploy para una actualización, tiene que realizar la implementación por separado para cada instancia de un rol. Se requieren múltiples instancias para optar al contrato de nivel de servicio de Servicio en la nube para entornos de producción.
+Soporte para WebMatrix|X||X||
+Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL|X|X|X|X|
+Web de host o nivel de servicios web de una arquitectura multinivel|X|X|X|X|
+Nivel medio del host de una arquitectura multinivel|X|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) de vista previa proporciona incluso más características para hospedar servicios REST.
+Soporte integrado de MySQL como servicio|X|X|X||Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de Azure.
+Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python|X|X|X|X|Service Fabric admite la creación de un front-end web con [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), o bien se puede implementar cualquier tipo de aplicación (Node.js, Java, etc.) como un [ejecutable invitado](../service-fabric/service-fabric-deploy-existing-app.md).
+Escalado horizontal a varias instancias sin volver a implementar|X|X|X|X|Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.
+Soporte para SSL|X|X|X|X|En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un Sitio web Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
+Integración de Visual Studio|X|X|X|X|
+Depuración remota|X|X|X||
+Código de implementación con TFS|X|X|X|X|
+Aislamiento de red con [Red virtual de Azure](/services/virtual-network/)|X|X|X|X|Consulte también [Integración de redes virtuales de Sitios web Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Soporte técnico para el [Administrador de tráfico de Azure](/services/traffic-manager/)|X|X|X|X|
+Supervisión de extremo integrado|X|X|X||
+Acceso de escritorio remoto a los servidores||X|X|X|
+Instalación de cualquier MSI personalizado||X|X|X|Service Fabric permite hospedar cualquier archivo ejecutable como un [ejecutable invitado](../service-fabric/service-fabric-deploy-existing-app.md), o bien puede instalar cualquier aplicación en las máquinas virtuales.
+Capacidad de definir/ejecutar tareas de inicio||X|X|X|
+Puede atender eventos de ETW||X|X|X|
+
+## <a name="scenarios"></a>Escenarios y recomendaciones
 
 Aquí se presentan algunas situaciones habituales de aplicaciones con recomendaciones acerca de la opción de hospedaje web de Azure que podría ser más apropiada en cada caso.
 
@@ -130,43 +163,8 @@ Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incl
 - Conseguir contratos de nivel de servicio para disponibilidad con una sola instancia, o escalar horizontalmente a varias máquinas dedicadas.
 - Usar el sitio publicado para proporcionar API de REST a cualquier cliente HTTP, incluidos los clientes móviles.
 
-##<a name="features"></a>Comparación de características
-
-La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Servicios en la nube, Máquinas virtuales y Service Fabric para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/support/legal/sla/).
-
-Característica|Servicio de aplicaciones (aplicaciones web)|Servicios en la nube (roles web)|Máquinas virtuales|Service Fabric|Notas
----|---|---|---|---|---
-Implementación casi instantánea|X|||X|La implementación de una aplicación o la actualización de una aplicación a un Servicio en la nube, o la creación de una máquina virtual, toma varios minutos; la implementación de una aplicación a una aplicación web tarda segundos.
-Escalado horizontal a máquinas más grandes sin volver a implementar|X|||X|
-Las instancias de un servidor web comparten contenido y configuración; esto significa que no es necesario volver a implementar o configurar a medida que escale.|X|||X|
-Varios entornos de implementación (producción y ensayo)|X|X||X|Service Fabric le permite tener varios entornos para las aplicaciones o para implementar versiones diferentes de su aplicación en paralelo.
-Administración de actualización automática del SO|X|X|||Las actualizaciones automáticas del SO están previstas para las próximas versiones de Service Fabric.
-Intercambio fluido entre plataformas (mover fácilmente entre 32 bits y 64 bits)|X|X|||
-Código de implementación con GIT, FTP|X||X||
-Código de implementación con Web Deploy|X||X||Servicios en la nube admite el uso de Web Deploy para implementar actualizaciones en instancias de rol individuales. Sin embargo, no puede utilizarlo para la implementación inicial de un rol, y si utiliza Web Deploy para una actualización, tiene que realizar la implementación por separado para cada instancia de un rol. Se requieren múltiples instancias para optar al contrato de nivel de servicio de Servicio en la nube para entornos de producción.
-Soporte para WebMatrix|X||X||
-Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL|X|X|X|X|
-Web de host o nivel de servicios web de una arquitectura multinivel|X|X|X|X|
-Nivel medio del host de una arquitectura multinivel|X|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) de vista previa proporciona incluso más características para hospedar servicios REST.
-Soporte integrado de MySQL como servicio|X|X|X||Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de Azure.
-Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python|X|X|X|X|Service Fabric admite la creación de un front-end web con [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), o bien se puede implementar cualquier tipo de aplicación (Node.js, Java, etc.) como un [ejecutable invitado](../service-fabric/service-fabric-deploy-existing-app.md).
-Escalado horizontal a varias instancias sin volver a implementar|X|X|X|X|Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.
-Soporte para SSL|X|X|X|X|En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un Sitio web Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
-Integración de Visual Studio|X|X|X|X|
-Depuración remota|X|X|X||
-Código de implementación con TFS|X|X|X|X|
-Aislamiento de red con [Red virtual de Azure](/services/virtual-network/)|X|X|X|X|Consulte también [Integración de redes virtuales de Sitios web Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
-Soporte técnico para el [Administrador de tráfico de Azure](/services/traffic-manager/)|X|X|X|X|
-Supervisión de extremo integrado|X|X|X||
-Acceso de escritorio remoto a los servidores||X|X|X|
-Instalación de cualquier MSI personalizado||X|X|X|Service Fabric permite hospedar cualquier archivo ejecutable como un [ejecutable invitado](../service-fabric/service-fabric-deploy-existing-app.md), o bien puede instalar cualquier aplicación en las máquinas virtuales.
-Capacidad de definir/ejecutar tareas de inicio||X|X|X|
-Puede atender eventos de ETW||X|X|X|
-
-
 > [AZURE.NOTE]
 Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para crear una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita una aplicación básica de ASP.NET de corta duración en el Servicio de aplicaciones de Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
 
 ## <a id="nextsteps"></a> Pasos siguientes
 
@@ -179,23 +177,28 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
 * [Máquinas virtuales de Azure](/documentation/services/virtual-machines/)
 * [Service Fabric](/documentation/services/service-fabric)
 
-  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Servicio de aplicaciones de Azure]: /services/app-service/
-  [Servicios en la nube]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [Service Fabric]: /services/service-fabric
-  [ClearDB]: http://www.cleardb.com/
-  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Trabajos web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/gallery/store/
-  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/develop/net/
-  [nodejs]: http://www.windowsazure.com/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/develop/php/
-  [Python]: http://www.windowsazure.com/develop/python/
-  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-  [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
+<!-- URL List -->
 
-<!---HONumber=AcomDC_0608_2016-->
+[Servicio de aplicaciones de Azure]: /services/app-service/
+[Servicios en la nube]: http://go.microsoft.com/fwlink/?LinkId=306052
+[Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
+[Service Fabric]: /services/service-fabric
+[ClearDB]: http://www.cleardb.com/
+[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+[Trabajos web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+[azurestore]: http://www.windowsazure.com/gallery/store/
+[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+[dotnet]: http://www.windowsazure.com/develop/net/
+[nodejs]: http://www.windowsazure.com/develop/nodejs/
+[PHP]: http://www.windowsazure.com/develop/php/
+[Python]: http://www.windowsazure.com/develop/python/
+[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+[Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
+
+<!-- IMG List -->
+
+[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+
+<!---HONumber=AcomDC_0720_2016-->

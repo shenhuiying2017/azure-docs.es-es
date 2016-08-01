@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Solicitud de aumento de los límites de la cuenta de DocumentDB | Microsoft Azure"
-	description="Obtenga información acerca de cómo solicitar un ajuste en los límites de DocumentDB, como el número de colecciones permitidas, los procedimientos almacenados y las cláusulas de consulta."
+	pageTitle="Solicitud de aumento de las cuotas de la cuenta de DocumentDB | Microsoft Azure"
+	description="Obtenga información sobre cómo solicitar un ajuste de las cuotas de base de datos de DocumentDB como el almacenamiento de documentos y el rendimiento por colección."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # Solicitud de aumento de los límites de la cuenta de DocumentDB
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) tiene un conjunto de límites predeterminados y aplicaciones de cuota. Es posible ajustar algunas cuotas estableciendo contacto con el soporte técnico de Azure. En este artículo se muestra cómo solicitar un aumento del límite de la cuenta.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) tiene un conjunto de cuotas predeterminadas que se pueden ajustar estableciendo contacto con el equipo soporte técnico de Azure. En este artículo se muestra cómo solicitar un aumento de la cuenta.
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
--	¿Qué cuotas de la cuenta de DocumentDB pueden ajustarse estableciendo contacto con el soporte técnico de Azure?
+-	¿Qué cuotas de la base de datos de DocumentDB pueden ajustarse estableciendo contacto con el equipo de soporte técnico de Azure?
 -	¿Cómo puedo solicitar un ajuste en la cuota de la cuenta de DocumentDB?
 
 ##<a id="Quotas"></a>Cuotas de cuenta de DocumentDB
@@ -63,4 +63,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 ##<a name="NextSteps"></a> Pasos siguientes
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

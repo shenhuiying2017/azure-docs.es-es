@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="07/18/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory
@@ -83,11 +83,11 @@ No se admiten las cuentas de Microsoft (por ejemplo, outlook.com, hotmail.com, l
 - Se recomienda establecer el tiempo de espera de conexión a 30 segundos.
 - SQL Server 2016 Management Studio y SQL Server Data Tools para Visual Studio 2015 (versión 14.0.60311.1 abril de 2016 o posterior) admiten la autenticación de Azure Active Directory. (La autenticación de Azure Active Directory es compatible con el **Proveedor de datos .NET Framework para SqlServer**; al menos la versión 4.6 de .NET Framework). Por lo tanto, las versiones más recientes de estas herramientas y aplicaciones de capa de datos (DAC y .bacpac) pueden usar la autenticación de Azure Active Directory, pero **sqlcmd.exe** y **bcp.exe** no se pueden conectar porque usan el proveedor ODBC.
 - SQL Server Data Tools para Visual Studio 2015 requiere al menos la versión de abril de 2016 de Data Tools (versión 14.0.60311.1). Actualmente los usuarios de Azure Active Directory no se muestran en el Explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
-- [Microsoft JDBC Driver 6.0 para SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/04/04/preview-the-microsoft-jdbc-driver-6-0-for-sql-server/) admite la autenticación de Azure Active Directory.
+- [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/es-ES/download/details.aspx?id=11774) admite la autenticación de Azure Active Directory. Consulte también [Configurar las propiedades de conexión](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase no se puede autenticar mediante la autenticación de Azure Active Directory.
 - SQL Server Management Studio no se admite para Almacenamiento de datos SQL. Utilice SQL Server Data Tools.
 - No se admiten algunas herramientas como BI y Excel.
-- No se admiten la autenticación en dos fases ni otras formas de autenticación interactiva.
+- No se admiten Multi-factor Authentication (MFA/2FA) ni otras formas de autenticación interactiva.
 - La autenticación de Azure Active Directory se admite para Base de datos SQL con las hojas **Importar base de datos** y **Exportar base de datos** del Portal de Azure. La importación y exportación mediante la autenticación de Azure Active Directory también se admite desde el comando de PowerShell.
 
 
@@ -98,7 +98,7 @@ Cree un Azure Active Directory y rellénelo con usuarios y grupos. Esto incluye:
 - Crear el dominio administrado de Azure AD de dominio inicial.
 - Federar Servicios de dominio de Active Directory local con Azure Active Directory.
 
-Para más información, consulte [Integración de las identidades locales con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server Active Directory), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y este artículo sobre la [administración de Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Para más información, consulte [Integración de las identidades locales con Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server Active Directory), [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Asegurarse de que Base de datos SQL está en Base de datos SQL de Azure V12.
 
@@ -217,7 +217,7 @@ En el ejemplo siguiente se quita un administrador de Azure AD:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
-También puede aprovisionar un administrador de Azure Active Directory mediante las API de REST. Para más información, consulte la [referencia y operaciones de la API de REST de Service Management para bases de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+También puede aprovisionar un administrador de Azure Active Directory mediante las API de REST. Para más información, consulte la [Service Management REST API Reference and Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx) (Referencia de Service Management API de REST y operaciones para bases de datos SQL de Azure).
 
 ## 5\. Configurar los equipos cliente.
 
@@ -340,7 +340,7 @@ Este método de autenticación permite a los servicios de nivel intermedio conec
 3. Crear un certificado en el equipo cliente que va a ejecutar la aplicación.
 4. Agregar el certificado como una clave para la aplicación.
 
-Para más información, consulte el [blog de seguridad de SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+Para más información, consulte [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/) (Blog de seguridad de SQL Server).
 
 ## Consulte también
 
@@ -366,4 +366,4 @@ Para más información, consulte el [blog de seguridad de SQL Server](https://bl
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

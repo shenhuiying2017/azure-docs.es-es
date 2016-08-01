@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="07/19/2016"
    ms.author="larryfr"/>
 
 # Ejecución de consultas de Hive mediante la consola de consulta
@@ -36,7 +36,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ##<a id="run"></a>Ejecución de consultas de Hive mediante la consola de consulta
 
-1. Abra un explorador web y navegue a \_\___https://CLUSTERNAME.azurehdinsight.net__, donde __CLUSTERNAME__ es el nombre del clúster de HDInsight. Si se le solicita, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
+1. Abra un explorador web y navegue a __https://CLUSTERNAME.azurehdinsight.net__, donde __CLUSTERNAME\_\_ es el nombre del clúster de HDInsight. Si se le solicita, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
 
 
 2. En los vínculos de la parte superior de la página, seleccione **Editor Hive**. Se muestra un formulario que puede utilizarse para introducir instrucciones de HiveQL que desea ejecutar en el clúster de HDInsight.
@@ -128,4 +128,4 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

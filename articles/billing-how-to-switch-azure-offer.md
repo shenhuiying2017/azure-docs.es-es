@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cambio a otra oferta de Azure | Microsoft Azure"
+	pageTitle="Cambio de la suscripción de Azure a otra oferta | Microsoft Azure"
 	description="Describe cómo un suscriptor de Azure puede cambiar a otra oferta de Azure"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Cambio a otra oferta de Azure
+# Cambio de la suscripción de Azure a otra oferta
 
 Puede cambiar la suscripción existente a una oferta más favorable sin ningún tiempo de inactividad del servicio. Considere la posibilidad de cambiar su oferta por uno de estos motivos:
 
@@ -75,4 +75,4 @@ A continuación se muestran las rutas de acceso que se admiten actualmente en el
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a la [Oferta de pago por adelantado de 12 meses](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	De [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) a cualquiera de las [ofertas de crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

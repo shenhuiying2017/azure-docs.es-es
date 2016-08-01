@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Su organización puede usar Azure AD para mejorar la productividad de los emplea
  - [¡Pruébalo!](https://azure.microsoft.com/trial/get-started-active-directory/) Puedes suscribirte a una evaluación gratuita de 30 días hoy e implementar la primera solución en la nube en menos de 5 minutos desde este vínculo
  - Lea nuestra "Introducción a Azure AD" para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
 -	Si es un desarrollador:
- - Consulta las [Instrucciones para desarrolladores](active-directory-developers-guide.md) de Azure Active Directory 
+ - Consulta las [Instrucciones para desarrolladores](active-directory-developers-guide.md) de Azure Active Directory
  - [Inicie una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/): suscríbase a una prueba evaluación gratuita de 30 días hoy mismo y comience a integrar su aplicación con Azure AD.
 
 
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

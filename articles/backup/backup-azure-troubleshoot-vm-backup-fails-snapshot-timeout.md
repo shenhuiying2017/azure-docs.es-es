@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2016"
+    ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
 # Se ha producido un error en la copia de seguridad de la máquina virtual de Azure: no se pudo comunicar con el agente de máquina virtual para el estado de la instantánea: la subtarea de la máquina virtual de la instantánea agotó el tiempo de espera
@@ -105,7 +105,11 @@ Para invitados de Windows:
 1. Compruebe que el servicio iaasvmprovider está habilitado y tiene un tipo de inicio automático.
 2. Si esta no es la configuración, habilite el servicio para determinar si se realiza correctamente la siguiente copia de seguridad.
 
-Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad, puede forzar a la extensión VMSnapshot para que se vuelva a cargar mediante la instalación de la extensión. El siguiente intento de copia de seguridad volverá a cargar la extensión.
+Para invitados de Linux:
+
+La versión más reciente de VMSnapshot Linux (extensión utilizada por la copia de seguridad) es 1.0.91.0
+
+Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad, puede forzar a la extensión VMSnapshot para que se vuelva a cargar mediante la desinstalación de la extensión. El siguiente intento de copia de seguridad volverá a cargar la extensión.
 
 ### Para desinstalar la extensión
 
@@ -130,6 +134,6 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | El estado de la máquina virtual se notifica incorrectamente porque la máquina virtual está apagada en RDP. Si ha apagado la máquina virtual en RDP, compruebe el portal para determinar si ese estado de la máquina virtual se ha reflejado correctamente. | Si no es así, apague la máquina virtual en el portal mediante la opción "Apagar" en el panel de la máquina virtual. |
 | Muchas máquinas virtuales del mismo servicio en la nube están configuradas para efectuar la copia de seguridad al mismo tiempo. | Se recomienda propagar las máquinas virtuales del mismo servicio en la nube para tener diferentes programaciones de copia de seguridad. |
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90%) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
-|La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP.|DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Obtenga más información acerca del [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).|
+|La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP.|DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Vea más información sobre el [Establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

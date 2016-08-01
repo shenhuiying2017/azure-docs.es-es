@@ -20,7 +20,7 @@
 
 # Directivas de indexación de DocumentDB
 
-Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
+Aunque muchos clientes prefieren dejar que Azure DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
 
 En este artículo, echamos un vistazo más detenido a las directivas de indexación de DocumentDB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas.
 
@@ -38,7 +38,7 @@ Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, re
 
 - **Inclusión y exclusión de documentos y rutas de acceso del índice y al índice**. Los desarrolladores pueden elegir que se incluyan o excluyan determinados documentos en el índice en el momento de insertarlos o reemplazarlos en la colección. También pueden elegir la inclusión o exclusión de determinadas propiedades JSON, también denominadas rutas de acceso (incluidos los patrones de caracteres comodín), para que se indexen transversalmente en documentos que están incluidos en un índice.
 - **Configuración de distintos tipos de índice**. Para cada una de las rutas de acceso incluidas, los desarrolladores también pueden especificar el tipo de índice necesario para una colección en función de sus datos y la carga de trabajo de consultas esperada, así como de la "precisión" numérica y de cadena para cada ruta de acceso.
-- **Configuración de modos de actualización del índice**. DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna. 
+- **Configuración de modos de actualización del índice**. DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna.
 
 En el siguiente fragmento de código de .NET se muestra cómo establecer una directiva de indexación personalizada durante la creación de una colección. A continuación establecemos la directiva con el índice de intervalo para las cadenas y números en la precisión máxima. Esta directiva nos permite ejecutar consultas Order By en cadenas.
 
@@ -462,7 +462,7 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echemos un vistazo a las opciones que podemos usar para configurar la directiva de indexación en una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
 - Tipo de datos: **Cadena**, **Número** o **Punto** (solo puede contener una entrada por tipo de datos y ruta de acceso)
-- Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
+- Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales)
 - Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
 
 #### Tipo de índice
@@ -600,8 +600,8 @@ Cuando se cambia la directiva de indexación, la forma en que se aplican los cam
 
 Sin embargo, puede moverse al modo de indexación Diferida o Ninguna mientras una transformación está en curso.
 
-- Cuando se mueve a Diferida, el cambio de la directiva de indexación tiene efecto inmediato y DocumentDB inicia asincrónicamente la recreación el índice. 
-- Cuando se mueve a Ninguna, el índice se quita con efecto inmediato. El movimiento a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta. 
+- Cuando se mueve a Diferida, el cambio de la directiva de indexación tiene efecto inmediato y DocumentDB inicia asincrónicamente la recreación el índice.
+- Cuando se mueve a Ninguna, el índice se quita con efecto inmediato. El movimiento a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta.
 
 Si usa .NET SDK, puede iniciar un cambio de directiva de indexación con el nuevo método **ReplaceDocumentCollectionAsync** y realizar el seguimiento del progreso porcentual de transformación del índice con la propiedad de respuesta **IndexTransformationProgress** desde una llamada a **ReadDocumentCollectionAsync**. Otros SDK y la API de REST admiten métodos y propiedades equivalentes para realizar cambios de la directiva de indización.
 
@@ -759,4 +759,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

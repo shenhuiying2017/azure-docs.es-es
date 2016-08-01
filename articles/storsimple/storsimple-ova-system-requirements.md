@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Requisitos del sistema de la matriz virtual de StorSimple
@@ -69,14 +69,22 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | Internet Explorer | La versión más reciente | Probado con Internet Explorer 11 |
 | Google Chrome | La versión más reciente | Probado con Chrome 46 |
 
-### Versiones de SMB compatibles
+### Clientes de almacenamiento compatibles 
 
-| **Versión** |
+Los siguientes requisitos de software son para los iniciadores de iSCSI con acceso a su matriz virtual de StorSimple (configurada como servidor iSCSI).
+
+| **Sistemas operativos compatibles** | **Versión requerida** | **Requisitos/notas adicionales** |
+| --------------------------- | ---------------- | ------------- |
+| Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes aprovisionados parcialmente. Solo se admiten volúmenes de iSCSI de StorSimple para: <ul><li>Volúmenes simples en discos básicos de Windows.</li><li>NTFS de Windows para dar formato a un volumen.</li>|
+
+Los siguientes requisitos de software son para los iniciadores de SMB con acceso a su matriz virtual de StorSimple (configurada como servidor de archivos).
+
+| **Versión de SMB** |
 |-------------|
 | SMB 2.x |
 | SMB 3.0 |
 | SMB 3.02 |
-
+ 
 ## Requisitos de red 
 
 La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de nube, de SMB o de iSCSI. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Fuera* o *saliente* hace referencia a la dirección en la que el dispositivo StorSimple envía datos externamente, más allá de la implementación: por ejemplo, saliente a Internet.
@@ -86,8 +94,8 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 | TCP 80 (HTTP) | Fuera | WAN | No | El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
 | TCP 443 (HTTPS) | Fuera | WAN | Sí | El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
 | UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> **Nota**: Si implementa un servidor de archivos, le recomendamos que use el servidor DNS local.|
-| UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet.<br></br> **Nota:** Si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
-| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.|
+| UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. | Este puerto solo es necesario si está utilizando un servidor NTP basado en Internet.<br></br> **Nota:** Si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
+| TCP 80 (HTTP) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> **Nota**: Si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS.|
 | TCP 443 (HTTPS) | En el | LAN | Sí | Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local.|
 | TCP 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
 
@@ -105,7 +113,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 > [AZURE.NOTE] 
 > 
 > - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
-> - Por su parte, las direcciones IP de destino se deben establecer en los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
+> - Las IP de destino, por su parte, se deben establecer en [Intervalos IP de centro de datos de Azure](https://www.microsoft.com/es-ES/download/confirmation.aspx?id=41653).
 
 
 | Patrón de URL | Componente o funcionalidad |
@@ -117,10 +125,10 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores de Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Paquete de soporte |
-| `http://*.data.microsoft.com ` | Para obtener información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/es-ES/kb/3068708) |
+| `http://*.data.microsoft.com ` | Para información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/es-ES/kb/3068708) |
 
 ## Paso siguiente
 
 -   [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

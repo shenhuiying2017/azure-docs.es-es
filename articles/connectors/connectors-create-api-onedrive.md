@@ -1,315 +1,409 @@
 <properties
-pageTitle="Incorporación del conector de OneDrive a PowerApps Enterprise y a las aplicaciones lógicas| Microsoft Azure"
-description="Información general del conector de OneDrive con parámetros de la API de REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+	pageTitle="Adición del conector de OneDrive a las aplicaciones lógicas | Microsoft Azure"
+	description="Información general del conector de OneDrive con parámetros de la API de REST"
+	services="app-servicelogic"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor=""
+	tags="connectors"/>
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
-ms.author="mandia"/>
+   ms.service="app-service-logic"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="07/19/2016"
+   ms.author="mandia"/>
 
 # Introducción al conector de OneDrive
 
-Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. El conector de OneDrive puede usarse desde:
+Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. Con OneDrive, puede:
 
-- Aplicaciones lógicas 
-- PowerApps
+- Crear un flujo de trabajo almacenando archivos en OneDrive o actualizar las archivos que ya tenga en OneDrive.
+- Usar desencadenadores para iniciar el flujo de trabajo cuando se crea o se actualiza un archivo en OneDrive.
+- Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Por ejemplo, cuando se reciba un nuevo correo electrónico de Office 365 con datos adjuntos (desencadenador), cree un nuevo archivo en OneDrive (acción).
 
-> [AZURE.SELECTOR]
-- [Aplicaciones lógicas](../articles/connectors/connectors-create-api-onedrive.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+En este tema se muestra cómo usar el conector de OneDrive en una aplicación lógica y también se enumeran los desencadenadores y las acciones.
 
-&nbsp;
+>[AZURE.NOTE] Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+## Conexión a OneDrive
 
-Con OneDrive, puede:
+Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a OneDrive, primero necesita una *conexión* de OneDrive. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que desea conectarse. Por lo tanto, con OneDrive, escriba las credenciales de la cuenta de OneDrive para crear la conexión.
 
-- Compilar el flujo de negocio en función de los datos que obtiene de OneDrive. 
-- Usar desencadenadores para cuando se crea o actualiza un archivo.
-- Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se crea un nuevo archivo en OneDrive, puede enviar ese archivo por correo electrónico mediante Office 365.
-- Agregar el conector de OneDrive a PowerApps Enterprise. Así, los usuarios pueden utilizar este conector en sus aplicaciones. 
-
-Si desea obtener información sobre cómo agregar un conector a PowerApps Enterprise, vaya a [Registro de una API administrada por Microsoft o una API administrada por TI](../power-apps/powerapps-register-from-available-apis.md).
-
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-## Desencadenadores y acciones
-El conector de OneDrive incluye los siguientes desencadenadores y acciones.
-
-| Desencadenadores | Acciones|
-| --- | --- |
-|<ul><li>Cuando se crea un archivo</li><li>Cuando se modifica un archivo</li></ul> | <ul><li>Crear archivo</li><li>Enumerar archivos de una carpeta</li><li>Cuando se crea un archivo</li><li>Copiar archivo</li><li>Eliminar archivo</li><li>Extraer carpeta</li><li>Obtener contenido de archivo mediante el identificador</li><li>Obtener contenido de archivo mediante la ruta de acceso</li><li>Obtener metadatos de archivo mediante el identificador</li><li>Obtener metadatos de archivo mediante la ruta de acceso</li><li>Enumerar carpeta raíz</li><li>Actualizar archivo</li><li>Cuando se modifica un archivo</li></ul>
-
-Todos los conectores admiten datos en formato JSON y XML.
-
-## Creación de una conexión a OneDrive
-
-Al agregar este conector a las aplicaciones lógicas, debe autorizar a estas para que se conecten a su OneDrive.
-
-1. Inicie sesión en su cuenta de OneDrive.
-2. Permita que las aplicaciones lógicas se conecten y usen su OneDrive. 
+### Creación de la conexión
 
 >[AZURE.INCLUDE [Pasos para crear una conexión a OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
->[AZURE.TIP] Puede usar esta misma conexión en otras aplicaciones lógicas.
+## Uso de un desencadenador
 
-## Referencia de la API de REST de Swagger
-Se aplica a la versión: 1.0.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+
+1. En la aplicación lógica, escriba "onedrive" para obtener una lista de los desencadenadores:
+
+	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+
+2. Seleccione **Cuando se modifica un archivo**. Si ya existe una conexión, seleccione el botón **...** (Mostrar selector) para seleccionar una carpeta.
+
+	![](./media/connectors-create-api-onedrive/sample-folder.png)
+
+	Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En este tema, en [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) se enumeran los pasos.
+
+	> [AZURE.NOTE] En este ejemplo, la aplicación lógica se ejecuta cuando un archivo de la carpeta que elija se actualiza. Para ver los resultados de este desencadenador, agregue otra acción que envíe un correo electrónico. Por ejemplo, agregue la acción *Enviar un correo electrónico* de Outlook para Office 365 que le envía un correo electrónico cuando se actualiza un archivo.
+
+3. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 
 
-### Obtener metadatos de archivo mediante el identificador
-Recupera los metadatos de un archivo de OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}```
+## Uso de una acción
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo en OneDrive|
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-### Respuestas
+1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
+
+	![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Elija **Agregar una acción**.
+
+3. En el cuadro de texto, escriba "onedrive" para obtener una lista de todas las acciones disponibles.
+
+	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
+
+4. En nuestro ejemplo, elija **OneDrive - Create file** (OneDrive - Crear archivo). Si ya existe una conexión, seleccione la **ruta de la carpeta** en la que incluir el archivo, escriba el **nombre de archivo** y elija el **contenido del archivo** que desee:
+
+	![](./media/connectors-create-api-onedrive/sample-action.png)
+
+	Si se le solicita la información de conexión, escriba los detalles para crear la conexión. [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection): en este tema se describen estas propiedades.
+
+	> [AZURE.NOTE] En este ejemplo, creamos un nuevo archivo en una carpeta de OneDrive. Puede utilizar la salida de otro desencadenador para crear el archivo de OneDrive. Por ejemplo, agregue el desencadenador *Cuando llega un nuevo correo electrónico* de Outlook para Office 365. A continuación, agregue la acción *Crear archivo* de OneDrive, que usa los campos Datos adjuntos y Tipo de contenido de una instrucción ForEach para crear el nuevo archivo en OneDrive.
+	> 
+	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+
+
+## Detalles técnicos
+
+## Desencadenadores
+
+|Desencadenador | Descripción|
+|--- | ---|
+|[Cuando se crea un archivo](connectors-create-api-onedrive.md#when-a-file-is-created)|Esta operación desencadena un flujo al crear un archivo en una carpeta.|
+|[Cuando se modifica un archivo](connectors-create-api-onedrive.md#when-a-file-is-modified)|Esta operación desencadena un flujo al modificar un archivo en una carpeta.|
+
+
+## Acciones
+
+|Acción|Descripción|
+|--- | ---|
+|[Obtención de metadatos de archivo](connectors-create-api-onedrive.md#get-file-metadata)|Esta operación obtiene los metadatos de un archivo.|
+|[Actualizar archivo](connectors-create-api-onedrive.md#update-file)|Esta operación actualiza un archivo.|
+|[Eliminar archivo](connectors-create-api-onedrive.md#delete-file)|Esta operación elimina un archivo.|
+|[Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-onedrive.md#get-file-metadata-using-path)|Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-onedrive.md#get-file-content-using-path)|Esta operación obtiene el contenido de un archivo mediante la ruta de acceso.|
+|[Obtener contenido de archivo](connectors-create-api-onedrive.md#get-file-content)|Esta operación obtiene el contenido de un archivo.|
+|[Crear archivo](connectors-create-api-onedrive.md#create-file)|Esta operación crea un archivo.|
+|[Copiar archivo](connectors-create-api-onedrive.md#copy-file)|Esta operación copia un archivo en OneDrive.|
+|[Enumerar archivos de la carpeta](connectors-create-api-onedrive.md#list-files-in-folder)|Esta operación obtiene la lista de archivos y subcarpetas de una carpeta.|
+|[Enumerar archivos de la carpeta raíz](connectors-create-api-onedrive.md#list-files-in-root-folder)|Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz.|
+|[Extraer archivo en la carpeta](connectors-create-api-onedrive.md#extract-archive-to-folder)|Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).|
+
+### Detalles de la acción
+
+En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+
+
+#### Obtención de metadatos de archivo
+Esta operación obtiene los metadatos de un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Actualizar archivo
+Esta operación actualiza un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+|body*|Contenido del archivo|Contenido del archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Eliminar archivo
+Esta operación elimina un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+#### Obtener metadatos de archivo mediante la ruta de acceso
+Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Obtener contenido de archivo mediante la ruta de acceso
+Esta operación obtiene el contenido de un archivo mediante la ruta de acceso.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|path*|Ruta de acceso del archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+
+#### Obtener contenido de archivo
+Esta operación obtiene el contenido de un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Archivo|Seleccionar un archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+#### Crear archivo
+Esta operación crea un archivo.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderPath*|Ruta de acceso a la carpeta|Seleccionar una carpeta|
+|name*|Nombre de archivo|Nombre del archivo|
+|body*|Contenido del archivo|Contenido del archivo|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Copiar archivo
+Esta operación copia un archivo en OneDrive.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Dirección URL de origen|Dirección URL al archivo de origen|
+|destination*|Ruta de acceso del archivo de destino|Ruta de acceso al archivo de destino, incluido el nombre del archivo de destino|
+|overwrite|¿Sobrescribir?|Sobrescribe el archivo de destino si está establecido en 'true'|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Cuando se crea un archivo
+Esta operación desencadena un flujo al crear un archivo en una carpeta.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderId*|Carpeta|Seleccionar una carpeta|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+#### Cuando se modifica un archivo
+Esta operación desencadena un flujo al modificar un archivo en una carpeta.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|folderId*|Carpeta|Seleccionar una carpeta|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+Ninguno.
+
+#### Enumerar archivos de la carpeta
+Esta operación obtiene la lista de archivos y subcarpetas de una carpeta.
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|id*|Carpeta|Seleccionar una carpeta|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena||
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+#### Enumerar archivos de la carpeta raíz
+Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz.
+
+No hay parámetros para esta llamada.
+
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+#### Extraer archivo en la carpeta
+Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip).
+
+|Nombre de propiedad| Display Name (Nombre para mostrar)|Descripción|
+| ---|---|---|
+|source*|Ruta de acceso del archivo de origen|Ruta de acceso al archivo de almacenamiento|
+|destination*|Ruta de acceso a la carpeta de destino|Ruta de acceso para extraer el contenido del archivo|
+|overwrite|¿Sobrescribir?|Sobrescribe los archivos de destino si está establecido en 'true'|
+
+Un asterisco (*) significa que la propiedad es obligatoria.
+
+##### Detalles de salida
+BlobMetadata
+
+| Nombre de propiedad | Tipo de datos |
+|---|---|
+|Id|cadena|
+|Nombre|cadena|
+|DisplayName|cadena|
+|Ruta de acceso|cadena|
+|LastModified|cadena|
+|Tamaño|integer|
+|MediaType|cadena|
+|IsFolder|boolean|
+|ETag|cadena|
+|FileLocator|cadena|
+
+
+## Respuestas HTTP
+
+En la tabla siguiente se enumeran y describen las respuestas a las acciones y los desencadenadores:
+
 |Nombre|Descripción|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|No autorizado|
+|403|Prohibido|
+|404|No encontrado|
+|500|Error interno del servidor. Error desconocido|
 |default|Error en la operación.|
-
-
-### Actualizar archivo
-Actualiza un archivo en OneDrive. ```PUT: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo que se va a actualizar en OneDrive|
-|body| |yes|body|Ninguna|Contenido del archivo que se va a actualizar en OneDrive|
-
-
-### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-### Eliminar archivo
-Elimina un archivo de OneDrive. ```DELETE: /datasets/default/files/{id}```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo que se va a eliminar de OneDrive|
-
-
-### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-### Obtener metadatos de archivo mediante la ruta de acceso
-Recupera los metadatos de un archivo de OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileByPath```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive|
-
-
-### Respuesta
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-
-### Obtener contenido de archivo mediante la ruta de acceso
-Recupera el contenido de un archivo en OneDrive mediante la ruta de acceso. ```GET: /datasets/default/GetFileContentByPath```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|path|cadena|yes|query|Ninguna|Ruta de acceso única al archivo en OneDrive|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-
-### Obtener contenido de archivo mediante el identificador
-Recupera el contenido de un archivo en OneDrive mediante el identificador. ```GET: /datasets/default/files/{id}/content```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|id|cadena|yes|path|Ninguna|Identificador único del archivo en OneDrive|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-
-### Crear archivo
-Carga un archivo en OneDrive. ```POST: /datasets/default/files```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderPath|cadena|yes|query|Ninguna|Ruta de acceso de carpeta para cargar el archivo en OneDrive|
-|name|cadena|yes|query|Ninguna|Nombre del archivo que se va a crear en OneDrive|
-|body| |yes|body|Ninguna|Contenido del archivo que se va a cargar en OneDrive|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Copiar archivo
-Copia un archivo en OneDrive. ```POST: /datasets/default/copyFile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna|Dirección URL al archivo de origen|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso al archivo de destino en OneDrive, incluido el nombre de archivo de destino|
-|overwrite|boolean|no|query|false|Sobrescribe el archivo de destino si está establecido en 'true'|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Cuando se crea un archivo
-Desencadena un flujo cuando se crea un nuevo archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onnewfile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna|Identificador único de la carpeta en OneDrive|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Desencadena un flujo al modificar un archivo en una carpeta de OneDrive
-Desencadena un flujo al modificar un archivo en una carpeta de OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|folderId|cadena|yes|query|Ninguna|Identificador único de la carpeta en OneDrive|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-### Extraer carpeta
-Extrae una carpeta a OneDrive. ```POST: /datasets/default/extractFolderV2```
-
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Descripción|
-| ---|---|---|---|---|---|
-|de origen|cadena|yes|query|Ninguna|Ruta de acceso al archivo de almacenamiento|
-|de destino|cadena|yes|query|Ninguna|Ruta de acceso de OneDrive para extraer el contenido del archivo|
-|overwrite|boolean|no|query|false|Sobrescribe los archivos de destino si está establecido en 'true'|
-
-
-### Respuesta
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|default|Error en la operación.|
-
-
-
-## Definiciones de objeto
-
-#### DataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos | Obligatorio|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-
-#### TabularDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-|tableDisplayName|cadena|no|
-|tablePluralName|cadena|no|
-
-
-#### BlobDataSetsMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|de origen|cadena|no|
-|DisplayName|cadena|no|
-|urlEncoding|cadena|no|
-
-
-
-#### BlobMetadata
-
-|Nombre de propiedad | Tipo de datos |Obligatorio|
-|---|---|---|
-|Id|cadena|no|
-|Nombre|cadena|no|
-|DisplayName|cadena|no|
-|Ruta de acceso|cadena|no|
-|LastModified|cadena|no|
-|Tamaño|integer|no|
-|MediaType|cadena|no|
-|IsFolder|boolean|no|
-|ETag|cadena|no|
-|FileLocator|cadena|no|
 
 
 ## Pasos siguientes
 
-[Crear una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en aplicaciones lógicas en nuestra [lista de API](apis-list.md).
 
-Volver a la [lista de API](apis-list.md).
-
-[5]: https://account.live.com/developers/applications/create
-[6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
-[7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
-
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Orientación sobre los trabajos de segundo plano
@@ -320,4 +320,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Cómo habilitar diagnósticos en un servicio en la nube](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

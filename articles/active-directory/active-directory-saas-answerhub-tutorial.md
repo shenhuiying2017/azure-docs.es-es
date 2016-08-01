@@ -11,15 +11,15 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="07/19/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con AnswerHub
 
-El objetivo de este tutorial es mostrar la integración de Azure y AnswerHub. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software). En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
--   Una suscripción habilitada para el inicio de sesión único en AnswerHub
+-   Una suscripción habilitada para el inicio de sesión único en [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software)
 
 Después de completar este tutorial, los usuarios de Azure AD que ha asignado a AnswerHub podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de AnswerHub (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
 
@@ -31,6 +31,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 4.  Asignación de usuarios
 
 ![Escenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Escenario")
+
 ##Habilitación de la integración de aplicaciones para AnswerHub
 
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para AnswerHub.
@@ -62,6 +63,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 7.  En el panel de resultados, seleccione **AnswerHub** y luego haga clic en **Completar** para agregar la aplicación.
 
     ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
+
 ##Configuración del inicio de sesión único
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en AnswerHub con su cuenta de Azure AD mediante federación basada en el protocolo SAML. Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
@@ -76,7 +78,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configurar inicio de sesión único")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de AnswerHub**, escriba su dirección URL con el siguiente patrón "*https://company.answerhub.com*" y luego haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión en AnswerHub**, escriba su dirección URL con el siguiente patrón "*https://company.answerhub.com*" y luego haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configurar dirección URL de la aplicación")
 
@@ -85,6 +87,14 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configurar inicio de sesión único")
 
 5.  En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AnswerHub como administrador.
+    >[AZURE.NOTE] Si necesita ayuda para configurar AnswerHub, póngase en contacto con el [equipo de soporte técnico de AnswerHub](mailto:success@answerhub.com.).
+
+
+
+
+
+
+
 
 6.  Vaya a **Administración**.
 
@@ -98,9 +108,9 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
     ![Configuración de SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "Configuración de SAML")
 
-    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión de IdP**.
-    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión de IdP**.
-    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Formato de identificador de nombre** y péguelo en el cuadro de texto **Formato de identificador de nombre de IDP**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **IDP Login URL** (Dirección URL de inicio de sesión de IdP).
+    2.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **IDP Logout URL** (Dirección URL de cierre de sesión de IdP).
+    3.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Formato de identificador de nombre** y péguelo en el cuadro de texto **IDP Name Identifier Format** (Formato de identificador de nombre de IDP).
     4.  Haga clic en **Claves y certificados**.
 
 11. En la pestaña Claves y certificados, realice los pasos siguientes:
@@ -119,6 +129,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 13. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configurar inicio de sesión único")
+
 ##Configuración del aprovisionamiento de usuario
 
 Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, tienen que aprovisionarse en AnswerHub. En el caso de AnswerHub, el aprovisionamiento es una tarea manual.
@@ -157,4 +168,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

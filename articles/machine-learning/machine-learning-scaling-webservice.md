@@ -14,33 +14,31 @@
    ms.workload="data-services"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.date="05/16/2016"
+   ms.date="07/06/2016"
    ms.author="neerajkh"/>
 
-# Escalado del servicio web
+# Escalado de servicios web
 
-## Aumentar la simultaneidad
+>[AZURE.NOTE] En este tema se describen técnicas que se aplican a un servicio web clásico.
 
-De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas. Puede aumentar esta simultaneidad a 200 solicitudes simultáneas a través del [Portal de Azure clásico](https://manage.windowsazure.com/), tal como se muestra en la figura que aparece a continuación.
+De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. Aunque el Portal de Azure clásico proporciona una manera de establecer este valor, Aprendizaje automático de Azure optimiza automáticamente esta opción para brindar el mejor rendimiento para el servicio web y omite el valor del portal.
 
-Vaya al [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en el icono Aprendizaje automático que se encuentra a la izquierda, seleccione el área de trabajo que se usa para publicar el servicio web, haga clic en el servicio web que desea, seleccione el punto de conexión donde se debe aumentar la simultaneidad y haga clic en **CONFIGURAR**. Use el control deslizante para aumentar la simultaneidad y, luego, haga clic en **GUARDAR** en el panel inferior.
-
-Para aumentar la simultaneidad, consulte [Escalado de puntos de conexión de API](machine-learning-scaling-endpoints.md).
-
-   ![Aprendizaje automático, escalado de puntos de conexión.][1]
+Si tiene previsto llamar a la API con una carga mayor de lo que permitirán las llamadas máximas simultáneas de 200, debe crear varios puntos de conexión en el mismo servicio web y distribuir aleatoriamente la carga entre todos ellos.
 
 ## Agregar puntos de conexión nuevos para el mismo servicio web
 
-El escalado del servicio web es una tarea común, para admitir más de 200 solicitudes simultáneas, aumentar la disponibilidad a través de varios puntos de conexión o proporcionar un punto de conexión independiente para un consumidor distinto del servicio web. El usuario puede aumentar la escala si agrega puntos de conexión adicionales para el mismo servicio web. El usuario puede agregar puntos de conexión adicionales en el [Portal de Azure clásico](https://manage.windowsazure.com/), tal como se muestra en la figura que aparece a continuación:
+El escalado del servicio web es una tarea común, para admitir más de 200 solicitudes simultáneas, aumentar la disponibilidad a través de varios puntos de conexión o proporcionar un punto de conexión independiente para un consumidor distinto del servicio web. Puede aumentar la escala agregando más puntos de conexión para el mismo servicio web a través del [Portal de Azure clásico](https://manage.windowsazure.com/), tal y como se muestra en la ilustración siguiente:
+
+Tenga en cuenta que usar un recuento de simultaneidad muy alto puede ser perjudicial si no se llega a la API con una tasa elevada en consecuencia. Puede que vea tiempos de espera esporádicos o picos de latencia si pone una carga relativamente baja en una API configurada para una carga elevada.
+
+Las API sincrónicas se usan normalmente en situaciones en las que se desea una latencia baja. Latencia aquí implica el tiempo que tarda la API en completar una solicitud, sin contar los retrasos de red. Supongamos que tiene una API con una latencia de 50 ms. Para utilizar totalmente la capacidad disponible con nivel de limitación alto y un número máximo de llamadas simultáneas de 20, debe llamar a esta API 20 * 1000/50 = 400 veces por segundo. Al ampliar esto aún más, un número máximo de llamadas simultáneas de 200 le permitirá llamar a la API 4000 veces por segundo, lo que supone una latencia de 50 ms.
 
 Vaya al [Portal de Azure clásico](https://manage.windowsazure.com/), haga clic en el icono Aprendizaje automático que se encuentra a la izquierda, seleccione el área de trabajo que se usa para publicar el servicio web, haga clic en el servicio web que desea, haga clic en **AGREGAR PUNTO DE CONEXIÓN** en el panel inferior y proporcione un nombre, una descripción y la simultaneidad deseada para el punto de conexión nuevo.
 
 Para agregar puntos de conexión nuevos, consulte [Creación de puntos de conexión](machine-learning-create-endpoint.md).
 
-   ![Aprendizaje automático, agregar extremos nuevos.][2]
-
 <!--Image references-->
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

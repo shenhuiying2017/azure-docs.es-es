@@ -18,7 +18,7 @@
 	ms.author="mimig"/>
 
 # Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB
-DocumentDB es un servicio de bases de datos NoSQL orientadas a documentos totalmente administrado y escalable para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales.
+Azure DocumentDB es un servicio de bases de datos NoSQL orientadas a documentos totalmente administrado y escalable para documentos JSON. Con DocumentDB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los ingenieros de Microsoft operan y supervisan de forma continua DocumentDB para ofrecer disponibilidad, rendimiento y protección de datos universales.
 
 Puede empezar con DocumentDB mediante la [creación de una cuenta de base de datos](documentdb-create-account.md) a través del [Portal de Azure](https://portal.azure.com/). DocumentDB se ofrece en unidades de rendimiento y almacenamiento respaldado de unidad de estado sólido (SSD). Estas unidades se aprovisionan mediante la creación de colecciones de la base de datos dentro de su cuenta de base de datos. Cada colección con rendimiento reservado. Si se cambian los requisitos de rendimiento de su aplicación, lo cambia dinámicamente estableciendo el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección.
 
@@ -60,7 +60,7 @@ Hay varios factores que afectan a las unidades de solicitud usadas por una opera
 - Tamaño del documento. Cuando aumenta el tamaño del documento también aumentan las unidades usadas para leer o escribir los datos.
 - Recuento de propiedades. Suponiendo que la indexación predeterminada de todas las propiedades, las unidades usadas para escribir un documento aumentarán conforme aumenta el recuento de propiedades.
 - Coherencia de datos Al usar los niveles de coherencia de datos Alta y De uso vinculado, se usarán unidades adicionales para leer documentos.
-- Propiedades indexadas. Propiedades indexadas: Una directiva de índice en cada colección determina qué propiedades se indexan de forma predeterminada. Puede reducir el consumo de unidades de solicitud limitando el número de las propiedades indexadas. 
+- Propiedades indexadas. Propiedades indexadas: Una directiva de índice en cada colección determina qué propiedades se indexan de forma predeterminada. Puede reducir el consumo de unidades de solicitud limitando el número de las propiedades indexadas.
 - Indexación de documentos. De forma predeterminada, todos los documentos se indexan automáticamente, por tanto consumirá menos unidades de solicitud si no desea indexar algunos de los documentos.
 
 Para obtener más información, consulte [Unidades de solicitud de DocumentDB](documentdb-request-units.md).
@@ -132,4 +132,4 @@ Para obtener instrucciones sobre cómo supervisar los niveles de rendimiento en 
 Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

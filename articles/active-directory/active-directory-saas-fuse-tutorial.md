@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de Fuse en Azure AD, deberá agregar Fuse desde 
 
 **Para agregar Fuse desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -137,7 +137,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Copia los valores de **URL del emisor**, **Dirección URL del servicio de inicio de sesión único** y **Dirección URL del servicio de cierre de sesión único**.
 
    
-5. Para que se configure el SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Fuse a través de ****support@fusion-universal.com**, adjunte el archivo de certificado descargado e incluya los valores de **URL del emisor**, el **Dirección URL del servicio de inicio de sesión único** y **Dirección URL del servicio de cierre de sesión único**.
+5. Para que se configure el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Fuse a través de **support@fusion-universal.com**, adjunte el archivo de certificado descargado e incluya los valores de **URL del emisor**, **Dirección URL del servicio de inicio de sesión único** y **Dirección URL del servicio de cierre de sesión único**.
 
 
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
@@ -174,7 +174,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png)
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_05.png)
 
@@ -184,7 +184,7 @@ En la lista Usuarios, seleccione **Britta Simon**.
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los pasos siguientes:
+6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-fuse-tutorial/create_aaduser_06.png)
 
@@ -278,4 +278,4 @@ Al hacer clic en el icono de Fuse en el panel de acceso, debería iniciar sesió
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

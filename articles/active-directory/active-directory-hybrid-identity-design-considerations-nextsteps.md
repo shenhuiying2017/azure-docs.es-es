@@ -3,8 +3,8 @@
 	description="Un resumen y los pasos que vienen a continuación después de haber leído la guía de consideraciones de diseño de identidad híbrida"
 	documentationCenter=""
 	services="active-directory"
-	authors="yurid"
-	manager="stevenpo"
+	authors="billmath"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/25/2016"
-	ms.author="yurid"/>
+	ms.date="07/18/2016"
+	ms.author="billmath"/>
 
 #Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: siguientes pasos
 Ahora que ha terminado de definir sus requisitos y de examinar todas las opciones para su solución de administración de dispositivos móviles, está listo para realizar los siguientes pasos e implementar la infraestructura de apoyo que es adecuada para usted y su organización.
@@ -45,4 +45,4 @@ La consulta de los siguientes recursos con frecuencia proporciona las noticias y
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

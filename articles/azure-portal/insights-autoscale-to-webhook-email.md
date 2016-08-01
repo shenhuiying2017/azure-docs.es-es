@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Insights: uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook | Microsoft Azure"
-	description="Descubra cómo usar las acciones de escalado automático para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Insights."
+	description="Descubra cómo usar las acciones de escalado automático para llamar a direcciones URL web o enviar notificaciones de correo electrónico en Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/19/2016"
 	ms.author="ashwink"/>
 
 # Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights
@@ -35,7 +35,41 @@ Puede participar desde el portal de Azure en servicios en la nube y granjas de s
 ![Escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
 ## Conjuntos de escalado de máquina virtual
-Para máquinas virtuales basadas en ARM (conjuntos de escalado de máquina virtual), puede configurar esta opción con la API de REST, PowerShell y CLI. Aún no se encuentra disponible una interfaz de portal.
+Para las máquinas virtuales más recientes creadas con Resource Manager (conjuntos de escala de máquina virtual), puede configurar esto con la API de REST, las plantillas de Resource Manager, PowerShell y CLI. Aún no se encuentra disponible una interfaz de portal. Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemento de notificaciones con las siguientes opciones.
+
+```
+"notifications": [
+      {
+        "operation": "Scale",
+        "email": {
+          "sendToSubscriptionAdministrator": false,
+          "sendToSubscriptionCoAdministrators": false,
+          "customEmails": [
+              "user1@mycompany.com",
+              "user2@mycompany.com"
+              ]
+        },
+        "webhooks": [
+          {
+            "serviceUri": "https://foo.webhook.example.com?token=abcd1234",
+            "properties": {
+              "optional_key1": "optional_value1",
+              "optional_key2": "optional_value2"
+            }
+          }
+        ]
+      }
+    ]
+```
+|Campo |¿Obligatorio?|	Descripción|
+|---|---|---|
+|operación |yes |el valor debe ser "Scale"|
+|sendToSubscriptionAdministrator |yes |el valor debe ser "true" o "false"|
+|sendToSubscriptionCoAdministrators |yes |el valor debe ser "true" o "false"|
+|customEmails |yes |el valor puede ser null o una cadena de matriz de mensajes de correo electrónico|
+|webhooks |yes |el valor puede ser null o un identificador URI válido|
+|serviceUri |yes |un identificador URI de https válido|
+|propiedades |yes |el valor debe ser {} vacío o puede contener pares de clave y valor|
 
 
 ## Autenticación en Webhook
@@ -80,17 +114,17 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 |operación|	yes |Para un aumento de instancias, será "Escalar horizontalmente"; para una disminución de instancias, "Reducir horizontalmente".|
 |contexto|	yes |Contexto de la acción de escalado automático.|
 |timestamp|	yes |Marca de tiempo cuando se desencadena la acción de escalado automático.|
-|id |Sí|	Id. de ARM (Azure Resource Manager) de la configuración de escalado automático.|
+|id |Sí|	Id. de Resource Manager de la configuración de escalado automático|
 |name |Sí|	Nombre de la configuración de escalado automático.|
 |detalles|	Sí |Explicación de la acción que realizó el servicio de escalado automático y el cambio en el recuento de instancias.|
 |subscriptionId|	Sí |Id. de suscripción del recurso de destino que se está escalando.|
 |resourceGroupName|	Sí|	Nombre del grupo de recursos del recurso de destino que se está escalando.|
 |resourceName |Sí|	Nombre del recurso de destino que se está escalando.|
 |resourceType |Sí|	Los tres valores que se admiten son: "microsoft.classiccompute/domainnames/slots/roles" (roles de servicios en la nube), "microsoft.compute/virtualmachinescalesets" (conjuntos de escalado de máquina virtual) y "Microsoft.Web/serverfarms " (aplicación web).|
-|resourceId |Sí|Id. de ARM del recurso de destino que se está escalando.|
+|resourceId |Sí|Id. de Resource Manager del recurso de destino que se está escalando|
 |portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino.|
 |oldCapacity|	Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado.|
 |newCapacity|	Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso.|
-|Propiedades|	No|	Opcional. Conjunto de <Key  Value> pares (por ejemplo, Diccionario <String  String>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta).|
+|Propiedades|	No|	Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta).|
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 
@@ -35,7 +35,7 @@ Puede alternar entre los distintos directorios de Azure AD seleccionando el nomb
 
 **P: ¿Qué impacto tiene la instalación del agente de Azure AD Connect Health en los servidores individuales?**
 
-El impacto de la instalación del agente de Microsoft Identity Health en los servidores de ADFS es mínimo con respecto a la CPU, al consumo de memoria, al ancho de banda y al almacenamiento.
+El impacto de la instalación del agente de Microsoft Identity Health en servidores de AD FS o en controladores de dominio es mínimo con respecto a la CPU, al consumo de memoria, al ancho de banda y al almacenamiento.
 
 Los números siguientes son una aproximación.
 
@@ -70,6 +70,13 @@ Si necesita configurar a un proxy durante el registro del agente, debe modificar
 No. Actualmente, no se admite un mecanismo para especificar un nombre de usuario/contraseña arbitrarios para la autenticación básica.
 
 
+**P: ¿Qué versión de AD DS es compatible con Azure AD Connect Health para AD DS?**
+
+Se admite la supervisión de AD DS mientras esté instalada en las siguientes versiones de sistema operativo:
+
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 ## Preguntas sobre las operaciones
 
@@ -95,7 +102,7 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 
 **P: ¿Por qué veo dos servidores con el mismo nombre en el Portal de Azure AD Connect Health?**
 
-Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azure AD Connect automáticamente. Por lo tanto, si quita de forma manual un agente de un servidor o quita el propio servidor, necesitará eliminar manualmente la entrada del servidor desde el Portal de Azure AD Connect Health. Para obtener más información, consulte [Eliminar un servidor o una instancia de servidor.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance) Además, si reemplazó un servidor o creó un nuevo servidor con los mismos detalles (como el nombre de la máquina), pero no quitó el servidor del Portal de Azure AD Connect Health y, a continuación, instaló el agente en el servidor nuevo, es posible que ahora vea dos entradas para el servidor. En este caso, debería eliminar la entrada que pertenece al servidor anterior de forma manual. Normalmente, los datos de esta entrada estarán obsoletos.
+Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azure AD Connect automáticamente. Por lo tanto, si quita de forma manual un agente de un servidor o quita el propio servidor, necesitará eliminar manualmente la entrada del servidor desde el Portal de Azure AD Connect Health. Para más información, consulte [Eliminación de una instancia de servidor o servicio.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance) Además, si reemplazó un servidor o creó un nuevo servidor con los mismos detalles (como el nombre de la máquina), pero no quitó el servidor del Portal de Azure AD Connect Health y, a continuación, instaló el agente en el servidor nuevo, es posible que ahora vea dos entradas para el servidor. En este caso, debería eliminar la entrada que pertenece al servidor anterior de forma manual. Normalmente, los datos de esta entrada estarán obsoletos.
 
 ## Vínculos relacionados
 
@@ -104,6 +111,7 @@ Cuando quita un agente de un servidor, el servidor no se quita del Portal de Azu
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
  
 # Azure SDK para .NET 2.8, 2.8.1 y 2.8.2
@@ -64,8 +64,8 @@ El SDK 2.8 requiere la versión 1.0 de los cmdlets de Azure PowerShell. Todas la
 
 En la siguiente versión se abordarán los siguientes problemas conocidos.
 
-- El gesto del Explorador de servidores y la nube relacionado con el Servicio de aplicaciones en los entornos que no son de producción (como clientes de Azure China y Azure Stack) no funcionará. Para los clientes de estas áreas afectadas, la descarga del perfil de publicación del Portal de Azure ofrecerá la posibilidad de publicación. Una versión futura reparará gestos como "Adjuntar depurador" y "Ver registros de streaming" para los clientes de Azure China y Azure Stack. 
-- Los clientes pueden ver errores durante la creación del Servicio de aplicaciones cuando la instancia de App Insights en la que van a realizar la implementación se encuentra en una región distinta al Este de Estados Unidos. En estos casos, la creación de un Servicio de aplicaciones en el portal y la descarga del perfil de publicación permitirán escenarios de publicación. 
+- El gesto del Explorador de servidores y la nube relacionado con el Servicio de aplicaciones en los entornos que no son de producción (como clientes de Azure China y Azure Stack) no funcionará. Para los clientes de estas áreas afectadas, la descarga del perfil de publicación del Portal de Azure ofrecerá la posibilidad de publicación. Una versión futura reparará gestos como "Adjuntar depurador" y "Ver registros de streaming" para los clientes de Azure China y Azure Stack.
+- Los clientes pueden ver errores durante la creación del Servicio de aplicaciones cuando la instancia de App Insights en la que van a realizar la implementación se encuentra en una región distinta al Este de Estados Unidos. En estos casos, la creación de un Servicio de aplicaciones en el portal y la descarga del perfil de publicación permitirán escenarios de publicación.
 
 ###Herramientas de HDInsight de Azure
 
@@ -80,9 +80,9 @@ Para obtener información, vea [SDK 2.8 de Azure para Visual Studio 2013 y Visua
 
 ### Problemas conocidos de Visual Studio 2013 y Visual Studio 2015
  
-1. Las publicaciones de trabajos web desencadenados en ranuras mostrarán un error y no establecerán una programación, pero el trabajo web se insertará en Azure. Los clientes que necesitan un trabajo programado pueden usar el Portal de Azure para configurar la programación del trabajo web. 
-2. Los clientes de Python pueden experimentar problemas con el depurador. El equipo de servicio está implementando una solución para ello, pero si los clientes se ven afectados, informe a Microsoft en los foros o en las secciones de comentarios del blog de anuncios o las notas de la versión. 
-3. Los clientes de determinadas regiones (por ejemplo, el sur de la India) experimentarán errores de aprovisionamiento del Servicio de aplicaciones. Esto es coherente con el portal y los clientes que experimenten este problema pueden usar el Portal de Azure para solicitar acceso para publicar en estas regiones geográficas. Cuando soliciten acceso a estas regiones, el uso del aprovisionamiento del Portal de Azure debería funcionar. 
+1. Las publicaciones de trabajos web desencadenados en ranuras mostrarán un error y no establecerán una programación, pero el trabajo web se insertará en Azure. Los clientes que necesitan un trabajo programado pueden usar el Portal de Azure para configurar la programación del trabajo web.
+2. Los clientes de Python pueden experimentar problemas con el depurador. El equipo de servicio está implementando una solución para ello, pero si los clientes se ven afectados, informe a Microsoft en los foros o en las secciones de comentarios del blog de anuncios o las notas de la versión.
+3. Los clientes de determinadas regiones (por ejemplo, el sur de la India) experimentarán errores de aprovisionamiento del Servicio de aplicaciones. Esto es coherente con el portal y los clientes que experimenten este problema pueden usar el Portal de Azure para solicitar acceso para publicar en estas regiones geográficas. Cuando soliciten acceso a estas regiones, el uso del aprovisionamiento del Portal de Azure debería funcionar.
 
 ##Azure SDK para .NET 2.8.2
 
@@ -103,4 +103,4 @@ Para ver otras actualizaciones, vea la [publicación del anuncio de Azure SDK 2.
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

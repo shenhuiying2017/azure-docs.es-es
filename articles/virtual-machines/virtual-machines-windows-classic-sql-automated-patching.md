@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
@@ -25,8 +25,6 @@
 Aplicación de revisión automatizada establece una ventana de mantenimiento para una máquina virtual de Azure con SQL Server. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
-
-
 Para ver la versión de Resource Manager de este artículo, consulte [Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md) (Aplicación de revisión automatizada para SQL Server en máquinas virtuales de Azure [Resource Manager]).
 
 ## Requisitos previos
@@ -63,13 +61,16 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Apl
 |**Categoría de la revisión**|Importante|La categoría de actualizaciones para descargar e instalar.|
 
 ## Configuración en el Portal
+Puede usar el Portal de Azure para configurar Aplicación de revisión automatizada durante el aprovisionamiento o para las máquinas virtuales existentes.
 
-Puede usar el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) para configurar Aplicación de revisión automatizada cuando cree una nueva máquina virtual de SQL Server en el modelo de implementación clásica.
+### Nuevas máquinas virtuales
+Use el Portal de Azure para configurar Aplicación de revisión automatizada cuando cree una nueva máquina virtual de SQL Server en el modelo de implementación clásica.
 
 La siguiente captura del Portal de Azure muestra estas opciones en **CONFIGURACIÓN OPCIONAL** | **APLICACIÓN DE REVISIÓN AUTOMATIZADA DE SQL**.
 
 ![Aplicación de revisión automática de SQL en el Portal de Azure](./media/virtual-machines-windows-classic-sql-automated-patching/IC778484.jpg)
 
+### Máquinas virtuales existentes
 Para las máquinas virtuales de SQL Server 2012 o 2014, seleccione la configuración **Aplicación de revisión automatizada** en la sección **Configuración** de las propiedades de la máquina virtual. En la ventana **Aplicación de revisión automatizada**, puede habilitar la característica, establecer la programación de mantenimiento y la hora de inicio y elegir la duración de la ventana de mantenimiento. Esto se muestra en la siguiente captura de pantalla.
 
 ![Configuración de Aplicación de revisión automatizada en el Portal de Azure](./media/virtual-machines-windows-classic-sql-automated-patching/IC792132.jpg)
@@ -101,8 +102,8 @@ Para deshabilitar Aplicación de revisión automatizada, ejecute el script sin e
 
 ## Pasos siguientes
 
-Para obtener información acerca de otras tareas de automatización disponibles, consulte [Extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 Para más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

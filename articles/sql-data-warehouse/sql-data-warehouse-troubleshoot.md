@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Solución de problemas de Almacenamiento de datos SQL de Azure
@@ -50,6 +50,7 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 
 | Problema | Resolución |
 | :----------------------------------| :---------------------------------------------- |
+| Mens. 40847: No se pudo realizar la operación porque el servidor superaría la cuota de la unidad de rendimiento de la base de datos permitida de 45 000. | Reduzca la unidad [DWU][] de la base de datos que intenta crear o [solicite un aumento de la cuota][].|
 | Investigación del uso del espacio | Consulte los [tamaños de tabla][] para comprender el uso del espacio del sistema.|
 | Ayuda con la administración de tablas | Para obtener ayuda con la administración de las tablas, consulte la [información general sobre las tablas][Overview]. Este artículo también incluye vínculos a temas más detallados como [tipos de datos de tabla][Data types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary].|
 
@@ -65,12 +66,13 @@ En este tema se describen algunas de las preguntas de solución de problemas má
 
 | Problema | Resolución |
 | :----------------------------------| :---------------------------------------------- |
-| Características de Base de datos SQL no admitidas | Consulte la [tabla de características no admitidas][].|
-| Tipos de datos de Base de datos SQL no admitidos | Consulte los [tipos de datos no admitidos][].|
-| Limitaciones de DELETE y UPDATE | Consulte las [soluciones alternativas de UPDATE][], las [soluciones alternativas de DELETE][] y el [uso de CTAS para resolver la sintaxis de UPDATE y DELETE no admitida][]. |
+| Características de Base de datos SQL no admitidas | Consulte [Características no compatibles de las tablas][].|
+| Tipos de datos de Base de datos SQL no admitidos | Consulte [Tipos de datos no admitidos][].|
+| Limitaciones de DELETE y UPDATE | Consulte las [soluciones alternativas para UPDATE][], las [soluciones alternativas para DELETE][] y el [uso de CTAS para resolver la sintaxis de UPDATE y DELETE no admitida][]. |
 | No se admite la instrucción MERGE | Consulte las [soluciones alternativas para MERGE][].|
-| Limitaciones de procedimientos almacenados | Consulte las [limitaciones de los procedimientos almacenados][] para conocer algunas de las limitaciones de los procedimientos almacenados.|
+| Limitaciones de procedimientos almacenados | Consulte [Limitaciones de procedimientos almacenados][] para conocer algunas de las limitaciones de los procedimientos almacenados.|
 | Los UDF no admiten instrucciones SELECT | Se trata de una limitación actual de nuestros UDF. Consulte [CREATE FUNCTION][] para comprobar la sintaxis que se admite. |
+'<--LocComment: La página no encontrada "Limitaciones de procedimientos almacenados" está dañada. He intentado corregir el vínculo en las referencias del artículo -->'
 
 ## Pasos siguientes
 
@@ -91,14 +93,16 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [información general de seguridad]: ./sql-data-warehouse-overview-manage-security.md
 [Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [escalado de Almacenamiento de datos SQL]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[solicite un aumento de la cuota]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [aprender a supervisar las consultas]: ./sql-data-warehouse-manage-monitor.md
 [instrucciones de aprovisionamiento]: ./sql-data-warehouse-get-started-provision.md
 [configuración del acceso de nivel de firewall para el cliente IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013 o 2015]: ./sql-data-warehouse-get-started-connect.md
 [Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
 [tamaños de tabla]: ./sql-data-warehouse-tables-overview.md#table-size-queries
-[tabla de características no admitidas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[tipos de datos no admitidos]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[Características no compatibles de las tablas]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Tipos de datos no admitidos]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: ./sql-data-warehouse-tables-overview.md
 [Data types]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
@@ -110,10 +114,10 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [volver a generar los índices para mejorar la calidad del segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [administración de la carga de trabajo]: ./sql-data-warehouse-develop-concurrency.md
 [uso de CTAS para resolver la sintaxis de UPDATE y DELETE no admitida]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
-[soluciones alternativas de UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[soluciones alternativas de DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[soluciones alternativas para UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[soluciones alternativas para DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [soluciones alternativas para MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[limitaciones de los procedimientos almacenados]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[Limitaciones de procedimientos almacenados]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Autenticación a Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-authentication.md
 [Evitar el requisito UTF-8 de PolyBase]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@ Si no ha podido encontrar una solución a su problema con estos pasos, estos son
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

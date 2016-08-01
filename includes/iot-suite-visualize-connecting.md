@@ -14,7 +14,7 @@ El panel de la solución de supervisión remota permite ver la telemetría que l
 
 ## Envío de un comando a su dispositivo
 
-El panel de la solución de supervisión remota le permite solicitar el Centro de IoT para enviar comandos a sus dispositivos. Por ejemplo, en la solución de supervisión remota puede enviar un comando para establecer la temperatura interna de un dispositivo.
+El panel de la solución de supervisión remota le permite enviar comandos a sus dispositivos a través del Centro de IoT. Por ejemplo, en la solución de supervisión remota puede enviar un comando para establecer la temperatura interna de un dispositivo.
 
 1. En el panel de solución de supervisión remota, haga clic en **Dispositivos** en el panel izquierdo para navegar hasta la **Lista de dispositivos**.
 
@@ -41,6 +41,5 @@ En el artículo [Personalización de soluciones preconfiguradas][lnk-customize] 
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

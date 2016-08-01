@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"/>
 
 # Información general: herramientas de administración para Base de datos SQL
@@ -46,4 +46,4 @@ Use las herramientas de bases de datos elásticas para realizar acciones como la
 * Administrar bases de datos en un modelo de inquilino único o un modelo multiinquilino con la [biblioteca cliente de escalado elástico](sql-database-elastic-database-client-library.md)
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

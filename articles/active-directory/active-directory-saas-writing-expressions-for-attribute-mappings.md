@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -29,10 +29,10 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
-- Toda la expresión se debe definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis: <br> *NombreFunción(<<argument 1>>,<<argument N>>)*
+- Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis: <br> *NombreFunción(<<argumento 1>>,<<argumento N>>)*
 
 
-- Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUna(FunciónDos(<<argument1>>))*
+- Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno (FunciónDos (<< argumento1 >>))*
 
 
 - Puede transformar tres tipos diferentes de argumentos en funciones:
@@ -41,7 +41,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
    2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
 
-   3. Otras funciones. Por ejemplo: FunciónUna(<<argument1>>, FunciónDos(<<argument2>>))
+   3. Otras funciones. Por ejemplo: FunciónUno(<<argumento1>>, FunciónDos(<<argumento2>>))
 
 
 - Para las constantes de cadena, si necesita una barra diagonal inversa (\\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\\). Por ejemplo: "Nombre de empresa: "Contoso""
@@ -103,7 +103,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obligatorio | Cadena | Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **source1 … sourceN** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
+| **source1 … sourceN ** | Obligatorio, número variable de veces | String | Valores de cadena que se van a agrupar. |
 
 
 
@@ -315,4 +315,4 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 - [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

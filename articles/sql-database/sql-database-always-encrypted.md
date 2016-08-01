@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="07/18/2016"
 	ms.author="sstein"/>
 
 # Always Encrypted: protección de los datos confidenciales en Base de datos SQL con cifrado de base de datos y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
@@ -40,8 +40,6 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted para un
 - Crear una tabla de base de datos y cifrar algunas columnas.
 - Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
-> [AZURE.NOTE] Always Encrypted para Base de datos SQL de Azure está actualmente en vista previa.
-
 
 ## Requisitos previos
 
@@ -57,7 +55,7 @@ Para este tutorial, necesitará:
 ## Crear una base de datos SQL en blanco
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **Nuevo** > **Datos + almacenamiento** > **Base de datos SQL**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para tener instrucciones detalladas para crear una base de datos en el Portal de Azure, consulte [Creación de una Base de datos SQL en cuestión de minutos](sql-database-get-started.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. A fin de tener instrucciones detalladas para crear una base de datos en el Portal de Azure, consulte [Create a SQL database in minutes](sql-database-get-started.md) (Creación de una Base de datos SQL en cuestión de minutos).
 
 	![crear una base de datos en blanco](./media/sql-database-always-encrypted/create-database.png)
 
@@ -74,7 +72,7 @@ Necesitará la cadena de conexión más adelante en el tutorial de modo que desp
 Abra SSMS y conéctese al servidor con la base de datos Clinic.
 
 
-1. Abra SSMS (haga clic en **Conectar** > **Motor de base de datos...** para abrir la ventana **Conectar al servidor** si no está abierta).
+1. Abra SSMS (haga clic en **Conectar** > **Motor de base de datos...** para abrir la ventana **Conectar con el servidor** si no está abierta).
 2. Escriba su nombre del servidor y las credenciales. El nombre del servidor puede encontrarse en la hoja de la base de datos SQL y en la cadena de conexión que copió anteriormente. Escriba el nombre de servidor completo (incluido *database.windows.net*).
 
 	![copiar la cadena de conexión](./media/sql-database-always-encrypted/ssms-connect.png)
@@ -121,7 +119,7 @@ SSMS proporciona un asistente para configurar Always Encrypted de forma fácil m
 
     Queremos cifrar la información **SSN** y **BirthDate** de cada paciente. La columna SSN usará cifrado determinista, que admite búsquedas de igualdad, combinaciones y agrupaciones. La columna BirthDate usará cifrado aleatorio, que no admite operaciones.
 
-    Seleccione y configure el **tipo de cifrado** de la columna SSN como **determinista** y la columna BirthDate como **aleatoria** y, luego, haga clic en **Siguiente**.
+    Seleccione y establezca el **tipo de cifrado** de la columna SSN en **Determinista** y la columna BirthDate en **Aleatoria** y, luego, haga clic en **Siguiente**.
 
     ![Cifrar columnas](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -174,10 +172,10 @@ Ahora que Always Encrypted está configurado, vamos a compilar una aplicación q
 
 ## Modificar la cadena de conexión para habilitar Always Encrypted
 
-En esta sección se explica simplemente cómo habilitar Always Encrypted en la cadena de conexión de su base de datos. Se encuentra en la siguiente sección, **Aplicación de la consola de ejemplo de Always Encrypted**, donde realmente modificará la aplicación de consola que acaba de crear.
+En esta sección se explica simplemente cómo habilitar Always Encrypted en la cadena de conexión de su base de datos. Se encuentra en la siguiente sección, **Aplicación de consola de ejemplo de Always Encrypted**, donde realmente modificará la aplicación de consola que acaba de crear.
 
 
-Para habilitar Always Encrypted, debe agregar la palabra clave **Configuración de cifrado de columnas** a la cadena de conexión y establecerla como **Habilitada**.
+Para habilitar Always Encrypted, debe agregar la palabra clave **Valor de cifrado de columnas** a la cadena de conexión y establecerla en **Habilitada**.
 
 Puede realizar esta configuración directamente en la cadena de conexión o mediante [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). La aplicación de ejemplo de la siguiente sección muestra cómo usar **SqlConnectionStringBuilder**.
 
@@ -193,7 +191,7 @@ Agregue la siguiente palabra clave en la cadena de conexión:
 
 ### Habilitar Always Encrypted con un SqlConnectionStringBuilder
 
-El siguiente código muestra cómo habilitar Always Encrypted estableciendo [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) como [Habilitado](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
+El siguiente código muestra cómo habilitar Always Encrypted estableciendo [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) en [Habilitado](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder = 
@@ -510,10 +508,10 @@ Puede ver que las columnas cifradas no contienen datos de texto no cifrado.
    ![nueva aplicación de consola](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
 
-Para usar SSMS para acceder a los datos de texto no cifrado, podemos agregar el parámetro **Column Encryption Setting=enabled** a la conexión.
+A fin de usar SSMS para obtener acceso a los datos de texto no cifrado, podemos agregar el parámetro **Column Encryption Setting=enabled** a la conexión.
 
 1. En SSMS, haga clic con el botón derecho en el servidor en **Explorador de objetos** y en **Desconectar**.
-2. Haga clic en **Conectar** > **Motor de base de datos** para abrir la ventana **Conectar al servidor** y haga clic en **Opciones**.
+2. Haga clic en **Conectar** > **Motor de base de datos** para abrir la ventana **Conectar con el servidor** y haga clic en **Opciones**.
 3. Haga clic en **Parámetros de conexión adicionales** y escriba **Column Encryption Setting=enabled**.
 
 	![nueva aplicación de consola](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
@@ -536,7 +534,7 @@ Para usar SSMS para acceder a los datos de texto no cifrado, podemos agregar el 
 ## Pasos siguientes
 Después de crear una base de datos que usa Always Encrypted es posible que quiera hacer lo siguiente:
 
-- Ejecutar este ejemplo desde un equipo diferente. No tendrá acceso a las claves de cifrado, por lo que no tendrá acceso a los datos de texto no cifrado y no se ejecutará correctamente. 
+- Ejecutar este ejemplo desde un equipo diferente. No tendrá acceso a las claves de cifrado, por lo que no tendrá acceso a los datos de texto no cifrado y no se ejecutará correctamente.
 - [Rotación y limpieza de claves](https://msdn.microsoft.com/library/mt607048.aspx).
 - [Migrar los datos que ya están cifrados con Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx)
 - Implementar certificados de Always Encrypted en otros equipos cliente.
@@ -550,4 +548,4 @@ Después de crear una base de datos que usa Always Encrypted es posible que quie
 - [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

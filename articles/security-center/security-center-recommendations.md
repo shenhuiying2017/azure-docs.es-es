@@ -13,17 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/20/2016"
    ms.author="terrylan"/>
 
 # Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
 
-> [AZURE.NOTE] La información de este documento se aplica a la versión preliminar del Centro de seguridad de Azure. En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
-
-## ¿Qué es el Centro de seguridad de Azure?
-El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+> [AZURE.NOTE] En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
 
 ## ¿Cuáles son las recomendaciones de seguridad?
 El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones le guían en el proceso de configuración de los controles necesarios.
@@ -32,7 +29,7 @@ El Centro de seguridad analiza periódicamente el estado de seguridad de los rec
 
 ### Obtención de recomendaciones
 
-En [Establecimiento de directivas de seguridad en el Centro de seguridad de Azure](security-center-policies.md), aprenderá a:
+En [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md), aprenderá lo siguiente:
 
 - Configurar directivas de seguridad.
 - Activar la recopilación de datos.
@@ -43,7 +40,7 @@ Las recomendaciones de directiva actuales se centran en las actualizaciones del 
 ### Supervisión de recomendaciones
 Después de establecer una directiva de seguridad, el Centro de seguridad analiza el estado de seguridad de los recursos, con el fin de identificar vulnerabilidades potenciales. El icono **Recomendaciones** de la hoja **Security Center** permite conocer el número total de recomendaciones que identifica Security Center.
 
-![Icono Recomendaciones][2]
+![Icono Recomendaciones][1]
 
 Para ver los detalles de cada recomendación:
 
@@ -69,60 +66,53 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 |Recomendación|Descripción|
 |-----|-----|
 |[Habilitar la colección de datos de las suscripciones](security-center-enable-data-collection.md)|Recomienda activar la recopilación de datos en la directiva de seguridad para cada una de las suscripciones y para todas las máquinas virtuales de la suscripción.|
-|Resolver el error de coincidencia de reglas de línea base|Recomienda alinear las configuraciones del SO con las líneas base recomendadas; por ejemplo, no permitir guardar las contraseñas.|
+|[Corrección de vulnerabilidades del SO](security-center-resolve-mismatch-baseline-rules.md)|Recomienda armonizar las configuraciones del SO con las reglas de configuración recomendadas; por ejemplo, no permitir guardar las contraseñas.|
 |[Aplicar actualizaciones del sistema](security-center-apply-system-updates.md)|Recomienda implementar las actualizaciones críticas y de seguridad del sistema en las máquinas virtuales.|
 |[Reiniciar tras actualizar el sistema](security-center-apply-system-updates.md#reboot-after-system-updates)|Se recomienda que reinicie una máquina virtual para completar el proceso de aplicación de actualizaciones del sistema.|
 |[Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)|Recomienda implementar un Firewall de aplicaciones web (WAF) para los puntos de conexión web. Puede proteger varias aplicaciones web del Centro de seguridad si agrega estas aplicaciones a las implementaciones de WAF existentes. Los dispositivos WAF (creados mediante el modelo de implementación de Resource Manager) deben implementarse en una red virtual independiente. Los dispositivos WAF (creados mediante el modelo de implementación clásica) están limitados a usar un grupo de seguridad de red. Esta compatibilidad se extenderá a una implementación completamente personalizada de dispositivos WAF (clásica) en el futuro.|
 |[Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection)|Para completar la configuración de un WAF, el tráfico se debe redirigir a la aplicación del WAF. Si se sigue esta recomendación, se completarán los cambios necesarios en la configuración.|
+|[Agregar un firewall de próxima generación](security-center-add-next-generation-firewall.md)|Recomienda agregar un firewall de próxima generación (NGFW) de un asociado de Microsoft para aumentar la protección.|
+|[Enrutar el tráfico solo a través de NGFW](security-center-route-traffic-through-ngfw-only.md)|Recomienda configurar reglas de grupos de seguridad de red (NSG) que fuercen que el tráfico entrante pase a su máquina virtual mediante el NGFW.|
 |[Instalación de Endpoint Protection](security-center-install-endpoint-protection.md)|Recomienda aprovisionar programas antimalware a las máquinas virtuales (solo máquinas virtuales de Windows).|
-|[Habilitar grupos de seguridad de red en interfaces de red/subredes](security-center-enable-network-security-groups.md)|Recomienda habilitar grupos de seguridad de red (NSG) en subredes e interfaces de red.|
-|Restringir el acceso a través de puntos de conexión externos públicos|Recomienda configurar reglas de tráfico de entrada para los NSG.|
+|[Resolver alertas de estado de Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)|Recomienda resolver los errores de Endpoint Protection.|
+|[Habilitar grupos de seguridad de red en subredes o máquinas virtuales](security-center-enable-network-security-groups.md)|Recomienda habilitar NSG en subredes o máquinas virtuales.|
+|[Restringir el acceso a través de puntos de conexión accesibles desde Internet](security-center-restrict-access-through-internet-facing-endpoints.md)|Recomienda configurar reglas de tráfico de entrada para los NSG.|
 |[Habilitar Auditoría SQL de servidor](security-center-enable-auditing-on-sql-servers.md)|Recomienda activar la auditoría de servidores SQL Server de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales).|
 |[Habilitar Auditoría SQL de base de datos](security-center-enable-auditing-on-sql-databases.md)|Recomienda activar la auditoría de bases de datos SQL de Azure (solo el servicio SQL de Azure; no incluye la instancia SQL que se ejecuta en sus máquinas virtuales).|
 |[Habilitar Cifrado de datos transparente en bases de datos SQL](security-center-enable-transparent-data-encryption.md)|Recomienda habilitar el cifrado de bases de datos SQL (solo el servicio SQL de Azure).|
-|Implementar el Agente de VM|Permite ver las VM que requieren el Agente de VM. El agente de máquina virtual debe estar instalado en las máquinas virtuales para aprovisionar la detección de revisiones, la detección de línea de base y los programas antimalware. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. El artículo [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones, parte 2) proporciona información sobre cómo instalar el Agente de VM.|
+|[Habilitar el Agente de máquina virtual](security-center-enable-vm-agent.md)|Permite ver las VM que requieren el Agente de VM. El agente de máquina virtual debe estar instalado en las máquinas virtuales para aprovisionar la detección de revisiones, la detección de línea de base y los programas antimalware. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. El artículo [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (Agente de VM y extensiones, parte 2) proporciona información sobre cómo instalar el Agente de VM.|
 | [Aplicar cifrado de discos](security-center-apply-disk-encryption.md) |Se recomienda cifrar los discos de la máquina virtual mediante Cifrado de discos de Azure (máquinas virtuales Linux y Windows). Se recomienda cifrar tanto los volúmenes de datos como los del sistema operativo en la máquina virtual.|
 |[Proporcionar datos de los contactos de seguridad](security-center-provide-security-contact-details.md) | Recomienda que proporcione información de los contactos de seguridad para cada una de sus suscripciones. La información de los contactos es una dirección de correo electrónico y un número de teléfono. La información se usará para establecer contacto con usted si nuestro equipo de seguridad descubre que sus recursos están en peligro. |
-| [Actualizar versión del sistema operativo](security-center-update-os-version.md) | Recomienda actualizar la versión del sistema operativo para el servicio en la nube a la versión más reciente disponible para la familia del sistema operativo. Para aprender más acerca de los servicios en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md). |
+| [Actualizar versión del sistema operativo](security-center-update-os-version.md) | Recomienda actualizar la versión del sistema operativo para el servicio en la nube a la versión más reciente disponible para la familia del sistema operativo. Para obtener más información sobre los servicios en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md). |
 
 Puede filtrar y descartar las recomendaciones.
 
-1. Haga clic en **filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro**, donde podrá seleccionar los valores de gravedad y de estado que desee ver.
+1. Haga clic en **filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro**, donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
 
-    ![Filtrar recomendaciones][3]
+    ![Filtrar recomendaciones][2]
 
 2. Si determina que una recomendación no corresponde, puede descartar la recomendación y, luego, filtrarla para que no aparezca en la vista. Hay dos formas de descartar una recomendación. Una forma es hacer clic con el botón derecho en un elemento y seleccionar **Descartar**. La otra es mover el puntero sobre un elemento, hacer clic en los tres puntos que aparecen a la derecha y seleccionar **Descartar**. Para ver las recomendaciones descartadas, haga clic en **Filtro** y seleccione **Descartadas**.
 
-    ![Descartar recomendación][4]
+    ![Descartar recomendación][3]
 
 ### Aplicación de recomendaciones
-Después de revisar todas las recomendaciones, decida cuáles son las primeras que debe aplicar. Se recomienda usar la clasificación de gravedad como parámetro principal para evaluar las recomendaciones que se deben aplicar primero. Con la recomendación **Habilitar antimalware**, veremos un ejemplo de cómo aplicar una recomendación.
+Después de revisar todas las recomendaciones, decida cuáles son las primeras que debe aplicar. Se recomienda usar la clasificación de gravedad como parámetro principal para evaluar las recomendaciones que se deben aplicar primero.
 
-1. En la hoja **Recomendaciones**, seleccione **Habilitar antimalware**. ![Seleccionar Habilitar antimalware][5]
+En la tabla de las recomendaciones anteriores, seleccione una recomendación y tómela como ejemplo de aplicación de una recomendación.
 
-2. En la hoja **Instalar antimalware**, seleccione desde la lista de máquinas virtuales sin antimalware habilitado y haga clic en **Instalar antimalware**.
-3. Se abre la hoja **Nuevo recurso** que le permite seleccionar la solución antimalware que desea usar. Seleccione **Microsoft Antimalware**.
-4. Aparece información adicional sobre la solución antimalware. Seleccione **Crear**.
-5. Escriba las opciones de configuración requeridas en la hoja **Agregar extensión** y seleccione **Aceptar**. ![Instalar antimalware][6]
-
-[Microsoft Antimalware](../security/azure-security-antimalware.md) ahora está activo en la máquina virtual seleccionada.
-
-
-## Pasos siguientes
+## Consulte también
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 - [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
+- [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 - [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 - [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): busque las preguntas más frecuentes sobre cómo usar el servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
-[2]: ./media/security-center-recommendations/recommendations-tile.png
-[3]: ./media/security-center-recommendations/filter-recommendations.png
-[4]: ./media/security-center-recommendations/dismiss-recommendations.png
-[5]: ./media/security-center-recommendations/select-enable-antimalware.png
-[6]: ./media/security-center-recommendations/install-antimalware.png
+[1]: ./media/security-center-recommendations/recommendations-tile.png
+[2]: ./media/security-center-recommendations/filter-recommendations.png
+[3]: ./media/security-center-recommendations/dismiss-recommendations.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

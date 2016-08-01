@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth" />
 
 # Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure
@@ -92,7 +92,7 @@ En las máquinas virtuales que admiten Almacenamiento premium (series DS, DSv2 y
 
 	- Para Windows 8/Windows Server 2012 o versiones posteriores, use [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx). Configure el tamaño de franja en 64 KB para cargas de trabajo de OLTP y 256 KB para cargas de trabajo de almacenamiento de datos para evitar el impacto del rendimiento debido a la falta de alineación de particiones. Además, establezca el número de columnas = número de discos físicos. Para configurar un espacio de almacenamiento con más de 8 discos, debe usar PowerShell (no la interfaz de usuario del Administrador del servidor) para establecer explícitamente el número de columnas para que coincida con el número de discos. Para obtener más información sobre cómo configurar [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx), vea [Cmdlets de espacios de almacenamiento en Windows PowerShell](https://technet.microsoft.com/library/jj851254.aspx).
 
-	- Para Windows 2008 R2 o versiones anteriores, puede usar discos dinámicos (volúmenes seccionados del SO) y el tamaño de la franja siempre es 64 KB. Tenga en cuenta que esta opción es obsoleta a partir de Windows 8/Windows Server 2012. Para obtener información, vea la declaración de soporte técnico en [Servicio de disco virtual está realizando la transición a la API de administración de almacenamiento de Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+	- Para Windows 2008 R2 o versiones anteriores, puede usar discos dinámicos (volúmenes seccionados del SO) y el tamaño de la franja siempre es 64 KB. Tenga en cuenta que esta opción es obsoleta a partir de Windows 8/Windows Server 2012. Para obtener información, vea la declaración de soporte técnico en [Servicio de disco virtual está realizando la transición a la API de administración de almacenamiento de Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
 	- Si su carga de trabajo no es intensiva de registro y no necesita IOP dedicadas, puede configurar solo un grupo de almacenamiento. De lo contrario, cree dos grupos de almacenamiento, uno para los archivos de registro y otro grupo de almacenamiento para los archivos de datos y TempDB. Determine el número de discos asociados a cada grupo de almacenamiento en función de sus expectativas de carga. Tenga en cuenta que diferentes tamaños de máquina virtual permiten diferentes números de discos de datos conectados. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md).
 
@@ -148,4 +148,4 @@ Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad
 
 Revise otros temas de la máquina virtual de SQL Server en [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

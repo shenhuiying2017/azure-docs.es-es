@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Creación de una solución de ejemplo de C en Windows
 
-En los siguientes pasos se explica cómo crear una aplicación cliente simple que se comunique con la solución preconfigurada de supervisión remota mediante un programa de C en Visual Studio.
+En los siguientes pasos se explica cómo utilizar Visual Studio para crear una aplicación cliente simple escrita en C que se comunique con la solución preconfigurada de supervisión remota.
 
 Cree un proyecto inicial en Visual Studio 2015 y agregue los paquetes NuGet del cliente de dispositivo del Centro de IoT:
 
@@ -42,7 +42,13 @@ Cree un proyecto inicial en Visual Studio 2015 y agregue los paquetes NuGet del 
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-## Adición de código para especificar el comportamiento del dispositivo simple del Centro de IoT
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **RMDevice** y, después, haga clic en **Propiedades** para abrir el cuadro de diálogo **Páginas de propiedades** del proyecto. Para obtener información, consulte [Setting Visual C++ Project Properties][lnk-c-project-properties] \(Establecimiento de propiedades de proyectos de Visual C++).
+
+7. Haga clic en la carpeta **Vinculador** y, luego, haga clic en la página de propiedades **Entrada**.
+
+8. Agregue **crypt32.lib** a la propiedad **Dependencias adicionales**. Haga clic en **Aceptar** y, luego, otra vez en **Aceptar** para guardar los valores de propiedad de proyecto.
+
+## Especificación del comportamiento del dispositivo del Centro de IoT
 
 Las bibliotecas de cliente del Centro de IoT utilizan un modelo para especificar el formato de los mensajes que el dispositivo envía al Centro de IoT y los comandos de este último a los que responde dicho dispositivo.
 
@@ -54,9 +60,11 @@ Las bibliotecas de cliente del Centro de IoT utilizan un modelo para especificar
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
+    #include "azure_c_shared_utility/threadapi.h"
+    #include "azure_c_shared_utility/platform.h"
     ```
 
-2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por "contoso":
+2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -104,11 +112,11 @@ Las bibliotecas de cliente del Centro de IoT utilizan un modelo para especificar
     END_NAMESPACE(Contoso);
     ```
 
-## Adición de código para implementar el comportamiento del dispositivo
+## Implementación del comportamiento del dispositivo
 
-Ahora tiene que agregar código que implemente el comportamiento definido en el modelo. Agregará las funciones que se deberán ejecutar cuando el dispositivo reciba el comando del Centro y un código para enviar telemetría simulada a dicho Centro.
+Ahora tiene que agregar código que implemente el comportamiento definido en el modelo.
 
-1. Agregue las siguientes funciones que se ejecutan cuando el dispositivo recibe los comandos **SetTemperature** y **SetHumidity** definidos en el modelo:
+1. Agregue las siguientes funciones que se ejecutarán cuando el dispositivo recibe los comandos **SetTemperature** y **SetHumidity** del Centro de IoT:
 
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -358,10 +366,11 @@ Ahora tiene que agregar código que implemente el comportamiento definido en el 
 
 6. Haga clic en **Compilar** y, después, en **Compilar solución** para compilar la aplicación del dispositivo.
 
-7. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto **RMDevice**, haga clic en **Depurar** y, después, en **Iniciar nueva instancia** para compilar y ejecutar el ejemplo. En la consola se muestran mensajes a medida que la aplicación envía telemetría de ejemplo al Centro de IoT.
+7. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **RMDevice**, haga clic en **Depurar** y, después, en **Iniciar nueva instancia** para ejecutar el ejemplo. En la consola se muestran mensajes a medida que la aplicación envía telemetría de ejemplo al Centro de IoT y recibe los comandos.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
+
+<!---HONumber=AcomDC_0720_2016-->

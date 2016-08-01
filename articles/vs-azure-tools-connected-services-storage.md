@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="mobile"
+   ms.workload="na"
    ms.date="06/01/2016"
    ms.author="tarcher" />
 
@@ -76,9 +76,9 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse al Almacen
 
 Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencias y modifica determinados archivos de configuración. Los cambios específicos dependen del tipo de proyecto.
 
- - Para los proyectos de ASP.NET, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
- - Para los proyectos de ASP.NET 5, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
- - Para los proyectos de servicio en la nube (roles web y roles de trabajo), vea [¿Qué ha ocurrido? – Proyectos de servicio en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
+ - Para los proyectos de ASP.NET, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
+ - Para los proyectos de ASP.NET 5, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
+ - Para los proyectos de servicio en la nube (roles web y roles de trabajo), vea [¿Qué ha ocurrido? – Proyectos de servicio en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965).
  - Para los proyectos de trabajo web, consulte [¿Qué ha ocurrido? - Proyectos de trabajo web](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Pasos siguientes
@@ -94,4 +94,4 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Documentación de almacenamiento en azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

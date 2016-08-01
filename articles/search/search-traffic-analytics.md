@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
@@ -69,9 +69,7 @@ Ruta de acceso de ejemplo: `resourceId=/subscriptions/<subscriptionID>/resourceg
 
 ### Registros
 
-Los blobs de registros contienen los registros de tráfico del servicio de búsqueda.
-
-Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
+Los blobs de registros contienen los registros de tráfico del servicio de búsqueda. Cada blob tiene un objeto raíz llamado "**registros**"que contiene una matriz de objetos de registro. Cada blob tiene registros sobre la operación que se llevó a cabo durante la misma hora.
 
 ####Esquema de registro
 
@@ -98,12 +96,15 @@ propiedades |objeto |consulte a continuación |Objeto que contiene datos especí
 
 ### Métricas
 
-Los blobs de métricas contienen valores agregados para el servicio de búsqueda. Cada archivo tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de métricas
+Los blobs de métricas contienen valores agregados para el servicio de búsqueda. Cada archivo tiene un objeto raíz llamado "**registros**" que contiene una matriz de objetos de métricas. Este objeto raíz contiene las métricas de cada minuto durante el que estuvieron disponibles los datos.
 
 Métricas disponibles:
 
-- Latency
-- SearchQueriesPerSecond
+- SearchLatency: tiempo que necesita el servicio para procesar las consultas de búsqueda (agregado por minuto).
+- SearchQueriesPerSecond: número de consultas de búsqueda recibidas por segundo (agregado por minuto).
+- ThrottledSearchQueriesPercentage: porcentaje de consultas de búsqueda con limitaciones (agregado por minuto).
+
+> [AZURE.IMPORTANT] Las limitaciones se producen cuando se envían demasiadas consultas, con lo que se agota la capacidad de los recursos aprovisionados del servicio. Considere la posibilidad de agregar más réplicas al servicio.
 
 ####Esquema de métricas
 
@@ -118,6 +119,12 @@ Métricas disponibles:
 |total |int |258 |El valor total de las muestras sin procesar en el intervalo de tiempo de la métrica |
 |count |int |4 |El número de muestras sin procesar usadas para generar la métrica |
 |timegrain |cadena |"PT1M" |El intervalo de agregación de la métrica en ISO 8601|
+
+Todas las métricas se notifican en intervalos de un minuto. Es decir, cada una de las métricas expondrá los valores mínimos, máximos y medio por minuto.
+
+En el caso de la métrica SearchQueriesPerSecond, el mínimo será el valor más bajo de las consultas de búsqueda por segundo que se registró en ese minuto; igual pasa con el valor máximo. Para el valor medio, será el agregado en todo el minuto. Piense en este escenario: durante un minuto, puede tener 1 segundo de carga muy elevada (que será que máximo en SearchQueriesPerSecond), 58 segundos de carga media y 1 segundo con solo una consulta (que será el mínimo).
+
+En el caso de la métrica ThrottledSearchQueriesPercentage, el mínimo, máximo, medio y total tendrán el mismo valor, que es el porcentaje de consultas de búsqueda con limitaciones según el número total de consultas de búsqueda durante un minuto.
 
 ## Análisis de datos
 
@@ -221,4 +228,4 @@ Obtenga más información sobre cómo crear informes increíbles. Consulte [Intr
 [6]: ./media/search-traffic-analytics/BlobStorage.png
 [7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

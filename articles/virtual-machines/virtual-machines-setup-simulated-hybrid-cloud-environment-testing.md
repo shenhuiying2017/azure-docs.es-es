@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
@@ -40,7 +40,7 @@ Existen cuatro fases principales para configurar este entorno de prueba de nube 
 1.	Configuración de la red virtual de TestLab.
 2.	Creación de la red virtual entre locales.
 3.	Creación de la conexión VPN de red virtual a red virtual.
-4.	Configuración de DC2. 
+4.	Configuración de DC2.
 
 Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,7 +62,7 @@ Obtenga el nombre de la suscripción con el comando siguiente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -213,4 +213,4 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 - [Agregar una nueva máquina virtual](virtual-machines-windows-ps-create.md) a la subred TestVNET, como una instancia de Microsoft SQL Server en ejecución.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

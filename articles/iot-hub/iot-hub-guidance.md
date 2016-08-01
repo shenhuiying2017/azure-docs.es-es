@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 # Diseño de la solución
@@ -23,6 +23,7 @@ Este artículo le ofrece una guía para diseñar las siguientes capacidades en l
 - Aprovisionamiento de dispositivos
 - Puertas de enlace de campo
 - Autenticación de dispositivos
+- Latido de dispositivo
 
 ## Aprovisionamiento de dispositivos
 
@@ -59,7 +60,7 @@ Puede usar el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] para im
 
 ## Personalización de la autenticación de dispositivos
 
-Puede usar el [registro de identidades de dispositivo][lnk-devguide-identityregistry] del Centro de IoT para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución IoT ya realizó una inversión importante en un registro personalizado de identidades de dispositivo o en un esquema de autenticación, puede integrar esta infraestructura ya existente con el Centro de IoT mediante la creación de un *servicio de token*. De este modo, puede usar otras características de IoT en la solución.
+Puede usar el [registro de identidades de dispositivo][lnk-devguide-identityregistry] del Centro de IoT para configurar las credenciales de seguridad de cada dispositivo y el control de acceso mediante el uso de [tokens][lnk-sas-token]. Sin embargo, si una solución IoT ya realizó una inversión importante en un registro personalizado de identidades de dispositivo o en un esquema de autenticación, puede integrar esta infraestructura ya existente con el Centro de IoT mediante la creación de un *servicio de token*. De este modo, puede usar otras características de IoT en la solución.
 
 Un servicio de token es un servicio en la nube personalizado. Usa una *directiva de acceso compartido* del Centro de IoT con permisos **DeviceConnect** para crear tokens *centrados en el dispositivo*. Estos tokens permiten que un dispositivo se conecte al Centro de IoT.
 
@@ -80,17 +81,17 @@ Para que un dispositivo se conecte al centro, deberá agregarlo al registro de i
 
 ### Comparación con una puerta de enlace personalizada
 
-El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en el Centro de IoT. Se recomienda porque el Centro de IoT sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita un servicio que procese todo el tráfico (*puerta de enlace personalizada*). Un ejemplo de esto es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)][lnk-tls-psk]. Consulte el tema [Puerta de enlace de protocolos][lnk-gateway] para más información.
+El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en el Centro de IoT. Se recomienda porque el Centro de IoT sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita un servicio que procese todo el tráfico (*puerta de enlace personalizada*). Un ejemplo de esto es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)][lnk-tls-psk]. Consulte el tema [Puerta de enlace de protocolos][lnk-protocols] para más información.
 
 ## Latido de dispositivo <a id="heartbeat"></a>
 
-El [registro de identidad del Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado **connectionState**. Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje desde la nube al dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a la que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
+El [registro de identidad del Centro de IoT][lnk-devguide-identityregistry] contiene un campo llamado "**connectionState**". Solo debe utilizar el campo **connectionState** durante el desarrollo y la depuración, las soluciones de IoT no deben consultar el campo en tiempo de ejecución (por ejemplo, para comprobar si un dispositivo está conectado con el fin de decidir si enviar un mensaje desde la nube al dispositivo o un SMS). Si la solución de IoT necesita saber si un dispositivo está conectado (ya sea en tiempo de ejecución o con una precisión superior a la que ofrece la propiedad **connectionState**), debe implementar el *patrón de latido*.
 
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Esto significa que incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo, y supone que hay un problema con un dispositivo si no recibe un mensaje de latido en el tiempo esperado.
 
 Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones del Centro de IoT][].
 
-> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía del desarrollador del Centro de IoT de Azure][lnk-devguide-messaging] para más información sobre los mensajes C2D.
+> [AZURE.NOTE] Si una solución de IoT requiere el estado de conexión de dispositivos únicamente para determinar si enviar mensajes de la nube a dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón mucho más sencillo a tener en cuenta es usar un breve tiempo de expiración. Así se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta mucho más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores. Consulte la [Guía del desarrollador del Centro de IoT de Azure][lnk-devguide-messaging] para obtener más información sobre los mensajes C2D.
 
 ## Pasos siguientes
 
@@ -114,17 +115,10 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
-[lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
-[lnk-gateway]: iot-hub-protocol-gateway.md
 
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
 [lnk-portal]: https://portal.azure.com
-[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
-[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
-[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
@@ -140,5 +134,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
+[lnk-sas-token]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

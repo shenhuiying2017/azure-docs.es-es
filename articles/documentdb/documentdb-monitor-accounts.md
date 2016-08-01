@@ -18,7 +18,7 @@
 
 # Supervisión de las solicitudes, el uso y el almacenamiento de DocumentDB
 
-Puede supervisar las cuentas de DocumentDB en el [Portal de Microsoft Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
+Puede supervisar las cuentas de Azure DocumentDB en el [Portal de Microsoft Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 
 ## Visualización de las métricas de rendimiento en el portal 
 1.	En una nueva ventana, abra el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**, **Cuentas de DocumentDB** y luego en el nombre de la cuenta de DocumentDB de la que quiere ver métricas de rendimiento.
@@ -33,7 +33,7 @@ Puede supervisar las cuentas de DocumentDB en el [Portal de Microsoft Azure](htt
 
 
 3.	Al hacer clic en el icono **Solicitudes**, **RU totales** o **Almacenamiento** se abre una hoja **Métrica** detallada.
-4.	La hoja **Métrica** muestra los detalles sobre las métricas que ha seleccionado. En la parte superior de la hoja hay un gráfico de solicitudes representadas por hora y debajo una tabla que muestra los valores de agregación y las solicitudes totales. El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).   
+4.	La hoja **Métrica** muestra los detalles sobre las métricas que ha seleccionado. En la parte superior de la hoja hay un gráfico de solicitudes representadas por hora y debajo una tabla que muestra los valores de agregación y las solicitudes totales. El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).
 
 	![Captura de pantalla de la hoja Métrica que incluye solicitudes limitadas](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
@@ -45,7 +45,7 @@ Puede supervisar las cuentas de DocumentDB en el [Portal de Microsoft Azure](htt
 2.	En la hoja **Editar gráfico**, hay opciones para modificar las métricas que se muestran, junto con su intervalo de tiempo. ![Captura de pantalla de la hoja Editar gráfico](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	Para cambiar las métricas que se muestran en el gráfico, solo tiene que marcar o desmarcar las métricas de rendimiento disponibles y luego hacer clic en **Aceptar** en la parte inferior de la hoja.
-4.	Para cambiar el intervalo de tiempo, elija un intervalo distinto (por ejemplo, **Personalizado**) y haga clic en **Guardar** en la parte inferior de la hoja.  
+4.	Para cambiar el intervalo de tiempo, elija un intervalo distinto (por ejemplo, **Personalizado**) y haga clic en **Guardar** en la parte inferior de la hoja.
 
 	![Captura de pantalla de la parte Intervalo de tiempo de la hoja Editar gráfico que muestra cómo especificar un intervalo de tiempo personalizado](./media/documentdb-monitor-accounts/madocdb5.png)
 
@@ -57,7 +57,7 @@ El Portal de Azure le permite crear gráficos de métricas en paralelo.
 
 	![Captura de pantalla del gráfico Total de solicitudes con el botón Personalizar destacado](./media/documentdb-monitor-accounts/madocdb6.png)
 
-2.	Haga clic en **Clonar** en el menú para copiar la parte y, a continuación, haga clic en **Personalización efectuada**.
+2.	Haga clic en **Clonar** en el menú para copiar la parte y, a continuación, haga clic en ** Personalización efectuada**.
 
 	![Captura de pantalla del gráfico Total de solicitudes con las opciones Clonar y Personalización efectuada destacadas](./media/documentdb-monitor-accounts/madocdb7.png)
 
@@ -111,4 +111,4 @@ Si los iconos de supervisión muestran el mensaje **Sin datos disponibles** y re
 ## Pasos siguientes
 Para obtener más información acerca de la capacidad de DocumentDB, consulte [Administración de la capacidad de DocumentDB](documentdb-manage.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -22,7 +22,7 @@ Aprenda a crear y compilar una aplicación de [Apache HBase](http://hbase.apache
 
 [Maven](http://maven.apache.org/) es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight basado en Linux.
 
-> [AZURE.NOTE] En este documento se da por hecho que usa un clúster de HDInsight basado en Linux. Para obtener información sobre cómo utilizar un clúster de HDInsight basado en Windows, consulte [Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Linux (Hadoop)](hdinsight-hbase-build-java-maven.md).
+> [AZURE.NOTE] En este documento se da por hecho que usa un clúster de HDInsight basado en Linux. Para obtener información sobre cómo utilizar un clúster de HDInsight basado en Windows, consulte [Uso de Maven para compilar aplicaciones Java que utilicen HBase con HDInsight basado en Windows (Hadoop)](hdinsight-hbase-build-java-maven.md).
 
 ##Requisitos
 
@@ -390,4 +390,4 @@ Cuando haya terminado con el ejemplo, use el siguiente comando desde la sesión 
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

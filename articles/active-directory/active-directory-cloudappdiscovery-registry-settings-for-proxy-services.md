@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="stevenpo"/>
+	manager="femila"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/13/2016" 
 	ms.author="markusvi"/>
 
 # Configuración del registro de Cloud App Discovery para los servicios de proxy
@@ -45,6 +45,6 @@ El objetivo de este tema es proporcionarle los pasos que debe llevar a cabo para
 **Recursos adicionales**
 
 
-* [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md) 
+* [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -188,13 +188,15 @@ Suplantación de identidad: un atacante puede extraer material criptográfico cl
 
 **Denegación de servicio:** el dispositivo se puede desactivar o activar en un modo en el que la comunicación no sea posible (lo que es intencionado en muchas máquinas industriales).
 
-**Manipulación:** el dispositivo se puede reconfigurar para que opere en un estado desconocido para el sistema de control (fuera de los parámetros de calibrado conocidos) y, por tanto, proporcionar datos que se puedan interpretar erróneamente. Elevación de privilegios: se puede obligar a un dispositivo que realiza una función específica a realizar otra. Por ejemplo, se puede obligar a una válvula programada para abrirse a la mitad a abrirse completamente.
+**Manipulación:** el dispositivo se puede reconfigurar para que opere en un estado desconocido para el sistema de control (fuera de los parámetros de calibrado conocidos) y así proporcionar datos que se puedan interpretar erróneamente.
+
+**Elevación de privilegios:** se puede forzar a un dispositivo que realiza una función específica a realizar otra función. Por ejemplo, se puede obligar a una válvula programada para abrirse a la mitad a abrirse completamente.
 
 **Denegación de servicio:** el dispositivo se puede pasar a un estado en el que no sea posible la comunicación.
 
 **Manipulación:** el dispositivo se puede reconfigurar para que opere en un estado desconocido para el sistema de control (fuera de los parámetros de calibrado conocidos) y así proporcionar datos que se puedan interpretar erróneamente.
  
-**Suplantación de identidad, manipulación o rechazo:** si no está protegido (que casi nunca es el caso de los mandos a distancia de los consumidores), un atacante puede manipular el estado de un dispositivo de forma anónima. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
+**Suplantación de identidad, manipulación o rechazo:** si no está protegido (que casi nunca es el caso de los controles remotos de los consumidores), un atacante puede manipular el estado de un dispositivo de forma anónima. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
 
 #### Comunicación
 
@@ -250,4 +252,4 @@ Para más información, consulte los artículos siguientes:
 - [Microsoft Azure IoT reference architecture available (Arquitectura de referencia de IoT de Microsoft Azure disponible)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,12 +13,12 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/18/2016" 
+ms.date="07/14/2016" 
 ms.author="eugenesh" />
 
 #Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] En este artículo se describen los indexadores de [2015-02-28-Preview](./search-api-2015-02-28-preview). Esta versión de la API agrega un indizador de Almacenamiento de blobs de Azure con la extracción del documento, además de otras mejoras.
+> [AZURE.NOTE] En este artículo se describen los indexadores de la versión [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md). Esta versión de la API agrega versiones preliminares del indexador de Almacenamiento de blobs de Azure con la extracción de documentos y del indexador de Almacenamiento de tablas de Azure, además de otras mejoras. La API también admite indexadores generalmente disponibles (GA), incluidos los de Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y Azure DocumentDB.
 
 ## Información general ##
 
@@ -28,7 +28,7 @@ Un **indexador** es un recurso que conecta los orígenes de datos con los índic
 
 - Realizar una copia única de los datos para rellenar un índice.
 - Sincronizar un índice con los cambios del origen de datos en una programación. La programación forma parte de la definición del indizador.
-- Invocar a petición para actualizar un índice según sea necesario. 
+- Invocar a petición para actualizar un índice según sea necesario.
 
 Un **indexador** es útil cuando desea actualizaciones periódicas de un índice. Puede configurar una programación en línea como parte de una definición de indexador o ejecutarla a petición mediante [Ejecutar indexador](#RunIndexer).
 
@@ -36,8 +36,8 @@ Un **origen de datos** especifica los datos que es necesario indexar, las creden
 
 Actualmente se admiten los siguientes orígenes de datos:
 
-- **Base de datos SQL de Azure** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). 
-- **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](../documentdb/documentdb-search-indexer). 
+- **Base de datos SQL de Azure** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+- **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](../documentdb/documentdb-search-indexer.md).
 - **Almacenamiento de blobs de Azure**, incluidos los siguientes formatos de documento: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP y archivos de texto sin formato (incluido JSON). Para obtener un tutorial de destino, consulte [este artículo](search-howto-indexing-azure-blob-storage.md).
 	 
 Estamos considerando agregar compatibilidad con orígenes de datos adicionales en el futuro. Para ayudarnos a priorizar estas decisiones, proporcione sus comentarios en el [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
@@ -85,21 +85,20 @@ HTTPS es necesario para todas las solicitudes de servicio. La solicitud **Crear 
 
 El nombre del origen de datos debe estar en minúsculas, comenzar por una letra o un número, no tener ninguna barra o punto y tener menos de 128 caracteres. Después de iniciar el nombre del origen de datos por una letra o un número, el resto del nombre puede incluir cualquier letra, número y guiones, siempre que los guiones no aparezcan de manera consecutiva. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información.
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 **Encabezados de solicitud**
 
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
 
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
-- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el [Portal de administración de Azure](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el [Portal de Azure](https://portal.azure.com/). Consulte [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxis del cuerpo de la solicitud**
 
 El cuerpo de la solicitud contiene una definición de origen de datos, que incluye el tipo de origen de datos, las credenciales para leer los datos, así como políticas de detección de cambios en los datos opcionales y de detección de eliminación de datos que se usan para identificar de forma eficaz datos cambiados o eliminados en el origen de datos cuando se usan con un indexador programado periódicamente.
-
 
 La sintaxis para estructurar la carga de la solicitud es la siguiente. En este tema se proporciona una solicitud de ejemplo.
 
@@ -116,26 +115,26 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
 La solicitud contiene las siguientes propiedades:
 
 - `name`: obligatorio. el nombre del origen de datos. Un nombre de origen de datos solo debe contener letras minúsculas, números o guiones, no puede comenzar ni terminar con guiones y está limitado a 128 caracteres.
-- `description`: descripción opcional. 
+- `description`: descripción opcional.
 - `type`: obligatorio. Debe ser uno de los tipos de orígenes de datos compatibles:
 	- `azuresql`: base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
 	- `documentdb`: DocumentDB de Azure
 	- `azureblob`: Almacenamiento de blobs de Azure
 - `credentials`:
-	- La propiedad `connectionString` obligatoria especifica la cadena de conexión del origen de datos. El formato de la cadena de conexión depende del tipo de origen de datos: 
+	- La propiedad `connectionString` obligatoria especifica la cadena de conexión del origen de datos. El formato de la cadena de conexión depende del tipo de origen de datos:
 		- Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando el Portal de Azure para recuperar la cadena de conexión, use la opción `ADO.NET connection string`.
-		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en el [Portal de Azure](https://portal.azure.com/).  
-		- Para Almacenamiento de blobs de Azure, es la cadena de conexión de la cuenta de almacenamiento. El formato se describe [aquí](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Se requiere un protocolo para el punto de conexión HTTPS.  
+		- Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en el [Portal de Azure](https://portal.azure.com/).
+		- Para Almacenamiento de blobs de Azure, es la cadena de conexión de la cuenta de almacenamiento. El formato se describe [aquí](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Se requiere un protocolo para el punto de conexión HTTPS.
 		
-- `container`, obligatorio: especifica los datos que se van a indexar mediante las propiedades `name` y `query`:
+- `container`, obligatorio: especifica los datos que se van a indexar mediante las propiedades `name` y `query`.
 	- `name`, obligatorio:
 		- SQL Azure: especifica la tabla o vista. Puede usar nombres calificados con el esquema, como `[dbo].[mytable]`.
-		- DocumentDB: especifica la colección. 
-		- Almacenamiento de blobs de Azure: especifica el contenedor de almacenamiento. 
+		- DocumentDB: especifica la colección.
+		- Almacenamiento de blobs de Azure: especifica el contenedor de almacenamiento.
 	- `query`, opcional:
-		- DocumentDB: permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.  
+		- DocumentDB: permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.
 		- Almacenamiento de blobs de Azure: permite especificar una carpeta virtual dentro del contenedor de blob. Por ejemplo, para la ruta de acceso de blob `mycontainer/documents/blob.pdf`, se puede usar `documents` como la carpeta virtual.
-		- SQL Azure: no se admite la consulta. Si necesita esta funcionalidad, vote por [esta sugerencia](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
+		- SQL Azure: no se admite la consulta. Si necesita esta funcionalidad, vote por [esta sugerencia](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer).
    
 - Las propiedades `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
 
@@ -147,8 +146,8 @@ El fin de una directiva de detección de cambios de datos es identificar de form
 
 Use esta directiva cuando el origen de datos contenga una columna o propiedad que cumpla los criterios siguientes:
  
-- Todas las inserciones especifican un valor para la columna. 
-- Todas las actualizaciones de un elemento también cambian el valor de la columna. 
+- Todas las inserciones especifican un valor para la columna.
+- Todas las actualizaciones de un elemento también cambian el valor de la columna.
 - El valor de esta columna aumenta con cada cambio.
 - Las consultas que usan una cláusula de filtro similar a la siguiente `WHERE [High Water Mark Column] > [Current High Water Mark Value]` pueden ejecutarse de manera eficiente.
 
@@ -169,7 +168,9 @@ Esta directiva se puede especificar del modo siguiente:
 
 Si la base de datos SQL admite el [seguimiento de cambios](https://msdn.microsoft.com/library/bb933875.aspx), se recomienda usar la directiva de seguimiento de cambios integrada de SQL. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que disponer de una columna de "eliminación temporal" explícita en su esquema.
 
-El seguimiento de cambios integrado se admite a partir de las siguientes versiones de la base de datos de SQL Server: - SQL Server 2008 R2, si está usando SQL Server en máquinas virtuales de Azure. - Base de datos SQL de Azure V12, si está usando Base de datos SQL Azure.
+El seguimiento de cambios integrado se admite a partir de las siguientes versiones de la base de datos de SQL Server:
+- SQL Server 2008 R2, si usa SQL Server en máquinas virtuales de Azure.
+- Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
 
 Al usar la directiva de seguimiento de cambios integrada de SQL, no especifique una directiva de detección de eliminación de datos independiente, ya que esta directiva tiene compatibilidad integrada para identificar las filas eliminadas.
 
@@ -256,7 +257,7 @@ La operación **Enumerar orígenes de datos** devuelve una lista de los orígene
     GET https://[service name].search.windows.net/datasources?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -295,7 +296,7 @@ La operación **Obtener origen de datos** permite obtener la definición del ori
     GET https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -332,7 +333,7 @@ La operación **Eliminar origen de datos** elimina un origen de datos del servic
 
 > [AZURE.NOTE] Si algún indizador hace referencia al origen de datos que está eliminando, la operación de eliminación continuará. Sin embargo, los indexadores pasarán a un estado de error en su siguiente ejecución.
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -355,7 +356,7 @@ Como alternativa, puede usar PUT y especificar el nombre del origen de datos en 
 
 > [AZURE.NOTE] El número máximo de indizadores permitido varía según el plan de tarifa. El servicio gratuito permite hasta tres indexadores. El servicio estándar permite 50 indexadores. Consulte [Límites de servicio](search-limits-quotas-capacity.md) para obtener más información.
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -382,7 +383,7 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `"P[nD][T[nH][nM]]"`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `"P[nD][T[nH][nM]]"`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 - `startTime`: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indexador.
 
@@ -390,7 +391,7 @@ Un indizador puede especificar opcionalmente una programación. Si existe una pr
 
 Un indexador puede especificar varios parámetros que afectan a su comportamiento. Todos los parámetros son opcionales.
 
-- `maxFailedItems` : el número de elementos que es posible que no se indexen antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados. 
+- `maxFailedItems` : el número de elementos que es posible que no se indexen antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados.
 
 - `maxFailedItemsPerBatch` : el número de elementos que es posible que no se indexen en cada lote antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0.
 
@@ -453,7 +454,7 @@ Puede actualizar un indexador existente mediante una solicitud HTTP PUT. Especif
     Content-Type: application/json
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -517,7 +518,7 @@ La operación **Obtener indexador** obtiene la definición del indexador de Bús
     GET https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -547,7 +548,7 @@ La operación **Eliminar indexador** quita un indexador del servicio de Búsqued
 
 Cuando se elimina un indexador, las ejecuciones de indexador en curso en ese momento se ejecutarán hasta completarse, pero no se programarán más ejecuciones. Los intentos de usar un indexador inexistente provocarán que se muestre el código de estado HTTP 404 No encontrado.
  
-`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -563,7 +564,7 @@ Además de ejecutarse periódicamente según una programación, un indexador tam
 	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -580,7 +581,7 @@ La operación **Obtener estado del indexador** recupera el estado actual y el hi
     api-key: [admin key]
 
 
-`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -622,7 +623,7 @@ Un cuerpo de respuesta de muestra tiene el siguiente aspecto:
 
 El estado del indexador puede ser uno de los siguientes valores:
 
-- `running` indica que el indexador se ejecuta con normalidad. Tenga en cuenta que es posible que algunas de las ejecuciones del indexador continúen provocando un error, por lo que es una buena idea comprobar la propiedad `lastResult` también. 
+- `running` indica que el indexador se ejecuta con normalidad. Tenga en cuenta que es posible que algunas de las ejecuciones del indexador continúen provocando un error, por lo que es una buena idea comprobar la propiedad `lastResult` también.
 
 - `error` indica que el indexador experimentó un error que no se pueden corregir sin intervención humana. Por ejemplo, es posible que las credenciales del origen de datos hayan caducado, que el esquema del origen de datos haya cambiado o que el índice del destino haya cambiado separándose.
 
@@ -632,7 +633,7 @@ Un resultado de la ejecución de indexador contiene información sobre la ejecuc
 
 El resultado de la ejecución del indexador contiene las siguientes propiedades:
 
-- `status`: el estado de una ejecución. Consulte [Estado de la ejecución del indexador](#IndexerExecutionStatus) a continuación para obtener más información. 
+- `status`: el estado de una ejecución. Consulte [Estado de la ejecución del indexador](#IndexerExecutionStatus) a continuación para obtener más información.
 
 - `errorMessage`: mensaje de error de una ejecución errónea.
 
@@ -672,7 +673,7 @@ La operación **Restablecer el indexador** restablece el estado de seguimiento d
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión de vista previa es `2015-02-28-Preview`.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -797,4 +798,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

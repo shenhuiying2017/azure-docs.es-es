@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Administración de un área de trabajo de Aprendizaje automático de Azure
+
+>[AZURE.NOTE] Los procedimientos descritos en este artículo son pertinentes para los servicios web clásicos de Aprendizaje automático de Azure. Si quiere obtener más información sobre cómo administrar los servicios web nuevos, consulte [Administración de servicios web nuevos de Aprendizaje automático](machine-learning-manage-new-webservice.md).
+
 Mediante el Portal de Azure clásico, puede administrar las áreas de trabajo de Aprendizaje automático para realizar las siguientes tareas:
 
 - Supervisar el uso del área de trabajo
@@ -94,4 +97,4 @@ Haga clic en la pestaña **CONFIGURAR** para modificar la descripción, controla
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

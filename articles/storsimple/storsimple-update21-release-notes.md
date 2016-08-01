@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de la versión de la actualización 2.1 de la serie StorSimple 8000 | Microsoft Azure"
-   description="Se describen las nuevas características, problemas y soluciones alternativas de la actualización 2.1 de la serie StorSimple 8000."
+   pageTitle="Notas de la versión de la serie StorSimple 8000 Update 2.2 | Microsoft Azure"
+   description="Se describen las nuevas características, problemas y soluciones alternativas de la serie StorSimple 8000 Update 2.2."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,48 +12,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/19/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
-# Notas de la versión de la actualización 2.1 de la serie StorSimple 8000  
+# Notas de la versión de la serie StorSimple 8000 Update 2.2  
 
 ## Información general
 
-Las siguientes notas de la versión describen las características nuevas e identifican los problemas críticos abiertos de la actualización 2.1 de la serie StorSimple 8000. También contienen una lista de las actualizaciones de software de StorSimple incluidas en esta versión.
+Las siguientes notas de la versión describen las características nuevas e identifican los problemas críticos abiertos de la serie StorSimple 8000 Update 2.2. También contienen una lista de las actualizaciones de software de StorSimple incluidas en esta versión.
 
-La actualización 2.1 puede aplicarse a cualquier dispositivo de StorSimple que ejecute software de versión (GA) o las actualizaciones de la 0.1 a la 2. La versión de dispositivo asociada a la actualización 2.1 es 6.3.9600.17705.
+Update 2.2 puede aplicarse a cualquier dispositivo de StorSimple que ejecute software de versión (GA) o las actualizaciones de la 0.1 a la 2.1. La versión de dispositivo asociada a Update 2.2 es 6.3.9600.17708.
 
 Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
 >[AZURE.IMPORTANT]
 > 
-> - La actualización 2.1 incluye únicamente actualizaciones del software. Para instalar esta actualización, se necesitan en torno a una hora y media o dos. 
+> - Update 2.2 incluye únicamente actualizaciones del software. Para instalar esta actualización, se necesitan en torno a una hora y media o dos.
+
+> - Si ejecuta Update 2.1, recomendamos que aplique Update 2.2 tan pronto como sea posible.
 
 > - Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Espere unos días y luego busque actualizaciones de nuevo ya que estas estarán disponibles pronto.
 
 
-## Novedades de la actualización 2.1
+## Novedades de Update 2.2
 
-Se realizaron las siguientes mejoras claves en la actualización 2.1.
+Se realizaron las siguientes mejoras clave en Update 2.2.
 
  
-- **Optimización de la recuperación de espacio automatizada:** cuando se eliminan datos en volúmenes con aprovisionamiento fino, se deben recuperar los bloques de almacenamiento no utilizados. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
+- **Optimización de la recuperación de espacio automatizada**: cuando se eliminan datos en volúmenes con aprovisionamiento fino, se deben recuperar los bloques de almacenamiento no utilizados. Con esta versión, se ha mejorado el proceso de recuperación de espacio de la nube, con lo que el espacio no utilizado que se encontrará disponible antes que en versiones anteriores.
 
 
-- **Mejoras de rendimiento de instantáneas:** en la actualización 2.1, se ha mejorado el tiempo que se tarda en procesar una instantánea de nube en determinados escenarios donde se utilizan grandes volúmenes y existe una actividad de datos mínima o nula. Los volúmenes de archivado, por ejemplo, sería un escenario donde se observarían ventajas gracias a esta mejora.
+- **Mejoras de rendimiento de instantáneas**: en Update 2.2, se ha mejorado el tiempo que se tarda en procesar una instantánea de nube en determinados escenarios donde se utilizan grandes volúmenes y existe una actividad de datos mínima o nula. Los volúmenes de archivado, por ejemplo, sería un escenario donde se observarían ventajas gracias a esta mejora.
 
 
-- **Protección de la recopilación del paquete de soporte:** en esta versión, se ha mejorado el modo en que se recopila y carga el paquete de soporte.
+- **Protección de la recopilación del paquete de soporte**: en esta versión, se ha mejorado el modo en que se recopila y carga el paquete de soporte.
 
 
-- **Mejoras de la confiabilidad de la actualización:** esta versión contiene correcciones de errores que conllevan una mayor confiabilidad de la actualización.
+- **Mejoras de la confiabilidad de Update**: esta versión contiene correcciones de errores que conllevan una mayor confiabilidad de Update.
 
   
  
 
-## Problemas corregidos en la actualización 2.1
+## Problemas corregidos en Update 2.2
 
-En las tablas siguientes se ofrece un resumen de los problemas corregidos en la actualización 2.1.
+En las tablas siguientes se ofrece un resumen de los problemas corregidos en Update 2.2 y 2.1.
 
 | No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
@@ -68,7 +70,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en la 
 | 9 | Paquete de soporte | En esta versión, se han realizado mejoras en la forma en que se recopila y carga el paquete de soporte. | Sí | Sí |
 
 
-## Problemas conocidos de la actualización 2.1
+## Problemas conocidos de Update 2.2
 
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
@@ -96,19 +98,19 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 20 | |Volúmenes anclados localmente | Si intenta convertir un volumen en niveles (creado y clonado con la actualización 1.2 o anterior) a un volumen anclado localmente y el dispositivo ya no tiene espacio o si hay una interrupción en la nube, es posible que los clones resulten dañados.| Este problema solo se produce con los volúmenes que se crearon y clonaron con software anterior a la actualización 2.1. Este debería ser un escenario poco frecuente.|
 | 21 | Conversión de volumen | No actualice los ACR anexados a un volumen mientras se realiza una conversión de volumen (de un volumen en niveles a un volumen anclado localmente o viceversa). Actualizar los ACR podría dañar los datos. | En caso de ser necesario, actualice los ACR antes de realizar la conversión de volumen y no realice ninguna actualización ACR adicional mientras la conversión esté en progreso. |
 
-## Actualizaciones de firmware y de controlador en la actualización 2.1
+## Actualizaciones de firmware y de controlador en Update 2.2
 
 Esta versión incluye únicamente actualizaciones del software. Sin embargo, si está actualizando desde una versión anterior de la actualización 2, tendrá que instalar el controlador, Storport, Spaceport y, en algunos casos las actualizaciones de firmware del disco en el dispositivo.
  
-Para obtener más información sobre cómo instalar el controlador, Storport, Spaceport y las actualizaciones de firmware del disco, consulte [Install Update 2.1 on your StorSimple device](storsimple-install-update-21.md) (Instalación de la actualización 2.1 en su dispositivo StorSimple).
+Para más información sobre cómo instalar el controlador, Storport, Spaceport y las actualizaciones de firmware del disco, consulte [Instalación de Update 2.2](storsimple-install-update-21.md) en el dispositivo StorSimple.
 
  
-## Actualizaciones de dispositivo virtual en la actualización 2.1
+## Actualizaciones de dispositivo virtual en Update 2.2
 
 No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nuevos dispositivos virtuales.
 
 ## Paso siguiente
 
-Obtenga información sobre cómo [instalar la actualización 2.1](storsimple-install-update-21.md) en el dispositivo de StorSimple.
+Obtenga información sobre cómo [instalar Update 2.2](storsimple-install-update-21.md) en el dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

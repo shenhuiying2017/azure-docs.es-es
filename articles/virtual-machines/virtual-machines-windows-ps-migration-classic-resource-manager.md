@@ -32,7 +32,7 @@ Estos son algunos de los procedimientos recomendados a la hora de evaluar la mig
 
 Hay dos opciones principales para la instalación, [Galería de PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) e [Instalador de plataforma web (WebPI)](http://aka.ms/webpi-azps). WebPI recibirá actualizaciones mensuales. La Galería de PowerShell recibirá actualizaciones de forma continua.
 
-Para más información, vea [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
+Para más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 ## Paso 3: Establecimiento de la suscripción y registro para la migración
 
@@ -94,16 +94,31 @@ Obtenga el nombre de la implementación del servicio en la nube mediante el sigu
 
 Prepare las máquinas virtuales del servicio en la nube para la migración. Tiene dos opciones para elegir.
 
-Si quiere migrar las máquinas virtuales a una red virtual creada en una plataforma, use el siguiente comando.
+1. Si desea migrar las máquinas virtuales a una red virtual creada en una plataforma
 
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+	El primer paso es validar si puede migrar el servicio en la nube mediante el siguiente comando:
 
-Si quiere migrar a una red virtual existente en el modelo de implementación de Resource Manager, utilice el siguiente comando.
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+		$validate.ValidationMessages
 
-	$existingVnetRGName = "<Existing VNET's Resource Group Name>"
-	$vnetName = "<Virtual Network Name>"
-	$subnetName = "<Subnet name>"
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName 		-VirtualNetworkName $vnetName -SubnetName $subnetName
+	El comando anterior mostrará las advertencias y errores que bloquean la migración. Si la validación es correcta, puede continuar con el siguiente paso de preparación.
+
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+
+2. Si quiere migrar a una red virtual existente en el modelo de implementación de Resource Manager
+
+		$existingVnetRGName = "<Existing VNET's Resource Group Name>"
+		$vnetName = "<Virtual Network Name>"
+		$subnetName = "<Subnet name>"
+
+	El primer paso es validar si puede migrar el servicio en la nube mediante el siguiente comando:
+
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+		$validate.ValidationMessages
+
+	El comando anterior mostrará las advertencias y errores que bloquean la migración. Si la validación es correcta, puede continuar con el siguiente paso de preparación.
+
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
 
 Una vez que la operación de preparación finaliza correctamente, puede consultar el estado de migración de las máquinas virtuales y asegurarse de que las máquinas virtuales están en estado `Prepared`.
 
@@ -117,15 +132,22 @@ Compruebe la configuración de los recursos preparados mediante PowerShell o el 
 
 Si la configuración preparada parece correcta, puede continuar y confirmar los recursos mediante el siguiente comando.
 
-	Move-AzureService -Commit -ServiceName docmigtest1 -DeploymentName docmigtest1
+	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 
 ### Migración de máquinas virtuales en una red virtual
 
-Seleccione la red virtual que quiere migrar. Tenga en cuenta que si la red virtual contiene roles web o de trabajo, o bien máquinas virtuales con configuraciones no admitidas, recibirá un mensaje de error de validación.
-
-Prepare la red virtual para la migración mediante el siguiente comando.
+Seleccione la red virtual que quiere migrar.
 
 	$vnetName = "VNET-Name"
+
+>[AZURE.NOTE] Si la red virtual contiene roles web o de trabajo, o bien máquinas virtuales con configuraciones no admitidas, recibirá un mensaje de error de validación.
+
+El primer paso es validar si puede migrar la red virtual mediante el siguiente comando:
+
+	Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+
+El comando anterior mostrará las advertencias y errores que bloquean la migración. Si la validación es correcta, puede continuar con el siguiente paso de preparación.
+	
 	Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 
 Compruebe la configuración de las máquinas virtuales preparadas mediante PowerShell o el Portal de Azure. Si no está preparado para la migración y desea volver al estado anterior, utilice el siguiente comando.
@@ -159,4 +181,4 @@ Si la configuración preparada parece correcta, puede continuar y confirmar los 
 - [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -18,6 +18,8 @@
 
 # Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio
 
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+
 ## Información general
 
 En este artículo se describe cómo empezar a usar el almacenamiento Cola de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio.
@@ -156,4 +158,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

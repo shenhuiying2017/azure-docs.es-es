@@ -319,7 +319,7 @@ Se puede usar `Set-AzureRmRedisCache` para escalar una instancia de caché en Re
 >    -    No puede escalar desde una caché **Estándar** a una caché **Básica**.
 >-	Puede escalar desde una memoria caché **Básica** a una memoria caché **Estándar**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 >-	No puede escalar desde una caché **Básica** directamente a una caché **Premium**. Debe escalar desde **Básica** a **Estándar** en una operación de escalado y, a continuación, desde **Estándar** a **Premium** en una operación de escalado posterior.
->-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
+>-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 >
 >Para más información, vea [Escalado de caché en Redis de Azure](cache-how-to-scale.md).
 
@@ -812,9 +812,9 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 
 - [Documentación de cmdlet de caché en Redis de Azure en MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Cmdlets de Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkID=394765): obtenga información acerca del uso de los cmdlets en el módulo AzureResourceManager.
-- [Uso de grupos de recursos para administrar los recursos de Azure](../azure-portal/resource-group-portal.md): obtenga información sobre la creación y administración de grupos de recursos en el portal de Azure.
+- [Uso de grupos de recursos para administrar los recursos de Azure](../resource-group-template-deploy-portal.md): obtenga información sobre la creación y administración de grupos de recursos en el portal de Azure.
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

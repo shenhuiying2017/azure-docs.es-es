@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/04/2016"
+   ms.date="07/20/2016"
    ms.author="iainfou"/>
 
 # Uso de la extensión de VM de Docker para implementar el entorno
@@ -22,7 +22,7 @@ Docker es una conocida plataforma de creación de imágenes y administración de
 
 - Para crear rápidamente un prototipo de una aplicación o si ya conoce y usa Docker Machine, puede usar [el controlador de Azure de Docker Machine](./virtual-machines-linux-docker-machine.md) para implementar los hosts del docker en Azure.
 - Para una implementación basada en una plantilla, puede utilizarse la extensión de máquina virtual de Docker para máquinas virtuales de Azure. Este enfoque puede integrarse con las implementaciones de plantilla de Azure Resource Manager e incluye todas las ventajas relacionadas como el acceso basado en rol, el diagnóstico y la configuración posterior a la implementación.
-- La extensión de máquina virtual de Docker también admite Docker Compose, que utiliza un archivo YAML declarativo con el fin de tomar una aplicación modelada por el desarrollador en cualquier entorno y generar una implementación coherente.  
+- La extensión de máquina virtual de Docker también admite Docker Compose, que utiliza un archivo YAML declarativo con el fin de tomar una aplicación modelada por el desarrollador en cualquier entorno y generar una implementación coherente.
 - También puede [implementar un clúster de Docker Swarm completo en los servicios de contenedor de Azure](../container-service/container-service-deployment.md) para realizar implementaciones escalables y preparadas para la producción que aprovechen las herramientas de administración y programación adicionales que proporciona Swarm.
 
 Este artículo se centra en el uso de plantillas de Resource Manager para administrar la extensión de VM de Docker en un entorno personalizado preparado para la producción que defina.
@@ -74,7 +74,7 @@ info:    group create command OK
 Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Las herramientas de Docker ya estarán instaladas, por lo que vamos a intentar ejecutar un contenedor nginx:
 
 ```
-docker run -d -p 80:80 nginx
+sudo docker run -d -p 80:80 nginx
 ```
 
 Debería ver una salida similar a la siguiente:
@@ -91,11 +91,11 @@ Status: Downloaded newer image for nginx:latest
 b6ed109fb743a762ff21a4606dd38d3e5d35aff43fa7f12e8d4ed1d920b0cd74
 ```
 
-Examine el contenedor que se ejecuta en el host mediante `docker ps`:
+Examine el contenedor que se ejecuta en el host mediante `sudo docker ps`:
 
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
-b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   nostalgic_murdock
+b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   adoring_payne
 ```
 
 Abra un explorador web y escriba el nombre DNS especificado durante la implementación para ver el contenedor en acción:
@@ -134,9 +134,9 @@ Puede encontrar un tutorial más detallado sobre el uso de plantillas de Azure R
 
 Puede obtener más pasos detallados para las distintas opciones de implementación:
 
-1. [Uso de una máquina de Docker con el controlador de Azure](./virtual-machines-linux-docker-machine.md)  
-2. [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+1. [Uso de una máquina de Docker con el controlador de Azure](./virtual-machines-linux-docker-machine.md)
+2. [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
 3. [Introducción a Docker y Compose para definir y ejecutar una aplicación de varios contenedores en una máquina virtual de Azure](virtual-machines-linux-docker-compose-quickstart.md)
 3. [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

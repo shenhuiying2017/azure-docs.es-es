@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida para pruebas
@@ -41,7 +41,7 @@ Hay cinco fases principales para configurar este entorno de prueba de nube híbr
 2.	Configuración de RRAS1.
 3.	Creación de la red virtual de Azure entre locales.
 4.	Creación de la conexión VPN de sitio a sitio.
-5.	Configuración de DC2. 
+5.	Configuración de DC2.
 
 Si todavía no dispone de una suscripción de Azure, puede registrarse para obtener una cuenta gratuita en la página para [probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -70,14 +70,14 @@ RRAS1 proporciona enrutamiento del tráfico y servicios de dispositivos VPN entr
 
 En primer lugar, instale el sistema operativo en RRAS1.
 
-1.	Inicie la instalación de Windows Server 2012 R2.
+1.	Inicie la instalación de Windows Server 2012 R2.
 2.	Siga las instrucciones para completar la instalación, especificando una contraseña segura para la cuenta del administrador local. Inicie sesión con la cuenta del administrador local.
-3.	Conecte RRAS1 a una red que tenga acceso a Internet y ejecute Windows Update para instalar las actualizaciones más recientes de Windows Server 2012 R2.
+3.	Conecte RRAS1 a una red que tenga acceso a Internet y ejecute Windows Update para instalar las actualizaciones más recientes de Windows Server 2012 R2.
 4.	Conecte un adaptador de red a la subred de la red corporativa y el otro directamente a Internet. RRAS1 puede estar situado detrás de un firewall de Internet, pero no debe estar detrás de un traductor de direcciones de red (NAT).
 
 A continuación, configure las propiedades TCP/IP de RRAS1. Necesitará una configuración de dirección IP pública, incluyendo una dirección, una máscara de subred (o longitud de prefijo), y la puerta de enlace predeterminada y los servidores DNS de su proveedor de servicios de Internet (ISP). Necesitará la dirección IP pública de la fase 3.
 
-Utilice estos comandos en un símbolo del sistema de Windows PowerShell con nivel de administrador en RRAS1. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < and >. Puede obtener los nombres actuales de los adaptadores de red desde la pantalla del comando **Get-NetAdapter**.
+Utilice estos comandos en un símbolo del sistema de Windows PowerShell con nivel de administrador en RRAS1. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >. Puede obtener los nombres actuales de los adaptadores de red desde la pantalla del comando **Get-NetAdapter**.
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
 	$internetAdapterName="<Name of the adapter attached to the Internet>"
@@ -118,7 +118,7 @@ Obtenga el nombre de la suscripción con el comando siguiente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -223,7 +223,7 @@ Deje pasar unos minutos para que la conexión entre RRAS1 y la Puerta de enlace 
 
 A continuación, configure RRAS1 para que admita tráfico traducido para ubicaciones de Internet. En RRAS1:
 
-1.	En la pantalla de inicio, escriba **rras** y haga clic en **Enrutamiento y acceso remoto**. 
+1.	En la pantalla de inicio, escriba **rras** y haga clic en **Enrutamiento y acceso remoto**.
 2.	En el árbol de consola, abra el nombre del servidor y haga clic en **IPv4**.
 3.	Haga clic con el botón derecho en **General** y, a continuación, haga clic en **Nuevo protocolo de enrutamiento**.
 4.	Haga clic en **NAT** y, a continuación, en **Aceptar**.
@@ -327,6 +327,6 @@ Su entorno de nube híbrida ya está listo para las pruebas.
  
 ## Pasos siguientes
 
-- Configure una [granja de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
+- Configure una [granja de servidores de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

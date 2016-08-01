@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Creación de particiones de tablas en Almacenamiento de datos SQL
@@ -145,6 +145,8 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## Modificación de particiones
+
+Almacenamiento de datos SQL admite la separación, combinación y modificación de particiones. Cada una de estas funciones se ejecuta mediante la instrucción [ALTER TABLE][].
 
 Para cambiar particiones entre dos tablas, debe asegurarse de que las particiones se alinean en sus límites correspondientes y que las definiciones de tablas coinciden. Como las restricciones check no están disponibles para aplicar el intervalo de valores en una tabla, la tabla de origen debe contener los mismos límites de partición que la tabla de destino. Si no es así, el modificador de particionamiento generará un error, ya que los metadatos de la partición no estarán sincronizados.
 
@@ -373,6 +375,7 @@ Para más información, consulte los artículos sobre [información general de t
 
 <!-- MSDN Articles -->
 [Tablas e índices con particiones]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/es-ES/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [función de partición]: https://msdn.microsoft.com/library/ms187802.aspx
 [esquema de particiones]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -380,4 +383,4 @@ Para más información, consulte los artículos sobre [información general de t
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

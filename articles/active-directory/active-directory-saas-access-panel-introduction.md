@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2016"
+	ms.date="07/19/2016"
 	ms.author="markusvi"/>
 
 
@@ -128,7 +128,7 @@ Si es un administrador de Azure y ha iniciado sesión en el Portal de administra
 
 **Para probar con una cuenta de usuario diferente:**
 
-1. Haga clic en el menú de usuario en la esquina superior derecha del portal de Azure o del Panel de acceso y seleccione “**Cerrar sesión**”. Se cerrará su sesión de Azure AD.
+1. Haga clic en el menú de usuario en la esquina superior derecha del Portal de Azure o del Panel de acceso y seleccione “**Cerrar sesión**”. Se cerrará su sesión de Azure AD.
 
 2. Vaya al Panel de acceso en **http://myapps.microsoft.com**.
 
@@ -152,7 +152,7 @@ Cuando un usuario hace clic en un título de aplicación para una de estas aplic
 
 ### SSO basado en contraseña sin aprovisionamiento de identidad
 
-Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en “*Inicio de sesión único basado en contraseña*”. <br> Todos los usuarios del directorio verán todas las aplicaciones que se han configurado en este modo.
+Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en "*Inicio de sesión único basado en contraseña*”. <br> Todos los usuarios del directorio verán todas las aplicaciones que se han configurado en este modo.
 
 La primera vez que un usuario hace clic en un título de aplicación para una de estas aplicaciones, se le solicitará que instale el complemento SSO de contraseña para Internet Explorer o Chrome, lo que pueden requerir el reinicio del explorador web. Cuando vuelva al Panel de acceso y haga clic en el título de aplicación otra vez, se le solicitará un nombre de usuario y contraseña para la aplicación. Después de introducir el nombre de usuario y la contraseña, estas credenciales se almacenarán de forma segura en Azure AD y se vincularán a su cuenta en Azure AD, y el Panel de acceso iniciará la sesión del usuario automáticamente en la aplicación utilizando estas credenciales.
 
@@ -185,4 +185,4 @@ Al configurar un inicio de sesión único para una aplicación, el portal de adm
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,10 +19,10 @@
 
 # Cuotas predeterminadas para DocumentDB
 
-En la tabla siguiente se describen las cuotas predeterminadas para los recursos de DocumentDB.
+En la tabla siguiente se describen las cuotas predeterminadas para los recursos de base de datos de Azure DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

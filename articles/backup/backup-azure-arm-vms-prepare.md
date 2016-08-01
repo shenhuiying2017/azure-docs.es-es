@@ -26,7 +26,7 @@
 
 En este artículo se proporcionan los pasos necesarios para preparar el entorno de copia de seguridad de una máquina virtual (VM) implementada según el modelo de Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure.
 
-El servicio Copia de seguridad de Azure dispone de dos tipos de almacenes (almacenes de copia de seguridad y almacenes de servicios de recuperación) para proteger las máquinas virtuales. Un almacén de copia de seguridad protege las máquinas virtuales implementadas mediante el modelo de implementación clásica. Un almacén de servicios de recuperación protege **tanto máquinas virtuales implementadas con el modelo clásico como las implementadas mediante Resource Manager**. Para proteger las máquinas virtuales implementadas según el modelo de Resource Manager, debe usar un almacén de Servicios de recuperación.
+El servicio Copia de seguridad de Azure dispone de dos tipos de almacenes (almacenes de copia de seguridad y almacenes de servicios de recuperación) para proteger las máquinas virtuales. Un almacén de copia de seguridad protege las máquinas virtuales implementadas mediante el modelo de implementación clásica. Un almacén de servicios de recuperación protege ** tanto máquinas virtuales implementadas con el modelo clásico como las implementadas mediante Resource Manager**. Para proteger las máquinas virtuales implementadas según el modelo de Resource Manager, debe usar un almacén de Servicios de recuperación.
 
 >[AZURE.NOTE] Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../resource-manager-deployment-model.md). Consulte [Preparación del entorno de copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-prepare.md) para más información sobre cómo trabajar con las máquinas virtuales del modelo de implementación clásica.
 
@@ -66,7 +66,7 @@ Para crear un almacén de Servicios de recuperación:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Servicios de recuperación**.
+2. En el menú Concentrador, haga clic en **Examinar** y, en la lista de recursos, escriba **Servicios de recuperación**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Servicios de recuperación**.
 
     ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -84,7 +84,7 @@ Para crear un almacén de Servicios de recuperación:
 
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o en **Nuevo** para crear uno. Para tener información completa sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o haga clic en **Nuevo** para crear uno nuevo. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md)
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén **debe** estar en la misma región que las máquinas virtuales que quiere proteger.
 
@@ -102,9 +102,9 @@ La opción de replicación de almacenamiento permite elegir entre almacenamiento
 
 Para editar la configuración de replicación de almacenamiento:
 
-1. Seleccione el almacén para abrir su panel y la hoja de configuración. Si la hoja **Configuración** no se abre, haga clic en **Toda la configuración** en el panel del almacén.
+1. Seleccione el almacén para abrir su panel y la hoja de configuración. Si la hoja **Configuración** no se abre, haga clic en **Toda la configuración de** en el panel del almacén.
 
-2. En la hoja **Configuración**, haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad) > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En la hoja **Configuración de copia de seguridad**, elija la opción de replicación para su almacén.
+2. En la hoja **Configuración**, haga clic en **Infraestructura de copia de seguridad** > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En la hoja **Configuración de copia de seguridad**, elija la opción de replicación para su almacén.
 
     ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +115,7 @@ Para editar la configuración de replicación de almacenamiento:
 
 Antes de registrar una máquina virtual en un almacén, ejecute el proceso de detección para asegurarse de que se identifican todas las nuevas máquinas virtuales que se hayan agregado a la suscripción. El proceso consulta a Azure la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región. En el Portal de Azure, el escenario se refiere a lo que va a colocar en el almacén de servicios de recuperación. Directiva es la programación de la frecuencia y de cuándo se eligen los puntos de recuperación. La directiva también incluye el intervalo de retención de los puntos de recuperación.
 
-1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. Si no tiene abierto un almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú del centro, haga clic en **Examinar**.
+1. Si ya tiene abierto un almacén de Servicios de recuperación, vaya al paso 2. Si no tiene abierto un almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú central, haga clic en **Examinar**.
 
   - En la lista de recursos, escriba **Servicios de recuperación**.
   - Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de servicios de recuperación** cuando lo vea.
@@ -137,11 +137,11 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
 
     ![Detectar máquinas virtuales](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
-3. En la hoja Copia de seguridad, haga clic en **Backup goal** (Objetivo de la copia de seguridad) para abrir la hoja correspondiente.
+3. En la hoja Copia de seguridad, haga clic en **Objetivo de la copia de seguridad** para abrir la hoja de objetivo de la copia de seguridad.
 
     ![Hoja Escenario abierta](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. En la hoja de objetivo de la copia de seguridad, defina **dónde se ejecuta la carga de trabajo** en Azure y **de qué quiere hacer una copia de seguridad** en una máquina virtual, y haga clic en **Aceptar**.
+4. En la hoja de objetivo de la copia de seguridad, defina **dónde se ejecuta la carga de trabajo** en Azure y **de qué quiere hacer una copia de seguridad** a una máquina virtual, y haga clic en **Aceptar**.
 
     La hoja Backup Goal (Objetivo de la copia de seguridad) se cierra y se abre la hoja Directiva de copia de seguridad.
 
@@ -151,7 +151,7 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
 
     ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    En los detalles se muestra la directiva predeterminada. Si quiere crear una directiva, seleccione **Crear nuevo** en el menú desplegable. El menú desplegable también proporciona una opción para cambiar la hora a la que se tomó la instantánea, a las 19:00. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Al hacer clic en **Aceptar**, la directiva de copia de seguridad se asocia con el almacén.
+    En los detalles se muestra la directiva predeterminada. Si quiere crear una directiva nueva, seleccione **Crear nuevo** en el menú desplegable. El menú desplegable también proporciona una opción para cambiar la hora a la que se tomó la instantánea, a las 19:00. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Al hacer clic en **Aceptar**, la directiva de copia de seguridad se asocia con el almacén.
 
     A continuación, elija las máquinas virtuales que se asociarán con el almacén.
 
@@ -161,7 +161,7 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
 
     Si aún no ve la máquina virtual, compruebe que existe en la misma ubicación de Azure que el almacén de Servicios de recuperación.
 
-7. Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en **Habilitar copia de seguridad** en la parte inferior de la página. La directiva se implementa en el almacén y en las máquinas virtuales.
+7. Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en **Enable Backup** (Habilitar la copia de seguridad)en la parte inferior de la página. La directiva se implementa en el almacén y en las máquinas virtuales.
 
     ![Habilitar copia de seguridad](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
@@ -181,7 +181,7 @@ La tabla siguiente proporciona información adicional acerca del agente de máqu
 | **Operación** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalación del agente de la máquina virtual | <li>Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. <li>[Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. | <li> Instale el [agente de Linux](https://github.com/Azure/WALinuxAgent) más reciente desde GitHub. Necesitará privilegios de administrador para efectuar la instalación. <li> [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. |
-| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. | Siga las instrucciones que se indican en la sección sobre la [actualización del agente de máquina virtual para Linux](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se ejecuta ninguna operación de copia de seguridad durante la actualización del agente de máquina virtual. |
+| Actualización del agente de la máquina virtual | Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. | Siga las instrucciones que aparecen en [Actualización del Agente de Linux de Azure en una máquina virtual a la última versión desde Github](../virtual-machines-linux-update-agent.md). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
 | Validación de la instalación del agente de máquina virtual | <li>Vaya a la carpeta *C:\\WindowsAzure\\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y, luego, seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. | N/D |
 
 
@@ -230,13 +230,13 @@ Para usar a un proxy HTTP para la comunicación con la red pública de Internet,
 ###### Para máquinas Windows
 En este paso se configura el servidor proxy para la cuenta de sistema local.
 
-1. Descargue [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
+1. Descargue [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. Ejecute el comando siguiente desde un símbolo del sistema con privilegios elevados.
 
      ```
      psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
      ```
-    Se abrirá la ventana de Internet Explorer.
+     Se abrirá la ventana de Internet Explorer.
 3. Vaya a Herramientas -> Opciones de Internet -> Conexiones -> Configuración de LAN.
 4. Compruebe la configuración de proxy de la cuenta del sistema. Configure la dirección IP de proxy y el puerto.
 5. Cierre Internet Explorer.
@@ -271,7 +271,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### Paso 2: Aceptación de conexiones entrantes en el servidor proxy:
+#### Paso 2: Aceptación de conexiones entrantes en el servidor proxy:
 
 1. En el servidor proxy, abra Firewall de Windows. La manera más fácil de acceder al firewall es buscar Firewall de Windows con seguridad avanzada.
 
@@ -288,13 +288,13 @@ HttpProxy.Port=<proxy port>
 
     ![Crear una nueva regla](./media/backup-azure-vms-prepare/firewall-03.png)
 
-    - en *Tipo de protocolo*, elija *TCP*.
+    - en *Tipo de protocolo*, elija *TCP*
     - en *Puerto Local*, elija *Puertos específicos* y, en el campo siguiente, especifique el valor de ```<Proxy Port>``` configurado.
-    - en *Puerto remoto*, seleccione *Todos los puertos*.
+    - en *Puerto remoto*, seleccione *Todos los puertos*
 
     Durante el resto del asistente, haga clic en todas las pantallas hasta el final y asigne un nombre a esta regla.
 
-#### Paso 3: Adición de una regla de excepción al grupo de seguridad de red
+#### Paso 3: Adición de una regla de excepción al grupo de seguridad de red
 
 En un símbolo del sistema de Azure PowerShell, escriba el siguiente comando:
 
@@ -321,4 +321,4 @@ Ahora que ha preparado el entorno para realizar la copia de seguridad de la máq
 - [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
 - [Administración de copias de seguridad de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

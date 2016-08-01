@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
@@ -79,7 +79,7 @@ Para cada disco cuya copia de seguridad se realiza, Copia de seguridad de Azure 
 | Copia de seguridad inicial | 160 Mbps |
 | Copia de seguridad incremental (DR) | 640 Mbps <br><br> Este rendimiento puede reducirse considerablemente si hay mucha renovación de código dispersa en el disco del que es necesario hacer una copia de seguridad |
 
-### Tiempo total de copia de seguridad de máquinas virtuales
+## Tiempo total de copia de seguridad de máquinas virtuales
 Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar los datos, hay otras operaciones que contribuyen al tiempo total necesario para la copia de seguridad de una máquina virtual:
 
 - Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md#offline-vms)
@@ -106,7 +106,7 @@ Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el 
 
 *No* se le facturará en función del tamaño máximo admitido para cada disco de datos conectado a la máquina virtual, sino de los datos reales almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados con Copia de seguridad de Azure, que es la suma de los datos reales de cada punto de recuperación.
 
-Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
+Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos de datos adicionales con un tamaño máximo de 1 TB cada uno. La tabla siguiente proporciona los datos almacenados en cada uno de estos discos:
 
 |Tipo de disco|Tamaño máximo|Datos reales presentes|
 |---------|--------|------|
@@ -131,4 +131,4 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
