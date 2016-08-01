@@ -13,31 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
 
-En una plantilla de Azure Resource Manager, defina los recursos que se implementarán en una solución, y especifique parámetros y variables que permitan introducir valores de entrada para distintos entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. En este tema se describen las secciones de la plantilla.
+En este tema se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
-Visual Studio ofrece las herramientas para ayudarle a crear plantillas. Para más información sobre el uso de Visual Studio con las plantillas, vea [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Para obtener instrucciones sobre cómo crear una plantilla, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md). Para más recomendaciones sobre creación de platillas, consulte [Procedimientos recomendados para crear plantillas de Azure Resource Manager](resource-manager-template-best-practices.md).
 
-Para obtener instrucciones sobre cómo crear una plantilla, consulte [Tutorial de la plantilla de Azure Resource Manager](resource-manager-template-walkthrough.md).
+Un buen editor JSON puede simplificar la tarea de creación de plantillas. Para información sobre el uso de Visual Studio con las plantillas, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Para información sobre el uso de Visual Studio Code, consulte [Trabajo con plantillas de Azure Resource Manager en Visual Studio Code](resource-manager-vs-code.md).
 
-## Planeamiento de la plantilla
-
-Antes de comenzar con la plantilla, debe dedicar algún tiempo a averiguar lo que quiere implementar y cómo usará la plantilla. Específicamente, debe plantearse:
-
-1. Qué tipos de recursos tiene que implementar
-2. Dónde van a residir los recursos
-3. Qué versión de la API del proveedor de recursos usará al implementar el recurso
-4. Si alguno de los recursos debe implementarse después de otros recursos
-5. Qué valores quiere pasar durante la implementación y qué valores desea definir directamente en la plantilla
-6. Si necesita devolver valores de la implementación
-
-Para ayudarle a descubrir qué tipos de recursos están disponibles para la implementación, qué regiones son compatibles con el tipo y las versiones de API disponibles para cada tipo, vea [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
-
-Debe limitar el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
+Debe limitar el tamaño de la plantilla a 1 MB y cada archivo de parámetros a 64 KB. El límite de 1 MB se aplica al estado final de la plantilla una vez se ha ampliado con definiciones de recursos iterativas y los valores de variables y parámetros.
 
 ## Formato de plantilla
 
@@ -241,12 +228,12 @@ Defina recursos con la siguiente estructura:
 | :----------------------: | :------: | :----------
 | apiVersion | Sí | Versión de la API de REST que debe usar para crear el recurso. Para determinar los números de versión disponibles para un determinado tipo de recurso, consulte [Versiones de API compatibles](resource-manager-supported-services.md#supported-api-versions).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
-| name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Consulte [Compruebe el nombre del recurso](https://msdn.microsoft.com/library/azure/mt219035.aspx).
+| name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. Consulte [Check resource name](https://msdn.microsoft.com/library/azure/mt219035.aspx) (Comprobación de nombre de recurso).
 | location | Varía | Ubicaciones geográficas compatibles del recurso proporcionado. Para determinar las ubicaciones disponibles, consulte [Regiones admitidas](resource-manager-supported-services.md#supported-regions). La mayoría de los tipos de recursos requieren una ubicación, pero algunos (por ejemplo, una asignación de roles) no la necesitan.
 | etiquetas | No | Etiquetas asociadas al recurso.
 | comentarios | No | Notas para documentar los recursos de la plantilla
 | dependsOn | No | Recursos de los que depende el recurso que se está definiendo. Las dependencias entre los recursos se evalúan y los recursos se implementan en su orden dependiente. Cuando no hay recursos dependientes entre sí, se intenta implementarlos en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos.
-| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, consulte [Proveedores, regiones, versiones de API y esquemas del Administrador de recursos](resource-manager-supported-services.md).
+| propiedades | No | Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. Para obtener vínculos a documentación del esquema de recursos o la API de REST, consulte [Proveedores, regiones, versiones de API y esquemas de Resource Manager](resource-manager-supported-services.md).
 | resources | No | Recursos secundarios que dependen del recurso que se está definiendo. Solo puede proporcionar los tipos de recursos que permite el esquema del recurso principal. El nombre completo del tipo de recurso secundario incluye el tipo de recurso principal, como **Microsoft.Web/sites/extensions**. La dependencia del recurso primario no está implícita; debe definir explícitamente esa dependencia. 
 
 
@@ -281,7 +268,7 @@ La sección de recursos contiene una matriz de los recursos para implementar. En
 
 
 
-En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/sites** con un recurso secundario **Extensions**: Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
+En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/sites** con un recurso secundario **Extensions**. Observe que el sitio se ha marcado como dependiente de la granja de servidores ya que la granja de servidores debe existir antes para que se pueda implementar el sitio. Observe también que el recurso **Extensions** es un elemento secundario del sitio.
 
     "resources": [
       {
@@ -368,7 +355,7 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
        }
     }
 
-Para obtener más información sobre cómo trabajar con resultados, consulte [Uso compartido del estado con las plantillas de Azure Resource Manager](best-practices-resource-manager-state.md).
+Para más información sobre cómo trabajar con resultados, consulte [Uso compartido del estado con las plantillas de Azure Resource Manager](best-practices-resource-manager-state.md).
 
 ## Pasos siguientes
 - Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
@@ -377,4 +364,4 @@ Para obtener más información sobre cómo trabajar con resultados, consulte [Us
 - Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 - Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

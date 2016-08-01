@@ -3,14 +3,14 @@ La asignación de columnas puede usarse para especificar cómo se asignan las co
 
 La asignación de columnas admite los siguientes escenarios:
 
-1.	Todas las columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
-2.	Un subconjunto de columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
+- Todas las columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
+- Un subconjunto de columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
 
 Las siguientes son las condiciones de error, estas condiciones producirán una excepción:
 
-1.	O bien menos columnas o más columnas en "structure" de la tabla receptora de las que se especifican en la asignación.
-2.	Asignación duplicada.
-3.	El resultado de la consulta SQL no tiene un nombre de columna que esté especificado en la asignación.
+- O bien menos columnas o más columnas en "structure" de la tabla receptora de las que se especifican en la asignación.
+- Asignación duplicada.
+- El resultado de la consulta SQL no tiene un nombre de columna que esté especificado en la asignación.
 
 ## Ejemplos de asignación de columnas
 > [AZURE.NOTE] Los ejemplos siguientes son para SQL Azure y Azure Blob, pero son aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente.
@@ -149,4 +149,4 @@ En este caso, los resultados de consulta se asignan primero a las columnas espec
 
 ![Flujo de asignación de columnas 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0720_2016-->

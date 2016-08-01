@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Agregar una única tarea de codificación al trabajo. 
+- Agregar una única tarea de codificación al trabajo.
 - Especificar el recurso de entrada que se va a codificar.
 - Crear un recurso de salida que contendrá el recurso codificado.
 - Agregar un controlador de eventos para comprobar el progreso del trabajo.
@@ -382,4 +382,4 @@ Se aplican las siguientes consideraciones:
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

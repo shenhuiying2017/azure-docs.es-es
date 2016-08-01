@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Exploradores de almacenamiento de Azure | Microsoft Azure"
-	description="Lista de exploradores de almacenamiento que le permiten ver datos de almacenamiento de Azure o interactuar con ellos."
+	pageTitle="Herramientas de cliente de Almacenamiento de Azure | Microsoft Azure"
+	description="Lista de herramientas que le permiten ver datos de Almacenamiento de Azure o interactuar con ellos."
 	services="storage"
 	documentationCenter=""
 	authors="micurd"
@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="micurd"/>
 
-# Exploradores de almacenamiento de Azure
+# Herramientas de cliente de Almacenamiento de Azure
 
-Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver sus datos en un "explorador": una herramienta que sirve para mostrar los datos de una cuenta de almacenamiento.
+Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Almacenamiento de Azure. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una “X” en cada bloque si permite enumerar o tener acceso a la abstracción de los datos. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
 
-En las tablas siguientes, enumeramos cada uno de los exploradores de almacenamiento de Azure y, a continuación, escribimos una "X" en cada bloque si permite enumerar y/o tener acceso a la abstracción de los datos. La tabla también muestra si el explorador está disponible. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
+Únicamente proporcionamos una instantánea de las herramientas de cliente de Almacenamiento de Azure. Estas herramientas pueden seguir evolucionando y ampliando su funcionalidad. Si existen correcciones o actualizaciones, le agradeceremos que nos lo haga saber a través de un comentario. De igual manera, si conoce otras herramientas que deberíamos mostrar, estaremos encantados de agregarlas.
 
-Únicamente proporcionamos una instantánea de los exploradores de almacenamiento de Azure disponibles. Estas herramientas pueden seguir evolucionando y ampliando su funcionalidad. Si existen correcciones o actualizaciones, le agradeceremos que nos lo haga saber a través de un comentario. De igual manera, si conoce otras herramientas que deberíamos mostrar, estaremos encantados de agregarlas.
-
-**Exploradores de almacenamiento de Microsoft Azure**
+**Herramientas de cliente de Almacenamiento de Microsoft Azure**
 
 <table>
   <tr>
-    <th rowspan="2">Explorador de almacenamiento de Azure</th>
+    <th rowspan="2">Herramienta de cliente de Almacenamiento de Azure</th>
     <th rowspan="2">Blob en bloques</th>
     <th rowspan="2">Blob en páginas</th>
     <th rowspan="2">Append Blob</th>
@@ -65,7 +63,7 @@ En las tablas siguientes, enumeramos cada uno de los exploradores de almacenamie
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
+    <td>X</td>
     <td>Y</td>
     <td></td>
     <td>X</td>
@@ -88,13 +86,13 @@ En las tablas siguientes, enumeramos cada uno de los exploradores de almacenamie
   </tr>
 </table>
 
-**Exploradores de almacenamiento de Azure de terceros**
+**Herramientas de cliente de Almacenamiento de Azure de terceros**
 
-No hemos comprobado la funcionalidad ni la calidad proporcionadas por los siguientes exploradores de terceros; el hecho de que figuren en esta lista no implica su aprobación por parte de Microsoft.
+No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguientes herramientas de terceros; el hecho de que figuren en esta lista no implica su aprobación por parte de Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Explorador de almacenamiento de Azure</th>
+    <th rowspan="2">Herramienta de cliente de Almacenamiento de Azure</th>
     <th rowspan="2">Blob en bloques</th>
     <th rowspan="2">Blob en páginas</th>
     <th rowspan="2">Append Blob</th>
@@ -252,4 +250,4 @@ No hemos comprobado la funcionalidad ni la calidad proporcionadas por los siguie
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="07/18/2016" 
 	ms.author="juliako"/>
 
 
@@ -28,7 +28,7 @@ Los archivos del recurso se denominan **archivos de recursos**. La instancia de 
 
 Al crear recursos, puede especificar las siguientes opciones de cifrado.
 
-- **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
+- **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
 - **CommonEncryption**: utilice esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncrypted**: utilice esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 - **StorageEncrypted**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
@@ -54,7 +54,7 @@ El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas sigu
 - Crea una instancia de AssetFile que necesitamos asociar con el recurso.
 - Crea una instancia de AccessPolicy que define los permisos y la duración del acceso al recurso.
 - Crea una instancia de Locator que proporciona acceso al recurso.
-- Carga un solo archivo multimedia en los Servicios multimedia. 
+- Carga un solo archivo multimedia en los Servicios multimedia.
 
 		
 		static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -315,4 +315,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

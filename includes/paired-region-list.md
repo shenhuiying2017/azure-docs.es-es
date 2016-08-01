@@ -2,10 +2,10 @@
 |:-----------------:|:-----------------:|
 |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 |Centro-Sur de EE. UU |Centro-Norte de EE. UU |
-|Este de EE. UU. |Oeste de EE. UU. |
-|Oeste de EE. UU. |Este de EE. UU. |
-|Este de EE. UU. - 2 |Central EE. UU.: |
-|Central EE. UU.: |Este de EE. UU. - 2 |
+|Este de EE. UU. |Oeste de EE. UU. |
+|Oeste de EE. UU. |Este de EE. UU. |
+|Este de EE. UU. - 2 |Central EE. UU.: |
+|Central EE. UU.: |Este de EE. UU. - 2 |
 |Europa del Norte |Europa occidental |
 |Europa occidental |Europa del Norte |
 |Sudeste de Asia |Asia oriental |
@@ -19,5 +19,6 @@
 |Sudeste de Australia|Australia Oriental |
 |Este de Canadá |Centro de Canadá |
 |Centro de Canadá |Este de Canadá |
+|Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

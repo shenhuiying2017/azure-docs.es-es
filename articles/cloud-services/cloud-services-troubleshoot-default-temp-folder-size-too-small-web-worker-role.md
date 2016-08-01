@@ -13,20 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="07/19/2016"
    ms.author="v-six" />
 
 # El tamaño predeterminado de la carpeta TEMP es demasiado pequeño en un rol de trabajo o web de servicio en la nube.
 
 El directorio temporal predeterminado de un rol web o de trabajo de servicio de nube tiene un tamaño máximo de 100 MB, que puede llenarse en algún momento. En este artículo se describe cómo evitar quedarse sin espacio para el directorio temporal.
 
->[AZURE.NOTE] Esto solo se aplica al uso de roles web o de trabajo en el SDK 1.0 a 1.4 de Azure.
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## ¿Por qué me quedo sin espacio?
 
-Las variables del entorno de Windows estándar TEMP y TMP están disponibles en el código que se ejecuta en su aplicación. Tanto TEMP como TMP apuntan a un único directorio que tiene un tamaño máximo de 100 MB. Los datos que están almacenados en este directorio no persisten en el ciclo de vida del servicio en la nube; si las instancias de rol de un servicio en la nube se reciclan, el directorio se limpia.
+Las variables del entorno de Windows estándar TEMP y TMP están disponibles en el código que se ejecuta en su aplicación. Tanto TEMP como TMP apuntan a un único directorio que tiene un tamaño máximo de 100 MB. Los datos que están almacenados en este directorio no persisten en el ciclo de vida del servicio en la nube; si las instancias de rol de un servicio en la nube se reciclan, el directorio se limpia.
 
 ## Sugerencia para corregir el problema
 
@@ -79,4 +77,4 @@ Vea más [artículos de solución de problemas](https://azure.microsoft.com/docu
 
 Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

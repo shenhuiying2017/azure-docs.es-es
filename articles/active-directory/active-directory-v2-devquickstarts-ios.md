@@ -50,7 +50,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 Cree una nueva aplicación en el [portal de registro de la aplicación](https://apps.dev.microsoft.com) o siga los pasos detallados en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
-- Agregar la plataforma **Móvil** a la aplicación.
+- Agregar la plataforma **Móvil** a la aplicación.
 - Copie el **URI de redireccionamiento** del portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -108,7 +108,7 @@ La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Despué
 - Vamos a agregar algunos valores al archivo `LoginViewController.m` para establecer el contexto de la autenticación y autorización. Después del código, encontrará los detalles de los valores.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Despué
 
 Analicemos los detalles del código.
 
-La primera cadena es para `scopes`. `User.ReadBasic.All` permite leer el perfil básico de todos los usuarios del directorio.
+La primera cadena es para `scopes`. El valor `User.Read` permite leer el perfil básico del usuario que ha iniciado sesión.
 
 Puede obtener más información sobre todos los ámbitos disponibles en [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ámbitos de los permisos de Microsoft Graph).
 
@@ -588,4 +588,4 @@ Si ha utilizado el esquema o ha seguido todo el tutorial, la aplicación deberí
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

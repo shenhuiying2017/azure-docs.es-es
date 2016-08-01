@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # Seguridad en el Almacén de Azure Data Lake
@@ -43,7 +43,10 @@ En la actualidad, cada una de las suscripciones de Azure puede asociarse a una i
 
 ## Control de autorización y acceso
 
-Una vez que un usuario se autentica mediante AAD para acceder al Almacén de Azure Data Lake, la autorización controla los permisos de acceso al Almacén de Data Lake. El Almacén de Data Lake separa la autorización para las actividades relacionadas con los datos y la cuenta de la siguiente manera: administración de cuenta a partir de administración de datos [control de acceso basado en roles](../active-directory/role-based access control-what-is.md) (RBAC) proporcionado por Azure para la administración de cuentas; es compatible con ACL de POSIX para acceder a los datos del almacén.
+Una vez que un usuario se autentica mediante AAD para acceder al Almacén de Azure Data Lake, la autorización controla los permisos de acceso al Almacén de Data Lake. Data Lake Store separa la autorización para las actividades relacionadas con cuentas y las relacionadas con datos de la siguiente manera.
+
+* [Control de acceso basado en rol](../active-directory/role-based-access-control-what-is.md) (RBAC) proporcionado por Azure para la administración de cuentas
+* ACL de POSIX para el acceso a datos en el almacén.
 
 ### Uso de RBAC para la administración de cuentas
 
@@ -61,13 +64,13 @@ Tenga en cuenta que si bien el objetivo de la asignación de estas funciones es 
 | Colaborador | Todos, excepto agregar y quitar roles | Regido por ACL | El colaborador puede administrar otros aspectos de una cuenta, como crear y administrar alertas, realizar implementaciones, etc. Un colaborador no puede agregar ni quitar roles. |
 | Administrador de acceso de usuarios | Agregar y quitar roles | Regido por ACL | El administrador de acceso de usuarios puede administrar el acceso de los usuarios a las cuentas. |
 
-Para ver instrucciones, consulte [Asignación de grupos de seguridad o usuarios a cuentas de Almacén de Azure Data Lake](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
+Para ver instrucciones, consulte [Asignación de grupos de seguridad o usuarios a cuentas de Azure Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### Uso de ACL para operaciones en sistemas de archivos
 
-El Almacén de Azure Data Lake es un sistema de archivos jerárquico, como HDFS, que admite [ACL de POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists); permite derechos de acceso de lectura (r), escritura (w) y ejecución (x) a recursos concedidos al propietario, el grupo propietario y otros grupos y usuarios. En la versión preliminar pública del Almacén de Data Lake (versión actual), las ACL solo están habilitadas en la carpeta raíz, lo que significa que las ACL que se aplican a la carpeta raíz también son aplicables también a todos los archivos y carpetas secundarias. En las versiones futuras, podrá establecer las ACL en cualquier archivo o carpeta.
+Azure Data Lake Store es un sistema de archivos jerárquico, como HDFS, que admite [ACL de POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists); proporciona derechos de acceso de lectura (r), escritura (w) y ejecución (x) a recursos concedidos al propietario, al grupo propietario y a otros grupos y usuarios. En la versión preliminar pública del Almacén de Data Lake (versión actual), las ACL solo están habilitadas en la carpeta raíz, lo que significa que las ACL que se aplican a la carpeta raíz también son aplicables también a todos los archivos y carpetas secundarias. En las versiones futuras, podrá establecer las ACL en cualquier archivo o carpeta.
 
-Es un procedimiento recomendado para definir la ACL para muchos usuarios mediante los [grupos de seguridad](../active-directory/active-directory-accessmanagement-manage-groups.md). Agrupe los usuarios en un grupo de seguridad y asigne las ACL de los archivos y carpetas a ese grupo de seguridad. Esto es útil al proporcionar un acceso personalizado, ya que hay un límite que solo permite agregar un máximo de nueve entradas como parte del acceso personalizado. Consulte [Asignación de grupos de seguridad o usuarios a cuentas de Almacén de Azure Data Lake](data-lake-store-secure-data.md#filepermissions) para más información acerca de cómo proteger los datos almacenados en el Almacén de Data Lake mediante grupos de seguridad de AAD.
+Es un procedimiento recomendado para definir las ACL para muchos usuarios mediante los [grupos de seguridad](../active-directory/active-directory-accessmanagement-manage-groups.md). Agrupe los usuarios en un grupo de seguridad y asigne las ACL de los archivos y carpetas a ese grupo de seguridad. Esto es útil al proporcionar un acceso personalizado, ya que hay un límite que solo permite agregar un máximo de nueve entradas como parte del acceso personalizado. Consulte [Asignación de grupos de seguridad o usuarios a cuentas de Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions) para más información acerca de cómo proteger los datos almacenados en Data Lake Store mediante grupos de seguridad de AAD.
 
 ![Mostrar acceso estándar y personalizado](./media/data-lake-store-security-overview/adl.acl.2.png "Mostrar acceso estándar y personalizado")
 
@@ -110,7 +113,7 @@ Una vez habilitada la configuración de diagnóstico, puede ver los registros en
 
 Los clientes empresariales demandan una plataforma en la nube de análisis de datos segura y fácil de usar. El Almacén de Azure Data Lake se ha diseñado para satisfacer estos requisitos con la administración de identidades y la autenticación mediante la integración de Azure Active Directory, la autorización basada en ALC, el aislamiento de red, el cifrado de datos en tránsito y en reposo (en el futuro), así como la auditoría.
 
-Si desea ver las nuevas características incluidas en el Almacén de Data Lake, envíenos sus comentarios al [foro de Uservoice](https://feedback.azure.com/forums/327234-data-lake).
+Si desea ver las nuevas características incluidas en Data Lake Store, envíenos sus comentarios al [foro de Uservoice](https://feedback.azure.com/forums/327234-data-lake).
 
 ## Consulte también
 
@@ -118,4 +121,4 @@ Si desea ver las nuevas características incluidas en el Almacén de Data Lake, 
 - [Introducción al Almacén de Data Lake](data-lake-store-get-started-portal.md)
 - [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

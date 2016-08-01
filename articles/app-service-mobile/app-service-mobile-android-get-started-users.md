@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="ricksal"/>
 
 # Agregar autenticación a su aplicación de Android
@@ -68,4 +68,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 <!-- URLs. -->
 [Introducción a Aplicaciones móviles]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

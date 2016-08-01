@@ -19,7 +19,7 @@
 
 # Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB
 
-Para conectarse a una cuenta de DocumentDB con soporte de protocolo para MongoDB mediante MongoChef, debe hacer lo siguiente:
+Para conectarse a una cuenta de Azure DocumentDB con soporte de protocolo para MongoDB mediante MongoChef, debe hacer lo siguiente:
 
 - Descargar e instalar [MongoChef](http://3t.io/mongochef)
 - Disponer de la cuenta de DocumentDB con soporte de protocolo para la información de la [cadena de conexión](documentdb-connect-mongodb-account.md) de MongoDB
@@ -132,4 +132,4 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

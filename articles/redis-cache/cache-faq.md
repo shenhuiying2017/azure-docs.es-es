@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="07/20/2016" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -21,8 +21,13 @@
 Obtenga información acerca de las respuestas a preguntas comunes, patrones y prácticas recomendadas para Caché en Redis de Azure.
 
 
+## Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 
+Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar una respuesta.
 
+-	Puede publicar una pregunta en el [hilo de Disqus](#comments) al final de estas preguntas más frecuentes y ponerse en contacto con el equipo de Caché de Microsoft Azure y otros miembros de la comunidad con cualquier tema que tenga relación con este artículo.
+-	Puede publicar una pregunta en el [foro de MSDN de Caché de Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) y ponerse en contacto con el equipo Caché de Microsoft Azure y otros miembros de la Comunidad.
+-	Puede enviarnos un mensaje de correo electrónico a [Comentarios externos de Caché de Microsoft Azure](mailto:azurecache@microsoft.com).
 
 ## Preguntas más frecuentes de planeación
 
@@ -40,9 +45,9 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 -	**Memoria**: los niveles Básico y Estándar ofrecen 250 MB – 53 GB. El nivel Premium ofrece hasta 530 GB con más disponible [tras su solicitud](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/).
 -	**Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Premium ofrece más ancho de banda en comparación con Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, vea la [tabla siguiente](#cache-performance).
 -	**Rendimiento**: el nivel Premium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para obtener más información, vea la tabla siguiente.
--	**Alta disponibilidad/SLA**: Caché en Redis de Azure garantiza que la memoria caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Caché en Redis de Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
+-	**Alta disponibilidad/SLA**: Caché en Redis de Azure garantiza que la memoria caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Caché en Redis de Azure](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
 -	**Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Almacenamiento de Azure. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Caché en Redis de Azure ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
--	**Clúster de Redis**: si quiere crear memorias caché de más de 53 GB o quiere realizar particiones de datos en varios nodos de Redis, puede usar la agrupación en clústeres de Redis que está disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
+-	**Clúster de Redis**: si quiere crear memorias caché de más de 53 GB o quiere realizar particiones de datos en varios nodos de Redis, puede usar la agrupación en clústeres de Redis que está disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
 -	**Aislamiento de red y seguridad mejorado**: la implementación de la Red virtual de Azure ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para más información, vea [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 -	**Configurar Redis**: tanto en los niveles Estándar como Premium, puede configurar Redis para las notificaciones de Keyspace.
 -	**Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. [Consulte la página de información de precios para detalles](https://azure.microsoft.com/pricing/details/cache/).
@@ -61,7 +66,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes.
 -	Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250.000 * 10 = 2,5 millones de solicitudes por segundo.
 -	El rendimiento para los tamaños de clave más grandes es más alto en el nivel Premium que en el nivel Estándar.
 
-| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de 1 KB |
+| Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño de clave de 1 KB |
 |--------------------------|--------|-----------|--------------------------------------------------------|------------------------------------------|
 | **Tamaños de caché estándar** | | | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** | **Solicitudes por segundo (RPS)** |
 | C0 | 250 MB | Compartido | 5 / 0.625 | 600 |
@@ -117,7 +122,7 @@ En la mayoría de los casos los valores predeterminados del cliente son suficien
 	-	Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal como se describe en [Retry general guidance](best-practices-retry-general.md) (Guía general de reintentos) publicado por el grupo Microsoft Patterns & Practices.
 -	**Valores de tiempo de expiración**
 	-	Tenga en cuenta la carga de trabajo y establezca los valores según corresponda. Si almacena valores grandes, establezca el tiempo de expiración en un valor superior.
-	-	Establezca `AbortOnConnectFail` en false y deje que StackExchange.Redis se vuelva a conectar automáticamente.
+	-	Establezca `AbortOnConnectFail` en False y deje que StackExchange.Redis se vuelva a conectar automáticamente.
 	-	Utilice una única instancia de ConnectionMultiplexer para la aplicación. Puede usar LazyConnection para crear una instancia única que se devuelva por una propiedad de conexión, tal como se muestra en [Conexión a la caché mediante la clase ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 	-	Establezca la propiedad `ConnectionMultiplexer.ClientName` a un nombre único de la instancia de aplicación con fines de diagnóstico.
 	-	Use varias instancias `ConnectionMultiplexer` para cargas de trabajo personalizadas.
@@ -137,7 +142,7 @@ Una de las grandes virtudes de Redis es que hay muchos clientes que admiten much
 <a name="cache-emulator"></a>
 ### ¿Hay un emulador local para Azure Redis Cache?
 
-No hay ningún emulador local para Caché en Redis de Azure, pero puede ejecutar la versión MSOpenTech de redis-server.exe desde las [Herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) en su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de la memoria caché local, tal y como se muestra en el ejemplo siguiente.
+No hay ningún emulador local para Caché en Redis de Azure, pero puede ejecutar la versión MSOpenTech de redis-server.exe desde las [Herramientas de la línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/) en su máquina local y conectarse a ella para obtener una experiencia similar a un emulador de memoria caché local, tal y como se muestra en el ejemplo siguiente.
 
 
 	private static Lazy<ConnectionMultiplexer>
@@ -261,7 +266,7 @@ Cómo configurar este valor:
 
 -	En ASP.NET, use el [valor de configuración "minIoThreads"][] que se encuentra en el elemento de configuración `<processModel>` en web.config. Si está trabajando dentro de Sitios web de Azure, esta configuración no se expone a través de las opciones de configuración. Sin embargo, todavía podrá establecerlo mediante programación (consulte a continuación) con el método Application\_Start de global.asax.cs.
 
-> **Nota importante:** El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de cuatro núcleos y desea que su configuración de minIOThreads sea 200 en tiempo de ejecución, usará `<processModel minIoThreads="50"/>`.
+> **Nota importante:** El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que su configuración de minIOThreads sea 200 en tiempo de ejecución, usará `<processModel minIoThreads="50"/>`.
 
 -	Fuera de ASP.NET, use la API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
@@ -291,11 +296,11 @@ Las preguntas más frecuentes de esta sección abarcan las cuestiones comunes so
 <a name="cache-monitor"></a>
 ### ¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?
 
-Se pueden supervisar las instancias de Caché en Redis de Microsoft Azure en el [Portal de Azure](https://portal.azure.com). Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Para obtener más información, vea [Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md).
+Se pueden supervisar las instancias de Caché en Redis de Microsoft Azure en el [Portal de Azure](https://portal.azure.com). Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Para obtener más información, consulte [Supervisión de Caché en Redis de Azure](cache-how-to-monitor.md).
 
 La sección **Soporte técnico y solución de problemas** de la hoja **Configuración** de la Caché en Redis contiene también varias herramientas para supervisar y solucionar los problemas de las cachés.
 
--	La **solución de problemas** proporciona información acerca de los problemas comunes y las estrategias para resolverlos.
+-	La **solución de problemas** proporciona información sobre los problemas comunes y las estrategias para resolverlos.
 -	Los **registros de auditoría** proporcionan información sobre las acciones realizadas en la memoria caché. También puede usar el filtrado para expandir esta vista e incluir otros recursos.
 -	El **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../resource-health/resource-health-overview.md).
 -	Haga clic en **Nueva solicitud de soporte** para abrir una solicitud de soporte técnico para su memoria caché.
@@ -314,7 +319,9 @@ Las memorias caché de la misma región y suscripción comparten la misma config
 <a name="cache-timeouts"></a>
 ### ¿Por qué estoy viendo los tiempos de expiración?
 
-Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Solución de problemas de lado cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) y [Excepciones de tiempo de espera de StackExchange.Redis] (Solución de problemas de lado cliente] (cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Los tiempos de expiración se producen en el cliente que usa para comunicarse con Redis. Por lo general, el servidor de Redis no agota el tiempo de espera. Cuando se envía un comando al servidor de Redis, el comando se pone en cola y el servidor de Redis finalmente recoge el comando y lo ejecuta. Sin embargo el cliente puede agotar el tiempo de espera durante este proceso y, si lo hace, se produce una excepción en el lado de la llamada. Para obtener más información sobre cómo solucionar problemas de tiempo de espera, consulte [Solución de problemas de lado cliente](cache-how-to-troubleshoot.md#client-side-troubleshooting) y [Excepciones de tiempo de espera de StackExchange.Redis] \(Solución de problemas de lado cliente](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+
+'<-- Loc Comment: Broken link: [StackExchange.Redis timeout exceptions](Client side troubleshooting](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions). "(Client side troubleshooting]" should be removed. -->'
 
 <a name="cache-disconnect"></a>
 ### ¿Por qué se desconectó el cliente desde la memoria caché?
@@ -344,10 +351,10 @@ A continuación se indican algunas razones habituales por las que se desconecta 
 
 ### ¿Qué oferta de caché de Azure es adecuada para mí?
 
->[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, el Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Nuestra recomendación es usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para obtener más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
+>[AZURE.IMPORTANT]Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, el Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Le recomendamos usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para obtener más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](cache-migrate-to-redis.md).
 
 ### Caché en Redis de Azure
-Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
+Caché en Redis de Azure está disponible con carácter general en tamaños de hasta 53 GB y tiene un contrato de nivel de servicio de disponibilidad del 99,9 %. El nuevo [nivel premium](cache-premium-tier-intro.md) ofrece tamaños de hasta 530 GB, además de compatibilidad con clústeres, redes virtuales y persistencia, con un contrato de nivel de servicio del 99,9 %.
 
 Caché en Redis de Azure ofrece a los clientes la posibilidad de usar una Caché en Redis segura y dedicada administrada por Microsoft. Con esta oferta, puede aprovechar el variado conjunto de características y ecosistema proporcionados por Redis, junto con el hospedaje y la supervisión confiables que Microsoft pone a su disposición.
 
@@ -369,4 +376,4 @@ Para más información sobre cómo empezar a usar Caché en Redis de Azure, vea 
 
 [valor de configuración "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

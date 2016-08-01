@@ -59,13 +59,12 @@ Cuando se produce un error transitorio al conectar con Base de datos SQL, el có
 ## Particionamiento de datos con la escala elástica
 La escala elástica simplifica el proceso de escalado y reducción horizontal.
 
-[Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure]
-* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 * [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 
 ## Pasos siguientes
 
-Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
+Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

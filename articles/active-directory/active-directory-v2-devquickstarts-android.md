@@ -48,7 +48,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 Cree una nueva aplicación en el [portal de registro de la aplicación](https://apps.dev.microsoft.com) o siga los pasos detallados en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
-- Agregar la plataforma **Móvil** a la aplicación.
+- Agregar la plataforma **Móvil** a la aplicación.
 - Copie el **URI de redireccionamiento** del portal. Debe usar el valor predeterminado de `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
@@ -148,12 +148,12 @@ Ahora que `oidlib-sample` se ejecuta correctamente, vamos a modificar algunos pu
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-El valor `User.ReadBasic.All` de `oidc_scopes` permite leer el perfil básico de todos los usuarios del directorio. Puede obtener más información sobre todos los ámbitos disponibles en [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ámbitos de los permisos de Microsoft Graph).
+El valor `User.Read` en `oidc_scopes` permite leer el perfil básico del usuario que ha iniciado sesión. Puede obtener más información sobre todos los ámbitos disponibles en [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Ámbitos de los permisos de Microsoft Graph).
 
 Si quiere ver explicaciones sobre `openid` o `offline_access` como ámbitos de OpenID Connect, consulte [Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -196,4 +196,4 @@ Cuando se haya autenticado correctamente, haga clic en el botón **Request Prote
 
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

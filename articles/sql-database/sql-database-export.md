@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/06/2016"
+	ms.date="07/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -33,7 +33,7 @@ Cuando necesite crear un archivo de una base de datos de SQL Azure, puede export
 - El tamaño máximo de un archivo BACPAC guardado en el almacenamiento de blobs de Azure es de 200 GB. Use la utilidad de símbolo del sistema [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para guardar archivos BACPAC de mayor tamaño en un almacenamiento local. Esta utilidad se incluye con Visual Studio y SQL Server. También puede [descargar](https://msdn.microsoft.com/library/mt204009.aspx) la versión más reciente de SQL Server Data Tools para obtener esta utilidad.
 - No se puede archivar en Almacenamiento premium de Azure usando un archivo BACPAC.
 - Si la operación de exportación tarda más de 20 horas, es posible que se cancele. Para aumentar el rendimiento durante la exportación, puede hacer lo siguiente:
- - Aumentar el nivel de servicio temporalmente 
+ - Aumentar el nivel de servicio temporalmente
  - Detener toda actividad de lectura y escritura durante la exportación
  - Usar un índice agrupado en todas las tablas de gran tamaño. Sin índices agrupados, la exportación podría no producirse si tarda más de 6-12 horas. Esto se debe a que el servicio de exportación necesita completar el recorrido de tabla para exportar toda la tabla.
 
@@ -42,7 +42,7 @@ Cuando necesite crear un archivo de una base de datos de SQL Azure, puede export
 Para completar este artículo, necesitará lo siguiente:
 
 - Una suscripción de Azure.
-- Una Base de datos SQL de Azure. 
+- Una Base de datos SQL de Azure.
 - Una [cuenta de almacenamiento estándar de Azure](../storage/storage-create-storage-account.md) con un contenedor de blobs para almacenar el BACPAC.
 
 ## Exportación de la base de datos
@@ -104,4 +104,4 @@ Abra la hoja de Base de datos SQL correspondiente a la base de datos que desea e
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0720_2016-->

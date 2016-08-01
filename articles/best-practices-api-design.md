@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Guía de diseño de una API
@@ -356,7 +356,7 @@ Accept: application/json
 ...
 ```
 
-El cuerpo del mensaje de respuesta contiene una matriz `links` (resaltada en el código de ejemplo) que especifica la naturaleza de la relación (_Customer_), el URI del cliente (_http://adventure-works.com/customers/3_)), cómo recuperar los detalles de este cliente (_GET_) y los tipos MIME que admite el servidor web para recuperar esta información (_text/xml_ y _application/json_). Esta es toda la información que una aplicación cliente necesita para capturar los detalles del cliente. Además, la matriz de vínculos también incluye vínculos para que las demás operaciones puedan realizarse, como PUT (para modificar al cliente, junto con el formato que el servidor web espera que proporcione el cliente) y DELETE.
+El cuerpo del mensaje de respuesta contiene una matriz `links` (resaltada en el código de ejemplo) que especifica la naturaleza de la relación (_Customer_), el URI del cliente (http://adventure-works.com/customers/3_), cómo recuperar los detalles de este cliente (_GET_) y los tipos MIME que admite el servidor web para recuperar esta información (_text/xml_ y _application/json_). Esta es toda la información que una aplicación cliente necesita para capturar los detalles del cliente. Además, la matriz de vínculos también incluye vínculos para que las demás operaciones puedan realizarse, como PUT (para modificar al cliente, junto con el formato que el servidor web espera que proporcione el cliente) y DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -392,7 +392,7 @@ El control de versiones permite que una API web indique las características y r
 
 Este es el enfoque más sencillo y puede ser aceptable para algunas API internas. Los grandes cambios podrían representarse como nuevos recursos o nuevos vínculos. Agregar contenido a recursos existentes puede que no represente un cambio importante dado que las aplicaciones cliente que no esperan ver este contenido simplemente lo ignorarán.
 
-Por ejemplo, una solicitud al URI \__http://adventure-works.com/customers/3_ debe devolver los detalles de un solo cliente que contiene los campos `id`, `name` y `address` esperados por la aplicación cliente:
+Por ejemplo, una solicitud al URI \_http://adventure-works.com/customers/3_ debe devolver los detalles de un solo cliente que contiene los campos `id`, `name` y `address` esperados por la aplicación cliente:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -437,7 +437,7 @@ Este mecanismo de control de versiones es muy sencillo, pero depende del servido
 
 ### Control de versiones de cadena de consulta
 
-En lugar de proporcionar varios URI, puede especificar la versión del recurso mediante un parámetro dentro de la cadena de consulta anexada a la solicitud HTTP, como \__http://adventure-works.com/customers/3?version=2_. El parámetro de versión debe adoptar de forma predeterminada un valor significativo como 1 si se omite en las aplicaciones cliente más antiguas.
+En lugar de proporcionar varios URI, puede especificar la versión del recurso mediante un parámetro dentro de la cadena de consulta anexada a la solicitud HTTP, como \_http://adventure-works.com/customers/3?version=2_. El parámetro de versión debe adoptar de forma predeterminada un valor significativo como 1 si se omite en las aplicaciones cliente más antiguas.
 
 Este enfoque tiene la ventaja semántica de que el mismo recurso siempre se recupera del mismo URI, pero depende del código que controla la solicitud para analizar la cadena de consulta y enviar la respuesta HTTP adecuada. Este método también presenta tiene las mismas complicaciones para implementar HATEOAS que el mecanismo de control de versiones de URI.
 
@@ -520,4 +520,4 @@ Este enfoque es posiblemente el más puro de los mecanismos de control de versio
 - El [Libro de cocina de RESTful](http://restcookbook.com/) contiene una introducción a la creación de API RESTful.
 - La [lista de comprobación de API web](https://mathieu.fenniak.net/the-api-checklist/) contiene una lista útil de elementos que se deben tener en cuenta al diseñar e implementar una API web.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

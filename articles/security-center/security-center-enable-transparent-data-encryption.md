@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Habilitación del Cifrado de datos transparente en Azure Security Center
@@ -26,14 +26,14 @@ Esta recomendación se aplica solo al servicio de SQL de Azure; no incluye al se
 
 ## Implementación de la recomendación
 
-1. En la hoja **Recomendaciones**, seleccione **Habilitar el cifrado de datos transparente**. ![][1]
+1. En la hoja **Recomendaciones**, seleccione **Habilitar el cifrado de datos transparente**. ![Habilitación del cifrado de datos transparente][1]
 
-2. De este modo, se abre la hoja **Habilitar el cifrado de datos transparente en bases de datos SQL**. Seleccione una base de datos SQL en la que habilitar el TDE. ![][2]
-3. En la hoja **Cifrado de datos transparente**, seleccione **Activar** en Cifrado de datos y seleccione **Guardar** en la cinta de opciones superior de la hoja. ![][3]
+2. De este modo, se abre la hoja **Habilitar el cifrado de datos transparente en bases de datos SQL**. Seleccione una base de datos SQL en la que habilitar el TDE. ![Selección de la base de datos SQL en la que habilitar TDE][2]
+3. En la hoja **Cifrado de datos transparente**, seleccione **Activar** en Cifrado de datos y seleccione **Guardar** en la cinta de opciones superior de la hoja. ![Activación de TDE][3]
 
   Una vez que el TDE esté habilitado en la base de datos SQL seleccionada, el **Estado de cifrado** cambiará a **Cifrado**.
 
-  ![][4]
+  ![Estado de cifrado][4]
 
 ## Pasos siguientes
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

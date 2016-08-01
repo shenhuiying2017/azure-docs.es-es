@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante C# 
@@ -75,8 +75,8 @@ Ahora que la aplicación Azure Active Directory está creada y que la biblioteca
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-          if (result == null)
+          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
@@ -98,7 +98,7 @@ Ahora que la aplicación Azure Active Directory está creada y que la biblioteca
 
 Todos los recursos deben encontrarse en un grupo de recursos. Para poder agregar recursos a un grupo, la suscripción se debe registrar con los proveedores de recursos.
 
-1. Agregue variables al método Main de la clase Program para especificar los nombres que desea usar para los recursos, la ubicación de los recursos (por ejemplo, "centro de EE. UU."), la información de la cuenta de administrador y el identificador de la suscripción:
+1. Agregue variables al método Main de la clase Program para especificar los nombres que desea usar para los recursos, la ubicación de los recursos (por ejemplo, "centro de EE. UU."), la información de la cuenta de administrador y el identificador de la suscripción:
 
         var groupName = "resource group name";
         var subscriptionId = "subsciption id";
@@ -514,4 +514,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 - Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager](virtual-machines-windows-csharp-template.md).
 - Obtenga más información sobre cómo administrar la máquina virtual que acaba de crear. Para ello, consulte [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md) (Administración de máquinas virtuales con Azure Resource Manager y PowerShell).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

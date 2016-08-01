@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implementación clásica](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -62,7 +62,7 @@ Asegúrese de contar con la versión de producción más reciente del módulo de
 
 ### Paso 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -70,7 +70,7 @@ Asegúrese de contar con la versión de producción más reciente del módulo de
 
 Compruebe las suscripciones para la cuenta.
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 Se le pedirá que se autentique con sus credenciales.<BR>
 
@@ -79,7 +79,7 @@ Se le pedirá que se autentique con sus credenciales.<BR>
 Elija qué suscripción de Azure va a utilizar.<BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Creación de un grupo de recursos para el equilibrador de carga
 
@@ -87,7 +87,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear un equilibrador de carga usarán el mismo grupo de recursos.
 
@@ -189,7 +189,7 @@ En este paso, creamos una segunda interfaz de red, la asignamos al mismo grupo b
 A continuación se muestra el resultado final:
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Resultado esperado:
 
@@ -267,13 +267,13 @@ Cargue la interfaz de red ya creada en una variable. El nombre de variable que s
 
 Cambie la configuración de back-end en la interfaz de red.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Paso 5 
 
 Guarde el objeto de interfaz de red.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Después de agregar una interfaz de red para el grupo de back-end del equilibrador de carga, este inicia la recepción del tráfico de red según la reglas de equilibrio de carga para ese recurso de equilibrador de carga.
 
@@ -316,4 +316,4 @@ Use el comando Remove-AzureRmLoadBalancer para eliminar un equilibrador de carga
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

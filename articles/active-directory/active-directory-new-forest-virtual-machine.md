@@ -2,10 +2,10 @@
 	pageTitle="Instalación de un bosque de Active Directory en una red virtual de Azure | Microsoft Azure"
 	description="Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una red virtual de Azure."
 	services="active-directory, virtual-network"
-    keywords="máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory"
+    keywords="máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory "
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 
@@ -136,4 +136,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,16 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ciencia de datos para principiantes, vídeo 5: Copia del trabajo de otras personas para realizar ciencia de datos
+# Copia del trabajo de otras personas para realizar ciencia de datos
+
+## Vídeo 5: Ciencia de datos para principiantes
 
 Uno de los secretos empresariales de la ciencia de datos es conseguir que otras personas hagan el trabajo por usted. Vea un ejemplo de algoritmo de agrupación en clústeres que utilizará en su propio experimento.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
+
+## Otros vídeos de la serie
+
+*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
+
+  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
+  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
+  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos y 17 segundos)*
+  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
+  * Vídeo 5: Copia del trabajo de otras personas para realizar ciencia de datos.
 
 ## Transcript: Copia del trabajo de otras personas para realizar ciencia de datos
 
@@ -47,7 +59,7 @@ Si hace clic en **Experiments** (Experimentos) en la parte superior, verá los e
 
 ## Localización y uso de un ejemplo de clústeres
 
-Por ejemplo, suponga que desea ver un ejemplo de cómo funcionan los clústeres, por lo que busca experimentos de **"clustering"**.
+Por ejemplo, suponga que desea ver un ejemplo de cómo funcionan los clústeres, por lo que busca experimentos de **clustering**.
 
 ![Búsqueda de experimentos de clústeres](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
@@ -59,7 +71,7 @@ Haga clic en ese experimento para obtener una página web en la que se describe 
 
 ![Página de descripción del experimento de clústeres](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Observe el vínculo que dice **Open in Studio** (Abrir en Estudio).
+Observe el vínculo que dice **Abrir en Estudio**.
 
 ![Botón Open in Studio (Abrir en Estudio)](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
@@ -79,19 +91,10 @@ La [Galería de Cortana Intelligence](http://aka.ms/CortanaIntelligenceGallery) 
 
 Asegúrese de consultar los demás vídeos de la serie "Ciencia de datos para principiantes" de Aprendizaje automático de Microsoft Azure.
 
-## Otros vídeos de la serie
-
-*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
-
-  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vídeo 5: Copia del trabajo de otras personas para realizar ciencia de datos.
 
 ## Pasos siguientes
 
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

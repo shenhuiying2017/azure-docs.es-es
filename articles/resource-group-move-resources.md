@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/19/2016" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -44,7 +44,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
 Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
-- Aplicaciones del Servicio de aplicaciones (consulte las [limitaciones del Servicio de aplicaciones](#app-service-limitations))
+- Aplicaciones del Servicio de aplicaciones (aplicaciones web) - consulte las [limitaciones del Servicio de aplicaciones](#app-service-limitations)
 - Automatización
 - Lote
 - Servicio CDN
@@ -272,4 +272,4 @@ Con el cuerpo de solicitud:
 - Si desea conocer las características del portal que permiten administrar la suscripción, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](./azure-portal/resource-group-portal.md).
 - Para aprender a aplicar una organización lógica a los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

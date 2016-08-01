@@ -12,11 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="07/18/2016"
    ms.author="tarcher" />
 
 # Exploración y administración de recursos de almacenamiento con el Explorador de servidores
 
+[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+
+## Información general
 Si ha instalado Azure Tools para Microsoft Visual Studio, puede ver datos de blob, cola y tabla desde las cuentas de almacenamiento para Azure. El nodo Almacenamiento de Azure en el Explorador de servidores muestra datos que están en la cuenta del emulador de almacenamiento local y las otras cuentas de almacenamiento de Azure.
 
 Para ver el Explorador de servidores en Visual Studio, en la barra de menús, elija **Ver**, **Explorador de servidores**. El nodo de almacenamiento muestra todas las cuentas de almacenamiento que existen en cada suscripción/certificado de Azure a los que esté conectado. Si no aparece la cuenta de almacenamiento, puede agregarla siguiendo las instrucciones [más adelante en este tema](#add-storage-accounts-by-using-server-explorer).
@@ -314,4 +317,4 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

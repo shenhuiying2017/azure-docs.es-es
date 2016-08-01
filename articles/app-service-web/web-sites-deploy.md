@@ -37,7 +37,7 @@ Como no tiene que preocuparse por el marco de la aplicación o del servidor web,
 
 Las herramientas de desarrollo web más populares admiten uno o varios de estos procesos de implementación. Aunque la herramienta que elija determina los procesos de implementación que puede aprovechar, la funcionalidad de DevOps real a su disposición depende de la combinación del proceso de implementación y las herramientas específicas que elija. Por ejemplo, si ejecuta Web Deploy desde [Visual Studio con Azure SDK](#vspros), aunque no obtenga la automatización de Kudu, tendrá la restauración de paquetes y la automatización de MSBuild en Visual Studio.
 
->[AZURE.NOTE] Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](../azure-portal/resource-group-portal.md) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
+>[AZURE.NOTE] Estos procesos de implementación no [aprovisionan realmente los recursos de Azure](../resource-group-template-deploy-portal.md) que puede necesitar la aplicación. Sin embargo, la mayoría de los artículos de procedimientos vinculados muestra cómo aprovisionar la aplicación e implementar el código en ella de un extremo a otro. También puede encontrar opciones adicionales para el aprovisionamiento de recursos de Azure en la sección [Automatización de la implementación mediante herramientas de línea de comandos](#automate).
      
 ## <a name="ftp"></a>Implementación a través de FTP mediante la copia manual de archivos en Azure
 Si está familiarizado con la copia manual de contenido web en un servidor web, puede usar una utilidad [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos, como el Explorador de Windows o [FileZilla](https://filezilla-project.org/).
@@ -234,4 +234,4 @@ Para obtener información sobre cómo usar el control de acceso basado en roles 
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

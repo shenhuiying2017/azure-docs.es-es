@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="07/15/2016"
 	ms.author="tomfitz"/>
 
 # Procedimientos recomendados para crear plantillas de Azure Resource Manager
@@ -34,15 +34,15 @@ Para obtener ayuda en el establecimiento de una convención de nomenclatura, con
 
 Debe dar un nombre de recurso único para cualquier tipo de recurso que tenga un punto de conexión de acceso a datos. Entre los tipos comunes que requieren un nombre único se incluyen los siguientes:
 
-- Almacenamiento
-- Aplicación web
+- Cuenta de almacenamiento
+- Sitio web
 - SQL Server
 - Almacén de claves
-- Caché en Redis
-- Lote
+- Caché de Redis
+- Cuenta de Lote
 - Administrador de tráfico
 - Servicio de búsqueda
-- HDInsight
+- Clúster de HDInsight
 
 Además, los nombres de las cuentas de almacenamiento deben estar en minúsculas, tener como máximo veinticuatro caracteres y no incluir guiones.
 
@@ -361,4 +361,4 @@ Puede realizar vinculaciones condicionales a las plantillas anidadas mediante un
 2. Si desea obtener una guía para la configuración de una cuenta de almacenamiento, consulte [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](./storage/storage-performance-checklist.md).
 3. Para obtener ayuda con las redes virtuales, consulte [Networking infrastructure guidelines](./virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md) (Instrucciones para la infraestructura de redes).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

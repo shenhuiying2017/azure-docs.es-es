@@ -218,10 +218,33 @@ boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
 > [AZURE.NOTE] También se puede conectar a la máquina virtual de Linux mediante una clave SSH para la identificación. Para obtener más información, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-ssh-from-linux.md).
 
+
+### Compatibilidad de TRIM/UNMAP con Linux en Azure
+Algunos kernels de Linux admitirán operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esto es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Esto puede suponer un ahorro de dinero si crea archivos grandes y, a continuación, los elimina.
+
+Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual Linux. Como es habitual, consulte la documentación de distribución para ver el enfoque recomendado:
+
+- Use la opción de montaje `discard` en `/etc/fstab`, por ejemplo:
+
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+- Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
+
+	**Ubuntu**
+
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
+
+	**RHEL/CentOS**
+
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
+
+
 ## Pasos siguientes
 
 - Recuerde que el nuevo disco no estará disponible normalmente en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab).
 - Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](virtual-machines-linux-optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 - Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](virtual-machines-linux-configure-raid.md) para obtener un mayor rendimiento.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

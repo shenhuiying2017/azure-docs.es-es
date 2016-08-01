@@ -47,6 +47,7 @@ Existen tres ámbitos de migración que tienen como destino principalmente los p
 ### Migración de máquinas virtuales (no en una red virtual)
 
 En el modelo de implementación de Resource Manager, la seguridad de las aplicaciones se aplica de forma predeterminada. En este modelo, todas las máquinas virtuales deben estar en una red virtual. Por lo tanto, se reiniciarán (`Stop`, `Deallocate` y `Start`) las máquinas virtuales como parte del proceso de migración. Tiene dos opciones para las redes virtuales:
+
 - Puede solicitar que la plataforma cree una red virtual y migrar la máquina virtual a ella.
 - Puede migrar la máquina virtual a una red virtual existente en Resource Manager.
 
@@ -97,6 +98,7 @@ Proceso | Varias subredes asociadas con una máquina virtual | Debería actualiz
 Proceso | Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada | Opcionalmente, puede eliminar la máquina virtual.
 Proceso | Máquinas virtuales que tienen alertas, directivas de escalado automático | En este momento, la migración se completará, pero estas configuraciones se eliminarán. Así pues, es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración.
 Proceso | Extensiones de VM de XML (depurador de Visual Studio, Web Deploy y depuración remota) | ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para proceder con la migración.
+Proceso | Diagnóstico de arranque con Almacenamiento premium | Deshabilite la característica de diagnósticos de arranque para las máquinas virtuales antes de continuar con la migración. Puede volver a habilitar los diagnósticos de arranque en la pila de Resource Manager una vez completada la migración. Además, se deben eliminar los blobs que se utilizan para los registros de captura de pantalla y de serie, por lo que ya no se cobra por los blobs.
 Proceso | Servicios en la nube que contienen roles web y de trabajo | Actualmente no se admite.
 Red | Redes virtuales que contienen máquinas virtuales y roles web y de trabajo | Actualmente no se admite.
 Servicio de aplicaciones de Azure | Redes virtuales que contienen entornos del Servicio de aplicaciones | Actualmente no se admite.
@@ -120,15 +122,21 @@ El flujo de trabajo de migración es el siguiente.
 
 >[AZURE.NOTE] Todas las operaciones que se describen en las siguientes secciones son idempotentes. Si tiene un problema diferente de una función no admitida o un error de configuración, se recomienda que vuelva a intentar la operación de preparación, anulación o confirmación. De ese modo, la plataforma intentará de nuevo la acción.
 
+### Validación
+
+La operación de validación es el primer paso del proceso de migración. El objetivo de este paso es analizar en segundo plano los datos de los recursos en proceso de migración y devolverá un resultado correcto o con errores dependiendo de si los recursos son aptos o no.
+
+Seleccionará la red virtual o el servicio hospedado (si no es una red virtual) que desee validar para la migración.
+
+* Si no se puede migrar el recurso, la plataforma indicará todas las razones de que no sea compatible con la migración.
+
 ### Preparación
 
-La operación de preparación es el primer paso del proceso de migración. El objetivo de este paso es simular la transformación de los recursos de IaaS de clásicos a recursos de Resource Manager y presentarla en paralelo para que la visualice.
+La operación de preparación es el secundo paso del proceso de migración. El objetivo de este paso es simular la transformación de los recursos de IaaS de clásicos a recursos de Resource Manager y presentarla en paralelo para que la visualice.
 
 Seleccionará la red virtual o el servicio hospedado (si no es una red virtual) que desee preparar para la migración.
 
-En primer lugar, la plataforma siempre analizará en segundo plano los datos de los recursos en proceso de migración y devolverá un resultado correcto o con errores dependiendo de si los recursos son aptos o no.
-
-* Si no se puede migrar el recurso, la plataforma indicará las razones de que no sea compatible con la migración.
+* Si el recurso no puede realizar la migración, la plataforma detendrá el proceso de migración y se mostrará el motivo de error de la operación de preparación.
 * Si el recurso se puede migrar, en primer lugar la plataforma bloquea las operaciones en el plano de administración para los recursos en proceso de migración. Por ejemplo, no podrá agregar un disco de datos a una máquina virtual en proceso de migración.
 
 Después, la plataforma comenzará la migración de los metadatos del modelo clásico al de Resource Manager para los recursos en migración.
@@ -201,7 +209,7 @@ Recientemente se agregó compatibilidad con Azure Site Recovery y Copia de segur
 
 **¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la migración?**
 
-En este momento, la operación de preparación lleva implícita una validación de los recursos que se estén preparando para la migración. En la opción de migración compatible con la plataforma, el primer paso para preparar la migración consiste en validar si los recursos pueden migrarse. Si la validación genera un error, los recursos no se tocan en absoluto.
+Sí. En la opción de migración compatible con la plataforma, el primer paso para preparar la migración consiste en validar si los recursos pueden migrarse. Si se produce un error en la operación de validación, recibirá todos los mensajes con todas las razones por las que no se puede completar la migración.
 
 **¿Qué ocurre si se produce un error de cuota mientras preparo los recursos IaaS para la migración?**
 
@@ -215,6 +223,9 @@ Publique sus problemas y preguntas sobre la migración en nuestro [foro de máqu
 
 Todos los recursos para los que se proporcionen nombres explícitamente en el modelo de implementación clásica se conservarán durante la migración. En algunos casos, se crearán recursos nuevos. Por ejemplo, se creará una interfaz de red para cada máquina virtual. En este momento, no se admite la capacidad de controlar los nombres de estos recursos nuevos creados durante la migración. Registre sus votos para esta característica el [foro de comentarios de Azure](http://feedback.azure.com).
 
+**Aparece el mensaje *"La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de VM notifica el estado de agente general como Preparado"* o *"la máquina virtual contiene la extensión cuyo estado no se notifica desde la VM. Por lo tanto, esta VM no se puede migrar."***
+
+Este mensaje se recibe cuando la máquina virtual no tiene conectividad saliente a Internet. El agente de VM utiliza conectividad saliente para llegar a la cuenta de Almacenamiento de Azure para actualizar el estado del agente en cada 5 minutos.
 
 ## Pasos siguientes
 Ahora que comprende la migración de recursos de IaaS del modelo clásico al de Resource Manager, puede empezar a migrar los recursos.
@@ -224,4 +235,4 @@ Ahora que comprende la migración de recursos de IaaS del modelo clásico al de 
 - [Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure](virtual-machines-linux-cli-migration-classic-resource-manager.md)
 - [Clonación de una máquina virtual clásica en Azure Resource Manager con scripts de PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

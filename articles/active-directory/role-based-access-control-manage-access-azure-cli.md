@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure
@@ -44,7 +44,7 @@ El ejemplo siguiente muestra la lista de *todos los roles disponibles*.
 ###	Lista de las acciones de un rol
 Para enumerar las acciones de un rol, use:
 
-    azure role show <role in quotes>
+    azure role show "<role name>"
 
 El ejemplo siguiente muestra las acciones del rol *Colaborador* y del rol *Colaborador de la máquina virtual*.
 
@@ -61,6 +61,13 @@ En el ejemplo siguiente, se muestran las asignaciones de roles del grupo *pharma
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	Lista de asignaciones de rol para un usuario, incluidas las asignadas a los grupos de un usuario
+Para mostrar las asignaciones de roles para un usuario específico, utilice:
+
+	azure role assignment list --signInName <user email>
+
+También puede ver las asignaciones de roles que se heredan de grupos modificando el comando:
+
+	azure role assignment list --expandPrincipalGroups --signInName <user email>
 
 En el ejemplo siguiente, se muestran las asignaciones de roles concedidas al usuario *sameert@aaddemo.com*. Entre ellas, los roles asignados directamente al usuario y también aquellos heredados de los grupos.
 
@@ -74,7 +81,7 @@ Cuando haya identificado el rol que desea asignar, para conceder acceso, use:
 ###	Asignación de un rol a grupo en el ámbito de la suscripción
 Para asignar un rol a un grupo en el ámbito de la suscripción, use:
 
-	azure role assignment create --objectId  <group's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+	azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 En el ejemplo siguiente se asigna el rol *Lector* al *equipo de Christine Koch* en el ámbito de la *suscripción*.
 
@@ -83,7 +90,7 @@ En el ejemplo siguiente se asigna el rol *Lector* al *equipo de Christine Koch* 
 ###	Asignación de un rol a aplicación en el ámbito de la suscripción
 Para asignar un rol a una aplicación en el ámbito de la suscripción, use:
 
-    azure role assignment create --objectId  <applications's object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+    azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 En el ejemplo siguiente se concede el rol *Colaborador* a una aplicación de *Azure AD* en la suscripción seleccionada.
 
@@ -94,30 +101,32 @@ Para asignar un rol a un usuario en el ámbito del grupo de recursos, use:
 
 	azure role assignment create --signInName  <user's email address> --subscription <subscription> --roleName <name of role in quotes> --resourceGroup <resource group name>
 
-En el ejemplo siguiente se concede el rol *Colaborador de la máquina virtual* al usuario *samert@aaddemo.com* en el ámbito del grupo de recursos *Pharma-Sales-ProjectForcast*.
+En el ejemplo siguiente se concede el rol *Virtual Machine Contributor* al usuario *samert@aaddemo.com* en el ámbito del grupo de recursos *Pharma-Sales-ProjectForcast*.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ###	Asignación de un rol a grupo en el ámbito del recurso
 Para asignar un rol a un grupo en el ámbito del recurso, use:
 
-    azure role assignment create --objectId  <group id> --subscription <subscription> --roleName <name of role in quotes> --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+    azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
-El ejemplo siguiente concede el rol *Colaborador de la máquina virtual* a un grupo de *Azure AD* en una *subred*.
+El ejemplo siguiente concede el rol *Virtual Machine Contributor* a un grupo de *Azure AD* en una *subred*.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
 ##	Quitar acceso
 Para quitar una asignación de rol, use:
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName <role name>
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-En el ejemplo siguiente se quita la asignación de rol *Colaborador de la máquina virtual* de *sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*. Luego, quita la asignación de rol de un grupo de la suscripción.
+En el ejemplo siguiente se quita la asignación de rol *Virtual Machine Contributor* de *sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*. Luego, quita la asignación de rol de un grupo de la suscripción.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure eliminada (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## Crear un rol personalizado
-Para crear un rol personalizado, use el comando `azure role create`.
+Para crear un rol personalizado, use el comando:
+
+	azure role create --inputfile <file path>
 
 En el ejemplo siguiente se crea un rol personalizado denominado *Operador de máquina virtual* que concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network* y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones. En este ejemplo se usa un archivo json como entrada.
 
@@ -127,7 +136,9 @@ En el ejemplo siguiente se crea un rol personalizado denominado *Operador de má
 
 ## Modificación de un rol personalizado
 
-Para modificar un rol personalizado, use en primer lugar el comando `azure role show` para recuperar la definición de rol. Seguidamente, realice los cambios que quiera en la definición del rol. Por último, use `azure role set` para guardar la definición de roles modificada.
+Para modificar un rol personalizado, use en primer lugar el comando `azure role show` para recuperar la definición de rol. Después, realice los cambios que quiera en el archivo de definición de rol. Por último, use `azure role set` para guardar la definición de rol modificada.
+
+	azure role set --inputfile <file path>
 
 En el ejemplo siguiente, se agrega la operación Microsoft.Insights/diagnosticSettings/* a **Acciones** y una suscripción de Azure al valor de **AssignableScopes** del rol personalizado de operador de máquina virtual.
 
@@ -162,4 +173,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

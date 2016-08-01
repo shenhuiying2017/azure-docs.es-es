@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="07/19/2016"
    ms.author="ganesr" />
 
 # Vinculación de una red virtual a un circuito ExpressRoute
@@ -157,4 +157,4 @@ El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una auto
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

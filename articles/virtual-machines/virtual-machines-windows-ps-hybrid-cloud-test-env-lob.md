@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
@@ -34,7 +34,7 @@ Esta configuración simula una aplicación de LOB en un entorno de producción d
 
 Esta configuración proporciona una base y un punto de partida común desde el que puede:
 
-- Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
+- Desarrollar y probar aplicaciones de LOB hospedadas en Internet Information Services (IIS) con un back-end de base de datos de SQL Server 2014 en Azure.
 - Realizar pruebas de esta carga de trabajo de TI basada en la nube híbrida.
 
 Hay tres fases principales para configurar este entorno de prueba de nube híbrida:
@@ -59,7 +59,7 @@ Esta es su configuración actual.
 
 Desde el Portal de Azure, inicie el equipo de DC2 si es necesario.
 
-A continuación, cree una máquina virtual de Azure para SQL1 con estos comandos en un símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < and >.
+A continuación, cree una máquina virtual de Azure para SQL1 con estos comandos en un símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -86,7 +86,7 @@ A continuación, cree una máquina virtual de Azure para SQL1 con estos comandos
 Use el Portal de Azure para conectarse a SQL1 con la cuenta de administrador local.
 
 1.	En el panel izquierdo del Portal de administración de Azure, haga clic en **Máquinas virtuales** y, a continuación, en **En ejecución** en la columna Estado de SQL1.
-2.	En la barra de tareas, haga clic en **Conectar**. 
+2.	En la barra de tareas, haga clic en **Conectar**.
 3.	Cuando se le pida que abra SQL1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
@@ -130,13 +130,13 @@ Utilice la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales
 
 Después de reiniciar, use el Portal de Azure para conectarse a SQL1 con la *cuenta de administrador local*.
 
-A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
+A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
 
 1.	Desde la pantalla Inicio, escriba **SQL Server Management** y haga clic en **SQL Server 2014 Management Studio**.
 2.	En **Conectar con el servidor**, haga clic en **Conectar**.
 3.	En el panel de árbol del Explorador de objetos, haga clic con el botón derecho en **SQL1** y, a continuación, haga clic en **Propiedades**.
 4.	En la ventana **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
-5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores: 
+5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores:
 	- Para **Datos**, escriba la ruta de acceso **f:\\Data**.
 	- Para **Registro**, escriba la ruta de acceso **f:\\Log**.
 	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\\Backup**.
@@ -206,7 +206,7 @@ A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 10.	En la página Confirmación de las selecciones de instalación, haga clic en **Instalar**.
 11.	Espere hasta que se haya completado la instalación de los componentes y haga clic en **Cerrar**.
 12.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
-13.	En la barra de direcciones, escriba **http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
+13.	En la barra de direcciones, escriba **http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
 
 Se trata de la configuración actual.
 
@@ -216,6 +216,6 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 
 ## Paso siguiente
 
-- Implemente el [entorno de producción](virtual-machines-windows-lob-overview.md).
+- Implemente otras [cargas de trabajo](virtual-machines-windows-ps-hybrid-cloud-test-envs.md) en este entorno.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -23,6 +23,7 @@
 - [CLI de Azure](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [API DE REST](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Nodo](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -87,7 +88,7 @@ Para obtener más información acerca de opciones de implementación que podría
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para ejecutar una implementación completa, establezca el **Modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
+5. Para crear otra implementación del grupo de recursos, ejecute el comando **New-AzureRmResourceGroupDeployment** y especifique los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. Si no se especifica el parámetro **Mode**, se usa el valor predeterminado **Incremental**. Para ejecutar una implementación completa, establezca el **Modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
 
      Para implementar una plantilla local, use el parámetro **TemplateFile**:
 
@@ -131,7 +132,7 @@ Para obtener más información acerca de opciones de implementación que podría
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     Para más información sobre cómo usar este contenido de depuración para solucionar problemas en implementaciones, consulte [Visualización de operaciones de implementación con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     Para más información sobre cómo usar este contenido de depuración para solucionar problemas en implementaciones, consulte [Solución de problemas de implementaciones de grupo de recursos con Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
 ## Implementación de plantilla desde el almacenamiento con token de SAS
 
@@ -187,6 +188,6 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 - Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md) (Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
 - Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 - Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments.md).
-- Para obtener más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
+- Para más información sobre el uso de una referencia KeyVault para pasar valores seguros, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,7 +19,7 @@
 
 # Notificaciones para los recursos de DocumentDB nuevos o modificados con Aplicaciones lógicas
 
-Este artículo procede una pregunta que vi publicada en uno de los foros de la comunidad de DocumentDB. ¿La pregunta era ¿**DocumentDB admite notificaciones para los recursos modificados**?
+Este artículo procede de una pregunta que vi publicada en uno de los foros de la comunidad de Azure DocumentDB. ¿La pregunta era ¿**DocumentDB admite notificaciones para los recursos modificados**?
 
 He trabajado con BizTalk Server durante muchos años, y este es un escenario muy común cuando se utiliza el [adaptador LOB de WCF](https://msdn.microsoft.com/library/bb798128.aspx). Por lo que decidí ver si podía duplicar esta funcionalidad en DocumentDB para los documentos nuevos o modificados.
 
@@ -1156,4 +1156,4 @@ Descargue y use el código de la Aplicación lógica proporcionado en [Github](h
 
 Para obtener más información sobre DocumentDB, visite la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

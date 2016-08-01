@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -27,10 +27,10 @@
 
 Puede conectarse a Almacenamiento de datos SQL mediante cualquiera de los siguientes protocolos de aplicación:
 
-- ADO.NET
-- ODBC
-- PHP
-- JDBC 
+- [ADO.NET][]
+- [ODBC][]
+- [PHP][]
+- [JDBC][]
 
 A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo. También puede usar el Portal de Azure para ayudarle a configurar la cadena de conexión. Solo tiene que acceder a la base de datos en el Portal de Azure. En *Essentials*, haga clic en *Mostrar cadenas de conexión de base de datos*.
 
@@ -60,15 +60,19 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Pasos siguientes
 
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio] \(Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][] \(Realización de consultas con Visual Studio).
 
 <!--Image references-->
 
 <!--Azure.com references-->
-
-
+ [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+ 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

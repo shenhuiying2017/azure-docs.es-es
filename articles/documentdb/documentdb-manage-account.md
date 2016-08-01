@@ -19,7 +19,7 @@
 
 # Administración de una cuenta de DocumentDB
 
-Aprenda a establecer coherencia global y a administrar varias regiones para la disponibilidad global de los datos. Aprenda también cómo trabajar con claves y cómo eliminar una cuenta en el Portal de Azure.
+Aprenda a establecer coherencia global y a administrar varias regiones para la disponibilidad global de los datos en Azure DocumentDB. Aprenda también cómo trabajar con claves y cómo eliminar una cuenta en el Portal de Azure.
 
 ## <a id="consistency"></a>Administración de la configuración de coherencia de DocumentDB
 
@@ -86,9 +86,13 @@ También incluye las claves de solo lectura para proporcionar a los usuarios acc
 
 ### Visualización y copia de una clave de acceso en el Portal de Azure
 
-1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB.
+1. En el [Portal de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de DocumentDB. 
+
 2. En la barra **Essentials** (Información básica) de la hoja **Cuenta de DocumentDB**, haga clic en **Claves**.
-3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar. ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
+
+3. En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
+
+  ![Visualización y copia de una clave de acceso en el Portal de Azure, hoja Claves](./media/documentdb-manage-account/copykeys.png)
 
 ### Regenerar las claves de acceso
 
@@ -142,7 +146,7 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/es-ES/regions/#services
-[offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

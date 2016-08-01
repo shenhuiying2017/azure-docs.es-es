@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de blobs de Azure y los servicios conectados de Visual Studio (ASP.NET 5)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ##Información general
 
@@ -24,7 +26,7 @@ En este artículo se describe cómo empezar a usar el almacenamiento de blobs de
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos. En este artículo se describe cómo empezar a usar el almacenamiento de blobs de Azure después de crear una cuenta de almacenamiento de Azure con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio en un proyecto de ASP.NET 5.
 
-Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Vea [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md) para más información sobre la manipulación de blobs mediante programación.
+Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md) para más información sobre la manipulación de blobs mediante programación.
 
 ##Contenedores de blobs de acceso en el código
 
@@ -126,7 +128,7 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
         }
     } while (token != null);
 
-Hay otras maneras de enumerar el contenido de un contenedor de blobs. Vea [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para obtener más información.
+Hay otras maneras de enumerar el contenido de un contenedor de blobs. Consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) para más información.
 
 ##Descarga de un blob
 Para descargar un blob, primero obtenga una referencia al blob y luego llame al método **DownloadToStreamAsync**. En el siguiente ejemplo se usa el método **DownloadToStreamAsync** para transferir el contenido del blob a un objeto de secuencia que luego puede guardar como archivo local.
@@ -140,7 +142,7 @@ Para descargar un blob, primero obtenga una referencia al blob y luego llame al 
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Hay otras maneras de guardar blobs como archivos. Vea [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) para obtener más información.
+Hay otras maneras de guardar blobs como archivos. Consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) para más información.
 
 ##Eliminar un blob
 Para eliminar un blob, obtenga primero una referencia al blob y, a continuación, llame al método **DeleteAsync**.
@@ -155,4 +157,4 @@ Para eliminar un blob, obtenga primero una referencia al blob y, a continuación
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

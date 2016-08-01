@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artículo trata sobre el modelo de implementación clásico.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artículo trata sobre el modelo de implementación clásico.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -88,8 +88,8 @@ Para crear la tabla de rutas y la ruta necesaria para la subred back-end según 
 5. Ejecute el cmdlet **`Set-AzureSubnetRouteTable`** para asociar la tabla de rutas creada anteriormente a la subred **BackEnd**.
 
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName FrontEnd `
-			-RouteTableName UDR-FrontEnd
+			-SubnetName BackEnd `
+			-RouteTableName UDR-BackEnd
 
 ## Habilitar el reenvío IP en la VM FW1
 Para habilitar el reenvío IP en la VM FW1, siga estos pasos.
@@ -108,4 +108,4 @@ Para habilitar el reenvío IP en la VM FW1, siga estos pasos.
 		Get-AzureVM -Name FW1 -ServiceName TestRGFW `
 			| Set-AzureIPForwarding -Enable
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

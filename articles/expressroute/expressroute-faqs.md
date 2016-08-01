@@ -248,7 +248,7 @@ Consulte [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) pa
 ### ¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
 
-### ¿Se puede acceder a Dynamics AX a través de una conexión ExpressRoute?
+### ¿Se puede acceder a Dynamics AX Online a través de una conexión ExpressRoute?
 No, no es compatible.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

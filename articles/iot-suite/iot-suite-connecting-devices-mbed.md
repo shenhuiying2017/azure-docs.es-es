@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Compilar y ejecutar la solución de ejemplo de C en mbed
+## Compilación y ejecución de la solución de ejemplo de C
 
 Las instrucciones siguientes describen los pasos para conectar un dispositivo [Freescale FRDM-K64F habilitado para mbed][lnk-mbed-home] a la solución de supervisión remota.
 
-### Conectar el dispositivo al equipo de escritorio y a la red
+### Conexión del dispositivo mbed a la máquina de escritorio y a la red
 
 1. Conecte el dispositivo mbed a la red mediante un cable Ethernet. Este paso es necesario porque la aplicación de ejemplo requiere acceso a Internet.
 
@@ -36,7 +36,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
 ### Crear un proyecto de mbed e importar el código de ejemplo
 
-1. En el explorador web, vaya al [sitio para desarrolladores](https://developer.mbed.org/) mbed.org. Si no se registró, verá una opción para crear una nueva cuenta (es gratis). De lo contrario, inicie sesión con las credenciales de su cuenta. Luego haga clic en **Compilador** en la esquina superior derecha de la página. Esto debería llevarle a la interfaz de administración del área de trabajo.
+1. En el explorador web, vaya al [sitio para desarrolladores](https://developer.mbed.org/) mbed.org. Si no se registró, verá una opción para crear una nueva cuenta (es gratis). De lo contrario, inicie sesión con las credenciales de su cuenta. Luego haga clic en **Compilador** en la esquina superior derecha de la página. Accederá a la interfaz *Área de trabajo*.
 
 2. Asegúrese de que la plataforma de hardware que está usando aparezca en la esquina superior derecha de la ventana, o bien haga clic en el icono de la esquina derecha para seleccionar la plataforma de hardware.
 
@@ -44,7 +44,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
 
     ![][6]
 
-4. En la ventana emergente, especifique el vínculo para el código de ejemplo https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ y haga clic en **Importar**.
+4. En la ventana emergente, especifique el vínculo del código de ejemplo https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ y haga clic en **Importar**.
 
     ![][7]
 
@@ -61,7 +61,7 @@ Las instrucciones siguientes describen los pasos para conectar un dispositivo [F
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Reemplace [Device Id] y [Device Key] con los datos del dispositivo para habilitar el programa de ejemplo para conectarse a su centro de IoT. Use el Nombre de host del Centro de IoT para reemplazar los marcadores de posición [IoTHub Name] y [IoTHub Suffix, i.e. azure-devices.net]. Por ejemplo, si el nombre de host del Centro de IoT es contoso.azure-devices.net, Contoso será **hubName** y todo lo que aparece detrás será **hubSuffix**:
+7. Reemplace [Device Id] y [Device Key] con los datos del dispositivo para habilitar el programa de ejemplo para conectarse a su centro de IoT. Use el Nombre de host del Centro de IoT para reemplazar los marcadores de posición [IoTHub Name] y [IoTHub Suffix, i.e. azure-devices.net]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, **Contoso** será **hubName** y todo lo que aparece detrás será **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
@@ -140,11 +140,11 @@ Las funciones **sendMessage** y **IoTHubMessage** son código reutilizable para 
 
 #### La función remote\_monitoring\_run
 
-El función **principal** del programa invoca la función **remote\_monitoring\_run** cuando se inicia la aplicación para ejecutar el comportamiento del dispositivo como un cliente de dispositivo del Centro de IoT. Esta función **remote\_monitoring\_run** consta principalmente de pares anidados de funciones:
+La función **principal** del programa invoca la función **remote\_monitoring\_run** cuando se inicia la aplicación para ejecutar el comportamiento del dispositivo como un cliente de dispositivo del Centro de IoT. Esta función **remote\_monitoring\_run** consta principalmente de pares anidados de funciones:
 
 - **platform\_init** y **platform\_deinit** realizan las operaciones de inicialización y cierre específicas de plataforma.
 - **serializer\_init** y **serializer\_deinit** inicializan y desinicializan la biblioteca serializer.
-- **IoTHubClient\_Create** y **IoTHubClient\_Destroy** crean un controlador de cliente, **iotHubClientHandle**, utilizando las credenciales del dispositivo para conectarse a su centro de IoT.
+- **IoTHubClient\_Create** y **IoTHubClient\_Destroy** crean un controlador de cliente, **iotHubClientHandle** utilizando las credenciales del dispositivo para conectarse al Centro de IoT.
 
 En la sección principal de la función **remote\_monitoring\_run**, el programa realiza las siguientes operaciones mediante el controlador **iotHubClientHandle**:
 
@@ -152,7 +152,7 @@ En la sección principal de la función **remote\_monitoring\_run**, el programa
 - Envía información sobre el propio dispositivo, incluidos los comandos que admite, a su centro de IoT mediante la biblioteca serializer. Cuando el centro recibe este mensaje, cambia el estado del dispositivo en el panel de **Pendiente** a **En ejecución**.
 - Inicia un bucle **while** que envía los valores de temperatura, temperatura exterior y humedad al Centro de IoT cada segundo.
 
-Como referencia, este es un ejemplo del mensaje **DeviceInfo** enviado al Centro de IoT durante el inicio:
+Como referencia, este es un mensaje de **información del dispositivo** de ejemplo enviado al Centro de IoT durante el inicio:
 
 ```
 {
@@ -195,7 +195,7 @@ Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
 
 2. Si la compilación es correcta, el sitio web del compilador de mbed genera un archivo .bin con el nombre del proyecto y lo descarga en el equipo local. Copie el archivo .bin en el dispositivo. Si guarda el archivo .bin en el dispositivo, este último se reiniciará y ejecutará el programa incluido en el archivo .bin. Puede reiniciar manualmente el programa en cualquier momento presionando el botón Restablecer en el dispositivo mbed.
 
-3. Conecte con el dispositivo mediante una aplicación cliente de SSH, como PuTTY. Puede determinar el puerto serie que usa el dispositivo comprobando el Administrador de dispositivos de Windows:
+3. Conecte con el dispositivo mediante una aplicación cliente de SSH, como PuTTY. Puede determinar el puerto serie que usa el dispositivo comprobando el Administrador de dispositivos de Windows.
 
     ![][11]
 
@@ -220,4 +220,4 @@ Como referencia, este es un **comando** de ejemplo recibido del Centro de IoT:
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

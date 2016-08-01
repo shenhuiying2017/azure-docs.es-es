@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
 # Notas de la versión de SDK de Azure para .NET 2.9
@@ -33,13 +33,13 @@ Esta actualización incluye las correcciones de errores siguientes:
 
 Esta actualización incluye la siguiente característica nueva:
 
-- Compatibilidad con Servicios de aplicaciones secundarios en la pestaña "Servicios" del cuadro de diálogo de aprovisionamiento de Servicio de aplicaciones. 
+- Compatibilidad con Servicios de aplicaciones secundarios en la pestaña "Servicios" del cuadro de diálogo de aprovisionamiento de Servicio de aplicaciones.
 
 ##Azure Data Lake Tools para Visual Studio 2015 Update 2
  
 Esta actualización incluye lo siguiente:
 
-- **Azure Data Lake Tools** para Visual Studio se ha combinado en el SDK de Azure para .NET. La herramienta se instala automáticamente cuando se instala el SDK de Azure. 
+- **Azure Data Lake Tools** para Visual Studio se ha combinado en el SDK de Azure para .NET. La herramienta se instala automáticamente cuando se instala el SDK de Azure.
 
 	La herramienta se actualiza con frecuencia. Vaya [aquí](http://aka.ms/datalaketool) para obtener las actualizaciones.
 
@@ -59,4 +59,4 @@ Esta versión agrega compatibilidad de [KeyVault](../resource-manager-keyvault-p
 
 [Announcing the Visual Studio Azure Tools and SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/) (Presentación de Visual Studio Azure Tools y el SDK 2.9).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

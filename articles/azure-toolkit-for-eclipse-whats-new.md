@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -34,7 +34,7 @@ El kit de herramientas de Azure para Eclipse, versión de junio de 2016, incluye
 * **Compatibilidad para el JDK más reciente de Java**. Las versiones más recientes de los JDK de Java ahora admiten el Kit de herramientas de Azure para Eclipse.
 * **Compatibilidad con la versión 2.9.1 del SDK de Azure**. La versión más reciente del SDK de Azure ahora es el requisito previo mínimo para el kit de herramientas de Azure para Eclipse.
 * **Ejemplos integrados**. El Kit de herramientas de Azure para Eclipse ahora cuenta con varias aplicaciones de ejemplo para ayudar a los desarrolladores a empezar a trabajar.
-* **Integración de herramientas de HDInsight**. Las herramientas de HDInsight de Azure ahora están incluidas en el Kit de herramientas de Azure para Eclipse.
+* **Integración de herramientas de HDInsight**. Las herramientas de HDInsight de Azure ahora están incluidas en el Kit de herramientas de Azure para Eclipse. Para más información, consulte [Complemento Herramientas de HDInsight para Eclipse].
 * **Depuración remota de aplicaciones web de Java**. El Kit de herramientas de Azure para Eclipse ahora admite la depuración remota de aplicaciones web de Java en el Servicio de aplicaciones de Azure.
 * **Compatibilidad con la versión Kepler de Luna.** La nueva versión mínima necesaria del IDE de Eclipse es Luna.
 
@@ -292,7 +292,7 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de junio de 2012. Las 
 * **Detección automática de los requisitos previos de la versión 1.7 del SDK de Azure:** al crear un nuevo proyecto de implementación de Azure, esta versión se descargará automáticamente si no está ya instalada.
 * **Puntos de conexión de instancia:** permite el acceso directo del punto de conexión del puerto para la comunicación con instancias de rol de carga equilibrada. Se pueden agregar los puntos de conexión de instancia a través de la interfaz de usuario de los puntos de conexión, disponible en la página [Propiedades de puntos de conexión]. Esto ayuda a habilitar la depuración remota y el diagnóstico de JMX para instancias de proceso específicas que se ejecutan en la nube en escenarios con implementaciones de varias instancias.
 * **Interfaz de usuario para componentes:** facilita a los usuarios avanzados la configuración de las dependencias del proyecto entre los roles individuales de Azure en el proyecto y otros recursos externos como los proyectos de aplicación de Java; también facilita la descripción de su lógica de implementación. Para más información, consulte [Propiedades de componentes].
-* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con **\_Upgraded** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
+* **Actualización automática de versiones anteriores de proyectos:** si abre un área de trabajo que tiene un proyecto creado con una versión anterior del complemento de Azure, los proyectos antiguos aparecerán en Eclipse como cerrados, porque las versiones anteriores de proyectos no son compatibles con la nueva versión. Si intenta abrir uno de estos proyectos antiguos, se iniciará un asistente de actualización. Si acepta la actualización, se creará un nuevo proyecto, con **\_Upgraded ** anexado al nombre, y se actualizará automáticamente para funcionar con la nueva versión. Puede cambiar el nombre del nuevo proyecto según sea necesario. Como parte de la actualización, el proyecto original no se modificará (y permanecerá cerrado).
 
 ### 10 de diciembre de 2011
 
@@ -346,6 +346,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Propiedades de puntos de conexión]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [Propiedades de variables de entorno]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
+[Complemento Herramientas de HDInsight para Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [Uso de la descarga de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
 [Instalación del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
@@ -368,4 +369,4 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

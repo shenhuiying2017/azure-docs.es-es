@@ -79,4 +79,4 @@ __¿Qué sucede si no utiliza una red CDN?__ Si no usa una red CDN, todo el trá
 ##Pasos siguientes:
 Para más información sobre cómo diseñar las aplicaciones para que tengan alta disponibilidad, consulte [Alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

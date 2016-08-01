@@ -19,11 +19,39 @@
 # Factoría de datos de Azure: registro de cambios de la API de .NET 
 En este artículo se proporciona información sobre los cambios realizados en el SDK de Factoría de datos de Azure en una versión específica. El paquete NuGet más reciente para la Factoría de datos de Azure se encuentra [aquí](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
 
+## Versión 4.9.1
+_Fecha de lanzamiento: 2016.07.05_
+
+### Corrección de errores
+
+- La autenticación basada en WebApi ya no se utiliza con [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx).
+
+## Versión 4.9.0
+_Fecha de lanzamiento: 2016.06.10_
+
+### Incorporación de características
+
+- Se han agregado las propiedades [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) y [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) a CopyActivity. Para más información, consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy).
+
+
+### Corrección de errores
+
+- Se ha incorporado una sobrecarga del método [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx) que toma una instancia de [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx).
+- [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) y [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) se han marcado como opcionales en CopySink.
+
+## Versión 4.8.0
+_Fecha de lanzamiento: 2016.05.25_
+
+### Incorporación de características
+- Se han agregado las siguientes propiedades opcionales al tipo de actividad de copia para habilitar la optimización del rendimiento de copia:
+	- [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+
 ## Versión 4.7.0
 Fecha de lanzamiento: 20-05-2016
 
 ### Incorporación de características
-* Se ha agregado el nuevo tipo [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) de StorageFormat para copiar archivos en el formato Optimized Row Columnar (ORC).
+* Se han agregado los nuevos tipos StorageFormat y [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) para copiar archivos en el formato Optimized Row Columnar (ORC).
 * Se han agregado las propiedades [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) y PolyBaseSettings a SqlDWSink.
     * Habilita el uso de PolyBase para copiar datos del Almacenamiento de datos SQL.
 
@@ -54,9 +82,9 @@ Fecha de lanzamiento: 24/02/2016
 * Se han agregado [operaciones de lista para la ventana de actividad](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
     * Se agregaron métodos para recuperar ventanas de la actividad con filtros basados en los tipos de entidad (es decir, fábricas de datos, conjuntos de datos, canalizaciones y actividades).
 * Se han agregado los siguientes tipos de servicios vinculados:
-    * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
+    * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx) y [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
 * Se han agregado los siguientes tipos de conjuntos de datos:
-    * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
+    * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx) y [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
 * Se han agregado los siguientes tipos de origen de copia:
     * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
@@ -66,7 +94,7 @@ Fecha de lanzamiento: 28.01.2016
 ### Incorporación de características
 
 - El siguiente tipo de servicio vinculado se ha agregado como orígenes de datos y receptores para actividades de copia:
-	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Servicio vinculado de SAS de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Para más información sobre conceptos y ejemplos, consulte [Servicio vinculado de SAS de Almacenamiento de Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
 
 ## Versión 4.3.0
 Fecha de lanzamiento: 25.11.2015
@@ -74,8 +102,8 @@ Fecha de lanzamiento: 25.11.2015
 ### Incorporación de características
 
 - Los siguientes tipos de servicio vinculado se ha agregado como orígenes de datos para actividades de copia:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde HDFS local mediante Factoría de datos de Azure](data-factory-hdfs-connector.md).
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para obtener información conceptual y ejemplos, consulte [Movimiento de datos desde almacenes de datos ODBC mediante Data Factory de Azure](data-factory-odbc-connector.md).
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Para más información sobre conceptos y ejemplos, consulte [Movimiento de datos desde HDFS local mediante Azure Data Factory](data-factory-hdfs-connector.md).
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Para más información sobre conceptos y ejemplos, consulte [Movimiento de datos desde almacenes de datos ODBC mediante Data Factory de Azure](data-factory-odbc-connector.md).
 
 ## Versión 4.2.0
 Fecha de lanzamiento: 10-11-2015
@@ -164,4 +192,4 @@ Fecha de lanzamiento: 02/10/2015
 
 - Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Consulte los artículos [Base de datos SQL de Azure](data-factory-azure-sql-connector.md#sqlsource) y [Almacenamiento de datos SQL de Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com para obtener detalles sobre estas propiedades.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

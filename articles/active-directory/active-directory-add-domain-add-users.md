@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Asignación de usuarios a un dominio personalizado
@@ -62,4 +62,4 @@ Esto también puede hacerse con [Microsoft PowerShell](https://msdn.microsoft.co
 
 -   [Información general conceptual de nombres de dominio personalizado en Azure Active Directory](active-directory-add-domain-concepts.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

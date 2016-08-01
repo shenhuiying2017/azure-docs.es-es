@@ -99,12 +99,17 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 	> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Vea <a href="hdinsight-upload-data.md" target="\_blank" para obtener más información.
 
+##Limitaciones
+
+* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
+
+* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
 ##Resumen
 
 Tal como se ha mostrado en este documento, puede usar una solicitud HTTP sin procesar para ejecutar, supervisar y ver los resultados de los trabajos de Sqoop en su clúster de HDInsight.
 
-Para más información sobre la interfaz REST utilizada en este artículo, consulte la referencia <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API Guide</a>.
+Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la referencia <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API Guide</a>.
 
 ##Pasos siguientes
 
@@ -145,4 +150,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

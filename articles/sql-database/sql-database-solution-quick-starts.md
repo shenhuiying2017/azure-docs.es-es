@@ -52,8 +52,12 @@ Este ejemplo muestra los cambios que hay que realizar en una aplicación de Enti
 
 Este ejemplo es una aplicación web multiinquilino, llamada "Surveys", que permite a los usuarios crear encuestas en línea. Asimismo, muestra algunos problemas importantes relacionados con la administración de las identidades de usuario en una aplicación multiinquilino, incluidos el inicio de sesión, la autenticación, la autorización y los roles de aplicación. Para ejecutar este ejemplo, consulte [How to run the Tailspin Surveys sample application](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md) (Ejecución de la aplicación de ejemplo Tailspin Surveys).
 
+## Aplicación de demostración de Clinic de Contoso
+
+Este ejemplo muestra las características de seguridad de Azure SQL DB (V12). Para ejecutar este ejemplo, consulte [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) (Aplicación de demostración de Clinic de Contoso).
+
 ## Pasos siguientes
 
 [Exploración de tutoriales de Base de datos SQL de Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

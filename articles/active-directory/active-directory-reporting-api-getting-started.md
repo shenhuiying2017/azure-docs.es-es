@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="dhanyahk"/>
 
 # Introducción a la API de informes de Azure Active Directory
@@ -108,7 +108,7 @@ Edite uno de los scripts siguientes para trabajar con su directorio, reemplace $
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/reports/auditEvents?api-version=beta&`$filter=eventTime gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{
@@ -219,4 +219,4 @@ El script devuelve la salida del informe auditEvents en formato JSON. También s
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte la página de [informes y eventos de Azure AD (versión preliminar)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) para más información sobre el servicio REST de la API de Azure AD Graph.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

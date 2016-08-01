@@ -108,6 +108,12 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
         
 4. Presione **F5** para ejecutar el programa.
 
+##Limitaciones
+
+* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
+
+* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
+
 ##Pasos siguientes
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
@@ -116,4 +122,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 - [Análisis de la información de retraso de vuelos con HDInsight](hdinsight-analyze-flight-delay-data.md): use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
 - [Carga de datos en HDInsight](hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

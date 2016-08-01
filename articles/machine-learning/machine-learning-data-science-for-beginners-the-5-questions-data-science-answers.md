@@ -19,15 +19,25 @@
 
 # Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 
-Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves. Esta serie de vídeos es útil si está interesado en usar la ciencia de datos o trabaja con personas que usan la ciencia de datos, y desea comenzar por los conceptos más básicos.
+Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves. Esta serie de vídeos es útil si está interesado en usar la ciencia de datos o trabaja con personas que usan la ciencia de datos, y desea comenzar por algunos de los conceptos más básicos.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. La ciencia de datos predice las respuestas a preguntas utilizando un número o una categoría. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
+## Otros vídeos de la serie
+
+*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos de aproximadamente 25 minutos en total. Vea los cuatro vídeos:
+
+  * Vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
+  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
+  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos y 17 segundos)*
+  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
+  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
+
 ## Transcripción: Las cinco preguntas a las que responde la ciencia de datos
 
-¡Hola! Bienvenido a la serie de vídeos *Ciencia de datos para principiantes*.
+¡Hola! Esta es la serie de vídeos *Ciencia de datos para principiantes*.
 
 La ciencia de datos puede ser algo intimidante, por lo que he presentado aquí los fundamentos básicos sin ecuaciones ni jerga de programación.
 
@@ -136,19 +146,9 @@ Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
 
 
-## Otros vídeos de la serie
-
-*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración. Vea los cuatro vídeos:
-
-  * Vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
-  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-
 ## Pasos siguientes
 
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/15/2016" 
     ms.author="markvi" />
 
 
@@ -96,7 +96,8 @@ Para ver más información, consulte [Personalizar las páginas de inicio de ses
 ### Compatibilidad con clientes de Exchange ActiveSync 
 
 
-Hay algunas aplicaciones de Exchange ActiveSync que son compatibles con iOS 9 o posterior. Para determinar si la aplicación de correo electrónico admite esta característica, póngase en contacto con el desarrollador de la aplicación. En este escenario, la autenticación federada no es compatible con los certificados de cliente.
+Hay algunas aplicaciones de Exchange ActiveSync que son compatibles con iOS 9 o posterior. Para determinar si la aplicación de correo electrónico admite esta característica, póngase en contacto con el desarrollador de la aplicación.
+
 
 
 ## Introducción 
@@ -270,4 +271,4 @@ En los siguientes pasos se describe el proceso de actualización e invalidación
 
 La fecha establecida debe ser futura. Si no, no se establecerá la propiedad **StsRefreshTokensValidFrom**. Si la fecha es futura, el valor de **StsRefreshTokensValidFrom** se establece en la hora actual (no la fecha que indica el comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

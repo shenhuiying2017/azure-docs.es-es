@@ -64,11 +64,11 @@ En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base 
 
 En esta sección se muestra cómo crear un clúster y los esquemas de base de datos SQL para ejecutar el tutorial con el Portal de Azure y una plantilla ARM. Si prefiere usar Azure PowerShell, consulte el [apéndice A](#appendix-a---a-powershell-sample).
 
-1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure.         
+1. Haga clic en la imagen siguiente para abrir una plantilla ARM en el Portal de Azure.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    La plantilla ARM se encuentra en un contenedor de blobs público, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    La plantilla ARM se encuentra en un contenedor de blobs público, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
     La plantilla ARM llama a un paquete de bacpac para que implemente los esquemas de tabla en la base de datos SQL. El paquete de bacpac también se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
     
@@ -84,24 +84,24 @@ En esta sección se muestra cómo crear un clúster y los esquemas de base de da
 
     Los siguientes valores están codificados de forma rígida en la sección de variables:
     
-    |Nombre de la cuenta de almacenamiento predeterminada|<CluterName>store|
+    |Nombre de la cuenta de almacenamiento predeterminada|<nombreDelClúster>store|
     |----------------------------|-----------------|
-    |Nombre del servidor de base de datos SQL de Azure|<ClusterName>dbserver|
-    |Nombre de la base de datos SQL de Azure|<ClusterName>db|
+    |Nombre del servidor de base de datos SQL de Azure|<nombreDelClúster>dbserver|
+    |Nombre de la base de datos SQL de Azure|<nombreDelClúster>db|
     
     Escriba estos valores. Los necesitará más adelante en el tutorial.
     
 3\. Haga clic en **Aceptar** para guardar los parámetros.
 
-4\. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, en **Nuevo** para crear un grupo de recursos. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
+4\. En la hoja **Implementación personalizada**, haga clic en el cuadro desplegable **Grupo de recursos** y, después, haga clic en **Nuevo** para crear un nuevo grupo de recursos. El grupo de recursos es un contenedor que agrupa al clúster, a la cuenta de almacenamiento dependiente y a otros recursos vinculados.
 
-5\. Haga clic en **Términos legales** y luego en **Crear**.
+5\. Haga clic en **Términos legales** y, luego, en **Crear**.
 
 6\. Haga clic en **Crear**. Verá un icono nuevo llamado Envío de implementación para la implementación de plantilla. Tarda aproximadamente 20 minutos en crear un clúster y la base de datos SQL.
 
 Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
 
-- **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started]. 
+- **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started].
 
     > [AZURE.NOTE] De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 
@@ -132,6 +132,12 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 | [.NET SDK para Hadoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) | &nbsp; | ✔ | Linux o Windows | Windows (por ahora) |
 | [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) | &nbsp; | ✔ | Linux o Windows | Windows |
 
+##Limitaciones
+
+* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
+
+* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
+
 ##Pasos siguientes
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
@@ -149,7 +155,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 
 1. Conéctese a Azure.
 2. Cree un grupo de recursos de Azure. Para obtener más información, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-3. Cree un servidor de Base de datos SQL de Azure, una base de datos SQL de Azure y dos tablas. 
+3. Cree un servidor de Base de datos SQL de Azure, una base de datos SQL de Azure y dos tablas.
 
 	Si usa SQL Server en su lugar, use las siguientes instrucciones para crear las tablas:
 	
@@ -623,4 +629,4 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

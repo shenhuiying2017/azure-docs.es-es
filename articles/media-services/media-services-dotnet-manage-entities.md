@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako"/>
 
 
@@ -28,16 +28,16 @@
 
 Este tema muestra cómo llevar a cabo las siguientes tareas de administración de Servicios multimedia:
 
-- Obtención de una referencia de recurso 
-- Obtención de una referencia de trabajo 
-- Lista de todos los recursos 
-- Lista de trabajos y recursos 
-- Lista de todas las directivas de acceso 
+- Obtención de una referencia de recurso
+- Obtención de una referencia de trabajo
+- Lista de todos los recursos
+- Lista de trabajos y recursos
+- Lista de todas las directivas de acceso
 - Enumerar todos los localizadores
 - Enumeración de grandes colecciones de entidades
-- Eliminación de un recurso 
-- Eliminación de un trabajo 
-- Eliminación de una directiva de acceso 
+- Eliminación de un recurso
+- Eliminación de un trabajo
+- Eliminación de una directiva de acceso
 
 ##Requisitos previos 
 
@@ -381,4 +381,4 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

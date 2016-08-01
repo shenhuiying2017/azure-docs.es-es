@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -66,13 +66,13 @@ Para configurar el modelo SVM, realice lo siguiente:
 
 1.	Busque el módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine] en la paleta de módulos y arrástrelo al lienzo.
 2.	Haga clic con el botón derecho en el módulo [Entrenar modelo][train-model], seleccione **Copiar**, haga clic con el botón derecho en el lienzo y seleccione **Pegar**. Tenga en cuenta que la copia del módulo [Entrenar modelo][train-model] tiene la misma selección de columnas que el original.
-3.	Conecte la salida del módulo SVM al puerto de entrada izquierdo ("Modelo sin entrenar") del módulo [Entrenar modelo][train-model].
+3.	Conecte la salida del módulo SVM al puerto de entrada izquierdo (Modelo sin entrenar) del módulo [Entrenar modelo][train-model].
 4.	Busque el módulo [Normalizar datos][normalize-data] y arrástrelo al lienzo.
-5.	Conecte la entrada de este módulo a la salida de la izquierda a la izquierda del módulo [Ejecutar script R][execute-r-script] (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
-6.	Conecte el puerto de salida izquierdo ("Conjunto de datos transformados") del módulo [Normalizar datos][normalize-data] al puerto de entrada derecho ("Conjunto de datos") del módulo [Entrenar modelo][train-model].
+5.	Conecte la entrada de este módulo a la salida de la izquierda a la izquierda del módulo [Ejecutar script R][execute-r-script] \(tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
+6.	Conecte el puerto de salida izquierdo (Conjunto de datos transformados) del módulo [Normalizar datos][normalize-data] al puerto de entrada derecho (Conjunto de datos) del módulo [Entrenar modelo][train-model].
 7.	En el panel **Propiedades** del módulo [Normalizar datos][normalize-data], seleccione **Tanh** para el parámetro **Método de transformación**.
 8.	Haga clic en **Iniciar el selector de columnas**, seleccione "Ninguna columna" en **Empieza por**, **Incluir** en la primera lista desplegable, **Tipo de columna** en la segunda lista desplegable y **Numérico** en la tercera. Esto especifica que todas las columnas numéricas (y solo numéricas) se transformarán.
-9.	Haga clic en el signo más (+) a la derecha de esta fila; de esta forma, se crea una nueva fila de listas desplegables. Seleccione **Excluir** en la primera lista desplegable, seleccione **Nombres de columna** en la segunda lista desplegable y escriba “Riesgo de crédito” en el campo de texto (o seleccione **Índices de columna** y escriba "21"). Especifica que se debe ignorar la columna Riesgo de crédito (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
+9.	Haga clic en el signo más (+) a la derecha de esta fila; de esta forma, se crea una nueva fila de listas desplegables. Seleccione **Excluir** en la primera lista desplegable, seleccione **Nombres de columna** en la segunda lista desplegable y haga clic en la opción Riesgo de crédito de la lista de columnas. Especifica que se debe ignorar la columna Riesgo de crédito (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
 10.	Haga clic en **Aceptar**.  
 
 
@@ -112,7 +112,7 @@ Para consultar los resultados, haga clic en el puerto de salida del módulo [Eva
 
 El módulo [Evaluar modelo][evaluate-model] produce un par de curvas y métricas que le permiten comparar los resultados de los dos modelos de puntuación. Puede ver los resultados como curvas de características operativas del receptor (ROC), curvas de precisión/exhaustividad o curvas de elevación. También se muestran otros datos como la matriz de confusión y los valores del área bajo la curva (AUC) acumulados, entre otras métricas. También puede cambiar el valor del umbral moviendo el control deslizante a la izquierda o a la derecha, y comprobar cómo afecta esta acción al conjunto de métricas.
 
-A la derecha del gráfico, haga clic en **Conjunto de datos puntuados** o **Conjunto de datos puntuados para comparar** con el fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo [Evaluar modelo][evaluate-model] (en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
+A la derecha del gráfico, haga clic en **Conjunto de datos puntuados** o **Conjunto de datos puntuados para comparar** con el fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo [Evaluar modelo][evaluate-model] \(en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
 
 ![ROC curves for models][4]
 
@@ -143,4 +143,4 @@ Al examinar estos valores, puede decidir qué modelo se acerca más a los result
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

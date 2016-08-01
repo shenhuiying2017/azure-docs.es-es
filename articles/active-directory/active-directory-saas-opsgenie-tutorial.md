@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="07/14/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@ Para configurar la integración de OpsGenie en Azure AD, deberá agregar OpsGeni
 
 **Para agregar OpsGenie desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -324,4 +324,4 @@ Al hacer clic en el icono de OpsGenie en el panel de acceso, debería iniciar se
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

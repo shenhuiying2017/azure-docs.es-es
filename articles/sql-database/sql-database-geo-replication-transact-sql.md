@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+    ms.workload="sqldb-bcdr"
+    ms.date="07/18/2016"
     ms.author="carlrab"/>
 
 # Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL
@@ -163,11 +163,28 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 
 9. Haga clic en **Ejecutar** para ejecutar la consulta.
 
+## Actualización de una base de datos secundaria no legible a legible
+
+En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles. Si usa bases de datos secundarias no legibles en la actualidad y desea actualizarlas para que sean legibles, puede utilizar los siguientes pasos sencillos para cada base de datos secundaria.
+
+> [AZURE.IMPORTANT] No hay ningún método de autoservicio de actualización local de una base de datos secundaria no legible a legible. Si quita su única base de datos secundaria, la base de datos principal permanecerá desprotegida a menos que la nueva base de datos secundaria se sincronice por completo. Si el Acuerdo de Nivel de Servicio de la aplicación requiere que la base de datos principal esté siempre protegida, debe considerar la posibilidad de crear una base de datos secundaria en paralelo en otro servidor antes de aplicar los pasos de actualización anteriores. Tenga en cuenta que cada base de datos principal puede tener hasta cuatro bases de datos secundarias.
+
+
+1. Primero, conéctese al servidor *secundario* y quite la base de datos secundaria no legible:
+        
+        DROP DATABASE <MyNonReadableSecondaryDB>;
+
+2. A continuación, conéctese al servidor *principal* y agregue una nueva base de datos secundaria legible
+
+        ALTER DATABASE <MyDB>
+            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
+
+
 
 
 ## Pasos siguientes
 
-- Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md)
+- Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Para más información sobre los escenarios de recuperación y diseño de la continuidad empresarial, consulte [Escenarios de continuidad](sql-database-business-continuity-scenarios.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

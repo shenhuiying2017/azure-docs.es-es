@@ -2,7 +2,7 @@
 	pageTitle="Red CDN: solución de problemas de compresión de archivos"
 	description="Solucione los problemas con la compresión de archivos de red CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Solución de problemas de compresión de archivos de red CDN
@@ -79,7 +79,7 @@ Desplácese hasta el punto de conexión en el [Portal de Azure](https://portal.a
 Con las herramientas para desarrolladores de su explorador, compruebe los encabezados de respuesta para asegurarse de que el archivo se almacena en caché en la región donde se solicita.
 
 - Compruebe el encabezado de respuesta **Server**. El encabezado debe tener el formato **Plataforma (POP/id. de servidor)**, tal como se muestra en el ejemplo siguiente.
-- Compruebe el encabezado de respuesta **X Cache**. Debe poner **HIT**.  
+- Compruebe el encabezado de respuesta **X Cache**. Debe poner **HIT**.
 
 ![Encabezados de respuesta de red CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 - Mayor que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0518_2016-->
+### Compruebe la solicitud en el servidor de origen para un encabezado **Mediante**
+
+El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud. De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante**. Para anular este comportamiento, haga lo siguiente:
+
+- **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la metabase de IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+- **IIS 7 y posteriores**: [Establezca **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+
+<!---HONumber=AcomDC_0720_2016-->

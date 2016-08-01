@@ -145,7 +145,7 @@ Si solo tiene un servidor VMM, puede replicar las máquinas virtuales de hosts d
 	![Almacén nuevo](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione una de ellas.
-4. [Cree un grupo de recursos nuevo](../resource-group-portal.md#create-resource-group) o seleccione uno existente, y especifique una región de Azure. Las máquinas se replicarán en esta región. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Cree un grupo de recursos nuevo](../resource-group-template-deploy-portal.md) o seleccione uno existente, y especifique una región de Azure. Las máquinas se replicarán en esta región. Para comprobar las regiones admitidas, consulte Disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/)
 4. Si quiere acceder rápidamente al almacén desde el panel, haga clic en **Anclar al panel** > **Crear almacén**.
 
 	![Almacén nuevo](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
@@ -483,4 +483,4 @@ Ejecute este script de ejemplo para actualizar DNS, especificando la dirección 
 
 Después de que la implementación esté configurada y en ejecución, [aprenda más](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

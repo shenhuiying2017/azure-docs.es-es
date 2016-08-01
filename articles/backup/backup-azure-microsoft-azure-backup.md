@@ -39,8 +39,8 @@ El primer paso para que funcione el servidor de Copia de seguridad de Azure es t
 
 | Ubicación | Requisitos mínimos | Instrucciones adicionales |
 | -------- | -------------------- | ----------------------- |
-| Azure | Máquina virtual de Azure IaaS<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Puede comenzar por una galería de imágenes sencilla de Windows Server 2012 R2 Datacenter. [La protección de cargas de trabajo de IaaS con el Servidor de Copia de seguridad de Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) presenta numerosos matices. Asegúrese de leer el artículo completo antes de implementar la máquina. |
-| Local | Máquina virtual de Hyper-V,<br> máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Más información sobre cómo funcionan juntos [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) al implementarlos en máquinas virtuales de Hyper-V. |
+| Azure | Máquina virtual de Azure IaaS<br><br>A2 Standard: 2 núcleos, 3,5 GB de RAM | Puede comenzar por una galería de imágenes sencilla de Windows Server 2012 R2 Datacenter. [La protección de cargas de trabajo de IaaS con el Servidor de Copia de seguridad de Azure (DPM)](https://technet.microsoft.com/library/jj852163.aspx) presenta numerosos matices. Asegúrese de leer el artículo completo antes de implementar la máquina. |
+| Local | Máquina virtual de Hyper-V,<br> máquina virtual de VMWare<br> o un host físico<br><br>2 núcleos y 4 GB de RAM | Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Más información sobre cómo funcionan juntos [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) al implementarlos en máquinas virtuales de Hyper-V. |
 
 > [AZURE.NOTE] Se recomienda instalar el servidor de Copia de seguridad de Azure en una máquina con Windows Server 2012 R2 Datacenter. Muchos de los requisitos previos quedan resueltos automáticamente con la versión más reciente del sistema operativo Windows.
 
@@ -72,7 +72,7 @@ Para crear un almacén de Servicios de recuperación:
 
 5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo habrá varias opciones si la cuenta de su organización está asociada a varias suscripciones de Azure.
 
-6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o en **Nuevo** para crear uno. Para tener información completa sobre los grupos de recursos, consulte [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-portal/resource-group-portal.md).
+6. Haga clic en **Grupo de recursos** para ver la lista disponible de grupos de recursos o en **Nuevo** para crear uno. Para una información completa sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../resource-group-overview.md)
 
 7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén.
 
@@ -142,14 +142,14 @@ Para editar la configuración de replicación de almacenamiento:
 
     ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
+    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta 60 minutos en completarla.
 
 
 ### Extracción del paquete de software
 
 Después de descargar todos los archivos, haga clic en **MicrosoftAzureBackupInstaller.exe**. Se inicia el **Asistente para instalación de Copia de seguridad de Microsoft Azure**, que extraerá los archivos de instalación en una ubicación especificada por el usuario. Siga con el asistente y haga clic en el botón **Extraer** para comenzar el proceso de extracción.
 
-> [AZURE.WARNING] Se requieren al menos 4 GB de espacio libre para extraer los archivos de instalación.
+> [AZURE.WARNING] Se requieren al menos 4 GB de espacio libre para extraer los archivos de instalación.
 
 
 ![Asistente para instalación de Copia de seguridad de Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)
@@ -264,4 +264,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 - [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Compilación y ejecución de una aplicación cliente de C de ejemplo (Linux)
 
-En los siguientes procedimientos se explica cómo crear una aplicación cliente simple sencilla que se comunique con la solución preconfigurada de supervisión remota mediante un programa de C que se haya creado y ejecutado en un dispositivo Ubuntu Linux. Para completar estos pasos, necesita un dispositivo que ejecute la versión 15.04 o 15.10 de Ubuntu. Antes de continuar, instale los paquetes de requisitos previos en el dispositivo Ubuntu ejecutando el siguiente comando:
+En los siguientes procedimientos se explica cómo crear una aplicación cliente simple sencilla (escrita en C y creada y ejecutada en Ubuntu Linux) que se comunique con la solución preconfigurada de supervisión remota mediante un programa de C que se haya . Para completar estos pasos, necesita un dispositivo que ejecute la versión 15.04 o 15.10 de Ubuntu. Antes de continuar, instale los paquetes de requisitos previos en el dispositivo Ubuntu ejecutando el siguiente comando:
 
 ```
 sudo apt-get install cmake gcc g++
@@ -32,7 +32,7 @@ sudo apt-get install cmake gcc g++
 
 ## Instalación de las bibliotecas de cliente en el dispositivo
 
-Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get**. Complete los pasos siguientes para instalar el paquete que contiene la biblioteca y los archivos de encabezado de su máquina Ubuntu:
+Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get**. Complete los pasos siguientes para instalar el paquete que contiene la biblioteca del Centro de IoT y los archivos de encabezado de su máquina Ubuntu:
 
 1. Agregue el repositorio AzureIoT a la máquina:
 
@@ -65,7 +65,7 @@ Las bibliotecas de cliente del serializador del Centro de IoT utilizan un modelo
     #include "azure_c_shared_utility/platform.h"
     ```
 
-2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por "contoso":
+2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -385,7 +385,7 @@ int main(void)
 
 ## Uso de CMake para compilar la aplicación cliente
 
-En los pasos siguientes se describe cómo puede utilizar CMake para compilar la aplicación cliente.
+En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar la aplicación cliente.
 
 1. En un editor de texto, abra el archivo **CMakeLists.txt** de la carpeta **remote\_monitoring**.
 
@@ -439,6 +439,4 @@ En los pasos siguientes se describe cómo puede utilizar CMake para compilar la 
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-setup-linux]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux
-
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

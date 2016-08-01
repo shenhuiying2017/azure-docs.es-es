@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Instalación de Endpoint Protection en Azure Security Center
@@ -30,7 +30,7 @@ Azure Security Center recomendará que aprovisione un programa antimalware en su
 
 3. Se abre la hoja **Select Endpoint Protection** (Seleccionar Enpoint Protection) que le permite seleccionar la solución antimalware que desea usar. En este ejemplo, vamos a seleccionar **Microsoft Antimalware**. ![Selección de Endpoint Protection][3]
 
-4. Aparece información adicional sobre la solución antimalware. Seleccione **Crear**.![][4]
+4. Aparece información adicional sobre la solución antimalware. Seleccione **Crear**. ![Creación de solución antimalware][4]
 
 5. Escriba las opciones de configuración requeridas en la hoja **Agregar extensión** y seleccione **Aceptar**. Para más información acerca de las opciones de configuración, consulte [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../azure-security-antimalware.md#default-and-custom-antimalware-configuration) (Microsoft Antimalware para Servicios en la nube y Máquinas virtuales).
 
@@ -58,4 +58,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

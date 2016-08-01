@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="07/15/2016" 
 	ms.author="stefsch"/>
 
 # Documentación del Entorno del Servicio de aplicaciones
@@ -35,7 +35,8 @@ Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de d
 * [¿Qué es un entorno del Servicio de aplicaciones?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Creación de un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Creación de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Configuración de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Creación y uso de un equilibrador de carga interno con entornos del Servicio de aplicaciones](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [Configuración de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-configure-an-app-service-environment.md)
 * [Escalado de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Arquitectura y seguridad de red](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
@@ -59,4 +60,4 @@ Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de d
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

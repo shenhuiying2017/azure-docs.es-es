@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Procedimientos recomendados de plantillas de Azure Resource Manager | Microsoft Azure"
+	pageTitle="Modelos de plantillas de Resource Manager | Microsoft Azure"
 	description="Mostrar patrones de diseño de plantillas del Administrador de recursos de Azure"
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -16,11 +16,11 @@
 	ms.date="06/13/2016"
 	ms.author="tomfitz"/>
 
-# Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure
+# Prácticas recomendadas para diseñar plantillas de Azure Resource Manager
 
 En nuestro trabajo con empresas, integradores de sistemas (SI), proveedores de servicios en la nube (CSV) y equipos de proyectos de software de código abierto (OSS), a menudo es necesario implementar rápidamente entornos, cargas de trabajo o unidades de escalado. Estas implementaciones deben ser respaldadas, seguir prácticas de demostrada eficacia y cumplir las directivas identificadas. Con un enfoque flexible basado en las plantillas del Administrador de recursos de Azure, puede implementar topologías complejas de forma rápida y coherente y, luego, adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes en el caso de escenarios o clientes atípicos.
 
-Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] \(Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Las plantillas combinan las ventajas del Administrador de recursos de Azure subyacente con la capacidad de adaptación y legibilidad de la Notación de objetos JavaScript (JSON). El uso de plantillas le permite:
 
@@ -382,4 +382,4 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

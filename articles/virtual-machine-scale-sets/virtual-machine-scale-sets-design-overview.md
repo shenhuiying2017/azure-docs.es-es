@@ -38,10 +38,10 @@ Si desactiva el aprovisionamiento en exceso, puede hacerlo con una mayor proporc
 
 
 ## Límites
-Un conjunto de escalas basado en una imagen personalizada (una compilada por usted) debe crear todos los discos duros virtuales del disco del sistema operativo dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de máquinas virtuales de un conjunto de escalas basado en una imagen personalizada es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
+Un conjunto de escalas basado en una imagen personalizada (una compilada por usted) debe crear todos los VHD del disco del sistema operativo dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de máquinas virtuales de un conjunto de escalas basado en una imagen personalizada es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
 
 Un conjunto de escalas basado en una imagen de plataforma se limita a 100 máquinas virtuales; se recomiendan 5 cuentas de almacenamiento para esta escala.
 
 Para que se permitan un número de máquinas virtuales superior a estos límites, debe implementar varios conjuntos de escalas. [Para ver un ejemplo de cómo hacerlo, consulte esta plantilla.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

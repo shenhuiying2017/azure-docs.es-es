@@ -18,14 +18,14 @@
 	ms.author="stbaro"/>
 
 #Modelado de datos en DocumentDB#
-Mientras que las bases de datos libres de esquemas, como DocumentDB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos.
+Mientras que las bases de datos libres de esquemas, como Azure DocumentDB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos.
 
 ¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación realiza muchas operaciones de lectura o escritura?
 
 Después de leer este artículo, podrá responder a las siguientes preguntas:
 
 - ¿Cómo debo pensar en un documento en una base de datos de documentos?
-- ¿Qué es el modelado de datos y por qué tendría que importarme? 
+- ¿Qué es el modelado de datos y por qué tendría que importarme?
 - ¿Cómo es el modelado de datos en una base de datos de documentos distinta de una base de datos relacional?
 - ¿Cómo expreso relaciones de datos en una base de datos no relacional?
 - ¿Cuándo se incrustan datos y cuándo realizo vinculaciones a los datos?
@@ -393,4 +393,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos en aplicaciones multiempresa, consulte [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx) (Escalación de una aplicación multiempresa con Azure DocumentDB).
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

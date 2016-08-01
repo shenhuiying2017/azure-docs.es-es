@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016" 
+	ms.date="07/06/2016" 
 	ms.author="garye"/>
 
 
@@ -52,7 +52,7 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El módulo [Editar metadatos][edit-metadata] aparecerá en la lista de módulos.
 2.	Haga clic en el módulo [Editar metadatos][edit-metadata], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
-3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] \(el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 
     El experimento debería tener ahora un aspecto similar al siguiente:
 
@@ -63,8 +63,8 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
     > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Editar metadatos][edit-metadata] y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Haga clic en la flecha abajo en el módulo para mostrar el comentario.
 
 4.	Seleccione [Editar metadatos][edit-metadata], luego, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
-5.	En el cuadro de diálogo **Seleccionar columnas**, establezca el campo **Empieza por** en "Todas las columnas".
-6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el módulo [Editar metadatos][edit-metadata] las modifique. Puesto que deseamos modificar *todas* las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
+5.	En el cuadro de diálogo **Seleccionar columnas**, elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**. El cuadro de diálogo debe ser similar al siguiente:
+	![Selector de columnas con todas las columnas seleccionadas][4]
 7.	Haga clic en la marca de verificación **Aceptar**.
 8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
 
@@ -83,8 +83,8 @@ Para ello, utilizamos el módulo [Dividir datos][split].
 
 1.	Busque el módulo [Dividir datos][split], arrástrelo al lienzo y conéctelo al último módulo [Editar metadatos][edit-metadata].
 2.	De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria**. Esto significa que una mitad aleatoria de los datos saldrá a través de un puerto del módulo [Dividir datos][split] y la otra mitad por el otro. Puede cambiar estos ajustes, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de prueba. Para este ejemplo, lo dejaremos como está.
-	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
-3. Haga doble clic en el módulo [Dividir datos][split] y escriba el comentario "Dividir 50% de los datos de entrenamiento y pruebas". 
+	> [AZURE.TIP] La propiedad **Fracción de filas del primer conjunto de datos de salida** determina la cantidad de datos que salen a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.
+3. Haga doble clic en el módulo [Dividir datos][split] y escriba el comentario Dividir 50% de los datos de entrenamiento y pruebas.
 
 Podemos utilizar las salidas del módulo [Dividir datos][split] como deseemos, pero vamos a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de pruebas.
 
@@ -92,8 +92,8 @@ Como se menciona en el sitio web de UCI, el coste de clasificar erróneamente un
 
 Podemos conseguir esta replicación mediante el código R:
 
-1.	Busque y arrastre el módulo [Ejecutar script R][execute-r-script] al lienzo de experimentos y conecte el puerto de salida izquierdo del módulo [Dividir datos][split] al primer puerto de entrada ("Dataset1") del módulo [Ejecutar script R][execute-r-script].
-2. Haga doble clic en el módulo [Ejecutar script R][execute-r-script] y escriba el comentario "Establecer ajuste de costos".
+1.	Busque y arrastre el módulo [Ejecutar script R][execute-r-script] al lienzo de experimentos y conecte el puerto de salida izquierdo del módulo [Dividir datos][split] al primer puerto de entrada (Dataset1) del módulo [Ejecutar script R][execute-r-script].
+2. Haga doble clic en el módulo [Ejecutar script R][execute-r-script] y escriba el comentario Establecer ajuste de costos.
 2.	En el panel **Propiedades**, elimine el texto predeterminado del parámetro **Script R** y escriba este script:
 
 		  dataset1 <- maml.mapInputPort(1)
@@ -103,7 +103,7 @@ Podemos conseguir esta replicación mediante el código R:
 		  maml.mapOutputPort("data.set")
 
 
-Tenemos que hacer esta misma operación de replicación para cada salida del módulo [Dividir datos][split] para que los datos de entrenamiento y prueba tengan el mismo ajuste en relación al costo.
+Tenemos que hacer esta misma operación de replicación para cada salida del módulo [Dividir datos][split] para que los datos de entrenamiento y prueba tengan el mismo ajuste con relación al costo.
 
 1.	Haga clic con el botón derecho en el módulo [Ejecutar script R][execute-r-script] y seleccione **Copiar**.
 2.	Haga clic con el botón secundario en el lienzo del experimento y seleccione **Pegar**.
@@ -131,4 +131,4 @@ Para obtener más información sobre cómo usar los scripts de R en sus experime
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->
