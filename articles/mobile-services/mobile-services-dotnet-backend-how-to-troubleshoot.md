@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor="mollybos"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016" 
+	ms.date="07/13/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Solución de problemas en el backend .NET de Servicios móviles
@@ -36,7 +36,7 @@ El desarrollo con Servicios móviles suele ser sencillo y sin complicaciones, pe
 
 Cuando se desarrollan aplicaciones con Servicios móviles, lo normal es aprovechar las ventajas del SDK de cliente de Servicios móviles para la plataforma que utilice (Tienda Windows, iOS, Android, etc.). Sin embargo, a veces resulta útil ir al nivel HTTP y observar las llamadas de fila conforme tienen lugar en la red. Esta estrategia es especialmente útil cuando se depuran problemas de conectividad y serialización. El backend .NET de Servicios Móviles permite usar esta estrategia junto con la depuración de Visual Studio en modo local y remoto (más información en la próxima sección) para obtener una idea completa de la ruta que sigue una llamada HTTP antes de invocar el código del servicio.
 
-Puede usar cualquier depurador HTTP para enviar e inspeccionar el tráfico HTTP. [Fiddler](http://www.telerik.com/fiddler) es una conocida herramienta que suelen usar los desarrolladores para este propósito. Con el fin de ponérselo fácil a los desarrolladores, Servicios móviles incluye un depurador de HTTP basado en web (también denominado "cliente de prueba") con su servicio móvil, lo que reduce la necesidad de herramientas externas. Si hospeda su servicio móvil de forma local, estará disponible en un URI similar a [http://localhost:59233](http://localhost:59233). Si lo hospeda en la nube, el URI tendrá el formato [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). Los pasos siguientes son válidos independientemente de dónde esté hospedado el servicio:
+Puede usar cualquier depurador HTTP para enviar e inspeccionar el tráfico HTTP. [Fiddler](http://www.telerik.com/fiddler) es una conocida herramienta que suelen usar los desarrolladores para este propósito. Con el fin de ponérselo fácil a los desarrolladores, Servicios móviles incluye un depurador de HTTP basado en web (también denominado "cliente de prueba") con su servicio móvil, lo que reduce la necesidad de herramientas externas. Cuando se hospeda localmente el servicio móvil, estará disponible en un URI similar a `http://localhost:59233` y cuando se hospedan en la nube, el URI tendrá el formato `http://todo-list.azure-mobile.net`. Los pasos siguientes son válidos independientemente de dónde esté hospedado el servicio:
 
 1. Comience con un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o posterior. Si no tiene uno a mano, puede crearlo; para ello, seleccione **Archivo**, **Nuevo**, **Proyecto** y luego seleccione el nodo **Nube** y seguidamente la plantilla **Servicios móviles de Microsoft Azure**.
 2. Pulse **F5** para compilar y ejecutar el proyecto. En la página de inicio, seleccione **Probar**.
@@ -74,7 +74,7 @@ Una de las principales características del backend .NET es la capacidad para de
 
     ![Configure la carga de símbolos][SymbolLoading]
 
-3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor [SymbolSource] mediante el URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
+3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor [SymbolSource] mediante el URI `http://srv.symbolsource.org/pdb/Public`. Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
 
     ![Configure el servidor de símbolos][SymbolServer]
 
@@ -162,6 +162,6 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 
 
 <!-- Links -->
-[SymbolSource]: http://symbolsource.org
+[SymbolSource]: http://www.symbolsource.org/Public
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0720_2016-->

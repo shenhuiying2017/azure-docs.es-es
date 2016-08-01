@@ -28,7 +28,7 @@ La Base de datos SQL de Microsoft Azure le proporciona hasta un 200 % de almacen
 
 ## Detalles de la copia de seguridad automatizada
 
-Las bases de datos de niveles Básico, Estándar y Premium están protegidas por copias de seguridad automáticas. Las copias de seguridad completas se realizan cada semana, las copias de seguridad diferenciales, cada día y las copias de seguridad de registro, cada 5 minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente tarda 30 minutos en completarse, pero puede tardar más. Si una base de datos ya es grande, por ejemplo, si se crea como resultado de una copia de base de datos o de restauración de una base de datos grande, la primera copia de seguridad completa puede tardar más tiempo en completarse. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El tiempo exacto de las copias de seguridad completas y diferenciales viene determinado por el sistema para equilibrar la carga general.
+Las bases de datos de niveles Básico, Estándar y Premium están protegidas por copias de seguridad automáticas. Las copias de seguridad de la base de datos se realizan cada semana, las copias de seguridad diferencial de base de datos, cada hora, y las copias de seguridad del registro de transacciones, cada cinco minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación de la base de datos. Normalmente tarda 30 minutos en completarse, pero puede tardar más. Si una base de datos ya es grande, por ejemplo, si se crea como resultado de una copia de base de datos o de restauración de una base de datos grande, la primera copia de seguridad completa puede tardar más tiempo en completarse. Después de la primera copia de seguridad completa, todas las copias de seguridad adicionales se programan automáticamente y se administran silenciosamente en segundo plano. El tiempo exacto de las copias de seguridad completas y diferenciales viene determinado por el sistema para equilibrar la carga general.
 
 ## Redundancia geográfica
 
@@ -48,7 +48,7 @@ También puede usar [copias de seguridad automatizadas de la Base de datos SQL](
 
 ## ¿Qué le ocurre a mi período de retención del punto de restauración al cambiar a una versión anterior/actualizar por nivel de servicio?
 
-Después de cambiar a un nivel de rendimiento inferior, el período de retención del punto de restauración cambiará inmediatamente al período de retención del nivel de rendimiento de la base de datos actual. Si el nivel de servicio se actualiza, el período de retención se ampliará solo cuando se haya actualizado la base de datos. Por ejemplo, si la base de datos se degrada de la versión P1 a S3, el período de retención cambiará inmediatamente de 35 días a 35 días, por lo que todos los puntos de restauración anteriores a 35 días dejarán de estar disponibles. Posteriormente, si se actualiza la base de datos de nuevo a la versión P1, el período de retención comenzará a partir de 35 días y hasta 35 días.
+Después de cambiar a un nivel de rendimiento inferior, el período de retención del punto de restauración cambiará inmediatamente al período de retención del nivel de rendimiento de la base de datos actual. Si el nivel de servicio se actualiza, el período de retención se ampliará solo cuando se haya actualizado la base de datos. Por ejemplo, si la base de datos se degrada al nivel Básico, el período de retención cambiará inmediatamente de 35 días a 7 días, por lo que todos los puntos de restauración anteriores a 35 días dejarán de estar disponibles. Posteriormente, si se actualiza la base de datos a la versión Estándar o Premium, el período de retención comenzará a partir de 7 días y hasta 35 días.
 
 ## ¿Cuánto dura el período de retención para una base de datos que se ha quitado? 
 El período de retención se determina según el nivel de servicio de la base de datos mientras esta existe o según el número de días que exista la base de datos, el menor de estos dos valores.
@@ -62,4 +62,4 @@ El período de retención se determina según el nivel de servicio de la base de
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 - Para obtener una descripción general de la continuidad empresarial, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la Base de datos SQL de Azure](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

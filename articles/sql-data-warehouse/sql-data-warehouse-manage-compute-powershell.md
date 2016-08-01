@@ -34,7 +34,7 @@ Esta colección de tareas usa el Portal de Azure para:
 - Pausa del proceso
 - Reanudación del proceso
 
-Para más información, consulte Manage compute power overview (Administración de la eficacia de los procesos (información general)).
+Para más información, consulte [Manage compute power overview][] (Administración de la eficacia de los procesos (información general)).
 
 
 ## Antes de empezar
@@ -47,7 +47,7 @@ Para más información, consulte Manage compute power overview (Administración 
 
 Primeros pasos:
 
-1. Abra Azure PowerShell. 
+1. Abra Azure PowerShell.
 2. En el símbolo del sistema de PowerShell, ejecute estos comandos para iniciar sesión en Azure Resource Manager y seleccione su suscripción.
 
     ```PowerShell
@@ -125,6 +125,7 @@ Para otras tareas de administración, consulte [Información general de administ
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Información general de administración]: ./sql-data-warehouse-overview-manage.md
 [Instalación y configuración de Azure PowerShell]: ./powershell-install-configure.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ Para otras tareas de administración, consulte [Información general de administ
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

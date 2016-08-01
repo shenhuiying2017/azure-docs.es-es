@@ -38,6 +38,7 @@ Los siguientes tutoriales muestran cómo incorporar la sincronización sin conex
 * [iOS: habilitar la sincronización sin conexión]
 * [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]
+* [Xamarin.Forms: habilitar la sincronización sin conexión](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: habilitar la sincronización sin conexión]
 
 ## ¿Qué es una tabla de sincronización?
@@ -104,4 +105,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: habilitar la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

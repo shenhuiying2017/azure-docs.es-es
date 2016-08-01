@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 # Usar la interfaz de usuario de Tez para depurar trabajos de Tez en HDInsight basado en Windows
@@ -137,7 +137,7 @@ Siga los pasos que se indican a continuación para realizar una consulta de Hive
 
     > [AZURE.NOTE] Al igual que en el menú anterior, puede desplazarse por la presentación de columna de Tareas, Intentos de tarea y Orígenes y receptores para que aparezcan vínculos a información adicional sobre cada elemento.
 
-10. Seleccione __Tareas__ y luego seleccione el elemento denominado __00\_000000__. De este modo se mostrarán los __Detalles de la tarea__ de esta tarea. En esta pantalla, puede ver los __Contadores de tarea__ y los __Intentos de tarea__.
+10. Seleccione __Tareas__ y luego seleccione el elemento denominado __00_000000_\_. De este modo se mostrarán los __Detalles de la tarea__ de esta tarea. En esta pantalla, puede ver los __Contadores de tarea__ y los __Intentos de tarea\_\_.
 
     ![Detalles de la tarea](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
@@ -147,4 +147,4 @@ Ahora que ha aprendido a usar la vista de Tez, obtenga más información sobre e
 
 Para obtener información técnica más detallada sobre Tez, consulte la [página de Tez en Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="07/13/2016"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0720_2016-->

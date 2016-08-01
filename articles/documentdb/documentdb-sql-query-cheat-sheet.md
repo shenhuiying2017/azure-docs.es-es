@@ -19,7 +19,7 @@
 
 # PDF de hoja de referencia sobre SQL de DocumentDB
 
-La **Hoja de referencia de consultas SQL de DocumentDB** le ayuda a escribir rápidamente consultas para datos de DocumentDB ya que se muestran las consultas comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir.
+La **Hoja de referencia de consultas SQL de DocumentDB** lo ayuda a escribir rápidamente consultas para datos de DocumentDB ya que se muestran las consultas de base de datos comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir.
 
 DocumentDB admite consultas relacionales, jerárquicas y espaciales de documentos JSON mediante [SQL](documentdb-sql-query.md) sin especificar un esquema o índices secundarios. Además de las palabras clave y los operadores estándar de ANSI SQL, DocumentDB admite funciones JavaScript definidas por el usuario (UDF), operadores JavaScript y una multitud de funciones integradas.
 
@@ -39,4 +39,4 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 - Para realizar un recorrido por las opciones de consulta disponibles en DocumentDB, consulte [Consulta de DocumentDB](documentdb-sql-query.md).
 - Para obtener la documentación de referencia relacionada, consulte [Lenguaje de consulta SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

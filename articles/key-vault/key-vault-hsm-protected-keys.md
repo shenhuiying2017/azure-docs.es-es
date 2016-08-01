@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -354,7 +354,7 @@ Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó
 
 Se le pedirá que conectar sus tarjetas de administrador del espacio de seguridad.
 
-Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menos permisos estará en el archivo denominado key\_xferacId\_<contosokey>.
+Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menos permisos estará en el archivo denominado "key\_xferacId\_<contosokey>".
 
 ###Paso 4.2: inspección de la nueva copia de la clave
 
@@ -431,4 +431,4 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

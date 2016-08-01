@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/14/2016"
 	ms.author="vakarand"/>
 
 # Operaciones de Azure AD Connect Health
@@ -52,11 +52,20 @@ Cuando elimine un servidor, tenga en cuenta lo siguiente:
 
 #### Para eliminar un servidor del Servicio de Azure AD Connect Health
 
+Azure AD Connect Health para AD FS y Azure AD Connect (sincronización):
+
 1. Seleccione el nombre del servidor que se va a quitar para abrir la hoja Servidor en la hoja Lista de servidores.
 2. En la hoja Servidor, haga clic en el botón "Eliminar" de la barra de acciones.
 3. Confirme la acción para eliminar el servidor; para ello, escriba el nombre del servidor en el cuadro de confirmación.
 4. Haga clic en el botón "Eliminar".
 
+Azure AD Connect Health para AD DS:
+
+1. Abra el panel de controladores de dominio.
+2. Seleccione el controlador de dominio que va a quitar.
+3. Haga clic en el botón "Eliminar seleccionado" de la barra de acciones.
+4. Confirme la acción para eliminar el servidor.
+5. Haga clic en el botón "Eliminar".
 
 ### Eliminación de una instancia de servicio del Servicio de Azure AD Connect Health
 
@@ -75,8 +84,7 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 1. Seleccione el identificador del servicio (nombre de la granja) que desea quitar para abrir la Hoja Servicio en la hoja Lista de Servicios.
 2. En la hoja Servidor, haga clic en el botón "Eliminar" de la barra de acciones.
 3. Confirme el nombre del servicio; para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com).
-4. Haga clic en el botón "Eliminar". 
-<br><br>
+4. Haga clic en el botón "Eliminar". <br><br>
 
 
 [//]: # "Inicio de la sección RBAC"
@@ -110,17 +118,13 @@ El permiso se concede si un usuario final tiene acceso al nivel de directorio o 
 #### Paso 1: Seleccionar el ámbito de acceso adecuado
 Para permitir a un usuario acceder al nivel de *todas las instancias de servicio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br>
 #### Paso 2: Agregar usuarios, grupos y asignar roles
-1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> 
-![Hoja principal de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> ![Hoja principal de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Seleccione "Agregar".
-3. Seleccione "Rol" como "Propietario"<br> 
-![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". 
-![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+3. Seleccione "Rol" como "Propietario"<br> ![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". ![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Seleccione "Aceptar".<br>
 
-6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> 
-![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
 >[AZURE.NOTE]
@@ -129,15 +133,13 @@ Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus 
 
 #### Paso 3: Compartir la ubicación de la hoja con usuarios o grupos
 1. Después de asignar permisos, un usuario puede acceder a Azure AD Connect Health yendo a [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes al panel simplemente haciendo clic en "Anclar al panel"<br> 
-![Anclar hoja de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes al panel simplemente haciendo clic en "Anclar al panel"<br> ![Anclar hoja de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 
 >[AZURE.NOTE] Un usuario con el rol de "Lector" asignado no podrá realizar la operación "crear" para obtener la extensión de Azure AD Connect Health de Azure Marketplace. Este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.
 
 ### Eliminación de usuarios y/o grupos
-Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health si hace clic con el botón derecho y selecciona Quitar.<br> 
-![Quitar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
+Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en rol de Azure AD Connect Health si hace clic con el botón derecho y selecciona Quitar.<br> ![Quitar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "Fin de la sección RBAC"
 
@@ -147,7 +149,8 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Uso de Azure AD Connect Health con AD DS](active-directory-aadconnect-health-adds.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

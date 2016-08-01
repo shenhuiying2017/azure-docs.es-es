@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Instalación de Update 2.1 en el dispositivo StorSimple | Microsoft Azure"
-   description="Se explica cómo instalar Update 2.1 de la serie StorSimple 8000 en un dispositivo de dicha serie."
+   pageTitle="Instalación de Update 2.2 en el dispositivo StorSimple | Microsoft Azure"
+   description="Se explica cómo instalar la serie StorSimple 8000 Update 2.2 en un dispositivo de la serie StorSimple 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,29 +12,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="07/18/2016"
    ms.author="alkohli" />
 
-# Instalación de Update 2.1 en el dispositivo StorSimple
+# Instalación de Update 2.2 en el dispositivo StorSimple
 
 ## Información general
 
-En este tutorial se explica cómo instalar Update 2.1 en un dispositivo StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico y usando el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
+En este tutorial se explica cómo instalar Update 2.2 en un dispositivo StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico y usando el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
 
-Update 2.1 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
+Update 2.2 incluye software del dispositivo, WMI y actualizaciones de iSCSI. Si actualiza desde una versión anterior a Update 2, también deberá aplicar un controlador LSI, Spaceport, Storport y las actualizaciones de firmware del disco. El software del dispositivo, WMI, iSCSI, el controlador LSI y las correcciones de Storport y Spaceport son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
 
 > [AZURE.IMPORTANT]
 
-> -  Es posible que no vea Update 2.1 de inmediato porque llevamos a cabo un lanzamiento por fases de las actualizaciones. Busque actualizaciones de nuevo en unos días ya que estarán disponibles pronto.
 > - En esta actualización se incluye un conjunto de comprobaciones previas que se hace antes de la instalación para determinar el estado del dispositivo en cuanto a la conectividad de red y el estado del hardware. Estas comprobaciones previas se realizan solo si aplica las actualizaciones desde el Portal de Azure clásico.
 > - Se recomienda instalar las actualizaciones de software y de los controladores mediante el Portal de Azure clásico. Solo debe ir a la interfaz de Windows PowerShell del dispositivo (para instalar actualizaciones) si, en el Portal, se produce un error en las comprobaciones de la puerta de enlace anteriores a la actualización. Dependiendo de la versión de origen, las actualizaciones pueden tardar 1,5 y 2,5 horas en instalarse. Las actualizaciones en modo de mantenimiento deben instalarse mediante la interfaz de Windows PowerShell del dispositivo. Como las actualizaciones en modo de mantenimiento son perturbadoras, generarán un tiempo de inactividad para el dispositivo.
-> - Si ejecuta la opción de StorSimple Snapshot Manager, antes de actualizar el dispositivo, asegúrese de haber actualizado la versión de Snapshot Manager a Update 2.1.
+> - Si ejecuta la opción de Snapshot Manager de StorSimple, antes de actualizar el dispositivo, asegúrese de haber actualizado la versión de Snapshot Manager a Update 2.2.
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Instalación de Update 2.1 a través del Portal de Azure clásico
+## Instalación de Update 2.2 a través del Portal de Azure clásico
 
-Realice los pasos siguientes para actualizar el dispositivo a [Update 2.1](storsimple-update21-release-notes.md).
+Realice los pasos siguientes para actualizar el dispositivo a [Update 2.2](storsimple-update21-release-notes.md).
 
 
 > [AZURE.NOTE]
@@ -42,7 +41,7 @@ Si va a aplicar Update 2 o una versión posterior (incluida Update 2.1), Microso
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 2.1 (6.3.9600.17705)**. También se debe modificar **Fecha de última actualización:**. 
+12. Compruebe que el dispositivo ejecuta la **serie StorSimple 8000 Update 2.2 (6.3.9600.17708)**. También se debe modificar **Fecha de última actualización:**.
 
 	Si está realizando la actualización desde una versión anterior a Update 2, también verá que están disponibles las actualizaciones del modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
 
@@ -50,13 +49,13 @@ Si va a aplicar Update 2 o una versión posterior (incluida Update 2.1), Microso
 
 	Si va a actualizar desde Update 2, el dispositivo debería estar ahora actualizado. Puede omitir los demás pasos.
 
-13. Descargue las actualizaciones del modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3121899, que instala las actualizaciones de firmware del disco (el resto de las actualizaciones ya deben estar instaladas).
+13. Descargue las actualizaciones en modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3121899, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas).
 
 13. Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento.
 
   
 
-## Instalación de Update 2.1 como una revisión
+## Instalar Update 2.2 como una revisión
 
 Debe usar este procedimiento si la comprobación de la puerta de enlace produce un error al intentar instalar las actualizaciones a través del Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1.
 
@@ -64,7 +63,7 @@ Las versiones de software que se pueden actualizar mediante el método de revisi
 
 - Update 0.1, 0.2, 0.3
 - Update 1, 1.1, 1.2
-- Actualización 2 
+- Update 2.2.1
 
 > [AZURE.IMPORTANT]
 >
@@ -76,18 +75,23 @@ El método de revisión implica los tres pasos siguientes:
 - Instalar y comprobar las revisiones de modo normal.
 - Instalar y comprobar la revisión del modo de mantenimiento (solo cuando se actualiza desde versiones de software anteriores a Update 2).
 
-#### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2
+#### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2.1
+
+**Si el dispositivo ejecuta Update 2.1**, debe descargar únicamente la actualización de software de dispositivo KB3179904. Instale solo el archivo binario precedido por 'all-hcsmdssoftwareudpate'. No instale la actualización del agente de Cis y de MDS precedida por `all-cismdsagentupdatebundle`. De lo contrario, se producirá un error.
+
+
+#### Descarga de actualizaciones para un dispositivo que ejecuta el software Update 2 o 2.1
 
 **Si el dispositivo ejecuta Update 2**, debe descargar e instalar las siguientes revisiones en el orden indicado:
 
 | Orden | KB | Descripción | Tipo de actualización | Hora de instalación |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3162954 | Actualización de software &#42; | Normal | ~45 min |
+| 1\. | KB3179954 | Actualización de software &#42; | Normal | ~45 min |
 | 2\. | KB3146621 | Paquete iSCSI | Normal | ~20 min |
 | 3\. | KB3103616 | Paquete WMI | Normal | ~12 min |
 
 
- & #42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` y `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. La actualización de software de dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` debe instalarse antes que el agente de Cis y Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. También debe reiniciar el controlador activo mediante el cmdlet `Restart-HcsController` después de aplicar la actualización del agente de Cis y MDS (y antes de aplicar el resto de actualizaciones).*
+ &#42; *Tenga en cuenta que la actualización de software consta de dos archivos binarios: actualización de software de dispositivo precedido por `all-hcsmdssoftwareupdate` y el agente de Cis y Mds precedido por `all-cismdsagentupdatebundle`. La actualización de software de dispositivo debe instalarse antes que el agente de Cis y Mds. También debe reiniciar el controlador activo mediante el cmdlet `Restart-HcsController` después de aplicar la actualización del agente de Cis y MDS (y antes de aplicar el resto de actualizaciones).*
 
 #### Descarga de actualizaciones para un dispositivo que ejecuta un software anterior a Update 2
 
@@ -118,7 +122,7 @@ El método de revisión implica los tres pasos siguientes:
 
 > [AZURE.IMPORTANT]
 >
-> - Este procedimiento debe realizarse una sola vez para aplicar Update 2.1. Puede usar el Portal de Azure clásico para aplicar las actualizaciones posteriores.
+> - Este procedimiento debe realizarse una sola vez para aplicar Update 2.2. Puede usar el Portal de Azure clásico para aplicar las actualizaciones posteriores.
 > - Si actualiza desde Update 2, el tiempo total de instalación es de 1,5 horas aproximadamente.
 > - Antes de usar este procedimiento para aplicar la actualización, asegúrese de que ambos controladores de dispositivo estén en línea y todos los componentes de hardware estén en buen estado.
 
@@ -132,4 +136,4 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 Más información sobre el [lanzamiento de la actualización 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

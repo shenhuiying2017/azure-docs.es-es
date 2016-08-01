@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="07/12/2016"
 	ms.author="raynew" />
 
 # Ejecución de la herramienta de planeación de capacidad de Hyper-V para Site Recovery
@@ -75,7 +75,7 @@ Se recomienda que configure un único host de Hyper-V como servidor de recuperac
 
 	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
 
-	- Ejecute **netsh http show servicestate** para comprobar que el agente de escucha se esté ejecutando para el puerto y el protocolo especificados:  
+	- Ejecute **netsh http show servicestate** para comprobar que el agente de escucha se esté ejecutando para el puerto y el protocolo especificados:
 4. Configure los firewalls. Durante la instalación de Hyper-V, se crean reglas de firewall para permitir el tráfico en los puertos predeterminados (HTTPS en 443, Kerberos en 80). Habilite estas reglas como se indica:
 
 		- Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
@@ -139,10 +139,10 @@ Estas son las métricas importantes. Puede pasar por alto las que no aparezcan a
 
 Cuando haya terminado de planear la capacidad, puede comenzar a implementar Site Recovery:
 
-- [Configuración de la protección entre un sitio de VMM local y Azure](site-recovery-vmm-to-azure.md)
-- [Configuración de la protección entre un sitio de Hyper-V local y Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Configuración de la protección entre dos sitios VMM locales](site-recovery-vmm-to-vmm.md)
-- [Configuración de la protección entre dos sitios de VMM locales con SAN](site-recovery-vmm-san.md)
-- [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
+- [Replicación de máquinas virtuales de Hyper-V de nubes VMM en Azure](site-recovery-vmm-to-azure.md)
+- [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Replicación de máquinas virtuales de Hyper-V entre sitios VMM](site-recovery-vmm-to-vmm.md)
+- [Replicación de máquinas virtuales de Hyper-V entre sitios VMM con SAN](site-recovery-vmm-san.md)
+- [Replicación de máquinas virtuales de Hyper-V en un único servidor VMM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0720_2016-->

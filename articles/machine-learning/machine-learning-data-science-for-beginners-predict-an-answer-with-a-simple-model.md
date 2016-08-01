@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Ciencia de datos para principiantes, vídeo 5: Predicción de respuestas con un modelo sencillo
+# Predicción de respuestas con un modelo sencillo
+
+## Vídeo 4: serie Ciencia de datos para principiantes
 
 Aprenda a crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
 
@@ -25,11 +27,21 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 
 > [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
 
+## Otros vídeos de la serie
+
+*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
+
+  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
+  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
+  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos y 17 segundos)*
+  * Vídeo 4: Predicción de respuestas con un modelo sencillo
+  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
+
 ## Transcripción: Predicción de respuestas con un modelo sencillo
 
 Este es el cuarto vídeo de la serie "Ciencia de datos para principiantes". En este caso, crearemos un modelo simple y realizaremos una predicción.
 
-Un *modelo* es un caso simplificado acerca de nuestros datos. Le mostraré lo que quiero decir.
+Un *modelo* es un caso simplificado sobre nuestros datos. Le mostraré lo que quiero decir.
 
 ## Recopilación de datos pertinentes, precisos, conectados y suficientes
 
@@ -123,19 +135,10 @@ Hoy, hemos hablado sobre cómo realizar la regresión lineal y hemos realizado u
 Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
 
 
-## Otros vídeos de la serie
-
-*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
-
-  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vídeo 4: Predicción de respuestas con un modelo sencillo
-  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 ## Pasos siguientes
 
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

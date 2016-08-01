@@ -8,22 +8,22 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
 
 1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
 
-2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego seleccione **Dominios personalizados y SSL**.
+1. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego seleccione **Dominios personalizados y SSL**.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. En la hoja **Dominios personalizados y SSL**, haga clic en **Traer dominios externos**.
+1. En la hoja **Dominios personalizados y SSL**, haga clic en **Traer dominios externos**.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-4. Utilice los cuadros de texto **NOMBRES DE DOMINIO** para escribir el nombre de dominio de Administrador de tráfico (contoso.trafficmanager.net) para realizar la asociación con esta aplicación web.
+1. Utilice los cuadros de texto **NOMBRES DE DOMINIO** para escribir el nombre de dominio de Administrador de tráfico para realizar la asociación con esta aplicación web.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-5. Haga clic en **Guardar** para guardar la configuración de nombre de dominio.
+1. Haga clic en **Guardar** para guardar la configuración de nombre de dominio.
 
 	Una vez completada la configuración, el nombre de dominio personalizado aparecerá en la sección **nombres de dominio** de la aplicación web.
 
-En este punto, debería poder escribir el nombre de dominio de Administrador de tráfico (contoso.trafficmanager.net) en el explorador y ver que le lleva sin problemas a la aplicación web.
+En este punto, debería poder escribir el nombre de dominio del Administrador de tráfico en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/12/2016"
+	ms.date="07/14/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con Azure PowerShell
@@ -117,7 +117,9 @@ Para quitar el acceso de usuarios, grupos y aplicaciones, use:
 ## Creación de un rol personalizado
 Para crear un rol personalizado, use el comando `New-AzureRmRoleDefinition`.
 
-En el ejemplo siguiente se crea un rol personalizado denominado *Operador de máquina virtual* que concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network* y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
+Cuando crea un rol personalizado en PowerShell, debe comenzar con uno de los [roles integrados](role-based-access-built-in-roles.md). Edite los atributos, agregue cualquier Actions, notActions o Scopes que desee y guarde los cambios como un nuevo rol.
+
+El ejemplo siguiente se inicia con el rol *Virtual Machine Contributor* y lo utiliza para crear un rol personalizado denominado *Virtual Machine Operator*. El nuevo rol concede acceso a todas las operaciones de lectura de los proveedores de recursos *Microsoft.Compute*, *Microsoft.Storage* y *Microsoft.Network* y concede acceso para iniciar, reiniciar y supervisar las máquinas virtuales. El rol personalizado se puede usar en dos suscripciones.
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de pantalla](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
@@ -154,4 +156,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Consulte también
 - [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

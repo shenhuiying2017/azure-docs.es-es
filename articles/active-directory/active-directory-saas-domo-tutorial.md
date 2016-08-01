@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ Para configurar la integración de Domo en Azure AD, deberá agregar Domo desde 
 
 **Para agregar Domo desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
 	![Active Directory][1]
 
@@ -100,28 +100,53 @@ Para configurar y probar el inicio de sesión único de Azure AD con Domo, es pr
 
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Domo.
 
+La aplicación Domo espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña **"Atributo"** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto.
 
+![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_domo_06.png)
 
 **Para configurar el inicio de sesión único de Azure AD con Domo, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Domo**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+
+1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Domo**, en el menú de la parte superior, haga clic en **Atributos**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_general_80.png)
+
+
+1. En el cuadro de diálogo **Atributos de token de SAML**, para cada fila de la tabla siguiente, realice los pasos que se indican a continuación:
+
+	| Nombre del atributo | Valor de atributo |
+	| --- | --- |    
+	| name | user.displayname |
+	| email | user.mail |
+
+	a. Haga clic en **agregar atributo de usuario** para abrir el cuadro de diálogo **Agregar atributo de usuario**.
+
+	![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_general_81.png)
+
+	b. En el cuadro de texto **Nombre de atributo**, escriba el nombre de atributo que se muestra para la fila.
+
+    c. En la lista **Valor de atributo**, seleccione el valor de atributo que se muestra para esa fila.
+
+    d. Haga clic en **Completo**.
+
+2. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Domo**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
 	![Configurar inicio de sesión único][6]
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Domo?**, seleccione **Inicio de sesión único de Azure AD** y, después, haga clic en **Siguiente**.
+3. En la página **¿Cómo desea que los usuarios inicien sesión en Domo?**, seleccione **Inicio de sesión único de Azure AD** y, después, haga clic en **Siguiente**.
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_domo_03.png)
 
-3. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
+4. En la página de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes:
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png)
 
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Domo con el siguiente patrón: `https://<company name>.domo.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Domo con el siguiente patrón: `https://<company name>.domo.com`
 
     b. Haga clic en **Siguiente**.
 
-4. En la página **Configurar inicio de sesión único en Domo**, realice los pasos siguientes:
+5. En la página **Configurar inicio de sesión único en Domo**, realice los pasos siguientes:
 
 	![Configurar inicio de sesión único](./media/active-directory-saas-domo-tutorial/tutorial_domo_05.png)
 
@@ -130,14 +155,14 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Con el fin de que se configure el SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Domo en [support@domo.com](mailto: support@domo.com); adjunte el certificado descargado y proporcione la **dirección URL del emisor**, la **dirección URL de inicio de sesión único de SAML** y la **dirección URL de cierre de sesión**.
+6. Con el fin de que se configure el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte técnico de Domo en [support@domo.com](mailto: support@domo.com); adjunte el certificado descargado y proporcione la **Dirección URL del emisor**, la **Dirección URL de inicio de sesión único de SAML** y la **Dirección URL de cierre de sesión**.
 
 
-6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+7. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
 	![Inicio de sesión único de Azure AD][10]
 
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
+8. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.
 
 	![Inicio de sesión único de Azure AD][11]
 
@@ -161,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_03.png)
 
-4. Para abrir el diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_04.png)
 
@@ -193,7 +218,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_07.png)
 
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes:
 
 	![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-domo-tutorial/create_aaduser_08.png)
 
@@ -220,7 +245,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a Domo, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones**, que se encuentra en el menú superior.
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
 
 	![Asignar usuario][201]
 
@@ -269,4 +294,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-domo-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-domo-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

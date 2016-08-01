@@ -107,15 +107,15 @@ En este paso, use el Portal de Azure para crear una instancia de Data Factory de
 
 	También puede hacer lo siguiente en la pestaña **Diagnósticos**:
 	
-		- Use *Test Connection** section to an on-premises data source using the gateway.
-		- Click **View Logs** to see the Data Management Gateway log in a Event Viewer window. 
-		- Click **Send Logs** to upload a zip file with logs of last 7 days to Microsoft to facilitate troubleshooting of your issues. 
+	- Utilice la sección **Probar conexión** para probar la conexión con un origen de datos local mediante la puerta de enlace.
+	- Haga clic en **Ver registros** para ver el registro de la puerta de enlace de administración de datos en una ventana del Visor de eventos.
+	- Haga clic en **Enviar registros** para cargar un archivo zip con los registros de los últimos siete días en Microsoft y facilitar así la solución de sus problemas.
 10. En el Portal de Azure, haga clic en **Aceptar** en la hoja **Configurar** y, después, en la hoja **Nueva puerta de enlace de datos**.
 6. Debería ver **adftutorialgateway** en **Puertas de enlace de datos** en la vista de árbol de la izquierda. Si hace clic en ella, debería ver el JSON asociado.
 	
 
 ## Crear servicios vinculados 
-En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **SqlServerLinkedService**. El servicio **SqlServerLinkedService** vincula una base de datos de SQL Server local y **AzureStorageLinkedService** vincula un almacén de blobs de Azure a la factoría de datos. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
+En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y **SqlServerLinkedService**. **SqlServerLinkedService** vincula una base de datos de SQL Server local, mientras que **AzureStorageLinkedService** vincula un almacén de blobs de Azure a la instancia de Data Factory. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
 
 #### Adición de un servicio vinculado a una base de datos de SQL Server local
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo almacén de datos** en la barra de herramientas y seleccione **SQL Server**.
@@ -147,7 +147,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
 	
-		Las credenciales se **cifrarán** mediante un certificado propiedad del servicio Data Factory. Si quiere usar el certificado asociado a Data Management Gateway en su lugar, vea [Configuración de credenciales y seguridad](#set-credentials-and-security).
+		Las credenciales se **cifrarán** mediante un certificado que es propiedad del servicio Data Factory. Si prefiere usar el certificado asociado a la puerta de enlace de administración de datos, consulte [Configuración de credenciales y seguridad](#set-credentials-and-security).
     
 2.	Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado de SQL Server.
 
@@ -255,13 +255,13 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 	Tenga en cuenta lo siguiente:
 	
 	- **type** está establecido en **AzureBlob**.
-	- **linkedServiceName** está establecido en **AzureStorageLinkedService** (creó este servicio vinculado en el paso 2).
+	- **linkedServiceName** está establecido en **AzureStorageLinkedService** (este servicio vinculado se creó en el paso 2).
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
 	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
 	Si no especifica **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Puede ver algunos archivos de ejemplo en [tutorial][adf-tutorial].
  
-	Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en **folderPath** se denominan con el siguiente formato: Data.<Guid>.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+	Si no especifica un valor **fileName** para una **tabla de salida**, el nombre de los archivos generados en **folderPath** tendrán siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 	Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad partitionedBy. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
 
@@ -416,7 +416,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 
 ## Pasos siguientes
 
-- Vea el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener todos los detalles sobre Data Management Gateway.
-- Vea [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener información sobre cómo usar Copiar actividad para mover datos desde un almacén de datos de origen a un almacén de datos de receptor en general.
+- Consulte en el artículo [Data Management Gateway](data-factory-data-management-gateway.md) (Puerta de enlace de administración de datos) para ver todos los detalles.
+- Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) si necesita más información sobre el uso general de la actividad de copia para mover datos desde un almacén de datos de origen a un almacén de datos receptor.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

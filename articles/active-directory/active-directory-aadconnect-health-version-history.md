@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="07/14/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: historial de versiones
@@ -21,6 +21,13 @@
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect Health con nuevas características y funciones.
 
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado.
+
+
+## Julio de 2016
+
+**Nuevas características de la versión preliminar:**
+
+- [Azure AD Connect Health para AD DS](active-directory-aadconnect-health-adds.md).
 
 
 ## Enero de 2016
@@ -50,22 +57,22 @@ Este artículo está diseñado para ayudarle a realizar un seguimiento de las ve
 
 **Problemas corregidos:**
 
-- Correcciones de errores detectados durante los registros del agente. 
+- Correcciones de errores detectados durante los registros del agente.
 
 ## Septiembre de 2015
 
 **Nuevas características:**
 
-- Informe de contraseña de nombre de usuario incorrecto para AD FS 
-- Soporte técnico para configurar el proxy de HTTP sin autenticar 
+- Informe de contraseña de nombre de usuario incorrecto para AD FS
+- Soporte técnico para configurar el proxy de HTTP sin autenticar
 - Soporte técnico para configurar el agente en Server Core
-- Mejoras en las alertas de AD FS 
-- Mejoras en el agente de Azure AD Connect Health para AD FS en la conectividad y carga de datos. 
+- Mejoras en las alertas de AD FS
+- Mejoras en el agente de Azure AD Connect Health para AD FS en la conectividad y carga de datos.
 
 
 **Problemas corregidos:**
 
-- Correcciones de errores en el uso de tipos de errores de AD FS. 
+- Correcciones de errores en el uso de tipos de errores de AD FS.
 
 
 ## Junio de 2015
@@ -74,16 +81,16 @@ Este artículo está diseñado para ayudarle a realizar un seguimiento de las ve
 
 **Nuevas características:**
 
-- Alertas de supervisión de AD FS y servidores proxy de AD FS con notificaciones de correo electrónico. 
-- Fácil acceso a la topología y patrones de AD FS en los contadores de rendimiento de AD FS. 
-- Tendencia de las solicitudes correctas de token en servidores de AD FS agrupados por aplicaciones, métodos de autenticación, ubicación de la red de solicitud, etc. 
+- Alertas de supervisión de AD FS y servidores proxy de AD FS con notificaciones de correo electrónico.
+- Fácil acceso a la topología y patrones de AD FS en los contadores de rendimiento de AD FS.
+- Tendencia de las solicitudes correctas de token en servidores de AD FS agrupados por aplicaciones, métodos de autenticación, ubicación de la red de solicitud, etc.
 - Tendencias en las solicitudes con error en los servidores de AD FS agrupados por aplicaciones, tipos de error, etc.
-- Implementación más sencilla del agente mediante credenciales de administrador global de Azure AD.  
+- Implementación más sencilla del agente mediante credenciales de administrador global de Azure AD.
 
 
 
 
 ## Pasos siguientes
-Conozca más detalles acerca de la [supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md).
+Conozca más detalles acerca de la [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

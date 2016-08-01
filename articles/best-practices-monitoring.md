@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/06/2016"
+   ms.date="07/13/2016"
    ms.author="masashin"/>
 
 # Guía de supervisión y diagnósticos
@@ -252,7 +252,7 @@ Los datos de instrumentación se deben agregar para generar una imagen del rendi
 
 - Calcular el número total de solicitudes de usuario durante un período determinado y determinar la tasa de solicitudes correctas y erróneas.
 - Combinar los tiempos de respuesta de las solicitudes de usuario para generar una vista general de los tiempos de respuesta del sistema.
-- Analizar el progreso de la interrupción de las solicitudes de usuario cuando se descompone el tiempo de respuesta de una solicitud en los tiempos de respuesta de los elementos de trabajo individuales de esa solicitud.  
+- Analizar el progreso de la interrupción de las solicitudes de usuario cuando se descompone el tiempo de respuesta de una solicitud en los tiempos de respuesta de los elementos de trabajo individuales de esa solicitud.
 - Determinar la disponibilidad general del sistema como un porcentaje del tiempo de actividad durante un período concreto.
 - Analizar el porcentaje del tiempo de disponibilidad de cada uno de los servicios y componentes individuales en el sistema. Esto podría implicar tener que analizar los registros que han generado servicios de terceros.
 
@@ -423,7 +423,7 @@ Todos los datos de supervisión deben tener una marca de tiempo del mismo tipo. 
 ### Información que de debe incluir en los datos de instrumentación
 A la hora de decidir qué datos de instrumentación necesita recopilar, tenga en cuenta los siguientes puntos:
 
-- Asegúrese de que la información que capturan los eventos de seguimiento sea legible por el ojo humano y las máquinas. Adopte esquemas bien definidos para esta información a fin de facilitar el procesamiento automatizado de los datos de registro entre sistemas y ofrecer coherencia para las operaciones y el personal de ingeniería que lee los registros. Incluya información del entorno, por ejemplo, el entorno de implementación, la máquina en la que se ejecuta el proceso, los detalles del proceso y la pila de llamadas.  
+- Asegúrese de que la información que capturan los eventos de seguimiento sea legible por el ojo humano y las máquinas. Adopte esquemas bien definidos para esta información a fin de facilitar el procesamiento automatizado de los datos de registro entre sistemas y ofrecer coherencia para las operaciones y el personal de ingeniería que lee los registros. Incluya información del entorno, por ejemplo, el entorno de implementación, la máquina en la que se ejecuta el proceso, los detalles del proceso y la pila de llamadas.
 - Habilite la generación de perfiles solo cuando sea necesario, ya que puede suponer una sobrecarga significativa sobre el sistema. La generación de perfiles mediante los registros de instrumentación registra un evento (por ejemplo, una llamada a un método) cada vez que se produce, mientras que el muestreo solo registra los eventos seleccionados. La selección puede basarse en el tiempo (una vez cada *n* segundos) o en la frecuencia (una vez cada *n* solicitudes). Si los eventos se producen con mucha frecuencia, la generación de perfiles mediante instrumentación puede provocar un exceso de carga y afectar al rendimiento general. En este caso, puede ser preferible el enfoque de muestreo. Sin embargo, si la frecuencia de eventos es baja, el muestreo podría perderlos. En este caso, la instrumentación podría ser el mejor método.
 - Facilite suficiente contexto para permitir que un desarrollador o administrador determine el origen de cada solicitud. Por ejemplo, alguna forma de id. de actividad que identifica una instancia específica de una solicitud. O también información que puede usarse para correlacionar esta actividad con el trabajo de cálculo realizado y los recursos usados. Tenga en cuenta que este trabajo podría cruzar los límites de los procesos o las máquinas. Para la medición, el contexto también debe incluir (directa o indirectamente a través de otra información correlacionada) una referencia al cliente que motivó que se realizará la solicitud. Este contexto ofrece valiosa información sobre el estado de la aplicación en el momento en que se capturaron los datos de supervisión.
 - Registre todas las solicitudes y las ubicaciones o regiones desde las que se realizan estas solicitudes. Esta información puede ayudarle a determinar si hay alguna zona activa específica de la ubicación. También puede ser útil para determinar si se van a volver a crear particiones de la aplicación o de los datos que utiliza.
@@ -473,7 +473,7 @@ Para los servicios y aplicaciones de Azure, Diagnósticos de Azure ofrece una so
 - Registros de eventos de Windows
 - Contadores de rendimiento
 - Volcados de memoria
-- Registros de infraestructura de diagnóstico de Azure  
+- Registros de infraestructura de diagnóstico de Azure
 - Registros de errores personalizados
 - .NET EventSource
 - ETW basado en manifiesto
@@ -664,4 +664,4 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 - [Recibir notificaciones de alerta](./azure-portal/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

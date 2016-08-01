@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/25/2016"
+   ms.date="07/18/2016"
    ms.author="juliako"/>
 
  
@@ -26,7 +26,7 @@ Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS
 
 ##Actualizaciones de Bus de servicio
 
-- Centros de eventos: 
+- Centros de eventos:
 
 	- Ahora permite el control de acceso dirigido cuando se envían eventos mediante la exposición de un extremo de publicador adicional para Centros de eventos.
 	- Se agrega una estabilidad y mejora adicional a la característica Centros de eventos.
@@ -36,7 +36,7 @@ Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS
 
 - **Mejora de IntelliSense**: sugerencia de metadatos remotos
 
-	Las Herramientas de HDInsight para Visual Studio ahora son compatibles con la obtención de metadatos remotos cuando se edita el script de Hive. Por ejemplo, puede escribir **SELECT * FROM** y se mostrarán todos los nombres de las tablas. Además, los nombres de las columnas aparecerán después de especificar una tabla.
+	Las Herramientas de HDInsight para Visual Studio ahora son compatibles con la obtención de metadatos remotos cuando se edita el script de Hive. Por ejemplo, puede escribir *SELECT * FROM* y se mostrarán todos los nombres de las tablas. Además, los nombres de las columnas aparecerán después de especificar una tabla.
 
 - **Compatibilidad con el emulador de HDInsight**
 
@@ -48,9 +48,9 @@ Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS
 
 	Las Herramientas de HDInsight para Visual Studio ahora son compatibles con clústeres genéricos de Hadoop, por lo que puede usarlas para:
 
-	- conectarse al clúster, 
-	- escribir la consulta de Hive con compatibilidad de finalización automática/IntelliSense mejorada, 
-	- ver todos los trabajos del clúster con una interfaz de usuario intuitiva. 
+	- conectarse al clúster,
+	- escribir la consulta de Hive con compatibilidad de finalización automática/IntelliSense mejorada,
+	- ver todos los trabajos del clúster con una interfaz de usuario intuitiva.
 
 	Para obtener más información, consulte [este manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
@@ -72,7 +72,7 @@ En la versión 2.6 del SDK de Azure se actualizaron los siguientes elementos.
 - Funcionalidad de aprovisionamiento de Aplicaciones de API para permitir usuarios con la funcionalidad de aprovisionamiento y creación de Aplicación de API.
 - Explorador de servidores cambió para reflejar un nuevo nodo de Servicio de aplicaciones, con aplicaciones web, aplicaciones móviles y aplicaciones de API agrupadas por Grupo de recursos.
 - Se agregó la funcionalidad de gesto del cliente de Aplicaciones de API de Azure a la mayoría de los proyectos de C# que permitirá la generación automática de Aplicaciones de API compatibles con Swagger en la suscripción de Azure de un usuario.
-- Las herramientas de Aplicaciones de API y los nodos de Servicio de aplicaciones en el Explorador de servidores solo se encuentran disponibles en Visual Studio 2013. 
+- Las herramientas de Aplicaciones de API y los nodos de Servicio de aplicaciones en el Explorador de servidores solo se encuentran disponibles en Visual Studio 2013.
 
 ##Actualizaciones de las herramientas del Administrador de recursos de Azure
 
@@ -93,7 +93,7 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
  
 ##Problemas conocidos
 
-- Recopilar registros de diagnósticos en el emulador requiere un sistema operativo de 64 bits. Los registros de diagnósticos no se recopilarán cuando se ejecuten en un sistema operativo de 32 bits. Esto no afecta ninguna otra funcionalidad del emulador. 
+- Recopilar registros de diagnósticos en el emulador requiere un sistema operativo de 64 bits. Los registros de diagnósticos no se recopilarán cuando se ejecuten en un sistema operativo de 32 bits. Esto no afecta ninguna otra funcionalidad del emulador.
 
 - La versión del SDK 2.6 de Azure del 29 de abril de 2015 presentaba dos problemas:
 
@@ -108,4 +108,4 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

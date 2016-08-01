@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/16/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # Extensión del Agente SQL Server para las máquinas virtuales SQL Server (Resource Manager)
@@ -25,9 +25,7 @@
 
 La extensión del agente de IaaS SQL Server (SQLIaaSExtension) se ejecuta en máquinas virtuales de Azure para automatizar las tareas de administración. En este tema se proporciona información general sobre los servicios admitidos por la extensión, así como instrucciones para la instalación, el estado y la eliminación.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
-
-Para ver la versión clásica de este artículo, consulte [Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica. Para ver la versión clásica de este artículo, consulte [Extensión del Agente SQL Server para las máquinas virtuales SQL Server (clásico)](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Servicios admitidos
 
@@ -68,7 +66,9 @@ Si crea una máquina virtual solo para el sistema operativo Windows Server, pued
 
 Si actualiza a la versión más reciente de la Extensión Agente de IaaS de SQL, debe reiniciar la máquina virtual después de actualizar la extensión.
 
-## Estado
+>[AZURE.NOTE] Si instala la extensión Agente de IaaS de SQL Server manualmente en una máquina virtual de Windows Server, debe utilizar y administrar sus características con comandos de PowerShell. La interfaz del portal está disponible solo para las imágenes de la galería de SQL Server.
+
+## Status
 
 Una manera de comprobar que la extensión está instalada consiste en ver el estado del agente en el Portal de Azure. Seleccione **Todas las configuraciones** en la hoja de la máquina virtual y, después, haga clic en **Extensiones**. Debería aparecer la extensión **SQLIaaSExtension**.
 
@@ -96,8 +96,8 @@ También puede utilizar el cmdlet de PowerShell **Remove-AzureRmVMSqlServerExten
 
 ## Pasos siguientes
 
-Empiece utilizando uno de los servicios admitidos por la extensión. Para más información, consulte los temas a los que se hace referencia en la sección [Supported services](#supported-services) (Servicios admitidos) de este artículo.
+Empiece utilizando uno de los servicios admitidos por la extensión. Para más información, consulte los temas a los que se hace referencia en la sección [Servicios admitidos](#supported-services) de este artículo.
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [Información general sobre SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

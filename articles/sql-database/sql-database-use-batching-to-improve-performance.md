@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill" />
 
 # Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Base de datos SQL
@@ -31,8 +31,8 @@ El procesamiento por lotes de las llamadas a un servicio remoto es una estrategi
 En este artículo, vamos a examinar las diversas estrategias y escenarios de procesamiento por lotes para Base de datos SQL. Aunque estas estrategias también son importantes para las aplicaciones locales que usan SQL Server, existen varias razones para destacar el uso del procesamiento por lotes para Base de datos SQL:
 
 - Potencialmente la latencia de red al acceder a Base de datos SQL es mayor, sobre todo si accede a Base de datos de SQL desde fuera del mismo centro de datos de Microsoft Azure.
-- Las características para varios inquilinos de Base de datos SQL suponen que la eficacia de la capa de acceso a datos se correlacione con la escalabilidad general de la base de datos. Base de datos SQL debe impedir que un solo usuario o inquilino monopolice los recursos de la base de datos en detrimento de los demás inquilinos. En respuesta a un uso superior a las cuotas predefinidas, Base de datos SQL puede reducir el rendimiento o responder con excepciones de limitación. Las soluciones eficientes, como el procesamiento por lotes, permiten que haga más trabajo en Base de datos SQL antes de alcanzar estos límites. 
-- Además, el procesamiento por lotes es efectivo para las arquitecturas que usan varias bases de datos (particionamiento). La eficacia de su interacción con cada unidad de base de datos sigue siendo un factor clave para la escalabilidad global. 
+- Las características para varios inquilinos de Base de datos SQL suponen que la eficacia de la capa de acceso a datos se correlacione con la escalabilidad general de la base de datos. Base de datos SQL debe impedir que un solo usuario o inquilino monopolice los recursos de la base de datos en detrimento de los demás inquilinos. En respuesta a un uso superior a las cuotas predefinidas, Base de datos SQL puede reducir el rendimiento o responder con excepciones de limitación. Las soluciones eficientes, como el procesamiento por lotes, permiten que haga más trabajo en Base de datos SQL antes de alcanzar estos límites.
+- Además, el procesamiento por lotes es efectivo para las arquitecturas que usan varias bases de datos (particionamiento). La eficacia de su interacción con cada unidad de base de datos sigue siendo un factor clave para la escalabilidad global.
 
 Una de las ventajas del uso de Base de datos SQL es que no es necesario administrar los servidores que hospedan la base de datos. Sin embargo, esta infraestructura administrada conlleva también que se deban considerar las optimizaciones de la base de datos de manera diferente. Ya no puede intentar mejorar la infraestructura de hardware o de red de la base de datos, porque Microsoft Azure controla esos entornos. El principal aspecto que puede controlar es cómo la aplicación interactúa con Base de datos SQL. El procesamiento por lotes es una de estas optimizaciones.
 
@@ -594,7 +594,7 @@ En la lista siguiente, se proporciona un resumen de las recomendaciones de proce
 - Para las operaciones de actualización y eliminación, use parámetros con valores de tabla con lógica de procedimiento almacenado que determine la operación correcta en cada fila en el parámetro de la tabla.
 - Instrucciones para el tamaño de lote:
 	- Use los tamaños de lote más grandes que tengan sentido para los requisitos de la aplicación y de la empresa.
-	- Equilibre la ganancia en rendimiento de los lotes grandes con el riesgo de los errores temporales o catastróficos. ¿Cuál es la consecuencia de los reintentos o la pérdida de datos en el lote? 
+	- Equilibre la ganancia en rendimiento de los lotes grandes con el riesgo de los errores temporales o catastróficos. ¿Cuál es la consecuencia de los reintentos o la pérdida de datos en el lote?
 	- Pruebe el tamaño de lote más grande para verificar que Base de datos de SQL no lo rechace.
 	- Cree parámetros de configuración que controlen el procesamiento por lotes, como el tamaño del lote o el período de tiempo de almacenamiento en búfer. Estas configuraciones proporcionan flexibilidad. Puede cambiar el comportamiento de procesamiento por lotes en producción sin volver a implementar el servicio en la nube.
 - Evite la ejecución en paralelo de lotes que operan en una sola tabla en una base de datos. Si decide dividir un único lote entre varios subprocesos de trabajo, ejecute pruebas para determinar el número ideal de subprocesos. Después de traspasar un umbral no especificado, el aumento del número de subprocesos hará que el rendimiento disminuya en lugar de mejorarlo.
@@ -604,4 +604,4 @@ En la lista siguiente, se proporciona un resumen de las recomendaciones de proce
 
 Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Base de datos SQL de Azure](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -105,7 +105,7 @@ Por ejemplo:
 5. Calcule las unidades de solicitud necesarias según el número estimado de operaciones que se prevé ejecutar cada segundo.
 
 ##Un ejemplo de estimación de la unidad de solicitud
-Considere el siguiente documento de ~1 KB:
+Considere el siguiente documento de ~1 KB:
 
 	{
 	 "id": "08259",
@@ -155,7 +155,7 @@ Considere el siguiente documento de ~1 KB:
   	]
 	}
 
->[AZURE.NOTE]Los documentos se han minimizado en DocumentDB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
+>[AZURE.NOTE]Los documentos se han minimizado en DocumentDB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
 
 
 La siguiente tabla muestra los cargos de unidad de solicitud aproximados para las operaciones típicas de este documento (el cargo de la unidad de solicitud aproximado supone que el nivel de coherencia de la cuenta está establecido en "Sesión" y que todos los documentos se indexan automáticamente):
@@ -202,7 +202,7 @@ Si tiene más de un cliente de manera acumulativa funcionando por encima de la t
 
 ##Pasos siguientes
 
-Para obtener más información sobre el rendimiento con DocumentDB, consulte estos recursos:
+Para obtener más información sobre el rendimiento con bases de datos de Azure DocumentDB, consulte estos recursos:
  
 - [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Administración de la capacidad de DocumentDB](documentdb-manage.md)
@@ -220,4 +220,4 @@ Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -87,8 +87,8 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 | Umbral incorrecto | 3 | Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 ###Solución
-- Asegúrese de que se ha configurado un sitio predeterminado y de que está escuchando en 127.0.0.1. 
-- Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto. 
+- Asegúrese de que se ha configurado un sitio predeterminado y de que está escuchando en 127.0.0.1.
+- Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto.
 - La llamada a http://127.0.0.1:port debe devolver un código de resultado HTTP 200 dentro del periodo de espera de 30 segundos.
 - Asegúrese de que el puerto configurado está abierto y de que no hay ninguna regla de firewall ni grupos de seguridad de red de Azure que bloqueen el tráfico entrante o saliente en dicho puerto.
 - Si usa el servicio en la nube o las máquinas virtuales clásicas de Azure con una IP pública o un FQDN, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) correspondiente.
@@ -112,10 +112,10 @@ Las sondas de estado personalizadas dotan al comportamiento de sondeo predetermi
 
 
 ###Solución
-Valide que la sonda de estado personalizada esté configurada correctamente según la tabla siguiente. Además de realizar los pasos de solución de problemas anteriores, no se olvide tampoco de llevar a cabo estos pasos:
+Valide que el sondeo de mantenimiento personalizado esté configurado correctamente según la tabla anterior. Además de realizar los pasos de solución de problemas anteriores, no se olvide tampoco de llevar a cabo estos pasos:
 
 - Asegúrese de que el protocolo está establecido solo en HTTP. En estos momentos no se admite HTTPS.
-- Asegúrese de que la sonda se ha especificado correctamente según la [guía](application-gateway-create-probe-ps.md). 
+- Asegúrese de que la sonda se ha especificado correctamente según la [guía](application-gateway-create-probe-ps.md).
 - Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
 - Asegúrese de que una llamada a http://\<host>:<puerto><ruta de acceso> devuelva un código de resultado HTTP 200.
 - Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
@@ -134,4 +134,4 @@ El servicio Puerta de enlace de aplicaciones permite a los usuarios configurar e
 
 Si los pasos anteriores no resuelven el problema, abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

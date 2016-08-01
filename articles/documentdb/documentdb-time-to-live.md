@@ -21,7 +21,7 @@
 
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
 
-Con "período de vida", o TTL, Microsoft Azure DocumentDB ofrece la posibilidad de purgar los documentos automáticamente del sistema tras un período de tiempo. El período de vida predeterminado se puede establecer en el nivel de colección, y se puede invalidar de forma individual (por documento). Una vez que se establece el TTL, como un valor predeterminado de la colección o en un nivel de documento, DocumentDB quita automáticamente los documentos que existen después de ese período de tiempo, en segundos, desde que se modificaron por última vez.
+Con "periodo de vida", o TTL, Microsoft Azure DocumentDB ofrece la posibilidad de purgar los documentos automáticamente de la base de datos tras un período de tiempo. El período de vida predeterminado se puede establecer en el nivel de colección, y se puede invalidar de forma individual (por documento). Una vez que se establece el TTL, como un valor predeterminado de la colección o en un nivel de documento, DocumentDB quita automáticamente los documentos que existen después de ese período de tiempo, en segundos, desde que se modificaron por última vez.
 
 El período de vida en DocumentDB utiliza un desplazamiento con el que se mide cuándo se modificó por última vez el documento. Para ello, utiliza el campo \_ts que existe en todos los documentos. El campo \_ts es una marca de tiempo de estilo unix que representa la fecha y la hora. El campo \_ts se actualiza cada vez que se modifica un documento.
 
@@ -36,7 +36,7 @@ La característica TTL se controla mediante las propiedades de TTL en dos nivele
   
   * Si existe y el valor es un número ("n"), los documentos caducan "n" segundos después de la última modificación.
 
- 2.  TTL para los documentos: 
+ 2.  TTL para los documentos:
   * La propiedad solo es aplicable si DefaultTTL existe en la colección primaria.
   
   * Invalida el valor DefaultTTL para la colección primaria.
@@ -157,4 +157,4 @@ Sí. La colección debe tener la [directiva de indexación](documentdb-indexing-
 
 Para más información sobre Azure DocumentDB, consulte la página de [*documentación*](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

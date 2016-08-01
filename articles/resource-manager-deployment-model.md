@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
@@ -40,7 +40,7 @@ Los recursos creados a través del Administrador de recursos comparten las sigui
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para recursos de proceso, almacenamiento y red, puede usar el Administrador de recursos o la implementación clásica. Select **Administrador de recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -87,7 +87,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -175,4 +175,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información acerca de la estructura de las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

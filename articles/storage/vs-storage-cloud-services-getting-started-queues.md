@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="05/08/2016"
+    ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de colas de Azure y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Información general
 
@@ -26,7 +28,7 @@ Le mostraremos cómo crear una cola en el código. También le mostraremos cómo
 
 La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
- - Vea [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas en el código.
+ - Consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](storage-dotnet-how-to-use-queues.md) para más información sobre la manipulación de colas en el código.
  - Vea [Documentación sobre Almacenamiento](https://azure.microsoft.com/documentation/services/storage/) para información general sobre Almacenamiento de Azure.
  - Vea [Documentación sobre Servicios en la nube](https://azure.microsoft.com/documentation/services/cloud-services/) para información general sobre los servicios en la nube de Azure.
  - Vea [ASP.NET](http://www.asp.net) para más información sobre la programación de aplicaciones ASP.NET.
@@ -168,4 +170,4 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

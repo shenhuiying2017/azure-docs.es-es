@@ -252,7 +252,7 @@ Para probar la conexión:
 
 1. Compruebe la conexión con la utilidad **sqlcmd**. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal a través del agente de escucha utilizando la autenticación de Windows:
 
-        sqlmd -S <listenerName> -E
+        sqlcmd -S <listenerName> -E
 
 La conexión SQLCMD se establece automáticamente con cualquiera de las instancias de SQL Server en las que se hospeda la réplica principal.
 
@@ -265,4 +265,4 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 - Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

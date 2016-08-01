@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="07/14/2016"
    ms.author="alkohli"/>
 
 # Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V
@@ -131,11 +131,11 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Revise la sección **Resumen** y luego haga clic en **Finalizar** para crear la máquina virtual.
+1.  Revise la sección **Resumen** y luego haga clic en **Finalizar** para crear la máquina virtual. Pero no se adelante aún: todavía tiene que agregar algunos núcleos de CPU y una segunda unidad.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  Para cumplir los requisitos mínimos, necesitará 4 núcleos. Para agregar cuatro procesadores virtuales, con el sistema host seleccionado en la ventana **Administrador de Hyper-V**, en el panel de la derecha bajo la lista de **Máquinas virtuales**, ubique la máquina virtual que acaba de crear. Seleccione el nombre del equipo, haga clic con el botón derecho y seleccione **Configuración**.
+1.  Para cumplir los requisitos mínimos, necesitará 4 núcleos. Para agregar procesadores virtuales, con el sistema host seleccionado en la ventana **Administrador de Hyper-V**, en el panel de la derecha bajo la lista de **Máquinas virtuales**, ubique la máquina virtual que acaba de crear. Seleccione el nombre del equipo, haga clic con el botón derecho y seleccione **Configuración**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
@@ -156,7 +156,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo en el hipervisor.
 
 1.  En la página **Antes de comenzar** del Asistente para crear nuevo disco virtual, haga clic en **Siguiente**.
 
-1.  En la página **Elegir formato de disco**, acepte la opción predeterminada de formato **VHDX**. Haga clic en **Siguiente**. Esta pantalla no aparecerá si ejecuta Windows Server 2008 R2.
+1.  En la página **Elegir formato de disco**, acepte la opción predeterminada de formato **VHDX**. Haga clic en **Siguiente**. Si ejecuta Windows Server 2012 R2 o Windows Server 2008 R2, no podrá ver esta pantalla.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
@@ -267,4 +267,4 @@ Mire el vídeo para ver cómo puede aprovisionar una matriz virtual de StorSimpl
 
 -   [Configurar la matriz virtual de StorSimple como servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

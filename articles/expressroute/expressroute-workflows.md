@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
 # Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
@@ -32,7 +32,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 
 	-  Habilitar la configuración entre pares privados de Azure: debe habilitar esta configuración entre pares para conectarse a las máquinas virtuales/servicios en la nube implementados en redes virtuales.
 	-  Habilitar la configuración entre pares públicos de Azure: debe habilitar la configuración entre pares públicos de Azure si desea conectarse a los servicios de Azure hospedados en direcciones IP públicas. Se trata de un requisito para acceder a los recursos de Azure si ha elegido habilitar el enrutamiento predeterminado para la configuración entre pares privados de Azure.
-	-  Habilitar la configuración entre pares de Microsoft: debe habilitarlo para acceder a Office 365 y a los servicios en línea de CRM. 
+	-  Habilitar la configuración entre pares de Microsoft: debe habilitarlo para acceder a Office 365 y a los servicios en línea de CRM.
 	
 	>[AZURE.IMPORTANT] Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
@@ -120,4 +120,4 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 	- [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

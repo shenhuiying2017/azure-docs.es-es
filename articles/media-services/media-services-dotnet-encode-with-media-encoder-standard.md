@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="07/18/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -41,7 +41,7 @@ El Codificador multimedia estándar se configura mediante uno de los valores pre
 
 Al codificar un recurso de entrada (o recursos) con MES, obtendrá un recurso de salida en la correcta realización de dicha tarea de codificación. El recurso de salida contiene vídeo, audio, miniaturas, manifiestos, etc., basados en el valor predeterminado de codificación que utilice.
 
-El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: <asset_id>\_metadata.xml (por ejemplo, 41114ad3-eb5e - 4c 57-8d 92-5354e2b7d4a4\_metadata.xml), donde <asset_id> es el valor AssetId del recurso de entrada. El esquema de este archivo XML de metadatos de entrada se describe [aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: <asset\_id>\_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), donde <asset\_id> es el valor AssetId del recurso de entrada. El esquema de este archivo XML de metadatos de entrada se describe [aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
 El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo XML de metadatos tiene el formato siguiente: <source_file_name>\_manifest.xml (por ejemplo, BigBuckBunny\_manifest.xml). El esquema de este archivo XML de metadatos de salida se describe [aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
@@ -58,7 +58,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 - Crear un trabajo de codificación.
 - Obtener una referencia al codificador Codificador multimedia estándar.
 - Especifique que se use el valor preestablecido "H264 Multiple Bitrate 720p". Puede ver todos los valores preestablecidos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). También puede examinar el esquema con el que se deben cumplir estos valores preestablecidos [aquí](https://msdn.microsoft.com/library/mt269962.aspx).
-- Agregar una única tarea de codificación al trabajo. 
+- Agregar una única tarea de codificación al trabajo.
 - Especificar el recurso de entrada que se va a codificar.
 - Crear un recurso de salida que contendrá el recurso codificado.
 - Agregar un controlador de eventos para comprobar el progreso del trabajo.
@@ -150,4 +150,4 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 [Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

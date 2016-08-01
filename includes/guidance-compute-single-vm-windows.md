@@ -8,9 +8,9 @@ Se recomienda utilizar una sola máquina virtual para cargas de trabajo de produ
 
 El aprovisionamiento de una máquina virtual en Azure implica más piezas en movimiento que la propia máquina virtual. Existen elementos de proceso, red y almacenamiento.
 
-![IaaS: una única VM](./media/guidance-blueprints/compute-single-vm.png)
+![[0]][0]
 
-- **Grupo de recursos.** Un [_grupo de recursos_][resource-manager-overview] es un contenedor que incluye recursos relacionados. Cree un grupo de recursos para contener los recursos de esta máquina virtual.
+- **Grupo de recursos.** Un [grupo de recursos][resource-manager-overview] es un contenedor que incluye recursos relacionados. Cree un grupo de recursos para contener los recursos de esta máquina virtual.
 
 - **Máquina virtual**. Puede aprovisionar una VM desde una lista de imágenes publicadas o desde un archivo de disco duro virtual cargado en Almacenamiento de blobs de Azure.
 
@@ -50,7 +50,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Agregue uno o más discos de datos. Cuando se crea un nuevo disco duro virtual, no tiene formato. Inicie sesión en la VM para dar formato al disco.
 
-- Si tiene un gran número de discos de datos, tenga en cuenta los límites de E/S totales de la cuenta de almacenamiento. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure][vm-disk-limits].
+- Si tiene un gran número de discos de datos, tenga en cuenta los límites de E/S totales de la cuenta de almacenamiento. Para más información, consulte [Límites de discos de máquinas virtuales][vm-disk-limits].
 
 - Para obtener el mejor rendimiento, cree una cuenta de almacenamiento independiente para contener los registros de diagnóstico. Una cuenta de almacenamiento con redundancia local (LRS) estándar es suficiente para este tipo de registros.
 
@@ -108,13 +108,11 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Eliminación de una máquina virtual.** Si elimina una VM, no se eliminarán los discos duros virtuales. Esto significa que puede eliminar de forma segura la VM sin perder datos. Sin embargo, se le seguirá cobrando por el almacenamiento. Para eliminar el disco duro virtual, elimine el archivo desde [Almacenamiento de blobs][blob-storage].
 
-  Para evitar eliminaciones accidentales, use un [bloqueo de recurso][resource-lock] para bloquear el grupo de recursos completo o recursos individuales, como la máquina virtual.
-
-
+  Para evitar eliminaciones por error, use un [bloqueo de recurso][resource-lock] para bloquear el grupo de recursos completo o recursos individuales, como la máquina virtual.
 
 ## Consideraciones sobre la seguridad
 
-- Use el [Centro de seguridad de Azure][security-center] para obtener una visión central del estado de la seguridad de sus recursos en Azure. El Centro de seguridad supervisa los posibles problemas de seguridad, como actualizaciones del sistema o antimalware, y proporciona una imagen completa del estado de seguridad de su implementación.
+- Use el [Azure Security Center][security-center] para obtener una visión central del estado de la seguridad de sus recursos en Azure. El Centro de seguridad supervisa los posibles problemas de seguridad, como actualizaciones del sistema o antimalware, y proporciona una imagen completa del estado de seguridad de su implementación.
 
     - El Centro de seguridad se configura por cada suscripción de Azure. Habilite la recopilación de datos de seguridad tal como se describe en [Uso del Centro de seguridad].
     - Después de habilitar la colección, el Centro de seguridad busca automáticamente las máquinas virtuales creadas en esa suscripción.
@@ -123,7 +121,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Antimalware.** Si está habilitada esta opción, el Centro de seguridad comprueba si está instalado software antimalware. También puede utilizar el Centro de seguridad para instalar software antimalware desde el Portal de Azure.
 
-- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia incluyen [Usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y [Colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
+- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia son, por ejemplo, el de [usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y el de [colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
     > [AZURE.NOTE] RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.
 
@@ -135,9 +133,9 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Utilice los [registros de auditoría][audit-logs] para ver las acciones de aprovisionamiento y otros eventos de máquina virtual.
 
-- Considere la posibilidad de usar el [Cifrado de discos de Azure][disk-encryption] si necesita cifrar los discos de datos y del sistema operativo.
+- Considere la posibilidad de usar el [cifrado de discos de Azure][disk-encryption] si necesita cifrar los discos de datos y del sistema operativo.
 
-## Ejemplo de script de implementación
+## Componentes de soluciones
 
 El siguiente script por lotes de Windows ejecuta los comandos de la [CLI de Azure][azure-cli] para implementar una única instancia de máquina virtual, así como los recursos de red y almacenamiento relacionados, tal como se muestra en el diagrama anterior.
 
@@ -253,9 +251,10 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
   --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
+
 ## Pasos siguientes
 
-Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
+Para que se aplique el [SLA para máquinas virtuales][vm-sla] debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 <!-- links -->
 
@@ -300,5 +299,6 @@ Para que se aplique el [SLA para máquinas virtuales][vm-sla], debe implementar 
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/es-ES/support/legal/sla/virtual-machines/v1_0/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura general de una VM de Azure"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="04/01/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Entornos de prueba de nube híbrida de Azure
@@ -50,4 +50,4 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 - Obtenga información sobre las [directrices de implementación](virtual-machines-linux-infrastructure-service-guidelines.md) para diseñar una implementación personalizada de desarrollo, prueba o producción en los servicios de infraestructura de Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

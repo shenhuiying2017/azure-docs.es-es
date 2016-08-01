@@ -1,13 +1,10 @@
 ### Requisitos previos
 
-- Una cuenta de [SQL Azure](https://www.microsoft.com/sql).
+- Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
+- Una [Base de datos SQL de Azure](../articles/sql-database/sql-database-get-started.md) con su información de conexión, como el nombre del servidor, el nombre de la base de datos y el nombre de usuario y la contraseña. Esta información se incluye en la cadena de conexión de Base de datos SQL: Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your\_username};Password={your\_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
+> [AZURE.NOTE] Cuando se crea una Base de datos SQL de Azure, también puede crear las bases de datos de ejemplo incluidas con SQL.
 
-Antes de poder usar la cuenta de SQL Azure en una aplicación lógica, debe autorizar a la aplicación lógica a conectarse a dicha cuenta. Por suerte, esto se puede hacer fácilmente dentro de la aplicación lógica en el Portal de Azure.
+Más información acerca de [Bases de datos SQL de Azure](https://azure.microsoft.com/services/sql-database).
 
-Aquí se explica cómo autorizar a la aplicación lógica para conectarse a su cuenta de SQL Azure:
-1. Para crear una conexión a SQL Azure en el diseñador de aplicaciones lógicas, seleccione **Show Microsoft managed APIs** (Mostrar API administradas por Microsoft) en la lista desplegable y, luego, escriba *SQL Azure* en el cuadro de búsqueda. Seleccione el desencadenador o la acción que quiera usar: ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sql/sql-1.png)
-2. Si no ha creado ninguna conexión a SQL Azure antes, se le pedirá que indique sus credenciales de SQL Azure. Estas credenciales se usarán para autorizar a la aplicación lógica para conectarse y tener acceso a los datos de su cuenta de SQL Azure: El formato de cadena de conexión SQL es como sigue: **Server=tcp:[serverName].database.windows.net;Database=myDataBase; User ID=[LoginForDb]@[serverName];Password=myPassword;Trusted\_Connection=False; Encrypt=True;** ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sql/sql-2.png)
-3. Observe que la conexión se ha creado y que puede continuar sin problemas con el resto de los pasos en la aplicación lógica: ![paso de creación de conexión de SQL Azure](./media/connectors-create-api-sql/sql-3.png).
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

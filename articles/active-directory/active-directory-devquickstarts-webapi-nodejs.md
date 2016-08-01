@@ -61,7 +61,7 @@ Asegúrese de:
     - El **URI de id. de aplicación** es un identificador único de su aplicación. La convención consiste en usar `https://<tenant-domain>/<app-name>`, p. ej. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña Configurar.
 
-- RECORDATORIO: Cree un **secreto de aplicación** para la aplicación y cópielo. Lo necesitará en breve.
+- RECORDATORIO: Cree un **secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
 - RECORDATORIO: Escriba el **id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
 
@@ -179,7 +179,20 @@ Escriba el siguiente comando para instalar el módulo passport-azure-ad de Passp
 
 El resultado del comando debe ser similar al siguiente:
 
-`` passport-azure-ad@1.0.0 node\_modules/passport-azure-ad ├── xtend@4.0.0 ├── xmldom@0.1.19 ├── passport-http-bearer@1.0.1 (passport-strategy@1.0.0) ├── underscore@1.8.3 ├── async@1.3.0 ├── jsonwebtoken@5.0.2 ├── xml-crypto@0.5.27 (xpath.js@1.0.6) ├── ursa@0.8.5 (bindings@1.2.1, nan@1.8.4) ├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4) ├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0) └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
+	``
+	passport-azure-ad@1.0.0 node_modules/passport-azure-ad
+	├── xtend@4.0.0
+	├── xmldom@0.1.19
+	├── passport-http-bearer@1.0.1 (passport-strategy@1.0.0)
+	├── underscore@1.8.3
+	├── async@1.3.0
+	├── jsonwebtoken@5.0.2
+	├── xml-crypto@0.5.27 (xpath.js@1.0.6)
+	├── ursa@0.8.5 (bindings@1.2.1, nan@1.8.4)
+	├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
+	├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+	└── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
+
 
 
 ## 8\. Incorporación de módulos MongoDB a la API web
@@ -845,7 +858,7 @@ El código anterior toma cualquier usuario que se autentique en el servidor. Est
 
 ### 2\. Por último, proteja algunos extremos
 
-Protege puntos de conexión mediante la especificación de la llamada `passport.authenticate()` con el protocolo que desea utilizar.
+Los puntos de conexión se protegen mediante la especificación de la llamada `passport.authenticate()` con el protocolo que desea utilizar.
 
 Editemos nuestra ruta en el código de servidor para que haga algo más interesante:
 
@@ -928,4 +941,4 @@ Solo tiene que clonar su equipo del desarrollador y configurarlo como se indica 
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

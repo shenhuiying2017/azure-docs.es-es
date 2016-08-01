@@ -94,11 +94,6 @@ Para ver más información, consulte [Personalizar las páginas de inicio de ses
 Hay algunas aplicaciones de Exchange ActiveSync que son compatibles con Android 5.0 (Lollipop) o posterior. Para determinar si la aplicación de correo electrónico admite esta característica, póngase en contacto con el desarrollador de la aplicación.
 
 
-### Limitaciones  
-
-La autenticación federada no es compatible con los certificados de cliente.
-
-
 
 ## Introducción 
 
@@ -143,7 +138,7 @@ Para cargar la información, puede usar el módulo de Azure AD mediante Windows 
 
 1. Inicie Windows PowerShell con privilegios de administrador.
 
-2. Instale el módulo de Azure AD. Debe instalar la versión [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o una superior.
+2. Instale el módulo de Azure AD. Tiene que instalar la versión [1\.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) o una superior.
 
         Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
 
@@ -196,7 +191,7 @@ Recupere las entidades de certificación almacenadas actualmente en Azure Active
 
 		$c[0].AuthorityType=1 
 
-3. Establezca la **entidad de certificación**:
+3. Establezca la **Entidad de certificación**:
 
 		Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
@@ -248,9 +243,9 @@ Para probar la autenticación basada en certificados con una aplicación para An
 
 Para revocar un certificado de cliente, Azure Active Directory recupera la lista de revocación de certificados (CRL) de las direcciones URL cargadas como parte de la información de la entidad de certificación y la almacena en caché. La última marca de tiempo publicada (propiedad **Effective Date**) de la lista CRL se utiliza para garantizar que esta sigue siendo válida. De forma periódica, se hace referencia a la CRL para revocar el acceso a los certificados que forman parte de la lista.
 
-Si se requiere realizar una revocación más instantánea (por ejemplo, si un usuario pierde un dispositivo), se puede invalidar el token de autorización del usuario. Para ello, establezca el valor del campo **StsRefreshTokenValidFrom** de este usuario concreto mediante Windows PowerShell. Debe actualizar el campo **StsRefreshTokenValidFrom** en cada usuario cuyo acceso vaya a revocar.
+Si se requiere realizar una revocación más instantánea (por ejemplo, si un usuario pierde un dispositivo), se puede invalidar el token de autorización del usuario. Para ello, establezca el valor del campo **StsRefreshTokenValidFrom** de este usuario concreto mediante Windows PowerShell. Tiene que actualizar el campo **StsRefreshTokenValidFrom** en cada usuario cuyo acceso vaya a revocar.
  
-Para garantizar que la revocación persista, debe establecer la **fecha de vigencia** de la CRL en una fecha posterior al valor que establece **StsRefreshTokenValidFrom**. Además, asegúrese de que el certificado en cuestión se encuentre en la CRL.
+Para garantizar que la revocación se mantenga, debe establecer la **fecha de vigencia** de la CRL en una fecha posterior al valor que establece **StsRefreshTokenValidFrom**. Además, asegúrese de que el certificado en cuestión se encuentre en la CRL.
  
 En los siguientes pasos se describe el proceso de actualización e invalidación del token de autorización estableciendo el campo **StsRefreshTokenValidFrom**.
 
@@ -270,6 +265,6 @@ En los siguientes pasos se describe el proceso de actualización e invalidación
 		Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 
-La fecha establecida debe ser futura. Si no, no se establecerá la propiedad **StsRefreshTokensValidFrom**. Si la fecha es futura, el valor de **StsRefreshTokensValidFrom** se establece en la hora actual (no la fecha que indica el comando Set-MsolUser).
+La fecha establecida debe ser futura. De lo contrario, no se establecerá la propiedad **StsRefreshTokensValidFrom**. Si la fecha es futura, el valor de **StsRefreshTokensValidFrom** se establece en la hora actual (no la fecha que indica el comando Set-MsolUser).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

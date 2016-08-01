@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="sumukhs"/>
 
 # Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
@@ -29,7 +29,7 @@ También hay configuraciones globales que afectan a la configuración de Reliabl
 
 La configuración global se especifica en el manifiesto de clúster para el clúster de la sección KtlLogger. Permite la configuración del tamaño y la ubicación del registro compartido, así como los límites de memoria global usados por el registrador. Tenga en cuenta que los cambios en el manifiesto de clúster afectan a todos los servicios que usan ReliableDictionaryActorStateProvider y servicios con estado confiables.
 
-El manifiesto de clúster es un único archivo XML que contiene los valores y las configuraciones que se aplican a todos los nodos y servicios del clúster. El archivo suele denominarse ClusterManifest.xml. Puede ver el manifiesto de clúster para su clúster mediante el comando de PowerShell Get-ServiceFabricClusterManifest.
+El manifiesto de clúster es un único archivo XML que contiene los valores y las configuraciones que se aplican a todos los nodos y servicios del clúster. El archivo suele llamarse ClusterManifest.xml. Puede ver el manifiesto de clúster para su clúster usando el comando de PowerShell Get-ServiceFabricClusterManifest.
 
 ### Nombres de configuración
 
@@ -39,7 +39,7 @@ El manifiesto de clúster es un único archivo XML que contiene los valores y la
 |WriteBufferMemoryPoolMaximumInKB|Kilobytes|Ilimitado|Tamaño máximo al que puede aumentar el grupo de memoria del búfer de escritura del registrador.|
 |SharedLogId|GUID|""|Especifica un GUID único que se usará para identificar el archivo de registro compartido predeterminado que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogId en su configuración específica del servicio. Si se especifica SharedLogId, también se debe especificar SharedLogPath.|
 |SharedLogPath|Nombre de ruta de acceso completo|""|Especifica la ruta de acceso completa donde se encuentra el archivo de registro compartido que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogPath en su configuración específica del servicio. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId.|
-|SharedLogSizeInMB|Megabytes|8192|Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o más.|
+|SharedLogSizeInMB|Megabytes|8192|Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior.|
 
 ### Ejemplo de sección de manifiesto de clúster
 ```xml
@@ -53,9 +53,9 @@ El manifiesto de clúster es un único archivo XML que contiene los valores y la
 ```
 
 ### Comentarios
-El registrador tiene un grupo global de memoria asignado desde la memoria del kernel no paginada, que está disponible para todos los servicios de confianza en un nodo para almacenar en caché los datos de estado antes de que se escriban en el registro específico asociado con la réplica de un servicio de confianza. El tamaño del grupo se controla mediante las opciones WriteBufferMemoryPoolMinimumInKB y WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica el tamaño inicial de este grupo de memoria y el tamaño mínimo al que se puede reducir el grupo de memoria. WriteBufferMemoryPoolMaximumInKB es el tamaño máximo que puede alcanzar el grupo de memoria. Cada réplica de un servicio de confianza que está abierta puede aumentar el tamaño del grupo de memoria en una cantidad determinada por el sistema hasta WriteBufferMemoryPoolMaximumInKB. Si se demanda más memoria del grupo de la que hay disponible, las solicitudes de memoria se retrasarán hasta que haya memoria disponible. Por lo tanto, si el grupo de memoria del búfer de escritura es demasiado pequeño para una configuración concreta, el rendimiento se puede ver afectado.
+El registrador tiene un grupo global de memoria asignado desde la memoria del kernel no paginada que está disponible para todos los servicios de confianza en un nodo para almacenar en caché los datos de estado antes de que se escriban en el registro específico asociado con la réplica del servicio de confianza. El tamaño del grupo se controla mediante las opciones WriteBufferMemoryPoolMinimumInKB y WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica el tamaño inicial de este grupo de memoria y el tamaño mínimo al que se puede reducir el grupo de memoria. WriteBufferMemoryPoolMaximumInKB es el tamaño máximo que puede alcanzar el grupo de memoria. Cada réplica de un servicio de confianza que está abierta puede aumentar el tamaño del grupo de memoria en una cantidad que determina el sistema hasta WriteBufferMemoryPoolMaximumInKB. Si el grupo de memoria demanda más memoria de la que hay disponible, las solicitudes de memoria se retrasarán hasta que haya memoria disponible. Por lo tanto, si el grupo de memoria del búfer de escritura es demasiado pequeño para una configuración concreta, el rendimiento se puede ver afectado.
 
-Los parámetros SharedLogId y SharedLogPath siempre se usan juntos para definir el GUID y la ubicación del registro compartido predeterminado de todos los nodos del clúster. El registro compartido predeterminado se usa para todos los servicios de confianza que no especifican los valores de configuración en el archivo settings.xml para el servicio específico. Para obtener un mejor rendimiento, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido de modo que se reduzca la contención.
+Los parámetros SharedLogId y SharedLogPath siempre se usan juntos para definir el GUID y la ubicación del registro compartido predeterminado de todos los nodos del clúster. El registro compartido predeterminado se usa para todos los servicios de confianza que no especifican los valores de configuración en el archivo settings.xml para el servicio específico. Para obtener un mejor rendimiento, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido, de modo que se reduzca la contención.
 
 SharedLogSizeInMB especifica la cantidad de espacio en disco que se va a preasignar para el registro compartido predeterminado en todos los nodos. No es necesario especificar SharedLogId y SharedLogPath para poder especificar SharedLogSizeInMB.
 
@@ -75,7 +75,7 @@ Las configuraciones del replicador se usan para configurar el replicador que es 
 
 |Nombre|Unidad|Valor predeterminado|Comentarios|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Segundos|0,05|Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta.||
+|BatchAcknowledgementInterval|Segundos|0\.015|Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta.||
 |ReplicatorEndpoint|N/D|Ningún valor predeterminado: parámetro obligatorio|Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Recursos del manifiesto de servicio](service-fabric-service-manifest-resources.md) para obtener más información sobre cómo definir recursos de punto de conexión en el manifiesto de servicio. |
 |MaxReplicationMessageSize|Bytes|50 MB|Tamaño máximo de los datos de replicación que se puede transmitir en un único mensaje.|
 |MaxPrimaryReplicationQueueSize|Número de operaciones|8192|Número máximo de operaciones de la cola principal. Una operación se libera después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2.|
@@ -120,4 +120,4 @@ El parámetro MaxRecordSizeInKB define el tamaño máximo de un registro que el 
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obligar a un servicio a usar un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Para reducir la contención del movimiento de encabezados, los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido Se espera que estos valores solo tuvieran que cambiarse en raras ocasiones.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0720_2016-->

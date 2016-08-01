@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -61,7 +61,7 @@ Para configurar la integración de Pluralsight en Azure AD, deberá agregar Plur
 
 **Para agregar Pluralsight desde la galería, siga estos pasos:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.
 
     ![Active Directory][1]
 
@@ -331,4 +331,4 @@ Al hacer clic en el icono de Pluralsight en el panel de acceso, debería iniciar
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

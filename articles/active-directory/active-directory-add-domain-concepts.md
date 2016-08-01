@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Información general conceptual de nombres de dominio personalizado en Azure Active Directory
@@ -68,4 +68,4 @@ Las tareas de administración de dominio se pueden completar desde el Portal de 
 
 -   [Operations on domains (preview) | Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) (Operaciones sobre dominios (versión preliminar) | Referencia de la API Graph)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

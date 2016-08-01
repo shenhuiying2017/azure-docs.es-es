@@ -26,7 +26,7 @@
 **Let y set** [let](#let-clause) | [set](#set-clause)
 
 
-**Consultas y operadores** [count](#count-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Consultas y operadores** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -77,8 +77,8 @@ Una cláusula let enlaza un [nombre](#names) a un resultado tabular, un valor es
 
     let name = (parameterName : type [, ...]) { scalar_expression }; query
 
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type).
-* *plain\_query:* una consulta no precedida por una cláusula let.
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain\_query:* una consulta sin la cláusula let como prefijo.
 
 **Ejemplos**
 
@@ -134,11 +134,11 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Cada filtro precedido por el carácter de barra vertical `|` es una instancia de un *operador* con algunos parámetros. La entrada del operador es la tabla que resulta de la canalización anterior. En la mayoría de los casos, los parámetros son [expresiones escalares](#scalars) sobre las columnas de entrada. En algunos casos, los parámetros son los nombres de las columnas de entrada y, en otros casos, el parámetro es una segunda tabla. El resultado de una consulta siempre es una tabla, incluso si solo tiene una columna y una fila.
+Cada filtro precedido por el carácter de barra vertical `|` es una instancia de un *operador* con algunos parámetros. La entrada del operador es la tabla que resulta de la canalización anterior. En la mayoría de los casos, los parámetros son [expresiones escalares](#scalars) sobre las columnas de la entrada. En algunos casos, los parámetros son los nombres de las columnas de entrada y, en otros casos, el parámetro es una segunda tabla. El resultado de una consulta siempre es una tabla, incluso si solo tiene una columna y una fila.
 
 Las consultas pueden contener saltos de línea únicos, pero terminan en una línea en blanco. Pueden contener comentarios entre `//` y el final de la línea.
 
-Una consulta puede ir precedida por una o más [cláusulas let](#let-clause) que definen valores escalares, tablas o funciones que pueden utilizarse dentro de la consulta.
+Una consulta puede ir precedida por una o más [cláusulas let](#let-clause), que definen valores escalares, tablas o funciones que pueden utilizarse dentro de la consulta.
 
 ```AIQL
 
@@ -150,7 +150,7 @@ Una consulta puede ir precedida por una o más [cláusulas let](#let-clause) que
     req(city) | count
 ```
 
-> `T` se utiliza en los siguientes ejemplos de consultas para indicar la tabla de origen o canalización anterior.
+> `T` se utiliza en los siguientes ejemplos de consultas para indicar la tabla de origen o la canalización anterior.
 > 
 
 ### Operador count
@@ -175,6 +175,227 @@ Esta función devuelve una tabla con un único registro y una columna de tipo `l
 requests | count
 ```
 
+### Operador evaluate
+
+`evaluate` es un mecanismo de extensión que permite anexar algoritmos especializados a las consultas.
+
+`evaluate` debe ser el último operador de la canalización de la consulta (excepto un posible `render`). No debe aparecer en el cuerpo de una función.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+AutoCluster busca patrones comunes de atributos discretos (dimensiones) en los datos y reduce los resultados de la consulta original (ya sean 100 o 100 000 filas) a un pequeño número de patrones. AutoCluster se ha desarrollado para ayudar a analizar los errores (por ejemplo, las excepciones o los bloqueos), pero puede trabajar en cualquier conjunto de datos filtrado.
+
+**Sintaxis**
+
+    T | evaluate autocluster( arguments )
+
+**Devoluciones**
+
+AutoCluster devuelve un conjunto de patrones (normalmente pequeño) que captura partes de los datos con valores comunes compartidos entre varios atributos discretos. Cada patrón se representa mediante una fila en los resultados.
+
+Las dos primeras columnas son el número y el porcentaje de filas fuera de la consulta original capturado por el patrón. Las columnas restantes proceden de la consulta original y su valor es un valor específico de la columna o ' *', que significa los valores de las variables.
+
+Tenga en cuenta que los patrones son contiguos: pueden solaparse y, normalmente, no cubren todas las filas originales. Algunas filas no pueden estar en cualquier patrón.
+
+**Sugerencias**
+
+* Use `where` y `project` en la canalización de entrada para reducir los datos justo lo que le interesa.
+* Al buscar una fila interesante, puede profundizar aún más mediante la adición de sus valores específicos a su filtro `where`.
+
+**Argumentos (todos opcionales)**
+
+* `output=all | values | minimal`
+
+    El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
+
+ * `all`: se muestran todas las columnas de la entrada.
+ * `values`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `minimal`: también filtra las columnas que son idénticas para todas las filas de la consulta original.
+
+
+* `min_percent=`*double* (valor predeterminado: 1).
+
+    La cobertura del porcentaje mínimo de filas generadas.
+
+    Ejemplo: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (valor predeterminado: 25)
+
+    El número de inicializaciones determina el número de puntos de búsqueda local iniciales del algoritmo. En algunos casos, según la estructura de los datos, un número de inicializaciones creciente aumenta el número o la calidad de los resultados mediante un espacio de búsqueda mayor con un equilibrio de consulta más lento. El argumento num\_seeds tiene una disminución de los resultados en ambas direcciones, por lo que reducirlo por debajo de 5 proporcionará una mejora de rendimiento insignificante, mientras que aumentarlo por encima de 50 rara vez generará patrones adicionales.
+
+    Ejemplo: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (valor predeterminado: 0,5)
+
+    Proporciona control sobre el equilibrio entre genérico (gran cobertura) e informativo (muchos valores compartidos). Aumentar size\_weight normalmente reduce el número de patrones, y cada patrón tiende a abarcar un porcentaje mayor. Reducir size\_weight normalmente genera patrones más específicos, con más valores compartidos y una cobertura de porcentaje más pequeña. La fórmula interna es la media geométrica ponderada entre la puntuación genérica normalizada y la puntuación informativa con size\_weight y 1-size\_weight como los pesos.
+
+    Ejemplo: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column\_name*
+
+    Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'); un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han incrustado en cada fila.
+
+    Ejemplo: `T | evaluate autocluster("weight_column=sample_Count")`
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+basket encuentra todos los patrones frecuentes de atributos discretos (dimensiones) en los datos y devuelve todos los patrones frecuentes que pasan el umbral de frecuencia de la consulta original. Se garantiza que basket encuentra todos los patrones frecuentes en los datos, pero no se garantiza que tenga un tiempo de ejecución polinómico. El tiempo de ejecución de la consulta es lineal en el número de filas pero, en algunos casos, podría ser exponencial en el número de columnas (dimensiones). basket se basa en el algoritmo Apriori desarrollado originalmente la para minería de datos de análisis de la cesta de la compra.
+
+**Devoluciones**
+
+Todos los patrones que aparecen en más de una fracción especificada de los eventos (el valor predeterminado es 0,05).
+
+**Argumentos (todos opcionales)**
+
+
+* `threshold=` *0,015 < double < 1* (valor predeterminado: 0,05)
+
+    Establece la relación mínima de las filas para que se consideren frecuentes (no se devolverán los patrones con una relación menor).
+
+    Ejemplo: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column\_name*
+
+    Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'); un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han incrustado en cada fila.
+
+    Ejemplo: T | evaluate basket("weight\_column=sample\_Count")
+
+
+* `max_dims=` *1 < int* (valor predeterminado: 5)
+
+    Establece el número máximo de dimensiones no correlacionadas por basket, limitado de forma predeterminada para reducir el tiempo de ejecución de la consulta.
+
+
+* `output=minimize` | `all`
+
+    El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
+
+ * `minimize`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `all`: se muestran todas las columnas de la entrada.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+diffpatterns compara dos conjuntos de datos de la misma estructura y busca patrones de atributos discretos (dimensiones) que caracterizan las diferencias entre los dos conjuntos de datos. diffpatterns se ha desarrollado para ayudar a analizar los errores (por ejemplo, al comparar errores y no errores durante un período determinado), pero puede encontrar las diferencias entre los dos conjuntos de datos de la misma estructura.
+
+**Sintaxis**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Devoluciones**
+
+diffpatterns devuelve un conjunto (normalmente pequeño) de patrones que captura distintas partes de los datos en los dos conjuntos (es decir, un patrón que captura un gran porcentaje de las filas del primer conjunto de datos y un porcentaje bajo de las filas del segundo conjunto). Cada patrón se representa mediante una fila en los resultados.
+
+Las primeras cuatro columnas son el número y el porcentaje de filas de la consulta original capturado por el patrón de cada conjunto, la quinta columna es la diferencia (absoluta en puntos de porcentaje) entre los dos conjuntos. Las columnas restantes proceden de la consulta original y su valor es un valor específico de la columna o ' *', que significa los valores de las variables.
+
+Tenga en cuenta que los patrones no son distintivos: pueden solaparse y, normalmente, no cubren todas las filas originales. Algunas filas no pueden estar en cualquier patrón.
+
+**Sugerencias**
+
+* Use where y project en la canalización de entrada para reducir los datos justo lo que le interesa.
+
+* Al buscar una fila interesante, puede profundizar aún más mediante la adición de sus valores específicos a su filtro where.
+
+**Argumentos**
+
+* `split=` *nombre de columna* (obligatorio)
+
+    La columna debe tener exactamente dos valores. Si es necesario, cree una columna de este tipo:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/> `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Indica al algoritmo que solo busque patrones que tiene el porcentaje más alto en el conjunto de datos de destino, el destino debe ser uno de los dos valores de la columna dividida.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0,015 < double < 1* (valor predeterminado: 0,05)
+
+    Establece la diferencia mínima de los patrones (relación) entre los dos conjuntos.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    El formato de los resultados. Las columnas de recuento y porcentaje siempre aparecen en los resultados.
+
+ * `minimize`: filtra las columnas que solo tienen ' *' en los resultados.
+ * `all`: se muestran todas las columnas de la entrada.
+
+* `weight_column=` *column\_name*
+
+    Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'). Un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han incrustado en cada fila.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+extractcolumns se usa para enriquecer una tabla con varias columnas simples que se extraen dinámicamente fuera de columnas (semi)estructuradas en función de su tipo. Actualmente, solo admite columnas JSON, tanto serialización de JSON dinámica como de cadenas.
+
+
+* `max_columns=` *int* (valor predeterminado: 10)
+
+    El número de nuevas columnas agregadas es dinámico y puede ser muy grande (en realidad es el número de claves distintivas en todos los registros de JSON) por lo que debemos limitarlo. Las nuevas columnas se ordenan en orden descendente según su frecuencia y hasta max\_columns se agregan a la tabla.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=` *double* (valor predeterminado: 10.0)
+
+    Otra forma de limitar las nuevas columnas es ignorar las columnas cuya frecuencia es menor que min\_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (valor predeterminado: true)
+
+    Si es true, se agregará el nombre de la columna compleja como prefijo a los nombres de columnas extraídos.
+
+
+* `prefix_delimiter=` *string* (valor predeterminado: "\_")
+
+    Si add\_prefix = true, este parámetro define el delimitador que se utilizará para concatenar los nombres de las nuevas columnas.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/> `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (valor predeterminado: false)
+
+    Si es true, las columnas (JSON) originales se conservará en la tabla de salida.
+
+
+* `output=query | table`
+
+    El formato de los resultados.
+
+ * `table`: la salida es la misma tabla como se recibe, menos las columnas de entrada especificadas más las columnas nuevas que se han extraído de las columnas de entrada.
+ * `query`: la salida es una cadena que representa la consulta que realizaría para obtener el resultado como tabla.
+
+
 
 
 ### Operador extend
@@ -191,7 +412,7 @@ Anexa una o más columnas calculadas a una tabla.
 **Argumentos**
 
 * *T:* la tabla de entrada.
-* *ColumnName:* el nombre de una columna que se va a agregar. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *ColumnName:* el nombre de una columna que se va a agregar. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado ('\_'). Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Expression:* un cálculo con las columnas existentes.
 
 **Devoluciones**
@@ -200,8 +421,8 @@ Una copia de la tabla de entrada con las columnas adicionales especificadas.
 
 **Sugerencias**
 
-* Use como alternativa [`project`](#project-operator) si también desea quitar o cambiar el nombre de algunas columnas.
-* No use `extend` simplemente para obtener un nombre más corto para usar en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
+* Como alternativa, use [`project`](#project-operator) si también desea quitar o cambiar el nombre de algunas columnas.
+* No use `extend` solo para obtener un nombre más corto que se usará en una expresión larga. `...| extend x = anonymous_user_id_from_client | ... func(x) ...`
 
     Las columnas originales de la tabla se han indexado; el nuevo nombre define una columna adicional que no está indexada, por lo que posiblemente la consulta se ejecute con lentitud
 
@@ -241,13 +462,13 @@ Una tabla con:
 
 * `Kind` sin especificar.
 
-    Solo se hace corresponder una fila del lado izquierdo para cada valor de la clave `on`. La salida contiene una fila por cada coincidencia de esta fila con filas de la derecha.
+    Solo se compara una fila del lado izquierdo para cada valor de la clave `on`. La salida contiene una fila por cada coincidencia de esta fila con filas de la derecha.
 
 * `Kind=inner`
  
      Hay una fila en la salida por cada combinación de filas coincidentes de la izquierda y la derecha.
 
-* `kind=leftouter` (`kind=rightouter` o `kind=fullouter`).
+* `kind=leftouter` (o `kind=rightouter` o `kind=fullouter`).
 
      Además de las coincidencias internas, hay una fila por cada fila de la izquierda (o derecha), incluso si no tiene ninguna coincidencia. En este caso, las celdas de salida sin coincidencias contienen valores NULL.
 
@@ -261,7 +482,7 @@ Si hay varias filas con los mismos valores para esos campos, obtendrá filas par
 
 Para obtener el mejor rendimiento:
 
-* Use `where` y `project` para reducir el número de filas y columnas en las tablas de entrada antes de `join`.
+* Use `where` y `project` para reducir el número de filas y columnas en las tablas de entrada, antes de `join`.
 * Si una tabla siempre es menor que la otro, úsela como lado izquierdo (canalizado) de la combinación.
 * Las columnas para la coincidencia de la combinación tienen que tener el mismo nombre. Utilice el operador project si es necesario cambiar el nombre de una columna en una de las tablas.
 
@@ -345,7 +566,7 @@ El resultado es:
 * *ColumnName:* en el resultado, las matrices en la columna indicada se expanden a varias filas.
 * *ArrayExpression:* expresión que produce una matriz. Si se usa esta forma, se agrega una nueva columna y se conserva la existente.
 * *Name:* un nombre para la nueva columna.
-* *Typename:* convierte la expresión expandida en un tipo determinado.
+* *Typename:* convierte la expresión expandida a un tipo determinado.
 * *RowLimit:* el número máximo de filas generadas a partir de cada fila original. El valor predeterminado es 128.
 
 **Devoluciones**
@@ -509,7 +730,7 @@ Seleccione las columnas que desea incluir, cambie el nombre o quite e inserte nu
 **Argumentos**
 
 * *T:* la tabla de entrada.
-* *ColumnName*: el nombre de una columna que va a aparecer en la salida. Si no hay ningún valor de *Expression*, tiene que aparecer una columna con ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *ColumnName*: el nombre de una columna que va a aparecer en la salida. Si no hay ninguna instancia de *Expression*, tiene que aparecer una columna con ese nombre en la entrada. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado ('\_'). Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Expression:* expresión escalar opcional que hace referencia a las columnas de entrada.
 
     Es posible devolver una nueva columna calculada con el mismo nombre que una columna existente en la entrada.
@@ -520,7 +741,7 @@ Una tabla que tiene las columnas con nombres de argumentos y tantas filas como l
 
 **Ejemplo**
 
-El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer utilizando el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
+El ejemplo siguiente muestra variantes de manipulaciones que se pueden hacer con el operador `project`. La tabla de entrada `T` tiene tres columnas de tipo `int`: `A`, `B` y `C`.
 
 ```AIQL
 T
@@ -673,7 +894,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas las filas de la tabla Traces que tienen un determinado valor de `ActivityId` ordenadas por su marca de tiempo.
+Todas las filas de la tabla Traces que tienen un determinado valor de `ActivityId`, ordenadas por su marca de tiempo.
 
 ### Operador summarize
 
@@ -700,9 +921,9 @@ Una tabla que muestra cuántos elementos tienen precios en cada intervalo [0,10.
 
 **Argumentos**
 
-* *Column*: nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado '\_'. Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
+* *Column*: nombre opcional para una columna de resultados. El valor predeterminado es un nombre derivado de la expresión. Los [nombres](#names) distinguen mayúsculas de minúsculas y pueden contener caracteres alfabéticos, numéricos o de subrayado ('\_'). Use `['...']` o `["..."]` para entrecomillar palabras clave o nombres con otros caracteres.
 * *Aggregation*: una llamada a una función de agregación como `count()` o `avg()`, con nombres de columna como argumentos. Consulte [Agregaciones](#aggregations).
-* *GroupExpression*: una expresión sobre las columnas que proporciona un conjunto de valores distintivos. Normalmente, se trata de un nombre de columna que ya proporciona un conjunto limitado de valores o `bin()` con una columna numérica o temporal como argumento.
+* *GroupExpression*: una expresión sobre las columnas que proporciona un conjunto de valores distintivos. Normalmente, se trata de un nombre de columna que ya proporciona un conjunto limitado de valores, o bien `bin()` con una columna numérica o temporal como argumento.
 
 Si proporciona una expresión numérica o temporal sin utilizar `bin()`, Analytics la aplica automáticamente con un intervalo de `1h` para horas o `1.0` para números.
 
@@ -714,11 +935,11 @@ Si no proporciona ningún elemento *GroupExpression*, toda la tabla se resume en
 
 Las filas de entrada están organizadas en grupos que tienen los mismos valores que las expresiones `by`. A continuación, las funciones de agregación especificadas se calculan sobre cada grupo, generando una fila para cada grupo. El resultado contiene las columnas `by` y también al menos una columna para cada agregación procesada. (Algunas funciones de agregación devuelven varias columnas.)
 
-El resultado tiene tantas filas como el número de combinaciones distintas de los valores `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
+El resultado tiene tantas filas como el número de combinaciones distintivos de los valores de `by`. Si desea resumir intervalos de valores numéricos, utilice `bin()` para reducir los intervalos a valores discretos.
 
 **Nota:**
 
-Aunque puede proporcionar expresiones arbitrarias tanto para las expresiones de agregación como para las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
+Aunque puede proporcionar expresiones arbitrarias para las expresiones de agregación y las de agrupación, resulta más eficaz usar nombres de columna simples, o bien aplicar `bin()` a una columna numérica.
 
 
 
@@ -748,7 +969,7 @@ Devuelve los primeros *N* registros ordenados por las columnas especificadas.
 
 **Sugerencias**
 
-`top 5 by name` es superficialmente equivalente a `sort by name | take 5`. En cambio, se ejecuta más rápido y siempre devuelve resultados ordenados, mientras que `take` no ofrece ninguna garantía en este sentido.
+`top 5 by name` es superficialmente equivalente a `sort by name | take 5`. En cambio, se ejecuta más rápido y siempre devuelve resultados ordenados, mientras que `take` no ofrece dicha garantía.
 
 ### top-nested operator
 
@@ -787,8 +1008,8 @@ Toma dos o más tablas y devuelve las filas de todas ellas.
 
 * *Tabla1*, *Tabla2*...
  *  El nombre de una tabla, como `requests`, o una tabla definida en una [cláusula let](#let-clause); o bien,
- *  una expresión de consulta, como `(requests | where success=="True")`.
- *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comienza por "e", junto con la tabla "excepciones".
+ *  Una expresión de consulta, como `(requests | where success=="True")`.
+ *  Un conjunto de tablas especificado con un carácter comodín. Por ejemplo, `e*` formaría la unión de todas las tablas definidas en las cláusulas let anteriores cuyo nombre comienza por "e", junto con la tabla "exceptions".
 * `kind`:
  * `inner`: el resultado tiene el subconjunto de columnas que son comunes a todas las tablas de entrada.
  * `outer`: el resultado tiene todas las columnas que aparecen en cualquiera de las entradas. Las celdas que no se han definido mediante una fila de entrada se establecen en `null`.
@@ -817,7 +1038,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-El número de usuarios diferentes que han creado ya sea un evento `exceptions` o un evento `traces` a lo largo del día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
+El número de usuarios distintivos que han creado un evento `exceptions` o un evento `traces` a lo largo del día anterior. En el resultado, la columna "SourceTable" indicará "Query" o "Command".
 
 ```AIQL
 exceptions
@@ -848,17 +1069,17 @@ Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 
 **Devoluciones**
 
-Filas en *T* para las que *Predicate* es `true`.
+Las filas en *T* para las que *Predicate* es `true`.
 
 **Sugerencias**
 
 Para obtener el rendimiento más rápido:
 
-* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una cláusula [`let`](#let-clause)).
+* **Use comparaciones simples** entre los nombres de columna y las constantes. ("Constante" significa constante sobre la tabla, por lo que `now()` y `ago()` son correctos, y también lo son los valores escalares asignados mediante una [cláusula `let`](#let-clause)).
 
     Por ejemplo, se prefiere `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
-* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que impliquen una sola columna. Así pues, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que ordenarlo al revés.
+* **Coloque primero los términos más simples**: si tiene varias cláusulas unidas con `and`, coloque primero las cláusulas que impliquen una sola columna. Así pues, es mejor usar `Timestamp > ago(1d) and OpId == EventId` que al revés.
 
 
 **Ejemplo**
@@ -1030,9 +1251,9 @@ Son equivalentes a un subconjunto de las anotaciones de tipo TypeScript, codific
 
     count([ Predicate ])
 
-Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no hay ningún valor *Predicate* especificado, se devuelve el número total de registros en el grupo.
+Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no se especifica *Predicate*, se devuelve el número total de registros en el grupo.
 
-**Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`
+**Sugerencias de rendimiento**: Utilice `summarize count(filter)` en lugar de `where filter | summarize count()`.
 
 > [AZURE.NOTE] Evite usar count() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos que se ha mantenido en Application Insights será menor que el número de eventos originales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
@@ -1042,7 +1263,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`. Si no h
 
 Devuelve un número de filas para las que *Predicate* equivale a `true`.
 
-**Sugerencias de rendimiento**: Utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`
+**Sugerencias de rendimiento**: Utilice `summarize countif(filter)` en lugar de `where filter | summarize count()`.
 
 > [AZURE.NOTE] Evite usar countif() para buscar el número de solicitudes, excepciones u otros eventos que se hayan producido. Cuando está en funcionamiento el [muestreo](app-insights-sampling.md), el número de puntos de datos será menor que el número de eventos reales. En su lugar, use `summarize sum(itemCount)...`. La propiedad itemCount refleja el número de eventos originales que cada punto de datos retenido representa.
 
@@ -1050,7 +1271,7 @@ Devuelve un número de filas para las que *Predicate* equivale a `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintos de *Expr* en el grupo. (Para mostrar los valores distintos, utilice [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintivos de *Expr* en el grupo. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1071,7 +1292,7 @@ Devuelve una estimación del número de valores distintos de *Expr* en el grupo.
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Devuelve una estimación del número de valores distintos de *Expr* de las filas del grupo para las que el valor de *Predicate* es True. (Para mostrar los valores distintos, use [`makeset`](#makeset)).
+Devuelve una estimación del número de valores distintivos de *Expr* de las filas del grupo para las que el valor de *Predicate* es True. (Para mostrar los valores distintivos, utilice [`makeset`](#makeset)).
 
 *Accuracy*, si se especifica, controla el equilibrio entre velocidad y precisión.
 
@@ -1098,7 +1319,7 @@ Devuelve una matriz `dynamic` (JSON) de todos los valores de *Expr* del grupo.
 
     makeset(Expression [ , MaxSetSize ] )
 
-Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintos, use [`dcount`](#dcount)).
+Devuelve una matriz `dynamic` (JSON) del conjunto de valores distintivos que *Expr* toma en el grupo. (Sugerencia: Para contar solo los valores distintivos, use [`dcount`](#dcount)).
   
 *  *MaxSetSize* es un límite de entero opcional para el número máximo de elementos devueltos (el valor predeterminado es *128*).
 
@@ -1131,7 +1352,7 @@ Calcula el mínimo de *Expr*.
 
     percentile(Expression, Percentile)
 
-Devuelve una estimación para *Expression* de los percentiles especificados en el grupo. La precisión depende de la densidad de población en la región del percentil.
+Devuelve una estimación para *Expression* del percentil especificado en el grupo. La precisión depende de la densidad de población en la región del percentil.
     
     percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
@@ -1143,7 +1364,7 @@ Percentil ponderado. Use esta función para los datos previamente agregados. `We
 
     percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
 
-Es igual que `percentilew()`, pero se calcula un número de valores de percentil.
+Es igual que `percentilew()`, pero calcula un número de valores de percentil.
 
 **Ejemplos**
 
@@ -1187,7 +1408,7 @@ El código toma una secuencia de medidas de latencia en milisegundos. Por ejempl
     
      { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
 
-Cuenta las medidas en las ubicaciones siguientes: `{ 10, 20, 30, 40, 50, 100 }`
+Cuenta las medidas en los intervalos siguientes: `{ 10, 20, 30, 40, 50, 100 }`
 
 Periódicamente, realiza una serie de llamadas a TrackEvent, una para cada depósito, con medidas personalizadas en cada llamada:
 
@@ -1211,7 +1432,7 @@ Para obtener una imagen precisa de la distribución original de latencias de eve
 
 Los resultados son los mismos, como si hubiéramos usado `percentiles` normales en el conjunto original de medidas.
 
-> [AZURE.NOTE] Los percentiles ponderados no son aplicables a [datos muestreados](app-insights-sampling.md), donde cada fila muestreada representa una muestra aleatoria de filas originales, en lugar de una ubicación. Las funciones de percentil normales son adecuadas para datos muestreados.
+> [AZURE.NOTE] Los percentiles ponderados no son aplicables a [datos muestreados](app-insights-sampling.md), donde cada fila muestreada representa una muestra aleatoria de filas originales, en lugar de un intervalo. Las funciones de percentil normales son adecuadas para datos muestreados.
 
 #### Error de estimación en percentiles
 
@@ -1462,17 +1683,7 @@ El argumento evaluado. Si el argumento es una tabla, se devuelve la primera colu
 || |
 |---|-------------|
 | + | Agregar |
-| - | Restar |
-| * | Multiplicar |
-| / | Dividir |
-| % | Aplicar módulo |
-||
-|`<` |Menor que 
-|`<=`|Menor que o Igual a 
-|`>` |Mayor que 
-|`>=`|Mayor que o Igual a 
-|`<>`|No igual a 
-|`!=`|No igual a
+| - | Restar | | * | Multiplicar | | / | Dividir | | % | Aplicar módulo | || |`<` |Menor que |`<=`|Menor que o igual a |`>` |Mayor que |`>=`|Mayor que o igual a |`<>`|No igual a |`!=`|No igual a
 
 
 ### abs
@@ -1504,7 +1715,7 @@ Alias `floor`.
 **Argumentos**
 
 * *value*: un número, una fecha o un intervalo de tiempo.
-* *roundTo*: el tamaño máximo. Un número, una fecha o un intervalo de tiempo que divide *value*.
+* *roundTo*: el tamaño del intervalo. Un número, una fecha o un intervalo de tiempo que divide *value*.
 
 **Devoluciones**
 
@@ -1575,7 +1786,7 @@ La función de raíz cuadrada.
 **Devoluciones**
 
 * Un número positivo, como `sqrt(x) * sqrt(x) == x`.
-* `null` si el argumento es negativo o no se puede convertir a un valor `real`.
+* `null` si el argumento es negativo o no se puede convertir a un valor de `real`.
 
 
 
@@ -1964,7 +2175,7 @@ El número de veces que la cadena de búsqueda puede coincidir en el contenedor.
 
     extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
-Obtenga una coincidencia para una [expresión regular](#regular-expressions) desde una cadena de texto. Opcionalmente, convierte a continuación la subcadena extraída al tipo indicado.
+Obtenga una coincidencia para una [expresión regular](#regular-expressions) a partir de una cadena de texto. Opcionalmente, convierte a continuación la subcadena extraída al tipo indicado.
 
 **Sintaxis**
 
@@ -1979,7 +2190,7 @@ Obtenga una coincidencia para una [expresión regular](#regular-expressions) des
 
 **Devoluciones**
 
-Si *regex* encuentra una coincidencia en *text*, la subcadena que coincide con el grupo de captura indicado *captureGroup*, opcionalmente convertido a *typeLiteral*.
+Si *regex* encuentra una coincidencia en *text*, la subcadena coincidía con el grupo de captura indicado *captureGroup*, opcionalmente convertido a *typeLiteral*.
 
 Si no hay ninguna coincidencia, o se produce un error en la conversión del tipo: `null`.
 
@@ -2138,7 +2349,7 @@ Extraiga una subcadena de una cadena de origen determinada a partir de un índic
 
 * *source*: la cadena de origen de la que se tomará la subcadena.
 * *startingIndex*: la posición del carácter inicial basado en cero de la subcadena solicitada.
-* *length*: un parámetro opcional que puede usarse para especificar el número de caracteres solicitado de la subcadena.
+* *length*: un parámetro opcional que puede usarse para especificar el número de caracteres de la subcadena solicitado.
 
 **Devoluciones**
 
@@ -2187,7 +2398,7 @@ Este es el resultado de una consulta en una excepción de Application Insights. 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* En cambio, use `arraylength` y otras funciones de Analytics (no ".length"!).
+* Sin embargo, use `arraylength` y otras funciones de Analytics (no ".length").
 
 **Casting**: en algunos casos es necesario convertir un elemento que se extrae de un objeto, ya que puede variar su tipo. Por ejemplo, `summarize...to` necesita un tipo específico:
 
@@ -2244,7 +2455,7 @@ Resultado:
       "rawStack":"string"
     }}
 
-Observe que `indexer` se usa para marcar el punto en el que debe usar un índice numérico. En el caso de este esquema, algunas rutas válidas podrían las siguientes (suponiendo que estos índices de ejemplo se encuentren en el intervalo):
+Observe que `indexer` se utiliza para marcar el punto en el que debe utilizar un índice numérico. En el caso de este esquema, algunas rutas válidas podrían las siguientes (suponiendo que estos índices de ejemplo se encuentren en el intervalo):
 
     details[0].parsedStack[2].level
     details[0].message
@@ -2278,8 +2489,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True si hay un elemento de *array* == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True si no hay ningún elemento de *array* == *value*
+| *value* `in` *array*| True si hay un elemento de *array* == *value*<br/>`where City in ('London', 'Paris', 'Rome')`.
+| *value* `!in` *array*| True si no hay ningún elemento de *array* == *value*.
 |[`arraylength(`array`)`](#arraylength)| Es null si no es una matriz
 |[`extractjson(`path,object`)`](#extractjson)|Usa una ruta para navegar al objeto.
 |[`parsejson(`source`)`](#parsejson)| Convierte una cadena JSON en un objeto dinámico.
@@ -2366,7 +2577,7 @@ La notación [entre corchetes] y la notación de puntos son equivalentes:
 **Consejos de rendimiento**
 
 * Aplique cláusulas where antes de usar `extractjson()`.
-* Considere el uso de una coincidencia de expresión regular con [extract](#extract) en su lugar. Esto puede ejecutarse mucho más rápido, y es efectivo si JSON se genera a partir de una plantilla.
+* En su lugar, considere el uso de una coincidencia de expresión regular con [extract](#extract). Esto puede ejecutarse mucho más rápido, y es efectivo si JSON se genera a partir de una plantilla.
 * Use `parsejson()` si necesita extraer más de un valor de JSON.
 * Considere la posibilidad de analizar el JSON en ingesta declarando que el tipo de columna sea dinámico.
 
@@ -2500,4 +2711,4 @@ Entrecomille un nombre con ['... '] o [" ... "] para incluir otros caracteres o 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

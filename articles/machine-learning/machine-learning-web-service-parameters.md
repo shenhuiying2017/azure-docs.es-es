@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raymondl;garye"/>
 
 #Usar parámetros de servicio web de Aprendizaje automático de Azure
 
 Se crea un servicio web de Aprendizaje automático de Azure mediante la publicación de un experimento que contiene módulos con parámetros configurables. En algunos casos, puede que desee cambiar el comportamiento del módulo mientras se está ejecutando el servicio web. Los *parámetros del servicio web* le permiten hacer esto.
 
-Un ejemplo común es la configuración del módulo [Importar datos][import-data] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al acceder al servicio web. También puede configurar el módulo [Exportar datos][export-data] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del [hash de características][feature-hashing] o el número de características deseadas para el módulo [Selección de características basada en filtros][filter-based-feature-selection] módulo.
+Un ejemplo común es la configuración del módulo [Importar datos][reader] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al acceder al servicio web. También puede configurar el módulo [Exportar datos][writer] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del [hash de características][feature-hashing] o el número de características deseadas para el módulo [Selección de características basada en filtros][filter-based-feature-selection] módulo.
 
 Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo en el experimento, y puede especificar si son obligatorios u opcionales. El usuario del servicio web puede entonces proporcionar valores para estos parámetros cuando llama el servicio web.
 
@@ -35,20 +35,22 @@ Una vez que defina un parámetro de servicio web, está disponible para cualquie
 
 Puede decidir si se debe proporcionar un valor predeterminado para el parámetro del servicio web. Si lo hace, el parámetro es opcional para el usuario del servicio web. Si no proporciona un valor predeterminado, el usuario tiene que especificar un valor al que se tiene acceso al servicio web.
 
-La documentación para el servicio web (mediante el vínculo **Página de Ayuda de API** en el servicio web **PANEL** en el Estudio de aprendizaje automático) incluirá información para el usuario del servicio web acerca de cómo especificar el parámetro del servicio web mediante programación al obtener acceso al servicio web.
+La documentación del servicio web incluirá información para el usuario del servicio web sobre cómo especificar el parámetro del servicio web mediante programación al obtener acceso al servicio web.
+
+>[AZURE.NOTE] La documentación de API de un servicio web clásico se proporciona a través del vínculo de la **página de ayuda de API** del servicio web **PANEL** de Estudio de aprendizaje automático. La documentación de API de un servicio web nuevo se proporciona a través del portal de [servicios web de Aprendizaje automático de Azure](https://services.azureml.net/Quickstart) en las páginas **Consume** (Consumo) y **Swagger API** del servicio web.
 
 
 ##Ejemplo
 
-Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar datos][export-data] que envía información a Almacenamiento de blobs de Azure. Definiremos un parámetro del servicio web denominado "Ruta de acceso de Blob" que permite al usuario del servicio web cambiar la ruta de acceso al almacenamiento de blobs cuando se tenga acceso al servicio.
+Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar datos][writer] que envía información a Almacenamiento de blobs de Azure. Definiremos un parámetro del servicio web denominado "Ruta de acceso de Blob" que permite al usuario del servicio web cambiar la ruta de acceso al almacenamiento de blobs cuando se tenga acceso al servicio.
 
-1.	En el Estudio de aprendizaje automático, haga clic en el módulo [Exportar datos][export-data] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
+1.	En el Estudio de aprendizaje automático, haga clic en el módulo [Exportar datos][writer] para seleccionarlo. Sus propiedades se muestran en el panel Propiedades a la derecha del lienzo del experimento.
 
 2.	Especifique el tipo de almacenamiento:
 
-    - En **Especifique el destino de los datos**, seleccione "Almacenamiento de blobs de Azure".
+    - En **Especifique el destino de los datos**, seleccione Almacenamiento de blobs de Azure.
     - En **Especifique el tipo de autenticación**, seleccione "Cuenta".
-    - Escriba la información de cuenta para el almacenamiento de blobs de Azure. 
+    - Escriba la información de cuenta para el almacenamiento de blobs de Azure.
     <p />
 
 3.	Haga clic en el icono situado a la derecha de la **ruta de acceso que comienza con el parámetro de contenedor de blobs**. Su aspecto es similar a este:
@@ -57,7 +59,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 
     Seleccione "Establecer como parámetro del servicio web".
 
-    Se agregará una entrada en **Parámetros del servicio web** en la parte inferior del panel Propiedades con el nombre "Ruta de acceso que comienza con el contenedor de blobs". Este es el parámetro de servicio web que está ahora asociado con este parámetro del módulo [Exportar datos][export-data].
+    Se agregará una entrada en **Parámetros del servicio web** en la parte inferior del panel Propiedades con el nombre "Ruta de acceso que comienza con el contenedor de blobs". Este es el parámetro de servicio web que está ahora asociado con este parámetro del módulo [Exportar datos][writer].
 
 4.	Para cambiar el nombre del parámetro del servicio web, haga clic en el nombre, escriba "Ruta de acceso de blobs" y presione la tecla **Intro**.
  
@@ -67,9 +69,9 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
 
 6.	Haga clic en **Ejecutar**.
 
-7.	Haga clic en **PUBLICAR SERVICIO WEB** para publicar el servicio web.
+7.	Haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar un servicio web [clásico]) o **Deploy Web Service [New]** (Implementar un servicio web [nuevo]) para actualizar el servicio web.
 
-El usuario del servicio web puede especificar ahora un nuevo destino para el módulo [Exportar datos][export-data] al obtener acceso al servicio web.
+El usuario del servicio web puede especificar ahora un nuevo destino para el módulo [Exportar datos][writer] al obtener acceso al servicio web.
 
 ##Más información
 
@@ -87,8 +89,8 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

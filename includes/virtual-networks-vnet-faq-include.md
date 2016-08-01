@@ -100,7 +100,7 @@ Nº
 
 Sí. Se pueden agregar subredes a redes virtuales en cualquier momento siempre y cuando la dirección de la subred no forme parte de otra subred de la red virtual.
 
-### ¿Puedo modificar el tamaño de la red virtual después de crearla?
+### ¿Puedo modificar el tamaño de la subred después de crearla?
 
 Puede usar cmdlets de PowerShell o el archivo NETCFG para agregar, quitar, expandir o reducir una subred si no hay máquinas virtuales o servicios implementados en ella. También puede agregar, quitar, ampliar o reducir cualquier prefijo, siempre y cuando las subredes que contengan máquinas virtuales o servicios no se vean afectadas por el cambio.
 
@@ -270,4 +270,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

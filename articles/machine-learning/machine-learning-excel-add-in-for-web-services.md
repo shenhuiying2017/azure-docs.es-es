@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="machine-learning"
-    	ms.devlang="na"
+    ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/30/2016"
+	ms.date="07/06/2016"
 	ms.author="tedway;garye" />
 
 # Complemento de Excel para servicios web de Aprendizaje automático de Azure
@@ -37,32 +37,48 @@ Excel facilita la llamada a servicios web directamente sin necesidad de escribir
 
 ## Pasos para agregar un nuevo servicio web
 
+Publique un servicio web (en [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo) o busque un servicio web existente.
+
+Obtenga la clave de API del servicio web. La ubicación desde donde se hará dependerá de si se publicó un servicio web clásico de un servicio web nuevo.
+
+**Servicio web clásico**
+
+1. En el Estudio de aprendizaje automático, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
+
+	![Seleccionar servicio web de Studio][04]
+
+2. Copie la clave de API del servicio web.
+
+	![Clave de API de Studio][05]
+
+3. En la pestaña **PANEL** del servicio web, haga clic en el vínculo **SOLICITUD-RESPUESTA**.
+4. Busque la sección **URI de solicitud**. Copie y guarde la URL.
+
+**Servicio web nuevo**
+
+1. En el portal de servicios web de Aprendizaje automático de Azure, haga clic en **Servicios web** y seleccione su servicio web.
+2. Haga clic en **Consume** (Consumo).
+3. Busque la sección **Basic consumption info** (Información básica de consumo). Copie y guarde el **clave principal** y la URL de **solicitud-respuesta**.
+
+
+## Pasos para agregar un nuevo servicio web
+
 1. Publique un servicio web (en [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo) o busque un servicio web existente.
 2. En Excel, vaya a la sección **Servicios web** (si se encuentra en la sección **Predicción**, haga clic en la flecha Atrás para ir a la lista de servicios web).
 
 	![Ir a la selección de servicio web][03]
-
 3. Haga clic en **Agregar servicio web**.
-4. En el Estudio de aprendizaje automático, haga clic en la sección **SERVICIOS WEB** en el panel izquierdo y, luego, seleccione el servicio web.
+4. Pegue la URL en el cuadro de texto de complemento de Excel denominado "**URL**".
+5. Pegue la clave principal o de API en el cuadro de texto denominado **Clave de API**.
+6. Haga clic en **Agregar**.
 
-	![Seleccionar servicio web de Studio][04]
-
-5. Copie la clave de API del servicio web.
-
-	![Clave de API de Studio][05]
-
-6. Péguela en el cuadro de texto de complemento de Excel denominado **Clave de API**.
-7. En la pestaña **PANEL** del servicio web, haga clic en el vínculo **SOLICITUD-RESPUESTA**.
-8. Copie la sección **OData Endpoint Address**. Copie la URL y péguela en el cuadro de texto llamado **URL**.
-9. Haga clic en **Agregar**.
-
-	![URL y clave de API][06]
+	![Clave de API y dirección URL de un servicio web clásico.][06]
 
 10.	Para usar el servicio web, siga las instrucciones anteriores, "Pasos para usar un servicio web existente".
 
 ## Compartir el libro
 
-Si guarda el libro, también se guardarán las claves de API para los servicios web que ha agregado. Esto significa que solo debe compartir el libro con personas de confianza.
+Si guarda el libro, también se guardarán la clave principal o de API de los servicios web que también ha guardado. Esto significa que solo debe compartir el libro con personas de confianza.
 
 Haga sus preguntas a continuación o en nuestro [foro](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
@@ -73,4 +89,4 @@ Haga sus preguntas a continuación o en nuestro [foro](http://go.microsoft.com/f
 [05]: ./media/machine-learning-excel-add-in-for-web-services/image5.png
 [06]: ./media/machine-learning-excel-add-in-for-web-services/image6.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

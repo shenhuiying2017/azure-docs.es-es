@@ -49,8 +49,7 @@ También puede obtener más detalles sobre la [carga del VHD en un proceso de Az
 Cuando se implementa una máquina virtual de Windows Server mediante PowerShell, se dispone de un parámetro adicional para `-LicenseType`. Una vez que el VHD esté cargado en Azure, cree una máquina virtual nueva mediante `New-AzureRmVM` y especifique el tipo de concesión de licencias de la siguiente forma:
 
 ```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
-    -LicenseType Windows_Server
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
 A continuación, puede [leer un tutorial más detallado sobre la implementación de una máquina virtual en Azure a través de PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough), o bien consultar una guía más descriptiva sobre los diferentes pasos que deben darse para [crear una máquina virtual Windows mediante Resource Manager y PowerShell](./virtual-machines-windows-ps-create.md).
@@ -151,7 +150,7 @@ Cargue el VHD, preparado adecuadamente, y conéctelo a la máquina virtual que s
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 Por último, cree la máquina virtual y defina el tipo de licencia para utilizar la ventaja de uso híbrido de Azure:
@@ -166,4 +165,4 @@ Más información sobre las [ventajas del uso híbrido de Azure](https://azure.m
 
 Más información sobre el [uso de plantillas de Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas
 
-En este tema se muestran los pasos para crear un entorno de nube híbrida para probar una granja de SharePoint de intranet hospedada en Microsoft Azure. Aquí está la configuración resultante.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+
+En este tema se muestran los pasos para crear un entorno de nube híbrida para probar una granja de servidores de SharePoint 2013 o 2016 de intranet hospedada en Microsoft Azure. Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
@@ -39,7 +41,7 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 
 1.	Configuración del entorno de nube híbrida para pruebas.
 2.	Configuración del equipo con SQL server (SQL1).
-3.	Configuración del servidor de SharePoint (SP1).
+3.	Configure el servidor de SharePoint (SP1), mediante la ejecución de SharePoint 2013 o SharePoint 2016.
 
 Esta carga de trabajo requiere una suscripción de Azure. Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -51,7 +53,7 @@ Esta es su configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph1.png)
 
-> [AZURE.NOTE] Asimismo, puede configurar el [entorno de prueba de nube híbrida simulada](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md) para la fase 1.
+> [AZURE.NOTE] Asimismo, puede configurar el [entorno de prueba de nube híbrida simulada para la fase 1](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
  
 ## Fase 2: configuración del equipo con SQL Server (SQL1)
 
@@ -65,7 +67,7 @@ A continuación, cree una cuenta de administrador de granja de servidores de Sha
 
 Cuando se le pida que proporcione la contraseña de la cuenta SPFarmAdmin, escriba una contraseña segura y anótela en una ubicación segura.
 
-En primer lugar, cree una máquina virtual de Azure de SQL1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < and >.
+En primer lugar, cree una máquina virtual de Azure de SQL1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -75,7 +77,7 @@ En primer lugar, cree una máquina virtual de Azure de SQL1 con estos comandos e
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_A4
+	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_D4
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SQL1-SQLDataDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name "Data" -DiskSizeInGB 100 -VhdUri $vhdURI  -CreateOption empty
@@ -127,13 +129,13 @@ Utilice la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales
 
 Después de reiniciar, use el Portal de Azure para conectarse a SQL1 con la *cuenta de administrador local*.
 
-A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
+A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas bases de datos y para los permisos de cuenta de usuario.
 
 1.	Desde la pantalla Inicio, escriba **SQL Server Management** y haga clic en **SQL Server 2014 Management Studio**.
 2.	En **Conectar con el servidor**, haga clic en **Conectar**.
 3.	En el panel de árbol del Explorador de objetos, haga clic con el botón derecho en **SQL1** y, a continuación, haga clic en **Propiedades**.
 4.	En la ventana **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
-5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores: 
+5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores:
 	- Para **Datos**, escriba la ruta de acceso **f:\\Data**.
 	- Para **Registro**, escriba la ruta de acceso **f:\\Log**.
 	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\\Backup**.
@@ -152,7 +154,9 @@ Esta es su configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph2.png)
 
-## Fase 3: configuración de los servidores de SharePoint (SP1)
+Continúe con la fase 3 adecuada para configurar un servidor de SharePoint 2013 o de SharePoint 2016.
+
+## Fase 3: Configuración del servidor de SharePoint 2013 (SP1)
 
 En primer lugar, cree una máquina virtual de Azure de SP1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
 
@@ -164,7 +168,7 @@ En primer lugar, cree una máquina virtual de Azure de SP1 con estos comandos en
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_A3
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2013 server." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
@@ -192,10 +196,10 @@ Utilice la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales
 
 Después de reiniciar, utilice el Portal de Azure para conectarse a SP1 con la cuenta y la contraseña de CORP\\User1.
 
-A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de equipo predeterminado.
+A continuación, configure SP1 para una nueva granja de servidores de SharePoint 2013 y un sitio de equipo predeterminado.
 
 1.	Desde la pantalla Inicio, escriba **Productos de SharePoint 2013** y, a continuación, haga clic en **Asistente para la configuración de productos de SharePoint 2013**. Cuando se le pida que permita al programa realizar cambios en el equipo, haga clic en **Sí**.
-2.	En la página de productos de SharePoint, haga clic en **Siguiente**. 
+2.	En la página de productos de SharePoint, haga clic en **Siguiente**.
 3.	En el cuadro de diálogo que le notifica si algunos servicios podrían tener que reiniciarse durante la configuración, haga clic en **Sí**.
 4.	En la página Conexión a una granja de servidores, haga clic en **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
 5.	En la página Especificación de la configuración de la base de datos, introduzca **sql1.corp.contoso.com** en **Servidor de base de datos**, introduzca **CORP\\SPFarmAdmin** en **Nombre de usuario**, escriba la contraseña de la cuenta de SPFarmAdmin en **Contraseña** y, a continuación, haga clic en **Siguiente**.
@@ -207,8 +211,8 @@ A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de
 11.	En **¿Cómo desea configurar la granja de SharePoint?**, haga clic en **Iniciar el asistente**.
 12.	En la página Configuración de la granja de SharePoint, en **Cuenta de servicio**, haga clic en **Usar una cuenta administrada ya existente**.
 13.	En **Servicios**, desactive las casillas, excepto la casilla junto a **Servicio de estado** y, a continuación, haga clic en **Siguiente**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice.
-14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
-15.	En la página Esto completa el Asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
+14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, después, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
+15.	En la página Esto completa el Asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
 16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
 17.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse.
 
@@ -216,10 +220,83 @@ Se trata de la configuración actual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
-Su granja de intranet de SharePoint en un entorno de nube híbrida ya está lista para realizar pruebas.
+Su granja de servidores de intranet de SharePoint 2013 en un entorno de nube híbrida ya está lista para realizar pruebas.
 
-## Paso siguiente
 
-- [Configure](https://technet.microsoft.com/library/ee836142.aspx) su granja de SharePoint.
+## Fase 3: Configuración del servidor de SharePoint 2016 (SP1)
 
-<!---HONumber=AcomDC_0601_2016-->
+En primer lugar, cree una máquina virtual de Azure de SP1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local.
+
+	$rgName="<your resource group name>"
+	$locName="<the Azure location of your resource group>"
+	$saName="<your storage account name>"
+	
+	$vnet=Get-AzureRMVirtualNetwork -Name "TestVNET" -ResourceGroupName $rgName
+	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
+	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2016 server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2016 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SP1-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+Luego, use el Portal de Azure para conectarse a la nueva máquina virtual de SP1 con las credenciales de la cuenta de administrador local.
+
+A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Ejecute estos comandos en el símbolo del sistema de Windows PowerShell en SP1.
+
+	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
+	ping dc2.corp.contoso.com
+
+El comando ping debería devolver cuatro respuestas correctas desde la dirección IP 192.168.0.4.
+
+Después, una SP1 al dominio de Active Directory CORP con estos comandos en el símbolo del sistema de Windows PowerShell.
+
+	Add-Computer -DomainName corp.contoso.com
+	Restart-Computer
+
+Utilice la cuenta CORP\\User1 cuando se le pida que proporcione las credenciales de cuenta de dominio para el comando **Add-Computer**.
+
+Después de reiniciar, utilice el Portal de Azure para conectarse a SP1 con la cuenta y la contraseña de CORP\\User1.
+
+A continuación, configure SP1 para una nueva granja de servidores de SharePoint 2016 y un sitio de equipo predeterminado.
+
+1. Desde la pantalla Inicio, escriba **SharePoint** y, después, haga clic en **Asistente para la configuración de productos de SharePoint 2016**.
+2. En la página de productos de SharePoint, haga clic en **Siguiente**.
+3. Aparece un cuadro de diálogo **Asistente para configuración de productos de SharePoint** que le advierte que se reiniciarán o restablecerán los servicios (como IIS). Haga clic en **Sí**.
+4. En la página Conectar a una servidor granja de servidores, seleccione **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
+5. En la página Especificar configuración de base de datos:
+	- En **Servidor de base de datos**, escriba **SQL1**.
+	- En **Nombre de usuario**, escriba **CORP\\SPFarmAdmin**.
+	- En **Contraseña**, escriba la contraseña de la cuenta de SPFarmAdmin.
+6. Haga clic en **Siguiente**.
+7. En la página Especificar configuración de seguridad del conjunto de servidores, escriba **P@ssphrase** dos veces y después haga clic en **Siguiente**.
+8. 	En la página de especificación del rol de servidor, en **Single-Server Farm** (Granja de servidores de servidor único), haga clic en **Single-Server Farm** (Granja de servidores de servidor único) y, finalmente, haga clic en **Siguiente**.
+9. En la página Configuración de la aplicación web de administración central de SharePoint, haga clic en **Siguiente**.
+10. Aparecerá la página Finalización del Asistente para configuración de productos de SharePoint. Haga clic en **Siguiente**.
+11. Aparecerá la página Configuración de productos de SharePoint. Espere hasta que se complete el proceso de configuración.
+12. En la página Configuración realizada correctamente, haga clic en **Finalizar**. Se iniciará el nuevo sitio web de administración.
+13. En la página de ayuda a mejorar SharePoint, haga clic en la opción de participar en el programa de mejora de la experiencia de cliente y, después, haga clic en **Aceptar**.
+14. En la página principal, haga clic en **Iniciar el asistente**.
+15. En la página de servicios y aplicaciones de servicio, en **Cuenta de servicio**, haga clic en **Usar cuenta administrada existente**, y, después, haga clic en **siguiente**. Puede tardar unos minutos en mostrarse la página siguiente.
+16. En la página Crear colección de sitios, escriba **Contoso** en **Título** y, después, haga clic en **Aceptar**.
+17. En la página Esto completa el Asistente de configuración de granja, haga clic en **Finalizar**. Se abre la página web de Administración central de SharePoint.
+18. Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
+19.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse.
+
+Se trata de la configuración actual.
+
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
+ 
+Su granja de servidores de intranet de SharePoint 2016 de un único servidor en un entorno de nube híbrida ya está lista para realizar pruebas.
+
+
+## Pasos siguientes
+
+- [Configure](https://technet.microsoft.com/library/ee836142.aspx) su granja de servidores de SharePoint 2013.
+
+<!---HONumber=AcomDC_0720_2016-->

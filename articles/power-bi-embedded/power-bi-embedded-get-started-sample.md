@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/14/2016"
    ms.author="owend"/>
 
 # Introducción a un ejemplo de Power BI Embedded
@@ -158,14 +158,13 @@ Report.cshtml: establece **Model.AccessToken** y la expresión lambda para **Pow
 
 ### Controller
 
-**DashboardController.cs**: crea una clase PowerBIClient que pasa un **token de aplicación**. Se genera un token web JSON (JWT) a partir de la **clave de firma** para obtener las **credenciales**. Las **credenciales** se usan para crear una instancia de **PowerBIClient**. Para más información sobre los **tokens de aplicación**, consulte la sección sobre [cómo funciona el flujo de tokens de aplicación](#key-flow). Cuando tenga una instancia de **PowerBIClient**, puede llamar a GetReports() y GetReportsAsync().
+**DashboardController.cs**: crea una clase PowerBIClient que pasa un **token de aplicación**. Se genera un token web JSON (JWT) a partir de la **clave de firma** para obtener las **credenciales**. Las **credenciales** se usan para crear una instancia de **PowerBIClient**. Cuando tenga una instancia de **PowerBIClient**, puede llamar a GetReports() y GetReportsAsync().
 
 CreatePowerBIClient()
 
-    private IPowerBIClient CreatePowerBIClient(PowerBIToken token)
+    private IPowerBIClient CreatePowerBIClient()
     {
-        var jwt = token.Generate(accessKey);
-        var credentials = new TokenCredentials(jwt, "AppToken");
+        var credentials = new TokenCredentials(accessKey, "AppKey");
         var client = new PowerBIClient(credentials)
         {
             BaseUri = new Uri(apiUrl)
@@ -178,8 +177,7 @@ ActionResult Reports()
 
     public ActionResult Reports()
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = client.Reports.GetReports(this.workspaceCollection, this.workspaceId);
 
@@ -197,12 +195,11 @@ Task<ActionResult> Report(string reportId)
 
     public async Task<ActionResult> Report(string reportId)
     {
-        var devToken = PowerBIToken.CreateDevToken(this.workspaceCollection, this.workspaceId);
-        using (var client = this.CreatePowerBIClient(devToken))
+        using (var client = this.CreatePowerBIClient())
         {
             var reportsResponse = await client.Reports.GetReportsAsync(this.workspaceCollection, this.workspaceId);
             var report = reportsResponse.Value.FirstOrDefault(r => r.Id == reportId);
-            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, Guid.Parse(report.Id));
+            var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
 
             var viewModel = new ReportViewModel
             {
@@ -237,6 +234,6 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ## Consulte también
 
 - [Common Microsoft Power BI Embedded scenarios (Escenarios comunes de Microsoft Power BI Embedded)](power-bi-embedded-scenarios.md)
-- [Acerca del flujo del token de aplicación en Power BI Embedded](power-bi-embedded-app-token-flow.md)
+- [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

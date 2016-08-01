@@ -56,10 +56,33 @@ De forma similar, las aplicaciones registradas en el nuevo portal de registro de
 
 Las aplicaciones que se registran en el nuevo portal de registro de aplicaciones están restringidas actualmente a un conjunto limitado de valores de parámetro redirect\_uri. El parámetro redirect\_uri para aplicaciones y servicios web deben comenzar con el esquema o `https`, mientras que el redirect\_uri para todas las demás plataformas debe utilizar el valor codificado de forma rígida de `urn:ietf:oauth:2.0:oob`.
 
+## Restricciones en los URI de redireccionamiento
+Para aplicaciones web, los valores de redirect\_uri deben compartir un único dominio DNS. Por ejemplo, no es posible registrar una aplicación web que tiene varios redirect\_uri:
+
+`https://login-east.contoso.com` `https://login-west.contoso.com`
+
+El sistema de registro compara el nombre DNS completo de los redirect\_uri existentes con el nombre DNS del redirect\_uri que va a agregar. Si el nombre DNS completo del nuevo redirect\_uri no coincide con el nombre DNS del redirect\_uri existente, o si el nombre DNS completo del nuevo redirect\_uri no es un subdominio del redirect\_uri existente, se producirá un error en la solicitud para agregar. Por ejemplo, si la aplicación tiene el redirect\_uri:
+
+`https://login.contoso.com`
+
+A continuación, es posible agregar:
+
+`https://login.contoso.com/new`
+
+que coincide exactamente con el nombre DNS, o:
+
+`https://new.login.contoso.com`
+
+que es un subdominio DNS de login.contoso.com. Si desea que una aplicación tenga login-east.contoso.com y login-west.contoso.com como redirect\_uris, debe agregar los redirect\_uris siguientes en orden:
+
+`https://contoso.com` `https://login-east.contoso.com` `https://login-west.contoso.com`
+
+Los dos últimos se pueden agregar porque son subdominios del primer redirect\_uri, contoso.com. Esta limitación se eliminará en una próxima versión.
+
 Para obtener información sobre cómo registrar una aplicación en el nuevo portal de registro de aplicaciones, consulte [este artículo](active-directory-v2-app-registration.md).
 
 ## Restricciones en los servicios y API
-Actualmente, el punto de conexión v2.0 es compatible con el inicio de sesión en cualquier aplicación registrada en el nuevo portal de registro de aplicaciones, siempre que se encuentre en la lista de [flujos de autenticación compatibles](active-directory-v2-flows.md). Sin embargo, estas aplicaciones sólo podrán adquirir tokens de acceso de OAuth 2.0 para un conjunto de recursos muy limitado. El extremo v2.0 solo emitirá access\_tokens para:
+Actualmente, el punto de conexión v2.0 admite el inicio de sesión en cualquier aplicación registrada en el nuevo portal de registro de aplicaciones, siempre que se encuentre en la lista de [flujos de autenticación admitidos](active-directory-v2-flows.md). Sin embargo, estas aplicaciones sólo podrán adquirir tokens de acceso de OAuth 2.0 para un conjunto de recursos muy limitado. El extremo v2.0 solo emitirá access\_tokens para:
 
 - La aplicación que solicita el token. Una aplicación puede adquirir un access\_token por sí misma si la aplicación lógica se compone de varios componentes o niveles diferentes. Para ver este escenario en acción, consulte nuestros tutoriales de [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 - El correo electrónico de Outlook, el calendario y los contactos de las API de REST se encuentran todos ellos en https://outlook.office.com. Para obtener información sobre cómo compilar una aplicación que tenga acceso a estas API, consulte estos tutoriales de [Introducción a Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -68,13 +91,13 @@ Actualmente, el punto de conexión v2.0 es compatible con el inicio de sesión e
 No hay otros servicios compatibles en este momento. Se agregarán más servicios de Microsoft Online en el futuro, así como la compatibilidad con sus propios servicios y API web.
 
 ## Restricciones en las bibliotecas y SDK
-Para ayudarle a realizar pruebas, hemos proporcionado una versión experimental de la biblioteca de autenticación de Active Directory que es compatible con el punto de conexión v2.0. Sin embargo, esta versión de ADAL es una versión preliminar: no es compatible y cambiará drásticamente durante los próximos meses. Hay ejemplos de código que usan ADAL para. NET, iOS, Android y Javascript disponibles en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started) si desea obtener rápidamente una aplicación que se ejecute con el punto de conexión v2.0.
+Para ayudarle a realizar pruebas, hemos proporcionado una versión experimental de la biblioteca de autenticación de Active Directory que es compatible con el punto de conexión v2.0. Sin embargo, esta versión de ADAL es una versión preliminar: no es compatible y cambiará drásticamente durante los próximos meses. Hay ejemplos de código que usan ADAL para .NET, iOS, Android y Javascript disponibles en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started) si desea obtener rápidamente una aplicación que se ejecute con el punto de conexión v2.0.
 
 Si desea utilizar el punto de conexión v2.0 en una aplicación de producción, tiene las siguientes opciones:
 
-- Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens. Incluye el software intermedio OWIN Open ID Connect para ASP.NET y nuestro complemento NodeJS Passport. También hay ejemplos de código con este software intermedio disponibles en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
+- Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens. Incluye el software intermedio OWIN Open ID Connect para ASP.NET y nuestro complemento NodeJS Passport. También hay ejemplos de código con este middleware disponibles en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 - Para otras plataformas y aplicaciones nativas y móviles, también puede integrarse con el punto de conexión v2.0 directamente enviando y recibiendo mensajes de protocolo en el código de su aplicación. Los protocolos v2.0 OpenID Connect y OAuth [se han documentado explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
-- Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estas bibliotecas varía según la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones populares. A continuación se muestran las bibliotecas de cliente de código abierto y ejemplos probados con el punto de conexión v2.0.
+- Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estas bibliotecas varía según la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones más populares. A continuación se muestran las bibliotecas de cliente de código abierto y ejemplos probados con el punto de conexión v2.0.
 
   - [Servidor de identidades de Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Federación Java Gluu](https://github.com/GluuFederation/oxAuth)
@@ -98,4 +121,4 @@ Hay un conjunto de características para desarrolladores en el servicio de Azure
 - Notificaciones de grupo para usuarios de Azure AD
 - Roles de aplicación y notificaciones de rol
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

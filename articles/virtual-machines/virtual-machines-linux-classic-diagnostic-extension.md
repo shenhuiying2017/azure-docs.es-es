@@ -41,7 +41,7 @@ Esta extensión funciona tanto con el modelo de implementación clásico como co
 
 ### La versión actual de la extensión y el desuso de las versiones anteriores
 
-La versión más reciente de la extensión es **2.3** y **cualquier versión anterior (2.0, 2.1 y 2.2) estará en desuso y dejará de publicarse próximamente**. Si ha instalado la extensión de diagnóstico de Linux con la actualización automática de versión secundaria deshabilitada, es muy recomendable que la desinstale y la vuelva a instalar con la actualización automática de versión secundaria habilitada. En máquinas virtuales clásicas (ASM), puede hacerlo especificando '2.*' como versión, si va a instalar la extensión mediante la CLI XPLAT de Azure o PowerShell. En máquinas virtuales de ARM, puede realizarlo mediante la inclusión de ' "autoUpgradeMinorVersion": true' en la plantilla de implementación de máquina virtual. Además, cualquier instalación nueva de la extensión debe tener la opción de actualización automática de versión secundaria activada.
+La versión más reciente de la extensión es **2.3** y **cualquier versión anterior (2.0, 2.1 y 2.2) estará en desuso y dejará de publicarse a finales de este año (2016)**. Si ha instalado la extensión de diagnóstico de Linux con la actualización automática de versión secundaria deshabilitada, es muy recomendable que la desinstale y la vuelva a instalar con la actualización automática de versión secundaria habilitada. En máquinas virtuales clásicas (ASM), puede hacerlo especificando '2.*' como versión, si va a instalar la extensión mediante la CLI XPLAT de Azure o PowerShell. En máquinas virtuales de ARM, puede realizarlo mediante la inclusión de ' "autoUpgradeMinorVersion": true' en la plantilla de implementación de máquina virtual. Además, cualquier instalación nueva de la extensión debe tener la opción de actualización automática de versión secundaria activada.
 
 
 ## Habilitación de la extensión
@@ -80,7 +80,7 @@ Paso 1. Cree un archivo llamado "PrivateConfig.json" con el siguiente contenido:
         "storageAccountKey" : "the key of the account"
     }
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
 
 ###   Escenario 2. Personalización de las métricas del monitor de rendimiento  
@@ -103,7 +103,7 @@ De forma predeterminada, siempre se recopilan los datos de Rsyslog.
     }
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Escenario 3. Carga de sus propios archivos de registro
@@ -122,9 +122,9 @@ Paso 1. Cree un archivo denominado "PrivateConfig.json" con el contenido descrit
     }
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
-Tenga en cuenta que, con esta configuración, todos los registros que se escriban en `/var/log/mysql.err` también podrían duplicarse en `/var/log/syslog` (o `/var/log/messages` según la distribución de Linux). Si desea evitar este registro duplicado, puede excluir el registro de los registros de instalación `local6` en la configuración de rsyslog. Depende de la distribución de Linux pero en un sistema Ubuntu 14.04 el archivo que se debe modificar es `/etc/rsyslog.d/50-default.conf` y puede reemplazar la línea `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. En el futuro, esto se controlará automáticamente mediante la extensión de diagnóstico de Linux.
+Tenga en cuenta que, con esta configuración de las versiones de extensión anteriores a 2.3, todos los registros que se escriban en `/var/log/mysql.err` también podrían duplicarse en `/var/log/syslog` (o `/var/log/messages` según la distribución de Linux). Si desea evitar este registro duplicado, puede excluir el registro de los registros de instalación `local6` en la configuración de rsyslog. Depende de la distribución de Linux pero en un sistema Ubuntu 14.04 el archivo que se debe modificar es `/etc/rsyslog.d/50-default.conf` y puede reemplazar la línea `*.*;auth,authpriv.none -/var/log/syslog` por `*.*;auth,authpriv,local6.none -/var/log/syslog`. Este problema se ha corregido en la versión de revisión de 2.3 (2.3.9007) más reciente, de modo que si tiene la versión de extensión 2.3, no debería producirse más. Si sigue produciéndose incluso después de reiniciar la máquina virtual, póngase en contacto con nosotros y ayúdenos a averiguar por qué la versión de revisión más reciente no se ha instalado automáticamente.
 
 ###   Escenario 4. Detención del proceso de recopilación de registros por parte de la extensión
 En esta sección se describe cómo hacer que la extensión deje de recopilar registros. Tenga en cuenta que el proceso del agente de supervisión seguirá activo y en ejecución incluso con esta reconfiguración. Si desea detener completamente el proceso de agente de supervisión, puede hacerlo deshabilitando la extensión. El comando para deshabilitar la extensión es **azure vm extension set --disable <nombre\_mv> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
@@ -137,7 +137,7 @@ Paso 1. Cree un archivo denominado "PrivateConfig.json" con el contenido descrit
     }
 
 
-Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
+Paso 2: Ejecute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Revisión de los datos
@@ -156,4 +156,4 @@ Si ha habilitado el archivo fileCfg o perfCfg (tal y como se describe en los esc
 ## Problemas conocidos
 - En la versión actual (2.3) de la extensión de diagnóstico de Linux, solo puede acceder mediante scripts a la información de Rsyslog y al archivo de registro del cliente especificado.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

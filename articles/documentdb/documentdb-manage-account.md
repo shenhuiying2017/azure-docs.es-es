@@ -19,7 +19,7 @@
 
 # Administración de una cuenta de DocumentDB
 
-Aprenda a establecer coherencia global y a administrar varias regiones para la disponibilidad global de los datos. Aprenda también cómo trabajar con claves y cómo eliminar una cuenta en el Portal de Azure.
+Aprenda a establecer coherencia global y a administrar varias regiones para la disponibilidad global de los datos en Azure DocumentDB. Aprenda también cómo trabajar con claves y cómo eliminar una cuenta en el Portal de Azure.
 
 ## <a id="consistency"></a>Administración de la configuración de coherencia de DocumentDB
 
@@ -113,7 +113,7 @@ Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Document
 
 > [AZURE.NOTE] Pueden pasar varios minutos antes de poder obtener acceso a la cuenta de DocumentDB con la clave que acaba de crear.
 
-## <a id="delete"></a>Eliminación de una cuenta de DocumentDB
+## </a><a id="delete">Eliminación de una cuenta de DocumentDB
 Para quitar del Portal de Azure una cuenta de DocumentDB que ya no usa, ejecute el comando **Eliminar** de la hoja **Cuenta de DocumentDB**.
 
 ![Eliminación de una cuenta de DocumentDB en el Portal de Azure](./media/documentdb-manage-account/deleteaccountconfirmation.png)
@@ -145,4 +145,4 @@ Para obtener más información sobre DocumentDB, consulte la documentación corr
 [azureregions]: https://azure.microsoft.com/es-ES/regions/#services
 [offers]: https://azure.microsoft.com/es-ES/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

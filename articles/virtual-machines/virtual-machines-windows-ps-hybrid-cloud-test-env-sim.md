@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
@@ -40,7 +40,7 @@ Existen cuatro fases principales para configurar este entorno de prueba de nube 
 1.	Configuración de la red virtual de TestLab.
 2.	Creación de la red virtual entre locales.
 3.	Creación de la conexión VPN de red virtual a red virtual.
-4.	Configuración de DC2. 
+4.	Configuración de DC2.
 
 Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una evaluación gratuita en [Probar Azure](https://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción de MSDN o de Visual Studio, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,7 +62,7 @@ Obtenga el nombre de la suscripción con el comando siguiente.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
+Establezca su suscripción a Azure. Utilice la misma suscripción que usó para generar la configuración básica. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >, por los nombres correctos.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -211,6 +211,6 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 ## Paso siguiente
 
-- Configure una [granja de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
+- Configure una [granja de servidores de intranet de SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), una [aplicación de LOB basada en web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) o un [servidor de sincronización de directorios (DirSync) de Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) en este entorno.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

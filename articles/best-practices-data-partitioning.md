@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/14/2016"
    ms.author="masashin"/>
 
 # Guía de creación de particiones de datos
@@ -324,7 +324,7 @@ El almacenamiento de blobs se divide automáticamente en función del nombre de 
 
 Las acciones de escritura de un solo bloque (blob en bloques) o página (blob en páginas) son atómicas, pero no las operaciones que abarcan bloques, páginas o blobs. Si necesita asegurar la coherencia cuando se realizan operaciones de escritura en bloques, páginas y blobs, realice un bloqueo de escritura mediante el uso de una concesión de blob.
 
-Almacenamiento de blobs de Azure admite velocidades de transferencia de hasta 60 MB por segundo o hasta 500 solicitudes por segundo para cada blob. Si prevé que va a superar estos límites y los datos de blob están relativamente estáticos, considere la posibilidad de replicar blobs mediante el uso de la red de entrega de contenido (CDN) de Azure. Para obtener más información, consulte la página [Using Content Delivery Network for Azure] \(Uso de red de entrega de contenido para Azure) en el sitio web de Microsoft. Para obtener instrucciones y otras consideraciones, consulte el artículo \[Uso de la red CDN en Azure].
+Almacenamiento de blobs de Azure admite velocidades de transferencia de hasta 60 MB por segundo o hasta 500 solicitudes por segundo para cada blob. Si prevé que va a superar estos límites y los datos de blob están relativamente estáticos, considere la posibilidad de replicar blobs mediante el uso de la red de entrega de contenido (CDN) de Azure. Para obtener más información, consulte la página [Using Content Delivery Network for Azure] (Uso de red de entrega de contenido para Azure) en el sitio web de Microsoft. Para obtener instrucciones y otras consideraciones, consulte el artículo [Uso de la red CDN en Azure].
 
 ## Creación de particiones en colas de almacenamiento de Azure
 
@@ -346,7 +346,7 @@ Esta estructura le ayuda a distribuir la carga entre los agentes de mensajes y l
 
 Bus de servicio asigna un mensaje a un fragmento de la siguiente manera:
 
-- Si el mensaje pertenece a una sesión, se envían todos los mensajes con el mismo valor para la propiedad \_ SessionId\_ al mismo fragmento.
+- Si el mensaje pertenece a una sesión, se envían todos los mensajes con el mismo valor para la propiedad _ SessionId_ al mismo fragmento.
 - Si el mensaje no pertenece a una sesión pero el remitente ha especificado un valor para la propiedad _PartitionKey_, todos los mensajes con el mismo valor _PartitionKey_ se enviarán al mismo fragmento.
 
 	> [AZURE.NOTE] Si se especifican las propiedades _SessionId_ y _PartitionKey_, se deben establecer en el mismo valor; de lo contrario, se rechazará el mensaje.
@@ -369,7 +369,7 @@ Los documentos se organizan en colecciones. Puede agrupar documentos relacionado
 
 Las colecciones de documentos proporcionan un mecanismo natural para dividir los datos de una base de datos única. Internamente, una base de datos DocumentDB puede abarcar varios servidores e intentar distribuir la carga al distribuir colecciones entre servidores. La manera más sencilla de implementar las particiones es crear una colección para cada partición.
 
-> [AZURE.NOTE] Cada base de datos de DocumentDB tiene un _nivel de rendimiento_ que determina la cantidad de recursos que obtiene. Los niveles de rendimiento están asociados a un límite de velocidad de _unidad de solicitud_ (RU). El límite de velocidad de unidad de solicitud especifica el volumen de los recursos reservados y disponibles para el uso exclusivo de esa colección. El costo de una colección depende del nivel de rendimiento seleccionado para esa colección. Cuanto mayor sea el nivel re rendimiento (y el límite de velocidad de la unidad de solicitud), mayor será el costo. Puede ajustar el nivel de rendimiento de una colección mediante el Portal de Azure. Para obtener más información, consulte la página [Niveles de rendimiento en DocumentDB] en el sitio web de Microsoft.
+> [AZURE.NOTE] Cada base de datos de DocumentDB tiene un _nivel de rendimiento_ que determina la cantidad de recursos que obtiene. Los niveles de rendimiento están asociados a un límite de velocidad de _unidad de solicitud_. El límite de velocidad de unidad de solicitud especifica el volumen de los recursos reservados y disponibles para el uso exclusivo de esa colección. El costo de una colección depende del nivel de rendimiento seleccionado para esa colección. Cuanto mayor sea el nivel re rendimiento (y el límite de velocidad de la unidad de solicitud), mayor será el costo. Puede ajustar el nivel de rendimiento de una colección mediante el Portal de Azure. Para obtener más información, consulte la página [Niveles de rendimiento en DocumentDB] en el sitio web de Microsoft.
 
 Todas las bases de datos se crean en el contexto de una cuenta de DocumentDB. Una sola cuenta de DocumentDB puede contener varias bases de datos, y especifica en qué región se crean las bases de datos. Cada cuenta DocumentDB también impone su propio control de acceso. Puede utilizar cuentas de DocumentDB para localizar geográficamente particiones (colecciones dentro de bases de datos) cerca de los usuarios que necesitan tener acceso a ellas y aplicar restricciones de modo que solo esos usuarios puedan conectarse.
 
@@ -391,7 +391,7 @@ _Ilustración 9. Implementación del particionamiento mediante una base de datos
 
 A la hora de decidir cómo particionar los datos con una base de datos de DocumentDB, tenga en cuenta los siguientes puntos:
 
-- **Los recursos disponibles para una base de datos de DocumentDB están sujetos a las limitaciones de cuota de la cuenta de DocumentDB**. Cada base de datos puede contener un número de colecciones (de nuevo, hay un límite) y cada colección está asociada a un nivel de rendimiento que rige el límite de velocidad de RU (rendimiento reservado) para esa colección. Para más información, visite la página [Límites y cuotas de DocumentDB] en el sitio web de Microsoft.
+- **Los recursos disponibles para una base de datos DocumentDB están sujetos a las limitaciones de cuota de la cuenta DocumentDB**. Cada base de datos puede contener un número de colecciones (de nuevo, hay un límite) y cada colección está asociada a un nivel de rendimiento que rige el límite de velocidad de RU (rendimiento reservado) para esa colección. Para obtener más información, visite la página [Límites y cuotas de DocumentDB] en el sitio web de Microsoft.
 - **Cada documento debe tener un atributo que pueda usarse para identificar de manera única dicho documento dentro de la colección en la que se encuentra**. Este atributo es diferente de la clave de partición, que define en qué colección se encuentra el documento. Una colección puede contener un gran número de documentos. En teoría, solo está limitada por la longitud máxima del identificador del documento. El identificador del documento puede contener hasta 255 caracteres.
 - **Todas las operaciones de un documento se realizan en el contexto de una transacción. Las transacciones en las bases de datos de DocumentDB se limitan a la colección que contiene el documento.** Si se produce un error en una operación, se revierte el trabajo que ha realizado. Mientras se realiza una operación sobre un documento, los cambios realizados están sujetos a aislamiento a nivel de instantánea. Este mecanismo garantiza que si, por ejemplo, se produce un error en una solicitud para crear un nuevo documento, otro usuario que consulte la base de datos al mismo tiempo no verá un documento parcial que luego se elimine.
 - **Las consultas de base de datos de DocumentDB también se limitan al nivel de colección**. Una sola consulta solo puede recuperar datos de una colección. Si necesita recuperar datos de varias colecciones, debe consultar cada colección individualmente y combinar los resultados en el código de aplicación.
@@ -400,17 +400,17 @@ A la hora de decidir cómo particionar los datos con una base de datos de Docume
 
 ## Estrategias de creación de particiones para Búsqueda de Azure
 
-La función de búsqueda de datos suele ser el método principal de navegación y exploración proporcionado por muchas aplicaciones web. Permite a los usuarios encontrar recursos rápidamente (por ejemplo, los productos de una aplicación de comercio electrónico) según determinadas combinaciones de criterios de búsqueda. El servicio de Búsqueda de Azure proporciona capacidades de búsqueda de texto completo a través de contenido web e incluye características como las consultas sugeridas de escritura anticipada basadas en coincidencias cercanas y en la navegación por facetas. Se puede encontrar una descripción completa de estas funcionalidades en la página [¿Qué es Búsqueda de Azure?] en el sitio web de Microsoft.
+La función de búsqueda de datos suele ser el método principal de navegación y exploración proporcionado por muchas aplicaciones web. Permite a los usuarios encontrar recursos rápidamente (por ejemplo, los productos de una aplicación de comercio electrónico) según determinadas combinaciones de criterios de búsqueda. El servicio de Búsqueda de Azure proporciona capacidades de búsqueda de texto completo a través de contenido web e incluye características como las consultas sugeridas de escritura anticipada basadas en coincidencias cercanas y en la navegación por facetas. Se puede encontrar una descripción completa de estas funciones en la página [¿Qué es Búsqueda de Azure?] en el sitio web de Microsoft.
 
 Búsqueda de Azure almacena contenido en el que es posible realizar búsquedas como documentos JSON en una base de datos. El usuario es quien define los índices que especifican los campos de búsqueda de estos documentos y proporciona estas definiciones al servicio Búsqueda de Azure. Cuando se emite una solicitud de búsqueda, Búsqueda de Azure usa los índices adecuados para buscar los elementos coincidentes.
 
-Para reducir la contención, es posible dividir el almacenamiento utilizado por Búsqueda de Azure en 1, 2, 3, 4, 6 o 12 particiones, y cada partición se puede replicar hasta 6 veces. El producto del número de particiones multiplicado por el número de réplicas se denomina _unidad de búsqueda_ (SU). Una única instancia de Búsqueda de Azure puede contener un máximo de 36 unidades de búsqueda (una base de datos con 12 particiones solo admite un máximo de 3 réplicas).
+Para reducir la contención, es posible dividir el almacenamiento utilizado por Búsqueda de Azure en 1, 2, 3, 4, 6 o 12 particiones, y cada partición se puede replicar hasta 6 veces. El producto del número de particiones multiplicado por el número de réplicas se denomina _unidad de búsqueda_. Una única instancia de Búsqueda de Azure puede contener un máximo de 36 unidades de búsqueda (una base de datos con 12 particiones solo admite un máximo de 3 réplicas).
 
 Se le facturará cada SU que se asigne a su servicio. A medida que crezca el volumen de contenido sobre el que es posible realizar búsquedas o la tasa de solicitudes de búsqueda, puede agregar unidades de búsqueda a una instancia existente de Búsqueda de Azure para administrar la carga adicional. El propio servicio Búsqueda de Azure distribuye los documentos uniformemente entre las particiones. Actualmente no se admite la aplicación de ninguna estrategia de partición manual.
 
-Cada partición puede contener un máximo de 15 millones de documentos u ocupar 300 GB de espacio de almacenamiento (lo que sea menor). Puede crear hasta 50 índices. El rendimiento del servicio varía y depende de la complejidad de los documentos, los índices disponibles y los efectos de la latencia de la red. De media, una única réplica (1 unidad de búsqueda) debe ser capaz de administrar 15 consultas por segundo, aunque es recomendable realizar pruebas comparativas realizadas con sus propios datos para obtener una medida más precisa del rendimiento. Para más información, consulte la página [Límites de servicio en la Búsqueda de Azure] en el sitio web de Microsoft.
+Cada partición puede contener un máximo de 15 millones de documentos u ocupar 300 GB de espacio de almacenamiento (lo que sea menor). Puede crear hasta 50 índices. El rendimiento del servicio varía y depende de la complejidad de los documentos, los índices disponibles y los efectos de la latencia de la red. De media, una única réplica (1 unidad de búsqueda) debe ser capaz de administrar 15 consultas por segundo, aunque es recomendable realizar pruebas comparativas realizadas con sus propios datos para obtener una medida más precisa del rendimiento. Para obtener más información, consulte la página [Límites de servicio en la Búsqueda de Azure] en el sitio web de Microsoft.
 
-> [AZURE.NOTE] Puede almacenar un conjunto limitado de tipos de datos en documentos que se pueden buscar, incluidas cadenas, valores booleanos, datos numéricos, datos de fecha y hora y algunos datos geográficos. Para más información, consulte la página [Tipos de datos admitidos (Búsqueda de Azure)] en el sitio web de Microsoft.
+> [AZURE.NOTE] Puede almacenar un conjunto limitado de tipos de datos en documentos que se pueden buscar, incluidas cadenas, valores booleanos, datos numéricos, datos de fecha y hora y algunos datos geográficos. Para obtener más detalles, consulte la página [Tipos de datos admitidos (Búsqueda de Azure)] en el sitio web de Microsoft.
 
 Tiene control limitado sobre cómo divide en particiones el servicio de Búsqueda de Azure los datos de cada instancia del servicio. Sin embargo, en un entorno global puede mejorar el rendimiento y reducir la latencia y la contención aún más mediante la partición del propio servicio; para ello, aplique alguna de las estrategias siguientes:
 
@@ -436,9 +436,9 @@ Las aplicaciones cliente simplemente envían solicitudes a cualquiera de los ser
 
 Este modelo se implementa mediante el uso de clústeres de Redis y se describe con más detalle en la página [Tutorial de clúster Redis] en el sitio web de Redis. La agrupación en clústeres de Redis es transparente para las aplicaciones cliente. Es posible agregar servidores Redis adicionales al clúster (y es posible volver a crear particiones en los datos) sin necesidad de volver a configurar los clientes.
 
-> [AZURE.IMPORTANT] Actualmente Caché en Redis de Azure no admite la agrupación en clústeres Redis. Si desea implementar este enfoque con Azure, deberá implementar entonces sus propios servidores Redis instalando Redis en un conjunto de máquinas virtuales de Azure y configurándolas manualmente. La página [Running Redis on a CentOS Linux VM in Windows Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
+> [AZURE.IMPORTANT] Actualmente Caché en Redis de Azure no admite la agrupación en clústeres Redis. Si desea implementar este enfoque con Azure, deberá implementar entonces sus propios servidores Redis instalando Redis en un conjunto de máquinas virtuales de Azure y configurándolas manualmente. La página [Running Redis on a CentOS Linux VM in Windows Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft le guía a través de un ejemplo que muestra cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 
-La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis ofrece más información sobre cómo implementar la creación de particiones con Redis. En el resto de esta sección se supone que se está implementando las particiones del lado cliente o asistidas por el proxy.
+La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis ofrece más información acerca de cómo implementar la creación de particiones con Redis. En el resto de esta sección se supone que se está implementando las particiones del lado cliente o asistidas por el proxy.
 
 Deberá tener en cuenta los siguientes puntos a la hora de decidir cómo crear particiones en los datos con la Caché en Redis de Azure:
 
@@ -464,7 +464,7 @@ _Ilustración 10. Estructura sugerida en el almacenamiento de Redis para registr
 
 - Los lotes y las transacciones de Redis no pueden abarcar varias conexiones, por lo que todos los datos afectados por un lote o transacción deben permanecer en la misma base de datos (partición).
 
-	> [AZURE.NOTE] Una secuencia de operaciones en una transacción Redis no es necesariamente atómica. Los comandos que componen una transacción se comprueban y se ponen en cola antes de ejecutarse. Si se produce un error durante esta fase, se descarta toda la cola. Sin embargo, una vez que la transacción se haya enviado correctamente, se ejecutarán los comandos en cola en secuencia. Si se produce un error en algún comando, únicamente ese comando deja de ejecutarse. Se ejecutarán todos los comandos situados delante y detrás en la cola. Para más información, visite la página [Transactions] (Transacciones) en el sitio web de Redis.
+	> [AZURE.NOTE] Una secuencia de operaciones en una transacción Redis no es necesariamente atómica. Los comandos que componen una transacción se comprueban y se ponen en cola antes de ejecutarse. Si se produce un error durante esta fase, se descarta toda la cola. Sin embargo, una vez que la transacción se haya enviado correctamente, se ejecutarán los comandos en cola en secuencia. Si se produce un error en algún comando, únicamente ese comando deja de ejecutarse. Se ejecutarán todos los comandos situados delante y detrás en la cola. Para obtener más información, visite la página [Transactions] (Transacciones) en el sitio web de Redis.
 
 - Redis admite un número limitado de operaciones atómicas. Las únicas operaciones de este tipo que admiten varias claves y valores son operaciones MGET y MSET. Las operaciones MGET devuelven una colección de valores para una lista especificada de claves, y las operaciones MSET almacenan una colección de valores para una lista especificada de claves. Si necesita usar estas operaciones, los pares clave-valor a los que hacen referencia los comandos MSET y MGET deben almacenarse en la misma base de datos.
 
@@ -501,7 +501,7 @@ Para conservar algo de disponibilidad, puede marcar la partición original como 
 
 La migración en línea es más difícil de realizar, pero es menos problemática para los usuarios, ya que los datos permanecen disponibles durante todo el procedimiento. El proceso es similar al usado por la migración sin conexión, salvo que la partición original no está marcada como sin conexión (paso 1). Según la granularidad del proceso de migración (por ejemplo, si se hace elemento por elemento o partición por partición), es posible que el código de acceso a datos de las aplicaciones cliente tenga que controlar la lectura y escritura de los datos que se encuentran en dos ubicaciones (la partición original y la nueva partición)
 
-Para ver un ejemplo de una solución que admita la migración en línea, consulte [Escalado con la herramienta de división y combinación de bases de datos elásticas] en el sitio web de Microsoft.
+Para obtener un ejemplo de una solución que admita la migración en línea, consulte [Escalado con la herramienta de división y combinación de bases de datos elásticas] en el sitio web de Microsoft.
 
 ## Orientación y patrones relacionados
 
@@ -511,7 +511,7 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 - La página [Data partitioning guidance] (Guía de creación de particiones de datos) proporciona una visión general de cómo diseñar particiones para cumplir varios criterios en una solución distribuida.
 - En [Sharding Pattern] (Patrón de particionamiento), descrito en el sitio web de Microsoft, se resumen algunas estrategias comunes para el particionamiento de los datos.
 - En [Index Table Pattern] (Patrón de la tabla de índice), descrito en el sitio web de Microsoft, se ilustra cómo crear índices secundarios sobre los datos. Con este enfoque, una aplicación puede recuperar rápidamente los datos mediante el uso de consultas que no hacen referencia a la clave principal de una colección.
-- En [Materialized View Pattern] (Patrón de vista materializada), descrito en el sitio web de Microsoft, se describe cómo generar vistas rellenadas previamente que resuman los datos para admitir operaciones de consulta rápida. Este enfoque puede ser útil en un almacén de datos con particiones si las particiones que contienen los datos que se resumen se distribuyen entre varios sitios.
+- En [Materialized View Pattern] (Patrón de vista materializada), descrito en el sitio web de Microsoft, se describe cómo generar vistas rellenadas previamente que resuman los datos para admitir las operaciones de consulta rápida. Este enfoque puede ser útil en un almacén de datos con particiones si las particiones que contienen los datos que se resumen se distribuyen entre varios sitios.
 - En el artículo [Uso de la red CDN en Azure] del sitio web de Microsoft se ofrecen instrucciones adicionales sobre cómo configurar y usar la red de entrega de contenido con Azure.
 
 ## Más información
@@ -520,20 +520,21 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 - En la página [Información general de las características de Base de datos elástica] del sitio web de Microsoft se proporciona una introducción completa a Base de datos elástica.
 - La página [Escalado con la herramienta de división y combinación de bases de datos elásticas] del sitio web de Microsoft contiene información sobre el uso del servicio de división y combinación para administrar particiones de Base de datos elástica.
 - La página [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx) del sitio web de Microsoft documenta los límites de tamaño y rendimiento actuales de Almacenamiento de Azure.
-- La página [Realizar transacciones con grupos de entidades] del sitio web de Microsoft proporciona información detallada sobre la implementación de operaciones transaccionales sobre entidades almacenadas en Almacenamiento de tablas de Azure.
-- El artículo [Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento] del sitio web de Microsoft contiene información detallada sobre la creación de particiones de datos en Almacenamiento de tablas de Azure.
+- La página [Realizar transacciones con grupos de entidades] del sitio web de Microsoft proporciona información detallada sobre la implementación de operaciones transaccionales sobre las entidades almacenadas en Almacenamiento de tablas de Azure.
+- El artículo [Guía de diseño de la tabla de almacenamiento de Azure] del sitio web de Microsoft contiene información detallada sobre la creación de particiones de datos en Almacenamiento de tablas de Azure.
 - La página [Uso de la red CDN en Azure] del sitio web de Microsoft describe cómo replicar los datos almacenados en Almacenamiento de blobs de Azure mediante el uso de la Red de entrega de contenido (CDN) de Azure.
 - La página [Más información sobre almacenamiento de documentos y capacidad en DocumentDB] del sitio web de Microsoft contiene información sobre cómo Azure DocumentDB asigna recursos a bases de datos.
 - La página [¿Qué es Búsqueda de Azure?] del sitio web de Microsoft proporciona una descripción completa de las funciones disponibles con el servicio Búsqueda de Azure.
 - La página [Límites de servicio en Búsqueda de Azure] del sitio web de Microsoft contiene información sobre la capacidad de cada instancia del servicio Búsqueda de Azure.
 - La página [Tipos de datos admitidos (Búsqueda de Azure)] del sitio web de Microsoft resume los tipos de datos que puede usar en los documentos y los índices en los que se pueden hacer búsquedas.
 - La página [Caché en Redis de Azure] del sitio web de Microsoft proporciona una introducción a Caché en Redis de Azure.
-- La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis proporciona información sobre cómo implementar las particiones con Redis.
-- La página [Running Redis on a CentOS Linux VM in Microsoft Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft muestra un ejemplo de cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
+- La página [Partitioning: how to split data among multiple Redis instances] (Creación de particiones: cómo dividir los datos entre varias instancias de Redis) del sitio web de Redis proporciona información acerca de cómo implementar las particiones con Redis.
+- La página [Running Redis on a CentOS Linux VM in Windows Azure] (Ejecución de Redis en una máquina virtual Linux de CentOS en Azure) del sitio web de Microsoft le guía a través de un ejemplo que muestra cómo crear y configurar un nodo Redis que se ejecuta como una máquina virtual de Azure.
 - La página [Data types] (Tipos de datos) del sitio web de Redis describe los tipos de datos que están disponibles con Redis y Caché en Redis de Azure.
 
 [Caché en Redis de Azure]: http://azure.microsoft.com/services/cache/
 [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure]: storage/storage-scalability-targets.md
+[Guía de diseño de la tabla de almacenamiento de Azure]: storage/storage-table-design-guide.md
 [Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento]: storage/storage-table-design-guide.md
 [Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
 [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
@@ -567,4 +568,4 @@ Es posible que los siguientes modelos también resulten pertinentes para su esce
 [¿Qué es Búsqueda de Azure?]: search/search-what-is-azure-search.md
 [¿Qué es Base de datos SQL?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

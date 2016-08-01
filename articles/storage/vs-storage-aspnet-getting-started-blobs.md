@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Introducción al almacenamiento de blobs servicios conectados de Visual Studio (ASP.NET)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ## Información general
 
 En este artículo se describe cómo empezar a usar Almacenamiento de blobs de Azure después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en una aplicación ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. El artículo muestra cómo crear contenedores de blob y realizar otras tareas comunes, como cargar, enumerar, descargar y eliminar blobs. Los ejemplos están escritos en C# y usan la [biblioteca del cliente de almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - Para más información general sobre el uso del almacenamiento de blobs de Azure, vea [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
+ - Para más información general sobre el uso de Almacenamiento de blobs de Azure, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
  - Para más información sobre los proyectos de ASP.NET, vea [ASP.NET](http://www.asp.net).
 
 
@@ -227,4 +229,4 @@ Dado que el método de ejemplo llama a un método asincrónico, debe ir precedid
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

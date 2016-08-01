@@ -18,7 +18,7 @@
    
 # Desarrollo con cuentas de DocumentDB de varias regiones
 
-Para aprovechar las ventajas de la [distribución global](documentdb-distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de DocumentDB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
+Para aprovechar las ventajas de la [distribución global](documentdb-distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure DocumentDB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
 Esta lista de preferencias se especifica cuando se inicializa una conexión mediante los SDK de cliente de DocumentDB. Los SDK aceptan un parámetro opcional "PreferredLocations", que es una lista ordenada de regiones de Azure.
 
@@ -143,4 +143,4 @@ Más información sobre la distribución de datos global con DocumentDB en los s
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

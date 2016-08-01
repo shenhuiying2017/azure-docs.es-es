@@ -19,7 +19,7 @@
 
 # Niveles de coherencia en Base de datos de documentos
 
-El diseño de DocumentDB se ha llevado a cabo desde el principio con la distribución global en mente. Se ha diseñado para que ofrezca garantías de una baja latencia predecible, un Acuerdo de Nivel de Servicio (SLA) con un 99,99 % de disponibilidad y varios modelos de coherencia moderada bien definidos. Actualmente, DocumentDB admite cuatro niveles de coherencia: fuerte, de obsolescencia entrelazada, de sesión y eventual. Además de los modelos de **coherencia fuerte** y **eventual** proporcionados habitualmente con otras bases de datos NoSQL, DocumentDB también ofrece dos modelos de coherencia codificados y operacionalizados de forma cuidadosa: **de obsolescencia entrelazada** y **de sesión**. Además, ha validado su utilidad en casos de uso reales. De forma colectiva, estos cuatro niveles de coherencia permiten lograr equilibrios bien razonados entre la coherencia, la disponibilidad y la latencia.
+El diseño de Azure DocumentDB se ha llevado a cabo desde el principio con la distribución global en mente. Se ha diseñado para que ofrezca garantías de una baja latencia predecible, un Acuerdo de Nivel de Servicio (SLA) con un 99,99 % de disponibilidad y varios modelos de coherencia moderada bien definidos. Actualmente, DocumentDB admite cuatro niveles de coherencia: fuerte, de obsolescencia entrelazada, de sesión y eventual. Además de los modelos de **coherencia fuerte** y **eventual** proporcionados habitualmente con otras bases de datos NoSQL, DocumentDB también ofrece dos modelos de coherencia codificados y operacionalizados de forma cuidadosa: **de obsolescencia entrelazada** y **de sesión**. Además, ha validado su utilidad en casos de uso reales. De forma colectiva, estos cuatro niveles de coherencia permiten lograr equilibrios bien razonados entre la coherencia, la disponibilidad y la latencia.
 
 ## Ámbito de coherencia
 
@@ -33,38 +33,38 @@ Puede configurar el nivel de coherencia predeterminado en la cuenta de la base d
 
 **Alta**:
 
-- La coherencia fuerte una garantía de [linearizabilidad](https://aphyr.com/posts/313-strong-consistency-models) que asegura que las lecturas devolverán la versión más reciente de un documento. 
-- la coherencia alta garantiza que una escritura solo es visible después de confirmarse de forma duradera por la mayoría del cuórum de réplicas. Una escritura se confirma sincrónicamente de forma duradera tanto por la réplica principal como por el cuórum de las secundarias, o se anula. Una lectura siempre se confirma por la mayoría del cuórum de lectura; un cliente no puede ver nunca una escritura no confirmada o parcial y cuenta con la garantía de que leerá la última escritura confirmada. 
-- Las cuentas de DocumentDB que se han configurado con coherencia fuerte no pueden asociarse con más de una región de Azure. 
+- La coherencia fuerte una garantía de [linearizabilidad](https://aphyr.com/posts/313-strong-consistency-models) que asegura que las lecturas devolverán la versión más reciente de un documento.
+- la coherencia alta garantiza que una escritura solo es visible después de confirmarse de forma duradera por la mayoría del cuórum de réplicas. Una escritura se confirma sincrónicamente de forma duradera tanto por la réplica principal como por el cuórum de las secundarias, o se anula. Una lectura siempre se confirma por la mayoría del cuórum de lectura; un cliente no puede ver nunca una escritura no confirmada o parcial y cuenta con la garantía de que leerá la última escritura confirmada.
+- Las cuentas de DocumentDB que se han configurado con coherencia fuerte no pueden asociarse con más de una región de Azure.
 - El costo de una operación de lectura (en términos de [unidades de solicitud](documentdb-request-units.md) consumidas) con coherencia fuerte es mayor que con la de sesión o la eventual, pero igual que con la de obsolescencia entrelazada.
  
 
 **De obsolescencia entrelazada**:
 
-- La coherencia de obsolescencia entrelazada garantiza que las lecturas vayan con retraso respecto a las escrituras en un máximo de versiones *K* o prefijos de un documento o el intervalo de tiempo *t*. 
-- Por consiguiente, al elegir la obsolescencia entrelazada, la obsolescencia se puede configurar de dos maneras: 
+- La coherencia de obsolescencia entrelazada garantiza que las lecturas vayan con retraso respecto a las escrituras en un máximo de versiones *K* o prefijos de un documento o el intervalo de tiempo *t*.
+- Por consiguiente, al elegir la obsolescencia entrelazada, la obsolescencia se puede configurar de dos maneras:
     - Número de versiones *K* del documento en que las lecturas van con retraso respecto a las escrituras
-    - Intervalo de tiempo *t* 
-- La obsolescencia entrelazada ofrece un orden global total excepto dentro de la "ventana de obsolescencia". Tenga en cuenta que la garantía de lectura monotónica existe dentro de una región tanto dentro como fuera de la "ventana de obsolescencia". 
-- La obsolescencia entrelazada proporciona una garantía de coherencia más fuerte que la coherencia de sesión o la eventual. Para las aplicaciones de distribución global, se recomienda utilizar la obsolescencia entrelazada para aquellos escenarios donde se desea disponer de coherencia fuerte pero también de una disponibilidad del 99,99 % y una latencia baja. 
-- Las cuentas de DocumentDB que están configuradas con la coherencia de obsolescencia entrelazada pueden asociarse con cualquier número de regiones de Azure. 
+    - Intervalo de tiempo *t*
+- La obsolescencia entrelazada ofrece un orden global total excepto dentro de la "ventana de obsolescencia". Tenga en cuenta que la garantía de lectura monotónica existe dentro de una región tanto dentro como fuera de la "ventana de obsolescencia".
+- La obsolescencia entrelazada proporciona una garantía de coherencia más fuerte que la coherencia de sesión o la eventual. Para las aplicaciones de distribución global, se recomienda utilizar la obsolescencia entrelazada para aquellos escenarios donde se desea disponer de coherencia fuerte pero también de una disponibilidad del 99,99 % y una latencia baja.
+- Las cuentas de DocumentDB que están configuradas con la coherencia de obsolescencia entrelazada pueden asociarse con cualquier número de regiones de Azure.
 - El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con coherencia de obsolescencia entrelazada es mayor que con la de sesión o la eventual, pero igual que con la fuerte.
 
 **Sesión**:
 
-- A diferencia de los modelos de coherencia global ofrecidos por los niveles de coherencia fuerte y de obsolescencia entrelazada, el ámbito de la coherencia de sesión corresponde a una sesión de cliente. 
-- La coherencia de sesión es ideal para todos los escenarios en los que exista una sesión de usuario o dispositivo, ya que garantiza lecturas monotónicas, escrituras monotónicas y lectura de sus propias escrituras (RYW). 
-- La coherencia de sesión proporciona una coherencia predecible para una sesión, así como de un rendimiento de lectura máximo, al mismo tiempo que ofrece las escrituras y lecturas con menor latencia. 
-- Las cuentas de DocumentDB que están configuradas con la coherencia de sesión pueden asociarse con cualquier número de regiones de Azure. 
+- A diferencia de los modelos de coherencia global ofrecidos por los niveles de coherencia fuerte y de obsolescencia entrelazada, el ámbito de la coherencia de sesión corresponde a una sesión de cliente.
+- La coherencia de sesión es ideal para todos los escenarios en los que exista una sesión de usuario o dispositivo, ya que garantiza lecturas monotónicas, escrituras monotónicas y lectura de sus propias escrituras (RYW).
+- La coherencia de sesión proporciona una coherencia predecible para una sesión, así como de un rendimiento de lectura máximo, al mismo tiempo que ofrece las escrituras y lecturas con menor latencia.
+- Las cuentas de DocumentDB que están configuradas con la coherencia de sesión pueden asociarse con cualquier número de regiones de Azure.
 - El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con coherencia de sesión es menor que con la fuerte o la de obsolescencia entrelazada, pero más que con la eventual.
  
 
 **Ocasional**:
 
-- La coherencia eventual garantiza que, en ausencia de escrituras adicionales, las réplicas dentro del grupo terminarán por converger. 
+- La coherencia eventual garantiza que, en ausencia de escrituras adicionales, las réplicas dentro del grupo terminarán por converger.
 - La coherencia eventual es la forma más débil de coherencia, ya que un cliente puede obtener los valores que son más antiguos que los que ha visto antes.
 - La coherencia ocasional proporciona la coherencia de lectura más débil, pero ofrece la latencia más baja tanto para lecturas como para escrituras.
-- Las cuentas de DocumentDB que están configuradas con la coherencia eventual pueden asociarse con cualquier número de regiones de Azure. 
+- Las cuentas de DocumentDB que están configuradas con la coherencia eventual pueden asociarse con cualquier número de regiones de Azure.
 - El costo de una operación de lectura (en términos de unidades de solicitud consumidas) con el nivel de coherencia eventual es el más bajo de entre todos los niveles de coherencia de DocumentDB.
 
 
@@ -122,4 +122,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

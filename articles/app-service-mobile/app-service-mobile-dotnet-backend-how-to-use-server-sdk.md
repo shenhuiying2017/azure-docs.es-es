@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/18/2016"
 	ms.author="glenga"/>
 
 # Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
@@ -97,7 +97,7 @@ Para habilitar características individuales, debe llamar a los métodos de exte
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Tenga en cuenta que `MapApiControllers` solo asigna los controladores al atributo `[MobileAppController]`.
+Tenga en cuenta que `MapApiControllers` solo asigna los controladores al atributo `[MobileAppController]`. Para asignar otros controladores, use el método [MapHttpAttributeRoutes].
 
 Muchos de los métodos de extensión de características están disponibles a través de paquetes de NuGet adicionales que puede incluir, que se describen en la sección siguiente.
 
@@ -190,7 +190,7 @@ Asegúrese de que el valor de PageSize sea igual o mayor que el tamaño que soli
 
 ## Cómo definir un controlador de API personalizada
 
-El controlador de API personalizada proporciona la funcionalidad más básica al back-end de la aplicación móvil mediante la exposición de un extremo. Puede registrar un controlador de API específico de dispositivos móviles con el atributo [MobileAppController]. Este atributo registra la ruta y también configura el serializador JSON de Aplicaciones móviles.
+El controlador de API personalizada proporciona la funcionalidad más básica al back-end de la aplicación móvil mediante la exposición de un extremo. Puede registrar un controlador de API específico de dispositivos móviles con el atributo [MobileAppController]. Este atributo registra la ruta y también configura el serializador JSON de Aplicaciones móviles y activa la [comprobación de la versión del cliente](app-service-mobile-client-and-server-versioning.md).
 
 1. En Visual Studio, haga clic con el botón derecho en la carpeta Controladores y, luego, haga clic en **Agregar** > **Controlador**, seleccione **Controlador Web API 2&mdash;Vacío** y haga clic en **Agregar**.
 
@@ -250,6 +250,8 @@ Puede proporcionar su propio sistema de inicio de sesión si no desea usar uno d
 Deberá proporcionar su propia lógica para determinar si se debe iniciar la sesión de un usuario. Por ejemplo, podría comprobar las contraseñas con sal y hash de una base de datos. En el ejemplo siguiente, el método `isValidAssertion()` es responsable de estas comprobaciones y se define en otra parte.
 
 La autenticación personalizada se expone mediante la creación de un nuevo ApiController y la exposición de acciones de registro e inicio de sesión como la siguiente. El cliente puede intentar iniciar sesión mediante la recopilación de la información pertinente del usuario y el envío de una solicitud HTTPS POST a la API con la información del usuario en el cuerpo. Una vez que el servidor valide la aserción, se puede emitir un token con el método `AppServiceLoginHandler.CreateToken()`.
+
+Tenga en cuenta que este ApiController **no debería** utilizar el atributo `[MobileAppController]`, ya que esto provocaría que se produjeran errores en las solicitudes de inicio de sesión del cliente. El atributo `[MobileAppController]` requiere el encabezado de solicitud [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) y este encabezado **no** se envía mediante el SDK de cliente para las rutas de inicio de sesión.
 
 Una acción de inicio de sesión de ejemplo podría ser:
 
@@ -477,5 +479,6 @@ El servidor de ejecución local está ahora preparado para validar los tokens qu
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

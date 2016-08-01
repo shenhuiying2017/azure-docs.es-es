@@ -61,7 +61,7 @@ Voy a publicar una actualización importante de mi aplicación. Dicha actualizac
 En la siguiente tabla se exponen las características de continuidad del negocio de Base de datos SQL y se muestran sus diferencias entre los distintos [niveles de servicio](sql-database-service-tiers.md):
 
 | Capacidad | Nivel Basic | Nivel Standard |Nivel Premium
-| --- | --- | --- | ---
+| --- |--- | --- | ---
 | Restauración a un momento dado | Cualquier punto de restauración en 7 días | Cualquier punto de restauración en 35 días | Cualquier punto de restauración en 35 días
 | Restauración geográfica | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h | ERT < 12h, RPO < 1 h
 | Replicación geográfica activa | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s | ERT < 30 s, RPO < 5 s
@@ -108,7 +108,7 @@ La funcionalidad de [replicación geográfica activa](sql-database-geo-replicati
 
 Deberá usar la funcionalidad de replicación geográfica activa si su aplicación cumple los criterios siguientes:
 
-1. Es crítica. Tiene un SLA vinculante con unos valores de RTO y RPO agresivos. La pérdida de datos y de disponibilidad incurriría en responsabilidades financieras.
+1. Es crítica. La pérdida de datos y de disponibilidad incurriría en responsabilidades financieras.
 2. La tasa de cambio de los datos es alta (por ejemplo de transacciones por cada minuto o segundo). El RPO de 1 hora asociado a la protección predeterminada probablemente tendrá como resultado una pérdida de datos inaceptable.
 3. El coste asociado al uso de la replicación geográfica es significativamente menor que el de la responsabilidad financiera potencial y la pérdida de negocio.
 
@@ -126,4 +126,4 @@ Para obtener más información sobre las estrategias de recuperación cuando se 
 - Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 - Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el artículo de [copia de bases de datos](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

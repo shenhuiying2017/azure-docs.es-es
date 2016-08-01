@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/21/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Administración de los nombres de dominio personalizados en Azure Active Directory
@@ -80,4 +80,4 @@ También se pueden completar la mayoría de las tareas de administración para l
 
 -   [Managing custom domain names (Administración de nombres de dominio).](active-directory-add-manage-domain-names.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

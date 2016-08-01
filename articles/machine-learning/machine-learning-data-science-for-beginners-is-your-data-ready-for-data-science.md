@@ -14,11 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Ciencia de datos para principiantes, vídeo 2: ¿Están sus datos preparados para la ciencia de datos?
+# ¿Están sus datos preparados para la ciencia de datos?
+
+## Vídeo 2: serie Ciencia de datos para principiantes
 
 Aprenda cómo evaluar los datos para asegurarse de que cumplen los criterios básicos para la ciencia de datos.
 
@@ -26,9 +28,19 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
 
+## Otros vídeos de la serie
+
+*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
+
+  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
+  * Vídeo 2: ¿Están sus datos preparados para la ciencia de datos?
+  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos y 17 segundos)*
+  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
+  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
+
 ## Transcripción: ¿Están sus datos preparados para la ciencia de datos?
 
-Bienvenido a "¿Están sus datos preparados para la ciencia de datos?", el segundo vídeo de la serie *Ciencia de datos para principiantes*.
+¿Están sus datos preparados para la ciencia de datos? es el segundo vídeo de la serie *Ciencia de datos para principiantes*.
 
 Antes de que la ciencia de datos pueda proporcionar las respuestas que desea, tendrá que darle materia prima de gran calidad con la que trabajar. Al igual que al hacer una pizza, cuanto mejor sean los ingredientes con los que empiece, mejor será el producto final.
 
@@ -100,15 +112,6 @@ Con datos pertinentes, conectados, precisos y suficientes, tenemos todos los ing
 Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiantes* en Aprendizaje automático de Microsoft Azure.
 
 
-## Otros vídeos de la serie
-
-*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
-
-  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
-  * Vídeo 2: ¿Están sus datos preparados para la ciencia de datos?
-  * Vídeo 3: [Realización de preguntas que pueden responderse con datos](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
-  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 
 
 ## Pasos siguientes
@@ -116,4 +119,4 @@ Asegúrese de ver los otros cuatro vídeos de *Ciencia de datos para principiant
   * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
   * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
