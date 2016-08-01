@@ -39,7 +39,7 @@ El siguiente paso de este tutorial es crear un nuevo experimento en Estudio de a
 	> [AZURE.TIP] Es una buena práctica para rellenar el **Resumen** y la **Descripción** para el experimento en el panel **Propiedades**. Estas propiedades ofrecen la oportunidad para documentar el experimento para que cualquier persona que lo vea posteriormente entienda sus objetivos y la metodología.
 
 3.	En la paleta de módulos, a la izquierda del lienzo de experimentos, expanda **Conjuntos de datos guardados**.
-4.	Busque el conjunto de datos que ha creado en **Mis conjuntos de datos** y arrástrelo al lienzo. También puede buscar el conjunto de datos escribiendo su nombre en el cuadro **Buscar** que está encima de la paleta.
+4.	Busque el conjunto de datos que ha creado en **Mis conjuntos de datos** y arrástrelo al lienzo. También puede buscar el conjunto de datos escribiendo su nombre en el cuadro **Buscar** que está encima de la paleta.  
 
 ##Preparación de los datos
 Para ver las primeras 100 filas de datos y alguna información estadística de todo el conjunto de datos, haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.
@@ -52,7 +52,7 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
 
 1.	En la paleta de módulos, escriba "metadatos" en el cuadro **Buscar**. El módulo [Editar metadatos][edit-metadata] aparecerá en la lista de módulos.
 2.	Haga clic en el módulo [Editar metadatos][edit-metadata], arrástrelo al lienzo y colóquelo bajo el conjunto de datos agregado anteriormente.
-3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] (el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
+3.	Conecte el conjunto de datos al módulo [Editar metadatos][edit-metadata], haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior del conjunto de datos), arrastre el puerto de entrada del módulo [Editar metadatos][edit-metadata] \(el círculo pequeño de la parte superior del módulo) y luego suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 
     El experimento debería tener ahora un aspecto similar al siguiente:
 
@@ -63,9 +63,10 @@ Para usar el módulo [Editar metadatos][edit-metadata], especifique primero las 
     > [AZURE.TIP] Puede agregar un comentario a un módulo; para ello, haga doble clic en el módulo y escriba texto. Esto puede ayudarle a ver de un vistazo lo que el módulo hace en el experimento. En este caso, haga doble clic en el módulo [Editar metadatos][edit-metadata] y escriba el comentario "Agregar encabezados de columna". Haga clic en cualquier lugar del lienzo para cerrar el cuadro de texto. Haga clic en la flecha abajo en el módulo para mostrar el comentario.
 
 4.	Seleccione [Editar metadatos][edit-metadata], luego, en el panel **Propiedades** a la derecha del lienzo, haga clic en **Launch column selector** (Iniciar el selector de columnas).
-5.	En el cuadro de diálogo **Seleccionar columnas**, elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
+5.	En el cuadro de diálogo **Seleccionar columnas**, elija todas las filas de **Columnas disponibles** y haga clic en > para moverlas a **Columnas seleccionadas**. El cuadro de diálogo debe ser similar al siguiente:
+	![Selector de columnas con todas las columnas seleccionadas][4]
 7.	Haga clic en la marca de verificación **Aceptar**.
-8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:
+8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar la siguiente lista:  
 
 		  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
 
@@ -106,7 +107,7 @@ Tenemos que hacer esta misma operación de replicación para cada salida del mó
 
 1.	Haga clic con el botón derecho en el módulo [Ejecutar script R][execute-r-script] y seleccione **Copiar**.
 2.	Haga clic con el botón secundario en el lienzo del experimento y seleccione **Pegar**.
-3.	Conecte el primer puerto de entrada de este módulo [Ejecutar script R][execute-r-script] al puerto de salida derecho del módulo [Dividir datos][split].
+3.	Conecte el primer puerto de entrada de este módulo [Ejecutar script R][execute-r-script] al puerto de salida derecho del módulo [Dividir datos][split].  
 
 > [AZURE.TIP] La copia del módulo Ejecutar script R contiene el mismo script que el módulo original. Al copiar y pegar un módulo en el lienzo, la copia retiene todas las propiedades del original.
 

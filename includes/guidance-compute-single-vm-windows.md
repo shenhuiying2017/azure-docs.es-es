@@ -2,7 +2,7 @@ En este artículo se describe un conjunto de procedimientos probados para ejecut
 
 > [AZURE.NOTE] Azure cuenta con dos modelos de implementación diferentes: [Resource Manager][resource-manager-overview] y clásico. En este artículo se utiliza el Administrador de recursos, que Microsoft recomienda para las implementaciones nuevas.
 
-Se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún SLA de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
+Se recomienda utilizar una sola máquina virtual para cargas de trabajo de producción, porque no hay ningún SLA de tiempo de actividad para máquinas virtuales individuales en Azure. Para obtener el SLA, debe implementar varias máquinas virtuales en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 ## Diagrama de la arquitectura
 
@@ -72,7 +72,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - Puede escalar y reducir verticalmente una máquina virtual [cambiando su tamaño][vm-resize].
 
-- Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
+- Para escalar horizontalmente, coloque dos o más máquinas virtuales en un conjunto de disponibilidad detrás de un equilibrador de carga. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 ## Consideraciones sobre disponibilidad
 
@@ -86,7 +86,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 ## Consideraciones sobre la manejabilidad
 
-- **Grupos de recursos.** Coloque los recursos estrechamente acoplados que comparten el mismo ciclo de vida en un mismo [grupo de recursos][resource-manager-overview]. Los grupos de recursos le permiten implementar y supervisar los recursos como un grupo, y acumular los costos de facturación por grupo de recursos. También se pueden eliminar recursos en conjunto, lo que resulta muy útil para implementaciones de prueba. Asigne a los recursos nombres descriptivos. De esta forma será más fácil encontrarlos y comprender su función. Consulte [Recommended naming conventions for Azure resources][naming conventions] (Convenciones de nomenclatura recomendadas para los recursos de Azure).
+- **Grupos de recursos.** Coloque los recursos estrechamente acoplados que comparten el mismo ciclo de vida en un mismo [grupo de recursos][resource-manager-overview]. Los grupos de recursos le permiten implementar y supervisar los recursos como un grupo, y acumular los costos de facturación por grupo de recursos. También se pueden eliminar recursos en conjunto, lo que resulta muy útil para implementaciones de prueba. Asigne a los recursos nombres descriptivos. De esta forma será más fácil encontrarlos y comprender su función. Consulte [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
 - **Diagnósticos de máquina virtual.** Habilite la supervisión y el diagnóstico, como las métricas básicas de estado, los registros de infraestructura de diagnóstico y los [diagnósticos de arranque][boot-diagnostics]. Los diagnósticos de arranque pueden ayudarle a diagnosticar errores de arranque si la máquina virtual entra en un estado de imposibilidad de arranque. Para más información, consulte [Habilitación de supervisión y diagnóstico][enable-monitoring]. Utilice la extensión [Colección de registros de Azure][log-collector] para recopilar registros de la plataforma Azure y cargarlos en Almacenamiento de Azure.
 
@@ -121,7 +121,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 - **Antimalware.** Si está habilitada esta opción, el Centro de seguridad comprueba si está instalado software antimalware. También puede utilizar el Centro de seguridad para instalar software antimalware desde el Portal de Azure.
 
-- Utilice el [control de acceso basado en rol][rbac] (RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia son, por ejemplo, el de [usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y el de [colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
+- Utilice el [control de acceso basado en rol][rbac] \(RBAC) para controlar el acceso a los recursos de Azure que implementa. RBAC le permite asignar roles de autorización a los miembros de su equipo de DevOps. Por ejemplo, el rol de lector puede ver recursos de Azure pero no crearlos, administrarlos o eliminarlos. Algunos roles son específicos de un tipo de recurso de Azure determinado. Por ejemplo, el rol Colaborador de máquina virtual puede reiniciar o desasignar una máquina virtual, restablecer la contraseña de administrador, crear una nueva máquina virtual, etc. Otros [roles de RBAC integrados][rbac-roles] que pueden resultar útiles para esta arquitectura de referencia son, por ejemplo, el de [usuario del laboratorio de desarrollo y pruebas][rbac-devtest] y el de [colaborador de la red][rbac-network]. Un usuario puede asignarse a varios roles, y es posible crear roles personalizados para una especificación aún más detallada de los permisos.
 
     > [AZURE.NOTE] RBAC no limita las acciones que puede realizar un usuario que ha iniciado sesión en una máquina virtual. Esos permisos están determinados por el tipo de cuenta en el sistema operativo invitado.
 
@@ -139,7 +139,7 @@ El aprovisionamiento de una máquina virtual en Azure implica más piezas en mov
 
 El siguiente script por lotes de Windows ejecuta los comandos de la [CLI de Azure][azure-cli] para implementar una única instancia de máquina virtual, así como los recursos de red y almacenamiento relacionados, tal como se muestra en el diagrama anterior.
 
-El script usa las convenciones de nomenclatura que se describen en [Recommended naming conventions for Azure resources][naming conventions] (Convenciones de nomenclatura recomendadas para recursos de Azure).
+El script usa las convenciones de nomenclatura que se describen en [Recommended naming conventions for Azure resources][naming conventions] \(Convenciones de nomenclatura recomendadas para recursos de Azure).
 
 ```bat
 ECHO OFF
@@ -254,24 +254,24 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 
 ## Pasos siguientes
 
-Para que se aplique el [SLA para máquinas virtuales][vm-sla] debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] (Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
+Para que se aplique el [SLA para máquinas virtuales][vm-sla] debe implementar dos o más instancias en un conjunto de disponibilidad. Para más información, consulte [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Ejecución de varias máquinas virtuales Windows en Azure de cara a una mayor escalabilidad y disponibilidad).
 
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/es-ES/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/es-ES/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/es-ES/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/es-ES/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -283,22 +283,22 @@ Para que se aplique el [SLA para máquinas virtuales][vm-sla] debe implementar d
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/es-ES/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/es-ES/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/es-ES/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/es-ES/services/security-center/
+[security-center]: https://azure.microsoft.com/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/es-ES/regions/#services
+[services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Uso del Centro de seguridad]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/es-ES/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Arquitectura general de una VM de Azure"
 
 <!---HONumber=AcomDC_0720_2016-->

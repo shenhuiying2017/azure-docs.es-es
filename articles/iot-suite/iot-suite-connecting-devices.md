@@ -42,7 +42,7 @@ Cree un proyecto inicial en Visual Studio 2015 y agregue los paquetes NuGet del 
     - Microsoft.Azure.IoTHub.IoTHubClient
     - Microsoft.Azure.IoTHub.HttpTransport
 
-6. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **RMDevice** y, después, haga clic en **Propiedades** para abrir el cuadro de diálogo **Páginas de propiedades** del proyecto. Para obtener información, consulte [Setting Visual C++ Project Properties][lnk-c-project-properties] (Establecimiento de propiedades de proyectos de Visual C++).
+6. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **RMDevice** y, después, haga clic en **Propiedades** para abrir el cuadro de diálogo **Páginas de propiedades** del proyecto. Para obtener información, consulte [Setting Visual C++ Project Properties][lnk-c-project-properties] \(Establecimiento de propiedades de proyectos de Visual C++).
 
 7. Haga clic en la carpeta **Vinculador** y, luego, haga clic en la página de propiedades **Entrada**.
 

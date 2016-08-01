@@ -29,7 +29,7 @@ Cuando haya terminado este tutorial, la aplicación se parecerá a la que se mue
 * Un kit para desarrolladores de Java (JDK) de la versión 1.8 o superior.
 * Eclipse IDE para Java EE Developers, Indigo o superior. Esto se puede descargar en <http://www.eclipse.org/downloads/>.
 * Una distribución de un servidor web basado en Java o un servidor de aplicaciones, como Apache Tomcat o Jetty.
-* Una suscripción de Azure, que se puede adquirir en <https://azure.microsoft.com/es-ES/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
+* Una suscripción de Azure, que se puede adquirir en <https://azure.microsoft.com/free/> o <http://azure.microsoft.com/pricing/purchase-options/>.
 * El kit de herramientas de Azure para Eclipse. Para más información, consulte [Instalación del kit de herramientas de Azure para Eclipse].
 * Un proyecto web dinámico creado e implementado en el Servicio de aplicaciones de Azure; por ejemplo, consulte [Creación de una aplicación web Hello World para Azure en Eclipse].
 

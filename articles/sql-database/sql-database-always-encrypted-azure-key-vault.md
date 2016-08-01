@@ -67,8 +67,8 @@ Primero debe habilitar la aplicación cliente para obtener acceso al servicio Ba
 7. Copie el **ID. DE CLIENTE** (necesitará este valor en el código más adelante).
 8. En la sección de claves, establezca la lista desplegable **Seleccionar duración** en **1 año** (copiaremos la clave después de guardar a continuación).
 11. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
-12. Deje **MOSTRAR** establecido en **Aplicaciones de Microsoft** y, a continuación, localice y seleccione **Administración de servicios de Windows Azure** y haga clic en la marca de verificación para continuar.
-13. En la línea **Administración de servicios de Windows Azure**, haga clic en la lista desplegable **Permisos delegados** y seleccione **Access Azure Service Management** (Acceso a la administración de Servicios de Azure).
+12. Deje **MOSTRAR** establecido en **Aplicaciones de Microsoft** y, a continuación, localice y seleccione **Administración de servicios de Microsoft Azure** y haga clic en la marca de verificación para continuar.
+13. En la línea **Administración de servicios de Microsoft Azure**, haga clic en la lista desplegable **Permisos delegados** y seleccione **Access Azure Service Management** (Acceso a la administración de Servicios de Azure).
 14. Haga clic en **GUARDAR** (en la parte inferior).
 15. Una vez finalizada la operación de guardar, busque y copie el valor de clave en la sección de **claves** (necesitará este valor en el código más adelante).
 

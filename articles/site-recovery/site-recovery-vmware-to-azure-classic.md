@@ -309,7 +309,10 @@ Si desea replicar máquinas virtuales de VMware, instale los siguientes componen
 	![Resumen](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] Debe instalarse el proxy del agente del servicio de recuperación de Microsoft Azure. Una vez completada la instalación, inicie una aplicación denominada "Shell de servicios de recuperación de Microsoft Azure" en el menú Inicio de Windows. En la ventana de comandos que se abre, ejecute el siguiente conjunto de comandos para definir la configuración del servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	net stop obengine
+	net start obengine
 
 
 

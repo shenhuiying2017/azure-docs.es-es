@@ -182,10 +182,10 @@ Dentro de cualquier grupo de trabajo los requisitos de tolerancia a errores son 
 
 La superficie mínima tiene dos servidores front-end y dos trabajos. Con las instrucciones anteriores, se muestran a continuación algunos ejemplos que sirven de aclaración:
 
-- Si tiene 30 trabajos en un solo grupo, 28 de ellos pueden usarse para hospedar las cargas de trabajo.
+- Si tiene 30 trabajos en un solo grupo, 28 de ellos pueden usarse para hospedar las cargas de trabajo. 
 - Si tiene dos trabajos en un solo grupo, en este caso solo se puede usar uno para hospedar las cargas de trabajo.
-- Si tiene 20 trabajos en un solo grupo, en este caso solo se pueden usar 19 para hospedar las cargas de trabajo.
-- Si tiene 21 trabajos en un solo grupo, en este caso solo se pueden usar 19 para hospedar las cargas de trabajo.
+- Si tiene 20 trabajos en un solo grupo, en este caso solo se pueden usar 19 para hospedar las cargas de trabajo.  
+- Si tiene 21 trabajos en un solo grupo, en este caso solo se pueden usar 19 para hospedar las cargas de trabajo.  
 
 El aspecto de la tolerancia a errores es importante, pero debe tenerlo en cuenta cuando la escala supera determinados umbrales. Si desea agregar más capacidad a partir de 20 instancias, en este caso elija 22 o un valor superior ya que 21 no agregará más capacidad. Lo mismo puede decirse por encima de 40, donde el número siguiente que agrega capacidad es 42.
 

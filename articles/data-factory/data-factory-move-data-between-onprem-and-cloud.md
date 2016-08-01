@@ -59,7 +59,7 @@ En este paso, use el Portal de Azure para crear una instancia de Data Factory de
 ## Crear puerta de enlace
 5. En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
 
-	![Mosaico Crear e implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
+	![Mosaico Crear e implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
 6.	En el Editor de la Factoría de datos, haga clic en **... (puntos suspensivos)** en la barra de herramientas y luego haga clic en **Nueva puerta de enlace de datos**.
 
 	![Nueva puerta de enlace de datos en la barra de herramientas](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)

@@ -129,7 +129,7 @@ Para preparar la implementación deberá:
 ### Configuración de una cuenta de almacenamiento de Azure
 
 - Necesitará una cuenta de almacenamiento estándar o premium para almacenar los datos replicados en Azure. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, configurará una cuenta en [modo ARM](../storage/storage-create-storage-account.md) o en [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
-- Si utiliza una cuenta premium para los datos replicados, necesita crear una cuenta de almacenamiento estándar adicional para almacenar los registros de replicación que capturan los cambios continuos de los datos locales.
+- Si utiliza una cuenta premium para los datos replicados, necesita crear una cuenta de almacenamiento estándar adicional para almacenar los registros de replicación que capturan los cambios continuos de los datos locales.  
 
 ### Preparación de una cuenta de detección automática
 
@@ -360,7 +360,7 @@ Compruebe que tiene una cuenta de almacenamiento para la replicación y una red 
 3. En **Umbral de RPO**, especifique el límite de RPO. Se generarán alertas cuando la replicación continua supera este límite.
 5. En **Retención de punto de recuperación**, especifique, en horas, el tiempo que estará disponible el período de retención para cada punto de recuperación. Los equipos protegidos se pueden recuperar en cualquier punto dentro de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en almacenamiento premium.
 6. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
-7. Cuando se crea una directiva de replicación, de forma predeterminada una directiva de conciliación se crea automáticamente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que inicie una conmutación por recuperación.
+7. Cuando se crea una directiva de replicación, de forma predeterminada una directiva de conciliación se crea automáticamente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que inicie una conmutación por recuperación.  
 8. Haga clic en **Aceptar** para crear la directiva.
 
 	![Directiva de replicación](./media/site-recovery-vmware-to-azure/gs-replication2.png)

@@ -83,7 +83,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     ![Configurar las opciones de la aplicación](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurar las opciones de la aplicación")
 
     1.  En el cuadro de texto **URL de inicio de sesión**, escriba **http://azure.benefitsolver.com**.
-    2.  En el cuadro de texto **URL de respuesta**, escriba **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+	2.  En el cuadro de texto **URL de respuesta**, escriba **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
 
 
     3.  Haga clic en **Siguiente**.

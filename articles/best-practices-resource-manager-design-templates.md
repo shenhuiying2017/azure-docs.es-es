@@ -20,7 +20,7 @@
 
 En nuestro trabajo con empresas, integradores de sistemas (SI), proveedores de servicios en la nube (CSV) y equipos de proyectos de software de código abierto (OSS), a menudo es necesario implementar rápidamente entornos, cargas de trabajo o unidades de escalado. Estas implementaciones deben ser respaldadas, seguir prácticas de demostrada eficacia y cumplir las directivas identificadas. Con un enfoque flexible basado en las plantillas del Administrador de recursos de Azure, puede implementar topologías complejas de forma rápida y coherente y, luego, adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes en el caso de escenarios o clientes atípicos.
 
-Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] \(Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Las plantillas combinan las ventajas del Administrador de recursos de Azure subyacente con la capacidad de adaptación y legibilidad de la Notación de objetos JavaScript (JSON). El uso de plantillas le permite:
 

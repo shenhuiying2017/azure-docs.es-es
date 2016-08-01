@@ -19,7 +19,7 @@
 
 # Introducción a la creación de un equilibrador de carga interno mediante PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -38,7 +38,7 @@ En este artículo se describe la secuencia de tareas individuales que debe reali
 
 Antes de crear un equilibrador de carga interno hay que configurar los siguientes elementos:
 
-- Configuración de direcciones IP front-end: va a configurar la dirección IP privada para el tráfico de red entrante
+- Configuración de direcciones IP front-end: va a configurar la dirección IP privada para el tráfico de red entrante 
 
 - Grupo de direcciones de back-end: configurará las interfaces de red que recibirá el tráfico con equilibrio de carga proveniente del grupo de direcciones IP front-end.
 

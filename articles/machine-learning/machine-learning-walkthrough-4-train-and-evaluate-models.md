@@ -60,7 +60,7 @@ Esta parte del experimento tiene ahora un aspecto similar al siguiente:
 
 A continuación, vamos a configurar el modelo SVM.
 
-En primer lugar, una breve explicación sobre SVM. Los árboles de decisión ampliados funcionan bien con características de todo tipo. Sin embargo, dado que el módulo SVM genera un clasificador lineal, el modelo que genera tiene el mejor error de prueba cuando todas las características numéricas tienen la misma escala. Por tanto, para convertir todas las características numéricas a la misma escala, vamos a usar una transformación "Tanh" (con el módulo [Normalizar datos][normalize-data]) que transforma los números en el intervalo [0,1] (las características de cadena las convierte el módulo SVM a características de categorías y luego a características 0/1 binarias, por lo que no es necesario transformar manualmente las características de cadena). Además, no queremos transformar la columna Riesgo de crédito (columna 21): es numérica, pero es el valor sobre cuya predicción estamos entrenando al modelo; por tanto, es necesario dejarla tal cual.
+En primer lugar, una breve explicación sobre SVM. Los árboles de decisión ampliados funcionan bien con características de todo tipo. Sin embargo, dado que el módulo SVM genera un clasificador lineal, el modelo que genera tiene el mejor error de prueba cuando todas las características numéricas tienen la misma escala. Por tanto, para convertir todas las características numéricas a la misma escala, vamos a usar una transformación "Tanh" (con el módulo [Normalizar datos][normalize-data]) que transforma los números en el intervalo [0,1] \(las características de cadena las convierte el módulo SVM a características de categorías y luego a características 0/1 binarias, por lo que no es necesario transformar manualmente las características de cadena). Además, no queremos transformar la columna Riesgo de crédito (columna 21): es numérica, pero es el valor sobre cuya predicción estamos entrenando al modelo; por tanto, es necesario dejarla tal cual.
 
 Para configurar el modelo SVM, realice lo siguiente:
 
@@ -68,12 +68,12 @@ Para configurar el modelo SVM, realice lo siguiente:
 2.	Haga clic con el botón derecho en el módulo [Entrenar modelo][train-model], seleccione **Copiar**, haga clic con el botón derecho en el lienzo y seleccione **Pegar**. Tenga en cuenta que la copia del módulo [Entrenar modelo][train-model] tiene la misma selección de columnas que el original.
 3.	Conecte la salida del módulo SVM al puerto de entrada izquierdo (Modelo sin entrenar) del módulo [Entrenar modelo][train-model].
 4.	Busque el módulo [Normalizar datos][normalize-data] y arrástrelo al lienzo.
-5.	Conecte la entrada de este módulo a la salida de la izquierda a la izquierda del módulo [Ejecutar script R][execute-r-script] (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
+5.	Conecte la entrada de este módulo a la salida de la izquierda a la izquierda del módulo [Ejecutar script R][execute-r-script] \(tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
 6.	Conecte el puerto de salida izquierdo (Conjunto de datos transformados) del módulo [Normalizar datos][normalize-data] al puerto de entrada derecho (Conjunto de datos) del módulo [Entrenar modelo][train-model].
 7.	En el panel **Propiedades** del módulo [Normalizar datos][normalize-data], seleccione **Tanh** para el parámetro **Método de transformación**.
 8.	Haga clic en **Iniciar el selector de columnas**, seleccione "Ninguna columna" en **Empieza por**, **Incluir** en la primera lista desplegable, **Tipo de columna** en la segunda lista desplegable y **Numérico** en la tercera. Esto especifica que todas las columnas numéricas (y solo numéricas) se transformarán.
 9.	Haga clic en el signo más (+) a la derecha de esta fila; de esta forma, se crea una nueva fila de listas desplegables. Seleccione **Excluir** en la primera lista desplegable, seleccione **Nombres de columna** en la segunda lista desplegable y haga clic en la opción Riesgo de crédito de la lista de columnas. Especifica que se debe ignorar la columna Riesgo de crédito (debemos hacerlo porque se trata de una columna numérica y, de lo contrario, se transformaría).
-10.	Haga clic en **Aceptar**.
+10.	Haga clic en **Aceptar**.  
 
 
 El módulo [Normalizar datos][normalize-data] está configurado ahora para realizar una transformación Tanh en todas las columnas numéricas excepto en la columna de riesgo de crédito.
@@ -94,13 +94,13 @@ Utilizaremos los datos de prueba que se separaron mediante el módulo [Dividir d
 4.	Copie y pegue el módulo [Puntuar modelo][score-model] para crear una segunda copia, o arrastre un nuevo módulo al lienzo.
 5.	Conecte el puerto de entrada izquierdo de este módulo al modelo SVM (esto es, conéctelo al puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]).
 6.	En cuanto al modelo SVM, tenemos que realizar la misma transformación en los datos de prueba que la que realizamos con los datos de entrenamiento. Por tanto, copie y pegue el módulo [Normalizar datos][normalize-data] para crear una segunda copia y conéctelo a la salida izquierda del módulo [Ejecutar script R][execute-r-script] derecho.
-7.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida izquierda del módulo [Normalizar datos][normalize-data].
+7.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida izquierda del módulo [Normalizar datos][normalize-data].  
 
 Para evaluar los dos resultados de puntuación, usaremos el módulo [Evaluar modelo][evaluate-model].
 
 1.	Busque el módulo [Evaluar modelo][evaluate-model] y arrástrelo al lienzo.
 2.	Conecte el puerto de entrada izquierdo al puerto de salida de [Puntuar modelo][score-model] asociado al modelo del árbol de decisión ampliado.
-3.	Conecte el puerto de entrada derecho al otro módulo [Puntuar modelo][score-model].
+3.	Conecte el puerto de entrada derecho al otro módulo [Puntuar modelo][score-model].  
 
 Haga clic en el botón **EJECUTAR** bajo el lienzo para ejecutar el experimento. Esto puede tardar unos minutos. Verá un indicador giratorio en cada módulo que indica que está en ejecución; cuando haya acabado, aparecerá una marca de verificación de color verde. Cuando todos los módulos tengan una marca de verificación, habrá finalizado la ejecución del experimento.
 
@@ -112,7 +112,7 @@ Para consultar los resultados, haga clic en el puerto de salida del módulo [Eva
 
 El módulo [Evaluar modelo][evaluate-model] produce un par de curvas y métricas que le permiten comparar los resultados de los dos modelos de puntuación. Puede ver los resultados como curvas de características operativas del receptor (ROC), curvas de precisión/exhaustividad o curvas de elevación. También se muestran otros datos como la matriz de confusión y los valores del área bajo la curva (AUC) acumulados, entre otras métricas. También puede cambiar el valor del umbral moviendo el control deslizante a la izquierda o a la derecha, y comprobar cómo afecta esta acción al conjunto de métricas.
 
-A la derecha del gráfico, haga clic en **Conjunto de datos puntuados** o **Conjunto de datos puntuados para comparar** con el fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo [Evaluar modelo][evaluate-model] (en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
+A la derecha del gráfico, haga clic en **Conjunto de datos puntuados** o **Conjunto de datos puntuados para comparar** con el fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo [Evaluar modelo][evaluate-model] \(en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
 
 ![ROC curves for models][4]
 

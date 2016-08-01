@@ -34,7 +34,9 @@ Cifrado de disco de Azure es una nueva funcionalidad que permite cifrar los disc
 La solución Cifrado de discos de Azure admite los tres escenarios de cliente siguientes:
 
 - Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de un VHD precifrado y las claves de cifrado
+
 - Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de imágenes de la Galería de Azure
+
 - Habilitación del cifrado en nuevas máquinas virtuales de IaaS que ya se ejecutan en Azure
 - Deshabilitación del cifrado en máquinas virtuales IaaS de Windows
 

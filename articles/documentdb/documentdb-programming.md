@@ -544,7 +544,7 @@ Genera un nuevo conjunto de documentos al clasificarlos en orden descendente en 
 
 Cuando se incluye dentro del predicado o las funciones selectoras, las siguientes construcciones de JavaScript se optimizan automáticamente para ejecutarse directamente en índices de DocumentDB:
 
-* Operadores simples: = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * Literales, incluido el literal de objeto: {}
 * var, return
 

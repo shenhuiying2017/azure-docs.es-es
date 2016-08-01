@@ -1478,7 +1478,7 @@ Las tiendas de metadatos Oozie se asocian a clústeres específicos y no se pued
 <tr><td>templeton.port</td><td>30111</td></tr>
 </table><br>
 
- **HDInsight 3.1 and 3.0 (HDP 2.1 y 2.0)** <table border="1">
+ **HDInsight 3.1 y 3.0 (HDP 2.1 y 2.0)** <table border="1">
 <tr><th>Nombre</th><th>Valor</th></tr>
 <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
 <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>

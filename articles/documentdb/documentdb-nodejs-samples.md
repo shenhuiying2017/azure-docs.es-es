@@ -28,7 +28,7 @@
 
 En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) se incluyen soluciones de ejemplo que realizan operaciones CRUD y otras comunes en recursos de Azure DocumentDB. Este artículo ofrece:
 
-- Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de Node.js.
+- Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de Node.js. 
 - Vínculos al contenido de referencia de la API relacionada.
 
 **Requisitos previos**
@@ -36,7 +36,7 @@ En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/a
 1. Para usar estos ejemplos de Node.js, necesita una cuenta de Azure:
     - Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
    - Puede [activar los beneficios de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-2. También necesita el [SDK de Node.js](documentdb-sdk-node.md).
+2. También necesita el [SDK de Node.js](documentdb-sdk-node.md). 
 
     > [AZURE.NOTE] Cada ejemplo es independiente, se configura por sí mismo y se limpia solo a continuación. Por lo tanto, los ejemplos emiten varias llamadas a [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html). Cada vez que esto ocurre, se cobra a la suscripción una hora de uso de acuerdo con el nivel de rendimiento de la colección que se va a crear.
 

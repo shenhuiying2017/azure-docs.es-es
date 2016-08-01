@@ -37,7 +37,9 @@ En las tablas siguientes se muestra qué servicios admiten la implementación y 
 | Conjuntos de escala | Sí | [REST de Conjunto de escala](https://msdn.microsoft.com/library/azure/mt705635.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) | 
 | Service Fabric | Sí | [Rest de Service Fabric](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas virtuales | Sí | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
-| Máquinas virtuales (clásicas) | Limitado | - | - | - | | Aplicación remota | No | - | - | - | | Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
+| Máquinas virtuales (clásicas) | Limitado | - | - | - |
+| Aplicación remota | No | - | - | - |
+| Servicios en la nube (clásicos) | Limitado (ver a continuación) | - | - | - |
 
 Máquinas virtuales (clásicas) hace referencia a recursos que se implementaron mediante el modelo de implementación clásica, en lugar de a través del modelo de implementación del Administrador de recursos. En general, estos recursos no admiten las operaciones del Administrador de recursos, pero hay algunas operaciones que se han habilitado. Para obtener más información sobre estos modelos de implementación, vea [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
